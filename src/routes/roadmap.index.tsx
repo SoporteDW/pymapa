@@ -39,6 +39,7 @@ function RoadmapPage() {
   const navigate = useNavigate();
   const {
     estado,
+    sinAccionesPorMadurez,
     roadmap,
     resumen,
     alertas,
