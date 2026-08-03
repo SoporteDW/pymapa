@@ -41,6 +41,7 @@ export function useDashboard() {
     resultado,
     estadoResultados,
     modoDemo,
+    escenarioId,
     escenarios,
     aplicarEscenario,
   } = useRoadmap();
@@ -129,7 +130,7 @@ export function useDashboard() {
     responsables,
     dimensiones: resultado?.dimensions ?? [],
     errorCalculo,
-    modoDemo,
+    modoDemo: modoDemo || Boolean(escenarioId) || Boolean(snapshot?.esDemo),
     cargarDemo,
   };
 }
