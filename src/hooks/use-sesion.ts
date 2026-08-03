@@ -27,7 +27,7 @@ export function useSesion() {
           {
             id: `act-${Date.now()}`,
             fecha: new Date().toISOString(),
-            tipo: "perfil",
+            tipo: "perfil" as const,
             descripcion: "Se actualizaron los datos básicos de la empresa.",
           },
           ...prev.actividad,
