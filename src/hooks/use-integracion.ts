@@ -5,6 +5,7 @@ import { guardarEjecucion } from "@/lib/motor/repositorio";
 import { guardarRoadmap } from "@/lib/roadmap/repositorio";
 import { integrarPerfil, type EjecucionIntegrada } from "@/lib/integracion/orquestador";
 import { verificarConsistencia, type InformeConsistencia } from "@/lib/integracion/consistencia";
+import { sincronizarDesdeEjecucion } from "@/lib/integracion/sincronizacion";
 import { perfilesSimulados, perfilPorId, type PerfilSimulado } from "@/lib/integracion/perfiles";
 import {
   CLAVE_ESCENARIO_RESULTADOS,
