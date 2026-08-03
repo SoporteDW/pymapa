@@ -3,183 +3,144 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { LoadingState } from "@/components/ui/loading-state";
 import { EmptyState } from "@/components/ui/empty-state";
-import { DemoNote } from "@/components/ui/demo-note";
 import { PageHeader } from "@/components/layout/page-header";
-import { useSesion } from "@/hooks/use-sesion";
-import { preguntasDemo } from "@/data/mocks/diagnostico";
-import { ArrowRight, SearchX } from "lucide-react";
+import { ResultState } from "@/components/resultados/result-state";
+import { ConfidenceBadge } from "@/components/resultados/confidence-badge";
+import { FindingList } from "@/components/resultados/finding-list";
+import { ActionCard } from "@/components/resultados/action-card";
+import { useResultados } from "@/hooks/use-resultados";
+import { SearchX } from "lucide-react";
 
 export const Route = createFileRoute("/resultados/$dimension")({
   head: () => ({
     meta: [
-      { title: "Detalle del área — Pyme Digital" },
+      { title: "Detalle por área — Pyme Digital" },
       {
         name: "description",
-        content: "Profundiza en un área del diagnóstico sin perder la vista general.",
+        content: "Revisa fortalezas, brechas y riesgos de cada área de tu diagnóstico digital.",
       },
-      { property: "og:title", content: "Detalle del área — Pyme Digital" },
+      { property: "og:title", content: "Detalle por área — Pyme Digital" },
       {
         property: "og:description",
-        content: "Profundiza en un área del diagnóstico sin perder la vista general.",
+        content: "Revisa fortalezas, brechas y riesgos de cada área de tu diagnóstico digital.",
       },
     ],
   }),
-  component: DetalleDimensionPage,
+  component: DimensionDetallePage,
 });
 
-function DetalleDimensionPage() {
-  const { dimension } = useParams({ from: "/resultados/$dimension" });
+function DimensionDetallePage() {
+  const { dimension: dimensionId } = useParams({ from: "/resultados/$dimension" });
   const navigate = useNavigate();
-  const { sesion, isHydrated } = useSesion();
+  const { estado, resultado, errorCodigo, reintentar } = useResultados();
 
-  if (!isHydrated) {
-    return <LoadingState fullPage />;
-  }
-
-  const resultado = sesion.resultados.find((r) => r.id === dimension);
-
-  if (!resultado) {
-    return (
-      <div className="space-y-6">
-        <PageHeader
-          titulo="Área no encontrada"
-          subtitulo="No pudimos encontrar el área que intentas abrir."
-          migas={[
-            { label: "Inicio", to: "/inicio" },
-            { label: "Resultados", to: "/resultados" },
-            { label: "No encontrada" },
-          ]}
-        />
-        <EmptyState
-          title="Este detalle no está disponible"
-          description="Puede que el área haya cambiado o que aún no tengas resultados generados."
-          icon={SearchX}
-          actionLabel="Volver a Resultados"
-          onAction={() => navigate({ to: "/resultados" })}
-        />
-      </div>
-    );
-  }
-
-  const preguntas = preguntasDemo.filter((p) => resultado.preguntasRelacionadas.includes(p.id));
-  const acciones = sesion.acciones.filter((a) => resultado.accionesRelacionadas.includes(a.id));
+  const dimension = resultado?.dimensions.find((d) => d.dimensionId === dimensionId) ?? null;
+  const acciones = resultado?.actions.filter((a) => a.dimensionId === dimensionId) ?? [];
 
   return (
     <div className="space-y-6">
       <PageHeader
-        titulo={resultado.dimension}
-        subtitulo={resultado.mensaje}
+        titulo={dimension?.nombre ?? "Detalle del área"}
+        subtitulo={
+          dimension
+            ? "Qué observamos en esta área y qué puedes hacer al respecto."
+            : "Selecciona un área válida desde tus resultados."
+        }
         migas={[
           { label: "Inicio", to: "/inicio" },
           { label: "Resultados", to: "/resultados" },
-          { label: resultado.dimension },
+          { label: dimension?.nombre ?? "Área" },
         ]}
-        acciones={<Badge variant="secondary">{resultado.nivel}</Badge>}
+        acciones={
+          <Button variant="outline" asChild>
+            <Link to="/resultados">Volver a resultados</Link>
+          </Button>
+        }
       />
 
-      <Card>
-        <CardHeader className="pb-3">
-          <CardDescription>Nivel ilustrativo de esta área</CardDescription>
-          <CardTitle className="text-2xl">{resultado.puntajeDemostrativo} de 100</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <Progress
-            value={resultado.puntajeDemostrativo}
-            aria-label={`Nivel ilustrativo de ${resultado.dimension}`}
+      <ResultState
+        estado={estado}
+        errorCodigo={errorCodigo}
+        onReintentar={reintentar}
+        onIrAlDiagnostico={() => navigate({ to: "/diagnostico" })}
+      >
+        {!dimension ? (
+          <EmptyState
+            title="No encontramos esta área"
+            description="El área solicitada no forma parte de tus resultados actuales."
+            icon={SearchX}
+            actionLabel="Volver a resultados"
+            onAction={() => navigate({ to: "/resultados" })}
           />
-        </CardContent>
-      </Card>
-
-      <div className="grid gap-4 lg:grid-cols-2">
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-base">Qué observamos</CardTitle>
-          </CardHeader>
-          <CardContent className="text-sm text-muted-foreground">
-            {resultado.queObservamos}
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-base">Qué significa para tu empresa</CardTitle>
-          </CardHeader>
-          <CardContent className="text-sm text-muted-foreground">
-            {resultado.queSignifica}
-          </CardContent>
-        </Card>
-      </div>
-
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-base">Preguntas relacionadas</CardTitle>
-          <CardDescription>
-            Estas respuestas alimentarán la lógica de evaluación en paquetes posteriores.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ul className="space-y-3">
-            {preguntas.map((pregunta) => {
-              const respuesta = sesion.respuestas.find((r) => r.preguntaId === pregunta.id);
-              const etiqueta = pregunta.opciones?.find(
-                (o) => String(o.valor) === String(respuesta?.valor)
-              )?.etiqueta;
-              return (
-                <li key={pregunta.id} className="rounded-lg border border-border p-3">
-                  <p className="text-sm font-medium text-foreground">{pregunta.texto}</p>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    {etiqueta ?? "Respuesta demostrativa no registrada"}
-                  </p>
-                </li>
-              );
-            })}
-          </ul>
-        </CardContent>
-      </Card>
-
-      {acciones.length > 0 && (
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-base">Acciones asociadas</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-3">
-            {acciones.map((accion) => (
-              <div
-                key={accion.id}
-                className="flex flex-col gap-2 rounded-lg border border-border p-3 sm:flex-row sm:items-center sm:justify-between"
-              >
-                <div>
-                  <p className="text-sm font-medium text-foreground">{accion.titulo}</p>
-                  <p className="text-sm text-muted-foreground">{accion.proposito}</p>
+        ) : (
+          <div className="space-y-6">
+            <Card>
+              <CardHeader>
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <CardTitle className="text-lg">Nivel de {dimension.nombre}</CardTitle>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Badge variant="secondary">{dimension.maturityLabel}</Badge>
+                    <ConfidenceBadge
+                      nivel={dimension.nivelConfianza}
+                      valor={dimension.confidence}
+                    />
+                  </div>
                 </div>
-                <Button variant="outline" size="sm" asChild>
-                  <Link to="/plan-de-accion/$accion" params={{ accion: accion.id }}>
-                    Ver acción
-                  </Link>
-                </Button>
-              </div>
-            ))}
-          </CardContent>
-        </Card>
-      )}
+                <CardDescription>{dimension.interpretation}</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <Progress
+                    value={dimension.score}
+                    aria-label={`${dimension.nombre}: ${dimension.score} de 100`}
+                  />
+                  <span className="text-sm font-semibold text-foreground">
+                    {dimension.score} / 100
+                  </span>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Cobertura de respuestas en esta área: {dimension.cobertura}%
+                  {dimension.parcial ? " · lectura parcial" : ""}
+                </p>
+                {dimension.notas.length > 0 && (
+                  <ul className="space-y-1 text-sm text-muted-foreground">
+                    {dimension.notas.map((nota) => (
+                      <li key={nota}>· {nota}</li>
+                    ))}
+                  </ul>
+                )}
+              </CardContent>
+            </Card>
 
-      <DemoNote>
-        Contenido ilustrativo del MVP Alfa: la explicación definitiva de cada área provendrá del
-        motor de conocimiento en un paquete posterior.
-      </DemoNote>
+            <div className="grid gap-4 lg:grid-cols-2">
+              <FindingList tipo="fortaleza" hallazgos={dimension.fortalezas} />
+              <FindingList tipo="brecha" hallazgos={dimension.brechas} />
+              <FindingList tipo="riesgo" hallazgos={dimension.riesgos} />
+              <FindingList tipo="oportunidad" hallazgos={dimension.oportunidades} />
+            </div>
 
-      <div className="flex flex-col gap-2 sm:flex-row sm:justify-between">
-        <Button variant="outline" asChild>
-          <Link to="/resultados">Volver a Resultados</Link>
-        </Button>
-        <Button asChild>
-          <Link to="/plan-de-accion">
-            Ver acciones relacionadas
-            <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-          </Link>
-        </Button>
-      </div>
+            <section aria-labelledby="acciones-area" className="space-y-3">
+              <h2 id="acciones-area" className="text-lg font-semibold text-foreground">
+                Fichas de acción de esta área
+              </h2>
+              {acciones.length === 0 ? (
+                <Card>
+                  <CardContent className="pt-6 text-sm text-muted-foreground">
+                    Esta área no generó fichas de acción: no se detectaron brechas prioritarias.
+                  </CardContent>
+                </Card>
+              ) : (
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {acciones.map((ficha) => (
+                    <ActionCard key={ficha.id} ficha={ficha} />
+                  ))}
+                </div>
+              )}
+            </section>
+          </div>
+        )}
+      </ResultState>
     </div>
   );
 }

@@ -1,19 +1,24 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { LoadingState } from "@/components/ui/loading-state";
-import { DemoNote, DemoTag } from "@/components/ui/demo-note";
+import { DemoNote } from "@/components/ui/demo-note";
 import { PageHeader } from "@/components/layout/page-header";
-import { useSesion } from "@/hooks/use-sesion";
-import { ArrowRight, Sparkles, Target, TrendingUp } from "lucide-react";
+import { ResultState } from "@/components/resultados/result-state";
+import { ResultSummaryCard } from "@/components/resultados/result-summary-card";
+import { DimensionScoreCard } from "@/components/resultados/dimension-score-card";
+import { FindingList } from "@/components/resultados/finding-list";
+import { PriorityCard } from "@/components/resultados/priority-card";
+import { useResultados } from "@/hooks/use-resultados";
+import { registrarEvento } from "@/lib/analytics";
+import { ArrowRight, ClipboardList } from "lucide-react";
 
 export const Route = createFileRoute("/resultados/")({
   head: () => ({
@@ -35,44 +40,24 @@ export const Route = createFileRoute("/resultados/")({
 
 function ResultadosPage() {
   const navigate = useNavigate();
-  const { sesion, isHydrated, cargarDatosDemostrativos } = useSesion();
+  const {
+    estado,
+    resultado,
+    escenarioId,
+    escenarios,
+    errorCodigo,
+    aplicarEscenario,
+    reintentar,
+  } = useResultados();
 
-  if (!isHydrated) {
-    return <LoadingState fullPage />;
-  }
-
-  if (sesion.resultados.length === 0) {
-    return (
-      <div className="space-y-6">
-        <PageHeader
-          titulo="Resultados"
-          subtitulo="Aquí interpretaremos tu estado digital cuando completes el diagnóstico."
-          migas={[{ label: "Inicio", to: "/inicio" }, { label: "Resultados" }]}
-        />
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg">Todavía no hay resultados</CardTitle>
-            <CardDescription>
-              Los resultados se construyen a partir de tus respuestas. Puedes completar el
-              diagnóstico o cargar datos demostrativos para conocer el recorrido.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="flex flex-col gap-2 sm:flex-row">
-            <Button onClick={() => navigate({ to: "/diagnostico" })}>Iniciar diagnóstico</Button>
-            <Button variant="outline" onClick={cargarDatosDemostrativos}>
-              Cargar datos demostrativos
-            </Button>
-          </CardContent>
-        </Card>
-      </div>
-    );
-  }
-
-  const global = Math.round(
-    sesion.resultados.reduce((sum, r) => sum + r.puntajeDemostrativo, 0) / sesion.resultados.length
-  );
-  const fortalezas = sesion.resultados.flatMap((r) => r.fortalezas).slice(0, 3);
-  const oportunidades = sesion.resultados.flatMap((r) => r.oportunidades).slice(0, 3);
+  useEffect(() => {
+    if (resultado) {
+      registrarEvento("results_viewed", {
+        resultadoId: resultado.id,
+        puntaje: resultado.overallScore,
+      });
+    }
+  }, [resultado]);
 
   return (
     <div className="space-y-6">
@@ -87,171 +72,168 @@ function ResultadosPage() {
         }
       />
 
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-lg">Resumen ejecutivo</CardTitle>
-          <CardDescription>
-            Tu empresa ya tiene bases digitales visibles, sobre todo en la forma de llegar a los
-            clientes. El mayor avance disponible está en ordenar la operación interna y en usar la
-            información que ya generas para tomar decisiones.
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="flex flex-col gap-4 rounded-xl border border-border bg-muted/40 p-4 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <div className="flex items-center gap-2">
-                <p className="text-sm text-muted-foreground">Nivel digital general</p>
-                <DemoTag />
-              </div>
-              <p className="text-3xl font-bold text-foreground">{global} de 100</p>
-              <p className="text-sm text-muted-foreground">Indicador ilustrativo</p>
-            </div>
-            <div className="flex-1 sm:max-w-sm">
-              <Progress value={global} aria-label="Nivel digital general ilustrativo" />
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+      <ResultState
+        estado={estado}
+        errorCodigo={errorCodigo}
+        onReintentar={reintentar}
+        onIrAlDiagnostico={() => navigate({ to: "/diagnostico" })}
+      >
+        {resultado && (
+          <div className="space-y-6">
+            {resultado.completeness === "parcial" && (
+              <Card className="border-warning/40 bg-warning/5">
+                <CardHeader>
+                  <CardTitle className="text-base">Lectura parcial</CardTitle>
+                  <CardDescription>
+                    Respondiste el {resultado.cobertura}% del diagnóstico. Los resultados son
+                    válidos, pero completar las preguntas pendientes aumenta la precisión.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Button size="sm" variant="outline" asChild>
+                    <Link to="/diagnostico/revision">Completar respuestas</Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            )}
 
-      <section aria-labelledby="dimensiones" className="space-y-3">
-        <h2 id="dimensiones" className="text-lg font-semibold text-foreground">
-          Resultados por área
-        </h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {sesion.resultados.map((resultado) => (
-            <Card key={resultado.id}>
-              <CardHeader className="pb-3">
-                <div className="flex items-start justify-between gap-2">
-                  <CardTitle className="text-base">{resultado.dimension}</CardTitle>
-                  <Badge variant="secondary">{resultado.nivel}</Badge>
-                </div>
-                <CardDescription>{resultado.mensaje}</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <Progress
-                  value={resultado.puntajeDemostrativo}
-                  aria-label={`Nivel ilustrativo de ${resultado.dimension}`}
-                />
-                <Button variant="link" className="px-0" asChild>
-                  <Link to="/resultados/$dimension" params={{ dimension: resultado.id }}>
-                    Ver detalle
+            <ResultSummaryCard
+              resultado={resultado}
+              accionPrimaria={
+                <Button size="sm" asChild>
+                  <Link to="/plan-de-accion">
+                    Ver mi plan de acción
                     <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" />
                   </Link>
                 </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
+              }
+            />
 
-      <div className="grid gap-4 lg:grid-cols-2">
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-base">
-              <Sparkles className="h-5 w-5 text-success" aria-hidden="true" />
-              Lo que ya funciona
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              {fortalezas.map((f) => (
-                <li key={f} className="flex gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-success" aria-hidden="true" />
-                  {f}
-                </li>
-              ))}
-            </ul>
-          </CardContent>
-        </Card>
+            <section aria-labelledby="dimensiones" className="space-y-3">
+              <h2 id="dimensiones" className="text-lg font-semibold text-foreground">
+                Resultados por área
+              </h2>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {resultado.dimensions.map((dimension) => (
+                  <DimensionScoreCard key={dimension.dimensionId} dimension={dimension} />
+                ))}
+              </div>
+            </section>
 
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-base">
-              <TrendingUp className="h-5 w-5 text-primary" aria-hidden="true" />
-              Oportunidades de mejora
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              {oportunidades.map((o) => (
-                <li key={o} className="flex gap-2">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-                  {o}
-                </li>
-              ))}
-            </ul>
-          </CardContent>
-        </Card>
-      </div>
+            <div className="grid gap-4 lg:grid-cols-2">
+              <FindingList tipo="fortaleza" hallazgos={resultado.fortalezas.slice(0, 5)} />
+              <FindingList tipo="brecha" hallazgos={resultado.brechas.slice(0, 5)} />
+            </div>
+
+            <section aria-labelledby="prioridades" className="space-y-3">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <h2 id="prioridades" className="text-lg font-semibold text-foreground">
+                  Tus prioridades
+                </h2>
+                <Badge variant="outline">
+                  {resultado.topPriorities.length} de {resultado.priorities.length}
+                </Badge>
+              </div>
+              {resultado.topPriorities.length === 0 ? (
+                <Card>
+                  <CardContent className="pt-6 text-sm text-muted-foreground">
+                    No se identificaron prioridades relevantes con la evidencia disponible.
+                  </CardContent>
+                </Card>
+              ) : (
+                <div className="space-y-4">
+                  {resultado.topPriorities.map((prioridad, index) => (
+                    <PriorityCard
+                      key={prioridad.id}
+                      prioridad={prioridad}
+                      posicion={index + 1}
+                      acciones={
+                        <>
+                          <Button size="sm" variant="outline" asChild>
+                            <Link
+                              to="/resultados/$dimension"
+                              params={{ dimension: prioridad.dimensionId }}
+                            >
+                              Ver el área relacionada
+                            </Link>
+                          </Button>
+                          <Button size="sm" variant="ghost" asChild>
+                            <Link to="/plan-de-accion">Ver ficha de acción</Link>
+                          </Button>
+                        </>
+                      }
+                    />
+                  ))}
+                </div>
+              )}
+            </section>
+
+            <Accordion
+              type="single"
+              collapsible
+              className="rounded-xl border border-border bg-card px-4"
+            >
+              <AccordionItem value="como-leer" className="border-none">
+                <AccordionTrigger className="text-sm font-medium">
+                  Cómo leer estos resultados
+                </AccordionTrigger>
+                <AccordionContent className="space-y-2 text-sm text-muted-foreground">
+                  <p>
+                    Cada área describe una capacidad de tu empresa, no una calificación de tu
+                    trabajo. Un nivel bajo indica una oportunidad concreta, no un problema.
+                  </p>
+                  <p>
+                    El indicador general resume las áreas evaluadas y sirve para comparar tu avance
+                    contigo mismo en el tiempo, no con otras empresas.
+                  </p>
+                  <p>
+                    Las prioridades combinan impacto, urgencia, riesgo, dependencias y esfuerzo, y
+                    se ajustan según la confianza de la evidencia disponible.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+
+            <DemoNote>
+              MVP Alfa: los resultados se calculan con reglas propias y trazabilidad completa. Las
+              redacciones podrán ajustarse con la validación de usuarios reales.
+            </DemoNote>
+          </div>
+        )}
+      </ResultState>
 
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-base">
-            <Target className="h-5 w-5 text-primary" aria-hidden="true" />
-            Tus tres prioridades
+            <ClipboardList className="h-5 w-5 text-primary" aria-hidden="true" />
+            Escenarios de validación
           </CardTitle>
-          <CardDescription>Ordenadas por el efecto que pueden tener hoy.</CardDescription>
+          <CardDescription>
+            Escenarios técnicos del POC-05 para revisar cómo responde el sistema ante distintos
+            perfiles. Tus respuestas propias no se modifican.
+          </CardDescription>
         </CardHeader>
-        <CardContent>
-          <ol className="space-y-3">
-            {sesion.prioridades.map((prioridad, index) => (
-              <li
-                key={prioridad.id}
-                className="flex items-start gap-3 rounded-lg border border-border p-3"
-              >
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
-                  {index + 1}
-                </span>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">{prioridad.titulo}</p>
-                  <p className="text-sm text-muted-foreground">{prioridad.razon}</p>
-                  <Button variant="link" className="h-auto px-0 text-sm" asChild>
-                    <Link to="/resultados/$dimension" params={{ dimension: prioridad.dimensionId }}>
-                      Ver el área relacionada
-                    </Link>
-                  </Button>
-                </div>
-              </li>
-            ))}
-          </ol>
+        <CardContent className="flex flex-wrap gap-2">
+          <Button
+            size="sm"
+            variant={escenarioId ? "outline" : "default"}
+            onClick={() => aplicarEscenario(null)}
+          >
+            Mis respuestas
+          </Button>
+          {escenarios.map((escenario) => (
+            <Button
+              key={escenario.id}
+              size="sm"
+              variant={escenarioId === escenario.id ? "default" : "outline"}
+              onClick={() => aplicarEscenario(escenario.id)}
+              title={escenario.resultadoEsperado}
+            >
+              {escenario.nombre}
+            </Button>
+          ))}
         </CardContent>
       </Card>
-
-      <Accordion type="single" collapsible className="rounded-xl border border-border bg-card px-4">
-        <AccordionItem value="como-leer" className="border-none">
-          <AccordionTrigger className="text-sm font-medium">
-            Cómo leer estos resultados
-          </AccordionTrigger>
-          <AccordionContent className="space-y-2 text-sm text-muted-foreground">
-            <p>
-              Cada área describe una capacidad de tu empresa, no una calificación de tu trabajo. Un
-              nivel bajo indica una oportunidad concreta, no un problema.
-            </p>
-            <p>
-              El indicador general resume las cinco áreas y sirve para comparar tu avance contigo
-              mismo en el tiempo, no con otras empresas.
-            </p>
-            <p>
-              Las prioridades combinan el efecto esperado y el esfuerzo necesario. En esta versión
-              son ilustrativas y se calcularán con reglas propias en un paquete posterior.
-            </p>
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
-
-      <DemoNote>
-        Resultado ilustrativo para validar el recorrido. Las ponderaciones, niveles y
-        recomendaciones definitivas se incorporarán en paquetes posteriores del MVP.
-      </DemoNote>
-
-      <div className="flex justify-end">
-        <Button size="lg" asChild>
-          <Link to="/plan-de-accion">
-            Ver plan de acción
-            <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-          </Link>
-        </Button>
-      </div>
     </div>
   );
 }
