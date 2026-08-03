@@ -149,10 +149,6 @@ export function priorizar(
         if (!insertadas.has(previa.prioridad.id)) {
           insertar(previa);
           item.prioridad.ajustadaPorDependencia = true;
-        } else if (
-          resultado.findIndex((r) => r.prioridad.id === previa.prioridad.id) >= resultado.length
-        ) {
-          item.prioridad.ajustadaPorDependencia = true;
         }
       }
     }
