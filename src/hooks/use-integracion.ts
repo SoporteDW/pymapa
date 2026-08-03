@@ -5,6 +5,7 @@ import { guardarEjecucion } from "@/lib/motor/repositorio";
 import { guardarRoadmap } from "@/lib/roadmap/repositorio";
 import { integrarPerfil, type EjecucionIntegrada } from "@/lib/integracion/orquestador";
 import { verificarConsistencia, type InformeConsistencia } from "@/lib/integracion/consistencia";
+import { sincronizarDesdeEjecucion } from "@/lib/integracion/sincronizacion";
 import { perfilesSimulados, perfilPorId, type PerfilSimulado } from "@/lib/integracion/perfiles";
 import {
   CLAVE_ESCENARIO_RESULTADOS,
@@ -28,7 +29,12 @@ export type EstadoIntegracion = "cargando" | "listo" | "cargandoPerfil" | "error
  * coordinan almacenamiento y estados de interfaz.
  */
 export function useIntegracion() {
-  const { updateEmpresa, registrarActividad } = useSesion();
+  const {
+    updateEmpresa,
+    registrarActividad,
+    sincronizarRecorrido,
+    reiniciarTodo: reiniciarRecorrido,
+  } = useSesion();
   const [estado, setEstado] = useState<EstadoIntegracion>("cargando");
   const [recuperacion, setRecuperacion] = useState<EstadoRecuperacion | null>(null);
   const [ejecucion, setEjecucion] = useState<EjecucionIntegrada | null>(null);
@@ -89,6 +95,10 @@ export function useIntegracion() {
         }
 
         updateEmpresa(perfil.empresa);
+        // POC-09 (D-01): el recorrido general se sincroniza en el mismo paso,
+        // de modo que Inicio y el tablero no queden desfasados del perfil cargado.
+        const recorrido = sincronizarDesdeEjecucion(salida);
+        if (recorrido) sincronizarRecorrido(recorrido);
         registrarActividad(
           "sistema",
           `Se cargó el perfil simulado “${perfil.nombre}” en todos los módulos.`
@@ -125,7 +135,7 @@ export function useIntegracion() {
         return null;
       }
     },
-    [refrescar, registrarActividad, updateEmpresa]
+    [refrescar, registrarActividad, sincronizarRecorrido, updateEmpresa]
   );
 
   /** Verificación de consistencia sobre todos los perfiles, sin tocar el estado guardado. */
@@ -173,12 +183,14 @@ export function useIntegracion() {
   const reiniciarTodo = useCallback(() => {
     reiniciarSesionCompleta();
     limpiarEstado();
+    // POC-09: el recorrido general también vuelve a su estado inicial.
+    reiniciarRecorrido();
     setEjecucion(null);
     setInforme(null);
     setMensaje("Se reinició todo el progreso guardado en este navegador.");
     refrescar();
     registrarEvento("integration_session_reset", {});
-  }, [refrescar]);
+  }, [refrescar, reiniciarRecorrido]);
 
   const perfilActivo = useMemo<PerfilSimulado | null>(() => {
     const id = recuperacion?.sesion.perfilActivoId;

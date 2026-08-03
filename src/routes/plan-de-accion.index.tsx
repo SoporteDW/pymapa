@@ -70,7 +70,18 @@ function PlanDeAccionPage() {
         onReintentar={reintentar}
         onIrAlDiagnostico={() => navigate({ to: "/diagnostico" })}
       >
-        {resultado && (
+        {/* POC-09 (D-02): una pyme sin brechas accionables no genera fichas; se explica el motivo. */}
+        {resultado && resultado.actions.length === 0 && (
+          <EmptyState
+            title="Tu diagnóstico no generó fichas de acción"
+            description="No se detectaron brechas ni riesgos que requieran una acción inmediata. Revisa tus resultados para ver las fortalezas identificadas."
+            icon={FilterX}
+            actionLabel="Ver mis resultados"
+            onAction={() => navigate({ to: "/resultados" })}
+          />
+        )}
+
+        {resultado && resultado.actions.length > 0 && (
           <div className="space-y-6">
             <Card>
               <CardHeader>

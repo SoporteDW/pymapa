@@ -3,6 +3,7 @@ import { useLocalStorage } from "./use-local-storage";
 import { crearSesionVacia, sesionDemo, sesionInicial } from "@/data/mocks/sesion";
 import { totalPasos } from "@/data/mocks/diagnostico";
 import { registrarEvento } from "@/lib/analytics";
+import type { SesionSincronizada } from "@/lib/integracion/sincronizacion";
 import type {
   Accion,
   Actividad,
@@ -166,6 +167,30 @@ export function useSesion() {
     [setValue]
   );
 
+  /**
+   * POC-09 · Refleja en la sesión general una ejecución integrada completa
+   * (perfil simulado o diagnóstico real), de modo que Inicio, el mapa del
+   * recorrido y el tablero queden coherentes sin necesidad de recargar.
+   */
+  const sincronizarRecorrido = useCallback(
+    (datos: SesionSincronizada) => {
+      setValue((prev) => ({
+        ...prev,
+        diagnostico: {
+          ...prev.diagnostico,
+          ...datos.diagnostico,
+          totalPasos,
+          fechaActualizacion: new Date().toISOString(),
+        },
+        respuestas: datos.respuestas.length > 0 ? datos.respuestas : prev.respuestas,
+        resultados: datos.resultados,
+        prioridades: datos.prioridades,
+        acciones: datos.acciones,
+      }));
+    },
+    [setValue]
+  );
+
   /** Genera resultados demostrativos: no aplica lógica de diagnóstico real. */
   const generarResultadosDemostrativos = useCallback(() => {
     setValue((prev) => ({
@@ -265,6 +290,7 @@ export function useSesion() {
     guardarPaso,
     marcarPasoActual,
     sincronizarDiagnostico,
+    sincronizarRecorrido,
     generarResultadosDemostrativos,
     cambiarEstadoAccion,
     updateAccion,

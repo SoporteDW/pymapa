@@ -39,6 +39,7 @@ function RoadmapPage() {
   const navigate = useNavigate();
   const {
     estado,
+    sinAccionesPorMadurez,
     roadmap,
     resumen,
     alertas,
@@ -99,11 +100,21 @@ function RoadmapPage() {
 
       {estado === "vacio" && (
         <EmptyState
-          title="Todavía no hay acciones para planificar"
-          description="Completa el diagnóstico para generar tus fichas de acción y su roadmap, o carga un plan de demostración."
+          title={
+            sinAccionesPorMadurez
+              ? "Tu diagnóstico no dejó acciones pendientes"
+              : "Todavía no hay acciones para planificar"
+          }
+          description={
+            sinAccionesPorMadurez
+              ? "No se detectaron brechas ni riesgos accionables: por eso el plan está vacío. Revisa tus resultados para confirmar tus fortalezas o vuelve a responder el diagnóstico si tu situación cambió."
+              : "Completa el diagnóstico para generar tus fichas de acción y su roadmap, o carga un plan de demostración."
+          }
           icon={ListTodo}
-          actionLabel="Cargar plan de demostración"
-          onAction={cargarDemo}
+          actionLabel={sinAccionesPorMadurez ? "Ver mis resultados" : "Cargar plan de demostración"}
+          onAction={
+            sinAccionesPorMadurez ? () => navigate({ to: "/resultados" }) : cargarDemo
+          }
         />
       )}
 
