@@ -1,28 +1,43 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { useState } from "react";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
 import { LoadingState } from "@/components/ui/loading-state";
-import { DemoNote } from "@/components/ui/demo-note";
 import { PageHeader } from "@/components/layout/page-header";
-import { useSesion } from "@/hooks/use-sesion";
-import { pasosDiagnostico } from "@/data/mocks/diagnostico";
-import { ArrowRight, CheckCircle2, Clock } from "lucide-react";
+import { ProgresoDiagnostico } from "@/components/diagnostico/progreso-diagnostico";
+import { ConfiguracionInvalida } from "@/components/diagnostico/configuracion-invalida";
+import { IndicadorGuardado } from "@/components/diagnostico/indicador-guardado";
+import { useDiagnostico } from "@/hooks/use-diagnostico";
+import { dimensiones, totalPreguntasObligatorias } from "@/lib/diagnostico/definicion";
+import { ArrowRight, CheckCircle2, Clock, RotateCcw, ShieldCheck } from "lucide-react";
+import { format } from "date-fns";
+import { es } from "date-fns/locale";
 
 export const Route = createFileRoute("/diagnostico/")({
   head: () => ({
     meta: [
-      { title: "Diagnóstico — Pyme Digital" },
+      { title: "Diagnóstico digital — Pyme Digital" },
       {
         name: "description",
         content:
-          "Diagnóstico guiado en cinco etapas para conocer la situación digital de tu empresa.",
+          "Responde 28 preguntas guiadas sobre seis dimensiones y obtén un puntaje preliminar de madurez digital.",
       },
-      { property: "og:title", content: "Diagnóstico — Pyme Digital" },
+      { property: "og:title", content: "Diagnóstico digital — Pyme Digital" },
       {
         property: "og:description",
         content:
-          "Diagnóstico guiado en cinco etapas para conocer la situación digital de tu empresa.",
+          "Responde 28 preguntas guiadas sobre seis dimensiones y obtén un puntaje preliminar de madurez digital.",
       },
     ],
   }),
@@ -31,118 +46,200 @@ export const Route = createFileRoute("/diagnostico/")({
 
 function DiagnosticoEntrada() {
   const navigate = useNavigate();
-  const { sesion, isHydrated, iniciarDiagnostico } = useSesion();
+  const {
+    isHydrated,
+    configuracionValida,
+    problemasConfiguracion,
+    sesion,
+    progreso,
+    completo,
+    resultado,
+    estadoGuardado,
+    reintentarGuardado,
+    comenzar,
+    reanudar,
+    reiniciar,
+  } = useDiagnostico();
+  const [confirmando, setConfirmando] = useState(false);
 
   if (!isHydrated) {
     return <LoadingState fullPage />;
   }
 
-  const { diagnostico, respuestas } = sesion;
-  const enProgreso = diagnostico.estado === "en_progreso";
-  const completado = diagnostico.estado === "completado";
-  const pasoRetomar = Math.min(respuestas.length + 1, diagnostico.totalPasos);
+  const encabezado = (
+    <PageHeader
+      titulo="Diagnóstico digital"
+      subtitulo="Un recorrido guiado por seis dimensiones para conocer el punto de partida de tu empresa."
+      migas={[{ label: "Inicio", to: "/inicio" }, { label: "Diagnóstico" }]}
+    />
+  );
 
-  const etiquetaPrimaria = completado
-    ? "Revisar respuestas"
-    : enProgreso
-      ? "Continuar diagnóstico"
-      : "Iniciar diagnóstico";
+  if (!configuracionValida) {
+    return (
+      <div className="space-y-6">
+        {encabezado}
+        <ConfiguracionInvalida problemas={problemasConfiguracion} />
+      </div>
+    );
+  }
 
-  const handlePrimaria = () => {
-    if (completado) {
-      navigate({ to: "/diagnostico/revision" });
-      return;
-    }
-    iniciarDiagnostico();
-    navigate({ to: "/diagnostico/paso/$id", params: { id: String(pasoRetomar) } });
+  const hayAvance = progreso.respondidas > 0;
+  const finalizado = sesion.status === "completed" && resultado !== null;
+
+  const handleComenzar = () => {
+    const primera = comenzar();
+    navigate({ to: "/diagnostico/paso/$id", params: { id: primera } });
+  };
+
+  const handleContinuar = () => {
+    const destino = reanudar();
+    navigate({ to: "/diagnostico/paso/$id", params: { id: destino } });
   };
 
   return (
     <div className="space-y-6">
-      <PageHeader
-        titulo="Diagnóstico digital"
-        subtitulo="Cinco etapas breves para entender dónde está tu empresa hoy."
-        migas={[{ label: "Inicio", to: "/inicio" }, { label: "Diagnóstico" }]}
-      />
+      {encabezado}
+
+      <IndicadorGuardado estado={estadoGuardado} onReintentar={reintentarGuardado} />
 
       <Card>
         <CardHeader>
           <CardTitle className="text-lg">
-            {completado
-              ? "Tu diagnóstico está completo"
-              : enProgreso
-                ? "Retoma donde lo dejaste"
-                : "Antes de empezar"}
+            {finalizado
+              ? "Ya tienes un resultado preliminar"
+              : hayAvance
+                ? "Continuar diagnóstico"
+                : "Antes de comenzar"}
           </CardTitle>
           <CardDescription>
-            {completado
-              ? "Puedes revisar o corregir tus respuestas cuando quieras."
-              : enProgreso
-                ? `Has completado ${respuestas.length} de ${diagnostico.totalPasos} etapas. Continuarás en la etapa ${pasoRetomar}.`
+            {finalizado
+              ? "Puedes consultar tu resumen o revisar y ajustar tus respuestas."
+              : hayAvance
+                ? `Has respondido ${progreso.respondidas} de ${progreso.total} preguntas. Retomarás donde te quedaste.`
                 : "Responde con lo que mejor describa tu situación actual. No hay respuestas correctas ni incorrectas."}
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-            <span className="flex items-center gap-1">
+        <CardContent className="space-y-5">
+          <div className="grid gap-3 text-sm text-muted-foreground sm:grid-cols-3">
+            <span className="flex items-center gap-2">
               <Clock className="h-4 w-4" aria-hidden="true" />
-              Tiempo estimado: 5 minutos
+              Duración estimada: 10 a 15 minutos
             </span>
-            <span className="flex items-center gap-1">
+            <span className="flex items-center gap-2">
               <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
-              Guardado automático en este navegador
+              {totalPreguntasObligatorias} preguntas, todas obligatorias
+            </span>
+            <span className="flex items-center gap-2">
+              <ShieldCheck className="h-4 w-4" aria-hidden="true" />
+              Tus respuestas quedan solo en este navegador
             </span>
           </div>
-          <Progress value={diagnostico.progreso} aria-label="Progreso del diagnóstico" />
+
+          {hayAvance && (
+            <ProgresoDiagnostico
+              respondidas={progreso.respondidas}
+              total={progreso.total}
+              porcentaje={progreso.porcentaje}
+            />
+          )}
+
+          {sesion.updatedAt && hayAvance && (
+            <p className="text-xs text-muted-foreground">
+              Último guardado:{" "}
+              {format(new Date(sesion.updatedAt), "d MMM yyyy · HH:mm", { locale: es })}
+            </p>
+          )}
+
           <div className="flex flex-wrap gap-2">
-            <Button size="lg" onClick={handlePrimaria}>
-              {etiquetaPrimaria}
-              <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-            </Button>
-            {respuestas.length > 0 && !completado && (
+            {hayAvance ? (
+              <Button size="lg" onClick={handleContinuar}>
+                Continuar diagnóstico
+                <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+              </Button>
+            ) : (
+              <Button size="lg" onClick={handleComenzar}>
+                Comenzar diagnóstico
+                <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+              </Button>
+            )}
+
+            {hayAvance && (
               <Button variant="outline" size="lg" asChild>
                 <Link to="/diagnostico/revision">Revisar respuestas</Link>
               </Button>
             )}
+
+            {finalizado && (
+              <Button variant="outline" size="lg" asChild>
+                <Link to="/diagnostico/resumen">Ver resumen preliminar</Link>
+              </Button>
+            )}
+
+            {hayAvance && (
+              <AlertDialog open={confirmando} onOpenChange={setConfirmando}>
+                <AlertDialogTrigger asChild>
+                  <Button variant="ghost" size="lg">
+                    <RotateCcw className="mr-2 h-4 w-4" aria-hidden="true" />
+                    Reiniciar diagnóstico
+                  </Button>
+                </AlertDialogTrigger>
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>¿Reiniciar el diagnóstico?</AlertDialogTitle>
+                    <AlertDialogDescription>
+                      Se eliminará todo el avance guardado en este navegador, incluidas tus
+                      respuestas y el resultado preliminar. Esta acción no se puede deshacer.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel>Cancelar</AlertDialogCancel>
+                    <AlertDialogAction
+                      onClick={() => {
+                        reiniciar();
+                        setConfirmando(false);
+                      }}
+                    >
+                      Sí, reiniciar
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
+            )}
           </div>
+
+          {completo && !finalizado && (
+            <p className="text-sm text-foreground">
+              Ya respondiste todas las preguntas. Puedes ir a la revisión final para confirmar el
+              envío.
+            </p>
+          )}
         </CardContent>
       </Card>
 
-      <section aria-labelledby="etapas-diagnostico" className="space-y-3">
-        <h2 id="etapas-diagnostico" className="text-lg font-semibold text-foreground">
+      <section aria-labelledby="dimensiones-diagnostico" className="space-y-3">
+        <h2 id="dimensiones-diagnostico" className="text-lg font-semibold text-foreground">
           Qué vamos a revisar
         </h2>
         <ol className="grid gap-3 sm:grid-cols-2">
-          {pasosDiagnostico.map((paso, index) => {
-            const respondido = respuestas.length > index;
-            return (
-              <li
-                key={paso.id}
-                className="flex items-start gap-3 rounded-xl border border-border bg-card p-4"
-              >
-                <span
-                  className={
-                    respondido
-                      ? "flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-success text-xs font-semibold text-success-foreground"
-                      : "flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-muted text-xs font-semibold text-muted-foreground"
-                  }
-                >
-                  {paso.numero}
-                </span>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">{paso.titulo}</p>
-                  <p className="text-sm text-muted-foreground">{paso.proposito}</p>
-                </div>
-              </li>
-            );
-          })}
+          {dimensiones.map((dimension, index) => (
+            <li
+              key={dimension.id}
+              className="flex items-start gap-3 rounded-xl border border-border bg-card p-4"
+            >
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-muted text-xs font-semibold text-muted-foreground">
+                {index + 1}
+              </span>
+              <div>
+                <p className="text-sm font-semibold text-foreground">{dimension.nombre}</p>
+                <p className="text-sm text-muted-foreground">{dimension.proposito}</p>
+              </div>
+            </li>
+          ))}
         </ol>
+        <p className="text-sm text-muted-foreground">
+          Antes de las dimensiones te haremos cuatro preguntas breves de contexto sobre tu empresa.
+        </p>
       </section>
-
-      <DemoNote variant="aviso">
-        Este es un diagnóstico demostrativo del MVP Alfa. El banco definitivo de preguntas y la
-        lógica de evaluación se incorporarán en un paquete posterior.
-      </DemoNote>
     </div>
   );
 }

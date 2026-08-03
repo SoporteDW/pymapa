@@ -44,6 +44,9 @@ export interface Diagnostico {
   respuestasRevisadas: boolean;
   resultadosGenerados: boolean;
   fechaActualizacion: string;
+  /** POC-03: preguntas obligatorias respondidas y total del instrumento. */
+  respondidasObligatorias?: number;
+  totalPreguntas?: number;
 }
 
 export interface Opcion {

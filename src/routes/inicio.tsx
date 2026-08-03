@@ -55,8 +55,9 @@ function InicioPage() {
   const estados = estadoEtapas(sesion);
   const perfilIncompleto = !sesion.perfilCompletado || !sesion.empresa.nombre.trim();
   const nombreEmpresa = sesion.empresa.nombre.trim();
-  const respuestasCompletadas = sesion.respuestas.length;
-  const totalPasos = sesion.diagnostico.totalPasos;
+  const respuestasCompletadas =
+    sesion.diagnostico.respondidasObligatorias ?? sesion.respuestas.length;
+  const totalPasos = sesion.diagnostico.totalPreguntas ?? sesion.diagnostico.totalPasos;
   const accionesActivas = sesion.acciones.filter(
     (a) => a.estado === "pendiente" || a.estado === "en_progreso"
   ).length;
@@ -127,9 +128,9 @@ function InicioPage() {
               <CardTitle className="text-base">Diagnóstico</CardTitle>
               <CardDescription>
                 {sesion.diagnostico.estado === "completado"
-                  ? "Completaste las cinco etapas del diagnóstico."
+                  ? "Completaste todas las preguntas del diagnóstico."
                   : sesion.diagnostico.estado === "en_progreso"
-                    ? `Has completado ${respuestasCompletadas} de ${totalPasos} etapas.`
+                    ? `Has respondido ${respuestasCompletadas} de ${totalPasos} preguntas.`
                     : "Aún no has iniciado el diagnóstico guiado."}
               </CardDescription>
             </CardHeader>

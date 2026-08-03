@@ -64,7 +64,9 @@ export interface SiguientePaso {
 export function estadoEtapas(sesion: SesionMVP): Record<EtapaId, EstadoEtapa> {
   const perfilOk = sesion.perfilCompletado && sesion.empresa.nombre.trim().length > 0;
   const diagCompleto = sesion.diagnostico.estado === "completado";
-  const diagIniciado = sesion.respuestas.length > 0 || sesion.diagnostico.estado === "en_progreso";
+  const diagIniciado =
+    (sesion.diagnostico.respondidasObligatorias ?? sesion.respuestas.length) > 0 ||
+    sesion.diagnostico.estado === "en_progreso";
   const hayResultados = sesion.resultados.length > 0 && sesion.diagnostico.resultadosGenerados;
   const hayAcciones = sesion.acciones.length > 0;
   const accionIniciada = sesion.acciones.some(
@@ -100,22 +102,26 @@ export function siguientePaso(sesion: SesionMVP): SiguientePaso {
     };
   }
 
+  const respondidas =
+    sesion.diagnostico.respondidasObligatorias ?? sesion.respuestas.length;
+  const totalPreguntas = sesion.diagnostico.totalPreguntas ?? sesion.diagnostico.totalPasos;
+
   if (sesion.diagnostico.estado === "no_iniciado") {
     return {
       etapa: "diagnosticar",
       titulo: "Inicia tu diagnóstico",
-      descripcion: "Son cinco etapas breves. Puedes guardar y continuar después.",
-      accionLabel: "Iniciar diagnóstico",
+      descripcion:
+        "Son preguntas breves sobre seis dimensiones. Puedes guardar y continuar después.",
+      accionLabel: "Comenzar diagnóstico",
       ruta: "/diagnostico",
     };
   }
 
   if (sesion.diagnostico.estado === "en_progreso") {
-    const completados = sesion.respuestas.length;
     return {
       etapa: "diagnosticar",
       titulo: "Continúa tu diagnóstico",
-      descripcion: `Has completado ${completados} de ${sesion.diagnostico.totalPasos} etapas del diagnóstico.`,
+      descripcion: `Has respondido ${respondidas} de ${totalPreguntas} preguntas del diagnóstico.`,
       accionLabel: "Continuar diagnóstico",
       ruta: "/diagnostico",
     };
@@ -124,10 +130,11 @@ export function siguientePaso(sesion: SesionMVP): SiguientePaso {
   if (!sesion.diagnostico.resultadosGenerados || sesion.resultados.length === 0) {
     return {
       etapa: "interpretar",
-      titulo: "Revisa tus respuestas y genera resultados",
-      descripcion: "Puedes corregir cualquier respuesta antes de ver la interpretación.",
-      accionLabel: "Revisar respuestas",
-      ruta: "/diagnostico/revision",
+      titulo: "Consulta tu resultado preliminar",
+      descripcion:
+        "Ya tienes tu puntaje global y por dimensión. La interpretación y las prioridades llegarán en el siguiente paquete.",
+      accionLabel: "Ver resultado preliminar",
+      ruta: "/diagnostico/resumen",
     };
   }
 
