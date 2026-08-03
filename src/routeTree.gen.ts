@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AyudaRouteImport } from './routes/ayuda'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as DemostracionRouteImport } from './routes/demostracion'
 import { Route as DiagnosticoRouteImport } from './routes/diagnostico'
 import { Route as InicioRouteImport } from './routes/inicio'
 import { Route as PerfilRouteImport } from './routes/perfil'
@@ -47,6 +48,11 @@ const AyudaRoute = AyudaRouteImport.update({
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DemostracionRoute = DemostracionRouteImport.update({
+  id: '/demostracion',
+  path: '/demostracion',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DiagnosticoRoute = DiagnosticoRouteImport.update({
@@ -160,6 +166,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/ayuda': typeof AyudaRoute
   '/dashboard': typeof DashboardRouteWithChildren
+  '/demostracion': typeof DemostracionRoute
   '/diagnostico': typeof DiagnosticoRouteWithChildren
   '/inicio': typeof InicioRoute
   '/perfil': typeof PerfilRoute
@@ -185,6 +192,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/ayuda': typeof AyudaRoute
+  '/demostracion': typeof DemostracionRoute
   '/inicio': typeof InicioRoute
   '/perfil': typeof PerfilRoute
   '/dashboard/alertas': typeof DashboardAlertasRoute
@@ -208,6 +216,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/ayuda': typeof AyudaRoute
   '/dashboard': typeof DashboardRouteWithChildren
+  '/demostracion': typeof DemostracionRoute
   '/diagnostico': typeof DiagnosticoRouteWithChildren
   '/inicio': typeof InicioRoute
   '/perfil': typeof PerfilRoute
@@ -236,6 +245,7 @@ export interface FileRouteTypes {
     | '/'
     | '/ayuda'
     | '/dashboard'
+    | '/demostracion'
     | '/diagnostico'
     | '/inicio'
     | '/perfil'
@@ -261,6 +271,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/ayuda'
+    | '/demostracion'
     | '/inicio'
     | '/perfil'
     | '/dashboard/alertas'
@@ -283,6 +294,7 @@ export interface FileRouteTypes {
     | '/'
     | '/ayuda'
     | '/dashboard'
+    | '/demostracion'
     | '/diagnostico'
     | '/inicio'
     | '/perfil'
@@ -310,6 +322,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AyudaRoute: typeof AyudaRoute
   DashboardRoute: typeof DashboardRouteWithChildren
+  DemostracionRoute: typeof DemostracionRoute
   DiagnosticoRoute: typeof DiagnosticoRouteWithChildren
   InicioRoute: typeof InicioRoute
   PerfilRoute: typeof PerfilRoute
@@ -339,6 +352,13 @@ declare module '@tanstack/react-router' {
       path: '/dashboard'
       fullPath: '/dashboard'
       preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/demostracion': {
+      id: '/demostracion'
+      path: '/demostracion'
+      fullPath: '/demostracion'
+      preLoaderRoute: typeof DemostracionRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/diagnostico': {
@@ -574,6 +594,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AyudaRoute: AyudaRoute,
   DashboardRoute: DashboardRouteWithChildren,
+  DemostracionRoute: DemostracionRoute,
   DiagnosticoRoute: DiagnosticoRouteWithChildren,
   InicioRoute: InicioRoute,
   PerfilRoute: PerfilRoute,
