@@ -2,33 +2,20 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import {
-  Home,
-  ClipboardList,
-  BarChart3,
-  ListTodo,
-  LayoutDashboard,
-  UserRound,
-  HelpCircle,
-  Menu,
-} from "lucide-react";
-import { useState } from "react";
-
-const navItems = [
-  { id: "inicio", to: "/inicio", label: "Inicio", icon: Home },
-  { id: "diagnostico", to: "/diagnostico", label: "Diagnóstico", icon: ClipboardList },
-  { id: "resultados", to: "/resultados", label: "Resultados", icon: BarChart3 },
-  { id: "plan-de-accion", to: "/plan-de-accion", label: "Plan de acción", icon: ListTodo },
-  { id: "dashboard", to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { id: "perfil", to: "/perfil", label: "Perfil", icon: UserRound },
-  { id: "ayuda", to: "/ayuda", label: "Ayuda", icon: HelpCircle },
-];
+import { Menu } from "lucide-react";
+import { useEffect, useState } from "react";
+import { navItems } from "./app-sidebar";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
   const currentPath = useRouterState({
     select: (state) => state.location.pathname,
   });
+
+  // Cierra el menú al cambiar de vista para no tapar el contenido.
+  useEffect(() => {
+    setOpen(false);
+  }, [currentPath]);
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -42,19 +29,20 @@ export function MobileNav() {
           <Menu className="h-5 w-5" aria-hidden="true" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-64 p-0">
+      <SheetContent side="left" className="w-72 p-0">
         <SheetTitle className="sr-only">Menú de navegación</SheetTitle>
         <div className="flex h-full flex-col">
           <div className="border-b border-border p-4">
             <span className="text-lg font-semibold text-foreground">Pyme Digital</span>
             <span className="ml-2 rounded bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">
-              Alfa
+              MVP Alfa
             </span>
           </div>
           <nav className="flex-1 overflow-y-auto p-3" aria-label="Navegación principal">
             <ul className="space-y-1">
               {navItems.map((item) => {
-                const isActive = currentPath === item.to;
+                const isActive =
+                  currentPath === item.to || currentPath.startsWith(`${item.to}/`);
                 const Icon = item.icon;
                 return (
                   <li key={item.id}>
@@ -78,7 +66,7 @@ export function MobileNav() {
             </ul>
           </nav>
           <div className="border-t border-border p-4">
-            <p className="text-xs text-muted-foreground">MVP Alfa · v0.1</p>
+            <p className="text-xs text-muted-foreground">MVP Alfa · v0.2</p>
           </div>
         </div>
       </SheetContent>

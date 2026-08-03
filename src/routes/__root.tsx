@@ -6,7 +6,6 @@ import {
   useRouter,
   HeadContent,
   Scripts,
-  Navigate,
 } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
 
@@ -20,23 +19,48 @@ import { useSesion } from "@/hooks/use-sesion";
 import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/sonner";
 
+const modulosPrincipales = [
+  { to: "/inicio", label: "Inicio" },
+  { to: "/diagnostico", label: "Diagnóstico" },
+  { to: "/resultados", label: "Resultados" },
+  { to: "/plan-de-accion", label: "Plan de acción" },
+  { to: "/dashboard", label: "Dashboard" },
+  { to: "/ayuda", label: "Ayuda" },
+];
+
 function NotFoundComponent() {
+  const router = useRouter();
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Página no encontrada</h2>
+    <div className="flex min-h-screen items-center justify-center bg-background px-4 py-10">
+      <div className="w-full max-w-lg text-center">
+        <p className="text-sm font-medium text-muted-foreground">Página no encontrada</p>
+        <h1 className="mt-2 text-2xl font-bold text-foreground">
+          Esta página no está disponible o cambió de dirección
+        </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          La página que buscas no existe o ha sido movida.
+          Puedes volver al inicio o continuar por uno de los módulos principales.
         </p>
-        <div className="mt-6">
-          <Link
-            to="/inicio"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Ir al inicio
-          </Link>
+        <div className="mt-6 flex flex-wrap justify-center gap-2">
+          <Button asChild>
+            <Link to="/inicio">Ir a Inicio</Link>
+          </Button>
+          <Button variant="outline" onClick={() => router.history.back()}>
+            Volver
+          </Button>
         </div>
+        <ul className="mt-8 flex flex-wrap justify-center gap-2">
+          {modulosPrincipales.map((modulo) => (
+            <li key={modulo.to}>
+              <Link
+                to={modulo.to}
+                className="inline-flex rounded-full border border-border bg-card px-3 py-1 text-sm text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+              >
+                {modulo.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
@@ -53,27 +77,23 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          Esta página no pudo cargar
+          No pudimos mostrar esta página
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Ocurrió un error inesperado. Puedes intentar refrescar o volver al inicio.
+          Ocurrió un problema al cargar la información. Intenta de nuevo o vuelve al inicio.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
-          <button
+          <Button
             onClick={() => {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
             Intentar de nuevo
-          </button>
-          <a
-            href="/inicio"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
-          >
-            Ir al inicio
-          </a>
+          </Button>
+          <Button variant="outline" asChild>
+            <a href="/inicio">Ir a Inicio</a>
+          </Button>
         </div>
       </div>
     </div>
@@ -86,19 +106,23 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Pyme Digital — Transformación digital para tu empresa" },
-      { name: "description", content: "Plataforma autogestionada de transformación digital para pequeñas y medianas empresas." },
+      {
+        name: "description",
+        content:
+          "Plataforma autogestionada de transformación digital para pequeñas y medianas empresas.",
+      },
       { name: "author", content: "Pyme Digital" },
       { property: "og:title", content: "Pyme Digital — Transformación digital para tu empresa" },
-      { property: "og:description", content: "Plataforma autogestionada de transformación digital para pequeñas y medianas empresas." },
+      {
+        property: "og:description",
+        content:
+          "Plataforma autogestionada de transformación digital para pequeñas y medianas empresas.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@PymeDigital" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
   }),
@@ -124,9 +148,8 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-  const { sesion, isHydrated, updatePreferencias } = useSesion();
+  const { sesion, isHydrated, storageError, updatePreferencias } = useSesion();
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     if (!isHydrated) return;
@@ -141,18 +164,20 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:text-primary-foreground"
+      >
+        Saltar al contenido
+      </a>
       <div className="flex min-h-screen flex-col bg-background">
         <AppHeader
           empresa={sesion.empresa}
-          onMenuToggle={() => setMobileMenuOpen(true)}
+          onToggleSidebar={handleToggleSidebar}
+          mobileNav={<MobileNav />}
         />
         <div className="flex flex-1 overflow-hidden">
-          <div className="hidden md:block">
-            <AppSidebar
-              collapsed={sidebarCollapsed}
-              className="h-[calc(100vh-3.5rem)]"
-            />
-          </div>
+          <AppSidebar collapsed={sidebarCollapsed} className="h-[calc(100vh-3.5rem)]" />
           <div className="flex flex-1 flex-col overflow-hidden">
             <main
               id="main-content"
@@ -160,15 +185,21 @@ function RootComponent() {
               tabIndex={-1}
             >
               <div className="mx-auto max-w-6xl">
+                {storageError && (
+                  <div
+                    role="status"
+                    className="mb-4 rounded-lg border border-warning/20 bg-warning/5 p-3 text-sm text-warning-foreground"
+                  >
+                    No pudimos usar el almacenamiento de este navegador. Puedes seguir navegando,
+                    pero los cambios se perderán al cerrar la pestaña.
+                  </div>
+                )}
                 <Outlet />
               </div>
             </main>
             <AppFooter />
           </div>
         </div>
-      </div>
-      <div className="fixed bottom-4 right-4 md:hidden">
-        <MobileNav />
       </div>
       <Toaster position="bottom-right" />
     </QueryClientProvider>

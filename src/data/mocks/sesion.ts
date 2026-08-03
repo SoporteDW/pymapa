@@ -1,13 +1,16 @@
 import type { SesionMVP } from "@/types";
-import { empresaDemo } from "./empresa";
-import { diagnosticoDemo } from "./diagnostico";
-import { resultadosDemo, accionesDemo, actividadDemo } from "./resultados";
+import { empresaDemo, empresaVacia } from "./empresa";
+import { diagnosticoDemo, diagnosticoVacio, respuestasDemo } from "./diagnostico";
+import { accionesDemo, actividadDemo, prioridadesDemo, resultadosDemo } from "./resultados";
 
+/** Sesión demostrativa completa: útil para presentar el recorrido de extremo a extremo. */
 export const sesionDemo: SesionMVP = {
   empresa: empresaDemo,
+  perfilCompletado: true,
   diagnostico: diagnosticoDemo,
-  respuestas: [],
+  respuestas: respuestasDemo,
   resultados: resultadosDemo,
+  prioridades: prioridadesDemo,
   acciones: accionesDemo,
   actividad: actividadDemo,
   preferencias: {
@@ -17,19 +20,15 @@ export const sesionDemo: SesionMVP = {
   },
 };
 
+/** Sesión de primer ingreso: sin perfil, sin respuestas y sin resultados. */
 export function crearSesionVacia(): SesionMVP {
   return {
-    empresa: { ...empresaDemo, nombre: "" },
-    diagnostico: {
-      id: "diag-vacio-001",
-      estado: "no_iniciado",
-      progreso: 0,
-      pasoActual: 0,
-      totalPasos: 5,
-      fechaActualizacion: new Date().toISOString(),
-    },
+    empresa: { ...empresaVacia },
+    perfilCompletado: false,
+    diagnostico: { ...diagnosticoVacio, fechaActualizacion: new Date().toISOString() },
     respuestas: [],
     resultados: [],
+    prioridades: [],
     acciones: [],
     actividad: [],
     preferencias: {
@@ -39,3 +38,6 @@ export function crearSesionVacia(): SesionMVP {
     },
   };
 }
+
+/** Sesión inicial del prototipo: parte de un primer ingreso limpio. */
+export const sesionInicial: SesionMVP = crearSesionVacia();
