@@ -9,8 +9,8 @@ import type { ReactNode } from "react";
 
 export const clasesNivelPrioridad: Record<NivelPrioridad, string> = {
   critica: "bg-destructive/10 text-destructive border-destructive/20",
-  alta: "bg-warning/10 text-warning-foreground border-warning/20",
-  media: "bg-info/10 text-info-foreground border-info/20",
+  alta: "bg-warning/15 text-foreground border-warning/40",
+  media: "bg-info/10 text-info border-info/30",
   baja: "bg-muted text-muted-foreground border-border",
 };
 

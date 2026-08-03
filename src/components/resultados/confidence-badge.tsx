@@ -11,7 +11,7 @@ const iconos = {
 
 const variantes = {
   alta: "bg-success/10 text-success border-success/20",
-  media: "bg-warning/10 text-warning-foreground border-warning/20",
+  media: "bg-warning/15 text-foreground border-warning/40",
   baja: "bg-destructive/10 text-destructive border-destructive/20",
 } as const;
 
