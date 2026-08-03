@@ -62,13 +62,13 @@ const etiquetaRegistro: Record<RegistroAvance["tipo"], string> = {
   creacion: "Creación",
   cambio_estado: "Cambio de estado",
   avance: "Actualización de avance",
-  checklist: "Checklist",
+  responsable: "Responsable",
+  bloqueo: "Bloqueo",
   nota: "Nota",
   evidencia: "Evidencia",
   reprogramacion: "Reprogramación",
   fase: "Cambio de fase",
   descarte: "Descarte",
-  reapertura: "Reapertura",
 };
 
 /**
