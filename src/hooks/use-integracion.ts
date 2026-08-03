@@ -89,6 +89,10 @@ export function useIntegracion() {
         }
 
         updateEmpresa(perfil.empresa);
+        // POC-09 (D-01): el recorrido general se sincroniza en el mismo paso,
+        // de modo que Inicio y el tablero no queden desfasados del perfil cargado.
+        const recorrido = sincronizarDesdeEjecucion(salida);
+        if (recorrido) sincronizarRecorrido(recorrido);
         registrarActividad(
           "sistema",
           `Se cargó el perfil simulado “${perfil.nombre}” en todos los módulos.`
