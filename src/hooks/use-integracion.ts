@@ -178,12 +178,14 @@ export function useIntegracion() {
   const reiniciarTodo = useCallback(() => {
     reiniciarSesionCompleta();
     limpiarEstado();
+    // POC-09: el recorrido general también vuelve a su estado inicial.
+    reiniciarRecorrido();
     setEjecucion(null);
     setInforme(null);
     setMensaje("Se reinició todo el progreso guardado en este navegador.");
     refrescar();
     registrarEvento("integration_session_reset", {});
-  }, [refrescar]);
+  }, [refrescar, reiniciarRecorrido]);
 
   const perfilActivo = useMemo<PerfilSimulado | null>(() => {
     const id = recuperacion?.sesion.perfilActivoId;
