@@ -46,7 +46,7 @@ export interface SalidaSenales {
 export function calcularSenales(respuestas: RespuestaNormalizada[]): SalidaSenales {
   const valorDe = new Map<string, number | null>();
   for (const r of respuestas) {
-    if (r.puntuable && r.bandera === "ok") {
+    if (r.puntuable && (r.bandera === "ok" || r.bandera === "duplicada")) {
       valorDe.set(r.questionId, r.valorNormalizado === null ? null : r.valorNormalizado / 25 + 1);
     }
   }
