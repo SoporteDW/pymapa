@@ -130,7 +130,7 @@ export function useIntegracion() {
         return null;
       }
     },
-    [refrescar, registrarActividad, updateEmpresa]
+    [refrescar, registrarActividad, sincronizarRecorrido, updateEmpresa]
   );
 
   /** Verificación de consistencia sobre todos los perfiles, sin tocar el estado guardado. */
