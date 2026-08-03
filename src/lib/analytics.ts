@@ -27,7 +27,14 @@ export type EventoInteraccion =
   | "diagnostic_error"
   // Eventos técnicos del motor de conocimiento (POC-04, sección 16).
   | "engine_executed"
-  | "engine_error";
+  | "engine_error"
+  // Eventos de resultados, prioridades y fichas de acción (POC-05).
+  | "results_viewed"
+  | "results_error"
+  | "results_scenario_loaded"
+  | "action_card_opened"
+  | "action_filters_changed"
+  | "traceability_opened";
 
 const STORAGE_KEY = "pyme-digital-eventos-v1";
 const MAX_EVENTOS = 100;
