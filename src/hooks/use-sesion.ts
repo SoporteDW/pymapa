@@ -290,6 +290,7 @@ export function useSesion() {
     guardarPaso,
     marcarPasoActual,
     sincronizarDiagnostico,
+    sincronizarRecorrido,
     generarResultadosDemostrativos,
     cambiarEstadoAccion,
     updateAccion,
