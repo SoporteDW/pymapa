@@ -9,6 +9,7 @@ import {
   LayoutDashboard,
   UserRound,
   HelpCircle,
+  FlaskConical,
 } from "lucide-react";
 
 export const navItems = [
@@ -18,6 +19,7 @@ export const navItems = [
   { id: "plan-de-accion", to: "/plan-de-accion", label: "Plan de acción", icon: ListTodo },
   { id: "roadmap", to: "/roadmap", label: "Roadmap", icon: RouteIcon },
   { id: "dashboard", to: "/dashboard", label: "Indicadores", icon: LayoutDashboard },
+  { id: "demostracion", to: "/demostracion", label: "Demostración", icon: FlaskConical },
   { id: "perfil", to: "/perfil", label: "Perfil de empresa", icon: UserRound },
   { id: "ayuda", to: "/ayuda", label: "Ayuda", icon: HelpCircle },
 ];

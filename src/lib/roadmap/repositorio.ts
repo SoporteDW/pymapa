@@ -6,7 +6,9 @@
 
 import { ROADMAP_VERSION, type Roadmap } from "./tipos";
 
-const CLAVE = "pyme-digital:roadmap:v1";
+/** Clave versionada del Roadmap, expuesta para el inventario del POC-08. */
+export const CLAVE_ROADMAP = "pyme-digital:roadmap:v1";
+const CLAVE = CLAVE_ROADMAP;
 
 interface Almacen {
   version: string;
