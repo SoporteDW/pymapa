@@ -52,7 +52,7 @@ export const preguntasDemo: Pregunta[] = [
     tipo: "seleccion_multiple",
     opciones: [
       { id: "p-03-a", etiqueta: "Sitio web propio", valor: "web" },
-      { id: "p-03-b", etiqueta: "Redes sociales activas", value: "redes" },
+      { id: "p-03-b", etiqueta: "Redes sociales activas", valor: "redes" },
       { id: "p-03-c", etiqueta: "Tienda en línea", valor: "ecommerce" },
       { id: "p-03-d", etiqueta: "Correo corporativo", valor: "email" },
       { id: "p-03-e", etiqueta: "Ninguno de los anteriores", valor: "ninguno" },
