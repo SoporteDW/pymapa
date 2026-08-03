@@ -10,13 +10,13 @@ import {
   HelpCircle,
 } from "lucide-react";
 
-const navItems = [
+export const navItems = [
   { id: "inicio", to: "/inicio", label: "Inicio", icon: Home },
   { id: "diagnostico", to: "/diagnostico", label: "Diagnóstico", icon: ClipboardList },
   { id: "resultados", to: "/resultados", label: "Resultados", icon: BarChart3 },
   { id: "plan-de-accion", to: "/plan-de-accion", label: "Plan de acción", icon: ListTodo },
   { id: "dashboard", to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { id: "perfil", to: "/perfil", label: "Perfil", icon: UserRound },
+  { id: "perfil", to: "/perfil", label: "Perfil de empresa", icon: UserRound },
   { id: "ayuda", to: "/ayuda", label: "Ayuda", icon: HelpCircle },
 ];
 
@@ -42,7 +42,8 @@ export function AppSidebar({ collapsed = false, className }: AppSidebarProps) {
       <nav className="flex-1 overflow-y-auto p-3">
         <ul className="space-y-1">
           {navItems.map((item) => {
-            const isActive = currentPath === item.to;
+            const isActive =
+              currentPath === item.to || currentPath.startsWith(`${item.to}/`);
             const Icon = item.icon;
             return (
               <li key={item.id}>
@@ -58,7 +59,7 @@ export function AppSidebar({ collapsed = false, className }: AppSidebarProps) {
                   title={item.label}
                 >
                   <Icon className="h-5 w-5 shrink-0" aria-hidden="true" />
-                  {!collapsed && <span>{item.label}</span>}
+                  {!collapsed && <span className="truncate">{item.label}</span>}
                 </Link>
               </li>
             );
@@ -67,7 +68,7 @@ export function AppSidebar({ collapsed = false, className }: AppSidebarProps) {
       </nav>
       <div className="border-t border-border p-3">
         <p className="text-xs text-muted-foreground">
-          {collapsed ? "v0.1" : "MVP Alfa · v0.1"}
+          {collapsed ? "v0.2" : "MVP Alfa · v0.2"}
         </p>
       </div>
     </aside>

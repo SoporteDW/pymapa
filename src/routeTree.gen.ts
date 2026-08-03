@@ -17,6 +17,14 @@ import { Route as InicioRouteImport } from './routes/inicio'
 import { Route as PerfilRouteImport } from './routes/perfil'
 import { Route as PlanDeAccionRouteImport } from './routes/plan-de-accion'
 import { Route as ResultadosRouteImport } from './routes/resultados'
+import { Route as DiagnosticoIndexRouteImport } from './routes/diagnostico.index'
+import { Route as DiagnosticoProcesandoRouteImport } from './routes/diagnostico.procesando'
+import { Route as DiagnosticoRevisionRouteImport } from './routes/diagnostico.revision'
+import { Route as PlanDeAccionIndexRouteImport } from './routes/plan-de-accion.index'
+import { Route as PlanDeAccionAccionRouteImport } from './routes/plan-de-accion.$accion'
+import { Route as ResultadosIndexRouteImport } from './routes/resultados.index'
+import { Route as ResultadosDimensionRouteImport } from './routes/resultados.$dimension'
+import { Route as DiagnosticoPasoIdRouteImport } from './routes/diagnostico.paso.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -58,37 +66,98 @@ const ResultadosRoute = ResultadosRouteImport.update({
   path: '/resultados',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DiagnosticoIndexRoute = DiagnosticoIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DiagnosticoRoute,
+} as any)
+const DiagnosticoProcesandoRoute = DiagnosticoProcesandoRouteImport.update({
+  id: '/procesando',
+  path: '/procesando',
+  getParentRoute: () => DiagnosticoRoute,
+} as any)
+const DiagnosticoRevisionRoute = DiagnosticoRevisionRouteImport.update({
+  id: '/revision',
+  path: '/revision',
+  getParentRoute: () => DiagnosticoRoute,
+} as any)
+const PlanDeAccionIndexRoute = PlanDeAccionIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PlanDeAccionRoute,
+} as any)
+const PlanDeAccionAccionRoute = PlanDeAccionAccionRouteImport.update({
+  id: '/$accion',
+  path: '/$accion',
+  getParentRoute: () => PlanDeAccionRoute,
+} as any)
+const ResultadosIndexRoute = ResultadosIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ResultadosRoute,
+} as any)
+const ResultadosDimensionRoute = ResultadosDimensionRouteImport.update({
+  id: '/$dimension',
+  path: '/$dimension',
+  getParentRoute: () => ResultadosRoute,
+} as any)
+const DiagnosticoPasoIdRoute = DiagnosticoPasoIdRouteImport.update({
+  id: '/paso/$id',
+  path: '/paso/$id',
+  getParentRoute: () => DiagnosticoRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/ayuda': typeof AyudaRoute
   '/dashboard': typeof DashboardRoute
-  '/diagnostico': typeof DiagnosticoRoute
+  '/diagnostico': typeof DiagnosticoRouteWithChildren
   '/inicio': typeof InicioRoute
   '/perfil': typeof PerfilRoute
-  '/plan-de-accion': typeof PlanDeAccionRoute
-  '/resultados': typeof ResultadosRoute
+  '/plan-de-accion': typeof PlanDeAccionRouteWithChildren
+  '/resultados': typeof ResultadosRouteWithChildren
+  '/diagnostico/procesando': typeof DiagnosticoProcesandoRoute
+  '/diagnostico/revision': typeof DiagnosticoRevisionRoute
+  '/plan-de-accion/$accion': typeof PlanDeAccionAccionRoute
+  '/resultados/$dimension': typeof ResultadosDimensionRoute
+  '/diagnostico/': typeof DiagnosticoIndexRoute
+  '/plan-de-accion/': typeof PlanDeAccionIndexRoute
+  '/resultados/': typeof ResultadosIndexRoute
+  '/diagnostico/paso/$id': typeof DiagnosticoPasoIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/ayuda': typeof AyudaRoute
   '/dashboard': typeof DashboardRoute
-  '/diagnostico': typeof DiagnosticoRoute
   '/inicio': typeof InicioRoute
   '/perfil': typeof PerfilRoute
-  '/plan-de-accion': typeof PlanDeAccionRoute
-  '/resultados': typeof ResultadosRoute
+  '/diagnostico/procesando': typeof DiagnosticoProcesandoRoute
+  '/diagnostico/revision': typeof DiagnosticoRevisionRoute
+  '/plan-de-accion/$accion': typeof PlanDeAccionAccionRoute
+  '/resultados/$dimension': typeof ResultadosDimensionRoute
+  '/diagnostico': typeof DiagnosticoIndexRoute
+  '/plan-de-accion': typeof PlanDeAccionIndexRoute
+  '/resultados': typeof ResultadosIndexRoute
+  '/diagnostico/paso/$id': typeof DiagnosticoPasoIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/ayuda': typeof AyudaRoute
   '/dashboard': typeof DashboardRoute
-  '/diagnostico': typeof DiagnosticoRoute
+  '/diagnostico': typeof DiagnosticoRouteWithChildren
   '/inicio': typeof InicioRoute
   '/perfil': typeof PerfilRoute
-  '/plan-de-accion': typeof PlanDeAccionRoute
-  '/resultados': typeof ResultadosRoute
+  '/plan-de-accion': typeof PlanDeAccionRouteWithChildren
+  '/resultados': typeof ResultadosRouteWithChildren
+  '/diagnostico/procesando': typeof DiagnosticoProcesandoRoute
+  '/diagnostico/revision': typeof DiagnosticoRevisionRoute
+  '/plan-de-accion/$accion': typeof PlanDeAccionAccionRoute
+  '/resultados/$dimension': typeof ResultadosDimensionRoute
+  '/diagnostico/': typeof DiagnosticoIndexRoute
+  '/plan-de-accion/': typeof PlanDeAccionIndexRoute
+  '/resultados/': typeof ResultadosIndexRoute
+  '/diagnostico/paso/$id': typeof DiagnosticoPasoIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -101,16 +170,29 @@ export interface FileRouteTypes {
     | '/perfil'
     | '/plan-de-accion'
     | '/resultados'
+    | '/diagnostico/procesando'
+    | '/diagnostico/revision'
+    | '/plan-de-accion/$accion'
+    | '/resultados/$dimension'
+    | '/diagnostico/'
+    | '/plan-de-accion/'
+    | '/resultados/'
+    | '/diagnostico/paso/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/ayuda'
     | '/dashboard'
-    | '/diagnostico'
     | '/inicio'
     | '/perfil'
+    | '/diagnostico/procesando'
+    | '/diagnostico/revision'
+    | '/plan-de-accion/$accion'
+    | '/resultados/$dimension'
+    | '/diagnostico'
     | '/plan-de-accion'
     | '/resultados'
+    | '/diagnostico/paso/$id'
   id:
     | '__root__'
     | '/'
@@ -121,17 +203,25 @@ export interface FileRouteTypes {
     | '/perfil'
     | '/plan-de-accion'
     | '/resultados'
+    | '/diagnostico/procesando'
+    | '/diagnostico/revision'
+    | '/plan-de-accion/$accion'
+    | '/resultados/$dimension'
+    | '/diagnostico/'
+    | '/plan-de-accion/'
+    | '/resultados/'
+    | '/diagnostico/paso/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AyudaRoute: typeof AyudaRoute
   DashboardRoute: typeof DashboardRoute
-  DiagnosticoRoute: typeof DiagnosticoRoute
+  DiagnosticoRoute: typeof DiagnosticoRouteWithChildren
   InicioRoute: typeof InicioRoute
   PerfilRoute: typeof PerfilRoute
-  PlanDeAccionRoute: typeof PlanDeAccionRoute
-  ResultadosRoute: typeof ResultadosRoute
+  PlanDeAccionRoute: typeof PlanDeAccionRouteWithChildren
+  ResultadosRoute: typeof ResultadosRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -192,18 +282,120 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResultadosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/diagnostico/': {
+      id: '/diagnostico/'
+      path: '/'
+      fullPath: '/diagnostico/'
+      preLoaderRoute: typeof DiagnosticoIndexRouteImport
+      parentRoute: typeof DiagnosticoRoute
+    }
+    '/diagnostico/procesando': {
+      id: '/diagnostico/procesando'
+      path: '/procesando'
+      fullPath: '/diagnostico/procesando'
+      preLoaderRoute: typeof DiagnosticoProcesandoRouteImport
+      parentRoute: typeof DiagnosticoRoute
+    }
+    '/diagnostico/revision': {
+      id: '/diagnostico/revision'
+      path: '/revision'
+      fullPath: '/diagnostico/revision'
+      preLoaderRoute: typeof DiagnosticoRevisionRouteImport
+      parentRoute: typeof DiagnosticoRoute
+    }
+    '/plan-de-accion/': {
+      id: '/plan-de-accion/'
+      path: '/'
+      fullPath: '/plan-de-accion/'
+      preLoaderRoute: typeof PlanDeAccionIndexRouteImport
+      parentRoute: typeof PlanDeAccionRoute
+    }
+    '/plan-de-accion/$accion': {
+      id: '/plan-de-accion/$accion'
+      path: '/$accion'
+      fullPath: '/plan-de-accion/$accion'
+      preLoaderRoute: typeof PlanDeAccionAccionRouteImport
+      parentRoute: typeof PlanDeAccionRoute
+    }
+    '/resultados/': {
+      id: '/resultados/'
+      path: '/'
+      fullPath: '/resultados/'
+      preLoaderRoute: typeof ResultadosIndexRouteImport
+      parentRoute: typeof ResultadosRoute
+    }
+    '/resultados/$dimension': {
+      id: '/resultados/$dimension'
+      path: '/$dimension'
+      fullPath: '/resultados/$dimension'
+      preLoaderRoute: typeof ResultadosDimensionRouteImport
+      parentRoute: typeof ResultadosRoute
+    }
+    '/diagnostico/paso/$id': {
+      id: '/diagnostico/paso/$id'
+      path: '/paso/$id'
+      fullPath: '/diagnostico/paso/$id'
+      preLoaderRoute: typeof DiagnosticoPasoIdRouteImport
+      parentRoute: typeof DiagnosticoRoute
+    }
   }
 }
+
+interface DiagnosticoRouteChildren {
+  DiagnosticoProcesandoRoute: typeof DiagnosticoProcesandoRoute
+  DiagnosticoRevisionRoute: typeof DiagnosticoRevisionRoute
+  DiagnosticoIndexRoute: typeof DiagnosticoIndexRoute
+  DiagnosticoPasoIdRoute: typeof DiagnosticoPasoIdRoute
+}
+
+const DiagnosticoRouteChildren: DiagnosticoRouteChildren = {
+  DiagnosticoProcesandoRoute: DiagnosticoProcesandoRoute,
+  DiagnosticoRevisionRoute: DiagnosticoRevisionRoute,
+  DiagnosticoIndexRoute: DiagnosticoIndexRoute,
+  DiagnosticoPasoIdRoute: DiagnosticoPasoIdRoute,
+}
+
+const DiagnosticoRouteWithChildren = DiagnosticoRoute._addFileChildren(
+  DiagnosticoRouteChildren,
+)
+
+interface PlanDeAccionRouteChildren {
+  PlanDeAccionAccionRoute: typeof PlanDeAccionAccionRoute
+  PlanDeAccionIndexRoute: typeof PlanDeAccionIndexRoute
+}
+
+const PlanDeAccionRouteChildren: PlanDeAccionRouteChildren = {
+  PlanDeAccionAccionRoute: PlanDeAccionAccionRoute,
+  PlanDeAccionIndexRoute: PlanDeAccionIndexRoute,
+}
+
+const PlanDeAccionRouteWithChildren = PlanDeAccionRoute._addFileChildren(
+  PlanDeAccionRouteChildren,
+)
+
+interface ResultadosRouteChildren {
+  ResultadosDimensionRoute: typeof ResultadosDimensionRoute
+  ResultadosIndexRoute: typeof ResultadosIndexRoute
+}
+
+const ResultadosRouteChildren: ResultadosRouteChildren = {
+  ResultadosDimensionRoute: ResultadosDimensionRoute,
+  ResultadosIndexRoute: ResultadosIndexRoute,
+}
+
+const ResultadosRouteWithChildren = ResultadosRoute._addFileChildren(
+  ResultadosRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AyudaRoute: AyudaRoute,
   DashboardRoute: DashboardRoute,
-  DiagnosticoRoute: DiagnosticoRoute,
+  DiagnosticoRoute: DiagnosticoRouteWithChildren,
   InicioRoute: InicioRoute,
   PerfilRoute: PerfilRoute,
-  PlanDeAccionRoute: PlanDeAccionRoute,
-  ResultadosRoute: ResultadosRoute,
+  PlanDeAccionRoute: PlanDeAccionRouteWithChildren,
+  ResultadosRoute: ResultadosRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

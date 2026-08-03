@@ -1,7 +1,9 @@
 /**
  * Tipos y contratos de datos provisionales para el MVP Alfa.
- * Estos modelos son intencionalmente mínimos y pueden evolucionar
- * cuando lleguen los paquetes posteriores.
+ * POC-01 definió los modelos base. POC-02 los amplía para soportar
+ * el recorrido completo, los detalles de dimensión y acción, y la revisión
+ * de respuestas. Siguen siendo modelos provisionales: la lógica definitiva
+ * de diagnóstico y priorización llegará en paquetes posteriores.
  */
 
 export type Sector = "comercio" | "servicios" | "manufactura" | "tecnologia" | "otro";
@@ -13,6 +15,8 @@ export type Impacto = "alto" | "medio" | "bajo";
 export type Esfuerzo = "alto" | "medio" | "bajo";
 export type EstadoAccion = "pendiente" | "en_progreso" | "completada" | "pausada";
 export type TipoActividad = "diagnostico" | "accion" | "perfil" | "sistema";
+export type Horizonte = "ahora" | "despues" | "mas_adelante";
+export type EtapaId = "preparar" | "diagnosticar" | "interpretar" | "actuar" | "seguir";
 
 export interface Empresa {
   id: string;
@@ -21,6 +25,13 @@ export interface Empresa {
   tamaño: Tamaño;
   responsable: string;
   correo: string;
+  ciudad: string;
+  pais: string;
+  canales: string[];
+  presenciaDigital: string;
+  objetivoPrincipal: string;
+  sitioWeb?: string;
+  descripcion?: string;
   fechaActualizacion: string;
 }
 
@@ -28,8 +39,10 @@ export interface Diagnostico {
   id: string;
   estado: EstadoDiagnostico;
   progreso: number; // 0 - 100
-  pasoActual: number;
+  pasoActual: number; // índice basado en 0
   totalPasos: number;
+  respuestasRevisadas: boolean;
+  resultadosGenerados: boolean;
   fechaActualizacion: string;
 }
 
@@ -41,11 +54,20 @@ export interface Opcion {
 
 export interface Pregunta {
   id: string;
+  pasoId: string;
   seccion: string;
   texto: string;
   tipo: TipoPregunta;
   opciones?: Opcion[];
   ayuda?: string;
+}
+
+export interface PasoDiagnostico {
+  id: string;
+  numero: number; // 1 - n
+  titulo: string;
+  proposito: string;
+  dimensionId: string;
 }
 
 export interface Respuesta {
@@ -55,10 +77,17 @@ export interface Respuesta {
 }
 
 export interface Resultado {
+  id: string; // slug usado en la ruta de detalle
   dimension: string;
   puntajeDemostrativo: number; // 0 - 100
   nivel: string;
   mensaje: string;
+  queObservamos: string;
+  queSignifica: string;
+  fortalezas: string[];
+  oportunidades: string[];
+  preguntasRelacionadas: string[];
+  accionesRelacionadas: string[];
   esSimulado: boolean;
 }
 
@@ -66,11 +95,24 @@ export interface Accion {
   id: string;
   titulo: string;
   proposito: string;
+  porQueImporta: string;
   prioridad: Prioridad;
   impacto: Impacto;
   esfuerzo: Esfuerzo;
+  horizonte: Horizonte;
+  duracionEstimada: string;
+  responsableSugerido: string;
+  pasos: string[];
+  dimensionId: string;
   estado: EstadoAccion;
   esSimulada: boolean;
+}
+
+export interface PrioridadDemostrativa {
+  id: string;
+  titulo: string;
+  razon: string;
+  dimensionId: string;
 }
 
 export interface Actividad {
@@ -88,9 +130,11 @@ export interface Preferencias {
 
 export interface SesionMVP {
   empresa: Empresa;
+  perfilCompletado: boolean;
   diagnostico: Diagnostico;
   respuestas: Respuesta[];
   resultados: Resultado[];
+  prioridades: PrioridadDemostrativa[];
   acciones: Accion[];
   actividad: Actividad[];
   preferencias: Preferencias;

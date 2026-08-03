@@ -1,11 +1,53 @@
-import type { Diagnostico, Pregunta } from "@/types";
+import type { Diagnostico, PasoDiagnostico, Pregunta } from "@/types";
+
+export const pasosDiagnostico: PasoDiagnostico[] = [
+  {
+    id: "paso-1",
+    numero: 1,
+    titulo: "Estrategia digital",
+    proposito: "Entender hacia dónde quiere avanzar la empresa.",
+    dimensionId: "estrategia",
+  },
+  {
+    id: "paso-2",
+    numero: 2,
+    titulo: "Procesos operativos",
+    proposito: "Conocer cómo se ejecuta el trabajo del día a día.",
+    dimensionId: "procesos",
+  },
+  {
+    id: "paso-3",
+    numero: 3,
+    titulo: "Presencia digital",
+    proposito: "Identificar cómo te encuentran y te contactan tus clientes.",
+    dimensionId: "presencia",
+  },
+  {
+    id: "paso-4",
+    numero: 4,
+    titulo: "Datos y decisiones",
+    proposito: "Saber con qué información se toman las decisiones.",
+    dimensionId: "datos",
+  },
+  {
+    id: "paso-5",
+    numero: 5,
+    titulo: "Capacidad del equipo",
+    proposito: "Estimar la facilidad para adoptar nuevas herramientas.",
+    dimensionId: "equipo",
+  },
+];
+
+export const totalPasos = pasosDiagnostico.length;
 
 export const diagnosticoDemo: Diagnostico = {
   id: "diag-demo-001",
-  estado: "en_progreso",
-  progreso: 35,
-  pasoActual: 2,
-  totalPasos: 5,
+  estado: "completado",
+  progreso: 100,
+  pasoActual: totalPasos - 1,
+  totalPasos,
+  respuestasRevisadas: true,
+  resultadosGenerados: true,
   fechaActualizacion: new Date().toISOString(),
 };
 
@@ -14,13 +56,16 @@ export const diagnosticoVacio: Diagnostico = {
   estado: "no_iniciado",
   progreso: 0,
   pasoActual: 0,
-  totalPasos: 5,
+  totalPasos,
+  respuestasRevisadas: false,
+  resultadosGenerados: false,
   fechaActualizacion: new Date().toISOString(),
 };
 
 export const preguntasDemo: Pregunta[] = [
   {
     id: "p-01",
+    pasoId: "paso-1",
     seccion: "Estrategia digital",
     texto: "¿La empresa tiene definidos objetivos digitales claros para los próximos 12 meses?",
     tipo: "seleccion_unica",
@@ -34,6 +79,7 @@ export const preguntasDemo: Pregunta[] = [
   },
   {
     id: "p-02",
+    pasoId: "paso-2",
     seccion: "Procesos operativos",
     texto: "¿Qué tan digitalizados están los procesos principales de la operación?",
     tipo: "seleccion_unica",
@@ -43,38 +89,39 @@ export const preguntasDemo: Pregunta[] = [
       { id: "p-02-c", etiqueta: "Pocos procesos digitales", valor: 1 },
       { id: "p-02-d", etiqueta: "Principalmente manuales", valor: 0 },
     ],
-    ayuda: "Considere ventas, inventario, facturación, contabilidad y atención al cliente.",
+    ayuda: "Considera ventas, inventario, facturación, contabilidad y atención al cliente.",
   },
   {
     id: "p-03",
+    pasoId: "paso-3",
     seccion: "Presencia digital",
-    texto: "¿Cuáles canales digitales utiliza la empresa actualmente?",
-    tipo: "seleccion_multiple",
+    texto: "¿Cómo describirías la presencia digital actual de la empresa?",
+    tipo: "seleccion_unica",
     opciones: [
-      { id: "p-03-a", etiqueta: "Sitio web propio", valor: "web" },
-      { id: "p-03-b", etiqueta: "Redes sociales activas", valor: "redes" },
-      { id: "p-03-c", etiqueta: "Tienda en línea", valor: "ecommerce" },
-      { id: "p-03-d", etiqueta: "Correo corporativo", valor: "email" },
-      { id: "p-03-e", etiqueta: "Ninguno de los anteriores", valor: "ninguno" },
+      { id: "p-03-a", etiqueta: "Vendemos en línea de forma habitual", valor: 3 },
+      { id: "p-03-b", etiqueta: "Tenemos sitio web y canales activos", valor: 2 },
+      { id: "p-03-c", etiqueta: "Solo redes sociales o WhatsApp", valor: 1 },
+      { id: "p-03-d", etiqueta: "Casi no tenemos presencia digital", valor: 0 },
     ],
-    ayuda: "Seleccione todos los canales que la empresa utiliza de forma activa.",
+    ayuda: "Piensa en cómo te encuentran y te contactan tus clientes hoy.",
   },
   {
     id: "p-04",
+    pasoId: "paso-4",
     seccion: "Datos y decisiones",
     texto: "¿La empresa usa datos para tomar decisiones de mejora?",
-    tipo: "escala",
+    tipo: "seleccion_unica",
     opciones: [
-      { id: "p-04-a", etiqueta: "Nunca", valor: 0 },
-      { id: "p-04-b", etiqueta: "Raramente", valor: 1 },
-      { id: "p-04-c", etiqueta: "A veces", valor: 2 },
-      { id: "p-04-d", etiqueta: "Frecuentemente", valor: 3 },
-      { id: "p-04-e", etiqueta: "Siempre", valor: 4 },
+      { id: "p-04-a", etiqueta: "Siempre, con reportes periódicos", valor: 3 },
+      { id: "p-04-b", etiqueta: "Frecuentemente, de forma parcial", valor: 2 },
+      { id: "p-04-c", etiqueta: "A veces, sin método definido", valor: 1 },
+      { id: "p-04-d", etiqueta: "Casi nunca", valor: 0 },
     ],
     ayuda: "Esto incluye reportes de ventas, métricas de marketing o indicadores de operación.",
   },
   {
     id: "p-05",
+    pasoId: "paso-5",
     seccion: "Capacidad del equipo",
     texto: "¿El equipo cuenta con habilidades digitales básicas para adoptar nuevas herramientas?",
     tipo: "seleccion_unica",
@@ -84,6 +131,16 @@ export const preguntasDemo: Pregunta[] = [
       { id: "p-05-c", etiqueta: "Limitadas", valor: 1 },
       { id: "p-05-d", etiqueta: "No se ha evaluado", valor: 0 },
     ],
-    ayuda: "Considere capacidades como uso de herramientas ofimáticas, plataformas colaborativas o software de gestión.",
+    ayuda: "Considera el uso de herramientas ofimáticas, plataformas colaborativas o software de gestión.",
   },
 ];
+
+export const respuestasDemo = preguntasDemo.map((pregunta, index) => ({
+  preguntaId: pregunta.id,
+  valor: [2, 1, 3, 1, 2][index] ?? 1,
+  fechaGuardado: new Date(Date.now() - 1000 * 60 * 60 * (5 - index)).toISOString(),
+}));
+
+export function preguntasDePaso(pasoId: string) {
+  return preguntasDemo.filter((p) => p.pasoId === pasoId);
+}
