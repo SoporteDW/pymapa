@@ -28,6 +28,7 @@ import { Route as PlanDeAccionAccionRouteImport } from './routes/plan-de-accion.
 import { Route as ResultadosIndexRouteImport } from './routes/resultados.index'
 import { Route as ResultadosDimensionRouteImport } from './routes/resultados.$dimension'
 import { Route as RoadmapIndexRouteImport } from './routes/roadmap.index'
+import { Route as RoadmapAccionRouteImport } from './routes/roadmap.$accion'
 import { Route as DiagnosticoPasoIdRouteImport } from './routes/diagnostico.paso.$id'
 
 const IndexRoute = IndexRouteImport.update({
@@ -125,6 +126,11 @@ const RoadmapIndexRoute = RoadmapIndexRouteImport.update({
   path: '/',
   getParentRoute: () => RoadmapRoute,
 } as any)
+const RoadmapAccionRoute = RoadmapAccionRouteImport.update({
+  id: '/$accion',
+  path: '/$accion',
+  getParentRoute: () => RoadmapRoute,
+} as any)
 const DiagnosticoPasoIdRoute = DiagnosticoPasoIdRouteImport.update({
   id: '/paso/$id',
   path: '/paso/$id',
@@ -147,6 +153,7 @@ export interface FileRoutesByFullPath {
   '/diagnostico/revision': typeof DiagnosticoRevisionRoute
   '/plan-de-accion/$accion': typeof PlanDeAccionAccionRoute
   '/resultados/$dimension': typeof ResultadosDimensionRoute
+  '/roadmap/$accion': typeof RoadmapAccionRoute
   '/diagnostico/': typeof DiagnosticoIndexRoute
   '/plan-de-accion/': typeof PlanDeAccionIndexRoute
   '/resultados/': typeof ResultadosIndexRoute
@@ -165,6 +172,7 @@ export interface FileRoutesByTo {
   '/diagnostico/revision': typeof DiagnosticoRevisionRoute
   '/plan-de-accion/$accion': typeof PlanDeAccionAccionRoute
   '/resultados/$dimension': typeof ResultadosDimensionRoute
+  '/roadmap/$accion': typeof RoadmapAccionRoute
   '/diagnostico': typeof DiagnosticoIndexRoute
   '/plan-de-accion': typeof PlanDeAccionIndexRoute
   '/resultados': typeof ResultadosIndexRoute
@@ -188,6 +196,7 @@ export interface FileRoutesById {
   '/diagnostico/revision': typeof DiagnosticoRevisionRoute
   '/plan-de-accion/$accion': typeof PlanDeAccionAccionRoute
   '/resultados/$dimension': typeof ResultadosDimensionRoute
+  '/roadmap/$accion': typeof RoadmapAccionRoute
   '/diagnostico/': typeof DiagnosticoIndexRoute
   '/plan-de-accion/': typeof PlanDeAccionIndexRoute
   '/resultados/': typeof ResultadosIndexRoute
@@ -212,6 +221,7 @@ export interface FileRouteTypes {
     | '/diagnostico/revision'
     | '/plan-de-accion/$accion'
     | '/resultados/$dimension'
+    | '/roadmap/$accion'
     | '/diagnostico/'
     | '/plan-de-accion/'
     | '/resultados/'
@@ -230,6 +240,7 @@ export interface FileRouteTypes {
     | '/diagnostico/revision'
     | '/plan-de-accion/$accion'
     | '/resultados/$dimension'
+    | '/roadmap/$accion'
     | '/diagnostico'
     | '/plan-de-accion'
     | '/resultados'
@@ -252,6 +263,7 @@ export interface FileRouteTypes {
     | '/diagnostico/revision'
     | '/plan-de-accion/$accion'
     | '/resultados/$dimension'
+    | '/roadmap/$accion'
     | '/diagnostico/'
     | '/plan-de-accion/'
     | '/resultados/'
@@ -406,6 +418,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RoadmapIndexRouteImport
       parentRoute: typeof RoadmapRoute
     }
+    '/roadmap/$accion': {
+      id: '/roadmap/$accion'
+      path: '/$accion'
+      fullPath: '/roadmap/$accion'
+      preLoaderRoute: typeof RoadmapAccionRouteImport
+      parentRoute: typeof RoadmapRoute
+    }
     '/diagnostico/paso/$id': {
       id: '/diagnostico/paso/$id'
       path: '/paso/$id'
@@ -467,10 +486,12 @@ const ResultadosRouteWithChildren = ResultadosRoute._addFileChildren(
 )
 
 interface RoadmapRouteChildren {
+  RoadmapAccionRoute: typeof RoadmapAccionRoute
   RoadmapIndexRoute: typeof RoadmapIndexRoute
 }
 
 const RoadmapRouteChildren: RoadmapRouteChildren = {
+  RoadmapAccionRoute: RoadmapAccionRoute,
   RoadmapIndexRoute: RoadmapIndexRoute,
 }
 
@@ -491,3 +512,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
