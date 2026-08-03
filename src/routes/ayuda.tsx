@@ -80,7 +80,7 @@ function AyudaPage() {
                   {index + 1}
                 </span>
                 <div>
-                  <p className="text-sm font-semibold text-foreground">{etapa.nombre}</p>
+                  <p className="text-sm font-semibold text-foreground">{etapa.titulo}</p>
                   <p className="text-sm text-muted-foreground">{etapa.descripcion}</p>
                 </div>
               </li>

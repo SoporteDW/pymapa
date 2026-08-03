@@ -8,7 +8,7 @@ import { DemoNote } from "@/components/ui/demo-note";
 import { PageHeader } from "@/components/layout/page-header";
 import { JourneyMap } from "@/components/recorrido/journey-map";
 import { useSesion } from "@/hooks/use-sesion";
-import { etiquetaEstadoAccion, siguientePaso } from "@/lib/recorrido";
+import { estadoEtapas, etiquetaEstadoAccion, siguientePaso } from "@/lib/recorrido";
 import { Activity, CheckCircle2, ClipboardList, Target } from "lucide-react";
 
 export const Route = createFileRoute("/dashboard")({
@@ -50,12 +50,12 @@ function DashboardPage() {
         migas={[{ label: "Inicio", to: "/inicio" }, { label: "Seguimiento" }]}
         acciones={
           <Button asChild>
-            <Link to={paso.to}>{paso.etiqueta}</Link>
+            <Link to={paso.ruta}>{paso.accionLabel}</Link>
           </Button>
         }
       />
 
-      <JourneyMap sesion={sesion} />
+      <JourneyMap estados={estadoEtapas(sesion)} />
 
       <div className="grid gap-4 sm:grid-cols-3">
         <Card>
