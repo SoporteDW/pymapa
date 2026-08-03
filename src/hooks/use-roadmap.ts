@@ -238,6 +238,7 @@ export function useRoadmap() {
 
   return {
     estado,
+    sinAccionesPorMadurez,
     roadmap,
     resumen,
     alertas,
