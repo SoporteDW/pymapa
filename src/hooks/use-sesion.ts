@@ -132,6 +132,40 @@ export function useSesion() {
     [setValue]
   );
 
+  /**
+   * Refleja en la sesión general el avance del instrumento POC-03,
+   * para que Inicio, Dashboard y el mapa del recorrido sigan siendo coherentes.
+   */
+  const sincronizarDiagnostico = useCallback(
+    (datos: {
+      estado: SesionMVP["diagnostico"]["estado"];
+      progreso: number;
+      respondidasObligatorias: number;
+      totalPreguntas: number;
+    }) => {
+      setValue((prev) => {
+        const sinCambios =
+          prev.diagnostico.estado === datos.estado &&
+          prev.diagnostico.progreso === datos.progreso &&
+          prev.diagnostico.respondidasObligatorias === datos.respondidasObligatorias &&
+          prev.diagnostico.totalPreguntas === datos.totalPreguntas;
+        if (sinCambios) return prev;
+        return {
+          ...prev,
+          diagnostico: {
+            ...prev.diagnostico,
+            estado: datos.estado,
+            progreso: datos.progreso,
+            respondidasObligatorias: datos.respondidasObligatorias,
+            totalPreguntas: datos.totalPreguntas,
+            fechaActualizacion: new Date().toISOString(),
+          },
+        };
+      });
+    },
+    [setValue]
+  );
+
   /** Genera resultados demostrativos: no aplica lógica de diagnóstico real. */
   const generarResultadosDemostrativos = useCallback(() => {
     setValue((prev) => ({
@@ -230,6 +264,7 @@ export function useSesion() {
     iniciarDiagnostico,
     guardarPaso,
     marcarPasoActual,
+    sincronizarDiagnostico,
     generarResultadosDemostrativos,
     cambiarEstadoAccion,
     updateAccion,

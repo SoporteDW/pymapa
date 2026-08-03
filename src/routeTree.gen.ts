@@ -19,6 +19,7 @@ import { Route as PlanDeAccionRouteImport } from './routes/plan-de-accion'
 import { Route as ResultadosRouteImport } from './routes/resultados'
 import { Route as DiagnosticoIndexRouteImport } from './routes/diagnostico.index'
 import { Route as DiagnosticoProcesandoRouteImport } from './routes/diagnostico.procesando'
+import { Route as DiagnosticoResumenRouteImport } from './routes/diagnostico.resumen'
 import { Route as DiagnosticoRevisionRouteImport } from './routes/diagnostico.revision'
 import { Route as PlanDeAccionIndexRouteImport } from './routes/plan-de-accion.index'
 import { Route as PlanDeAccionAccionRouteImport } from './routes/plan-de-accion.$accion'
@@ -76,6 +77,11 @@ const DiagnosticoProcesandoRoute = DiagnosticoProcesandoRouteImport.update({
   path: '/procesando',
   getParentRoute: () => DiagnosticoRoute,
 } as any)
+const DiagnosticoResumenRoute = DiagnosticoResumenRouteImport.update({
+  id: '/resumen',
+  path: '/resumen',
+  getParentRoute: () => DiagnosticoRoute,
+} as any)
 const DiagnosticoRevisionRoute = DiagnosticoRevisionRouteImport.update({
   id: '/revision',
   path: '/revision',
@@ -117,6 +123,7 @@ export interface FileRoutesByFullPath {
   '/plan-de-accion': typeof PlanDeAccionRouteWithChildren
   '/resultados': typeof ResultadosRouteWithChildren
   '/diagnostico/procesando': typeof DiagnosticoProcesandoRoute
+  '/diagnostico/resumen': typeof DiagnosticoResumenRoute
   '/diagnostico/revision': typeof DiagnosticoRevisionRoute
   '/plan-de-accion/$accion': typeof PlanDeAccionAccionRoute
   '/resultados/$dimension': typeof ResultadosDimensionRoute
@@ -132,6 +139,7 @@ export interface FileRoutesByTo {
   '/inicio': typeof InicioRoute
   '/perfil': typeof PerfilRoute
   '/diagnostico/procesando': typeof DiagnosticoProcesandoRoute
+  '/diagnostico/resumen': typeof DiagnosticoResumenRoute
   '/diagnostico/revision': typeof DiagnosticoRevisionRoute
   '/plan-de-accion/$accion': typeof PlanDeAccionAccionRoute
   '/resultados/$dimension': typeof ResultadosDimensionRoute
@@ -151,6 +159,7 @@ export interface FileRoutesById {
   '/plan-de-accion': typeof PlanDeAccionRouteWithChildren
   '/resultados': typeof ResultadosRouteWithChildren
   '/diagnostico/procesando': typeof DiagnosticoProcesandoRoute
+  '/diagnostico/resumen': typeof DiagnosticoResumenRoute
   '/diagnostico/revision': typeof DiagnosticoRevisionRoute
   '/plan-de-accion/$accion': typeof PlanDeAccionAccionRoute
   '/resultados/$dimension': typeof ResultadosDimensionRoute
@@ -171,6 +180,7 @@ export interface FileRouteTypes {
     | '/plan-de-accion'
     | '/resultados'
     | '/diagnostico/procesando'
+    | '/diagnostico/resumen'
     | '/diagnostico/revision'
     | '/plan-de-accion/$accion'
     | '/resultados/$dimension'
@@ -186,6 +196,7 @@ export interface FileRouteTypes {
     | '/inicio'
     | '/perfil'
     | '/diagnostico/procesando'
+    | '/diagnostico/resumen'
     | '/diagnostico/revision'
     | '/plan-de-accion/$accion'
     | '/resultados/$dimension'
@@ -204,6 +215,7 @@ export interface FileRouteTypes {
     | '/plan-de-accion'
     | '/resultados'
     | '/diagnostico/procesando'
+    | '/diagnostico/resumen'
     | '/diagnostico/revision'
     | '/plan-de-accion/$accion'
     | '/resultados/$dimension'
@@ -296,6 +308,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DiagnosticoProcesandoRouteImport
       parentRoute: typeof DiagnosticoRoute
     }
+    '/diagnostico/resumen': {
+      id: '/diagnostico/resumen'
+      path: '/resumen'
+      fullPath: '/diagnostico/resumen'
+      preLoaderRoute: typeof DiagnosticoResumenRouteImport
+      parentRoute: typeof DiagnosticoRoute
+    }
     '/diagnostico/revision': {
       id: '/diagnostico/revision'
       path: '/revision'
@@ -343,6 +362,7 @@ declare module '@tanstack/react-router' {
 
 interface DiagnosticoRouteChildren {
   DiagnosticoProcesandoRoute: typeof DiagnosticoProcesandoRoute
+  DiagnosticoResumenRoute: typeof DiagnosticoResumenRoute
   DiagnosticoRevisionRoute: typeof DiagnosticoRevisionRoute
   DiagnosticoIndexRoute: typeof DiagnosticoIndexRoute
   DiagnosticoPasoIdRoute: typeof DiagnosticoPasoIdRoute
@@ -350,6 +370,7 @@ interface DiagnosticoRouteChildren {
 
 const DiagnosticoRouteChildren: DiagnosticoRouteChildren = {
   DiagnosticoProcesandoRoute: DiagnosticoProcesandoRoute,
+  DiagnosticoResumenRoute: DiagnosticoResumenRoute,
   DiagnosticoRevisionRoute: DiagnosticoRevisionRoute,
   DiagnosticoIndexRoute: DiagnosticoIndexRoute,
   DiagnosticoPasoIdRoute: DiagnosticoPasoIdRoute,

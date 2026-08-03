@@ -1,22 +1,23 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { Button } from "@/components/ui/button";
-import { PageHeader } from "@/components/layout/page-header";
-import { useSesion } from "@/hooks/use-sesion";
-import { Loader2 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { LoadingState } from "@/components/ui/loading-state";
+import { PageHeader } from "@/components/layout/page-header";
+import { useDiagnostico } from "@/hooks/use-diagnostico";
+import { Loader2, TriangleAlert } from "lucide-react";
 
 export const Route = createFileRoute("/diagnostico/procesando")({
   head: () => ({
     meta: [
-      { title: "Organizando tus respuestas — Pyme Digital" },
+      { title: "Calculando tu resultado — Pyme Digital" },
       {
         name: "description",
-        content: "Transición breve mientras preparamos tus resultados demostrativos.",
+        content: "Estamos calculando tu puntaje preliminar global y por dimensión.",
       },
-      { property: "og:title", content: "Organizando tus respuestas — Pyme Digital" },
+      { property: "og:title", content: "Calculando tu resultado — Pyme Digital" },
       {
         property: "og:description",
-        content: "Transición breve mientras preparamos tus resultados demostrativos.",
+        content: "Estamos calculando tu puntaje preliminar global y por dimensión.",
       },
     ],
   }),
@@ -25,27 +26,48 @@ export const Route = createFileRoute("/diagnostico/procesando")({
 
 function ProcesandoPage() {
   const navigate = useNavigate();
-  const { isHydrated, generarResultadosDemostrativos } = useSesion();
-  const [demorado, setDemorado] = useState(false);
+  const { isHydrated, completo, resultado, errorCalculo, finalizar } = useDiagnostico();
+  const [enCurso, setEnCurso] = useState(true);
   const ejecutado = useRef(false);
 
   useEffect(() => {
     if (!isHydrated || ejecutado.current) return;
     ejecutado.current = true;
-    generarResultadosDemostrativos();
-    const salto = setTimeout(() => navigate({ to: "/resultados" }), 1400);
-    const aviso = setTimeout(() => setDemorado(true), 4000);
-    return () => {
-      clearTimeout(salto);
-      clearTimeout(aviso);
-    };
+
+    if (!completo) {
+      navigate({ to: "/diagnostico/revision" });
+      return;
+    }
+
+    // Si ya existe un resultado, no se recalcula salvo solicitud explícita.
+    if (resultado) {
+      navigate({ to: "/diagnostico/resumen" });
+      return;
+    }
+
+    const calculado = finalizar();
+    setEnCurso(false);
+    if (calculado) {
+      const salto = setTimeout(() => navigate({ to: "/diagnostico/resumen" }), 900);
+      return () => clearTimeout(salto);
+    }
+    return;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isHydrated]);
+
+  if (!isHydrated) {
+    return <LoadingState fullPage />;
+  }
+
+  const reintentar = () => {
+    const calculado = finalizar();
+    if (calculado) navigate({ to: "/diagnostico/resumen" });
+  };
 
   return (
     <div className="space-y-6">
       <PageHeader
-        titulo="Organizando tus respuestas"
+        titulo="Calculando tu resultado"
         subtitulo="Tomará solo unos segundos."
         migas={[
           { label: "Inicio", to: "/inicio" },
@@ -54,26 +76,44 @@ function ProcesandoPage() {
         ]}
       />
 
-      <div
-        role="status"
-        aria-live="polite"
-        className="flex flex-col items-center gap-4 rounded-xl border border-border bg-card p-10 text-center"
-      >
-        <Loader2 className="h-8 w-8 animate-spin text-primary" aria-hidden="true" />
-        <p className="text-sm font-medium text-foreground">Estamos organizando tus respuestas…</p>
-        <p className="max-w-md text-sm text-muted-foreground">
-          Esta preparación es simulada en el MVP Alfa: sirve para mostrar cómo se presentará el
-          análisis cuando la lógica esté disponible.
-        </p>
-        {demorado && (
-          <div className="space-y-3">
-            <p className="text-sm text-warning-foreground">
-              Está tomando más de lo previsto. Puedes ir directamente a tus resultados.
-            </p>
-            <Button onClick={() => navigate({ to: "/resultados" })}>Ver resultados</Button>
+      {errorCalculo ? (
+        <div
+          role="alert"
+          className="flex flex-col items-center gap-4 rounded-xl border border-destructive/30 bg-destructive/5 p-10 text-center"
+        >
+          <TriangleAlert className="h-8 w-8 text-destructive" aria-hidden="true" />
+          <p className="text-sm font-medium text-foreground">
+            No pudimos completar el cálculo (código {errorCalculo}).
+          </p>
+          <p className="max-w-md text-sm text-muted-foreground">
+            Tus respuestas siguen guardadas. Puedes intentar el cálculo otra vez.
+          </p>
+          <div className="flex flex-wrap justify-center gap-2">
+            <Button onClick={reintentar}>Recalcular</Button>
+            <Button variant="outline" onClick={() => navigate({ to: "/diagnostico/revision" })}>
+              Volver a la revisión
+            </Button>
           </div>
-        )}
-      </div>
+        </div>
+      ) : (
+        <div
+          role="status"
+          aria-live="polite"
+          className="flex flex-col items-center gap-4 rounded-xl border border-border bg-card p-10 text-center"
+        >
+          <Loader2 className="h-8 w-8 animate-spin text-primary" aria-hidden="true" />
+          <p className="text-sm font-medium text-foreground">
+            {enCurso ? "Estamos calculando tu resultado…" : "Cálculo listo. Abriendo tu resumen…"}
+          </p>
+          <p className="max-w-md text-sm text-muted-foreground">
+            Calculamos el puntaje de cada dimensión y el puntaje global ponderado a partir de tus
+            respuestas.
+          </p>
+          <Button variant="outline" disabled={enCurso} onClick={() => navigate({ to: "/diagnostico/resumen" })}>
+            Ver resumen
+          </Button>
+        </div>
+      )}
     </div>
   );
 }

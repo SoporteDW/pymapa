@@ -1,5 +1,5 @@
 /**
- * Analítica de interacción provisional (POC-02, sección 13).
+ * Analítica de interacción provisional (POC-02, sección 13; POC-03, sección 15).
  * Registra eventos en memoria y en localStorage para facilitar la validación
  * del prototipo. No envía datos a ningún servicio externo.
  */
@@ -17,7 +17,14 @@ export type EventoInteraccion =
   | "accion_completada"
   | "datos_demo_cargados"
   | "datos_reiniciados"
-  | "ruta_invalida";
+  | "ruta_invalida"
+  // Eventos técnicos del sistema de diagnóstico (POC-03, sección 15).
+  | "diagnostic_started"
+  | "question_answered"
+  | "diagnostic_paused"
+  | "diagnostic_resumed"
+  | "diagnostic_completed"
+  | "diagnostic_error";
 
 const STORAGE_KEY = "pyme-digital-eventos-v1";
 const MAX_EVENTOS = 100;
