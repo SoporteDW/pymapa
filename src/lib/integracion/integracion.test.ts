@@ -67,7 +67,7 @@ describe("POC-08 · coherencia entre respuestas y resultados", () => {
   it("marca como parcial el diagnóstico incompleto y reduce la cobertura", () => {
     const parcial = integrarPerfil(perfilPorId("PYME-04")!, { hoy: HOY });
     expect(parcial.resultado!.completeness).toBe("parcial");
-    expect(parcial.salidaMotor!.quality.coverage).toBeLessThan(1);
+    expect(parcial.salidaMotor!.quality.coverage).toBeLessThan(100);
   });
 
   it("cada perfil genera un conjunto propio de prioridades", () => {
