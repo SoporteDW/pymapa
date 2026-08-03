@@ -40,7 +40,7 @@ function DiagnosticoPage() {
     return <LoadingState fullPage />;
   }
 
-  const pregunta = preguntasDemo[currentStep];
+  const pregunta = preguntasDemo[currentStep] ?? null;
   const progress = Math.round(((currentStep + 1) / preguntasDemo.length) * 100);
 
   const handleNext = () => {
