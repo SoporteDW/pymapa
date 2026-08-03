@@ -208,6 +208,15 @@ export function useRoadmap() {
     setMensaje({ tono: "ok", texto: "El plan se regeneró desde tus resultados." });
   }, [roadmap]);
 
+  /**
+   * POC-09 (D-02): distingue el vacío por falta de diagnóstico del vacío
+   * legítimo de una pyme madura sin brechas ni riesgos accionables.
+   */
+  const sinAccionesPorMadurez = useMemo(
+    () => Boolean(resultado) && resultado!.actions.length === 0,
+    [resultado]
+  );
+
   const resumen = useMemo(() => (roadmap ? resumirRoadmap(roadmap) : null), [roadmap]);
   const alertas = useMemo(() => (roadmap ? alertasDelRoadmap(roadmap) : []), [roadmap]);
   const cronograma = useMemo(() => (roadmap ? construirCronograma(roadmap) : null), [roadmap]);
