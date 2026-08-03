@@ -42,6 +42,24 @@ import {
 } from "lucide-react";
 
 export const Route = createFileRoute("/dashboard/")({
+  head: () => ({
+    meta: [
+      { title: "Indicadores y seguimiento — Pyme Digital" },
+      {
+        name: "description",
+        content:
+          "Tablero de indicadores del modelo de transformación digital: madurez, avance del plan, cumplimiento de fechas y próxima acción recomendada.",
+      },
+      { property: "og:title", content: "Indicadores y seguimiento — Pyme Digital" },
+      {
+        property: "og:description",
+        content:
+          "Madurez digital, avance del Roadmap, alertas y próxima acción recomendada en una sola vista.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: DashboardPage,
 });
 
