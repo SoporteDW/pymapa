@@ -172,17 +172,18 @@ export function verificarConsistencia(ejecucion: EjecucionIntegrada): InformeCon
     )
   );
 
+  // La cobertura del motor se expresa en porcentaje (0 a 100).
   const cobertura = salidaMotor?.quality.coverage ?? 0;
   const parcialCoherente =
     !resultado ||
-    (resultado.completeness === "parcial" ? cobertura < 1 : cobertura >= 1) ||
+    (resultado.completeness === "parcial" ? cobertura < 100 : cobertura >= 100) ||
     resultado.advertencias.length > 0;
   verificaciones.push(
     check(
       "IC-09",
       "La completitud declarada corresponde a la cobertura real",
       parcialCoherente,
-      `Cobertura ${Math.round(cobertura * 100)}% con resultado ${resultado?.completeness ?? "—"}.`,
+      `Cobertura ${Math.round(cobertura)}% con resultado ${resultado?.completeness ?? "—"}.`,
       "El resultado se declara completo pese a una cobertura parcial de respuestas.",
       "aviso"
     )
