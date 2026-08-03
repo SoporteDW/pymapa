@@ -60,7 +60,14 @@ export type EventoInteraccion =
   | "dashboard_kpi_opened"
   | "dashboard_dimension_opened"
   | "dashboard_alerts_viewed"
-  | "dashboard_next_action_opened";
+  | "dashboard_next_action_opened"
+  // Eventos de integración, datos simulados y persistencia (POC-08).
+  | "integration_profile_loaded"
+  | "integration_consistency_checked"
+  | "integration_session_exported"
+  | "integration_session_restored"
+  | "integration_session_reset"
+  | "integration_error";
 
 const STORAGE_KEY = "pyme-digital-eventos-v1";
 const MAX_EVENTOS = 100;
