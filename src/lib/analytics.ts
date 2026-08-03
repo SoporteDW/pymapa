@@ -51,7 +51,16 @@ export type EventoInteraccion =
   | "roadmap_action_rescheduled"
   | "roadmap_phase_changed"
   | "roadmap_note_added"
-  | "roadmap_evidence_added";
+  | "roadmap_evidence_added"
+  // Eventos de dashboard e indicadores (POC-07, secciones 6 y 9).
+  | "dashboard_viewed"
+  | "dashboard_error"
+  | "dashboard_filters_changed"
+  | "dashboard_filters_reset"
+  | "dashboard_kpi_opened"
+  | "dashboard_dimension_opened"
+  | "dashboard_alerts_viewed"
+  | "dashboard_next_action_opened";
 
 const STORAGE_KEY = "pyme-digital-eventos-v1";
 const MAX_EVENTOS = 100;

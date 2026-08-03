@@ -18,6 +18,8 @@ import { Route as PerfilRouteImport } from './routes/perfil'
 import { Route as PlanDeAccionRouteImport } from './routes/plan-de-accion'
 import { Route as ResultadosRouteImport } from './routes/resultados'
 import { Route as RoadmapRouteImport } from './routes/roadmap'
+import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
+import { Route as DashboardAlertasRouteImport } from './routes/dashboard.alertas'
 import { Route as DiagnosticoIndexRouteImport } from './routes/diagnostico.index'
 import { Route as DiagnosticoMotorRouteImport } from './routes/diagnostico.motor'
 import { Route as DiagnosticoProcesandoRouteImport } from './routes/diagnostico.procesando'
@@ -29,6 +31,7 @@ import { Route as ResultadosIndexRouteImport } from './routes/resultados.index'
 import { Route as ResultadosDimensionRouteImport } from './routes/resultados.$dimension'
 import { Route as RoadmapIndexRouteImport } from './routes/roadmap.index'
 import { Route as RoadmapAccionRouteImport } from './routes/roadmap.$accion'
+import { Route as DashboardDimensionDimensionRouteImport } from './routes/dashboard.dimension.$dimension'
 import { Route as DiagnosticoPasoIdRouteImport } from './routes/diagnostico.paso.$id'
 
 const IndexRoute = IndexRouteImport.update({
@@ -75,6 +78,16 @@ const RoadmapRoute = RoadmapRouteImport.update({
   id: '/roadmap',
   path: '/roadmap',
   getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardIndexRoute = DashboardIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardAlertasRoute = DashboardAlertasRouteImport.update({
+  id: '/alertas',
+  path: '/alertas',
+  getParentRoute: () => DashboardRoute,
 } as any)
 const DiagnosticoIndexRoute = DiagnosticoIndexRouteImport.update({
   id: '/',
@@ -131,6 +144,12 @@ const RoadmapAccionRoute = RoadmapAccionRouteImport.update({
   path: '/$accion',
   getParentRoute: () => RoadmapRoute,
 } as any)
+const DashboardDimensionDimensionRoute =
+  DashboardDimensionDimensionRouteImport.update({
+    id: '/dimension/$dimension',
+    path: '/dimension/$dimension',
+    getParentRoute: () => DashboardRoute,
+  } as any)
 const DiagnosticoPasoIdRoute = DiagnosticoPasoIdRouteImport.update({
   id: '/paso/$id',
   path: '/paso/$id',
@@ -140,13 +159,14 @@ const DiagnosticoPasoIdRoute = DiagnosticoPasoIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/ayuda': typeof AyudaRoute
-  '/dashboard': typeof DashboardRoute
+  '/dashboard': typeof DashboardRouteWithChildren
   '/diagnostico': typeof DiagnosticoRouteWithChildren
   '/inicio': typeof InicioRoute
   '/perfil': typeof PerfilRoute
   '/plan-de-accion': typeof PlanDeAccionRouteWithChildren
   '/resultados': typeof ResultadosRouteWithChildren
   '/roadmap': typeof RoadmapRouteWithChildren
+  '/dashboard/alertas': typeof DashboardAlertasRoute
   '/diagnostico/motor': typeof DiagnosticoMotorRoute
   '/diagnostico/procesando': typeof DiagnosticoProcesandoRoute
   '/diagnostico/resumen': typeof DiagnosticoResumenRoute
@@ -154,18 +174,20 @@ export interface FileRoutesByFullPath {
   '/plan-de-accion/$accion': typeof PlanDeAccionAccionRoute
   '/resultados/$dimension': typeof ResultadosDimensionRoute
   '/roadmap/$accion': typeof RoadmapAccionRoute
+  '/dashboard/': typeof DashboardIndexRoute
   '/diagnostico/': typeof DiagnosticoIndexRoute
   '/plan-de-accion/': typeof PlanDeAccionIndexRoute
   '/resultados/': typeof ResultadosIndexRoute
   '/roadmap/': typeof RoadmapIndexRoute
+  '/dashboard/dimension/$dimension': typeof DashboardDimensionDimensionRoute
   '/diagnostico/paso/$id': typeof DiagnosticoPasoIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/ayuda': typeof AyudaRoute
-  '/dashboard': typeof DashboardRoute
   '/inicio': typeof InicioRoute
   '/perfil': typeof PerfilRoute
+  '/dashboard/alertas': typeof DashboardAlertasRoute
   '/diagnostico/motor': typeof DiagnosticoMotorRoute
   '/diagnostico/procesando': typeof DiagnosticoProcesandoRoute
   '/diagnostico/resumen': typeof DiagnosticoResumenRoute
@@ -173,23 +195,26 @@ export interface FileRoutesByTo {
   '/plan-de-accion/$accion': typeof PlanDeAccionAccionRoute
   '/resultados/$dimension': typeof ResultadosDimensionRoute
   '/roadmap/$accion': typeof RoadmapAccionRoute
+  '/dashboard': typeof DashboardIndexRoute
   '/diagnostico': typeof DiagnosticoIndexRoute
   '/plan-de-accion': typeof PlanDeAccionIndexRoute
   '/resultados': typeof ResultadosIndexRoute
   '/roadmap': typeof RoadmapIndexRoute
+  '/dashboard/dimension/$dimension': typeof DashboardDimensionDimensionRoute
   '/diagnostico/paso/$id': typeof DiagnosticoPasoIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/ayuda': typeof AyudaRoute
-  '/dashboard': typeof DashboardRoute
+  '/dashboard': typeof DashboardRouteWithChildren
   '/diagnostico': typeof DiagnosticoRouteWithChildren
   '/inicio': typeof InicioRoute
   '/perfil': typeof PerfilRoute
   '/plan-de-accion': typeof PlanDeAccionRouteWithChildren
   '/resultados': typeof ResultadosRouteWithChildren
   '/roadmap': typeof RoadmapRouteWithChildren
+  '/dashboard/alertas': typeof DashboardAlertasRoute
   '/diagnostico/motor': typeof DiagnosticoMotorRoute
   '/diagnostico/procesando': typeof DiagnosticoProcesandoRoute
   '/diagnostico/resumen': typeof DiagnosticoResumenRoute
@@ -197,10 +222,12 @@ export interface FileRoutesById {
   '/plan-de-accion/$accion': typeof PlanDeAccionAccionRoute
   '/resultados/$dimension': typeof ResultadosDimensionRoute
   '/roadmap/$accion': typeof RoadmapAccionRoute
+  '/dashboard/': typeof DashboardIndexRoute
   '/diagnostico/': typeof DiagnosticoIndexRoute
   '/plan-de-accion/': typeof PlanDeAccionIndexRoute
   '/resultados/': typeof ResultadosIndexRoute
   '/roadmap/': typeof RoadmapIndexRoute
+  '/dashboard/dimension/$dimension': typeof DashboardDimensionDimensionRoute
   '/diagnostico/paso/$id': typeof DiagnosticoPasoIdRoute
 }
 export interface FileRouteTypes {
@@ -215,6 +242,7 @@ export interface FileRouteTypes {
     | '/plan-de-accion'
     | '/resultados'
     | '/roadmap'
+    | '/dashboard/alertas'
     | '/diagnostico/motor'
     | '/diagnostico/procesando'
     | '/diagnostico/resumen'
@@ -222,18 +250,20 @@ export interface FileRouteTypes {
     | '/plan-de-accion/$accion'
     | '/resultados/$dimension'
     | '/roadmap/$accion'
+    | '/dashboard/'
     | '/diagnostico/'
     | '/plan-de-accion/'
     | '/resultados/'
     | '/roadmap/'
+    | '/dashboard/dimension/$dimension'
     | '/diagnostico/paso/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/ayuda'
-    | '/dashboard'
     | '/inicio'
     | '/perfil'
+    | '/dashboard/alertas'
     | '/diagnostico/motor'
     | '/diagnostico/procesando'
     | '/diagnostico/resumen'
@@ -241,10 +271,12 @@ export interface FileRouteTypes {
     | '/plan-de-accion/$accion'
     | '/resultados/$dimension'
     | '/roadmap/$accion'
+    | '/dashboard'
     | '/diagnostico'
     | '/plan-de-accion'
     | '/resultados'
     | '/roadmap'
+    | '/dashboard/dimension/$dimension'
     | '/diagnostico/paso/$id'
   id:
     | '__root__'
@@ -257,6 +289,7 @@ export interface FileRouteTypes {
     | '/plan-de-accion'
     | '/resultados'
     | '/roadmap'
+    | '/dashboard/alertas'
     | '/diagnostico/motor'
     | '/diagnostico/procesando'
     | '/diagnostico/resumen'
@@ -264,17 +297,19 @@ export interface FileRouteTypes {
     | '/plan-de-accion/$accion'
     | '/resultados/$dimension'
     | '/roadmap/$accion'
+    | '/dashboard/'
     | '/diagnostico/'
     | '/plan-de-accion/'
     | '/resultados/'
     | '/roadmap/'
+    | '/dashboard/dimension/$dimension'
     | '/diagnostico/paso/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AyudaRoute: typeof AyudaRoute
-  DashboardRoute: typeof DashboardRoute
+  DashboardRoute: typeof DashboardRouteWithChildren
   DiagnosticoRoute: typeof DiagnosticoRouteWithChildren
   InicioRoute: typeof InicioRoute
   PerfilRoute: typeof PerfilRoute
@@ -347,6 +382,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/roadmap'
       preLoaderRoute: typeof RoadmapRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/': {
+      id: '/dashboard/'
+      path: '/'
+      fullPath: '/dashboard/'
+      preLoaderRoute: typeof DashboardIndexRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/alertas': {
+      id: '/dashboard/alertas'
+      path: '/alertas'
+      fullPath: '/dashboard/alertas'
+      preLoaderRoute: typeof DashboardAlertasRouteImport
+      parentRoute: typeof DashboardRoute
     }
     '/diagnostico/': {
       id: '/diagnostico/'
@@ -425,6 +474,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RoadmapAccionRouteImport
       parentRoute: typeof RoadmapRoute
     }
+    '/dashboard/dimension/$dimension': {
+      id: '/dashboard/dimension/$dimension'
+      path: '/dimension/$dimension'
+      fullPath: '/dashboard/dimension/$dimension'
+      preLoaderRoute: typeof DashboardDimensionDimensionRouteImport
+      parentRoute: typeof DashboardRoute
+    }
     '/diagnostico/paso/$id': {
       id: '/diagnostico/paso/$id'
       path: '/paso/$id'
@@ -434,6 +490,22 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface DashboardRouteChildren {
+  DashboardAlertasRoute: typeof DashboardAlertasRoute
+  DashboardIndexRoute: typeof DashboardIndexRoute
+  DashboardDimensionDimensionRoute: typeof DashboardDimensionDimensionRoute
+}
+
+const DashboardRouteChildren: DashboardRouteChildren = {
+  DashboardAlertasRoute: DashboardAlertasRoute,
+  DashboardIndexRoute: DashboardIndexRoute,
+  DashboardDimensionDimensionRoute: DashboardDimensionDimensionRoute,
+}
+
+const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
+  DashboardRouteChildren,
+)
 
 interface DiagnosticoRouteChildren {
   DiagnosticoMotorRoute: typeof DiagnosticoMotorRoute
@@ -501,7 +573,7 @@ const RoadmapRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AyudaRoute: AyudaRoute,
-  DashboardRoute: DashboardRoute,
+  DashboardRoute: DashboardRouteWithChildren,
   DiagnosticoRoute: DiagnosticoRouteWithChildren,
   InicioRoute: InicioRoute,
   PerfilRoute: PerfilRoute,
@@ -512,13 +584,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

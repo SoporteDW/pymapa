@@ -17,7 +17,7 @@ export const navItems = [
   { id: "resultados", to: "/resultados", label: "Resultados", icon: BarChart3 },
   { id: "plan-de-accion", to: "/plan-de-accion", label: "Plan de acción", icon: ListTodo },
   { id: "roadmap", to: "/roadmap", label: "Roadmap", icon: RouteIcon },
-  { id: "dashboard", to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { id: "dashboard", to: "/dashboard", label: "Indicadores", icon: LayoutDashboard },
   { id: "perfil", to: "/perfil", label: "Perfil de empresa", icon: UserRound },
   { id: "ayuda", to: "/ayuda", label: "Ayuda", icon: HelpCircle },
 ];

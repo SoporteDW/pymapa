@@ -53,7 +53,13 @@ export interface MensajeRoadmap {
  * operaciones sobre el plan. La lógica de negocio vive en src/lib/roadmap.
  */
 export function useRoadmap() {
-  const { estado: estadoResultados, resultado, escenarioId } = useResultados();
+  const {
+    estado: estadoResultados,
+    resultado,
+    escenarioId,
+    escenarios,
+    aplicarEscenario,
+  } = useResultados();
   const [roadmap, setRoadmap] = useState<Roadmap | null>(null);
   const [estado, setEstado] = useState<EstadoRoadmap>("cargando");
   const [mensaje, setMensaje] = useState<MensajeRoadmap | null>(null);
@@ -240,5 +246,11 @@ export function useRoadmap() {
     reiniciar,
     modoDemo,
     escenarioId,
+    /** Insumos del POC-05 reexpuestos para el dashboard del POC-07. */
+    resultado,
+    estadoResultados,
+    escenarios,
+    aplicarEscenario,
+
   };
 }
