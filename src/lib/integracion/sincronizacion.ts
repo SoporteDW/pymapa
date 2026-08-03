@@ -105,17 +105,13 @@ function mapearAcciones(resultado: ResultadoPyme): Accion[] {
 export function sincronizarDesdeEjecucion(
   ejecucion: EjecucionIntegrada
 ): SesionSincronizada | null {
-  const { resultado, diagnostico } = ejecucion;
+  const { resultado } = ejecucion;
   if (!resultado) return null;
 
   const totalPreguntas =
     ejecucion.salidaMotor?.quality.aplicables ?? ejecucion.respuestas.length;
   const respondidas = ejecucion.salidaMotor?.quality.respondidas ?? ejecucion.respuestas.length;
-  const progreso = diagnostico
-    ? Math.round(diagnostico.completionPercent ?? 100)
-    : totalPreguntas > 0
-      ? Math.round((respondidas / totalPreguntas) * 100)
-      : 100;
+  const progreso = totalPreguntas > 0 ? Math.round((respondidas / totalPreguntas) * 100) : 100;
 
   return {
     diagnostico: {
