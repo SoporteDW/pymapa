@@ -18,6 +18,7 @@ import { Route as PerfilRouteImport } from './routes/perfil'
 import { Route as PlanDeAccionRouteImport } from './routes/plan-de-accion'
 import { Route as ResultadosRouteImport } from './routes/resultados'
 import { Route as DiagnosticoIndexRouteImport } from './routes/diagnostico.index'
+import { Route as DiagnosticoMotorRouteImport } from './routes/diagnostico.motor'
 import { Route as DiagnosticoProcesandoRouteImport } from './routes/diagnostico.procesando'
 import { Route as DiagnosticoResumenRouteImport } from './routes/diagnostico.resumen'
 import { Route as DiagnosticoRevisionRouteImport } from './routes/diagnostico.revision'
@@ -72,6 +73,11 @@ const DiagnosticoIndexRoute = DiagnosticoIndexRouteImport.update({
   path: '/',
   getParentRoute: () => DiagnosticoRoute,
 } as any)
+const DiagnosticoMotorRoute = DiagnosticoMotorRouteImport.update({
+  id: '/motor',
+  path: '/motor',
+  getParentRoute: () => DiagnosticoRoute,
+} as any)
 const DiagnosticoProcesandoRoute = DiagnosticoProcesandoRouteImport.update({
   id: '/procesando',
   path: '/procesando',
@@ -122,6 +128,7 @@ export interface FileRoutesByFullPath {
   '/perfil': typeof PerfilRoute
   '/plan-de-accion': typeof PlanDeAccionRouteWithChildren
   '/resultados': typeof ResultadosRouteWithChildren
+  '/diagnostico/motor': typeof DiagnosticoMotorRoute
   '/diagnostico/procesando': typeof DiagnosticoProcesandoRoute
   '/diagnostico/resumen': typeof DiagnosticoResumenRoute
   '/diagnostico/revision': typeof DiagnosticoRevisionRoute
@@ -138,6 +145,7 @@ export interface FileRoutesByTo {
   '/dashboard': typeof DashboardRoute
   '/inicio': typeof InicioRoute
   '/perfil': typeof PerfilRoute
+  '/diagnostico/motor': typeof DiagnosticoMotorRoute
   '/diagnostico/procesando': typeof DiagnosticoProcesandoRoute
   '/diagnostico/resumen': typeof DiagnosticoResumenRoute
   '/diagnostico/revision': typeof DiagnosticoRevisionRoute
@@ -158,6 +166,7 @@ export interface FileRoutesById {
   '/perfil': typeof PerfilRoute
   '/plan-de-accion': typeof PlanDeAccionRouteWithChildren
   '/resultados': typeof ResultadosRouteWithChildren
+  '/diagnostico/motor': typeof DiagnosticoMotorRoute
   '/diagnostico/procesando': typeof DiagnosticoProcesandoRoute
   '/diagnostico/resumen': typeof DiagnosticoResumenRoute
   '/diagnostico/revision': typeof DiagnosticoRevisionRoute
@@ -179,6 +188,7 @@ export interface FileRouteTypes {
     | '/perfil'
     | '/plan-de-accion'
     | '/resultados'
+    | '/diagnostico/motor'
     | '/diagnostico/procesando'
     | '/diagnostico/resumen'
     | '/diagnostico/revision'
@@ -195,6 +205,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/inicio'
     | '/perfil'
+    | '/diagnostico/motor'
     | '/diagnostico/procesando'
     | '/diagnostico/resumen'
     | '/diagnostico/revision'
@@ -214,6 +225,7 @@ export interface FileRouteTypes {
     | '/perfil'
     | '/plan-de-accion'
     | '/resultados'
+    | '/diagnostico/motor'
     | '/diagnostico/procesando'
     | '/diagnostico/resumen'
     | '/diagnostico/revision'
@@ -301,6 +313,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DiagnosticoIndexRouteImport
       parentRoute: typeof DiagnosticoRoute
     }
+    '/diagnostico/motor': {
+      id: '/diagnostico/motor'
+      path: '/motor'
+      fullPath: '/diagnostico/motor'
+      preLoaderRoute: typeof DiagnosticoMotorRouteImport
+      parentRoute: typeof DiagnosticoRoute
+    }
     '/diagnostico/procesando': {
       id: '/diagnostico/procesando'
       path: '/procesando'
@@ -361,6 +380,7 @@ declare module '@tanstack/react-router' {
 }
 
 interface DiagnosticoRouteChildren {
+  DiagnosticoMotorRoute: typeof DiagnosticoMotorRoute
   DiagnosticoProcesandoRoute: typeof DiagnosticoProcesandoRoute
   DiagnosticoResumenRoute: typeof DiagnosticoResumenRoute
   DiagnosticoRevisionRoute: typeof DiagnosticoRevisionRoute
@@ -369,6 +389,7 @@ interface DiagnosticoRouteChildren {
 }
 
 const DiagnosticoRouteChildren: DiagnosticoRouteChildren = {
+  DiagnosticoMotorRoute: DiagnosticoMotorRoute,
   DiagnosticoProcesandoRoute: DiagnosticoProcesandoRoute,
   DiagnosticoResumenRoute: DiagnosticoResumenRoute,
   DiagnosticoRevisionRoute: DiagnosticoRevisionRoute,
@@ -421,3 +442,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
