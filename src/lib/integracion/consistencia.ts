@@ -88,6 +88,12 @@ export function verificarConsistencia(ejecucion: EjecucionIntegrada): InformeCon
   const hallazgos = new Set((resultado?.fortalezas ?? [])
     .concat(resultado?.brechas ?? [], resultado?.riesgos ?? [], resultado?.oportunidades ?? [])
     .map((h) => h.id));
+  /**
+   * Una pyme madura puede no tener brechas ni riesgos: en ese caso la ausencia de
+   * prioridades y de fichas es el resultado correcto, no una inconsistencia.
+   */
+  const hayHallazgosAccionables =
+    (resultado?.brechas.length ?? 0) + (resultado?.riesgos.length ?? 0) > 0;
   const prioridadesSinHallazgo = (resultado?.priorities ?? []).filter(
     (p) => p.findingRefs.length === 0 || !p.findingRefs.some((ref) => hallazgos.has(ref))
   );
@@ -95,11 +101,14 @@ export function verificarConsistencia(ejecucion: EjecucionIntegrada): InformeCon
     check(
       "IC-04",
       "Cada prioridad se apoya en hallazgos existentes",
-      (resultado?.priorities.length ?? 0) > 0 && prioridadesSinHallazgo.length === 0,
-      `${resultado?.priorities.length ?? 0} prioridades con hallazgos trazables.`,
+      prioridadesSinHallazgo.length === 0 &&
+        (hayHallazgosAccionables ? (resultado?.priorities.length ?? 0) > 0 : true),
+      (resultado?.priorities.length ?? 0) > 0
+        ? `${resultado?.priorities.length ?? 0} prioridades con hallazgos trazables.`
+        : "Sin brechas ni riesgos: no corresponde generar prioridades.",
       prioridadesSinHallazgo.length > 0
         ? `Prioridades sin hallazgo válido: ${prioridadesSinHallazgo.map((p) => p.id).join(", ")}.`
-        : "No se generaron prioridades a partir de los hallazgos."
+        : "Hay brechas o riesgos, pero no se generaron prioridades."
     )
   );
 
@@ -109,11 +118,14 @@ export function verificarConsistencia(ejecucion: EjecucionIntegrada): InformeCon
     check(
       "IC-05",
       "Cada Ficha de Acción proviene de una prioridad",
-      (resultado?.actions.length ?? 0) > 0 && fichasSinPrioridad.length === 0,
-      `${resultado?.actions.length ?? 0} fichas vinculadas a prioridades.`,
+      fichasSinPrioridad.length === 0 &&
+        ((resultado?.priorities.length ?? 0) > 0 ? (resultado?.actions.length ?? 0) > 0 : true),
+      (resultado?.actions.length ?? 0) > 0
+        ? `${resultado?.actions.length ?? 0} fichas vinculadas a prioridades.`
+        : "Sin prioridades vigentes: no corresponde generar Fichas de Acción.",
       fichasSinPrioridad.length > 0
         ? `Fichas sin prioridad de origen: ${fichasSinPrioridad.map((a) => a.id).join(", ")}.`
-        : "No se generaron Fichas de Acción."
+        : "Hay prioridades, pero no se generaron Fichas de Acción."
     )
   );
 
