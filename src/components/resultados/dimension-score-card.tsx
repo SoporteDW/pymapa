@@ -25,7 +25,7 @@ export function DimensionScoreCard({ dimension }: { dimension: DimensionResultVi
             value={dimension.score}
             aria-label={`${dimension.nombre}: ${dimension.score} de 100`}
           />
-          <span className="text-sm font-semibold text-foreground">{dimension.score}</span>
+          <span className="text-sm font-semibold text-foreground">{Math.round(dimension.score)}</span>
         </div>
         <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
           <ConfidenceBadge nivel={dimension.nivelConfianza} />

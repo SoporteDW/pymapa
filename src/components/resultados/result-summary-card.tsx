@@ -31,7 +31,7 @@ export function ResultSummaryCard({ resultado, accionPrimaria }: ResultSummaryCa
           <div>
             <p className="text-sm text-muted-foreground">Nivel digital general</p>
             <p className="text-3xl font-bold text-foreground">
-              {resultado.overallScore} de 100
+              {Math.round(resultado.overallScore)} de 100
             </p>
             <p className="text-sm text-muted-foreground">{resultado.maturityInterpretation}</p>
           </div>

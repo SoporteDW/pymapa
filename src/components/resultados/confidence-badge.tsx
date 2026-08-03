@@ -32,7 +32,7 @@ export function ConfidenceBadge({ nivel, valor }: ConfidenceBadgeProps) {
   return (
     <Badge variant="outline" className={variantes[nivel]} title={explicacion[nivel]}>
       <Icono className="mr-1 h-3 w-3" aria-hidden="true" />
-      Confianza {etiquetaConfianza(nivel).toLowerCase()}
+      {etiquetaConfianza(nivel)}
       {valor !== undefined ? ` · ${valor.toFixed(2)}` : ""}
     </Badge>
   );

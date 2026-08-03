@@ -96,7 +96,7 @@ function DimensionDetallePage() {
                     aria-label={`${dimension.nombre}: ${dimension.score} de 100`}
                   />
                   <span className="text-sm font-semibold text-foreground">
-                    {dimension.score} / 100
+                    {Math.round(dimension.score)} / 100
                   </span>
                 </div>
                 <p className="text-sm text-muted-foreground">
