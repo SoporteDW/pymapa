@@ -112,7 +112,11 @@ export function ejecutarMotor(entrada: EntradaMotor): SalidaMotor {
       peso: dimension.peso,
       puntaje,
       madurezNivel: nivelAjustado,
-      madurezNombre: provisional ? `${banda.nombre} (provisional)` : banda.nombre,
+      madurezNombre: provisional
+        ? `${banda.nombre} (provisional)`
+        : alertasCriticas > 0
+          ? `${banda.nombre} (limitada por alerta crítica)`
+          : banda.nombre,
       madurezProvisional: provisional,
       cobertura,
       confianza: redondear(confianzaDimension, 2),
