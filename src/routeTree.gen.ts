@@ -17,6 +17,7 @@ import { Route as InicioRouteImport } from './routes/inicio'
 import { Route as PerfilRouteImport } from './routes/perfil'
 import { Route as PlanDeAccionRouteImport } from './routes/plan-de-accion'
 import { Route as ResultadosRouteImport } from './routes/resultados'
+import { Route as RoadmapRouteImport } from './routes/roadmap'
 import { Route as DiagnosticoIndexRouteImport } from './routes/diagnostico.index'
 import { Route as DiagnosticoMotorRouteImport } from './routes/diagnostico.motor'
 import { Route as DiagnosticoProcesandoRouteImport } from './routes/diagnostico.procesando'
@@ -26,6 +27,8 @@ import { Route as PlanDeAccionIndexRouteImport } from './routes/plan-de-accion.i
 import { Route as PlanDeAccionAccionRouteImport } from './routes/plan-de-accion.$accion'
 import { Route as ResultadosIndexRouteImport } from './routes/resultados.index'
 import { Route as ResultadosDimensionRouteImport } from './routes/resultados.$dimension'
+import { Route as RoadmapIndexRouteImport } from './routes/roadmap.index'
+import { Route as RoadmapAccionRouteImport } from './routes/roadmap.$accion'
 import { Route as DiagnosticoPasoIdRouteImport } from './routes/diagnostico.paso.$id'
 
 const IndexRoute = IndexRouteImport.update({
@@ -66,6 +69,11 @@ const PlanDeAccionRoute = PlanDeAccionRouteImport.update({
 const ResultadosRoute = ResultadosRouteImport.update({
   id: '/resultados',
   path: '/resultados',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoadmapRoute = RoadmapRouteImport.update({
+  id: '/roadmap',
+  path: '/roadmap',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DiagnosticoIndexRoute = DiagnosticoIndexRouteImport.update({
@@ -113,6 +121,16 @@ const ResultadosDimensionRoute = ResultadosDimensionRouteImport.update({
   path: '/$dimension',
   getParentRoute: () => ResultadosRoute,
 } as any)
+const RoadmapIndexRoute = RoadmapIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => RoadmapRoute,
+} as any)
+const RoadmapAccionRoute = RoadmapAccionRouteImport.update({
+  id: '/$accion',
+  path: '/$accion',
+  getParentRoute: () => RoadmapRoute,
+} as any)
 const DiagnosticoPasoIdRoute = DiagnosticoPasoIdRouteImport.update({
   id: '/paso/$id',
   path: '/paso/$id',
@@ -128,15 +146,18 @@ export interface FileRoutesByFullPath {
   '/perfil': typeof PerfilRoute
   '/plan-de-accion': typeof PlanDeAccionRouteWithChildren
   '/resultados': typeof ResultadosRouteWithChildren
+  '/roadmap': typeof RoadmapRouteWithChildren
   '/diagnostico/motor': typeof DiagnosticoMotorRoute
   '/diagnostico/procesando': typeof DiagnosticoProcesandoRoute
   '/diagnostico/resumen': typeof DiagnosticoResumenRoute
   '/diagnostico/revision': typeof DiagnosticoRevisionRoute
   '/plan-de-accion/$accion': typeof PlanDeAccionAccionRoute
   '/resultados/$dimension': typeof ResultadosDimensionRoute
+  '/roadmap/$accion': typeof RoadmapAccionRoute
   '/diagnostico/': typeof DiagnosticoIndexRoute
   '/plan-de-accion/': typeof PlanDeAccionIndexRoute
   '/resultados/': typeof ResultadosIndexRoute
+  '/roadmap/': typeof RoadmapIndexRoute
   '/diagnostico/paso/$id': typeof DiagnosticoPasoIdRoute
 }
 export interface FileRoutesByTo {
@@ -151,9 +172,11 @@ export interface FileRoutesByTo {
   '/diagnostico/revision': typeof DiagnosticoRevisionRoute
   '/plan-de-accion/$accion': typeof PlanDeAccionAccionRoute
   '/resultados/$dimension': typeof ResultadosDimensionRoute
+  '/roadmap/$accion': typeof RoadmapAccionRoute
   '/diagnostico': typeof DiagnosticoIndexRoute
   '/plan-de-accion': typeof PlanDeAccionIndexRoute
   '/resultados': typeof ResultadosIndexRoute
+  '/roadmap': typeof RoadmapIndexRoute
   '/diagnostico/paso/$id': typeof DiagnosticoPasoIdRoute
 }
 export interface FileRoutesById {
@@ -166,15 +189,18 @@ export interface FileRoutesById {
   '/perfil': typeof PerfilRoute
   '/plan-de-accion': typeof PlanDeAccionRouteWithChildren
   '/resultados': typeof ResultadosRouteWithChildren
+  '/roadmap': typeof RoadmapRouteWithChildren
   '/diagnostico/motor': typeof DiagnosticoMotorRoute
   '/diagnostico/procesando': typeof DiagnosticoProcesandoRoute
   '/diagnostico/resumen': typeof DiagnosticoResumenRoute
   '/diagnostico/revision': typeof DiagnosticoRevisionRoute
   '/plan-de-accion/$accion': typeof PlanDeAccionAccionRoute
   '/resultados/$dimension': typeof ResultadosDimensionRoute
+  '/roadmap/$accion': typeof RoadmapAccionRoute
   '/diagnostico/': typeof DiagnosticoIndexRoute
   '/plan-de-accion/': typeof PlanDeAccionIndexRoute
   '/resultados/': typeof ResultadosIndexRoute
+  '/roadmap/': typeof RoadmapIndexRoute
   '/diagnostico/paso/$id': typeof DiagnosticoPasoIdRoute
 }
 export interface FileRouteTypes {
@@ -188,15 +214,18 @@ export interface FileRouteTypes {
     | '/perfil'
     | '/plan-de-accion'
     | '/resultados'
+    | '/roadmap'
     | '/diagnostico/motor'
     | '/diagnostico/procesando'
     | '/diagnostico/resumen'
     | '/diagnostico/revision'
     | '/plan-de-accion/$accion'
     | '/resultados/$dimension'
+    | '/roadmap/$accion'
     | '/diagnostico/'
     | '/plan-de-accion/'
     | '/resultados/'
+    | '/roadmap/'
     | '/diagnostico/paso/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -211,9 +240,11 @@ export interface FileRouteTypes {
     | '/diagnostico/revision'
     | '/plan-de-accion/$accion'
     | '/resultados/$dimension'
+    | '/roadmap/$accion'
     | '/diagnostico'
     | '/plan-de-accion'
     | '/resultados'
+    | '/roadmap'
     | '/diagnostico/paso/$id'
   id:
     | '__root__'
@@ -225,15 +256,18 @@ export interface FileRouteTypes {
     | '/perfil'
     | '/plan-de-accion'
     | '/resultados'
+    | '/roadmap'
     | '/diagnostico/motor'
     | '/diagnostico/procesando'
     | '/diagnostico/resumen'
     | '/diagnostico/revision'
     | '/plan-de-accion/$accion'
     | '/resultados/$dimension'
+    | '/roadmap/$accion'
     | '/diagnostico/'
     | '/plan-de-accion/'
     | '/resultados/'
+    | '/roadmap/'
     | '/diagnostico/paso/$id'
   fileRoutesById: FileRoutesById
 }
@@ -246,6 +280,7 @@ export interface RootRouteChildren {
   PerfilRoute: typeof PerfilRoute
   PlanDeAccionRoute: typeof PlanDeAccionRouteWithChildren
   ResultadosRoute: typeof ResultadosRouteWithChildren
+  RoadmapRoute: typeof RoadmapRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -304,6 +339,13 @@ declare module '@tanstack/react-router' {
       path: '/resultados'
       fullPath: '/resultados'
       preLoaderRoute: typeof ResultadosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roadmap': {
+      id: '/roadmap'
+      path: '/roadmap'
+      fullPath: '/roadmap'
+      preLoaderRoute: typeof RoadmapRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/diagnostico/': {
@@ -369,6 +411,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResultadosDimensionRouteImport
       parentRoute: typeof ResultadosRoute
     }
+    '/roadmap/': {
+      id: '/roadmap/'
+      path: '/'
+      fullPath: '/roadmap/'
+      preLoaderRoute: typeof RoadmapIndexRouteImport
+      parentRoute: typeof RoadmapRoute
+    }
+    '/roadmap/$accion': {
+      id: '/roadmap/$accion'
+      path: '/$accion'
+      fullPath: '/roadmap/$accion'
+      preLoaderRoute: typeof RoadmapAccionRouteImport
+      parentRoute: typeof RoadmapRoute
+    }
     '/diagnostico/paso/$id': {
       id: '/diagnostico/paso/$id'
       path: '/paso/$id'
@@ -429,6 +485,19 @@ const ResultadosRouteWithChildren = ResultadosRoute._addFileChildren(
   ResultadosRouteChildren,
 )
 
+interface RoadmapRouteChildren {
+  RoadmapAccionRoute: typeof RoadmapAccionRoute
+  RoadmapIndexRoute: typeof RoadmapIndexRoute
+}
+
+const RoadmapRouteChildren: RoadmapRouteChildren = {
+  RoadmapAccionRoute: RoadmapAccionRoute,
+  RoadmapIndexRoute: RoadmapIndexRoute,
+}
+
+const RoadmapRouteWithChildren =
+  RoadmapRoute._addFileChildren(RoadmapRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AyudaRoute: AyudaRoute,
@@ -438,7 +507,18 @@ const rootRouteChildren: RootRouteChildren = {
   PerfilRoute: PerfilRoute,
   PlanDeAccionRoute: PlanDeAccionRouteWithChildren,
   ResultadosRoute: ResultadosRouteWithChildren,
+  RoadmapRoute: RoadmapRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

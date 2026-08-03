@@ -34,7 +34,24 @@ export type EventoInteraccion =
   | "results_scenario_loaded"
   | "action_card_opened"
   | "action_filters_changed"
-  | "traceability_opened";
+  | "traceability_opened"
+  // Eventos de roadmap, ejecución y seguimiento (POC-06, sección 19).
+  | "roadmap_generated"
+  | "roadmap_demo_loaded"
+  | "roadmap_viewed"
+  | "roadmap_view_changed"
+  | "roadmap_filters_changed"
+  | "roadmap_action_opened"
+  | "roadmap_state_changed"
+  | "roadmap_step_toggled"
+  | "roadmap_progress_updated"
+  | "roadmap_action_blocked"
+  | "roadmap_action_unblocked"
+  | "roadmap_action_discarded"
+  | "roadmap_action_rescheduled"
+  | "roadmap_phase_changed"
+  | "roadmap_note_added"
+  | "roadmap_evidence_added";
 
 const STORAGE_KEY = "pyme-digital-eventos-v1";
 const MAX_EVENTOS = 100;
