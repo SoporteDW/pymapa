@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AyudaRouteImport } from './routes/ayuda'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as DiagnosticoRouteImport } from './routes/diagnostico'
+import { Route as InicioRouteImport } from './routes/inicio'
+import { Route as PerfilRouteImport } from './routes/perfil'
+import { Route as PlanDeAccionRouteImport } from './routes/plan-de-accion'
+import { Route as ResultadosRouteImport } from './routes/resultados'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AyudaRoute = AyudaRouteImport.update({
+  id: '/ayuda',
+  path: '/ayuda',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DiagnosticoRoute = DiagnosticoRouteImport.update({
+  id: '/diagnostico',
+  path: '/diagnostico',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InicioRoute = InicioRouteImport.update({
+  id: '/inicio',
+  path: '/inicio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PerfilRoute = PerfilRouteImport.update({
+  id: '/perfil',
+  path: '/perfil',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlanDeAccionRoute = PlanDeAccionRouteImport.update({
+  id: '/plan-de-accion',
+  path: '/plan-de-accion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResultadosRoute = ResultadosRouteImport.update({
+  id: '/resultados',
+  path: '/resultados',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ayuda': typeof AyudaRoute
+  '/dashboard': typeof DashboardRoute
+  '/diagnostico': typeof DiagnosticoRoute
+  '/inicio': typeof InicioRoute
+  '/perfil': typeof PerfilRoute
+  '/plan-de-accion': typeof PlanDeAccionRoute
+  '/resultados': typeof ResultadosRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ayuda': typeof AyudaRoute
+  '/dashboard': typeof DashboardRoute
+  '/diagnostico': typeof DiagnosticoRoute
+  '/inicio': typeof InicioRoute
+  '/perfil': typeof PerfilRoute
+  '/plan-de-accion': typeof PlanDeAccionRoute
+  '/resultados': typeof ResultadosRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ayuda': typeof AyudaRoute
+  '/dashboard': typeof DashboardRoute
+  '/diagnostico': typeof DiagnosticoRoute
+  '/inicio': typeof InicioRoute
+  '/perfil': typeof PerfilRoute
+  '/plan-de-accion': typeof PlanDeAccionRoute
+  '/resultados': typeof ResultadosRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/ayuda'
+    | '/dashboard'
+    | '/diagnostico'
+    | '/inicio'
+    | '/perfil'
+    | '/plan-de-accion'
+    | '/resultados'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/ayuda'
+    | '/dashboard'
+    | '/diagnostico'
+    | '/inicio'
+    | '/perfil'
+    | '/plan-de-accion'
+    | '/resultados'
+  id:
+    | '__root__'
+    | '/'
+    | '/ayuda'
+    | '/dashboard'
+    | '/diagnostico'
+    | '/inicio'
+    | '/perfil'
+    | '/plan-de-accion'
+    | '/resultados'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AyudaRoute: typeof AyudaRoute
+  DashboardRoute: typeof DashboardRoute
+  DiagnosticoRoute: typeof DiagnosticoRoute
+  InicioRoute: typeof InicioRoute
+  PerfilRoute: typeof PerfilRoute
+  PlanDeAccionRoute: typeof PlanDeAccionRoute
+  ResultadosRoute: typeof ResultadosRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +143,68 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/ayuda': {
+      id: '/ayuda'
+      path: '/ayuda'
+      fullPath: '/ayuda'
+      preLoaderRoute: typeof AyudaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/diagnostico': {
+      id: '/diagnostico'
+      path: '/diagnostico'
+      fullPath: '/diagnostico'
+      preLoaderRoute: typeof DiagnosticoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inicio': {
+      id: '/inicio'
+      path: '/inicio'
+      fullPath: '/inicio'
+      preLoaderRoute: typeof InicioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/perfil': {
+      id: '/perfil'
+      path: '/perfil'
+      fullPath: '/perfil'
+      preLoaderRoute: typeof PerfilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plan-de-accion': {
+      id: '/plan-de-accion'
+      path: '/plan-de-accion'
+      fullPath: '/plan-de-accion'
+      preLoaderRoute: typeof PlanDeAccionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resultados': {
+      id: '/resultados'
+      path: '/resultados'
+      fullPath: '/resultados'
+      preLoaderRoute: typeof ResultadosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AyudaRoute: AyudaRoute,
+  DashboardRoute: DashboardRoute,
+  DiagnosticoRoute: DiagnosticoRoute,
+  InicioRoute: InicioRoute,
+  PerfilRoute: PerfilRoute,
+  PlanDeAccionRoute: PlanDeAccionRoute,
+  ResultadosRoute: ResultadosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
