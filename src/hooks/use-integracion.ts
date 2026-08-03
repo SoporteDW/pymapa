@@ -29,7 +29,12 @@ export type EstadoIntegracion = "cargando" | "listo" | "cargandoPerfil" | "error
  * coordinan almacenamiento y estados de interfaz.
  */
 export function useIntegracion() {
-  const { updateEmpresa, registrarActividad, sincronizarRecorrido } = useSesion();
+  const {
+    updateEmpresa,
+    registrarActividad,
+    sincronizarRecorrido,
+    reiniciarTodo: reiniciarRecorrido,
+  } = useSesion();
   const [estado, setEstado] = useState<EstadoIntegracion>("cargando");
   const [recuperacion, setRecuperacion] = useState<EstadoRecuperacion | null>(null);
   const [ejecucion, setEjecucion] = useState<EjecucionIntegrada | null>(null);
