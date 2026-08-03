@@ -3,6 +3,7 @@ import { useLocalStorage } from "./use-local-storage";
 import { crearSesionVacia, sesionDemo, sesionInicial } from "@/data/mocks/sesion";
 import { totalPasos } from "@/data/mocks/diagnostico";
 import { registrarEvento } from "@/lib/analytics";
+import type { SesionSincronizada } from "@/lib/integracion/sincronizacion";
 import type {
   Accion,
   Actividad,
