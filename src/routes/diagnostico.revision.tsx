@@ -18,12 +18,12 @@ import { ClipboardList, Pencil, TriangleAlert } from "lucide-react";
 export const Route = createFileRoute("/diagnostico/revision")({
   head: () => ({
     meta: [
-      { title: "Revisión final del diagnóstico — Pyme Digital" },
+      { title: "Revisión final del diagnóstico — pymapa" },
       {
         name: "description",
         content: "Verifica tus respuestas por dimensión antes de calcular tu resultado preliminar.",
       },
-      { property: "og:title", content: "Revisión final del diagnóstico — Pyme Digital" },
+      { property: "og:title", content: "Revisión final del diagnóstico — pymapa" },
       {
         property: "og:description",
         content: "Verifica tus respuestas por dimensión antes de calcular tu resultado preliminar.",

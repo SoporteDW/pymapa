@@ -27,13 +27,13 @@ import { es } from "date-fns/locale";
 export const Route = createFileRoute("/inicio")({
   head: () => ({
     meta: [
-      { title: "Inicio — Pyme Digital" },
+      { title: "Inicio — pymapa" },
       {
         name: "description",
         content:
           "Tu punto de partida: revisa el estado de tu empresa y descubre cuál es tu siguiente paso.",
       },
-      { property: "og:title", content: "Inicio — Pyme Digital" },
+      { property: "og:title", content: "Inicio — pymapa" },
       {
         property: "og:description",
         content:

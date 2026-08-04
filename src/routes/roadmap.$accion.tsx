@@ -13,12 +13,12 @@ import { ListTodo } from "lucide-react";
 export const Route = createFileRoute("/roadmap/$accion")({
   head: () => ({
     meta: [
-      { title: "Seguimiento de la acción — Pyme Digital" },
+      { title: "Seguimiento de la acción — pymapa" },
       {
         name: "description",
         content: "Registra avance, evidencias y bloqueos de una acción de tu roadmap.",
       },
-      { property: "og:title", content: "Seguimiento de la acción — Pyme Digital" },
+      { property: "og:title", content: "Seguimiento de la acción — pymapa" },
       {
         property: "og:description",
         content: "Registra avance, evidencias y bloqueos de una acción de tu roadmap.",

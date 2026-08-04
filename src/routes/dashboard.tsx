@@ -4,13 +4,13 @@ import { createFileRoute, Outlet } from "@tanstack/react-router";
 export const Route = createFileRoute("/dashboard")({
   head: () => ({
     meta: [
-      { title: "Indicadores y seguimiento — Pyme Digital" },
+      { title: "Indicadores y seguimiento — pymapa" },
       {
         name: "description",
         content:
           "Tablero de indicadores de tu transformación digital: madurez, avance del Roadmap, alertas y actividad reciente.",
       },
-      { property: "og:title", content: "Indicadores y seguimiento — Pyme Digital" },
+      { property: "og:title", content: "Indicadores y seguimiento — pymapa" },
       {
         property: "og:description",
         content:

@@ -20,13 +20,13 @@ import { ArrowRight } from "lucide-react";
 export const Route = createFileRoute("/dashboard/dimension/$dimension")({
   head: () => ({
     meta: [
-      { title: "Detalle por dimensión — Pyme Digital" },
+      { title: "Detalle por dimensión — pymapa" },
       {
         name: "description",
         content:
           "Madurez, acciones asociadas y alertas de una dimensión específica de tu transformación digital.",
       },
-      { property: "og:title", content: "Detalle por dimensión — Pyme Digital" },
+      { property: "og:title", content: "Detalle por dimensión — pymapa" },
       {
         property: "og:description",
         content:

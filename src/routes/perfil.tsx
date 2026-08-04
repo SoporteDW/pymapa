@@ -23,12 +23,12 @@ import type { Sector, Tamaño } from "@/types";
 export const Route = createFileRoute("/perfil")({
   head: () => ({
     meta: [
-      { title: "Perfil de empresa — Pyme Digital" },
+      { title: "Perfil de empresa — pymapa" },
       {
         name: "description",
         content: "Edita los datos de tu empresa para personalizar el recorrido digital.",
       },
-      { property: "og:title", content: "Perfil de empresa — Pyme Digital" },
+      { property: "og:title", content: "Perfil de empresa — pymapa" },
       {
         property: "og:description",
         content: "Edita los datos de tu empresa para personalizar el recorrido digital.",

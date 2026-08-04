@@ -19,12 +19,12 @@ import { Clock, Gauge, ListChecks, SearchX, ShieldAlert, Target, UserRound } fro
 export const Route = createFileRoute("/plan-de-accion/$accion")({
   head: () => ({
     meta: [
-      { title: "Ficha de acción — Pyme Digital" },
+      { title: "Ficha de acción — pymapa" },
       {
         name: "description",
         content: "Problema, pasos sugeridos e indicadores de éxito de una acción priorizada.",
       },
-      { property: "og:title", content: "Ficha de acción — Pyme Digital" },
+      { property: "og:title", content: "Ficha de acción — pymapa" },
       {
         property: "og:description",
         content: "Problema, pasos sugeridos e indicadores de éxito de una acción priorizada.",

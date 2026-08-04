@@ -23,13 +23,13 @@ import { ArrowLeft, ArrowRight, HelpCircle, SearchX } from "lucide-react";
 export const Route = createFileRoute("/diagnostico/paso/$id")({
   head: () => ({
     meta: [
-      { title: "Pregunta del diagnóstico — Pyme Digital" },
+      { title: "Pregunta del diagnóstico — pymapa" },
       {
         name: "description",
         content:
           "Responde cada pregunta del diagnóstico. Guardamos tu avance automáticamente en este navegador.",
       },
-      { property: "og:title", content: "Pregunta del diagnóstico — Pyme Digital" },
+      { property: "og:title", content: "Pregunta del diagnóstico — pymapa" },
       {
         property: "og:description",
         content:
