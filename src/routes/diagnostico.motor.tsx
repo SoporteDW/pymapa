@@ -15,13 +15,13 @@ import type { SalidaMotor } from "@/lib/motor/tipos";
 export const Route = createFileRoute("/diagnostico/motor")({
   head: () => ({
     meta: [
-      { title: "Validación del motor de conocimiento — Pyme Digital" },
+      { title: "Validación del motor de conocimiento — pymapa" },
       {
         name: "description",
         content:
           "Vista técnica de validación: hallazgos, prioridades, reglas activadas y trazabilidad completa del motor de conocimiento.",
       },
-      { property: "og:title", content: "Validación del motor de conocimiento — Pyme Digital" },
+      { property: "og:title", content: "Validación del motor de conocimiento — pymapa" },
       {
         property: "og:description",
         content:

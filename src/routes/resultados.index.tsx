@@ -23,12 +23,12 @@ import { ArrowRight, ClipboardList } from "lucide-react";
 export const Route = createFileRoute("/resultados/")({
   head: () => ({
     meta: [
-      { title: "Resultados — Pyme Digital" },
+      { title: "Resultados — pymapa" },
       {
         name: "description",
         content: "Interpreta el estado digital de tu empresa y conoce tus prioridades.",
       },
-      { property: "og:title", content: "Resultados — Pyme Digital" },
+      { property: "og:title", content: "Resultados — pymapa" },
       {
         property: "og:description",
         content: "Interpreta el estado digital de tu empresa y conoce tus prioridades.",

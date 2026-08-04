@@ -17,12 +17,12 @@ import { FilterX } from "lucide-react";
 export const Route = createFileRoute("/plan-de-accion/")({
   head: () => ({
     meta: [
-      { title: "Plan de acción — Pyme Digital" },
+      { title: "Plan de acción — pymapa" },
       {
         name: "description",
         content: "Fichas de acción priorizadas para avanzar en tu transformación digital.",
       },
-      { property: "og:title", content: "Plan de acción — Pyme Digital" },
+      { property: "og:title", content: "Plan de acción — pymapa" },
       {
         property: "og:description",
         content: "Fichas de acción priorizadas para avanzar en tu transformación digital.",

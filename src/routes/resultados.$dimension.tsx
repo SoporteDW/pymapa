@@ -15,12 +15,12 @@ import { SearchX } from "lucide-react";
 export const Route = createFileRoute("/resultados/$dimension")({
   head: () => ({
     meta: [
-      { title: "Detalle por área — Pyme Digital" },
+      { title: "Detalle por área — pymapa" },
       {
         name: "description",
         content: "Revisa fortalezas, brechas y riesgos de cada área de tu diagnóstico digital.",
       },
-      { property: "og:title", content: "Detalle por área — Pyme Digital" },
+      { property: "og:title", content: "Detalle por área — pymapa" },
       {
         property: "og:description",
         content: "Revisa fortalezas, brechas y riesgos de cada área de tu diagnóstico digital.",

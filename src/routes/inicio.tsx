@@ -27,13 +27,13 @@ import { es } from "date-fns/locale";
 export const Route = createFileRoute("/inicio")({
   head: () => ({
     meta: [
-      { title: "Inicio — Pyme Digital" },
+      { title: "Inicio — pymapa" },
       {
         name: "description",
         content:
           "Tu punto de partida: revisa el estado de tu empresa y descubre cuál es tu siguiente paso.",
       },
-      { property: "og:title", content: "Inicio — Pyme Digital" },
+      { property: "og:title", content: "Inicio — pymapa" },
       {
         property: "og:description",
         content:
@@ -65,7 +65,7 @@ function InicioPage() {
   return (
     <div className="space-y-8">
       <PageHeader
-        titulo={nombreEmpresa ? `Hola, ${nombreEmpresa}` : "Bienvenido a Pyme Digital"}
+        titulo={nombreEmpresa ? `Hola, ${nombreEmpresa}` : "Bienvenido a pymapa"}
         subtitulo={
           nombreEmpresa
             ? "Este es el estado de tu recorrido de transformación digital."
@@ -78,14 +78,18 @@ function InicioPage() {
         }
       />
 
-      <Card className="border-primary/30 bg-primary/5">
+      <Card className="overflow-hidden border-0 bg-brand-gradient text-primary-foreground shadow-lg">
         <CardHeader>
-          <CardDescription className="font-medium text-primary">Tu siguiente paso</CardDescription>
-          <CardTitle className="text-xl">{paso.titulo}</CardTitle>
-          <CardDescription>{paso.descripcion}</CardDescription>
+          <CardDescription className="text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground/80">
+            Tu siguiente paso
+          </CardDescription>
+          <CardTitle className="text-2xl font-extrabold sm:text-3xl">{paso.titulo}</CardTitle>
+          <CardDescription className="max-w-xl text-primary-foreground/85">
+            {paso.descripcion}
+          </CardDescription>
         </CardHeader>
         <CardContent>
-          <Button asChild size="lg">
+          <Button asChild size="lg" variant="secondary">
             <Link to={paso.ruta}>
               {paso.accionLabel}
               <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
@@ -93,6 +97,7 @@ function InicioPage() {
           </Button>
         </CardContent>
       </Card>
+
 
       {perfilIncompleto && (
         <div className="flex flex-col gap-3 rounded-lg border border-warning/20 bg-warning/5 p-4 text-sm text-warning-foreground sm:flex-row sm:items-center sm:justify-between">

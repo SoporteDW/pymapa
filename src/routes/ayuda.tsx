@@ -14,12 +14,12 @@ import { etapas } from "@/lib/recorrido";
 export const Route = createFileRoute("/ayuda")({
   head: () => ({
     meta: [
-      { title: "Ayuda y guía del recorrido — Pyme Digital" },
+      { title: "Ayuda y guía del recorrido — pymapa" },
       {
         name: "description",
         content: "Entiende las cinco etapas del recorrido y qué esperar del MVP Alfa.",
       },
-      { property: "og:title", content: "Ayuda y guía del recorrido — Pyme Digital" },
+      { property: "og:title", content: "Ayuda y guía del recorrido — pymapa" },
       {
         property: "og:description",
         content: "Entiende las cinco etapas del recorrido y qué esperar del MVP Alfa.",

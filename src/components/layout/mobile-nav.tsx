@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 import { navItems } from "./app-sidebar";
+import { BrandLogo } from "./brand-logo";
+
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
@@ -29,17 +31,14 @@ export function MobileNav() {
           <Menu className="h-5 w-5" aria-hidden="true" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-72 p-0">
+      <SheetContent side="left" className="w-[19rem] p-0">
         <SheetTitle className="sr-only">Menú de navegación</SheetTitle>
         <div className="flex h-full flex-col">
-          <div className="border-b border-border p-4">
-            <span className="text-lg font-semibold text-foreground">Pyme Digital</span>
-            <span className="ml-2 rounded bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary">
-              MVP Alfa
-            </span>
+          <div className="flex h-16 items-center border-b border-border px-4">
+            <BrandLogo />
           </div>
           <nav className="flex-1 overflow-y-auto p-3" aria-label="Navegación principal">
-            <ul className="space-y-1">
+            <ul className="space-y-1.5">
               {navItems.map((item) => {
                 const isActive =
                   currentPath === item.to || currentPath.startsWith(`${item.to}/`);
@@ -50,14 +49,20 @@ export function MobileNav() {
                       to={item.to}
                       onClick={() => setOpen(false)}
                       className={cn(
-                        "flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium transition-colors",
+                        "flex items-center gap-4 rounded-xl px-4 py-3.5 text-base font-medium transition-colors",
                         isActive
-                          ? "bg-primary text-primary-foreground"
-                          : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                          ? "bg-primary text-primary-foreground shadow-sm"
+                          : "text-foreground/80 hover:bg-accent hover:text-accent-foreground"
                       )}
                       aria-current={isActive ? "page" : undefined}
                     >
-                      <Icon className="h-5 w-5 shrink-0" aria-hidden="true" />
+                      <Icon
+                        className={cn(
+                          "h-5 w-5 shrink-0",
+                          isActive ? "text-primary-foreground" : "text-primary"
+                        )}
+                        aria-hidden="true"
+                      />
                       <span>{item.label}</span>
                     </Link>
                   </li>
@@ -70,6 +75,7 @@ export function MobileNav() {
           </div>
         </div>
       </SheetContent>
+
     </Sheet>
   );
 }

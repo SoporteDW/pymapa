@@ -19,13 +19,13 @@ import { ListTodo, RefreshCw } from "lucide-react";
 export const Route = createFileRoute("/roadmap/")({
   head: () => ({
     meta: [
-      { title: "Roadmap y seguimiento — Pyme Digital" },
+      { title: "Roadmap y seguimiento — pymapa" },
       {
         name: "description",
         content:
           "Organiza tus acciones por fases, registra avances y detecta bloqueos en la ejecución.",
       },
-      { property: "og:title", content: "Roadmap y seguimiento — Pyme Digital" },
+      { property: "og:title", content: "Roadmap y seguimiento — pymapa" },
       {
         property: "og:description",
         content: "Organiza tus acciones por fases, registra avances y detecta bloqueos.",

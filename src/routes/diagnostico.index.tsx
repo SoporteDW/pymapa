@@ -27,13 +27,13 @@ import { es } from "date-fns/locale";
 export const Route = createFileRoute("/diagnostico/")({
   head: () => ({
     meta: [
-      { title: "Diagnóstico digital — Pyme Digital" },
+      { title: "Diagnóstico digital — pymapa" },
       {
         name: "description",
         content:
           "Responde 28 preguntas guiadas sobre seis dimensiones y obtén un puntaje preliminar de madurez digital.",
       },
-      { property: "og:title", content: "Diagnóstico digital — Pyme Digital" },
+      { property: "og:title", content: "Diagnóstico digital — pymapa" },
       {
         property: "og:description",
         content:

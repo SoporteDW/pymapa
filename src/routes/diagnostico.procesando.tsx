@@ -9,12 +9,12 @@ import { Loader2, TriangleAlert } from "lucide-react";
 export const Route = createFileRoute("/diagnostico/procesando")({
   head: () => ({
     meta: [
-      { title: "Calculando tu resultado — Pyme Digital" },
+      { title: "Calculando tu resultado — pymapa" },
       {
         name: "description",
         content: "Estamos calculando tu puntaje preliminar global y por dimensión.",
       },
-      { property: "og:title", content: "Calculando tu resultado — Pyme Digital" },
+      { property: "og:title", content: "Calculando tu resultado — pymapa" },
       {
         property: "og:description",
         content: "Estamos calculando tu puntaje preliminar global y por dimensión.",

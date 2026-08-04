@@ -14,13 +14,13 @@ import { es } from "date-fns/locale";
 export const Route = createFileRoute("/diagnostico/resumen")({
   head: () => ({
     meta: [
-      { title: "Resultado preliminar del diagnóstico — Pyme Digital" },
+      { title: "Resultado preliminar del diagnóstico — pymapa" },
       {
         name: "description",
         content:
           "Consulta tu puntaje global preliminar y el puntaje de cada una de las seis dimensiones digitales.",
       },
-      { property: "og:title", content: "Resultado preliminar del diagnóstico — Pyme Digital" },
+      { property: "og:title", content: "Resultado preliminar del diagnóstico — pymapa" },
       {
         property: "og:description",
         content:

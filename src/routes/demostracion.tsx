@@ -25,13 +25,13 @@ import {
 export const Route = createFileRoute("/demostracion")({
   head: () => ({
     meta: [
-      { title: "Demostración integrada — Pyme Digital" },
+      { title: "Demostración integrada — pymapa" },
       {
         name: "description",
         content:
           "Carga perfiles de pyme simulados y verifica el recorrido completo: diagnóstico, motor, resultados, plan y roadmap.",
       },
-      { property: "og:title", content: "Demostración integrada — Pyme Digital" },
+      { property: "og:title", content: "Demostración integrada — pymapa" },
       {
         property: "og:description",
         content:

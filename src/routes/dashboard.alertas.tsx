@@ -15,13 +15,13 @@ import type { SeveridadAlerta } from "@/lib/roadmap/alertas";
 export const Route = createFileRoute("/dashboard/alertas")({
   head: () => ({
     meta: [
-      { title: "Centro de alertas — Pyme Digital" },
+      { title: "Centro de alertas — pymapa" },
       {
         name: "description",
         content:
           "Alertas operativas de tu plan digital con causa, consecuencia y la acción recomendada para resolverlas.",
       },
-      { property: "og:title", content: "Centro de alertas — Pyme Digital" },
+      { property: "og:title", content: "Centro de alertas — pymapa" },
       {
         property: "og:description",
         content:
