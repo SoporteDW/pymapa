@@ -184,7 +184,7 @@ function RootComponent() {
           mobileNav={<MobileNav />}
         />
         <div className="flex flex-1 overflow-hidden">
-          <AppSidebar collapsed={sidebarCollapsed} className="h-[calc(100vh-3.5rem)]" />
+          <AppSidebar collapsed={sidebarCollapsed} className="h-[calc(100vh-4rem)]" />
           <div className="flex flex-1 flex-col overflow-hidden">
             <main
               id="main-content"
