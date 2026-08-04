@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 import { navItems } from "./app-sidebar";
+import { BrandLogo } from "./brand-logo";
+
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
