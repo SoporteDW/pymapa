@@ -120,6 +120,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "pymapa — Transformación digital para tu pyme" },
+      { name: "twitter:description", content: "pymapa: plataforma autogestionada de transformación digital para pequeñas y medianas empresas." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/70ec7baf-87bc-4a06-87b7-a1d380117161/id-preview-61de3ff8--f76abe8b-a90c-4799-a042-89ac9f7073bb.lovable.app-1785899261508.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/70ec7baf-87bc-4a06-87b7-a1d380117161/id-preview-61de3ff8--f76abe8b-a90c-4799-a042-89ac9f7073bb.lovable.app-1785899261508.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
