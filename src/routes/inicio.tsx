@@ -61,6 +61,7 @@ function InicioPage() {
   const paso = siguientePaso(sesion);
   const estados = estadoEtapas(sesion);
   const avances = avanceModulos(sesion);
+  const enInicio = !hayProgresoReal(sesion);
 
   const perfilIncompleto = !sesion.perfilCompletado || !sesion.empresa.nombre.trim();
   const nombreEmpresa = sesion.empresa.nombre.trim();
@@ -86,23 +87,29 @@ function InicioPage() {
         <div className="bg-patron-marca">
           <CardHeader className="gap-2 p-8">
             <CardDescription className="text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground/80">
-              Tu siguiente paso
+              {enInicio ? "Empieza aquí" : "Tu siguiente paso"}
             </CardDescription>
-            <CardTitle className="text-2xl font-semibold sm:text-3xl">{paso.titulo}</CardTitle>
+            <CardTitle className="text-2xl font-semibold sm:text-3xl">
+              {enInicio ? "Inicia tu recorrido de transformación" : paso.titulo}
+            </CardTitle>
             <CardDescription className="max-w-xl text-primary-foreground/85">
-              {paso.descripcion}
+              {enInicio
+                ? "Registra el perfil de tu empresa, responde el diagnóstico, descubre tus resultados y construye tu plan de acción paso a paso."
+                : paso.descripcion}
             </CardDescription>
           </CardHeader>
           <CardContent className="flex flex-wrap items-center gap-3 p-8 pt-0">
             <Button asChild size="lg" variant="secondary">
-              <Link to={paso.ruta}>
-                Continuar mi recorrido
+              <Link to={enInicio ? "/perfil" : paso.ruta}>
+                {enInicio ? "Iniciar mi recorrido" : "Continuar mi recorrido"}
                 <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
               </Link>
             </Button>
             <ComoFuncionaDialog />
             <span className="text-xs text-primary-foreground/80">
-              Continuar te lleva exactamente al punto donde quedaste.
+              {enInicio
+                ? "Comenzar te lleva al primer paso: completar tu perfil."
+                : "Continuar te lleva exactamente al punto donde quedaste."}
             </span>
           </CardContent>
         </div>
