@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import digiwayLogo from "@/assets/digiway-logo.png.asset.json";
 import { cn } from "@/lib/utils";
 
 interface AppFooterProps {
