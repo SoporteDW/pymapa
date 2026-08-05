@@ -169,6 +169,20 @@ export function siguientePaso(sesion: SesionMVP): SiguientePaso {
   };
 }
 
+/** Determina si el usuario tiene progreso real guardado en la sesión. */
+export function hayProgresoReal(sesion: SesionMVP): boolean {
+  const perfilIniciado =
+    sesion.perfilCompletado || sesion.empresa.nombre.trim().length > 0;
+  const diagnosticoIniciado =
+    sesion.diagnostico.estado !== "no_iniciado" ||
+    (sesion.diagnostico.respondidasObligatorias ?? sesion.respuestas.length) > 0;
+  const hayResultados = sesion.resultados.length > 0;
+  const hayAcciones = sesion.acciones.length > 0;
+  const hayActividad = sesion.actividad.length > 0;
+
+  return perfilIniciado || diagnosticoIniciado || hayResultados || hayAcciones || hayActividad;
+}
+
 export const etiquetaHorizonte: Record<string, string> = {
   ahora: "Ahora",
   despues: "Después",
