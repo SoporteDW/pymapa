@@ -101,6 +101,9 @@ function DiagnosticoEntrada() {
     <div className="space-y-6">
       {encabezado}
 
+      <EtapaProgreso modulo="diagnostico" />
+
+
       <IndicadorGuardado estado={estadoGuardado} onReintentar={reintentarGuardado} />
 
       <Card>
