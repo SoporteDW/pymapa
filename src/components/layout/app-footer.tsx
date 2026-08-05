@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import digiwayLogo from "@/assets/digiway-logo.png.asset.json";
 import { cn } from "@/lib/utils";
 
 interface AppFooterProps {
@@ -23,9 +24,13 @@ export function AppFooter({ className }: AppFooterProps) {
     >
       <div className="mx-auto flex max-w-6xl flex-col gap-6 md:flex-row md:items-start md:justify-between">
         <div className="flex flex-col gap-2">
-          <span className="text-xl font-semibold tracking-tight text-brand-deep">
-            Digiway<sup className="ml-0.5 text-[10px] align-super">®</sup>
-          </span>
+          <img
+            src={digiwayLogo.url}
+            alt="Digiway"
+            width={760}
+            height={150}
+            className="h-7 w-auto object-contain object-left"
+          />
           <span className="text-xs text-muted-foreground">
             pymapa es una plataforma de Digiway ·{" "}
             <Link to="/ayuda" className="hover:text-primary">
