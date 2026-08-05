@@ -119,8 +119,9 @@ function DemostracionPage() {
   return (
     <div className="space-y-6">
       <PageHeader
-        titulo="Demostración integrada"
-        subtitulo="Carga una pyme simulada y recorre el modelo completo con datos coherentes."
+        titulo="Ver demostraciones"
+        subtitulo="Cinco empresas de ejemplo completamente diligenciadas para demostraciones comerciales, capacitación y validación del producto."
+
         migas={[{ label: "Inicio", to: "/inicio" }, { label: "Demostración" }]}
       />
 

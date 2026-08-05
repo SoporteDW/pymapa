@@ -4,12 +4,17 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Link } from "@tanstack/react-router";
 import { ConfidenceBadge } from "./confidence-badge";
 import { clasesNivelPrioridad } from "./priority-card";
+import { PuntosApoyoLista } from "@/components/apoyo/punto-apoyo-badge";
+import { SolicitarColaboracionDialog } from "@/components/colaboracion/solicitar-colaboracion-dialog";
+import { puntosApoyoDeFicha } from "@/lib/apoyo/puntos-apoyo";
 import { etiquetaEsfuerzo } from "@/lib/resultados/fichas";
 import type { FichaAccion } from "@/lib/resultados/tipos";
 import { ArrowRight, Clock, Gauge, UserRound } from "lucide-react";
 
 /** ActionCard (POC-05, 8 y 9): resumen de una Ficha de Acción. */
 export function ActionCard({ ficha }: { ficha: FichaAccion }) {
+  const puntos = puntosApoyoDeFicha(ficha);
+
   return (
     <Card className="flex h-full flex-col">
       <CardHeader className="pb-3">
@@ -39,9 +44,17 @@ export function ActionCard({ ficha }: { ficha: FichaAccion }) {
           </span>
         </div>
         <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-          <Badge variant="secondary">{ficha.dimensionNombre}</Badge>
-          {ficha.requiereValidacion && <Badge variant="outline">Requiere validación</Badge>}
+          <Badge variant="secondary" className="rounded-full">
+            {ficha.dimensionNombre}
+          </Badge>
+          {ficha.requiereValidacion && (
+            <Badge variant="outline" className="rounded-full">
+              Requiere validación
+            </Badge>
+          )}
         </div>
+        <PuntosApoyoLista puntos={puntos} />
+        <SolicitarColaboracionDialog accionId={ficha.id} accionTitulo={ficha.title} />
         <Button variant="outline" size="sm" asChild>
           <Link to="/plan-de-accion/$accion" params={{ accion: ficha.id }}>
             Abrir ficha
@@ -52,3 +65,4 @@ export function ActionCard({ ficha }: { ficha: FichaAccion }) {
     </Card>
   );
 }
+

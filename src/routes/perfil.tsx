@@ -15,6 +15,8 @@ import { useSesion } from "@/hooks/use-sesion";
 import { LoadingState } from "@/components/ui/loading-state";
 import { DemoNote } from "@/components/ui/demo-note";
 import { PageHeader } from "@/components/layout/page-header";
+import { EtapaNav, EtapaProgreso, SiguienteEtapaSugerida } from "@/components/recorrido/etapa-nav";
+
 import { toast } from "sonner";
 import { Save, RotateCcw, AlertTriangle, Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -92,6 +94,9 @@ function PerfilPage() {
         subtitulo="Estos datos permiten adaptar el recorrido a tu realidad."
         migas={[{ label: "Inicio", to: "/inicio" }, { label: "Perfil" }]}
       />
+
+      <EtapaProgreso modulo="perfil" />
+
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <Card>
@@ -247,10 +252,14 @@ function PerfilPage() {
         </div>
       </form>
 
+      <SiguienteEtapaSugerida modulo="perfil" />
+      <EtapaNav modulo="perfil" />
+
       <DemoNote>
         En el MVP Alfa el perfil no se sincroniza con ningún servicio externo. La autenticación y el
         almacenamiento en la nube se definirán en paquetes posteriores.
       </DemoNote>
+
     </div>
   );
 }

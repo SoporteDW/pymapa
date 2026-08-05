@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/accordion";
 import { DemoNote } from "@/components/ui/demo-note";
 import { PageHeader } from "@/components/layout/page-header";
+import { EtapaNav, EtapaProgreso, SiguienteEtapaSugerida } from "@/components/recorrido/etapa-nav";
 import { ResultState } from "@/components/resultados/result-state";
 import { ResultSummaryCard } from "@/components/resultados/result-summary-card";
 import { DimensionScoreCard } from "@/components/resultados/dimension-score-card";
@@ -71,6 +72,8 @@ function ResultadosPage() {
           </Button>
         }
       />
+
+      <EtapaProgreso modulo="resultados" />
 
       <ResultState
         estado={estado}
@@ -234,6 +237,8 @@ function ResultadosPage() {
           ))}
         </CardContent>
       </Card>
+      <SiguienteEtapaSugerida modulo="resultados" />
+      <EtapaNav modulo="resultados" />
     </div>
   );
 }

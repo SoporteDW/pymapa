@@ -5,6 +5,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { StateBadge } from "./state-badge";
 import { clasesNivelPrioridad } from "@/components/resultados/priority-card";
+import { PuntosApoyoLista } from "@/components/apoyo/punto-apoyo-badge";
+import { SolicitarColaboracionDialog } from "@/components/colaboracion/solicitar-colaboracion-dialog";
+import { puntosApoyoDeAccion } from "@/lib/apoyo/puntos-apoyo";
 import { calcularAvance, estaProximaAVencer, estaVencida } from "@/lib/roadmap/avance";
 import { dependenciasPendientes } from "@/lib/roadmap/estados";
 import { formatearFecha } from "@/lib/roadmap/fechas";
@@ -29,6 +32,8 @@ export function RoadmapActionCard({
   const vencida = estaVencida(accion);
   const proxima = estaProximaAVencer(accion);
   const pendientes = dependenciasPendientes(roadmap, accion);
+  const puntos = puntosApoyoDeAccion(accion);
+
 
   return (
     <Card className="flex h-full flex-col">
@@ -80,7 +85,12 @@ export function RoadmapActionCard({
           </p>
         )}
 
+        <PuntosApoyoLista puntos={puntos} />
+
+        <SolicitarColaboracionDialog accionId={accion.id} accionTitulo={accion.titulo} />
+
         <Button variant="outline" size="sm" asChild onClick={() => onAbrir?.(accion.id)}>
+
           <Link to="/roadmap/$accion" params={{ accion: accion.id }}>
             Abrir seguimiento
             <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" />

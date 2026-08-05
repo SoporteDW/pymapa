@@ -11,29 +11,31 @@ const enlaces = [
   { label: "Nosotros", to: "/ayuda" },
   { label: "Privacidad", to: "/ayuda" },
   { label: "Términos", to: "/ayuda" },
+  { label: "Política de Cookies", to: "/ayuda" },
+  { label: "Contacto", to: "/ayuda" },
 ];
 
 export function AppFooter({ className }: AppFooterProps) {
   return (
     <footer
-      className={cn("border-t border-border bg-card px-4 py-5 sm:px-6", className)}
+      className={cn("border-t border-border bg-card px-4 py-8 sm:px-6", className)}
       aria-label="Pie de página"
     >
-      <div className="mx-auto flex max-w-6xl flex-col gap-4 md:flex-row md:items-start md:justify-between">
-        <div className="flex flex-col gap-1">
-          <span className="text-xl font-extrabold italic tracking-tight text-destructive">
-            digiway
+      <div className="mx-auto flex max-w-6xl flex-col gap-6 md:flex-row md:items-start md:justify-between">
+        <div className="flex flex-col gap-2">
+          <span className="text-xl font-semibold tracking-tight text-brand-deep">
+            Digiway<sup className="ml-0.5 text-[10px] align-super">®</sup>
           </span>
           <span className="text-xs text-muted-foreground">
-            MVP Alfa · Datos ilustrativos ·{" "}
+            pymapa es una plataforma de Digiway ·{" "}
             <Link to="/ayuda" className="hover:text-primary">
-              Ayuda
+              Centro de ayuda
             </Link>
           </span>
         </div>
 
-        <div className="flex flex-col gap-2 md:items-center">
-          <ul className="flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-muted-foreground">
+        <div className="flex flex-col gap-3 md:items-center">
+          <ul className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
             {enlaces.map((enlace) => (
               <li key={enlace.label}>
                 <Link to={enlace.to} className="hover:text-primary">
@@ -52,10 +54,11 @@ export function AppFooter({ className }: AppFooterProps) {
           </p>
         </div>
 
-        <p className="text-xs leading-tight text-muted-foreground md:text-right">
-          Marca
-          <br className="hidden md:block" /> registrada
-        </p>
+        <div className="text-xs leading-relaxed text-muted-foreground md:text-right">
+          <p>© Digiway. Todos los derechos reservados.</p>
+          <p>Marca registrada.</p>
+          <p className="mt-1">MVP Alfa · datos ilustrativos</p>
+        </div>
       </div>
     </footer>
   );
