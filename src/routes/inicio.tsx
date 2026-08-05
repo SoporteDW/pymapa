@@ -14,7 +14,7 @@ import { PageHeader } from "@/components/layout/page-header";
 import { JourneyMap } from "@/components/recorrido/journey-map";
 import { ComoFuncionaDialog } from "@/components/recorrido/como-funciona-dialog";
 import { useSesion } from "@/hooks/use-sesion";
-import { estadoEtapas, siguientePaso } from "@/lib/recorrido";
+import { hayProgresoReal, estadoEtapas, siguientePaso } from "@/lib/recorrido";
 import {
   avanceModulos,
   etiquetaEstadoModulo,
