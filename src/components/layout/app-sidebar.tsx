@@ -103,11 +103,12 @@ export function AppSidebar({ collapsed = false, className }: AppSidebarProps) {
                   />
                   {!collapsed && (
                     <>
-                      <span className="min-w-0 flex-1 truncate">{item.label}</span>
+                      <span className="min-w-0 flex-1 leading-tight">{item.label}</span>
                       {avance && avance.porcentaje > 0 && (
                         <span
                           className={cn(
-                            "shrink-0 rounded-full px-2 py-0.5 text-[11px] font-semibold",
+                            "shrink-0 rounded-full px-1.5 py-0.5 text-[10px] font-semibold",
+
                             avance.estado === "completada"
                               ? "bg-success/12 text-success"
                               : "bg-primary/10 text-primary"
