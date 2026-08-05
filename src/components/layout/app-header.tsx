@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { HelpCircle, PanelLeft, User } from "lucide-react";
+import { FlaskConical, HelpCircle, PanelLeft, User } from "lucide-react";
 import type { ReactNode } from "react";
 import type { Empresa } from "@/types";
 import { BrandLogo } from "./brand-logo";
@@ -13,7 +13,7 @@ interface AppHeaderProps {
 
 export function AppHeader({ empresa, onToggleSidebar, mobileNav }: AppHeaderProps) {
   return (
-    <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border bg-card px-3 sm:px-5">
+    <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border bg-card px-3 sm:px-6">
       <div className="flex items-center gap-1 sm:gap-2">
         {mobileNav}
         {onToggleSidebar && (
@@ -34,12 +34,23 @@ export function AppHeader({ empresa, onToggleSidebar, mobileNav }: AppHeaderProp
 
       <div className="flex items-center gap-1 sm:gap-2">
         {empresa?.nombre && (
-          <span className="hidden max-w-[16rem] truncate text-sm text-muted-foreground lg:inline">
+          <span className="hidden max-w-[14rem] truncate text-sm text-muted-foreground xl:inline">
             {empresa.nombre}
           </span>
         )}
+        <Button variant="outline" size="sm" className="hidden sm:inline-flex" asChild>
+          <Link to="/demostracion">
+            <FlaskConical className="mr-1 h-4 w-4" aria-hidden="true" />
+            Ver demostraciones
+          </Link>
+        </Button>
+        <Button variant="ghost" size="icon" className="sm:hidden" asChild>
+          <Link to="/demostracion" aria-label="Ver demostraciones">
+            <FlaskConical className="h-5 w-5 text-primary" aria-hidden="true" />
+          </Link>
+        </Button>
         <Button variant="ghost" size="icon" className="rounded-full" asChild>
-          <Link to="/ayuda" aria-label="Ayuda">
+          <Link to="/ayuda" aria-label="Centro de ayuda">
             <HelpCircle className="h-5 w-5 text-primary" aria-hidden="true" />
           </Link>
         </Button>

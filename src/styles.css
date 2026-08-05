@@ -19,20 +19,24 @@
  */
 
 @theme inline {
-  --font-sans:
-    "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: "Inter", "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-display:
-    "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    "Inter", "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --color-brand: var(--brand);
   --color-brand-foreground: var(--brand-foreground);
   --color-brand-accent: var(--brand-accent);
-  --radius-sm: calc(var(--radius) - 4px);
+  --color-brand-deep: var(--brand-deep);
+  --color-brand-ia: var(--brand-ia);
+  --shadow-soft: var(--shadow-suave);
+  --shadow-card: var(--shadow-suave);
+  --radius-sm: calc(var(--radius) - 6px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
+
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -76,58 +80,72 @@
 }
 
 :root {
-  --radius: 0.75rem;
-  /* Marca pymapa: azul profundo (#0B4CC4) + cian tecnológico (#29ABE2) */
-  --brand: oklch(0.46 0.19 262);
-  --brand-foreground: oklch(0.99 0.005 250);
-  --brand-accent: oklch(0.71 0.13 232);
-  --gradient-brand: linear-gradient(120deg, var(--brand), var(--brand-accent));
-  --background: oklch(0.99 0.003 250);
-  --foreground: oklch(0.22 0.035 262);
+  /* Radios de marca: cards 20px, contenedores 16px, botones e inputs 14px */
+  --radius: 1rem;
+  /*
+   * Marca pymapa
+   * Azul Inteligencia #1565F5 · Azul oscuro #0E3A8A · Azul claro #4FC3F7
+   * Cian IA #00BCD4 · Gris fondo #F7F9FC · Gris claro #E8EDF5
+   * Gris texto #6B7280 · Negro suave #1E293B (nunca negro absoluto)
+   */
+  --brand: oklch(0.555 0.228 261.4);
+  --brand-foreground: oklch(1 0 0);
+  --brand-accent: oklch(0.773 0.127 231.1);
+  --brand-deep: oklch(0.374 0.142 261.3);
+  --brand-ia: oklch(0.729 0.126 210.8);
+  --gradient-brand: linear-gradient(120deg, var(--brand), var(--brand-ia));
+  --shadow-suave: 0 6px 20px oklch(0.279 0.037 260 / 8%);
+  --background: oklch(0.981 0.005 258.3);
+  --foreground: oklch(0.279 0.037 260);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.035 262);
+  --card-foreground: oklch(0.279 0.037 260);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.035 262);
-  --primary: oklch(0.46 0.19 262);
-  --primary-foreground: oklch(0.99 0.005 250);
-  --secondary: oklch(0.96 0.015 235);
-  --secondary-foreground: oklch(0.32 0.08 262);
-  --muted: oklch(0.96 0.012 240);
-  --muted-foreground: oklch(0.55 0.035 250);
-  --accent: oklch(0.93 0.035 232);
-  --accent-foreground: oklch(0.32 0.08 262);
-  --destructive: oklch(0.55 0.22 25);
-  --destructive-foreground: oklch(0.99 0.005 250);
-  --success: oklch(0.62 0.16 165);
-  --success-foreground: oklch(0.99 0.005 250);
-  --warning: oklch(0.78 0.14 80);
-  --warning-foreground: oklch(0.28 0.06 80);
-  --info: oklch(0.71 0.13 232);
-  --info-foreground: oklch(0.2 0.04 262);
-  --border: oklch(0.91 0.015 240);
-  --input: oklch(0.91 0.015 240);
-  --ring: oklch(0.46 0.19 262);
-  --chart-1: oklch(0.46 0.19 262);
-  --chart-2: oklch(0.71 0.13 232);
-  --chart-3: oklch(0.62 0.16 165);
-  --chart-4: oklch(0.78 0.14 80);
-  --chart-5: oklch(0.55 0.22 25);
+  --popover-foreground: oklch(0.279 0.037 260);
+  --primary: oklch(0.555 0.228 261.4);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.945 0.012 259.8);
+  --secondary-foreground: oklch(0.374 0.142 261.3);
+  --muted: oklch(0.945 0.012 259.8);
+  --muted-foreground: oklch(0.551 0.023 264.4);
+  --accent: oklch(0.955 0.02 250);
+  --accent-foreground: oklch(0.374 0.142 261.3);
+  --destructive: oklch(0.58 0.2 25);
+  --destructive-foreground: oklch(1 0 0);
+  --success: oklch(0.64 0.14 165);
+  --success-foreground: oklch(1 0 0);
+  --warning: oklch(0.8 0.13 78);
+  --warning-foreground: oklch(0.32 0.06 78);
+  --info: oklch(0.729 0.126 210.8);
+  --info-foreground: oklch(0.279 0.037 260);
+  --border: oklch(0.945 0.012 259.8);
+  --input: oklch(0.92 0.014 259.8);
+  --ring: oklch(0.555 0.228 261.4);
+  --chart-1: oklch(0.555 0.228 261.4);
+  --chart-2: oklch(0.729 0.126 210.8);
+  --chart-3: oklch(0.773 0.127 231.1);
+  --chart-4: oklch(0.64 0.14 165);
+  --chart-5: oklch(0.374 0.142 261.3);
   --sidebar: oklch(1 0 0);
-  --sidebar-foreground: oklch(0.22 0.035 262);
-  --sidebar-primary: oklch(0.46 0.19 262);
-  --sidebar-primary-foreground: oklch(0.99 0.005 250);
-  --sidebar-accent: oklch(0.95 0.025 232);
-  --sidebar-accent-foreground: oklch(0.32 0.08 262);
-  --sidebar-border: oklch(0.93 0.012 240);
-  --sidebar-ring: oklch(0.46 0.19 262);
+  --sidebar-foreground: oklch(0.279 0.037 260);
+  --sidebar-primary: oklch(0.555 0.228 261.4);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.96 0.016 255);
+  --sidebar-accent-foreground: oklch(0.374 0.142 261.3);
+  --sidebar-border: oklch(0.945 0.012 259.8);
+  --sidebar-ring: oklch(0.555 0.228 261.4);
 }
 
 
+
 .dark {
-  --brand: oklch(0.62 0.18 258);
-  --brand-foreground: oklch(0.15 0.03 262);
-  --brand-accent: oklch(0.74 0.13 232);
-  --gradient-brand: linear-gradient(120deg, var(--brand), var(--brand-accent));
+  --brand: oklch(0.65 0.19 261);
+  --brand-foreground: oklch(0.2 0.03 262);
+  --brand-accent: oklch(0.773 0.127 231.1);
+  --brand-deep: oklch(0.45 0.15 261);
+  --brand-ia: oklch(0.75 0.12 210);
+  --gradient-brand: linear-gradient(120deg, var(--brand), var(--brand-ia));
+  --shadow-suave: 0 6px 20px oklch(0 0 0 / 35%);
+
   --background: oklch(0.18 0.03 265);
   --foreground: oklch(0.95 0.02 255);
   --card: oklch(0.22 0.04 265);
@@ -216,3 +234,25 @@
   background-clip: text;
   color: transparent;
 }
+
+/* Sombra de marca: siempre suave, nunca dura */
+@utility shadow-suave {
+  box-shadow: var(--shadow-suave);
+}
+
+/**
+ * Patrón gráfico de marca derivado del isotipo: líneas que se bifurcan y
+ * convergen. Se usa muy sutilmente como fondo de tarjetas destacadas,
+ * cabeceras y pantallas de espera.
+ */
+@utility bg-patron-marca {
+  background-image:
+    radial-gradient(circle at 12% 20%, color-mix(in oklab, var(--brand-ia) 26%, transparent) 0 2px, transparent 3px),
+    radial-gradient(circle at 48% 62%, color-mix(in oklab, var(--brand) 22%, transparent) 0 2px, transparent 3px),
+    radial-gradient(circle at 86% 30%, color-mix(in oklab, var(--brand-accent) 26%, transparent) 0 2px, transparent 3px),
+    linear-gradient(115deg, transparent 46%, color-mix(in oklab, var(--brand) 12%, transparent) 47%, transparent 48%),
+    linear-gradient(65deg, transparent 58%, color-mix(in oklab, var(--brand-ia) 12%, transparent) 59%, transparent 60%);
+  background-size: 240px 180px;
+  background-repeat: repeat;
+}
+

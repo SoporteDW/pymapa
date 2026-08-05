@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { LoadingState } from "@/components/ui/loading-state";
 import { PageHeader } from "@/components/layout/page-header";
+import { EtapaNav, EtapaProgreso, SiguienteEtapaSugerida } from "@/components/recorrido/etapa-nav";
 import { ProgresoDiagnostico } from "@/components/diagnostico/progreso-diagnostico";
 import { ConfiguracionInvalida } from "@/components/diagnostico/configuracion-invalida";
 import { IndicadorGuardado } from "@/components/diagnostico/indicador-guardado";
@@ -143,6 +144,7 @@ function DiagnosticoEntrada() {
             />
           )}
 
+
           {sesion.updatedAt && hayAvance && (
             <p className="text-xs text-muted-foreground">
               Último guardado:{" "}
@@ -240,6 +242,8 @@ function DiagnosticoEntrada() {
           Antes de las dimensiones te haremos cuatro preguntas breves de contexto sobre tu empresa.
         </p>
       </section>
+      <SiguienteEtapaSugerida modulo="diagnostico" />
+      <EtapaNav modulo="diagnostico" />
     </div>
   );
 }

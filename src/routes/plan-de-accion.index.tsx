@@ -6,6 +6,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { EmptyState } from "@/components/ui/empty-state";
 import { DemoNote } from "@/components/ui/demo-note";
 import { PageHeader } from "@/components/layout/page-header";
+import { EtapaNav, EtapaProgreso, SiguienteEtapaSugerida } from "@/components/recorrido/etapa-nav";
+
 import { ResultState } from "@/components/resultados/result-state";
 import { ActionCard } from "@/components/resultados/action-card";
 import { PriorityFilters } from "@/components/resultados/priority-filters";
@@ -63,6 +65,10 @@ function PlanDeAccionPage() {
           </Button>
         }
       />
+
+      <EtapaProgreso modulo="plan-de-accion" />
+
+
 
       <ResultState
         estado={estado}
@@ -128,13 +134,18 @@ function PlanDeAccionPage() {
               </div>
             )}
 
+            <SiguienteEtapaSugerida modulo="plan-de-accion" />
+
             <DemoNote>
-              MVP Alfa: el seguimiento del avance de cada ficha y la vista de roadmap se incorporan
-              en un paquete posterior.
+              Las fichas marcadas con un punto de apoyo requieren una intervención adicional
+              (consultor, decisión gerencial, documento o validación). No bloquean tu avance.
             </DemoNote>
           </div>
         )}
       </ResultState>
+
+      <EtapaNav modulo="plan-de-accion" />
     </div>
   );
 }
+
