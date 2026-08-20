@@ -62,6 +62,24 @@ export function leerModoDemo(): EstadoModoDemo {
   }
 }
 
+const EVENTO_CAMBIO = "pymapa:modo-demo-cambio";
+
+/** Notifica a todas las vistas montadas que el modo demostración cambió. */
+export function notificarCambioModoDemo(): void {
+  if (typeof window === "undefined") return;
+  window.dispatchEvent(new Event(EVENTO_CAMBIO));
+}
+
+export function suscribirModoDemo(callback: () => void): () => void {
+  if (typeof window === "undefined") return () => {};
+  window.addEventListener(EVENTO_CAMBIO, callback);
+  window.addEventListener("storage", callback);
+  return () => {
+    window.removeEventListener(EVENTO_CAMBIO, callback);
+    window.removeEventListener("storage", callback);
+  };
+}
+
 function escribirModoDemo(estado: EstadoModoDemo): EstadoModoDemo {
   const s = store();
   try {
@@ -69,6 +87,7 @@ function escribirModoDemo(estado: EstadoModoDemo): EstadoModoDemo {
   } catch (error) {
     console.warn("No se pudo guardar el modo demostración:", error);
   }
+  notificarCambioModoDemo();
   return estado;
 }
 

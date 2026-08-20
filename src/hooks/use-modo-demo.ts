@@ -5,6 +5,7 @@ import {
   limpiarDatosRecorrido,
   modoDemoInicial,
   restaurarEmpresaReal,
+  suscribirModoDemo,
   type EstadoModoDemo,
   type ModoDemo,
 } from "@/lib/demo/modo-demo";
@@ -21,8 +22,10 @@ export function useModoDemo() {
   const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
-    setEstado(leerModoDemo());
+    const sincronizar = () => setEstado(leerModoDemo());
+    sincronizar();
     setIsHydrated(true);
+    return suscribirModoDemo(sincronizar);
   }, []);
 
   const perfil = useMemo<PerfilSimulado | null>(
