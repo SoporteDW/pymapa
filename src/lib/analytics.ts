@@ -71,7 +71,16 @@ export type EventoInteraccion =
   // Eventos del Modo Demostración controlado (iteración de refinamiento).
   | "demo_mode_started"
   | "demo_mode_exited"
-  | "demo_stage_autofilled";
+  | "demo_stage_autofilled"
+  // Eventos del Diagnóstico Inteligente · E-commerce (POC E-commerce v0.1).
+  | "kb_diagnosis_opened"
+  | "kb_question_answered"
+  | "kb_diagnosis_evaluated"
+  | "kb_finding_traced"
+  | "kb_demo_dataset_loaded"
+  | "kb_diagnosis_reset"
+  | "kb_initiative_created"
+  | "kb_conversation_query";
 
 
 const STORAGE_KEY = "pyme-digital-eventos-v1";

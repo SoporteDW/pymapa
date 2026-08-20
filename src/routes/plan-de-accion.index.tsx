@@ -14,6 +14,8 @@ import { PriorityFilters } from "@/components/resultados/priority-filters";
 import { useResultados } from "@/hooks/use-resultados";
 import { filtrarAcciones, filtrosIniciales, type FiltrosAcciones } from "@/lib/resultados/generador";
 import { registrarEvento } from "@/lib/analytics";
+import { IniciativasKb } from "@/components/kb/iniciativas-kb";
+import { useIniciativasKb } from "@/hooks/use-kb-ecommerce";
 import { FilterX } from "lucide-react";
 
 export const Route = createFileRoute("/plan-de-accion/")({

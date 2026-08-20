@@ -22,6 +22,7 @@ import { Route as RoadmapRouteImport } from './routes/roadmap'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
 import { Route as DashboardAlertasRouteImport } from './routes/dashboard.alertas'
 import { Route as DiagnosticoIndexRouteImport } from './routes/diagnostico.index'
+import { Route as DiagnosticoEspecializadosRouteImport } from './routes/diagnostico.especializados'
 import { Route as DiagnosticoMotorRouteImport } from './routes/diagnostico.motor'
 import { Route as DiagnosticoProcesandoRouteImport } from './routes/diagnostico.procesando'
 import { Route as DiagnosticoResumenRouteImport } from './routes/diagnostico.resumen'
@@ -33,6 +34,8 @@ import { Route as ResultadosDimensionRouteImport } from './routes/resultados.$di
 import { Route as RoadmapIndexRouteImport } from './routes/roadmap.index'
 import { Route as RoadmapAccionRouteImport } from './routes/roadmap.$accion'
 import { Route as DashboardDimensionDimensionRouteImport } from './routes/dashboard.dimension.$dimension'
+import { Route as DiagnosticoEspecializadosIndexRouteImport } from './routes/diagnostico.especializados.index'
+import { Route as DiagnosticoEspecializadosEcommerceRouteImport } from './routes/diagnostico.especializados.ecommerce'
 import { Route as DiagnosticoPasoIdRouteImport } from './routes/diagnostico.paso.$id'
 
 const IndexRoute = IndexRouteImport.update({
@@ -100,6 +103,12 @@ const DiagnosticoIndexRoute = DiagnosticoIndexRouteImport.update({
   path: '/',
   getParentRoute: () => DiagnosticoRoute,
 } as any)
+const DiagnosticoEspecializadosRoute =
+  DiagnosticoEspecializadosRouteImport.update({
+    id: '/especializados',
+    path: '/especializados',
+    getParentRoute: () => DiagnosticoRoute,
+  } as any)
 const DiagnosticoMotorRoute = DiagnosticoMotorRouteImport.update({
   id: '/motor',
   path: '/motor',
@@ -156,6 +165,18 @@ const DashboardDimensionDimensionRoute =
     path: '/dimension/$dimension',
     getParentRoute: () => DashboardRoute,
   } as any)
+const DiagnosticoEspecializadosIndexRoute =
+  DiagnosticoEspecializadosIndexRouteImport.update({
+    id: '/',
+    path: '/',
+    getParentRoute: () => DiagnosticoEspecializadosRoute,
+  } as any)
+const DiagnosticoEspecializadosEcommerceRoute =
+  DiagnosticoEspecializadosEcommerceRouteImport.update({
+    id: '/ecommerce',
+    path: '/ecommerce',
+    getParentRoute: () => DiagnosticoEspecializadosRoute,
+  } as any)
 const DiagnosticoPasoIdRoute = DiagnosticoPasoIdRouteImport.update({
   id: '/paso/$id',
   path: '/paso/$id',
@@ -174,6 +195,7 @@ export interface FileRoutesByFullPath {
   '/resultados': typeof ResultadosRouteWithChildren
   '/roadmap': typeof RoadmapRouteWithChildren
   '/dashboard/alertas': typeof DashboardAlertasRoute
+  '/diagnostico/especializados': typeof DiagnosticoEspecializadosRouteWithChildren
   '/diagnostico/motor': typeof DiagnosticoMotorRoute
   '/diagnostico/procesando': typeof DiagnosticoProcesandoRoute
   '/diagnostico/resumen': typeof DiagnosticoResumenRoute
@@ -187,7 +209,9 @@ export interface FileRoutesByFullPath {
   '/resultados/': typeof ResultadosIndexRoute
   '/roadmap/': typeof RoadmapIndexRoute
   '/dashboard/dimension/$dimension': typeof DashboardDimensionDimensionRoute
+  '/diagnostico/especializados/ecommerce': typeof DiagnosticoEspecializadosEcommerceRoute
   '/diagnostico/paso/$id': typeof DiagnosticoPasoIdRoute
+  '/diagnostico/especializados/': typeof DiagnosticoEspecializadosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -209,7 +233,9 @@ export interface FileRoutesByTo {
   '/resultados': typeof ResultadosIndexRoute
   '/roadmap': typeof RoadmapIndexRoute
   '/dashboard/dimension/$dimension': typeof DashboardDimensionDimensionRoute
+  '/diagnostico/especializados/ecommerce': typeof DiagnosticoEspecializadosEcommerceRoute
   '/diagnostico/paso/$id': typeof DiagnosticoPasoIdRoute
+  '/diagnostico/especializados': typeof DiagnosticoEspecializadosIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -224,6 +250,7 @@ export interface FileRoutesById {
   '/resultados': typeof ResultadosRouteWithChildren
   '/roadmap': typeof RoadmapRouteWithChildren
   '/dashboard/alertas': typeof DashboardAlertasRoute
+  '/diagnostico/especializados': typeof DiagnosticoEspecializadosRouteWithChildren
   '/diagnostico/motor': typeof DiagnosticoMotorRoute
   '/diagnostico/procesando': typeof DiagnosticoProcesandoRoute
   '/diagnostico/resumen': typeof DiagnosticoResumenRoute
@@ -237,7 +264,9 @@ export interface FileRoutesById {
   '/resultados/': typeof ResultadosIndexRoute
   '/roadmap/': typeof RoadmapIndexRoute
   '/dashboard/dimension/$dimension': typeof DashboardDimensionDimensionRoute
+  '/diagnostico/especializados/ecommerce': typeof DiagnosticoEspecializadosEcommerceRoute
   '/diagnostico/paso/$id': typeof DiagnosticoPasoIdRoute
+  '/diagnostico/especializados/': typeof DiagnosticoEspecializadosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -253,6 +282,7 @@ export interface FileRouteTypes {
     | '/resultados'
     | '/roadmap'
     | '/dashboard/alertas'
+    | '/diagnostico/especializados'
     | '/diagnostico/motor'
     | '/diagnostico/procesando'
     | '/diagnostico/resumen'
@@ -266,7 +296,9 @@ export interface FileRouteTypes {
     | '/resultados/'
     | '/roadmap/'
     | '/dashboard/dimension/$dimension'
+    | '/diagnostico/especializados/ecommerce'
     | '/diagnostico/paso/$id'
+    | '/diagnostico/especializados/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -288,7 +320,9 @@ export interface FileRouteTypes {
     | '/resultados'
     | '/roadmap'
     | '/dashboard/dimension/$dimension'
+    | '/diagnostico/especializados/ecommerce'
     | '/diagnostico/paso/$id'
+    | '/diagnostico/especializados'
   id:
     | '__root__'
     | '/'
@@ -302,6 +336,7 @@ export interface FileRouteTypes {
     | '/resultados'
     | '/roadmap'
     | '/dashboard/alertas'
+    | '/diagnostico/especializados'
     | '/diagnostico/motor'
     | '/diagnostico/procesando'
     | '/diagnostico/resumen'
@@ -315,7 +350,9 @@ export interface FileRouteTypes {
     | '/resultados/'
     | '/roadmap/'
     | '/dashboard/dimension/$dimension'
+    | '/diagnostico/especializados/ecommerce'
     | '/diagnostico/paso/$id'
+    | '/diagnostico/especializados/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -424,6 +461,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DiagnosticoIndexRouteImport
       parentRoute: typeof DiagnosticoRoute
     }
+    '/diagnostico/especializados': {
+      id: '/diagnostico/especializados'
+      path: '/especializados'
+      fullPath: '/diagnostico/especializados'
+      preLoaderRoute: typeof DiagnosticoEspecializadosRouteImport
+      parentRoute: typeof DiagnosticoRoute
+    }
     '/diagnostico/motor': {
       id: '/diagnostico/motor'
       path: '/motor'
@@ -501,6 +545,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardDimensionDimensionRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/diagnostico/especializados/': {
+      id: '/diagnostico/especializados/'
+      path: '/'
+      fullPath: '/diagnostico/especializados/'
+      preLoaderRoute: typeof DiagnosticoEspecializadosIndexRouteImport
+      parentRoute: typeof DiagnosticoEspecializadosRoute
+    }
+    '/diagnostico/especializados/ecommerce': {
+      id: '/diagnostico/especializados/ecommerce'
+      path: '/ecommerce'
+      fullPath: '/diagnostico/especializados/ecommerce'
+      preLoaderRoute: typeof DiagnosticoEspecializadosEcommerceRouteImport
+      parentRoute: typeof DiagnosticoEspecializadosRoute
+    }
     '/diagnostico/paso/$id': {
       id: '/diagnostico/paso/$id'
       path: '/paso/$id'
@@ -527,7 +585,25 @@ const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
   DashboardRouteChildren,
 )
 
+interface DiagnosticoEspecializadosRouteChildren {
+  DiagnosticoEspecializadosEcommerceRoute: typeof DiagnosticoEspecializadosEcommerceRoute
+  DiagnosticoEspecializadosIndexRoute: typeof DiagnosticoEspecializadosIndexRoute
+}
+
+const DiagnosticoEspecializadosRouteChildren: DiagnosticoEspecializadosRouteChildren =
+  {
+    DiagnosticoEspecializadosEcommerceRoute:
+      DiagnosticoEspecializadosEcommerceRoute,
+    DiagnosticoEspecializadosIndexRoute: DiagnosticoEspecializadosIndexRoute,
+  }
+
+const DiagnosticoEspecializadosRouteWithChildren =
+  DiagnosticoEspecializadosRoute._addFileChildren(
+    DiagnosticoEspecializadosRouteChildren,
+  )
+
 interface DiagnosticoRouteChildren {
+  DiagnosticoEspecializadosRoute: typeof DiagnosticoEspecializadosRouteWithChildren
   DiagnosticoMotorRoute: typeof DiagnosticoMotorRoute
   DiagnosticoProcesandoRoute: typeof DiagnosticoProcesandoRoute
   DiagnosticoResumenRoute: typeof DiagnosticoResumenRoute
@@ -537,6 +613,7 @@ interface DiagnosticoRouteChildren {
 }
 
 const DiagnosticoRouteChildren: DiagnosticoRouteChildren = {
+  DiagnosticoEspecializadosRoute: DiagnosticoEspecializadosRouteWithChildren,
   DiagnosticoMotorRoute: DiagnosticoMotorRoute,
   DiagnosticoProcesandoRoute: DiagnosticoProcesandoRoute,
   DiagnosticoResumenRoute: DiagnosticoResumenRoute,
