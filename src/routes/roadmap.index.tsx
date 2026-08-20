@@ -7,7 +7,7 @@ import { DemoNote } from "@/components/ui/demo-note";
 import { EmptyState } from "@/components/ui/empty-state";
 import { LoadingState } from "@/components/ui/loading-state";
 import { PageHeader } from "@/components/layout/page-header";
-import { EtapaNav, EtapaProgreso, SiguienteEtapaSugerida } from "@/components/recorrido/etapa-nav";
+import { EtapaFooter, EtapaProgreso } from "@/components/recorrido/etapa-nav";
 
 import { RoadmapSummary } from "@/components/roadmap/roadmap-summary";
 import { RoadmapFilters } from "@/components/roadmap/roadmap-filters";
@@ -158,7 +158,6 @@ function RoadmapPage() {
             </TabsContent>
           </Tabs>
 
-          <SiguienteEtapaSugerida modulo="roadmap" />
 
           <DemoNote>
             {modoDemo
@@ -168,7 +167,7 @@ function RoadmapPage() {
         </div>
       )}
 
-      <EtapaNav modulo="roadmap" />
+      <EtapaFooter modulo="roadmap" />
     </div>
   );
 }

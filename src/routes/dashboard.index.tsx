@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { LoadingState } from "@/components/ui/loading-state";
 import { DemoNote } from "@/components/ui/demo-note";
 import { PageHeader } from "@/components/layout/page-header";
-import { EtapaNav, EtapaProgreso, SiguienteEtapaSugerida } from "@/components/recorrido/etapa-nav";
+import { EtapaFooter, EtapaProgreso } from "@/components/recorrido/etapa-nav";
 import { JourneyMap } from "@/components/recorrido/journey-map";
 import { KpiCard } from "@/components/dashboard/kpi-card";
 import { DashboardFiltersBar } from "@/components/dashboard/dashboard-filters";
@@ -282,8 +282,7 @@ function DashboardPage() {
           paquetes posteriores.
         </DemoNote>
       )}
-      <SiguienteEtapaSugerida modulo="indicadores" />
-      <EtapaNav modulo="indicadores" />
+      <EtapaFooter modulo="indicadores" />
     </div>
   );
 }

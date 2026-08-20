@@ -6,7 +6,7 @@
  * el menú y el avance de cada uno para poder guiar al usuario paso a paso.
  */
 
-import type { SesionMVP } from "@/types";
+import type { EtapaId, SesionMVP } from "@/types";
 
 export type ModuloId =
   | "perfil"
@@ -22,6 +22,8 @@ export interface ModuloRecorrido {
   label: string;
   ruta: string;
   descripcion: string;
+  /** Etapa conceptual (POC-02) a la que pertenece este módulo funcional. */
+  etapa: EtapaId;
 }
 
 /** Secuencia oficial: Perfil → Diagnóstico → Resultados → Plan → Roadmap → Indicadores. */
@@ -32,6 +34,7 @@ export const secuenciaRecorrido: ModuloRecorrido[] = [
     label: "Perfil de empresa",
     ruta: "/perfil",
     descripcion: "Registra el contexto básico de tu empresa.",
+    etapa: "preparar",
   },
   {
     id: "diagnostico",
@@ -39,6 +42,7 @@ export const secuenciaRecorrido: ModuloRecorrido[] = [
     label: "Diagnóstico",
     ruta: "/diagnostico",
     descripcion: "Responde el diagnóstico guiado paso a paso.",
+    etapa: "diagnosticar",
   },
   {
     id: "resultados",
@@ -46,6 +50,7 @@ export const secuenciaRecorrido: ModuloRecorrido[] = [
     label: "Resultados",
     ruta: "/resultados",
     descripcion: "Comprende tu estado actual y tus prioridades.",
+    etapa: "interpretar",
   },
   {
     id: "plan-de-accion",
@@ -53,6 +58,7 @@ export const secuenciaRecorrido: ModuloRecorrido[] = [
     label: "Plan de Acción",
     ruta: "/plan-de-accion",
     descripcion: "Revisa las fichas de acción priorizadas.",
+    etapa: "actuar",
   },
   {
     id: "roadmap",
@@ -60,6 +66,7 @@ export const secuenciaRecorrido: ModuloRecorrido[] = [
     label: "Roadmap",
     ruta: "/roadmap",
     descripcion: "Organiza y ejecuta tus acciones por fases.",
+    etapa: "actuar",
   },
   {
     id: "indicadores",
@@ -67,15 +74,25 @@ export const secuenciaRecorrido: ModuloRecorrido[] = [
     label: "Indicadores",
     ruta: "/dashboard",
     descripcion: "Sigue tu avance y define el siguiente movimiento.",
+    etapa: "seguir",
   },
 ];
+
+/** Módulos funcionales que componen cada etapa conceptual. */
+export function modulosDeEtapa(etapa: EtapaId): ModuloRecorrido[] {
+  return secuenciaRecorrido.filter((m) => m.etapa === etapa);
+}
+
+export function etapaDeModulo(id: ModuloId): EtapaId {
+  return moduloPorId(id).etapa;
+}
 
 export type EstadoModulo = "no_iniciada" | "en_progreso" | "completada";
 
 export const etiquetaEstadoModulo: Record<EstadoModulo, string> = {
-  no_iniciada: "No iniciada",
+  no_iniciada: "No iniciado",
   en_progreso: "En progreso",
-  completada: "Completada",
+  completada: "Completado",
 };
 
 export interface AvanceModulo {
@@ -89,33 +106,62 @@ function estadoDesdePorcentaje(porcentaje: number): EstadoModulo {
   return "no_iniciada";
 }
 
+const acotar = (valor: number) => Math.max(0, Math.min(100, Math.round(valor)));
+
+/**
+ * Perfil: solo tres campos son obligatorios (nombre, sector y tamaño). El
+ * módulo llega a 100% cuando esos campos están completos y el perfil fue
+ * guardado; los campos complementarios no bloquean la etapa.
+ */
 function porcentajePerfil(sesion: SesionMVP): number {
   const e = sesion.empresa;
-  const campos = [e.nombre, e.sector, e.tamaño, e.responsable, e.correo, e.ciudad, e.pais];
-  const llenos = campos.filter((c) => String(c ?? "").trim().length > 0).length;
-  if (sesion.perfilCompletado && llenos === campos.length) return 100;
-  return Math.round((llenos / campos.length) * 100);
+  const obligatorios = [e.nombre, e.sector, e.tamaño];
+  const llenos = obligatorios.filter((c) => String(c ?? "").trim().length > 0).length;
+  if (llenos === obligatorios.length && sesion.perfilCompletado) return 100;
+  if (llenos === 0) return 0;
+  return acotar((llenos / (obligatorios.length + 1)) * 100);
 }
 
-/** Avance por módulo derivado exclusivamente del estado ya persistido en la sesión. */
+/** Diagnóstico: 100% solo cuando el instrumento quedó formalmente completado. */
+function porcentajeDiagnostico(sesion: SesionMVP): number {
+  const d = sesion.diagnostico;
+  if (d.estado === "completado") return 100;
+  const respondidas = d.respondidasObligatorias ?? sesion.respuestas.length;
+  const total = d.totalPreguntas ?? d.totalPasos ?? 0;
+  const calculado = total > 0 ? (respondidas / total) * 100 : (d.progreso ?? 0);
+  return Math.min(99, acotar(calculado));
+}
+
+/**
+ * Avance por módulo derivado exclusivamente del estado ya persistido en la
+ * sesión: es la única fuente de verdad para Inicio, el menú lateral, los
+ * encabezados de etapa y el mapa del recorrido.
+ */
 export function avanceModulos(sesion: SesionMVP): Record<ModuloId, AvanceModulo> {
   const perfil = porcentajePerfil(sesion);
-  const diagnostico = Math.max(
-    0,
-    Math.min(100, Math.round(sesion.diagnostico.progreso ?? 0))
-  );
+  const diagnostico = porcentajeDiagnostico(sesion);
+
   const resultados =
     sesion.diagnostico.resultadosGenerados && sesion.resultados.length > 0
       ? 100
       : diagnostico >= 100
         ? 50
         : 0;
+
   const total = sesion.acciones.length;
-  const revisadas = sesion.acciones.filter((a) => a.estado !== "pendiente").length;
+  const iniciadas = sesion.acciones.filter((a) => a.estado !== "pendiente").length;
   const completadas = sesion.acciones.filter((a) => a.estado === "completada").length;
-  const plan = total === 0 ? 0 : resultados === 100 && revisadas === 0 ? 25 : Math.round((revisadas / total) * 100);
-  const roadmap = total === 0 ? 0 : Math.round((completadas / total) * 100) || (revisadas > 0 ? 20 : 0);
-  const indicadores = revisadas > 0 ? Math.min(100, roadmap || 20) : 0;
+  const enProgreso = sesion.acciones.filter((a) => a.estado === "en_progreso").length;
+
+  // Plan de acción: se considera completo cuando el plan existe con sus fichas.
+  const plan = total > 0 ? 100 : resultados >= 100 ? 50 : 0;
+
+  // Roadmap: ejecución real de las acciones del plan.
+  const roadmap =
+    total === 0 ? 0 : acotar(((completadas + enProgreso * 0.5) / total) * 100);
+
+  // Indicadores: seguimiento; se completa cuando toda la ejecución terminó.
+  const indicadores = total === 0 ? 0 : roadmap >= 100 ? 100 : iniciadas > 0 ? 50 : 0;
 
   const valores: Record<ModuloId, number> = {
     perfil,
@@ -133,6 +179,37 @@ export function avanceModulos(sesion: SesionMVP): Record<ModuloId, AvanceModulo>
     ])
   ) as Record<ModuloId, AvanceModulo>;
 }
+
+/** Avance de una etapa conceptual: promedio de los módulos que la componen. */
+export function avanceEtapas(sesion: SesionMVP): Record<EtapaId, AvanceModulo> {
+  const avances = avanceModulos(sesion);
+  const etapas: EtapaId[] = ["preparar", "diagnosticar", "interpretar", "actuar", "seguir"];
+  return Object.fromEntries(
+    etapas.map((etapa) => {
+      const modulos = modulosDeEtapa(etapa);
+      const porcentaje = acotar(
+        modulos.reduce((total, m) => total + avances[m.id].porcentaje, 0) / (modulos.length || 1)
+      );
+      return [etapa, { porcentaje, estado: estadoDesdePorcentaje(porcentaje) }];
+    })
+  ) as Record<EtapaId, AvanceModulo>;
+}
+
+/** Primer módulo del recorrido que aún no está completo. */
+export function primerModuloPendiente(sesion: SesionMVP): ModuloRecorrido | null {
+  const avances = avanceModulos(sesion);
+  return secuenciaRecorrido.find((m) => avances[m.id].porcentaje < 100) ?? null;
+}
+
+/** Estado global del recorrido con los mismos tres estados de cada módulo. */
+export function estadoRecorrido(sesion: SesionMVP): EstadoModulo {
+  const avances = avanceModulos(sesion);
+  const valores = secuenciaRecorrido.map((m) => avances[m.id].porcentaje);
+  if (valores.every((v) => v >= 100)) return "completada";
+  if (valores.some((v) => v > 0)) return "en_progreso";
+  return "no_iniciada";
+}
+
 
 export function moduloPorId(id: ModuloId): ModuloRecorrido {
   return secuenciaRecorrido.find((m) => m.id === id)!;

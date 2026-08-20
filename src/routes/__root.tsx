@@ -15,6 +15,7 @@ import { AppHeader } from "@/components/layout/app-header";
 import { AppSidebar } from "@/components/layout/app-sidebar";
 import { AppFooter } from "@/components/layout/app-footer";
 import { MobileNav } from "@/components/layout/mobile-nav";
+import { DemoBanner } from "@/components/demo/demo-banner";
 import { useSesion } from "@/hooks/use-sesion";
 import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/sonner";
@@ -188,6 +189,7 @@ function RootComponent() {
           onToggleSidebar={handleToggleSidebar}
           mobileNav={<MobileNav />}
         />
+        <DemoBanner />
         <div className="flex flex-1 overflow-hidden">
           <AppSidebar collapsed={sidebarCollapsed} className="h-[calc(100vh-4rem)]" />
           <div className="flex flex-1 flex-col overflow-hidden">

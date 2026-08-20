@@ -14,12 +14,14 @@ import { PageHeader } from "@/components/layout/page-header";
 import { JourneyMap } from "@/components/recorrido/journey-map";
 import { ComoFuncionaDialog } from "@/components/recorrido/como-funciona-dialog";
 import { useSesion } from "@/hooks/use-sesion";
-import { hayProgresoReal, estadoEtapas, siguientePaso } from "@/lib/recorrido";
+import { ctaRecorrido, estadoEtapas, etapas } from "@/lib/recorrido";
 import {
+  avanceEtapas,
   avanceModulos,
   etiquetaEstadoModulo,
-  secuenciaRecorrido,
+  modulosDeEtapa,
 } from "@/lib/recorrido-modulos";
+
 
 import {
   ArrowRight,
@@ -58,10 +60,11 @@ function InicioPage() {
     return <LoadingState fullPage />;
   }
 
-  const paso = siguientePaso(sesion);
+  const cta = ctaRecorrido(sesion);
   const estados = estadoEtapas(sesion);
   const avances = avanceModulos(sesion);
-  const enInicio = !hayProgresoReal(sesion);
+  const avanceEtapa = avanceEtapas(sesion);
+
 
   const perfilIncompleto = !sesion.perfilCompletado || !sesion.empresa.nombre.trim();
   const nombreEmpresa = sesion.empresa.nombre.trim();
@@ -87,32 +90,36 @@ function InicioPage() {
         <div className="bg-patron-marca">
           <CardHeader className="gap-2 p-8">
             <CardDescription className="text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground/80">
-              {enInicio ? "Empieza aquí" : "Tu siguiente paso"}
+              {cta.kicker}
             </CardDescription>
-            <CardTitle className="text-2xl font-semibold sm:text-3xl">
-              {enInicio ? "Inicia tu recorrido de transformación" : paso.titulo}
-            </CardTitle>
+            <CardTitle className="text-2xl font-semibold sm:text-3xl">{cta.titulo}</CardTitle>
             <CardDescription className="max-w-xl text-primary-foreground/85">
-              {enInicio
-                ? "Registra el perfil de tu empresa, responde el diagnóstico, descubre tus resultados y construye tu plan de acción paso a paso."
-                : paso.descripcion}
+              {cta.descripcion}
             </CardDescription>
           </CardHeader>
           <CardContent className="flex flex-wrap items-center gap-3 p-8 pt-0">
             <Button asChild size="lg" variant="secondary">
-              <Link to={enInicio ? "/perfil" : paso.ruta}>
-                {enInicio ? "Iniciar mi recorrido" : "Continuar mi recorrido"}
+              <Link to={cta.ruta}>
+                {cta.label}
                 <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
               </Link>
             </Button>
             <ComoFuncionaDialog />
-            <span className="text-xs text-primary-foreground/80">
-              {enInicio
-                ? "Comenzar te lleva al primer paso: completar tu perfil."
-                : "Continuar te lleva exactamente al punto donde quedaste."}
-            </span>
+            <span className="text-xs text-primary-foreground/80">{cta.hint}</span>
           </CardContent>
         </div>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-base">¿Para qué sirve pymapa?</CardTitle>
+          <CardDescription>
+            pymapa es un modelo de transformación digital autogestionado: con un diagnóstico guiado
+            entendemos el punto de partida de tu empresa, traducimos ese resultado en prioridades
+            claras y lo convertimos en un plan de acción con seguimiento. Avanzas a tu ritmo y
+            puedes guardar y retomar el recorrido en cualquier momento.
+          </CardDescription>
+        </CardHeader>
       </Card>
 
       {perfilIncompleto && (
@@ -129,41 +136,71 @@ function InicioPage() {
         </div>
       )}
 
-      <section aria-labelledby="mapa-recorrido" className="space-y-3">
-        <h2 id="mapa-recorrido" className="text-lg font-semibold text-foreground">
-          Tu recorrido paso a paso
-        </h2>
+      <section aria-labelledby="mapa-recorrido" className="space-y-4">
+        <div>
+          <h2 id="mapa-recorrido" className="text-lg font-semibold text-foreground">
+            Tu recorrido paso a paso
+          </h2>
+          <p className="text-sm text-muted-foreground">
+            El recorrido tiene cinco etapas. Dentro de cada etapa trabajas con los módulos de la
+            plataforma que la componen.
+          </p>
+        </div>
         <JourneyMap estados={estados} />
-        <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {secuenciaRecorrido.map((modulo) => {
-            const avance = avances[modulo.id];
+        <ol className="space-y-3">
+          {etapas.map((etapa) => {
+            const modulos = modulosDeEtapa(etapa.id);
+            const avance = avanceEtapa[etapa.id];
             return (
-              <li key={modulo.id}>
-                <Link
-                  to={modulo.ruta}
-                  className="flex h-full flex-col gap-2 rounded-xl border border-border bg-card p-4 shadow-suave transition-colors hover:border-primary/40"
-                >
-                  <span className="flex items-center justify-between gap-2">
-                    <span className="text-sm font-medium text-foreground">
-                      {modulo.numero}. {modulo.label}
-                    </span>
-                    <span className="text-xs font-semibold text-primary">
-                      {avance.porcentaje}%
-                    </span>
-                  </span>
+              <li
+                key={etapa.id}
+                className="rounded-xl border border-border bg-card p-4 shadow-suave"
+              >
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <p className="text-sm font-semibold text-foreground">
+                    Etapa {etapa.numero} · {etapa.titulo}
+                  </p>
                   <span className="text-xs text-muted-foreground">
-                    {etiquetaEstadoModulo[avance.estado]}
+                    {etiquetaEstadoModulo[avance.estado]} · {avance.porcentaje}%
                   </span>
-                  <Progress
-                    value={avance.porcentaje}
-                    aria-label={`Avance de ${modulo.label}`}
-                  />
-                </Link>
+                </div>
+                <p className="mt-1 text-xs text-muted-foreground">{etapa.descripcion}</p>
+                <Progress
+                  value={avance.porcentaje}
+                  className="mt-3"
+                  aria-label={`Avance de la etapa ${etapa.titulo}`}
+                />
+                <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+                  {modulos.map((modulo) => {
+                    const am = avances[modulo.id];
+                    return (
+                      <li key={modulo.id}>
+                        <Link
+                          to={modulo.ruta}
+                          className="flex flex-col gap-1 rounded-lg border border-border/70 bg-background p-3 transition-colors hover:border-primary/40"
+                        >
+                          <span className="flex items-center justify-between gap-2">
+                            <span className="text-sm font-medium text-foreground">
+                              Módulo {modulo.numero} · {modulo.label}
+                            </span>
+                            <span className="text-xs font-semibold text-primary">
+                              {am.porcentaje}%
+                            </span>
+                          </span>
+                          <span className="text-xs text-muted-foreground">
+                            {etiquetaEstadoModulo[am.estado]}
+                          </span>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
               </li>
             );
           })}
-        </ul>
+        </ol>
       </section>
+
 
 
       <section aria-labelledby="resumen-estado" className="space-y-3">

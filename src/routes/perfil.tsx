@@ -15,7 +15,10 @@ import { useSesion } from "@/hooks/use-sesion";
 import { LoadingState } from "@/components/ui/loading-state";
 import { DemoNote } from "@/components/ui/demo-note";
 import { PageHeader } from "@/components/layout/page-header";
-import { EtapaNav, EtapaProgreso, SiguienteEtapaSugerida } from "@/components/recorrido/etapa-nav";
+import { EtapaFooter, EtapaProgreso } from "@/components/recorrido/etapa-nav";
+import { AutocompletarEtapa } from "@/components/demo/autocompletar-etapa";
+import { useModoDemo } from "@/hooks/use-modo-demo";
+import { registrarEvento } from "@/lib/analytics";
 
 import { toast } from "sonner";
 import { Save, RotateCcw, AlertTriangle, Sparkles } from "lucide-react";
@@ -42,6 +45,7 @@ export const Route = createFileRoute("/perfil")({
 
 function PerfilPage() {
   const { sesion, isHydrated, updateEmpresa, reiniciarTodo, cargarDatosDemostrativos } = useSesion();
+  const { puedeAutocompletar, perfil: perfilDemo } = useModoDemo();
   const [form, setForm] = useState(sesion.empresa);
   const [hasChanges, setHasChanges] = useState(false);
 
@@ -82,6 +86,17 @@ function PerfilPage() {
     }
   };
 
+  /** Modo demo paso a paso: diligencia el formulario con el dataset simulado. */
+  const handleAutocompletar = () => {
+    if (!perfilDemo) return;
+    setForm({ ...perfilDemo.empresa, fechaActualizacion: new Date().toISOString() });
+    setHasChanges(true);
+    registrarEvento("demo_stage_autofilled", { etapa: "perfil", profileId: perfilDemo.id });
+    toast.info("Diligenciamos el perfil con datos simulados.", {
+      description: "Revisa la información y guarda para continuar.",
+    });
+  };
+
   const handleDemo = () => {
     cargarDatosDemostrativos();
     toast.info("Cargamos una sesión demostrativa completa.");
@@ -96,6 +111,10 @@ function PerfilPage() {
       />
 
       <EtapaProgreso modulo="perfil" />
+
+      {puedeAutocompletar && perfilDemo && (
+        <AutocompletarEtapa onAutocompletar={handleAutocompletar} empresaDemo={perfilDemo.nombre} />
+      )}
 
 
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -252,8 +271,7 @@ function PerfilPage() {
         </div>
       </form>
 
-      <SiguienteEtapaSugerida modulo="perfil" />
-      <EtapaNav modulo="perfil" />
+      <EtapaFooter modulo="perfil" />
 
       <DemoNote>
         En el MVP Alfa el perfil no se sincroniza con ningún servicio externo. La autenticación y el

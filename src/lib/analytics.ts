@@ -67,7 +67,12 @@ export type EventoInteraccion =
   | "integration_session_exported"
   | "integration_session_restored"
   | "integration_session_reset"
-  | "integration_error";
+  | "integration_error"
+  // Eventos del Modo Demostración controlado (iteración de refinamiento).
+  | "demo_mode_started"
+  | "demo_mode_exited"
+  | "demo_stage_autofilled";
+
 
 const STORAGE_KEY = "pyme-digital-eventos-v1";
 const MAX_EVENTOS = 100;
