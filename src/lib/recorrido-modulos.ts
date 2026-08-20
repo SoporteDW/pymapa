@@ -115,12 +115,15 @@ const acotar = (valor: number) => Math.max(0, Math.min(100, Math.round(valor)));
  */
 function porcentajePerfil(sesion: SesionMVP): number {
   const e = sesion.empresa;
+  // Sector y tamaño traen un valor por defecto, así que sin nombre el módulo
+  // sigue en cero: no hay progreso real hasta que la empresa se identifica.
+  if (String(e.nombre ?? "").trim().length === 0) return 0;
   const obligatorios = [e.nombre, e.sector, e.tamaño];
   const llenos = obligatorios.filter((c) => String(c ?? "").trim().length > 0).length;
   if (llenos === obligatorios.length && sesion.perfilCompletado) return 100;
-  if (llenos === 0) return 0;
   return acotar((llenos / (obligatorios.length + 1)) * 100);
 }
+
 
 /** Diagnóstico: 100% solo cuando el instrumento quedó formalmente completado. */
 function porcentajeDiagnostico(sesion: SesionMVP): number {
