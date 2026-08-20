@@ -273,6 +273,31 @@ function DiagnosticoEntrada() {
           Antes de las dimensiones te haremos cuatro preguntas breves de contexto sobre tu empresa.
         </p>
       </section>
+
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-lg">Diagnósticos especializados</CardTitle>
+          <CardDescription>
+            Análisis complementarios que profundizan un frente concreto del negocio digital. Son
+            independientes: no modifican tus respuestas ni el puntaje del diagnóstico general.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-3">
+          <p className="text-sm text-muted-foreground">
+            Disponible: <span className="font-semibold text-foreground">Diagnóstico Inteligente ·
+            E-commerce</span> (canal de venta digital, perfil tecnológico requerido, social selling y
+            experiencia de compra), con hallazgos explicables y conversión directa a iniciativas del
+            plan.
+          </p>
+          <Button variant="outline" asChild>
+            <Link to="/diagnostico/especializados">
+              Ver diagnósticos especializados
+              <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+            </Link>
+          </Button>
+        </CardContent>
+      </Card>
+
       <EtapaFooter modulo="diagnostico" />
     </div>
   );
