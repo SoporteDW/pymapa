@@ -35,6 +35,7 @@ import { Route as RoadmapIndexRouteImport } from './routes/roadmap.index'
 import { Route as RoadmapAccionRouteImport } from './routes/roadmap.$accion'
 import { Route as DashboardDimensionDimensionRouteImport } from './routes/dashboard.dimension.$dimension'
 import { Route as DiagnosticoEspecializadosIndexRouteImport } from './routes/diagnostico.especializados.index'
+import { Route as DiagnosticoEspecializadosEcommerceRouteImport } from './routes/diagnostico.especializados.ecommerce'
 import { Route as DiagnosticoPasoIdRouteImport } from './routes/diagnostico.paso.$id'
 
 const IndexRoute = IndexRouteImport.update({
@@ -170,6 +171,12 @@ const DiagnosticoEspecializadosIndexRoute =
     path: '/',
     getParentRoute: () => DiagnosticoEspecializadosRoute,
   } as any)
+const DiagnosticoEspecializadosEcommerceRoute =
+  DiagnosticoEspecializadosEcommerceRouteImport.update({
+    id: '/ecommerce',
+    path: '/ecommerce',
+    getParentRoute: () => DiagnosticoEspecializadosRoute,
+  } as any)
 const DiagnosticoPasoIdRoute = DiagnosticoPasoIdRouteImport.update({
   id: '/paso/$id',
   path: '/paso/$id',
@@ -202,6 +209,7 @@ export interface FileRoutesByFullPath {
   '/resultados/': typeof ResultadosIndexRoute
   '/roadmap/': typeof RoadmapIndexRoute
   '/dashboard/dimension/$dimension': typeof DashboardDimensionDimensionRoute
+  '/diagnostico/especializados/ecommerce': typeof DiagnosticoEspecializadosEcommerceRoute
   '/diagnostico/paso/$id': typeof DiagnosticoPasoIdRoute
   '/diagnostico/especializados/': typeof DiagnosticoEspecializadosIndexRoute
 }
@@ -225,6 +233,7 @@ export interface FileRoutesByTo {
   '/resultados': typeof ResultadosIndexRoute
   '/roadmap': typeof RoadmapIndexRoute
   '/dashboard/dimension/$dimension': typeof DashboardDimensionDimensionRoute
+  '/diagnostico/especializados/ecommerce': typeof DiagnosticoEspecializadosEcommerceRoute
   '/diagnostico/paso/$id': typeof DiagnosticoPasoIdRoute
   '/diagnostico/especializados': typeof DiagnosticoEspecializadosIndexRoute
 }
@@ -255,6 +264,7 @@ export interface FileRoutesById {
   '/resultados/': typeof ResultadosIndexRoute
   '/roadmap/': typeof RoadmapIndexRoute
   '/dashboard/dimension/$dimension': typeof DashboardDimensionDimensionRoute
+  '/diagnostico/especializados/ecommerce': typeof DiagnosticoEspecializadosEcommerceRoute
   '/diagnostico/paso/$id': typeof DiagnosticoPasoIdRoute
   '/diagnostico/especializados/': typeof DiagnosticoEspecializadosIndexRoute
 }
@@ -286,6 +296,7 @@ export interface FileRouteTypes {
     | '/resultados/'
     | '/roadmap/'
     | '/dashboard/dimension/$dimension'
+    | '/diagnostico/especializados/ecommerce'
     | '/diagnostico/paso/$id'
     | '/diagnostico/especializados/'
   fileRoutesByTo: FileRoutesByTo
@@ -309,6 +320,7 @@ export interface FileRouteTypes {
     | '/resultados'
     | '/roadmap'
     | '/dashboard/dimension/$dimension'
+    | '/diagnostico/especializados/ecommerce'
     | '/diagnostico/paso/$id'
     | '/diagnostico/especializados'
   id:
@@ -338,6 +350,7 @@ export interface FileRouteTypes {
     | '/resultados/'
     | '/roadmap/'
     | '/dashboard/dimension/$dimension'
+    | '/diagnostico/especializados/ecommerce'
     | '/diagnostico/paso/$id'
     | '/diagnostico/especializados/'
   fileRoutesById: FileRoutesById
@@ -539,6 +552,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DiagnosticoEspecializadosIndexRouteImport
       parentRoute: typeof DiagnosticoEspecializadosRoute
     }
+    '/diagnostico/especializados/ecommerce': {
+      id: '/diagnostico/especializados/ecommerce'
+      path: '/ecommerce'
+      fullPath: '/diagnostico/especializados/ecommerce'
+      preLoaderRoute: typeof DiagnosticoEspecializadosEcommerceRouteImport
+      parentRoute: typeof DiagnosticoEspecializadosRoute
+    }
     '/diagnostico/paso/$id': {
       id: '/diagnostico/paso/$id'
       path: '/paso/$id'
@@ -566,11 +586,14 @@ const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
 )
 
 interface DiagnosticoEspecializadosRouteChildren {
+  DiagnosticoEspecializadosEcommerceRoute: typeof DiagnosticoEspecializadosEcommerceRoute
   DiagnosticoEspecializadosIndexRoute: typeof DiagnosticoEspecializadosIndexRoute
 }
 
 const DiagnosticoEspecializadosRouteChildren: DiagnosticoEspecializadosRouteChildren =
   {
+    DiagnosticoEspecializadosEcommerceRoute:
+      DiagnosticoEspecializadosEcommerceRoute,
     DiagnosticoEspecializadosIndexRoute: DiagnosticoEspecializadosIndexRoute,
   }
 
