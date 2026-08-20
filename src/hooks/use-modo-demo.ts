@@ -38,12 +38,14 @@ export function useModoDemo() {
     const simulado = perfilPorId(perfilId);
     if (!simulado) return null;
     const siguiente = activarModoDemo(modo, { id: simulado.id, nombre: simulado.nombre });
+    setEstado(siguiente);
+    registrarEvento("demo_mode_started", { profileId: simulado.id, mode: modo });
     if (modo === "paso_a_paso") {
       // Solo se limpian los datos del recorrido: el respaldo real queda intacto.
       limpiarDatosRecorrido();
+      // Recarga en el primer módulo para partir de un estado limpio en memoria.
+      if (typeof window !== "undefined") window.location.assign("/perfil");
     }
-    setEstado(siguiente);
-    registrarEvento("demo_mode_started", { profileId: simulado.id, mode: modo });
     return simulado;
   }, []);
 

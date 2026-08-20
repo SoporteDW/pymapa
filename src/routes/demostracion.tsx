@@ -1,4 +1,4 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -94,7 +94,6 @@ function DemostracionPage() {
     reiniciarTodo,
   } = useIntegracion();
 
-  const navigate = useNavigate();
   const { iniciarDemo, demoActiva, estado: estadoDemo, salirDemo } = useModoDemo();
   const [informesGlobales, setInformesGlobales] = useState<InformeConsistencia[] | null>(null);
   const [respaldo, setRespaldo] = useState("");
@@ -188,7 +187,6 @@ function DemostracionPage() {
                     variant="outline"
                     onClick={() => {
                       iniciarDemo(perfil.id, "paso_a_paso");
-                      navigate({ to: "/perfil" });
                     }}
                   >
                     Recorrer demo paso a paso
