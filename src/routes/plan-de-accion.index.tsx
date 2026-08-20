@@ -39,6 +39,7 @@ export const Route = createFileRoute("/plan-de-accion/")({
 function PlanDeAccionPage() {
   const navigate = useNavigate();
   const { estado, resultado, errorCodigo, reintentar } = useResultados();
+  const { iniciativas } = useIniciativasKb();
   const [filtros, setFiltros] = useState<FiltrosAcciones>(filtrosIniciales);
 
   const acciones = useMemo(
@@ -144,6 +145,8 @@ function PlanDeAccionPage() {
           </div>
         )}
       </ResultState>
+
+      <IniciativasKb iniciativas={iniciativas} />
 
       <EtapaFooter modulo="plan-de-accion" />
     </div>
