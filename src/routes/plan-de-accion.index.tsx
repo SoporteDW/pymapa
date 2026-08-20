@@ -146,6 +146,8 @@ function PlanDeAccionPage() {
         )}
       </ResultState>
 
+      <IniciativasKb iniciativas={iniciativas} />
+
       <EtapaFooter modulo="plan-de-accion" />
     </div>
   );
