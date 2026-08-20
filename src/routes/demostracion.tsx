@@ -8,6 +8,7 @@ import { LoadingState } from "@/components/ui/loading-state";
 import { DemoNote } from "@/components/ui/demo-note";
 import { PageHeader } from "@/components/layout/page-header";
 import { useIntegracion } from "@/hooks/use-integracion";
+import { useModoDemo } from "@/hooks/use-modo-demo";
 import type { InformeConsistencia } from "@/lib/integracion/consistencia";
 import { toast } from "sonner";
 import {
@@ -93,6 +94,7 @@ function DemostracionPage() {
     reiniciarTodo,
   } = useIntegracion();
 
+  const { iniciarDemo, demoActiva, estado: estadoDemo, salirDemo } = useModoDemo();
   const [informesGlobales, setInformesGlobales] = useState<InformeConsistencia[] | null>(null);
   const [respaldo, setRespaldo] = useState("");
 
@@ -137,6 +139,17 @@ function DemostracionPage() {
           </CardDescription>
         </CardHeader>
         <CardContent className="grid gap-3 lg:grid-cols-2">
+          {demoActiva && (
+            <div className="lg:col-span-2 flex flex-wrap items-center justify-between gap-2 rounded-lg border border-primary/25 bg-primary/5 p-3 text-sm">
+              <span className="text-primary">
+                Modo demostración activo{estadoDemo.perfilNombre ? ` · ${estadoDemo.perfilNombre}` : ""}.
+                Tus datos reales están respaldados y se restauran al salir.
+              </span>
+              <Button size="sm" variant="outline" onClick={salirDemo}>
+                Salir de demostración
+              </Button>
+            </div>
+          )}
           {perfiles.map((perfil) => {
             const activo = perfilActivo?.id === perfil.id;
             return (
@@ -160,15 +173,31 @@ function DemostracionPage() {
                   {perfil.expectativa}
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  <Button size="sm" onClick={() => cargarPerfil(perfil.id)}>
-                    Cargar este perfil
+                  <Button
+                    size="sm"
+                    onClick={() => {
+                      iniciarDemo(perfil.id, "completa");
+                      cargarPerfil(perfil.id);
+                    }}
+                  >
+                    Ver demo completa
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => {
+                      iniciarDemo(perfil.id, "paso_a_paso");
+                    }}
+                  >
+                    Recorrer demo paso a paso
                   </Button>
                   {activo && (
-                    <Button size="sm" variant="outline" asChild>
+                    <Button size="sm" variant="ghost" asChild>
                       <Link to="/resultados">Ver resultados</Link>
                     </Button>
                   )}
                 </div>
+
               </article>
             );
           })}

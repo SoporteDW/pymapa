@@ -1,4 +1,6 @@
+import { estadoRecorrido, primerModuloPendiente } from "@/lib/recorrido-modulos";
 import type { EtapaId, SesionMVP } from "@/types";
+
 
 /**
  * Mapa del recorrido (POC-02, sección 7).
@@ -178,10 +180,113 @@ export function hayProgresoReal(sesion: SesionMVP): boolean {
     (sesion.diagnostico.respondidasObligatorias ?? sesion.respuestas.length) > 0;
   const hayResultados = sesion.resultados.length > 0;
   const hayAcciones = sesion.acciones.length > 0;
-  const hayActividad = sesion.actividad.length > 0;
 
-  return perfilIniciado || diagnosticoIniciado || hayResultados || hayAcciones || hayActividad;
+  return perfilIniciado || diagnosticoIniciado || hayResultados || hayAcciones;
 }
+
+/** Rutas fijas a las que puede apuntar el recorrido. */
+const RUTAS_RECORRIDO = new Set<string>([
+  "/inicio",
+  "/perfil",
+  "/diagnostico",
+  "/diagnostico/resumen",
+  "/resultados",
+  "/plan-de-accion",
+  "/roadmap",
+  "/dashboard",
+]);
+
+/**
+ * Evita enviar al usuario a una ficha inexistente o eliminada: las rutas con
+ * identificador solo son válidas si el registro sigue en el plan actual.
+ */
+export function rutaValida(sesion: SesionMVP, ruta: string): boolean {
+  if (ruta.startsWith("/plan-de-accion/")) {
+    const id = ruta.slice("/plan-de-accion/".length);
+    return sesion.acciones.some((a) => a.id === id);
+  }
+  if (ruta.startsWith("/roadmap/")) {
+    const id = ruta.slice("/roadmap/".length);
+    return sesion.acciones.some((a) => a.id === id);
+  }
+  return RUTAS_RECORRIDO.has(ruta);
+}
+
+export type TipoCta = "iniciar" | "continuar" | "avance";
+
+export interface CtaRecorrido {
+  tipo: TipoCta;
+  kicker: string;
+  titulo: string;
+  descripcion: string;
+  label: string;
+  ruta: string;
+  hint: string;
+}
+
+/**
+ * CTA principal del Home, derivado del mismo estado persistido que alimenta el
+ * menú y los módulos: Iniciar / Continuar / Ver avance.
+ */
+export function ctaRecorrido(sesion: SesionMVP): CtaRecorrido {
+  if (!hayProgresoReal(sesion)) {
+    return {
+      tipo: "iniciar",
+      kicker: "Empieza aquí",
+      titulo: "Inicia tu recorrido de transformación",
+      descripcion:
+        "Registra el perfil de tu empresa, responde el diagnóstico, descubre tus resultados y construye tu plan de acción paso a paso.",
+      label: "Iniciar mi recorrido",
+      ruta: "/perfil",
+      hint: "Comenzar te lleva al primer paso: completar tu perfil.",
+    };
+  }
+
+  const pendiente = primerModuloPendiente(sesion);
+
+  if (estadoRecorrido(sesion) === "completada" || !pendiente) {
+    const accionesAbiertas = sesion.acciones.filter(
+      (a) => a.estado === "pendiente" || a.estado === "en_progreso"
+    ).length;
+    if (accionesAbiertas > 0) {
+      return {
+        tipo: "avance",
+        kicker: "Tu recorrido está al día",
+        titulo: "Continúa con tu plan",
+        descripcion: `Tienes ${accionesAbiertas} acción(es) abiertas en tu Roadmap para seguir ejecutando.`,
+        label: "Continuar con mi plan",
+        ruta: "/roadmap",
+        hint: "Te llevamos al Roadmap para retomar la ejecución.",
+      };
+    }
+    return {
+      tipo: "avance",
+      kicker: "Recorrido completado",
+      titulo: "Revisa tu avance",
+      descripcion:
+        "Completaste las seis etapas del recorrido. Consulta tus indicadores para medir resultados y decidir el siguiente ciclo.",
+      label: "Ver mi avance",
+      ruta: "/dashboard",
+      hint: "Los indicadores resumen tu madurez y la ejecución del plan.",
+    };
+  }
+
+  const paso = siguientePaso(sesion);
+  // Si la referencia guardada ya no existe, se recupera el siguiente punto válido.
+  const ruta = rutaValida(sesion, paso.ruta) ? paso.ruta : pendiente.ruta;
+  const referenciaPerdida = ruta !== paso.ruta;
+
+  return {
+    tipo: "continuar",
+    kicker: "Tu siguiente paso",
+    titulo: referenciaPerdida ? `Continúa en ${pendiente.label}` : paso.titulo,
+    descripcion: referenciaPerdida ? pendiente.descripcion : paso.descripcion,
+    label: "Continuar mi recorrido",
+    ruta,
+    hint: "Continuar te lleva exactamente al punto donde quedaste.",
+  };
+}
+
 
 export const etiquetaHorizonte: Record<string, string> = {
   ahora: "Ahora",

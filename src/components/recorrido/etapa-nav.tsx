@@ -9,11 +9,13 @@ import {
   moduloAnterior,
   moduloPorId,
   moduloSiguiente,
+  secuenciaRecorrido,
   type ModuloId,
 } from "@/lib/recorrido-modulos";
+import { etapas } from "@/lib/recorrido";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
-import { ArrowLeft, ArrowRight, Save } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, Save } from "lucide-react";
 
 const tonoEstado = {
   no_iniciada: "border-border bg-muted text-muted-foreground",
@@ -26,15 +28,23 @@ export function EtapaProgreso({ modulo, className }: { modulo: ModuloId; classNa
   const { sesion, isHydrated } = useSesion();
   const info = moduloPorId(modulo);
   const avance = avanceModulos(sesion)[modulo];
+  const etapa = etapas.find((e) => e.id === info.etapa);
 
   if (!isHydrated) return null;
 
   return (
     <div className={cn("rounded-xl border border-border bg-card p-4 shadow-suave", className)}>
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <p className="text-sm font-medium text-foreground">
-          Etapa {info.numero} de 6 · {info.label}
-        </p>
+        <div className="min-w-0">
+          <p className="text-sm font-medium text-foreground">
+            Módulo {info.numero} de {secuenciaRecorrido.length} · {info.label}
+          </p>
+          {etapa && (
+            <p className="text-xs text-muted-foreground">
+              Etapa {etapa.numero} del recorrido: {etapa.titulo}
+            </p>
+          )}
+        </div>
         <div className="flex items-center gap-2">
           <Badge variant="outline" className={cn("rounded-full", tonoEstado[avance.estado])}>
             {etiquetaEstadoModulo[avance.estado]}
@@ -52,15 +62,17 @@ export function EtapaProgreso({ modulo, className }: { modulo: ModuloId; classNa
 }
 
 /**
- * Controles de navegación comunes a todas las etapas: guardar progreso,
- * etapa anterior y siguiente etapa. El avance se guarda automáticamente, así
- * que el usuario puede abandonar una etapa sin perder información.
+ * Navegación única al cierre de cada módulo: guardar progreso, módulo anterior
+ * y un solo llamado de continuidad hacia el siguiente módulo (antes existían
+ * "Continuar" y "Siguiente etapa" haciendo exactamente lo mismo).
  */
-export function EtapaNav({ modulo, className }: { modulo: ModuloId; className?: string }) {
-  const { registrarActividad, updatePreferencias } = useSesion();
+export function EtapaFooter({ modulo, className }: { modulo: ModuloId; className?: string }) {
+  const { sesion, isHydrated, registrarActividad, updatePreferencias } = useSesion();
   const info = moduloPorId(modulo);
   const anterior = moduloAnterior(modulo);
   const siguiente = moduloSiguiente(modulo);
+  const avance = isHydrated ? avanceModulos(sesion)[modulo] : null;
+  const completado = avance?.estado === "completada";
 
   const guardar = () => {
     updatePreferencias({ ultimaRuta: info.ruta });
@@ -73,35 +85,47 @@ export function EtapaNav({ modulo, className }: { modulo: ModuloId; className?: 
   return (
     <nav
       className={cn(
-        "flex flex-col gap-3 rounded-xl border border-border bg-card p-4 shadow-suave sm:flex-row sm:items-center sm:justify-between",
+        "flex flex-col gap-3 rounded-xl border p-4 shadow-suave sm:flex-row sm:items-center sm:justify-between",
+        completado ? "border-primary/25 bg-primary/5" : "border-border bg-card",
         className
       )}
       aria-label="Navegación entre etapas del recorrido"
     >
-      <Button variant="ghost" onClick={guardar}>
-        <Save className="mr-2 h-4 w-4" aria-hidden="true" />
-        Guardar progreso
-      </Button>
-      <div className="flex flex-wrap gap-2">
-        {anterior ? (
-          <Button variant="outline" asChild>
-            <Link to={anterior.ruta}>
-              <ArrowLeft className="mr-2 h-4 w-4" aria-hidden="true" />
-              Etapa anterior: {anterior.label}
-            </Link>
-          </Button>
+      <div className="min-w-0">
+        {siguiente ? (
+          <>
+            <p className="flex items-center gap-2 text-sm font-semibold text-foreground">
+              {completado && (
+                <CheckCircle2 className="h-4 w-4 text-success" aria-hidden="true" />
+              )}
+              {completado
+                ? `${info.label} completado · continúa con ${siguiente.label}`
+                : `Después de ${info.label} continúas con ${siguiente.label}`}
+            </p>
+            <p className="text-sm text-muted-foreground">{siguiente.descripcion}</p>
+          </>
         ) : (
-          <Button variant="outline" asChild>
-            <Link to="/inicio">
-              <ArrowLeft className="mr-2 h-4 w-4" aria-hidden="true" />
-              Volver al inicio
-            </Link>
-          </Button>
+          <p className="text-sm text-muted-foreground">
+            Este es el último módulo del recorrido: aquí revisas tu avance y defines el siguiente
+            ciclo.
+          </p>
         )}
+      </div>
+      <div className="flex flex-wrap gap-2">
+        <Button variant="ghost" onClick={guardar}>
+          <Save className="mr-2 h-4 w-4" aria-hidden="true" />
+          Guardar progreso
+        </Button>
+        <Button variant="outline" asChild>
+          <Link to={anterior ? anterior.ruta : "/inicio"}>
+            <ArrowLeft className="mr-2 h-4 w-4" aria-hidden="true" />
+            {anterior ? anterior.label : "Volver al inicio"}
+          </Link>
+        </Button>
         {siguiente && (
           <Button asChild>
             <Link to={siguiente.ruta}>
-              Siguiente etapa: {siguiente.label}
+              Continuar: {siguiente.label}
               <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
             </Link>
           </Button>
@@ -111,25 +135,3 @@ export function EtapaNav({ modulo, className }: { modulo: ModuloId; className?: 
   );
 }
 
-/** Sugerencia automática de continuar con la siguiente etapa del recorrido. */
-export function SiguienteEtapaSugerida({ modulo }: { modulo: ModuloId }) {
-  const siguiente = moduloSiguiente(modulo);
-  if (!siguiente) return null;
-
-  return (
-    <div className="flex flex-col gap-3 rounded-xl border border-primary/25 bg-primary/5 p-4 sm:flex-row sm:items-center sm:justify-between">
-      <div>
-        <p className="text-sm font-semibold text-foreground">
-          Continúa con {siguiente.label}
-        </p>
-        <p className="text-sm text-muted-foreground">{siguiente.descripcion}</p>
-      </div>
-      <Button asChild>
-        <Link to={siguiente.ruta}>
-          Continuar
-          <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-        </Link>
-      </Button>
-    </div>
-  );
-}

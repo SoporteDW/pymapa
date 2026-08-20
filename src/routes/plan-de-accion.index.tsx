@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { EmptyState } from "@/components/ui/empty-state";
 import { DemoNote } from "@/components/ui/demo-note";
 import { PageHeader } from "@/components/layout/page-header";
-import { EtapaNav, EtapaProgreso, SiguienteEtapaSugerida } from "@/components/recorrido/etapa-nav";
+import { EtapaFooter, EtapaProgreso } from "@/components/recorrido/etapa-nav";
 
 import { ResultState } from "@/components/resultados/result-state";
 import { ActionCard } from "@/components/resultados/action-card";
@@ -134,7 +134,6 @@ function PlanDeAccionPage() {
               </div>
             )}
 
-            <SiguienteEtapaSugerida modulo="plan-de-accion" />
 
             <DemoNote>
               Las fichas marcadas con un punto de apoyo requieren una intervención adicional
@@ -144,7 +143,7 @@ function PlanDeAccionPage() {
         )}
       </ResultState>
 
-      <EtapaNav modulo="plan-de-accion" />
+      <EtapaFooter modulo="plan-de-accion" />
     </div>
   );
 }

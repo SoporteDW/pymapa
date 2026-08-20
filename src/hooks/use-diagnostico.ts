@@ -183,6 +183,47 @@ export function useDiagnostico() {
     [estado, persistir]
   );
 
+  /**
+   * Modo Demostración: aplica en un solo guardado un lote de respuestas del
+   * dataset simulado. No calcula el resultado: la persona revisa la información
+   * y decide continuar.
+   */
+  const responderLote = useCallback(
+    (lote: DiagnosticAnswer[]) => {
+      const validas = lote.filter((r) => {
+        const pregunta = obtenerPregunta(r.questionId);
+        return pregunta ? valorValido(pregunta, r.value) : false;
+      });
+      if (validas.length === 0) return 0;
+
+      const ahora = new Date().toISOString();
+      const mapa = new Map(estado.respuestas.map((r) => [r.questionId, r]));
+      for (const r of validas) {
+        const pregunta = obtenerPregunta(r.questionId)!;
+        mapa.set(r.questionId, {
+          questionId: r.questionId,
+          ...(pregunta.dimensionId ? { dimensionId: pregunta.dimensionId } : {}),
+          value: r.value,
+          answeredAt: ahora,
+        });
+      }
+
+      persistir({
+        ...estado,
+        respuestas: [...mapa.values()],
+        sesion: {
+          ...estado.sesion,
+          status: estado.sesion.status === "completed" ? "completed" : "in_progress",
+          startedAt: estado.sesion.startedAt ?? ahora,
+          updatedAt: ahora,
+        },
+      });
+      return validas.length;
+    },
+    [estado, persistir]
+  );
+
+
   /** Guarda la ubicación actual sin alterar respuestas (R-NAV-06). */
   const marcarPreguntaActual = useCallback(
     (questionId: string) => {
@@ -312,6 +353,8 @@ export function useDiagnostico() {
     reanudar,
     responder,
     marcarPreguntaActual,
+    responderLote,
+
     pausar,
     marcarRevision,
     finalizar,

@@ -15,11 +15,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { LoadingState } from "@/components/ui/loading-state";
 import { PageHeader } from "@/components/layout/page-header";
-import { EtapaNav, EtapaProgreso, SiguienteEtapaSugerida } from "@/components/recorrido/etapa-nav";
+import { EtapaFooter, EtapaProgreso } from "@/components/recorrido/etapa-nav";
 import { ProgresoDiagnostico } from "@/components/diagnostico/progreso-diagnostico";
 import { ConfiguracionInvalida } from "@/components/diagnostico/configuracion-invalida";
 import { IndicadorGuardado } from "@/components/diagnostico/indicador-guardado";
 import { useDiagnostico } from "@/hooks/use-diagnostico";
+import { useModoDemo } from "@/hooks/use-modo-demo";
+import { AutocompletarEtapa } from "@/components/demo/autocompletar-etapa";
+import { registrarEvento } from "@/lib/analytics";
+import { toast } from "sonner";
 import { dimensiones, totalPreguntasObligatorias } from "@/lib/diagnostico/definicion";
 import { ArrowRight, CheckCircle2, Clock, RotateCcw, ShieldCheck } from "lucide-react";
 import { format } from "date-fns";
@@ -60,7 +64,9 @@ function DiagnosticoEntrada() {
     comenzar,
     reanudar,
     reiniciar,
+    responderLote,
   } = useDiagnostico();
+  const { puedeAutocompletar, perfil: perfilDemo } = useModoDemo();
   const [confirmando, setConfirmando] = useState(false);
 
   if (!isHydrated) {
@@ -97,11 +103,33 @@ function DiagnosticoEntrada() {
     navigate({ to: "/diagnostico/paso/$id", params: { id: destino } });
   };
 
+  /** Modo demo paso a paso: aplica las respuestas del dataset simulado. */
+  const handleAutocompletar = () => {
+    if (!perfilDemo) return;
+    const aplicadas = responderLote(perfilDemo.respuestas);
+    registrarEvento("demo_stage_autofilled", {
+      etapa: "diagnostico",
+      profileId: perfilDemo.id,
+      respuestas: aplicadas,
+    });
+    toast.info(`Diligenciamos ${aplicadas} respuestas con datos simulados.`, {
+      description: "Revisa las respuestas antes de continuar al resumen.",
+    });
+  };
+
   return (
     <div className="space-y-6">
       {encabezado}
 
       <EtapaProgreso modulo="diagnostico" />
+
+      {puedeAutocompletar && perfilDemo && (
+        <AutocompletarEtapa
+          onAutocompletar={handleAutocompletar}
+          empresaDemo={perfilDemo.nombre}
+          descripcion={`Puedes responder el diagnóstico con las respuestas simuladas de ${perfilDemo.nombre} y revisarlas antes de continuar.`}
+        />
+      )}
 
 
       <IndicadorGuardado estado={estadoGuardado} onReintentar={reintentarGuardado} />
@@ -245,8 +273,7 @@ function DiagnosticoEntrada() {
           Antes de las dimensiones te haremos cuatro preguntas breves de contexto sobre tu empresa.
         </p>
       </section>
-      <SiguienteEtapaSugerida modulo="diagnostico" />
-      <EtapaNav modulo="diagnostico" />
+      <EtapaFooter modulo="diagnostico" />
     </div>
   );
 }
