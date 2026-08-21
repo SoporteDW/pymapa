@@ -79,12 +79,15 @@ export interface EvidenciaEmpresa {
   instrucciones: string;
   tipo: TipoEvidencia;
   estado: EstadoEvidencia;
+  /** Dónde nació la evidencia. Ausente = solicitud del diagnóstico (B3). */
+  origen?: OrigenEvidencia;
   vinculo: VinculoEvidencia;
   solicitadaEn: string;
   recibidaEn: string | null;
   archivo: ArchivoEvidencia | null;
   analisis: AnalisisEvidencia | null;
 }
+
 
 /** Respuesta a una pregunta de aclaración formulada por Pymapa. */
 export interface AclaracionRegistrada {
