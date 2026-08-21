@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 import { useSesion } from "./use-sesion";
 import { useWorkspace } from "./use-workspace";
-import { useEvidencias } from "./use-evidencias";
 import { useEstadoDiagnostico } from "./use-estado-diagnostico";
 import { useSeguimiento } from "./use-seguimiento";
 import { useDelegacion } from "./use-delegacion";
@@ -18,7 +17,6 @@ import {
 export function useSiguientePaso() {
   const { sesion, isHydrated } = useSesion();
   const workspace = useWorkspace();
-  const evidencias = useEvidencias();
   const seguimiento = useSeguimiento();
   const delegacion = useDelegacion();
   const apoyo = useApoyoHumano();
@@ -51,7 +49,7 @@ export function useSiguientePaso() {
   const paso = useMemo(() => siguientePasoOrquestado(contexto), [contexto]);
 
   return {
-    hidratado: isHydrated && workspace.hidratado,
+    hidratado: isHydrated && workspace.hidratado && diagnostico.hidratado,
     paso,
     pendientes,
     /** Pendientes distintos del paso principal, para la lista del Home. */
