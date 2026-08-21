@@ -58,13 +58,13 @@ export const Route = createFileRoute("/inicio")({
 function InicioPage() {
   const { sesion, isHydrated } = useSesion();
   const { hidratado: pasoHidratado, paso, otrosPendientes } = useSiguientePaso();
+  const { journey } = useEstadoDiagnostico();
 
   if (!isHydrated) {
     return <LoadingState fullPage />;
   }
 
   const estados = estadoEtapas(sesion);
-  const { journey } = useEstadoDiagnostico();
   const avances = avanceModulos(sesion, journey);
   const avanceEtapa = avanceEtapas(sesion, journey);
 
