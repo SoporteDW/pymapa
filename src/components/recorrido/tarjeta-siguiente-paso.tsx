@@ -2,7 +2,6 @@ import { Link } from "@tanstack/react-router";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ComoFuncionaDialog } from "@/components/recorrido/como-funciona-dialog";
 import { etapas } from "@/lib/recorrido";
 import type { PasoSugerido } from "@/lib/siguiente-paso/orquestador";
 import { ArrowRight } from "lucide-react";
@@ -34,13 +33,13 @@ export function TarjetaSiguientePaso({ paso, otrosPendientes }: TarjetaSiguiente
           </CardHeader>
           <CardContent className="space-y-4 p-8 pt-0">
             <div className="flex flex-wrap items-center gap-3">
+              {/* Un solo CTA en el banner: el siguiente paso del recorrido. */}
               <Button asChild size="lg" variant="secondary">
                 <Link to={paso.ruta}>
                   {paso.label}
                   <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
                 </Link>
               </Button>
-              <ComoFuncionaDialog />
             </div>
             <p className="max-w-2xl text-xs text-primary-foreground/80">
               Por qué te lo proponemos: {paso.porQue}
