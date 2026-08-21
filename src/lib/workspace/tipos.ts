@@ -20,7 +20,13 @@ export type EstadoEjecucion =
   | "requiere_ajustes"
   | "validado";
 
-export type OrigenActividadTipo = "ficha_general" | "iniciativa_kb" | "escenario_demo";
+export type OrigenActividadTipo =
+  | "ficha_general"
+  | "iniciativa_kb"
+  | "escenario_demo"
+  /** B7 · actividad complementaria generada por el resultado de un seguimiento. */
+  | "derivada_seguimiento";
+
 
 export interface OrigenActividad {
   tipo: OrigenActividadTipo;
