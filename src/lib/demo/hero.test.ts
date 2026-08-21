@@ -46,7 +46,7 @@ import {
 } from "@/lib/delegacion/servicio";
 import { evaluarApoyo } from "@/lib/apoyo-humano/reglas";
 import {
-  confirmarReserva,
+  reservarSesion,
   registrarRecomendacion,
   registrarSesionRealizada,
 } from "@/lib/apoyo-humano/servicio";
@@ -367,7 +367,7 @@ describe("B9 · apoyo humano especializado", () => {
     expect(recomendacion.estado).toBe("sugerida");
 
     const especialista = especialistasDe(sugerencia.especialidad)[0]!;
-    const reservado = confirmarReserva(registro, recomendacion.id, {
+    const reservado = reservarSesion(registro, recomendacion.id, {
       especialistaId: especialista.id,
       especialistaNombre: especialista.nombre,
       fecha: "2026-09-02",
