@@ -66,7 +66,11 @@ describe("Escenario Hero · Moda Origen", () => {
   });
 
   it("su resultado es preliminar: quedan aspectos por confirmar", () => {
-    const suficiencia = evaluarSuficiencia(RESPUESTAS_HERO_MODA_ORIGEN, [], []);
+    const suficiencia = evaluarSuficiencia({
+      respuestas: RESPUESTAS_HERO_MODA_ORIGEN,
+      evidencias: [],
+      aclaraciones: [],
+    });
     const necesidades = suficiencia.dominios.flatMap((d) => d.necesidades);
     const journey = estadoJourneyDiagnostico({
       respondidas: totalPreguntasObligatorias,
