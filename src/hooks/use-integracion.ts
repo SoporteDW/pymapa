@@ -17,6 +17,7 @@ import {
   type EstadoRecuperacion,
   type RespaldoSesion,
 } from "@/lib/integracion/sesion-trabajo";
+import type { DiagnosticAnswer } from "@/lib/diagnostico/tipos";
 import { registrarEvento } from "@/lib/analytics";
 import { useSesion } from "./use-sesion";
 
@@ -52,12 +53,17 @@ export function useIntegracion() {
 
   /** Escribe la ejecución integrada en los repositorios de cada módulo. */
   const cargarPerfil = useCallback(
-    (perfilId: string) => {
-      const perfil = perfilPorId(perfilId);
-      if (!perfil) {
+    (perfilId: string, opciones: { respuestas?: DiagnosticAnswer[] } = {}) => {
+      const base = perfilPorId(perfilId);
+      if (!base) {
         setMensaje("El perfil solicitado no existe.");
         return null;
       }
+      // Un escenario puede exigir el instrumento completo (Macroentrega 4.1):
+      // se respeta el perfil del catálogo y solo se sustituyen las respuestas.
+      const perfil: PerfilSimulado = opciones.respuestas
+        ? { ...base, respuestas: opciones.respuestas, cobertura: "completa" }
+        : base;
       setEstado("cargandoPerfil");
       try {
         const salida = integrarPerfil(perfil);

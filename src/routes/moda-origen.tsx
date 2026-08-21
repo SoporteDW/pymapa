@@ -9,6 +9,7 @@ import { PageHeader } from "@/components/layout/page-header";
 import { useModoDemo } from "@/hooks/use-modo-demo";
 import { useIntegracion } from "@/hooks/use-integracion";
 import { aplicarSembradoHero } from "@/lib/demo/sembrado-hero";
+import { RESPUESTAS_HERO_MODA_ORIGEN } from "@/lib/integracion/perfiles";
 
 /** Perfil simulado del caso demostrativo (tienda de ropa con canal digital). */
 const PERFIL_ID = "PYME-04";
@@ -74,7 +75,8 @@ function ModaOrigenPage() {
       toast.error("No pudimos preparar el caso demostrativo. Intenta de nuevo.");
       return;
     }
-    cargarPerfil(perfil.id);
+    // El caso Hero entra con el cuestionario completo (28 de 28).
+    cargarPerfil(perfil.id, { respuestas: RESPUESTAS_HERO_MODA_ORIGEN });
     aplicarSembradoHero({ empresaId: perfil.empresa.id, empresaNombre: perfil.nombre });
     toast.success(
       "Retomamos el recorrido de Moda Origen. Te mostramos dónde está y qué sigue ahora."
