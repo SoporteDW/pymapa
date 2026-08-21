@@ -9,6 +9,12 @@
 import { CLAVE_DIAGNOSTICO } from "@/lib/diagnostico/repositorio";
 import { CLAVE_MOTOR } from "@/lib/motor/repositorio";
 import { CLAVE_ROADMAP } from "@/lib/roadmap/repositorio";
+import { CLAVE_KB } from "@/lib/kb/repositorio";
+import { CLAVE_EVIDENCIAS } from "@/lib/evidencias/repositorio";
+import { CLAVE_WORKSPACE } from "@/lib/workspace/repositorio";
+import { CLAVE_SEGUIMIENTO } from "@/lib/seguimiento/repositorio";
+import { CLAVE_DELEGACION } from "@/lib/delegacion/repositorio";
+import { CLAVE_APOYO } from "@/lib/apoyo-humano/repositorio";
 
 export const SESSION_VERSION = "sesion-trabajo-1.0.0";
 
@@ -52,6 +58,14 @@ const MODULOS: Omit<ModuloPersistido, "presente" | "bytes">[] = [
     clave: CLAVE_FILTROS_DASHBOARD,
     ambito: "sesion",
   },
+  // Macroentrega 1–3 · capas de acompañamiento: sin ellas, el respaldo del
+  // modo demostración dejaría datos demo mezclados con los datos reales.
+  { id: "kb", nombre: "Diagnóstico especializado", clave: CLAVE_KB, ambito: "local" },
+  { id: "evidencias", nombre: "Evidencias documentales", clave: CLAVE_EVIDENCIAS, ambito: "local" },
+  { id: "workspace", nombre: "Workspace de ejecución", clave: CLAVE_WORKSPACE, ambito: "local" },
+  { id: "seguimiento", nombre: "Seguimiento 30/60/90", clave: CLAVE_SEGUIMIENTO, ambito: "local" },
+  { id: "delegacion", nombre: "Delegaciones", clave: CLAVE_DELEGACION, ambito: "local" },
+  { id: "apoyo", nombre: "Apoyo especializado", clave: CLAVE_APOYO, ambito: "local" },
 ];
 
 export interface SesionTrabajo {
