@@ -58,6 +58,14 @@ const MODULOS: Omit<ModuloPersistido, "presente" | "bytes">[] = [
     clave: CLAVE_FILTROS_DASHBOARD,
     ambito: "sesion",
   },
+  // Macroentrega 1–3 · capas de acompañamiento: sin ellas, el respaldo del
+  // modo demostración dejaría datos demo mezclados con los datos reales.
+  { id: "kb", nombre: "Diagnóstico especializado", clave: CLAVE_KB, ambito: "local" },
+  { id: "evidencias", nombre: "Evidencias documentales", clave: CLAVE_EVIDENCIAS, ambito: "local" },
+  { id: "workspace", nombre: "Workspace de ejecución", clave: CLAVE_WORKSPACE, ambito: "local" },
+  { id: "seguimiento", nombre: "Seguimiento 30/60/90", clave: CLAVE_SEGUIMIENTO, ambito: "local" },
+  { id: "delegacion", nombre: "Delegaciones", clave: CLAVE_DELEGACION, ambito: "local" },
+  { id: "apoyo", nombre: "Apoyo especializado", clave: CLAVE_APOYO, ambito: "local" },
 ];
 
 export interface SesionTrabajo {
