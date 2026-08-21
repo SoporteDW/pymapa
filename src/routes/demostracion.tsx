@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { plantillasEscenarioHero } from "@/lib/workspace/escenario-hero";
 import { Textarea } from "@/components/ui/textarea";
 import { LoadingState } from "@/components/ui/loading-state";
 import { DemoNote } from "@/components/ui/demo-note";
@@ -126,6 +127,40 @@ function DemostracionPage() {
 
         migas={[{ label: "Inicio", to: "/inicio" }, { label: "Demostración" }]}
       />
+
+      <Card className="border-primary/30 bg-primary/5">
+        <CardHeader>
+          <CardTitle className="text-base">
+            Escenario Hero · recorrido e-commerce de punta a punta
+          </CardTitle>
+          <CardDescription>
+            Actividades de carrito y checkout listas para experimentar el ciclo completo: entender,
+            ejecutar con instrumento, entregar, recibir revisión, ajustar y validar. Son datos de
+            demostración: no afectan el recorrido real de tu empresa.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-3">
+          {plantillasEscenarioHero.map((actividad) => (
+            <div
+              key={actividad.id}
+              className="space-y-2 rounded-lg border border-border bg-card p-3 sm:flex sm:items-center sm:justify-between sm:gap-4 sm:space-y-0"
+            >
+              <div>
+                <p className="text-sm font-semibold text-foreground">{actividad.titulo}</p>
+                <p className="text-sm text-muted-foreground">{actividad.objetivo}</p>
+              </div>
+              <Button size="sm" variant="outline" asChild>
+                <Link
+                  to="/plan-de-accion/workspace/$actividad"
+                  params={{ actividad: actividad.id }}
+                >
+                  Abrir workspace
+                </Link>
+              </Button>
+            </div>
+          ))}
+        </CardContent>
+      </Card>
 
       <Card>
         <CardHeader>
