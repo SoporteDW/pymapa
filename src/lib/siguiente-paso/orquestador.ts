@@ -64,8 +64,10 @@ const RUTAS_VALIDAS = [
 ];
 
 export function rutaSoportada(ruta: string): boolean {
-  if (ruta.startsWith("/plan-de-accion/workspace/")) return ruta.split("/").length === 5;
-  if (ruta.startsWith("/seguimiento/")) return ruta.split("/").length === 3;
+  // Rutas con parámetro: se valida que el segmento final exista y sea único.
+  const segmentos = ruta.split("/").filter((s) => s.length > 0);
+  if (ruta.startsWith("/plan-de-accion/workspace/")) return segmentos.length === 3;
+  if (ruta.startsWith("/seguimiento/")) return segmentos.length === 2;
   return RUTAS_VALIDAS.includes(ruta);
 }
 
