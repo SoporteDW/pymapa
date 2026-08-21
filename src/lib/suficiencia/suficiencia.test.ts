@@ -63,25 +63,30 @@ describe("motor de suficiencia", () => {
   });
 
   it("exige aclaración cuando las respuestas del dominio son dispersas", () => {
-    const respuestas = respuestasCon((_, indice) => (indice === 0 ? 5 : 3));
-    // Introduce dispersión >= 3 sin niveles bajos: 5 vs ... usa 5 y 3 no alcanza,
-    // por lo que se fuerza un extremo alto y otro medio-bajo permitido (3).
-    const conDispersion = respuestas.map((r, i) => (i % 5 === 0 ? { ...r, value: 3 } : { ...r, value: 3 }));
-    conDispersion[0] = { ...conDispersion[0]!, value: 3 };
-    const resultado = evaluarSuficiencia({
-      respuestas: conDispersion,
-      evidencias: [],
-      aclaraciones: [],
-    });
-    // Sin dispersión ni niveles bajos, todo queda suficiente.
-    expect(resultado.estadoGeneral).toBe("suficiente");
-
-    const dispersos = respuestasCon((dominioId, indice) =>
-      dominioId === dominios[0]!.id && indice === 0 ? 6 - 3 : 3
+    const primero = dominios[0]!.id;
+    const respuestas = respuestasCon((dominioId, indice) =>
+      dominioId === primero && indice === 0 ? 5 : 3
     );
-    expect(
-      evaluarSuficiencia({ respuestas: dispersos, evidencias: [], aclaraciones: [] }).estadoGeneral
-    ).toBe("suficiente");
+    const resultado = evaluarSuficiencia({ respuestas, evidencias: [], aclaraciones: [] });
+    const dominio = resultado.dominios.find((d) => d.dominioId === primero)!;
+    expect(dominio.estado).toBe("aclaracion_pendiente");
+    expect(resultado.puedeCerrar).toBe(false);
+
+    const definicion = catalogoSuficiencia.aclaraciones.find(
+      (a) => a.id === dominio.necesidades[0]!.referenciaId
+    )!;
+    const registro = registrarAclaracion(
+      registroVacio("e", "E"),
+      definicion,
+      "La dirección revisa los objetivos cada trimestre.",
+      dominio.necesidades[0]!.preguntaIds
+    );
+    const cerrado = evaluarSuficiencia({
+      respuestas,
+      evidencias: [],
+      aclaraciones: registro.aclaraciones,
+    });
+    expect(cerrado.puedeCerrar).toBe(true);
   });
 
   it("resuelve la necesidad cuando la evidencia fue cargada y analizada", () => {
