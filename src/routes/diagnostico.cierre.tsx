@@ -6,6 +6,8 @@ import { PageHeader } from "@/components/layout/page-header";
 import { BadgeSuficiencia } from "@/components/evidencias/badge-suficiencia";
 import { TarjetaNecesidad } from "@/components/evidencias/tarjeta-necesidad";
 import { useEvidencias } from "@/hooks/use-evidencias";
+import { useEstadoDiagnostico } from "@/hooks/use-estado-diagnostico";
+import { Progress } from "@/components/ui/progress";
 import { CheckCircle2, Info } from "lucide-react";
 
 export const Route = createFileRoute("/diagnostico/cierre")({
@@ -40,6 +42,7 @@ function CierrePage() {
     responderAclaracion,
     evidenciaDeSolicitud,
   } = useEvidencias();
+  const { journey } = useEstadoDiagnostico();
 
   if (!hidratado) return <LoadingState fullPage />;
 
@@ -60,9 +63,23 @@ function CierrePage() {
           <BadgeSuficiencia estado={suficiencia.estadoGeneral} />
           <CardTitle className="text-xl leading-snug">{suficiencia.mensajeGeneral}</CardTitle>
           <CardDescription>
-            Esta revisión es cualitativa: indica si podemos concluir, no un puntaje.
+            Esta revisión es cualitativa: indica si podemos concluir, no un puntaje. Tu cuestionario
+            ya está completo ({journey.cuestionario.respondidas} de {journey.cuestionario.total}
+            ): aquí solo confirmamos información.
           </CardDescription>
         </CardHeader>
+        {journey.profundizacion.total > 0 && (
+          <CardContent className="space-y-2">
+            <div className="flex items-center justify-between text-sm font-medium text-foreground">
+              <span>
+                {journey.profundizacion.completadas} de {journey.profundizacion.total} aspectos
+                confirmados
+              </span>
+              <span>{journey.profundizacion.porcentaje}%</span>
+            </div>
+            <Progress value={journey.profundizacion.porcentaje} />
+          </CardContent>
+        )}
       </Card>
 
       <section aria-labelledby="dominios-suficiencia" className="space-y-3">
@@ -124,18 +141,21 @@ function CierrePage() {
         <Button variant="outline" asChild>
           <Link to="/diagnostico/revision">Revisar mis respuestas</Link>
         </Button>
-        {suficiencia.puedeCerrar ? (
+        {/* Nunca se devuelve al cuestionario: o se continúa la profundización
+            o se cierra el diagnóstico (Macroentrega 4.1). */}
+        {journey.profundizacion.pendientes === 0 ? (
           <Button size="lg" asChild>
             <Link to="/diagnostico/listo">
               <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
               Cerrar mi diagnóstico
             </Link>
-
           </Button>
         ) : (
-          <Button size="lg" variant="secondary" asChild>
-            <Link to="/diagnostico">Volver al diagnóstico</Link>
-          </Button>
+          <p className="self-center text-sm text-muted-foreground">
+            Te falta confirmar {journey.profundizacion.pendientes}{" "}
+            {journey.profundizacion.pendientes === 1 ? "aspecto" : "aspectos"} para poder cerrar tu
+            diagnóstico.
+          </p>
         )}
       </div>
     </div>

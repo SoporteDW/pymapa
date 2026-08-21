@@ -6,6 +6,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { PageHeader } from "@/components/layout/page-header";
 import { TarjetaEntregable } from "@/components/entregables/tarjeta-entregable";
 import { entregablePorId } from "@/lib/entregables/catalogo";
+import { useEstadoDiagnostico } from "@/hooks/use-estado-diagnostico";
+import { useEffect } from "react";
 
 export const Route = createFileRoute("/diagnostico/listo")({
   head: () => ({
@@ -37,6 +39,14 @@ const recorrido = [
 
 function DiagnosticoListoPage() {
   const informe = entregablePorId("diagnostico");
+  const { hidratado, journey, cerrado, cerrarDiagnostico } = useEstadoDiagnostico();
+
+  // Llegar aquí con la profundización resuelta ES el cierre formal.
+  useEffect(() => {
+    if (hidratado && !cerrado && journey.profundizacion.pendientes === 0) {
+      cerrarDiagnostico();
+    }
+  }, [hidratado, cerrado, journey.profundizacion.pendientes, cerrarDiagnostico]);
 
   return (
     <div className="mx-auto max-w-4xl space-y-6">
@@ -54,7 +64,9 @@ function DiagnosticoListoPage() {
         <CardHeader className="space-y-2">
           <div className="flex items-center gap-2 text-primary">
             <CheckCircle2 className="size-5" aria-hidden="true" />
-            <span className="text-xs font-medium uppercase tracking-wide">Etapa completada</span>
+            <span className="text-xs font-medium uppercase tracking-wide">
+              Diagnóstico completado
+            </span>
           </div>
           <CardTitle className="text-xl leading-snug">Qué hicimos para llegar aquí</CardTitle>
           <CardDescription>
@@ -90,6 +102,12 @@ function DiagnosticoListoPage() {
           <Button asChild size="lg">
             <Link to="/resultados">
               Ver mis recomendaciones
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
+          </Button>
+          <Button asChild size="lg" variant="secondary">
+            <Link to="/plan-de-accion">
+              Construir mi Plan de Acción
               <ArrowRight className="size-4" aria-hidden="true" />
             </Link>
           </Button>
