@@ -25,7 +25,7 @@ export function useSiguientePaso() {
   const contexto = useMemo(
     () => ({
       sesion,
-      necesidades: evidencias.necesidades ?? [],
+      necesidades: evidencias.suficiencia.necesidadesPendientes ?? [],
       actividades: workspace.actividades,
       seguimientos: seguimiento.seguimientos,
       delegaciones: delegacion.delegaciones,
@@ -33,7 +33,7 @@ export function useSiguientePaso() {
     }),
     [
       sesion,
-      evidencias.necesidades,
+      evidencias.suficiencia,
       workspace.actividades,
       seguimiento.seguimientos,
       delegacion.delegaciones,
