@@ -1,85 +1,98 @@
 /**
- * Arquitectura preparada para evidencias documentales (no implementada).
+ * B3 · Contratos de evidencia documental.
  *
- * Esta iteración únicamente deja definidos los contratos para que futuras
- * versiones puedan: solicitar documentos por actividad, recibir archivos,
- * asociar plantillas, cargar y almacenar evidencias, y permitir que la IA
- * analice dichos documentos como parte del proceso de transformación digital.
- *
- * IMPORTANTE: no existe todavía ninguna carga, almacenamiento ni análisis
- * documental. Estos tipos no se usan en la interfaz actual.
+ * Una evidencia es conocimiento de la EMPRESA (no de la ejecución del
+ * formulario): se solicita, se recibe, se analiza y queda disponible para el
+ * resto del recorrido. El análisis de esta etapa es SIMULADO y así queda
+ * marcado en el dato (`simulado: true`); no hay lectura documental real.
  */
 
-export type TipoDocumentoSolicitado =
+export type TipoEvidencia =
   | "politica"
   | "procedimiento"
   | "contrato"
   | "reporte"
   | "inventario"
+  | "captura"
   | "otro";
 
-export type EstadoSolicitudDocumento =
-  | "no_solicitado"
-  | "solicitado"
-  | "recibido"
-  | "validado"
-  | "rechazado";
+export type EstadoEvidencia =
+  | "solicitada"
+  | "recibida"
+  | "en_analisis"
+  | "analizada"
+  | "rechazada";
 
-/** Plantilla sugerida que en el futuro podrá descargar la pyme. */
-export interface PlantillaDocumento {
-  id: string;
-  nombre: string;
-  descripcion: string;
-  tipo: TipoDocumentoSolicitado;
-  /** Ruta o URL de la plantilla; se resolverá en una versión posterior. */
-  referencia: string | null;
+/**
+ * Relación de la evidencia con la cadena de conocimiento. Los campos de
+ * actividad y entregable quedan declarados para B4–B9 (aún vacíos).
+ */
+export interface VinculoEvidencia {
+  empresaId: string;
+  dominioId: string;
+  /** Sesión de diagnóstico que originó la solicitud, si existe. */
+  diagnosticoId: string | null;
+  preguntaIds: string[];
+  hallazgoIds: string[];
+  actividadIds: string[];
+  entregableIds: string[];
 }
 
-/** Solicitud de un documento asociada a una actividad del plan. */
-export interface SolicitudDocumento {
-  id: string;
-  accionId: string;
-  tipo: TipoDocumentoSolicitado;
-  titulo: string;
-  instrucciones: string;
-  obligatorio: boolean;
-  plantillaId: string | null;
-  estado: EstadoSolicitudDocumento;
-  fechaSolicitud: string | null;
-}
-
-/** Archivo cargado como evidencia. El almacenamiento se define más adelante. */
 export interface ArchivoEvidencia {
-  id: string;
-  solicitudId: string;
-  accionId: string;
-  nombreArchivo: string;
+  nombre: string;
   tipoMime: string;
   tamañoBytes: number;
-  /** Ubicación futura del archivo (almacenamiento aún no definido). */
+  /** Ubicación real del archivo: no se almacena contenido en esta etapa. */
   ubicacion: string | null;
-  fechaCarga: string;
-  cargadoPor: string;
 }
 
-/** Resultado del futuro análisis asistido por IA sobre un documento. */
-export interface AnalisisDocumental {
+export interface AnalisisEvidencia {
   id: string;
-  archivoId: string;
   version: string;
-  hallazgos: string[];
-  recomendaciones: string[];
-  confianza: number;
-  fechaAnalisis: string;
-  /** Referencias a reglas o dimensiones que el análisis alimentaría. */
-  referencias: string[];
+  /** Marca explícita: el análisis no proviene de lectura documental real. */
+  simulado: true;
+  realizadoEn: string;
+  observaciones: string[];
+  /** Señales que el analista simulado dice haber verificado. */
+  senalesVerificadas: string[];
+  /** Si el análisis resuelve la necesidad de información del dominio. */
+  resuelveSuficiencia: boolean;
 }
 
-/** Contrato del servicio documental que implementará una versión posterior. */
-export interface ServicioEvidencias {
-  listarPlantillas(): Promise<PlantillaDocumento[]>;
-  solicitarDocumento(solicitud: Omit<SolicitudDocumento, "id" | "estado">): Promise<SolicitudDocumento>;
-  cargarEvidencia(solicitudId: string, archivo: File): Promise<ArchivoEvidencia>;
-  listarEvidencias(accionId: string): Promise<ArchivoEvidencia[]>;
-  analizarEvidencia(archivoId: string): Promise<AnalisisDocumental>;
+export interface EvidenciaEmpresa {
+  id: string;
+  /** Solicitud del catálogo de conocimiento que la originó. */
+  solicitudId: string;
+  titulo: string;
+  /** Por qué Pymapa la necesita (texto del catálogo, no de la UI). */
+  motivo: string;
+  instrucciones: string;
+  tipo: TipoEvidencia;
+  estado: EstadoEvidencia;
+  vinculo: VinculoEvidencia;
+  solicitadaEn: string;
+  recibidaEn: string | null;
+  archivo: ArchivoEvidencia | null;
+  analisis: AnalisisEvidencia | null;
+}
+
+/** Respuesta a una pregunta de aclaración formulada por Pymapa. */
+export interface AclaracionRegistrada {
+  id: string;
+  aclaracionId: string;
+  dominioId: string;
+  pregunta: string;
+  motivo: string;
+  respuesta: string;
+  preguntaIds: string[];
+  registradaEn: string;
+}
+
+/** Conocimiento documental acumulado por empresa. */
+export interface RegistroEvidenciasEmpresa {
+  empresaId: string;
+  empresaNombre: string;
+  evidencias: EvidenciaEmpresa[];
+  aclaraciones: AclaracionRegistrada[];
+  actualizadoEn: string;
 }
