@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { useSesion } from "./use-sesion";
 import { useWorkspace } from "./use-workspace";
 import { useEvidencias } from "./use-evidencias";
+import { useEstadoDiagnostico } from "./use-estado-diagnostico";
 import { useSeguimiento } from "./use-seguimiento";
 import { useDelegacion } from "./use-delegacion";
 import { useApoyoHumano } from "./use-apoyo-humano";
@@ -21,11 +22,14 @@ export function useSiguientePaso() {
   const seguimiento = useSeguimiento();
   const delegacion = useDelegacion();
   const apoyo = useApoyoHumano();
+  const diagnostico = useEstadoDiagnostico();
 
   const contexto = useMemo(
     () => ({
       sesion,
-      necesidades: evidencias.suficiencia.necesidadesPendientes ?? [],
+      necesidades: diagnostico.necesidades.filter((n) => !n.resuelta),
+      profundizacion: diagnostico.journey.profundizacion,
+      diagnosticoCerrado: diagnostico.cerrado,
       actividades: workspace.actividades,
       seguimientos: seguimiento.seguimientos,
       delegaciones: delegacion.delegaciones,
@@ -33,7 +37,9 @@ export function useSiguientePaso() {
     }),
     [
       sesion,
-      evidencias.suficiencia,
+      diagnostico.necesidades,
+      diagnostico.journey.profundizacion,
+      diagnostico.cerrado,
       workspace.actividades,
       seguimiento.seguimientos,
       delegacion.delegaciones,
