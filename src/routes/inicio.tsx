@@ -26,7 +26,6 @@ import {
 
 
 import {
-  ArrowRight,
   BarChart3,
   ClipboardList,
   ListTodo,
