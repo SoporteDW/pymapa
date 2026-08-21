@@ -59,8 +59,11 @@ export interface RegistroEntrega {
   /** Criterios que la empresa declara haber cumplido. */
   criteriosDeclarados: string[];
   archivos: ArchivoEvidencia[];
+  /** Evidencias de la empresa creadas a partir de esta entrega (deuda 0.1). */
+  evidenciaIds?: string[];
   revision: RevisionEntrega;
 }
+
 
 /** Verificación activada por profundización selectiva (B6). */
 export interface VerificacionWorkspace {
