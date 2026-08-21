@@ -12,15 +12,17 @@ import { LoadingState } from "@/components/ui/loading-state";
 import { DemoNote } from "@/components/ui/demo-note";
 import { PageHeader } from "@/components/layout/page-header";
 import { JourneyMap } from "@/components/recorrido/journey-map";
-import { ComoFuncionaDialog } from "@/components/recorrido/como-funciona-dialog";
+import { TarjetaSiguientePaso } from "@/components/recorrido/tarjeta-siguiente-paso";
 import { useSesion } from "@/hooks/use-sesion";
-import { ctaRecorrido, estadoEtapas, etapas } from "@/lib/recorrido";
+import { useSiguientePaso } from "@/hooks/use-siguiente-paso";
+import { estadoEtapas, etapas } from "@/lib/recorrido";
 import {
   avanceEtapas,
   avanceModulos,
   etiquetaEstadoModulo,
   modulosDeEtapa,
 } from "@/lib/recorrido-modulos";
+
 
 
 import {
