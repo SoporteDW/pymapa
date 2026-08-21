@@ -55,12 +55,12 @@ export const Route = createFileRoute("/inicio")({
 
 function InicioPage() {
   const { sesion, isHydrated } = useSesion();
+  const { hidratado: pasoHidratado, paso, otrosPendientes } = useSiguientePaso();
 
   if (!isHydrated) {
     return <LoadingState fullPage />;
   }
 
-  const cta = ctaRecorrido(sesion);
   const estados = estadoEtapas(sesion);
   const avances = avanceModulos(sesion);
   const avanceEtapa = avanceEtapas(sesion);
@@ -86,29 +86,12 @@ function InicioPage() {
         }
       />
 
-      <Card className="overflow-hidden border-0 bg-brand-gradient text-primary-foreground shadow-suave">
-        <div className="bg-patron-marca">
-          <CardHeader className="gap-2 p-8">
-            <CardDescription className="text-xs font-semibold uppercase tracking-[0.14em] text-primary-foreground/80">
-              {cta.kicker}
-            </CardDescription>
-            <CardTitle className="text-2xl font-semibold sm:text-3xl">{cta.titulo}</CardTitle>
-            <CardDescription className="max-w-xl text-primary-foreground/85">
-              {cta.descripcion}
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="flex flex-wrap items-center gap-3 p-8 pt-0">
-            <Button asChild size="lg" variant="secondary">
-              <Link to={cta.ruta}>
-                {cta.label}
-                <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-              </Link>
-            </Button>
-            <ComoFuncionaDialog />
-            <span className="text-xs text-primary-foreground/80">{cta.hint}</span>
-          </CardContent>
-        </div>
-      </Card>
+      {pasoHidratado ? (
+        <TarjetaSiguientePaso paso={paso} otrosPendientes={otrosPendientes} />
+      ) : (
+        <LoadingState />
+      )}
+
 
       <Card>
         <CardHeader>
