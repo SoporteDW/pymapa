@@ -17,6 +17,7 @@ import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as DemostracionRouteImport } from './routes/demostracion'
 import { Route as DiagnosticoRouteImport } from './routes/diagnostico'
 import { Route as InicioRouteImport } from './routes/inicio'
+import { Route as ModaOrigenRouteImport } from './routes/moda-origen'
 import { Route as PerfilRouteImport } from './routes/perfil'
 import { Route as PlanDeAccionRouteImport } from './routes/plan-de-accion'
 import { Route as ResultadosRouteImport } from './routes/resultados'
@@ -83,6 +84,11 @@ const DiagnosticoRoute = DiagnosticoRouteImport.update({
 const InicioRoute = InicioRouteImport.update({
   id: '/inicio',
   path: '/inicio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ModaOrigenRoute = ModaOrigenRouteImport.update({
+  id: '/moda-origen',
+  path: '/moda-origen',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PerfilRoute = PerfilRouteImport.update({
@@ -235,6 +241,7 @@ export interface FileRoutesByFullPath {
   '/demostracion': typeof DemostracionRoute
   '/diagnostico': typeof DiagnosticoRouteWithChildren
   '/inicio': typeof InicioRoute
+  '/moda-origen': typeof ModaOrigenRoute
   '/perfil': typeof PerfilRoute
   '/plan-de-accion': typeof PlanDeAccionRouteWithChildren
   '/resultados': typeof ResultadosRouteWithChildren
@@ -270,6 +277,7 @@ export interface FileRoutesByTo {
   '/colaboracion': typeof ColaboracionRoute
   '/demostracion': typeof DemostracionRoute
   '/inicio': typeof InicioRoute
+  '/moda-origen': typeof ModaOrigenRoute
   '/perfil': typeof PerfilRoute
   '/dashboard/alertas': typeof DashboardAlertasRoute
   '/diagnostico/cierre': typeof DiagnosticoCierreRoute
@@ -303,6 +311,7 @@ export interface FileRoutesById {
   '/demostracion': typeof DemostracionRoute
   '/diagnostico': typeof DiagnosticoRouteWithChildren
   '/inicio': typeof InicioRoute
+  '/moda-origen': typeof ModaOrigenRoute
   '/perfil': typeof PerfilRoute
   '/plan-de-accion': typeof PlanDeAccionRouteWithChildren
   '/resultados': typeof ResultadosRouteWithChildren
@@ -342,6 +351,7 @@ export interface FileRouteTypes {
     | '/demostracion'
     | '/diagnostico'
     | '/inicio'
+    | '/moda-origen'
     | '/perfil'
     | '/plan-de-accion'
     | '/resultados'
@@ -377,6 +387,7 @@ export interface FileRouteTypes {
     | '/colaboracion'
     | '/demostracion'
     | '/inicio'
+    | '/moda-origen'
     | '/perfil'
     | '/dashboard/alertas'
     | '/diagnostico/cierre'
@@ -409,6 +420,7 @@ export interface FileRouteTypes {
     | '/demostracion'
     | '/diagnostico'
     | '/inicio'
+    | '/moda-origen'
     | '/perfil'
     | '/plan-de-accion'
     | '/resultados'
@@ -447,6 +459,7 @@ export interface RootRouteChildren {
   DemostracionRoute: typeof DemostracionRoute
   DiagnosticoRoute: typeof DiagnosticoRouteWithChildren
   InicioRoute: typeof InicioRoute
+  ModaOrigenRoute: typeof ModaOrigenRoute
   PerfilRoute: typeof PerfilRoute
   PlanDeAccionRoute: typeof PlanDeAccionRouteWithChildren
   ResultadosRoute: typeof ResultadosRouteWithChildren
@@ -510,6 +523,13 @@ declare module '@tanstack/react-router' {
       path: '/inicio'
       fullPath: '/inicio'
       preLoaderRoute: typeof InicioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/moda-origen': {
+      id: '/moda-origen'
+      path: '/moda-origen'
+      fullPath: '/moda-origen'
+      preLoaderRoute: typeof ModaOrigenRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/perfil': {
@@ -829,6 +849,7 @@ const rootRouteChildren: RootRouteChildren = {
   DemostracionRoute: DemostracionRoute,
   DiagnosticoRoute: DiagnosticoRouteWithChildren,
   InicioRoute: InicioRoute,
+  ModaOrigenRoute: ModaOrigenRoute,
   PerfilRoute: PerfilRoute,
   PlanDeAccionRoute: PlanDeAccionRouteWithChildren,
   ResultadosRoute: ResultadosRouteWithChildren,
