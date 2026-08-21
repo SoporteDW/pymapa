@@ -238,6 +238,13 @@ export const instrumentosEjecucion: InstrumentoEjecucion[] = [
   },
 ];
 
+/** Instrumento genérico de respaldo: siempre existe en el catálogo. */
+export function procedimientoBase(): InstrumentoEjecucion {
+  const base = instrumentosEjecucion.find((i) => i.id === "INS-EJE-PROCEDIMIENTO-BASE");
+  if (!base) throw new Error("El catálogo de instrumentos debe incluir el procedimiento base.");
+  return base;
+}
+
 export function obtenerInstrumento(id: string): InstrumentoEjecucion | undefined {
   return instrumentosEjecucion.find((i) => i.id === id);
 }
@@ -272,5 +279,5 @@ export function seleccionarInstrumento(entrada: {
     if (porDominio) return porDominio;
   }
 
-  return instrumentosEjecucion[instrumentosEjecucion.length - 1];
+  return procedimientoBase();
 }
