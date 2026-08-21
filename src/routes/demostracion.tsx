@@ -98,12 +98,46 @@ function DemostracionPage() {
   const { iniciarDemo, demoActiva, estado: estadoDemo, salirDemo } = useModoDemo();
   const [informesGlobales, setInformesGlobales] = useState<InformeConsistencia[] | null>(null);
   const [respaldo, setRespaldo] = useState("");
+  const [heroListo, setHeroListo] = useState(false);
 
   useEffect(() => {
     if (!mensaje) return;
     toast.info(mensaje);
     limpiarMensaje();
   }, [mensaje, limpiarMensaje]);
+
+  /**
+   * Escenario Hero final: carga el perfil e-commerce simulado y siembra las
+   * capas de acompañamiento (workspace, evidencias, seguimiento, delegación y
+   * apoyo) sobre esa empresa demostrativa.
+   */
+  const prepararHero = () => {
+    const perfil = iniciarDemo(HERO_PERFIL_ID, "completa");
+    if (!perfil) {
+      toast.error("No se encontró el perfil del escenario Hero.");
+      return;
+    }
+    cargarPerfil(perfil.id);
+    aplicarSembradoHero({
+      empresaId: perfil.empresa.id,
+      empresaNombre: perfil.empresa.nombre,
+    });
+    setHeroListo(true);
+    toast.success(
+      `Escenario Hero preparado sobre “${perfil.nombre}” (DEMO). Comienza en Inicio: tu siguiente paso ya cambió.`
+    );
+  };
+
+  const reiniciarHero = () => {
+    const perfil = perfilPorId(HERO_PERFIL_ID);
+    if (!perfil) return;
+    reiniciarSembradoHero({
+      empresaId: perfil.empresa.id,
+      empresaNombre: perfil.empresa.nombre,
+    });
+    setHeroListo(true);
+    toast.info("Escenario Hero reiniciado: las capas demostrativas volvieron a su estado inicial.");
+  };
 
   const resumenGlobal = useMemo(() => {
     if (!informesGlobales) return null;
