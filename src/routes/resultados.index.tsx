@@ -17,6 +17,7 @@ import { ResultSummaryCard } from "@/components/resultados/result-summary-card";
 import { DimensionScoreCard } from "@/components/resultados/dimension-score-card";
 import { FindingList } from "@/components/resultados/finding-list";
 import { PriorityCard } from "@/components/resultados/priority-card";
+import { BannerCierre } from "@/components/resultados/banner-cierre";
 import { useResultados } from "@/hooks/use-resultados";
 import { registrarEvento } from "@/lib/analytics";
 import { ArrowRight, ClipboardList } from "lucide-react";
@@ -83,6 +84,8 @@ function ResultadosPage() {
       >
         {resultado && (
           <div className="space-y-6">
+            <BannerCierre />
+
             {resultado.completeness === "parcial" && (
               <Card className="border-warning/40 bg-warning/5">
                 <CardHeader>
