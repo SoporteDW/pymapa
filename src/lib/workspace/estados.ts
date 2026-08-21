@@ -35,8 +35,11 @@ const TRANSICIONES: Record<EstadoEjecucion, EstadoEjecucion[]> = {
   en_ejecucion: ["entregado", "pendiente"],
   entregado: ["validado", "requiere_ajustes"],
   requiere_ajustes: ["en_ejecucion", "entregado"],
-  validado: [],
+  // B7 · el recorrido puede volver sobre sí mismo: si el seguimiento muestra
+  // que la ejecución no produjo resultado, la actividad validada se reabre.
+  validado: ["en_ejecucion"],
 };
+
 
 export function transicionPermitida(desde: EstadoEjecucion, hacia: EstadoEjecucion): boolean {
   return TRANSICIONES[desde].includes(hacia);

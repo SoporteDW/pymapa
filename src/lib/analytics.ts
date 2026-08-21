@@ -95,7 +95,21 @@ export type EventoInteraccion =
   | "workspace_delivery_reviewed"
   | "workspace_checklist_activated"
   | "workspace_checklist_marked"
-  | "hero_scenario_activated";
+  | "hero_scenario_activated"
+  // Macroentrega 3 · seguimiento, colaboración y apoyo humano.
+  | "workspace_activity_reopened"
+  | "workspace_followup_activity_created"
+  | "workspace_evidence_linked"
+  | "seguimiento_created"
+  | "seguimiento_milestone_recorded"
+  | "seguimiento_evaluated"
+  | "seguimiento_decision_applied"
+  | "delegation_created"
+  | "delegation_status_changed"
+  | "human_support_suggested"
+  | "human_support_booked"
+  | "human_support_closed";
+
 
 
 const STORAGE_KEY = "pyme-digital-eventos-v1";

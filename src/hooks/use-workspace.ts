@@ -8,11 +8,22 @@ import {
   registroVacio,
 } from "@/lib/workspace/repositorio";
 import {
+  guardarRegistro as guardarEvidencias,
+  leerRegistro as leerEvidencias,
+} from "@/lib/evidencias/repositorio";
+import {
+  adjuntarEvidenciasDeEntrega,
+  evidenciasDeActividad,
+} from "@/lib/workspace/puente-evidencias";
+import {
+  ajustesSolicitados,
   asegurarActividad,
   cambiarEstado,
+  enlazarEvidenciasDeEntrega,
   marcarPaso,
   marcarVerificacion,
   obtenerActividad,
+  reabrirActividad,
   registrarEntrega,
   retomarEjecucion,
 } from "@/lib/workspace/servicio";
@@ -27,11 +38,15 @@ import type {
   VerificacionWorkspace,
 } from "@/lib/workspace/tipos";
 import type { EntradaEntrega } from "@/lib/workspace/servicio";
+import type { EvidenciaEmpresa } from "@/lib/evidencias/tipos";
 
 /**
  * B4 + B5 · Puente entre las actividades ya existentes (fichas del plan,
  * iniciativas del pack, escenario demo) y su estado de ejecución guiada.
  * La interfaz no conoce reglas de revisión ni de estados.
+ *
+ * Macroentrega 3 · además conecta cada entregable con el modelo de evidencias
+ * de la empresa y permite reabrir o complementar actividades validadas.
  */
 export function useWorkspace(actividadId?: string) {
   const { sesion, isHydrated: sesionHidratada, registrarActividad } = useSesion();
@@ -121,22 +136,36 @@ export function useWorkspace(actividadId?: string) {
   const entregar = useCallback(
     (id: string, entrada: EntradaEntrega) => {
       const { registro: siguiente, entrega } = registrarEntrega(registro, id, entrada);
-      persistir(siguiente);
-      if (entrega) {
-        registrarActividad(
-          "sistema",
-          `Entrega ${entrega.numero} revisada: ${entrega.revision.veredicto === "validado" ? "validada" : "requiere ajustes"}.`
-        );
-        registrarEvento("workspace_delivery_reviewed", {
-          actividadId: id,
-          entrega: entrega.numero,
-          veredicto: entrega.revision.veredicto,
-          simulada: true,
-        });
+      if (!entrega) {
+        persistir(siguiente);
+        return null;
       }
-      return entrega;
+      const actividadEntregada = obtenerActividad(siguiente, id)!;
+
+      // Deuda 0.1 · el entregable se incorpora al modelo de evidencias.
+      const { registro: evidencias, evidenciaIds } = adjuntarEvidenciasDeEntrega(
+        leerEvidencias(empresaId, empresaNombre),
+        actividadEntregada,
+        entrega
+      );
+      if (evidenciaIds.length > 0) guardarEvidencias(evidencias);
+
+      persistir(enlazarEvidenciasDeEntrega(siguiente, id, entrega.id, evidenciaIds));
+
+      registrarActividad(
+        "sistema",
+        `Entrega ${entrega.numero} revisada: ${entrega.revision.veredicto === "validado" ? "validada" : "requiere ajustes"}.`
+      );
+      registrarEvento("workspace_delivery_reviewed", {
+        actividadId: id,
+        entrega: entrega.numero,
+        veredicto: entrega.revision.veredicto,
+        evidencias: evidenciaIds.length,
+        simulada: true,
+      });
+      return { ...entrega, evidenciaIds };
     },
-    [registro, persistir, registrarActividad]
+    [registro, persistir, registrarActividad, empresaId, empresaNombre]
   );
 
   const retomar = useCallback(
@@ -144,6 +173,33 @@ export function useWorkspace(actividadId?: string) {
       persistir(retomarEjecucion(registro, id));
     },
     [registro, persistir]
+  );
+
+  /** B7 · reapertura por resultado de seguimiento. */
+  const reabrir = useCallback(
+    (id: string, motivo: string, seguimientoId: string | null = null) => {
+      persistir(reabrirActividad(registro, id, motivo, seguimientoId));
+      registrarEvento("workspace_activity_reopened", { actividadId: id });
+    },
+    [registro, persistir]
+  );
+
+  /** B7 · crea (idempotente) una actividad complementaria derivada. */
+  const crearDerivada = useCallback(
+    (plantilla: PlantillaActividad) => {
+      const { registro: siguiente, actividad: creada } = asegurarActividad(registro, plantilla);
+      persistir(siguiente);
+      registrarEvento("workspace_followup_activity_created", { actividadId: creada.id });
+      return creada;
+    },
+    [registro, persistir]
+  );
+
+  /** Evidencias de la empresa producidas por la ejecución de esta actividad. */
+  const evidencias = useCallback(
+    (id: string): EvidenciaEmpresa[] =>
+      evidenciasDeActividad(leerEvidencias(empresaId, empresaNombre), id),
+    [empresaId, empresaNombre]
   );
 
   const resumen = useMemo(() => {
@@ -163,6 +219,8 @@ export function useWorkspace(actividadId?: string) {
 
   return {
     hidratado,
+    empresaId,
+    empresaNombre,
     registro,
     actividades: registro.actividades,
     actividad,
@@ -176,5 +234,9 @@ export function useWorkspace(actividadId?: string) {
     revisarVerificacion,
     entregar,
     retomar,
+    reabrir,
+    crearDerivada,
+    evidencias,
+    ajustesDe: (a: ActividadWorkspace) => ajustesSolicitados(a),
   };
 }

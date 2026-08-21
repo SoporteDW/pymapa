@@ -11,6 +11,9 @@ import {
   LayoutDashboard,
   UserRound,
   HelpCircle,
+  LineChart,
+  Users,
+  LifeBuoy,
 } from "lucide-react";
 
 /**
@@ -49,6 +52,9 @@ export const navItems: {
     icon: LayoutDashboard,
     modulo: "indicadores",
   },
+  { id: "seguimiento", to: "/seguimiento", label: "Seguimiento", icon: LineChart },
+  { id: "colaboracion", to: "/colaboracion", label: "Colaboración", icon: Users },
+  { id: "apoyo", to: "/apoyo", label: "Apoyo humano", icon: LifeBuoy },
   { id: "ayuda", to: "/ayuda", label: "Ayuda", icon: HelpCircle },
 ];
 

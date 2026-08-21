@@ -10,7 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApoyoRouteImport } from './routes/apoyo'
 import { Route as AyudaRouteImport } from './routes/ayuda'
+import { Route as ColaboracionRouteImport } from './routes/colaboracion'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as DemostracionRouteImport } from './routes/demostracion'
 import { Route as DiagnosticoRouteImport } from './routes/diagnostico'
@@ -19,6 +21,7 @@ import { Route as PerfilRouteImport } from './routes/perfil'
 import { Route as PlanDeAccionRouteImport } from './routes/plan-de-accion'
 import { Route as ResultadosRouteImport } from './routes/resultados'
 import { Route as RoadmapRouteImport } from './routes/roadmap'
+import { Route as SeguimientoRouteImport } from './routes/seguimiento'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
 import { Route as DashboardAlertasRouteImport } from './routes/dashboard.alertas'
 import { Route as DiagnosticoIndexRouteImport } from './routes/diagnostico.index'
@@ -34,6 +37,8 @@ import { Route as ResultadosIndexRouteImport } from './routes/resultados.index'
 import { Route as ResultadosDimensionRouteImport } from './routes/resultados.$dimension'
 import { Route as RoadmapIndexRouteImport } from './routes/roadmap.index'
 import { Route as RoadmapAccionRouteImport } from './routes/roadmap.$accion'
+import { Route as SeguimientoIndexRouteImport } from './routes/seguimiento.index'
+import { Route as SeguimientoActividadRouteImport } from './routes/seguimiento.$actividad'
 import { Route as DashboardDimensionDimensionRouteImport } from './routes/dashboard.dimension.$dimension'
 import { Route as DiagnosticoEspecializadosIndexRouteImport } from './routes/diagnostico.especializados.index'
 import { Route as DiagnosticoEspecializadosEcommerceRouteImport } from './routes/diagnostico.especializados.ecommerce'
@@ -45,9 +50,19 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApoyoRoute = ApoyoRouteImport.update({
+  id: '/apoyo',
+  path: '/apoyo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AyudaRoute = AyudaRouteImport.update({
   id: '/ayuda',
   path: '/ayuda',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ColaboracionRoute = ColaboracionRouteImport.update({
+  id: '/colaboracion',
+  path: '/colaboracion',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardRoute = DashboardRouteImport.update({
@@ -88,6 +103,11 @@ const ResultadosRoute = ResultadosRouteImport.update({
 const RoadmapRoute = RoadmapRouteImport.update({
   id: '/roadmap',
   path: '/roadmap',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SeguimientoRoute = SeguimientoRouteImport.update({
+  id: '/seguimiento',
+  path: '/seguimiento',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardIndexRoute = DashboardIndexRouteImport.update({
@@ -166,6 +186,16 @@ const RoadmapAccionRoute = RoadmapAccionRouteImport.update({
   path: '/$accion',
   getParentRoute: () => RoadmapRoute,
 } as any)
+const SeguimientoIndexRoute = SeguimientoIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => SeguimientoRoute,
+} as any)
+const SeguimientoActividadRoute = SeguimientoActividadRouteImport.update({
+  id: '/$actividad',
+  path: '/$actividad',
+  getParentRoute: () => SeguimientoRoute,
+} as any)
 const DashboardDimensionDimensionRoute =
   DashboardDimensionDimensionRouteImport.update({
     id: '/dimension/$dimension',
@@ -198,7 +228,9 @@ const PlanDeAccionWorkspaceActividadRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/apoyo': typeof ApoyoRoute
   '/ayuda': typeof AyudaRoute
+  '/colaboracion': typeof ColaboracionRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/demostracion': typeof DemostracionRoute
   '/diagnostico': typeof DiagnosticoRouteWithChildren
@@ -207,6 +239,7 @@ export interface FileRoutesByFullPath {
   '/plan-de-accion': typeof PlanDeAccionRouteWithChildren
   '/resultados': typeof ResultadosRouteWithChildren
   '/roadmap': typeof RoadmapRouteWithChildren
+  '/seguimiento': typeof SeguimientoRouteWithChildren
   '/dashboard/alertas': typeof DashboardAlertasRoute
   '/diagnostico/cierre': typeof DiagnosticoCierreRoute
   '/diagnostico/especializados': typeof DiagnosticoEspecializadosRouteWithChildren
@@ -217,11 +250,13 @@ export interface FileRoutesByFullPath {
   '/plan-de-accion/$accion': typeof PlanDeAccionAccionRoute
   '/resultados/$dimension': typeof ResultadosDimensionRoute
   '/roadmap/$accion': typeof RoadmapAccionRoute
+  '/seguimiento/$actividad': typeof SeguimientoActividadRoute
   '/dashboard/': typeof DashboardIndexRoute
   '/diagnostico/': typeof DiagnosticoIndexRoute
   '/plan-de-accion/': typeof PlanDeAccionIndexRoute
   '/resultados/': typeof ResultadosIndexRoute
   '/roadmap/': typeof RoadmapIndexRoute
+  '/seguimiento/': typeof SeguimientoIndexRoute
   '/dashboard/dimension/$dimension': typeof DashboardDimensionDimensionRoute
   '/diagnostico/especializados/ecommerce': typeof DiagnosticoEspecializadosEcommerceRoute
   '/diagnostico/paso/$id': typeof DiagnosticoPasoIdRoute
@@ -230,7 +265,9 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/apoyo': typeof ApoyoRoute
   '/ayuda': typeof AyudaRoute
+  '/colaboracion': typeof ColaboracionRoute
   '/demostracion': typeof DemostracionRoute
   '/inicio': typeof InicioRoute
   '/perfil': typeof PerfilRoute
@@ -243,11 +280,13 @@ export interface FileRoutesByTo {
   '/plan-de-accion/$accion': typeof PlanDeAccionAccionRoute
   '/resultados/$dimension': typeof ResultadosDimensionRoute
   '/roadmap/$accion': typeof RoadmapAccionRoute
+  '/seguimiento/$actividad': typeof SeguimientoActividadRoute
   '/dashboard': typeof DashboardIndexRoute
   '/diagnostico': typeof DiagnosticoIndexRoute
   '/plan-de-accion': typeof PlanDeAccionIndexRoute
   '/resultados': typeof ResultadosIndexRoute
   '/roadmap': typeof RoadmapIndexRoute
+  '/seguimiento': typeof SeguimientoIndexRoute
   '/dashboard/dimension/$dimension': typeof DashboardDimensionDimensionRoute
   '/diagnostico/especializados/ecommerce': typeof DiagnosticoEspecializadosEcommerceRoute
   '/diagnostico/paso/$id': typeof DiagnosticoPasoIdRoute
@@ -257,7 +296,9 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/apoyo': typeof ApoyoRoute
   '/ayuda': typeof AyudaRoute
+  '/colaboracion': typeof ColaboracionRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/demostracion': typeof DemostracionRoute
   '/diagnostico': typeof DiagnosticoRouteWithChildren
@@ -266,6 +307,7 @@ export interface FileRoutesById {
   '/plan-de-accion': typeof PlanDeAccionRouteWithChildren
   '/resultados': typeof ResultadosRouteWithChildren
   '/roadmap': typeof RoadmapRouteWithChildren
+  '/seguimiento': typeof SeguimientoRouteWithChildren
   '/dashboard/alertas': typeof DashboardAlertasRoute
   '/diagnostico/cierre': typeof DiagnosticoCierreRoute
   '/diagnostico/especializados': typeof DiagnosticoEspecializadosRouteWithChildren
@@ -276,11 +318,13 @@ export interface FileRoutesById {
   '/plan-de-accion/$accion': typeof PlanDeAccionAccionRoute
   '/resultados/$dimension': typeof ResultadosDimensionRoute
   '/roadmap/$accion': typeof RoadmapAccionRoute
+  '/seguimiento/$actividad': typeof SeguimientoActividadRoute
   '/dashboard/': typeof DashboardIndexRoute
   '/diagnostico/': typeof DiagnosticoIndexRoute
   '/plan-de-accion/': typeof PlanDeAccionIndexRoute
   '/resultados/': typeof ResultadosIndexRoute
   '/roadmap/': typeof RoadmapIndexRoute
+  '/seguimiento/': typeof SeguimientoIndexRoute
   '/dashboard/dimension/$dimension': typeof DashboardDimensionDimensionRoute
   '/diagnostico/especializados/ecommerce': typeof DiagnosticoEspecializadosEcommerceRoute
   '/diagnostico/paso/$id': typeof DiagnosticoPasoIdRoute
@@ -291,7 +335,9 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/apoyo'
     | '/ayuda'
+    | '/colaboracion'
     | '/dashboard'
     | '/demostracion'
     | '/diagnostico'
@@ -300,6 +346,7 @@ export interface FileRouteTypes {
     | '/plan-de-accion'
     | '/resultados'
     | '/roadmap'
+    | '/seguimiento'
     | '/dashboard/alertas'
     | '/diagnostico/cierre'
     | '/diagnostico/especializados'
@@ -310,11 +357,13 @@ export interface FileRouteTypes {
     | '/plan-de-accion/$accion'
     | '/resultados/$dimension'
     | '/roadmap/$accion'
+    | '/seguimiento/$actividad'
     | '/dashboard/'
     | '/diagnostico/'
     | '/plan-de-accion/'
     | '/resultados/'
     | '/roadmap/'
+    | '/seguimiento/'
     | '/dashboard/dimension/$dimension'
     | '/diagnostico/especializados/ecommerce'
     | '/diagnostico/paso/$id'
@@ -323,7 +372,9 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/apoyo'
     | '/ayuda'
+    | '/colaboracion'
     | '/demostracion'
     | '/inicio'
     | '/perfil'
@@ -336,11 +387,13 @@ export interface FileRouteTypes {
     | '/plan-de-accion/$accion'
     | '/resultados/$dimension'
     | '/roadmap/$accion'
+    | '/seguimiento/$actividad'
     | '/dashboard'
     | '/diagnostico'
     | '/plan-de-accion'
     | '/resultados'
     | '/roadmap'
+    | '/seguimiento'
     | '/dashboard/dimension/$dimension'
     | '/diagnostico/especializados/ecommerce'
     | '/diagnostico/paso/$id'
@@ -349,7 +402,9 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/apoyo'
     | '/ayuda'
+    | '/colaboracion'
     | '/dashboard'
     | '/demostracion'
     | '/diagnostico'
@@ -358,6 +413,7 @@ export interface FileRouteTypes {
     | '/plan-de-accion'
     | '/resultados'
     | '/roadmap'
+    | '/seguimiento'
     | '/dashboard/alertas'
     | '/diagnostico/cierre'
     | '/diagnostico/especializados'
@@ -368,11 +424,13 @@ export interface FileRouteTypes {
     | '/plan-de-accion/$accion'
     | '/resultados/$dimension'
     | '/roadmap/$accion'
+    | '/seguimiento/$actividad'
     | '/dashboard/'
     | '/diagnostico/'
     | '/plan-de-accion/'
     | '/resultados/'
     | '/roadmap/'
+    | '/seguimiento/'
     | '/dashboard/dimension/$dimension'
     | '/diagnostico/especializados/ecommerce'
     | '/diagnostico/paso/$id'
@@ -382,7 +440,9 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApoyoRoute: typeof ApoyoRoute
   AyudaRoute: typeof AyudaRoute
+  ColaboracionRoute: typeof ColaboracionRoute
   DashboardRoute: typeof DashboardRouteWithChildren
   DemostracionRoute: typeof DemostracionRoute
   DiagnosticoRoute: typeof DiagnosticoRouteWithChildren
@@ -391,6 +451,7 @@ export interface RootRouteChildren {
   PlanDeAccionRoute: typeof PlanDeAccionRouteWithChildren
   ResultadosRoute: typeof ResultadosRouteWithChildren
   RoadmapRoute: typeof RoadmapRouteWithChildren
+  SeguimientoRoute: typeof SeguimientoRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -402,11 +463,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/apoyo': {
+      id: '/apoyo'
+      path: '/apoyo'
+      fullPath: '/apoyo'
+      preLoaderRoute: typeof ApoyoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ayuda': {
       id: '/ayuda'
       path: '/ayuda'
       fullPath: '/ayuda'
       preLoaderRoute: typeof AyudaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/colaboracion': {
+      id: '/colaboracion'
+      path: '/colaboracion'
+      fullPath: '/colaboracion'
+      preLoaderRoute: typeof ColaboracionRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard': {
@@ -463,6 +538,13 @@ declare module '@tanstack/react-router' {
       path: '/roadmap'
       fullPath: '/roadmap'
       preLoaderRoute: typeof RoadmapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/seguimiento': {
+      id: '/seguimiento'
+      path: '/seguimiento'
+      fullPath: '/seguimiento'
+      preLoaderRoute: typeof SeguimientoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard/': {
@@ -569,6 +651,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/roadmap/$accion'
       preLoaderRoute: typeof RoadmapAccionRouteImport
       parentRoute: typeof RoadmapRoute
+    }
+    '/seguimiento/': {
+      id: '/seguimiento/'
+      path: '/'
+      fullPath: '/seguimiento/'
+      preLoaderRoute: typeof SeguimientoIndexRouteImport
+      parentRoute: typeof SeguimientoRoute
+    }
+    '/seguimiento/$actividad': {
+      id: '/seguimiento/$actividad'
+      path: '/$actividad'
+      fullPath: '/seguimiento/$actividad'
+      preLoaderRoute: typeof SeguimientoActividadRouteImport
+      parentRoute: typeof SeguimientoRoute
     }
     '/dashboard/dimension/$dimension': {
       id: '/dashboard/dimension/$dimension'
@@ -710,9 +806,25 @@ const RoadmapRouteChildren: RoadmapRouteChildren = {
 const RoadmapRouteWithChildren =
   RoadmapRoute._addFileChildren(RoadmapRouteChildren)
 
+interface SeguimientoRouteChildren {
+  SeguimientoActividadRoute: typeof SeguimientoActividadRoute
+  SeguimientoIndexRoute: typeof SeguimientoIndexRoute
+}
+
+const SeguimientoRouteChildren: SeguimientoRouteChildren = {
+  SeguimientoActividadRoute: SeguimientoActividadRoute,
+  SeguimientoIndexRoute: SeguimientoIndexRoute,
+}
+
+const SeguimientoRouteWithChildren = SeguimientoRoute._addFileChildren(
+  SeguimientoRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApoyoRoute: ApoyoRoute,
   AyudaRoute: AyudaRoute,
+  ColaboracionRoute: ColaboracionRoute,
   DashboardRoute: DashboardRouteWithChildren,
   DemostracionRoute: DemostracionRoute,
   DiagnosticoRoute: DiagnosticoRouteWithChildren,
@@ -721,6 +833,7 @@ const rootRouteChildren: RootRouteChildren = {
   PlanDeAccionRoute: PlanDeAccionRouteWithChildren,
   ResultadosRoute: ResultadosRouteWithChildren,
   RoadmapRoute: RoadmapRouteWithChildren,
+  SeguimientoRoute: SeguimientoRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

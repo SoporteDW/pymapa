@@ -233,7 +233,56 @@ export function retomarEjecucion(
   return cambiarEstado(registro, actividadId, "en_ejecucion");
 }
 
+/**
+ * Deuda 0.1 · Enlaza el entregable con las evidencias creadas a partir de él,
+ * cerrando la cadena Entregable → Evidencia → Revisión → Validación.
+ */
+export function enlazarEvidenciasDeEntrega(
+  registro: RegistroWorkspaceEmpresa,
+  actividadId: string,
+  entregaId: string,
+  evidenciaIds: string[]
+): RegistroWorkspaceEmpresa {
+  const actividad = obtenerActividad(registro, actividadId);
+  if (!actividad) return registro;
+  return reemplazar(registro, {
+    ...actividad,
+    historial: actividad.historial.map((e) =>
+      e.id === entregaId
+        ? { ...e, evidenciaIds: Array.from(new Set([...(e.evidenciaIds ?? []), ...evidenciaIds])) }
+        : e
+    ),
+  });
+}
+
+/**
+ * B7 · Reapertura por resultado de seguimiento: la actividad validada vuelve a
+ * ejecución con el motivo registrado (el recorrido vuelve sobre sí mismo).
+ */
+export function reabrirActividad(
+  registro: RegistroWorkspaceEmpresa,
+  actividadId: string,
+  motivo: string,
+  seguimientoId: string | null = null,
+  ahora: string = new Date().toISOString()
+): RegistroWorkspaceEmpresa {
+  const actividad = obtenerActividad(registro, actividadId);
+  if (!actividad) return registro;
+  if (!transicionPermitida(actividad.estado, "en_ejecucion")) return registro;
+  return reemplazar(registro, {
+    ...actividad,
+    estado: "en_ejecucion",
+    reaperturas: [...(actividad.reaperturas ?? []), { motivo, fecha: ahora, seguimientoId }],
+  });
+}
+
+/** Cuántas veces la revisión pidió ajustes en esta actividad (señal para B9). */
+export function ajustesSolicitados(actividad: ActividadWorkspace): number {
+  return actividad.historial.filter((e) => e.revision.veredicto === "requiere_ajustes").length;
+}
+
 /** Metodología del instrumento vigente de la actividad (capa conocimiento). */
 export function metodologiaDe(actividad: ActividadWorkspace): string {
   return obtenerInstrumento(actividad.instrumentoId)?.metodologia ?? "";
 }
+

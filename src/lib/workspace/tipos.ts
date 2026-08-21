@@ -20,7 +20,13 @@ export type EstadoEjecucion =
   | "requiere_ajustes"
   | "validado";
 
-export type OrigenActividadTipo = "ficha_general" | "iniciativa_kb" | "escenario_demo";
+export type OrigenActividadTipo =
+  | "ficha_general"
+  | "iniciativa_kb"
+  | "escenario_demo"
+  /** B7 · actividad complementaria generada por el resultado de un seguimiento. */
+  | "derivada_seguimiento";
+
 
 export interface OrigenActividad {
   tipo: OrigenActividadTipo;
@@ -59,8 +65,11 @@ export interface RegistroEntrega {
   /** Criterios que la empresa declara haber cumplido. */
   criteriosDeclarados: string[];
   archivos: ArchivoEvidencia[];
+  /** Evidencias de la empresa creadas a partir de esta entrega (deuda 0.1). */
+  evidenciaIds?: string[];
   revision: RevisionEntrega;
 }
+
 
 /** Verificación activada por profundización selectiva (B6). */
 export interface VerificacionWorkspace {
@@ -100,8 +109,11 @@ export interface ActividadWorkspace {
   entregable: EntregableWorkspace;
   profundizacion: ProfundizacionWorkspace | null;
   historial: RegistroEntrega[];
+  /** B7 · reaperturas por resultado de seguimiento (el ciclo vuelve sobre sí). */
+  reaperturas?: { motivo: string; fecha: string; seguimientoId: string | null }[];
   creadoEn: string;
   actualizadoEn: string;
+
 }
 
 export interface RegistroWorkspaceEmpresa {
