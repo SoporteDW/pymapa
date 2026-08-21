@@ -28,31 +28,31 @@ import {
   enlazarEvidenciasDeEntrega,
 } from "@/lib/workspace/servicio";
 import { adjuntarEvidenciasDeEntrega } from "@/lib/workspace/puente-evidencias";
-import { registroVacio as workspaceVacio } from "@/lib/workspace/repositorio";
 import {
   guardarRegistro as guardarWorkspace,
   leerRegistro as leerWorkspace,
   limpiarRegistro as limpiarWorkspace,
+  registroVacio as workspaceVacio,
 } from "@/lib/workspace/repositorio";
-import { registroVacio as evidenciasVacio } from "@/lib/evidencias/repositorio";
 import {
   guardarRegistro as guardarEvidencias,
   limpiarRegistro as limpiarEvidencias,
+  registroVacio as evidenciasVacio,
 } from "@/lib/evidencias/repositorio";
-import { registroVacio as seguimientoVacio } from "@/lib/seguimiento/repositorio";
 import {
   guardarRegistro as guardarSeguimiento,
   limpiarRegistro as limpiarSeguimiento,
+  registroVacio as seguimientoVacio,
 } from "@/lib/seguimiento/repositorio";
-import { registroVacio as delegacionVacio } from "@/lib/delegacion/repositorio";
 import {
   guardarRegistro as guardarDelegacion,
   limpiarRegistro as limpiarDelegacion,
+  registroVacio as delegacionVacio,
 } from "@/lib/delegacion/repositorio";
-import { registroVacio as apoyoVacio } from "@/lib/apoyo-humano/repositorio";
 import {
   guardarRegistro as guardarApoyo,
   limpiarRegistro as limpiarApoyo,
+  registroVacio as apoyoVacio,
 } from "@/lib/apoyo-humano/repositorio";
 import {
   asegurarSeguimiento,
