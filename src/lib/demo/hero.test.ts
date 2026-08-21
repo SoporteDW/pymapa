@@ -435,7 +435,11 @@ describe("Home orquestador", () => {
         apoyos: sembrado.apoyo.recomendaciones,
       })
     );
-    expect(pendientes.map((p) => p.tipo)).toEqual(["atender_delegacion", "revisar_apoyo"]);
+    expect(pendientes.map((p) => p.tipo)).toEqual([
+      "atender_delegacion",
+      "revisar_apoyo",
+      "iniciar_actividad",
+    ]);
   });
 
   it("nunca propone una ruta inexistente", () => {
@@ -564,7 +568,9 @@ describe("Regresión del recorrido existente", () => {
   });
 
   it("sin pendientes propone medir el avance en indicadores", () => {
-    const paso = siguientePasoOrquestado(contexto());
+    const sembrado = construirSembradoHero(EMPRESA);
+    const validadas = sembrado.workspace.actividades.filter((a) => a.estado === "validado");
+    const paso = siguientePasoOrquestado(contexto({ actividades: validadas }));
     expect(paso.tipo).toBe("medir_avance");
     expect(paso.ruta).toBe("/dashboard");
   });
