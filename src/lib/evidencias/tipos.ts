@@ -24,8 +24,8 @@ export type EstadoEvidencia =
   | "rechazada";
 
 /**
- * Relación de la evidencia con la cadena de conocimiento. Los campos de
- * actividad y entregable quedan declarados para B4–B9 (aún vacíos).
+ * Relación de la evidencia con la cadena de conocimiento:
+ * Empresa → Actividad → Instrumento → Entregable → Evidencia → Revisión.
  */
 export interface VinculoEvidencia {
   empresaId: string;
@@ -36,7 +36,17 @@ export interface VinculoEvidencia {
   hallazgoIds: string[];
   actividadIds: string[];
   entregableIds: string[];
+  /** Seguimientos (B7) que usan esta evidencia como respaldo de una medición. */
+  seguimientoIds?: string[];
+  /** Instrumento con el que se produjo el entregable, cuando aplica. */
+  instrumentoId?: string | null;
+  /** Revisión (B5) que evaluó el entregable del que nació esta evidencia. */
+  revisionId?: string | null;
 }
+
+/** De dónde proviene la evidencia dentro del recorrido. */
+export type OrigenEvidencia = "solicitud_diagnostico" | "entrega_workspace" | "seguimiento";
+
 
 export interface ArchivoEvidencia {
   nombre: string;
