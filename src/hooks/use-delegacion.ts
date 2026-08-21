@@ -56,7 +56,7 @@ export function useDelegacion() {
       persistir(siguiente);
       if (delegacion) {
         registrarActividad(
-          "usuario",
+          "accion",
           `Se delegó “${delegacion.origen.referenciaTitulo}” a ${delegacion.nombre} (${delegacion.area}).`
         );
         registrarEvento("delegation_created", {
