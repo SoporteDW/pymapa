@@ -80,7 +80,13 @@ export type EventoInteraccion =
   | "kb_demo_dataset_loaded"
   | "kb_diagnosis_reset"
   | "kb_initiative_created"
-  | "kb_conversation_query";
+  | "kb_conversation_query"
+  // Eventos de suficiencia y evidencias documentales (Macroentrega 1 · B2/B3).
+  | "sufficiency_evaluated"
+  | "evidence_requested"
+  | "evidence_uploaded"
+  | "evidence_analyzed"
+  | "clarification_answered";
 
 
 const STORAGE_KEY = "pyme-digital-eventos-v1";
