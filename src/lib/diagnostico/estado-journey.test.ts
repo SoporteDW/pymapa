@@ -57,12 +57,9 @@ describe("Macroentrega 4.1 · máquina de estados del diagnóstico", () => {
 
 describe("Escenario Hero · Moda Origen", () => {
   it("entra con el cuestionario completo (28 de 28)", () => {
-    const respuestas = RESPUESTAS_HERO_MODA_ORIGEN.map((r) => ({
-      preguntaId: r.questionId,
-      valor: r.value,
-      respondidaEn: r.answeredAt ?? new Date().toISOString(),
-    }));
-    expect(contarObligatoriasRespondidas(respuestas as never)).toBe(totalPreguntasObligatorias);
+    expect(contarObligatoriasRespondidas(RESPUESTAS_HERO_MODA_ORIGEN)).toBe(
+      totalPreguntasObligatorias
+    );
   });
 
   it("su resultado es preliminar: quedan aspectos por confirmar", () => {
