@@ -159,6 +159,45 @@ function DemostracionPage() {
               </Button>
             </div>
           ))}
+
+          <div className="space-y-3 rounded-lg border border-primary/25 bg-card p-3">
+            <div>
+              <p className="text-sm font-semibold text-foreground">
+                Escenario Hero final · seguimiento, delegación y apoyo precargados
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Deja el recorrido listo para recorrerse en 10–15 minutos: la auditoría del checkout
+                ya validada con su seguimiento a 30 días medido, el carrito con dos revisiones que
+                pidieron ajustes, una delegación a un tercero ficticio y una recomendación de apoyo
+                especializado justificada. Se activa el modo demostración: tus datos reales quedan
+                respaldados y se restauran al salir.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <Button size="sm" onClick={() => prepararHero()}>
+                Preparar escenario Hero
+              </Button>
+              <Button size="sm" variant="outline" onClick={() => reiniciarHero()}>
+                Reiniciar escenario Hero
+              </Button>
+              {heroListo && (
+                <>
+                  <Button size="sm" variant="ghost" asChild>
+                    <Link to="/inicio">Ver siguiente paso</Link>
+                  </Button>
+                  <Button size="sm" variant="ghost" asChild>
+                    <Link to="/seguimiento">Seguimiento</Link>
+                  </Button>
+                  <Button size="sm" variant="ghost" asChild>
+                    <Link to="/colaboracion">Delegaciones</Link>
+                  </Button>
+                  <Button size="sm" variant="ghost" asChild>
+                    <Link to="/apoyo">Apoyo</Link>
+                  </Button>
+                </>
+              )}
+            </div>
+          </div>
         </CardContent>
       </Card>
 
