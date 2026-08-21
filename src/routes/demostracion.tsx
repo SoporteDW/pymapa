@@ -4,6 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { plantillasEscenarioHero } from "@/lib/workspace/escenario-hero";
+import { aplicarSembradoHero, reiniciarSembradoHero } from "@/lib/demo/sembrado-hero";
+import { perfilPorId } from "@/lib/integracion/perfiles";
+
+/** Perfil simulado usado por el escenario Hero (empresa con canal digital). */
+const HERO_PERFIL_ID = "PYME-04";
 import { Textarea } from "@/components/ui/textarea";
 import { LoadingState } from "@/components/ui/loading-state";
 import { DemoNote } from "@/components/ui/demo-note";
