@@ -18,6 +18,8 @@ import { proximoHitoPendiente } from "@/lib/seguimiento/servicio";
 export type TipoPaso =
   | "completar_perfil"
   | "continuar_diagnostico"
+  | "profundizar_diagnostico"
+  | "cerrar_diagnostico"
   | "aportar_evidencia"
   | "responder_aclaracion"
   | "revisar_resultados"
@@ -47,6 +49,10 @@ export interface ContextoRecorrido {
   seguimientos: SeguimientoActividad[];
   delegaciones: Delegacion[];
   apoyos: RecomendacionApoyo[];
+  /** Avance de la profundización del diagnóstico (Macroentrega 4.1). */
+  profundizacion?: { total: number; completadas: number; pendientes: number };
+  /** El diagnóstico ya fue cerrado formalmente y su informe emitido. */
+  diagnosticoCerrado?: boolean;
 }
 
 /** Rutas que el orquestador puede proponer (evita rutas muertas). */
@@ -100,9 +106,18 @@ export function pendientesDelRecorrido(ctx: ContextoRecorrido): PasoSugerido[] {
     });
   }
 
-  if (perfilOk && sesion.diagnostico.estado !== "completado") {
-    const respondidas = sesion.diagnostico.respondidasObligatorias ?? sesion.respuestas.length;
-    const total = sesion.diagnostico.totalPreguntas ?? sesion.diagnostico.totalPasos;
+  const respondidasCuestionario =
+    sesion.diagnostico.respondidasObligatorias ?? sesion.respuestas.length;
+  const totalCuestionario = sesion.diagnostico.totalPreguntas ?? sesion.diagnostico.totalPasos;
+  // El cuestionario se considera cerrado por sus propias respuestas: la
+  // evidencia pendiente no lo reabre nunca (Macroentrega 4.1).
+  const cuestionarioCompleto =
+    sesion.diagnostico.estado === "completado" ||
+    (totalCuestionario > 0 && respondidasCuestionario >= totalCuestionario);
+
+  if (perfilOk && !cuestionarioCompleto) {
+    const respondidas = respondidasCuestionario;
+    const total = totalCuestionario;
     const iniciado = sesion.diagnostico.estado === "en_progreso";
     pasos.push({
       tipo: "continuar_diagnostico",
@@ -117,30 +132,49 @@ export function pendientesDelRecorrido(ctx: ContextoRecorrido): PasoSugerido[] {
     });
   }
 
-  const evidencia = ctx.necesidades.find((n) => n.tipo === "evidencia" && !n.resuelta);
-  if (evidencia) {
+  const necesidadesPendientes = ctx.necesidades.filter((n) => !n.resuelta);
+  const avance = ctx.profundizacion ?? {
+    total: necesidadesPendientes.length,
+    completadas: 0,
+    pendientes: necesidadesPendientes.length,
+  };
+
+  if (perfilOk && cuestionarioCompleto && necesidadesPendientes.length > 0) {
+    const primera = necesidadesPendientes[0]!;
+    const restantes = avance.pendientes || necesidadesPendientes.length;
     pasos.push({
-      tipo: "aportar_evidencia",
+      tipo: "profundizar_diagnostico",
       etapa: "diagnosticar",
-      titulo: `Aporta la evidencia: ${evidencia.titulo}`,
+      titulo:
+        restantes === 1
+          ? "Falta confirmar un último aspecto de tu diagnóstico"
+          : `Falta confirmar ${restantes} aspectos de tu diagnóstico`,
       descripcion:
-        "Con este documento Pymapa puede cerrar el diagnóstico en lugar de dejarlo preliminar.",
-      porQue: evidencia.porQue,
-      label: "Aportar evidencia",
+        primera.tipo === "evidencia"
+          ? `Necesitamos un documento: ${primera.titulo}.`
+          : `Necesitamos una aclaración: ${primera.titulo}.`,
+      porQue: primera.porQue,
+      label: avance.completadas > 0 ? "Continuar profundización" : "Comenzar profundización",
       ruta: "/diagnostico/cierre",
     });
   }
 
-  const aclaracion = ctx.necesidades.find((n) => n.tipo === "aclaracion" && !n.resuelta);
-  if (aclaracion) {
+  if (
+    perfilOk &&
+    cuestionarioCompleto &&
+    necesidadesPendientes.length === 0 &&
+    avance.total > 0 &&
+    ctx.diagnosticoCerrado === false
+  ) {
     pasos.push({
-      tipo: "responder_aclaracion",
+      tipo: "cerrar_diagnostico",
       etapa: "diagnosticar",
-      titulo: "Responde una aclaración de Pymapa",
-      descripcion: aclaracion.titulo,
-      porQue: aclaracion.porQue,
-      label: "Responder aclaración",
-      ruta: "/diagnostico/cierre",
+      titulo: "Ya tenemos la información necesaria para cerrar tu diagnóstico",
+      descripcion: "Resolviste todo lo que necesitábamos confirmar. Podemos emitir tu informe.",
+      porQue:
+        "El cuestionario está completo y todas las profundizaciones solicitadas quedaron resueltas.",
+      label: "Cerrar mi diagnóstico",
+      ruta: "/diagnostico/listo",
     });
   }
 

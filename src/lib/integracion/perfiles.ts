@@ -222,6 +222,29 @@ export const perfilesSimulados: PerfilSimulado[] = [
   },
 ];
 
+/**
+ * Macroentrega 4.1 · Escenario Hero (Moda Origen).
+ *
+ * El caso demostrativo debe entrar con el instrumento COMPLETO: 28 de 28
+ * preguntas obligatorias respondidas. La profundización posterior existe porque
+ * hay prácticas incipientes y respuestas dispares, no porque falten preguntas.
+ *
+ * Deja abiertas exactamente tres necesidades de información: evidencia de
+ * clientes y canales (D02), evidencia de tecnología y datos (D04) y una
+ * aclaración de personas y cultura (D05).
+ */
+export const RESPUESTAS_HERO_MODA_ORIGEN: DiagnosticAnswer[] = [
+  ...contexto("pequena", "comercio", ["presencial", "redes", "web"], "ventas"),
+  ...sobrescribir(uniforme(3), {
+    Q03: 4,
+    Q05: 2,
+    Q13: 2,
+    Q18: 5,
+    Q20: 4,
+    Q24: 4,
+  }),
+];
+
 export function perfilPorId(id: string): PerfilSimulado | undefined {
   return perfilesSimulados.find((p) => p.id === id);
 }

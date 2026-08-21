@@ -140,9 +140,19 @@ function porcentajeDiagnostico(sesion: SesionMVP): number {
  * sesión: es la única fuente de verdad para Inicio, el menú lateral, los
  * encabezados de etapa y el mapa del recorrido.
  */
-export function avanceModulos(sesion: SesionMVP): Record<ModuloId, AvanceModulo> {
+export function avanceModulos(
+  sesion: SesionMVP,
+  /**
+   * Estado narrativo del diagnóstico (Macroentrega 4.1). Cuando se recibe, el
+   * módulo Diagnóstico no puede marcar 100% mientras haya profundización
+   * pendiente, aunque el cuestionario esté completo.
+   */
+  journeyDiagnostico?: { porcentajeModulo: number }
+): Record<ModuloId, AvanceModulo> {
   const perfil = porcentajePerfil(sesion);
-  const diagnostico = porcentajeDiagnostico(sesion);
+  const diagnostico = journeyDiagnostico
+    ? acotar(journeyDiagnostico.porcentajeModulo)
+    : porcentajeDiagnostico(sesion);
 
   const resultados =
     sesion.diagnostico.resultadosGenerados && sesion.resultados.length > 0
@@ -184,8 +194,11 @@ export function avanceModulos(sesion: SesionMVP): Record<ModuloId, AvanceModulo>
 }
 
 /** Avance de una etapa conceptual: promedio de los módulos que la componen. */
-export function avanceEtapas(sesion: SesionMVP): Record<EtapaId, AvanceModulo> {
-  const avances = avanceModulos(sesion);
+export function avanceEtapas(
+  sesion: SesionMVP,
+  journeyDiagnostico?: { porcentajeModulo: number }
+): Record<EtapaId, AvanceModulo> {
+  const avances = avanceModulos(sesion, journeyDiagnostico);
   const etapas: EtapaId[] = ["preparar", "diagnosticar", "interpretar", "actuar", "seguir"];
   return Object.fromEntries(
     etapas.map((etapa) => {

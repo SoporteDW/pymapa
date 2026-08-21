@@ -2,6 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { cn } from "@/lib/utils";
 import { useSesion } from "@/hooks/use-sesion";
 import { avanceModulos, etiquetaEstadoModulo, type ModuloId } from "@/lib/recorrido-modulos";
+import { useEstadoDiagnostico } from "@/hooks/use-estado-diagnostico";
 import {
   Home,
   ClipboardList,
@@ -68,7 +69,8 @@ export function AppSidebar({ collapsed = false, className }: AppSidebarProps) {
     select: (state) => state.location.pathname,
   });
   const { sesion, isHydrated } = useSesion();
-  const avances = avanceModulos(sesion);
+  const { journey } = useEstadoDiagnostico();
+  const avances = avanceModulos(sesion, journey);
 
   return (
     <aside
@@ -99,7 +101,7 @@ export function AppSidebar({ collapsed = false, className }: AppSidebarProps) {
                   aria-current={isActive ? "page" : undefined}
                   title={
                     avance
-                      ? `${item.label} · ${etiquetaEstadoModulo[avance.estado]} (${avance.porcentaje}%)`
+                      ? `${item.label} · ${item.modulo === "diagnostico" ? journey.etiqueta : etiquetaEstadoModulo[avance.estado]} (${avance.porcentaje}%)`
                       : item.label
                   }
                 >

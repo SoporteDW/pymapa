@@ -21,6 +21,7 @@ import { ConfiguracionInvalida } from "@/components/diagnostico/configuracion-in
 import { IndicadorGuardado } from "@/components/diagnostico/indicador-guardado";
 import { useDiagnostico } from "@/hooks/use-diagnostico";
 import { useModoDemo } from "@/hooks/use-modo-demo";
+import { useEstadoDiagnostico } from "@/hooks/use-estado-diagnostico";
 import { AutocompletarEtapa } from "@/components/demo/autocompletar-etapa";
 import { registrarEvento } from "@/lib/analytics";
 import { toast } from "sonner";
@@ -67,6 +68,7 @@ function DiagnosticoEntrada() {
     responderLote,
   } = useDiagnostico();
   const { puedeAutocompletar, perfil: perfilDemo } = useModoDemo();
+  const { journey } = useEstadoDiagnostico();
   const [confirmando, setConfirmando] = useState(false);
 
   if (!isHydrated) {
@@ -92,6 +94,9 @@ function DiagnosticoEntrada() {
 
   const hayAvance = progreso.respondidas > 0;
   const finalizado = sesion.status === "completed" && resultado !== null;
+  // Con el cuestionario completo el journey manda: nunca se vuelve a pedir
+  // responder preguntas (Macroentrega 4.1).
+  const cuestionarioCompleto = journey.cuestionario.completo;
 
   const handleComenzar = () => {
     const primera = comenzar();
@@ -137,15 +142,15 @@ function DiagnosticoEntrada() {
       <Card>
         <CardHeader>
           <CardTitle className="text-lg">
-            {finalizado
-              ? "Ya tienes un resultado preliminar"
+            {cuestionarioCompleto
+              ? journey.titulo
               : hayAvance
                 ? "Continuar diagnóstico"
                 : "Antes de comenzar"}
           </CardTitle>
           <CardDescription>
-            {finalizado
-              ? "Puedes consultar tu resumen o revisar y ajustar tus respuestas."
+            {cuestionarioCompleto
+              ? journey.descripcion
               : hayAvance
                 ? `Has respondido ${progreso.respondidas} de ${progreso.total} preguntas. Retomarás donde te quedaste.`
                 : "Responde con lo que mejor describa tu situación actual. No hay respuestas correctas ni incorrectas."}
@@ -169,10 +174,17 @@ function DiagnosticoEntrada() {
 
           {hayAvance && (
             <ProgresoDiagnostico
-              respondidas={progreso.respondidas}
-              total={progreso.total}
-              porcentaje={progreso.porcentaje}
+              respondidas={journey.cuestionario.respondidas}
+              total={journey.cuestionario.total}
+              porcentaje={journey.cuestionario.porcentaje}
             />
+          )}
+
+          {cuestionarioCompleto && journey.profundizacion.total > 0 && (
+            <p className="text-sm text-foreground">
+              Profundización: {journey.profundizacion.completadas} de{" "}
+              {journey.profundizacion.total} aspectos confirmados.
+            </p>
           )}
 
 
@@ -184,7 +196,14 @@ function DiagnosticoEntrada() {
           )}
 
           <div className="flex flex-wrap gap-2">
-            {hayAvance ? (
+            {cuestionarioCompleto ? (
+              <Button size="lg" asChild>
+                <Link to={journey.siguiente.ruta}>
+                  {journey.siguiente.label}
+                  <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                </Link>
+              </Button>
+            ) : hayAvance ? (
               <Button size="lg" onClick={handleContinuar}>
                 Continuar diagnóstico
                 <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
@@ -196,15 +215,15 @@ function DiagnosticoEntrada() {
               </Button>
             )}
 
-            {hayAvance && (
+            {(finalizado || cuestionarioCompleto) && (
               <Button variant="outline" size="lg" asChild>
-                <Link to="/diagnostico/revision">Revisar respuestas</Link>
+                <Link to="/diagnostico/resumen">Ver resultado preliminar</Link>
               </Button>
             )}
 
-            {finalizado && (
-              <Button variant="outline" size="lg" asChild>
-                <Link to="/diagnostico/resumen">Ver resumen preliminar</Link>
+            {hayAvance && (
+              <Button variant="ghost" size="lg" asChild>
+                <Link to="/diagnostico/revision">Revisar respuestas</Link>
               </Button>
             )}
 
@@ -244,6 +263,14 @@ function DiagnosticoEntrada() {
             <p className="text-sm text-foreground">
               Ya respondiste todas las preguntas. Puedes ir a la revisión final para confirmar el
               envío.
+            </p>
+          )}
+
+          {cuestionarioCompleto && (
+            <p className="text-xs text-muted-foreground">
+              Tu cuestionario está completo ({journey.cuestionario.respondidas} de{" "}
+              {journey.cuestionario.total}). Lo que falta no son preguntas, sino confirmar
+              información con documentos o aclaraciones.
             </p>
           )}
         </CardContent>
