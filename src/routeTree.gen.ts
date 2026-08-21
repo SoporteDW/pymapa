@@ -22,6 +22,7 @@ import { Route as RoadmapRouteImport } from './routes/roadmap'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
 import { Route as DashboardAlertasRouteImport } from './routes/dashboard.alertas'
 import { Route as DiagnosticoIndexRouteImport } from './routes/diagnostico.index'
+import { Route as DiagnosticoCierreRouteImport } from './routes/diagnostico.cierre'
 import { Route as DiagnosticoEspecializadosRouteImport } from './routes/diagnostico.especializados'
 import { Route as DiagnosticoMotorRouteImport } from './routes/diagnostico.motor'
 import { Route as DiagnosticoProcesandoRouteImport } from './routes/diagnostico.procesando'
@@ -101,6 +102,11 @@ const DashboardAlertasRoute = DashboardAlertasRouteImport.update({
 const DiagnosticoIndexRoute = DiagnosticoIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => DiagnosticoRoute,
+} as any)
+const DiagnosticoCierreRoute = DiagnosticoCierreRouteImport.update({
+  id: '/cierre',
+  path: '/cierre',
   getParentRoute: () => DiagnosticoRoute,
 } as any)
 const DiagnosticoEspecializadosRoute =
@@ -195,6 +201,7 @@ export interface FileRoutesByFullPath {
   '/resultados': typeof ResultadosRouteWithChildren
   '/roadmap': typeof RoadmapRouteWithChildren
   '/dashboard/alertas': typeof DashboardAlertasRoute
+  '/diagnostico/cierre': typeof DiagnosticoCierreRoute
   '/diagnostico/especializados': typeof DiagnosticoEspecializadosRouteWithChildren
   '/diagnostico/motor': typeof DiagnosticoMotorRoute
   '/diagnostico/procesando': typeof DiagnosticoProcesandoRoute
@@ -220,6 +227,7 @@ export interface FileRoutesByTo {
   '/inicio': typeof InicioRoute
   '/perfil': typeof PerfilRoute
   '/dashboard/alertas': typeof DashboardAlertasRoute
+  '/diagnostico/cierre': typeof DiagnosticoCierreRoute
   '/diagnostico/motor': typeof DiagnosticoMotorRoute
   '/diagnostico/procesando': typeof DiagnosticoProcesandoRoute
   '/diagnostico/resumen': typeof DiagnosticoResumenRoute
@@ -250,6 +258,7 @@ export interface FileRoutesById {
   '/resultados': typeof ResultadosRouteWithChildren
   '/roadmap': typeof RoadmapRouteWithChildren
   '/dashboard/alertas': typeof DashboardAlertasRoute
+  '/diagnostico/cierre': typeof DiagnosticoCierreRoute
   '/diagnostico/especializados': typeof DiagnosticoEspecializadosRouteWithChildren
   '/diagnostico/motor': typeof DiagnosticoMotorRoute
   '/diagnostico/procesando': typeof DiagnosticoProcesandoRoute
@@ -282,6 +291,7 @@ export interface FileRouteTypes {
     | '/resultados'
     | '/roadmap'
     | '/dashboard/alertas'
+    | '/diagnostico/cierre'
     | '/diagnostico/especializados'
     | '/diagnostico/motor'
     | '/diagnostico/procesando'
@@ -307,6 +317,7 @@ export interface FileRouteTypes {
     | '/inicio'
     | '/perfil'
     | '/dashboard/alertas'
+    | '/diagnostico/cierre'
     | '/diagnostico/motor'
     | '/diagnostico/procesando'
     | '/diagnostico/resumen'
@@ -336,6 +347,7 @@ export interface FileRouteTypes {
     | '/resultados'
     | '/roadmap'
     | '/dashboard/alertas'
+    | '/diagnostico/cierre'
     | '/diagnostico/especializados'
     | '/diagnostico/motor'
     | '/diagnostico/procesando'
@@ -459,6 +471,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/diagnostico/'
       preLoaderRoute: typeof DiagnosticoIndexRouteImport
+      parentRoute: typeof DiagnosticoRoute
+    }
+    '/diagnostico/cierre': {
+      id: '/diagnostico/cierre'
+      path: '/cierre'
+      fullPath: '/diagnostico/cierre'
+      preLoaderRoute: typeof DiagnosticoCierreRouteImport
       parentRoute: typeof DiagnosticoRoute
     }
     '/diagnostico/especializados': {
@@ -603,6 +622,7 @@ const DiagnosticoEspecializadosRouteWithChildren =
   )
 
 interface DiagnosticoRouteChildren {
+  DiagnosticoCierreRoute: typeof DiagnosticoCierreRoute
   DiagnosticoEspecializadosRoute: typeof DiagnosticoEspecializadosRouteWithChildren
   DiagnosticoMotorRoute: typeof DiagnosticoMotorRoute
   DiagnosticoProcesandoRoute: typeof DiagnosticoProcesandoRoute
@@ -613,6 +633,7 @@ interface DiagnosticoRouteChildren {
 }
 
 const DiagnosticoRouteChildren: DiagnosticoRouteChildren = {
+  DiagnosticoCierreRoute: DiagnosticoCierreRoute,
   DiagnosticoEspecializadosRoute: DiagnosticoEspecializadosRouteWithChildren,
   DiagnosticoMotorRoute: DiagnosticoMotorRoute,
   DiagnosticoProcesandoRoute: DiagnosticoProcesandoRoute,
