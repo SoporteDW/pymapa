@@ -15,6 +15,7 @@ import { CLAVE_WORKSPACE } from "@/lib/workspace/repositorio";
 import { CLAVE_SEGUIMIENTO } from "@/lib/seguimiento/repositorio";
 import { CLAVE_DELEGACION } from "@/lib/delegacion/repositorio";
 import { CLAVE_APOYO } from "@/lib/apoyo-humano/repositorio";
+import { CLAVE_CIERRE_DIAGNOSTICO } from "@/lib/diagnostico/cierre-repositorio";
 
 export const SESSION_VERSION = "sesion-trabajo-1.0.0";
 
@@ -66,6 +67,12 @@ const MODULOS: Omit<ModuloPersistido, "presente" | "bytes">[] = [
   { id: "seguimiento", nombre: "Seguimiento 30/60/90", clave: CLAVE_SEGUIMIENTO, ambito: "local" },
   { id: "delegacion", nombre: "Delegaciones", clave: CLAVE_DELEGACION, ambito: "local" },
   { id: "apoyo", nombre: "Apoyo especializado", clave: CLAVE_APOYO, ambito: "local" },
+  {
+    id: "cierre-diagnostico",
+    nombre: "Cierre del diagnóstico",
+    clave: CLAVE_CIERRE_DIAGNOSTICO,
+    ambito: "local",
+  },
 ];
 
 export interface SesionTrabajo {
