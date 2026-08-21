@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { useSesion } from "@/hooks/use-sesion";
+import { useEstadoDiagnostico } from "@/hooks/use-estado-diagnostico";
 import {
   avanceModulos,
   etiquetaEstadoModulo,
@@ -27,7 +28,8 @@ const tonoEstado = {
 export function EtapaProgreso({ modulo, className }: { modulo: ModuloId; className?: string }) {
   const { sesion, isHydrated } = useSesion();
   const info = moduloPorId(modulo);
-  const avance = avanceModulos(sesion)[modulo];
+  const { journey } = useEstadoDiagnostico();
+  const avance = avanceModulos(sesion, journey)[modulo];
   const etapa = etapas.find((e) => e.id === info.etapa);
 
   if (!isHydrated) return null;
@@ -47,7 +49,7 @@ export function EtapaProgreso({ modulo, className }: { modulo: ModuloId; classNa
         </div>
         <div className="flex items-center gap-2">
           <Badge variant="outline" className={cn("rounded-full", tonoEstado[avance.estado])}>
-            {etiquetaEstadoModulo[avance.estado]}
+            {modulo === "diagnostico" ? journey.etiqueta : etiquetaEstadoModulo[avance.estado]}
           </Badge>
           <span className="text-sm font-semibold text-foreground">{avance.porcentaje}%</span>
         </div>
@@ -71,7 +73,8 @@ export function EtapaFooter({ modulo, className }: { modulo: ModuloId; className
   const info = moduloPorId(modulo);
   const anterior = moduloAnterior(modulo);
   const siguiente = moduloSiguiente(modulo);
-  const avance = isHydrated ? avanceModulos(sesion)[modulo] : null;
+  const { journey } = useEstadoDiagnostico();
+  const avance = isHydrated ? avanceModulos(sesion, journey)[modulo] : null;
   const completado = avance?.estado === "completada";
 
   const guardar = () => {

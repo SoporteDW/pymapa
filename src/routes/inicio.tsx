@@ -15,6 +15,7 @@ import { JourneyMap } from "@/components/recorrido/journey-map";
 import { TarjetaSiguientePaso } from "@/components/recorrido/tarjeta-siguiente-paso";
 import { useSesion } from "@/hooks/use-sesion";
 import { useSiguientePaso } from "@/hooks/use-siguiente-paso";
+import { useEstadoDiagnostico } from "@/hooks/use-estado-diagnostico";
 import { estadoEtapas, etapas } from "@/lib/recorrido";
 import {
   avanceEtapas,
@@ -63,8 +64,9 @@ function InicioPage() {
   }
 
   const estados = estadoEtapas(sesion);
-  const avances = avanceModulos(sesion);
-  const avanceEtapa = avanceEtapas(sesion);
+  const { journey } = useEstadoDiagnostico();
+  const avances = avanceModulos(sesion, journey);
+  const avanceEtapa = avanceEtapas(sesion, journey);
 
 
   const perfilIncompleto = !sesion.perfilCompletado || !sesion.empresa.nombre.trim();
