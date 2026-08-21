@@ -109,8 +109,11 @@ export interface ActividadWorkspace {
   entregable: EntregableWorkspace;
   profundizacion: ProfundizacionWorkspace | null;
   historial: RegistroEntrega[];
+  /** B7 · reaperturas por resultado de seguimiento (el ciclo vuelve sobre sí). */
+  reaperturas?: { motivo: string; fecha: string; seguimientoId: string | null }[];
   creadoEn: string;
   actualizadoEn: string;
+
 }
 
 export interface RegistroWorkspaceEmpresa {
