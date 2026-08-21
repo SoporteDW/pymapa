@@ -113,17 +113,21 @@ function ResumenPage() {
 
       <div className="flex items-start gap-3 rounded-xl border border-info/30 bg-info/5 p-4 text-sm text-foreground">
         <Info className="mt-0.5 h-4 w-4 shrink-0 text-info" aria-hidden="true" />
-        <p>En el siguiente paso, el modelo interpretará estos resultados y propondrá prioridades.</p>
+        <p>
+          Este resultado es preliminar. Antes de concluir, revisamos si la información alcanza y te
+          pedimos las evidencias o aclaraciones que falten.
+        </p>
       </div>
 
       <div className="flex flex-col gap-2 sm:flex-row sm:justify-between">
         <Button variant="outline" asChild>
-          <Link to="/diagnostico/cierre">Ver suficiencia y evidencias</Link>
+          <Link to="/diagnostico/revision">Revisar mis respuestas</Link>
         </Button>
         <Button asChild size="lg">
-          <Link to="/inicio">Volver al inicio</Link>
+          <Link to="/diagnostico/cierre">Continuar: profundizar con evidencias</Link>
         </Button>
       </div>
+
     </div>
   );
 }
