@@ -15,8 +15,11 @@ const FUENTE = "Modelo Pymapa · criterio cualitativo de suficiencia (experiment
 
 /** Umbral cualitativo: 1 y 2 de la escala declarada significan práctica ausente o incipiente. */
 export const UMBRAL_NIVEL_BAJO = 2;
-/** Diferencia que se interpreta como respuestas contradictorias dentro de un dominio. */
-export const UMBRAL_DISPERSION = 3;
+/**
+ * Diferencia entre la mejor y la peor respuesta del dominio que se interpreta
+ * como prácticas contradictorias (por ejemplo 5 frente a 3 en la misma escala).
+ */
+export const UMBRAL_DISPERSION = 2;
 
 export const catalogoSuficiencia: CatalogoSuficiencia = {
   id: "suficiencia-general",
