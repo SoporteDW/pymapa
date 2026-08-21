@@ -17,6 +17,7 @@ import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as DemostracionRouteImport } from './routes/demostracion'
 import { Route as DiagnosticoRouteImport } from './routes/diagnostico'
 import { Route as InicioRouteImport } from './routes/inicio'
+import { Route as ModaOrigenRouteImport } from './routes/moda-origen'
 import { Route as PerfilRouteImport } from './routes/perfil'
 import { Route as PlanDeAccionRouteImport } from './routes/plan-de-accion'
 import { Route as ResultadosRouteImport } from './routes/resultados'
@@ -27,6 +28,7 @@ import { Route as DashboardAlertasRouteImport } from './routes/dashboard.alertas
 import { Route as DiagnosticoIndexRouteImport } from './routes/diagnostico.index'
 import { Route as DiagnosticoCierreRouteImport } from './routes/diagnostico.cierre'
 import { Route as DiagnosticoEspecializadosRouteImport } from './routes/diagnostico.especializados'
+import { Route as DiagnosticoListoRouteImport } from './routes/diagnostico.listo'
 import { Route as DiagnosticoMotorRouteImport } from './routes/diagnostico.motor'
 import { Route as DiagnosticoProcesandoRouteImport } from './routes/diagnostico.procesando'
 import { Route as DiagnosticoResumenRouteImport } from './routes/diagnostico.resumen'
@@ -85,6 +87,11 @@ const InicioRoute = InicioRouteImport.update({
   path: '/inicio',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ModaOrigenRoute = ModaOrigenRouteImport.update({
+  id: '/moda-origen',
+  path: '/moda-origen',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PerfilRoute = PerfilRouteImport.update({
   id: '/perfil',
   path: '/perfil',
@@ -136,6 +143,11 @@ const DiagnosticoEspecializadosRoute =
     path: '/especializados',
     getParentRoute: () => DiagnosticoRoute,
   } as any)
+const DiagnosticoListoRoute = DiagnosticoListoRouteImport.update({
+  id: '/listo',
+  path: '/listo',
+  getParentRoute: () => DiagnosticoRoute,
+} as any)
 const DiagnosticoMotorRoute = DiagnosticoMotorRouteImport.update({
   id: '/motor',
   path: '/motor',
@@ -235,6 +247,7 @@ export interface FileRoutesByFullPath {
   '/demostracion': typeof DemostracionRoute
   '/diagnostico': typeof DiagnosticoRouteWithChildren
   '/inicio': typeof InicioRoute
+  '/moda-origen': typeof ModaOrigenRoute
   '/perfil': typeof PerfilRoute
   '/plan-de-accion': typeof PlanDeAccionRouteWithChildren
   '/resultados': typeof ResultadosRouteWithChildren
@@ -243,6 +256,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/alertas': typeof DashboardAlertasRoute
   '/diagnostico/cierre': typeof DiagnosticoCierreRoute
   '/diagnostico/especializados': typeof DiagnosticoEspecializadosRouteWithChildren
+  '/diagnostico/listo': typeof DiagnosticoListoRoute
   '/diagnostico/motor': typeof DiagnosticoMotorRoute
   '/diagnostico/procesando': typeof DiagnosticoProcesandoRoute
   '/diagnostico/resumen': typeof DiagnosticoResumenRoute
@@ -270,9 +284,11 @@ export interface FileRoutesByTo {
   '/colaboracion': typeof ColaboracionRoute
   '/demostracion': typeof DemostracionRoute
   '/inicio': typeof InicioRoute
+  '/moda-origen': typeof ModaOrigenRoute
   '/perfil': typeof PerfilRoute
   '/dashboard/alertas': typeof DashboardAlertasRoute
   '/diagnostico/cierre': typeof DiagnosticoCierreRoute
+  '/diagnostico/listo': typeof DiagnosticoListoRoute
   '/diagnostico/motor': typeof DiagnosticoMotorRoute
   '/diagnostico/procesando': typeof DiagnosticoProcesandoRoute
   '/diagnostico/resumen': typeof DiagnosticoResumenRoute
@@ -303,6 +319,7 @@ export interface FileRoutesById {
   '/demostracion': typeof DemostracionRoute
   '/diagnostico': typeof DiagnosticoRouteWithChildren
   '/inicio': typeof InicioRoute
+  '/moda-origen': typeof ModaOrigenRoute
   '/perfil': typeof PerfilRoute
   '/plan-de-accion': typeof PlanDeAccionRouteWithChildren
   '/resultados': typeof ResultadosRouteWithChildren
@@ -311,6 +328,7 @@ export interface FileRoutesById {
   '/dashboard/alertas': typeof DashboardAlertasRoute
   '/diagnostico/cierre': typeof DiagnosticoCierreRoute
   '/diagnostico/especializados': typeof DiagnosticoEspecializadosRouteWithChildren
+  '/diagnostico/listo': typeof DiagnosticoListoRoute
   '/diagnostico/motor': typeof DiagnosticoMotorRoute
   '/diagnostico/procesando': typeof DiagnosticoProcesandoRoute
   '/diagnostico/resumen': typeof DiagnosticoResumenRoute
@@ -342,6 +360,7 @@ export interface FileRouteTypes {
     | '/demostracion'
     | '/diagnostico'
     | '/inicio'
+    | '/moda-origen'
     | '/perfil'
     | '/plan-de-accion'
     | '/resultados'
@@ -350,6 +369,7 @@ export interface FileRouteTypes {
     | '/dashboard/alertas'
     | '/diagnostico/cierre'
     | '/diagnostico/especializados'
+    | '/diagnostico/listo'
     | '/diagnostico/motor'
     | '/diagnostico/procesando'
     | '/diagnostico/resumen'
@@ -377,9 +397,11 @@ export interface FileRouteTypes {
     | '/colaboracion'
     | '/demostracion'
     | '/inicio'
+    | '/moda-origen'
     | '/perfil'
     | '/dashboard/alertas'
     | '/diagnostico/cierre'
+    | '/diagnostico/listo'
     | '/diagnostico/motor'
     | '/diagnostico/procesando'
     | '/diagnostico/resumen'
@@ -409,6 +431,7 @@ export interface FileRouteTypes {
     | '/demostracion'
     | '/diagnostico'
     | '/inicio'
+    | '/moda-origen'
     | '/perfil'
     | '/plan-de-accion'
     | '/resultados'
@@ -417,6 +440,7 @@ export interface FileRouteTypes {
     | '/dashboard/alertas'
     | '/diagnostico/cierre'
     | '/diagnostico/especializados'
+    | '/diagnostico/listo'
     | '/diagnostico/motor'
     | '/diagnostico/procesando'
     | '/diagnostico/resumen'
@@ -447,6 +471,7 @@ export interface RootRouteChildren {
   DemostracionRoute: typeof DemostracionRoute
   DiagnosticoRoute: typeof DiagnosticoRouteWithChildren
   InicioRoute: typeof InicioRoute
+  ModaOrigenRoute: typeof ModaOrigenRoute
   PerfilRoute: typeof PerfilRoute
   PlanDeAccionRoute: typeof PlanDeAccionRouteWithChildren
   ResultadosRoute: typeof ResultadosRouteWithChildren
@@ -510,6 +535,13 @@ declare module '@tanstack/react-router' {
       path: '/inicio'
       fullPath: '/inicio'
       preLoaderRoute: typeof InicioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/moda-origen': {
+      id: '/moda-origen'
+      path: '/moda-origen'
+      fullPath: '/moda-origen'
+      preLoaderRoute: typeof ModaOrigenRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/perfil': {
@@ -580,6 +612,13 @@ declare module '@tanstack/react-router' {
       path: '/especializados'
       fullPath: '/diagnostico/especializados'
       preLoaderRoute: typeof DiagnosticoEspecializadosRouteImport
+      parentRoute: typeof DiagnosticoRoute
+    }
+    '/diagnostico/listo': {
+      id: '/diagnostico/listo'
+      path: '/listo'
+      fullPath: '/diagnostico/listo'
+      preLoaderRoute: typeof DiagnosticoListoRouteImport
       parentRoute: typeof DiagnosticoRoute
     }
     '/diagnostico/motor': {
@@ -740,6 +779,7 @@ const DiagnosticoEspecializadosRouteWithChildren =
 interface DiagnosticoRouteChildren {
   DiagnosticoCierreRoute: typeof DiagnosticoCierreRoute
   DiagnosticoEspecializadosRoute: typeof DiagnosticoEspecializadosRouteWithChildren
+  DiagnosticoListoRoute: typeof DiagnosticoListoRoute
   DiagnosticoMotorRoute: typeof DiagnosticoMotorRoute
   DiagnosticoProcesandoRoute: typeof DiagnosticoProcesandoRoute
   DiagnosticoResumenRoute: typeof DiagnosticoResumenRoute
@@ -751,6 +791,7 @@ interface DiagnosticoRouteChildren {
 const DiagnosticoRouteChildren: DiagnosticoRouteChildren = {
   DiagnosticoCierreRoute: DiagnosticoCierreRoute,
   DiagnosticoEspecializadosRoute: DiagnosticoEspecializadosRouteWithChildren,
+  DiagnosticoListoRoute: DiagnosticoListoRoute,
   DiagnosticoMotorRoute: DiagnosticoMotorRoute,
   DiagnosticoProcesandoRoute: DiagnosticoProcesandoRoute,
   DiagnosticoResumenRoute: DiagnosticoResumenRoute,
@@ -829,6 +870,7 @@ const rootRouteChildren: RootRouteChildren = {
   DemostracionRoute: DemostracionRoute,
   DiagnosticoRoute: DiagnosticoRouteWithChildren,
   InicioRoute: InicioRoute,
+  ModaOrigenRoute: ModaOrigenRoute,
   PerfilRoute: PerfilRoute,
   PlanDeAccionRoute: PlanDeAccionRouteWithChildren,
   ResultadosRoute: ResultadosRouteWithChildren,

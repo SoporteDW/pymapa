@@ -27,17 +27,17 @@ export function PanelChecklist({ profundizacion, onMarcar }: Props) {
       <CardHeader className="space-y-2">
         <Badge variant="outline" className="w-fit gap-1.5 border-accent/40">
           <ListChecks className="h-3.5 w-3.5" aria-hidden="true" />
-          Profundización · grupo {profundizacion.grupoNombre}
+          Revisión especializada · {profundizacion.grupoNombre}
         </Badge>
-        <CardTitle className="text-base">Verificaciones activadas para esta actividad</CardTitle>
+        <CardTitle className="text-base">Puntos que conviene revisar en esta actividad</CardTitle>
         <CardDescription>{profundizacion.motivo}</CardDescription>
       </CardHeader>
       <CardContent className="space-y-3">
         <p className="text-xs text-muted-foreground">
-          {profundizacion.verificaciones.length} verificaciones activadas de{" "}
-          {profundizacion.totalGrupo} disponibles en el grupo · {revisadas} revisadas · instrumento{" "}
-          {profundizacion.instrumentoId} {profundizacion.instrumentoVersion}
+          Seleccionamos {profundizacion.verificaciones.length} puntos pertinentes para tu caso.
+          Ya revisaste {revisadas}.
         </p>
+
         <ul className="space-y-2">
           {profundizacion.verificaciones.map((verificacion) => (
             <li

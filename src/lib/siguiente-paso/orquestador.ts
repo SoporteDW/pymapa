@@ -52,8 +52,11 @@ export interface ContextoRecorrido {
 /** Rutas que el orquestador puede proponer (evita rutas muertas). */
 const RUTAS_VALIDAS = [
   "/perfil",
+  "/moda-origen",
   "/diagnostico",
   "/diagnostico/cierre",
+  "/diagnostico/listo",
+
   "/resultados",
   "/plan-de-accion",
   "/roadmap",

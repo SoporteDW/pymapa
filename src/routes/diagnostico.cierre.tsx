@@ -126,10 +126,11 @@ function CierrePage() {
         </Button>
         {suficiencia.puedeCerrar ? (
           <Button size="lg" asChild>
-            <Link to="/diagnostico/resumen">
+            <Link to="/diagnostico/listo">
               <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
-              Ver resultado preliminar
+              Cerrar mi diagnóstico
             </Link>
+
           </Button>
         ) : (
           <Button size="lg" variant="secondary" asChild>
