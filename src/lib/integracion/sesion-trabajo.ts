@@ -9,6 +9,12 @@
 import { CLAVE_DIAGNOSTICO } from "@/lib/diagnostico/repositorio";
 import { CLAVE_MOTOR } from "@/lib/motor/repositorio";
 import { CLAVE_ROADMAP } from "@/lib/roadmap/repositorio";
+import { CLAVE_KB } from "@/lib/kb/repositorio";
+import { CLAVE_EVIDENCIAS } from "@/lib/evidencias/repositorio";
+import { CLAVE_WORKSPACE } from "@/lib/workspace/repositorio";
+import { CLAVE_SEGUIMIENTO } from "@/lib/seguimiento/repositorio";
+import { CLAVE_DELEGACION } from "@/lib/delegacion/repositorio";
+import { CLAVE_APOYO } from "@/lib/apoyo-humano/repositorio";
 
 export const SESSION_VERSION = "sesion-trabajo-1.0.0";
 
