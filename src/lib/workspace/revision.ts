@@ -18,7 +18,7 @@ export interface EntradaRevision {
   nota: string;
   archivos: ArchivoEvidencia[];
   /** Verificaciones activadas por profundización, si la actividad las tiene. */
-  verificaciones?: VerificacionWorkspace[];
+  verificaciones?: VerificacionWorkspace[] | undefined;
   numeroEntrega: number;
   revisadoEn?: string;
 }
