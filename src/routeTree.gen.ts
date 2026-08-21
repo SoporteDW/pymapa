@@ -10,7 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApoyoRouteImport } from './routes/apoyo'
 import { Route as AyudaRouteImport } from './routes/ayuda'
+import { Route as ColaboracionRouteImport } from './routes/colaboracion'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as DemostracionRouteImport } from './routes/demostracion'
 import { Route as DiagnosticoRouteImport } from './routes/diagnostico'
@@ -48,9 +50,19 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApoyoRoute = ApoyoRouteImport.update({
+  id: '/apoyo',
+  path: '/apoyo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AyudaRoute = AyudaRouteImport.update({
   id: '/ayuda',
   path: '/ayuda',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ColaboracionRoute = ColaboracionRouteImport.update({
+  id: '/colaboracion',
+  path: '/colaboracion',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardRoute = DashboardRouteImport.update({
@@ -216,7 +228,9 @@ const PlanDeAccionWorkspaceActividadRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/apoyo': typeof ApoyoRoute
   '/ayuda': typeof AyudaRoute
+  '/colaboracion': typeof ColaboracionRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/demostracion': typeof DemostracionRoute
   '/diagnostico': typeof DiagnosticoRouteWithChildren
@@ -251,7 +265,9 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/apoyo': typeof ApoyoRoute
   '/ayuda': typeof AyudaRoute
+  '/colaboracion': typeof ColaboracionRoute
   '/demostracion': typeof DemostracionRoute
   '/inicio': typeof InicioRoute
   '/perfil': typeof PerfilRoute
@@ -280,7 +296,9 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/apoyo': typeof ApoyoRoute
   '/ayuda': typeof AyudaRoute
+  '/colaboracion': typeof ColaboracionRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/demostracion': typeof DemostracionRoute
   '/diagnostico': typeof DiagnosticoRouteWithChildren
@@ -317,7 +335,9 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/apoyo'
     | '/ayuda'
+    | '/colaboracion'
     | '/dashboard'
     | '/demostracion'
     | '/diagnostico'
@@ -352,7 +372,9 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/apoyo'
     | '/ayuda'
+    | '/colaboracion'
     | '/demostracion'
     | '/inicio'
     | '/perfil'
@@ -380,7 +402,9 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/apoyo'
     | '/ayuda'
+    | '/colaboracion'
     | '/dashboard'
     | '/demostracion'
     | '/diagnostico'
@@ -416,7 +440,9 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApoyoRoute: typeof ApoyoRoute
   AyudaRoute: typeof AyudaRoute
+  ColaboracionRoute: typeof ColaboracionRoute
   DashboardRoute: typeof DashboardRouteWithChildren
   DemostracionRoute: typeof DemostracionRoute
   DiagnosticoRoute: typeof DiagnosticoRouteWithChildren
@@ -437,11 +463,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/apoyo': {
+      id: '/apoyo'
+      path: '/apoyo'
+      fullPath: '/apoyo'
+      preLoaderRoute: typeof ApoyoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ayuda': {
       id: '/ayuda'
       path: '/ayuda'
       fullPath: '/ayuda'
       preLoaderRoute: typeof AyudaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/colaboracion': {
+      id: '/colaboracion'
+      path: '/colaboracion'
+      fullPath: '/colaboracion'
+      preLoaderRoute: typeof ColaboracionRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard': {
@@ -782,7 +822,9 @@ const SeguimientoRouteWithChildren = SeguimientoRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApoyoRoute: ApoyoRoute,
   AyudaRoute: AyudaRoute,
+  ColaboracionRoute: ColaboracionRoute,
   DashboardRoute: DashboardRouteWithChildren,
   DemostracionRoute: DemostracionRoute,
   DiagnosticoRoute: DiagnosticoRouteWithChildren,

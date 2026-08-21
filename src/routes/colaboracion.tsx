@@ -86,7 +86,7 @@ function ColaboracionPage() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Select value={actividad.id} onValueChange={setActividadId}>
+              <Select value={origen.referenciaId} onValueChange={setActividadId}>
                 <SelectTrigger className="max-w-xl">
                   <SelectValue placeholder="Elegir actividad" />
                 </SelectTrigger>
@@ -104,7 +104,7 @@ function ColaboracionPage() {
           <FormularioDelegacion
             origen={origen}
             areaSugerida={areaSugerida(origen.dominioId).nombre}
-            tareaSugerida={`Apoyar con: ${actividad.entregable.titulo}`}
+            tareaSugerida={`Apoyar con: ${actividad?.entregable.titulo ?? origen.referenciaTitulo}`}
             onDelegar={(entrada) => {
               const delegacion = crear(entrada);
               if (delegacion) {
