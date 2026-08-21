@@ -86,7 +86,16 @@ export type EventoInteraccion =
   | "evidence_requested"
   | "evidence_uploaded"
   | "evidence_analyzed"
-  | "clarification_answered";
+  | "clarification_answered"
+  // Eventos del workspace de ejecución guiada (Macroentrega 2 · B4/B5/B6).
+  | "workspace_opened"
+  | "workspace_started"
+  | "workspace_step_toggled"
+  | "workspace_delivery_submitted"
+  | "workspace_delivery_reviewed"
+  | "workspace_checklist_activated"
+  | "workspace_checklist_marked"
+  | "hero_scenario_activated";
 
 
 const STORAGE_KEY = "pyme-digital-eventos-v1";

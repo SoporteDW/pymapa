@@ -10,6 +10,7 @@
 
 import { dimensiones, preguntasDeDimension } from "@/lib/diagnostico/definicion";
 import { knowledgePackEcommerce } from "@/lib/kb/ecommerce";
+import { CHECKLIST_CRO_VERSION, checklistCroUx } from "@/lib/kb/ecommerce/checklist";
 import type { DominioPymapa, InstrumentoDefinicion } from "./tipos";
 
 export const dominios: DominioPymapa[] = dimensiones.map((d) => ({
@@ -74,24 +75,19 @@ export const instrumentos: InstrumentoDefinicion[] = [
   },
   {
     id: "INS-EC-CHECKLIST-304",
-    nombre: "Checklist especializado CRO/UX e-commerce",
-    version: "pendiente-de-carga",
+    nombre: checklistCroUx.nombre,
+    version: CHECKLIST_CRO_VERSION,
     nivel: 2,
-    estado: "pendiente",
-    dominios: ["D02", "D03"],
-    // Estructura real informada por el equipo metodológico. El contenido de las
-    // verificaciones se cargará en B6; aquí solo se reserva la forma del dato.
-    grupos: [
-      { id: "general", nombre: "General", verificacionesEsperadas: 45 },
-      { id: "home", nombre: "Home", verificacionesEsperadas: 21 },
-      { id: "categoria", nombre: "Categoría", verificacionesEsperadas: 29 },
-      { id: "producto", nombre: "Producto", verificacionesEsperadas: 69 },
-      { id: "landing", nombre: "Landing", verificacionesEsperadas: 69 },
-      { id: "carrito", nombre: "Carrito", verificacionesEsperadas: 25 },
-      { id: "checkout", nombre: "Checkout", verificacionesEsperadas: 38 },
-      { id: "thank-you", nombre: "Thank You", verificacionesEsperadas: 8 },
-    ],
-    fuente: "Activo metodológico externo (entrega prevista para B6)",
+    estado: "experimental",
+    dominios: ["D02", "D03", "D04"],
+    // B6 · Contenido metodológico ya incorporado (304 verificaciones).
+    // Se usa para profundización SELECTIVA, no como formulario del usuario.
+    grupos: checklistCroUx.grupos.map((g) => ({
+      id: g.id,
+      nombre: g.nombre,
+      verificacionesEsperadas: g.verificaciones.length,
+    })),
+    fuente: checklistCroUx.fuente,
     capa: "conocimiento",
   },
 ];

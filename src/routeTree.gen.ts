@@ -38,6 +38,7 @@ import { Route as DashboardDimensionDimensionRouteImport } from './routes/dashbo
 import { Route as DiagnosticoEspecializadosIndexRouteImport } from './routes/diagnostico.especializados.index'
 import { Route as DiagnosticoEspecializadosEcommerceRouteImport } from './routes/diagnostico.especializados.ecommerce'
 import { Route as DiagnosticoPasoIdRouteImport } from './routes/diagnostico.paso.$id'
+import { Route as PlanDeAccionWorkspaceActividadRouteImport } from './routes/plan-de-accion.workspace.$actividad'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -188,6 +189,12 @@ const DiagnosticoPasoIdRoute = DiagnosticoPasoIdRouteImport.update({
   path: '/paso/$id',
   getParentRoute: () => DiagnosticoRoute,
 } as any)
+const PlanDeAccionWorkspaceActividadRoute =
+  PlanDeAccionWorkspaceActividadRouteImport.update({
+    id: '/workspace/$actividad',
+    path: '/workspace/$actividad',
+    getParentRoute: () => PlanDeAccionRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -218,6 +225,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/dimension/$dimension': typeof DashboardDimensionDimensionRoute
   '/diagnostico/especializados/ecommerce': typeof DiagnosticoEspecializadosEcommerceRoute
   '/diagnostico/paso/$id': typeof DiagnosticoPasoIdRoute
+  '/plan-de-accion/workspace/$actividad': typeof PlanDeAccionWorkspaceActividadRoute
   '/diagnostico/especializados/': typeof DiagnosticoEspecializadosIndexRoute
 }
 export interface FileRoutesByTo {
@@ -243,6 +251,7 @@ export interface FileRoutesByTo {
   '/dashboard/dimension/$dimension': typeof DashboardDimensionDimensionRoute
   '/diagnostico/especializados/ecommerce': typeof DiagnosticoEspecializadosEcommerceRoute
   '/diagnostico/paso/$id': typeof DiagnosticoPasoIdRoute
+  '/plan-de-accion/workspace/$actividad': typeof PlanDeAccionWorkspaceActividadRoute
   '/diagnostico/especializados': typeof DiagnosticoEspecializadosIndexRoute
 }
 export interface FileRoutesById {
@@ -275,6 +284,7 @@ export interface FileRoutesById {
   '/dashboard/dimension/$dimension': typeof DashboardDimensionDimensionRoute
   '/diagnostico/especializados/ecommerce': typeof DiagnosticoEspecializadosEcommerceRoute
   '/diagnostico/paso/$id': typeof DiagnosticoPasoIdRoute
+  '/plan-de-accion/workspace/$actividad': typeof PlanDeAccionWorkspaceActividadRoute
   '/diagnostico/especializados/': typeof DiagnosticoEspecializadosIndexRoute
 }
 export interface FileRouteTypes {
@@ -308,6 +318,7 @@ export interface FileRouteTypes {
     | '/dashboard/dimension/$dimension'
     | '/diagnostico/especializados/ecommerce'
     | '/diagnostico/paso/$id'
+    | '/plan-de-accion/workspace/$actividad'
     | '/diagnostico/especializados/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -333,6 +344,7 @@ export interface FileRouteTypes {
     | '/dashboard/dimension/$dimension'
     | '/diagnostico/especializados/ecommerce'
     | '/diagnostico/paso/$id'
+    | '/plan-de-accion/workspace/$actividad'
     | '/diagnostico/especializados'
   id:
     | '__root__'
@@ -364,6 +376,7 @@ export interface FileRouteTypes {
     | '/dashboard/dimension/$dimension'
     | '/diagnostico/especializados/ecommerce'
     | '/diagnostico/paso/$id'
+    | '/plan-de-accion/workspace/$actividad'
     | '/diagnostico/especializados/'
   fileRoutesById: FileRoutesById
 }
@@ -585,6 +598,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DiagnosticoPasoIdRouteImport
       parentRoute: typeof DiagnosticoRoute
     }
+    '/plan-de-accion/workspace/$actividad': {
+      id: '/plan-de-accion/workspace/$actividad'
+      path: '/workspace/$actividad'
+      fullPath: '/plan-de-accion/workspace/$actividad'
+      preLoaderRoute: typeof PlanDeAccionWorkspaceActividadRouteImport
+      parentRoute: typeof PlanDeAccionRoute
+    }
   }
 }
 
@@ -650,11 +670,13 @@ const DiagnosticoRouteWithChildren = DiagnosticoRoute._addFileChildren(
 interface PlanDeAccionRouteChildren {
   PlanDeAccionAccionRoute: typeof PlanDeAccionAccionRoute
   PlanDeAccionIndexRoute: typeof PlanDeAccionIndexRoute
+  PlanDeAccionWorkspaceActividadRoute: typeof PlanDeAccionWorkspaceActividadRoute
 }
 
 const PlanDeAccionRouteChildren: PlanDeAccionRouteChildren = {
   PlanDeAccionAccionRoute: PlanDeAccionAccionRoute,
   PlanDeAccionIndexRoute: PlanDeAccionIndexRoute,
+  PlanDeAccionWorkspaceActividadRoute: PlanDeAccionWorkspaceActividadRoute,
 }
 
 const PlanDeAccionRouteWithChildren = PlanDeAccionRoute._addFileChildren(
