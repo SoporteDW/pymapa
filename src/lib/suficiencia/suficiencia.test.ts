@@ -199,3 +199,55 @@ describe("catálogo de suficiencia", () => {
     }
   });
 });
+
+describe("profundización modular", () => {
+  /** Respuestas mínimas que activan al menos una necesidad. */
+  const respuestas = dominios.flatMap((d) =>
+    preguntasPuntuablesDeDominio(d.id).map((id) => ({
+      questionId: id,
+      value: 1,
+      answeredAt: "2026-01-01T00:00:00.000Z",
+    }))
+  );
+
+  const base = { respuestas, evidencias: [], aclaraciones: [] };
+
+  it("una delegación incorporada resuelve la necesidad sin adjuntar archivo", () => {
+    const sinMecanismo = evaluarSuficiencia(base);
+    const necesidad = sinMecanismo.necesidadesPendientes[0]!;
+    expect(necesidad.resueltaPor).toBeNull();
+
+    const conDelegacion = evaluarSuficiencia({
+      ...base,
+      delegaciones: [{ referenciaId: necesidad.reglaId, resuelto: true }],
+    });
+    const misma = conDelegacion.dominios
+      .flatMap((d) => d.necesidades)
+      .find((n) => n.reglaId === necesidad.reglaId)!;
+    expect(misma.resuelta).toBe(true);
+    expect(misma.resueltaPor).toBe("delegacion");
+  });
+
+  it("una sesión de apoyo realizada también resuelve la necesidad", () => {
+    const necesidad = evaluarSuficiencia(base).necesidadesPendientes[0]!;
+    const conApoyo = evaluarSuficiencia({
+      ...base,
+      apoyos: [{ referenciaId: necesidad.reglaId, resuelto: true }],
+    });
+    const misma = conApoyo.dominios
+      .flatMap((d) => d.necesidades)
+      .find((n) => n.reglaId === necesidad.reglaId)!;
+    expect(misma.resueltaPor).toBe("apoyo");
+  });
+
+  it("un mecanismo aún no completado no resuelve nada", () => {
+    const necesidad = evaluarSuficiencia(base).necesidadesPendientes[0]!;
+    const pendiente = evaluarSuficiencia({
+      ...base,
+      delegaciones: [{ referenciaId: necesidad.reglaId, resuelto: false }],
+    });
+    expect(
+      pendiente.necesidadesPendientes.some((n) => n.reglaId === necesidad.reglaId)
+    ).toBe(true);
+  });
+});
