@@ -567,11 +567,11 @@ describe("Regresión del recorrido existente", () => {
     expect(pendientes.every((p) => p.porQue.length > 0)).toBe(true);
   });
 
-  it("sin pendientes propone medir el avance en indicadores", () => {
+  it("con todo validado propone cerrar el Plan de Acción antes de medir", () => {
     const sembrado = construirSembradoHero(EMPRESA);
     const validadas = sembrado.workspace.actividades.filter((a) => a.estado === "validado");
     const paso = siguientePasoOrquestado(contexto({ actividades: validadas }));
-    expect(paso.tipo).toBe("medir_avance");
-    expect(paso.ruta).toBe("/dashboard");
+    expect(paso.tipo).toBe("cerrar_plan");
+    expect(paso.ruta).toBe("/plan-de-accion/cierre");
   });
 });

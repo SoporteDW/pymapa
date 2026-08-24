@@ -73,11 +73,18 @@ describe("Journey Maestro · cuatro etapas", () => {
 });
 
 describe("Cuestionario interrumpible", () => {
+  const idsObligatorios = resumenCuestionario({
+    respondidas: [],
+    aplazadas: [],
+    delegadas: {},
+  }).preguntas.map((p) => p.id);
+  const [ID_A, ID_B, ID_C] = idsObligatorios as [string, string, string];
+
   it("distingue pendientes, aplazadas y delegadas sin bloquear el avance", () => {
     const resumen = resumenCuestionario({
       respondidas: [],
-      aplazadas: ["ctx-1"],
-      delegadas: { "ctx-2": "María" },
+      aplazadas: [ID_A],
+      delegadas: { [ID_B]: "María" },
       preguntaActual: null,
     });
     expect(resumen.total).toBe(totalPreguntasObligatorias);
@@ -86,7 +93,7 @@ describe("Cuestionario interrumpible", () => {
     expect(resumen.completo).toBe(false);
     expect(resumen.detalle).toContain("esperando respuesta");
     // La siguiente pregunta propuesta nunca es la aplazada ni la delegada.
-    expect(["ctx-1", "ctx-2"]).not.toContain(resumen.siguienteId);
+    expect([ID_A, ID_B]).not.toContain(resumen.siguienteId);
   });
 
   it("retoma exactamente la pregunta donde el usuario quedó", () => {
@@ -94,9 +101,9 @@ describe("Cuestionario interrumpible", () => {
       respondidas: [],
       aplazadas: [],
       delegadas: {},
-      preguntaActual: "ctx-3",
+      preguntaActual: ID_C,
     });
-    expect(resumen.siguienteId).toBe("ctx-3");
+    expect(resumen.siguienteId).toBe(ID_C);
     expect(resumen.titulo).toContain("no ha comenzado");
   });
 

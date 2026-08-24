@@ -29,6 +29,9 @@ export type TipoPaso =
   | "realizar_seguimiento"
   | "atender_delegacion"
   | "revisar_apoyo"
+  | "conocer_plan"
+  | "cerrar_plan"
+  | "iniciar_seguimiento"
   | "medir_avance";
 
 export interface PasoSugerido {
@@ -53,6 +56,8 @@ export interface ContextoRecorrido {
   profundizacion?: { total: number; completadas: number; pendientes: number };
   /** El diagnóstico ya fue cerrado formalmente y su informe emitido. */
   diagnosticoCerrado?: boolean;
+  /** Transiciones narrativas que el usuario ya vivió (Macroentrega 5). */
+  hitos?: { entradaActuar: boolean; cierrePlan: boolean; entradaSeguir: boolean };
 }
 
 /** Rutas que el orquestador puede proponer (evita rutas muertas). */
@@ -62,6 +67,9 @@ const RUTAS_VALIDAS = [
   "/diagnostico",
   "/diagnostico/cierre",
   "/diagnostico/listo",
+  "/plan-de-accion/entrada",
+  "/plan-de-accion/cierre",
+  "/seguimiento/entrada",
 
   "/resultados",
   "/plan-de-accion",
@@ -175,6 +183,23 @@ export function pendientesDelRecorrido(ctx: ContextoRecorrido): PasoSugerido[] {
         "El cuestionario está completo y todas las profundizaciones solicitadas quedaron resueltas.",
       label: "Cerrar mi diagnóstico",
       ruta: "/diagnostico/listo",
+    });
+  }
+
+  const hitos = ctx.hitos ?? { entradaActuar: false, cierrePlan: false, entradaSeguir: false };
+
+  // Macroentrega 5 · Del diagnóstico a actividades concretas: transición
+  // pedagógica antes de mostrar la lista de Actividades.
+  if (ctx.diagnosticoCerrado === true && !hitos.entradaActuar) {
+    pasos.push({
+      tipo: "conocer_plan",
+      etapa: "actuar",
+      titulo: "Convertimos tu diagnóstico en actividades concretas",
+      descripcion:
+        "Tus hallazgos ya se transformaron en un conjunto priorizado de Actividades. Te explicamos cómo funcionan antes de empezar.",
+      porQue: "Tu diagnóstico quedó cerrado: ahora comienza la etapa Actuar.",
+      label: "Ver cómo se construyó mi plan",
+      ruta: "/plan-de-accion/entrada",
     });
   }
 
@@ -294,6 +319,36 @@ export function pendientesDelRecorrido(ctx: ContextoRecorrido): PasoSugerido[] {
       porQue: "Ya hay prioridades interpretadas, pero ninguna actividad en ejecución.",
       label: "Ver plan de acción",
       ruta: "/plan-de-accion",
+    });
+  }
+
+  // Macroentrega 5 · Cierre del Plan de Acción y entrada a la etapa Seguir.
+  const validadas = ctx.actividades.filter((a) => a.estado === "validado");
+  const todasValidadas = ctx.actividades.length > 0 && validadas.length === ctx.actividades.length;
+
+  if (todasValidadas && !hitos.cierrePlan) {
+    pasos.push({
+      tipo: "cerrar_plan",
+      etapa: "actuar",
+      titulo: "Tus actividades iniciales quedaron validadas",
+      descripcion:
+        "Revisa el resumen de lo ejecutado y descarga tu Plan de Acción antes de pasar al seguimiento.",
+      porQue: "Todas las actividades abiertas de tu plan alcanzaron el estado validado.",
+      label: "Ver cierre de mi Plan de Acción",
+      ruta: "/plan-de-accion/cierre",
+    });
+  }
+
+  if (validadas.length > 0 && hitos.cierrePlan && !hitos.entradaSeguir) {
+    pasos.push({
+      tipo: "iniciar_seguimiento",
+      etapa: "seguir",
+      titulo: "Crea tu Plan de Seguimiento",
+      descripcion:
+        "Comprobaremos en el día 30, 60 y 90 si lo ejecutado produjo el resultado esperado.",
+      porQue: "Ya hay actividades validadas: lo ejecutado debe medirse en el tiempo.",
+      label: "Crear Plan de Seguimiento",
+      ruta: "/seguimiento/entrada",
     });
   }
 

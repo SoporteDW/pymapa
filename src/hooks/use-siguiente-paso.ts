@@ -5,6 +5,7 @@ import { useEstadoDiagnostico } from "./use-estado-diagnostico";
 import { useSeguimiento } from "./use-seguimiento";
 import { useDelegacion } from "./use-delegacion";
 import { useApoyoHumano } from "./use-apoyo-humano";
+import { useHitosJourney } from "./use-hitos-journey";
 import {
   pendientesDelRecorrido,
   siguientePasoOrquestado,
@@ -21,6 +22,7 @@ export function useSiguientePaso() {
   const delegacion = useDelegacion();
   const apoyo = useApoyoHumano();
   const diagnostico = useEstadoDiagnostico();
+  const { hitos } = useHitosJourney();
 
   const contexto = useMemo(
     () => ({
@@ -32,6 +34,11 @@ export function useSiguientePaso() {
       seguimientos: seguimiento.seguimientos,
       delegaciones: delegacion.delegaciones,
       apoyos: apoyo.recomendaciones,
+      hitos: {
+        entradaActuar: hitos.entradaActuar,
+        cierrePlan: hitos.cierrePlan,
+        entradaSeguir: hitos.entradaSeguir,
+      },
     }),
     [
       sesion,
@@ -42,6 +49,9 @@ export function useSiguientePaso() {
       seguimiento.seguimientos,
       delegacion.delegaciones,
       apoyo.recomendaciones,
+      hitos.entradaActuar,
+      hitos.cierrePlan,
+      hitos.entradaSeguir,
     ]
   );
 
