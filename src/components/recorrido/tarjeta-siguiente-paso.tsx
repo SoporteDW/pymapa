@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { etapas } from "@/lib/recorrido";
+import { etapasJourney } from "@/lib/journey/etapas";
 import type { PasoSugerido } from "@/lib/siguiente-paso/orquestador";
 import { ArrowRight } from "lucide-react";
 
@@ -12,7 +12,7 @@ interface TarjetaSiguientePasoProps {
 }
 
 function nombreEtapa(etapaId: PasoSugerido["etapa"]): string {
-  const etapa = etapas.find((e) => e.id === etapaId);
+  const etapa = etapasJourney.find((e) => e.id === etapaId);
   return etapa ? `Etapa ${etapa.numero} · ${etapa.titulo}` : "Tu recorrido";
 }
 
