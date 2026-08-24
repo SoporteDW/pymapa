@@ -572,6 +572,6 @@ describe("Regresión del recorrido existente", () => {
     const validadas = sembrado.workspace.actividades.filter((a) => a.estado === "validado");
     const paso = siguientePasoOrquestado(contexto({ actividades: validadas }));
     expect(paso.tipo).toBe("cerrar_plan");
-    expect(paso.ruta).toBe("/dashboard");
+    expect(paso.ruta).toBe("/plan-de-accion/cierre");
   });
 });
