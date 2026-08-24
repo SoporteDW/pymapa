@@ -126,6 +126,7 @@ function DemostracionPage() {
     aplicarSembradoHero({
       empresaId: perfil.empresa.id,
       empresaNombre: perfil.empresa.nombre,
+      nivel: "seguimiento",
     });
     setHeroListo(true);
     toast.success(
@@ -137,6 +138,7 @@ function DemostracionPage() {
     const perfil = perfilPorId(HERO_PERFIL_ID);
     if (!perfil) return;
     reiniciarSembradoHero({
+      nivel: "seguimiento",
       empresaId: perfil.empresa.id,
       empresaNombre: perfil.empresa.nombre,
     });
