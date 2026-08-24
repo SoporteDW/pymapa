@@ -71,6 +71,7 @@ function DiagnosticoEntrada() {
   } = useDiagnostico();
   const { puedeAutocompletar, perfil: perfilDemo } = useModoDemo();
   const { journey } = useEstadoDiagnostico();
+  const cuestionario = useCuestionario();
   const [confirmando, setConfirmando] = useState(false);
 
   if (!isHydrated) {
