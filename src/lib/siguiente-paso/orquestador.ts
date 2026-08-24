@@ -171,20 +171,26 @@ export function pendientesDelRecorrido(ctx: ContextoRecorrido): PasoSugerido[] {
     perfilOk &&
     cuestionarioCompleto &&
     necesidadesPendientes.length === 0 &&
-    avance.total > 0 &&
     ctx.diagnosticoCerrado === false
   ) {
+    const huboProfundizacion = avance.total > 0;
     pasos.push({
       tipo: "cerrar_diagnostico",
       etapa: "diagnosticar",
-      titulo: "Ya tenemos la información necesaria para cerrar tu diagnóstico",
-      descripcion: "Resolviste todo lo que necesitábamos confirmar. Podemos emitir tu informe.",
-      porQue:
-        "El cuestionario está completo y todas las profundizaciones solicitadas quedaron resueltas.",
-      label: "Cerrar mi diagnóstico",
+      titulo: huboProfundizacion
+        ? "Profundización completada: podemos cerrar tu diagnóstico"
+        : "Ya tenemos la información necesaria para cerrar tu diagnóstico",
+      descripcion: huboProfundizacion
+        ? "Resolviste todo lo que necesitábamos confirmar. Podemos emitir tu informe."
+        : "Respondiste todo el cuestionario y no queda información pendiente por confirmar.",
+      porQue: huboProfundizacion
+        ? "El cuestionario está completo y todas las profundizaciones solicitadas quedaron resueltas."
+        : "El cuestionario está completo y no se detectó información pendiente por confirmar.",
+      label: huboProfundizacion ? "Procesar y cerrar mi diagnóstico" : "Cerrar mi diagnóstico",
       ruta: "/diagnostico/listo",
     });
   }
+
 
   const hitos = ctx.hitos ?? { entradaActuar: false, cierrePlan: false, entradaSeguir: false };
 
