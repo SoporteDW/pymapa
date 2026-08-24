@@ -129,6 +129,24 @@ export function estadoJourneyDiagnostico(entrada: EntradaEstadoJourney): EstadoJ
     };
   }
 
+  // La profundización existió y quedó íntegramente resuelta: el único paso que
+  // resta es procesar el cierre. Nunca se vuelve a ofrecer "profundizar".
+  if (profundizacion.total > 0) {
+    return {
+      estado: "profundizacion_completada",
+      etiqueta: "Profundización completada",
+      titulo: "Profundización completada",
+      descripcion:
+        profundizacion.total === 1
+          ? "Resolviste el aspecto que necesitábamos confirmar. Ya podemos procesar tu diagnóstico final."
+          : `Resolviste los ${profundizacion.total} aspectos que necesitábamos confirmar. Ya podemos procesar tu diagnóstico final.`,
+      cuestionario: { respondidas, total, porcentaje: porcentajeCuestionario, completo },
+      profundizacion,
+      siguiente: { label: "Procesar y cerrar mi diagnóstico", ruta: "/diagnostico/listo" },
+      porcentajeModulo: 95,
+    };
+  }
+
   return {
     estado: "listo_para_cerrar",
     etiqueta: "Preliminar · listo para cerrar",
@@ -141,3 +159,4 @@ export function estadoJourneyDiagnostico(entrada: EntradaEstadoJourney): EstadoJ
     porcentajeModulo: 95,
   };
 }
+
