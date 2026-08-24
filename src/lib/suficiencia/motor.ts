@@ -151,6 +151,9 @@ export function evaluarSuficiencia(entrada: EntradaSuficiencia): ResultadoSufici
   ): MecanismoResolucion | null => {
     if (esEvidencia && evidenciaResuelve(evidencias, referenciaId, dominioId)) return "evidencia";
     if (!esEvidencia && aclaracionResuelve(aclaraciones, referenciaId)) return "aclaracion";
+    // Una necesidad de evidencia también puede resolverse explicándola: la
+    // aclaración se registra contra el id de la necesidad, no del catálogo.
+    if (aclaracionResuelve(aclaraciones, reglaId)) return "aclaracion";
     if (delegaciones.some((d) => d.referenciaId === reglaId && d.resuelto)) return "delegacion";
     if (apoyos.some((a) => a.referenciaId === reglaId && a.resuelto)) return "apoyo";
     return null;
