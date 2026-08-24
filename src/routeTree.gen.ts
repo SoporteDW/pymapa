@@ -43,6 +43,7 @@ import { Route as RoadmapIndexRouteImport } from './routes/roadmap.index'
 import { Route as RoadmapAccionRouteImport } from './routes/roadmap.$accion'
 import { Route as SeguimientoIndexRouteImport } from './routes/seguimiento.index'
 import { Route as SeguimientoActividadRouteImport } from './routes/seguimiento.$actividad'
+import { Route as SeguimientoEntradaRouteImport } from './routes/seguimiento.entrada'
 import { Route as DashboardDimensionDimensionRouteImport } from './routes/dashboard.dimension.$dimension'
 import { Route as DiagnosticoEspecializadosIndexRouteImport } from './routes/diagnostico.especializados.index'
 import { Route as DiagnosticoEspecializadosEcommerceRouteImport } from './routes/diagnostico.especializados.ecommerce'
@@ -220,6 +221,11 @@ const SeguimientoActividadRoute = SeguimientoActividadRouteImport.update({
   path: '/$actividad',
   getParentRoute: () => SeguimientoRoute,
 } as any)
+const SeguimientoEntradaRoute = SeguimientoEntradaRouteImport.update({
+  id: '/entrada',
+  path: '/entrada',
+  getParentRoute: () => SeguimientoRoute,
+} as any)
 const DashboardDimensionDimensionRoute =
   DashboardDimensionDimensionRouteImport.update({
     id: '/dimension/$dimension',
@@ -279,6 +285,7 @@ export interface FileRoutesByFullPath {
   '/resultados/$dimension': typeof ResultadosDimensionRoute
   '/roadmap/$accion': typeof RoadmapAccionRoute
   '/seguimiento/$actividad': typeof SeguimientoActividadRoute
+  '/seguimiento/entrada': typeof SeguimientoEntradaRoute
   '/dashboard/': typeof DashboardIndexRoute
   '/diagnostico/': typeof DiagnosticoIndexRoute
   '/plan-de-accion/': typeof PlanDeAccionIndexRoute
@@ -313,6 +320,7 @@ export interface FileRoutesByTo {
   '/resultados/$dimension': typeof ResultadosDimensionRoute
   '/roadmap/$accion': typeof RoadmapAccionRoute
   '/seguimiento/$actividad': typeof SeguimientoActividadRoute
+  '/seguimiento/entrada': typeof SeguimientoEntradaRoute
   '/dashboard': typeof DashboardIndexRoute
   '/diagnostico': typeof DiagnosticoIndexRoute
   '/plan-de-accion': typeof PlanDeAccionIndexRoute
@@ -355,6 +363,7 @@ export interface FileRoutesById {
   '/resultados/$dimension': typeof ResultadosDimensionRoute
   '/roadmap/$accion': typeof RoadmapAccionRoute
   '/seguimiento/$actividad': typeof SeguimientoActividadRoute
+  '/seguimiento/entrada': typeof SeguimientoEntradaRoute
   '/dashboard/': typeof DashboardIndexRoute
   '/diagnostico/': typeof DiagnosticoIndexRoute
   '/plan-de-accion/': typeof PlanDeAccionIndexRoute
@@ -398,6 +407,7 @@ export interface FileRouteTypes {
     | '/resultados/$dimension'
     | '/roadmap/$accion'
     | '/seguimiento/$actividad'
+    | '/seguimiento/entrada'
     | '/dashboard/'
     | '/diagnostico/'
     | '/plan-de-accion/'
@@ -432,6 +442,7 @@ export interface FileRouteTypes {
     | '/resultados/$dimension'
     | '/roadmap/$accion'
     | '/seguimiento/$actividad'
+    | '/seguimiento/entrada'
     | '/dashboard'
     | '/diagnostico'
     | '/plan-de-accion'
@@ -473,6 +484,7 @@ export interface FileRouteTypes {
     | '/resultados/$dimension'
     | '/roadmap/$accion'
     | '/seguimiento/$actividad'
+    | '/seguimiento/entrada'
     | '/dashboard/'
     | '/diagnostico/'
     | '/plan-de-accion/'
@@ -743,6 +755,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SeguimientoActividadRouteImport
       parentRoute: typeof SeguimientoRoute
     }
+    '/seguimiento/entrada': {
+      id: '/seguimiento/entrada'
+      path: '/entrada'
+      fullPath: '/seguimiento/entrada'
+      preLoaderRoute: typeof SeguimientoEntradaRouteImport
+      parentRoute: typeof SeguimientoRoute
+    }
     '/dashboard/dimension/$dimension': {
       id: '/dashboard/dimension/$dimension'
       path: '/dimension/$dimension'
@@ -891,11 +910,13 @@ const RoadmapRouteWithChildren =
 
 interface SeguimientoRouteChildren {
   SeguimientoActividadRoute: typeof SeguimientoActividadRoute
+  SeguimientoEntradaRoute: typeof SeguimientoEntradaRoute
   SeguimientoIndexRoute: typeof SeguimientoIndexRoute
 }
 
 const SeguimientoRouteChildren: SeguimientoRouteChildren = {
   SeguimientoActividadRoute: SeguimientoActividadRoute,
+  SeguimientoEntradaRoute: SeguimientoEntradaRoute,
   SeguimientoIndexRoute: SeguimientoIndexRoute,
 }
 
