@@ -19,6 +19,11 @@ export interface EntradaRevision {
   archivos: ArchivoEvidencia[];
   /** Verificaciones activadas por profundización, si la actividad las tiene. */
   verificaciones?: VerificacionWorkspace[] | undefined;
+  /**
+   * P0.2 · true solo cuando el entregable exige expresamente un archivo.
+   * Si es false, la ausencia de adjunto NO puede bloquear la validación.
+   */
+  requiereArchivo?: boolean;
   numeroEntrega: number;
   revisadoEn?: string;
 }
@@ -38,8 +43,8 @@ export function revisarEntrega(entrada: EntradaRevision): RevisionEntrega {
     (criterio) => `Completar y documentar: ${criterio.replace(/\.$/, "")}.`
   );
 
-  if (entrada.archivos.length === 0) {
-    ajustes.push("Adjuntar el entregable o una evidencia que respalde el trabajo realizado.");
+  if (entrada.requiereArchivo === true && entrada.archivos.length === 0) {
+    ajustes.push("Adjuntar el documento requerido por este entregable.");
   }
   if (entrada.nota.trim().length < MINIMO_NOTA) {
     ajustes.push(

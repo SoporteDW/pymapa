@@ -19,7 +19,9 @@ import {
   ajustesSolicitados,
   asegurarActividad,
   cambiarEstado,
+  borradorDe,
   enlazarEvidenciasDeEntrega,
+  guardarBorrador,
   marcarPaso,
   marcarVerificacion,
   obtenerActividad,
@@ -32,6 +34,7 @@ import { plantillasEscenarioHero } from "@/lib/workspace/escenario-hero";
 import { registrarEvento } from "@/lib/analytics";
 import type {
   ActividadWorkspace,
+  BorradorEntrega,
   EstadoEjecucion,
   PlantillaActividad,
   RegistroWorkspaceEmpresa,
@@ -66,10 +69,18 @@ export function useWorkspace(actividadId?: string) {
     setHidratado(true);
   }, [sesionHidratada, empresaId, empresaNombre]);
 
-  const persistir = useCallback((siguiente: RegistroWorkspaceEmpresa) => {
-    setRegistro(guardarRegistro(siguiente));
-    return siguiente;
-  }, []);
+  /**
+   * P0.3 · Causa raíz de la pérdida de checks: cada callback escribía a partir
+   * del `registro` capturado en su clausura, de modo que dos interacciones
+   * seguidas (marcar un paso y luego tocar evidencias) descartaban la primera.
+   * Ahora toda escritura es una actualización funcional sobre el estado vigente.
+   */
+  const aplicar = useCallback(
+    (transformar: (actual: RegistroWorkspaceEmpresa) => RegistroWorkspaceEmpresa) => {
+      setRegistro((actual) => guardarRegistro(transformar(actual)));
+    },
+    []
+  );
 
   /** Plantillas disponibles: plan general + iniciativas del pack + escenario demo. */
   const plantillas = useMemo<PlantillaActividad[]>(() => {
@@ -92,7 +103,7 @@ export function useWorkspace(actividadId?: string) {
       if (existente) return existente;
       if (!plantilla) return null;
       const { registro: siguiente, actividad } = asegurarActividad(registro, plantilla);
-      persistir(siguiente);
+      aplicar(() => siguiente);
       registrarEvento("workspace_opened", {
         actividadId: actividad.id,
         instrumentoId: actividad.instrumentoId,
@@ -100,7 +111,7 @@ export function useWorkspace(actividadId?: string) {
       });
       return actividad;
     },
-    [plantillas, registro, persistir]
+    [plantillas, registro, aplicar]
   );
 
   useEffect(() => {
@@ -113,31 +124,31 @@ export function useWorkspace(actividadId?: string) {
 
   const iniciar = useCallback(
     (id: string) => {
-      persistir(cambiarEstado(registro, id, "en_ejecucion"));
+      aplicar((actual) => cambiarEstado(actual, id, "en_ejecucion"));
       registrarEvento("workspace_started", { actividadId: id });
     },
-    [registro, persistir]
+    [aplicar]
   );
 
   const alternarPaso = useCallback(
     (id: string, orden: number, hecho: boolean) => {
-      persistir(marcarPaso(registro, id, orden, hecho));
+      aplicar((actual) => marcarPaso(actual, id, orden, hecho));
     },
-    [registro, persistir]
+    [aplicar]
   );
 
   const revisarVerificacion = useCallback(
     (id: string, verificacionId: string, estado: VerificacionWorkspace["estado"]) => {
-      persistir(marcarVerificacion(registro, id, verificacionId, estado));
+      aplicar((actual) => marcarVerificacion(actual, id, verificacionId, estado));
     },
-    [registro, persistir]
+    [aplicar]
   );
 
   const entregar = useCallback(
     (id: string, entrada: EntradaEntrega) => {
       const { registro: siguiente, entrega } = registrarEntrega(registro, id, entrada);
       if (!entrega) {
-        persistir(siguiente);
+        aplicar(() => siguiente);
         return null;
       }
       const actividadEntregada = obtenerActividad(siguiente, id)!;
@@ -150,7 +161,7 @@ export function useWorkspace(actividadId?: string) {
       );
       if (evidenciaIds.length > 0) guardarEvidencias(evidencias);
 
-      persistir(enlazarEvidenciasDeEntrega(siguiente, id, entrega.id, evidenciaIds));
+      aplicar(() => enlazarEvidenciasDeEntrega(siguiente, id, entrega.id, evidenciaIds));
 
       registrarActividad(
         "sistema",
@@ -165,34 +176,42 @@ export function useWorkspace(actividadId?: string) {
       });
       return { ...entrega, evidenciaIds };
     },
-    [registro, persistir, registrarActividad, empresaId, empresaNombre]
+    [registro, aplicar, registrarActividad, empresaId, empresaNombre]
+  );
+
+  /** P0.3 · criterios declarados, nota y adjuntos persisten en la actividad. */
+  const actualizarBorrador = useCallback(
+    (id: string, cambios: Partial<BorradorEntrega>) => {
+      aplicar((actual) => guardarBorrador(actual, id, cambios));
+    },
+    [aplicar]
   );
 
   const retomar = useCallback(
     (id: string) => {
-      persistir(retomarEjecucion(registro, id));
+      aplicar((actual) => retomarEjecucion(actual, id));
     },
-    [registro, persistir]
+    [aplicar]
   );
 
   /** B7 · reapertura por resultado de seguimiento. */
   const reabrir = useCallback(
     (id: string, motivo: string, seguimientoId: string | null = null) => {
-      persistir(reabrirActividad(registro, id, motivo, seguimientoId));
+      aplicar((actual) => reabrirActividad(actual, id, motivo, seguimientoId));
       registrarEvento("workspace_activity_reopened", { actividadId: id });
     },
-    [registro, persistir]
+    [aplicar]
   );
 
   /** B7 · crea (idempotente) una actividad complementaria derivada. */
   const crearDerivada = useCallback(
     (plantilla: PlantillaActividad) => {
       const { registro: siguiente, actividad: creada } = asegurarActividad(registro, plantilla);
-      persistir(siguiente);
+      aplicar(() => siguiente);
       registrarEvento("workspace_followup_activity_created", { actividadId: creada.id });
       return creada;
     },
-    [registro, persistir]
+    [registro, aplicar]
   );
 
   /** Evidencias de la empresa producidas por la ejecución de esta actividad. */
@@ -233,6 +252,8 @@ export function useWorkspace(actividadId?: string) {
     alternarPaso,
     revisarVerificacion,
     entregar,
+    borrador: actividad ? borradorDe(actividad) : null,
+    actualizarBorrador,
     retomar,
     reabrir,
     crearDerivada,

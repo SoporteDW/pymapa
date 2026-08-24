@@ -58,8 +58,17 @@ export function TarjetaEntregable({ entregable, etiqueta }: Props) {
       </CardContent>
       <CardFooter className="flex flex-wrap items-center gap-2">
         {esReal ? (
+          /* P0.1 · descarga directa del activo estático: enlace nativo, sin
+             navegación por el router ni lógica simulada. El usuario permanece
+             en la pantalla actual. */
           <Button asChild>
-            <a href={entregable.archivo} download={entregable.nombreArchivo}>
+            <a
+              href={entregable.archivo}
+              download={entregable.nombreArchivo}
+              type="application/pdf"
+              rel="noopener"
+              target="_blank"
+            >
               <Download className="size-4" aria-hidden="true" />
               {etiqueta ?? `Descargar ${entregable.titulo}`}
             </a>
