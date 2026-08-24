@@ -7,6 +7,8 @@
  * la trazabilidad de origen del pack.
  */
 
+import { notificarCambioEstado } from "@/lib/estado/bus";
+
 import type { IniciativaKB, RegistroEmpresaKB, RespuestasKB } from "./tipos";
 
 export const CLAVE_KB = "pymapa:kb-ecommerce:v1";
@@ -81,7 +83,9 @@ export function guardarRegistro(registro: RegistroEmpresaKB): boolean {
     ...registro,
     actualizadoEn: new Date().toISOString(),
   };
-  return guardarAlmacen(almacen);
+  const ok = guardarAlmacen(almacen);
+  if (ok) notificarCambioEstado();
+  return ok;
 }
 
 export function guardarRespuestas(

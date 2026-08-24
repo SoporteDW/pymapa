@@ -319,3 +319,72 @@ export const etiquetaDecisionSeguimiento: Record<DecisionSeguimiento, string> = 
   solicitar_evidencia: "Solicitar nueva evidencia",
   apoyo_especializado: "Recomendar apoyo especializado",
 };
+
+/* ------------------------------------------------------------------------- */
+/* Macroentrega 5.2 · Habilitación secuencial 30 → 60 → 90                    */
+/* ------------------------------------------------------------------------- */
+
+const ORDEN_HITOS: HitoSeguimientoId[] = ["d30", "d60", "d90"];
+
+export interface HitoHabilitacion {
+  hito: HitoSeguimiento;
+  registrado: boolean;
+  habilitado: boolean;
+  /** Etiqueta del hito que falta cuando el checkpoint está bloqueado. */
+  bloqueadoPor: string | null;
+}
+
+/**
+ * Un checkpoint solo se abre cuando el anterior ya tiene medición registrada:
+ * el seguimiento es una secuencia temporal, no tres formularios simultáneos.
+ */
+export function estadoHitos(seguimiento: SeguimientoActividad): HitoHabilitacion[] {
+  const ordenados = [...seguimiento.hitos].sort(
+    (a, b) => ORDEN_HITOS.indexOf(a.id) - ORDEN_HITOS.indexOf(b.id)
+  );
+  let anteriorPendiente: HitoSeguimiento | null = null;
+  return ordenados.map((hito) => {
+    const registrado = hito.medicion !== null;
+    const habilitado = registrado || anteriorPendiente === null;
+    const estado: HitoHabilitacion = {
+      hito,
+      registrado,
+      habilitado,
+      bloqueadoPor: habilitado ? null : (anteriorPendiente?.etiqueta ?? null),
+    };
+    if (!registrado && anteriorPendiente === null) anteriorPendiente = hito;
+    return estado;
+  });
+}
+
+export function hitoHabilitado(
+  seguimiento: SeguimientoActividad,
+  hitoId: HitoSeguimientoId
+): boolean {
+  return estadoHitos(seguimiento).find((h) => h.hito.id === hitoId)?.habilitado ?? false;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Macroentrega 5.2 · Evolución del indicador (línea base → d30 → d60 → d90) */
+/* ------------------------------------------------------------------------- */
+
+export interface PuntoEvolucion {
+  etiqueta: string;
+  /** null cuando el checkpoint aún no fue medido o no aportó dato. */
+  valor: number | null;
+  pendiente: boolean;
+}
+
+export function evolucionIndicador(seguimiento: SeguimientoActividad): PuntoEvolucion[] {
+  const base: PuntoEvolucion = {
+    etiqueta: "Línea base",
+    valor: seguimiento.indicador.lineaBase,
+    pendiente: seguimiento.indicador.lineaBase === null,
+  };
+  const puntos = estadoHitos(seguimiento).map(({ hito, registrado }) => ({
+    etiqueta: hito.etiqueta,
+    valor: registrado ? (hito.medicion?.valor ?? null) : null,
+    pendiente: !registrado || hito.medicion?.valor === null,
+  }));
+  return [base, ...puntos];
+}

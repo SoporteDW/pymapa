@@ -8,7 +8,14 @@ import { PageHeader } from "@/components/layout/page-header";
 import { BadgeResultadoSeguimiento } from "@/components/seguimiento/badge-resultado";
 import { TarjetaHito } from "@/components/seguimiento/tarjeta-hito";
 import { useSeguimiento } from "@/hooks/use-seguimiento";
-import { etiquetaDecisionSeguimiento } from "@/lib/seguimiento/servicio";
+import {
+  estadoHitos,
+  etiquetaDecisionSeguimiento,
+  evolucionIndicador,
+} from "@/lib/seguimiento/servicio";
+import { EvolucionIndicador } from "@/components/seguimiento/evolucion-indicador";
+import { TarjetaEntregable } from "@/components/entregables/tarjeta-entregable";
+import { entregablePorId } from "@/lib/entregables/catalogo";
 import { toast } from "sonner";
 import { LineChart, Sparkles } from "lucide-react";
 
@@ -70,6 +77,7 @@ function SeguimientoActividadPage() {
   }
 
   const evaluacion = seguimiento.evaluacion;
+  const informeAvance = entregablePorId("informe-avance");
 
   return (
     <div className="space-y-6">
@@ -135,12 +143,19 @@ function SeguimientoActividadPage() {
         </CardContent>
       </Card>
 
+      <EvolucionIndicador
+        puntos={evolucionIndicador(seguimiento)}
+        indicador={seguimiento.indicador}
+      />
+
       <div className="grid gap-4 md:grid-cols-2">
-        {seguimiento.hitos.map((hito) => (
+        {estadoHitos(seguimiento).map(({ hito, habilitado, bloqueadoPor }) => (
           <TarjetaHito
             key={hito.id}
             hito={hito}
             indicador={seguimiento.indicador}
+            habilitado={habilitado}
+            bloqueadoPor={bloqueadoPor}
             onRegistrar={(entrada) => {
               medir(seguimiento.id, hito.id, entrada);
               toast.success("Medición registrada", { description: hito.etiqueta });
@@ -204,6 +219,8 @@ function SeguimientoActividadPage() {
           )}
         </CardContent>
       </Card>
+
+      {informeAvance && <TarjetaEntregable entregable={informeAvance} />}
     </div>
   );
 }

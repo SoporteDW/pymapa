@@ -9,7 +9,7 @@
 export type ModoDescarga = "real" | "simulada";
 
 export interface Entregable {
-  id: "diagnostico" | "plan-de-accion" | "plan-de-seguimiento";
+  id: "diagnostico" | "plan-de-accion" | "plan-de-seguimiento" | "informe-avance";
   titulo: string;
   proposito: string;
   contenido: string[];
@@ -69,6 +69,21 @@ export const entregables: Entregable[] = [
     modo: "simulada",
     aviso:
       "En la versión completa podrás descargar e imprimir tu Plan de Seguimiento con indicadores, responsables, evidencias y fechas de revisión.",
+  },
+  {
+    id: "informe-avance",
+    titulo: "Informe de Avance",
+    proposito:
+      "Cómo evolucionaron tus indicadores desde la línea base: qué mejoró, qué sigue igual y qué decisión corresponde en el próximo ciclo.",
+    contenido: [
+      "Evolución del indicador: línea base, 30, 60 y 90 días",
+      "Conclusión cualitativa de cada seguimiento y su explicación",
+      "Decisiones tomadas: validar, reabrir, complementar o pedir apoyo",
+      "Checkpoints pendientes y próxima fecha de revisión",
+    ],
+    modo: "simulada",
+    aviso:
+      "En la versión completa, Pymapa emite un Informe de Avance con la evolución de cada indicador, las conclusiones y las decisiones del ciclo.",
   },
 ];
 

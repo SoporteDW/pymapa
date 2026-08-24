@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { mismoRegistro, useVersionEstado } from "@/lib/estado/bus";
 import { useSesion } from "./use-sesion";
 import { useWorkspace } from "./use-workspace";
 import { useApoyoHumano } from "./use-apoyo-humano";
@@ -46,11 +47,14 @@ export function useSeguimiento(actividadId?: string) {
   );
   const [hidratado, setHidratado] = useState(false);
 
+  const version = useVersionEstado();
+
   useEffect(() => {
     if (!isHydrated) return;
-    setRegistro(leerRegistro(empresaId, empresaNombre));
+    const leido = leerRegistro(empresaId, empresaNombre);
+    setRegistro((previo) => (mismoRegistro(previo, leido) ? previo : leido));
     setHidratado(true);
-  }, [isHydrated, empresaId, empresaNombre]);
+  }, [isHydrated, empresaId, empresaNombre, version]);
 
   const persistir = useCallback((siguiente: RegistroSeguimientoEmpresa) => {
     setRegistro(guardarRegistro(siguiente));

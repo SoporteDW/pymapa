@@ -1,5 +1,7 @@
 /** B8 · Persistencia de delegaciones por empresa (mismo criterio que evidencias). */
 
+import { notificarCambioEstado } from "@/lib/estado/bus";
+
 import type { Delegacion, RegistroDelegacionEmpresa } from "./tipos";
 
 export const CLAVE_DELEGACION = "pymapa:delegacion:v1";
@@ -76,6 +78,7 @@ export function guardarRegistro(
   } catch (error) {
     console.warn("No se pudieron guardar las delegaciones:", error);
   }
+  notificarCambioEstado();
   return actualizado;
 }
 

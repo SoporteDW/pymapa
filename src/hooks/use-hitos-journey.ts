@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { mismoRegistro, useVersionEstado } from "@/lib/estado/bus";
 
 import {
   guardarHitos,
@@ -14,10 +15,13 @@ export function useHitosJourney() {
   const [hitos, setHitos] = useState<HitosJourney>(hitosVacios);
   const [hidratado, setHidratado] = useState(false);
 
+  const version = useVersionEstado();
+
   useEffect(() => {
-    setHitos(leerHitos());
+    const leidos = leerHitos();
+    setHitos((previos) => (mismoRegistro(previos, leidos) ? previos : leidos));
     setHidratado(true);
-  }, []);
+  }, [version]);
 
   const marcar = useCallback((clave: ClaveHito) => {
     setHitos((previos) => {

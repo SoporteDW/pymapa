@@ -5,6 +5,8 @@
  * pregunta aplazada NO es una respuesta y no altera el cálculo del diagnóstico.
  */
 
+import { notificarCambioEstado } from "@/lib/estado/bus";
+
 export const CLAVE_MARCAS_DIAGNOSTICO = "pyme-digital:diagnostico:marcas:v1";
 
 export interface MarcasCuestionario {
@@ -40,6 +42,7 @@ export function guardarMarcas(marcas: MarcasCuestionario): MarcasCuestionario {
   } catch (error) {
     console.warn("No se pudieron guardar las marcas del cuestionario:", error);
   }
+  notificarCambioEstado();
   return siguiente;
 }
 

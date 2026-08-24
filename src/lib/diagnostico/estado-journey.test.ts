@@ -36,15 +36,23 @@ describe("Macroentrega 4.1 · máquina de estados del diagnóstico", () => {
     expect(e.porcentajeModulo).toBeLessThan(100);
   });
 
-  it("al resolver todas las necesidades propone cerrar el diagnóstico", () => {
+  it("al resolver todas las necesidades marca la profundización completada", () => {
     const e = estadoJourneyDiagnostico({
       ...base,
       necesidadesTotales: 3,
       necesidadesResueltas: 3,
     });
+    expect(e.estado).toBe("profundizacion_completada");
+    expect(e.siguiente.label).toBe("Procesar y cerrar mi diagnóstico");
+    expect(e.siguiente.ruta).toBe("/diagnostico/listo");
+  });
+
+  it("sin necesidades detectadas queda listo para cerrar", () => {
+    const e = estadoJourneyDiagnostico({ ...base, necesidadesTotales: 0, necesidadesResueltas: 0 });
     expect(e.estado).toBe("listo_para_cerrar");
     expect(e.siguiente.label).toBe("Cerrar mi diagnóstico");
   });
+
 
   it("cerrado apunta al plan de acción y solo entonces marca 100%", () => {
     const e = estadoJourneyDiagnostico({ ...base, cerrado: true });

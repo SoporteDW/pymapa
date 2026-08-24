@@ -9,30 +9,46 @@ import type { EntradaMedicion } from "@/lib/seguimiento/servicio";
 import type { HitoSeguimiento, IndicadorSeguimiento } from "@/lib/seguimiento/tipos";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
-import { CalendarClock, CheckCircle2 } from "lucide-react";
+import { CalendarClock, CheckCircle2, Lock } from "lucide-react";
 
 interface TarjetaHitoProps {
   hito: HitoSeguimiento;
   indicador: IndicadorSeguimiento;
   onRegistrar: (entrada: EntradaMedicion) => void;
+  /** Macroentrega 5.2 · el checkpoint solo se abre tras medir el anterior. */
+  habilitado?: boolean;
+  bloqueadoPor?: string | null;
 }
 
 /** B7 · Un hito de seguimiento parametrizable (dato, indicador, respuesta, documento). */
-export function TarjetaHito({ hito, indicador, onRegistrar }: TarjetaHitoProps) {
+export function TarjetaHito({
+  hito,
+  indicador,
+  onRegistrar,
+  habilitado = true,
+  bloqueadoPor = null,
+}: TarjetaHitoProps) {
   const [valor, setValor] = useState("");
   const [respuesta, setRespuesta] = useState("");
   const [observacion, setObservacion] = useState("");
 
   const registrada = hito.medicion !== null;
+  const bloqueado = !registrada && !habilitado;
 
   return (
-    <Card>
+    <Card className={bloqueado ? "opacity-70" : undefined}>
       <CardHeader className="space-y-1.5">
         <div className="flex flex-wrap items-center gap-2">
           <Badge variant="outline" className="gap-1.5">
             <CalendarClock className="h-3.5 w-3.5" aria-hidden="true" />
             {hito.etiqueta}
           </Badge>
+          {bloqueado && (
+            <Badge variant="outline" className="gap-1.5 text-muted-foreground">
+              <Lock className="h-3.5 w-3.5" aria-hidden="true" />
+              Aún no corresponde
+            </Badge>
+          )}
           {registrada && (
             <Badge variant="outline" className="gap-1.5 border-success/40 text-success">
               <CheckCircle2 className="h-3.5 w-3.5" aria-hidden="true" />
@@ -63,7 +79,13 @@ export function TarjetaHito({ hito, indicador, onRegistrar }: TarjetaHitoProps) 
           ))}
         </ul>
 
-        {registrada ? (
+        {bloqueado ? (
+          <p className="rounded-xl border border-dashed border-border bg-muted/30 p-4 text-sm text-muted-foreground">
+            Este checkpoint se habilita cuando registres la medición de{" "}
+            <span className="font-medium text-foreground">{bloqueadoPor ?? "el hito anterior"}</span>
+            . El seguimiento avanza en orden: 30, luego 60 y luego 90 días.
+          </p>
+        ) : registrada ? (
           <div className="space-y-1 rounded-xl border border-border bg-muted/40 p-4 text-sm">
             <p className="font-semibold text-foreground">
               Valor informado:{" "}

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { mismoRegistro, useVersionEstado } from "@/lib/estado/bus";
 import { useSesion } from "./use-sesion";
 import { leerEstado } from "@/lib/diagnostico/repositorio";
 import { catalogoSuficiencia } from "@/lib/suficiencia/catalogo";
@@ -39,9 +40,12 @@ export function useEvidencias() {
   const [diagnosticoId, setDiagnosticoId] = useState<string | null>(null);
   const [hidratado, setHidratado] = useState(false);
 
+  const version = useVersionEstado();
+
   useEffect(() => {
     if (!sesionHidratada) return;
-    setRegistro(leerRegistro(empresaId, empresaNombre));
+    const leido = leerRegistro(empresaId, empresaNombre);
+    setRegistro((previo) => (mismoRegistro(previo, leido) ? previo : leido));
     try {
       const estado = leerEstado();
       setRespuestas(estado.respuestas);
@@ -50,7 +54,7 @@ export function useEvidencias() {
       console.warn("No se pudo leer el diagnóstico para evaluar suficiencia:", error);
     }
     setHidratado(true);
-  }, [sesionHidratada, empresaId, empresaNombre]);
+  }, [sesionHidratada, empresaId, empresaNombre, version]);
 
   const persistir = useCallback((siguiente: RegistroEvidenciasEmpresa) => {
     setRegistro(guardarRegistro(siguiente));

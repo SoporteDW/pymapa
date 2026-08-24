@@ -1,5 +1,7 @@
 /** B9 · Persistencia de recomendaciones de apoyo por empresa. */
 
+import { notificarCambioEstado } from "@/lib/estado/bus";
+
 import type { RecomendacionApoyo, RegistroApoyoEmpresa } from "./tipos";
 
 export const CLAVE_APOYO = "pymapa:apoyo-humano:v1";
@@ -68,6 +70,7 @@ export function guardarRegistro(registro: RegistroApoyoEmpresa): RegistroApoyoEm
   } catch (error) {
     console.warn("No se pudieron guardar las solicitudes de apoyo:", error);
   }
+  notificarCambioEstado();
   return actualizado;
 }
 

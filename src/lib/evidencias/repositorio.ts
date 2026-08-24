@@ -6,6 +6,8 @@
  * No se almacena el contenido del archivo, solo sus metadatos y su análisis.
  */
 
+import { notificarCambioEstado } from "@/lib/estado/bus";
+
 import type { RegistroEvidenciasEmpresa } from "./tipos";
 
 export const CLAVE_EVIDENCIAS = "pymapa:evidencias:v1";
@@ -77,6 +79,7 @@ export function guardarRegistro(registro: RegistroEvidenciasEmpresa): RegistroEv
   } catch (error) {
     console.warn("No se pudieron guardar las evidencias:", error);
   }
+  notificarCambioEstado();
   return actualizado;
 }
 
