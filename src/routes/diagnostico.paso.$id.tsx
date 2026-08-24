@@ -220,7 +220,14 @@ function PreguntaDiagnosticoPage() {
               No lo sé ahora
             </Button>
             <PedirAMiEmpresa
-              origen={{ tipo: "pregunta", referenciaId: pregunta.id, titulo: pregunta.texto }}
+              origen={{
+                tipo: "pregunta",
+                referenciaId: pregunta.id,
+                referenciaTitulo: pregunta.texto,
+                dominioId: pregunta.dimensionId ?? "contexto",
+                dominioNombre: seccion,
+                rutaRetorno: `/diagnostico/paso/${pregunta.id}`,
+              }}
               tareaSugerida={`Necesitamos este dato: ${pregunta.texto}`}
               label="Pedir este dato a mi equipo"
             />
