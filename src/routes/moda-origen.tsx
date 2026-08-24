@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowRight, CheckCircle2, ClipboardList, LineChart, Users } from "lucide-react";
+import { ArrowRight, ClipboardList, FileSearch, Route as RouteIcon, Target } from "lucide-react";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
@@ -21,13 +21,13 @@ export const Route = createFileRoute("/moda-origen")({
       {
         name: "description",
         content:
-          "Contexto del caso demostrativo: la tienda Moda Origen ya diagnosticó, entregó evidencias, ejecutó una acción validada y está midiendo resultados a 30 días.",
+          "Contexto del caso demostrativo: la tienda Moda Origen ya respondió su cuestionario completo y ahora debe profundizar y cerrar su diagnóstico.",
       },
       { property: "og:title", content: "Moda Origen: qué ya pasó en su recorrido — pymapa" },
       {
         property: "og:description",
         content:
-          "Retoma el recorrido de una pyme que ya tiene diagnóstico, plan, una acción validada y seguimiento en curso.",
+          "Retoma el recorrido de una pyme que ya respondió su diagnóstico y está a un paso de cerrarlo.",
       },
     ],
   }),
@@ -37,27 +37,27 @@ export const Route = createFileRoute("/moda-origen")({
 const antecedentes = [
   {
     icono: ClipboardList,
-    titulo: "Ya hizo su diagnóstico",
+    titulo: "Respondió todo el cuestionario",
     descripcion:
-      "Respondió el cuestionario guiado y aportó evidencias de su tienda en línea. El resultado señaló la experiencia de compra como su brecha más costosa.",
+      "Completó las 28 preguntas del diagnóstico guiado sobre los seis dominios del modelo. No tendrás que volver a responderlas.",
   },
   {
-    icono: CheckCircle2,
-    titulo: "Ejecutó y validamos una acción",
+    icono: FileSearch,
+    titulo: "Le faltan aspectos por precisar",
     descripcion:
-      "Auditó la compra completa desde el celular, documentó los puntos de fricción del pago y entregó el informe. La revisión confirmó que cumplía los criterios.",
+      "Al revisar sus respuestas quedaron aspectos que no se pueden interpretar todavía: ahí decides cómo resolverlos (aclarar, adjuntar, delegar o pedir apoyo).",
   },
   {
-    icono: LineChart,
-    titulo: "Está midiendo resultados",
+    icono: Target,
+    titulo: "Su hipótesis a comprobar",
     descripcion:
-      "En el hito de 30 días el abandono en el pago bajó de 72 % a 64 %, todavía por encima de la meta de 55 %. Hay una decisión pendiente sobre cómo continuar.",
+      "Su preocupación declarada es que muchas personas abandonan la compra justo al pagar. El diagnóstico debe confirmarlo antes de proponer acciones.",
   },
   {
-    icono: Users,
-    titulo: "Tiene trabajo compartido",
+    icono: RouteIcon,
+    titulo: "Todavía no tiene plan ni seguimiento",
     descripcion:
-      "Pidió a una persona del equipo confirmar las tarifas de envío y, tras dos revisiones con ajustes en el carrito, Pymapa sugirió apoyo de un especialista.",
+      "El plan de acción, la ejecución y la medición aparecerán cuando cierre formalmente su diagnóstico. Nada de eso viene precargado.",
   },
 ];
 
@@ -77,7 +77,13 @@ function ModaOrigenPage() {
     }
     // El caso Hero entra con el cuestionario completo (28 de 28).
     cargarPerfil(perfil.id, { respuestas: RESPUESTAS_HERO_MODA_ORIGEN });
-    aplicarSembradoHero({ empresaId: perfil.empresa.id, empresaNombre: perfil.nombre });
+    // Progresivo: solo la etapa de diagnóstico. Las etapas siguientes se
+    // construyen con el propio recorrido.
+    aplicarSembradoHero({
+      empresaId: perfil.empresa.id,
+      empresaNombre: perfil.nombre,
+      nivel: "diagnostico",
+    });
     toast.success(
       "Retomamos el recorrido de Moda Origen. Te mostramos dónde está y qué sigue ahora."
     );
@@ -99,7 +105,7 @@ function ModaOrigenPage() {
           </CardTitle>
           <CardDescription>
             Moda Origen diseña y vende prendas de producción local. Su objetivo declarado es vender
-            más por el canal digital, y su principal problema era que muchas personas abandonaban la
+            más por el canal digital, y su principal sospecha es que muchas personas abandonan la
             compra justo al pagar.
           </CardDescription>
         </CardHeader>
@@ -127,8 +133,8 @@ function ModaOrigenPage() {
           <CardTitle className="text-base">Qué harás a continuación</CardTitle>
           <CardDescription>
             Al continuar, Pymapa carga este contexto y te ubica en el punto exacto del recorrido:
-            revisar el resultado del seguimiento, resolver los ajustes del carrito y decidir el
-            siguiente movimiento.
+            resolver los aspectos que faltan y cerrar el diagnóstico para habilitar el plan de
+            acción.
           </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-wrap items-center gap-2">
