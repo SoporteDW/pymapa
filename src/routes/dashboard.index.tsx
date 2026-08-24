@@ -6,7 +6,7 @@ import { LoadingState } from "@/components/ui/loading-state";
 import { DemoNote } from "@/components/ui/demo-note";
 import { PageHeader } from "@/components/layout/page-header";
 import { EtapaFooter, EtapaProgreso } from "@/components/recorrido/etapa-nav";
-import { JourneyMap } from "@/components/recorrido/journey-map";
+import { EtapasJourney } from "@/components/journey/etapas-journey";
 import { KpiCard } from "@/components/dashboard/kpi-card";
 import { DashboardFiltersBar } from "@/components/dashboard/dashboard-filters";
 import { DimensionProgressList } from "@/components/dashboard/dimension-progress-list";
@@ -26,7 +26,6 @@ import {
 import { StateBadge } from "@/components/roadmap/state-badge";
 import { useDashboard } from "@/hooks/use-dashboard";
 import { useSesion } from "@/hooks/use-sesion";
-import { estadoEtapas } from "@/lib/recorrido";
 import { formatearFechaHora } from "@/lib/roadmap/fechas";
 import { registrarEvento } from "@/lib/analytics";
 import { useEffect } from "react";
@@ -111,7 +110,7 @@ function DashboardPage() {
     return (
       <div className="space-y-6">
         {cabecera}
-        <JourneyMap estados={estadoEtapas(sesion)} />
+        <EtapasJourney />
         <DashboardEmptyState
           variante={estado}
           {...(estado === "sin_diagnostico" ? { onCargarDemo: cargarDemo } : {})}
