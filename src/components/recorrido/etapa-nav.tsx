@@ -13,7 +13,7 @@ import {
   secuenciaRecorrido,
   type ModuloId,
 } from "@/lib/recorrido-modulos";
-import { etapas } from "@/lib/recorrido";
+import { etapasJourney } from "@/lib/journey/etapas";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import { ArrowLeft, ArrowRight, CheckCircle2, Save } from "lucide-react";
@@ -30,7 +30,7 @@ export function EtapaProgreso({ modulo, className }: { modulo: ModuloId; classNa
   const info = moduloPorId(modulo);
   const { journey } = useEstadoDiagnostico();
   const avance = avanceModulos(sesion, journey)[modulo];
-  const etapa = etapas.find((e) => e.id === info.etapa);
+  const etapa = etapasJourney.find((e) => e.id === info.etapa);
 
   if (!isHydrated) return null;
 
