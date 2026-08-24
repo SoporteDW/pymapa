@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/accordion";
 import { DemoNote } from "@/components/ui/demo-note";
 import { PageHeader } from "@/components/layout/page-header";
-import { etapas } from "@/lib/recorrido";
+import { etapasJourney } from "@/lib/journey/etapas";
 
 export const Route = createFileRoute("/ayuda")({
   head: () => ({
@@ -17,12 +17,12 @@ export const Route = createFileRoute("/ayuda")({
       { title: "Ayuda y guía del recorrido — pymapa" },
       {
         name: "description",
-        content: "Entiende las cinco etapas del recorrido y qué esperar del MVP Alfa.",
+        content: "Entiende las cuatro etapas del recorrido y qué esperar del MVP Alfa.",
       },
       { property: "og:title", content: "Ayuda y guía del recorrido — pymapa" },
       {
         property: "og:description",
-        content: "Entiende las cinco etapas del recorrido y qué esperar del MVP Alfa.",
+        content: "Entiende las cuatro etapas del recorrido y qué esperar del MVP Alfa.",
       },
     ],
   }),
@@ -67,14 +67,14 @@ function AyudaPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle className="text-base">Las cinco etapas del recorrido</CardTitle>
+          <CardTitle className="text-base">Las cuatro etapas del recorrido</CardTitle>
           <CardDescription>
             El modelo avanza de forma ordenada: cada etapa habilita la siguiente.
           </CardDescription>
         </CardHeader>
         <CardContent>
           <ol className="space-y-4">
-            {etapas.map((etapa, index) => (
+            {etapasJourney.map((etapa, index) => (
               <li key={etapa.id} className="flex gap-3">
                 <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
                   {index + 1}
