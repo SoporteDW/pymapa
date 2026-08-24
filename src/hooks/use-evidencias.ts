@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { mismoRegistro, useVersionEstado } from "@/lib/estado/bus";
 import { useSesion } from "./use-sesion";
+import { useDelegacion } from "./use-delegacion";
+import { useApoyoHumano } from "./use-apoyo-humano";
 import { leerEstado } from "@/lib/diagnostico/repositorio";
 import { catalogoSuficiencia } from "@/lib/suficiencia/catalogo";
 import { evaluarSuficiencia } from "@/lib/suficiencia/motor";
@@ -29,6 +31,10 @@ import type { NecesidadInformacion } from "@/lib/suficiencia/tipos";
  */
 export function useEvidencias() {
   const { sesion, isHydrated: sesionHidratada, registrarActividad } = useSesion();
+  // Profundización modular: delegar o pedir apoyo también resuelve una
+  // necesidad. El motor recibe los mecanismos, no los descubre por su cuenta.
+  const { delegaciones } = useDelegacion();
+  const { recomendaciones } = useApoyoHumano();
 
   const empresaId = sesion.empresa.id || "empresa-local";
   const empresaNombre = sesion.empresa.nombre.trim() || "Tu empresa";
@@ -66,8 +72,16 @@ export function useEvidencias() {
         respuestas,
         evidencias: registro.evidencias,
         aclaraciones: registro.aclaraciones,
+        delegaciones: delegaciones.map((d) => ({
+          referenciaId: d.origen.referenciaId,
+          resuelto: d.estado === "incorporado",
+        })),
+        apoyos: recomendaciones.map((r) => ({
+          referenciaId: r.origen.referenciaId,
+          resuelto: r.estado === "realizada",
+        })),
       }),
-    [respuestas, registro.evidencias, registro.aclaraciones]
+    [respuestas, registro.evidencias, registro.aclaraciones, delegaciones, recomendaciones]
   );
 
   /** Abre formalmente la solicitud del documento asociado a una necesidad. */
@@ -120,10 +134,16 @@ export function useEvidencias() {
   /** Guarda la respuesta a una pregunta de aclaración de Pymapa. */
   const responderAclaracion = useCallback(
     (necesidad: NecesidadInformacion, respuesta: string) => {
-      const definicion = catalogoSuficiencia.aclaraciones.find(
-        (a) => a.id === necesidad.referenciaId
-      );
-      if (!definicion) return;
+      // Profundización modular: cualquier necesidad puede resolverse con una
+      // explicación. Si el catálogo no define la pregunta (por ejemplo cuando
+      // sugería un documento), se registra contra el id de la necesidad.
+      const definicion =
+        catalogoSuficiencia.aclaraciones.find((a) => a.id === necesidad.referenciaId) ?? {
+          id: necesidad.reglaId,
+          dominioId: necesidad.dominioId,
+          pregunta: necesidad.titulo,
+          motivo: necesidad.porQue,
+        };
       persistir(
         registrarAclaracion(registro, definicion, respuesta, necesidad.preguntaIds)
       );

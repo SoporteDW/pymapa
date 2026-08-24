@@ -92,13 +92,29 @@ export const HERO_TERCERO = {
     "Confirmar las tarifas de envío vigentes por ciudad y el umbral de envío gratis, para poder mostrarlas en el carrito antes del pago.",
 } as const;
 
+/**
+ * Nivel de avance del escenario Hero.
+ *
+ * Regla del Journey: Moda Origen es progresiva. No se siembran artefactos de
+ * etapas futuras hasta que la empresa llega a ellas.
+ * - `diagnostico`: solo el cuestionario y sus necesidades de información. Sin
+ *   cierre, sin actividades, sin seguimiento.
+ * - `plan`: diagnóstico cerrado + actividades en ejecución/validadas, con la
+ *   delegación y el apoyo que se derivan de ellas. Sin seguimiento.
+ * - `seguimiento`: además, el ciclo de medición a 30 días.
+ */
+export type NivelSembradoHero = "diagnostico" | "plan" | "seguimiento";
+
 export interface EntradaSembradoHero {
   empresaId: string;
   empresaNombre: string;
+  /** Por omisión se siembra solo la etapa de diagnóstico. */
+  nivel?: NivelSembradoHero;
 }
 
 export interface SembradoHero {
   version: string;
+  nivel: NivelSembradoHero;
   workspace: RegistroWorkspaceEmpresa;
   evidencias: RegistroEvidenciasEmpresa;
   seguimiento: RegistroSeguimientoEmpresa;
@@ -111,7 +127,21 @@ export interface SembradoHero {
  * almacenamiento, de modo que puede probarse y reutilizarse.
  */
 export function construirSembradoHero(entrada: EntradaSembradoHero): SembradoHero {
-  const { empresaId, empresaNombre } = entrada;
+  const { empresaId, empresaNombre, nivel = "diagnostico" } = entrada;
+
+  // Etapa 2 · Diagnosticar: el recorrido todavía no produjo actividades ni
+  // mediciones, así que ninguna capa posterior queda sembrada.
+  if (nivel === "diagnostico") {
+    return {
+      version: SEMBRADO_HERO_VERSION,
+      nivel,
+      workspace: workspaceVacio(empresaId, empresaNombre),
+      evidencias: evidenciasVacio(empresaId, empresaNombre),
+      seguimiento: seguimientoVacio(empresaId, empresaNombre),
+      delegacion: delegacionVacio(empresaId, empresaNombre),
+      apoyo: apoyoVacio(empresaId, empresaNombre),
+    };
+  }
 
   // ── Actividad 1 · checkout: ejecutada, entregada y VALIDADA ──────────────
   let workspace = workspaceVacio(empresaId, empresaNombre);
@@ -179,6 +209,7 @@ export function construirSembradoHero(entrada: EntradaSembradoHero): SembradoHer
 
   // ── Seguimiento de la actividad validada ────────────────────────────────
   let seguimiento = seguimientoVacio(empresaId, empresaNombre);
+  if (nivel === "seguimiento") {
   const abierto = asegurarSeguimiento(seguimiento, {
     actividad: obtenerActividad(workspace, HERO_ACTIVIDAD_VALIDADA)!,
     empresaId,
@@ -195,6 +226,7 @@ export function construirSembradoHero(entrada: EntradaSembradoHero): SembradoHer
         "Se corrigieron los campos obligatorios del checkout y se habilitó el pago como invitado (DEMO).",
     }).registro;
     seguimiento = registrarEvaluacion(seguimiento, abierto.seguimiento.id).registro;
+  }
   }
 
   // ── Delegación: la información de envíos la tiene otra persona ───────────
@@ -251,6 +283,7 @@ export function construirSembradoHero(entrada: EntradaSembradoHero): SembradoHer
 
   return {
     version: SEMBRADO_HERO_VERSION,
+    nivel,
     workspace,
     evidencias,
     seguimiento,
@@ -271,9 +304,13 @@ export function aplicarSembradoHero(entrada: EntradaSembradoHero): SembradoHero 
   guardarSeguimiento(sembrado.seguimiento);
   guardarDelegacion(sembrado.delegacion);
   guardarApoyo(sembrado.apoyo);
-  // El escenario Hero parte de un diagnóstico ya cerrado: sin este cierre la
-  // Etapa 3 (Plan de Acción) quedaría bloqueada dentro del demo.
-  registrarCierre(null);
+  // El cierre formal del diagnóstico solo se siembra cuando el escenario ya
+  // pasó a Actuar; en el nivel de diagnóstico lo debe hacer la propia empresa.
+  if (sembrado.nivel === "diagnostico") {
+    limpiarCierre();
+  } else {
+    registrarCierre(null);
+  }
   return sembrado;
 }
 

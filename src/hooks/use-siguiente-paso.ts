@@ -6,6 +6,7 @@ import { useSeguimiento } from "./use-seguimiento";
 import { useDelegacion } from "./use-delegacion";
 import { useApoyoHumano } from "./use-apoyo-humano";
 import { useHitosJourney } from "./use-hitos-journey";
+import { useJourney } from "./use-journey";
 import {
   pendientesDelRecorrido,
   siguientePasoOrquestado,
@@ -23,6 +24,8 @@ export function useSiguientePaso() {
   const apoyo = useApoyoHumano();
   const diagnostico = useEstadoDiagnostico();
   const { hitos } = useHitosJourney();
+  // Etapa activa: fuente única del Journey. El Home solo ofrece trabajo de ella.
+  const { activa } = useJourney();
 
   const contexto = useMemo(
     () => ({
@@ -55,8 +58,14 @@ export function useSiguientePaso() {
     ]
   );
 
-  const pendientes = useMemo(() => pendientesDelRecorrido(contexto), [contexto]);
-  const paso = useMemo(() => siguientePasoOrquestado(contexto), [contexto]);
+  const pendientes = useMemo(
+    () => pendientesDelRecorrido(contexto, { etapaActiva: activa }),
+    [contexto, activa]
+  );
+  const paso = useMemo(
+    () => siguientePasoOrquestado(contexto, { etapaActiva: activa }),
+    [contexto, activa]
+  );
 
   return {
     hidratado: isHydrated && workspace.hidratado && diagnostico.hidratado,

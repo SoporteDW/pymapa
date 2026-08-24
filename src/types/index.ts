@@ -16,7 +16,6 @@ export type Esfuerzo = "alto" | "medio" | "bajo";
 export type EstadoAccion = "pendiente" | "en_progreso" | "completada" | "pausada";
 export type TipoActividad = "diagnostico" | "accion" | "perfil" | "sistema";
 export type Horizonte = "ahora" | "despues" | "mas_adelante";
-export type EtapaId = "preparar" | "diagnosticar" | "interpretar" | "actuar" | "seguir";
 
 export interface Empresa {
   id: string;

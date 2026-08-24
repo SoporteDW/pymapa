@@ -13,6 +13,7 @@ import type { AclaracionRegistrada, EvidenciaEmpresa } from "@/lib/evidencias/ti
 import { catalogoSuficiencia } from "./catalogo";
 import type {
   CatalogoSuficiencia,
+  MecanismoResolucion,
   EstadoSuficiencia,
   NecesidadInformacion,
   ReglaSuficiencia,
@@ -20,10 +21,22 @@ import type {
   SuficienciaDominio,
 } from "./tipos";
 
+/** Estado mínimo que el motor necesita de una delegación o de un apoyo. */
+export interface MecanismoExterno {
+  /** Id de la necesidad (reglaId) que este mecanismo atiende. */
+  referenciaId: string;
+  /** ¿Ya aportó la información que faltaba? */
+  resuelto: boolean;
+}
+
 export interface EntradaSuficiencia {
   respuestas: DiagnosticAnswer[];
   evidencias: EvidenciaEmpresa[];
   aclaraciones: AclaracionRegistrada[];
+  /** Delegaciones incorporadas al conocimiento de la empresa. */
+  delegaciones?: MecanismoExterno[];
+  /** Sesiones de apoyo realizadas que resolvieron la necesidad. */
+  apoyos?: MecanismoExterno[];
   catalogo?: CatalogoSuficiencia;
   evaluadoEn?: string;
 }
@@ -123,6 +136,28 @@ function mensajeGeneral(estado: EstadoSuficiencia, dominiosAfectados: string[]):
 export function evaluarSuficiencia(entrada: EntradaSuficiencia): ResultadoSuficiencia {
   const catalogo = entrada.catalogo ?? catalogoSuficiencia;
   const { respuestas, evidencias, aclaraciones } = entrada;
+  const delegaciones = entrada.delegaciones ?? [];
+  const apoyos = entrada.apoyos ?? [];
+
+  /**
+   * Profundización modular: la necesidad se resuelve con el PRIMER mecanismo
+   * válido que la atienda. El usuario elige el medio; el motor no lo impone.
+   */
+  const resolucion = (
+    reglaId: string,
+    esEvidencia: boolean,
+    referenciaId: string,
+    dominioId: string
+  ): MecanismoResolucion | null => {
+    if (esEvidencia && evidenciaResuelve(evidencias, referenciaId, dominioId)) return "evidencia";
+    if (!esEvidencia && aclaracionResuelve(aclaraciones, referenciaId)) return "aclaracion";
+    // Una necesidad de evidencia también puede resolverse explicándola: la
+    // aclaración se registra contra el id de la necesidad, no del catálogo.
+    if (aclaracionResuelve(aclaraciones, reglaId)) return "aclaracion";
+    if (delegaciones.some((d) => d.referenciaId === reglaId && d.resuelto)) return "delegacion";
+    if (apoyos.some((a) => a.referenciaId === reglaId && a.resuelto)) return "apoyo";
+    return null;
+  };
 
   const resultadoDominios: SuficienciaDominio[] = dominios.map((dominio) => {
     const preguntaIds = preguntasPuntuablesDeDominio(dominio.id);
@@ -136,6 +171,7 @@ export function evaluarSuficiencia(entrada: EntradaSuficiencia): ResultadoSufici
         const referenciaId = (esEvidencia ? regla.solicitudId : regla.aclaracionId) ?? regla.id;
         const solicitud = catalogo.solicitudes.find((s) => s.id === referenciaId);
         const aclaracion = catalogo.aclaraciones.find((a) => a.id === referenciaId);
+        const resueltaPor = resolucion(regla.id, esEvidencia, referenciaId, dominio.id);
         return {
           reglaId: regla.id,
           dominioId: dominio.id,
@@ -144,9 +180,9 @@ export function evaluarSuficiencia(entrada: EntradaSuficiencia): ResultadoSufici
           titulo: esEvidencia ? (solicitud?.titulo ?? referenciaId) : (aclaracion?.pregunta ?? referenciaId),
           porQue: regla.porQue,
           preguntaIds: preguntasDeRegla(regla),
-          resuelta: esEvidencia
-            ? evidenciaResuelve(evidencias, referenciaId, dominio.id)
-            : aclaracionResuelve(aclaraciones, referenciaId),
+          resuelta: resueltaPor !== null,
+          resueltaPor,
+          mecanismoSugerido: regla.exige === "evidencia" ? "evidencia" : "aclaracion",
         };
       });
 

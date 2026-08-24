@@ -2,12 +2,13 @@
  * Home como orquestador del recorrido.
  *
  * Función pura que decide, con el estado real de la empresa, cuál es el
- * siguiente paso y qué otros pendientes existen. Conserva las cinco etapas
- * (Preparar → Diagnosticar → Interpretar → Actuar → Seguir) y nunca devuelve
- * una ruta inexistente: todas las rutas están declaradas aquí.
+ * siguiente paso y qué otros pendientes existen. Usa la fuente única de
+ * etapas (`journey/etapas.ts`: Preparar → Diagnosticar → Actuar → Seguir) y
+ * nunca devuelve una ruta inexistente: todas las rutas están declaradas aquí.
  */
 
-import type { EtapaId, SesionMVP } from "@/types";
+import type { SesionMVP } from "@/types";
+import type { EtapaJourneyId } from "@/lib/journey/etapas";
 import type { NecesidadInformacion } from "@/lib/suficiencia/tipos";
 import type { ActividadWorkspace } from "@/lib/workspace/tipos";
 import type { SeguimientoActividad } from "@/lib/seguimiento/tipos";
@@ -36,7 +37,7 @@ export type TipoPaso =
 
 export interface PasoSugerido {
   tipo: TipoPaso;
-  etapa: EtapaId;
+  etapa: EtapaJourneyId;
   titulo: string;
   descripcion: string;
   /** Explicabilidad: por qué Pymapa propone este paso. */
@@ -96,7 +97,21 @@ function rutaWorkspace(actividadId: string): string {
  * Todos los pendientes del recorrido, en orden de prioridad. El primero es el
  * "siguiente paso" del Home; el resto alimenta la lista "Qué tengo pendiente".
  */
-export function pendientesDelRecorrido(ctx: ContextoRecorrido): PasoSugerido[] {
+/** Opciones de gobierno del CTA. */
+export interface OpcionesPendientes {
+  /**
+   * Etapa activa del Journey (fuente única `journey/etapas.ts`). Cuando se
+   * indica, el Home solo muestra trabajo accionable de esa etapa. Si la etapa
+   * activa no tiene pendientes, se devuelve el resto para no dejar al usuario
+   * sin siguiente paso.
+   */
+  etapaActiva?: EtapaJourneyId;
+}
+
+export function pendientesDelRecorrido(
+  ctx: ContextoRecorrido,
+  opciones: OpcionesPendientes = {}
+): PasoSugerido[] {
   const pasos: PasoSugerido[] = [];
   const { sesion } = ctx;
 
@@ -216,7 +231,7 @@ export function pendientesDelRecorrido(ctx: ContextoRecorrido): PasoSugerido[] {
   ) {
     pasos.push({
       tipo: "revisar_resultados",
-      etapa: "interpretar",
+      etapa: "diagnosticar",
       titulo: "Revisa tus resultados",
       descripcion: "Ya puedes ver hallazgos, prioridades y su explicación.",
       porQue: "El diagnóstico está completo y su interpretación aún no se consultó.",
@@ -358,12 +373,18 @@ export function pendientesDelRecorrido(ctx: ContextoRecorrido): PasoSugerido[] {
     });
   }
 
-  return pasos.filter((p) => rutaSoportada(p.ruta));
+  const soportados = pasos.filter((p) => rutaSoportada(p.ruta));
+  if (!opciones.etapaActiva) return soportados;
+  const deLaEtapa = soportados.filter((p) => p.etapa === opciones.etapaActiva);
+  return deLaEtapa.length > 0 ? deLaEtapa : soportados;
 }
 
 /** Paso único que encabeza el Home. */
-export function siguientePasoOrquestado(ctx: ContextoRecorrido): PasoSugerido {
-  const pendientes = pendientesDelRecorrido(ctx);
+export function siguientePasoOrquestado(
+  ctx: ContextoRecorrido,
+  opciones: OpcionesPendientes = {}
+): PasoSugerido {
+  const pendientes = pendientesDelRecorrido(ctx, opciones);
   return (
     pendientes[0] ?? {
       tipo: "medir_avance",

@@ -11,6 +11,7 @@ import { IndicadorGuardado } from "@/components/diagnostico/indicador-guardado";
 import { ConfiguracionInvalida } from "@/components/diagnostico/configuracion-invalida";
 import { useDiagnostico } from "@/hooks/use-diagnostico";
 import { useCuestionario } from "@/hooks/use-cuestionario";
+import { useEstadoDiagnostico } from "@/hooks/use-estado-diagnostico";
 import { PedirAMiEmpresa } from "@/components/colaboracion/pedir-a-mi-empresa";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -21,7 +22,7 @@ import {
 } from "@/lib/diagnostico/definicion";
 import { valorValido } from "@/lib/diagnostico/validacion";
 import { toast } from "sonner";
-import { ArrowLeft, ArrowRight, Clock, HelpCircle, SearchX } from "lucide-react";
+import { ArrowLeft, ArrowRight, Clock, HelpCircle, Lock, SearchX } from "lucide-react";
 
 export const Route = createFileRoute("/diagnostico/paso/$id")({
   head: () => ({
@@ -60,6 +61,7 @@ function PreguntaDiagnosticoPage() {
   } = useDiagnostico();
 
   const { alternarAplazamiento, estaAplazada, delegadas } = useCuestionario();
+  const { cerrado: diagnosticoCerrado } = useEstadoDiagnostico();
 
   const pregunta = obtenerPregunta(id);
   const indice = indiceDePregunta(id);
@@ -72,6 +74,43 @@ function PreguntaDiagnosticoPage() {
 
   if (!isHydrated) {
     return <LoadingState fullPage />;
+  }
+
+  // Solo lectura tras el cierre formal: el diagnóstico emitido es un registro.
+  if (diagnosticoCerrado) {
+    return (
+      <div className="space-y-6">
+        <PageHeader
+          titulo="Tu diagnóstico ya está cerrado"
+          subtitulo="Las respuestas quedaron como registro de la conclusión emitida y no pueden modificarse."
+          migas={[
+            { label: "Inicio", to: "/inicio" },
+            { label: "Diagnóstico", to: "/diagnostico" },
+            { label: "Solo lectura" },
+          ]}
+        />
+        <Card>
+          <CardHeader className="space-y-2">
+            <Badge variant="outline" className="w-fit gap-1.5 rounded-full">
+              <Lock className="h-3.5 w-3.5" aria-hidden="true" />
+              Solo lectura
+            </Badge>
+            <CardTitle className="text-base">Puedes consultar, no editar</CardTitle>
+            <CardDescription>
+              Revisa tus respuestas y el informe emitido, o continúa con tu plan de acción.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="flex flex-wrap gap-2">
+            <Button onClick={() => navigate({ to: "/diagnostico/revision" })}>
+              Ver mis respuestas
+            </Button>
+            <Button variant="outline" onClick={() => navigate({ to: "/diagnostico/listo" })}>
+              Ver mi diagnóstico final
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    );
   }
 
   if (!configuracionValida) {

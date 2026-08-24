@@ -61,7 +61,11 @@ import { sincronizarRoadmapConWorkspace, estadoUnificado } from "@/lib/sincroniz
 import { sesionDemo, crearSesionVacia } from "@/data/mocks/sesion";
 import type { SeguimientoActividad } from "@/lib/seguimiento/tipos";
 
-const EMPRESA = { empresaId: "PYME-04", empresaNombre: "Moda Origen" };
+const EMPRESA = {
+  empresaId: "PYME-04",
+  empresaNombre: "Moda Origen",
+  nivel: "seguimiento",
+} as const;
 const plantillaValidada = plantillasEscenarioHero[0]!;
 const plantillaAjustes = plantillasEscenarioHero[1]!;
 
@@ -455,6 +459,22 @@ describe("Home orquestador", () => {
     expect(pendientes.length).toBeGreaterThan(0);
     expect(pendientes.every((p) => rutaSoportada(p.ruta))).toBe(true);
     expect(rutaSoportada("/inventado")).toBe(false);
+  });
+});
+
+describe("Escenario Hero progresivo", () => {
+  it("en el nivel de diagnóstico no siembra artefactos de etapas futuras", () => {
+    const sembrado = construirSembradoHero({ ...EMPRESA, nivel: "diagnostico" });
+    expect(sembrado.workspace.actividades).toHaveLength(0);
+    expect(sembrado.seguimiento.seguimientos).toHaveLength(0);
+    expect(sembrado.delegacion.delegaciones).toHaveLength(0);
+    expect(sembrado.apoyo.recomendaciones).toHaveLength(0);
+  });
+
+  it("en el nivel de plan hay actividades pero todavía no seguimiento", () => {
+    const sembrado = construirSembradoHero({ ...EMPRESA, nivel: "plan" });
+    expect(sembrado.workspace.actividades).toHaveLength(2);
+    expect(sembrado.seguimiento.seguimientos).toHaveLength(0);
   });
 });
 

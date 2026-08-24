@@ -109,7 +109,7 @@ export interface JourneyMaestro {
 export const etiquetaEstadoEtapa: Record<EstadoEtapaJourney, string> = {
   completada: "Completada",
   en_curso: "En curso",
-  pendiente: "Pendiente",
+  pendiente: "Más adelante",
 };
 
 const BLOQUEO_PERFIL: BloqueoEtapa = {

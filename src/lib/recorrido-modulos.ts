@@ -6,7 +6,8 @@
  * el menú y el avance de cada uno para poder guiar al usuario paso a paso.
  */
 
-import type { EtapaId, SesionMVP } from "@/types";
+import type { SesionMVP } from "@/types";
+import type { EtapaJourneyId } from "@/lib/journey/etapas";
 
 export type ModuloId =
   | "perfil"
@@ -22,8 +23,8 @@ export interface ModuloRecorrido {
   label: string;
   ruta: string;
   descripcion: string;
-  /** Etapa conceptual (POC-02) a la que pertenece este módulo funcional. */
-  etapa: EtapaId;
+  /** Etapa del Journey Maestro (fuente única) a la que se subordina el módulo. */
+  etapa: EtapaJourneyId;
 }
 
 /** Secuencia oficial: Perfil → Diagnóstico → Resultados → Plan → Roadmap → Indicadores. */
@@ -50,7 +51,7 @@ export const secuenciaRecorrido: ModuloRecorrido[] = [
     label: "Resultados",
     ruta: "/resultados",
     descripcion: "Comprende tu estado actual y tus prioridades.",
-    etapa: "interpretar",
+    etapa: "diagnosticar",
   },
   {
     id: "plan-de-accion",
@@ -79,11 +80,11 @@ export const secuenciaRecorrido: ModuloRecorrido[] = [
 ];
 
 /** Módulos funcionales que componen cada etapa conceptual. */
-export function modulosDeEtapa(etapa: EtapaId): ModuloRecorrido[] {
+export function modulosDeEtapa(etapa: EtapaJourneyId): ModuloRecorrido[] {
   return secuenciaRecorrido.filter((m) => m.etapa === etapa);
 }
 
-export function etapaDeModulo(id: ModuloId): EtapaId {
+export function etapaDeModulo(id: ModuloId): EtapaJourneyId {
   return moduloPorId(id).etapa;
 }
 
@@ -191,24 +192,6 @@ export function avanceModulos(
       { porcentaje, estado: estadoDesdePorcentaje(porcentaje) },
     ])
   ) as Record<ModuloId, AvanceModulo>;
-}
-
-/** Avance de una etapa conceptual: promedio de los módulos que la componen. */
-export function avanceEtapas(
-  sesion: SesionMVP,
-  journeyDiagnostico?: { porcentajeModulo: number }
-): Record<EtapaId, AvanceModulo> {
-  const avances = avanceModulos(sesion, journeyDiagnostico);
-  const etapas: EtapaId[] = ["preparar", "diagnosticar", "interpretar", "actuar", "seguir"];
-  return Object.fromEntries(
-    etapas.map((etapa) => {
-      const modulos = modulosDeEtapa(etapa);
-      const porcentaje = acotar(
-        modulos.reduce((total, m) => total + avances[m.id].porcentaje, 0) / (modulos.length || 1)
-      );
-      return [etapa, { porcentaje, estado: estadoDesdePorcentaje(porcentaje) }];
-    })
-  ) as Record<EtapaId, AvanceModulo>;
 }
 
 /** Primer módulo del recorrido que aún no está completo. */
