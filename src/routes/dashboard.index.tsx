@@ -77,7 +77,7 @@ function DashboardPage() {
     modoDemo,
     cargarDemo,
   } = useDashboard();
-  const { sesion, isHydrated } = useSesion();
+  const { isHydrated } = useSesion();
 
   useEffect(() => {
     if (estado === "listo") registrarEvento("dashboard_viewed", { period: filtros.period });
