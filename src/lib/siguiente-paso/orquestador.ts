@@ -97,7 +97,21 @@ function rutaWorkspace(actividadId: string): string {
  * Todos los pendientes del recorrido, en orden de prioridad. El primero es el
  * "siguiente paso" del Home; el resto alimenta la lista "Qué tengo pendiente".
  */
-export function pendientesDelRecorrido(ctx: ContextoRecorrido): PasoSugerido[] {
+/** Opciones de gobierno del CTA. */
+export interface OpcionesPendientes {
+  /**
+   * Etapa activa del Journey (fuente única `journey/etapas.ts`). Cuando se
+   * indica, el Home solo muestra trabajo accionable de esa etapa. Si la etapa
+   * activa no tiene pendientes, se devuelve el resto para no dejar al usuario
+   * sin siguiente paso.
+   */
+  etapaActiva?: EtapaJourneyId;
+}
+
+export function pendientesDelRecorrido(
+  ctx: ContextoRecorrido,
+  opciones: OpcionesPendientes = {}
+): PasoSugerido[] {
   const pasos: PasoSugerido[] = [];
   const { sesion } = ctx;
 
@@ -359,12 +373,18 @@ export function pendientesDelRecorrido(ctx: ContextoRecorrido): PasoSugerido[] {
     });
   }
 
-  return pasos.filter((p) => rutaSoportada(p.ruta));
+  const soportados = pasos.filter((p) => rutaSoportada(p.ruta));
+  if (!opciones.etapaActiva) return soportados;
+  const deLaEtapa = soportados.filter((p) => p.etapa === opciones.etapaActiva);
+  return deLaEtapa.length > 0 ? deLaEtapa : soportados;
 }
 
 /** Paso único que encabeza el Home. */
-export function siguientePasoOrquestado(ctx: ContextoRecorrido): PasoSugerido {
-  const pendientes = pendientesDelRecorrido(ctx);
+export function siguientePasoOrquestado(
+  ctx: ContextoRecorrido,
+  opciones: OpcionesPendientes = {}
+): PasoSugerido {
+  const pendientes = pendientesDelRecorrido(ctx, opciones);
   return (
     pendientes[0] ?? {
       tipo: "medir_avance",
