@@ -7,7 +7,7 @@ import { PedirAMiEmpresa } from "@/components/colaboracion/pedir-a-mi-empresa";
 import { PedirApoyoExperto } from "@/components/apoyo-humano/pedir-apoyo-experto";
 import type { EvidenciaEmpresa } from "@/lib/evidencias/tipos";
 import type { MecanismoResolucion, NecesidadInformacion } from "@/lib/suficiencia/tipos";
-import { dominioPorId } from "@/lib/dominios/registro";
+import { nombreDominio } from "@/lib/dominios/registro";
 import { CheckCircle2, FileUp, HelpCircle, Lock, MessageSquare, Paperclip } from "lucide-react";
 
 interface Props {
@@ -49,7 +49,7 @@ export function TarjetaNecesidad({
     necesidad.tipo === "aclaracion"
   );
 
-  const dominio = dominioPorId(necesidad.dominioId);
+  const dominioNombre = nombreDominio(necesidad.dominioId);
   const esAclaracion = necesidad.tipo === "aclaracion";
 
   const origen = {
@@ -57,7 +57,7 @@ export function TarjetaNecesidad({
     referenciaId: necesidad.reglaId,
     referenciaTitulo: necesidad.titulo,
     dominioId: necesidad.dominioId,
-    dominioNombre: dominio?.nombre ?? necesidad.dominioId,
+    dominioNombre,
     rutaRetorno: "/diagnostico/cierre",
   };
 
@@ -66,7 +66,7 @@ export function TarjetaNecesidad({
     referenciaId: necesidad.reglaId,
     referenciaTitulo: necesidad.titulo,
     dominioId: necesidad.dominioId,
-    dominioNombre: dominio?.nombre ?? necesidad.dominioId,
+    dominioNombre,
     rutaRetorno: "/diagnostico/cierre",
   };
 
