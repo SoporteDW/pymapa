@@ -17,6 +17,7 @@ import { AppFooter } from "@/components/layout/app-footer";
 import { MobileNav } from "@/components/layout/mobile-nav";
 import { DemoBanner } from "@/components/demo/demo-banner";
 import { useSesion } from "@/hooks/use-sesion";
+import { AsistentePymapa } from "@/components/asistente/asistente-pymapa";
 import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/sonner";
 
@@ -215,6 +216,8 @@ function RootComponent() {
           </div>
         </div>
       </div>
+      {/* Macroentrega 5 · Asistente Pymapa persistente (simulado). */}
+      <AsistentePymapa />
       <Toaster position="bottom-right" />
     </QueryClientProvider>
   );
