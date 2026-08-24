@@ -10,6 +10,9 @@ import { BadgeEstadoEjecucion } from "@/components/workspace/badge-estado-ejecuc
 import { PanelInstrumento } from "@/components/workspace/panel-instrumento";
 import { PanelChecklist } from "@/components/workspace/panel-checklist";
 import { FormularioEntrega } from "@/components/workspace/formulario-entrega";
+import { FichaActividad } from "@/components/workspace/ficha-actividad";
+import { PedirAMiEmpresa } from "@/components/colaboracion/pedir-a-mi-empresa";
+import { PedirApoyoExperto } from "@/components/apoyo-humano/pedir-apoyo-experto";
 import { HistorialEntregas } from "@/components/workspace/historial-entregas";
 import { useWorkspace } from "@/hooks/use-workspace";
 import { descripcionEstadoEjecucion, puedeEntregar } from "@/lib/workspace/estados";
@@ -82,6 +85,32 @@ function WorkspacePage() {
   }
 
   const esDemo = actividad.origen.tipo === "escenario_demo";
+  const origenTransversal = {
+    tipo: "actividad" as const,
+    referenciaId: actividad.id,
+    referenciaTitulo: actividad.titulo,
+    dominioId: actividad.origen.dominioId,
+    dominioNombre: actividad.origen.dominioNombre,
+    rutaRetorno: `/plan-de-accion/workspace/${actividad.id}`,
+  };
+
+  // Macroentrega 5 · La Ficha de Actividad explica antes de ejecutar.
+  if (actividad.estado === "pendiente") {
+    return (
+      <div className="space-y-6">
+        <PageHeader
+          titulo={actividad.titulo}
+          subtitulo="Etapa 3 · Actuar — Comprende la actividad antes de ejecutarla."
+          migas={[
+            { label: "Inicio", to: "/inicio" },
+            { label: "Plan de Acción", to: "/plan-de-accion" },
+            { label: "Ficha de Actividad" },
+          ]}
+        />
+        <FichaActividad actividad={actividad} onEmpezar={() => iniciar(actividad.id)} />
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-6">
@@ -140,6 +169,22 @@ function WorkspacePage() {
               Retomar para hacer los ajustes
             </Button>
           )}
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader className="pb-3">
+          <CardTitle className="text-base">¿Necesitas ayuda con esta actividad?</CardTitle>
+          <CardDescription>
+            Puedes pedir apoyo a alguien de tu empresa o a un especialista sin salir de la actividad.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="flex flex-wrap gap-2">
+          <PedirAMiEmpresa
+            origen={origenTransversal}
+            tareaSugerida={`Apoyarme en: ${actividad.objetivo}`}
+          />
+          <PedirApoyoExperto origen={origenTransversal} />
         </CardContent>
       </Card>
 
