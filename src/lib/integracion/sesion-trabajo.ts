@@ -16,6 +16,7 @@ import { CLAVE_SEGUIMIENTO } from "@/lib/seguimiento/repositorio";
 import { CLAVE_DELEGACION } from "@/lib/delegacion/repositorio";
 import { CLAVE_APOYO } from "@/lib/apoyo-humano/repositorio";
 import { CLAVE_CIERRE_DIAGNOSTICO } from "@/lib/diagnostico/cierre-repositorio";
+import { CLAVE_MARCAS_DIAGNOSTICO } from "@/lib/diagnostico/marcas-repositorio";
 
 export const SESSION_VERSION = "sesion-trabajo-1.0.0";
 
@@ -71,6 +72,13 @@ const MODULOS: Omit<ModuloPersistido, "presente" | "bytes">[] = [
     id: "cierre-diagnostico",
     nombre: "Cierre del diagnóstico",
     clave: CLAVE_CIERRE_DIAGNOSTICO,
+    ambito: "local",
+  },
+  // Macroentrega 5 · preguntas aplazadas del cuestionario interrumpible.
+  {
+    id: "marcas-diagnostico",
+    nombre: "Preguntas aplazadas",
+    clave: CLAVE_MARCAS_DIAGNOSTICO,
     ambito: "local",
   },
 ];
