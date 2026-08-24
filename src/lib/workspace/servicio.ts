@@ -11,9 +11,11 @@ import type { ArchivoEvidencia } from "@/lib/evidencias/tipos";
 import { obtenerInstrumento, seleccionarInstrumento } from "@/lib/instrumentos/catalogo";
 import { sugerirProfundizaciones, type Profundizacion } from "@/lib/kb/ecommerce/profundizacion";
 import { puedeEntregar, transicionPermitida } from "./estados";
+import { exigeArchivo } from "./evidencia";
 import { revisarEntrega } from "./revision";
 import type {
   ActividadWorkspace,
+  BorradorEntrega,
   EstadoEjecucion,
   PlantillaActividad,
   ProfundizacionWorkspace,
@@ -87,6 +89,7 @@ export function construirActividad(
       titulo: instrumento.entregable.titulo,
       descripcion: instrumento.entregable.descripcion,
       formato: instrumento.entregable.formato,
+      requiereArchivo: exigeArchivo(instrumento.entregable),
       criteriosValidacion: instrumento.entregable.criteriosValidacion,
     },
     profundizacion: profundizacion ? aProfundizacionWorkspace(profundizacion) : null,
@@ -179,6 +182,34 @@ export interface EntradaEntrega {
 }
 
 /**
+ * P0.3 · Persiste el borrador de la entrega (criterios declarados, nota y
+ * archivos) como estado de la actividad, para que ninguna interacción de la
+ * interfaz lo pierda.
+ */
+export function guardarBorrador(
+  registro: RegistroWorkspaceEmpresa,
+  actividadId: string,
+  cambios: Partial<BorradorEntrega>
+): RegistroWorkspaceEmpresa {
+  const actividad = obtenerActividad(registro, actividadId);
+  if (!actividad) return registro;
+  const actual = borradorDe(actividad);
+  const borrador: BorradorEntrega = { ...actual, ...cambios };
+  const estado: EstadoEjecucion =
+    actividad.estado === "pendiente" ? "en_ejecucion" : actividad.estado;
+  return reemplazar(registro, { ...actividad, borrador, estado });
+}
+
+/** Borrador vigente de la actividad, con valores por defecto seguros. */
+export function borradorDe(actividad: ActividadWorkspace): BorradorEntrega {
+  return {
+    criteriosDeclarados: actividad.borrador?.criteriosDeclarados ?? [],
+    nota: actividad.borrador?.nota ?? "",
+    archivos: actividad.borrador?.archivos ?? [],
+  };
+}
+
+/**
  * B5 · Registra una entrega y su revisión simulada. El estado resultante lo
  * decide la revisión, no la interfaz.
  */
@@ -199,6 +230,7 @@ export function registrarEntrega(
     nota: entrada.nota,
     archivos: entrada.archivos,
     verificaciones: actividad.profundizacion?.verificaciones,
+    requiereArchivo: exigeArchivo(actividad.entregable),
     numeroEntrega: numero,
     revisadoEn: entregadoEn,
   });
@@ -220,6 +252,12 @@ export function registrarEntrega(
       ...actividad,
       estado,
       historial: [...actividad.historial, entrega],
+      // P0.3 · la entrega consume el borrador; los ajustes parten de lo declarado.
+      borrador: {
+        criteriosDeclarados: entrada.criteriosDeclarados,
+        nota: entrada.nota,
+        archivos: entrada.archivos,
+      },
     }),
     entrega,
   };

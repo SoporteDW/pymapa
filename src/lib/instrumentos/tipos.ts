@@ -33,6 +33,12 @@ export interface EntregableEsperado {
   titulo: string;
   descripcion: string;
   formato: FormatoEntregable;
+  /**
+   * P0.2 · Solo cuando el entregable exige expresamente un archivo adjunto.
+   * Si se omite, adjuntar es OPCIONAL: la evidencia puede ser un check, una
+   * respuesta declarada, un dato o un comentario.
+   */
+  requiereArchivo?: boolean;
   /** Criterios observables que la revisión verificará uno a uno. */
   criteriosValidacion: string[];
 }

@@ -5,10 +5,14 @@ import { verificacionesEsperadas } from "@/lib/dominios/registro";
 import { evaluarCierre } from "@/lib/suficiencia/cierre";
 import type { ResultadoSuficiencia } from "@/lib/suficiencia/tipos";
 import { registroVacio } from "./repositorio";
+import { exigeArchivo } from "./evidencia";
 import {
   asegurarActividad,
+  borradorDe,
   cambiarEstado,
+  guardarBorrador,
   marcarPaso,
+  marcarVerificacion,
   obtenerActividad,
   registrarEntrega,
 } from "./servicio";
@@ -166,5 +170,48 @@ describe("Gate de suficiencia · preliminar vs cerrado", () => {
     });
     expect(cierre.esPreliminar).toBe(true);
     expect(cierre.faltantes).toHaveLength(1);
+  });
+});
+
+describe("P0 · evidencia opcional y persistencia del borrador", () => {
+  it("P0.2 · valida sin archivo cuando el entregable no exige documento", () => {
+    let { registro, actividad } = registroConHero();
+    expect(exigeArchivo(actividad.entregable)).toBe(false);
+    registro = cambiarEstado(registro, actividad.id, "en_ejecucion");
+    for (const v of actividad.profundizacion?.verificaciones ?? []) {
+      registro = marcarVerificacion(registro, actividad.id, v.id, "cumple");
+    }
+    const { entrega } = registrarEntrega(registro, actividad.id, {
+      nota: "Auditamos el checkout completo con el equipo y registramos cada punto de fricción encontrado.",
+      criteriosDeclarados: actividad.entregable.criteriosValidacion,
+      archivos: [],
+    });
+    expect(entrega?.revision.veredicto).toBe("validado");
+  });
+
+  it("P0.2 · exige archivo solo cuando el entregable lo declara", () => {
+    expect(exigeArchivo({ formato: "documento" })).toBe(false);
+    expect(exigeArchivo({ formato: "captura" })).toBe(true);
+    expect(exigeArchivo({ formato: "documento", requiereArchivo: true })).toBe(true);
+  });
+
+  it("P0.3 · guardar el borrador de evidencias no borra los pasos marcados", () => {
+    let { registro, actividad } = registroConHero();
+    registro = marcarPaso(registro, actividad.id, 1, true);
+    registro = marcarPaso(registro, actividad.id, 2, true);
+    registro = guardarBorrador(registro, actividad.id, { archivos: [] });
+    registro = guardarBorrador(registro, actividad.id, { nota: "Avance parcial" });
+    const vigente = obtenerActividad(registro, actividad.id)!;
+    expect(vigente.pasos.filter((p) => p.hecho).map((p) => p.orden)).toEqual([1, 2]);
+    expect(borradorDe(vigente).nota).toBe("Avance parcial");
+  });
+
+  it("P0.3 · los criterios declarados persisten en la actividad", () => {
+    let { registro, actividad } = registroConHero();
+    const [a, b] = actividad.entregable.criteriosValidacion;
+    registro = guardarBorrador(registro, actividad.id, { criteriosDeclarados: [a!] });
+    registro = guardarBorrador(registro, actividad.id, { criteriosDeclarados: [a!, b!] });
+    registro = guardarBorrador(registro, actividad.id, { archivos: [] });
+    expect(borradorDe(obtenerActividad(registro, actividad.id)!).criteriosDeclarados).toEqual([a, b]);
   });
 });

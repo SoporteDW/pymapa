@@ -62,6 +62,7 @@ import {
 import { delegar } from "@/lib/delegacion/servicio";
 import { evaluarApoyo } from "@/lib/apoyo-humano/reglas";
 import { registrarRecomendacion } from "@/lib/apoyo-humano/servicio";
+import { limpiarCierre, registrarCierre } from "@/lib/diagnostico/cierre-repositorio";
 import type { RegistroWorkspaceEmpresa } from "@/lib/workspace/tipos";
 import type { RegistroEvidenciasEmpresa } from "@/lib/evidencias/tipos";
 import type { RegistroSeguimientoEmpresa } from "@/lib/seguimiento/tipos";
@@ -270,6 +271,9 @@ export function aplicarSembradoHero(entrada: EntradaSembradoHero): SembradoHero 
   guardarSeguimiento(sembrado.seguimiento);
   guardarDelegacion(sembrado.delegacion);
   guardarApoyo(sembrado.apoyo);
+  // El escenario Hero parte de un diagnóstico ya cerrado: sin este cierre la
+  // Etapa 3 (Plan de Acción) quedaría bloqueada dentro del demo.
+  registrarCierre(null);
   return sembrado;
 }
 
@@ -281,6 +285,7 @@ export function limpiarSembradoHero(entrada: EntradaSembradoHero): void {
   limpiarSeguimiento(empresaId, empresaNombre);
   limpiarDelegacion(empresaId, empresaNombre);
   limpiarApoyo(empresaId, empresaNombre);
+  limpiarCierre();
 }
 
 /** Reinicio del escenario demostrativo: limpia y vuelve a sembrar. */

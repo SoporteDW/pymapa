@@ -38,7 +38,7 @@ export const entregables: Entregable[] = [
     ],
     modo: "real",
     archivo: ARCHIVO_INFORME_DIAGNOSTICO,
-    nombreArchivo: "Informe-de-Diagnostico-Moda-Origen.pdf",
+    nombreArchivo: "diagnostico-moda-origen.pdf",
   },
   {
     id: "plan-de-accion",

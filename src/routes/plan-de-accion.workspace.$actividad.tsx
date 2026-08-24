@@ -52,6 +52,8 @@ function WorkspacePage() {
     alternarPaso,
     revisarVerificacion,
     entregar,
+    borrador,
+    actualizarBorrador,
     retomar,
   } = useWorkspace(actividadId);
 
@@ -199,6 +201,8 @@ function WorkspacePage() {
       {puedeEntregar(actividad.estado) ? (
         <FormularioEntrega
           actividad={actividad}
+          borrador={borrador ?? { criteriosDeclarados: [], nota: "", archivos: [] }}
+          onCambiarBorrador={(cambios) => actualizarBorrador(actividad.id, cambios)}
           onEntregar={(entrada) => {
             const entrega = entregar(actividad.id, entrada);
             if (!entrega) return;
@@ -230,6 +234,42 @@ function WorkspacePage() {
           </CardContent>
         </Card>
       )}
+
+      {/* P0.4 · la Actividad siempre ofrece su propio cierre: no hace falta
+          escapar por Roadmap ni por el menú lateral. */}
+      <Card className="border-primary/25">
+        <CardHeader className="space-y-1.5">
+          <CardTitle className="text-base">
+            {actividad.estado === "validado"
+              ? "Actividad validada"
+              : actividad.estado === "entregado"
+                ? "Entrega en revisión"
+                : "Cerrar o continuar esta actividad"}
+          </CardTitle>
+          <CardDescription>
+            {actividad.estado === "validado"
+              ? "Esta actividad quedó cerrada. Vuelve al Plan de Acción para continuar con la siguiente."
+              : actividad.estado === "entregado"
+                ? "La entrega está en revisión. Puedes volver al plan y retomarla cuando tengas el resultado."
+                : "Puedes entregar cuando los criterios estén completos, o volver al plan y retomarla más tarde: el avance queda guardado."}
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="flex flex-wrap gap-2">
+          <Button asChild>
+            <Link to="/plan-de-accion">
+              {actividad.estado === "validado"
+                ? "Volver al Plan y ver la siguiente actividad"
+                : "Volver al Plan de Acción"}
+            </Link>
+          </Button>
+          {actividad.estado === "requiere_ajustes" && (
+            <Button variant="outline" onClick={() => retomar(actividad.id)}>
+              <RotateCcw className="h-4 w-4" aria-hidden="true" />
+              Retomar para hacer los ajustes
+            </Button>
+          )}
+        </CardContent>
+      </Card>
 
       <HistorialEntregas historial={actividad.historial} />
     </div>

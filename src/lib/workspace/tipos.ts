@@ -42,7 +42,19 @@ export interface EntregableWorkspace {
   titulo: string;
   descripcion: string;
   formato: FormatoEntregable;
+  /** P0.2 · adjuntar archivo solo es obligatorio si el instrumento lo exige. */
+  requiereArchivo?: boolean;
   criteriosValidacion: string[];
+}
+
+/**
+ * P0.3 · Borrador persistente de la entrega: los criterios declarados y la nota
+ * son ESTADO DE LA ACTIVIDAD, no estado local de un formulario.
+ */
+export interface BorradorEntrega {
+  criteriosDeclarados: string[];
+  nota: string;
+  archivos: ArchivoEvidencia[];
 }
 
 export interface RevisionEntrega {
@@ -109,6 +121,8 @@ export interface ActividadWorkspace {
   entregable: EntregableWorkspace;
   profundizacion: ProfundizacionWorkspace | null;
   historial: RegistroEntrega[];
+  /** P0.3 · lo que la empresa ya declaró para la próxima entrega. */
+  borrador?: BorradorEntrega;
   /** B7 · reaperturas por resultado de seguimiento (el ciclo vuelve sobre sí). */
   reaperturas?: { motivo: string; fecha: string; seguimientoId: string | null }[];
   creadoEn: string;
