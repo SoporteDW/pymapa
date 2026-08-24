@@ -68,6 +68,17 @@ function CierrePage() {
             ): aquí solo confirmamos información.
           </CardDescription>
         </CardHeader>
+        {journey.estado === "profundizacion_completada" && (
+          <CardContent className="space-y-2">
+            <div className="flex items-start gap-3 rounded-xl border border-success/30 bg-success/5 p-4">
+              <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-success" aria-hidden="true" />
+              <div className="space-y-1 text-sm">
+                <p className="font-semibold text-foreground">Profundización completada</p>
+                <p className="text-muted-foreground">{journey.descripcion}</p>
+              </div>
+            </div>
+          </CardContent>
+        )}
         {journey.profundizacion.total > 0 && (
           <CardContent className="space-y-2">
             <div className="flex items-center justify-between text-sm font-medium text-foreground">
@@ -145,9 +156,10 @@ function CierrePage() {
             o se cierra el diagnóstico (Macroentrega 4.1). */}
         {journey.profundizacion.pendientes === 0 ? (
           <Button size="lg" asChild>
+            {/* Único CTA principal: la etiqueta la decide el estado central. */}
             <Link to="/diagnostico/listo">
               <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
-              Cerrar mi diagnóstico
+              {journey.siguiente.label}
             </Link>
           </Button>
         ) : (
