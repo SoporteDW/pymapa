@@ -74,6 +74,12 @@ export interface CatalogoSuficiencia {
   reglas: ReglaSuficiencia[];
 }
 
+/**
+ * Mecanismos con los que la empresa puede resolver una necesidad.
+ * La necesidad describe QUÉ falta; el mecanismo es CÓMO decide resolverlo.
+ */
+export type MecanismoResolucion = "aclaracion" | "evidencia" | "delegacion" | "apoyo";
+
 /** Necesidad concreta detectada en un dominio. */
 export interface NecesidadInformacion {
   reglaId: string;
@@ -84,8 +90,12 @@ export interface NecesidadInformacion {
   titulo: string;
   porQue: string;
   preguntaIds: string[];
-  /** Ya resuelta por una evidencia analizada o una aclaración respondida. */
+  /** Ya resuelta por cualquiera de los mecanismos válidos. */
   resuelta: boolean;
+  /** Mecanismo que efectivamente la resolvió; null si sigue pendiente. */
+  resueltaPor: MecanismoResolucion | null;
+  /** Mecanismo sugerido por el catálogo, sin ser obligatorio. */
+  mecanismoSugerido: MecanismoResolucion;
 }
 
 export interface SuficienciaDominio {
