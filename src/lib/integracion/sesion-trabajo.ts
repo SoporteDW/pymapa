@@ -17,6 +17,7 @@ import { CLAVE_DELEGACION } from "@/lib/delegacion/repositorio";
 import { CLAVE_APOYO } from "@/lib/apoyo-humano/repositorio";
 import { CLAVE_CIERRE_DIAGNOSTICO } from "@/lib/diagnostico/cierre-repositorio";
 import { CLAVE_MARCAS_DIAGNOSTICO } from "@/lib/diagnostico/marcas-repositorio";
+import { CLAVE_HITOS_JOURNEY } from "@/lib/journey/hitos-repositorio";
 
 export const SESSION_VERSION = "sesion-trabajo-1.0.0";
 
@@ -75,6 +76,12 @@ const MODULOS: Omit<ModuloPersistido, "presente" | "bytes">[] = [
     ambito: "local",
   },
   // Macroentrega 5 · preguntas aplazadas del cuestionario interrumpible.
+  {
+    id: "hitos-journey",
+    nombre: "Hitos del recorrido",
+    clave: CLAVE_HITOS_JOURNEY,
+    ambito: "local",
+  },
   {
     id: "marcas-diagnostico",
     nombre: "Preguntas aplazadas",
