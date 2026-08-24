@@ -17,7 +17,7 @@ import { HistorialEntregas } from "@/components/workspace/historial-entregas";
 import { useWorkspace } from "@/hooks/use-workspace";
 import { descripcionEstadoEjecucion, puedeEntregar } from "@/lib/workspace/estados";
 import { toast } from "sonner";
-import { PlayCircle, RotateCcw, SearchX, Target } from "lucide-react";
+import { RotateCcw, SearchX, Target } from "lucide-react";
 
 export const Route = createFileRoute("/plan-de-accion/workspace/$actividad")({
   head: () => ({
@@ -157,12 +157,6 @@ function WorkspacePage() {
               </p>
             )}
           </div>
-          {actividad.estado === "pendiente" && (
-            <Button onClick={() => iniciar(actividad.id)}>
-              <PlayCircle className="h-4 w-4" aria-hidden="true" />
-              Comenzar la ejecución
-            </Button>
-          )}
           {actividad.estado === "requiere_ajustes" && (
             <Button variant="outline" onClick={() => retomar(actividad.id)}>
               <RotateCcw className="h-4 w-4" aria-hidden="true" />

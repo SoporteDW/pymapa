@@ -72,7 +72,6 @@ function CierrePlanPage() {
       id: `${a.id}-${h.id}`,
       actividad: a.titulo,
       titulo: a.entregable.titulo,
-      fecha: h.fecha,
     }))
   );
 

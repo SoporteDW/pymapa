@@ -35,6 +35,8 @@ import { Route as DiagnosticoResumenRouteImport } from './routes/diagnostico.res
 import { Route as DiagnosticoRevisionRouteImport } from './routes/diagnostico.revision'
 import { Route as PlanDeAccionIndexRouteImport } from './routes/plan-de-accion.index'
 import { Route as PlanDeAccionAccionRouteImport } from './routes/plan-de-accion.$accion'
+import { Route as PlanDeAccionCierreRouteImport } from './routes/plan-de-accion.cierre'
+import { Route as PlanDeAccionEntradaRouteImport } from './routes/plan-de-accion.entrada'
 import { Route as ResultadosIndexRouteImport } from './routes/resultados.index'
 import { Route as ResultadosDimensionRouteImport } from './routes/resultados.$dimension'
 import { Route as RoadmapIndexRouteImport } from './routes/roadmap.index'
@@ -178,6 +180,16 @@ const PlanDeAccionAccionRoute = PlanDeAccionAccionRouteImport.update({
   path: '/$accion',
   getParentRoute: () => PlanDeAccionRoute,
 } as any)
+const PlanDeAccionCierreRoute = PlanDeAccionCierreRouteImport.update({
+  id: '/cierre',
+  path: '/cierre',
+  getParentRoute: () => PlanDeAccionRoute,
+} as any)
+const PlanDeAccionEntradaRoute = PlanDeAccionEntradaRouteImport.update({
+  id: '/entrada',
+  path: '/entrada',
+  getParentRoute: () => PlanDeAccionRoute,
+} as any)
 const ResultadosIndexRoute = ResultadosIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -262,6 +274,8 @@ export interface FileRoutesByFullPath {
   '/diagnostico/resumen': typeof DiagnosticoResumenRoute
   '/diagnostico/revision': typeof DiagnosticoRevisionRoute
   '/plan-de-accion/$accion': typeof PlanDeAccionAccionRoute
+  '/plan-de-accion/cierre': typeof PlanDeAccionCierreRoute
+  '/plan-de-accion/entrada': typeof PlanDeAccionEntradaRoute
   '/resultados/$dimension': typeof ResultadosDimensionRoute
   '/roadmap/$accion': typeof RoadmapAccionRoute
   '/seguimiento/$actividad': typeof SeguimientoActividadRoute
@@ -294,6 +308,8 @@ export interface FileRoutesByTo {
   '/diagnostico/resumen': typeof DiagnosticoResumenRoute
   '/diagnostico/revision': typeof DiagnosticoRevisionRoute
   '/plan-de-accion/$accion': typeof PlanDeAccionAccionRoute
+  '/plan-de-accion/cierre': typeof PlanDeAccionCierreRoute
+  '/plan-de-accion/entrada': typeof PlanDeAccionEntradaRoute
   '/resultados/$dimension': typeof ResultadosDimensionRoute
   '/roadmap/$accion': typeof RoadmapAccionRoute
   '/seguimiento/$actividad': typeof SeguimientoActividadRoute
@@ -334,6 +350,8 @@ export interface FileRoutesById {
   '/diagnostico/resumen': typeof DiagnosticoResumenRoute
   '/diagnostico/revision': typeof DiagnosticoRevisionRoute
   '/plan-de-accion/$accion': typeof PlanDeAccionAccionRoute
+  '/plan-de-accion/cierre': typeof PlanDeAccionCierreRoute
+  '/plan-de-accion/entrada': typeof PlanDeAccionEntradaRoute
   '/resultados/$dimension': typeof ResultadosDimensionRoute
   '/roadmap/$accion': typeof RoadmapAccionRoute
   '/seguimiento/$actividad': typeof SeguimientoActividadRoute
@@ -375,6 +393,8 @@ export interface FileRouteTypes {
     | '/diagnostico/resumen'
     | '/diagnostico/revision'
     | '/plan-de-accion/$accion'
+    | '/plan-de-accion/cierre'
+    | '/plan-de-accion/entrada'
     | '/resultados/$dimension'
     | '/roadmap/$accion'
     | '/seguimiento/$actividad'
@@ -407,6 +427,8 @@ export interface FileRouteTypes {
     | '/diagnostico/resumen'
     | '/diagnostico/revision'
     | '/plan-de-accion/$accion'
+    | '/plan-de-accion/cierre'
+    | '/plan-de-accion/entrada'
     | '/resultados/$dimension'
     | '/roadmap/$accion'
     | '/seguimiento/$actividad'
@@ -446,6 +468,8 @@ export interface FileRouteTypes {
     | '/diagnostico/resumen'
     | '/diagnostico/revision'
     | '/plan-de-accion/$accion'
+    | '/plan-de-accion/cierre'
+    | '/plan-de-accion/entrada'
     | '/resultados/$dimension'
     | '/roadmap/$accion'
     | '/seguimiento/$actividad'
@@ -663,6 +687,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PlanDeAccionAccionRouteImport
       parentRoute: typeof PlanDeAccionRoute
     }
+    '/plan-de-accion/cierre': {
+      id: '/plan-de-accion/cierre'
+      path: '/cierre'
+      fullPath: '/plan-de-accion/cierre'
+      preLoaderRoute: typeof PlanDeAccionCierreRouteImport
+      parentRoute: typeof PlanDeAccionRoute
+    }
+    '/plan-de-accion/entrada': {
+      id: '/plan-de-accion/entrada'
+      path: '/entrada'
+      fullPath: '/plan-de-accion/entrada'
+      preLoaderRoute: typeof PlanDeAccionEntradaRouteImport
+      parentRoute: typeof PlanDeAccionRoute
+    }
     '/resultados/': {
       id: '/resultados/'
       path: '/'
@@ -806,12 +844,16 @@ const DiagnosticoRouteWithChildren = DiagnosticoRoute._addFileChildren(
 
 interface PlanDeAccionRouteChildren {
   PlanDeAccionAccionRoute: typeof PlanDeAccionAccionRoute
+  PlanDeAccionCierreRoute: typeof PlanDeAccionCierreRoute
+  PlanDeAccionEntradaRoute: typeof PlanDeAccionEntradaRoute
   PlanDeAccionIndexRoute: typeof PlanDeAccionIndexRoute
   PlanDeAccionWorkspaceActividadRoute: typeof PlanDeAccionWorkspaceActividadRoute
 }
 
 const PlanDeAccionRouteChildren: PlanDeAccionRouteChildren = {
   PlanDeAccionAccionRoute: PlanDeAccionAccionRoute,
+  PlanDeAccionCierreRoute: PlanDeAccionCierreRoute,
+  PlanDeAccionEntradaRoute: PlanDeAccionEntradaRoute,
   PlanDeAccionIndexRoute: PlanDeAccionIndexRoute,
   PlanDeAccionWorkspaceActividadRoute: PlanDeAccionWorkspaceActividadRoute,
 }
