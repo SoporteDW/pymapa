@@ -22,6 +22,8 @@ import { IndicadorGuardado } from "@/components/diagnostico/indicador-guardado";
 import { useDiagnostico } from "@/hooks/use-diagnostico";
 import { useModoDemo } from "@/hooks/use-modo-demo";
 import { useEstadoDiagnostico } from "@/hooks/use-estado-diagnostico";
+import { useCuestionario } from "@/hooks/use-cuestionario";
+import { Badge } from "@/components/ui/badge";
 import { AutocompletarEtapa } from "@/components/demo/autocompletar-etapa";
 import { registrarEvento } from "@/lib/analytics";
 import { toast } from "sonner";
@@ -138,6 +140,39 @@ function DiagnosticoEntrada() {
 
 
       <IndicadorGuardado estado={estadoGuardado} onReintentar={reintentarGuardado} />
+
+      {/* Macroentrega 5 · Lo que quedó abierto no se pierde ni bloquea el avance. */}
+      {cuestionario.hidratado &&
+        (cuestionario.resumen.aplazadas > 0 || cuestionario.resumen.delegadas > 0) && (
+          <Card className="border-warning/30 bg-warning/5">
+            <CardHeader className="pb-3">
+              <CardTitle className="text-base">Tienes preguntas abiertas</CardTitle>
+              <CardDescription>{cuestionario.resumen.detalle}</CardDescription>
+            </CardHeader>
+            <CardContent className="flex flex-wrap items-center gap-2">
+              {cuestionario.resumen.aplazadas > 0 && (
+                <Badge variant="outline" className="rounded-full">
+                  {cuestionario.resumen.aplazadas} marcadas para más tarde
+                </Badge>
+              )}
+              {cuestionario.resumen.delegadas > 0 && (
+                <Badge variant="secondary" className="rounded-full">
+                  {cuestionario.resumen.delegadas} pedidas a tu equipo
+                </Badge>
+              )}
+              {cuestionario.resumen.siguiente && (
+                <Button variant="outline" size="sm" asChild>
+                  <Link
+                    to="/diagnostico/paso/$id"
+                    params={{ id: cuestionario.resumen.siguiente.id }}
+                  >
+                    Retomar una pregunta abierta
+                  </Link>
+                </Button>
+              )}
+            </CardContent>
+          </Card>
+        )}
 
       <Card>
         <CardHeader>
