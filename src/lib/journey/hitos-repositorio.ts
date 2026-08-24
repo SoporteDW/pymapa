@@ -7,6 +7,8 @@
  * repita una transición pedagógica que ya ocurrió.
  */
 
+import { notificarCambioEstado } from "@/lib/estado/bus";
+
 export const CLAVE_HITOS_JOURNEY = "pyme-digital:journey:hitos:v1";
 
 export interface HitosJourney {
@@ -54,6 +56,7 @@ export function guardarHitos(hitos: HitosJourney): HitosJourney {
   } catch (error) {
     console.warn("No se pudieron guardar los hitos del recorrido:", error);
   }
+  notificarCambioEstado();
   return siguiente;
 }
 

@@ -6,6 +6,8 @@
  * usa su propio `empresaId`, por lo que los datos reales quedan separados.
  */
 
+import { notificarCambioEstado } from "@/lib/estado/bus";
+
 import type { ActividadWorkspace, RegistroWorkspaceEmpresa } from "./tipos";
 
 export const CLAVE_WORKSPACE = "pymapa:workspace:v1";
@@ -74,6 +76,7 @@ export function guardarRegistro(registro: RegistroWorkspaceEmpresa): RegistroWor
   } catch (error) {
     console.warn("No se pudo guardar el workspace:", error);
   }
+  notificarCambioEstado();
   return actualizado;
 }
 

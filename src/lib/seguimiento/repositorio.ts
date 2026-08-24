@@ -6,6 +6,8 @@
  * nunca contamina los datos reales.
  */
 
+import { notificarCambioEstado } from "@/lib/estado/bus";
+
 import type { RegistroSeguimientoEmpresa, SeguimientoActividad } from "./tipos";
 
 export const CLAVE_SEGUIMIENTO = "pymapa:seguimiento:v1";
@@ -82,6 +84,7 @@ export function guardarRegistro(
   } catch (error) {
     console.warn("No se pudo guardar el seguimiento:", error);
   }
+  notificarCambioEstado();
   return actualizado;
 }
 

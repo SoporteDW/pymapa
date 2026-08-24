@@ -6,6 +6,8 @@
  * usuario y necesita memoria propia. Aquí se guarda únicamente ese hecho.
  */
 
+import { notificarCambioEstado } from "@/lib/estado/bus";
+
 export const CLAVE_CIERRE_DIAGNOSTICO = "pymapa:diagnostico-cerrado:v1";
 
 export interface CierreDiagnostico {
@@ -51,11 +53,13 @@ export function registrarCierre(diagnosticoId: string | null): CierreDiagnostico
   } catch (error) {
     console.warn("No se pudo registrar el cierre del diagnóstico:", error);
   }
+  notificarCambioEstado();
   return cierre;
 }
 
 export function limpiarCierre(): void {
   store()?.removeItem(CLAVE_CIERRE_DIAGNOSTICO);
+  notificarCambioEstado();
 }
 
 /** Verdadero solo si el cierre corresponde al diagnóstico vigente. */
