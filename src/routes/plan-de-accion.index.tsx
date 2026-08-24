@@ -20,6 +20,7 @@ import { ArrowRight, FilterX } from "lucide-react";
 import { LoadingState } from "@/components/ui/loading-state";
 import { BloqueoEtapa } from "@/components/journey/bloqueo-etapa";
 import { useJourney } from "@/hooks/use-journey";
+import { useWorkspace } from "@/hooks/use-workspace";
 
 export const Route = createFileRoute("/plan-de-accion/")({
   head: () => ({
@@ -42,6 +43,7 @@ export const Route = createFileRoute("/plan-de-accion/")({
 function PlanDeAccionPage() {
   const navigate = useNavigate();
   const { hidratado, bloqueoDe, ejecucion } = useJourney();
+  const { actividades } = useWorkspace();
   const { estado, resultado, errorCodigo, reintentar } = useResultados();
   const { iniciativas } = useIniciativasKb();
   const [filtros, setFiltros] = useState<FiltrosAcciones>(filtrosIniciales);
@@ -61,6 +63,11 @@ function PlanDeAccionPage() {
   };
 
   const bloqueo = bloqueoDe("actuar");
+  const siguienteActividad =
+    actividades.find((a) => a.estado === "requiere_ajustes") ??
+    actividades.find((a) => a.estado === "en_ejecucion") ??
+    actividades.find((a) => a.estado === "pendiente") ??
+    null;
 
   if (!hidratado) return <LoadingState fullPage />;
 
