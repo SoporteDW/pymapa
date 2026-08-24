@@ -161,11 +161,11 @@ function DiagnosticoEntrada() {
                   {cuestionario.resumen.delegadas} pedidas a tu equipo
                 </Badge>
               )}
-              {cuestionario.resumen.siguiente && (
+              {cuestionario.resumen.siguienteId && (
                 <Button variant="outline" size="sm" asChild>
                   <Link
                     to="/diagnostico/paso/$id"
-                    params={{ id: cuestionario.resumen.siguiente.id }}
+                    params={{ id: cuestionario.resumen.siguienteId }}
                   >
                     Retomar una pregunta abierta
                   </Link>
