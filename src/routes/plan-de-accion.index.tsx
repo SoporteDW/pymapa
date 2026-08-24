@@ -92,6 +92,51 @@ function PlanDeAccionPage() {
 
       <EtapaProgreso modulo="plan-de-accion" />
 
+      {/* Macroentrega 5 · Un único CTA principal: qué Actividad trabajar ahora. */}
+      {siguienteActividad ? (
+        <Card className="border-primary/25 bg-primary/5">
+          <CardHeader className="space-y-1.5">
+            <CardDescription>Tu siguiente Actividad</CardDescription>
+            <CardTitle className="text-lg leading-snug">{siguienteActividad.titulo}</CardTitle>
+            <CardDescription>{siguienteActividad.objetivo}</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Button size="lg" asChild>
+              <Link
+                to="/plan-de-accion/workspace/$actividad"
+                params={{ actividad: siguienteActividad.id }}
+              >
+                {siguienteActividad.estado === "pendiente"
+                  ? "Abrir su Ficha de Actividad"
+                  : "Continuar esta Actividad"}
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            </Button>
+          </CardContent>
+        </Card>
+      ) : ejecucion.total > 0 && ejecucion.completo ? (
+        <Card className="border-success/30 bg-success/5">
+          <CardHeader className="space-y-1.5">
+            <CardTitle className="text-lg leading-snug">
+              Tus Actividades iniciales están validadas
+            </CardTitle>
+            <CardDescription>
+              Revisa el cierre de tu Plan de Acción y pasa al seguimiento.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Button size="lg" asChild>
+              <Link to="/plan-de-accion/cierre">
+                Ver cierre de mi Plan de Acción
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            </Button>
+          </CardContent>
+        </Card>
+      ) : null}
+
+
+
 
 
       <ResultState
