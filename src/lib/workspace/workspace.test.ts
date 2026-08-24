@@ -165,6 +165,8 @@ describe("Gate de suficiencia · preliminar vs cerrado", () => {
           porQue: "",
           preguntaIds: [],
           resuelta: false,
+          resueltaPor: null,
+          mecanismoSugerido: "evidencia",
         },
       ],
     });
