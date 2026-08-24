@@ -17,8 +17,11 @@ export type EstadoJourneyDiagnostico =
   | "no_iniciado"
   | "cuestionario_en_curso"
   | "profundizacion_pendiente"
+  /** Toda la profundización solicitada quedó resuelta: solo falta procesar el cierre. */
+  | "profundizacion_completada"
   | "listo_para_cerrar"
   | "diagnostico_final";
+
 
 export interface EntradaEstadoJourney {
   /** Preguntas obligatorias respondidas y total del instrumento. */
