@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { mismoRegistro, useVersionEstado } from "@/lib/estado/bus";
 import { useSesion } from "./use-sesion";
 import { useResultados } from "./use-resultados";
 import { leerRegistro as leerRegistroKB } from "@/lib/kb/repositorio";
@@ -63,11 +64,14 @@ export function useWorkspace(actividadId?: string) {
   );
   const [hidratado, setHidratado] = useState(false);
 
+  const version = useVersionEstado();
+
   useEffect(() => {
     if (!sesionHidratada) return;
-    setRegistro(leerRegistro(empresaId, empresaNombre));
+    const leido = leerRegistro(empresaId, empresaNombre);
+    setRegistro((previo) => (mismoRegistro(previo, leido) ? previo : leido));
     setHidratado(true);
-  }, [sesionHidratada, empresaId, empresaNombre]);
+  }, [sesionHidratada, empresaId, empresaNombre, version]);
 
   /**
    * P0.3 · Causa raíz de la pérdida de checks: cada callback escribía a partir

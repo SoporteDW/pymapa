@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { mismoRegistro, useVersionEstado } from "@/lib/estado/bus";
 
 import { leerEstado } from "@/lib/diagnostico/repositorio";
 import { contarObligatoriasRespondidas } from "@/lib/diagnostico/validacion";
@@ -26,6 +27,7 @@ export function useEstadoDiagnostico() {
   const [diagnosticoId, setDiagnosticoId] = useState<string | null>(null);
   const [cierre, setCierre] = useState<CierreDiagnostico>(cierreVacio);
   const [hidratado, setHidratado] = useState(false);
+  const version = useVersionEstado();
 
   useEffect(() => {
     try {
@@ -37,7 +39,7 @@ export function useEstadoDiagnostico() {
     }
     setCierre(leerCierre());
     setHidratado(true);
-  }, [registro.actualizadoEn]);
+  }, [registro.actualizadoEn, version]);
 
   const necesidades = useMemo(
     () => suficiencia.dominios.flatMap((d) => d.necesidades),
