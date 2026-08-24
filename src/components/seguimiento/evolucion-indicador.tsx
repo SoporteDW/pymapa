@@ -49,10 +49,11 @@ export function EvolucionIndicador({ puntos, indicador }: EvolucionIndicadorProp
                 <XAxis dataKey="etiqueta" tickLine={false} axisLine={false} fontSize={12} />
                 <YAxis tickLine={false} axisLine={false} fontSize={12} />
                 <Tooltip
-                  formatter={(valor: number | null) =>
-                    valor === null ? "pendiente" : `${valor}${indicador.unidad}`
+                  formatter={(valor) =>
+                    typeof valor === "number" ? `${valor}${indicador.unidad}` : "pendiente"
                   }
                 />
+
                 {indicador.meta !== null && (
                   <ReferenceLine
                     y={indicador.meta}
