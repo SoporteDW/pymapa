@@ -33,9 +33,9 @@ describe("Journey Maestro · cuatro etapas", () => {
       seguimientos: [],
     });
     const estados = Object.fromEntries(journey.etapas.map((e) => [e.etapa.id, e.estado]));
-    expect(estados.diagnosticar).toBe("completada");
-    expect(estados.actuar).toBe("en_curso");
-    expect(estados.seguir).toBe("pendiente");
+    expect(estados["diagnosticar"]).toBe("completada");
+    expect(estados["actuar"]).toBe("en_curso");
+    expect(estados["seguir"]).toBe("pendiente");
     expect(journey.activa).toBe("actuar");
     expect(journey.bloqueo("actuar")).toBeNull();
   });
