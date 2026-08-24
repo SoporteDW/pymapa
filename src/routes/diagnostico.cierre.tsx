@@ -42,7 +42,7 @@ function CierrePage() {
     responderAclaracion,
     evidenciaDeSolicitud,
   } = useEvidencias();
-  const { journey } = useEstadoDiagnostico();
+  const { journey, cerrado } = useEstadoDiagnostico();
 
   if (!hidratado) return <LoadingState fullPage />;
 
@@ -131,6 +131,7 @@ function CierrePage() {
                         })
                       }
                       onResponder={responderAclaracion}
+                      soloLectura={cerrado}
                     />
                   ))}
                 </CardContent>
@@ -152,9 +153,17 @@ function CierrePage() {
         <Button variant="outline" asChild>
           <Link to="/diagnostico/revision">Revisar mis respuestas</Link>
         </Button>
+        {cerrado ? (
+          <Button size="lg" asChild>
+            <Link to="/diagnostico/listo">
+              <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
+              Ver mi diagnóstico final
+            </Link>
+          </Button>
+        ) : null}
         {/* Nunca se devuelve al cuestionario: o se continúa la profundización
             o se cierra el diagnóstico (Macroentrega 4.1). */}
-        {journey.profundizacion.pendientes === 0 ? (
+        {!cerrado && journey.profundizacion.pendientes === 0 ? (
           <Button size="lg" asChild>
             {/* Único CTA principal: la etiqueta la decide el estado central. */}
             <Link to="/diagnostico/listo">
@@ -162,7 +171,7 @@ function CierrePage() {
               {journey.siguiente.label}
             </Link>
           </Button>
-        ) : (
+        ) : cerrado ? null : (
           <p className="self-center text-sm text-muted-foreground">
             Te falta confirmar {journey.profundizacion.pendientes}{" "}
             {journey.profundizacion.pendientes === 1 ? "aspecto" : "aspectos"} para poder cerrar tu
