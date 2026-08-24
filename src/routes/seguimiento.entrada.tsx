@@ -113,7 +113,7 @@ function EntradaSeguirPage() {
             <div key={hito.id} className="rounded-[16px] border border-border bg-card p-4">
               <p className="text-sm font-semibold text-foreground">{hito.etiqueta}</p>
               <p className="mt-1 text-xs text-muted-foreground">
-                {hito.solicitudes[0]?.titulo ?? `Revisión prevista: ${hito.fechaPrevista}`}
+                {hito.solicitudes[0]?.texto ?? `Revisión prevista: ${hito.fechaPrevista}`}
               </p>
             </div>
           ))}
