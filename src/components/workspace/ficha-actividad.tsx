@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { PedirAMiEmpresa } from "@/components/colaboracion/pedir-a-mi-empresa";
 import { PedirApoyoExperto } from "@/components/apoyo-humano/pedir-apoyo-experto";
+import { obtenerInstrumento } from "@/lib/instrumentos/catalogo";
 import type { ActividadWorkspace } from "@/lib/workspace/tipos";
 
 /**
@@ -21,7 +22,8 @@ export function FichaActividad({
   actividad: ActividadWorkspace;
   onEmpezar: () => void;
 }) {
-  const pasos = actividad.instrumento.pasos;
+  const instrumento = obtenerInstrumento(actividad.instrumentoId);
+  const pasos = actividad.pasos;
 
   return (
     <div className="space-y-5">
@@ -49,9 +51,12 @@ export function FichaActividad({
           </Seccion>
 
           <Seccion icono={Compass} titulo="Cómo lo trabajaremos">
-            <p className="text-sm text-muted-foreground">{actividad.instrumento.descripcion}</p>
+            <p className="text-sm text-muted-foreground">
+              {instrumento?.metodologia ??
+                "Trabajaremos la actividad paso a paso con un instrumento guiado."}
+            </p>
             <p className="mt-2 text-sm font-medium text-foreground">
-              Instrumento: {actividad.instrumento.nombre}
+              Instrumento: {instrumento?.nombre ?? actividad.instrumentoId}
             </p>
             <ol className="mt-2 space-y-1 text-sm text-muted-foreground">
               {pasos.map((paso) => (
