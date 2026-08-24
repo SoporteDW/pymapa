@@ -9,7 +9,7 @@
 export type ModoDescarga = "real" | "simulada";
 
 export interface Entregable {
-  id: "diagnostico" | "plan-de-accion" | "plan-de-seguimiento";
+  id: "diagnostico" | "plan-de-accion" | "plan-de-seguimiento" | "informe-avance";
   titulo: string;
   proposito: string;
   contenido: string[];
