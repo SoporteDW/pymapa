@@ -10,6 +10,9 @@ import { ProgresoDiagnostico } from "@/components/diagnostico/progreso-diagnosti
 import { IndicadorGuardado } from "@/components/diagnostico/indicador-guardado";
 import { ConfiguracionInvalida } from "@/components/diagnostico/configuracion-invalida";
 import { useDiagnostico } from "@/hooks/use-diagnostico";
+import { useCuestionario } from "@/hooks/use-cuestionario";
+import { PedirAMiEmpresa } from "@/components/colaboracion/pedir-a-mi-empresa";
+import { Badge } from "@/components/ui/badge";
 import {
   indiceDePregunta,
   obtenerDimension,
@@ -18,7 +21,7 @@ import {
 } from "@/lib/diagnostico/definicion";
 import { valorValido } from "@/lib/diagnostico/validacion";
 import { toast } from "sonner";
-import { ArrowLeft, ArrowRight, HelpCircle, SearchX } from "lucide-react";
+import { ArrowLeft, ArrowRight, Clock, HelpCircle, SearchX } from "lucide-react";
 
 export const Route = createFileRoute("/diagnostico/paso/$id")({
   head: () => ({
@@ -55,6 +58,8 @@ function PreguntaDiagnosticoPage() {
     estadoGuardado,
     reintentarGuardado,
   } = useDiagnostico();
+
+  const { alternarAplazamiento, estaAplazada, delegadas } = useCuestionario();
 
   const pregunta = obtenerPregunta(id);
   const indice = indiceDePregunta(id);
@@ -128,6 +133,20 @@ function PreguntaDiagnosticoPage() {
     navigate({ to: "/diagnostico" });
   };
 
+  const handleAplazar = () => {
+    if (!estaAplazada(pregunta.id)) {
+      alternarAplazamiento(pregunta.id);
+      toast.success("Marcamos esta pregunta para volver más tarde.", {
+        description: "No bloquea el resto del diagnóstico: seguimos con la siguiente.",
+      });
+    }
+    if (siguiente) {
+      navigate({ to: "/diagnostico/paso/$id", params: { id: siguiente.id } });
+    } else {
+      navigate({ to: "/diagnostico/revision" });
+    }
+  };
+
   const handleSalir = () => {
     pausar();
     toast.success("Guardamos tu avance en este navegador.", {
@@ -172,11 +191,40 @@ function PreguntaDiagnosticoPage() {
           )}
         </CardHeader>
         <CardContent className="space-y-6">
+          {(estaAplazada(pregunta.id) || delegadas[pregunta.id]) && (
+            <div className="flex flex-wrap items-center gap-2">
+              {estaAplazada(pregunta.id) && (
+                <Badge variant="outline" className="rounded-full">
+                  <Clock className="size-3" aria-hidden="true" />
+                  Marcada para responder más tarde
+                </Badge>
+              )}
+              {delegadas[pregunta.id] && (
+                <Badge variant="secondary" className="rounded-full">
+                  Pedida a {delegadas[pregunta.id]}
+                </Badge>
+              )}
+            </div>
+          )}
+
           <CampoPregunta
             pregunta={pregunta}
             valor={valor}
             onChange={(nuevo) => responder(pregunta.id, nuevo)}
           />
+
+          {/* Macroentrega 5 · Interrumpir sin abandonar: aplazar o pedir el dato a otra persona. */}
+          <div className="flex flex-wrap items-center gap-2 border-t border-border pt-4">
+            <Button variant="ghost" size="sm" onClick={handleAplazar}>
+              <Clock className="size-4" aria-hidden="true" />
+              No lo sé ahora
+            </Button>
+            <PedirAMiEmpresa
+              origen={{ tipo: "pregunta", referenciaId: pregunta.id, titulo: pregunta.texto }}
+              tareaSugerida={`Necesitamos este dato: ${pregunta.texto}`}
+              label="Pedir este dato a mi equipo"
+            />
+          </div>
 
           <div className="hidden flex-col gap-2 sm:flex sm:flex-row sm:items-center sm:justify-between">
 
