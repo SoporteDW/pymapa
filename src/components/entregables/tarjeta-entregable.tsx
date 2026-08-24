@@ -67,7 +67,6 @@ export function TarjetaEntregable({ entregable, etiqueta }: Props) {
               download={entregable.nombreArchivo}
               type="application/pdf"
               rel="noopener"
-              target="_blank"
             >
               <Download className="size-4" aria-hidden="true" />
               {etiqueta ?? `Descargar ${entregable.titulo}`}
