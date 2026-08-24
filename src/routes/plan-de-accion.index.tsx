@@ -145,8 +145,8 @@ function PlanDeAccionPage() {
 
             {acciones.length === 0 ? (
               <EmptyState
-                title="Ninguna ficha coincide con los filtros"
-                description="Ajusta los filtros para ver otras fichas de acción disponibles."
+                title="Ninguna Actividad coincide con los filtros"
+                description="Ajusta los filtros para ver otras Actividades disponibles."
                 icon={FilterX}
                 actionLabel="Restablecer filtros"
                 onAction={() => cambiarFiltros(filtrosIniciales)}
