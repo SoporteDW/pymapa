@@ -7,6 +7,7 @@ import { useDelegacion } from "./use-delegacion";
 import { useApoyoHumano } from "./use-apoyo-humano";
 import { useHitosJourney } from "./use-hitos-journey";
 import { useJourney } from "./use-journey";
+import { useActuar } from "./use-actuar";
 import {
   pendientesDelRecorrido,
   siguientePasoOrquestado,
@@ -26,6 +27,8 @@ export function useSiguientePaso() {
   const { hitos } = useHitosJourney();
   // Etapa activa: fuente única del Journey. El Home solo ofrece trabajo de ella.
   const { activa } = useJourney();
+  // Estado del Plan proyectado desde el Workspace (fuente única de ejecución).
+  const { plan } = useActuar();
 
   const contexto = useMemo(
     () => ({
@@ -42,6 +45,12 @@ export function useSiguientePaso() {
         cierrePlan: hitos.cierrePlan,
         entradaSeguir: hitos.entradaSeguir,
       },
+      plan: {
+        construido: plan.construido,
+        total: plan.total,
+        validadas: plan.validadas,
+        cerrado: plan.cerrado,
+      },
     }),
     [
       sesion,
@@ -55,6 +64,7 @@ export function useSiguientePaso() {
       hitos.entradaActuar,
       hitos.cierrePlan,
       hitos.entradaSeguir,
+      plan,
     ]
   );
 

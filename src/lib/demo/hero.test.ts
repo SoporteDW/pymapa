@@ -57,7 +57,7 @@ import {
   siguientePasoOrquestado,
   type ContextoRecorrido,
 } from "@/lib/siguiente-paso/orquestador";
-import { estadoUnificado } from "@/lib/sincronizacion/estado-actividad";
+import { avanceDesdeEjecucion, estadoUnificado } from "@/lib/sincronizacion/estado-actividad";
 import { sesionDemo, crearSesionVacia } from "@/data/mocks/sesion";
 import type { SeguimientoActividad } from "@/lib/seguimiento/tipos";
 
@@ -136,40 +136,20 @@ describe("Deuda 0.1 · entregable → evidencia", () => {
   });
 });
 
-describe("Deuda 0.2 · sincronización Workspace / Plan / Roadmap", () => {
-  const roadmapBase = {
-    id: "rm-1",
-    diagnosisId: "diag-1",
-    empresaId: EMPRESA.empresaId,
-    fechaCreacion: new Date().toISOString(),
-    fechaActualizacion: new Date().toISOString(),
-    acciones: [
-      {
-        id: "acc-1",
-        fichaAccionId: plantillaValidada.id,
-        estado: "PENDIENTE" as const,
-        avance: 0,
-        actualizadaEn: new Date().toISOString(),
-      },
-    ],
-    historial: [],
-  };
-
-  it("proyecta la validación del Workspace sobre el Roadmap", () => {
-    const { actividad } = actividadValidada();
-    // @ts-expect-error roadmap mínimo suficiente para la proyección de estado
-    const { roadmap, cambios } = sincronizarRoadmapConWorkspace(roadmapBase, [actividad]);
-    expect(cambios).toHaveLength(1);
-    expect(roadmap.acciones[0]!.estado).toBe("COMPLETADA");
-    expect(roadmap.acciones[0]!.avance).toBe(100);
-  });
-
-  it("no permite estados contradictorios entre Plan y Workspace", () => {
+describe("Actuar · proyección Workspace → Roadmap", () => {
+  it("proyecta la validación del Workspace sobre la acción del Roadmap", () => {
     const { actividad } = actividadValidada();
     expect(estadoUnificado("PENDIENTE", actividad)).toBe("COMPLETADA");
+    expect(avanceDesdeEjecucion(actividad.estado)).toBe(100);
+  });
+
+  it("respeta las decisiones del usuario que la ejecución no debe pisar", () => {
+    const { actividad } = actividadValidada();
     expect(estadoUnificado("DESCARTADA", actividad)).toBe("DESCARTADA");
+    expect(estadoUnificado("BLOQUEADA", actividad)).toBe("BLOQUEADA");
   });
 });
+
 
 describe("B7 · seguimiento de una actividad validada", () => {
   it("solo abre seguimiento cuando la actividad está validada", () => {

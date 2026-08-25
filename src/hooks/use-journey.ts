@@ -4,6 +4,7 @@ import { useSesion } from "./use-sesion";
 import { useEstadoDiagnostico } from "./use-estado-diagnostico";
 import { useActuar } from "./use-actuar";
 import { useSeguimiento } from "./use-seguimiento";
+import { useHitosJourney } from "./use-hitos-journey";
 import { journeyMaestro, type EtapaJourneyId } from "@/lib/journey/etapas";
 
 /**
@@ -19,6 +20,7 @@ export function useJourney() {
   const diagnostico = useEstadoDiagnostico();
   const actuar = useActuar();
   const seguimiento = useSeguimiento();
+  const { hitos } = useHitosJourney();
 
   const journey = useMemo(
     () =>
@@ -32,6 +34,7 @@ export function useJourney() {
           validadas: actuar.plan.validadas,
           cerrado: actuar.plan.cerrado,
         },
+        cierrePlanConfirmado: hitos.cierrePlan,
         seguimientos: seguimiento.seguimientos.map((s) => ({
           cerrado: s.estado === "cerrado",
           conMedicion: s.hitos.some((h) => h.medicion !== null),
@@ -42,6 +45,7 @@ export function useJourney() {
       sesion.empresa.nombre,
       diagnostico.journey.estado,
       actuar.plan,
+      hitos.cierrePlan,
       seguimiento.seguimientos,
     ]
   );

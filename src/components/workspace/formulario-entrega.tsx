@@ -9,6 +9,7 @@ import type { ActividadWorkspace, BorradorEntrega } from "@/lib/workspace/tipos"
 import { etiquetaEvidencia, exigeArchivo } from "@/lib/workspace/evidencia";
 import {
   puedeEnviarseARevision,
+  requisitosBloqueantesPendientes,
   requisitosDeActividad,
   requisitosPendientes,
 } from "@/lib/workspace/requisitos";
@@ -45,6 +46,7 @@ export function FormularioEntrega({ actividad, borrador, onCambiarBorrador, onEn
    */
   const requisitos = requisitosDeActividad(actividad, borrador);
   const pendientes = requisitosPendientes(requisitos);
+  const bloqueantes = requisitosBloqueantesPendientes(requisitos);
   const puedeEnviar = puedeEnviarseARevision(requisitos);
 
   const alternar = (criterio: string, marcado: boolean) => {
@@ -191,6 +193,12 @@ export function FormularioEntrega({ actividad, borrador, onCambiarBorrador, onEn
             No hay requisitos adicionales: esta es la lista completa. Pedir colaboración interna o
             apoyo experto son ayudas disponibles, nunca condiciones para cerrar la Actividad.
           </p>
+          {pendientes.length > 0 && bloqueantes.length === 0 && (
+            <p className="text-xs font-medium text-foreground">
+              Puedes enviarla ahora, pero con {pendientes.length} punto(s) sin cumplir la revisión
+              te la devolverá con esos ajustes en lugar de validarla.
+            </p>
+          )}
         </div>
 
         <Button
@@ -202,7 +210,8 @@ export function FormularioEntrega({ actividad, borrador, onCambiarBorrador, onEn
         </Button>
         {!puedeEnviar && (
           <p className="text-xs text-muted-foreground">
-            Falta {pendientes.length} requisito(s) de la lista anterior para poder enviar a revisión.
+            Falta {bloqueantes.length} requisito(s) mínimo(s) de la lista anterior para poder
+            enviar a revisión.
           </p>
         )}
       </CardContent>

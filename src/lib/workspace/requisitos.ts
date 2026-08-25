@@ -29,6 +29,12 @@ export interface RequisitoEntrega {
   /** Cómo se comprueba en esta versión del demo. */
   detalle: string;
   cumplido: boolean;
+  /**
+   * true cuando el requisito impide siquiera enviar la entrega (mínimos de
+   * forma). Los requisitos de fondo (criterios del entregable, checklist) NO
+   * bloquean el envío: si faltan, la revisión los devuelve como ajustes.
+   */
+  bloqueante: boolean;
   /** Texto exacto que la revisión devolverá si el requisito sigue sin cumplirse. */
   ajuste: string;
 }
@@ -52,6 +58,7 @@ export function requisitosDeEntrega(entrada: EntradaRequisitos): RequisitoEntreg
     titulo: criterio,
     detalle: "Márcalo cuando puedas afirmar que quedó hecho en tu empresa.",
     cumplido: entrada.criteriosDeclarados.includes(criterio),
+    bloqueante: false,
     ajuste: `Completar y documentar: ${criterio.replace(/\.$/, "")}.`,
   }));
 
@@ -66,6 +73,7 @@ export function requisitosDeEntrega(entrada: EntradaRequisitos): RequisitoEntreg
           ? `Quedan ${sinRevisar.length} verificación(es) sin revisar.`
           : "Todas las verificaciones tienen un resultado registrado.",
       cumplido: sinRevisar.length === 0,
+      bloqueante: false,
       ajuste: `Marcar el resultado de ${sinRevisar.length} verificación(es) del checklist que quedaron sin revisar.`,
     });
   }
@@ -76,6 +84,7 @@ export function requisitosDeEntrega(entrada: EntradaRequisitos): RequisitoEntreg
     titulo: "Describir qué se hizo en la nota de entrega",
     detalle: `Al menos ${MINIMO_NOTA_ENTREGA} caracteres: qué se hizo, quién participó y qué resultado obtuvieron.`,
     cumplido: entrada.nota.trim().length >= MINIMO_NOTA_ENTREGA,
+    bloqueante: true,
     ajuste:
       "Describir en la nota de entrega qué se hizo, quién participó y qué resultado se obtuvo.",
   });
@@ -87,6 +96,7 @@ export function requisitosDeEntrega(entrada: EntradaRequisitos): RequisitoEntreg
       titulo: "Adjuntar el documento requerido por este entregable",
       detalle: "Este entregable es, por su naturaleza, un documento o una captura.",
       cumplido: entrada.archivos.length > 0,
+      bloqueante: true,
       ajuste: "Adjuntar el documento requerido por este entregable.",
     });
   }
@@ -113,6 +123,18 @@ export function requisitosPendientes(requisitos: RequisitoEntrega[]): RequisitoE
   return requisitos.filter((r) => !r.cumplido);
 }
 
+/** Requisitos mínimos de forma que impiden enviar la entrega a revisión. */
+export function requisitosBloqueantesPendientes(
+  requisitos: RequisitoEntrega[]
+): RequisitoEntrega[] {
+  return requisitos.filter((r) => !r.cumplido && r.bloqueante);
+}
+
 export function puedeEnviarseARevision(requisitos: RequisitoEntrega[]): boolean {
+  return requisitosBloqueantesPendientes(requisitos).length === 0;
+}
+
+/** true cuando la entrega cumple todo y la revisión podrá validar la Actividad. */
+export function puedeValidarse(requisitos: RequisitoEntrega[]): boolean {
   return requisitosPendientes(requisitos).length === 0;
 }

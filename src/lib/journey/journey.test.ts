@@ -73,12 +73,27 @@ describe("Journey Maestro · cuatro etapas", () => {
       perfilCompletado: true,
       estadoDiagnostico: "diagnostico_final",
       plan: plan(["validado", "validado"]),
+      cierrePlanConfirmado: true,
       seguimientos: [{ cerrado: false, conMedicion: true }],
     });
     const estados = Object.fromEntries(journey.etapas.map((e) => [e.etapa.id, e.estado]));
     expect(estados["actuar"]).toBe("completada");
     expect(journey.bloqueo("seguir")).toBeNull();
     expect(estados["seguir"]).toBe("en_curso");
+  });
+
+  it("no completa Actuar hasta que el usuario confirma el cierre del Plan", () => {
+    const journey = journeyMaestro({
+      perfilCompletado: true,
+      estadoDiagnostico: "diagnostico_final",
+      plan: plan(["validado", "validado"]),
+      seguimientos: [],
+    });
+    const estados = Object.fromEntries(journey.etapas.map((e) => [e.etapa.id, e.estado]));
+    expect(estados["actuar"]).toBe("en_curso");
+    expect(journey.activa).toBe("actuar");
+    // Seguir ya está desbloqueada: la ejecución terminó, falta vivir el cierre.
+    expect(journey.bloqueo("seguir")).toBeNull();
   });
 
   it("bloquea Diagnosticar sin perfil de empresa", () => {
