@@ -217,7 +217,9 @@ export function pendientesDelRecorrido(
 
   // Macroentrega 5 · Del diagnóstico a actividades concretas: transición
   // pedagógica antes de mostrar la lista de Actividades.
-  if (ctx.diagnosticoCerrado === true && !hitos.entradaActuar) {
+  // Si el usuario ya empezó a ejecutar, la transición pedagógica sobra.
+  const ejecucionIniciada = ctx.actividades.some((a) => a.estado !== "pendiente");
+  if (ctx.diagnosticoCerrado === true && !hitos.entradaActuar && !ejecucionIniciada) {
     pasos.push({
       tipo: "conocer_plan",
       etapa: "actuar",
