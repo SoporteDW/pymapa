@@ -86,6 +86,21 @@ function WorkspacePage() {
     );
   }
 
+  // Ajustes de la última revisión: siguen visibles después de "Retomar", que es
+  // lo que permite corregir y reenviar sin perder el detalle de lo pedido.
+  const ultimaRevision = actividad.historial.at(-1)?.revision ?? null;
+  const ajustesPendientes =
+    ultimaRevision && ultimaRevision.veredicto === "requiere_ajustes"
+      ? ultimaRevision.ajustesSolicitados
+      : [];
+
+  const retomarActividad = () => {
+    retomar(actividad.id);
+    toast.info("Actividad retomada", {
+      description: "Corrige los ajustes solicitados y vuelve a enviarla a revisión.",
+    });
+  };
+
   const esDemo = actividad.origen.tipo === "escenario_demo";
   const origenTransversal = {
     tipo: "actividad" as const,
@@ -159,14 +174,40 @@ function WorkspacePage() {
               </p>
             )}
           </div>
-          {actividad.estado === "requiere_ajustes" && (
-            <Button variant="outline" onClick={() => retomar(actividad.id)}>
-              <RotateCcw className="h-4 w-4" aria-hidden="true" />
-              Retomar para hacer los ajustes
-            </Button>
-          )}
         </CardContent>
       </Card>
+
+      {ajustesPendientes.length > 0 && (
+        <Card className="border-warning/40 bg-warning/5">
+          <CardHeader className="space-y-1.5">
+            <CardTitle className="text-base">Qué pidió corregir la revisión</CardTitle>
+            <CardDescription>
+              {actividad.estado === "requiere_ajustes"
+                ? "Retoma la Actividad para corregir estos puntos y volver a enviarla."
+                : "Estás corrigiendo estos puntos. Cuando queden resueltos, vuelve a enviar a revisión."}
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            <ul className="space-y-2 text-sm text-foreground">
+              {ajustesPendientes.map((ajuste) => (
+                <li key={ajuste} className="flex gap-2">
+                  <span
+                    className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-warning"
+                    aria-hidden="true"
+                  />
+                  {ajuste}
+                </li>
+              ))}
+            </ul>
+            {actividad.estado === "requiere_ajustes" && (
+              <Button onClick={retomarActividad}>
+                <RotateCcw className="h-4 w-4" aria-hidden="true" />
+                Retomar actividad y corregir
+              </Button>
+            )}
+          </CardContent>
+        </Card>
+      )}
 
       <Card>
         <CardHeader className="pb-3">
@@ -262,12 +303,7 @@ function WorkspacePage() {
                 : "Volver al Plan de Acción"}
             </Link>
           </Button>
-          {actividad.estado === "requiere_ajustes" && (
-            <Button variant="outline" onClick={() => retomar(actividad.id)}>
-              <RotateCcw className="h-4 w-4" aria-hidden="true" />
-              Retomar para hacer los ajustes
-            </Button>
-          )}
+
         </CardContent>
       </Card>
 

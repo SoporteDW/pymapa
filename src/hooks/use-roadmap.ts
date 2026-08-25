@@ -1,6 +1,12 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { registrarEvento, type EventoInteraccion } from "@/lib/analytics";
 import { useResultados } from "@/hooks/use-resultados";
+import { useWorkspace } from "@/hooks/use-workspace";
+import {
+  actividadDeAccion,
+  avanceDesdeEjecucion,
+  estadoUnificado,
+} from "@/lib/sincronizacion/estado-actividad";
 import { alertasDelRoadmap } from "@/lib/roadmap/alertas";
 import { proximaAccion, resumirRoadmap } from "@/lib/roadmap/avance";
 import { construirCronograma } from "@/lib/roadmap/cronograma";
@@ -60,7 +66,28 @@ export function useRoadmap() {
     escenarios,
     aplicarEscenario,
   } = useResultados();
-  const [roadmap, setRoadmap] = useState<Roadmap | null>(null);
+  const { actividades } = useWorkspace();
+  const [roadmapBase, setRoadmap] = useState<Roadmap | null>(null);
+
+  /**
+   * Workspace es la única fuente de verdad de la ejecución: el Roadmap NO
+   * guarda un estado propio que compita con ella, lo proyecta al leerlo.
+   */
+  const roadmap = useMemo<Roadmap | null>(() => {
+    if (!roadmapBase) return null;
+    return {
+      ...roadmapBase,
+      acciones: roadmapBase.acciones.map((accion) => {
+        const actividad = actividadDeAccion(actividades, accion) ?? null;
+        if (!actividad) return accion;
+        return {
+          ...accion,
+          estado: estadoUnificado(accion.estado, actividad),
+          avance: Math.max(accion.avance, avanceDesdeEjecucion(actividad.estado)),
+        };
+      }),
+    };
+  }, [roadmapBase, actividades]);
   const [estado, setEstado] = useState<EstadoRoadmap>("cargando");
   const [mensaje, setMensaje] = useState<MensajeRoadmap | null>(null);
   const [filtros, setFiltros] = useState<FiltrosRoadmap>(filtrosRoadmapIniciales);

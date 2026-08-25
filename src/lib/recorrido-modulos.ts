@@ -27,8 +27,14 @@ export interface ModuloRecorrido {
   etapa: EtapaJourneyId;
 }
 
-/** Secuencia oficial: Perfil → Diagnóstico → Resultados → Plan → Roadmap → Indicadores. */
-export const secuenciaRecorrido: ModuloRecorrido[] = [
+/**
+ * Catálogo de módulos, incluida la vista Roadmap.
+ *
+ * El Roadmap NO forma parte de la secuencia del recorrido: es una vista
+ * temporal/organizativa subordinada a Etapa 3 · Actuar. Se conserva en el
+ * catálogo para poder describirlo y enlazarlo, no para exigirlo como paso.
+ */
+export const catalogoModulos: ModuloRecorrido[] = [
   {
     id: "perfil",
     numero: 1,
@@ -58,31 +64,38 @@ export const secuenciaRecorrido: ModuloRecorrido[] = [
     numero: 4,
     label: "Plan de Acción",
     ruta: "/plan-de-accion",
-    descripcion: "Revisa las fichas de acción priorizadas.",
-    etapa: "actuar",
-  },
-  {
-    id: "roadmap",
-    numero: 5,
-    label: "Roadmap",
-    ruta: "/roadmap",
-    descripcion: "Organiza y ejecuta tus acciones por fases.",
+    descripcion: "Ejecuta y valida tus Actividades, una a la vez.",
     etapa: "actuar",
   },
   {
     id: "indicadores",
-    numero: 6,
+    numero: 5,
     label: "Indicadores",
     ruta: "/dashboard",
     descripcion: "Sigue tu avance y define el siguiente movimiento.",
     etapa: "seguir",
   },
+  {
+    id: "roadmap",
+    // Vista de consulta: sin número propio dentro de la secuencia.
+    numero: 4,
+    label: "Roadmap",
+    ruta: "/roadmap",
+    descripcion: "Vista en el tiempo de las mismas Actividades de tu Plan.",
+    etapa: "actuar",
+  },
 ];
+
+/** Secuencia oficial: Perfil → Diagnóstico → Resultados → Plan → Indicadores. */
+export const secuenciaRecorrido: ModuloRecorrido[] = catalogoModulos.filter(
+  (m) => m.id !== "roadmap"
+);
 
 /** Módulos funcionales que componen cada etapa conceptual. */
 export function modulosDeEtapa(etapa: EtapaJourneyId): ModuloRecorrido[] {
   return secuenciaRecorrido.filter((m) => m.etapa === etapa);
 }
+
 
 export function etapaDeModulo(id: ModuloId): EtapaJourneyId {
   return moduloPorId(id).etapa;
@@ -148,7 +161,13 @@ export function avanceModulos(
    * módulo Diagnóstico no puede marcar 100% mientras haya profundización
    * pendiente, aunque el cuestionario esté completo.
    */
-  journeyDiagnostico?: { porcentajeModulo: number }
+  journeyDiagnostico?: { porcentajeModulo: number },
+  /**
+   * Ejecución real de la Etapa 3 proyectada desde el Workspace
+   * (`lib/actuar/plan.ts`). Sin este dato el Plan nunca puede pasar de
+   * "construido" (50%): tener Actividades no es haberlas ejecutado.
+   */
+  actuar?: { total: number; validadas: number; enCurso: number; cerrado: boolean }
 ): Record<ModuloId, AvanceModulo> {
   const perfil = porcentajePerfil(sesion);
   const diagnostico = journeyDiagnostico
@@ -162,20 +181,32 @@ export function avanceModulos(
         ? 50
         : 0;
 
-  const total = sesion.acciones.length;
-  const iniciadas = sesion.acciones.filter((a) => a.estado !== "pendiente").length;
-  const completadas = sesion.acciones.filter((a) => a.estado === "completada").length;
-  const enProgreso = sesion.acciones.filter((a) => a.estado === "en_progreso").length;
+  const construido = (actuar?.total ?? sesion.acciones.length) > 0;
 
-  // Plan de acción: se considera completo cuando el plan existe con sus fichas.
-  const plan = total > 0 ? 100 : resultados >= 100 ? 50 : 0;
+  /**
+   * Plan de Acción: la existencia de Actividades solo significa "construido".
+   * El 100% exige el cierre real del Plan (todas las Actividades validadas).
+   */
+  const plan = !construido
+    ? resultados >= 100
+      ? 25
+      : 0
+    : actuar
+      ? actuar.cerrado
+        ? 100
+        : Math.min(
+            99,
+            acotar(
+              40 + ((actuar.validadas + actuar.enCurso * 0.5) / Math.max(1, actuar.total)) * 59
+            )
+          )
+      : 40;
 
-  // Roadmap: ejecución real de las acciones del plan.
-  const roadmap =
-    total === 0 ? 0 : acotar(((completadas + enProgreso * 0.5) / total) * 100);
+  // Roadmap: vista subordinada; refleja exactamente el avance del Plan.
+  const roadmap = plan;
 
-  // Indicadores: seguimiento; se completa cuando toda la ejecución terminó.
-  const indicadores = total === 0 ? 0 : roadmap >= 100 ? 100 : iniciadas > 0 ? 50 : 0;
+  // Indicadores: seguimiento; solo tras el cierre real del Plan.
+  const indicadores = plan >= 100 ? (sesion.acciones.length > 0 ? 50 : 50) : 0;
 
   const valores: Record<ModuloId, number> = {
     perfil,
@@ -211,16 +242,22 @@ export function estadoRecorrido(sesion: SesionMVP): EstadoModulo {
 
 
 export function moduloPorId(id: ModuloId): ModuloRecorrido {
-  return secuenciaRecorrido.find((m) => m.id === id)!;
+  return catalogoModulos.find((m) => m.id === id)!;
+}
+
+
+/** El Roadmap es una vista del Plan: comparte su lugar en la secuencia. */
+function idEnSecuencia(id: ModuloId): ModuloId {
+  return id === "roadmap" ? "plan-de-accion" : id;
 }
 
 export function moduloAnterior(id: ModuloId): ModuloRecorrido | null {
-  const indice = secuenciaRecorrido.findIndex((m) => m.id === id);
+  const indice = secuenciaRecorrido.findIndex((m) => m.id === idEnSecuencia(id));
   return indice > 0 ? (secuenciaRecorrido[indice - 1] ?? null) : null;
 }
 
 export function moduloSiguiente(id: ModuloId): ModuloRecorrido | null {
-  const indice = secuenciaRecorrido.findIndex((m) => m.id === id);
+  const indice = secuenciaRecorrido.findIndex((m) => m.id === idEnSecuencia(id));
   return indice >= 0 && indice < secuenciaRecorrido.length - 1
     ? (secuenciaRecorrido[indice + 1] ?? null)
     : null;

@@ -1,16 +1,31 @@
 import { describe, expect, it } from "vitest";
 
 import { journeyMaestro, resumenEjecucion } from "./etapas";
+import { estadoPlanActuar } from "@/lib/actuar/plan";
 import { resumenCuestionario } from "@/lib/diagnostico/pendientes";
 import { sugerenciasAsistente, zonaDesdeRuta, type ContextoAsistente } from "@/lib/asistente/guion";
 import { totalPreguntasObligatorias } from "@/lib/diagnostico/definicion";
+
+/** Plan proyectado desde el Workspace, tal como lo produce `lib/actuar/plan.ts`. */
+function plan(estados: ("pendiente" | "en_ejecucion" | "entregado" | "requiere_ajustes" | "validado")[]) {
+  const derivado = estadoPlanActuar({
+    actividadesDelPlan: estados.map((_, i) => `AC-${i + 1}`),
+    ejecucion: estados.map((estado, i) => ({ id: `AC-${i + 1}`, estado })),
+  });
+  return {
+    construido: derivado.construido,
+    total: derivado.total,
+    validadas: derivado.validadas,
+    cerrado: derivado.cerrado,
+  };
+}
 
 describe("Journey Maestro · cuatro etapas", () => {
   it("bloquea Actuar y Seguir mientras el diagnóstico no se cierra formalmente", () => {
     const journey = journeyMaestro({
       perfilCompletado: true,
       estadoDiagnostico: "profundizacion_pendiente",
-      actividades: [],
+      plan: plan([]),
       seguimientos: [],
     });
     const estados = Object.fromEntries(journey.etapas.map((e) => [e.etapa.id, e.estado]));
@@ -29,7 +44,7 @@ describe("Journey Maestro · cuatro etapas", () => {
     const journey = journeyMaestro({
       perfilCompletado: true,
       estadoDiagnostico: "diagnostico_final",
-      actividades: ["en_ejecucion", "pendiente"],
+      plan: plan(["en_ejecucion", "pendiente"]),
       seguimientos: [],
     });
     const estados = Object.fromEntries(journey.etapas.map((e) => [e.etapa.id, e.estado]));
@@ -40,23 +55,37 @@ describe("Journey Maestro · cuatro etapas", () => {
     expect(journey.bloqueo("actuar")).toBeNull();
   });
 
-  it("habilita Seguir cuando hay al menos una actividad validada", () => {
+  it("NO completa Actuar ni habilita Seguir con una sola Actividad validada", () => {
     const journey = journeyMaestro({
       perfilCompletado: true,
       estadoDiagnostico: "diagnostico_final",
-      actividades: ["validado", "en_ejecucion"],
+      plan: plan(["validado", "en_ejecucion"]),
+      seguimientos: [],
+    });
+    const estados = Object.fromEntries(journey.etapas.map((e) => [e.etapa.id, e.estado]));
+    expect(estados["actuar"]).toBe("en_curso");
+    expect(estados["seguir"]).toBe("pendiente");
+    expect(journey.bloqueo("seguir")).not.toBeNull();
+  });
+
+  it("habilita Seguir solo con el cierre real del Plan (todas validadas)", () => {
+    const journey = journeyMaestro({
+      perfilCompletado: true,
+      estadoDiagnostico: "diagnostico_final",
+      plan: plan(["validado", "validado"]),
       seguimientos: [{ cerrado: false, conMedicion: true }],
     });
+    const estados = Object.fromEntries(journey.etapas.map((e) => [e.etapa.id, e.estado]));
+    expect(estados["actuar"]).toBe("completada");
     expect(journey.bloqueo("seguir")).toBeNull();
-    const seguir = journey.etapas.find((e) => e.etapa.id === "seguir")!;
-    expect(seguir.estado).toBe("en_curso");
+    expect(estados["seguir"]).toBe("en_curso");
   });
 
   it("bloquea Diagnosticar sin perfil de empresa", () => {
     const journey = journeyMaestro({
       perfilCompletado: false,
       estadoDiagnostico: "no_iniciado",
-      actividades: [],
+      plan: plan([]),
       seguimientos: [],
     });
     expect(journey.activa).toBe("preparar");
@@ -71,6 +100,7 @@ describe("Journey Maestro · cuatro etapas", () => {
     expect(resumenEjecucion(["validado"]).completo).toBe(true);
   });
 });
+
 
 describe("Cuestionario interrumpible", () => {
   const idsObligatorios = resumenCuestionario({

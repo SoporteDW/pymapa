@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect } from "react";
 import { ArrowRight, Bell, CalendarClock, LineChart, MessageCircle } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -43,9 +42,9 @@ function EntradaSeguirPage() {
   const bloqueo = bloqueoDe("seguir");
   const entregable = entregablePorId("plan-de-seguimiento");
 
-  useEffect(() => {
-    if (hidratado && !bloqueo) marcar("entradaSeguir");
-  }, [hidratado, bloqueo, marcar]);
+  // El hito responde a la decisión del usuario de entrar al seguimiento,
+  // nunca al montaje de la página ni al acceso directo por URL.
+  const entrarASeguir = () => marcar("entradaSeguir");
 
   if (!hidratado) return <LoadingState fullPage />;
 
@@ -87,7 +86,7 @@ function EntradaSeguirPage() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <Button size="lg" asChild>
+          <Button size="lg" asChild onClick={entrarASeguir}>
             <Link to="/seguimiento">
               Ver mi Plan de Seguimiento
               <ArrowRight className="size-4" aria-hidden="true" />

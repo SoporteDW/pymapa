@@ -57,7 +57,7 @@ import {
   siguientePasoOrquestado,
   type ContextoRecorrido,
 } from "@/lib/siguiente-paso/orquestador";
-import { sincronizarRoadmapConWorkspace, estadoUnificado } from "@/lib/sincronizacion/estado-actividad";
+import { estadoUnificado } from "@/lib/sincronizacion/estado-actividad";
 import { sesionDemo, crearSesionVacia } from "@/data/mocks/sesion";
 import type { SeguimientoActividad } from "@/lib/seguimiento/tipos";
 

@@ -7,7 +7,12 @@ import { Badge } from "@/components/ui/badge";
 import type { ArchivoEvidencia } from "@/lib/evidencias/tipos";
 import type { ActividadWorkspace, BorradorEntrega } from "@/lib/workspace/tipos";
 import { etiquetaEvidencia, exigeArchivo } from "@/lib/workspace/evidencia";
-import { FileUp, Paperclip, Send, X } from "lucide-react";
+import {
+  puedeEnviarseARevision,
+  requisitosDeActividad,
+  requisitosPendientes,
+} from "@/lib/workspace/requisitos";
+import { Check, CircleDashed, FileUp, Paperclip, Send, X } from "lucide-react";
 
 interface Props {
   actividad: ActividadWorkspace;
@@ -33,7 +38,14 @@ export function FormularioEntrega({ actividad, borrador, onCambiarBorrador, onEn
   const { nota, criteriosDeclarados: criterios, archivos } = borrador;
 
   const archivoObligatorio = exigeArchivo(actividad.entregable);
-  const faltaArchivo = archivoObligatorio && archivos.length === 0;
+
+  /**
+   * Requisitos VISIBLES: exactamente la misma lista que usará la revisión, de
+   * modo que no puede existir un requisito oculto que bloquee la validación.
+   */
+  const requisitos = requisitosDeActividad(actividad, borrador);
+  const pendientes = requisitosPendientes(requisitos);
+  const puedeEnviar = puedeEnviarseARevision(requisitos);
 
   const alternar = (criterio: string, marcado: boolean) => {
     onCambiarBorrador({
@@ -149,16 +161,48 @@ export function FormularioEntrega({ actividad, borrador, onCambiarBorrador, onEn
           </p>
         </div>
 
+        <div className="space-y-2 rounded-[14px] border border-border bg-muted/40 p-3">
+          <p className="text-sm font-semibold text-foreground">
+            Todo lo que la revisión va a comprobar
+          </p>
+          <ul className="space-y-1.5">
+            {requisitos.map((requisito) => (
+              <li key={requisito.id} className="flex items-start gap-2 text-sm">
+                {requisito.cumplido ? (
+                  <Check className="mt-0.5 size-4 shrink-0 text-success" aria-hidden="true" />
+                ) : (
+                  <CircleDashed
+                    className="mt-0.5 size-4 shrink-0 text-muted-foreground"
+                    aria-hidden="true"
+                  />
+                )}
+                <span
+                  className={
+                    requisito.cumplido ? "text-muted-foreground" : "text-foreground"
+                  }
+                >
+                  {requisito.titulo}
+                  <span className="block text-xs text-muted-foreground">{requisito.detalle}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+          <p className="text-xs text-muted-foreground">
+            No hay requisitos adicionales: esta es la lista completa. Pedir colaboración interna o
+            apoyo experto son ayudas disponibles, nunca condiciones para cerrar la Actividad.
+          </p>
+        </div>
+
         <Button
-          disabled={faltaArchivo}
+          disabled={!puedeEnviar}
           onClick={() => onEntregar({ nota, criteriosDeclarados: criterios, archivos })}
         >
           <Send className="h-4 w-4" aria-hidden="true" />
           Enviar a revisión
         </Button>
-        {faltaArchivo && (
+        {!puedeEnviar && (
           <p className="text-xs text-muted-foreground">
-            Falta el documento requerido por este entregable para poder enviarlo a revisión.
+            Falta {pendientes.length} requisito(s) de la lista anterior para poder enviar a revisión.
           </p>
         )}
       </CardContent>
