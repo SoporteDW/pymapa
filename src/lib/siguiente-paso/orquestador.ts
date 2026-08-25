@@ -59,6 +59,12 @@ export interface ContextoRecorrido {
   diagnosticoCerrado?: boolean;
   /** Transiciones narrativas que el usuario ya vivió (Macroentrega 5). */
   hitos?: { entradaActuar: boolean; cierrePlan: boolean; entradaSeguir: boolean };
+  /**
+   * Estado del Plan proyectado desde el Workspace (`lib/actuar/plan.ts`). Es la
+   * única forma válida de saber si el Plan está cerrado: contar solo las
+   * Actividades abiertas produce cierres prematuros.
+   */
+  plan?: { construido: boolean; total: number; validadas: number; cerrado: boolean };
 }
 
 /** Rutas que el orquestador puede proponer (evita rutas muertas). */
@@ -318,6 +324,11 @@ export function pendientesDelRecorrido(
     });
   }
 
+  // Una Actividad del Plan que aún no se abrió también hay que empezarla.
+  const porEmpezar = ctx.plan
+    ? ctx.plan.total > ctx.actividades.length || ctx.actividades.some((a) => a.estado === "pendiente")
+    : ctx.actividades.length === 0 || ctx.actividades.some((a) => a.estado === "pendiente");
+
   const pendiente = ctx.actividades.find((a) => a.estado === "pendiente");
   if (pendiente) {
     pasos.push({
@@ -331,7 +342,7 @@ export function pendientesDelRecorrido(
     });
   }
 
-  if (perfilOk && sesion.resultados.length > 0 && ctx.actividades.length === 0) {
+  if (perfilOk && sesion.resultados.length > 0 && !pendiente && porEmpezar) {
     pasos.push({
       tipo: "iniciar_actividad",
       etapa: "actuar",
@@ -345,7 +356,13 @@ export function pendientesDelRecorrido(
 
   // Macroentrega 5 · Cierre del Plan de Acción y entrada a la etapa Seguir.
   const validadas = ctx.actividades.filter((a) => a.estado === "validado");
-  const todasValidadas = ctx.actividades.length > 0 && validadas.length === ctx.actividades.length;
+  /**
+   * El cierre del Plan exige que TODAS las Actividades del Plan estén
+   * validadas, no solo las que el usuario llegó a abrir.
+   */
+  const todasValidadas = ctx.plan
+    ? ctx.plan.cerrado
+    : ctx.actividades.length > 0 && validadas.length === ctx.actividades.length;
 
   if (todasValidadas && !hitos.cierrePlan) {
     pasos.push({

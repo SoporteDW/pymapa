@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { mismoRegistro, useVersionEstado } from "@/lib/estado/bus";
 import { useSesion } from "./use-sesion";
 import { useResultados } from "./use-resultados";
@@ -79,12 +79,31 @@ export function useWorkspace(actividadId?: string) {
    * seguidas (marcar un paso y luego tocar evidencias) descartaban la primera.
    * Ahora toda escritura es una actualización funcional sobre el estado vigente.
    */
+  /**
+   * La persistencia NO puede ocurrir dentro del updater de `setRegistro`: ese
+   * callback corre en fase de render y `guardarRegistro` avisa al bus de
+   * estado, lo que actualizaría otros componentes durante el render. Se calcula
+   * el nuevo registro en render y se persiste después del commit.
+   */
+  const porPersistir = useRef<RegistroWorkspaceEmpresa | null>(null);
+
   const aplicar = useCallback(
     (transformar: (actual: RegistroWorkspaceEmpresa) => RegistroWorkspaceEmpresa) => {
-      setRegistro((actual) => guardarRegistro(transformar(actual)));
+      setRegistro((actual) => {
+        const siguiente = transformar(actual);
+        porPersistir.current = siguiente;
+        return siguiente;
+      });
     },
     []
   );
+
+  useEffect(() => {
+    if (!porPersistir.current) return;
+    const pendiente = porPersistir.current;
+    porPersistir.current = null;
+    guardarRegistro(pendiente);
+  });
 
   /** Plantillas disponibles: plan general + iniciativas del pack + escenario demo. */
   const plantillas = useMemo<PlantillaActividad[]>(() => {

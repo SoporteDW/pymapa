@@ -84,6 +84,12 @@ export interface EntradaJourneyMaestro {
    * Actuar solo se completa cuando el Plan se cierra de verdad.
    */
   plan: { construido: boolean; total: number; validadas: number; cerrado: boolean };
+  /**
+   * El usuario ya confirmó el cierre del Plan (Entregable 2). Sin ese hito la
+   * etapa Actuar no se da por completada, aunque toda la ejecución esté
+   * validada: el cierre es un paso narrativo que el usuario debe vivir.
+   */
+  cierrePlanConfirmado?: boolean;
   /** Seguimientos abiertos y si ya tienen alguna medición registrada. */
   seguimientos: { cerrado: boolean; conMedicion: boolean }[];
 }
@@ -146,6 +152,7 @@ export function journeyMaestro(entrada: EntradaJourneyMaestro): JourneyMaestro {
   // Workspace es la fuente única de la ejecución; aquí solo se lee su proyección.
   const plan = entrada.plan;
   const planCerrado = plan.cerrado;
+  const cierreVivido = planCerrado && entrada.cierrePlanConfirmado === true;
 
   const seguimientos = entrada.seguimientos;
   const seguimientoCompleto =
@@ -161,7 +168,7 @@ export function journeyMaestro(entrada: EntradaJourneyMaestro): JourneyMaestro {
           ? "en_curso"
           : "en_curso",
     // "Plan construido" NO completa Actuar: solo su cierre real lo hace.
-    actuar: !diagnosticoCerrado ? "pendiente" : planCerrado ? "completada" : "en_curso",
+    actuar: !diagnosticoCerrado ? "pendiente" : cierreVivido ? "completada" : "en_curso",
     // Seguir se habilita únicamente con el cierre real del Plan.
     seguir: !diagnosticoCerrado || !planCerrado
       ? "pendiente"
