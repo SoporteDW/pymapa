@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { useSesion } from "@/hooks/use-sesion";
 import { useEstadoDiagnostico } from "@/hooks/use-estado-diagnostico";
+import { useActuar } from "@/hooks/use-actuar";
 import {
   avanceModulos,
   etiquetaEstadoModulo,
@@ -18,6 +19,23 @@ import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 import { ArrowLeft, ArrowRight, CheckCircle2, Save } from "lucide-react";
 
+/** Métricas de ejecución del Plan tal como las espera `avanceModulos`. */
+function metricasActuar(plan: {
+  total: number;
+  validadas: number;
+  enEjecucion: number;
+  entregadas: number;
+  requierenAjustes: number;
+  cerrado: boolean;
+}) {
+  return {
+    total: plan.total,
+    validadas: plan.validadas,
+    enCurso: plan.enEjecucion + plan.entregadas + plan.requierenAjustes,
+    cerrado: plan.cerrado,
+  };
+}
+
 const tonoEstado = {
   no_iniciada: "border-border bg-muted text-muted-foreground",
   en_progreso: "border-primary/40 bg-primary/10 text-primary",
@@ -29,7 +47,8 @@ export function EtapaProgreso({ modulo, className }: { modulo: ModuloId; classNa
   const { sesion, isHydrated } = useSesion();
   const info = moduloPorId(modulo);
   const { journey } = useEstadoDiagnostico();
-  const avance = avanceModulos(sesion, journey)[modulo];
+  const { plan } = useActuar();
+  const avance = avanceModulos(sesion, journey, metricasActuar(plan))[modulo];
   const etapa = etapasJourney.find((e) => e.id === info.etapa);
 
   if (!isHydrated) return null;
@@ -74,7 +93,8 @@ export function EtapaFooter({ modulo, className }: { modulo: ModuloId; className
   const anterior = moduloAnterior(modulo);
   const siguiente = moduloSiguiente(modulo);
   const { journey } = useEstadoDiagnostico();
-  const avance = isHydrated ? avanceModulos(sesion, journey)[modulo] : null;
+  const { plan } = useActuar();
+  const avance = isHydrated ? avanceModulos(sesion, journey, metricasActuar(plan))[modulo] : null;
   const completado = avance?.estado === "completada";
 
   const guardar = () => {

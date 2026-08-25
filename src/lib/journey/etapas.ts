@@ -78,11 +78,16 @@ export interface EntradaJourneyMaestro {
   perfilCompletado: boolean;
   /** Estado de la máquina única del diagnóstico (Macroentrega 4.1). */
   estadoDiagnostico: EstadoJourneyDiagnostico;
-  /** Estados de ejecución de las actividades abiertas del plan. */
-  actividades: EstadoEjecucion[];
+  /**
+   * Estado del Plan derivado de la ejecución del Workspace
+   * (`lib/actuar/plan.ts`). "construido" no implica "completado": la etapa
+   * Actuar solo se completa cuando el Plan se cierra de verdad.
+   */
+  plan: { construido: boolean; total: number; validadas: number; cerrado: boolean };
   /** Seguimientos abiertos y si ya tienen alguna medición registrada. */
   seguimientos: { cerrado: boolean; conMedicion: boolean }[];
 }
+
 
 export interface BloqueoEtapa {
   /** Explicación en lenguaje de la pyme: qué falta antes de esta etapa. */
@@ -138,13 +143,11 @@ export function journeyMaestro(entrada: EntradaJourneyMaestro): JourneyMaestro {
   const diagnosticoCerrado = entrada.estadoDiagnostico === "diagnostico_final";
   const diagnosticoIniciado = entrada.estadoDiagnostico !== "no_iniciado";
 
-  const actividades = entrada.actividades;
-  const validadas = actividades.filter((e) => e === "validado").length;
-  const enMarcha = actividades.some((e) => e !== "pendiente");
-  const ejecucionCompleta = actividades.length > 0 && validadas === actividades.length;
+  // Workspace es la fuente única de la ejecución; aquí solo se lee su proyección.
+  const plan = entrada.plan;
+  const planCerrado = plan.cerrado;
 
   const seguimientos = entrada.seguimientos;
-  const seguimientoIniciado = seguimientos.some((s) => s.conMedicion);
   const seguimientoCompleto =
     seguimientos.length > 0 && seguimientos.every((s) => s.cerrado);
 
@@ -157,12 +160,10 @@ export function journeyMaestro(entrada: EntradaJourneyMaestro): JourneyMaestro {
         : diagnosticoIniciado
           ? "en_curso"
           : "en_curso",
-    actuar: !diagnosticoCerrado
-      ? "pendiente"
-      : ejecucionCompleta
-        ? "completada"
-        : "en_curso",
-    seguir: !diagnosticoCerrado || !(validadas > 0)
+    // "Plan construido" NO completa Actuar: solo su cierre real lo hace.
+    actuar: !diagnosticoCerrado ? "pendiente" : planCerrado ? "completada" : "en_curso",
+    // Seguir se habilita únicamente con el cierre real del Plan.
+    seguir: !diagnosticoCerrado || !planCerrado
       ? "pendiente"
       : seguimientoCompleto
         ? "completada"
@@ -173,15 +174,12 @@ export function journeyMaestro(entrada: EntradaJourneyMaestro): JourneyMaestro {
     preparar: null,
     diagnosticar: perfilOk ? null : BLOQUEO_PERFIL,
     actuar: diagnosticoCerrado ? null : BLOQUEO_DIAGNOSTICO,
-    seguir: !diagnosticoCerrado
-      ? BLOQUEO_DIAGNOSTICO
-      : validadas > 0
-        ? null
-        : BLOQUEO_EJECUCION,
+    seguir: !diagnosticoCerrado ? BLOQUEO_DIAGNOSTICO : planCerrado ? null : BLOQUEO_EJECUCION,
   };
 
   const orden: EtapaJourneyId[] = ["preparar", "diagnosticar", "actuar", "seguir"];
   const activa = orden.find((id) => estados[id] !== "completada") ?? "seguir";
+
 
   const etapas: EtapaConEstado[] = orden.map((id) => ({
     etapa: etapaJourneyPorId(id),

@@ -20,7 +20,8 @@ import { ArrowRight, FilterX } from "lucide-react";
 import { LoadingState } from "@/components/ui/loading-state";
 import { BloqueoEtapa } from "@/components/journey/bloqueo-etapa";
 import { useJourney } from "@/hooks/use-journey";
-import { useWorkspace } from "@/hooks/use-workspace";
+import { useActuar } from "@/hooks/use-actuar";
+
 
 export const Route = createFileRoute("/plan-de-accion/")({
   head: () => ({
@@ -42,8 +43,9 @@ export const Route = createFileRoute("/plan-de-accion/")({
 
 function PlanDeAccionPage() {
   const navigate = useNavigate();
-  const { hidratado, bloqueoDe, ejecucion } = useJourney();
-  const { actividades } = useWorkspace();
+  const { hidratado, bloqueoDe } = useJourney();
+  // Workspace (proyectado en `useActuar`) es la única fuente del estado de ejecución.
+  const { plan, siguienteActividad, siguienteFicha } = useActuar();
   const { estado, resultado, errorCodigo, reintentar } = useResultados();
   const { iniciativas } = useIniciativasKb();
   const [filtros, setFiltros] = useState<FiltrosAcciones>(filtrosIniciales);
@@ -63,11 +65,15 @@ function PlanDeAccionPage() {
   };
 
   const bloqueo = bloqueoDe("actuar");
-  const siguienteActividad =
-    actividades.find((a) => a.estado === "requiere_ajustes") ??
-    actividades.find((a) => a.estado === "en_ejecucion") ??
-    actividades.find((a) => a.estado === "pendiente") ??
-    null;
+  const tituloSiguiente = siguienteActividad?.titulo ?? siguienteFicha?.title ?? "";
+  const detalleSiguiente = siguienteActividad?.objetivo ?? siguienteFicha?.impactExpected ?? "";
+  const etiquetaSiguiente = !siguienteActividad
+    ? "Abrir su Ficha de Actividad"
+    : siguienteActividad.estado === "pendiente"
+      ? "Abrir su Ficha de Actividad"
+      : siguienteActividad.estado === "requiere_ajustes"
+        ? "Retomar esta Actividad y corregir"
+        : "Continuar esta Actividad";
 
   if (!hidratado) return <LoadingState fullPage />;
 
@@ -90,42 +96,57 @@ function PlanDeAccionPage() {
         titulo="Tu Plan de Acción"
         subtitulo="Actividades derivadas de tu diagnóstico, ordenadas por prioridad."
         migas={[{ label: "Inicio", to: "/inicio" }, { label: "Plan de Acción" }]}
-        acciones={
-          <Button variant="outline" asChild>
-            <Link to="/roadmap">Ver el Roadmap</Link>
-          </Button>
-        }
       />
 
       <EtapaProgreso modulo="plan-de-accion" />
 
-      {/* Macroentrega 5 · Un único CTA principal: qué Actividad trabajar ahora. */}
-      {siguienteActividad ? (
+      {/* Estado real del Plan: construido no es completado. */}
+      {plan.construido && (
+        <Card>
+          <CardHeader className="space-y-1.5">
+            <CardDescription>
+              {plan.cerrado ? "Plan completado" : "Plan construido · en ejecución"}
+            </CardDescription>
+            <CardTitle className="text-base">
+              {plan.validadas} de {plan.total} Actividades validadas
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="flex flex-wrap gap-2">
+            <Badge variant="outline">{plan.pendientes} sin empezar</Badge>
+            <Badge variant="outline">{plan.enEjecucion} en ejecución</Badge>
+            {plan.requierenAjustes > 0 && (
+              <Badge variant="outline">{plan.requierenAjustes} requieren ajustes</Badge>
+            )}
+            <Badge variant="secondary">{plan.validadas} validadas</Badge>
+          </CardContent>
+        </Card>
+      )}
+
+      {/* Un único CTA principal: qué Actividad trabajar ahora. */}
+      {plan.siguienteId ? (
         <Card className="border-primary/25 bg-primary/5">
           <CardHeader className="space-y-1.5">
             <CardDescription>Tu siguiente Actividad</CardDescription>
-            <CardTitle className="text-lg leading-snug">{siguienteActividad.titulo}</CardTitle>
-            <CardDescription>{siguienteActividad.objetivo}</CardDescription>
+            <CardTitle className="text-lg leading-snug">{tituloSiguiente}</CardTitle>
+            <CardDescription>{detalleSiguiente}</CardDescription>
           </CardHeader>
           <CardContent>
             <Button size="lg" asChild>
               <Link
                 to="/plan-de-accion/workspace/$actividad"
-                params={{ actividad: siguienteActividad.id }}
+                params={{ actividad: plan.siguienteId }}
               >
-                {siguienteActividad.estado === "pendiente"
-                  ? "Abrir su Ficha de Actividad"
-                  : "Continuar esta Actividad"}
+                {etiquetaSiguiente}
                 <ArrowRight className="size-4" aria-hidden="true" />
               </Link>
             </Button>
           </CardContent>
         </Card>
-      ) : ejecucion.total > 0 && ejecucion.completo ? (
+      ) : plan.cerrado ? (
         <Card className="border-success/30 bg-success/5">
           <CardHeader className="space-y-1.5">
             <CardTitle className="text-lg leading-snug">
-              Tus Actividades iniciales están validadas
+              Todas las Actividades de tu Plan quedaron validadas
             </CardTitle>
             <CardDescription>
               Revisa el cierre de tu Plan de Acción y pasa al seguimiento.
@@ -141,6 +162,7 @@ function PlanDeAccionPage() {
           </CardContent>
         </Card>
       ) : null}
+
 
 
 

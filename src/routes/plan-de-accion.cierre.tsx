@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect } from "react";
+
 import { ArrowRight, CheckCircle2, FileCheck2, LifeBuoy, Users } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -10,6 +10,8 @@ import { BloqueoEtapa } from "@/components/journey/bloqueo-etapa";
 import { TarjetaEntregable } from "@/components/entregables/tarjeta-entregable";
 import { entregablePorId } from "@/lib/entregables/catalogo";
 import { useJourney } from "@/hooks/use-journey";
+import { useActuar } from "@/hooks/use-actuar";
+
 import { useHitosJourney } from "@/hooks/use-hitos-journey";
 import { useWorkspace } from "@/hooks/use-workspace";
 import { useDelegacion } from "@/hooks/use-delegacion";
@@ -38,7 +40,9 @@ export const Route = createFileRoute("/plan-de-accion/cierre")({
 });
 
 function CierrePlanPage() {
-  const { hidratado, bloqueoDe, ejecucion } = useJourney();
+  const { hidratado, bloqueoDe } = useJourney();
+  // Workspace es la fuente única: el cierre del Plan se deriva de su ejecución.
+  const { plan } = useActuar();
   const { actividades } = useWorkspace();
   const { delegaciones } = useDelegacion();
   const { recomendaciones } = useApoyoHumano();
@@ -46,13 +50,16 @@ function CierrePlanPage() {
   const bloqueo = bloqueoDe("actuar");
   const entregable = entregablePorId("plan-de-accion");
 
-  const completo = ejecucion.total > 0 && ejecucion.completo;
+  const completo = plan.cerrado;
 
-  useEffect(() => {
-    if (hidratado && completo) marcar("cierrePlan");
-  }, [hidratado, completo, marcar]);
+  // Los hitos NO se marcan por montar la página: solo por un evento real de
+  // negocio (el usuario cierra su Plan y pasa al seguimiento).
+  const confirmarCierre = () => {
+    if (completo) marcar("cierrePlan");
+  };
 
   if (!hidratado) return <LoadingState fullPage />;
+
 
   if (bloqueo) {
     return (
@@ -104,8 +111,9 @@ function CierrePlanPage() {
           </CardDescription>
         </CardHeader>
         <CardContent className="grid gap-3 sm:grid-cols-3">
-          <Dato valor={ejecucion.total} label="Actividades del plan" />
-          <Dato valor={ejecucion.validadas} label="Validadas" />
+          <Dato valor={plan.total} label="Actividades del plan" />
+          <Dato valor={plan.validadas} label="Validadas" />
+
           <Dato valor={entregablesProducidos.length} label="Entregables producidos" />
         </CardContent>
       </Card>
@@ -189,20 +197,34 @@ function CierrePlanPage() {
 
       <Card className="border-primary/25 bg-primary/5">
         <CardHeader className="space-y-1.5">
-          <CardTitle className="text-lg">Lo ejecutado ahora debe medirse</CardTitle>
+          <CardTitle className="text-lg">
+            {completo ? "Lo ejecutado ahora debe medirse" : "Primero termina tus Actividades"}
+          </CardTitle>
           <CardDescription>
-            Comprobaremos en 30, 60 y 90 días si los cambios produjeron el resultado esperado.
+            {completo
+              ? "Comprobaremos en 30, 60 y 90 días si los cambios produjeron el resultado esperado."
+              : `Faltan ${plan.total - plan.validadas} Actividad(es) por validar. El seguimiento se habilita cuando tu Plan quede cerrado.`}
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <Button size="lg" asChild>
-            <Link to="/seguimiento/entrada">
-              Crear Plan de Seguimiento
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </Link>
-          </Button>
+          {completo ? (
+            <Button size="lg" asChild onClick={confirmarCierre}>
+              <Link to="/seguimiento/entrada">
+                Cerrar mi Plan y crear el Plan de Seguimiento
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            </Button>
+          ) : (
+            <Button size="lg" asChild>
+              <Link to="/plan-de-accion">
+                Volver a mis Actividades
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            </Button>
+          )}
         </CardContent>
       </Card>
+
     </div>
   );
 }

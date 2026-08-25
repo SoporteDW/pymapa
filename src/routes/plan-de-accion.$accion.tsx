@@ -138,19 +138,13 @@ function FichaAccionPage() {
                   </div>
                 </div>
                 <TraceabilityDrawer trazabilidad={ficha.sourceRefs} />
-                <Button asChild>
+                {/* Un único camino a la ejecución: Plan → Ficha → Workspace. */}
+                <Button size="lg" asChild>
                   <Link to="/plan-de-accion/workspace/$actividad" params={{ actividad: ficha.id }}>
-                    Abrir workspace de ejecución
+                    Empezar actividad
                   </Link>
                 </Button>
-                <Button asChild>
-                  <Link
-                    to="/plan-de-accion/workspace/$actividad"
-                    params={{ actividad: ficha.id }}
-                  >
-                    Abrir workspace de ejecución
-                  </Link>
-                </Button>
+
               </CardContent>
             </Card>
 

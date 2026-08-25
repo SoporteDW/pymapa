@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect } from "react";
 import { ArrowRight, ClipboardCheck, Compass, ListChecks, Target } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -65,11 +64,12 @@ function EntradaActuarPage() {
   const { marcar } = useHitosJourney();
   const bloqueo = bloqueoDe("actuar");
 
-  useEffect(() => {
-    if (hidratado && !bloqueo) marcar("entradaActuar");
-  }, [hidratado, bloqueo, marcar]);
+  // Los hitos no se marcan por visitar la URL: solo cuando el usuario decide
+  // entrar a su Plan de Acción.
+  const entrarAlPlan = () => marcar("entradaActuar");
 
   if (!hidratado) return <LoadingState fullPage />;
+
 
   return (
     <div className="space-y-6">
@@ -97,7 +97,7 @@ function EntradaActuarPage() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Button size="lg" asChild>
+              <Button size="lg" asChild onClick={entrarAlPlan}>
                 <Link to="/plan-de-accion">
                   Ver mi Plan de Acción
                   <ArrowRight className="size-4" aria-hidden="true" />
