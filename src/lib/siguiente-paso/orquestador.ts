@@ -344,7 +344,9 @@ export function pendientesDelRecorrido(
     });
   }
 
-  if (perfilOk && sesion.resultados.length > 0 && !pendiente && porEmpezar) {
+  // Mientras no se haya visto la entrada a Actuar, ese es el único paso: no se
+  // ofrece "elegir actividad" en paralelo a la explicación del plan.
+  if (perfilOk && sesion.resultados.length > 0 && !pendiente && porEmpezar && hitos.entradaActuar) {
     pasos.push({
       tipo: "iniciar_actividad",
       etapa: "actuar",
