@@ -7,6 +7,8 @@ import { ListChecks } from "lucide-react";
 interface Props {
   profundizacion: ProfundizacionWorkspace;
   onMarcar: (verificacionId: string, estado: VerificacionWorkspace["estado"]) => void;
+  /** Consulta histórica: la revisión queda visible pero no editable. */
+  soloLectura?: boolean;
 }
 
 const opciones: { estado: VerificacionWorkspace["estado"]; etiqueta: string }[] = [
@@ -19,7 +21,7 @@ const opciones: { estado: VerificacionWorkspace["estado"]; etiqueta: string }[] 
  * B6 · Profundización selectiva con el checklist experto CRO/UX.
  * Se muestran solo las verificaciones activadas por la regla, nunca las 304.
  */
-export function PanelChecklist({ profundizacion, onMarcar }: Props) {
+export function PanelChecklist({ profundizacion, onMarcar, soloLectura = false }: Props) {
   const revisadas = profundizacion.verificaciones.filter((v) => v.estado !== "sin_revisar").length;
 
   return (
@@ -58,6 +60,7 @@ export function PanelChecklist({ profundizacion, onMarcar }: Props) {
                     key={opcion.estado}
                     size="sm"
                     variant={verificacion.estado === opcion.estado ? "default" : "outline"}
+                    disabled={soloLectura}
                     onClick={() => onMarcar(verificacion.id, opcion.estado)}
                   >
                     {opcion.etiqueta}

@@ -49,15 +49,15 @@ export function DashboardEmptyState({
           Falta generar tu Roadmap
         </CardTitle>
         <CardDescription>
-          Tu diagnóstico está listo, pero los indicadores de ejecución (avance, cumplimiento de
-          fechas y alertas) necesitan un Roadmap activo.
+          Tu diagnóstico está listo, pero los indicadores de ejecución se calculan con las
+          Actividades de tu Plan de Acción.
         </CardDescription>
       </CardHeader>
       <CardContent className="flex flex-wrap gap-2">
         <Button asChild>
-          <Link to="/roadmap">Generar mi Roadmap</Link>
+          <Link to="/plan-de-accion">Ir a mi Plan de Acción</Link>
         </Button>
-        <Button variant="outline" asChild>
+        <Button variant="link" className="h-auto px-0" asChild>
           <Link to="/resultados">Ver resultados</Link>
         </Button>
       </CardContent>
@@ -80,14 +80,13 @@ export function DashboardErrorState({
           No pudimos calcular tus indicadores
         </CardTitle>
         <CardDescription>
-          Tus datos siguen guardados. Puedes reintentar el cálculo o revisar el Roadmap
-          directamente. Código de referencia: {codigo ?? "DB-500"}.
+          Tus datos siguen guardados. Puedes reintentar el cálculo o consultar el Roadmap. Código de referencia: {codigo ?? "DB-500"}.
         </CardDescription>
       </CardHeader>
       <CardContent className="flex flex-wrap gap-2">
         {onReintentar && <Button onClick={onReintentar}>Reintentar</Button>}
-        <Button variant="outline" asChild>
-          <Link to="/roadmap">Abrir el Roadmap</Link>
+        <Button variant="link" className="h-auto px-0" asChild>
+          <Link to="/roadmap">Ver el Roadmap (consulta)</Link>
         </Button>
       </CardContent>
     </Card>

@@ -22,30 +22,8 @@ import {
   filtrosRoadmapIniciales,
   type FiltrosRoadmap,
 } from "@/lib/roadmap/filtros";
-import {
-  actualizarAvance,
-  actualizarPlanificacion,
-  agregarEvidencia,
-  agregarNota,
-  alternarPaso,
-  bloquearAccion,
-  buscarAccion,
-  cambiarEstado,
-  descartarAccion,
-  eliminarEvidencia,
-  historialDe,
-  moverAFase,
-  type ResultadoOperacion,
-} from "@/lib/roadmap/operaciones";
-import type {
-  AccionRoadmap,
-  EstadoAccionRoadmap,
-  FaseId,
-  Roadmap,
-  TipoBloqueo,
-  TipoEvidencia,
-} from "@/lib/roadmap/tipos";
-import type { NivelPrioridad } from "@/lib/resultados/tipos";
+import { buscarAccion, historialDe } from "@/lib/roadmap/operaciones";
+import type { AccionRoadmap, Roadmap } from "@/lib/roadmap/tipos";
 
 export type EstadoRoadmap = "cargando" | "vacio" | "error" | "listo";
 
@@ -83,7 +61,14 @@ export function useRoadmap() {
         return {
           ...accion,
           estado: estadoUnificado(accion.estado, actividad),
-          avance: Math.max(accion.avance, avanceDesdeEjecucion(actividad.estado)),
+          // Sin Math.max: la ejecución del Workspace es el único avance válido.
+          avance: avanceDesdeEjecucion(actividad.estado),
+          // Los pasos también se proyectan: el Roadmap no guarda checklist propio.
+          checklist: actividad.pasos.map((paso) => ({
+            id: `${accion.id}-paso-${paso.orden}`,
+            texto: paso.titulo,
+            completado: actividad.estado === "validado" ? true : paso.hecho,
+          })),
         };
       }),
     };
@@ -131,91 +116,11 @@ export function useRoadmap() {
     }
   }, [estadoResultados, resultado, modoDemo]);
 
-  /** Aplica una operación de negocio y persiste el resultado. */
-  const aplicar = useCallback(
-    (
-      operacion: (actual: Roadmap) => ResultadoOperacion,
-      evento?: EventoInteraccion
-    ): ResultadoOperacion => {
-      if (!roadmap) {
-        return { ok: false, roadmap: null as unknown as Roadmap, mensaje: "No hay plan cargado." };
-      }
-      const salida = operacion(roadmap);
-      if (salida.ok) {
-        setRoadmap(salida.roadmap);
-        guardarRoadmap(salida.roadmap);
-        if (salida.mensaje) setMensaje({ tono: "ok", texto: salida.mensaje });
-        if (evento) registrarEvento(evento, { executionId: salida.roadmap.executionId });
-      } else if (salida.mensaje && !salida.requiereConfirmacion) {
-        setMensaje({ tono: "aviso", texto: salida.mensaje });
-      }
-      return salida;
-    },
-    [roadmap]
-  );
-
-  const acciones = useMemo(
-    () => ({
-      cambiarEstado: (
-        accionId: string,
-        nuevoEstado: EstadoAccionRoadmap,
-        opciones?: { comentario?: string; confirmado?: boolean }
-      ) =>
-        aplicar(
-          (actual) => cambiarEstado(actual, accionId, nuevoEstado, opciones ?? {}),
-          "roadmap_state_changed"
-        ),
-      alternarPaso: (accionId: string, pasoId: string) =>
-        aplicar((actual) => alternarPaso(actual, accionId, pasoId), "roadmap_step_toggled"),
-      actualizarAvance: (accionId: string, porcentaje: number) =>
-        aplicar(
-          (actual) => actualizarAvance(actual, accionId, porcentaje),
-          "roadmap_progress_updated"
-        ),
-      bloquear: (accionId: string, tipo: TipoBloqueo, descripcion: string) =>
-        aplicar(
-          (actual) => bloquearAccion(actual, accionId, tipo, descripcion),
-          "roadmap_action_blocked"
-        ),
-      desbloquear: (accionId: string, resolucion: string) =>
-        aplicar(
-          (actual) => cambiarEstado(actual, accionId, "EN_CURSO", { comentario: resolucion }),
-          "roadmap_action_unblocked"
-        ),
-      descartar: (accionId: string, motivo: string) =>
-        aplicar((actual) => descartarAccion(actual, accionId, motivo), "roadmap_action_discarded"),
-      agregarNota: (accionId: string, texto: string) =>
-        aplicar((actual) => agregarNota(actual, accionId, texto), "roadmap_note_added"),
-      agregarEvidencia: (
-        accionId: string,
-        tipo: TipoEvidencia,
-        descripcion: string,
-        referencia: string
-      ) =>
-        aplicar(
-          (actual) => agregarEvidencia(actual, accionId, tipo, descripcion, referencia),
-          "roadmap_evidence_added"
-        ),
-      eliminarEvidencia: (accionId: string, evidenciaId: string) =>
-        aplicar((actual) => eliminarEvidencia(actual, accionId, evidenciaId)),
-      actualizarPlanificacion: (
-        accionId: string,
-        cambios: {
-          responsable?: string;
-          fechaInicio?: string | null;
-          fechaObjetivo?: string | null;
-          prioridadOperativa?: NivelPrioridad;
-        }
-      ) =>
-        aplicar(
-          (actual) => actualizarPlanificacion(actual, accionId, cambios),
-          "roadmap_action_rescheduled"
-        ),
-      moverAFase: (accionId: string, fase: FaseId) =>
-        aplicar((actual) => moverAFase(actual, accionId, fase), "roadmap_phase_changed"),
-    }),
-    [aplicar]
-  );
+  /**
+   * Roadmap dejó de tener estado propio editable: no cambia estados, avances,
+   * fechas, notas, bloqueos ni checklists. Toda la ejecución se registra en el
+   * Workspace y aquí solo se proyecta para consulta.
+   */
 
   const cargarDemo = useCallback(() => {
     const demo = construirRoadmapDemo();
@@ -276,7 +181,6 @@ export function useRoadmap() {
     accionesFiltradas,
     mensaje,
     limpiarMensaje: () => setMensaje(null),
-    acciones,
     obtenerAccion,
     obtenerHistorial,
     cargarDemo,

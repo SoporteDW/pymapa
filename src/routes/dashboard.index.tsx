@@ -90,8 +90,8 @@ function DashboardPage() {
       subtitulo="Una lectura honesta de tu avance: qué mejoró, qué está detenido y qué sigue."
       migas={[{ label: "Inicio", to: "/inicio" }, { label: "Indicadores" }]}
       acciones={
-        <Button variant="outline" asChild>
-          <Link to="/roadmap">Abrir Roadmap</Link>
+        <Button variant="link" className="h-auto px-0" asChild>
+          <Link to="/roadmap">Ver el Roadmap (consulta)</Link>
         </Button>
       }
     />
@@ -268,8 +268,8 @@ function DashboardPage() {
           <Button variant="outline" asChild>
             <Link to="/resultados">Resultados del diagnóstico</Link>
           </Button>
-          <Button variant="outline" asChild>
-            <Link to="/roadmap">Roadmap de ejecución</Link>
+          <Button variant="link" className="h-auto px-0" asChild>
+            <Link to="/roadmap">Roadmap de ejecución (consulta)</Link>
           </Button>
         </CardContent>
       </Card>

@@ -8,13 +8,15 @@ import { Wrench } from "lucide-react";
 interface Props {
   actividad: ActividadWorkspace;
   onAlternarPaso: (orden: number, hecho: boolean) => void;
+  /** Consulta histórica: los pasos se muestran sin poder modificarse. */
+  soloLectura?: boolean;
 }
 
 /**
  * B4 · "¿Con qué se hace?": instrumento metodológico y pasos guiados.
  * Los textos provienen del catálogo de instrumentos (capa de conocimiento).
  */
-export function PanelInstrumento({ actividad, onAlternarPaso }: Props) {
+export function PanelInstrumento({ actividad, onAlternarPaso, soloLectura = false }: Props) {
   const instrumento = obtenerInstrumento(actividad.instrumentoId);
   const completados = actividad.pasos.filter((p) => p.hecho).length;
 
@@ -40,6 +42,7 @@ export function PanelInstrumento({ actividad, onAlternarPaso }: Props) {
                 id={`paso-${paso.orden}`}
                 checked={paso.hecho}
                 onCheckedChange={(valor) => onAlternarPaso(paso.orden, valor === true)}
+                disabled={soloLectura}
                 aria-label={`Marcar paso ${paso.orden} como realizado`}
                 className="mt-0.5"
               />

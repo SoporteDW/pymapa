@@ -31,7 +31,7 @@ export const Route = createFileRoute("/roadmap/$accion")({
 function RoadmapAccionPage() {
   const { accion: accionId } = useParams({ from: "/roadmap/$accion" });
   const navigate = useNavigate();
-  const { estado, roadmap, obtenerAccion, obtenerHistorial, acciones, mensaje } = useRoadmap();
+  const { estado, roadmap, obtenerAccion, obtenerHistorial, mensaje } = useRoadmap();
 
   useEffect(() => {
     registrarEvento("roadmap_action_opened", { accionId });
@@ -79,7 +79,6 @@ function RoadmapAccionPage() {
           roadmap={roadmap}
           accion={accion}
           historial={obtenerHistorial(accionId)}
-          operaciones={acciones}
         />
       )}
     </div>
