@@ -20,6 +20,13 @@ import { toast } from "sonner";
 import { RotateCcw, SearchX, Target } from "lucide-react";
 
 export const Route = createFileRoute("/plan-de-accion/workspace/$actividad")({
+  /**
+   * `desde=seguimiento` conserva el contexto: una Actividad ya validada que se
+   * consulta desde Etapa 4 es un antecedente, y al salir se vuelve al mismo
+   * seguimiento, no al Plan de Acción.
+   */
+  validateSearch: (search: Record<string, unknown>): { desde?: "seguimiento" } =>
+    search["desde"] === "seguimiento" ? { desde: "seguimiento" } : {},
   head: () => ({
     meta: [
       { title: "Workspace de ejecución de la actividad — pymapa" },
@@ -44,6 +51,8 @@ export const Route = createFileRoute("/plan-de-accion/workspace/$actividad")({
 function WorkspacePage() {
   const { actividad: actividadId } = useParams({ from: "/plan-de-accion/workspace/$actividad" });
   const navigate = useNavigate();
+  const { desde } = Route.useSearch();
+  const desdeSeguimiento = desde === "seguimiento";
   const {
     hidratado,
     actividad,
@@ -88,6 +97,8 @@ function WorkspacePage() {
 
   // Ajustes de la última revisión: siguen visibles después de "Retomar", que es
   // lo que permite corregir y reenviar sin perder el detalle de lo pedido.
+  // Consulta histórica: una Actividad validada no es trabajo pendiente.
+  const historico = actividad.estado === "validado";
   const ultimaRevision = actividad.historial.at(-1)?.revision ?? null;
   const ajustesPendientes =
     ultimaRevision && ultimaRevision.veredicto === "requiere_ajustes"
@@ -133,16 +144,39 @@ function WorkspacePage() {
     <div className="space-y-6">
       <PageHeader
         titulo={actividad.titulo}
-        subtitulo="Qué se busca lograr, con qué instrumento se trabaja, qué se entrega y cómo se valida."
-        migas={[
-          { label: "Inicio", to: "/inicio" },
-          { label: "Plan de acción", to: "/plan-de-accion" },
-          { label: "Workspace" },
-        ]}
+        subtitulo={
+          historico
+            ? "Actividad completada · histórico. Aquí queda el registro de lo que se hizo, se entregó y se validó."
+            : "Qué se busca lograr, con qué instrumento se trabaja, qué se entrega y cómo se valida."
+        }
+        migas={
+          desdeSeguimiento
+            ? [
+                { label: "Inicio", to: "/inicio" },
+                { label: "Seguimiento", to: "/seguimiento" },
+                { label: "Actividad histórica" },
+              ]
+            : [
+                { label: "Inicio", to: "/inicio" },
+                { label: "Plan de acción", to: "/plan-de-accion" },
+                { label: historico ? "Actividad histórica" : "Workspace" },
+              ]
+        }
         acciones={
-          <Button variant="outline" asChild>
-            <Link to="/plan-de-accion">Volver al plan</Link>
-          </Button>
+          desdeSeguimiento ? (
+            <Button variant="outline" asChild>
+              <Link
+                to="/seguimiento/$actividad"
+                params={{ actividad: actividad.id }}
+              >
+                Volver a mi seguimiento
+              </Link>
+            </Button>
+          ) : (
+            <Button variant="outline" asChild>
+              <Link to="/plan-de-accion">Volver al plan</Link>
+            </Button>
+          )
         }
       />
 
@@ -150,6 +184,11 @@ function WorkspacePage() {
         <CardHeader className="space-y-2">
           <div className="flex flex-wrap items-center gap-2">
             <BadgeEstadoEjecucion estado={actividad.estado} />
+            {historico && (
+              <Badge variant="outline" className="border-success/50 text-success">
+                Actividad completada · histórico
+              </Badge>
+            )}
             <Badge variant="secondary">{actividad.origen.dominioNombre}</Badge>
             {esDemo && <Badge variant="outline">Escenario de demostración</Badge>}
           </div>
@@ -209,6 +248,7 @@ function WorkspacePage() {
         </Card>
       )}
 
+      {!historico && (
       <Card>
         <CardHeader className="pb-3">
           <CardTitle className="text-base">¿Necesitas ayuda con esta actividad?</CardTitle>
@@ -224,15 +264,18 @@ function WorkspacePage() {
           <PedirApoyoExperto origen={origenTransversal} />
         </CardContent>
       </Card>
+      )}
 
       <PanelInstrumento
         actividad={actividad}
+        soloLectura={historico}
         onAlternarPaso={(orden, hecho) => alternarPaso(actividad.id, orden, hecho)}
       />
 
       {actividad.profundizacion && (
         <PanelChecklist
           profundizacion={actividad.profundizacion}
+          soloLectura={historico}
           onMarcar={(verificacionId, estado) =>
             revisarVerificacion(actividad.id, verificacionId, estado)
           }
@@ -289,20 +332,30 @@ function WorkspacePage() {
           </CardTitle>
           <CardDescription>
             {actividad.estado === "validado"
-              ? "Esta actividad quedó cerrada. Vuelve al Plan de Acción para continuar con la siguiente."
+              ? desdeSeguimiento
+                ? "Esta actividad ya quedó validada: es el antecedente de lo que estás midiendo. Vuelve a tu seguimiento para continuar."
+                : "Esta actividad quedó cerrada. Vuelve al Plan de Acción para continuar con la siguiente."
               : actividad.estado === "entregado"
                 ? "La entrega está en revisión. Puedes volver al plan y retomarla cuando tengas el resultado."
                 : "Puedes entregar cuando los criterios estén completos, o volver al plan y retomarla más tarde: el avance queda guardado."}
           </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-wrap gap-2">
-          <Button asChild>
-            <Link to="/plan-de-accion">
-              {actividad.estado === "validado"
-                ? "Volver al Plan y ver la siguiente actividad"
-                : "Volver al Plan de Acción"}
-            </Link>
-          </Button>
+          {desdeSeguimiento ? (
+            <Button asChild>
+              <Link to="/seguimiento/$actividad" params={{ actividad: actividad.id }}>
+                Volver a mi seguimiento
+              </Link>
+            </Button>
+          ) : (
+            <Button asChild>
+              <Link to="/plan-de-accion">
+                {actividad.estado === "validado"
+                  ? "Volver al Plan y ver la siguiente actividad"
+                  : "Volver al Plan de Acción"}
+              </Link>
+            </Button>
+          )}
 
         </CardContent>
       </Card>

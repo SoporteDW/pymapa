@@ -66,7 +66,7 @@ export function ActionStatusChart({
         )}
         <Button variant="link" className="h-auto px-0" asChild>
           <Link to="/roadmap">
-            Abrir el Roadmap
+            Ver el Roadmap (consulta)
             <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" />
           </Link>
         </Button>

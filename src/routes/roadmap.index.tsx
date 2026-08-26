@@ -65,17 +65,17 @@ function RoadmapPage() {
     <div className="space-y-6">
       <PageHeader
         titulo="Roadmap y seguimiento"
-        subtitulo="Tu plan por fases, con avance, responsables y alertas de ejecución."
+        subtitulo="Vista de consulta: tus mismas Actividades ordenadas en el tiempo. La ejecución se registra en el Plan de Acción."
         migas={[{ label: "Inicio", to: "/inicio" }, { label: "Roadmap" }]}
         acciones={
           <div className="flex flex-wrap gap-2">
             <Button variant="outline" asChild>
-              <Link to="/plan-de-accion">Ver fichas</Link>
+              <Link to="/plan-de-accion">Ir a mi Plan de Acción</Link>
             </Button>
             {roadmap && (
               <Button variant="outline" onClick={reiniciar}>
                 <RefreshCw className="mr-1 h-4 w-4" aria-hidden="true" />
-                Regenerar plan
+                Actualizar esta vista
               </Button>
             )}
           </div>

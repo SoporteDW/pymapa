@@ -94,8 +94,9 @@ function SeguimientoActividadPage() {
             <Link
               to="/plan-de-accion/workspace/$actividad"
               params={{ actividad: seguimiento.actividadId }}
+              search={{ desde: "seguimiento" as const }}
             >
-              Ver la actividad
+              Consultar la actividad de origen
             </Link>
           </Button>
         }

@@ -5,12 +5,12 @@ import { Progress } from "@/components/ui/progress";
 import { useSesion } from "@/hooks/use-sesion";
 import { useEstadoDiagnostico } from "@/hooks/use-estado-diagnostico";
 import { useActuar } from "@/hooks/use-actuar";
+import { useSiguientePaso } from "@/hooks/use-siguiente-paso";
 import {
   avanceModulos,
   etiquetaEstadoModulo,
   moduloAnterior,
   moduloPorId,
-  moduloSiguiente,
   secuenciaRecorrido,
   type ModuloId,
 } from "@/lib/recorrido-modulos";
@@ -83,19 +83,22 @@ export function EtapaProgreso({ modulo, className }: { modulo: ModuloId; classNa
 }
 
 /**
- * Navegación única al cierre de cada módulo: guardar progreso, módulo anterior
- * y un solo llamado de continuidad hacia el siguiente módulo (antes existían
- * "Continuar" y "Siguiente etapa" haciendo exactamente lo mismo).
+ * Cierre de cada módulo. El único CTA de AVANZAR es el siguiente paso oficial
+ * del Journey Maestro (orquestador), nunca la secuencia legacy de módulos: al
+ * cerrar el Plan de Acción el avance es Seguir, no "Indicadores".
  */
 export function EtapaFooter({ modulo, className }: { modulo: ModuloId; className?: string }) {
   const { sesion, isHydrated, registrarActividad, updatePreferencias } = useSesion();
   const info = moduloPorId(modulo);
   const anterior = moduloAnterior(modulo);
-  const siguiente = moduloSiguiente(modulo);
   const { journey } = useEstadoDiagnostico();
   const { plan } = useActuar();
+  const { paso, hidratado } = useSiguientePaso();
   const avance = isHydrated ? avanceModulos(sesion, journey, metricasActuar(plan))[modulo] : null;
   const completado = avance?.estado === "completada";
+  const etapaPaso = etapasJourney.find((e) => e.id === paso.etapa);
+  // Si el siguiente paso oficial es esta misma pantalla, no hay nada que ofrecer.
+  const avanzar = hidratado && paso.ruta !== info.ruta ? paso : null;
 
   const guardar = () => {
     updatePreferencias({ ultimaRuta: info.ruta });
@@ -112,25 +115,23 @@ export function EtapaFooter({ modulo, className }: { modulo: ModuloId; className
         completado ? "border-primary/25 bg-primary/5" : "border-border bg-card",
         className
       )}
-      aria-label="Navegación entre etapas del recorrido"
+      aria-label="Navegación del recorrido"
     >
       <div className="min-w-0">
-        {siguiente ? (
+        {avanzar ? (
           <>
             <p className="flex items-center gap-2 text-sm font-semibold text-foreground">
-              {completado && (
-                <CheckCircle2 className="h-4 w-4 text-success" aria-hidden="true" />
-              )}
-              {completado
-                ? `${info.label} completado · continúa con ${siguiente.label}`
-                : `Después de ${info.label} continúas con ${siguiente.label}`}
+              {completado && <CheckCircle2 className="h-4 w-4 text-success" aria-hidden="true" />}
+              Tu siguiente paso
+              {etapaPaso ? ` · Etapa ${etapaPaso.numero} · ${etapaPaso.titulo}` : ""}:{" "}
+              {avanzar.titulo}
             </p>
-            <p className="text-sm text-muted-foreground">{siguiente.descripcion}</p>
+            <p className="text-sm text-muted-foreground">{avanzar.descripcion}</p>
           </>
         ) : (
           <p className="text-sm text-muted-foreground">
-            Este es el último módulo del recorrido: aquí revisas tu avance y defines el siguiente
-            ciclo.
+            Esta pantalla es de consulta: tu recorrido continúa desde el inicio, donde pymapa
+            mantiene un único siguiente paso.
           </p>
         )}
       </div>
@@ -145,10 +146,10 @@ export function EtapaFooter({ modulo, className }: { modulo: ModuloId; className
             {anterior ? anterior.label : "Volver al inicio"}
           </Link>
         </Button>
-        {siguiente && (
+        {avanzar && (
           <Button asChild>
-            <Link to={siguiente.ruta}>
-              Continuar: {siguiente.label}
+            <Link to={avanzar.ruta}>
+              {avanzar.label}
               <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
             </Link>
           </Button>
@@ -157,4 +158,5 @@ export function EtapaFooter({ modulo, className }: { modulo: ModuloId; className
     </nav>
   );
 }
+
 

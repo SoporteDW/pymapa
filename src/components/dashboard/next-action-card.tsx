@@ -26,15 +26,14 @@ export function NextActionCard({
       <CardHeader className="pb-3">
         <CardTitle className="flex items-center gap-2 text-base">
           <Compass className="h-5 w-5 text-primary" aria-hidden="true" />
-          Próxima acción recomendada
+          Actividad destacada · consulta
         </CardTitle>
         <CardDescription>{justificacion}</CardDescription>
       </CardHeader>
       <CardContent className="space-y-3">
         {!accion ? (
           <p className="text-sm text-muted-foreground">
-            No hay acciones disponibles para recomendar. Revisa los bloqueos o genera un Roadmap
-            actualizado.
+            No hay actividades para destacar en esta vista de consulta.
           </p>
         ) : (
           <>
@@ -60,13 +59,14 @@ export function NextActionCard({
               <span className="text-sm font-semibold tabular-nums">{calcularAvance(accion)}%</span>
             </div>
             <Button
+              variant="outline"
               asChild
               onClick={() =>
                 registrarEvento("dashboard_next_action_opened", { accionId: accion.id })
               }
             >
               <Link to="/roadmap/$accion" params={{ accion: accion.id }}>
-                Abrir esta acción
+                Consultar esta actividad
                 <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" />
               </Link>
             </Button>

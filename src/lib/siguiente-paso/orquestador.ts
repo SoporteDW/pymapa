@@ -344,7 +344,9 @@ export function pendientesDelRecorrido(
     });
   }
 
-  if (perfilOk && sesion.resultados.length > 0 && !pendiente && porEmpezar) {
+  // Mientras no se haya visto la entrada a Actuar, ese es el único paso: no se
+  // ofrece "elegir actividad" en paralelo a la explicación del plan.
+  if (perfilOk && sesion.resultados.length > 0 && !pendiente && porEmpezar && hitos.entradaActuar) {
     pasos.push({
       tipo: "iniciar_actividad",
       etapa: "actuar",
@@ -379,7 +381,14 @@ export function pendientesDelRecorrido(
     });
   }
 
-  if (validadas.length > 0 && hitos.cierrePlan && !hitos.entradaSeguir) {
+  // Si ya existe un seguimiento con mediciones por registrar, el plan de
+  // seguimiento ya está creado: no se ofrece "crearlo" en paralelo.
+  if (
+    validadas.length > 0 &&
+    hitos.cierrePlan &&
+    !hitos.entradaSeguir &&
+    seguimientoConHito === undefined
+  ) {
     pasos.push({
       tipo: "iniciar_seguimiento",
       etapa: "seguir",
