@@ -419,11 +419,21 @@ describe("Home orquestador", () => {
         apoyos: sembrado.apoyo.recomendaciones,
       })
     );
-    expect(pendientes.map((p) => p.tipo)).toEqual([
-      "atender_delegacion",
-      "revisar_apoyo",
-      "iniciar_actividad",
-    ]);
+    // Sin el hito de entrada a Actuar no se ofrece "elegir actividad": ese
+    // camino solo se abre después de explicar cómo se construyó el plan.
+    expect(pendientes.map((p) => p.tipo)).toEqual(["atender_delegacion", "revisar_apoyo"]);
+  });
+
+  it("ofrece elegir actividad solo después de la entrada a Actuar", () => {
+    const sembrado = construirSembradoHero(EMPRESA);
+    const pendientes = pendientesDelRecorrido(
+      contexto({
+        delegaciones: sembrado.delegacion.delegaciones,
+        apoyos: sembrado.apoyo.recomendaciones,
+        hitos: { entradaActuar: true, cierrePlan: false, entradaSeguir: false },
+      })
+    );
+    expect(pendientes.map((p) => p.tipo)).toContain("iniciar_actividad");
   });
 
   it("nunca propone una ruta inexistente", () => {
