@@ -379,7 +379,14 @@ export function pendientesDelRecorrido(
     });
   }
 
-  if (validadas.length > 0 && hitos.cierrePlan && !hitos.entradaSeguir) {
+  // Si ya existe un seguimiento con mediciones por registrar, el plan de
+  // seguimiento ya está creado: no se ofrece "crearlo" en paralelo.
+  if (
+    validadas.length > 0 &&
+    hitos.cierrePlan &&
+    !hitos.entradaSeguir &&
+    seguimientoConHito === undefined
+  ) {
     pasos.push({
       tipo: "iniciar_seguimiento",
       etapa: "seguir",
