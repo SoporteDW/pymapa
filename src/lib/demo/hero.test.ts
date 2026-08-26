@@ -436,6 +436,20 @@ describe("Home orquestador", () => {
     expect(pendientes.map((p) => p.tipo)).toContain("iniciar_actividad");
   });
 
+  it("no ofrece crear el Plan de Seguimiento cuando ya hay mediciones por registrar", () => {
+    const sembrado = construirSembradoHero(EMPRESA);
+    const actividades = sembrado.workspace.actividades.filter((a) => a.estado === "validado");
+    const pendientes = pendientesDelRecorrido(
+      contexto({
+        actividades,
+        seguimientos: sembrado.seguimiento.seguimientos,
+        hitos: { entradaActuar: true, cierrePlan: true, entradaSeguir: false },
+      })
+    );
+    expect(pendientes.map((p) => p.tipo)).not.toContain("iniciar_seguimiento");
+    expect(pendientes[0]?.tipo).toBe("realizar_seguimiento");
+  });
+
   it("nunca propone una ruta inexistente", () => {
     const sembrado = construirSembradoHero(EMPRESA);
     const pendientes = pendientesDelRecorrido(
