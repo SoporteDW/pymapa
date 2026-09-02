@@ -8,6 +8,7 @@ import { PageHeader } from "@/components/layout/page-header";
 import { LoadingState } from "@/components/ui/loading-state";
 import { BloqueoEtapa } from "@/components/journey/bloqueo-etapa";
 import { TarjetaEntregable } from "@/components/entregables/tarjeta-entregable";
+import { ResumenRecursosPlan } from "@/components/intervencion/resumen-recursos";
 import { entregablePorId } from "@/lib/entregables/catalogo";
 import { useJourney } from "@/hooks/use-journey";
 import { useActuar } from "@/hooks/use-actuar";
@@ -117,6 +118,10 @@ function CierrePlanPage() {
           <Dato valor={entregablesProducidos.length} label="Entregables producidos" />
         </CardContent>
       </Card>
+
+      <ResumenRecursosPlan actividades={actividades} />
+
+
 
       <div className="grid gap-4 lg:grid-cols-2">
         <Card>
