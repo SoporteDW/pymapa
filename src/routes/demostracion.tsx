@@ -363,6 +363,10 @@ function DemostracionPage() {
               <Button variant="outline" size="sm" asChild>
                 <Link to="/dashboard">Indicadores</Link>
               </Button>
+              <Button variant="outline" size="sm" asChild>
+                <Link to="/cohorte">Lectura de cohorte (simulada)</Link>
+              </Button>
+
             </div>
           </CardContent>
         </Card>
