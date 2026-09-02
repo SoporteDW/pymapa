@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { PedirAMiEmpresa } from "@/components/colaboracion/pedir-a-mi-empresa";
 import { PedirApoyoExperto } from "@/components/apoyo-humano/pedir-apoyo-experto";
+import { RutaIntervencionPanel } from "@/components/intervencion/ruta-intervencion";
 import { obtenerInstrumento } from "@/lib/instrumentos/catalogo";
 import type { ActividadWorkspace } from "@/lib/workspace/tipos";
 
@@ -85,6 +86,10 @@ export function FichaActividad({
               ))}
             </ul>
           </Seccion>
+
+          <RutaIntervencionPanel actividad={actividad} />
+
+
 
           <div className="flex flex-col gap-3 border-t border-border pt-4">
             <Button size="lg" onClick={onEmpezar} className="w-full sm:w-auto">
