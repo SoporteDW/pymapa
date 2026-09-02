@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApoyoRouteImport } from './routes/apoyo'
 import { Route as AyudaRouteImport } from './routes/ayuda'
+import { Route as CohorteRouteImport } from './routes/cohorte'
 import { Route as ColaboracionRouteImport } from './routes/colaboracion'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as DemostracionRouteImport } from './routes/demostracion'
@@ -37,6 +38,7 @@ import { Route as PlanDeAccionIndexRouteImport } from './routes/plan-de-accion.i
 import { Route as PlanDeAccionAccionRouteImport } from './routes/plan-de-accion.$accion'
 import { Route as PlanDeAccionCierreRouteImport } from './routes/plan-de-accion.cierre'
 import { Route as PlanDeAccionEntradaRouteImport } from './routes/plan-de-accion.entrada'
+import { Route as ProyectoActividadRouteImport } from './routes/proyecto.$actividad'
 import { Route as ResultadosIndexRouteImport } from './routes/resultados.index'
 import { Route as ResultadosDimensionRouteImport } from './routes/resultados.$dimension'
 import { Route as RoadmapIndexRouteImport } from './routes/roadmap.index'
@@ -63,6 +65,11 @@ const ApoyoRoute = ApoyoRouteImport.update({
 const AyudaRoute = AyudaRouteImport.update({
   id: '/ayuda',
   path: '/ayuda',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CohorteRoute = CohorteRouteImport.update({
+  id: '/cohorte',
+  path: '/cohorte',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ColaboracionRoute = ColaboracionRouteImport.update({
@@ -191,6 +198,11 @@ const PlanDeAccionEntradaRoute = PlanDeAccionEntradaRouteImport.update({
   path: '/entrada',
   getParentRoute: () => PlanDeAccionRoute,
 } as any)
+const ProyectoActividadRoute = ProyectoActividadRouteImport.update({
+  id: '/proyecto/$actividad',
+  path: '/proyecto/$actividad',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ResultadosIndexRoute = ResultadosIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -260,6 +272,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/apoyo': typeof ApoyoRoute
   '/ayuda': typeof AyudaRoute
+  '/cohorte': typeof CohorteRoute
   '/colaboracion': typeof ColaboracionRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/demostracion': typeof DemostracionRoute
@@ -282,6 +295,7 @@ export interface FileRoutesByFullPath {
   '/plan-de-accion/$accion': typeof PlanDeAccionAccionRoute
   '/plan-de-accion/cierre': typeof PlanDeAccionCierreRoute
   '/plan-de-accion/entrada': typeof PlanDeAccionEntradaRoute
+  '/proyecto/$actividad': typeof ProyectoActividadRoute
   '/resultados/$dimension': typeof ResultadosDimensionRoute
   '/roadmap/$accion': typeof RoadmapAccionRoute
   '/seguimiento/$actividad': typeof SeguimientoActividadRoute
@@ -302,6 +316,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/apoyo': typeof ApoyoRoute
   '/ayuda': typeof AyudaRoute
+  '/cohorte': typeof CohorteRoute
   '/colaboracion': typeof ColaboracionRoute
   '/demostracion': typeof DemostracionRoute
   '/inicio': typeof InicioRoute
@@ -317,6 +332,7 @@ export interface FileRoutesByTo {
   '/plan-de-accion/$accion': typeof PlanDeAccionAccionRoute
   '/plan-de-accion/cierre': typeof PlanDeAccionCierreRoute
   '/plan-de-accion/entrada': typeof PlanDeAccionEntradaRoute
+  '/proyecto/$actividad': typeof ProyectoActividadRoute
   '/resultados/$dimension': typeof ResultadosDimensionRoute
   '/roadmap/$accion': typeof RoadmapAccionRoute
   '/seguimiento/$actividad': typeof SeguimientoActividadRoute
@@ -338,6 +354,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/apoyo': typeof ApoyoRoute
   '/ayuda': typeof AyudaRoute
+  '/cohorte': typeof CohorteRoute
   '/colaboracion': typeof ColaboracionRoute
   '/dashboard': typeof DashboardRouteWithChildren
   '/demostracion': typeof DemostracionRoute
@@ -360,6 +377,7 @@ export interface FileRoutesById {
   '/plan-de-accion/$accion': typeof PlanDeAccionAccionRoute
   '/plan-de-accion/cierre': typeof PlanDeAccionCierreRoute
   '/plan-de-accion/entrada': typeof PlanDeAccionEntradaRoute
+  '/proyecto/$actividad': typeof ProyectoActividadRoute
   '/resultados/$dimension': typeof ResultadosDimensionRoute
   '/roadmap/$accion': typeof RoadmapAccionRoute
   '/seguimiento/$actividad': typeof SeguimientoActividadRoute
@@ -382,6 +400,7 @@ export interface FileRouteTypes {
     | '/'
     | '/apoyo'
     | '/ayuda'
+    | '/cohorte'
     | '/colaboracion'
     | '/dashboard'
     | '/demostracion'
@@ -404,6 +423,7 @@ export interface FileRouteTypes {
     | '/plan-de-accion/$accion'
     | '/plan-de-accion/cierre'
     | '/plan-de-accion/entrada'
+    | '/proyecto/$actividad'
     | '/resultados/$dimension'
     | '/roadmap/$accion'
     | '/seguimiento/$actividad'
@@ -424,6 +444,7 @@ export interface FileRouteTypes {
     | '/'
     | '/apoyo'
     | '/ayuda'
+    | '/cohorte'
     | '/colaboracion'
     | '/demostracion'
     | '/inicio'
@@ -439,6 +460,7 @@ export interface FileRouteTypes {
     | '/plan-de-accion/$accion'
     | '/plan-de-accion/cierre'
     | '/plan-de-accion/entrada'
+    | '/proyecto/$actividad'
     | '/resultados/$dimension'
     | '/roadmap/$accion'
     | '/seguimiento/$actividad'
@@ -459,6 +481,7 @@ export interface FileRouteTypes {
     | '/'
     | '/apoyo'
     | '/ayuda'
+    | '/cohorte'
     | '/colaboracion'
     | '/dashboard'
     | '/demostracion'
@@ -481,6 +504,7 @@ export interface FileRouteTypes {
     | '/plan-de-accion/$accion'
     | '/plan-de-accion/cierre'
     | '/plan-de-accion/entrada'
+    | '/proyecto/$actividad'
     | '/resultados/$dimension'
     | '/roadmap/$accion'
     | '/seguimiento/$actividad'
@@ -502,6 +526,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ApoyoRoute: typeof ApoyoRoute
   AyudaRoute: typeof AyudaRoute
+  CohorteRoute: typeof CohorteRoute
   ColaboracionRoute: typeof ColaboracionRoute
   DashboardRoute: typeof DashboardRouteWithChildren
   DemostracionRoute: typeof DemostracionRoute
@@ -513,6 +538,7 @@ export interface RootRouteChildren {
   ResultadosRoute: typeof ResultadosRouteWithChildren
   RoadmapRoute: typeof RoadmapRouteWithChildren
   SeguimientoRoute: typeof SeguimientoRouteWithChildren
+  ProyectoActividadRoute: typeof ProyectoActividadRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -536,6 +562,13 @@ declare module '@tanstack/react-router' {
       path: '/ayuda'
       fullPath: '/ayuda'
       preLoaderRoute: typeof AyudaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cohorte': {
+      id: '/cohorte'
+      path: '/cohorte'
+      fullPath: '/cohorte'
+      preLoaderRoute: typeof CohorteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/colaboracion': {
@@ -712,6 +745,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/plan-de-accion/entrada'
       preLoaderRoute: typeof PlanDeAccionEntradaRouteImport
       parentRoute: typeof PlanDeAccionRoute
+    }
+    '/proyecto/$actividad': {
+      id: '/proyecto/$actividad'
+      path: '/proyecto/$actividad'
+      fullPath: '/proyecto/$actividad'
+      preLoaderRoute: typeof ProyectoActividadRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/resultados/': {
       id: '/resultados/'
@@ -928,6 +968,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ApoyoRoute: ApoyoRoute,
   AyudaRoute: AyudaRoute,
+  CohorteRoute: CohorteRoute,
   ColaboracionRoute: ColaboracionRoute,
   DashboardRoute: DashboardRouteWithChildren,
   DemostracionRoute: DemostracionRoute,
@@ -939,6 +980,7 @@ const rootRouteChildren: RootRouteChildren = {
   ResultadosRoute: ResultadosRouteWithChildren,
   RoadmapRoute: RoadmapRouteWithChildren,
   SeguimientoRoute: SeguimientoRouteWithChildren,
+  ProyectoActividadRoute: ProyectoActividadRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
