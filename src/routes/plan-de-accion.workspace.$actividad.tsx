@@ -65,6 +65,7 @@ function WorkspacePage() {
     borrador,
     actualizarBorrador,
     retomar,
+    plantillas,
   } = useWorkspace(actividadId);
 
   if (!hidratado) return <LoadingState fullPage />;
