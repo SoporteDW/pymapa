@@ -5,17 +5,27 @@ import {
   agregarRecursos,
   clasificarIntervencion,
   entradaDeActividad,
+  metadatosDePlantilla,
 } from "@/lib/intervencion/clasificacion";
-import type { ActividadWorkspace } from "@/lib/workspace/tipos";
+import type { ActividadWorkspace, PlantillaActividad } from "@/lib/workspace/tipos";
 
 /**
  * Lectura agregada del Plan de Acción: qué tipo de apoyo requiere el conjunto de
  * las Actividades. Es una proyección de las Actividades del Workspace.
  */
-export function ResumenRecursosPlan({ actividades }: { actividades: ActividadWorkspace[] }) {
+export function ResumenRecursosPlan({
+  actividades,
+  plantillas,
+}: {
+  actividades: ActividadWorkspace[];
+  /** Plantillas de origen: aportan esfuerzo y duración ya estimados. */
+  plantillas?: PlantillaActividad[];
+}) {
   if (actividades.length === 0) return null;
   const resumen = agregarRecursos(
-    actividades.map((a) => clasificarIntervencion(entradaDeActividad(a)))
+    actividades.map((a) =>
+      clasificarIntervencion(entradaDeActividad(a, metadatosDePlantilla(plantillas, a.id)))
+    )
   );
 
   const filas = [

@@ -44,7 +44,7 @@ function CierrePlanPage() {
   const { hidratado, bloqueoDe } = useJourney();
   // Workspace es la fuente única: el cierre del Plan se deriva de su ejecución.
   const { plan } = useActuar();
-  const { actividades } = useWorkspace();
+  const { actividades, plantillas } = useWorkspace();
   const { delegaciones } = useDelegacion();
   const { recomendaciones } = useApoyoHumano();
   const { marcar } = useHitosJourney();
@@ -119,7 +119,7 @@ function CierrePlanPage() {
         </CardContent>
       </Card>
 
-      <ResumenRecursosPlan actividades={actividades} />
+      <ResumenRecursosPlan actividades={actividades} plantillas={plantillas} />
 
 
 
