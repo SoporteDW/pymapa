@@ -32,6 +32,9 @@ export const plantillasEscenarioHero: PlantillaActividad[] = [
       "Anotar cada punto donde el cliente debe detenerse, decidir o volver atrás.",
     ],
     senalesProfundizacion: ["checkout", "pago", "abandono"],
+    // Metadatos demostrativos equivalentes a los de una Ficha de Acción.
+    esfuerzo: "alto",
+    duracion: "60 días (dos mediciones de seguimiento)",
   },
   {
     id: "hero-act-02-carrito-costos",
@@ -52,5 +55,34 @@ export const plantillasEscenarioHero: PlantillaActividad[] = [
       "Definir dónde y cómo se mostrará el costo total.",
     ],
     senalesProfundizacion: ["carrito", "envío", "costos"],
+    esfuerzo: "medio",
+    duracion: "45 días",
+  },
+  {
+    /**
+     * Tercera Actividad del mismo diagnóstico e-commerce: la brecha de atención
+     * a las consultas de compra. Existe para que el conjunto demuestre que no
+     * toda brecha requiere tecnología, proveedor ni financiación.
+     */
+    id: "hero-act-03-atencion-consultas",
+    titulo: "Acordar con el equipo comercial cómo se responde cada consulta de venta",
+    objetivo:
+      "Que ninguna consulta de compra quede sin respuesta: un acuerdo interno de tiempos, responsable y registro del seguimiento.",
+    porQue:
+      "El diagnóstico especializado muestra que las consultas de compra se responden de forma desigual y sin responsable definido: se pierden ventas de clientes ya interesados.",
+    origen: {
+      tipo: "escenario_demo",
+      fuente: "Escenario Hero e-commerce (demo)",
+      dominioId: "D03",
+      dominioNombre: nombreDominio("D03"),
+      referencias: ["KB-EC-H05", "KB-SS-R01", "EC-Q11"],
+    },
+    pasosSugeridos: [
+      "Listar por dónde llegan hoy las consultas de compra y quién las responde.",
+      "Acordar con el equipo un tiempo máximo de respuesta y un responsable por canal.",
+    ],
+    senalesProfundizacion: ["atención", "consultas", "ventas"],
+    esfuerzo: "bajo",
+    duracion: "30 días",
   },
 ];
