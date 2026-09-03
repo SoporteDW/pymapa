@@ -24,7 +24,7 @@ export function RutaIntervencionPanel({
 }: {
   actividad: ActividadWorkspace;
   /** Esfuerzo y duración ya estimados por la Actividad de origen. */
-  metadatos?: MetadatosActividad;
+  metadatos?: MetadatosActividad | undefined;
 }) {
   const entrada = entradaDeActividad(actividad, metadatos ?? null);
   const ruta = clasificarIntervencion(entrada);

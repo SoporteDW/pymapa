@@ -24,7 +24,7 @@ export function FichaActividad({
 }: {
   actividad: ActividadWorkspace;
   onEmpezar: () => void;
-  metadatos?: MetadatosActividad;
+  metadatos?: MetadatosActividad | undefined;
 }) {
   const instrumento = obtenerInstrumento(actividad.instrumentoId);
   const pasos = actividad.pasos;
