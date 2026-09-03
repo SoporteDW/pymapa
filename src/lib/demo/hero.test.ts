@@ -477,7 +477,7 @@ describe("Escenario Hero progresivo", () => {
 
   it("en el nivel de plan hay actividades pero todavía no seguimiento", () => {
     const sembrado = construirSembradoHero({ ...EMPRESA, nivel: "plan" });
-    expect(sembrado.workspace.actividades).toHaveLength(2);
+    expect(sembrado.workspace.actividades).toHaveLength(3);
     expect(sembrado.seguimiento.seguimientos).toHaveLength(0);
   });
 });
@@ -489,8 +489,9 @@ describe("Escenario Hero final completo", () => {
     expect(sembrado.workspace.actividades.map((a) => a.id)).toEqual([
       HERO_ACTIVIDAD_VALIDADA,
       HERO_ACTIVIDAD_CON_AJUSTES,
+      "hero-act-03-atencion-consultas",
     ]);
-    expect(plantillasEscenarioHero).toHaveLength(2);
+    expect(plantillasEscenarioHero).toHaveLength(3);
   });
 
   it("deja la auditoría del checkout validada con su evidencia", () => {
