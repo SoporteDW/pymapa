@@ -1,7 +1,11 @@
 import { describe, expect, it } from "vitest";
 
+import { construirSembradoHero } from "@/lib/demo/sembrado-hero";
+import { plantillasEscenarioHero } from "@/lib/workspace/escenario-hero";
 import {
   agregarRecursos,
+  entradaDeActividad,
+  metadatosDePlantilla,
   clasificarIntervencion,
   proyectoFinanciable,
   type EntradaIntervencion,
@@ -74,6 +78,56 @@ describe("clasificación de intervención", () => {
       porQue: "No hay control periódico.",
     });
     expect(proyectoFinanciable(base, interna)).toBeNull();
+  });
+
+  it("clasifica la categoría de inversión sin datos financieros", () => {
+    const ruta = clasificarIntervencion({ ...base, esfuerzo: "alto" });
+    expect(ruta.categoriasInversion).toContain("tecnologia");
+    expect(ruta.categoriasInversion).toContain("procesos");
+    expect(ruta.horizonte).toBe("90 días (tres mediciones de seguimiento)");
+  });
+
+  it("no asigna categoría de inversión cuando no hay inversión prevista", () => {
+    const interna = clasificarIntervencion({
+      ...base,
+      titulo: "Definir un responsable del avance",
+      objetivo: "Sostener el avance.",
+      porQue: "No hay control periódico.",
+    });
+    expect(interna.requiereInversion).toBe("no");
+    expect(interna.categoriasInversion).toEqual([]);
+  });
+
+  it("toma esfuerzo y duración de la Actividad de origen (sin segunda fuente)", () => {
+    const { workspace } = construirSembradoHero({
+      empresaId: "e-demo",
+      empresaNombre: "Moda Origen",
+      nivel: "plan",
+    });
+    const actividad = workspace.actividades[0]!;
+    const ruta = clasificarIntervencion(
+      entradaDeActividad(actividad, metadatosDePlantilla(plantillasEscenarioHero, actividad.id))
+    );
+    expect(ruta.requiereInversion).toBe("si");
+    expect(ruta.horizonte).toBe("60 días (dos mediciones de seguimiento)");
+  });
+
+  it("el conjunto demostrativo de Moda Origen muestra rutas diversas", () => {
+    const { workspace } = construirSembradoHero({
+      empresaId: "e-demo",
+      empresaNombre: "Moda Origen",
+      nivel: "plan",
+    });
+    const resumen = agregarRecursos(
+      workspace.actividades.map((a) =>
+        clasificarIntervencion(entradaDeActividad(a, metadatosDePlantilla(plantillasEscenarioHero, a.id)))
+      )
+    );
+    expect(resumen.total).toBe(3);
+    expect(resumen.internas).toBe(1);
+    expect(resumen.formacion).toBe(1);
+    expect(resumen.proveedorTecnologico).toBe(2);
+    expect(resumen.posibleFinanciacion).toBe(2);
   });
 
   it("devuelve referencias financieras pertinentes sin evaluar elegibilidad", () => {

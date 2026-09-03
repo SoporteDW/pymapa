@@ -7,6 +7,7 @@ import { PedirAMiEmpresa } from "@/components/colaboracion/pedir-a-mi-empresa";
 import { PedirApoyoExperto } from "@/components/apoyo-humano/pedir-apoyo-experto";
 import { RutaIntervencionPanel } from "@/components/intervencion/ruta-intervencion";
 import { obtenerInstrumento } from "@/lib/instrumentos/catalogo";
+import type { MetadatosActividad } from "@/lib/intervencion/clasificacion";
 import type { ActividadWorkspace } from "@/lib/workspace/tipos";
 
 /**
@@ -19,9 +20,11 @@ import type { ActividadWorkspace } from "@/lib/workspace/tipos";
 export function FichaActividad({
   actividad,
   onEmpezar,
+  metadatos,
 }: {
   actividad: ActividadWorkspace;
   onEmpezar: () => void;
+  metadatos?: MetadatosActividad | undefined;
 }) {
   const instrumento = obtenerInstrumento(actividad.instrumentoId);
   const pasos = actividad.pasos;
@@ -87,7 +90,7 @@ export function FichaActividad({
             </ul>
           </Seccion>
 
-          <RutaIntervencionPanel actividad={actividad} />
+          <RutaIntervencionPanel actividad={actividad} metadatos={metadatos} />
 
 
 

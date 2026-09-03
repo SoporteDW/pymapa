@@ -14,14 +14,40 @@
 
 import { obtenerInstrumento } from "@/lib/instrumentos/catalogo";
 import { seleccionarPlantillaIndicador } from "@/lib/seguimiento/catalogo";
-import type { ActividadWorkspace } from "@/lib/workspace/tipos";
+import type { ActividadWorkspace, PlantillaActividad } from "@/lib/workspace/tipos";
 import type { EsfuerzoFicha, FichaAccion } from "@/lib/resultados/tipos";
 
-export const INTERVENCION_VERSION = "intervencion-1.0.0";
+export const INTERVENCION_VERSION = "intervencion-1.1.0";
 
 export type TipoIntervencion = "proceso" | "tecnologia" | "formacion" | "asistencia_tecnica";
 export type RecursosIntervencion = "internos" | "externos" | "mixtos";
 export type NecesidadInversion = "si" | "no" | "por_determinar";
+
+/**
+ * Categoría de inversión: describe SOBRE QUÉ recae la intervención cuando
+ * requiere recursos. Es una clasificación de la intervención, no información
+ * financiera ni crediticia: no implica monto, elegibilidad ni aprobación.
+ */
+export type CategoriaInversion =
+  | "tecnologia"
+  | "software"
+  | "equipos"
+  | "procesos"
+  | "talento"
+  | "consultoria"
+  | "infraestructura"
+  | "otro";
+
+export const etiquetaCategoriaInversion: Record<CategoriaInversion, string> = {
+  tecnologia: "Tecnología",
+  software: "Software",
+  equipos: "Equipos",
+  procesos: "Procesos",
+  talento: "Talento",
+  consultoria: "Consultoría",
+  infraestructura: "Infraestructura",
+  otro: "Otro",
+};
 
 export const etiquetaTipoIntervencion: Record<TipoIntervencion, string> = {
   proceso: "Estructuración del proceso",
@@ -43,6 +69,15 @@ export const etiquetaInversion: Record<NecesidadInversion, string> = {
 };
 
 /** Entrada mínima: todo proviene de datos que ya existen en el recorrido. */
+/**
+ * Metadatos que la Actividad de origen (Ficha de Acción o escenario demo) ya
+ * estimó. No son un nuevo estado: viajan con la plantilla de la actividad.
+ */
+export interface MetadatosActividad {
+  esfuerzo?: EsfuerzoFicha;
+  duracion?: string;
+}
+
 export interface EntradaIntervencion {
   id: string;
   titulo: string;
@@ -66,6 +101,10 @@ export interface RutaIntervencion {
   tipos: TipoIntervencion[];
   recursos: RecursosIntervencion;
   requiereInversion: NecesidadInversion;
+  /** Sobre qué recae la intervención cuando requiere recursos. */
+  categoriasInversion: CategoriaInversion[];
+  /** Horizonte declarado por la Actividad de origen. */
+  horizonte: string;
   /** Explicabilidad: por qué Pymapa clasifica así. */
   porQue: string[];
   indicador: { nombre: string; descripcion: string; unidad: string };
@@ -121,10 +160,32 @@ const SENALES: Record<TipoIntervencion, string[]> = {
   ],
 };
 
+/** Metadatos de esfuerzo y duración de una Actividad, desde su plantilla. */
+export function metadatosDePlantilla(
+  plantillas: PlantillaActividad[] | undefined,
+  actividadId: string
+): MetadatosActividad {
+  const plantilla = plantillas?.find((p) => p.id === actividadId);
+  if (!plantilla) return {};
+  return {
+    ...(plantilla.esfuerzo ? { esfuerzo: plantilla.esfuerzo } : {}),
+    ...(plantilla.duracion ? { duracion: plantilla.duracion } : {}),
+  };
+}
+
+/** Metadatos equivalentes tomados directamente de una Ficha de Acción. */
+export function metadatosDeFicha(ficha?: FichaAccion | null): MetadatosActividad {
+  if (!ficha) return {};
+  return {
+    ...(ficha.effort ? { esfuerzo: ficha.effort } : {}),
+    ...(ficha.duration ? { duracion: ficha.duration } : {}),
+  };
+}
+
 /** Extrae la entrada de clasificación de una actividad del Workspace. */
 export function entradaDeActividad(
   actividad: ActividadWorkspace,
-  ficha?: FichaAccion | null
+  metadatos?: MetadatosActividad | null
 ): EntradaIntervencion {
   return {
     id: actividad.id,
@@ -134,8 +195,8 @@ export function entradaDeActividad(
     dominioId: actividad.origen.dominioId,
     dominioNombre: actividad.origen.dominioNombre,
     instrumentoId: actividad.instrumentoId,
-    ...(ficha?.effort ? { esfuerzo: ficha.effort } : {}),
-    ...(ficha?.duration ? { duracion: ficha.duration } : {}),
+    ...(metadatos?.esfuerzo ? { esfuerzo: metadatos.esfuerzo } : {}),
+    ...(metadatos?.duracion ? { duracion: metadatos.duracion } : {}),
     pasos: actividad.pasos.map((p) => p.titulo),
   };
 }
@@ -215,9 +276,21 @@ export function clasificarIntervencion(entrada: EntradaIntervencion): RutaInterv
     dominioId: entrada.dominioId,
   });
 
+  const categoriasInversion =
+    requiereInversion === "no" ? [] : categorizarInversion(texto, tipos);
+  if (categoriasInversion.length > 0) {
+    porQue.push(
+      `Categoría de inversión: ${categoriasInversion
+        .map((c) => etiquetaCategoriaInversion[c])
+        .join(", ")} (clasificación de la intervención, no un dato financiero).`
+    );
+  }
+
   return {
     actividadId: entrada.id,
     version: INTERVENCION_VERSION,
+    categoriasInversion,
+    horizonte: entrada.duracion ?? "90 días (tres mediciones de seguimiento)",
     brecha: entrada.porQue,
     resultadoEsperado: entrada.objetivo,
     dominioNombre: entrada.dominioNombre,
@@ -231,6 +304,46 @@ export function clasificarIntervencion(entrada: EntradaIntervencion): RutaInterv
       unidad: plantilla.unidad,
     },
   };
+}
+
+const SENALES_CATEGORIA: Partial<Record<CategoriaInversion, string[]>> = {
+  software: [
+    "software",
+    "plataforma",
+    "sistema",
+    "crm",
+    "tienda",
+    "checkout",
+    "carrito",
+    "sitio",
+    "integra",
+    "licencia",
+  ],
+  equipos: ["equipos", "hardware", "maquinaria", "dispositivo", "impresora", "lector"],
+  infraestructura: ["infraestructura", "conectividad", "red ", "servidor", "hosting", "bodega"],
+};
+
+/** Deriva sobre qué recae la inversión. Determinista y explicable. */
+export function categorizarInversion(
+  texto: string,
+  tipos: TipoIntervencion[]
+): CategoriaInversion[] {
+  const categorias: CategoriaInversion[] = [];
+  const agregar = (categoria: CategoriaInversion) => {
+    if (!categorias.includes(categoria)) categorias.push(categoria);
+  };
+
+  if (tipos.includes("tecnologia")) agregar("tecnologia");
+  if (tipos.includes("proceso")) agregar("procesos");
+  if (tipos.includes("formacion")) agregar("talento");
+  if (tipos.includes("asistencia_tecnica")) agregar("consultoria");
+
+  for (const [categoria, senales] of Object.entries(SENALES_CATEGORIA)) {
+    if (senales?.some((s) => texto.includes(s))) agregar(categoria as CategoriaInversion);
+  }
+
+  if (categorias.length === 0) agregar("otro");
+  return categorias;
 }
 
 export interface ResumenRecursos {
@@ -261,6 +374,7 @@ export interface ProyectoFinanciable {
   resultadoEsperado: string;
   componentes: string[];
   inversion: string;
+  categoriasInversion: CategoriaInversion[];
   horizonte: string;
   indicadores: string[];
   estado: string;
@@ -282,7 +396,8 @@ export function proyectoFinanciable(
     resultadoEsperado: ruta.resultadoEsperado,
     componentes: ruta.tipos.map((t) => etiquetaTipoIntervencion[t]),
     inversion: "Por estimar",
-    horizonte: entrada.duracion ?? "90 días (tres mediciones de seguimiento)",
+    categoriasInversion: ruta.categoriasInversion,
+    horizonte: ruta.horizonte,
     indicadores: [ruta.indicador.nombre, "Adopción de la mejora"],
     estado: "Requiere estructuración y validación financiera",
   };

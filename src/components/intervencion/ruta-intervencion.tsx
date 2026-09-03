@@ -6,18 +6,27 @@ import { Button } from "@/components/ui/button";
 import {
   clasificarIntervencion,
   entradaDeActividad,
+  etiquetaCategoriaInversion,
   etiquetaInversion,
   etiquetaRecursos,
   etiquetaTipoIntervencion,
 } from "@/lib/intervencion/clasificacion";
+import type { MetadatosActividad } from "@/lib/intervencion/clasificacion";
 import type { ActividadWorkspace } from "@/lib/workspace/tipos";
 
 /**
  * Lectura derivada (no estado): cómo debería intervenirse la brecha de esta
  * Actividad. Es consulta, nunca un CTA de avance del Journey.
  */
-export function RutaIntervencionPanel({ actividad }: { actividad: ActividadWorkspace }) {
-  const entrada = entradaDeActividad(actividad);
+export function RutaIntervencionPanel({
+  actividad,
+  metadatos,
+}: {
+  actividad: ActividadWorkspace;
+  /** Esfuerzo y duración ya estimados por la Actividad de origen. */
+  metadatos?: MetadatosActividad | undefined;
+}) {
+  const entrada = entradaDeActividad(actividad, metadatos ?? null);
   const ruta = clasificarIntervencion(entrada);
 
   return (
@@ -43,6 +52,21 @@ export function RutaIntervencionPanel({ actividad }: { actividad: ActividadWorks
         </div>
         <Fila termino="Recursos" valor={etiquetaRecursos[ruta.recursos]} />
         <Fila termino="Requiere inversión" valor={etiquetaInversion[ruta.requiereInversion]} />
+        {ruta.categoriasInversion.length > 0 && (
+          <div>
+            <dt className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+              Categoría de inversión
+            </dt>
+            <dd className="mt-1 flex flex-wrap gap-2">
+              {ruta.categoriasInversion.map((categoria) => (
+                <Badge key={categoria} variant="outline" className="rounded-full">
+                  {etiquetaCategoriaInversion[categoria]}
+                </Badge>
+              ))}
+            </dd>
+          </div>
+        )}
+        <Fila termino="Horizonte" valor={ruta.horizonte} />
         <Fila
           termino="Indicador de verificación"
           valor={`${ruta.indicador.nombre} (${ruta.indicador.unidad}) · ${ruta.indicador.descripcion}`}

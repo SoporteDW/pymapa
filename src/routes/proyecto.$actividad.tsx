@@ -12,6 +12,8 @@ import { useWorkspace } from "@/hooks/use-workspace";
 import {
   clasificarIntervencion,
   entradaDeActividad,
+  etiquetaCategoriaInversion,
+  metadatosDePlantilla,
   proyectoFinanciable,
 } from "@/lib/intervencion/clasificacion";
 import {
@@ -43,11 +45,19 @@ export const Route = createFileRoute("/proyecto/$actividad")({
 
 function ProyectoFinanciablePage() {
   const { actividad: actividadId } = Route.useParams();
-  const { actividad, hidratado } = useWorkspace(actividadId);
+  /**
+   * Consulta pura: se lee el Workspace SIN pedir la actividad por parámetro,
+   * de modo que esta vista nunca abre ni crea una Actividad por el solo hecho
+   * de consultar el proyecto. Cero efectos secundarios de estado.
+   */
+  const { actividades, plantillas, hidratado } = useWorkspace();
+  const actividad = actividades.find((a) => a.id === actividadId) ?? null;
 
   if (!hidratado) return <LoadingState fullPage />;
 
-  const entrada = actividad ? entradaDeActividad(actividad) : null;
+  const entrada = actividad
+    ? entradaDeActividad(actividad, metadatosDePlantilla(plantillas, actividadId))
+    : null;
   const ruta = entrada ? clasificarIntervencion(entrada) : null;
   const proyecto = entrada && ruta ? proyectoFinanciable(entrada, ruta) : null;
 
@@ -66,7 +76,7 @@ function ProyectoFinanciablePage() {
       {!proyecto || !ruta ? (
         <EmptyState
           title="Esta Actividad no requiere estructurarse como proyecto"
-          description="Puede ejecutarse con recursos internos y sin inversión prevista."
+          description="Puede ejecutarse con recursos internos y sin inversión prevista, o todavía no fue abierta en tu recorrido."
           icon={Banknote}
         />
       ) : (
@@ -98,6 +108,24 @@ function ProyectoFinanciablePage() {
                 <Bloque titulo="Inversión" texto={proyecto.inversion} />
                 <Bloque titulo="Horizonte" texto={proyecto.horizonte} />
               </div>
+              {proyecto.categoriasInversion.length > 0 && (
+                <div>
+                  <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                    Categoría de inversión
+                  </p>
+                  <div className="mt-1 flex flex-wrap gap-2">
+                    {proyecto.categoriasInversion.map((categoria) => (
+                      <Badge key={categoria} variant="outline" className="rounded-full">
+                        {etiquetaCategoriaInversion[categoria]}
+                      </Badge>
+                    ))}
+                  </div>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    Clasifica sobre qué recae la intervención. No es información financiera ni
+                    crediticia.
+                  </p>
+                </div>
+              )}
               <div>
                 <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
                   Indicadores

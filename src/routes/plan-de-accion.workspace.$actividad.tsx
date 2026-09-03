@@ -15,6 +15,7 @@ import { PedirAMiEmpresa } from "@/components/colaboracion/pedir-a-mi-empresa";
 import { PedirApoyoExperto } from "@/components/apoyo-humano/pedir-apoyo-experto";
 import { HistorialEntregas } from "@/components/workspace/historial-entregas";
 import { useWorkspace } from "@/hooks/use-workspace";
+import { metadatosDePlantilla } from "@/lib/intervencion/clasificacion";
 import { descripcionEstadoEjecucion, puedeEntregar } from "@/lib/workspace/estados";
 import { toast } from "sonner";
 import { RotateCcw, SearchX, Target } from "lucide-react";
@@ -64,6 +65,7 @@ function WorkspacePage() {
     borrador,
     actualizarBorrador,
     retomar,
+    plantillas,
   } = useWorkspace(actividadId);
 
   if (!hidratado) return <LoadingState fullPage />;
@@ -135,7 +137,11 @@ function WorkspacePage() {
             { label: "Ficha de Actividad" },
           ]}
         />
-        <FichaActividad actividad={actividad} onEmpezar={() => iniciar(actividad.id)} />
+        <FichaActividad
+          actividad={actividad}
+          onEmpezar={() => iniciar(actividad.id)}
+          metadatos={metadatosDePlantilla(plantillas, actividad.id)}
+        />
       </div>
     );
   }

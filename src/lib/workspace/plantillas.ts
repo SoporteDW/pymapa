@@ -30,6 +30,8 @@ export function plantillaDesdeFicha(ficha: FichaAccion): PlantillaActividad {
     },
     pasosSugeridos: ficha.steps,
     senalesProfundizacion: [ficha.title, ficha.problem, ficha.dimensionNombre],
+    esfuerzo: ficha.effort,
+    duracion: ficha.duration,
   };
 }
 

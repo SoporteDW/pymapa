@@ -74,6 +74,8 @@ export const SEMBRADO_HERO_VERSION = "hero-final-1.0.0";
 /** Identificadores estables: el sembrado es idempotente y reiniciable. */
 export const HERO_ACTIVIDAD_VALIDADA = plantillasEscenarioHero[0]!.id;
 export const HERO_ACTIVIDAD_CON_AJUSTES = plantillasEscenarioHero[1]!.id;
+/** Tercera Actividad del escenario: intervención interna, en ejecución. */
+export const HERO_ACTIVIDAD_INTERNA = plantillasEscenarioHero[2]!.id;
 export const HERO_DELEGACION_ID = "hero-del-01";
 export const HERO_APOYO_ID = "hero-ap-01";
 
@@ -206,6 +208,11 @@ export function construirSembradoHero(entrada: EntradaSembradoHero): SembradoHer
       archivos: [],
     }).registro;
   }
+
+  // ── Actividad 3 · atención a consultas: intervención interna en curso ────
+  const tercera = asegurarActividad(workspace, plantillasEscenarioHero[2]!);
+  workspace = tercera.registro;
+  workspace = cambiarEstado(workspace, HERO_ACTIVIDAD_INTERNA, "en_ejecucion");
 
   // ── Seguimiento de la actividad validada ────────────────────────────────
   let seguimiento = seguimientoVacio(empresaId, empresaNombre);
