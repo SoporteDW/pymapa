@@ -10,6 +10,7 @@
  */
 
 import type { ArchivoEvidencia } from "@/lib/evidencias/tipos";
+import type { EsfuerzoFicha } from "@/lib/resultados/tipos";
 import type { FormatoEntregable } from "@/lib/instrumentos/tipos";
 
 /** B5 · Ciclo de ida y vuelta. */
@@ -148,4 +149,12 @@ export interface PlantillaActividad {
   pasosSugeridos?: string[];
   /** Señales para profundización selectiva con el checklist experto. */
   senalesProfundizacion?: string[];
+  /**
+   * Esfuerzo y duración YA estimados por la Ficha de Acción del diagnóstico.
+   * Se transportan como metadatos de la actividad de origen (no son un nuevo
+   * estado ni una segunda fuente de verdad): la lectura de intervención los
+   * necesita para derivar inversión y horizonte.
+   */
+  esfuerzo?: EsfuerzoFicha;
+  duracion?: string;
 }
