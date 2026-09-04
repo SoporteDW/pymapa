@@ -68,6 +68,7 @@ function WorkspacePage() {
     retomar,
     plantillas,
   } = useWorkspace(actividadId);
+  const { plan } = useActuar();
 
   if (!hidratado) return <LoadingState fullPage />;
 
