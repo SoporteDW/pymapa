@@ -138,7 +138,7 @@ export function sugerenciasAsistente(
           id: "no-se",
           pregunta: "No sé esta respuesta.",
           respuesta:
-            "No hay problema. Puedes dejarla pendiente y continuar con las demás; también puedes enviársela a alguien de tu equipo con “Pedir a alguien de mi empresa”. La pregunta queda marcada y no bloquea el resto del cuestionario.",
+            "No hay problema. Puedes dejarla pendiente y continuar con las demás; también puedes enviársela a alguien de tu equipo con “Solicitar colaboración interna”. La pregunta queda marcada y no bloquea el resto del cuestionario.",
         },
         {
           id: "terminar-28",
@@ -233,7 +233,7 @@ export function sugerenciasAsistente(
           id: "no-puedo-solo",
           pregunta: "No puedo hacer esto solo.",
           respuesta:
-            "Tienes dos salidas dentro de la actividad: “Pedir a alguien de mi empresa”, si otra persona tiene la información o el acceso; o “Pedir apoyo experto”, si el obstáculo requiere criterio especializado. En ambos casos la actividad queda con su estado y regresas al mismo punto.",
+            "Tienes dos salidas dentro de la actividad: “Solicitar colaboración interna”, si otra persona tiene la información o el acceso; o “Solicitar apoyo especializado”, si el obstáculo requiere criterio especializado. En ambos casos la actividad queda con su estado y regresas al mismo punto.",
         },
         {
           id: "ajustes",
