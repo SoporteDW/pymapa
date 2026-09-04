@@ -42,8 +42,25 @@ const tonoEstado = {
   completada: "border-success/50 bg-success/10 text-success",
 } as const;
 
-/** Indicador permanente de avance de la etapa actual. */
-export function EtapaProgreso({ modulo, className }: { modulo: ModuloId; className?: string }) {
+/**
+ * Indicador permanente de avance de la etapa actual.
+ *
+ * `ocultarPorcentaje` se usa donde la pantalla ya muestra un progreso propio y
+ * más literal (por ejemplo "0 de 3 Actividades validadas" en el Plan de
+ * Acción): el porcentaje de módulo competiría semánticamente y podría leerse
+ * como ejecución del Plan. La lógica de módulos no cambia, solo su visibilidad.
+ */
+export function EtapaProgreso({
+  modulo,
+  className,
+  ocultarPorcentaje = false,
+  estadoTexto,
+}: {
+  modulo: ModuloId;
+  className?: string;
+  ocultarPorcentaje?: boolean;
+  estadoTexto?: string;
+}) {
   const { sesion, isHydrated } = useSesion();
   const info = moduloPorId(modulo);
   const { journey } = useEstadoDiagnostico();
@@ -58,7 +75,9 @@ export function EtapaProgreso({ modulo, className }: { modulo: ModuloId; classNa
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="min-w-0">
           <p className="text-sm font-medium text-foreground">
-            Módulo {info.numero} de {secuenciaRecorrido.length} · {info.label}
+            {ocultarPorcentaje
+              ? info.label
+              : `Módulo ${info.numero} de ${secuenciaRecorrido.length} · ${info.label}`}
           </p>
           {etapa && (
             <p className="text-xs text-muted-foreground">
@@ -68,16 +87,21 @@ export function EtapaProgreso({ modulo, className }: { modulo: ModuloId; classNa
         </div>
         <div className="flex items-center gap-2">
           <Badge variant="outline" className={cn("rounded-full", tonoEstado[avance.estado])}>
-            {modulo === "diagnostico" ? journey.etiqueta : etiquetaEstadoModulo[avance.estado]}
+            {estadoTexto ??
+              (modulo === "diagnostico" ? journey.etiqueta : etiquetaEstadoModulo[avance.estado])}
           </Badge>
-          <span className="text-sm font-semibold text-foreground">{avance.porcentaje}%</span>
+          {!ocultarPorcentaje && (
+            <span className="text-sm font-semibold text-foreground">{avance.porcentaje}%</span>
+          )}
         </div>
       </div>
-      <Progress
-        value={avance.porcentaje}
-        className="mt-3"
-        aria-label={`Avance de la etapa ${info.label}`}
-      />
+      {!ocultarPorcentaje && (
+        <Progress
+          value={avance.porcentaje}
+          className="mt-3"
+          aria-label={`Avance de la etapa ${info.label}`}
+        />
+      )}
     </div>
   );
 }
