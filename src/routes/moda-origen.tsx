@@ -8,11 +8,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { PageHeader } from "@/components/layout/page-header";
 import { useModoDemo } from "@/hooks/use-modo-demo";
 import { useIntegracion } from "@/hooks/use-integracion";
-import { aplicarSembradoHero } from "@/lib/demo/sembrado-hero";
-import { RESPUESTAS_HERO_MODA_ORIGEN } from "@/lib/integracion/perfiles";
+import {
+  HERO_PERFIL_ID,
+  HERO_RESPUESTAS,
+  sembrarPuntoEntradaHero,
+} from "@/lib/demo/punto-entrada-hero";
 
 /** Perfil simulado del caso demostrativo (tienda de ropa con canal digital). */
-const PERFIL_ID = "PYME-04";
+const PERFIL_ID = HERO_PERFIL_ID;
 
 export const Route = createFileRoute("/moda-origen")({
   head: () => ({
@@ -76,13 +79,13 @@ function ModaOrigenPage() {
       return;
     }
     // El caso Hero entra con el cuestionario completo (28 de 28).
-    cargarPerfil(perfil.id, { respuestas: RESPUESTAS_HERO_MODA_ORIGEN });
+    cargarPerfil(perfil.id, { respuestas: HERO_RESPUESTAS });
     // Progresivo: solo la etapa de diagnóstico. Las etapas siguientes se
     // construyen con el propio recorrido.
-    aplicarSembradoHero({
+    sembrarPuntoEntradaHero({
       empresaId: perfil.empresa.id,
       empresaNombre: perfil.nombre,
-      nivel: "diagnostico",
+      reiniciar: true,
     });
     toast.success(
       "Retomamos el recorrido de Moda Origen. Te mostramos dónde está y qué sigue ahora."

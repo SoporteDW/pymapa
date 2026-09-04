@@ -4,11 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { plantillasEscenarioHero } from "@/lib/workspace/escenario-hero";
-import { aplicarSembradoHero, reiniciarSembradoHero } from "@/lib/demo/sembrado-hero";
+import {
+  HERO_PERFIL_ID,
+  HERO_RESPUESTAS,
+  sembrarPuntoEntradaHero,
+} from "@/lib/demo/punto-entrada-hero";
 import { perfilPorId } from "@/lib/integracion/perfiles";
-
-/** Perfil simulado usado por el escenario Hero (empresa con canal digital). */
-const HERO_PERFIL_ID = "PYME-04";
 import { Textarea } from "@/components/ui/textarea";
 import { LoadingState } from "@/components/ui/loading-state";
 import { DemoNote } from "@/components/ui/demo-note";
@@ -122,11 +123,12 @@ function DemostracionPage() {
       toast.error("No se encontró el perfil del escenario Hero.");
       return;
     }
-    cargarPerfil(perfil.id);
-    aplicarSembradoHero({
+    // Punto de entrada único: instrumento completo (28 de 28) y diagnóstico
+    // todavía en curso. Actuar y Seguir se desbloquean por el Journey.
+    cargarPerfil(perfil.id, { respuestas: HERO_RESPUESTAS });
+    sembrarPuntoEntradaHero({
       empresaId: perfil.empresa.id,
       empresaNombre: perfil.empresa.nombre,
-      nivel: "seguimiento",
     });
     setHeroListo(true);
     toast.success(
@@ -137,10 +139,11 @@ function DemostracionPage() {
   const reiniciarHero = () => {
     const perfil = perfilPorId(HERO_PERFIL_ID);
     if (!perfil) return;
-    reiniciarSembradoHero({
-      nivel: "seguimiento",
+    cargarPerfil(perfil.id, { respuestas: HERO_RESPUESTAS });
+    sembrarPuntoEntradaHero({
       empresaId: perfil.empresa.id,
       empresaNombre: perfil.empresa.nombre,
+      reiniciar: true,
     });
     setHeroListo(true);
     toast.info("Escenario Hero reiniciado: las capas demostrativas volvieron a su estado inicial.");
@@ -175,43 +178,34 @@ function DemostracionPage() {
             Escenario Hero · recorrido e-commerce de punta a punta
           </CardTitle>
           <CardDescription>
-            Actividades de carrito y checkout listas para experimentar el ciclo completo: entender,
-            ejecutar con instrumento, entregar, recibir revisión, ajustar y validar. Son datos de
-            demostración: no afectan el recorrido real de tu empresa.
+            Estas son las Actividades que el caso demostrativo producirá cuando cierre su
+            diagnóstico. Aparecerán en el Plan de Acción por las reglas normales del recorrido: aquí
+            solo se listan como referencia. Son datos de demostración.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-3">
           {plantillasEscenarioHero.map((actividad) => (
             <div
               key={actividad.id}
-              className="space-y-2 rounded-lg border border-border bg-card p-3 sm:flex sm:items-center sm:justify-between sm:gap-4 sm:space-y-0"
+              className="space-y-1 rounded-lg border border-border bg-card p-3"
             >
-              <div>
-                <p className="text-sm font-semibold text-foreground">{actividad.titulo}</p>
-                <p className="text-sm text-muted-foreground">{actividad.objetivo}</p>
-              </div>
-              <Button size="sm" variant="outline" asChild>
-                <Link
-                  to="/plan-de-accion/workspace/$actividad"
-                  params={{ actividad: actividad.id }}
-                >
-                  Abrir workspace
-                </Link>
-              </Button>
+              <p className="text-sm font-semibold text-foreground">{actividad.titulo}</p>
+              <p className="text-sm text-muted-foreground">{actividad.objetivo}</p>
             </div>
           ))}
+
 
           <div className="space-y-3 rounded-lg border border-primary/25 bg-card p-3">
             <div>
               <p className="text-sm font-semibold text-foreground">
-                Escenario Hero final · seguimiento, delegación y apoyo precargados
+                Moda Origen · escenario completo
               </p>
               <p className="text-sm text-muted-foreground">
-                Deja el recorrido listo para recorrerse en 10–15 minutos: la auditoría del checkout
-                ya validada con su seguimiento a 30 días medido, el carrito con dos revisiones que
-                pidieron ajustes, una delegación a un tercero ficticio y una recomendación de apoyo
-                especializado justificada. Se activa el modo demostración: tus datos reales quedan
-                respaldados y se restauran al salir.
+                Carga el punto de entrada del caso demostrativo: las 28 preguntas del diagnóstico
+                general ya respondidas, con aclaraciones pendientes de confirmar. Desde ahí se
+                recorre en vivo la profundización, la validación de hallazgos, el diagnóstico final,
+                el Plan de Acción y el Seguimiento. Se activa el modo demostración: tus datos reales
+                quedan respaldados y se restauran al salir.
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -222,23 +216,13 @@ function DemostracionPage() {
                 Reiniciar escenario Hero
               </Button>
               {heroListo && (
-                <>
-                  <Button size="sm" variant="ghost" asChild>
-                    <Link to="/inicio">Ver siguiente paso</Link>
-                  </Button>
-                  <Button size="sm" variant="ghost" asChild>
-                    <Link to="/seguimiento">Seguimiento</Link>
-                  </Button>
-                  <Button size="sm" variant="ghost" asChild>
-                    <Link to="/colaboracion">Delegaciones</Link>
-                  </Button>
-                  <Button size="sm" variant="ghost" asChild>
-                    <Link to="/apoyo">Apoyo</Link>
-                  </Button>
-                </>
+                <Button size="sm" variant="ghost" asChild>
+                  <Link to="/inicio">Ver siguiente paso</Link>
+                </Button>
               )}
             </div>
           </div>
+
         </CardContent>
       </Card>
 
