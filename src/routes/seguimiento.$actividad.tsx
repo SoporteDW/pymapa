@@ -16,6 +16,7 @@ import {
 import { EvolucionIndicador } from "@/components/seguimiento/evolucion-indicador";
 import { TarjetaEntregable } from "@/components/entregables/tarjeta-entregable";
 import { entregablePorId } from "@/lib/entregables/catalogo";
+import { PedirApoyoExperto } from "@/components/apoyo-humano/pedir-apoyo-experto";
 import { toast } from "sonner";
 import { LineChart, Sparkles } from "lucide-react";
 
@@ -44,7 +45,8 @@ export const Route = createFileRoute("/seguimiento/$actividad")({
 function SeguimientoActividadPage() {
   const { actividad: actividadId } = useParams({ from: "/seguimiento/$actividad" });
   const navigate = useNavigate();
-  const { hidratado, seguimiento, medir, evaluar, aplicarDecision } = useSeguimiento(actividadId);
+  const { hidratado, seguimiento, proximoHito, medir, evaluar, aplicarDecision } =
+    useSeguimiento(actividadId);
 
   if (!hidratado) return <LoadingState fullPage />;
 
@@ -220,6 +222,63 @@ function SeguimientoActividadPage() {
           )}
         </CardContent>
       </Card>
+
+      {/* Macroentrega 5.3 · Después de aplicar la decisión el usuario nunca
+          queda sin siguiente paso. Tarjeta demostrativa: solo se representan
+          como acción las opciones que hoy existen. */}
+      {evaluacion && seguimiento.derivaciones.length > 0 && (
+        <Card className="border-primary/25">
+          <CardHeader className="space-y-1.5">
+            <CardTitle className="text-base">Próxima acción recomendada</CardTitle>
+            <CardDescription>
+              {evaluacion.resultado === "mejoro"
+                ? "El resultado esperado se está produciendo. Mantén la intervención y confirma en el siguiente checkpoint."
+                : "El resultado esperado todavía no se está produciendo. Pymapa recomienda revisar la intervención antes del siguiente checkpoint."}
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <p className="text-sm font-semibold text-foreground">
+              {proximoHito
+                ? `Próxima revisión: ${proximoHito.etiqueta}`
+                : "Ya registraste las tres mediciones de este seguimiento."}
+            </p>
+            <ul className="space-y-1 text-sm text-muted-foreground">
+              <li>· Revisar la Actividad de origen y lo que quedó documentado.</li>
+              <li>· Solicitar apoyo especializado si el resultado no se mueve.</li>
+              <li>· Preparar la siguiente revisión con la medición del próximo checkpoint.</li>
+              <li>· Consultar una guía o recurso relacionado (aún no disponible en esta versión).</li>
+            </ul>
+            <div className="flex flex-wrap gap-2">
+              <Button variant="outline" asChild>
+                <Link
+                  to="/plan-de-accion/workspace/$actividad"
+                  params={{ actividad: seguimiento.actividadId }}
+                  search={{ desde: "seguimiento" as const }}
+                >
+                  Revisar la Actividad de origen
+                </Link>
+              </Button>
+              <PedirApoyoExperto
+                origen={{
+                  tipo: "seguimiento",
+                  referenciaId: seguimiento.actividadId,
+                  referenciaTitulo: seguimiento.actividadTitulo,
+                  dominioId: seguimiento.dominioId,
+                  dominioNombre: seguimiento.dominioNombre,
+                  rutaRetorno: `/seguimiento/${seguimiento.actividadId}`,
+                }}
+              />
+              <Button asChild>
+                <Link to="/seguimiento">
+                  {proximoHito
+                    ? "Continuar con mi Plan de Seguimiento"
+                    : "Volver a mi Plan de Seguimiento"}
+                </Link>
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      )}
 
       {informeAvance && <TarjetaEntregable entregable={informeAvance} />}
     </div>
