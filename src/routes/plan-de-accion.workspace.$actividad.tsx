@@ -114,6 +114,12 @@ function WorkspacePage() {
     });
   };
 
+  // Cierre condicional (solo lectura del estado ya proyectado en useActuar):
+  // "continuar con la siguiente" solo se ofrece si realmente queda otra.
+  const siguientePendienteId =
+    plan.siguienteId && plan.siguienteId !== actividad.id ? plan.siguienteId : null;
+  const planCompletado = plan.construido && plan.cerrado;
+
   const esDemo = actividad.origen.tipo === "escenario_demo";
   const origenTransversal = {
     tipo: "actividad" as const,
