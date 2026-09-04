@@ -59,7 +59,7 @@ export function EtapaProgreso({
   modulo: ModuloId;
   className?: string;
   ocultarPorcentaje?: boolean;
-  estadoTexto?: string;
+  estadoTexto?: string | undefined;
 }) {
   const { sesion, isHydrated } = useSesion();
   const info = moduloPorId(modulo);
