@@ -98,14 +98,23 @@ function PlanDeAccionPage() {
         migas={[{ label: "Inicio", to: "/inicio" }, { label: "Plan de Acción" }]}
       />
 
-      <EtapaProgreso modulo="plan-de-accion" />
+      {/* Macroentrega 5.3 · En esta pantalla manda el progreso real de las
+          Actividades; el porcentaje de módulo se oculta para que no se lea como
+          ejecución del Plan. */}
+      <EtapaProgreso
+        modulo="plan-de-accion"
+        ocultarPorcentaje
+        estadoTexto={
+          plan.construido ? (plan.cerrado ? "Plan completado" : "En ejecución") : undefined
+        }
+      />
 
       {/* Estado real del Plan: construido no es completado. */}
       {plan.construido && (
         <Card>
           <CardHeader className="space-y-1.5">
             <CardDescription>
-              {plan.cerrado ? "Plan completado" : "Plan construido · en ejecución"}
+              {plan.cerrado ? "Plan de Acción · completado" : "Plan de Acción · en ejecución"}
             </CardDescription>
             <CardTitle className="text-base">
               {plan.validadas} de {plan.total} Actividades validadas
@@ -126,7 +135,7 @@ function PlanDeAccionPage() {
       {plan.siguienteId ? (
         <Card className="border-primary/25 bg-primary/5">
           <CardHeader className="space-y-1.5">
-            <CardDescription>Tu siguiente Actividad</CardDescription>
+            <CardDescription>Siguiente paso recomendado</CardDescription>
             <CardTitle className="text-lg leading-snug">{tituloSiguiente}</CardTitle>
             <CardDescription>{detalleSiguiente}</CardDescription>
           </CardHeader>
@@ -149,7 +158,7 @@ function PlanDeAccionPage() {
               Todas las Actividades de tu Plan quedaron validadas
             </CardTitle>
             <CardDescription>
-              Revisa el cierre de tu Plan de Acción y pasa al seguimiento.
+              El siguiente paso es revisar el cierre de tu Plan de Acción y pasar al seguimiento.
             </CardDescription>
           </CardHeader>
           <CardContent>
