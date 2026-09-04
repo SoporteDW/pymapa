@@ -9,9 +9,7 @@ import { SolicitarColaboracionDialog } from "@/components/colaboracion/solicitar
 import { puntosApoyoDeFicha } from "@/lib/apoyo/puntos-apoyo";
 import { etiquetaEsfuerzo } from "@/lib/resultados/fichas";
 import type { FichaAccion } from "@/lib/resultados/tipos";
-import { ArrowRight, Clock, Gauge, UserRound } from "lucide-react";
-
-import { CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, Clock, Gauge, UserRound } from "lucide-react";
 import type { EstadoEjecucion } from "@/lib/workspace/tipos";
 
 /**
