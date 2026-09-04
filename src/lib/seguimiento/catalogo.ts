@@ -30,6 +30,20 @@ export interface PlantillaIndicador {
 
 export const plantillasIndicador: PlantillaIndicador[] = [
   {
+    id: "IND-EC-CONSULTAS",
+    nombre: "Tiempo promedio de respuesta a consultas de compra",
+    descripcion:
+      "Horas promedio que tarda el equipo en responder una consulta de compra recibida por cualquier canal.",
+    unidad: "horas",
+    direccion: "menor_mejor",
+    lineaBaseSugerida: 24,
+    metaSugerida: 4,
+    dominios: ["D03"],
+    senales: ["consulta", "consultas", "respuesta a consultas"],
+    fuente: "Knowledge Pack e-commerce · atención comercial",
+  },
+  {
+
     id: "IND-EC-CHECKOUT",
     nombre: "Abandono de checkout",
     descripcion:
