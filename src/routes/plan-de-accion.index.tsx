@@ -235,11 +235,27 @@ function PlanDeAccionPage() {
                 onAction={() => cambiarFiltros(filtrosIniciales)}
               />
             ) : (
-              <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                {acciones.map((ficha) => (
-                  <ActionCard key={ficha.id} ficha={ficha} />
-                ))}
-              </div>
+              <section aria-labelledby="mi-plan-completo" className="space-y-3">
+                <div>
+                  <h2 id="mi-plan-completo" className="text-lg font-semibold text-foreground">
+                    Mi Plan completo
+                  </h2>
+                  <p className="text-sm text-muted-foreground">
+                    Todas las Actividades de tu Plan con su estado actual. El siguiente paso
+                    recomendado es solo uno: el que aparece arriba.
+                  </p>
+                </div>
+                <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                  {acciones.map((ficha) => (
+                    <ActionCard
+                      key={ficha.id}
+                      ficha={ficha}
+                      estado={estadoDeActividad(ficha.id)}
+                      esSiguiente={plan.siguienteId === ficha.id}
+                    />
+                  ))}
+                </div>
+              </section>
             )}
 
 
