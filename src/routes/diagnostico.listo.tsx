@@ -155,7 +155,7 @@ function DiagnosticoListoPage() {
               <ArrowRight className="size-4" aria-hidden="true" />
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <Link to="/diagnostico/revision">Revisar mis respuestas antes de cerrar</Link>
+              <Link to="/diagnostico/revision">Ver respuestas del diagnóstico</Link>
             </Button>
           </CardContent>
         </Card>
@@ -202,14 +202,14 @@ function DiagnosticoListoPage() {
         <CardHeader className="space-y-2">
           <CardTitle className="text-base">Lo que sigue</CardTitle>
           <CardDescription>
-            El diagnóstico dice dónde estás. Las recomendaciones dicen qué hacer primero y por qué,
-            y desde ahí se arma tu plan de acción.
+            El diagnóstico dice dónde estás. Los resultados y prioridades dicen qué atender primero
+            y por qué, y desde ahí se arma tu Plan de Acción.
           </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-wrap gap-2">
           <Button asChild size="lg">
             <Link to="/resultados">
-              Ver mis recomendaciones
+              Ver resultados y prioridades
               <ArrowRight className="size-4" aria-hidden="true" />
             </Link>
           </Button>

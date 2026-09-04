@@ -121,10 +121,10 @@ function ResumenPage() {
 
       <div className="flex flex-col gap-2 sm:flex-row sm:justify-between">
         <Button variant="outline" asChild>
-          <Link to="/diagnostico/revision">Revisar mis respuestas</Link>
+          <Link to="/diagnostico/revision">Ver respuestas del diagnóstico</Link>
         </Button>
         <Button asChild size="lg">
-          <Link to="/diagnostico/cierre">Continuar: profundizar con evidencias</Link>
+          <Link to="/diagnostico/cierre">Continuar: validar hallazgos y preparar mi Plan</Link>
         </Button>
       </div>
 
