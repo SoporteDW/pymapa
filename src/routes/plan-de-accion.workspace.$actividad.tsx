@@ -15,6 +15,7 @@ import { PedirAMiEmpresa } from "@/components/colaboracion/pedir-a-mi-empresa";
 import { PedirApoyoExperto } from "@/components/apoyo-humano/pedir-apoyo-experto";
 import { HistorialEntregas } from "@/components/workspace/historial-entregas";
 import { useWorkspace } from "@/hooks/use-workspace";
+import { useActuar } from "@/hooks/use-actuar";
 import { metadatosDePlantilla } from "@/lib/intervencion/clasificacion";
 import { descripcionEstadoEjecucion, puedeEntregar } from "@/lib/workspace/estados";
 import { toast } from "sonner";
@@ -67,6 +68,7 @@ function WorkspacePage() {
     retomar,
     plantillas,
   } = useWorkspace(actividadId);
+  const { plan } = useActuar();
 
   if (!hidratado) return <LoadingState fullPage />;
 
@@ -79,7 +81,7 @@ function WorkspacePage() {
           migas={[
             { label: "Inicio", to: "/inicio" },
             { label: "Plan de acción", to: "/plan-de-accion" },
-            { label: "Workspace" },
+            { label: "Actividad" },
           ]}
         />
         <EmptyState
@@ -113,6 +115,12 @@ function WorkspacePage() {
       description: "Corrige los ajustes solicitados y vuelve a enviarla a revisión.",
     });
   };
+
+  // Cierre condicional (solo lectura del estado ya proyectado en useActuar):
+  // "continuar con la siguiente" solo se ofrece si realmente queda otra.
+  const siguientePendienteId =
+    plan.siguienteId && plan.siguienteId !== actividad.id ? plan.siguienteId : null;
+  const planCompletado = plan.construido && plan.cerrado;
 
   const esDemo = actividad.origen.tipo === "escenario_demo";
   const origenTransversal = {
@@ -165,7 +173,7 @@ function WorkspacePage() {
             : [
                 { label: "Inicio", to: "/inicio" },
                 { label: "Plan de acción", to: "/plan-de-accion" },
-                { label: historico ? "Actividad histórica" : "Workspace" },
+                { label: historico ? "Actividad histórica" : actividad.titulo },
               ]
         }
         acciones={
@@ -326,12 +334,15 @@ function WorkspacePage() {
       )}
 
       {/* P0.4 · la Actividad siempre ofrece su propio cierre: no hace falta
-          escapar por Roadmap ni por el menú lateral. */}
+          escapar por Roadmap ni por el menú lateral. El texto depende de si
+          realmente queda otra Actividad por trabajar. */}
       <Card className="border-primary/25">
         <CardHeader className="space-y-1.5">
           <CardTitle className="text-base">
             {actividad.estado === "validado"
-              ? "Actividad validada"
+              ? planCompletado
+                ? "Completaste todas las Actividades de tu Plan de Acción"
+                : "Actividad validada"
               : actividad.estado === "entregado"
                 ? "Entrega en revisión"
                 : "Cerrar o continuar esta actividad"}
@@ -340,7 +351,9 @@ function WorkspacePage() {
             {actividad.estado === "validado"
               ? desdeSeguimiento
                 ? "Esta actividad ya quedó validada: es el antecedente de lo que estás midiendo. Vuelve a tu seguimiento para continuar."
-                : "Esta actividad quedó cerrada. Vuelve al Plan de Acción para continuar con la siguiente."
+                : planCompletado
+                  ? "No queda ninguna Actividad pendiente: el siguiente paso es revisar y cerrar tu Plan de Acción."
+                  : "Esta actividad quedó cerrada. Ya puedes continuar con la siguiente Actividad de tu Plan."
               : actividad.estado === "entregado"
                 ? "La entrega está en revisión. Puedes volver al plan y retomarla cuando tengas el resultado."
                 : "Puedes entregar cuando los criterios estén completos, o volver al plan y retomarla más tarde: el avance queda guardado."}
@@ -353,16 +366,24 @@ function WorkspacePage() {
                 Volver a mi seguimiento
               </Link>
             </Button>
-          ) : (
+          ) : actividad.estado === "validado" && planCompletado ? (
             <Button asChild>
-              <Link to="/plan-de-accion">
-                {actividad.estado === "validado"
-                  ? "Volver al Plan y ver la siguiente actividad"
-                  : "Volver al Plan de Acción"}
+              <Link to="/plan-de-accion/cierre">Revisar y cerrar mi Plan de Acción</Link>
+            </Button>
+          ) : actividad.estado === "validado" && siguientePendienteId ? (
+            <Button asChild>
+              <Link
+                to="/plan-de-accion/workspace/$actividad"
+                params={{ actividad: siguientePendienteId }}
+              >
+                Continuar con la siguiente Actividad
               </Link>
             </Button>
+          ) : (
+            <Button asChild>
+              <Link to="/plan-de-accion">Volver al Plan de Acción</Link>
+            </Button>
           )}
-
         </CardContent>
       </Card>
 

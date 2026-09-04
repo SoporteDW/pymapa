@@ -47,7 +47,7 @@ export function ResultState({
           )}
           {onIrAlDiagnostico && (
             <Button variant="outline" onClick={onIrAlDiagnostico}>
-              Revisar mis respuestas
+              Ver respuestas del diagnóstico
             </Button>
           )}
         </CardContent>

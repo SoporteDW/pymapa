@@ -122,7 +122,10 @@ export function estadoJourneyDiagnostico(entrada: EntradaEstadoJourney): EstadoJ
       cuestionario: { respondidas, total, porcentaje: porcentajeCuestionario, completo },
       profundizacion,
       siguiente: {
-        label: profundizacion.completadas > 0 ? "Continuar profundización" : "Comenzar profundización",
+        label:
+          profundizacion.completadas > 0
+            ? "Continuar las aclaraciones del diagnóstico"
+            : "Completar aclaraciones del diagnóstico",
         ruta: "/diagnostico/cierre",
       },
       porcentajeModulo: acotar(60 + profundizacion.porcentaje * 0.3),
@@ -142,7 +145,7 @@ export function estadoJourneyDiagnostico(entrada: EntradaEstadoJourney): EstadoJ
           : `Resolviste los ${profundizacion.total} aspectos que necesitábamos confirmar. Ya podemos procesar tu diagnóstico final.`,
       cuestionario: { respondidas, total, porcentaje: porcentajeCuestionario, completo },
       profundizacion,
-      siguiente: { label: "Procesar y cerrar mi diagnóstico", ruta: "/diagnostico/listo" },
+      siguiente: { label: "Ver mi diagnóstico final", ruta: "/diagnostico/listo" },
       porcentajeModulo: 95,
     };
   }

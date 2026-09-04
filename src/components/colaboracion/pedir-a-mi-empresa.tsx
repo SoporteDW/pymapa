@@ -38,7 +38,7 @@ interface PedirAMiEmpresaProps {
 export function PedirAMiEmpresa({
   origen,
   tareaSugerida = "",
-  label = "Pedir a alguien de mi empresa",
+  label = "Solicitar colaboración interna",
 }: PedirAMiEmpresaProps) {
   const { crear, recibir, incorporar, de } = useDelegacion();
   const [abierto, setAbierto] = useState(false);
@@ -90,7 +90,7 @@ export function PedirAMiEmpresa({
 
       <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-lg">
         <DialogHeader>
-          <DialogTitle>Pedir a alguien de mi empresa</DialogTitle>
+          <DialogTitle>Solicitar colaboración interna</DialogTitle>
           <DialogDescription>
             Tema: {origen.referenciaTitulo}. La solicitud queda registrada y tú puedes seguir
             avanzando mientras esa persona responde.

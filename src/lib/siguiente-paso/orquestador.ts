@@ -183,7 +183,10 @@ export function pendientesDelRecorrido(
           ? `Necesitamos un documento: ${primera.titulo}.`
           : `Necesitamos una aclaración: ${primera.titulo}.`,
       porQue: primera.porQue,
-      label: avance.completadas > 0 ? "Continuar profundización" : "Comenzar profundización",
+      label:
+        avance.completadas > 0
+          ? "Continuar las aclaraciones del diagnóstico"
+          : "Completar aclaraciones del diagnóstico",
       ruta: "/diagnostico/cierre",
     });
   }
@@ -207,7 +210,7 @@ export function pendientesDelRecorrido(
       porQue: huboProfundizacion
         ? "El cuestionario está completo y todas las profundizaciones solicitadas quedaron resueltas."
         : "El cuestionario está completo y no se detectó información pendiente por confirmar.",
-      label: huboProfundizacion ? "Procesar y cerrar mi diagnóstico" : "Cerrar mi diagnóstico",
+      label: huboProfundizacion ? "Ver mi diagnóstico final" : "Cerrar mi diagnóstico",
       ruta: "/diagnostico/listo",
     });
   }

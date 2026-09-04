@@ -30,7 +30,7 @@ describe("Macroentrega 4.1 · máquina de estados del diagnóstico", () => {
     });
     expect(e.estado).toBe("profundizacion_pendiente");
     expect(e.etiqueta).toBe("Profundización");
-    expect(e.siguiente.label).toBe("Continuar profundización");
+    expect(e.siguiente.label).toBe("Continuar las aclaraciones del diagnóstico");
     expect(e.siguiente.ruta).toBe("/diagnostico/cierre");
     expect(e.cuestionario.porcentaje).toBe(100);
     expect(e.porcentajeModulo).toBeLessThan(100);
@@ -43,7 +43,7 @@ describe("Macroentrega 4.1 · máquina de estados del diagnóstico", () => {
       necesidadesResueltas: 3,
     });
     expect(e.estado).toBe("profundizacion_completada");
-    expect(e.siguiente.label).toBe("Procesar y cerrar mi diagnóstico");
+    expect(e.siguiente.label).toBe("Ver mi diagnóstico final");
     expect(e.siguiente.ruta).toBe("/diagnostico/listo");
   });
 

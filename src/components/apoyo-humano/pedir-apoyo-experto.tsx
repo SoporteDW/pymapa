@@ -39,7 +39,7 @@ interface PedirApoyoExpertoProps {
  */
 export function PedirApoyoExperto({
   origen,
-  label = "Pedir apoyo experto",
+  label = "Solicitar apoyo especializado",
 }: PedirApoyoExpertoProps) {
   const { de, evaluar, reservar, cerrarSesion } = useApoyoHumano();
   const [abierto, setAbierto] = useState(false);
@@ -107,7 +107,7 @@ export function PedirApoyoExperto({
 
       <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-lg">
         <DialogHeader>
-          <DialogTitle>Apoyo experto</DialogTitle>
+          <DialogTitle>Apoyo especializado</DialogTitle>
           <DialogDescription>
             Sobre: {origen.referenciaTitulo}. Reserva demostrativa: no se agenda ninguna cita real.
           </DialogDescription>

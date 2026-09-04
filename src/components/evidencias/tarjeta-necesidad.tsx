@@ -191,7 +191,7 @@ export function TarjetaNecesidad({
                 tareaSugerida={necesidad.titulo}
                 label="Pedirlo a mi equipo"
               />
-              <PedirApoyoExperto origen={origenApoyo} label="Pedir apoyo experto" />
+              <PedirApoyoExperto origen={origenApoyo} label="Solicitar apoyo especializado" />
             </div>
           </>
         )}
