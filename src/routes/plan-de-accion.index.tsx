@@ -65,6 +65,8 @@ function PlanDeAccionPage() {
   };
 
   const bloqueo = bloqueoDe("actuar");
+  /** Solo lectura del estado de ejecución ya proyectado por `useActuar`. */
+  const estadoDeActividad = (id: string) => plan.actividades.find((a) => a.id === id)?.estado;
   const tituloSiguiente = siguienteActividad?.titulo ?? siguienteFicha?.title ?? "";
   const detalleSiguiente = siguienteActividad?.objetivo ?? siguienteFicha?.impactExpected ?? "";
   const etiquetaSiguiente = !siguienteActividad
