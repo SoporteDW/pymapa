@@ -113,5 +113,24 @@ export function createProductionAssessmentClient(): ProductionAssessmentClient {
         ...(resultado.rejectionReason ? { rejectionReason: resultado.rejectionReason } : {}),
       };
     },
+
+    async getAssessmentDetail() {
+      const payload = await getOp01AssessmentState();
+      return payload.state;
+    },
+
+    async getCollaboration() {
+      return getOp01Collaboration();
+    },
+
+    async inviteRespondent(input) {
+      const salida = await inviteOp01Respondent({ data: input });
+      return { respondentId: salida.respondentId, assignmentId: salida.assignmentId };
+    },
+
+    async registerEvidence(input) {
+      const salida = await registerOp01Evidence({ data: input });
+      return { evidenceId: salida.evidenceId, linkedObservationIds: salida.linkedObservationIds };
+    },
   };
 }
