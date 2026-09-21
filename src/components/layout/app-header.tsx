@@ -72,6 +72,23 @@ export function AppHeader({ empresa, onToggleSidebar, mobileNav }: AppHeaderProp
             <User className="h-5 w-5 text-primary" aria-hidden="true" />
           </Link>
         </Button>
+        {isHydrated && user ? (
+          <Button
+            variant="ghost"
+            size="icon"
+            className="rounded-full"
+            onClick={() => void cerrarSesion()}
+            aria-label="Cerrar sesión"
+          >
+            <LogOut className="h-5 w-5 text-primary" aria-hidden="true" />
+          </Button>
+        ) : (
+          <Button variant="ghost" size="icon" className="rounded-full" asChild>
+            <Link to="/acceso" aria-label="Iniciar sesión">
+              <LogIn className="h-5 w-5 text-primary" aria-hidden="true" />
+            </Link>
+          </Button>
+        )}
       </div>
     </header>
   );
