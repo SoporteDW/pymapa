@@ -1023,6 +1023,229 @@ function CapacidadOp01() {
         </Card>
       )}
 
+      {comprobacion.data && (
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-base font-semibold">Comprobación y seguimiento</CardTitle>
+            <CardDescription>
+              Entregar y marcar como hecho no es lo mismo que comprobar. Una tarea solo queda
+              comprobada cuando se cumple, completa, la condición acordada.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            {comprobacion.data.requirements.length === 0 && (
+              <p className="text-sm text-muted-foreground">
+                Todavía no hay comprobaciones preparadas para este plan.
+              </p>
+            )}
+
+            {comprobacion.data.requirements.map((r) => (
+              <div key={r.id} className="space-y-3 rounded-lg border border-border p-4">
+                <div className="flex flex-wrap items-center gap-2 text-sm">
+                  <Badge variant="outline">{r.status}</Badge>
+                  <span className="font-medium">{r.definition}</span>
+                </div>
+                {r.status === "VALIDATION_REQUIREMENT_NOT_EXPLICIT" ? (
+                  <p className="text-xs text-muted-foreground">
+                    No existe una condición de comprobación acordada para esta tarea. Queda anotado
+                    como vacío de conocimiento: no la damos por comprobada.
+                  </p>
+                ) : (
+                  <div className="space-y-2">
+                    <Label htmlFor={`crv-${r.id}`}>Quién realizó el caso</Label>
+                    <select
+                      id={`crv-${r.id}`}
+                      className="w-full rounded-md border border-input bg-background p-2 text-sm"
+                      value={ejecutorCaso}
+                      onChange={(e) => setEjecutorCaso(e.target.value)}
+                    >
+                      <option value="">Selecciona a la persona</option>
+                      {(colaboracion.data?.respondents ?? []).map((p) => (
+                        <option key={p.id} value={p.id}>
+                          {p.displayName ?? p.email ?? p.id}
+                        </option>
+                      ))}
+                    </select>
+                    <div className="flex flex-wrap gap-2">
+                      <Button
+                        size="sm"
+                        onClick={() =>
+                          registrarCaso.mutate({
+                            validationRequirementId: r.id,
+                            executorRespondentId: ejecutorCaso,
+                            outcome: "CORRECT",
+                            criticalAssistance: false,
+                          })
+                        }
+                        disabled={registrarCaso.isPending || ejecutorCaso.length === 0}
+                      >
+                        Caso correcto, sin ayuda clave
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() =>
+                          registrarCaso.mutate({
+                            validationRequirementId: r.id,
+                            executorRespondentId: ejecutorCaso,
+                            outcome: "CORRECT",
+                            criticalAssistance: true,
+                          })
+                        }
+                        disabled={registrarCaso.isPending || ejecutorCaso.length === 0}
+                      >
+                        Necesitó ayuda clave
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() =>
+                          registrarCaso.mutate({
+                            validationRequirementId: r.id,
+                            executorRespondentId: ejecutorCaso,
+                            outcome: "INCORRECT",
+                            criticalAssistance: false,
+                          })
+                        }
+                        disabled={registrarCaso.isPending || ejecutorCaso.length === 0}
+                      >
+                        No salió bien
+                      </Button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+
+            {comprobacion.data.validations.map((v) => (
+              <div key={v.id} className="space-y-3 rounded-lg border border-border p-4">
+                <div className="flex flex-wrap items-center gap-2 text-sm">
+                  <Badge variant="secondary">{v.status}</Badge>
+                  <span className="text-muted-foreground">{v.decisionReason}</span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <Button
+                    size="sm"
+                    onClick={() =>
+                      decidirComprobacion.mutate({ validationId: v.id, decision: "VALIDATED" })
+                    }
+                    disabled={decidirComprobacion.isPending}
+                  >
+                    Confirmar comprobación
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() =>
+                      decidirComprobacion.mutate({ validationId: v.id, decision: "NOT_VALIDATED" })
+                    }
+                    disabled={decidirComprobacion.isPending}
+                  >
+                    No queda comprobada
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => iniciarSeguimiento.mutate({ validationId: v.id })}
+                    disabled={iniciarSeguimiento.isPending}
+                  >
+                    Iniciar seguimiento
+                  </Button>
+                </div>
+              </div>
+            ))}
+
+            {comprobacion.data.followUps.map((f) => (
+              <div key={f.id} className="space-y-2 rounded-lg border border-border p-4">
+                <div className="flex flex-wrap items-center gap-2 text-sm">
+                  <Badge variant="outline">{f.status}</Badge>
+                  <span className="text-muted-foreground">Seguimiento de la tarea</span>
+                </div>
+                <Label htmlFor={`seg-${f.id}`}>Qué observaste</Label>
+                <Input
+                  id={`seg-${f.id}`}
+                  value={notaSeguimiento}
+                  onChange={(e) => setNotaSeguimiento(e.target.value)}
+                  placeholder="Ej.: tres meses funcionando sin incidencias"
+                />
+                <div className="flex flex-wrap gap-2">
+                  <Button
+                    size="sm"
+                    onClick={() =>
+                      decidirSeguimiento.mutate({
+                        followUpId: f.id,
+                        outcome: "CONSOLIDATED",
+                        note: notaSeguimiento,
+                      })
+                    }
+                    disabled={decidirSeguimiento.isPending || notaSeguimiento.trim().length === 0}
+                  >
+                    Quedó consolidado
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() =>
+                      decidirSeguimiento.mutate({
+                        followUpId: f.id,
+                        outcome: "NEEDS_ADJUSTMENT",
+                        note: notaSeguimiento,
+                      })
+                    }
+                    disabled={decidirSeguimiento.isPending || notaSeguimiento.trim().length === 0}
+                  >
+                    Necesita ajuste
+                  </Button>
+                </div>
+              </div>
+            ))}
+
+            <div className="space-y-2 border-t border-border pt-4">
+              <p className="text-sm font-medium">Nueva revisión</p>
+              <p className="text-xs text-muted-foreground">
+                La primera revisión se conserva tal como quedó: la nueva no la modifica ni la
+                recalcula.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => nuevaRevision.mutate()}
+                  disabled={nuevaRevision.isPending}
+                >
+                  Iniciar nueva revisión
+                </Button>
+                {revisionId && (
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() =>
+                      comparar.mutate({
+                        baselineAssessmentId: comprobacion.data!.assessmentId,
+                        reassessmentAssessmentId: revisionId,
+                      })
+                    }
+                    disabled={comparar.isPending}
+                  >
+                    Comparar con la primera
+                  </Button>
+                )}
+              </div>
+              {comparar.data?.comparison && (
+                <div className="space-y-1 text-xs text-muted-foreground">
+                  {comparar.data.comparison.variableComparisons.map((c) => (
+                    <p key={c.variableRef}>
+                      {c.variableRef}: {c.baselineState ?? "—"} → {c.currentState ?? "—"} ·{" "}
+                      {c.interpretation}
+                    </p>
+                  ))}
+                </div>
+              )}
+            </div>
+          </CardContent>
+        </Card>
+      )}
+
       {assessmentState.data && (
         <Card>
           <CardHeader>
