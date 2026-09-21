@@ -100,6 +100,9 @@ function fuenteBase(): Record<string, unknown> {
           },
         },
       ],
+      knowledgeChangeCandidates: [
+        { id: "FX-KCC-01", statement: "El material sintético no declara umbral alguno." },
+      ],
       rules: [
         {
           id: "R1",
@@ -218,6 +221,7 @@ describe("M2-A · generador determinístico", () => {
     expect(adquisicion?.responseModel["optionSetStatus"]).toBe("NOT_EXPLICIT_IN_KNOWLEDGE_MASTER");
     // Tampoco aparecen secciones que la fuente no declara.
     expect(candidate.pack["findings"]).toBeUndefined();
+    expect(candidate.pack["evidence"]).toBeUndefined();
     expect(candidate.pack["validationRequirements"]).toBeUndefined();
   });
 

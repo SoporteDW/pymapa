@@ -73,6 +73,18 @@ export function runKnowledgeTests(input: {
     estructural.ok ? "el pack cumple el contrato estructural" : JSON.stringify(estructural.issues),
   );
 
+  // Si el pack no cumple el contrato estructural, el resto de los chequeos no
+  // puede ejecutarse sobre datos inválidos: el informe se cierra en SCHEMA.
+  if (!estructural.ok) {
+    return {
+      packId: candidate.packId,
+      packVersion: candidate.packVersion,
+      capabilityId: candidate.capabilityId,
+      ok: false,
+      checks,
+    };
+  }
+
   const referencial = validateReferential(candidate.pack);
   push(
     "REFERENTIAL_INTEGRITY",
