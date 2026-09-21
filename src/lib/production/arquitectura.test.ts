@@ -37,6 +37,7 @@ const AUTORIZADOS = [
   "src/lib/production/activacion-op01.test.ts",
   "src/lib/production/colaborativo-evidencia.test.ts",
   "src/lib/production/findings-intervencion.test.ts",
+  "src/lib/production/crv-validacion-reassessment.test.ts",
 ];
 
 describe("arquitectura · separación frontend / knowledge-engine", () => {
