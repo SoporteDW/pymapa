@@ -87,7 +87,7 @@ describe("M1-HIJ · Findings gobernados", () => {
   });
 
   it("todo finding conserva su lineage completo", async () => {
-    const [finding] = await listFindings(deps, "assess-1");
+    const finding = (await listFindings(deps, "assess-1"))[0]!;
     expect(finding.assessmentId).toBe("assess-1");
     expect(finding.caseId).toBe("case-1");
     expect(finding.capabilityId).toBe("OP-01");
@@ -114,11 +114,11 @@ describe("M1-HIJ · Findings gobernados", () => {
     const despues = await listFindings(deps, "assess-1");
     expect(despues.length).toBeGreaterThan(antes.length);
 
-    const sustituido = despues.find((f) => f.id === antes[0].id)!;
+    const sustituido = despues.find((f) => f.id === antes[0]!.id)!;
     expect(sustituido.lifecycleState).toBe("SUPERSEDED");
     expect(sustituido.supersededByFindingId).toBeTruthy();
     // El histórico permanece: la fila anterior sigue existiendo con su run.
-    expect(sustituido.evaluationRunId).toBe(antes[0].evaluationRunId);
+    expect(sustituido.evaluationRunId).toBe(antes[0]!.evaluationRunId);
   });
 
   it("H08 (fortaleza) no se confirma con un umbral inventado", async () => {
@@ -150,7 +150,7 @@ describe("M1-HIJ · Findings gobernados", () => {
   });
 
   it("la confirmación es una decisión humana registrada", async () => {
-    const [finding] = await listFindings(deps, "assess-1");
+    const finding = (await listFindings(deps, "assess-1"))[0]!;
     const salida = await revisarFinding(deps, {
       findingId: finding.id,
       decision: "CONFIRMED",
@@ -173,7 +173,7 @@ describe("M1-HIJ · Findings gobernados", () => {
       expect(r.sourceCapabilityId).toBe("OP-01");
     }
     // Ningún assessment nuevo, ninguna evaluación de otra capacidad.
-    const estado = repository.estado();
+    const estado = repository.estado as unknown as { evaluationRuns: { assessmentId: string }[] };
     expect(estado.evaluationRuns.every((r) => r.assessmentId === "assess-1")).toBe(true);
     expect(refs.some((r) => r.targetCapabilityId === "PC-02")).toBe(true);
   });
@@ -214,7 +214,7 @@ describe("M1-HIJ · Recommendation Candidate ≠ Finding ≠ Intervention", () =
   });
 
   it("un RecommendationCandidate es un objeto distinto del Finding", async () => {
-    const [finding] = await listFindings(deps, "assess-1");
+    const finding = (await listFindings(deps, "assess-1"))[0]!;
     await revisarFinding(deps, { findingId: finding.id, decision: "CONFIRMED", reviewedBy: "user-1" });
     const salida = await registrarRecommendationCandidate(deps, {
       assessmentId: "assess-1",
@@ -232,7 +232,7 @@ describe("M1-HIJ · Recommendation Candidate ≠ Finding ≠ Intervention", () =
   });
 
   it("un candidato no puede colgarse de un finding sin revisar", async () => {
-    const [finding] = await listFindings(deps, "assess-1");
+    const finding = (await listFindings(deps, "assess-1"))[0]!;
     const salida = await registrarRecommendationCandidate(deps, {
       assessmentId: "assess-1",
       organizationId: "org-1",
@@ -245,7 +245,7 @@ describe("M1-HIJ · Recommendation Candidate ≠ Finding ≠ Intervention", () =
   });
 
   it("Journey B: la Intervention exige selección y es un objeto distinto", async () => {
-    const [finding] = await listFindings(deps, "assess-1");
+    const finding = (await listFindings(deps, "assess-1"))[0]!;
     await revisarFinding(deps, { findingId: finding.id, decision: "CONFIRMED", reviewedBy: "user-1" });
     const candidato = (
       await registrarRecommendationCandidate(deps, {
