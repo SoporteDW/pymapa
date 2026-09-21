@@ -705,6 +705,13 @@ export function createInMemoryProductionRepository(
   const activities: ActivityRecord[] = [];
   const deliverables: DeliverableRecord[] = [];
   const auditEvents: AuditEventRecord[] = [];
+  const validationRequirements: ValidationRequirementRecord[] = [];
+  const validationCases: ValidationRequirementCaseRecord[] = [];
+  const validations: ValidationRecord[] = [];
+  const validationEvidence: ValidationEvidenceLink[] = [];
+  const followUps: FollowUpRecord[] = [];
+  const learningCandidates: LearningCandidateRecord[] = [];
+  const snapshots: AssessmentSnapshotRecord[] = [];
 
   const assessmentIdsDe = (organizationOrAssessment: string) => organizationOrAssessment;
 
@@ -729,6 +736,14 @@ export function createInMemoryProductionRepository(
       activities,
       deliverables,
       auditEvents,
+      assessments,
+      validationRequirements,
+      validationCases,
+      validations,
+      validationEvidence,
+      followUps,
+      learningCandidates,
+      snapshots,
     },
 
     async getAssessment(assessmentId) {
