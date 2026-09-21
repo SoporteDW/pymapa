@@ -42,7 +42,12 @@ interface PackShape {
   packId: string;
   packVersion: string;
   capability: { id: string };
-  knowledgeMaster?: { identifier?: string; version?: string; status?: string; sourceReference?: string };
+  knowledgeMaster?: {
+    identifier?: string;
+    version?: string;
+    status?: string;
+    sourceReference?: string;
+  };
   variables: { id: string; minimumEvidence?: string }[];
   informationNeeds: { id: string; acquisitionRefs: string[] }[];
   acquisitions: {
@@ -103,7 +108,9 @@ export function runKnowledgeTests(input: {
   );
 
   const sinUnknown = pack.acquisitions.filter(
-    (a) => !a.responseModel.knowledgeStates.includes("UNKNOWN") || a.responseModel.preservesUnknown !== true,
+    (a) =>
+      !a.responseModel.knowledgeStates.includes("UNKNOWN") ||
+      a.responseModel.preservesUnknown !== true,
   );
   push(
     "UNKNOWN_PRESERVATION",
@@ -120,7 +127,9 @@ export function runKnowledgeTests(input: {
   let contraDetalle = "ninguna adquisición admite CONTRADICTORY";
   if (estructural.ok) {
     const engine = createKnowledgeEngine(candidate.pack);
-    const conNA = pack.acquisitions.find((a) => a.responseModel.knowledgeStates.includes("NOT_APPLICABLE"));
+    const conNA = pack.acquisitions.find((a) =>
+      a.responseModel.knowledgeStates.includes("NOT_APPLICABLE"),
+    );
     if (conNA) {
       const acq = engine.getAcquisition(conNA.id);
       const variableRef = acq?.variableRefs[0] ?? "";
@@ -199,7 +208,9 @@ export function runKnowledgeTests(input: {
     if (f.severity && /^\d+(\.\d+)?$/.test(f.severity)) return true;
     const refs = f.ruleRefs ?? [];
     if (refs.length === 0) return false;
-    const soloJuicio = refs.every((ref) => reglasPorId.get(ref)?.classification !== "DETERMINISTIC");
+    const soloJuicio = refs.every(
+      (ref) => reglasPorId.get(ref)?.classification !== "DETERMINISTIC",
+    );
     return soloJuicio && f.severity !== undefined && !f.severity.includes(NOT_EXPLICIT);
   });
   push(
@@ -213,9 +224,10 @@ export function runKnowledgeTests(input: {
   const gapsFuente = source?.gaps ?? [];
   const kcc = pack.knowledgeChangeCandidates ?? [];
   const gapsPreservados =
-    gapsFuente.filter((g) => g.kind === "KNOWLEDGE_CHANGE_CANDIDATE").every((g) =>
-      kcc.some((k) => k.id === g.id),
-    ) && (gapsFuente.length === 0 || candidate.gaps.length === gapsFuente.length);
+    gapsFuente
+      .filter((g) => g.kind === "KNOWLEDGE_CHANGE_CANDIDATE")
+      .every((g) => kcc.some((k) => k.id === g.id)) &&
+    (gapsFuente.length === 0 || candidate.gaps.length === gapsFuente.length);
   push(
     "GAPS_PRESERVED",
     gapsPreservados,
@@ -232,7 +244,9 @@ export function runKnowledgeTests(input: {
   push(
     "VERSION_CHECKSUM_IDENTITY",
     identidadOk,
-    identidadOk ? `identidad ${candidate.packId}@${candidate.packVersion}` : "identidad inconsistente",
+    identidadOk
+      ? `identidad ${candidate.packId}@${candidate.packVersion}`
+      : "identidad inconsistente",
   );
 
   return {

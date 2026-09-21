@@ -54,16 +54,16 @@ Referencia editorial de los contratos: `knowledge/schemas/knowledge-master.schem
 
 ## 4. Estados y quién los otorga
 
-| Estado | Otorgado por | Condición |
-| --- | --- | --- |
-| `SOURCE_MISSING` | registro del Master | sin fuente materializada |
-| `SOURCE_READY` | gobierno editorial | fuente aprobada y referenciada |
-| `PACK_CANDIDATE` | generador (automático) | candidato generado desde la fuente |
-| `VALIDATION_FAILED` | validadores (automático) | falla estructural, referencial, de gobierno o de runtime |
-| `NEEDS_GOVERNANCE_REVIEW` | pipeline | técnicamente válido, pendiente de decisión humana |
-| `VALIDATED` | pipeline | todas las etapas técnicas en verde |
-| `PUBLISHED` | gobierno editorial | `VALIDATED` + revisión `APPROVED` |
-| `SUPERSEDED` | gobierno editorial | reemplazado por una versión posterior |
+| Estado                    | Otorgado por             | Condición                                                |
+| ------------------------- | ------------------------ | -------------------------------------------------------- |
+| `SOURCE_MISSING`          | registro del Master      | sin fuente materializada                                 |
+| `SOURCE_READY`            | gobierno editorial       | fuente aprobada y referenciada                           |
+| `PACK_CANDIDATE`          | generador (automático)   | candidato generado desde la fuente                       |
+| `VALIDATION_FAILED`       | validadores (automático) | falla estructural, referencial, de gobierno o de runtime |
+| `NEEDS_GOVERNANCE_REVIEW` | pipeline                 | técnicamente válido, pendiente de decisión humana        |
+| `VALIDATED`               | pipeline                 | todas las etapas técnicas en verde                       |
+| `PUBLISHED`               | gobierno editorial       | `VALIDATED` + revisión `APPROVED`                        |
+| `SUPERSEDED`              | gobierno editorial       | reemplazado por una versión posterior                    |
 
 ## 5. Revisión humana
 
@@ -80,14 +80,14 @@ publicación.
 
 ## 6. Clasificación de vacíos
 
-| Clase | Significado | Bloquea publicación |
-| --- | --- | --- |
-| `NOT_EXPLICIT_IN_KNOWLEDGE_MASTER` | el Master no lo declara | solo si se marca explícitamente |
-| `KNOWLEDGE_CHANGE_CANDIDATE` | requiere decisión editorial futura | solo si se marca explícitamente |
-| `GOVERNED_JUDGMENT` | requiere criterio humano, no algoritmo | no |
-| `UNIMPLEMENTED_GAP` | enunciado sin implementación posible hoy | no |
-| `ARCHITECTURE_GAP` | limitación de arquitectura, no de conocimiento | no |
-| `GENERIC_RUNTIME_EXTENSION_REQUIRED` | el runtime necesita una extensión genérica aprobada | sí |
+| Clase                                | Significado                                         | Bloquea publicación             |
+| ------------------------------------ | --------------------------------------------------- | ------------------------------- |
+| `NOT_EXPLICIT_IN_KNOWLEDGE_MASTER`   | el Master no lo declara                             | solo si se marca explícitamente |
+| `KNOWLEDGE_CHANGE_CANDIDATE`         | requiere decisión editorial futura                  | solo si se marca explícitamente |
+| `GOVERNED_JUDGMENT`                  | requiere criterio humano, no algoritmo              | no                              |
+| `UNIMPLEMENTED_GAP`                  | enunciado sin implementación posible hoy            | no                              |
+| `ARCHITECTURE_GAP`                   | limitación de arquitectura, no de conocimiento      | no                              |
+| `GENERIC_RUNTIME_EXTENSION_REQUIRED` | el runtime necesita una extensión genérica aprobada | sí                              |
 
 No se asume que todo KCC bloquee: la clasificación es explícita y se registra.
 

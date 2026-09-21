@@ -33,8 +33,14 @@ export function listCapabilitySourceIds(root: string, masterVersion: string): st
   return directorios(join(root, MASTER_DIR, masterVersion, "capabilities")).sort();
 }
 
-export function loadCapabilitySource(root: string, masterVersion: string, capabilityId: string): unknown {
-  return leerJson(join(root, MASTER_DIR, masterVersion, "capabilities", capabilityId, "source.json"));
+export function loadCapabilitySource(
+  root: string,
+  masterVersion: string,
+  capabilityId: string,
+): unknown {
+  return leerJson(
+    join(root, MASTER_DIR, masterVersion, "capabilities", capabilityId, "source.json"),
+  );
 }
 
 export function loadGovernanceReview(
@@ -42,7 +48,14 @@ export function loadGovernanceReview(
   masterVersion: string,
   capabilityId: string,
 ): GovernanceReview | undefined {
-  const ruta = join(root, MASTER_DIR, masterVersion, "capabilities", capabilityId, "governance-review.json");
+  const ruta = join(
+    root,
+    MASTER_DIR,
+    masterVersion,
+    "capabilities",
+    capabilityId,
+    "governance-review.json",
+  );
   if (!existsSync(ruta)) return undefined;
   return leerJson(ruta) as GovernanceReview;
 }
@@ -86,7 +99,8 @@ export function discoverCapabilityPipelineInputs(
     const packId = source.targetPack?.packId ?? "";
     const packVersion = source.targetPack?.packVersion ?? "";
     const review = loadGovernanceReview(root, masterVersion, capabilityId);
-    const publicado = packId && packVersion ? loadPublishedPack(root, packId, packVersion) : undefined;
+    const publicado =
+      packId && packVersion ? loadPublishedPack(root, packId, packVersion) : undefined;
     return {
       source,
       fixtures: packId ? loadFixtures(root, packId) : [],

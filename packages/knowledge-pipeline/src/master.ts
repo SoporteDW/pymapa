@@ -135,8 +135,7 @@ export interface SourceValidationIssue {
   message: string;
 }
 export type SourceValidation<T> =
-  | { ok: true; value: T }
-  | { ok: false; issues: SourceValidationIssue[] };
+  { ok: true; value: T } | { ok: false; issues: SourceValidationIssue[] };
 
 function parse<T>(schema: z.ZodType<T>, raw: unknown): SourceValidation<T> {
   const parsed = schema.safeParse(raw);
@@ -153,15 +152,24 @@ export function validateMasterIndex(raw: unknown): SourceValidation<MasterIndex>
   const master = base.value;
   const issues: SourceValidationIssue[] = [];
   if (master.identity !== MASTER_IDENTITY) {
-    issues.push({ path: "identity", message: `identidad de Master no autorizada: ${master.identity}` });
+    issues.push({
+      path: "identity",
+      message: `identidad de Master no autorizada: ${master.identity}`,
+    });
   }
   if (master.baselineStatus !== BASELINE_STATUS) {
-    issues.push({ path: "baselineStatus", message: `baseline no aprobada: ${master.baselineStatus}` });
+    issues.push({
+      path: "baselineStatus",
+      message: `baseline no aprobada: ${master.baselineStatus}`,
+    });
   }
   const domainIds = new Set(master.domains.map((d) => d.id));
   master.capabilities.forEach((c, i) => {
     if (!domainIds.has(c.domainId)) {
-      issues.push({ path: `capabilities.${i}.domainId`, message: `dominio desconocido: ${c.domainId}` });
+      issues.push({
+        path: `capabilities.${i}.domainId`,
+        message: `dominio desconocido: ${c.domainId}`,
+      });
     }
     if (c.sourceAvailability === "SOURCE_READY" && !c.sourceRef) {
       issues.push({
@@ -201,7 +209,8 @@ export function validateCapabilitySource(raw: unknown): SourceValidation<Capabil
   }
   const gapIds = new Set<string>();
   source.gaps.forEach((gap, i) => {
-    if (gapIds.has(gap.id)) issues.push({ path: `gaps.${i}.id`, message: `gap duplicado: ${gap.id}` });
+    if (gapIds.has(gap.id))
+      issues.push({ path: `gaps.${i}.id`, message: `gap duplicado: ${gap.id}` });
     gapIds.add(gap.id);
   });
   return issues.length > 0 ? { ok: false, issues } : { ok: true, value: source };

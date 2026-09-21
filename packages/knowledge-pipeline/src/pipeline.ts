@@ -11,7 +11,11 @@
 import { compareWithGoldenPack, generatePackCandidate, type PackCandidate } from "./generator.ts";
 import { sourceToPackDiff, type SourceToPackDiff } from "./diff.ts";
 import { runKnowledgeTests, type KnowledgeTestReport } from "./knowledge-tests.ts";
-import { validateCapabilitySource, type CapabilitySource, type CapabilityPipelineState } from "./master.ts";
+import {
+  validateCapabilitySource,
+  type CapabilitySource,
+  type CapabilityPipelineState,
+} from "./master.ts";
 import type { CapabilityManifestEntry } from "./manifest.ts";
 import {
   assertPublishedPackUnchanged,
@@ -49,14 +53,22 @@ export interface CapabilityPipelineResult {
   publication: PublicationGateResult | null;
   /** Regresión Golden Pack: el candidato no altera el pack publicado. */
   goldenRegression:
-    | { compared: true; equivalent: boolean; differences: { path: string }[]; immutability: ImmutabilityResult }
+    | {
+        compared: true;
+        equivalent: boolean;
+        differences: { path: string }[];
+        immutability: ImmutabilityResult;
+      }
     | { compared: false }
     | null;
   manifestEntry: CapabilityManifestEntry;
   errors: string[];
 }
 
-function entradaVacia(capabilityId: string, state: CapabilityPipelineState): CapabilityManifestEntry {
+function entradaVacia(
+  capabilityId: string,
+  state: CapabilityPipelineState,
+): CapabilityManifestEntry {
   return {
     capabilityId,
     domainId: "",
@@ -155,7 +167,10 @@ export function runCapabilityPipeline(input: CapabilityPipelineInput): Capabilit
       compared: true,
       equivalent: comparacion.equivalent,
       differences: comparacion.differences.map((d) => ({ path: d.path })),
-      immutability: assertPublishedPackUnchanged(input.publishedPack.record, input.publishedPack.pack),
+      immutability: assertPublishedPackUnchanged(
+        input.publishedPack.record,
+        input.publishedPack.pack,
+      ),
     };
   }
 
@@ -259,7 +274,8 @@ export function runBatch(entradas: CapabilityPipelineInput[]): BatchResult {
       return runCapabilityPipeline(entrada);
     } catch (error) {
       const id =
-        (entrada.source as { capability?: { id?: string } } | null)?.capability?.id ?? "desconocido";
+        (entrada.source as { capability?: { id?: string } } | null)?.capability?.id ??
+        "desconocido";
       return {
         capabilityId: id,
         outcome: "FAIL",
@@ -285,7 +301,11 @@ export function runBatch(entradas: CapabilityPipelineInput[]): BatchResult {
 
   return {
     results,
-    summary: results.map((r) => ({ capabilityId: r.capabilityId, outcome: r.outcome, state: r.state })),
+    summary: results.map((r) => ({
+      capabilityId: r.capabilityId,
+      outcome: r.outcome,
+      state: r.state,
+    })),
     counts,
   };
 }

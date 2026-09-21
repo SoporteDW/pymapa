@@ -16,7 +16,7 @@ export type RuntimeOutcome = "PASS" | "FAIL" | "NEEDS_GOVERNANCE_REVIEW";
 
 export interface RuntimeAcceptanceResult {
   fixtureId: string;
-  capabilityId: string
+  capabilityId: string;
   packId: string;
   kind: CapabilityFixture["kind"];
   outcome: RuntimeOutcome;
@@ -47,7 +47,11 @@ export function runRuntimeAcceptance(input: {
       kind: bruto.kind ?? "ARCHITECTURE_RUNTIME",
       outcome: "FAIL",
       engineVersion: ENGINE_VERSION,
-      mismatches: validada.issues.map((i) => ({ path: i.path, expected: "fixture válido", actual: i.message })),
+      mismatches: validada.issues.map((i) => ({
+        path: i.path,
+        expected: "fixture válido",
+        actual: i.message,
+      })),
       observed: {
         variableStates: [],
         needsReview: false,
@@ -131,7 +135,10 @@ export function runRuntimeAcceptance(input: {
     }
   });
 
-  if (fixture.expected.needsReview !== undefined && observed.needsReview !== fixture.expected.needsReview) {
+  if (
+    fixture.expected.needsReview !== undefined &&
+    observed.needsReview !== fixture.expected.needsReview
+  ) {
     mismatches.push({
       path: "needsReview",
       expected: fixture.expected.needsReview,

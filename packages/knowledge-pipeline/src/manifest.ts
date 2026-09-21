@@ -68,7 +68,8 @@ export function buildCapabilityManifest(input: {
         extractionStatus: "NOT_STARTED",
         packId: null,
         packVersion: null,
-        packStatus: capacidad.sourceAvailability === "SOURCE_READY" ? "SOURCE_READY" : "SOURCE_MISSING",
+        packStatus:
+          capacidad.sourceAvailability === "SOURCE_READY" ? "SOURCE_READY" : "SOURCE_MISSING",
         schemaValidation: "NOT_RUN",
         semanticValidation: "NOT_RUN",
         fixtureStatus: "NONE",

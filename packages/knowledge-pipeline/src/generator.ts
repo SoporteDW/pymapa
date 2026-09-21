@@ -52,7 +52,13 @@ export const PACK_SECTION_KEYS = [
 ] as const;
 
 /** Claves del pack que el generador fija por sí mismo (identidad, no semántica). */
-export const PACK_IDENTITY_KEYS = ["$schema", "packId", "packVersion", "status", "knowledgeMaster"] as const;
+export const PACK_IDENTITY_KEYS = [
+  "$schema",
+  "packId",
+  "packVersion",
+  "status",
+  "knowledgeMaster",
+] as const;
 
 export interface CandidateTransformation {
   kind: "COPIED_VERBATIM" | "IDENTITY_ASSIGNED";
@@ -92,8 +98,7 @@ export interface GeneratorIssue {
 }
 
 export type GeneratorResult =
-  | { ok: true; candidate: PackCandidate }
-  | { ok: false; issues: GeneratorIssue[] };
+  { ok: true; candidate: PackCandidate } | { ok: false; issues: GeneratorIssue[] };
 
 const REQUIRED_SECTIONS = ["capability", "variables", "informationNeeds", "acquisitions"] as const;
 

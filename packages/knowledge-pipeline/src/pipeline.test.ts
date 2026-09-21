@@ -42,7 +42,11 @@ const PREGUNTA = "Enunciado gobernado de la adquisición sintética.";
 
 function fuenteBase(): Record<string, unknown> {
   const fuente: Record<string, unknown> = {
-    master: { identity: "PYMAPA-KNOWLEDGE-MASTER", version: "1.0", baselineStatus: "BASELINE-APPROVED" },
+    master: {
+      identity: "PYMAPA-KNOWLEDGE-MASTER",
+      version: "1.0",
+      baselineStatus: "BASELINE-APPROVED",
+    },
     capability: {
       id: "FIXTURE-CAP",
       domainId: "FX",
@@ -179,7 +183,11 @@ describe("M2-A · fuente gobernada", () => {
     expect(manifest.sourceReadyCount).toBeLessThan(manifest.expectedCapabilityCount);
     expect(manifest.missingSourceCount).toBe(30);
     expect(manifest.signal).toBe(AUTHORITATIVE_SOURCE_REQUIRED);
-    expect(manifest.entries.every((e) => e.sourceAvailability === "SOURCE_READY" ? Boolean(e.sourceVersion) : true)).toBe(true);
+    expect(
+      manifest.entries.every((e) =>
+        e.sourceAvailability === "SOURCE_READY" ? Boolean(e.sourceVersion) : true,
+      ),
+    ).toBe(true);
   });
 });
 
@@ -191,8 +199,7 @@ describe("M2-A · generador determinístico", () => {
   it("preserva IDs de variables, necesidades, adquisiciones y reglas", () => {
     const source = fuenteValidada();
     const { pack } = candidatoDe(source);
-    const ids = (clave: string) =>
-      ((pack[clave] ?? []) as { id: string }[]).map((x) => x.id);
+    const ids = (clave: string) => ((pack[clave] ?? []) as { id: string }[]).map((x) => x.id);
     expect(ids("variables")).toEqual(["V1", "V2"]);
     expect(ids("informationNeeds")).toEqual(["N1"]);
     expect(ids("acquisitions")).toEqual(["A1"]);
@@ -216,7 +223,9 @@ describe("M2-A · generador determinístico", () => {
     const candidate = candidatoDe(fuenteValidada());
     const variables = candidate.pack["variables"] as { id: string; semanticStates: unknown }[];
     expect(variables[1]?.semanticStates).toBeNull();
-    const adquisicion = (candidate.pack["acquisitions"] as { responseModel: Record<string, unknown> }[])[0];
+    const adquisicion = (
+      candidate.pack["acquisitions"] as { responseModel: Record<string, unknown> }[]
+    )[0];
     expect(adquisicion?.responseModel["optionSet"]).toBeNull();
     expect(adquisicion?.responseModel["optionSetStatus"]).toBe("NOT_EXPLICIT_IN_KNOWLEDGE_MASTER");
     // Tampoco aparecen secciones que la fuente no declara.
@@ -236,7 +245,9 @@ describe("M2-A · generador determinístico", () => {
     (alterado.pack["rules"] as { classification: string }[])[0]!.classification = "DETERMINISTIC";
     const validacion = runValidationPipeline({ source, candidate: alterado });
     expect(validacion.ok).toBe(false);
-    expect(validacion.issues.map((i) => i.code)).toContain("DETERMINISTIC_RULE_WITHOUT_EXPLICIT_BASIS");
+    expect(validacion.issues.map((i) => i.code)).toContain(
+      "DETERMINISTIC_RULE_WITHOUT_EXPLICIT_BASIS",
+    );
   });
 
   it("es determinístico: misma fuente, mismo checksum", () => {
@@ -250,7 +261,11 @@ describe("M2-A · generador determinístico", () => {
 /* Publication gate                                                    */
 /* ------------------------------------------------------------------ */
 
-function puerta(source: CapabilitySource, candidate = candidatoDe(source), fixtures: unknown[] = []) {
+function puerta(
+  source: CapabilitySource,
+  candidate = candidatoDe(source),
+  fixtures: unknown[] = [],
+) {
   const validation = runValidationPipeline({ source, candidate });
   const knowledgeTests = runKnowledgeTests({ candidate, source });
   const runtimeResults = fixtures.map((fixture) =>
@@ -278,7 +293,9 @@ describe("M2-A · publication gate", () => {
   it("una falla referencial bloquea la publicación", () => {
     const source = fuenteValidada((f) => {
       const secciones = f["sections"] as Record<string, unknown>;
-      (secciones["informationNeeds"] as { acquisitionRefs: string[] }[])[0]!.acquisitionRefs = ["INEXISTENTE"];
+      (secciones["informationNeeds"] as { acquisitionRefs: string[] }[])[0]!.acquisitionRefs = [
+        "INEXISTENTE",
+      ];
     });
     const resultado = puerta(source);
     expect(resultado.state).not.toBe("PUBLISHED");
@@ -288,9 +305,8 @@ describe("M2-A · publication gate", () => {
   it("una inferencia no autorizada bloquea la publicación", () => {
     const source = fuenteValidada();
     const candidate = candidatoDe(source);
-    (candidate.pack["variables"] as { id: string; semanticStates: unknown }[])[1]!.semanticStates = [
-      "Estado inventado",
-    ];
+    (candidate.pack["variables"] as { id: string; semanticStates: unknown }[])[1]!.semanticStates =
+      ["Estado inventado"];
     const resultado = puerta(source, candidate);
     expect(resultado.state).not.toBe("PUBLISHED");
     expect(resultado.blockers.map((b) => b.code)).toContain("UNAUTHORIZED_INFERENCE");
@@ -299,7 +315,8 @@ describe("M2-A · publication gate", () => {
   it("una construcción no soportada produce GENERIC_RUNTIME_EXTENSION_REQUIRED y bloquea", () => {
     const source = fuenteValidada((f) => {
       const secciones = f["sections"] as Record<string, unknown>;
-      (secciones["rules"] as { classification: string }[])[0]!.classification = "PROBABILISTIC_INFERENCE";
+      (secciones["rules"] as { classification: string }[])[0]!.classification =
+        "PROBABILISTIC_INFERENCE";
     });
     const candidate = candidatoDe(source);
     const compat = validateRuntimeCompatibility(candidate.pack);
@@ -546,9 +563,9 @@ describe("M2-A · Golden Pack OP-01", () => {
     const manifest = buildCapabilityManifest({ master: master.value, results: lote.results });
     expect(manifest.signal).toBe(AUTHORITATIVE_SOURCE_REQUIRED);
     expect(manifest.publishedCount).toBe(1);
-    const enDisco = JSON.parse(
-      readFileSync(join(ROOT, "knowledge", "manifest.json"), "utf8"),
-    ) as { checksum: string };
+    const enDisco = JSON.parse(readFileSync(join(ROOT, "knowledge", "manifest.json"), "utf8")) as {
+      checksum: string;
+    };
     expect(enDisco.checksum).toBe(manifest.checksum);
   });
 });
@@ -601,7 +618,10 @@ describe("M2-A · independencia del pipeline", () => {
   });
 
   it("la integración de CI cubre master, packs y schemas", () => {
-    const flujo = readFileSync(join(ROOT, ".github", "workflows", "knowledge-pipeline.yml"), "utf8");
+    const flujo = readFileSync(
+      join(ROOT, ".github", "workflows", "knowledge-pipeline.yml"),
+      "utf8",
+    );
     expect(flujo).toContain("knowledge/master/**");
     expect(flujo).toContain("knowledge/packs/**");
     expect(flujo).toContain("knowledge/schemas/**");

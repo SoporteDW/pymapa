@@ -38,19 +38,19 @@ etapa automática puede llevar contenido inferido a `PUBLISHED`.
 
 ## 2. Ubicación de los artefactos
 
-| Ruta | Contenido |
-| --- | --- |
-| `knowledge/master/<version>/master.json` | Índice del Master: identidad, baseline, procedencia, publicación, dominios, registro de 31 capacidades, checksum |
-| `knowledge/master/<version>/capabilities/<ID>/source.json` | Fuente gobernada de la capacidad (secciones transcritas + gaps + checksum) |
-| `knowledge/master/<version>/capabilities/<ID>/governance-review.json` | Decisión humana `APPROVED` / `REJECTED` / `PENDING` |
-| `knowledge/packs/<packId>/<version>/pack.json` | Knowledge Pack ejecutable |
-| `knowledge/packs/<packId>/<version>/published.json` | Registro de inmutabilidad (checksum + estado) |
-| `knowledge/fixtures/<packId>/*.fixture.json` | Fixtures de aceptación |
-| `knowledge/schemas/*.schema.json` | Referencia editorial de los contratos |
-| `knowledge/manifest.json` | Manifest industrial de las 31 capacidades (generado) |
-| `knowledge/reports/<ID>.review.md` | Reporte de revisión de gobierno (generado) |
-| `packages/knowledge-pipeline/` | Implementación del pipeline |
-| `scripts/knowledge-pipeline.ts` | CLI ejecutable desde el repositorio |
+| Ruta                                                                  | Contenido                                                                                                        |
+| --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `knowledge/master/<version>/master.json`                              | Índice del Master: identidad, baseline, procedencia, publicación, dominios, registro de 31 capacidades, checksum |
+| `knowledge/master/<version>/capabilities/<ID>/source.json`            | Fuente gobernada de la capacidad (secciones transcritas + gaps + checksum)                                       |
+| `knowledge/master/<version>/capabilities/<ID>/governance-review.json` | Decisión humana `APPROVED` / `REJECTED` / `PENDING`                                                              |
+| `knowledge/packs/<packId>/<version>/pack.json`                        | Knowledge Pack ejecutable                                                                                        |
+| `knowledge/packs/<packId>/<version>/published.json`                   | Registro de inmutabilidad (checksum + estado)                                                                    |
+| `knowledge/fixtures/<packId>/*.fixture.json`                          | Fixtures de aceptación                                                                                           |
+| `knowledge/schemas/*.schema.json`                                     | Referencia editorial de los contratos                                                                            |
+| `knowledge/manifest.json`                                             | Manifest industrial de las 31 capacidades (generado)                                                             |
+| `knowledge/reports/<ID>.review.md`                                    | Reporte de revisión de gobierno (generado)                                                                       |
+| `packages/knowledge-pipeline/`                                        | Implementación del pipeline                                                                                      |
+| `scripts/knowledge-pipeline.ts`                                       | CLI ejecutable desde el repositorio                                                                              |
 
 El Master representa **fuente gobernada**; el Pack representa **conocimiento
 ejecutable derivado** de esa fuente. El contenido no se duplica: las secciones
@@ -104,12 +104,12 @@ abiertos.
 
 ## 6. Validadores
 
-| Etapa | Qué verifica | Códigos |
-| --- | --- | --- |
-| `STRUCTURAL` | contrato de `@pymapa/knowledge-schema` | `SCHEMA_INVALID` |
-| `REFERENTIAL` | IDs únicos, coherencia bidireccional necesidad↔adquisición, evidencia, CRV↔actividad | `DUPLICATE_ID`, `REFERENCE_UNKNOWN`, `NEED_ACQUISITION_MISMATCH` |
-| `GOVERNANCE` | procedencia, extracción `APPROVED`, ausencia de inferencia (diff), reglas `DETERMINISTIC` sin base explícita, gaps bloqueantes | `PROVENANCE_MISSING`, `UNAUTHORIZED_INFERENCE`, `DETERMINISTIC_RULE_WITHOUT_EXPLICIT_BASIS`, `PUBLICATION_BLOCKING_GAP` |
-| `RUNTIME_COMPATIBILITY` | niveles P1–P5, modelos de respuesta, triggers, clasificación de reglas, condiciones de CRV y carga real en el engine | `GENERIC_RUNTIME_EXTENSION_REQUIRED`, `RUNTIME_LOAD_FAILED` |
+| Etapa                   | Qué verifica                                                                                                                   | Códigos                                                                                                                 |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| `STRUCTURAL`            | contrato de `@pymapa/knowledge-schema`                                                                                         | `SCHEMA_INVALID`                                                                                                        |
+| `REFERENTIAL`           | IDs únicos, coherencia bidireccional necesidad↔adquisición, evidencia, CRV↔actividad                                           | `DUPLICATE_ID`, `REFERENCE_UNKNOWN`, `NEED_ACQUISITION_MISMATCH`                                                        |
+| `GOVERNANCE`            | procedencia, extracción `APPROVED`, ausencia de inferencia (diff), reglas `DETERMINISTIC` sin base explícita, gaps bloqueantes | `PROVENANCE_MISSING`, `UNAUTHORIZED_INFERENCE`, `DETERMINISTIC_RULE_WITHOUT_EXPLICIT_BASIS`, `PUBLICATION_BLOCKING_GAP` |
+| `RUNTIME_COMPATIBILITY` | niveles P1–P5, modelos de respuesta, triggers, clasificación de reglas, condiciones de CRV y carga real en el engine           | `GENERIC_RUNTIME_EXTENSION_REQUIRED`, `RUNTIME_LOAD_FAILED`                                                             |
 
 Cualquier fallo impide la publicación automática.
 
@@ -169,23 +169,23 @@ un fallo no invalida el lote. Resultado por capacidad: `PASS`, `FAIL`,
 
 ## 12. Frontera de automatización
 
-| Operación | Clase |
-| --- | --- |
-| `SOURCE_INGESTION` | HUMAN_GOVERNANCE_REQUIRED |
-| `SOURCE_STRUCTURE_VALIDATION` | AUTOMATABLE |
-| `PACK_CANDIDATE_GENERATION` | AUTOMATABLE |
-| `SCHEMA_VALIDATION` | AUTOMATABLE |
-| `REFERENTIAL_VALIDATION` | AUTOMATABLE |
-| `GOVERNANCE_VALIDATION` | AUTOMATABLE_WITH_VALIDATION |
-| `RUNTIME_COMPATIBILITY` | AUTOMATABLE |
-| `FIXTURE_AUTHORING` | HUMAN_GOVERNANCE_REQUIRED |
-| `FIXTURE_STRUCTURE_VALIDATION` | AUTOMATABLE |
-| `KNOWLEDGE_TESTS` | AUTOMATABLE |
-| `RUNTIME_ACCEPTANCE` | AUTOMATABLE |
-| `SOURCE_TO_PACK_DIFF` | AUTOMATABLE_WITH_VALIDATION |
-| `GOVERNANCE_REVIEW` | HUMAN_GOVERNANCE_REQUIRED |
-| `PUBLICATION` | HUMAN_GOVERNANCE_REQUIRED |
-| `GAP_RESOLUTION` | HUMAN_GOVERNANCE_REQUIRED |
+| Operación                      | Clase                       |
+| ------------------------------ | --------------------------- |
+| `SOURCE_INGESTION`             | HUMAN_GOVERNANCE_REQUIRED   |
+| `SOURCE_STRUCTURE_VALIDATION`  | AUTOMATABLE                 |
+| `PACK_CANDIDATE_GENERATION`    | AUTOMATABLE                 |
+| `SCHEMA_VALIDATION`            | AUTOMATABLE                 |
+| `REFERENTIAL_VALIDATION`       | AUTOMATABLE                 |
+| `GOVERNANCE_VALIDATION`        | AUTOMATABLE_WITH_VALIDATION |
+| `RUNTIME_COMPATIBILITY`        | AUTOMATABLE                 |
+| `FIXTURE_AUTHORING`            | HUMAN_GOVERNANCE_REQUIRED   |
+| `FIXTURE_STRUCTURE_VALIDATION` | AUTOMATABLE                 |
+| `KNOWLEDGE_TESTS`              | AUTOMATABLE                 |
+| `RUNTIME_ACCEPTANCE`           | AUTOMATABLE                 |
+| `SOURCE_TO_PACK_DIFF`          | AUTOMATABLE_WITH_VALIDATION |
+| `GOVERNANCE_REVIEW`            | HUMAN_GOVERNANCE_REQUIRED   |
+| `PUBLICATION`                  | HUMAN_GOVERNANCE_REQUIRED   |
+| `GAP_RESOLUTION`               | HUMAN_GOVERNANCE_REQUIRED   |
 
 ## 13. CLI y CI
 
@@ -220,11 +220,11 @@ publicado nunca se regenera de forma destructiva.
 
 ## 16. Gaps de arquitectura registrados
 
-| ID | Tipo | Enunciado |
-| --- | --- | --- |
+| ID            | Tipo             | Enunciado                                                                                                                                                                 |
+| ------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ARCH-M2A-01` | ARCHITECTURE_GAP | La fuente de OP-01 es `GOLDEN_PACK_TRANSCRIPTION`: refleja el pack publicado, no un volcado independiente del Master. Al recibirse el Master completo debe reconciliarse. |
-| `ARCH-M2A-02` | ARCHITECTURE_GAP | 30 capacidades sin fuente materializada (`AUTHORITATIVE_SOURCE_REQUIRED`). |
-| `ARCH-M2A-03` | ARCHITECTURE_GAP | La publicación de una KnowledgeVersion en base de datos sigue siendo un paso manual de ingeniería; el pipeline valida pero no publica. |
+| `ARCH-M2A-02` | ARCHITECTURE_GAP | 30 capacidades sin fuente materializada (`AUTHORITATIVE_SOURCE_REQUIRED`).                                                                                                |
+| `ARCH-M2A-03` | ARCHITECTURE_GAP | La publicación de una KnowledgeVersion en base de datos sigue siendo un paso manual de ingeniería; el pipeline valida pero no publica.                                    |
 
 ## 17. Qué necesita recibir M2-B
 

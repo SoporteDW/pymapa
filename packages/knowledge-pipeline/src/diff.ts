@@ -48,7 +48,8 @@ export function flattenPaths(valor: unknown, prefijo = ""): Map<string, unknown>
   const entradas = Object.entries(valor as Record<string, unknown>);
   if (entradas.length === 0) salida.set(prefijo, "{}");
   for (const [clave, v] of entradas) {
-    for (const [k, vv] of flattenPaths(v, prefijo ? `${prefijo}.${clave}` : clave)) salida.set(k, vv);
+    for (const [k, vv] of flattenPaths(v, prefijo ? `${prefijo}.${clave}` : clave))
+      salida.set(k, vv);
   }
   return salida;
 }
@@ -73,7 +74,11 @@ export function sourceToPackDiff(
 
   for (const [path, valorFuente] of planoFuente) {
     if (!planoPack.has(path)) {
-      missingSourceContent.push({ path, source: valorFuente, note: "omitido en el Pack Candidate" });
+      missingSourceContent.push({
+        path,
+        source: valorFuente,
+        note: "omitido en el Pack Candidate",
+      });
       continue;
     }
     const valorPack = planoPack.get(path);
@@ -87,7 +92,11 @@ export function sourceToPackDiff(
     }
     if (typeof valorFuente === "string" && valorFuente.includes(NOT_EXPLICIT)) {
       if (typeof valorPack === "string" && valorPack.includes(NOT_EXPLICIT)) {
-        unresolvedMappings.push({ path, source: valorFuente, note: "gap preservado, sigue sin resolver" });
+        unresolvedMappings.push({
+          path,
+          source: valorFuente,
+          note: "gap preservado, sigue sin resolver",
+        });
       } else {
         semanticChanges.push({
           path,

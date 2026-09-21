@@ -98,7 +98,8 @@ for (const version of versiones) {
     console.log(`Escritos ${MANIFEST_PATH} y ${REPORTS_DIR}/`);
   } else if (estricto) {
     const ruta = join(ROOT, MANIFEST_PATH);
-    if (!existsSync(ruta)) problema("falta knowledge/manifest.json: ejecuta el pipeline con --write");
+    if (!existsSync(ruta))
+      problema("falta knowledge/manifest.json: ejecuta el pipeline con --write");
     else if (readFileSync(ruta, "utf8") !== serializado) {
       problema("knowledge/manifest.json está desactualizado: ejecuta el pipeline con --write");
     }

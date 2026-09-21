@@ -16,9 +16,7 @@ export function buildGovernanceReviewReport(result: CapabilityPipelineResult): s
   const c = result.candidate;
   const lineas: string[] = [];
   lineas.push(`# Revisión de gobierno · ${result.capabilityId}\n`);
-  lineas.push(
-    `**Resultado del pipeline:** ${result.outcome} · **Estado:** ${result.state}\n`,
-  );
+  lineas.push(`**Resultado del pipeline:** ${result.outcome} · **Estado:** ${result.state}\n`);
 
   if (!c) {
     lineas.push("\n## Fuente rechazada\n");
@@ -62,7 +60,8 @@ export function buildGovernanceReviewReport(result: CapabilityPipelineResult): s
   lineas.push(
     lista(
       c.gaps.map(
-        (g) => `${g.id} · ${g.kind} · ${g.publicationBlocking ? "BLOQUEA PUBLICACIÓN" : "no bloqueante"} — ${g.statement}`,
+        (g) =>
+          `${g.id} · ${g.kind} · ${g.publicationBlocking ? "BLOQUEA PUBLICACIÓN" : "no bloqueante"} — ${g.statement}`,
       ),
     ),
   );
@@ -129,8 +128,6 @@ export function buildGovernanceReviewReport(result: CapabilityPipelineResult): s
 export function buildBatchSummaryMarkdown(
   resumen: { capabilityId: string; outcome: string; state: string }[],
 ): string {
-  const filas = resumen
-    .map((r) => `| ${r.capabilityId} | ${r.outcome} | ${r.state} |`)
-    .join("\n");
+  const filas = resumen.map((r) => `| ${r.capabilityId} | ${r.outcome} | ${r.state} |`).join("\n");
   return `| Capability | Resultado | Estado |\n| --- | --- | --- |\n${filas}\n`;
 }

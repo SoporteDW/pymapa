@@ -115,7 +115,9 @@ interface PackLike {
     activityRef: string;
     conditions?: { id: string; kind: string }[];
   }[];
-  evidence?: { candidates?: { id: string; variableRefs?: string[]; informationNeedRefs?: string[] }[] };
+  evidence?: {
+    candidates?: { id: string; variableRefs?: string[]; informationNeedRefs?: string[] }[];
+  };
 }
 
 export function validateReferential(pack: unknown): StageResult {
@@ -146,7 +148,11 @@ export function validateReferential(pack: unknown): StageResult {
     need.acquisitionRefs.forEach((ref) => {
       const acq = (p.acquisitions ?? []).find((a) => a.id === ref);
       if (!acq) {
-        add("REFERENCE_UNKNOWN", `informationNeeds.${i}.acquisitionRefs`, `adquisición desconocida: ${ref}`);
+        add(
+          "REFERENCE_UNKNOWN",
+          `informationNeeds.${i}.acquisitionRefs`,
+          `adquisición desconocida: ${ref}`,
+        );
         return;
       }
       if (acq.informationNeedRef && acq.informationNeedRef !== need.id) {
@@ -173,7 +179,11 @@ export function validateReferential(pack: unknown): StageResult {
   (p.evidence?.candidates ?? []).forEach((cand, i) => {
     (cand.variableRefs ?? []).forEach((ref) => {
       if (!variables.has(ref)) {
-        add("REFERENCE_UNKNOWN", `evidence.candidates.${i}.variableRefs`, `variable desconocida: ${ref}`);
+        add(
+          "REFERENCE_UNKNOWN",
+          `evidence.candidates.${i}.variableRefs`,
+          `variable desconocida: ${ref}`,
+        );
       }
     });
     (cand.informationNeedRefs ?? []).forEach((ref) => {

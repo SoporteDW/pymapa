@@ -62,12 +62,7 @@
         "name": "Forma de ejecución del proceso",
         "criticality": "CRITICAL",
         "minimumEvidence": "E1",
-        "semanticStates": [
-          "No identificable",
-          "Implícita",
-          "Definida",
-          "Formalizada"
-        ]
+        "semanticStates": ["No identificable", "Implícita", "Definida", "Formalizada"]
       },
       {
         "id": "VA02",
@@ -97,10 +92,7 @@
         "minimumEvidence": "E1",
         "minimumEvidenceNote": "E1/E2 depending on risk. No existe fórmula aprobada para el incremento.",
         "minimumEvidenceConditional": true,
-        "minimumEvidenceOptions": [
-          "E1",
-          "E2"
-        ],
+        "minimumEvidenceOptions": ["E1", "E2"],
         "semanticStates": null
       },
       {
@@ -124,10 +116,7 @@
         "minimumEvidence": "E0",
         "minimumEvidenceNote": "E0/E1 según el material gobernado. No existe fórmula aprobada para el incremento.",
         "minimumEvidenceConditional": true,
-        "minimumEvidenceOptions": [
-          "E0",
-          "E1"
-        ],
+        "minimumEvidenceOptions": ["E0", "E1"],
         "semanticStates": null
       },
       {
@@ -136,13 +125,7 @@
         "criticality": "CRITICAL",
         "minimumEvidence": "E2",
         "minimumEvidenceNote": "E2 cuando la conclusión lo requiera.",
-        "semanticStates": [
-          "Desconocida",
-          "Baja",
-          "Parcial",
-          "Alta",
-          "Contradictoria"
-        ]
+        "semanticStates": ["Desconocida", "Baja", "Parcial", "Alta", "Contradictoria"]
       },
       {
         "id": "VA10",
@@ -156,12 +139,8 @@
     "informationNeeds": [
       {
         "id": "NI01",
-        "variableRefs": [
-          "VA01"
-        ],
-        "acquisitionRefs": [
-          "OP01-P01"
-        ],
+        "variableRefs": ["VA01"],
+        "acquisitionRefs": ["OP01-P01"],
         "mappingStatus": "EXPLICIT_FOR_P01_ONLY"
       },
       {
@@ -222,20 +201,13 @@
         "id": "OP01-P01",
         "level": "P1",
         "informationNeedRef": "NI01",
-        "variableRefs": [
-          "VA01"
-        ],
+        "variableRefs": ["VA01"],
         "purpose": "Establecer inicialmente cómo se encuentra definida/reconocida la forma de ejecución del proceso relevante.",
         "question": "Pensando en este proceso, ¿qué tan clara está actualmente la forma en que debe realizarse?",
         "responseModel": {
           "kind": "semantic_state_or_unknown",
           "preservesUnknown": true,
-          "knowledgeStates": [
-            "KNOWN",
-            "UNKNOWN",
-            "NOT_APPLICABLE",
-            "CONTRADICTORY"
-          ],
+          "knowledgeStates": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"],
           "semanticValuesFromVariable": "VA01",
           "optionSet": null,
           "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
@@ -251,10 +223,7 @@
       {
         "id": "OP01-P05",
         "level": "P2",
-        "variableRefs": [
-          "VA07",
-          "VA01"
-        ],
+        "variableRefs": ["VA07", "VA01"],
         "purpose": "Identificar qué partes están claras y cuáles dependen del juicio individual.",
         "question": "¿Qué partes de este proceso están claras para todos y cuáles dependen del juicio de cada persona?",
         "questionSource": "DERIVED_FROM_APPROVED_PURPOSE",
@@ -265,24 +234,15 @@
           "conditions": [
             {
               "variableRef": "VA01",
-              "states": [
-                "KNOWN"
-              ],
-              "semanticValues": [
-                "Implícita"
-              ]
+              "states": ["KNOWN"],
+              "semanticValues": ["Implícita"]
             }
           ]
         },
         "responseModel": {
           "kind": "free_statement_or_unknown",
           "preservesUnknown": true,
-          "knowledgeStates": [
-            "KNOWN",
-            "UNKNOWN",
-            "NOT_APPLICABLE",
-            "CONTRADICTORY"
-          ],
+          "knowledgeStates": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"],
           "optionSet": null,
           "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
         }
@@ -290,9 +250,7 @@
       {
         "id": "OP01-P06",
         "level": "P2",
-        "variableRefs": [
-          "VA02"
-        ],
+        "variableRefs": ["VA02"],
         "purpose": "Determinar si las actividades y su secuencia pueden describirse consistentemente.",
         "question": "¿Puede describirse de forma consistente qué actividades incluye este proceso y en qué orden ocurren?",
         "questionSource": "DERIVED_FROM_APPROVED_PURPOSE",
@@ -307,21 +265,14 @@
             },
             {
               "variableRef": "VA02",
-              "states": [
-                "UNKNOWN"
-              ]
+              "states": ["UNKNOWN"]
             }
           ]
         },
         "responseModel": {
           "kind": "free_statement_or_unknown",
           "preservesUnknown": true,
-          "knowledgeStates": [
-            "KNOWN",
-            "UNKNOWN",
-            "NOT_APPLICABLE",
-            "CONTRADICTORY"
-          ],
+          "knowledgeStates": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"],
           "optionSet": null,
           "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
         }
@@ -329,9 +280,7 @@
       {
         "id": "OP01-P07",
         "level": "P2",
-        "variableRefs": [
-          "VA03"
-        ],
+        "variableRefs": ["VA03"],
         "purpose": "Identificar las entradas del proceso y su resultado esperado.",
         "question": "¿Qué necesita este proceso para empezar y cuál es el resultado que se espera al terminarlo?",
         "questionSource": "DERIVED_FROM_APPROVED_PURPOSE",
@@ -349,12 +298,7 @@
         "responseModel": {
           "kind": "free_statement_or_unknown",
           "preservesUnknown": true,
-          "knowledgeStates": [
-            "KNOWN",
-            "UNKNOWN",
-            "NOT_APPLICABLE",
-            "CONTRADICTORY"
-          ],
+          "knowledgeStates": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"],
           "optionSet": null,
           "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
         }
@@ -362,9 +306,7 @@
       {
         "id": "OP01-P08",
         "level": "P2",
-        "variableRefs": [
-          "VA04"
-        ],
+        "variableRefs": ["VA04"],
         "purpose": "Identificar responsable, participantes y gaps u overlaps de responsabilidad.",
         "question": "¿Quién es responsable de este proceso, quiénes participan y dónde quedan responsabilidades sin cubrir o duplicadas?",
         "questionSource": "DERIVED_FROM_APPROVED_PURPOSE",
@@ -376,25 +318,16 @@
         "responseModel": {
           "kind": "free_statement_or_unknown",
           "preservesUnknown": true,
-          "knowledgeStates": [
-            "KNOWN",
-            "UNKNOWN",
-            "NOT_APPLICABLE",
-            "CONTRADICTORY"
-          ],
+          "knowledgeStates": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"],
           "optionSet": null,
           "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "notes": [
-            "El trigger aprobado depende de OP01-P02, no implementada en este pack."
-          ]
+          "notes": ["El trigger aprobado depende de OP01-P02, no implementada en este pack."]
         }
       },
       {
         "id": "OP01-P09",
         "level": "P2",
-        "variableRefs": [
-          "VA05"
-        ],
+        "variableRefs": ["VA05"],
         "purpose": "Determinar si existe revisión, aprobación o control en el proceso.",
         "question": "¿Existe alguna revisión, aprobación o control dentro de este proceso y en qué momento ocurre?",
         "questionSource": "DERIVED_FROM_APPROVED_PURPOSE",
@@ -406,25 +339,16 @@
         "responseModel": {
           "kind": "free_statement_or_unknown",
           "preservesUnknown": true,
-          "knowledgeStates": [
-            "KNOWN",
-            "UNKNOWN",
-            "NOT_APPLICABLE",
-            "CONTRADICTORY"
-          ],
+          "knowledgeStates": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"],
           "optionSet": null,
           "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "notes": [
-            "El trigger aprobado es un juicio gobernado: el runtime no lo infiere."
-          ]
+          "notes": ["El trigger aprobado es un juicio gobernado: el runtime no lo infiere."]
         }
       },
       {
         "id": "OP01-P10",
         "level": "P3",
-        "variableRefs": [
-          "VA06"
-        ],
+        "variableRefs": ["VA06"],
         "purpose": "Determinar dónde y por qué varía la ejecución del proceso.",
         "question": "¿En qué puntos varía la forma de ejecutar este proceso y por qué ocurre esa variación?",
         "questionSource": "DERIVED_FROM_APPROVED_PURPOSE",
@@ -436,25 +360,16 @@
         "responseModel": {
           "kind": "free_statement_or_unknown",
           "preservesUnknown": true,
-          "knowledgeStates": [
-            "KNOWN",
-            "UNKNOWN",
-            "NOT_APPLICABLE",
-            "CONTRADICTORY"
-          ],
+          "knowledgeStates": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"],
           "optionSet": null,
           "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "notes": [
-            "El trigger aprobado depende de OP01-P03, no implementada en este pack."
-          ]
+          "notes": ["El trigger aprobado depende de OP01-P03, no implementada en este pack."]
         }
       },
       {
         "id": "OP01-P11",
         "level": "P3",
-        "variableRefs": [
-          "VA07"
-        ],
+        "variableRefs": ["VA07"],
         "purpose": "Determinar el impacto si la persona clave no está disponible.",
         "question": "Si la persona clave de este proceso no estuviera disponible, ¿qué pasaría con su ejecución?",
         "questionSource": "DERIVED_FROM_APPROVED_PURPOSE",
@@ -466,25 +381,16 @@
         "responseModel": {
           "kind": "free_statement_or_unknown",
           "preservesUnknown": true,
-          "knowledgeStates": [
-            "KNOWN",
-            "UNKNOWN",
-            "NOT_APPLICABLE",
-            "CONTRADICTORY"
-          ],
+          "knowledgeStates": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"],
           "optionSet": null,
           "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "notes": [
-            "El trigger aprobado es un juicio gobernado: el runtime no lo infiere."
-          ]
+          "notes": ["El trigger aprobado es un juicio gobernado: el runtime no lo infiere."]
         }
       },
       {
         "id": "OP01-P12",
         "level": "P3",
-        "variableRefs": [
-          "VA08"
-        ],
+        "variableRefs": ["VA08"],
         "purpose": "Determinar qué soporte o documentación existe y si realmente se utiliza.",
         "question": "¿Qué documento, formato o material de apoyo existe para este proceso y se usa realmente al ejecutarlo?",
         "questionSource": "DERIVED_FROM_APPROVED_PURPOSE",
@@ -496,25 +402,16 @@
         "responseModel": {
           "kind": "free_statement_or_unknown",
           "preservesUnknown": true,
-          "knowledgeStates": [
-            "KNOWN",
-            "UNKNOWN",
-            "NOT_APPLICABLE",
-            "CONTRADICTORY"
-          ],
+          "knowledgeStates": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"],
           "optionSet": null,
           "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "notes": [
-            "El trigger aprobado es un juicio gobernado: el runtime no lo infiere."
-          ]
+          "notes": ["El trigger aprobado es un juicio gobernado: el runtime no lo infiere."]
         }
       },
       {
         "id": "OP01-P13",
         "level": "P3",
-        "variableRefs": [
-          "VA09"
-        ],
+        "variableRefs": ["VA09"],
         "purpose": "Contrastar la definición del proceso con la práctica real.",
         "question": "¿Qué tanto coincide la forma definida de este proceso con la forma en que se ejecuta en la práctica?",
         "questionSource": "DERIVED_FROM_APPROVED_PURPOSE",
@@ -526,26 +423,17 @@
         "responseModel": {
           "kind": "semantic_state_or_unknown",
           "preservesUnknown": true,
-          "knowledgeStates": [
-            "KNOWN",
-            "UNKNOWN",
-            "NOT_APPLICABLE",
-            "CONTRADICTORY"
-          ],
+          "knowledgeStates": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"],
           "semanticValuesFromVariable": "VA09",
           "optionSet": null,
           "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "notes": [
-            "El trigger aprobado depende de OP01-P04, no implementada en este pack."
-          ]
+          "notes": ["El trigger aprobado depende de OP01-P04, no implementada en este pack."]
         }
       },
       {
         "id": "OP01-P14",
         "level": "P3",
-        "variableRefs": [
-          "VA10"
-        ],
+        "variableRefs": ["VA10"],
         "purpose": "Determinar la última revisión y el mecanismo de actualización del proceso.",
         "question": "¿Cuándo se revisó por última vez la forma de hacer este proceso y cómo se actualiza cuando cambia?",
         "questionSource": "DERIVED_FROM_APPROVED_PURPOSE",
@@ -557,25 +445,16 @@
         "responseModel": {
           "kind": "free_statement_or_unknown",
           "preservesUnknown": true,
-          "knowledgeStates": [
-            "KNOWN",
-            "UNKNOWN",
-            "NOT_APPLICABLE",
-            "CONTRADICTORY"
-          ],
+          "knowledgeStates": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"],
           "optionSet": null,
           "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "notes": [
-            "El trigger aprobado es un juicio gobernado: el runtime no lo infiere."
-          ]
+          "notes": ["El trigger aprobado es un juicio gobernado: el runtime no lo infiere."]
         }
       },
       {
         "id": "OP01-P15",
         "level": "P4",
-        "variableRefs": [
-          "VA06"
-        ],
+        "variableRefs": ["VA06"],
         "purpose": "Obtener aclaración o una fuente adicional cuando las fuentes son contradictorias.",
         "question": "Las fuentes consultadas describen este punto de forma distinta: ¿qué ocurre realmente y en qué se basa esa respuesta?",
         "questionSource": "DERIVED_FROM_APPROVED_PURPOSE",
@@ -586,21 +465,14 @@
           "conditions": [
             {
               "variableRef": "*",
-              "states": [
-                "CONTRADICTORY"
-              ]
+              "states": ["CONTRADICTORY"]
             }
           ]
         },
         "responseModel": {
           "kind": "free_statement_or_unknown",
           "preservesUnknown": true,
-          "knowledgeStates": [
-            "KNOWN",
-            "UNKNOWN",
-            "NOT_APPLICABLE",
-            "CONTRADICTORY"
-          ],
+          "knowledgeStates": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"],
           "optionSet": null,
           "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
           "notes": [
@@ -612,17 +484,8 @@
     ],
     "acquisitionsNote": "OP-01 dispone de adquisiciones P01–P15 en el Knowledge Master. Este pack implementa P01 y P05–P15 con el contenido explícitamente aprobado. P02, P03 y P04 permanecen NOT_IMPLEMENTED_IN_THIS_PACK, y por eso los triggers que dependen de ellas se declaran NOT_DETERMINISTIC. Los enunciados marcados questionSource=DERIVED_FROM_APPROVED_PURPOSE no son transcripción literal: derivan del purpose aprobado y son KNOWLEDGE CHANGE CANDIDATE de redacción.",
     "evidence": {
-      "levels": [
-        "E0",
-        "E1",
-        "E2",
-        "E3"
-      ],
-      "escalationFactors": [
-        "criticality",
-        "regulatory exposure",
-        "risk"
-      ],
+      "levels": ["E0", "E1", "E2", "E3"],
+      "escalationFactors": ["criticality", "regulatory exposure", "risk"],
       "escalationFormula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
       "candidates": [
         {
@@ -665,13 +528,7 @@
       "candidatesNote": "Candidatos de evidencia: no todos son obligatorios en cada evaluación. Una evidencia puede soportar varias necesidades de información y variables. El mapeo evidencia→variable no está enumerado en el material gobernado."
     },
     "sufficiency": {
-      "states": [
-        "INSUFFICIENT",
-        "PARTIAL",
-        "SUFFICIENT",
-        "BLOCKED",
-        "NOT_APPLICABLE"
-      ],
+      "states": ["INSUFFICIENT", "PARTIAL", "SUFFICIENT", "BLOCKED", "NOT_APPLICABLE"],
       "formula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
       "closureConditions": [
         "Todas las variables críticas aplicables tienen información suficiente.",
@@ -687,11 +544,7 @@
       ]
     },
     "confidence": {
-      "states": [
-        "LOW",
-        "MEDIUM",
-        "HIGH"
-      ],
+      "states": ["LOW", "MEDIUM", "HIGH"],
       "formula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
       "factors": [
         "quality of evidence",
@@ -790,19 +643,10 @@
           "state": "CONTRADICTORY"
         },
         "clarificationAcquisitionRef": "OP01-P15",
-        "evidenceRefs": [
-          "OP01-EV05",
-          "OP01-EV07"
-        ]
+        "evidenceRefs": ["OP01-EV05", "OP01-EV07"]
       },
-      "clarificationAcquisitionRefs": [
-        "OP01-P15"
-      ],
-      "evidenceCandidateRefs": [
-        "OP01-EV05",
-        "OP01-EV07",
-        "OP01-EV09"
-      ],
+      "clarificationAcquisitionRefs": ["OP01-P15"],
+      "evidenceCandidateRefs": ["OP01-EV05", "OP01-EV07", "OP01-EV09"],
       "notes": [
         "No debe promediarse.",
         "No debe escogerse automáticamente la respuesta del rol jerárquicamente mayor.",
@@ -815,14 +659,8 @@
         "id": "H01",
         "name": "Insuficiencia de definición funcional",
         "polarity": "ADVERSE",
-        "ruleRefs": [
-          "R-OP01-01"
-        ],
-        "variableRefs": [
-          "VA01",
-          "VA02",
-          "VA03"
-        ],
+        "ruleRefs": ["R-OP01-01"],
+        "variableRefs": ["VA01", "VA02", "VA03"],
         "severity": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
         "mappingStatus": "DERIVED_FROM_APPROVED_RULE_STATEMENT"
       },
@@ -830,12 +668,8 @@
         "id": "H02",
         "name": "Insuficiencia en actividades/responsabilidades",
         "polarity": "ADVERSE",
-        "ruleRefs": [
-          "R-OP01-03"
-        ],
-        "variableRefs": [
-          "VA04"
-        ],
+        "ruleRefs": ["R-OP01-03"],
+        "variableRefs": ["VA04"],
         "severity": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
         "mappingStatus": "DERIVED_FROM_APPROVED_RULE_STATEMENT"
       },
@@ -843,12 +677,8 @@
         "id": "H03",
         "name": "Insuficiencia de estandarización",
         "polarity": "ADVERSE",
-        "ruleRefs": [
-          "R-OP01-04"
-        ],
-        "variableRefs": [
-          "VA06"
-        ],
+        "ruleRefs": ["R-OP01-04"],
+        "variableRefs": ["VA06"],
         "severity": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
         "mappingStatus": "DERIVED_FROM_APPROVED_RULE_STATEMENT"
       },
@@ -856,13 +686,8 @@
         "id": "H04",
         "name": "Dependencia individual crítica",
         "polarity": "ADVERSE",
-        "ruleRefs": [
-          "R-OP01-02",
-          "R-OP01-05"
-        ],
-        "variableRefs": [
-          "VA07"
-        ],
+        "ruleRefs": ["R-OP01-02", "R-OP01-05"],
+        "variableRefs": ["VA07"],
         "severity": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
         "mappingStatus": "DERIVED_FROM_APPROVED_RULE_STATEMENT"
       },
@@ -870,13 +695,8 @@
         "id": "H05",
         "name": "Desalineamiento definición-práctica",
         "polarity": "ADVERSE",
-        "ruleRefs": [
-          "R-OP01-06"
-        ],
-        "variableRefs": [
-          "VA08",
-          "VA09"
-        ],
+        "ruleRefs": ["R-OP01-06"],
+        "variableRefs": ["VA08", "VA09"],
         "severity": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
         "mappingStatus": "DERIVED_FROM_APPROVED_RULE_STATEMENT"
       },
@@ -884,13 +704,8 @@
         "id": "H06",
         "name": "Necesidad de preservación/transferencia",
         "polarity": "ADVERSE",
-        "ruleRefs": [
-          "R-OP01-05"
-        ],
-        "variableRefs": [
-          "VA07",
-          "VA08"
-        ],
+        "ruleRefs": ["R-OP01-05"],
+        "variableRefs": ["VA07", "VA08"],
         "severity": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
         "mappingStatus": "DERIVED_FROM_APPROVED_RULE_STATEMENT"
       },
@@ -898,14 +713,8 @@
         "id": "H07",
         "name": "Formalización desproporcionada",
         "polarity": "ADVERSE",
-        "ruleRefs": [
-          "R-OP01-07",
-          "R-OP01-11"
-        ],
-        "variableRefs": [
-          "VA08",
-          "VA10"
-        ],
+        "ruleRefs": ["R-OP01-07", "R-OP01-11"],
+        "variableRefs": ["VA08", "VA10"],
         "severity": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
         "mappingStatus": "DERIVED_FROM_APPROVED_RULE_STATEMENT"
       },
@@ -913,14 +722,8 @@
         "id": "H08",
         "name": "Fortaleza",
         "polarity": "STRENGTH",
-        "ruleRefs": [
-          "R-OP01-12"
-        ],
-        "variableRefs": [
-          "VA01",
-          "VA06",
-          "VA09"
-        ],
+        "ruleRefs": ["R-OP01-12"],
+        "variableRefs": ["VA01", "VA06", "VA09"],
         "severity": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
         "mappingStatus": "DERIVED_FROM_APPROVED_RULE_STATEMENT"
       }
@@ -1134,12 +937,7 @@
       "id": "MINIMUM_SUFFICIENT_INTERVENTION",
       "statement": "Debe preferirse la intervención menos compleja capaz de resolver materialmente el problema.",
       "formula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-      "ruleRefs": [
-        "R-OP01-09",
-        "R-OP01-10",
-        "R-OP01-11",
-        "R-OP01-12"
-      ],
+      "ruleRefs": ["R-OP01-09", "R-OP01-10", "R-OP01-11", "R-OP01-12"],
       "notes": [
         "Principio, no fórmula. Si varias intervenciones son plausibles y el conocimiento no permite discriminar, la selección queda en revisión humana."
       ]

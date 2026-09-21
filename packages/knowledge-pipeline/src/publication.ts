@@ -61,7 +61,10 @@ export function evaluatePublicationGate(input: {
   const codigos = new Set(input.validation.issues.map((i) => i.code));
 
   if (codigos.has("SCHEMA_INVALID")) {
-    blockers.push({ code: "SCHEMA_VALIDATION_FAILED", message: "el pack no cumple el contrato estructural" });
+    blockers.push({
+      code: "SCHEMA_VALIDATION_FAILED",
+      message: "el pack no cumple el contrato estructural",
+    });
   }
   if (
     input.validation.issues.some(
@@ -76,7 +79,10 @@ export function evaluatePublicationGate(input: {
   if (codigos.has("PROVENANCE_MISSING")) {
     blockers.push({ code: "PROVENANCE_MISSING", message: "falta procedencia requerida" });
   }
-  if (codigos.has("UNAUTHORIZED_INFERENCE") || codigos.has("DETERMINISTIC_RULE_WITHOUT_EXPLICIT_BASIS")) {
+  if (
+    codigos.has("UNAUTHORIZED_INFERENCE") ||
+    codigos.has("DETERMINISTIC_RULE_WITHOUT_EXPLICIT_BASIS")
+  ) {
     blockers.push({
       code: "UNAUTHORIZED_INFERENCE",
       message: "el candidato contiene contenido o conclusiones no autorizadas por la fuente",

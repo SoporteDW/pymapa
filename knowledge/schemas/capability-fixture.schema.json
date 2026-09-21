@@ -42,7 +42,10 @@
             "description": "Solo KNOWN aporta valor semántico.",
             "oneOf": [{ "type": "null" }, { "type": "string" }]
           },
-          "notApplicableReason": { "description": "Obligatorio cuando knowledgeState = NOT_APPLICABLE.", "type": ["string", "null"] },
+          "notApplicableReason": {
+            "description": "Obligatorio cuando knowledgeState = NOT_APPLICABLE.",
+            "type": ["string", "null"]
+          },
           "conflictingObservationIds": {
             "description": "Obligatorio cuando knowledgeState = CONTRADICTORY.",
             "type": "array",
