@@ -177,4 +177,24 @@ describe("fundación de datos productiva · invariantes de dominio", () => {
   it("elimina la política genérica de alta de organizaciones", () => {
     expect(sql).toContain('drop policy if exists "organizations_insert_authenticated" on public.organizations');
   });
+
+  it("acota el alta de organización a quien aún no pertenece a ninguna", () => {
+    const bloque = sql.slice(sql.indexOf('create policy "organizations_insert_bootstrap"'));
+    const cuerpo = bloque.slice(0, bloque.indexOf(";"));
+    expect(cuerpo).toContain("not exists");
+    expect(cuerpo).toContain("m.user_id = auth.uid()");
+    // La política no puede ser genérica (with check true).
+    expect(cuerpo).not.toMatch(/with check \(\s*true\s*\)/);
+  });
+
+  it("no expone el bootstrap como función con privilegios elevados", () => {
+    const bloque = sql.slice(sql.lastIndexOf("function public.bootstrap_organization"));
+    expect(bloque).toContain("security invoker");
+  });
+
+  it("restringe los archivos de evidencia a la organización dueña de la carpeta", () => {
+    const bloque = sql.slice(sql.indexOf('create policy "evidence_select_members"'));
+    expect(bloque).toContain("bucket_id = 'evidence'");
+    expect(bloque).toContain("private.is_organization_member(((storage.foldername(name))[1])::uuid)");
+  });
 });
