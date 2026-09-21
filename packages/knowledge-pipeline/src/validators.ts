@@ -52,7 +52,10 @@ export interface StageResult {
 /* ------------------------------------------------------------------ */
 
 export const SUPPORTED_ACQUISITION_LEVELS = ["P1", "P2", "P3", "P4", "P5"] as const;
-export const SUPPORTED_RESPONSE_MODEL_KINDS = ["semantic_state_or_unknown"] as const;
+export const SUPPORTED_RESPONSE_MODEL_KINDS = [
+  "semantic_state_or_unknown",
+  "free_statement_or_unknown",
+] as const;
 export const SUPPORTED_TRIGGER_CLASSIFICATIONS = ["DETERMINISTIC", "NOT_DETERMINISTIC"] as const;
 export const SUPPORTED_RULE_CLASSIFICATIONS = [
   "DETERMINISTIC",
