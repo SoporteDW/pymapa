@@ -8,9 +8,12 @@
  *   capacidad concreta dentro del runtime).
  *   Todo comportamiento proviene del pack.
  * - No produce scoring numérico, ni maturity, ni priority, ni severidad.
- * - No convierte estados semánticos en números.
+ * - No convierte estados semánticos en números. Los niveles de evidencia
+ *   (E0..E3) son estados de requisito, nunca puntajes.
  * - UNKNOWN se preserva: nunca se transforma en ausencia, falla ni respuesta
  *   negativa, y nunca deriva automáticamente en conclusión adversa.
+ * - Estados materialmente incompatibles producen CONTRADICTORY con sus fuentes:
+ *   nunca se promedian, ni se decide por jerarquía, ni se delega a un LLM.
  * - Las reglas gobernadas cuya clasificación no es DETERMINISTIC no se ejecutan:
  *   se transportan como juicio pendiente con su lineage.
  * - Solo se ejecuta contra código server-side (ver docs/architecture).
@@ -42,6 +45,10 @@ export interface EngineObservation {
   semanticValue: string | null;
   /** Response de origen, cuando existe. Response ≠ Observation. */
   sourceResponseId: string | null;
+  /** Fuente humana que la originó. Response ≠ Evidence ≠ Observation. */
+  respondentId?: string | null;
+  /** Evidencias que la soportan. Una evidencia puede soportar varias. */
+  evidenceIds?: string[];
   /** Requerido por el Knowledge Master cuando el estado es NOT_APPLICABLE. */
   notApplicableReason?: string | null;
   /** Requerido cuando el estado es CONTRADICTORY: fuentes/observaciones en conflicto. */
@@ -52,6 +59,7 @@ export interface EngineObservation {
 /** Bookkeeping del runtime sobre una Information Need (no es semántica del Master). */
 export type InformationNeedRuntimeState =
   | "PENDING"
+  | "PARTIAL"
   | "COLLECTED"
   | "AWAITING_CLARIFICATION"
   | "NOT_MAPPED";
@@ -64,6 +72,12 @@ export interface VariableEvaluationResult {
     criticality: string;
     minimumEvidence: string;
     observationIds: string[];
+    /** Lineage explícito: Response ≠ Evidence ≠ Observation ≠ Evaluation. */
+    responseIds: string[];
+    evidenceIds: string[];
+    respondentIds: string[];
+    /** Observaciones en conflicto cuando el estado es CONTRADICTORY. */
+    conflictingObservationIds: string[];
     classification: "DETERMINISTIC";
     note: string;
   };
@@ -78,6 +92,7 @@ export interface InformationNeedStateResult {
     pendingVariableRefs: string[];
     /** Variables con UNKNOWN registrado explícitamente (dato capturado, no ausencia). */
     explicitUnknownVariableRefs: string[];
+    contradictoryVariableRefs: string[];
     mappingStatus: string;
   };
 }
@@ -86,6 +101,38 @@ export interface PendingJudgment {
   ruleRef: string;
   classification: "GOVERNED_JUDGMENT" | "UNIMPLEMENTED_GAP";
   reason: string;
+}
+
+/** Estado de requisito de evidencia. E0..E3 nunca se convierten en números. */
+export type EvidenceRequirementResolution = "RESOLVED" | "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED";
+
+export interface EvidenceRequirementResult {
+  variableRef: string;
+  /** Nivel declarado (E0..E3). Estado de requisito, no puntaje. */
+  requiredLevel: string;
+  /** Niveles admisibles cuando el requisito es condicional. */
+  options: string[] | null;
+  resolution: EvidenceRequirementResolution;
+  provenance: {
+    knowledgePackId: string;
+    knowledgePackVersion: string;
+    note: string;
+    escalationFactors: string[];
+    escalationFormula: string;
+  };
+}
+
+export interface ContradictionResult {
+  variableRef: string;
+  conflictingObservationIds: string[];
+  conflictingSemanticValues: string[];
+  /** Fuentes humanas distintas implicadas, cuando se conocen. */
+  sourceRespondentIds: string[];
+  /** Adquisiciones de aclaración declaradas por el pack. */
+  clarificationAcquisitionRefs: string[];
+  /** Candidatos de evidencia admisibles declarados por el pack. */
+  evidenceCandidateRefs: string[];
+  note: string;
 }
 
 export interface EvaluationTraceability {
@@ -106,7 +153,15 @@ export interface EvaluationResult {
   informationNeedStates: InformationNeedStateResult[];
   /** Reglas gobernadas no resueltas determinísticamente en esta etapa. */
   pendingJudgments: PendingJudgment[];
-  /** M1-D no produce findings: no se fabrican para demostrar el vertical. */
+  /** Requisitos de evidencia por variable (E0..E3 como estados). */
+  evidenceRequirements: EvidenceRequirementResult[];
+  /** Conflictos materiales entre fuentes, con sus referencias. */
+  contradictions: ContradictionResult[];
+  /** Adquisiciones ya respondidas (derivadas de las observaciones). */
+  answeredAcquisitionRefs: string[];
+  /** true cuando el resultado requiere revisión gobernada, no inferencia. */
+  needsReview: boolean;
+  /** Esta etapa no produce findings: no se fabrican para demostrar el vertical. */
   findings: never[];
   /** Sufficiency/Confidence no tienen fórmula aprobada. */
   sufficiency: { state: null; reason: string };
@@ -126,12 +181,22 @@ export interface NextAcquisition {
   /** Valores semánticos aprobados para la variable de la adquisición, si existen. */
   allowedSemanticValues: string[] | null;
   optionSetStatus: string | null;
+  /** Transcripción del trigger que la habilita, si el pack lo declara. */
+  triggerStatement: string | null;
 }
 
 const NO_FORMULA =
   "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: no existe fórmula aprobada; el runtime no la infiere.";
 
+const NO_EVIDENCE_FORMULA =
+  "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: requisito condicional sin fórmula aprobada; queda para revisión gobernada.";
+
 const LEVEL_ORDER = ["P1", "P2", "P3", "P4", "P5"];
+
+/** Nivel declarado por el pack para adquisiciones de aclaración. */
+const CLARIFICATION_LEVEL = "P4";
+
+const ANY_VARIABLE = "*";
 
 /* ------------------------------------------------------------------ */
 /* Engine                                                              */
@@ -146,7 +211,18 @@ export interface KnowledgeEngine {
   /** Valida que una observación sea admisible según el pack. */
   validateObservation(observation: EngineObservation): { ok: true } | { ok: false; reason: string };
   evaluate(input: { observations: EngineObservation[]; knowledgeVersionId: string }): EvaluationResult;
+  /** Siguiente adquisición adaptativa, decidida por el pack y el estado actual. */
   getNextAcquisition(evaluation: EvaluationResult): NextAcquisition | null;
+  /** Todas las adquisiciones habilitadas por el estado actual, en orden de nivel. */
+  getEligibleAcquisitions(evaluation: EvaluationResult): NextAcquisition[];
+  /** Adquisiciones de aclaración habilitadas por una contradicción. */
+  getClarificationCandidates(evaluation: EvaluationResult): NextAcquisition[];
+}
+
+interface EstadoVariable {
+  state: KnowledgeState;
+  semanticValue: string | null;
+  observed: boolean;
 }
 
 export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
@@ -174,6 +250,12 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
       criticality: variable?.criticality ?? "UNKNOWN_VARIABLE",
       minimumEvidence: variable?.minimumEvidence ?? "UNKNOWN_VARIABLE",
       observationIds: ids,
+      responseIds: own.map((o) => o.sourceResponseId).filter((x): x is string => Boolean(x)),
+      evidenceIds: [...new Set(own.flatMap((o) => o.evidenceIds ?? []))],
+      respondentIds: [
+        ...new Set(own.map((o) => o.respondentId).filter((x): x is string => Boolean(x))),
+      ],
+      conflictingObservationIds: [] as string[],
       classification: "DETERMINISTIC" as const,
     };
 
@@ -182,20 +264,33 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
         variableRef,
         state: "UNKNOWN",
         semanticValue: null,
-        detail: { ...base, note: "sin observación registrada; ausencia de dato, no conclusión adversa" },
+        detail: {
+          ...base,
+          note: "sin observación registrada; ausencia de dato, no conclusión adversa",
+        },
       };
     }
 
-    const declaredContradiction = own.some((o) => o.knowledgeState === "CONTRADICTORY");
-    const knownValues = new Set(
-      own.filter((o) => o.knowledgeState === "KNOWN" && o.semanticValue).map((o) => o.semanticValue as string),
-    );
-    if (declaredContradiction || knownValues.size > 1) {
+    const declaradas = own.filter((o) => o.knowledgeState === "CONTRADICTORY");
+    const conocidas = own.filter((o) => o.knowledgeState === "KNOWN" && o.semanticValue);
+    const valores = new Set(conocidas.map((o) => o.semanticValue as string));
+
+    if (declaradas.length > 0 || valores.size > 1) {
+      const enConflicto = [
+        ...new Set([
+          ...declaradas.flatMap((o) => [o.id, ...(o.conflictingObservationIds ?? [])]),
+          ...(valores.size > 1 ? conocidas.map((o) => o.id) : []),
+        ]),
+      ];
       return {
         variableRef,
         state: "CONTRADICTORY",
         semanticValue: null,
-        detail: { ...base, note: "estados en conflicto: no se promedian ni se resuelven automáticamente" },
+        detail: {
+          ...base,
+          conflictingObservationIds: enConflicto,
+          note: "estados en conflicto: no se promedian, ni se resuelven por jerarquía, ni automáticamente",
+        },
       };
     }
 
@@ -215,7 +310,10 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
         variableRef,
         state: "UNKNOWN",
         semanticValue: null,
-        detail: { ...base, note: "UNKNOWN explícito preservado; no equivale a negativo ni a ausencia" },
+        detail: {
+          ...base,
+          note: "UNKNOWN explícito preservado; no equivale a negativo ni a ausencia, y admite otra fuente",
+        },
       };
     }
 
@@ -231,6 +329,78 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
           : "no aplicable",
       },
     };
+  }
+
+  function estadosPorVariable(evaluation: EvaluationResult): Map<string, EstadoVariable> {
+    return new Map(
+      evaluation.variableEvaluations.map((v) => [
+        v.variableRef,
+        {
+          state: v.state,
+          semanticValue: v.semanticValue,
+          observed: v.detail.observationIds.length > 0,
+        },
+      ]),
+    );
+  }
+
+  /** Evaluación declarativa del trigger. Genérica: solo estados de variables. */
+  function triggerSatisfecho(
+    acq: KnowledgePackAcquisition,
+    estados: Map<string, EstadoVariable>,
+  ): boolean {
+    const trigger = acq.trigger;
+    if (!trigger) return true;
+    if (trigger.classification !== "DETERMINISTIC") return false;
+    const conditions = trigger.conditions ?? [];
+    if (conditions.length === 0) return false;
+
+    const cumple = (cond: (typeof conditions)[number], estado: EstadoVariable | undefined) => {
+      if (!estado) return false;
+      if (cond.observed !== undefined && cond.observed !== estado.observed) return false;
+      if (cond.states && !cond.states.includes(estado.state)) return false;
+      if (cond.semanticValues) {
+        if (!estado.semanticValue) return false;
+        if (!cond.semanticValues.includes(estado.semanticValue)) return false;
+      }
+      return true;
+    };
+
+    const resultados = conditions.map((cond) =>
+      cond.variableRef === ANY_VARIABLE
+        ? [...estados.values()].some((estado) => cumple(cond, estado))
+        : cumple(cond, estados.get(cond.variableRef)),
+    );
+
+    return (trigger.mode ?? "ALL") === "ANY"
+      ? resultados.some(Boolean)
+      : resultados.every(Boolean);
+  }
+
+  function aNextAcquisition(acq: KnowledgePackAcquisition): NextAcquisition {
+    return {
+      acquisitionId: acq.id,
+      capabilityId: pack.capability.id,
+      level: acq.level,
+      informationNeedRef: acq.informationNeedRef ?? null,
+      variableRefs: acq.variableRefs.slice(),
+      question: acq.question,
+      purpose: acq.purpose ?? null,
+      allowedKnowledgeStates: acq.responseModel.knowledgeStates.slice(),
+      allowedSemanticValues: semanticValuesFor(acq),
+      optionSetStatus: acq.responseModel.optionSetStatus ?? null,
+      triggerStatement: acq.trigger?.statement ?? null,
+    };
+  }
+
+  function elegibles(evaluation: EvaluationResult): KnowledgePackAcquisition[] {
+    const estados = estadosPorVariable(evaluation);
+    const respondidas = new Set(evaluation.answeredAcquisitionRefs);
+    return pack.acquisitions
+      .slice()
+      .sort((a, b) => LEVEL_ORDER.indexOf(a.level) - LEVEL_ORDER.indexOf(b.level))
+      .filter((acq) => !respondidas.has(acq.id))
+      .filter((acq) => triggerSatisfecho(acq, estados));
   }
 
   return {
@@ -297,6 +467,7 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
               variableRefs: [],
               pendingVariableRefs: [],
               explicitUnknownVariableRefs: [],
+              contradictoryVariableRefs: [],
               mappingStatus: need.mappingStatus,
             },
           };
@@ -305,12 +476,23 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
         const explicitUnknown = need.variableRefs.filter(
           (ref) => !sinObservacion.has(ref) && stateByVariable.get(ref) === "UNKNOWN",
         );
-        const contradictory = need.variableRefs.some((ref) => stateByVariable.get(ref) === "CONTRADICTORY");
-        const state: InformationNeedRuntimeState = contradictory
-          ? "AWAITING_CLARIFICATION"
-          : pending.length > 0
-            ? "PENDING"
-            : "COLLECTED";
+        const contradictory = need.variableRefs.filter(
+          (ref) => stateByVariable.get(ref) === "CONTRADICTORY",
+        );
+
+        // UNKNOWN explícito mantiene la necesidad PARCIAL (abierta a delegación,
+        // otra fuente o evidencia); nunca la cierra ni la vuelve adversa.
+        const state: InformationNeedRuntimeState =
+          contradictory.length > 0
+            ? "AWAITING_CLARIFICATION"
+            : explicitUnknown.length > 0
+              ? "PARTIAL"
+              : pending.length === 0
+                ? "COLLECTED"
+                : pending.length < need.variableRefs.length
+                  ? "PARTIAL"
+                  : "PENDING";
+
         return {
           needRef: need.id,
           state,
@@ -318,6 +500,7 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
             variableRefs: need.variableRefs.slice(),
             pendingVariableRefs: pending,
             explicitUnknownVariableRefs: explicitUnknown,
+            contradictoryVariableRefs: contradictory,
             mappingStatus: need.mappingStatus,
           },
         };
@@ -335,10 +518,69 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
               : "vacío de conocimiento declarado: no se resuelve por inferencia",
         }));
 
+      // Requisitos de evidencia: E0..E3 son estados de requisito. Cuando el
+      // material los expresa de forma condicional y no hay fórmula aprobada,
+      // el runtime NO inventa el umbral: pide revisión gobernada.
+      const escalationFormula = pack.evidence?.escalationFormula ?? "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER";
+      const escalationFactors = pack.evidence?.escalationFactors ?? [];
+      const evidenceRequirements: EvidenceRequirementResult[] = pack.variables.map((v) => {
+        const condicional = Boolean(v.minimumEvidenceConditional);
+        const sinFormula = escalationFormula.startsWith("NOT_EXPLICIT");
+        return {
+          variableRef: v.id,
+          requiredLevel: v.minimumEvidence,
+          options: v.minimumEvidenceOptions ? v.minimumEvidenceOptions.slice() : null,
+          resolution:
+            condicional && sinFormula ? "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED" : "RESOLVED",
+          provenance: {
+            knowledgePackId: pack.packId,
+            knowledgePackVersion: pack.packVersion,
+            note: condicional && sinFormula ? NO_EVIDENCE_FORMULA : (v.minimumEvidenceNote ?? "requisito declarado"),
+            escalationFactors: escalationFactors.slice(),
+            escalationFormula,
+          },
+        };
+      });
+
+      const clarificationRefs = (
+        pack.contradictionHandling?.clarificationAcquisitionRefs ?? []
+      ).filter((ref) => acquisitionById.has(ref));
+      const evidenceCandidateRefs = pack.contradictionHandling?.evidenceCandidateRefs ?? [];
+
+      const contradictions: ContradictionResult[] = variableEvaluations
+        .filter((v) => v.state === "CONTRADICTORY")
+        .map((v) => {
+          const own = observations.filter((o) => o.variableRef === v.variableRef);
+          return {
+            variableRef: v.variableRef,
+            conflictingObservationIds: v.detail.conflictingObservationIds.slice(),
+            conflictingSemanticValues: [
+              ...new Set(
+                own
+                  .filter((o) => o.knowledgeState === "KNOWN" && o.semanticValue)
+                  .map((o) => o.semanticValue as string),
+              ),
+            ],
+            sourceRespondentIds: v.detail.respondentIds.slice(),
+            clarificationAcquisitionRefs: clarificationRefs.slice(),
+            evidenceCandidateRefs: evidenceCandidateRefs.slice(),
+            note: "fuentes materialmente incompatibles: se conserva el conflicto con sus referencias",
+          };
+        });
+
+      const answeredAcquisitionRefs = [...new Set(observations.map((o) => o.acquisitionRef))];
+
       return {
         variableEvaluations,
         informationNeedStates,
         pendingJudgments,
+        evidenceRequirements,
+        contradictions,
+        answeredAcquisitionRefs,
+        needsReview:
+          pendingJudgments.length > 0 ||
+          contradictions.length > 0 ||
+          evidenceRequirements.some((e) => e.resolution === "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED"),
         findings: [],
         sufficiency: { state: null, reason: NO_FORMULA },
         confidence: { state: null, reason: NO_FORMULA },
@@ -356,33 +598,26 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
       };
     },
 
+    getEligibleAcquisitions(evaluation) {
+      return elegibles(evaluation).map(aNextAcquisition);
+    },
+
     getNextAcquisition(evaluation) {
-      // Solo se vuelve a preguntar lo que aún no tiene observación.
-      // Un UNKNOWN explícito YA es información: no se re-pregunta en bucle.
-      const sinObservacion = new Set(
-        evaluation.variableEvaluations
-          .filter((v) => v.detail.observationIds.length === 0)
-          .map((v) => v.variableRef),
+      // Adaptativo: el pack declara el trigger, el runtime solo lo evalúa.
+      // Una adquisición ya respondida no se repregunta, ni siquiera con UNKNOWN.
+      const [siguiente] = elegibles(evaluation);
+      return siguiente ? aNextAcquisition(siguiente) : null;
+    },
+
+    getClarificationCandidates(evaluation) {
+      if (evaluation.contradictions.length === 0) return [];
+      const declaradas = new Set(
+        evaluation.contradictions.flatMap((c) => c.clarificationAcquisitionRefs),
       );
-      const ordered = pack.acquisitions
-        .slice()
-        .sort((a, b) => LEVEL_ORDER.indexOf(a.level) - LEVEL_ORDER.indexOf(b.level));
-
-      const next = ordered.find((acq) => acq.variableRefs.some((ref) => sinObservacion.has(ref)));
-      if (!next) return null;
-
-      return {
-        acquisitionId: next.id,
-        capabilityId: pack.capability.id,
-        level: next.level,
-        informationNeedRef: next.informationNeedRef ?? null,
-        variableRefs: next.variableRefs.slice(),
-        question: next.question,
-        purpose: next.purpose ?? null,
-        allowedKnowledgeStates: next.responseModel.knowledgeStates.slice(),
-        allowedSemanticValues: semanticValuesFor(next),
-        optionSetStatus: next.responseModel.optionSetStatus ?? null,
-      };
+      const disponibles = elegibles(evaluation).filter(
+        (acq) => declaradas.has(acq.id) || acq.level === CLARIFICATION_LEVEL,
+      );
+      return disponibles.map(aNextAcquisition);
     },
   };
 }

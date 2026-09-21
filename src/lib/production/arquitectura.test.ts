@@ -35,6 +35,7 @@ const AUTORIZADOS = [
   "src/lib/production/vertical-op01.test.ts",
   "src/lib/production/arquitectura.test.ts",
   "src/lib/production/activacion-op01.test.ts",
+  "src/lib/production/colaborativo-evidencia.test.ts",
 ];
 
 describe("arquitectura · separación frontend / knowledge-engine", () => {

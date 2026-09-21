@@ -14,14 +14,50 @@ import type {
 } from "@pymapa/contracts";
 import {
   getOp01AssessmentState,
+  getOp01Collaboration,
   getOp01NextAcquisition,
+  inviteOp01Respondent,
+  registerOp01Evidence,
   submitOp01Response,
 } from "@/lib/production/op01.functions";
 import type { AssessmentClient } from "./assessment-client";
 
-/** Cliente extendido: añade la adquisición-pregunta servida por el pack. */
+type CollaborationPayload = Awaited<ReturnType<typeof getOp01Collaboration>>;
+type StatePayload = Awaited<ReturnType<typeof getOp01AssessmentState>>["state"];
+
+export interface InviteInput {
+  email: string;
+  displayName?: string | null;
+  roleLabel?: string | null;
+  scopeType: "DOMAIN" | "CAPABILITY" | "INFORMATION_NEED" | "SECTION";
+  scopeRef: string;
+  delegatedFromAssignmentId?: string | null;
+  delegationReason?: string | null;
+}
+
+export interface EvidenceInput {
+  candidateRef?: string | null;
+  evidenceType: string;
+  source: "HUMAN_RESPONDENT" | "DOCUMENT" | "SYSTEM_RECORD" | "OBSERVED_EXECUTION";
+  storageBucket?: string | null;
+  storagePath?: string | null;
+  externalReference?: string | null;
+  title?: string | null;
+  note?: string | null;
+  observationIds?: string[];
+}
+
+/**
+ * Cliente extendido: adquisición adaptativa, contexto colaborativo y evidencia.
+ * Todo llega del servidor; el frontend no interpreta conocimiento.
+ */
 export interface ProductionAssessmentClient extends AssessmentClient {
   getNextAcquisitionQuestion(assessmentId: string): Promise<AcquisitionQuestionDTO | null>;
+  /** Estado detallado tal como lo devuelve el boundary (sin reinterpretación). */
+  getAssessmentDetail(): Promise<StatePayload>;
+  getCollaboration(): Promise<CollaborationPayload>;
+  inviteRespondent(input: InviteInput): Promise<{ respondentId: string; assignmentId: string }>;
+  registerEvidence(input: EvidenceInput): Promise<{ evidenceId: string; linkedObservationIds: string[] }>;
 }
 
 function aAssessmentStateDto(payload: {
@@ -96,6 +132,25 @@ export function createProductionAssessmentClient(): ProductionAssessmentClient {
         findingIds: [],
         ...(resultado.rejectionReason ? { rejectionReason: resultado.rejectionReason } : {}),
       };
+    },
+
+    async getAssessmentDetail() {
+      const payload = await getOp01AssessmentState();
+      return payload.state;
+    },
+
+    async getCollaboration() {
+      return getOp01Collaboration();
+    },
+
+    async inviteRespondent(input) {
+      const salida = await inviteOp01Respondent({ data: input });
+      return { respondentId: salida.respondentId, assignmentId: salida.assignmentId };
+    },
+
+    async registerEvidence(input) {
+      const salida = await registerOp01Evidence({ data: input });
+      return { evidenceId: salida.evidenceId, linkedObservationIds: salida.linkedObservationIds };
     },
   };
 }

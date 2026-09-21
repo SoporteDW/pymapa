@@ -54,9 +54,26 @@ describe("Knowledge Pack OP-01 · schema", () => {
     });
   });
 
-  it("implementa únicamente P01 en esta versión", () => {
+  it("implementa P01 y P05–P15; P02–P04 permanecen sin contenido gobernado", () => {
     const engine = createKnowledgeEngine(packRaw);
-    expect(engine.listAcquisitions().map((a) => a.id)).toEqual(["OP01-P01"]);
+    const ids = engine.listAcquisitions().map((a) => a.id);
+    expect(ids).toEqual([
+      "OP01-P01",
+      "OP01-P05",
+      "OP01-P06",
+      "OP01-P07",
+      "OP01-P08",
+      "OP01-P09",
+      "OP01-P10",
+      "OP01-P11",
+      "OP01-P12",
+      "OP01-P13",
+      "OP01-P14",
+      "OP01-P15",
+    ]);
+    expect(ids).not.toContain("OP01-P02");
+    expect(ids).not.toContain("OP01-P03");
+    expect(ids).not.toContain("OP01-P04");
   });
 
   it("no introduce escalas numéricas para los estados semánticos", () => {
@@ -75,6 +92,10 @@ describe("Knowledge Pack OP-01 · schema", () => {
       "KCC-AT04-02",
       "KCC-AT04-03",
       "KCC-AT04-04",
+      "KCC-AT04-05",
+      "KCC-AT04-06",
+      "KCC-AT04-07",
+      "KCC-AT04-08",
     ]);
   });
 
@@ -283,8 +304,10 @@ describe("Vertical OP01-P01 · persistencia y estado", () => {
     expect(salida.state?.sufficiency).toBeNull();
     expect(salida.state?.confidence).toBeNull();
 
-    // Y un UNKNOWN explícito no se vuelve a preguntar en bucle.
-    expect(await getNextAcquisition(deps, "assess-1")).toBeNull();
+    // Un UNKNOWN explícito no se vuelve a preguntar en bucle: la adquisición
+    // ya respondida no se re-sirve, pero la necesidad puede seguir abierta.
+    const siguiente = await getNextAcquisition(deps, "assess-1");
+    expect(siguiente?.acquisitionId).not.toBe("OP01-P01");
   });
 
   it("una respuesta inadmisible persiste la Response pero no crea Observation", async () => {
@@ -300,16 +323,17 @@ describe("Vertical OP01-P01 · persistencia y estado", () => {
     expect(await repository.listResponses("assess-1")).toHaveLength(1);
   });
 
-  it("P01 es la siguiente adquisición antes de responder y desaparece después", async () => {
+  it("P01 es la primera adquisición y no se repite después de responderla", async () => {
     expect((await getNextAcquisition(deps, "assess-1"))?.acquisitionId).toBe("OP01-P01");
     await submitAcquisitionResponse(deps, { ...comando, knowledgeState: "KNOWN", semanticValue: "Definida" });
-    expect(await getNextAcquisition(deps, "assess-1")).toBeNull();
+    const siguiente = await getNextAcquisition(deps, "assess-1");
+    expect(siguiente?.acquisitionId).not.toBe("OP01-P01");
   });
 
   it("el estado del assessment refleja la adquisición respondida", async () => {
     const inicial = await getAssessmentState(deps, "assess-1");
     expect(inicial?.status).toBe("not_started");
-    expect(inicial?.totalAcquisitions).toBe(1);
+    expect(inicial?.totalAcquisitions).toBe(12);
 
     await submitAcquisitionResponse(deps, { ...comando, knowledgeState: "KNOWN", semanticValue: "Definida" });
     const despues = await getAssessmentState(deps, "assess-1");
@@ -337,10 +361,10 @@ describe("Vertical OP01-P01 · persistencia y estado", () => {
     await expect(getAssessmentState(otrasDeps, "assess-1")).rejects.toThrow(KNOWLEDGE_VERSION_MISMATCH);
   });
 
-  it("rechaza una adquisición que no existe en el pack (P02–P15 no implementadas)", async () => {
+  it("rechaza una adquisición que no existe en el pack (P02–P04 sin contenido)", async () => {
     const salida = await submitAcquisitionResponse(deps, {
       ...comando,
-      acquisitionId: "OP01-P15",
+      acquisitionId: "OP01-P02",
       knowledgeState: "KNOWN",
       semanticValue: "Definida",
     });

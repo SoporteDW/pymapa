@@ -36,6 +36,13 @@ export const variableSchema = z.object({
   criticality: criticalitySchema,
   minimumEvidence: evidenceLevelSchema,
   minimumEvidenceNote: z.string().optional(),
+  /**
+   * true cuando el material gobernado expresa el requisito de forma condicional
+   * (p. ej. "E1/E2 depending on risk") y NO existe fórmula aprobada.
+   */
+  minimumEvidenceConditional: z.boolean().optional(),
+  /** Niveles admisibles declarados cuando el requisito es condicional. */
+  minimumEvidenceOptions: z.array(evidenceLevelSchema).min(1).optional(),
   /** Estados semánticos aprobados; null cuando el Knowledge Master no los enumera. */
   semanticStates: z.array(z.string().min(1)).min(1).nullable(),
 });
@@ -58,6 +65,31 @@ export const responseModelSchema = z.object({
   notes: z.array(z.string()).optional(),
 });
 
+/**
+ * Condición declarativa de activación. "*" significa "cualquier variable del
+ * pack". El runtime la evalúa genéricamente: no conoce ninguna capacidad.
+ */
+export const triggerConditionSchema = z.object({
+  variableRef: z.string().min(1),
+  /** true exige observación registrada; false exige ausencia de observación. */
+  observed: z.boolean().optional(),
+  states: z.array(knowledgeStateSchema).min(1).optional(),
+  semanticValues: z.array(z.string().min(1)).min(1).optional(),
+});
+
+export const triggerSchema = z.object({
+  /** Transcripción del trigger aprobado. */
+  statement: z.string().min(1),
+  /**
+   * DETERMINISTIC: el runtime lo evalúa y puede servir la adquisición.
+   * NOT_DETERMINISTIC: el trigger aprobado no es expresable sobre estados de
+   * variables; la adquisición queda disponible pero nunca se sirve por inferencia.
+   */
+  classification: z.enum(["DETERMINISTIC", "NOT_DETERMINISTIC"]),
+  mode: z.enum(["ALL", "ANY"]).optional(),
+  conditions: z.array(triggerConditionSchema).optional(),
+});
+
 export const acquisitionSchema = z.object({
   id: z.string().min(1),
   level: acquisitionLevelSchema,
@@ -65,6 +97,9 @@ export const acquisitionSchema = z.object({
   variableRefs: z.array(z.string().min(1)).min(1),
   purpose: z.string().optional(),
   question: z.string().min(1),
+  /** Procedencia del enunciado cuando no es transcripción literal. */
+  questionSource: z.string().optional(),
+  trigger: triggerSchema.optional(),
   responseModel: responseModelSchema,
 });
 
@@ -109,7 +144,17 @@ export const knowledgePackSchema = z.object({
       levels: z.array(evidenceLevelSchema),
       escalationFactors: z.array(z.string()).optional(),
       escalationFormula: z.string().optional(),
-      candidates: z.array(z.object({ id: z.string(), name: z.string() })).optional(),
+      candidates: z
+        .array(
+          z.object({
+            id: z.string(),
+            name: z.string(),
+            /** Referencias que el candidato puede respaldar, si el material las declara. */
+            variableRefs: z.array(z.string()).optional(),
+            informationNeedRefs: z.array(z.string()).optional(),
+          }),
+        )
+        .optional(),
       candidatesNote: z.string().optional(),
     })
     .optional(),
@@ -130,7 +175,16 @@ export const knowledgePackSchema = z.object({
     })
     .optional(),
   rules: z.array(ruleSchema).optional(),
-  contradictionHandling: z.unknown().optional(),
+  contradictionHandling: z
+    .object({
+      referenceCase: z.unknown().optional(),
+      /** Adquisiciones de aclaración declaradas por el material gobernado. */
+      clarificationAcquisitionRefs: z.array(z.string()).optional(),
+      /** Candidatos de evidencia admisibles para aclarar el conflicto. */
+      evidenceCandidateRefs: z.array(z.string()).optional(),
+      notes: z.array(z.string()).optional(),
+    })
+    .optional(),
   findings: z.array(z.object({ id: z.string(), name: z.string() })).optional(),
   findingsNote: z.string().optional(),
   crossCapabilityReferences: z
@@ -203,6 +257,41 @@ export function validateKnowledgePack(raw: unknown): KnowledgePackValidation {
       issues.push({
         path: `acquisitions.${index}.responseModel.knowledgeStates`,
         message: "UNKNOWN debe ser un estado registrable",
+      });
+    }
+    if (acq.trigger) {
+      const conditions = acq.trigger.conditions ?? [];
+      if (acq.trigger.classification === "DETERMINISTIC" && conditions.length === 0) {
+        issues.push({
+          path: `acquisitions.${index}.trigger.conditions`,
+          message: "un trigger DETERMINISTIC exige al menos una condición evaluable",
+        });
+      }
+      conditions.forEach((cond, ci) => {
+        if (cond.variableRef !== "*" && !variableIds.has(cond.variableRef)) {
+          issues.push({
+            path: `acquisitions.${index}.trigger.conditions.${ci}.variableRef`,
+            message: `variable desconocida: ${cond.variableRef}`,
+          });
+        }
+      });
+    }
+  });
+
+  pack.variables.forEach((variable, index) => {
+    if (variable.minimumEvidenceConditional && !variable.minimumEvidenceOptions) {
+      issues.push({
+        path: `variables.${index}.minimumEvidenceOptions`,
+        message: "un requisito de evidencia condicional debe declarar sus niveles admisibles",
+      });
+    }
+  });
+
+  (pack.contradictionHandling?.clarificationAcquisitionRefs ?? []).forEach((ref, index) => {
+    if (!acquisitionIds.has(ref)) {
+      issues.push({
+        path: `contradictionHandling.clarificationAcquisitionRefs.${index}`,
+        message: `adquisición desconocida: ${ref}`,
       });
     }
   });
