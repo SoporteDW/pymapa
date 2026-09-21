@@ -175,7 +175,16 @@ export const knowledgePackSchema = z.object({
     })
     .optional(),
   rules: z.array(ruleSchema).optional(),
-  contradictionHandling: z.unknown().optional(),
+  contradictionHandling: z
+    .object({
+      referenceCase: z.unknown().optional(),
+      /** Adquisiciones de aclaración declaradas por el material gobernado. */
+      clarificationAcquisitionRefs: z.array(z.string()).optional(),
+      /** Candidatos de evidencia admisibles para aclarar el conflicto. */
+      evidenceCandidateRefs: z.array(z.string()).optional(),
+      notes: z.array(z.string()).optional(),
+    })
+    .optional(),
   findings: z.array(z.object({ id: z.string(), name: z.string() })).optional(),
   findingsNote: z.string().optional(),
   crossCapabilityReferences: z
