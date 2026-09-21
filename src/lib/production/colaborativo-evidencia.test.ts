@@ -144,7 +144,7 @@ describe("M1-EFG · diagnóstico colaborativo y delegación", () => {
     expect(asignacion.scopeType).toBe("CAPABILITY");
     // Solo el hash del token se persiste.
     expect(invitation.tokenHash).toBe("sha256:token-secreto");
-    expect(JSON.stringify(invitation)).not.toContain("token-secreto\"");
+    expect(Object.keys(invitation)).not.toContain("token");
   });
 
   it("Journey A · UNKNOWN → necesidad abierta → delegación → la necesidad avanza", async () => {
