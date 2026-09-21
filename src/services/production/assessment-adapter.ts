@@ -97,9 +97,17 @@ export interface MvpAssessmentClientDeps {
  * Toda decisión la sigue tomando el código existente; aquí solo se traduce.
  */
 export function createMvpAssessmentClient(deps: MvpAssessmentClientDeps): AssessmentClient {
+  const leerSeguro = () => {
+    try {
+      return deps.leerEstado();
+    } catch {
+      return null;
+    }
+  };
+
   return {
     async getAssessmentState(assessmentId) {
-      const estado = deps.leerEstado();
+      const estado = leerSeguro();
       if (!estado || estado.sesion.id !== assessmentId) return null;
       return sesionMvpAAssessmentState({
         sesion: estado.sesion,
