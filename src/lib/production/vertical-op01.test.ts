@@ -361,10 +361,10 @@ describe("Vertical OP01-P01 · persistencia y estado", () => {
     await expect(getAssessmentState(otrasDeps, "assess-1")).rejects.toThrow(KNOWLEDGE_VERSION_MISMATCH);
   });
 
-  it("rechaza una adquisición que no existe en el pack (P02–P15 no implementadas)", async () => {
+  it("rechaza una adquisición que no existe en el pack (P02–P04 sin contenido)", async () => {
     const salida = await submitAcquisitionResponse(deps, {
       ...comando,
-      acquisitionId: "OP01-P15",
+      acquisitionId: "OP01-P02",
       knowledgeState: "KNOWN",
       semanticValue: "Definida",
     });
