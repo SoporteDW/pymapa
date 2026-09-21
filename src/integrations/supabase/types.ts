@@ -462,7 +462,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      bootstrap_organization: { Args: { _name?: string }; Returns: string }
     }
     Enums: {
       assessment_type: "BASELINE" | "REASSESSMENT" | "FOLLOW_UP"
