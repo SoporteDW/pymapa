@@ -8,6 +8,7 @@
 import { createHash } from "node:crypto";
 import { createKnowledgeEngine, type KnowledgeEngine } from "@pymapa/knowledge-engine";
 import packOp01 from "../../../knowledge/packs/op-01/1.0.0/pack.json" with { type: "json" };
+import type { Json } from "@/integrations/supabase/types";
 import type {
   AssessmentRecord,
   EvaluationRunRecord,
@@ -31,14 +32,8 @@ export function checksumPackOp01(): string {
 export const KNOWLEDGE_VERSION_IDENTIFIER = "PYMAPA-KNOWLEDGE-MASTER";
 export const KNOWLEDGE_VERSION_NUMBER = "1.0.0";
 
-type Admin = Awaited<
-  ReturnType<typeof import("@/integrations/supabase/client.server").supabaseAdmin>
-> extends never
-  ? never
-  : ReturnType<typeof getAdminPlaceholder>;
-function getAdminPlaceholder(): never {
-  throw new Error("placeholder");
-}
+/** Los campos jsonb del esquema aceptan objetos; el cast es solo de tipos. */
+const aJson = (valor: unknown): Json => valor as Json;
 
 async function admin() {
   const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
@@ -116,7 +111,7 @@ export function createSupabaseProductionRepository(): ProductionRepository {
           assessment_id: input.assessmentId,
           submitted_by: input.submittedBy,
           acquisition_ref: input.acquisitionRef,
-          payload: input.payload,
+          payload: aJson(input.payload),
         })
         .select("id, created_at")
         .single();
@@ -133,7 +128,7 @@ export function createSupabaseProductionRepository(): ProductionRepository {
           assessment_id: input.assessmentId,
           source_response_id: input.sourceResponseId,
           variable_ref: input.variableRef,
-          value: input.value,
+          value: aJson(input.value),
         })
         .select("id, created_at")
         .single();
@@ -236,7 +231,7 @@ export function createSupabaseProductionRepository(): ProductionRepository {
             evaluation_run_id: r.evaluationRunId,
             variable_ref: r.variableRef,
             state: r.state,
-            detail: r.detail,
+            detail: aJson(r.detail),
           })),
         )
         .select("id");
@@ -260,7 +255,7 @@ export function createSupabaseProductionRepository(): ProductionRepository {
             .from("information_need_states")
             .update({
               state: fila.state,
-              detail: fila.detail,
+              detail: aJson(fila.detail),
               evaluation_run_id: fila.evaluationRunId,
             })
             .eq("id", existente.data.id)
@@ -277,7 +272,7 @@ export function createSupabaseProductionRepository(): ProductionRepository {
               evaluation_run_id: fila.evaluationRunId,
               need_ref: fila.needRef,
               state: fila.state,
-              detail: fila.detail,
+              detail: aJson(fila.detail),
             })
             .select("id")
             .single();
