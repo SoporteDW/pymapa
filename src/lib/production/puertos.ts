@@ -619,6 +619,58 @@ export interface ProductionRepository {
   listDeliverables(activityId: string): Promise<DeliverableRecord[]>;
   insertAuditEvent(input: Omit<AuditEventRecord, "id" | "createdAt">): Promise<AuditEventRecord>;
   listAuditEvents(organizationId: string): Promise<AuditEventRecord[]>;
+
+  /* CRV, Validation, Follow-up, Reassessment (M1-KL) */
+  /** Permiso de validación: aportar evidencia ≠ validar. */
+  getMembershipRole(organizationId: string, userId: string): Promise<MembershipRole | null>;
+  insertAssessment(input: Omit<AssessmentRecord, "id" | "updatedAt">): Promise<AssessmentRecord>;
+  listAssessments(caseId: string): Promise<AssessmentRecord[]>;
+  listEvaluationRuns(assessmentId: string): Promise<EvaluationRunRecord[]>;
+  listVariableEvaluations(runId: string): Promise<VariableEvaluationRecord[]>;
+  markActivityDone(id: string, doneAt: string, doneBy: string | null): Promise<ActivityRecord>;
+  insertValidationRequirement(
+    input: Omit<ValidationRequirementRecord, "id" | "createdAt">,
+  ): Promise<ValidationRequirementRecord>;
+  getValidationRequirement(id: string): Promise<ValidationRequirementRecord | null>;
+  listValidationRequirements(interventionId: string): Promise<ValidationRequirementRecord[]>;
+  updateValidationRequirementStatus(
+    id: string,
+    status: ValidationRequirementStatus,
+  ): Promise<ValidationRequirementRecord>;
+  insertValidationRequirementCase(
+    input: Omit<ValidationRequirementCaseRecord, "id" | "createdAt">,
+  ): Promise<ValidationRequirementCaseRecord>;
+  listValidationRequirementCases(
+    validationRequirementId: string,
+  ): Promise<ValidationRequirementCaseRecord[]>;
+  insertValidation(input: Omit<ValidationRecord, "id" | "createdAt">): Promise<ValidationRecord>;
+  getValidation(id: string): Promise<ValidationRecord | null>;
+  listValidations(assessmentId: string): Promise<ValidationRecord[]>;
+  updateValidation(
+    id: string,
+    patch: Partial<
+      Pick<ValidationRecord, "status" | "decisionReason" | "reviewedBy" | "reviewedAt" | "detail">
+    >,
+  ): Promise<ValidationRecord>;
+  linkValidationEvidence(
+    input: Omit<ValidationEvidenceLink, "id" | "createdAt">,
+  ): Promise<ValidationEvidenceLink>;
+  listValidationEvidenceLinks(validationId: string): Promise<ValidationEvidenceLink[]>;
+  insertFollowUp(input: Omit<FollowUpRecord, "id" | "createdAt">): Promise<FollowUpRecord>;
+  getFollowUp(id: string): Promise<FollowUpRecord | null>;
+  listFollowUps(activityId: string): Promise<FollowUpRecord[]>;
+  updateFollowUp(
+    id: string,
+    patch: Partial<Pick<FollowUpRecord, "status" | "note" | "evidenceId" | "decidedBy" | "decidedAt">>,
+  ): Promise<FollowUpRecord>;
+  insertLearningCandidate(
+    input: Omit<LearningCandidateRecord, "id" | "createdAt">,
+  ): Promise<LearningCandidateRecord>;
+  listLearningCandidates(organizationId: string): Promise<LearningCandidateRecord[]>;
+  insertAssessmentSnapshot(
+    input: Omit<AssessmentSnapshotRecord, "id" | "createdAt">,
+  ): Promise<AssessmentSnapshotRecord>;
+  listAssessmentSnapshots(assessmentId: string): Promise<AssessmentSnapshotRecord[]>;
 }
 
 /* ------------------------------------------------------------------ */
