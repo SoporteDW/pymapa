@@ -280,16 +280,16 @@ describe("M1-M · 7/8 · pinning, reproducibilidad y lineage extremo a extremo",
 
   it("una KnowledgeVersion distinta a la fijada no puede evaluar el Assessment", async () => {
     const otros = { ...deps, knowledgeVersionId: "kv-op01-1.1.0" } as ProductionDeps;
-    await expect(
-      submitAcquisitionResponse(otros, {
-        assessmentId: "assess-1",
-        organizationId: "org-1",
-        submittedBy: "user-1",
-        acquisitionId: "OP01-P01",
-        knowledgeState: "KNOWN",
-        semanticValue: "Implícita",
-      }),
-    ).rejects.toThrow(/KNOWLEDGE_VERSION_MISMATCH/);
+    const salida = await submitAcquisitionResponse(otros, {
+      assessmentId: "assess-1",
+      organizationId: "org-1",
+      submittedBy: "user-1",
+      acquisitionId: "OP01-P01",
+      knowledgeState: "KNOWN",
+      semanticValue: "Implícita",
+    });
+    expect(salida.accepted).toBe(false);
+    expect(salida.rejectionReason).toBe("KNOWLEDGE_VERSION_MISMATCH");
   });
 
   it("el recorrido completo conserva lineage desde Response hasta Validation", async () => {
@@ -310,54 +310,58 @@ describe("M1-M · 7/8 · pinning, reproducibilidad y lineage extremo a extremo",
     expect(obsLinks.length).toBeGreaterThan(0);
 
     const recomendaciones = await repository.listRecommendationCandidates("assess-1");
-    const recomendacion = recomendaciones.find((r) => r.findingId === finding.id);
+    const recomendacion = recomendaciones.find((r) => r.findingId === finding.id)!;
     expect(recomendacion).toBeTruthy();
-    await seleccionarRecomendacion(deps, {
-      recommendationCandidateId: recomendacion!.id,
-      organizationId: "org-1",
+    const decidida = await decidirRecommendationCandidate(deps, {
+      recommendationCandidateId: recomendacion.id,
+      decision: "SELECTED",
       decidedBy: "user-1",
-      status: "SELECTED",
-      decisionNote: "Decisión humana registrada",
+      note: "Decisión humana registrada",
     });
+    expect(decidida.candidate!.status).toBe("SELECTED");
 
-    const intervencion = await crearIntervencion(deps, {
+    const intervencionOut = await crearIntervencion(deps, {
       assessmentId: "assess-1",
       organizationId: "org-1",
       title: "Formalizar la forma de trabajo",
       findingId: finding.id,
-      recommendationCandidateId: recomendacion!.id,
+      recommendationCandidateId: recomendacion.id,
       selectionNote: "Selección humana registrada",
       createdBy: "user-1",
     });
+    const intervencion = intervencionOut.intervention!;
     expect(intervencion.findingId).toBe(finding.id);
-    expect(intervencion.recommendationCandidateId).toBe(recomendacion!.id);
+    expect(intervencion.recommendationCandidateId).toBe(recomendacion.id);
 
-    const actividad = await crearActividad(deps, {
-      interventionId: intervencion.id,
+    const actividadOut = await crearActividad(deps, {
       organizationId: "org-1",
+      interventionId: intervencion.id,
       title: "Entrenar al segundo ejecutor",
       activityRef: "A04",
       createdBy: "user-1",
     });
+    const actividad = actividadOut.activity!;
+
     const entregable = await registrarEntregable(deps, {
       activityId: actividad.id,
       organizationId: "org-1",
       title: "Guía de la tarea",
       registeredBy: "user-1",
     });
-    expect(entregable.activityId).toBe(actividad.id);
+    expect(entregable.deliverable!.activityId).toBe(actividad.id);
 
-    await marcarActividadDone(deps, {
+    const done = await marcarActividadDone(deps, {
       activityId: actividad.id,
-      organizationId: "org-1",
-      doneBy: "user-1",
+      actorUserId: "user-1",
     });
-    const requisito = await registrarRequisitoValidacion(deps, {
+    expect(done.activity!.doneAt).not.toBeNull();
+
+    const requisitoOut = await registrarRequisitoValidacion(deps, {
       activityId: actividad.id,
-      organizationId: "org-1",
-      createdBy: "user-1",
       primaryExecutorRespondentId: "resp-1",
+      createdBy: "user-1",
     });
+    const requisito = requisitoOut.requirement!;
     expect(requisito.requirementRef).toBe("CRV-A04-01");
     expect(requisito.knowledgeVersionId).toBe(KV_A);
     expect(requisito.engineVersion).toBe(ENGINE_VERSION);
@@ -365,7 +369,6 @@ describe("M1-M · 7/8 · pinning, reproducibilidad y lineage extremo a extremo",
     for (const i of [1, 2, 3]) {
       await registrarCasoValidacion(deps, {
         validationRequirementId: requisito.id,
-        organizationId: "org-1",
         executorRespondentId: "resp-2",
         outcome: "CORRECT",
         criticalAssistance: false,
@@ -374,38 +377,49 @@ describe("M1-M · 7/8 · pinning, reproducibilidad y lineage extremo a extremo",
       });
     }
 
-    const validacion = await abrirValidacion(deps, {
+    const abierta = await abrirValidacion(deps, {
       activityId: actividad.id,
-      organizationId: "org-1",
-      openedBy: "user-1",
+      actorUserId: "user-1",
     });
-    const decidida = await decidirValidacion(deps, {
-      validationId: validacion.id,
-      organizationId: "org-1",
+    const validada = await decidirValidacion(deps, {
+      validationId: abierta.validation!.id,
+      decision: "VALIDATED",
+      reason: "CRV satisfecho con tres casos consecutivos",
       reviewedBy: "user-1",
-      status: "VALIDATED",
-      decisionReason: "CRV satisfecho con tres casos consecutivos",
     });
 
-    expect(decidida.status).toBe("VALIDATED");
-    expect(decidida.activityId).toBe(actividad.id);
-    expect(decidida.interventionId).toBe(intervencion.id);
-    expect(decidida.validationRequirementId).toBe(requisito.id);
-    expect(decidida.knowledgeVersionId).toBe(KV_A);
-    expect(decidida.engineVersion).toBe(ENGINE_VERSION);
-    expect(decidida.reviewedBy).toBe("user-1");
+    const validation = validada.validation!;
+    expect(validation.status).toBe("VALIDATED");
+    expect(validation.activityId).toBe(actividad.id);
+    expect(validation.interventionId).toBe(intervencion.id);
+    expect(validation.validationRequirementId).toBe(requisito.id);
+    expect(validation.knowledgeVersionId).toBe(KV_A);
+    expect(validation.engineVersion).toBe(ENGINE_VERSION);
+    expect(validation.reviewedBy).toBe("user-1");
   });
 
-  it("aislamiento cross-tenant: otra organización no puede operar el Assessment", async () => {
-    await expect(
-      submitAcquisitionResponse(deps, {
-        assessmentId: "assess-1",
-        organizationId: "org-intrusa",
-        submittedBy: "user-intruso",
-        acquisitionId: "OP01-P01",
-        knowledgeState: "KNOWN",
-        semanticValue: "Implícita",
-      }),
-    ).rejects.toThrow();
+  it("aislamiento cross-tenant: cada tabla productiva restringe por membresía", () => {
+    const dir = join(RAIZ, "supabase", "migrations");
+    const sql = archivos(dir, [".sql"])
+      .map((ruta) => leer(ruta))
+      .join("\n")
+      .toLowerCase();
+    for (const tabla of [
+      "findings",
+      "interventions",
+      "activities",
+      "deliverables",
+      "validation_requirements",
+      "validations",
+      "follow_ups",
+      "learning_candidates",
+      "assessment_snapshots",
+    ]) {
+      expect(sql, tabla).toContain(`alter table public.${tabla} enable row level security`);
+    }
+    expect(sql).toContain("private.is_organization_member");
+    // Ninguna política abierta a cualquier usuario autenticado.
+    expect(sql).not.toMatch(/to authenticated\s+using \(true\)/);
   });
 });
+
