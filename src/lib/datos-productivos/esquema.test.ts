@@ -29,6 +29,12 @@ const TABLAS = [
   "evaluation_runs",
   "variable_evaluations",
   "information_need_states",
+  // M1-EFG · diagnóstico colaborativo y Evidence Store
+  "respondents",
+  "assignments",
+  "invitations",
+  "evidence",
+  "observation_evidence",
 ] as const;
 
 const TABLAS_TENANT_OWNED = TABLAS.filter((t) => t !== "organizations" && t !== "knowledge_versions");
@@ -38,7 +44,7 @@ describe("fundación de datos productiva · migraciones versionadas", () => {
     expect(readdirSync(MIGRATIONS_DIR).filter((f) => f.endsWith(".sql")).length).toBeGreaterThan(0);
   });
 
-  it("crea las diez entidades del modelo inicial", () => {
+  it("crea todas las entidades del modelo productivo", () => {
     for (const tabla of TABLAS) {
       expect(sql).toContain(`create table public.${tabla}`);
     }
@@ -137,7 +143,38 @@ describe("fundación de datos productiva · invariantes de dominio", () => {
 
   it("define roles de membership sin IAM adicional", () => {
     expect(sql).toContain("create type public.membership_role as enum ('owner', 'admin', 'member')");
-    expect(sql).not.toContain("create table public.respondents");
-    expect(sql).not.toContain("create table public.assignments");
+    // Sin IAM propio: ni roles adicionales ni jerarquías fuera de membership.
+    expect(sql).not.toMatch(/create table public\.(roles|permissions|user_roles)\b/);
+  });
+
+  it("mantiene User ≠ Membership ≠ Respondent", () => {
+    const bloque = sql.slice(sql.indexOf("create table public.respondents"));
+    const cuerpo = bloque.slice(0, bloque.indexOf(");"));
+    // Un respondent puede existir sin cuenta y sin membresía en la organización.
+    expect(cuerpo).toContain("user_id uuid");
+    expect(cuerpo).not.toContain("user_id uuid not null");
+    expect(cuerpo).not.toContain("membership_id");
+    expect(cuerpo).not.toContain("membership_role");
+  });
+
+  it("almacena la evidencia por referencia a storage, no como binario en la base", () => {
+    const bloque = sql.slice(sql.indexOf("create table public.evidence"));
+    const cuerpo = bloque.slice(0, bloque.indexOf(");"));
+    expect(cuerpo).toContain("storage_bucket text");
+    expect(cuerpo).toContain("storage_path text");
+    expect(cuerpo).not.toMatch(/bytea|blob/);
+  });
+
+  it("permite que una evidencia soporte varias observaciones", () => {
+    const bloque = sql.slice(sql.indexOf("create table public.observation_evidence"));
+    const cuerpo = bloque.slice(0, bloque.indexOf(");"));
+    expect(cuerpo).toContain("observation_id uuid not null references public.observations");
+    expect(cuerpo).toContain("evidence_id uuid not null references public.evidence");
+    // La unicidad es por par, no por evidencia: una evidencia puede repetirse.
+    expect(sql).toContain("unique index observation_evidence_unique on public.observation_evidence (observation_id, evidence_id)");
+  });
+
+  it("elimina la política genérica de alta de organizaciones", () => {
+    expect(sql).toContain('drop policy if exists "organizations_insert_authenticated" on public.organizations');
   });
 });
