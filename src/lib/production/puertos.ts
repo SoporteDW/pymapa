@@ -307,8 +307,23 @@ export interface InterventionRecord {
   createdAt: string;
 }
 
-/** Estado mínimo de ejecución. VALIDATED / FOLLOW_UP pertenecen a M1-KL. */
-export type ExecutionState = "PENDING" | "EXECUTING" | "DELIVERABLE_PRODUCED";
+/**
+ * Ciclo de ejecución y seguimiento (M1-KL).
+ * Deliverable produced ≠ Done ≠ Validated: cada transición es un acto distinto
+ * con provenance propio. CONSOLIDATED / NEEDS_ADJUSTMENT solo pueden alcanzarse
+ * con una Validation registrada y un Follow-up decidido.
+ */
+export type ExecutionState =
+  | "PENDING"
+  | "EXECUTING"
+  | "DELIVERABLE_PRODUCED"
+  | "VALIDATED"
+  | "FOLLOW_UP"
+  | "CONSOLIDATED"
+  | "NEEDS_ADJUSTMENT";
+
+/** Estados que una persona puede fijar manualmente (sin validación). */
+export type ManualExecutionState = "PENDING" | "EXECUTING" | "DELIVERABLE_PRODUCED";
 
 export interface ActivityRecord {
   id: string;
@@ -319,6 +334,9 @@ export interface ActivityRecord {
   mappingStatus: string;
   title: string;
   state: ExecutionState;
+  /** Done: marca de ejecución terminada. NO implica validación. */
+  doneAt: string | null;
+  doneBy: string | null;
   createdAt: string;
 }
 
