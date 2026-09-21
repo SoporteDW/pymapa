@@ -475,6 +475,14 @@ function CapacidadOp01() {
               onChange={(e) => setReferenciaEvidencia(e.target.value)}
             />
           </div>
+          <div className="space-y-2">
+            <Label htmlFor="archivo-evidencia">O sube el archivo (opcional)</Label>
+            <Input
+              id="archivo-evidencia"
+              type="file"
+              onChange={(e) => setArchivo(e.target.files?.[0] ?? null)}
+            />
+          </div>
           {observaciones.length > 0 && (
             <fieldset className="space-y-2">
               <legend className="mb-2 text-sm font-medium text-foreground">
