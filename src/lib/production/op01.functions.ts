@@ -289,3 +289,312 @@ export const registerOp01Evidence = createServerFn({ method: "POST" })
       state: salida.state,
     };
   });
+
+/* ------------------------------------------------------------------ */
+/* Findings, recomendaciones y preparación de ejecución (M1-HIJ)        */
+/* ------------------------------------------------------------------ */
+
+const revisionSchema = z.object({
+  findingId: z.string().uuid(),
+  decision: z.enum(["NEEDS_REVIEW", "CONFIRMED", "DISMISSED"]),
+  /** Cualitativa. No existe severidad numérica gobernada. */
+  severityQualitative: z.string().min(1).nullable().optional(),
+  note: z.string().min(1).nullable().optional(),
+});
+
+const recomendacionSchema = z.object({
+  recommendationRef: z.string().min(1),
+  findingId: z.string().uuid().nullable().optional(),
+});
+
+const decisionRecomendacionSchema = z.object({
+  recommendationCandidateId: z.string().uuid(),
+  decision: z.enum(["SELECTED", "REJECTED"]),
+  note: z.string().min(1).nullable().optional(),
+});
+
+const intervencionSchema = z.object({
+  title: z.string().min(1),
+  recommendationCandidateId: z.string().uuid().nullable().optional(),
+  findingId: z.string().uuid().nullable().optional(),
+  selectionNote: z.string().min(1).nullable().optional(),
+});
+
+const actividadSchema = z.object({
+  interventionId: z.string().uuid(),
+  title: z.string().min(1),
+  activityRef: z.string().min(1).nullable().optional(),
+});
+
+const estadoActividadSchema = z.object({
+  activityId: z.string().uuid(),
+  state: z.enum(["PENDING", "EXECUTING", "DELIVERABLE_PRODUCED"]),
+});
+
+const entregableSchema = z.object({
+  activityId: z.string().uuid(),
+  title: z.string().min(1),
+  note: z.string().min(1).nullable().optional(),
+  evidenceId: z.string().uuid().nullable().optional(),
+});
+
+/**
+ * Estado productivo de findings y preparación de ejecución.
+ * No expone severidad numérica ni prioridad: no existen en el conocimiento.
+ */
+export const getOp01Findings = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    const casoUso = await import("./caso-uso");
+    const { assessment, deps } = await prepararContexto(context);
+    const [findings, dependencies, recommendations, interventions, auditEvents] = await Promise.all([
+      casoUso.listFindings(deps, assessment.id),
+      casoUso.listDerivedDependencyReferences(deps, assessment.id),
+      casoUso.listRecommendationCandidates(deps, assessment.id),
+      casoUso.listInterventions(deps, assessment.id),
+      deps.repository.listAuditEvents(assessment.organizationId),
+    ]);
+
+    const conActividades = await Promise.all(
+      interventions.map(async (i) => {
+        const activities = await casoUso.listActivities(deps, i.id);
+        const conEntregables = await Promise.all(
+          activities.map(async (a) => ({
+            id: a.id,
+            activityRef: a.activityRef,
+            title: a.title,
+            state: a.state,
+            contentStatus: a.contentStatus,
+            mappingStatus: a.mappingStatus,
+            deliverables: (await casoUso.listDeliverables(deps, a.id)).map((d) => ({
+              id: d.id,
+              title: d.title,
+              note: d.note,
+              registeredAt: d.registeredAt,
+            })),
+          })),
+        );
+        return {
+          id: i.id,
+          title: i.title,
+          status: i.status,
+          recommendationCandidateId: i.recommendationCandidateId,
+          findingId: i.findingId,
+          selectionNote: i.selectionNote,
+          activities: conEntregables,
+        };
+      }),
+    );
+
+    return {
+      assessmentId: assessment.id,
+      findings: findings.map((f) => ({
+        id: f.id,
+        findingRef: f.findingRef,
+        name: (f.detail?.["name"] as string | undefined) ?? f.findingRef,
+        reason: (f.detail?.["reason"] as string | undefined) ?? null,
+        polarity: f.polarity,
+        lifecycleState: f.lifecycleState,
+        severityQualitative: f.severityQualitative,
+        severityReason: f.severityReason,
+        ruleRefs: f.ruleRefs,
+        variableRefs: f.variableRefs,
+        supersededByFindingId: f.supersededByFindingId,
+        reviewedAt: f.reviewedAt,
+        lineage: {
+          assessmentId: f.assessmentId,
+          capabilityId: f.capabilityId,
+          knowledgeVersionId: f.knowledgeVersionId,
+          knowledgePackId: f.knowledgePackId,
+          knowledgePackVersion: f.knowledgePackVersion,
+          engineVersion: f.engineVersion,
+          evaluationRunId: f.evaluationRunId,
+        },
+        createdAt: f.createdAt,
+      })),
+      derivedDependencyReferences: dependencies.map((d) => ({
+        id: d.id,
+        cause: d.cause,
+        sourceCapabilityId: d.sourceCapabilityId,
+        targetCapabilityId: d.targetCapabilityId,
+        targetDomainId: d.targetDomainId,
+        executable: d.executable,
+        note: d.note,
+      })),
+      recommendationIdentities: deps.engine.getRecommendationCandidates().map((r) => ({
+        recommendationRef: r.recommendationRef,
+        title: r.title,
+        contentStatus: r.contentStatus,
+        mappingStatus: r.mappingStatus,
+        automatable: r.automatable,
+      })),
+      recommendationCandidates: recommendations.map((r) => ({
+        id: r.id,
+        recommendationRef: r.recommendationRef,
+        title: r.title,
+        contentStatus: r.contentStatus,
+        mappingStatus: r.mappingStatus,
+        status: r.status,
+        findingId: r.findingId,
+        decisionNote: r.decisionNote,
+      })),
+      activityIdentities: deps.engine.listActivityIdentities(),
+      interventionPrinciple: deps.engine.getInterventionPrinciple(),
+      interventions: conActividades,
+      auditEvents: auditEvents.slice(0, 50).map((a) => ({
+        id: a.id,
+        eventType: a.eventType,
+        subjectTable: a.subjectTable,
+        subjectId: a.subjectId,
+        createdAt: a.createdAt,
+      })),
+    };
+  });
+
+/** Revisión humana del finding: la única vía para CONFIRMED o DISMISSED. */
+export const reviewOp01Finding = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => revisionSchema.parse(data))
+  .handler(async ({ data, context }) => {
+    const casoUso = await import("./caso-uso");
+    const { deps } = await prepararContexto(context);
+    const salida = await casoUso.revisarFinding(deps, {
+      findingId: data.findingId,
+      decision: data.decision,
+      reviewedBy: context.userId,
+      ...(data.severityQualitative !== undefined
+        ? { severityQualitative: data.severityQualitative }
+        : {}),
+      note: data.note ?? null,
+    });
+    return {
+      accepted: salida.accepted,
+      rejectionReason: salida.rejectionReason ?? null,
+      lifecycleState: salida.finding?.lifecycleState ?? null,
+    };
+  });
+
+/** Registra un RecommendationCandidate: nunca se genera automáticamente. */
+export const createOp01RecommendationCandidate = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => recomendacionSchema.parse(data))
+  .handler(async ({ data, context }) => {
+    const casoUso = await import("./caso-uso");
+    const { assessment, deps } = await prepararContexto(context);
+    const salida = await casoUso.registrarRecommendationCandidate(deps, {
+      assessmentId: assessment.id,
+      organizationId: assessment.organizationId,
+      recommendationRef: data.recommendationRef,
+      findingId: data.findingId ?? null,
+      createdBy: context.userId,
+    });
+    return {
+      accepted: salida.accepted,
+      rejectionReason: salida.rejectionReason ?? null,
+      recommendationCandidateId: salida.candidate?.id ?? null,
+    };
+  });
+
+export const decideOp01Recommendation = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => decisionRecomendacionSchema.parse(data))
+  .handler(async ({ data, context }) => {
+    const casoUso = await import("./caso-uso");
+    const { deps } = await prepararContexto(context);
+    const salida = await casoUso.decidirRecommendationCandidate(deps, {
+      recommendationCandidateId: data.recommendationCandidateId,
+      decision: data.decision,
+      decidedBy: context.userId,
+      note: data.note ?? null,
+    });
+    return {
+      accepted: salida.accepted,
+      rejectionReason: salida.rejectionReason ?? null,
+      status: salida.candidate?.status ?? null,
+    };
+  });
+
+/** Intervention: objeto distinto del RecommendationCandidate. */
+export const createOp01Intervention = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => intervencionSchema.parse(data))
+  .handler(async ({ data, context }) => {
+    const casoUso = await import("./caso-uso");
+    const { assessment, deps } = await prepararContexto(context);
+    const salida = await casoUso.crearIntervencion(deps, {
+      assessmentId: assessment.id,
+      organizationId: assessment.organizationId,
+      title: data.title,
+      recommendationCandidateId: data.recommendationCandidateId ?? null,
+      findingId: data.findingId ?? null,
+      selectionNote: data.selectionNote ?? null,
+      createdBy: context.userId,
+    });
+    return {
+      accepted: salida.accepted,
+      rejectionReason: salida.rejectionReason ?? null,
+      interventionId: salida.intervention?.id ?? null,
+    };
+  });
+
+export const createOp01Activity = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => actividadSchema.parse(data))
+  .handler(async ({ data, context }) => {
+    const casoUso = await import("./caso-uso");
+    const { assessment, deps } = await prepararContexto(context);
+    const salida = await casoUso.crearActividad(deps, {
+      interventionId: data.interventionId,
+      organizationId: assessment.organizationId,
+      title: data.title,
+      activityRef: data.activityRef ?? null,
+      createdBy: context.userId,
+    });
+    return {
+      accepted: salida.accepted,
+      rejectionReason: salida.rejectionReason ?? null,
+      activityId: salida.activity?.id ?? null,
+    };
+  });
+
+export const changeOp01ActivityState = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => estadoActividadSchema.parse(data))
+  .handler(async ({ data, context }) => {
+    const casoUso = await import("./caso-uso");
+    const { deps } = await prepararContexto(context);
+    const salida = await casoUso.cambiarEstadoActividad(deps, {
+      activityId: data.activityId,
+      state: data.state,
+      actorUserId: context.userId,
+    });
+    return {
+      accepted: salida.accepted,
+      rejectionReason: salida.rejectionReason ?? null,
+      state: salida.activity?.state ?? null,
+    };
+  });
+
+/** Registrar un entregable NO valida la actividad: CRV pertenece a M1-KL. */
+export const registerOp01Deliverable = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => entregableSchema.parse(data))
+  .handler(async ({ data, context }) => {
+    const casoUso = await import("./caso-uso");
+    const { assessment, deps } = await prepararContexto(context);
+    const salida = await casoUso.registrarEntregable(deps, {
+      activityId: data.activityId,
+      organizationId: assessment.organizationId,
+      title: data.title,
+      note: data.note ?? null,
+      evidenceId: data.evidenceId ?? null,
+      registeredBy: context.userId,
+    });
+    return {
+      accepted: salida.accepted,
+      rejectionReason: salida.rejectionReason ?? null,
+      deliverableId: salida.deliverable?.id ?? null,
+      activityState: salida.activity?.state ?? null,
+      validated: false,
+    };
+  });
