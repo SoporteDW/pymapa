@@ -1,0 +1,36 @@
+{
+  "$schema": "../../schemas/knowledge-master.schema.json",
+  "identity": "PYMAPA-KNOWLEDGE-MASTER",
+  "version": "1.0",
+  "baselineStatus": "BASELINE-APPROVED",
+  "provenance": {
+    "sourceReference": "PYMAPA-KNOWLEDGE-MASTER-v1.0 · BASELINE-APPROVED",
+    "custodian": "Gobierno editorial Pymapa",
+    "approvedAt": "2026-09-21",
+    "note": "Única fuente autorizada para industrializar capacidades. Las secciones fuente solo se incorporan mediante ingestión gobernada; no se reconstruyen desde prompts, memoria, código MVP, OP-01 ni inferencia."
+  },
+  "publication": {
+    "status": "BASELINE_APPROVED",
+    "publishedAt": "2026-09-21",
+    "publishedBy": "Gobierno editorial Pymapa"
+  },
+  "expectedCapabilityCount": 31,
+  "domains": [
+    {
+      "id": "OP",
+      "name": "Operaciones",
+      "status": "draft"
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "OP-01",
+      "domainId": "OP",
+      "name": "Diseñar y organizar procesos funcionalmente",
+      "sourceAvailability": "SOURCE_READY",
+      "sourceRef": "capabilities/OP-01/source.json",
+      "sourceVersion": "1.0"
+    }
+  ],
+  "checksum": "sha256:191669fc519844d34d8bec0c0a7ae69db5789356ab982910363551fb5c363e76"
+}
