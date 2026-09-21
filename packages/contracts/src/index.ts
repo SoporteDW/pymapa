@@ -103,6 +103,33 @@ export interface AssessmentStateDTO {
 /* ------------------------------------------------------------------ */
 
 /**
+ * Estados de conocimiento aprobados por el Knowledge Master.
+ * UNKNOWN es información explícita: nunca equivale a ausencia, falla ni a una
+ * respuesta negativa, y nunca se convierte automáticamente en conclusión adversa.
+ */
+export type KnowledgeState = "KNOWN" | "UNKNOWN" | "NOT_APPLICABLE" | "CONTRADICTORY";
+
+/**
+ * Adquisición (pregunta) servida por el Knowledge Pack a través del
+ * application boundary. El frontend nunca la construye ni la deduce.
+ */
+export interface AcquisitionQuestionDTO {
+  acquisitionId: string;
+  capabilityId: string;
+  /** Nivel de adquisición del patrón aprobado (P1..P5). */
+  level: string;
+  informationNeedRef: string | null;
+  variableRefs: string[];
+  question: string;
+  purpose: string | null;
+  allowedKnowledgeStates: KnowledgeState[];
+  /** Estados semánticos aprobados de la variable, si el Master los enumera. */
+  allowedSemanticValues: string[] | null;
+  /** Marca de gobierno cuando no existe conjunto de opciones aprobado. */
+  optionSetStatus: string | null;
+}
+
+/**
  * Comando para enviar una respuesta individual de un instrumento.
  */
 export interface SubmitResponseCommand {
@@ -113,6 +140,12 @@ export interface SubmitResponseCommand {
   value: string | number | boolean | string[];
   /** Marca temporal ISO 8601 del envío. */
   submittedAt: string;
+  /** Estado de conocimiento declarado por la persona (vertical productivo). */
+  knowledgeState?: KnowledgeState;
+  /** Razón contextual, obligatoria cuando el estado es NOT_APPLICABLE. */
+  notApplicableReason?: string | null;
+  /** Fuentes en conflicto, obligatorias cuando el estado es CONTRADICTORY. */
+  conflictingObservationIds?: string[];
 }
 
 /**
