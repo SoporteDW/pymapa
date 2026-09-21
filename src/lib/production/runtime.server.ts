@@ -60,13 +60,40 @@ const COLUMNAS_APRENDIZAJE =
 const COLUMNAS_SNAPSHOT =
   "id, organization_id, case_id, assessment_id, knowledge_version_id, engine_version, reason, payload, created_by, created_at" as const;
 
-/** Engine genérico ya enlazado al pack OP-01 1.0.0 (declarativo). */
+/**
+ * M1-M · Registro de Knowledge Packs publicados.
+ *
+ * Incorporar una capacidad nueva = añadir su pack gobernado a este registro.
+ * El runtime no contiene lógica por capacidad: solo resuelve el pack por id.
+ */
+const PACKS_REGISTRADOS: ReadonlyArray<{ packId: string; pack: unknown }> = [
+  { packId: "op-01", pack: packOp01 },
+];
+
+function packPorId(packId: string): unknown {
+  const entrada = PACKS_REGISTRADOS.find((p) => p.packId === packId);
+  if (!entrada) throw new Error(`KNOWLEDGE_PACK_NOT_REGISTERED: ${packId}`);
+  return entrada.pack;
+}
+
+/** Engine genérico enlazado a un pack registrado (declarativo). */
+export function cargarEngine(packId: string): KnowledgeEngine {
+  return createKnowledgeEngine(packPorId(packId));
+}
+
+export function checksumPack(packId: string): string {
+  return createHash("sha256").update(JSON.stringify(packPorId(packId))).digest("hex");
+}
+
+export const PACK_IDS_REGISTRADOS: readonly string[] = PACKS_REGISTRADOS.map((p) => p.packId);
+
+/** Alias de migración: OP-01 es la única capacidad productiva en M1-M. */
 export function cargarEngineOp01(): KnowledgeEngine {
-  return createKnowledgeEngine(packOp01);
+  return cargarEngine("op-01");
 }
 
 export function checksumPackOp01(): string {
-  return createHash("sha256").update(JSON.stringify(packOp01)).digest("hex");
+  return checksumPack("op-01");
 }
 
 /** Hash del token de invitación. El token en claro nunca se persiste. */
