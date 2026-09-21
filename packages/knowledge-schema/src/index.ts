@@ -420,6 +420,31 @@ export function validateKnowledgePack(raw: unknown): KnowledgePackValidation {
     }
   });
 
+  // CRV: identidad única, actividad conocida y condiciones bien formadas.
+  const activityIds = new Set((pack.activities ?? []).map((a) => a.id));
+  const crvIds = new Set<string>();
+  (pack.validationRequirements ?? []).forEach((crv, index) => {
+    if (crvIds.has(crv.id)) {
+      issues.push({ path: `validationRequirements.${index}.id`, message: `CRV duplicado: ${crv.id}` });
+    }
+    crvIds.add(crv.id);
+    if (!activityIds.has(crv.activityRef)) {
+      issues.push({
+        path: `validationRequirements.${index}.activityRef`,
+        message: `actividad desconocida: ${crv.activityRef}`,
+      });
+    }
+    crv.conditions.forEach((condicion, i) => {
+      if (condicion.kind === "CONSECUTIVE_CORRECT_CASES" && !condicion.requiredCount) {
+        issues.push({
+          path: `validationRequirements.${index}.conditions.${i}.requiredCount`,
+          message: "una condición de casos consecutivos debe declarar cuántos exige",
+        });
+      }
+    });
+  });
+
+
   pack.informationNeeds.forEach((need, index) => {
     need.variableRefs.forEach((ref) => {
       if (!variableIds.has(ref)) {
