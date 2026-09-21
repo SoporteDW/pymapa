@@ -73,7 +73,10 @@ export interface InformationNeedStateResult {
   state: InformationNeedRuntimeState;
   detail: {
     variableRefs: string[];
+    /** Variables sin ninguna observación registrada todavía. */
     pendingVariableRefs: string[];
+    /** Variables con UNKNOWN registrado explícitamente (dato capturado, no ausencia). */
+    explicitUnknownVariableRefs: string[];
     mappingStatus: string;
   };
 }
@@ -279,15 +282,28 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
       const variableEvaluations = variableRefs.map((ref) => evaluateVariable(ref, observations));
       const stateByVariable = new Map(variableEvaluations.map((v) => [v.variableRef, v.state]));
 
+      // "Sin observación" ≠ UNKNOWN explícito. La distinción gobierna qué falta preguntar.
+      const sinObservacion = new Set(
+        variableEvaluations.filter((v) => v.detail.observationIds.length === 0).map((v) => v.variableRef),
+      );
+
       const informationNeedStates: InformationNeedStateResult[] = pack.informationNeeds.map((need) => {
         if (need.variableRefs.length === 0) {
           return {
             needRef: need.id,
             state: "NOT_MAPPED",
-            detail: { variableRefs: [], pendingVariableRefs: [], mappingStatus: need.mappingStatus },
+            detail: {
+              variableRefs: [],
+              pendingVariableRefs: [],
+              explicitUnknownVariableRefs: [],
+              mappingStatus: need.mappingStatus,
+            },
           };
         }
-        const pending = need.variableRefs.filter((ref) => stateByVariable.get(ref) === "UNKNOWN");
+        const pending = need.variableRefs.filter((ref) => sinObservacion.has(ref));
+        const explicitUnknown = need.variableRefs.filter(
+          (ref) => !sinObservacion.has(ref) && stateByVariable.get(ref) === "UNKNOWN",
+        );
         const contradictory = need.variableRefs.some((ref) => stateByVariable.get(ref) === "CONTRADICTORY");
         const state: InformationNeedRuntimeState = contradictory
           ? "AWAITING_CLARIFICATION"
@@ -300,6 +316,7 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
           detail: {
             variableRefs: need.variableRefs.slice(),
             pendingVariableRefs: pending,
+            explicitUnknownVariableRefs: explicitUnknown,
             mappingStatus: need.mappingStatus,
           },
         };
@@ -339,16 +356,18 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
     },
 
     getNextAcquisition(evaluation) {
-      const stateByVariable = new Map(
-        evaluation.variableEvaluations.map((v) => [v.variableRef, v.state]),
+      // Solo se vuelve a preguntar lo que aún no tiene observación.
+      // Un UNKNOWN explícito YA es información: no se re-pregunta en bucle.
+      const sinObservacion = new Set(
+        evaluation.variableEvaluations
+          .filter((v) => v.detail.observationIds.length === 0)
+          .map((v) => v.variableRef),
       );
       const ordered = pack.acquisitions
         .slice()
         .sort((a, b) => LEVEL_ORDER.indexOf(a.level) - LEVEL_ORDER.indexOf(b.level));
 
-      const next = ordered.find((acq) =>
-        acq.variableRefs.some((ref) => stateByVariable.get(ref) === "UNKNOWN"),
-      );
+      const next = ordered.find((acq) => acq.variableRefs.some((ref) => sinObservacion.has(ref)));
       if (!next) return null;
 
       return {
