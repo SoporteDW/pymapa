@@ -1,0 +1,29 @@
+{
+  "fixtureId": "OP01-FX-NOT-APPLICABLE",
+  "capabilityId": "OP-01",
+  "packId": "op-01",
+  "packVersion": "1.0.0",
+  "kind": "ARCHITECTURE_RUNTIME",
+  "description": "NOT_APPLICABLE con razón contextual obligatoria. Comprueba el contrato de runtime, no semántica de negocio.",
+  "knowledgeVersionId": "fixture-kv-op01-1.0.0",
+  "observations": [
+    {
+      "id": "obs-na-1",
+      "variableRef": "VA01",
+      "acquisitionRef": "OP01-P01",
+      "knowledgeState": "NOT_APPLICABLE",
+      "semanticValue": null,
+      "sourceResponseId": "resp-na-1",
+      "respondentId": "respondent-1",
+      "notApplicableReason": "La empresa declara que el proceso no existe en su operación actual.",
+      "recordedAt": "2026-01-01T00:00:00.000Z"
+    }
+  ],
+  "expected": {
+    "outcome": "PASS",
+    "variableStates": [{ "variableRef": "VA01", "state": "NOT_APPLICABLE", "semanticValue": null }],
+    "contradictionVariableRefs": [],
+    "noConfirmedFindings": true,
+    "note": "NOT_APPLICABLE exige razón y no equivale a evaluación adversa."
+  }
+}

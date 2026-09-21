@@ -1,0 +1,30 @@
+{
+  "fixtureId": "OP01-FX-UNKNOWN",
+  "capabilityId": "OP-01",
+  "packId": "op-01",
+  "packVersion": "1.0.0",
+  "kind": "SOURCE_DERIVED",
+  "description": "UNKNOWN registrado explícitamente en OP01-P01. UNKNOWN es dato capturado: no equivale a NO, ni a ausencia del proceso, ni se convierte en finding adverso.",
+  "sourceReference": "AT-04 · KNOWLEDGE SOURCE PACKAGE — OP-01 (modelo de respuesta de OP01-P01)",
+  "knowledgeVersionId": "fixture-kv-op01-1.0.0",
+  "observations": [
+    {
+      "id": "obs-unknown-1",
+      "variableRef": "VA01",
+      "acquisitionRef": "OP01-P01",
+      "knowledgeState": "UNKNOWN",
+      "semanticValue": null,
+      "sourceResponseId": "resp-unknown-1",
+      "respondentId": "respondent-1",
+      "evidenceIds": [],
+      "recordedAt": "2026-01-01T00:00:00.000Z"
+    }
+  ],
+  "expected": {
+    "outcome": "PASS",
+    "variableStates": [{ "variableRef": "VA01", "state": "UNKNOWN", "semanticValue": null }],
+    "contradictionVariableRefs": [],
+    "noConfirmedFindings": true,
+    "note": "UNKNOWN se preserva como estado; el runtime no infiere conclusión."
+  }
+}
