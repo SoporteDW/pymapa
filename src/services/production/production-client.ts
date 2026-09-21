@@ -24,8 +24,28 @@ import type { AssessmentClient } from "./assessment-client";
 
 type CollaborationPayload = Awaited<ReturnType<typeof getOp01Collaboration>>;
 type StatePayload = Awaited<ReturnType<typeof getOp01AssessmentState>>["state"];
-type InviteInput = Parameters<typeof inviteOp01Respondent>[0] extends { data: infer D } ? D : never;
-type EvidenceInput = Parameters<typeof registerOp01Evidence>[0] extends { data: infer D } ? D : never;
+
+export interface InviteInput {
+  email: string;
+  displayName?: string | null;
+  roleLabel?: string | null;
+  scopeType: "DOMAIN" | "CAPABILITY" | "INFORMATION_NEED" | "SECTION";
+  scopeRef: string;
+  delegatedFromAssignmentId?: string | null;
+  delegationReason?: string | null;
+}
+
+export interface EvidenceInput {
+  candidateRef?: string | null;
+  evidenceType: string;
+  source: "HUMAN_RESPONDENT" | "DOCUMENT" | "SYSTEM_RECORD" | "OBSERVED_EXECUTION";
+  storageBucket?: string | null;
+  storagePath?: string | null;
+  externalReference?: string | null;
+  title?: string | null;
+  note?: string | null;
+  observationIds?: string[];
+}
 
 /**
  * Cliente extendido: adquisición adaptativa, contexto colaborativo y evidencia.
