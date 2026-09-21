@@ -30,7 +30,10 @@ import {
   marcarActividadDone,
   registrarCasoValidacion,
   registrarEntregable,
+  registrarRecommendationCandidate,
   registrarRequisitoValidacion,
+  revisarFinding,
+
   decidirRecommendationCandidate,
   submitAcquisitionResponse,
   type ProductionDeps,
