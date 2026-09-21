@@ -340,8 +340,36 @@ export function useDiagnostico() {
     });
   }, [sincronizarDiagnostico]);
 
+  /**
+   * Costura controlada M1-B: el hook expone la vista del estado a través de
+   * la interfaz AssessmentClient (fuente activa: MVP_ENGINE). Toda decisión
+   * la sigue tomando la lógica existente; esto solo traduce estructuras.
+   * La salida visible del journey permanece idéntica.
+   */
+  const assessmentClient: AssessmentClient = useMemo(
+    () =>
+      createMvpAssessmentClient({
+        leerEstado,
+        totalItems: preguntasEnOrden.length,
+        responderExistente: responder,
+      }),
+    [responder]
+  );
+
+  const assessmentState: AssessmentStateDTO = useMemo(
+    () =>
+      sesionMvpAAssessmentState({
+        sesion: estado.sesion,
+        respuestas: estado.respuestas,
+        totalItems: preguntasEnOrden.length,
+      }),
+    [estado.sesion, estado.respuestas]
+  );
+
   return {
     definicion: definicionDiagnostico,
+    assessmentClient,
+    assessmentState,
     isHydrated,
     configuracionValida,
     problemasConfiguracion,
