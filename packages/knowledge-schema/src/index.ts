@@ -259,6 +259,41 @@ export function validateKnowledgePack(raw: unknown): KnowledgePackValidation {
         message: "UNKNOWN debe ser un estado registrable",
       });
     }
+    if (acq.trigger) {
+      const conditions = acq.trigger.conditions ?? [];
+      if (acq.trigger.classification === "DETERMINISTIC" && conditions.length === 0) {
+        issues.push({
+          path: `acquisitions.${index}.trigger.conditions`,
+          message: "un trigger DETERMINISTIC exige al menos una condición evaluable",
+        });
+      }
+      conditions.forEach((cond, ci) => {
+        if (cond.variableRef !== "*" && !variableIds.has(cond.variableRef)) {
+          issues.push({
+            path: `acquisitions.${index}.trigger.conditions.${ci}.variableRef`,
+            message: `variable desconocida: ${cond.variableRef}`,
+          });
+        }
+      });
+    }
+  });
+
+  pack.variables.forEach((variable, index) => {
+    if (variable.minimumEvidenceConditional && !variable.minimumEvidenceOptions) {
+      issues.push({
+        path: `variables.${index}.minimumEvidenceOptions`,
+        message: "un requisito de evidencia condicional debe declarar sus niveles admisibles",
+      });
+    }
+  });
+
+  (pack.contradictionHandling?.clarificationAcquisitionRefs ?? []).forEach((ref, index) => {
+    if (!acquisitionIds.has(ref)) {
+      issues.push({
+        path: `contradictionHandling.clarificationAcquisitionRefs.${index}`,
+        message: `adquisición desconocida: ${ref}`,
+      });
+    }
   });
 
   pack.informationNeeds.forEach((need, index) => {
