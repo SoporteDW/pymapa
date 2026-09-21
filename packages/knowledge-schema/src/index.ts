@@ -185,8 +185,60 @@ export const knowledgePackSchema = z.object({
       notes: z.array(z.string()).optional(),
     })
     .optional(),
-  findings: z.array(z.object({ id: z.string(), name: z.string() })).optional(),
+  /**
+   * Identidades de finding aprobadas (H01–H08). El pack declara polaridad,
+   * reglas y variables involucradas; NUNCA severidad numérica ni priority.
+   */
+  findings: z
+    .array(
+      z.object({
+        id: z.string().min(1),
+        name: z.string().min(1),
+        polarity: z.enum(["ADVERSE", "STRENGTH"]).optional(),
+        ruleRefs: z.array(z.string().min(1)).optional(),
+        variableRefs: z.array(z.string().min(1)).optional(),
+        /** Severidad cualitativa o la marca explícita de ausencia. */
+        severity: z.string().optional(),
+        mappingStatus: z.string().optional(),
+      }),
+    )
+    .optional(),
   findingsNote: z.string().optional(),
+  /** Identidades R01–R09. El contenido puede no estar explícito. */
+  recommendations: z
+    .array(
+      z.object({
+        id: z.string().min(1),
+        title: z.string().nullable().optional(),
+        contentStatus: z.string().min(1),
+        findingRefs: z.array(z.string().min(1)).optional(),
+        mappingStatus: z.string().min(1),
+      }),
+    )
+    .optional(),
+  recommendationsNote: z.string().optional(),
+  /** Identidades A01–A09. Los mapeos Finding→Activity son candidatos. */
+  activities: z
+    .array(
+      z.object({
+        id: z.string().min(1),
+        title: z.string().nullable().optional(),
+        contentStatus: z.string().min(1),
+        mappingStatus: z.string().min(1),
+      }),
+    )
+    .optional(),
+  activitiesNote: z.string().optional(),
+  /** Minimum Sufficient Intervention: principio, nunca fórmula. */
+  interventionPrinciple: z
+    .object({
+      id: z.string().min(1),
+      statement: z.string().min(1),
+      formula: z.string().min(1),
+      ruleRefs: z.array(z.string().min(1)).optional(),
+      notes: z.array(z.string()).optional(),
+    })
+    .optional(),
   crossCapabilityReferences: z
     .array(
       z.object({
