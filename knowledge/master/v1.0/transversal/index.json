@@ -1,0 +1,271 @@
+{
+  "$schema": "../../../schemas/transversal-index.schema.json",
+  "identity": "PYMAPA-KNOWLEDGE-MASTER-TRANSVERSAL-CORE",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "phaseClosure": "FASE-2-KNOWLEDGE-ENGINEERING-v1.0 · COMPLETE · BASELINE FROZEN",
+  "verticalMilestone": "PYMAPA-6x31-VERTICAL-KNOWLEDGE-v1.0 · 31/31 CAPABILITIES K4-VALIDATED · 6/6 DOMAINS KNOWLEDGE-COMPLETE",
+  "closureChain": [
+    "PYMAPA-6x31-VERTICAL-KNOWLEDGE-v1.0 · 31/31 CAPABILITIES K4-VALIDATED · 6/6 DOMAINS KNOWLEDGE-COMPLETE",
+    "PYMAPA-S1-CROSS-31-v1.0 · TRANSVERSAL-RECONCILIATION-COMPLETE",
+    "PYMAPA-KNOWLEDGE-ENGINE-v1.0 · LOGICAL-ENGINE-CONSOLIDATED",
+    "PYMAPA-S2-v1.0 · KNOWLEDGE-ENGINE-CONSOLIDATION-COMPLETE",
+    "PYMAPA-OBJECT-REGISTRY-v1.0 · APPROVED",
+    "PYMAPA-RELATIONSHIP-REGISTRY-v1.0 · APPROVED",
+    "PYMAPA-KNOWLEDGE-GRAPH-LOGICAL-MODEL-v1.0 · APPROVED",
+    "PYMAPA-S3-v1.0 · MASTER-OBJECT-RELATIONSHIP-MODEL-COMPLETE",
+    "PYMAPA-KNOWLEDGE-GOVERNANCE-v1.0 · APPROVED",
+    "PYMAPA-SOURCE-GOVERNANCE-v1.0 · APPROVED",
+    "PYMAPA-VERSIONING-PROVENANCE-v1.0 · APPROVED",
+    "PYMAPA-S4-v1.0 · GOVERNANCE-PROVENANCE-VERSIONING-COMPLETE",
+    "GLOBAL QUALITY GATE = 24/24 PASS",
+    "PYMAPA-KNOWLEDGE-MASTER-v1.0 · BASELINE-APPROVED",
+    "FASE-2-KNOWLEDGE-ENGINEERING-v1.0 · COMPLETE · BASELINE FROZEN"
+  ],
+  "provenance": {
+    "sourceReference": "M2-SOURCE Consolidated Authoritative Recovery Repository · S1–S5",
+    "derivation": "AUTHORITATIVE_RECOVERY_TRANSCRIPTION",
+    "approvedBy": "Gobierno editorial Pymapa",
+    "approvedAt": "2026-09-21"
+  },
+  "stages": [
+    {
+      "id": "S1",
+      "artifacts": [
+        "PYMAPA-S1-CROSS-31-v1.0 · TRANSVERSAL-RECONCILIATION-COMPLETE"
+      ],
+      "owns": [
+        "cross-capability boundaries",
+        "evidence reuse",
+        "derivation",
+        "contradictions",
+        "dependencies",
+        "intervention collisions",
+        "Capability Gap",
+        "Capability Bottleneck",
+        "Specialist Escalation",
+        "Priority synthesis",
+        "18 Engine Contracts",
+        "common states/transitions"
+      ],
+      "recoveryStatus": "COMPLETE · High-fidelity authoritative recovery with declared gaps"
+    },
+    {
+      "id": "S2",
+      "artifacts": [
+        "PYMAPA-KNOWLEDGE-ENGINE-v1.0 · LOGICAL-ENGINE-CONSOLIDATED",
+        "PYMAPA-S2-v1.0 · KNOWLEDGE-ENGINE-CONSOLIDATION-COMPLETE"
+      ],
+      "owns": [
+        "ME-01–ME-16",
+        "logical runtime",
+        "three memories",
+        "Source Library relationship",
+        "respondent routing",
+        "hybrid reasoning",
+        "recommendation engine",
+        "specialist engine",
+        "interfaces",
+        "lifecycle",
+        "reassessment"
+      ],
+      "recoveryStatus": "COMPLETE · High-fidelity authoritative recovery with declared gaps"
+    },
+    {
+      "id": "S3",
+      "artifacts": [
+        "PYMAPA-OBJECT-REGISTRY-v1.0 · APPROVED",
+        "PYMAPA-RELATIONSHIP-REGISTRY-v1.0 · APPROVED",
+        "PYMAPA-KNOWLEDGE-GRAPH-LOGICAL-MODEL-v1.0 · APPROVED",
+        "PYMAPA-S3-v1.0 · MASTER-OBJECT-RELATIONSHIP-MODEL-COMPLETE"
+      ],
+      "owns": [
+        "object model",
+        "relationship model",
+        "logical Knowledge Graph",
+        "identity",
+        "scope",
+        "time",
+        "provenance hooks",
+        "lifecycles",
+        "Case Snapshot",
+        "Knowledge Pack logical object"
+      ],
+      "recoveryStatus": "COMPLETE · High-fidelity authoritative recovery"
+    },
+    {
+      "id": "S4",
+      "artifacts": [
+        "PYMAPA-KNOWLEDGE-GOVERNANCE-v1.0 · APPROVED",
+        "PYMAPA-SOURCE-GOVERNANCE-v1.0 · APPROVED",
+        "PYMAPA-VERSIONING-PROVENANCE-v1.0 · APPROVED",
+        "PYMAPA-S4-v1.0 · GOVERNANCE-PROVENANCE-VERSIONING-COMPLETE"
+      ],
+      "owns": [
+        "governance",
+        "source governance",
+        "KCR lifecycle",
+        "versioning",
+        "compatibility",
+        "migration",
+        "AI governance",
+        "specialist governance",
+        "knowledge incidents",
+        "audit",
+        "taxonomy protection"
+      ],
+      "recoveryStatus": "COMPLETE · High-fidelity authoritative recovery"
+    },
+    {
+      "id": "S5",
+      "artifacts": [
+        "GLOBAL QUALITY GATE = 24/24 PASS",
+        "PYMAPA-KNOWLEDGE-MASTER-v1.0 · BASELINE-APPROVED",
+        "FASE-2-KNOWLEDGE-ENGINEERING-v1.0 · COMPLETE · BASELINE FROZEN"
+      ],
+      "owns": [
+        "global validation",
+        "baseline composition",
+        "baseline freeze",
+        "formal Phase 2 closure"
+      ],
+      "recoveryStatus": "COMPLETE · Baseline/global closure recovered"
+    },
+    {
+      "id": "CONSOLIDATED",
+      "artifacts": [
+        "PYMAPA-KNOWLEDGE-MASTER-v1.0 · BASELINE-APPROVED"
+      ],
+      "owns": [
+        "recovery gaps control",
+        "cross-stage differences"
+      ],
+      "recoveryStatus": "COMPLETE · Consolidated recovery control"
+    }
+  ],
+  "registries": [
+    {
+      "registryId": "S1-TRANSVERSAL-RECONCILIATION",
+      "stage": "S1",
+      "ref": "registries/s1-transversal-reconciliation.json",
+      "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+      "checksum": "sha256:2b2385dfd38e9e0cc46b0dadd60db0e8a0031451940d4b37d111f05c6293fce9"
+    },
+    {
+      "registryId": "S1-CROSS-CAPABILITY-RELATIONSHIP-REGISTRY",
+      "stage": "S1",
+      "ref": "registries/s1-cross-capability-relationship-registry.json",
+      "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+      "checksum": "sha256:d746603913fedd6ed6e7974d3c3fcc69bc21ed56445a23dfc50df81de7a4233f"
+    },
+    {
+      "registryId": "S1-TRANSVERSAL-CONTRACTS",
+      "stage": "S1",
+      "ref": "registries/s1-transversal-contracts.json",
+      "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+      "checksum": "sha256:9e7dfd74b153d11b4fbaac3e19d8ed8e823c0405ffff239ebc4ce3a155c4b46b"
+    },
+    {
+      "registryId": "S1-COMMON-STATES",
+      "stage": "S1",
+      "ref": "registries/s1-common-states.json",
+      "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+      "checksum": "sha256:29b9aa52c21d52523b9d05460813fd28303f1a7e357d09aba4798194def02dd4"
+    },
+    {
+      "registryId": "S2-LOGICAL-ENGINE-REGISTRY",
+      "stage": "S2",
+      "ref": "registries/s2-logical-engine-registry.json",
+      "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+      "checksum": "sha256:c9ecb8f0b1284fa1bd3a838f795ce644ddc7a8ccac72b54d866016882375ebc2"
+    },
+    {
+      "registryId": "S3-OBJECT-REGISTRY",
+      "stage": "S3",
+      "ref": "registries/s3-object-registry.json",
+      "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+      "checksum": "sha256:3e0ad55a85023f052633bd24b0f0c3619f7cb1378890771d19dfd66d5396bdf9"
+    },
+    {
+      "registryId": "S3-RELATIONSHIP-REGISTRY",
+      "stage": "S3",
+      "ref": "registries/s3-relationship-registry.json",
+      "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+      "checksum": "sha256:81d50a5b295742337a2e11a02ad0d749136ff559ad146caf3245478c75d2e754"
+    },
+    {
+      "registryId": "S3-LOGICAL-KNOWLEDGE-GRAPH",
+      "stage": "S3",
+      "ref": "registries/s3-logical-knowledge-graph.json",
+      "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+      "checksum": "sha256:d9afa8c904ee38f21e608bfc643fdb811afe67c6c2147b46bb696041e7848320"
+    },
+    {
+      "registryId": "S3-KNOWLEDGE-PACK-LOGICAL-CONTRACT",
+      "stage": "S3",
+      "ref": "registries/s3-knowledge-pack-logical-contract.json",
+      "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+      "checksum": "sha256:37952460045a481805328673d522005bca3882fdf1dd7427b60a6d931a8abe96"
+    },
+    {
+      "registryId": "S3-CASE-SNAPSHOT-LOGICAL-CONTRACT",
+      "stage": "S3",
+      "ref": "registries/s3-case-snapshot-logical-contract.json",
+      "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+      "checksum": "sha256:33ba5edba61b8357914efabb9255c43379bee8170f92bd9cdd3cb996badcd2ca"
+    },
+    {
+      "registryId": "S3-MASTER-KNOWLEDGE-REGISTRY",
+      "stage": "S3",
+      "ref": "registries/s3-master-knowledge-registry.json",
+      "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+      "checksum": "sha256:ab4b7d49cf9768b89aa913c7ed0d9e1c22a6d549d643ba9aa42c3695dc98eea3"
+    },
+    {
+      "registryId": "S4-KNOWLEDGE-GOVERNANCE",
+      "stage": "S4",
+      "ref": "registries/s4-knowledge-governance.json",
+      "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+      "checksum": "sha256:5f943e7674c79a246b93f6a8e275a4491df12789ba4c0c3ca891fa0830d6f7bf"
+    },
+    {
+      "registryId": "S4-SOURCE-GOVERNANCE",
+      "stage": "S4",
+      "ref": "registries/s4-source-governance.json",
+      "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+      "checksum": "sha256:5b90ed1091fe90e11dc5a7ba2e98e19910c1794aac3f3b66658ae825a274270a"
+    },
+    {
+      "registryId": "S5-GLOBAL-QUALITY-GATES",
+      "stage": "S5",
+      "ref": "registries/s5-global-quality-gates.json",
+      "recoveryClass": "RECOVERED_VERBATIM",
+      "checksum": "sha256:61ea13d12dfabb8d348264ab5a46e214181adc0cf859bcfed238d3b4384a5ed6"
+    },
+    {
+      "registryId": "TAXONOMY-REGISTRY-6X31",
+      "stage": "S5",
+      "ref": "registries/taxonomy-registry-6x31.json",
+      "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+      "checksum": "sha256:f2f4bd76fd1969eda963e88c1d49df08a014ddb910d651c1ccac5adbd7a5fd66"
+    },
+    {
+      "registryId": "RECOVERY-GAPS",
+      "stage": "CONSOLIDATED",
+      "ref": "registries/recovery-gaps.json",
+      "recoveryClass": "SOURCE_CONTENT_NOT_RECOVERED",
+      "checksum": "sha256:ebd6a99c3f44a7604c5e5ff875c9bf53fd63d8e271b27d3881abbd1a9f3c1e3c"
+    },
+    {
+      "registryId": "CROSS-STAGE-DIFFERENCES",
+      "stage": "CONSOLIDATED",
+      "ref": "registries/cross-stage-differences.json",
+      "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+      "checksum": "sha256:b023a0d73af13293ea3e9a1b9df630691d8540a68de825c7a9a0e371abc26e8f"
+    }
+  ],
+  "checksum": "sha256:eb51759975dfa76a3f57860f9879ae19cf89cf14897dc7d6f3089b176c33aad7"
+}

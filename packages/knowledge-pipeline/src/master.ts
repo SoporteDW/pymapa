@@ -39,6 +39,8 @@ export const GAP_KINDS = [
   "UNIMPLEMENTED_GAP",
   "ARCHITECTURE_GAP",
   "GENERIC_RUNTIME_EXTENSION_REQUIRED",
+  /** El artefacto autoritativo declara la fuente como no recuperada (M2-SOURCE). */
+  "SOURCE_CONTENT_NOT_RECOVERED",
 ] as const;
 export type GapKind = (typeof GAP_KINDS)[number];
 
@@ -69,6 +71,37 @@ export const masterIndexSchema = z.object({
   }),
   /** Capacidades declaradas por el Master, disponibles o no. */
   expectedCapabilityCount: z.number().int().positive(),
+  /**
+   * Cierre histórico vertical recuperado (M2-SOURCE · S5.3).
+   * K4-VALIDATED describe historia aprobada y NO equivale a SOURCE_READY.
+   */
+  verticalStatus: z
+    .object({
+      milestone: z.string().min(1),
+      k4ValidatedCapabilityCount: z.number().int().positive(),
+      domainClosures: z
+        .array(
+          z.object({
+            domainId: z.string().min(1),
+            declaredCapabilityCount: z.number().int().positive(),
+            closure: z.string().min(1),
+          }),
+        )
+        .min(1),
+      materializedSourceCount: z.number().int().nonnegative(),
+      unrecoveredCapabilityCount: z.number().int().nonnegative(),
+      unrecoveredCapabilityStatus: z.literal("APPROVED_HISTORY_CONFIRMED"),
+      unrecoveredRecoveryClass: z.literal("SOURCE_CONTENT_NOT_RECOVERED"),
+      note: z.string().min(1),
+    })
+    .optional(),
+  /** Núcleo transversal materializado (S1–S5). */
+  transversal: z
+    .object({
+      ref: z.string().min(1),
+      registryCount: z.number().int().positive(),
+    })
+    .optional(),
   domains: z
     .array(
       z.object({
@@ -189,6 +222,45 @@ export function validateMasterIndex(raw: unknown): SourceValidation<MasterIndex>
       path: "capabilities",
       message: "hay más capacidades registradas que las declaradas por el Master",
     });
+  }
+  const vertical = master.verticalStatus;
+  if (vertical) {
+    const declaradas = vertical.domainClosures.reduce((n, d) => n + d.declaredCapabilityCount, 0);
+    if (declaradas !== master.expectedCapabilityCount) {
+      issues.push({
+        path: "verticalStatus.domainClosures",
+        message: `los cierres de dominio suman ${declaradas} y el Master declara ${master.expectedCapabilityCount}`,
+      });
+    }
+    if (vertical.k4ValidatedCapabilityCount !== master.expectedCapabilityCount) {
+      issues.push({
+        path: "verticalStatus.k4ValidatedCapabilityCount",
+        message: "el cierre histórico debe cubrir exactamente las capacidades declaradas",
+      });
+    }
+    const materializadas = master.capabilities.filter(
+      (c) => c.sourceAvailability === "SOURCE_READY",
+    ).length;
+    if (vertical.materializedSourceCount !== materializadas) {
+      issues.push({
+        path: "verticalStatus.materializedSourceCount",
+        message: `declara ${vertical.materializedSourceCount} fuentes materializadas y hay ${materializadas} SOURCE_READY`,
+      });
+    }
+    if (vertical.materializedSourceCount + vertical.unrecoveredCapabilityCount !== declaradas) {
+      issues.push({
+        path: "verticalStatus.unrecoveredCapabilityCount",
+        message: "materializadas + no recuperadas debe igualar las capacidades declaradas",
+      });
+    }
+    for (const cierre of vertical.domainClosures) {
+      if (!domainIds.has(cierre.domainId)) {
+        issues.push({
+          path: "verticalStatus.domainClosures",
+          message: `dominio desconocido en el cierre histórico: ${cierre.domainId}`,
+        });
+      }
+    }
   }
   return issues.length > 0 ? { ok: false, issues } : { ok: true, value: master };
 }

@@ -4,12 +4,14 @@
  */
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
+import { computeSelfChecksum } from "./checksum.ts";
 import type { CapabilityPipelineInput } from "./pipeline.ts";
 import type { GovernanceReview, PublishedPackRecord } from "./publication.ts";
 
 export const MASTER_DIR = join("knowledge", "master");
 export const PACKS_DIR = join("knowledge", "packs");
 export const FIXTURES_DIR = join("knowledge", "fixtures");
+export const TRANSVERSAL_DIR = "transversal";
 
 function leerJson(ruta: string): unknown {
   return JSON.parse(readFileSync(ruta, "utf8")) as unknown;
@@ -108,4 +110,30 @@ export function discoverCapabilityPipelineInputs(
       ...(publicado ? { publishedPack: publicado } : {}),
     } satisfies CapabilityPipelineInput;
   });
+}
+
+/** Índice del núcleo transversal (S1–S5), si está materializado. */
+export function loadTransversalIndex(root: string, masterVersion: string): unknown | undefined {
+  const ruta = join(root, MASTER_DIR, masterVersion, TRANSVERSAL_DIR, "index.json");
+  if (!existsSync(ruta)) return undefined;
+  return leerJson(ruta);
+}
+
+/**
+ * Registros transversales por descubrimiento de directorio. El checksum se
+ * calcula del contenido: el índice no puede declarar una identidad distinta.
+ */
+export function loadTransversalRegistries(
+  root: string,
+  masterVersion: string,
+): { ref: string; raw: unknown; checksum: string }[] {
+  const dir = join(root, MASTER_DIR, masterVersion, TRANSVERSAL_DIR, "registries");
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir)
+    .filter((f) => f.endsWith(".json"))
+    .sort()
+    .map((f) => {
+      const raw = leerJson(join(dir, f)) as Record<string, unknown>;
+      return { ref: `${TRANSVERSAL_DIR}/registries/${f}`, raw, checksum: computeSelfChecksum(raw) };
+    });
 }

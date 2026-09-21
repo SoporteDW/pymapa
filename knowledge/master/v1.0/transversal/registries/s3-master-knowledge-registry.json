@@ -1,0 +1,59 @@
+{
+  "$schema": "../../../../schemas/transversal-registry.schema.json",
+  "registryId": "S3-MASTER-KNOWLEDGE-REGISTRY",
+  "title": "S3 · Master Knowledge Registry (MKR)",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "stage": "S3",
+  "stageArtifacts": [
+    "PYMAPA-S3-v1.0 · MASTER-OBJECT-RELATIONSHIP-MODEL-COMPLETE"
+  ],
+  "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+  "provenance": {
+    "sourceReference": "M2-SOURCE Consolidated Authoritative Recovery Repository · S1–S5 · PART III · S3.8",
+    "derivation": "AUTHORITATIVE_RECOVERY_TRANSCRIPTION",
+    "approvedBy": "Gobierno editorial Pymapa",
+    "approvedAt": "2026-09-21",
+    "note": "El MKR es el contrato lógico del propio Master. Su materialización en este repositorio es knowledge/master/v1.0/."
+  },
+  "recoveredIds": [],
+  "sections": {
+    "contents": [
+      "domains",
+      "capabilities",
+      "shared contracts",
+      "transversal rules",
+      "object registry",
+      "relationship registry",
+      "cross-capability derivations",
+      "shared instruments",
+      "source registry",
+      "version registry"
+    ],
+    "materializationMap": {
+      "domains": "master.json · domains",
+      "capabilities": "master.json · capabilities + TAXONOMY-REGISTRY-6X31",
+      "shared contracts": "S1-TRANSVERSAL-CONTRACTS",
+      "transversal rules": "S1-CROSS-CAPABILITY-RELATIONSHIP-REGISTRY + S1-COMMON-STATES",
+      "object registry": "S3-OBJECT-REGISTRY",
+      "relationship registry": "S3-RELATIONSHIP-REGISTRY",
+      "cross-capability derivations": "S1-CROSS-CAPABILITY-RELATIONSHIP-REGISTRY (vocabulario; sin instancias recuperadas)",
+      "shared instruments": "NOT_MATERIALIZED — ver RG-MKR-01",
+      "source registry": "S4-SOURCE-GOVERNANCE (arquitectura; sin registro poblado)",
+      "version registry": "S4-KNOWLEDGE-GOVERNANCE + knowledge/packs/*/published.json"
+    }
+  },
+  "gaps": [
+    {
+      "id": "RG-MKR-01",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "El contenido de shared instruments, cross-capability derivations concretas y el Source Register poblado no está recuperado. Se materializa la estructura, no contenido inventado.",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · S3.8 y PART VIII"
+    }
+  ],
+  "checksum": "sha256:ab4b7d49cf9768b89aa913c7ed0d9e1c22a6d549d643ba9aa42c3695dc98eea3"
+}

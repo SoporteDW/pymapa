@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pymapa.co/schemas/transversal-index.schema.json",
+  "title": "Pymapa Transversal Knowledge Core Index",
+  "description": "Índice del núcleo transversal del Knowledge Master: cadena de cierre autoritativa, provenance por etapa S1–S5 y registros materializados con su identidad de contenido. Referencia editorial: la validación ejecutable canónica vive en packages/knowledge-pipeline (validateTransversalIndex, validateTransversalCore).",
+  "type": "object",
+  "required": [
+    "identity",
+    "master",
+    "phaseClosure",
+    "verticalMilestone",
+    "closureChain",
+    "provenance",
+    "stages",
+    "registries",
+    "checksum"
+  ],
+  "properties": {
+    "identity": { "const": "PYMAPA-KNOWLEDGE-MASTER-TRANSVERSAL-CORE" },
+    "master": {
+      "type": "object",
+      "required": ["identity", "version", "baselineStatus"],
+      "properties": {
+        "identity": { "const": "PYMAPA-KNOWLEDGE-MASTER" },
+        "version": { "type": "string" },
+        "baselineStatus": { "const": "BASELINE-APPROVED" }
+      }
+    },
+    "phaseClosure": { "type": "string", "minLength": 1 },
+    "verticalMilestone": { "type": "string", "minLength": 1 },
+    "closureChain": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "provenance": {
+      "type": "object",
+      "required": ["sourceReference", "derivation", "approvedBy", "approvedAt"],
+      "properties": {
+        "sourceReference": { "type": "string", "minLength": 1 },
+        "derivation": { "const": "AUTHORITATIVE_RECOVERY_TRANSCRIPTION" },
+        "approvedBy": { "type": "string" },
+        "approvedAt": { "type": "string" }
+      }
+    },
+    "stages": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "required": ["id", "artifacts", "owns", "recoveryStatus"],
+        "properties": {
+          "id": { "enum": ["S1", "S2", "S3", "S4", "S5", "CONSOLIDATED"] },
+          "artifacts": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+          "owns": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+          "recoveryStatus": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "registries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["registryId", "stage", "ref", "recoveryClass", "checksum"],
+        "properties": {
+          "registryId": { "type": "string", "minLength": 1 },
+          "stage": { "enum": ["S1", "S2", "S3", "S4", "S5", "CONSOLIDATED"] },
+          "ref": { "type": "string", "minLength": 1 },
+          "recoveryClass": {
+            "enum": [
+              "RECOVERED_VERBATIM",
+              "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+              "SOURCE_CONTENT_NOT_RECOVERED"
+            ]
+          },
+          "checksum": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }
+        }
+      }
+    },
+    "checksum": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }
+  }
+}

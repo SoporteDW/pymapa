@@ -1,0 +1,282 @@
+{
+  "$schema": "../../../../schemas/transversal-registry.schema.json",
+  "registryId": "S1-TRANSVERSAL-CONTRACTS",
+  "title": "S1 · Los 18 contratos transversales del Motor",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "stage": "S1",
+  "stageArtifacts": [
+    "PYMAPA-S1-CROSS-31-v1.0 · TRANSVERSAL-RECONCILIATION-COMPLETE"
+  ],
+  "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+  "provenance": {
+    "sourceReference": "M2-SOURCE Consolidated Authoritative Recovery Repository · S1–S5 · PART I · S1.15–S1.32",
+    "derivation": "AUTHORITATIVE_RECOVERY_TRANSCRIPTION",
+    "approvedBy": "Gobierno editorial Pymapa",
+    "approvedAt": "2026-09-21"
+  },
+  "recoveredIds": [
+    "CTX",
+    "APP",
+    "OBS",
+    "EVD",
+    "QLT",
+    "CON",
+    "SUF",
+    "CNF",
+    "INF",
+    "FND",
+    "MAT",
+    "CAU",
+    "DEC",
+    "INT",
+    "CAP",
+    "RES",
+    "VAL",
+    "LRN",
+    "MOTOR-CONTRACT-01",
+    "MOTOR-CONTRACT-02",
+    "MOTOR-CONTRACT-03",
+    "MOTOR-CONTRACT-04",
+    "MOTOR-CONTRACT-05",
+    "MOTOR-CONTRACT-06",
+    "MOTOR-CONTRACT-07",
+    "MOTOR-CONTRACT-08",
+    "MOTOR-CONTRACT-09",
+    "MOTOR-CONTRACT-10",
+    "MOTOR-CONTRACT-11",
+    "MOTOR-CONTRACT-12",
+    "MOTOR-CONTRACT-13",
+    "MOTOR-CONTRACT-14",
+    "MOTOR-CONTRACT-15",
+    "MOTOR-CONTRACT-16",
+    "MOTOR-CONTRACT-17",
+    "MOTOR-CONTRACT-18"
+  ],
+  "sections": {
+    "contractDomains": {
+      "sourceReference": "S1.15",
+      "domains": [
+        {
+          "order": 1,
+          "id": "CTX",
+          "name": "Context"
+        },
+        {
+          "order": 2,
+          "id": "APP",
+          "name": "Applicability"
+        },
+        {
+          "order": 3,
+          "id": "OBS",
+          "name": "Observation"
+        },
+        {
+          "order": 4,
+          "id": "EVD",
+          "name": "Evidence"
+        },
+        {
+          "order": 5,
+          "id": "QLT",
+          "name": "Evidence Quality"
+        },
+        {
+          "order": 6,
+          "id": "CON",
+          "name": "Consistency"
+        },
+        {
+          "order": 7,
+          "id": "SUF",
+          "name": "Sufficiency"
+        },
+        {
+          "order": 8,
+          "id": "CNF",
+          "name": "Confidence"
+        },
+        {
+          "order": 9,
+          "id": "INF",
+          "name": "Inference"
+        },
+        {
+          "order": 10,
+          "id": "FND",
+          "name": "Finding"
+        },
+        {
+          "order": 11,
+          "id": "MAT",
+          "name": "Materiality"
+        },
+        {
+          "order": 12,
+          "id": "CAU",
+          "name": "Causal Relevance"
+        },
+        {
+          "order": 13,
+          "id": "DEC",
+          "name": "Decision"
+        },
+        {
+          "order": 14,
+          "id": "INT",
+          "name": "Intervention"
+        },
+        {
+          "order": 15,
+          "id": "CAP",
+          "name": "Resolution Capability"
+        },
+        {
+          "order": 16,
+          "id": "RES",
+          "name": "Result"
+        },
+        {
+          "order": 17,
+          "id": "VAL",
+          "name": "Validation"
+        },
+        {
+          "order": 18,
+          "id": "LRN",
+          "name": "Learning"
+        }
+      ]
+    },
+    "contracts": [
+      {
+        "id": "MOTOR-CONTRACT-01",
+        "sourceReference": "S1.16",
+        "statement": "Non-applicable does not penalize sufficiency, confidence or capability state."
+      },
+      {
+        "id": "MOTOR-CONTRACT-02",
+        "sourceReference": "S1.17",
+        "statement": "Every material inference must be traceable to observations + rules."
+      },
+      {
+        "id": "MOTOR-CONTRACT-03",
+        "sourceReference": "S1.18",
+        "statement": "Capability-specific ladders must declare what each state validates and the semantic difference between states."
+      },
+      {
+        "id": "MOTOR-CONTRACT-04",
+        "sourceReference": "S1.20",
+        "statement": "Sufficiency ≠ completeness."
+      },
+      {
+        "id": "MOTOR-CONTRACT-05",
+        "sourceReference": "S1.21",
+        "statement": "Confidence belongs to a specific claim, observation, finding, causal relation or validation. Never to the whole company. Sufficiency ≠ confidence. Required confidence depends on consequence and reversibility."
+      },
+      {
+        "id": "MOTOR-CONTRACT-06",
+        "sourceReference": "S1.27",
+        "statement": "A recommendation enters the roadmap only when sufficiently specified as an intervention."
+      },
+      {
+        "id": "MOTOR-CONTRACT-07",
+        "sourceReference": "S1.27",
+        "statement": "Done Criteria do not close a finding without CRV validation. CRV ≠ KPI."
+      },
+      {
+        "id": "MOTOR-CONTRACT-08",
+        "sourceReference": "S1.28",
+        "statement": "V0–V4 ≠ universal maturity scale."
+      },
+      {
+        "id": "MOTOR-CONTRACT-09",
+        "sourceReference": "S1.30",
+        "statement": "A case pattern never becomes a Master rule automatically."
+      },
+      {
+        "id": "MOTOR-CONTRACT-10",
+        "sourceReference": "S1.32",
+        "statement": "Positive state requires positive evidence."
+      },
+      {
+        "id": "MOTOR-CONTRACT-11",
+        "sourceReference": "S1.32",
+        "statement": "UNKNOWN is a valid epistemic state, not BAD."
+      },
+      {
+        "id": "MOTOR-CONTRACT-12",
+        "sourceReference": "S1.32",
+        "statement": "Historical state is not indefinitely current."
+      },
+      {
+        "id": "MOTOR-CONTRACT-13",
+        "sourceReference": "S1.32",
+        "statement": "Do not generalize beyond evidence scope. Population/sample scope must be preserved."
+      },
+      {
+        "id": "MOTOR-CONTRACT-14",
+        "sourceReference": "S1.32",
+        "statement": "Evidence depth can increase with materiality + consequence + irreversibility."
+      },
+      {
+        "id": "MOTOR-CONTRACT-15",
+        "sourceReference": "S1.32",
+        "statement": "Specialist escalation is based on expertise + consequence + professional boundary + complexity + uncertainty + economics + failed self-resolution. Output must specify expertise + purpose + outcome."
+      },
+      {
+        "id": "MOTOR-CONTRACT-16",
+        "sourceReference": "S1.32",
+        "statement": "Material recommendation is incomplete without a traceable, understandable explanation."
+      },
+      {
+        "id": "MOTOR-CONTRACT-17",
+        "sourceReference": "S1.32",
+        "statement": "Historical diagnosis must be reconstructable using the Knowledge Version in force."
+      },
+      {
+        "id": "MOTOR-CONTRACT-18",
+        "sourceReference": "S1.32",
+        "statement": "Material state must support reassessment triggers."
+      }
+    ],
+    "evidenceReasoningChain": {
+      "sourceReference": "S1.17",
+      "definitions": {
+        "Evidence": "source/object",
+        "Observation": "condition extracted from evidence",
+        "Inference": "rule-derived interpretation"
+      },
+      "note": "S1 enfatiza Evidence → Observation → Inference → Finding. S3 incorpora Claim como objeto explícito. La diferencia se preserva en CROSS-STAGE-DIFFERENCES."
+    },
+    "evidenceQualityDimensions": {
+      "sourceReference": "S1.18",
+      "dimensions": [
+        "RELEVANCE",
+        "PROXIMITY",
+        "CURRENCY",
+        "SCOPE-FIT",
+        "RELIABILITY",
+        "COMPLETENESS"
+      ],
+      "note": "Capability-specific evidence ladders are allowed."
+    },
+    "versionObject": {
+      "sourceReference": "S1.32",
+      "fields": [
+        "ID",
+        "version",
+        "effective date",
+        "status",
+        "provenance",
+        "supersedes/replaces"
+      ]
+    }
+  },
+  "gaps": [],
+  "checksum": "sha256:9e7dfd74b153d11b4fbaac3e19d8ed8e823c0405ffff239ebc4ce3a155c4b46b"
+}

@@ -1,0 +1,100 @@
+{
+  "$schema": "../../../../schemas/transversal-registry.schema.json",
+  "registryId": "CROSS-STAGE-DIFFERENCES",
+  "title": "Diferencias cross-stage · NO AUTO-RESOLVER",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "stage": "CONSOLIDATED",
+  "stageArtifacts": [
+    "PYMAPA-KNOWLEDGE-MASTER-v1.0 · BASELINE-APPROVED"
+  ],
+  "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+  "provenance": {
+    "sourceReference": "M2-SOURCE Consolidated Authoritative Recovery Repository · S1–S5 · PART VII",
+    "derivation": "AUTHORITATIVE_RECOVERY_TRANSCRIPTION",
+    "approvedBy": "Gobierno editorial Pymapa",
+    "approvedAt": "2026-09-21",
+    "note": "Metadatos de provenance/evolución. NO son errores a corregir. Ninguna diferencia se normaliza silenciosamente."
+  },
+  "recoveredIds": [],
+  "sections": {
+    "differences": [
+      {
+        "id": "CSD-01",
+        "topic": "Provenance terminology",
+        "stages": {
+          "S1": [
+            "CASE-DERIVED",
+            "SOURCE-DERIVED",
+            "PYMAPA-DESIGNED",
+            "CANDIDATE",
+            "APPROVED"
+          ],
+          "S3": [
+            "SOURCE-DERIVED",
+            "PYMAPA-DESIGNED",
+            "CASE-DERIVED",
+            "AI-ASSISTED",
+            "HUMAN-CONFIRMED",
+            "SPECIALIST-DERIVED"
+          ],
+          "S4": [
+            "PYMAPA-DESIGNED",
+            "SOURCE-DERIVED",
+            "SOURCE-INFORMED",
+            "CASE-DERIVED-CANDIDATE",
+            "CROSS-CAPABILITY-DERIVED",
+            "AI-ASSISTED"
+          ]
+        },
+        "status": "preserve all three provenance contexts. Do not silently collapse them.",
+        "autoResolve": false
+      },
+      {
+        "id": "CSD-02",
+        "topic": "Evidence reasoning chain",
+        "stages": {
+          "S1": "Evidence → Observation → Inference → Finding",
+          "S3": "Evidence / Observation / Claim / Inference / Finding",
+          "S5": "Evidence ≠ Observation ≠ Claim ≠ Inference ≠ Finding"
+        },
+        "status": "do not rewrite earlier stage semantics during materialization without an explicit governance decision.",
+        "autoResolve": false
+      },
+      {
+        "id": "CSD-03",
+        "topic": "Specialist objects",
+        "stages": {
+          "S1": [
+            "Specialist Escalation Decision",
+            "Required Specialist Profile",
+            "Specialist Handoff Pack",
+            "references to specialist handoff as a case/transfer construct"
+          ],
+          "S3": [
+            "Specialist Escalation Decision",
+            "Required Specialist Profile",
+            "Specialist Handoff Pack"
+          ]
+        },
+        "status": "do not invent an additional S3 object solely to force symmetry.",
+        "autoResolve": false
+      },
+      {
+        "id": "CSD-04",
+        "topic": "Uso del prefijo S0–S5",
+        "stages": {
+          "S1": "S0–S5 = Specialist Support Depth (S1.9)",
+          "CONSOLIDATED": "S1–S5 = etapas de ingeniería de conocimiento de Fase 2"
+        },
+        "status": "ambos usos se preservan sin unificar la nomenclatura; el contexto lo determina el registro.",
+        "autoResolve": false
+      }
+    ]
+  },
+  "gaps": [],
+  "checksum": "sha256:b023a0d73af13293ea3e9a1b9df630691d8540a68de825c7a9a0e371abc26e8f"
+}

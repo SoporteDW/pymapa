@@ -28,3 +28,4 @@ export * from "./pipeline.ts";
 export * from "./automation.ts";
 export * from "./report.ts";
 export * from "./loader.ts";
+export * from "./transversal.ts";

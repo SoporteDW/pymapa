@@ -1,0 +1,594 @@
+{
+  "$schema": "../../../../schemas/transversal-registry.schema.json",
+  "registryId": "S2-LOGICAL-ENGINE-REGISTRY",
+  "title": "S2 · Knowledge Engine lógico ME-01–ME-16",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "stage": "S2",
+  "stageArtifacts": [
+    "PYMAPA-KNOWLEDGE-ENGINE-v1.0 · LOGICAL-ENGINE-CONSOLIDATED",
+    "PYMAPA-S2-v1.0 · KNOWLEDGE-ENGINE-CONSOLIDATION-COMPLETE"
+  ],
+  "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+  "provenance": {
+    "sourceReference": "M2-SOURCE Consolidated Authoritative Recovery Repository · S1–S5 · PART II · S2–S2.27",
+    "derivation": "AUTHORITATIVE_RECOVERY_TRANSCRIPTION",
+    "approvedBy": "Gobierno editorial Pymapa",
+    "approvedAt": "2026-09-21",
+    "note": "ME-01–ME-16 son responsabilidades lógicas, no necesariamente microservicios de software. Este registro no modifica el runtime productivo."
+  },
+  "recoveredIds": [
+    "ME-01",
+    "ME-02",
+    "ME-03",
+    "ME-04",
+    "ME-05",
+    "ME-06",
+    "ME-07",
+    "ME-08",
+    "ME-09",
+    "ME-10",
+    "ME-11",
+    "ME-12",
+    "ME-13",
+    "ME-14",
+    "ME-15",
+    "ME-16",
+    "CAND-MOTOR-S2-01",
+    "MOTOR-S2-02",
+    "PYMAPA-HYBRID-REASONING-PRINCIPLE-01"
+  ],
+  "sections": {
+    "services": [
+      {
+        "id": "ME-01",
+        "name": "Context & Profile",
+        "sourceReference": "S2.1",
+        "input": [
+          "size",
+          "activity",
+          "business model",
+          "clients",
+          "channels",
+          "processes",
+          "structure",
+          "technology",
+          "constraints",
+          "declared priorities"
+        ],
+        "output": "CASE_CONTEXT",
+        "informs": [
+          "applicability",
+          "materiality",
+          "questions",
+          "proportionality"
+        ],
+        "invariant": "It does not automatically constitute diagnosis."
+      },
+      {
+        "id": "ME-02",
+        "name": "Applicability",
+        "sourceReference": "S2.2",
+        "uses": [
+          "Case Context",
+          "Knowledge Packs",
+          "existing evidence"
+        ],
+        "outputs": [
+          "AP0",
+          "AP1",
+          "AP2"
+        ],
+        "granularity": "capability/condition/variable level",
+        "principle": "evaluate only what can materially matter"
+      },
+      {
+        "id": "ME-03",
+        "name": "Evidence & Observation",
+        "sourceReference": "S2.3",
+        "handles": [
+          "Evidence",
+          "Observation",
+          "Evidence Passport",
+          "Evidence Link"
+        ],
+        "conceptualStore": "CASE EVIDENCE STORE",
+        "mayStore": [
+          "structured answers",
+          "documents",
+          "extracted facts",
+          "metrics",
+          "observations",
+          "declarations",
+          "system data",
+          "external evidence",
+          "specialist evidence"
+        ],
+        "invariant": "Original evidence remains distinct from AI-extracted observation."
+      },
+      {
+        "id": "ME-04",
+        "name": "Adaptive Acquisition",
+        "sourceReference": "S2.4",
+        "decides": "what needs to be known now",
+        "uses": [
+          "unresolved NI",
+          "applicability",
+          "materiality",
+          "existing evidence",
+          "contradictions",
+          "required confidence",
+          "Value of Information",
+          "respondent suitability"
+        ],
+        "acquisitionStages": "P1–P5"
+      },
+      {
+        "id": "ME-05",
+        "name": "Quality & Consistency",
+        "sourceReference": "S2.6",
+        "evaluates": [
+          "relevance",
+          "proximity",
+          "currency",
+          "scope-fit",
+          "reliability",
+          "completeness",
+          "contradictions"
+        ],
+        "note": "Can trigger clarification acquisition."
+      },
+      {
+        "id": "ME-06",
+        "name": "Rules Runtime",
+        "sourceReference": "S2.7",
+        "statement": "The Motor executes rules. The Knowledge Packs contain the rules.",
+        "separation": "Motor = execution mechanism; Knowledge Pack = capability-specific conditions/rules"
+      },
+      {
+        "id": "ME-07",
+        "name": "Sufficiency",
+        "sourceReference": "S2.8",
+        "evaluates": [
+          "NI sufficiency",
+          "variable sufficiency",
+          "capability sufficiency",
+          "decision sufficiency",
+          "intervention sufficiency"
+        ],
+        "outputs": [
+          "SUFFICIENT",
+          "INSUFFICIENT",
+          "NOT_APPLICABLE",
+          "MORE_EVIDENCE_VALUE",
+          "ESCALATE"
+        ],
+        "note": "Can trigger STOP."
+      },
+      {
+        "id": "ME-08",
+        "name": "Confidence",
+        "sourceReference": "S2.9",
+        "uses": [
+          "evidence strength",
+          "quality",
+          "consistency",
+          "coverage",
+          "inference distance"
+        ],
+        "outputs": "C0–C3",
+        "invariant": "associated with a claim, not the company as a whole"
+      },
+      {
+        "id": "ME-09",
+        "name": "Derivation & Cross-Capability",
+        "sourceReference": "S2.10",
+        "processes": [
+          "DERIVES_TO",
+          "REQUIRES",
+          "ENABLES",
+          "CONSTRAINS",
+          "COLLIDES_WITH",
+          "ESCALATES_TO"
+        ],
+        "produces": "Derivation Signals",
+        "invariant": "Never automatic findings in the target capability."
+      },
+      {
+        "id": "ME-10",
+        "name": "Findings",
+        "sourceReference": "S2.11",
+        "combines": [
+          "observation",
+          "rule",
+          "evidence",
+          "materiality",
+          "confidence"
+        ],
+        "produces": "EXPLAINABLE FINDING",
+        "structure": "WHAT → EVIDENCE → WHY IT MATTERS → UNCERTAINTY → SCOPE"
+      },
+      {
+        "id": "ME-11",
+        "name": "Priority & Causality",
+        "sourceReference": "S2.12",
+        "uses": [
+          "findings",
+          "materiality",
+          "causal relevance",
+          "urgency",
+          "bottlenecks",
+          "dependencies",
+          "confidence",
+          "collisions"
+        ],
+        "produces": "P0–P4 + Priority Rationale",
+        "invariant": "not an opaque score"
+      },
+      {
+        "id": "ME-12",
+        "name": "Intervention",
+        "sourceReference": "S2.13",
+        "uses": [
+          "Intervention Patterns"
+        ],
+        "produces": "intervention candidate",
+        "contextualizes": [
+          "scope",
+          "activities",
+          "instruments",
+          "deliverables",
+          "Done Criteria",
+          "CRV"
+        ],
+        "principle": "Minimum Sufficient Intervention"
+      },
+      {
+        "id": "ME-13",
+        "name": "Capability Gap & Specialist",
+        "sourceReference": "S2.14",
+        "evaluates": "Intervention Capability Requirements",
+        "resolution": [
+          "RC0",
+          "RC1",
+          "RC2",
+          "RC3",
+          "RC4"
+        ],
+        "then": "S0–S5",
+        "producesWhenSpecialistRequired": [
+          "Required Specialist Profile",
+          "Specialist Handoff Pack"
+        ],
+        "invariant": "Specialist escalation is a structural engine service, not a commercial add-on."
+      },
+      {
+        "id": "ME-14",
+        "name": "Roadmap & Dependency",
+        "sourceReference": "S2.15",
+        "builds": "Intervention Dependency Graph",
+        "determines": [
+          "parallel",
+          "requires",
+          "blocked",
+          "collision",
+          "specialist",
+          "deferred"
+        ],
+        "output": "Adaptive Roadmap",
+        "interventionStates": [
+          "CANDIDATE",
+          "READY",
+          "BLOCKED",
+          "DEFERRED",
+          "IN-PROGRESS",
+          "DONE-PENDING-VALIDATION",
+          "VALIDATED",
+          "INEFFECTIVE",
+          "STOPPED"
+        ]
+      },
+      {
+        "id": "ME-15",
+        "name": "Result & Validation",
+        "sourceReference": "S2.16",
+        "sequence": "Activities → Done Criteria → Deliverable → CRV → Evidence → Validation V0–V4",
+        "invariants": [
+          "Activity complete ≠ result.",
+          "Result ≠ causal proof."
+        ]
+      },
+      {
+        "id": "ME-16",
+        "name": "Follow-up & Learning",
+        "sourceReference": "S2.17",
+        "triggers": [
+          "time",
+          "intervention result",
+          "new evidence",
+          "contradiction",
+          "context change",
+          "event",
+          "source update"
+        ],
+        "can": [
+          "reopen NI",
+          "invalidate evidence",
+          "reduce confidence",
+          "change capability state",
+          "activate derivation",
+          "update roadmap"
+        ],
+        "learning": [
+          "L0",
+          "L1",
+          "L2",
+          "L3"
+        ],
+        "invariant": "L2→L3 requires governance outside autonomous case learning."
+      }
+    ],
+    "respondentRouting": {
+      "sourceReference": "S2.5",
+      "preservedId": "CAND-MOTOR-S2-01 · RESPONDENT-ROUTING",
+      "assignableTo": [
+        "direction",
+        "technology",
+        "commercial",
+        "operations",
+        "HR",
+        "finance",
+        "third party/specialist"
+      ],
+      "invariant": "while maintaining one enterprise Case State"
+    },
+    "memories": {
+      "sourceReference": "S2.18",
+      "preservedId": "MOTOR-S2-02",
+      "knowledgeMemory": [
+        "31 Knowledge Packs",
+        "rules",
+        "instruments",
+        "related Master Knowledge"
+      ],
+      "caseMemory": "What Pymapa knows about the SME.",
+      "learningMemory": "What Pymapa may be learning.",
+      "invariant": "Knowledge State, Case State and Candidate Learning State remain separate.",
+      "sourceLibraryCycle": "SOURCE LIBRARY → MASTER KNOWLEDGE → CASE STATE → CANDIDATE LEARNING → governance → MASTER KNOWLEDGE"
+    },
+    "hybridReasoning": {
+      "sourceReference": "S2.19",
+      "preservedId": "PYMAPA-HYBRID-REASONING-PRINCIPLE-01",
+      "statement": "AI may assist interpretation/contextualization, but material engine states must retain sufficient rules, evidence and traceability for reproducibility and governance.",
+      "deterministicGoverned": [
+        "IDs",
+        "states",
+        "applicability",
+        "rules",
+        "sufficiency constraints",
+        "transitions",
+        "provenance",
+        "validation",
+        "governance"
+      ],
+      "aiAssisted": [
+        "conversation",
+        "extraction",
+        "semantic mapping",
+        "summarization",
+        "contradiction candidates",
+        "explanation",
+        "instrument drafting",
+        "recommendation contextualization"
+      ],
+      "humanGoverned": [
+        "Master Knowledge approval",
+        "source governance",
+        "material rule changes",
+        "high-consequence exceptions"
+      ],
+      "whenAiDoesNotKnow": "UNKNOWN → ASK / ACQUIRE EVIDENCE / ESCALATE / STOP. Never invent."
+    },
+    "recommendationEngine": {
+      "sourceReference": "S2.20",
+      "flow": "Finding → material? → causally relevant? → intervention available? → confidence sufficient? → execution capability? → dependency/collision? → specialist? → Recommendation + Rationale"
+    },
+    "specialistEngine": {
+      "sourceReference": "S2.21",
+      "flow": "Intervention → Required Capability → Current Evidence → Capability Gap → Consequence/Complexity/Uncertainty → RC0–RC4 → S0–S5 → Required Specialist Profile → Specialist Handoff Pack"
+    },
+    "serviceInterfaces": {
+      "sourceReference": "S2.22",
+      "interfaces": [
+        {
+          "from": "Context",
+          "to": "Applicability",
+          "object": "Case Context"
+        },
+        {
+          "from": "Applicability",
+          "to": "Acquisition",
+          "object": "Active NI"
+        },
+        {
+          "from": "Acquisition",
+          "to": "Evidence",
+          "object": "Response/Evidence"
+        },
+        {
+          "from": "Evidence",
+          "to": "Quality",
+          "object": "Evidence Passport"
+        },
+        {
+          "from": "Quality",
+          "to": "Rules",
+          "object": "Qualified Observation"
+        },
+        {
+          "from": "Rules",
+          "to": "Sufficiency",
+          "object": "Rule Result"
+        },
+        {
+          "from": "Sufficiency",
+          "to": "Findings",
+          "object": "Eligible Claims"
+        },
+        {
+          "from": "Confidence",
+          "to": "Findings",
+          "object": "Claim Confidence"
+        },
+        {
+          "from": "Findings",
+          "to": "Derivation",
+          "object": "Finding/Signal"
+        },
+        {
+          "from": "Findings",
+          "to": "Priority",
+          "object": "Material Finding"
+        },
+        {
+          "from": "Priority",
+          "to": "Intervention",
+          "object": "Intervention Need"
+        },
+        {
+          "from": "Intervention",
+          "to": "Capability Gap",
+          "object": "ICR"
+        },
+        {
+          "from": "Capability Gap",
+          "to": "Specialist",
+          "object": "Resolution State"
+        },
+        {
+          "from": "Intervention",
+          "to": "Roadmap",
+          "object": "Candidate Intervention"
+        },
+        {
+          "from": "Roadmap",
+          "to": "Execution",
+          "object": "Ready Intervention"
+        },
+        {
+          "from": "Execution",
+          "to": "Validation",
+          "object": "Result Evidence"
+        },
+        {
+          "from": "Validation",
+          "to": "Follow-up",
+          "object": "Validation State"
+        },
+        {
+          "from": "Follow-up",
+          "to": "Learning",
+          "object": "Case Signal"
+        }
+      ]
+    },
+    "logicalLifecycle": {
+      "sourceReference": "S2.23",
+      "sequence": [
+        "CASE_CONTEXT",
+        "APPLICABILITY",
+        "INFORMATION NEEDS",
+        "ADAPTIVE ACQUISITION",
+        "EVIDENCE STORE",
+        "OBSERVATIONS",
+        "QUALITY / CONSISTENCY",
+        "RULES RUNTIME",
+        "SUFFICIENCY + CONFIDENCE",
+        "FINDINGS",
+        "CROSS-CAPABILITY DERIVATION",
+        "PRIORITY SYNTHESIS",
+        "INTERVENTION CANDIDATES",
+        "CAPABILITY GAP / SPECIALIST ESCALATION",
+        "INTERVENTION DEPENDENCY GRAPH",
+        "ADAPTIVE ROADMAP",
+        "EXECUTION",
+        "DONE CRITERIA",
+        "CRV",
+        "VALIDATION",
+        "FOLLOW-UP",
+        "LEARNING"
+      ],
+      "note": "↺ diagnosis"
+    },
+    "healthCheck": {
+      "sourceReference": "S2.24",
+      "result": "12/12",
+      "questions": [
+        "What do we know about this SME?",
+        "What must be evaluated?",
+        "What should we ask now?",
+        "What evidence already exists?",
+        "How reliable is it?",
+        "What can we conclude?",
+        "What matters?",
+        "What should change?",
+        "Does the organization have capacity to change it?",
+        "Is a specialist required?",
+        "How will we know it worked?",
+        "When should it be reassessed?"
+      ]
+    },
+    "endToEndTest": {
+      "sourceReference": "S2.25",
+      "scenario": "Ecommerce inventory/ERP discrepancy",
+      "chain": "DT-03 handoff/integration gap → DT-02 data quality → evidence reuse CM-05/CM-06 → intervention synchronize inventory → ICR integration expertise → Capability Gap → RC4 specialist → S3 assisted implementation → specialist profile ERP/ecommerce/inventory integration → roadmap: source-of-truth/data rules first, integration second → CRV discrepancy/order failures → V3",
+      "note": "Las capacidades citadas (DT-02, DT-03, CM-05, CM-06) aparecen en el ejemplo recuperado de S2. Esto NO materializa su cuerpo autoritativo ni las declara SOURCE_READY."
+    },
+    "qualityCompletion": {
+      "sourceReference": "S2.26",
+      "controls": 20,
+      "result": "20/20 PASS"
+    },
+    "closure": {
+      "recoveryClass": "RECOVERED_VERBATIM",
+      "statements": [
+        "PYMAPA-KNOWLEDGE-ENGINE-v1.0 · LOGICAL-ENGINE-CONSOLIDATED",
+        "PYMAPA-S2-v1.0 · KNOWLEDGE-ENGINE-CONSOLIDATION-COMPLETE"
+      ]
+    }
+  },
+  "gaps": [
+    {
+      "id": "RG-S2-01",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "Las definiciones originantes completas de P1–P5 no están recuperadas dentro de S2. El runtime productivo soporta niveles P1–P5 como etiquetas estructurales, sin su definición autoritativa.",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · S2.4 y PART VIII"
+    },
+    {
+      "id": "RG-S2-02",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "Las definiciones originantes completas de E0–E3 no están recuperadas.",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · PART VIII"
+    },
+    {
+      "id": "RG-S2-03",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "No existe fórmula matemática, función de scoring ni umbral cuantitativo recuperado para Value of Information. Prohibido inventarlo.",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · PART VIII"
+    },
+    {
+      "id": "GRE-S2-01",
+      "kind": "GENERIC_RUNTIME_EXTENSION_REQUIRED",
+      "statement": "ME-09, ME-11, ME-13 y ME-14 (derivación cross-capability ejecutable, síntesis de prioridad, brecha de capacidad/especialista y grafo de dependencias del roadmap) no están implementados como servicios del runtime productivo. Extensión genérica futura; no se implementa en este bloque.",
+      "publicationBlocking": false,
+      "sourceReference": "M2-SOURCE · S2.10–S2.15"
+    }
+  ],
+  "checksum": "sha256:c9ecb8f0b1284fa1bd3a838f795ce644ddc7a8ccac72b54d866016882375ebc2"
+}

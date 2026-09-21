@@ -1,0 +1,227 @@
+{
+  "$schema": "../../../../schemas/transversal-registry.schema.json",
+  "registryId": "S5-GLOBAL-QUALITY-GATES",
+  "title": "S5 · Global Quality Gates, composición del Master y congelación de baseline",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "stage": "S5",
+  "stageArtifacts": [
+    "GLOBAL QUALITY GATE = 24/24 PASS",
+    "PYMAPA-KNOWLEDGE-MASTER-v1.0 · BASELINE-APPROVED",
+    "FASE-2-KNOWLEDGE-ENGINEERING-v1.0 · COMPLETE · BASELINE FROZEN"
+  ],
+  "recoveryClass": "RECOVERED_VERBATIM",
+  "provenance": {
+    "sourceReference": "M2-SOURCE Consolidated Authoritative Recovery Repository · S1–S5 · PART V · S5.1–S5.4",
+    "derivation": "AUTHORITATIVE_RECOVERY_TRANSCRIPTION",
+    "approvedBy": "Gobierno editorial Pymapa",
+    "approvedAt": "2026-09-21",
+    "note": "S5 no introdujo otra capa conceptual: validó implementabilidad global y congeló la baseline."
+  },
+  "recoveredIds": [
+    "GQ-01",
+    "GQ-02",
+    "GQ-03",
+    "GQ-04",
+    "GQ-05",
+    "GQ-06",
+    "GQ-07",
+    "GQ-08",
+    "GQ-09",
+    "GQ-10",
+    "GQ-11",
+    "GQ-12",
+    "GQ-13",
+    "GQ-14",
+    "GQ-15",
+    "GQ-16",
+    "GQ-17",
+    "GQ-18",
+    "GQ-19",
+    "GQ-20",
+    "GQ-21",
+    "GQ-22",
+    "GQ-23",
+    "GQ-24"
+  ],
+  "sections": {
+    "globalQualityGates": {
+      "sourceReference": "S5.1",
+      "result": "GLOBAL QUALITY GATE = 24/24 PASS",
+      "gates": [
+        {
+          "id": "GQ-01",
+          "gate": "Taxonomy completeness",
+          "result": "PASS"
+        },
+        {
+          "id": "GQ-02",
+          "gate": "31 Knowledge Packs",
+          "result": "PASS"
+        },
+        {
+          "id": "GQ-03",
+          "gate": "Capability boundaries",
+          "result": "PASS"
+        },
+        {
+          "id": "GQ-04",
+          "gate": "Evidence/inference integrity",
+          "result": "PASS"
+        },
+        {
+          "id": "GQ-05",
+          "gate": "Adaptive diagnosis",
+          "result": "PASS"
+        },
+        {
+          "id": "GQ-06",
+          "gate": "Collaborative/multi-respondent diagnosis",
+          "result": "PASS"
+        },
+        {
+          "id": "GQ-07",
+          "gate": "Explainable findings",
+          "result": "PASS"
+        },
+        {
+          "id": "GQ-08",
+          "gate": "Cross-capability reasoning",
+          "result": "PASS"
+        },
+        {
+          "id": "GQ-09",
+          "gate": "Capability Gap",
+          "result": "PASS"
+        },
+        {
+          "id": "GQ-10",
+          "gate": "Capability Bottlenecks",
+          "result": "PASS"
+        },
+        {
+          "id": "GQ-11",
+          "gate": "Specialist Escalation",
+          "result": "PASS"
+        },
+        {
+          "id": "GQ-12",
+          "gate": "Priority synthesis",
+          "result": "PASS"
+        },
+        {
+          "id": "GQ-13",
+          "gate": "Adaptive Roadmap",
+          "result": "PASS"
+        },
+        {
+          "id": "GQ-14",
+          "gate": "Intervention model",
+          "result": "PASS"
+        },
+        {
+          "id": "GQ-15",
+          "gate": "Result-based transformation",
+          "result": "PASS"
+        },
+        {
+          "id": "GQ-16",
+          "gate": "Validation model",
+          "result": "PASS"
+        },
+        {
+          "id": "GQ-17",
+          "gate": "Continuous reassessment",
+          "result": "PASS"
+        },
+        {
+          "id": "GQ-18",
+          "gate": "Governed learning",
+          "result": "PASS"
+        },
+        {
+          "id": "GQ-19",
+          "gate": "Hybrid AI architecture",
+          "result": "PASS"
+        },
+        {
+          "id": "GQ-20",
+          "gate": "Implementable Object Model",
+          "result": "PASS"
+        },
+        {
+          "id": "GQ-21",
+          "gate": "Knowledge Governance",
+          "result": "PASS"
+        },
+        {
+          "id": "GQ-22",
+          "gate": "Historical reproducibility",
+          "result": "PASS"
+        },
+        {
+          "id": "GQ-23",
+          "gate": "SME proportionality",
+          "result": "PASS"
+        },
+        {
+          "id": "GQ-24",
+          "gate": "Product-model coherence",
+          "result": "PASS"
+        }
+      ],
+      "note": "Estos resultados describen el cierre histórico de Fase 2 y NO son resultados de validación del repositorio de software."
+    },
+    "masterComposition": {
+      "sourceReference": "S5.2",
+      "statement": "PYMAPA-KNOWLEDGE-MASTER-v1.0 conceptually contains:",
+      "components": [
+        "Taxonomy Registry 6×31",
+        "31 Knowledge Packs",
+        "Cross-Capability Relationship Registry",
+        "18 Engine Contracts",
+        "Knowledge Engine ME-01–ME-16",
+        "Object Registry",
+        "Relationship Registry",
+        "Logical Knowledge Graph",
+        "Capability Gap Model",
+        "Capability Bottleneck Model",
+        "Specialist Escalation Model",
+        "Intervention Dependency Graph Model",
+        "CRV/Validation Model",
+        "Learning Model",
+        "Source Register architecture",
+        "Knowledge Governance Model",
+        "Versioning & Provenance Model",
+        "Reassessment Model"
+      ]
+    },
+    "baselineFreeze": {
+      "sourceReference": "S5.4",
+      "recoveryClass": "RECOVERED_VERBATIM",
+      "baseline": "PYMAPA-KNOWLEDGE-MASTER-v1.0 · BASELINE-APPROVED",
+      "milestones": [
+        "PYMAPA-6x31-VERTICAL-KNOWLEDGE-v1.0",
+        "PYMAPA-S1-CROSS-31-v1.0",
+        "PYMAPA-KNOWLEDGE-ENGINE-v1.0",
+        "PYMAPA-OBJECT-REGISTRY-v1.0",
+        "PYMAPA-KNOWLEDGE-GOVERNANCE-v1.0",
+        "PYMAPA-KNOWLEDGE-MASTER-v1.0"
+      ],
+      "final": "FASE-2-KNOWLEDGE-ENGINEERING-v1.0 · COMPLETE · BASELINE FROZEN"
+    }
+  },
+  "gaps": [
+    {
+      "id": "RG-S5-01",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "GQ-02 declara 31 Knowledge Packs desarrollados y K4-validados, pero los cuerpos literales completos de los 31 packs verticales no están recuperados. El gate histórico no sustituye la fuente.",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · S5.1, PART VIII y PART IX"
+    }
+  ],
+  "checksum": "sha256:61ea13d12dfabb8d348264ab5a46e214181adc0cf859bcfed238d3b4384a5ed6"
+}
