@@ -1125,6 +1125,9 @@ export async function crearActividad(
     mappingStatus: identidad?.mappingStatus ?? "NOT_GOVERNED",
     title: input.title,
     state: "PENDING",
+    // Done es un hecho posterior y explícito: nunca se presume al crear.
+    doneAt: null,
+    doneBy: null,
   });
 
   await deps.repository.insertAuditEvent({
