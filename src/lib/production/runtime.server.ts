@@ -892,7 +892,7 @@ export function createSupabaseProductionRepository(): ProductionRepository {
           title: input.title,
           state: input.state,
         })
-        .select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, created_at")
+        .select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, done_at, done_by, created_at")
         .single();
       lanzar("activities.insert", error);
       return aActividad(data!);
@@ -900,7 +900,7 @@ export function createSupabaseProductionRepository(): ProductionRepository {
 
     async getActivity(id): Promise<ActivityRecord | null> {
       const db = await admin();
-      const { data, error } = await db.from("activities").select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, created_at").eq("id", id).maybeSingle();
+      const { data, error } = await db.from("activities").select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, done_at, done_by, created_at").eq("id", id).maybeSingle();
       lanzar("activities.get", error);
       return data ? aActividad(data) : null;
     },
@@ -909,7 +909,7 @@ export function createSupabaseProductionRepository(): ProductionRepository {
       const db = await admin();
       const { data, error } = await db
         .from("activities")
-        .select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, created_at")
+        .select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, done_at, done_by, created_at")
         .eq("intervention_id", interventionId)
         .order("created_at", { ascending: true });
       lanzar("activities.list", error);
@@ -922,7 +922,7 @@ export function createSupabaseProductionRepository(): ProductionRepository {
         .from("activities")
         .update({ state })
         .eq("id", id)
-        .select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, created_at")
+        .select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, done_at, done_by, created_at")
         .single();
       lanzar("activities.updateState", error);
       return aActividad(data!);
