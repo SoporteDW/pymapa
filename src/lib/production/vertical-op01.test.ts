@@ -99,6 +99,8 @@ describe("Knowledge Pack OP-01 · schema", () => {
       "KCC-AT04-09",
       "KCC-AT04-10",
       "KCC-AT04-11",
+      "KCC-AT04-12",
+      "KCC-AT04-13",
     ]);
   });
 

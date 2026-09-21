@@ -15,7 +15,7 @@ import { createKnowledgeEngine } from "@pymapa/knowledge-engine";
 import {
   createInMemoryProductionRepository,
   type AssessmentRecord,
-  type MembershipRecord,
+  type MembershipRole,
 } from "./puertos";
 import {
   ACTIVITY_NOT_DONE,
@@ -62,7 +62,7 @@ function assessment(): AssessmentRecord {
   };
 }
 
-const MEMBRESIAS: MembershipRecord[] = [
+const MEMBRESIAS: { organizationId: string; userId: string; role: MembershipRole }[] = [
   { organizationId: "org-1", userId: "user-1", role: "OWNER" },
 ];
 

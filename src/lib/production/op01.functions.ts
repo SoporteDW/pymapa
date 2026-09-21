@@ -841,8 +841,8 @@ export const getOp01Validation = createServerFn({ method: "GET" })
     const assessments = await deps.repository.listAssessments(assessment.caseId);
     return {
       assessmentId: assessment.id,
-      requirements: requirements.map((r) => sinDetalle(r)),
-      validations: validations.map((v) => sinDetalle(v)),
+      requirements: requirements.map((r) => sinDetalle(r)!),
+      validations: validations.map((v) => sinDetalle(v)!),
       followUps,
       assessments: assessments.map((a) => ({
         id: a.id,
