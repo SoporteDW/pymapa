@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pymapa.co/schemas/capability-fixture.schema.json",
+  "title": "Pymapa Capability Fixture",
+  "description": "Fixture de aceptación de una capacidad (knowledge/fixtures/<packId>/*.fixture.json). Alimenta el harness genérico Pack + Fixture → Knowledge Engine → PASS/FAIL/NEEDS_GOVERNANCE_REVIEW. La validación ejecutable canónica vive en packages/knowledge-pipeline (validateFixture).",
+  "type": "object",
+  "required": [
+    "fixtureId",
+    "capabilityId",
+    "packId",
+    "packVersion",
+    "kind",
+    "description",
+    "knowledgeVersionId",
+    "observations",
+    "expected"
+  ],
+  "properties": {
+    "fixtureId": { "type": "string" },
+    "capabilityId": { "type": "string" },
+    "packId": { "type": "string" },
+    "packVersion": { "type": "string" },
+    "kind": {
+      "description": "SOURCE_DERIVED exige sourceReference; ARCHITECTURE_RUNTIME cubre comportamiento del runtime genérico; MANUALLY_GOVERNED requiere decisión editorial.",
+      "enum": ["SOURCE_DERIVED", "ARCHITECTURE_RUNTIME", "MANUALLY_GOVERNED"]
+    },
+    "description": { "type": "string" },
+    "sourceReference": { "type": "string" },
+    "knowledgeVersionId": { "type": "string" },
+    "observations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "variableRef", "acquisitionRef", "knowledgeState", "recordedAt"],
+        "properties": {
+          "id": { "type": "string" },
+          "variableRef": { "type": "string" },
+          "acquisitionRef": { "type": "string" },
+          "knowledgeState": { "enum": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"] },
+          "semanticValue": {
+            "description": "Solo KNOWN aporta valor semántico.",
+            "oneOf": [{ "type": "null" }, { "type": "string" }]
+          },
+          "notApplicableReason": { "description": "Obligatorio cuando knowledgeState = NOT_APPLICABLE.", "type": ["string", "null"] },
+          "conflictingObservationIds": {
+            "description": "Obligatorio cuando knowledgeState = CONTRADICTORY.",
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "sourceResponseId": { "type": ["string", "null"] },
+          "respondentId": { "type": ["string", "null"] },
+          "evidenceIds": { "type": "array", "items": { "type": "string" } },
+          "recordedAt": { "type": "string" }
+        }
+      }
+    },
+    "expected": {
+      "description": "Resultado esperado. UNKNOWN, CONTRADICTORY, NOT_APPLICABLE y NEEDS_REVIEW son resultados legítimos: no se fabrican conclusiones semánticas que el Master no permita determinar.",
+      "type": "object",
+      "required": ["outcome"],
+      "properties": {
+        "outcome": { "enum": ["PASS", "NEEDS_GOVERNANCE_REVIEW"] },
+        "variableStates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["variableRef", "state"],
+            "properties": {
+              "variableRef": { "type": "string" },
+              "state": { "enum": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"] },
+              "semanticValue": { "oneOf": [{ "type": "null" }, { "type": "string" }] }
+            }
+          }
+        },
+        "needsReview": { "type": "boolean" },
+        "contradictionVariableRefs": { "type": "array", "items": { "type": "string" } },
+        "findingCandidateRefs": { "type": "array", "items": { "type": "string" } },
+        "noConfirmedFindings": { "type": "boolean" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}
