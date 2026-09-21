@@ -385,6 +385,7 @@ export function useDiagnostico() {
   return {
     definicion: definicionDiagnostico,
     assessmentClient,
+    clienteParaCapacidad,
     assessmentState,
     isHydrated,
     configuracionValida,
