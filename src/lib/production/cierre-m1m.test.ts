@@ -31,7 +31,7 @@ import {
   registrarCasoValidacion,
   registrarEntregable,
   registrarRequisitoValidacion,
-  seleccionarRecomendacion,
+  decidirRecommendationCandidate,
   submitAcquisitionResponse,
   type ProductionDeps,
 } from "./caso-uso";
