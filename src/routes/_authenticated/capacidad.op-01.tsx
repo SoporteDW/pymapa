@@ -79,6 +79,7 @@ function CapacidadOp01() {
   const [notaSeleccion, setNotaSeleccion] = useState<string>("");
   const [tituloActividad, setTituloActividad] = useState<string>("");
   const [revisionId, setRevisionId] = useState<string | null>(null);
+  const [refActividad, setRefActividad] = useState<string>("");
   const [ejecutorCaso, setEjecutorCaso] = useState<string>("");
   const [notaSeguimiento, setNotaSeguimiento] = useState<string>("");
   const [tituloEntregable, setTituloEntregable] = useState<string>("");
@@ -173,7 +174,8 @@ function CapacidadOp01() {
 
   const crearActividad = useMutation(
     accionProductiva(
-      (input: { interventionId: string; title: string }) => cliente.createActivity(input),
+      (input: { interventionId: string; title: string; activityRef?: string | null }) =>
+        cliente.createActivity(input),
       "Actividad creada",
     ),
   );
@@ -1006,11 +1008,22 @@ function CapacidadOp01() {
                     onChange={(e) => setTituloActividad(e.target.value)}
                     placeholder="Ej.: Escribir la guía del proceso"
                   />
+                  <Label htmlFor={`ref-${i.id}`}>Referencia de la tarea (opcional)</Label>
+                  <Input
+                    id={`ref-${i.id}`}
+                    value={refActividad}
+                    onChange={(e) => setRefActividad(e.target.value)}
+                    placeholder="Ej.: A04"
+                  />
                   <Button
                     size="sm"
                     variant="outline"
                     onClick={() =>
-                      crearActividad.mutate({ interventionId: i.id, title: tituloActividad })
+                      crearActividad.mutate({
+                        interventionId: i.id,
+                        title: tituloActividad,
+                        activityRef: refActividad.trim() || null,
+                      })
                     }
                     disabled={crearActividad.isPending || tituloActividad.trim().length === 0}
                   >
