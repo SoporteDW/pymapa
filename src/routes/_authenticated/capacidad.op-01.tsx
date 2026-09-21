@@ -19,6 +19,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { PageHeader } from "@/components/layout/page-header";
 import { getOp01Context } from "@/lib/production/op01.functions";
 import { createProductionAssessmentClient, resolveExecutionSource } from "@/services/production";
+import { supabase } from "@/integrations/supabase/client";
 import type { KnowledgeState } from "@pymapa/contracts";
 import { toast } from "sonner";
 
