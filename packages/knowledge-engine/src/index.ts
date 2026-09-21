@@ -213,8 +213,12 @@ export interface EvaluationResult {
   answeredAcquisitionRefs: string[];
   /** true cuando el resultado requiere revisión gobernada, no inferencia. */
   needsReview: boolean;
-  /** Esta etapa no produce findings: no se fabrican para demostrar el vertical. */
+  /** Findings CONFIRMADOS por el runtime: siempre vacío, no hay regla determinística. */
   findings: never[];
+  /** Candidatos de finding con su lineage; nunca confirmados automáticamente. */
+  findingCandidates: FindingCandidateResult[];
+  /** Referencias a otras capacidades. Nunca ejecutan la capacidad destino. */
+  derivedDependencyReferences: DerivedDependencyReferenceResult[];
   /** Sufficiency/Confidence no tienen fórmula aprobada. */
   sufficiency: { state: null; reason: string };
   confidence: { state: null; reason: string };
