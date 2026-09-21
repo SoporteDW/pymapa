@@ -598,3 +598,250 @@ export const registerOp01Deliverable = createServerFn({ method: "POST" })
       validated: false,
     };
   });
+
+/* ================================================================== */
+/* M1-KL · CRV · Validation · Follow-up · Reassessment                 */
+/* ================================================================== */
+
+const idSchema = z.string().uuid();
+
+const requisitoSchema = z.object({
+  activityId: idSchema,
+  primaryExecutorRespondentId: idSchema.nullable().optional(),
+});
+
+const casoCrvSchema = z.object({
+  validationRequirementId: idSchema,
+  executorRespondentId: idSchema,
+  outcome: z.enum(["CORRECT", "INCORRECT"]),
+  criticalAssistance: z.boolean(),
+  evidenceId: idSchema.nullable().optional(),
+  note: z.string().min(1).nullable().optional(),
+});
+
+const decisionValidacionSchema = z.object({
+  validationId: idSchema,
+  decision: z.enum(["PENDING", "IN_REVIEW", "VALIDATED", "NOT_VALIDATED", "INSUFFICIENT_EVIDENCE"]),
+  reason: z.string().min(1).nullable().optional(),
+  evidenceIds: z.array(idSchema).optional(),
+});
+
+const followUpSchema = z.object({
+  followUpId: idSchema,
+  outcome: z.enum(["CONSOLIDATED", "NEEDS_ADJUSTMENT"]),
+  note: z.string().min(1).nullable().optional(),
+  evidenceId: idSchema.nullable().optional(),
+});
+
+/** Done explícito: producir un entregable no marca Done ni valida nada. */
+export const markOp01ActivityDone = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => z.object({ activityId: idSchema }).parse(data))
+  .handler(async ({ data, context }) => {
+    const casoUso = await import("./caso-uso");
+    const { deps } = await prepararContexto(context);
+    const salida = await casoUso.marcarActividadDone(deps, {
+      activityId: data.activityId,
+      actorUserId: context.userId,
+    });
+    return {
+      accepted: salida.accepted,
+      rejectionReason: salida.rejectionReason ?? null,
+      activityState: salida.activity?.state ?? null,
+      doneAt: salida.activity?.doneAt ?? null,
+      validated: false,
+    };
+  });
+
+export const registerOp01ValidationRequirement = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => requisitoSchema.parse(data))
+  .handler(async ({ data, context }) => {
+    const casoUso = await import("./caso-uso");
+    const { deps } = await prepararContexto(context);
+    const salida = await casoUso.registrarRequisitoValidacion(deps, {
+      activityId: data.activityId,
+      primaryExecutorRespondentId: data.primaryExecutorRespondentId ?? null,
+      createdBy: context.userId,
+    });
+    return {
+      accepted: salida.accepted,
+      rejectionReason: salida.rejectionReason ?? null,
+      requirement: salida.requirement,
+    };
+  });
+
+export const registerOp01ValidationCase = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => casoCrvSchema.parse(data))
+  .handler(async ({ data, context }) => {
+    const casoUso = await import("./caso-uso");
+    const { deps } = await prepararContexto(context);
+    const salida = await casoUso.registrarCasoValidacion(deps, {
+      validationRequirementId: data.validationRequirementId,
+      executorRespondentId: data.executorRespondentId,
+      outcome: data.outcome,
+      criticalAssistance: data.criticalAssistance,
+      evidenceId: data.evidenceId ?? null,
+      note: data.note ?? null,
+      registeredBy: context.userId,
+    });
+    return {
+      accepted: salida.accepted,
+      rejectionReason: salida.rejectionReason ?? null,
+      sequenceIndex: salida.case?.sequenceIndex ?? null,
+      evaluation: salida.evaluation,
+    };
+  });
+
+export const openOp01Validation = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) =>
+    z.object({ activityId: idSchema, evidenceIds: z.array(idSchema).optional() }).parse(data),
+  )
+  .handler(async ({ data, context }) => {
+    const casoUso = await import("./caso-uso");
+    const { deps } = await prepararContexto(context);
+    const salida = await casoUso.abrirValidacion(deps, {
+      activityId: data.activityId,
+      actorUserId: context.userId,
+      ...(data.evidenceIds ? { evidenceIds: data.evidenceIds } : {}),
+    });
+    return {
+      accepted: salida.accepted,
+      rejectionReason: salida.rejectionReason ?? null,
+      validation: salida.validation,
+      evaluation: salida.evaluation,
+    };
+  });
+
+export const decideOp01Validation = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => decisionValidacionSchema.parse(data))
+  .handler(async ({ data, context }) => {
+    const casoUso = await import("./caso-uso");
+    const { deps } = await prepararContexto(context);
+    const salida = await casoUso.decidirValidacion(deps, {
+      validationId: data.validationId,
+      decision: data.decision,
+      reason: data.reason ?? null,
+      reviewedBy: context.userId,
+      ...(data.evidenceIds ? { evidenceIds: data.evidenceIds } : {}),
+    });
+    return {
+      accepted: salida.accepted,
+      rejectionReason: salida.rejectionReason ?? null,
+      validation: salida.validation,
+    };
+  });
+
+export const startOp01FollowUp = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) =>
+    z.object({ validationId: idSchema, note: z.string().min(1).nullable().optional() }).parse(data),
+  )
+  .handler(async ({ data, context }) => {
+    const casoUso = await import("./caso-uso");
+    const { deps } = await prepararContexto(context);
+    const salida = await casoUso.iniciarFollowUp(deps, {
+      validationId: data.validationId,
+      actorUserId: context.userId,
+      note: data.note ?? null,
+    });
+    return {
+      accepted: salida.accepted,
+      rejectionReason: salida.rejectionReason ?? null,
+      followUp: salida.followUp,
+    };
+  });
+
+export const decideOp01FollowUp = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => followUpSchema.parse(data))
+  .handler(async ({ data, context }) => {
+    const casoUso = await import("./caso-uso");
+    const { deps } = await prepararContexto(context);
+    const salida = await casoUso.decidirFollowUp(deps, {
+      followUpId: data.followUpId,
+      outcome: data.outcome,
+      note: data.note ?? null,
+      evidenceId: data.evidenceId ?? null,
+      decidedBy: context.userId,
+    });
+    return {
+      accepted: salida.accepted,
+      rejectionReason: salida.rejectionReason ?? null,
+      followUp: salida.followUp,
+    };
+  });
+
+/** Reassessment: nuevo Assessment del mismo Case, sin tocar el Baseline. */
+export const startOp01Reassessment = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) =>
+    z.object({ knowledgeVersionId: idSchema.optional() }).parse(data ?? {}),
+  )
+  .handler(async ({ data, context }) => {
+    const casoUso = await import("./caso-uso");
+    const { assessment, deps } = await prepararContexto(context);
+    const salida = await casoUso.iniciarReassessment(deps, {
+      baselineAssessmentId: assessment.id,
+      actorUserId: context.userId,
+      ...(data.knowledgeVersionId ? { knowledgeVersionId: data.knowledgeVersionId } : {}),
+    });
+    return {
+      accepted: salida.accepted,
+      rejectionReason: salida.rejectionReason ?? null,
+      baselineAssessmentId: assessment.id,
+      reassessmentAssessmentId: salida.assessment?.id ?? null,
+      reassessmentKnowledgeVersionId: salida.assessment?.knowledgeVersionId ?? null,
+      evaluationRunId: salida.evaluationRunId,
+      snapshotId: salida.snapshot?.id ?? null,
+    };
+  });
+
+export const compareOp01Assessments = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) =>
+    z
+      .object({ baselineAssessmentId: idSchema, reassessmentAssessmentId: idSchema })
+      .parse(data),
+  )
+  .handler(async ({ data, context }) => {
+    const casoUso = await import("./caso-uso");
+    const { deps } = await prepararContexto(context);
+    const salida = await casoUso.compararAssessments(deps, data);
+    return {
+      accepted: salida.accepted,
+      rejectionReason: salida.rejectionReason ?? null,
+      comparison: salida.comparison,
+    };
+  });
+
+/** Estado de validación y seguimiento del assessment activo. */
+export const getOp01Validation = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    const { assessment, deps } = await prepararContexto(context);
+    const interventions = await deps.repository.listInterventions(assessment.id);
+    const requirements = (
+      await Promise.all(interventions.map((i) => deps.repository.listValidationRequirements(i.id)))
+    ).flat();
+    const validations = await deps.repository.listValidations(assessment.id);
+    const followUps = (
+      await Promise.all(validations.map((v) => deps.repository.listFollowUps(v.activityId ?? "")))
+    ).flat();
+    const assessments = await deps.repository.listAssessments(assessment.caseId);
+    return {
+      assessmentId: assessment.id,
+      requirements,
+      validations,
+      followUps,
+      assessments: assessments.map((a) => ({
+        id: a.id,
+        type: a.type,
+        knowledgeVersionId: a.knowledgeVersionId,
+        startedAt: a.startedAt,
+      })),
+    };
+  });
