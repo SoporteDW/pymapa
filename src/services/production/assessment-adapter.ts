@@ -124,7 +124,7 @@ export function createMvpAssessmentClient(deps: MvpAssessmentClientDeps): Assess
     async submitResponse(command): Promise<SubmitResponseResult> {
       const { questionId, valor } = comandoARespuestaMvp(command);
       const accepted = deps.responderExistente(questionId, valor);
-      const estado = deps.leerEstado();
+      const estado = leerSeguro();
       const assessment: AssessmentStateDTO = estado
         ? sesionMvpAAssessmentState({
             sesion: estado.sesion,
