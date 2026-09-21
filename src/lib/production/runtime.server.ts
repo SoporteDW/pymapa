@@ -1149,6 +1149,8 @@ function aActividad(a: {
   mapping_status: string;
   title: string;
   state: ExecutionState;
+  done_at?: string | null;
+  done_by?: string | null;
   created_at: string;
 }): ActivityRecord {
   return {
@@ -1160,6 +1162,8 @@ function aActividad(a: {
     mappingStatus: a.mapping_status,
     title: a.title,
     state: a.state,
+    doneAt: a.done_at ?? null,
+    doneBy: a.done_by ?? null,
     createdAt: a.created_at,
   };
 }
