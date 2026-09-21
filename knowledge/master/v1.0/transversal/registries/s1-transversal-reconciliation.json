@@ -1,0 +1,97 @@
+{
+  "$schema": "../../../../schemas/transversal-registry.schema.json",
+  "registryId": "S1-TRANSVERSAL-RECONCILIATION",
+  "title": "S1 · Reconciliación transversal de las 31 capacidades",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "stage": "S1",
+  "stageArtifacts": [
+    "PYMAPA-S1-CROSS-31-v1.0 · TRANSVERSAL-RECONCILIATION-COMPLETE"
+  ],
+  "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+  "provenance": {
+    "sourceReference": "M2-SOURCE Consolidated Authoritative Recovery Repository · S1–S5 · PART I · S1 (S1, S1.33, S1.34)",
+    "derivation": "AUTHORITATIVE_RECOVERY_TRANSCRIPTION",
+    "approvedBy": "Gobierno editorial Pymapa",
+    "approvedAt": "2026-09-21",
+    "note": "Materialización del cierre S1. No normaliza el conocimiento vertical: lo que S1 declara no normalizado permanece en los Knowledge Packs individuales."
+  },
+  "recoveredIds": [
+    "T1",
+    "T2",
+    "T3",
+    "T4",
+    "T5",
+    "T6",
+    "T7",
+    "T8"
+  ],
+  "sections": {
+    "reconciliationFronts": [
+      {
+        "id": "T1",
+        "front": "Boundaries",
+        "status": "PASS"
+      },
+      {
+        "id": "T2",
+        "front": "Evidence reuse",
+        "status": "PASS"
+      },
+      {
+        "id": "T3",
+        "front": "Derivations",
+        "status": "PASS"
+      },
+      {
+        "id": "T4",
+        "front": "Contradictions",
+        "status": "PASS"
+      },
+      {
+        "id": "T5",
+        "front": "Capability dependencies",
+        "status": "PASS"
+      },
+      {
+        "id": "T6",
+        "front": "Intervention collisions",
+        "status": "PASS"
+      },
+      {
+        "id": "T7",
+        "front": "Capability Gap / Specialist Escalation",
+        "status": "PASS"
+      },
+      {
+        "id": "T8",
+        "front": "Priority synthesis",
+        "status": "PASS"
+      }
+    ],
+    "nonNormalizedCapabilityKnowledge": {
+      "statement": "S1 explicitly does not normalize the following; they remain in individual Knowledge Packs.",
+      "items": [
+        "CE counts",
+        "VA counts",
+        "NI counts",
+        "finding counts",
+        "specific decision vocabulary",
+        "instruments",
+        "CRVs",
+        "capability-specific evidence ladders",
+        "V1–V4 specific names",
+        "diagnostic rules"
+      ]
+    },
+    "closure": {
+      "recoveryClass": "RECOVERED_VERBATIM",
+      "statement": "PYMAPA-S1-CROSS-31-v1.0 · TRANSVERSAL-RECONCILIATION-COMPLETE"
+    }
+  },
+  "gaps": [],
+  "checksum": "sha256:2b2385dfd38e9e0cc46b0dadd60db0e8a0031451940d4b37d111f05c6293fce9"
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "../../../../schemas/transversal-registry.schema.json",
+  "registryId": "S3-CASE-SNAPSHOT-LOGICAL-CONTRACT",
+  "title": "S3 · Contrato lógico del Case Snapshot",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "stage": "S3",
+  "stageArtifacts": [
+    "PYMAPA-S3-v1.0 · MASTER-OBJECT-RELATIONSHIP-MODEL-COMPLETE"
+  ],
+  "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+  "provenance": {
+    "sourceReference": "M2-SOURCE Consolidated Authoritative Recovery Repository · S1–S5 · PART III · S3.9 (con S4.8 KG-RULE-06)",
+    "derivation": "AUTHORITATIVE_RECOVERY_TRANSCRIPTION",
+    "approvedBy": "Gobierno editorial Pymapa",
+    "approvedAt": "2026-09-21"
+  },
+  "recoveredIds": [
+    "KG-RULE-06",
+    "OBJ-RULE-05"
+  ],
+  "sections": {
+    "logicalFields": [
+      "timestamp",
+      "knowledge version",
+      "evidence state",
+      "findings",
+      "roadmap",
+      "capability states"
+    ],
+    "purpose": "Supports historical reproducibility.",
+    "relatedRules": [
+      {
+        "id": "OBJ-RULE-05",
+        "statement": "Published diagnosis reconstructable from Case Snapshot + Knowledge Version.",
+        "stage": "S3"
+      },
+      {
+        "id": "KG-RULE-06",
+        "statement": "Case Snapshot identifies both Engine and Knowledge versions used.",
+        "stage": "S4"
+      }
+    ],
+    "caseBinding": {
+      "sourceReference": "S4.8",
+      "fields": [
+        "master_knowledge_version",
+        "engine_version",
+        "pack versions"
+      ]
+    }
+  },
+  "gaps": [],
+  "checksum": "sha256:33ba5edba61b8357914efabb9255c43379bee8170f92bd9cdd3cb996badcd2ca"
+}

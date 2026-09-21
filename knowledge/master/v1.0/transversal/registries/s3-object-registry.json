@@ -1,0 +1,355 @@
+{
+  "$schema": "../../../../schemas/transversal-registry.schema.json",
+  "registryId": "S3-OBJECT-REGISTRY",
+  "title": "S3 · Object Registry (7 familias / 70 objetos lógicos)",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "stage": "S3",
+  "stageArtifacts": [
+    "PYMAPA-OBJECT-REGISTRY-v1.0 · APPROVED",
+    "PYMAPA-S3-v1.0 · MASTER-OBJECT-RELATIONSHIP-MODEL-COMPLETE"
+  ],
+  "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+  "provenance": {
+    "sourceReference": "M2-SOURCE Consolidated Authoritative Recovery Repository · S1–S5 · PART III · S3.1–S3.6, S3.11",
+    "derivation": "AUTHORITATIVE_RECOVERY_TRANSCRIPTION",
+    "approvedBy": "Gobierno editorial Pymapa",
+    "approvedAt": "2026-09-21",
+    "note": "Modelo lógico. S3 convierte el motor conceptual en entidades implementables sin seleccionar base de datos ni arquitectura de software."
+  },
+  "recoveredIds": [
+    "OBJ-RULE-01",
+    "OBJ-RULE-02",
+    "OBJ-RULE-03",
+    "OBJ-RULE-04",
+    "OBJ-RULE-05",
+    "OBJ-RULE-06"
+  ],
+  "sections": {
+    "governingRules": {
+      "sourceReference": "S3.1",
+      "rules": [
+        {
+          "id": "OBJ-RULE-01",
+          "statement": "Each master object has one primary semantic responsibility."
+        },
+        {
+          "id": "OBJ-RULE-02",
+          "statement": "Master Knowledge, Case State, Execution State and Learning State have separate identities/lifecycles."
+        },
+        {
+          "id": "OBJ-RULE-03",
+          "statement": "Respondent routing relates to Information Needs and does not change enterprise ownership of diagnosis."
+        },
+        {
+          "id": "OBJ-RULE-04",
+          "statement": "Aggregation to capability/domain/company only when scope, period and semantics support valid interpretation."
+        },
+        {
+          "id": "OBJ-RULE-05",
+          "statement": "Published diagnosis reconstructable from Case Snapshot + Knowledge Version."
+        },
+        {
+          "id": "OBJ-RULE-06",
+          "statement": "AI origin changes provenance/confidence/review, not object semantics."
+        }
+      ],
+      "invariants": [
+        "State ≠ object.",
+        "Evidence ≠ conclusion.",
+        "Knowledge ≠ Case.",
+        "Specific objects may extend generic objects.",
+        "Relations are first-class."
+      ]
+    },
+    "objectFamilies": {
+      "sourceReference": "S3.2",
+      "totalObjects": 70,
+      "families": [
+        {
+          "id": "A",
+          "name": "Knowledge Definition Objects",
+          "count": 21,
+          "objects": [
+            "Domain",
+            "Capability",
+            "Condition / CE",
+            "Variable / VA",
+            "Information Need",
+            "Diagnostic Rule",
+            "Positive State Definition",
+            "Guardrail",
+            "Contradiction Pattern",
+            "Finding Pattern",
+            "Decision Pattern",
+            "Intervention Pattern",
+            "Instrument Definition",
+            "Deliverable Definition",
+            "Done Criterion Definition",
+            "CRV Definition",
+            "Validation Definition",
+            "Evidence Ladder Definition",
+            "Reassessment Trigger Definition",
+            "Source Reference",
+            "Knowledge Provenance Record"
+          ]
+        },
+        {
+          "id": "B",
+          "name": "Case Context Objects",
+          "count": 6,
+          "objects": [
+            "Organization Case",
+            "Context Attribute",
+            "Organizational Unit",
+            "Actor",
+            "Respondent",
+            "Scope Object"
+          ]
+        },
+        {
+          "id": "C",
+          "name": "Evidence & Reasoning Objects",
+          "count": 12,
+          "objects": [
+            "Evidence",
+            "Evidence Passport",
+            "Observation",
+            "Claim",
+            "Inference",
+            "Contradiction",
+            "Sufficiency Assessment",
+            "Confidence Assessment",
+            "Materiality Assessment",
+            "Causal Relevance Assessment",
+            "Attribution Assessment",
+            "Applicability Assessment"
+          ]
+        },
+        {
+          "id": "D",
+          "name": "Diagnostic Objects",
+          "count": 6,
+          "objects": [
+            "Capability Evaluation",
+            "Finding",
+            "Derivation Signal",
+            "Capability Gap",
+            "Capability Bottleneck",
+            "Capability State"
+          ]
+        },
+        {
+          "id": "E",
+          "name": "Decision & Intervention Objects",
+          "count": 10,
+          "objects": [
+            "Decision",
+            "Recommendation",
+            "Intervention",
+            "Intervention Capability Requirement",
+            "Intervention Dependency",
+            "Priority Rationale",
+            "Roadmap Item",
+            "Specialist Escalation Decision",
+            "Required Specialist Profile",
+            "Specialist Handoff Pack"
+          ]
+        },
+        {
+          "id": "F",
+          "name": "Execution & Validation Objects",
+          "count": 8,
+          "objects": [
+            "Activity",
+            "Deliverable Instance",
+            "Done Assessment",
+            "Result Evidence",
+            "CRV Assessment",
+            "Validation Assessment",
+            "Reassessment Event",
+            "Intervention Outcome"
+          ]
+        },
+        {
+          "id": "G",
+          "name": "Learning & Governance Objects",
+          "count": 7,
+          "objects": [
+            "Case Learning",
+            "Reusable Signal",
+            "Candidate Knowledge",
+            "Knowledge Change Request",
+            "Knowledge Version",
+            "Approval Record",
+            "Deprecation/Supersession Record"
+          ]
+        }
+      ]
+    },
+    "coreObjects": {
+      "sourceReference": "S3.3",
+      "count": 15,
+      "objects": [
+        "Organization Case",
+        "Capability",
+        "Knowledge Pack",
+        "Information Need",
+        "Evidence",
+        "Observation",
+        "Claim",
+        "Capability Evaluation",
+        "Finding",
+        "Intervention",
+        "Capability Gap",
+        "Specialist Escalation",
+        "CRV",
+        "Validation Assessment",
+        "Knowledge Version"
+      ]
+    },
+    "lifecycles": {
+      "sourceReference": "S3.5",
+      "evidence": [
+        "CAPTURED",
+        "VERIFIED",
+        "QUALIFIED",
+        "RESTRICTED",
+        "STALE",
+        "INVALIDATED",
+        "ARCHIVED"
+      ],
+      "finding": [
+        "OPEN",
+        "UNDER-INVESTIGATION",
+        "ACCEPTED",
+        "IN-TREATMENT",
+        "REFERRED",
+        "RESOLVED",
+        "NO-LONGER-APPLICABLE"
+      ],
+      "intervention": [
+        "CANDIDATE",
+        "READY",
+        "BLOCKED",
+        "DEFERRED",
+        "IN-PROGRESS",
+        "DONE-PENDING-VALIDATION",
+        "VALIDATED",
+        "INEFFECTIVE",
+        "STOPPED"
+      ],
+      "knowledge": [
+        "DRAFT",
+        "CANDIDATE",
+        "REVIEW",
+        "APPROVED",
+        "ACTIVE",
+        "DEPRECATED",
+        "SUPERSEDED",
+        "RETIRED"
+      ],
+      "specialistEscalation": [
+        "NOT-REQUIRED",
+        "CANDIDATE",
+        "REQUIRED",
+        "REFERRED",
+        "ENGAGED",
+        "COMPLETED",
+        "VALIDATION-PENDING",
+        "CLOSED"
+      ],
+      "invariant": "Specialist work completed ≠ finding resolved."
+    },
+    "identityScopeTimeProvenance": {
+      "sourceReference": "S3.6",
+      "identity": "Persistent objects use immutable logical IDs. Versions remain separate.",
+      "scopeTypes": [
+        "COMPANY",
+        "PROCESS",
+        "TEAM",
+        "PRODUCT",
+        "CHANNEL",
+        "SEGMENT",
+        "SYSTEM",
+        "EXTERNAL_RELATIONSHIP"
+      ],
+      "temporalFields": [
+        "observed_at",
+        "valid_from",
+        "valid_until / review_due",
+        "invalidated_at"
+      ],
+      "provenanceValuesS3": [
+        "SOURCE-DERIVED",
+        "PYMAPA-DESIGNED",
+        "CASE-DERIVED",
+        "AI-ASSISTED",
+        "HUMAN-CONFIRMED",
+        "SPECIALIST-DERIVED"
+      ],
+      "accessClasses": [
+        "CASE-INTERNAL",
+        "RESTRICTED",
+        "ROLE-LIMITED",
+        "SPECIALIST-SHAREABLE",
+        "EXTERNAL-SOURCE"
+      ],
+      "note": "El contexto de provenance de S3 se preserva separado de S1 y S4."
+    },
+    "cardinality": {
+      "sourceReference": "S3.11",
+      "relations": [
+        "Domain 1 → N Capability",
+        "Capability 1 → N CE",
+        "CE 1 → N VA",
+        "VA 1 → N NI",
+        "NI N ↔ N Evidence",
+        "Evidence 1 → N Observation",
+        "Observation N ↔ N Claims",
+        "Capability Evaluation 1 → N Findings",
+        "Finding N ↔ N Interventions",
+        "Intervention N ↔ N Required Capabilities",
+        "Intervention N ↔ N CRV",
+        "Intervention N ↔ N Intervention Dependencies",
+        "Finding/Intervention 0..N → Specialist Escalations",
+        "Case 1 → N Capability Evaluations"
+      ]
+    },
+    "qualityGate": {
+      "sourceReference": "S3.12",
+      "recoveryClass": "RECOVERED_VERBATIM",
+      "results": [
+        "20/20 PASS",
+        "10/10 PASS"
+      ]
+    },
+    "closure": {
+      "recoveryClass": "RECOVERED_VERBATIM",
+      "statements": [
+        "PYMAPA-OBJECT-REGISTRY-v1.0 · APPROVED",
+        "PYMAPA-S3-v1.0 · MASTER-OBJECT-RELATIONSHIP-MODEL-COMPLETE"
+      ]
+    }
+  },
+  "gaps": [
+    {
+      "id": "RG-S3-01",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "Fuera de alcance / no recuperado en S3: esquema físico de base de datos, esquema de API, esquema JSON exacto e implementación ejecutable. No se atribuyen retroactivamente a S1–S5.",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · S3.13 y PART VIII"
+    },
+    {
+      "id": "GRE-S3-01",
+      "kind": "GENERIC_RUNTIME_EXTENSION_REQUIRED",
+      "statement": "El modelo productivo actual no materializa Claim, Attribution Assessment, Capability Bottleneck, Priority Rationale, Roadmap Item ni los objetos de especialista como entidades propias. Extensión genérica futura; no se implementa aquí.",
+      "publicationBlocking": false,
+      "sourceReference": "M2-SOURCE · S3.2–S3.3"
+    }
+  ],
+  "checksum": "sha256:3e0ad55a85023f052633bd24b0f0c3619f7cb1378890771d19dfd66d5396bdf9"
+}

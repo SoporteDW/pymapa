@@ -1,0 +1,132 @@
+{
+  "$schema": "../../../../schemas/transversal-registry.schema.json",
+  "registryId": "S4-SOURCE-GOVERNANCE",
+  "title": "S4 · Source Governance y provenance claim-to-source",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "stage": "S4",
+  "stageArtifacts": [
+    "PYMAPA-SOURCE-GOVERNANCE-v1.0 · APPROVED",
+    "PYMAPA-S4-v1.0 · GOVERNANCE-PROVENANCE-VERSIONING-COMPLETE"
+  ],
+  "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+  "provenance": {
+    "sourceReference": "M2-SOURCE Consolidated Authoritative Recovery Repository · S1–S5 · PART IV · S4.5–S4.6",
+    "derivation": "AUTHORITATIVE_RECOVERY_TRANSCRIPTION",
+    "approvedBy": "Gobierno editorial Pymapa",
+    "approvedAt": "2026-09-21"
+  },
+  "recoveredIds": [
+    "SRC-T1",
+    "SRC-T2",
+    "SRC-T3",
+    "SRC-T4",
+    "SRC-T5",
+    "SRC-T6",
+    "KG-RULE-03",
+    "KG-RULE-04",
+    "KG-RULE-10"
+  ],
+  "sections": {
+    "sourceRegisterMaster": {
+      "sourceReference": "S4.5",
+      "fields": [
+        "Source ID",
+        "Title",
+        "Publisher/Author",
+        "Source Type",
+        "URL/reference",
+        "publication date",
+        "access/retrieval date",
+        "relevant domain/capability",
+        "claims supported",
+        "authority/relevance notes",
+        "currency",
+        "review trigger",
+        "status"
+      ],
+      "sourceTypes": [
+        {
+          "id": "SRC-T1",
+          "label": "STANDARD/OFFICIAL"
+        },
+        {
+          "id": "SRC-T2",
+          "label": "ACADEMIC"
+        },
+        {
+          "id": "SRC-T3",
+          "label": "PROFESSIONAL/INDUSTRY"
+        },
+        {
+          "id": "SRC-T4",
+          "label": "EXPERT/PRACTITIONER"
+        },
+        {
+          "id": "SRC-T5",
+          "label": "PRODUCT/PLATFORM"
+        },
+        {
+          "id": "SRC-T6",
+          "label": "COMMUNITY/INFORMAL"
+        }
+      ],
+      "freshness": [
+        "STABLE",
+        "SLOW",
+        "DYNAMIC",
+        "EVENT-DRIVEN"
+      ],
+      "status": [
+        "CANDIDATE",
+        "REVIEWED",
+        "ACTIVE",
+        "WATCH",
+        "SUPERSEDED",
+        "RETIRED"
+      ],
+      "rules": [
+        {
+          "id": "KG-RULE-03",
+          "statement": "Source authority does not replace applicability/proportionality assessment."
+        }
+      ]
+    },
+    "claimToSource": {
+      "sourceReference": "S4.6",
+      "relation": "Source → supports → Knowledge Claim",
+      "provenanceValuesS4": [
+        "PYMAPA-DESIGNED",
+        "SOURCE-DERIVED",
+        "SOURCE-INFORMED",
+        "CASE-DERIVED-CANDIDATE",
+        "CROSS-CAPABILITY-DERIVED",
+        "AI-ASSISTED"
+      ],
+      "rules": [
+        {
+          "id": "KG-RULE-04",
+          "statement": "Do not attribute Pymapa-designed architecture to an external source merely because the source provides conceptual grounding."
+        },
+        {
+          "id": "KG-RULE-10",
+          "statement": "AI-proposed references must be verified for existence, identity and relevance before entering verified Source Register."
+        }
+      ],
+      "note": "El contexto de provenance de S4 se preserva separado de S1 y S3."
+    }
+  },
+  "gaps": [
+    {
+      "id": "RG-S4-02",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "El Source Register poblado (fuentes concretas por capacidad) no está recuperado. Se materializa la arquitectura, sin fuentes inventadas.",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · S4.5 y S4.19"
+    }
+  ],
+  "checksum": "sha256:5b90ed1091fe90e11dc5a7ba2e98e19910c1794aac3f3b66658ae825a274270a"
+}

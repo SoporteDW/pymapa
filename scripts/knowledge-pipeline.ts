@@ -17,8 +17,11 @@ import {
   discoverCapabilityPipelineInputs,
   listMasterVersions,
   loadMasterIndex,
+  loadTransversalIndex,
+  loadTransversalRegistries,
   runBatch,
   validateMasterIndex,
+  validateTransversalCore,
   verifySelfChecksum,
 } from "@pymapa/knowledge-pipeline";
 
@@ -54,6 +57,31 @@ for (const version of versiones) {
     master.issues.forEach((i) => problema(`${version} master.json ${i.path}: ${i.message}`));
     continue;
   }
+
+  const indiceTransversal = loadTransversalIndex(ROOT, version);
+  if (indiceTransversal === undefined) {
+    console.log("· sin núcleo transversal materializado en esta versión de Master");
+  } else {
+    const registros = loadTransversalRegistries(ROOT, version);
+    const checksumIndice = verifySelfChecksum(indiceTransversal as Record<string, unknown>);
+    if (!checksumIndice.ok) {
+      problema(
+        `${version}: checksum del índice transversal inválido (esperado ${checksumIndice.expected})`,
+      );
+    }
+    const nucleo = validateTransversalCore({ index: indiceTransversal, registries: registros });
+    nucleo.issues.forEach((i) => problema(`${version} transversal ${i.path}: ${i.message}`));
+    console.log(
+      `Transversal: ${nucleo.summary.registryCount} registros · ${nucleo.summary.recoveredIdCount} IDs recuperados · ${nucleo.summary.gapCount} gaps (${nucleo.summary.notRecoveredGapCount} SOURCE_CONTENT_NOT_RECOVERED, ${nucleo.summary.genericRuntimeExtensionCount} GENERIC_RUNTIME_EXTENSION_REQUIRED) · ${nucleo.summary.crossStageDifferenceCount} diferencias cross-stage`,
+    );
+    nucleo.summary.stages.forEach((e) =>
+      console.log(
+        `  · ${e.stage}: ${e.registryCount} registros, ${e.recoveredIdCount} IDs, ${e.gapCount} gaps`,
+      ),
+    );
+  }
+
+
 
   const entradas = discoverCapabilityPipelineInputs(ROOT, version);
   for (const entrada of entradas) {

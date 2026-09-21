@@ -1,0 +1,76 @@
+{
+  "$schema": "../../../../schemas/transversal-registry.schema.json",
+  "registryId": "S3-LOGICAL-KNOWLEDGE-GRAPH",
+  "title": "S3 · Definición del Logical Knowledge Graph",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "stage": "S3",
+  "stageArtifacts": [
+    "PYMAPA-KNOWLEDGE-GRAPH-LOGICAL-MODEL-v1.0 · APPROVED",
+    "PYMAPA-S3-v1.0 · MASTER-OBJECT-RELATIONSHIP-MODEL-COMPLETE"
+  ],
+  "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+  "provenance": {
+    "sourceReference": "M2-SOURCE Consolidated Authoritative Recovery Repository · S1–S5 · PART III · S3.10",
+    "derivation": "AUTHORITATIVE_RECOVERY_TRANSCRIPTION",
+    "approvedBy": "Gobierno editorial Pymapa",
+    "approvedAt": "2026-09-21"
+  },
+  "recoveredIds": [],
+  "sections": {
+    "masterSide": {
+      "spine": [
+        "Domain",
+        "Capability",
+        "Condition",
+        "Variable",
+        "Information Need"
+      ],
+      "plus": [
+        "Rules",
+        "Finding Patterns",
+        "Intervention Patterns",
+        "Instruments",
+        "CRV Definitions",
+        "Validation Definitions"
+      ]
+    },
+    "caseSide": [
+      "Organization Case",
+      "Context",
+      "Evidence",
+      "Observations / Claims",
+      "Capability Evaluations",
+      "Findings",
+      "Derivation Signals",
+      "Capability Gaps",
+      "Bottlenecks",
+      "Recommendations",
+      "Interventions"
+    ],
+    "executionSide": [
+      "Intervention",
+      "Activities",
+      "Required Capabilities",
+      "Dependencies",
+      "Specialist Escalation",
+      "Deliverables",
+      "Done Criteria",
+      "CRV",
+      "Validation"
+    ],
+    "learningSide": [
+      "Case",
+      "Case Learning",
+      "Reusable Signal",
+      "Candidate Knowledge",
+      "Change Request",
+      "Approved Knowledge Version"
+    ]
+  },
+  "gaps": [],
+  "checksum": "sha256:d9afa8c904ee38f21e608bfc643fdb811afe67c6c2147b46bb696041e7848320"
+}

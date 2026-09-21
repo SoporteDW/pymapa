@@ -1,0 +1,156 @@
+{
+  "$schema": "../../../../schemas/transversal-registry.schema.json",
+  "registryId": "TAXONOMY-REGISTRY-6X31",
+  "title": "Taxonomy Registry 6×31 y estado de las 31 capacidades",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "stage": "S5",
+  "stageArtifacts": [
+    "PYMAPA-6x31-VERTICAL-KNOWLEDGE-v1.0 · 31/31 CAPABILITIES K4-VALIDATED · 6/6 DOMAINS KNOWLEDGE-COMPLETE",
+    "PYMAPA-KNOWLEDGE-MASTER-v1.0 · BASELINE-APPROVED"
+  ],
+  "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+  "provenance": {
+    "sourceReference": "M2-SOURCE Consolidated Authoritative Recovery Repository · S1–S5 · PART V · S5.3 (con S4.15 y PART VIII)",
+    "derivation": "AUTHORITATIVE_RECOVERY_TRANSCRIPTION",
+    "approvedBy": "Gobierno editorial Pymapa",
+    "approvedAt": "2026-09-21",
+    "note": "K4-VALIDATED describe cierre histórico aprobado y NO equivale a SOURCE_READY. Solo OP-01 tiene cuerpo autoritativo materializado en el repositorio."
+  },
+  "recoveredIds": [
+    "DG",
+    "PC",
+    "OP",
+    "DT",
+    "CM",
+    "EC",
+    "OP-01"
+  ],
+  "sections": {
+    "verticalMilestone": {
+      "recoveryClass": "RECOVERED_VERBATIM",
+      "statement": "PYMAPA-6x31-VERTICAL-KNOWLEDGE-v1.0 · 31/31 CAPABILITIES K4-VALIDATED · 6/6 DOMAINS KNOWLEDGE-COMPLETE"
+    },
+    "domainClosures": {
+      "sourceReference": "S5.3",
+      "total": 31,
+      "domains": [
+        {
+          "domainId": "DG",
+          "nameRecovery": "SOURCE_CONTENT_NOT_RECOVERED",
+          "declaredCapabilityCount": 5,
+          "closure": "DG 5/5",
+          "materializedCapabilityIds": [],
+          "unrecoveredCapabilityCount": 5,
+          "capabilityStatus": "APPROVED_HISTORY_CONFIRMED"
+        },
+        {
+          "domainId": "PC",
+          "nameRecovery": "SOURCE_CONTENT_NOT_RECOVERED",
+          "declaredCapabilityCount": 5,
+          "closure": "PC 5/5",
+          "materializedCapabilityIds": [],
+          "unrecoveredCapabilityCount": 5,
+          "capabilityStatus": "APPROVED_HISTORY_CONFIRMED"
+        },
+        {
+          "domainId": "OP",
+          "nameRecovery": "SOURCE_CONTENT_NOT_RECOVERED",
+          "declaredCapabilityCount": 5,
+          "closure": "OP 5/5",
+          "materializedCapabilityIds": [
+            "OP-01"
+          ],
+          "unrecoveredCapabilityCount": 4,
+          "capabilityStatus": "APPROVED_HISTORY_CONFIRMED"
+        },
+        {
+          "domainId": "DT",
+          "nameRecovery": "SOURCE_CONTENT_NOT_RECOVERED",
+          "declaredCapabilityCount": 6,
+          "closure": "DT 6/6",
+          "materializedCapabilityIds": [],
+          "unrecoveredCapabilityCount": 6,
+          "capabilityStatus": "APPROVED_HISTORY_CONFIRMED"
+        },
+        {
+          "domainId": "CM",
+          "nameRecovery": "SOURCE_CONTENT_NOT_RECOVERED",
+          "declaredCapabilityCount": 6,
+          "closure": "CM 6/6",
+          "materializedCapabilityIds": [],
+          "unrecoveredCapabilityCount": 6,
+          "capabilityStatus": "APPROVED_HISTORY_CONFIRMED"
+        },
+        {
+          "domainId": "EC",
+          "nameRecovery": "SOURCE_CONTENT_NOT_RECOVERED",
+          "declaredCapabilityCount": 4,
+          "closure": "EC 4/4",
+          "materializedCapabilityIds": [],
+          "unrecoveredCapabilityCount": 4,
+          "capabilityStatus": "APPROVED_HISTORY_CONFIRMED"
+        }
+      ]
+    },
+    "capabilityStatusRegistry": {
+      "materialized": [
+        {
+          "capabilityId": "OP-01",
+          "domainId": "OP",
+          "historicalStatus": "K4-VALIDATED",
+          "sourceStatus": "SOURCE_READY",
+          "sourceRef": "capabilities/OP-01/source.json",
+          "packId": "op-01",
+          "packVersion": "1.0.0",
+          "note": "Reference Capability / Golden Pack. Su fuente gobernada existente se conserva intacta."
+        }
+      ],
+      "unmaterialized": {
+        "count": 30,
+        "status": "APPROVED_HISTORY_CONFIRMED",
+        "recoveryClass": "SOURCE_CONTENT_NOT_RECOVERED",
+        "capabilityIdentities": "NOT_RECOVERED",
+        "statement": "El cierre histórico 31/31 K4-VALIDATED está confirmado, pero el material recuperado no preserva los identificadores, nombres ni cuerpos de las 30 capacidades restantes. No se generan packs vacíos, aproximados ni inferidos, ni se inventan IDs por analogía con OP-01.",
+        "prohibited": [
+          "inferir IDs o nombres de capacidad",
+          "derivar contenido desde OP-01",
+          "derivar contenido desde el código MVP existente",
+          "marcar como SOURCE_READY"
+        ]
+      }
+    },
+    "taxonomyProtection": {
+      "sourceReference": "S4.15",
+      "statement": "Cambios en los 6 dominios, IDs de capacidad, nombres, adiciones, eliminaciones, fusiones o renumeración son CH4.",
+      "rule": "KG-RULE-14 · No capability may be renamed, deleted, merged or renumbered silently."
+    }
+  },
+  "gaps": [
+    {
+      "id": "RG-TAX-01",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "Identificadores y nombres oficiales de las 30 capacidades no materializadas: no recuperados. Los dominios DG, PC, DT, CM, EC constan por ID y conteo; sus nombres oficiales no están recuperados.",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · S5.3 y PART VIII"
+    },
+    {
+      "id": "RG-TAX-02",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "Contenidos literales completos de los 31 Knowledge Packs verticales: no recuperados. Prohibido reconstruirlos.",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · PART VIII"
+    },
+    {
+      "id": "RG-TAX-03",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "Registro global autoritativo de todos los objetos CAND-* verticales: no preservado como artefacto único. Solo se conservan los CAND-* citados explícitamente (CAND-MOTOR-CROSS-CAP-03, CAND-MOTOR-S2-01).",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · PART VIII"
+    }
+  ],
+  "checksum": "sha256:f2f4bd76fd1969eda963e88c1d49df08a014ddb910d651c1ccac5adbd7a5fd66"
+}

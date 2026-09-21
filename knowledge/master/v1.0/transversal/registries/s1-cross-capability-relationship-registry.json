@@ -1,0 +1,427 @@
+{
+  "$schema": "../../../../schemas/transversal-registry.schema.json",
+  "registryId": "S1-CROSS-CAPABILITY-RELATIONSHIP-REGISTRY",
+  "title": "S1 · Cross-Capability Relationship Registry, Capability Gap, Bottleneck y Specialist Escalation",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "stage": "S1",
+  "stageArtifacts": [
+    "PYMAPA-S1-CROSS-31-v1.0 · TRANSVERSAL-RECONCILIATION-COMPLETE"
+  ],
+  "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+  "provenance": {
+    "sourceReference": "M2-SOURCE Consolidated Authoritative Recovery Repository · S1–S5 · PART I · S1.1–S1.14",
+    "derivation": "AUTHORITATIVE_RECOVERY_TRANSCRIPTION",
+    "approvedBy": "Gobierno editorial Pymapa",
+    "approvedAt": "2026-09-21",
+    "note": "Se materializan las relaciones maestras recuperadas. No existe matriz estática 31×31 recuperada y no se infiere ninguna."
+  },
+  "recoveredIds": [
+    "MOTOR-RULE-CROSS-04",
+    "MOTOR-RULE-CROSS-05",
+    "MOTOR-RULE-CROSS-06",
+    "MOTOR-RULE-CROSS-07",
+    "MOTOR-RULE-CROSS-08",
+    "MOTOR-RULE-CROSS-09",
+    "MOTOR-RULE-CROSS-10",
+    "MOTOR-RULE-CROSS-11",
+    "MOTOR-RULE-CROSS-12",
+    "CAND-MOTOR-CROSS-CAP-03",
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "B1",
+    "B2",
+    "B3",
+    "RC0",
+    "RC1",
+    "RC2",
+    "RC3",
+    "RC4",
+    "ST-01",
+    "ST-02",
+    "ST-03",
+    "ST-04",
+    "ST-05",
+    "ST-06",
+    "ST-07",
+    "S0",
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "P0",
+    "P1",
+    "P2",
+    "P3",
+    "P4"
+  ],
+  "sections": {
+    "masterRelations": {
+      "sourceReference": "S1.1",
+      "relations": [
+        "EVIDENCE_REUSE",
+        "DERIVES_TO",
+        "REQUIRES",
+        "ENABLES",
+        "CONSTRAINS",
+        "COLLIDES_WITH",
+        "ESCALATES_TO"
+      ],
+      "invariant": "None of these relations automatically transfers a conclusion from one capability to another.",
+      "rules": [
+        {
+          "id": "MOTOR-RULE-CROSS-04",
+          "name": "DIAGNOSTIC-INDEPENDENCE",
+          "statement": "No finding, validation or confidence transfers automatically across capabilities."
+        }
+      ]
+    },
+    "evidenceReuse": {
+      "sourceReference": "S1.2",
+      "statement": "Evidence may be reused between capabilities without reusing the conclusion produced from that evidence.",
+      "evidencePassport": [
+        "Evidence ID",
+        "Source",
+        "Object",
+        "Scope",
+        "Time",
+        "Acquisition Method",
+        "Original Purpose",
+        "Quality",
+        "Restrictions"
+      ],
+      "rules": [
+        {
+          "id": "MOTOR-RULE-CROSS-05",
+          "statement": "Evidence reuse preserves: scope + time + provenance + quality."
+        },
+        {
+          "id": "MOTOR-RULE-CROSS-06",
+          "name": "ASK-ONLY-IF-INFORMATION-VALUE",
+          "statement": "Reuse valid existing evidence before asking again. Deepen acquisition only when Value of Information justifies additional burden."
+        }
+      ]
+    },
+    "derivationSignal": {
+      "sourceReference": "S1.3",
+      "statement": "A cross-capability derivation does not create an automatic finding.",
+      "structure": [
+        "Source Capability",
+        "Source Condition",
+        "Target Capability",
+        "Reason",
+        "Priority",
+        "Evidence Pointer"
+      ],
+      "strength": [
+        {
+          "id": "D1",
+          "label": "OPTIONAL"
+        },
+        {
+          "id": "D2",
+          "label": "RELEVANT"
+        },
+        {
+          "id": "D3",
+          "label": "MATERIAL"
+        },
+        {
+          "id": "D4",
+          "label": "REQUIRED"
+        }
+      ],
+      "invariant": "These represent investigation priority, not maturity."
+    },
+    "interventionCapabilityRequirement": {
+      "sourceReference": "S1.4",
+      "name": "Intervention Capability Requirement — ICR",
+      "fields": [
+        "Intervention ID",
+        "Required Capability",
+        "Required Condition",
+        "Criticality",
+        "Current Evidence",
+        "Gap State"
+      ],
+      "rules": [
+        {
+          "id": "MOTOR-RULE-CROSS-07",
+          "statement": "Capability sufficiency is evaluated relative to the concrete intervention, not as an absolute organizational attribute."
+        }
+      ]
+    },
+    "capabilityGap": {
+      "sourceReference": "S1.5",
+      "distinction": "Diagnostic Gap ≠ Resolution Capability",
+      "capabilityGapMap": [
+        "Required Capability",
+        "Current Evidence",
+        "Gap",
+        "Materiality",
+        "Intervention Dependency",
+        "Development Option"
+      ],
+      "resolutionOptions": [
+        "BUILD",
+        "ACCESS",
+        "HYBRID",
+        "SPECIALIST"
+      ]
+    },
+    "capabilityBottleneck": {
+      "sourceReference": "S1.6",
+      "definition": "A Capability Bottleneck is an insufficient capability condition that materially blocks one or several priority interventions.",
+      "classes": [
+        {
+          "id": "B1",
+          "label": "SINGLE-INTERVENTION"
+        },
+        {
+          "id": "B2",
+          "label": "MULTI-INTERVENTION"
+        },
+        {
+          "id": "B3",
+          "label": "SYSTEMIC"
+        }
+      ],
+      "invariant": "It does not mean “the worst capability.” It means the capability condition currently blocking interventions."
+    },
+    "resolutionCapability": {
+      "sourceReference": "S1.7",
+      "preservedId": "CAND-MOTOR-CROSS-CAP-03 · RESOLUTION-CAPABILITY",
+      "states": [
+        {
+          "id": "RC0",
+          "label": "SUFFICIENT-INTERNAL"
+        },
+        {
+          "id": "RC1",
+          "label": "BUILD-INTERNAL"
+        },
+        {
+          "id": "RC2",
+          "label": "HYBRID"
+        },
+        {
+          "id": "RC3",
+          "label": "ACCESS-EXTERNAL"
+        },
+        {
+          "id": "RC4",
+          "label": "SPECIALIST-REQUIRED"
+        }
+      ],
+      "invariant": "Capability Gap remains distinct from resolution mode."
+    },
+    "specialistEscalationDecision": {
+      "sourceReference": "S1.8",
+      "considers": [
+        "Required Expertise",
+        "Consequence of Error",
+        "Regulatory/Professional Boundary",
+        "Complexity",
+        "Internal Capability",
+        "Evidence Confidence",
+        "Failed Attempts",
+        "Economic Proportionality"
+      ],
+      "triggers": [
+        {
+          "id": "ST-01",
+          "label": "EXPERTISE"
+        },
+        {
+          "id": "ST-02",
+          "label": "CONSEQUENCE"
+        },
+        {
+          "id": "ST-03",
+          "label": "PROFESSIONAL/REGULATORY"
+        },
+        {
+          "id": "ST-04",
+          "label": "COMPLEXITY"
+        },
+        {
+          "id": "ST-05",
+          "label": "UNCERTAINTY"
+        },
+        {
+          "id": "ST-06",
+          "label": "ECONOMIC"
+        },
+        {
+          "id": "ST-07",
+          "label": "FAILED-RESOLUTION"
+        }
+      ],
+      "rules": [
+        {
+          "id": "MOTOR-RULE-CROSS-08",
+          "statement": "Specialist support depth is proportional. A specialist trigger does not imply full outsourcing."
+        }
+      ]
+    },
+    "specialistSupportDepth": {
+      "sourceReference": "S1.9",
+      "levels": [
+        {
+          "id": "S0",
+          "label": "NO SPECIALIST REQUIRED"
+        },
+        {
+          "id": "S1",
+          "label": "EXPERT REVIEW"
+        },
+        {
+          "id": "S2",
+          "label": "EXPERT GUIDANCE"
+        },
+        {
+          "id": "S3",
+          "label": "ASSISTED IMPLEMENTATION"
+        },
+        {
+          "id": "S4",
+          "label": "SPECIALIST EXECUTION"
+        },
+        {
+          "id": "S5",
+          "label": "MANAGED EXTERNAL CAPABILITY"
+        }
+      ],
+      "note": "S0–S5 aquí denotan profundidad de apoyo especialista, no las etapas de ingeniería S1–S5. El registro preserva ambos usos sin unificarlos."
+    },
+    "needBeforeProvider": {
+      "sourceReference": "S1.10",
+      "rules": [
+        {
+          "id": "MOTOR-RULE-CROSS-09",
+          "name": "NEED-BEFORE-PROVIDER",
+          "statement": "Specialist need/profile must be determined independently of provider availability and commercial relationship."
+        }
+      ],
+      "requiredSpecialistProfile": [
+        "capability needed",
+        "problem scope",
+        "expected outcome",
+        "expertise",
+        "context",
+        "constraints",
+        "evidence required",
+        "engagement depth"
+      ]
+    },
+    "specialistHandoffPack": {
+      "sourceReference": "S1.11",
+      "fields": [
+        "Context",
+        "Problem",
+        "Evidence",
+        "Uncertainty",
+        "Prior Attempts",
+        "Required Expertise",
+        "Expected Outcome",
+        "Constraints",
+        "Validation"
+      ],
+      "rules": [
+        {
+          "id": "MOTOR-RULE-CROSS-10",
+          "statement": "REFERRED ≠ RESOLVED. Specialist referral does not close the finding."
+        }
+      ]
+    },
+    "interventionCollisions": {
+      "sourceReference": "S1.12",
+      "types": [
+        "RESOURCE",
+        "SEQUENCE",
+        "DESIGN",
+        "RISK"
+      ]
+    },
+    "interventionDependencyGraph": {
+      "sourceReference": "S1.13",
+      "relations": [
+        "REQUIRES",
+        "ENABLES",
+        "BLOCKS",
+        "COLLIDES",
+        "PARALLEL",
+        "SPECIALIST-DEPENDENT"
+      ]
+    },
+    "prioritySynthesis": {
+      "sourceReference": "S1.14",
+      "classes": [
+        {
+          "id": "P0",
+          "label": "EVIDENCE REQUIRED"
+        },
+        {
+          "id": "P1",
+          "label": "PROTECT / UNBLOCK"
+        },
+        {
+          "id": "P2",
+          "label": "ENABLE"
+        },
+        {
+          "id": "P3",
+          "label": "IMPROVE"
+        },
+        {
+          "id": "P4",
+          "label": "OPTIMIZE"
+        }
+      ],
+      "invariants": [
+        "These are decisional classes, not a universal mathematical ranking.",
+        "Priority Class does not necessarily equal execution order."
+      ],
+      "rules": [
+        {
+          "id": "MOTOR-RULE-CROSS-11",
+          "statement": "Number of findings ≠ priority."
+        },
+        {
+          "id": "MOTOR-RULE-CROSS-12",
+          "statement": "Priority derives from contextual/causal relevance, not from abstract maturity gap."
+        }
+      ]
+    }
+  },
+  "gaps": [
+    {
+      "id": "RG-S1-01",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "No existe matriz estática exhaustiva de relaciones 31×31 más allá de las relaciones efectivamente recuperadas. Prohibido inferirla.",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · PART VIII · GLOBAL SOURCE CONTENT NOT RECOVERED"
+    },
+    {
+      "id": "RG-S1-02",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "MOTOR-RULE-CROSS-01 a MOTOR-RULE-CROSS-03 no aparecen en el material recuperado; la numeración recuperada comienza en MOTOR-RULE-CROSS-04. No se reconstruyen.",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · PART I · S1.1"
+    },
+    {
+      "id": "GRE-S1-01",
+      "kind": "GENERIC_RUNTIME_EXTENSION_REQUIRED",
+      "statement": "El runtime productivo actual no ejecuta relaciones cross-capability (EVIDENCE_REUSE, DERIVES_TO, REQUIRES, ENABLES, CONSTRAINS, COLLIDES_WITH, ESCALATES_TO), Capability Bottleneck, RC0–RC4 ni S0–S5. Requiere extensión genérica futura, no implementada en este bloque.",
+      "publicationBlocking": false,
+      "sourceReference": "M2-SOURCE · PART I · S1.1–S1.13"
+    }
+  ],
+  "checksum": "sha256:d746603913fedd6ed6e7974d3c3fcc69bc21ed56445a23dfc50df81de7a4233f"
+}

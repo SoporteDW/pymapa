@@ -7,7 +7,7 @@
     "sourceReference": "PYMAPA-KNOWLEDGE-MASTER-v1.0 · BASELINE-APPROVED",
     "custodian": "Gobierno editorial Pymapa",
     "approvedAt": "2026-09-21",
-    "note": "Única fuente autorizada para industrializar capacidades. Las secciones fuente solo se incorporan mediante ingestión gobernada; no se reconstruyen desde prompts, memoria, código MVP, OP-01 ni inferencia."
+    "note": "Única fuente autorizada para industrializar capacidades. El núcleo transversal S1–S5 se materializa en transversal/index.json desde el artefacto autoritativo de recuperación M2-SOURCE. Las secciones fuente de las capacidades verticales solo se incorporan mediante ingestión gobernada; no se reconstruyen desde prompts, memoria, código MVP, OP-01 ni inferencia."
   },
   "publication": {
     "status": "BASELINE_APPROVED",
@@ -15,10 +15,80 @@
     "publishedBy": "Gobierno editorial Pymapa"
   },
   "expectedCapabilityCount": 31,
+  "verticalStatus": {
+    "milestone": "PYMAPA-6x31-VERTICAL-KNOWLEDGE-v1.0 · 31/31 CAPABILITIES K4-VALIDATED · 6/6 DOMAINS KNOWLEDGE-COMPLETE",
+    "k4ValidatedCapabilityCount": 31,
+    "domainClosures": [
+      {
+        "domainId": "DG",
+        "declaredCapabilityCount": 5,
+        "closure": "DG 5/5"
+      },
+      {
+        "domainId": "PC",
+        "declaredCapabilityCount": 5,
+        "closure": "PC 5/5"
+      },
+      {
+        "domainId": "OP",
+        "declaredCapabilityCount": 5,
+        "closure": "OP 5/5"
+      },
+      {
+        "domainId": "DT",
+        "declaredCapabilityCount": 6,
+        "closure": "DT 6/6"
+      },
+      {
+        "domainId": "CM",
+        "declaredCapabilityCount": 6,
+        "closure": "CM 6/6"
+      },
+      {
+        "domainId": "EC",
+        "declaredCapabilityCount": 4,
+        "closure": "EC 4/4"
+      }
+    ],
+    "materializedSourceCount": 1,
+    "unrecoveredCapabilityCount": 30,
+    "unrecoveredCapabilityStatus": "APPROVED_HISTORY_CONFIRMED",
+    "unrecoveredRecoveryClass": "SOURCE_CONTENT_NOT_RECOVERED",
+    "note": "K4-VALIDATED ≠ SOURCE_READY. El cierre histórico 31/31 está confirmado; los identificadores, nombres y cuerpos de las 30 capacidades no materializadas no están recuperados y no se infieren. Detalle en transversal/registries/taxonomy-registry-6x31.json."
+  },
+  "transversal": {
+    "ref": "transversal/index.json",
+    "registryCount": 17
+  },
   "domains": [
+    {
+      "id": "DG",
+      "name": "SOURCE CONTENT NOT RECOVERED",
+      "status": "draft"
+    },
+    {
+      "id": "PC",
+      "name": "SOURCE CONTENT NOT RECOVERED",
+      "status": "draft"
+    },
     {
       "id": "OP",
       "name": "Operaciones",
+      "status": "draft"
+    },
+    {
+      "id": "DT",
+      "name": "SOURCE CONTENT NOT RECOVERED",
+      "status": "draft"
+    },
+    {
+      "id": "CM",
+      "name": "SOURCE CONTENT NOT RECOVERED",
+      "status": "draft"
+    },
+    {
+      "id": "EC",
+      "name": "SOURCE CONTENT NOT RECOVERED",
       "status": "draft"
     }
   ],
@@ -32,5 +102,5 @@
       "sourceVersion": "1.0"
     }
   ],
-  "checksum": "sha256:191669fc519844d34d8bec0c0a7ae69db5789356ab982910363551fb5c363e76"
+  "checksum": "sha256:acecc90a556bd15a575084565b0fd4ed894f9ea60d413063b83865ea1ad327a9"
 }

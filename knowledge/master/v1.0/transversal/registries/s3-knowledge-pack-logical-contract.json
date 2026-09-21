@@ -1,0 +1,67 @@
+{
+  "$schema": "../../../../schemas/transversal-registry.schema.json",
+  "registryId": "S3-KNOWLEDGE-PACK-LOGICAL-CONTRACT",
+  "title": "S3 · Contrato lógico del Knowledge Pack",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "stage": "S3",
+  "stageArtifacts": [
+    "PYMAPA-OBJECT-REGISTRY-v1.0 · APPROVED",
+    "PYMAPA-S3-v1.0 · MASTER-OBJECT-RELATIONSHIP-MODEL-COMPLETE"
+  ],
+  "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+  "provenance": {
+    "sourceReference": "M2-SOURCE Consolidated Authoritative Recovery Repository · S1–S5 · PART III · S3.7",
+    "derivation": "AUTHORITATIVE_RECOVERY_TRANSCRIPTION",
+    "approvedBy": "Gobierno editorial Pymapa",
+    "approvedAt": "2026-09-21",
+    "note": "Contrato LÓGICO. El esquema JSON ejecutable del pack (knowledge/schemas/knowledge-pack.schema.json, M1/M2-A) es una decisión de arquitectura Pymapa y NO se atribuye a S3."
+  },
+  "recoveredIds": [],
+  "sections": {
+    "logicalFields": [
+      "capability_id",
+      "pack_version",
+      "definition",
+      "applicability",
+      "CE",
+      "VA",
+      "NI",
+      "rules",
+      "positive_states",
+      "guardrails",
+      "contradiction_patterns",
+      "finding_patterns",
+      "decision_patterns",
+      "intervention_patterns",
+      "instruments",
+      "deliverables",
+      "done_criteria",
+      "CRV",
+      "validation",
+      "reassessment_triggers",
+      "sources",
+      "provenance"
+    ]
+  },
+  "gaps": [
+    {
+      "id": "RG-S3-03",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "No se recuperó un esquema JSON machine-readable del Knowledge Pack en S3; el esquema ejecutable vigente es diseño Pymapa posterior y no debe presentarse como contenido de Fase 2.",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · S3.13 y PART VIII"
+    },
+    {
+      "id": "ARCH-M2SM-01",
+      "kind": "ARCHITECTURE_GAP",
+      "statement": "El contrato lógico de S3 y el esquema ejecutable de pack de M2-A no están mapeados campo a campo. La reconciliación exige decisión de gobierno y no se resuelve por inferencia.",
+      "publicationBlocking": false,
+      "sourceReference": "M2-SOURCE · S3.7"
+    }
+  ],
+  "checksum": "sha256:37952460045a481805328673d522005bca3882fdf1dd7427b60a6d931a8abe96"
+}

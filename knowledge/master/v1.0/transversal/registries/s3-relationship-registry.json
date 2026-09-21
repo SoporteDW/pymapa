@@ -1,0 +1,82 @@
+{
+  "$schema": "../../../../schemas/transversal-registry.schema.json",
+  "registryId": "S3-RELATIONSHIP-REGISTRY",
+  "title": "S3 · Relationship Registry",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "stage": "S3",
+  "stageArtifacts": [
+    "PYMAPA-RELATIONSHIP-REGISTRY-v1.0 · APPROVED",
+    "PYMAPA-S3-v1.0 · MASTER-OBJECT-RELATIONSHIP-MODEL-COMPLETE"
+  ],
+  "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+  "provenance": {
+    "sourceReference": "M2-SOURCE Consolidated Authoritative Recovery Repository · S1–S5 · PART III · S3.4",
+    "derivation": "AUTHORITATIVE_RECOVERY_TRANSCRIPTION",
+    "approvedBy": "Gobierno editorial Pymapa",
+    "approvedAt": "2026-09-21",
+    "note": "Las relaciones son objetos de primera clase (S3.1). Ninguna relación transfiere conclusiones automáticamente."
+  },
+  "recoveredIds": [],
+  "sections": {
+    "structure": [
+      "CONTAINS",
+      "HAS_CONDITION",
+      "HAS_VARIABLE",
+      "HAS_INFORMATION_NEED",
+      "HAS_RULE",
+      "HAS_INTERVENTION_PATTERN"
+    ],
+    "evidence": [
+      "SUPPORTS",
+      "OBSERVES",
+      "DERIVED_FROM",
+      "CONTRADICTS",
+      "CORROBORATES",
+      "REUSES"
+    ],
+    "diagnostic": [
+      "EVALUATES",
+      "PRODUCES",
+      "DERIVES_TO",
+      "REQUIRES_EVALUATION_OF",
+      "HAS_CAPABILITY_GAP",
+      "CREATES_BOTTLENECK"
+    ],
+    "intervention": [
+      "ADDRESSES",
+      "REQUIRES",
+      "ENABLES",
+      "BLOCKS",
+      "COLLIDES_WITH",
+      "VALIDATED_BY",
+      "USES_INSTRUMENT"
+    ],
+    "specialist": [
+      "ESCALATES_TO",
+      "REQUIRES_PROFILE",
+      "TRANSFERS_VIA",
+      "RESOLVED_WITH_SUPPORT_OF"
+    ],
+    "governance": [
+      "SUPPORTED_BY_SOURCE",
+      "SUPERSEDES",
+      "DEPRECATES",
+      "APPROVED_BY",
+      "GENERATED_CANDIDATE_FROM"
+    ]
+  },
+  "gaps": [
+    {
+      "id": "RG-S3-02",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "No se recuperó una matriz exhaustiva de instancias de relación entre capacidades concretas. Solo el vocabulario de relaciones.",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · S3.4 y PART VIII"
+    }
+  ],
+  "checksum": "sha256:81d50a5b295742337a2e11a02ad0d749136ff559ad146caf3245478c75d2e754"
+}

@@ -1,0 +1,482 @@
+{
+  "$schema": "../../../../schemas/transversal-registry.schema.json",
+  "registryId": "S4-KNOWLEDGE-GOVERNANCE",
+  "title": "S4 · Knowledge Governance, versionado, compatibilidad, aprendizaje, IA, especialistas, incidentes",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "stage": "S4",
+  "stageArtifacts": [
+    "PYMAPA-KNOWLEDGE-GOVERNANCE-v1.0 · APPROVED",
+    "PYMAPA-VERSIONING-PROVENANCE-v1.0 · APPROVED",
+    "PYMAPA-S4-v1.0 · GOVERNANCE-PROVENANCE-VERSIONING-COMPLETE"
+  ],
+  "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+  "provenance": {
+    "sourceReference": "M2-SOURCE Consolidated Authoritative Recovery Repository · S1–S5 · PART IV · S4.1–S4.4, S4.7–S4.20",
+    "derivation": "AUTHORITATIVE_RECOVERY_TRANSCRIPTION",
+    "approvedBy": "Gobierno editorial Pymapa",
+    "approvedAt": "2026-09-21"
+  },
+  "recoveredIds": [
+    "KG-P01",
+    "KG-P02",
+    "KG-P03",
+    "KG-P04",
+    "KG-P05",
+    "KG-P06",
+    "KG-P07",
+    "KG-P08",
+    "KG-P09",
+    "KG-P10",
+    "KC-01",
+    "KC-02",
+    "KC-03",
+    "KC-04",
+    "KC-05",
+    "KC-06",
+    "KC-07",
+    "CH0",
+    "CH1",
+    "CH2",
+    "CH3",
+    "CH4",
+    "KG-RULE-01",
+    "KG-RULE-02",
+    "KG-RULE-05",
+    "KG-RULE-06",
+    "KG-RULE-07",
+    "KG-RULE-08",
+    "KG-RULE-09",
+    "KG-RULE-11",
+    "KG-RULE-12",
+    "KG-RULE-13",
+    "KG-RULE-14",
+    "KI-1",
+    "KI-2",
+    "KI-3",
+    "KI-4"
+  ],
+  "sections": {
+    "governancePrinciples": {
+      "sourceReference": "S4.1",
+      "principles": [
+        {
+          "id": "KG-P01",
+          "name": "TRACEABLE CHANGE"
+        },
+        {
+          "id": "KG-P02",
+          "name": "NO SILENT REWRITE"
+        },
+        {
+          "id": "KG-P03",
+          "name": "SOURCE ≠ KNOWLEDGE"
+        },
+        {
+          "id": "KG-P04",
+          "name": "CASE ≠ MASTER"
+        },
+        {
+          "id": "KG-P05",
+          "name": "AI ≠ APPROVAL AUTHORITY"
+        },
+        {
+          "id": "KG-P06",
+          "name": "PROPORTIONAL GOVERNANCE"
+        },
+        {
+          "id": "KG-P07",
+          "name": "HISTORICAL REPRODUCIBILITY"
+        },
+        {
+          "id": "KG-P08",
+          "name": "CURRENT ≠ CORRECT FOREVER"
+        },
+        {
+          "id": "KG-P09",
+          "name": "DEPRECATE BEFORE DELETE"
+        },
+        {
+          "id": "KG-P10",
+          "name": "EXPLAINABLE GOVERNANCE"
+        }
+      ]
+    },
+    "knowledgeClasses": {
+      "sourceReference": "S4.2",
+      "classes": [
+        {
+          "id": "KC-01",
+          "name": "Structural Knowledge"
+        },
+        {
+          "id": "KC-02",
+          "name": "Diagnostic Knowledge"
+        },
+        {
+          "id": "KC-03",
+          "name": "Intervention Knowledge"
+        },
+        {
+          "id": "KC-04",
+          "name": "Contextual Knowledge"
+        },
+        {
+          "id": "KC-05",
+          "name": "External Grounding"
+        },
+        {
+          "id": "KC-06",
+          "name": "Dynamic Reference Knowledge"
+        },
+        {
+          "id": "KC-07",
+          "name": "Case-derived Candidate Knowledge"
+        }
+      ]
+    },
+    "changeCriticality": {
+      "sourceReference": "S4.3",
+      "classes": [
+        {
+          "id": "CH0",
+          "name": "EDITORIAL"
+        },
+        {
+          "id": "CH1",
+          "name": "NON-MATERIAL SEMANTIC"
+        },
+        {
+          "id": "CH2",
+          "name": "DIAGNOSTIC MATERIAL"
+        },
+        {
+          "id": "CH3",
+          "name": "INTERVENTION MATERIAL"
+        },
+        {
+          "id": "CH4",
+          "name": "ARCHITECTURAL"
+        }
+      ],
+      "rules": [
+        {
+          "id": "KG-RULE-01",
+          "statement": "Review depth increases with potential impact on diagnoses, decisions, interventions and historical interpretation."
+        }
+      ]
+    },
+    "governanceRoles": {
+      "sourceReference": "S4.4",
+      "roles": [
+        "Knowledge Owner",
+        "Domain Steward",
+        "Knowledge Curator",
+        "Subject Matter Reviewer",
+        "Product/Engine Steward",
+        "Change Approver",
+        "AI Assistant"
+      ],
+      "rules": [
+        {
+          "id": "KG-RULE-02",
+          "statement": "For CH3–CH4, proposer should not be the sole approver where reasonably possible."
+        }
+      ]
+    },
+    "knowledgeChangeLifecycle": {
+      "sourceReference": "S4.7",
+      "flow": [
+        "SIGNAL",
+        "CHANGE REQUEST",
+        "IMPACT ANALYSIS",
+        "REVIEW",
+        "APPROVAL",
+        "VERSION",
+        "RELEASE",
+        "MONITOR"
+      ],
+      "kcrFields": [
+        "ID",
+        "origin",
+        "objects affected",
+        "proposed change",
+        "rationale",
+        "evidence",
+        "CH0–CH4",
+        "expected impact",
+        "requester"
+      ],
+      "impactLevels": [
+        "LOCAL",
+        "CAPABILITY",
+        "DOMAIN",
+        "CROSS-DOMAIN",
+        "ENGINE"
+      ],
+      "approvalOutputs": [
+        "APPROVED",
+        "APPROVED-WITH-CONDITIONS",
+        "REJECTED",
+        "DEFERRED",
+        "MORE-EVIDENCE-REQUIRED"
+      ],
+      "rules": [
+        {
+          "id": "KG-RULE-05",
+          "statement": "No local approval when material contradictions arise across capabilities/contracts."
+        }
+      ]
+    },
+    "versioning": {
+      "sourceReference": "S4.8",
+      "scheme": "MAJOR.MINOR.PATCH",
+      "mapping": [
+        "PATCH generally corresponds to CH0.",
+        "MINOR generally corresponds to CH1–CH2.",
+        "MAJOR generally corresponds to CH3–CH4 where semantics/compatibility change."
+      ],
+      "examples": [
+        "DT02-KP-v1.2.0",
+        "PYMAPA-KM-v1.0.0"
+      ],
+      "engineVersion": "PYMAPA-ENGINE-v1.x (separate)",
+      "caseBinding": [
+        "master_knowledge_version",
+        "engine_version",
+        "pack versions"
+      ],
+      "rules": [
+        {
+          "id": "KG-RULE-06",
+          "statement": "Case Snapshot identifies both Engine and Knowledge versions used."
+        }
+      ]
+    },
+    "compatibilityAndMigration": {
+      "sourceReference": "S4.9",
+      "compatibility": [
+        "COMPATIBLE",
+        "INTERPRETATION-CHANGED",
+        "BREAKING"
+      ],
+      "migration": [
+        "NO-MIGRATION",
+        "RECOMPUTE-OPTIONAL",
+        "REASSESSMENT-REQUIRED"
+      ],
+      "rules": [
+        {
+          "id": "KG-RULE-07",
+          "statement": "Never silently recompute historical diagnosis using new rules and present it as the original diagnosis."
+        }
+      ]
+    },
+    "learningGovernance": {
+      "sourceReference": "S4.10",
+      "flow": [
+        "CASE LEARNING",
+        "REUSABLE SIGNAL",
+        "CANDIDATE KNOWLEDGE",
+        "KCR",
+        "REVIEW",
+        "APPROVED KNOWLEDGE"
+      ],
+      "promotionCriteria": [
+        "repeatability",
+        "generalizability",
+        "plausibility",
+        "value",
+        "non-contradiction",
+        "provenance"
+      ],
+      "rules": [
+        {
+          "id": "KG-RULE-08",
+          "statement": "Repetition strengthens a candidate but is not mandatory when a single case reveals sufficiently clear error/risk/contradiction."
+        },
+        {
+          "id": "KG-RULE-09",
+          "statement": "No automatic production rule mutation from aggregate user behavior."
+        }
+      ]
+    },
+    "aiGovernance": {
+      "sourceReference": "S4.11",
+      "aiCan": [
+        "discover",
+        "summarize",
+        "compare",
+        "suggest",
+        "map",
+        "draft"
+      ],
+      "aiCannotAutonomously": [
+        "approve CH2–CH4",
+        "publish a material source",
+        "change diagnostic rules",
+        "deprecate capability",
+        "alter material CRV",
+        "promote case signal to Master Knowledge"
+      ],
+      "rules": [
+        {
+          "id": "KG-RULE-10",
+          "statement": "AI-proposed references must be verified for existence, identity and relevance before entering verified Source Register."
+        }
+      ]
+    },
+    "specialistGovernance": {
+      "sourceReference": "S4.12",
+      "distinguishes": [
+        "Case Specialist Evidence",
+        "Specialist Knowledge Candidate",
+        "Approved Master Knowledge"
+      ],
+      "rules": [
+        {
+          "id": "KG-RULE-11",
+          "statement": "Specialist authority may strengthen evidence but does not bypass scope, applicability, conflict and provenance review."
+        }
+      ]
+    },
+    "dynamicKnowledge": {
+      "sourceReference": "S4.13",
+      "reviewModes": [
+        "TIME-BASED",
+        "EVENT-BASED",
+        "SOURCE-UPDATE-BASED",
+        "CASE-SIGNAL-BASED",
+        "MANUAL"
+      ],
+      "staleness": [
+        "CURRENT",
+        "REVIEW-DUE",
+        "STALE-SUSPECTED",
+        "STALE-CONFIRMED",
+        "SUPERSEDED"
+      ],
+      "rules": [
+        {
+          "id": "KG-RULE-12",
+          "statement": "Dynamic stale knowledge cannot be presented as current without uncertainty/review."
+        }
+      ]
+    },
+    "knowledgeIncident": {
+      "sourceReference": "S4.14",
+      "definition": "A Knowledge Incident is a condition in which published knowledge may have produced materially incorrect, incomplete or unsafe conclusions.",
+      "severity": [
+        {
+          "id": "KI-1",
+          "label": "LOW"
+        },
+        {
+          "id": "KI-2",
+          "label": "MODERATE"
+        },
+        {
+          "id": "KI-3",
+          "label": "MATERIAL"
+        },
+        {
+          "id": "KI-4",
+          "label": "CRITICAL"
+        }
+      ],
+      "response": [
+        "detect",
+        "contain",
+        "assess affected versions",
+        "identify affected cases",
+        "correct",
+        "decide reassessment",
+        "communicate if applicable"
+      ],
+      "rules": [
+        {
+          "id": "KG-RULE-13",
+          "statement": "Material correction identifies affected Case Snapshots and reassessment need."
+        }
+      ],
+      "rollback": "Rollback changes the active version without erasing historical versions."
+    },
+    "taxonomyProtection": {
+      "sourceReference": "S4.15",
+      "ch4Changes": [
+        "6 domains",
+        "capability IDs",
+        "names",
+        "additions",
+        "removals",
+        "mergers",
+        "renumbering"
+      ],
+      "rules": [
+        {
+          "id": "KG-RULE-14",
+          "statement": "No capability may be renamed, deleted, merged or renumbered silently."
+        }
+      ]
+    },
+    "configurationSeparation": {
+      "sourceReference": "S4.16",
+      "statement": "Product Configuration ≠ Knowledge Configuration ≠ Engine Configuration."
+    },
+    "masterGovernanceRegistry": {
+      "sourceReference": "S4.17",
+      "contents": [
+        "Knowledge Classes",
+        "Change Classes",
+        "Roles",
+        "Review policies",
+        "Approval requirements",
+        "Source Register",
+        "Source Review Triggers",
+        "Version Registry",
+        "KCRs",
+        "Incident Registry",
+        "Deprecation records",
+        "Learning candidates",
+        "Audit trail"
+      ]
+    },
+    "qualityDoD": {
+      "sourceReference": "S4.18",
+      "recoveryClass": "RECOVERED_VERBATIM",
+      "results": [
+        "25/25 PASS",
+        "12/12 PASS"
+      ]
+    },
+    "closure": {
+      "recoveryClass": "RECOVERED_VERBATIM",
+      "statements": [
+        "PYMAPA-KNOWLEDGE-GOVERNANCE-v1.0 · APPROVED",
+        "PYMAPA-SOURCE-GOVERNANCE-v1.0 · APPROVED",
+        "PYMAPA-VERSIONING-PROVENANCE-v1.0 · APPROVED",
+        "PYMAPA-S4-v1.0 · GOVERNANCE-PROVENANCE-VERSIONING-COMPLETE"
+      ]
+    }
+  },
+  "gaps": [
+    {
+      "id": "RG-S4-01",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "No recuperado / fuera de alcance en S4: workflow de gobierno ejecutable, esquema físico del Source Register y aprobadores humanos individuales nombrados.",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · S4.19"
+    },
+    {
+      "id": "GRE-S4-01",
+      "kind": "GENERIC_RUNTIME_EXTENSION_REQUIRED",
+      "statement": "Ciclo de KCR, registro de incidentes de conocimiento, staleness dinámica y registro de versiones gobernado no están implementados como mecanismos del repositorio. Extensión genérica futura; no se implementa aquí.",
+      "publicationBlocking": false,
+      "sourceReference": "M2-SOURCE · S4.7, S4.13, S4.14, S4.17"
+    }
+  ],
+  "checksum": "sha256:5f943e7674c79a246b93f6a8e275a4491df12789ba4c0c3ca891fa0830d6f7bf"
+}

@@ -1,0 +1,451 @@
+{
+  "$schema": "../../../../schemas/transversal-registry.schema.json",
+  "registryId": "S1-COMMON-STATES",
+  "title": "S1 · Estados comunes, transiciones y campos temporales",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "stage": "S1",
+  "stageArtifacts": [
+    "PYMAPA-S1-CROSS-31-v1.0 · TRANSVERSAL-RECONCILIATION-COMPLETE"
+  ],
+  "recoveryClass": "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+  "provenance": {
+    "sourceReference": "M2-SOURCE Consolidated Authoritative Recovery Repository · S1–S5 · PART I · S1.16–S1.32",
+    "derivation": "AUTHORITATIVE_RECOVERY_TRANSCRIPTION",
+    "approvedBy": "Gobierno editorial Pymapa",
+    "approvedAt": "2026-09-21",
+    "note": "Vocabularios de estado transversales. No son escalas de madurez ni scoring."
+  },
+  "recoveredIds": [
+    "AP0",
+    "AP1",
+    "AP2",
+    "NI-SUFFICIENCY",
+    "VARIABLE-SUFFICIENCY",
+    "CAPABILITY-SUFFICIENCY",
+    "DECISION-SUFFICIENCY",
+    "INTERVENTION-SUFFICIENCY",
+    "STOP-SUFFICIENT",
+    "STOP-NOT-APPLICABLE",
+    "STOP-LOW-VOI",
+    "STOP-ESCALATE",
+    "C0",
+    "C1",
+    "C2",
+    "C3",
+    "M0",
+    "M1",
+    "M2",
+    "M3",
+    "U0",
+    "U1",
+    "U2",
+    "U3",
+    "CAU0",
+    "CAU1",
+    "CAU2",
+    "CAU3",
+    "V0",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "L0",
+    "L1",
+    "L2",
+    "L3",
+    "R0",
+    "R1",
+    "R2",
+    "R3",
+    "TRANS-01",
+    "TRANS-02",
+    "TRANS-03",
+    "TRANS-04",
+    "TRANS-05",
+    "TRANS-06",
+    "TRANS-07",
+    "TRANS-08",
+    "TRANS-09",
+    "TRANS-10",
+    "TRANS-11",
+    "TRANS-12"
+  ],
+  "sections": {
+    "applicability": {
+      "sourceReference": "S1.16",
+      "states": [
+        {
+          "id": "AP0",
+          "label": "UNKNOWN"
+        },
+        {
+          "id": "AP1",
+          "label": "NOT-APPLICABLE"
+        },
+        {
+          "id": "AP2",
+          "label": "APPLICABLE"
+        }
+      ]
+    },
+    "consistency": {
+      "sourceReference": "S1.19",
+      "states": [
+        "CONSISTENT",
+        "PARTIALLY-CONSISTENT",
+        "CONTRADICTORY",
+        "UNRESOLVED"
+      ]
+    },
+    "sufficiency": {
+      "sourceReference": "S1.20",
+      "levels": [
+        "NI-SUFFICIENCY",
+        "VARIABLE-SUFFICIENCY",
+        "CAPABILITY-SUFFICIENCY",
+        "DECISION-SUFFICIENCY",
+        "INTERVENTION-SUFFICIENCY"
+      ],
+      "stopCauses": [
+        "STOP-SUFFICIENT",
+        "STOP-NOT-APPLICABLE",
+        "STOP-LOW-VOI",
+        "STOP-ESCALATE"
+      ]
+    },
+    "confidence": {
+      "sourceReference": "S1.21",
+      "states": [
+        {
+          "id": "C0",
+          "label": "UNKNOWN"
+        },
+        {
+          "id": "C1",
+          "label": "LOW"
+        },
+        {
+          "id": "C2",
+          "label": "MODERATE"
+        },
+        {
+          "id": "C3",
+          "label": "HIGH"
+        }
+      ]
+    },
+    "materiality": {
+      "sourceReference": "S1.22",
+      "states": [
+        {
+          "id": "M0",
+          "label": "NON-MATERIAL"
+        },
+        {
+          "id": "M1",
+          "label": "RELEVANT"
+        },
+        {
+          "id": "M2",
+          "label": "MATERIAL"
+        },
+        {
+          "id": "M3",
+          "label": "CRITICAL"
+        }
+      ],
+      "invariant": "Materiality ≠ severity."
+    },
+    "urgency": {
+      "sourceReference": "S1.23",
+      "states": [
+        {
+          "id": "U0",
+          "label": "NO-URGENCY"
+        },
+        {
+          "id": "U1",
+          "label": "NORMAL"
+        },
+        {
+          "id": "U2",
+          "label": "TIME-SENSITIVE"
+        },
+        {
+          "id": "U3",
+          "label": "IMMEDIATE"
+        }
+      ],
+      "invariant": "Urgency ≠ priority."
+    },
+    "causalRelevance": {
+      "sourceReference": "S1.24",
+      "states": [
+        {
+          "id": "CAU0",
+          "label": "UNKNOWN"
+        },
+        {
+          "id": "CAU1",
+          "label": "PLAUSIBLE"
+        },
+        {
+          "id": "CAU2",
+          "label": "CONTRIBUTORY"
+        },
+        {
+          "id": "CAU3",
+          "label": "STRONG"
+        }
+      ],
+      "invariant": "ATTR-0:3 remains separate from CAU."
+    },
+    "finding": {
+      "sourceReference": "S1.25",
+      "fields": [
+        "Finding ID",
+        "Capability",
+        "Scope",
+        "Condition",
+        "Evidence pointers",
+        "Rules",
+        "Materiality",
+        "Confidence",
+        "Causal relevance when applicable",
+        "Status"
+      ],
+      "status": [
+        "OPEN",
+        "UNDER-INVESTIGATION",
+        "ACCEPTED",
+        "IN-TREATMENT",
+        "REFERRED",
+        "RESOLVED",
+        "NO-LONGER-APPLICABLE"
+      ],
+      "invariant": "REFERRED ≠ RESOLVED."
+    },
+    "decisionFamilies": {
+      "sourceReference": "S1.26",
+      "families": [
+        "MAINTAIN",
+        "INVESTIGATE",
+        "CHANGE",
+        "PROTECT",
+        "STOP",
+        "ESCALATE",
+        "ACCEPT",
+        "NO_ACTION"
+      ],
+      "note": "Capability-specific vocabularies map to these families."
+    },
+    "recommendationVsIntervention": {
+      "sourceReference": "S1.27",
+      "invariant": "Recommendation ≠ Intervention",
+      "interventionFields": [
+        "Intervention ID",
+        "Source findings",
+        "Intended change",
+        "Scope",
+        "Activities",
+        "Required capabilities",
+        "Instruments",
+        "Deliverables",
+        "Done Criteria",
+        "CRV",
+        "Dependencies",
+        "Specialist requirement",
+        "Status"
+      ],
+      "interventionStatus": [
+        "CANDIDATE",
+        "READY",
+        "BLOCKED",
+        "DEFERRED",
+        "IN-PROGRESS",
+        "DONE-PENDING-VALIDATION",
+        "VALIDATED",
+        "INEFFECTIVE",
+        "STOPPED"
+      ],
+      "invariants": [
+        "DONE ≠ VALIDATED.",
+        "CRV ≠ KPI."
+      ]
+    },
+    "validation": {
+      "sourceReference": "S1.28",
+      "genericSemanticPattern": [
+        {
+          "id": "V0",
+          "label": "UNKNOWN"
+        },
+        {
+          "id": "V1",
+          "label": "DEFINED"
+        },
+        {
+          "id": "V2",
+          "label": "EVIDENCED"
+        },
+        {
+          "id": "V3",
+          "label": "FIT/EFFECTIVE"
+        },
+        {
+          "id": "V4",
+          "label": "SUSTAINED/ADAPTIVE"
+        }
+      ],
+      "note": "Capability-specific labels and criteria remain permitted."
+    },
+    "capabilityState": {
+      "sourceReference": "S1.29",
+      "states": [
+        "NOT-EVALUATED",
+        "INSUFFICIENT-EVIDENCE",
+        "MATERIAL-GAPS",
+        "CONDITIONALLY-SUFFICIENT",
+        "SUFFICIENT",
+        "REASSESSMENT-DUE"
+      ],
+      "invariant": "Capability State ≠ Validation State."
+    },
+    "learning": {
+      "sourceReference": "S1.30",
+      "states": [
+        {
+          "id": "L0",
+          "label": "CASE-ONLY"
+        },
+        {
+          "id": "L1",
+          "label": "REUSABLE-SIGNAL"
+        },
+        {
+          "id": "L2",
+          "label": "CANDIDATE-KNOWLEDGE"
+        },
+        {
+          "id": "L3",
+          "label": "APPROVED-KNOWLEDGE"
+        }
+      ]
+    },
+    "transitionRules": {
+      "sourceReference": "S1.31",
+      "rules": [
+        {
+          "id": "TRANS-01",
+          "statement": "no applicable → no material evaluation"
+        },
+        {
+          "id": "TRANS-02",
+          "statement": "insufficient evidence → no strong positive/negative finding"
+        },
+        {
+          "id": "TRANS-03",
+          "statement": "absence negative rule → no positive state"
+        },
+        {
+          "id": "TRANS-04",
+          "statement": "material finding requires evidence + rule + confidence"
+        },
+        {
+          "id": "TRANS-05",
+          "statement": "recommendation specificity ≤ causal confidence"
+        },
+        {
+          "id": "TRANS-06",
+          "statement": "intervention requires sufficiently specified outcome"
+        },
+        {
+          "id": "TRANS-07",
+          "statement": "READY requires ICR evaluated"
+        },
+        {
+          "id": "TRANS-08",
+          "statement": "material capability gap can BLOCK intervention"
+        },
+        {
+          "id": "TRANS-09",
+          "statement": "specialist referral does not resolve finding"
+        },
+        {
+          "id": "TRANS-10",
+          "statement": "Done ≠ validated"
+        },
+        {
+          "id": "TRANS-11",
+          "statement": "validated intervention ≠ full causal attribution"
+        },
+        {
+          "id": "TRANS-12",
+          "statement": "case learning does not auto-update Master Knowledge"
+        }
+      ]
+    },
+    "temporalFields": {
+      "sourceReference": "S1.32",
+      "fields": [
+        "observed_at",
+        "valid_from",
+        "review_due",
+        "invalidated_at"
+      ]
+    },
+    "reversibility": {
+      "sourceReference": "S1.32",
+      "states": [
+        {
+          "id": "R0",
+          "label": "EASY"
+        },
+        {
+          "id": "R1",
+          "label": "MODERATE"
+        },
+        {
+          "id": "R2",
+          "label": "DIFFICULT"
+        },
+        {
+          "id": "R3",
+          "label": "HARD/IRREVERSIBLE"
+        }
+      ]
+    },
+    "provenanceCategoriesS1": {
+      "sourceReference": "S1.32",
+      "values": [
+        "CASE-DERIVED",
+        "SOURCE-DERIVED",
+        "PYMAPA-DESIGNED",
+        "CANDIDATE",
+        "APPROVED"
+      ],
+      "note": "Contexto de provenance propio de S1. No se colapsa con S3 ni S4."
+    }
+  },
+  "gaps": [
+    {
+      "id": "RG-S1-03",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "Definiciones individuales exactas de ATTR-0:3 no recuperadas. Solo consta que ATTR-0:3 permanece separado de CAU.",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · S1.24 y PART VIII"
+    },
+    {
+      "id": "GRE-S1-02",
+      "kind": "GENERIC_RUNTIME_EXTENSION_REQUIRED",
+      "statement": "Urgencia U0–U3, reversibilidad R0–R3, materialidad M0–M3, causalidad CAU0–CAU3 y las familias de decisión genéricas no están soportadas por el runtime productivo actual. Extensión genérica futura; no se implementa aquí.",
+      "publicationBlocking": false,
+      "sourceReference": "M2-SOURCE · S1.22–S1.26, S1.32"
+    }
+  ],
+  "checksum": "sha256:29b9aa52c21d52523b9d05460813fd28303f1a7e357d09aba4798194def02dd4"
+}

@@ -14,7 +14,9 @@
     "format": "prettier --write .",
     "knowledge:pipeline": "bun run scripts/knowledge-pipeline.ts",
     "knowledge:validate": "bun run scripts/knowledge-pipeline.ts --check",
-    "knowledge:write": "bun run scripts/knowledge-pipeline.ts --write"
+    "knowledge:write": "bun run scripts/knowledge-pipeline.ts --write",
+    "knowledge:seal": "bun run scripts/knowledge-seal.ts",
+    "knowledge:seal:check": "bun run scripts/knowledge-seal.ts --check"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

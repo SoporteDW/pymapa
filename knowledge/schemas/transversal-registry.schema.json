@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pymapa.co/schemas/transversal-registry.schema.json",
+  "title": "Pymapa Transversal Knowledge Registry",
+  "description": "Registro transversal del Knowledge Master (S1–S5) materializado desde el artefacto autoritativo de recuperación M2-SOURCE. Referencia editorial: la validación ejecutable canónica vive en packages/knowledge-pipeline (validateTransversalRegistry).",
+  "type": "object",
+  "required": [
+    "registryId",
+    "title",
+    "master",
+    "stage",
+    "stageArtifacts",
+    "recoveryClass",
+    "provenance",
+    "recoveredIds",
+    "sections",
+    "gaps",
+    "checksum"
+  ],
+  "properties": {
+    "registryId": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "master": {
+      "type": "object",
+      "required": ["identity", "version", "baselineStatus"],
+      "properties": {
+        "identity": { "const": "PYMAPA-KNOWLEDGE-MASTER" },
+        "version": { "type": "string" },
+        "baselineStatus": { "const": "BASELINE-APPROVED" }
+      }
+    },
+    "stage": { "enum": ["S1", "S2", "S3", "S4", "S5", "CONSOLIDATED"] },
+    "stageArtifacts": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "recoveryClass": {
+      "enum": [
+        "RECOVERED_VERBATIM",
+        "RECOVERED_STRUCTURED_HIGH_FIDELITY",
+        "SOURCE_CONTENT_NOT_RECOVERED"
+      ]
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["sourceReference", "derivation", "approvedBy", "approvedAt"],
+      "properties": {
+        "sourceReference": { "type": "string", "minLength": 1 },
+        "derivation": { "const": "AUTHORITATIVE_RECOVERY_TRANSCRIPTION" },
+        "approvedBy": { "type": "string", "minLength": 1 },
+        "approvedAt": { "type": "string", "minLength": 1 },
+        "note": { "type": "string" }
+      }
+    },
+    "recoveredIds": {
+      "description": "IDs recuperados preservados literalmente por este registro.",
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "sections": { "type": "object", "minProperties": 1 },
+    "gaps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "statement", "publicationBlocking"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "kind": {
+            "enum": [
+              "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+              "KNOWLEDGE_CHANGE_CANDIDATE",
+              "GOVERNED_JUDGMENT",
+              "UNIMPLEMENTED_GAP",
+              "ARCHITECTURE_GAP",
+              "GENERIC_RUNTIME_EXTENSION_REQUIRED",
+              "SOURCE_CONTENT_NOT_RECOVERED"
+            ]
+          },
+          "statement": { "type": "string", "minLength": 1 },
+          "publicationBlocking": { "type": "boolean" },
+          "sourceReference": { "type": "string" }
+        }
+      }
+    },
+    "checksum": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }
+  }
+}

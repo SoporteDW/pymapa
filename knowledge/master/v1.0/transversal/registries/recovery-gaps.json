@@ -1,0 +1,199 @@
+{
+  "$schema": "../../../../schemas/transversal-registry.schema.json",
+  "registryId": "RECOVERY-GAPS",
+  "title": "Control consolidado de recuperación · SOURCE CONTENT NOT RECOVERED",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "stage": "CONSOLIDATED",
+  "stageArtifacts": [
+    "PYMAPA-KNOWLEDGE-MASTER-v1.0 · BASELINE-APPROVED",
+    "FASE-2-KNOWLEDGE-ENGINEERING-v1.0 · COMPLETE · BASELINE FROZEN"
+  ],
+  "recoveryClass": "SOURCE_CONTENT_NOT_RECOVERED",
+  "provenance": {
+    "sourceReference": "M2-SOURCE Consolidated Authoritative Recovery Repository · S1–S5 · PART VIII y PART IX",
+    "derivation": "AUTHORITATIVE_RECOVERY_TRANSCRIPTION",
+    "approvedBy": "Gobierno editorial Pymapa",
+    "approvedAt": "2026-09-21",
+    "note": "Estos elementos permanecen explícitamente como vacío. Prohibido completarlos por inferencia, por analogía, con OP-01, con el código existente o atribuyendo Arquitectura Técnica como fuente de Fase 2."
+  },
+  "recoveredIds": [],
+  "sections": {
+    "globalNotRecovered": [
+      {
+        "id": "RG-GLOBAL-01",
+        "statement": "Full literal contents of all 31 vertical Knowledge Packs.",
+        "note": "The baseline confirms that they were developed and K4-validated, but the currently retained recovery context does not preserve every vertical pack in full literal form."
+      },
+      {
+        "id": "RG-GLOBAL-02",
+        "statement": "Exact individual definitions of ATTR-0:3 from their originating block."
+      },
+      {
+        "id": "RG-GLOBAL-03",
+        "statement": "Full originating definitions of P1–P5 where not preserved."
+      },
+      {
+        "id": "RG-GLOBAL-04",
+        "statement": "Full originating definitions of E0–E3 where not preserved."
+      },
+      {
+        "id": "RG-GLOBAL-05",
+        "statement": "Any exhaustive static 31×31 relationship matrix beyond relations actually recovered."
+      },
+      {
+        "id": "RG-GLOBAL-06",
+        "statement": "A complete global registry of every vertical CAND-* object if such a registry was never preserved as a single authoritative artifact."
+      },
+      {
+        "id": "RG-GLOBAL-07",
+        "statement": "Any exact mathematical formula, scoring function or quantitative threshold for Value of Information."
+      },
+      {
+        "id": "RG-GLOBAL-08",
+        "statement": "Physical database schema."
+      },
+      {
+        "id": "RG-GLOBAL-09",
+        "statement": "API/OpenAPI schema."
+      },
+      {
+        "id": "RG-GLOBAL-10",
+        "statement": "Machine-readable JSON schemas."
+      },
+      {
+        "id": "RG-GLOBAL-11",
+        "statement": "Executable runtime code."
+      }
+    ],
+    "attributionInvariant": "Those technical artifacts must not be retroactively attributed to S1–S5.",
+    "finalRecoveryControl": {
+      "sourceReference": "PART IX",
+      "rows": [
+        {
+          "component": "Vertical 6×31 closure",
+          "authoritativeStatus": "APPROVED",
+          "recovery": "Closure recovered; all literal pack bodies not recovered"
+        },
+        {
+          "component": "S1",
+          "authoritativeStatus": "COMPLETE",
+          "recovery": "High-fidelity authoritative recovery with declared gaps"
+        },
+        {
+          "component": "S2",
+          "authoritativeStatus": "COMPLETE",
+          "recovery": "High-fidelity authoritative recovery with declared gaps"
+        },
+        {
+          "component": "S3",
+          "authoritativeStatus": "COMPLETE",
+          "recovery": "High-fidelity authoritative recovery"
+        },
+        {
+          "component": "S4",
+          "authoritativeStatus": "COMPLETE",
+          "recovery": "High-fidelity authoritative recovery"
+        },
+        {
+          "component": "S5",
+          "authoritativeStatus": "COMPLETE",
+          "recovery": "Baseline/global closure recovered"
+        },
+        {
+          "component": "Knowledge Master",
+          "authoritativeStatus": "BASELINE-APPROVED",
+          "recovery": "Confirmed"
+        },
+        {
+          "component": "Fase 2",
+          "authoritativeStatus": "COMPLETE / FROZEN",
+          "recovery": "Confirmed"
+        }
+      ]
+    }
+  },
+  "gaps": [
+    {
+      "id": "RG-GLOBAL-01",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "Contenidos literales completos de los 31 Knowledge Packs verticales.",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · PART VIII"
+    },
+    {
+      "id": "RG-GLOBAL-02",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "Definiciones individuales exactas de ATTR-0:3 desde su bloque originante.",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · PART VIII"
+    },
+    {
+      "id": "RG-GLOBAL-03",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "Definiciones originantes completas de P1–P5.",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · PART VIII"
+    },
+    {
+      "id": "RG-GLOBAL-04",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "Definiciones originantes completas de E0–E3.",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · PART VIII"
+    },
+    {
+      "id": "RG-GLOBAL-05",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "Matriz estática exhaustiva de relaciones 31×31.",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · PART VIII"
+    },
+    {
+      "id": "RG-GLOBAL-06",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "Registro global completo de todo objeto vertical CAND-*.",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · PART VIII"
+    },
+    {
+      "id": "RG-GLOBAL-07",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "Fórmula matemática, función de scoring o umbral cuantitativo para Value of Information.",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · PART VIII"
+    },
+    {
+      "id": "RG-GLOBAL-08",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "Esquema físico de base de datos.",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · PART VIII"
+    },
+    {
+      "id": "RG-GLOBAL-09",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "Esquema de API/OpenAPI.",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · PART VIII"
+    },
+    {
+      "id": "RG-GLOBAL-10",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "Esquemas JSON machine-readable como contenido de Fase 2. Los esquemas ejecutables del repositorio son diseño Pymapa posterior (M1/M2-A) y no se atribuyen a S1–S5.",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · PART VIII"
+    },
+    {
+      "id": "RG-GLOBAL-11",
+      "kind": "SOURCE_CONTENT_NOT_RECOVERED",
+      "statement": "Código de runtime ejecutable como contenido de Fase 2.",
+      "publicationBlocking": true,
+      "sourceReference": "M2-SOURCE · PART VIII"
+    }
+  ],
+  "checksum": "sha256:ebd6a99c3f44a7604c5e5ff875c9bf53fd63d8e271b27d3881abbd1a9f3c1e3c"
+}

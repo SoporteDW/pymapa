@@ -43,6 +43,51 @@
       "type": "integer",
       "minimum": 1
     },
+    "verticalStatus": {
+      "description": "Cierre histórico vertical recuperado (M2-SOURCE · S5.3). K4-VALIDATED describe historia aprobada y NO equivale a SOURCE_READY.",
+      "type": "object",
+      "required": [
+        "milestone",
+        "k4ValidatedCapabilityCount",
+        "domainClosures",
+        "materializedSourceCount",
+        "unrecoveredCapabilityCount",
+        "unrecoveredCapabilityStatus",
+        "unrecoveredRecoveryClass",
+        "note"
+      ],
+      "properties": {
+        "milestone": { "type": "string", "minLength": 1 },
+        "k4ValidatedCapabilityCount": { "type": "integer", "minimum": 1 },
+        "domainClosures": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["domainId", "declaredCapabilityCount", "closure"],
+            "properties": {
+              "domainId": { "type": "string" },
+              "declaredCapabilityCount": { "type": "integer", "minimum": 1 },
+              "closure": { "type": "string" }
+            }
+          }
+        },
+        "materializedSourceCount": { "type": "integer", "minimum": 0 },
+        "unrecoveredCapabilityCount": { "type": "integer", "minimum": 0 },
+        "unrecoveredCapabilityStatus": { "const": "APPROVED_HISTORY_CONFIRMED" },
+        "unrecoveredRecoveryClass": { "const": "SOURCE_CONTENT_NOT_RECOVERED" },
+        "note": { "type": "string", "minLength": 1 }
+      }
+    },
+    "transversal": {
+      "description": "Núcleo transversal materializado (S1–S5).",
+      "type": "object",
+      "required": ["ref", "registryCount"],
+      "properties": {
+        "ref": { "type": "string", "minLength": 1 },
+        "registryCount": { "type": "integer", "minimum": 1 }
+      }
+    },
     "domains": {
       "type": "array",
       "items": {
