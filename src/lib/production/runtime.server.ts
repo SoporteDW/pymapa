@@ -35,7 +35,30 @@ import type {
   DeliverableRecord,
   AuditEventRecord,
   ExecutionState,
+  ValidationRequirementRecord,
+  ValidationRequirementCaseRecord,
+  ValidationRecord,
+  ValidationEvidenceLink,
+  FollowUpRecord,
+  LearningCandidateRecord,
+  AssessmentSnapshotRecord,
 } from "./puertos";
+
+/** Columnas persistidas por entidad (literales: la tipificación las exige). */
+const COLUMNAS_ASSESSMENT =
+  "id, organization_id, case_id, knowledge_version_id, type, started_at, closed_at, updated_at" as const;
+const COLUMNAS_CRV =
+  "id, organization_id, case_id, assessment_id, intervention_id, activity_id, knowledge_version_id, knowledge_pack_id, knowledge_pack_version, engine_version, requirement_ref, activity_ref, definition, definition_source, status, primary_executor_respondent_id, required_case_count, detail, created_by, created_at" as const;
+const COLUMNAS_CASO_CRV =
+  "id, organization_id, validation_requirement_id, sequence_index, executor_respondent_id, outcome, critical_assistance, evidence_id, note, occurred_at, registered_by, created_at" as const;
+const COLUMNAS_VALIDACION =
+  "id, organization_id, case_id, assessment_id, intervention_id, activity_id, validation_requirement_id, evaluation_run_id, knowledge_version_id, engine_version, status, decision_reason, reviewed_by, reviewed_at, detail, created_at" as const;
+const COLUMNAS_FOLLOW_UP =
+  "id, organization_id, case_id, activity_id, validation_id, status, note, evidence_id, decided_by, decided_at, created_at" as const;
+const COLUMNAS_APRENDIZAJE =
+  "id, organization_id, case_id, assessment_id, validation_id, knowledge_version_id, source_table, source_id, statement, status, applied_to_master, detail, created_by, created_at" as const;
+const COLUMNAS_SNAPSHOT =
+  "id, organization_id, case_id, assessment_id, knowledge_version_id, engine_version, reason, payload, created_by, created_at" as const;
 
 /** Engine genérico ya enlazado al pack OP-01 1.0.0 (declarativo). */
 export function cargarEngineOp01(): KnowledgeEngine {
