@@ -78,6 +78,9 @@ function CapacidadOp01() {
   const [tituloIntervencion, setTituloIntervencion] = useState<string>("");
   const [notaSeleccion, setNotaSeleccion] = useState<string>("");
   const [tituloActividad, setTituloActividad] = useState<string>("");
+  const [revisionId, setRevisionId] = useState<string | null>(null);
+  const [ejecutorCaso, setEjecutorCaso] = useState<string>("");
+  const [notaSeguimiento, setNotaSeguimiento] = useState<string>("");
   const [tituloEntregable, setTituloEntregable] = useState<string>("");
 
   const contexto = useQuery({
@@ -106,6 +109,12 @@ function CapacidadOp01() {
   const hallazgos = useQuery({
     queryKey: ["op01", "hallazgos"],
     queryFn: () => cliente.getFindings(),
+    enabled: Boolean(contexto.data?.assessmentId),
+  });
+
+  const comprobacion = useQuery({
+    queryKey: ["op01", "comprobacion"],
+    queryFn: () => cliente.getValidation(),
     enabled: Boolean(contexto.data?.assessmentId),
   });
 
@@ -183,6 +192,89 @@ function CapacidadOp01() {
       "Entregable registrado (todavía sin validar)",
     ),
   );
+
+  const marcarHecho = useMutation(
+    accionProductiva(
+      (input: { activityId: string }) => cliente.markActivityDone(input.activityId),
+      "Tarea marcada como hecha (todavía sin comprobar)",
+    ),
+  );
+
+  const prepararComprobacion = useMutation(
+    accionProductiva(
+      (input: { activityId: string; primaryExecutorRespondentId?: string | null }) =>
+        cliente.registerValidationRequirement(input),
+      "Comprobación preparada",
+    ),
+  );
+
+  const registrarCaso = useMutation(
+    accionProductiva(
+      (input: {
+        validationRequirementId: string;
+        executorRespondentId: string;
+        outcome: "CORRECT" | "INCORRECT";
+        criticalAssistance: boolean;
+      }) => cliente.registerValidationCase(input),
+      "Caso registrado",
+    ),
+  );
+
+  const abrirComprobacion = useMutation(
+    accionProductiva(
+      (input: { activityId: string }) => cliente.openValidation(input),
+      "Comprobación abierta",
+    ),
+  );
+
+  const decidirComprobacion = useMutation(
+    accionProductiva(
+      (input: {
+        validationId: string;
+        decision: "VALIDATED" | "NOT_VALIDATED" | "INSUFFICIENT_EVIDENCE";
+      }) => cliente.decideValidation(input),
+      "Decisión de comprobación registrada",
+    ),
+  );
+
+  const iniciarSeguimiento = useMutation(
+    accionProductiva(
+      (input: { validationId: string }) => cliente.startFollowUp(input),
+      "Seguimiento iniciado",
+    ),
+  );
+
+  const decidirSeguimiento = useMutation(
+    accionProductiva(
+      (input: { followUpId: string; outcome: "CONSOLIDATED" | "NEEDS_ADJUSTMENT"; note: string }) =>
+        cliente.decideFollowUp(input),
+      "Seguimiento cerrado",
+    ),
+  );
+
+  const nuevaRevision = useMutation({
+    mutationFn: async () => {
+      const salida = await cliente.startReassessment();
+      if (!salida.accepted) throw new Error(salida.rejectionReason ?? "Acción no aceptada");
+      return salida;
+    },
+    onSuccess: async (salida) => {
+      toast.success("Nueva revisión iniciada");
+      setRevisionId(salida.reassessmentAssessmentId);
+      await queryClient.invalidateQueries({ queryKey: ["op01"] });
+    },
+    onError: (error: Error) => {
+      toast.error("No pudimos iniciar la nueva revisión", { description: error.message });
+    },
+  });
+
+  const comparar = useMutation({
+    mutationFn: async (input: { baselineAssessmentId: string; reassessmentAssessmentId: string }) =>
+      cliente.compareAssessments(input),
+    onError: (error: Error) => {
+      toast.error("No pudimos comparar", { description: error.message });
+    },
+  });
 
   const enviar = useMutation({
     mutationFn: async () => {
@@ -855,6 +947,30 @@ function CapacidadOp01() {
                         disabled={cambiarEstadoActividad.isPending}
                       >
                         En curso
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => marcarHecho.mutate({ activityId: a.id })}
+                        disabled={marcarHecho.isPending}
+                      >
+                        Marcar como hecha
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => prepararComprobacion.mutate({ activityId: a.id })}
+                        disabled={prepararComprobacion.isPending}
+                      >
+                        Preparar comprobación
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => abrirComprobacion.mutate({ activityId: a.id })}
+                        disabled={abrirComprobacion.isPending}
+                      >
+                        Abrir comprobación
                       </Button>
                     </div>
                     {a.deliverables.map((d) => (
