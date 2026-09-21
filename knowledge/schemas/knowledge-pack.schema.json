@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pymapa.co/schemas/knowledge-pack.schema.json",
+  "title": "Pymapa Knowledge Pack",
+  "description": "Forma mínima gobernada de un Knowledge Pack. La validación ejecutable canónica vive en packages/knowledge-schema; este documento es la referencia editorial equivalente. El schema NO define semántica diagnóstica: solo estructura.",
+  "type": "object",
+  "required": [
+    "packId",
+    "packVersion",
+    "status",
+    "knowledgeMaster",
+    "capability",
+    "variables",
+    "informationNeeds",
+    "acquisitions"
+  ],
+  "properties": {
+    "packId": { "type": "string" },
+    "packVersion": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "status": { "enum": ["draft", "in_review", "approved", "published", "deprecated"] },
+    "knowledgeMaster": {
+      "type": "object",
+      "required": ["identifier", "version", "status"],
+      "properties": {
+        "identifier": { "type": "string" },
+        "version": { "type": "string" },
+        "status": { "type": "string" },
+        "sourceReference": { "type": "string" }
+      }
+    },
+    "capability": {
+      "type": "object",
+      "required": ["id", "domainId", "name", "definition"],
+      "properties": {
+        "id": { "type": "string" },
+        "domainId": { "type": "string" },
+        "name": { "type": "string" },
+        "definition": { "type": "string" },
+        "centralQuestion": { "type": "string" }
+      }
+    },
+    "variables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "criticality", "minimumEvidence"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "criticality": { "enum": ["CRITICAL", "IMPORTANT", "COMPLEMENTARY"] },
+          "minimumEvidence": { "enum": ["E0", "E1", "E2", "E3"] },
+          "semanticStates": {
+            "description": "Estados semánticos aprobados. null cuando el Knowledge Master no los enumera.",
+            "oneOf": [{ "type": "null" }, { "type": "array", "items": { "type": "string" }, "minItems": 1 }]
+          }
+        }
+      }
+    },
+    "informationNeeds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "variableRefs", "acquisitionRefs", "mappingStatus"],
+        "properties": {
+          "id": { "type": "string" },
+          "variableRefs": { "type": "array", "items": { "type": "string" } },
+          "acquisitionRefs": { "type": "array", "items": { "type": "string" } },
+          "mappingStatus": { "type": "string" }
+        }
+      }
+    },
+    "acquisitions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "level", "variableRefs", "question", "responseModel"],
+        "properties": {
+          "id": { "type": "string" },
+          "level": { "enum": ["P1", "P2", "P3", "P4", "P5"] },
+          "informationNeedRef": { "type": "string" },
+          "variableRefs": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+          "purpose": { "type": "string" },
+          "question": { "type": "string" },
+          "responseModel": {
+            "type": "object",
+            "required": ["kind", "preservesUnknown", "knowledgeStates"],
+            "properties": {
+              "kind": { "type": "string" },
+              "preservesUnknown": { "const": true },
+              "knowledgeStates": {
+                "type": "array",
+                "items": { "enum": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"] }
+              },
+              "semanticValuesFromVariable": { "type": "string" },
+              "optionSet": { "oneOf": [{ "type": "null" }, { "type": "array" }] },
+              "optionSetStatus": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "statement", "classification", "implemented"],
+        "properties": {
+          "id": { "type": "string" },
+          "statement": { "type": "string" },
+          "classification": { "enum": ["DETERMINISTIC", "GOVERNED_JUDGMENT", "UNIMPLEMENTED_GAP"] },
+          "implemented": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}
