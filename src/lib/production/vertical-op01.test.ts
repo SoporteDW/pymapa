@@ -304,8 +304,10 @@ describe("Vertical OP01-P01 · persistencia y estado", () => {
     expect(salida.state?.sufficiency).toBeNull();
     expect(salida.state?.confidence).toBeNull();
 
-    // Y un UNKNOWN explícito no se vuelve a preguntar en bucle.
-    expect(await getNextAcquisition(deps, "assess-1")).toBeNull();
+    // Un UNKNOWN explícito no se vuelve a preguntar en bucle: la adquisición
+    // ya respondida no se re-sirve, pero la necesidad puede seguir abierta.
+    const siguiente = await getNextAcquisition(deps, "assess-1");
+    expect(siguiente?.acquisitionId).not.toBe("OP01-P01");
   });
 
   it("una respuesta inadmisible persiste la Response pero no crea Observation", async () => {
@@ -321,16 +323,17 @@ describe("Vertical OP01-P01 · persistencia y estado", () => {
     expect(await repository.listResponses("assess-1")).toHaveLength(1);
   });
 
-  it("P01 es la siguiente adquisición antes de responder y desaparece después", async () => {
+  it("P01 es la primera adquisición y no se repite después de responderla", async () => {
     expect((await getNextAcquisition(deps, "assess-1"))?.acquisitionId).toBe("OP01-P01");
     await submitAcquisitionResponse(deps, { ...comando, knowledgeState: "KNOWN", semanticValue: "Definida" });
-    expect(await getNextAcquisition(deps, "assess-1")).toBeNull();
+    const siguiente = await getNextAcquisition(deps, "assess-1");
+    expect(siguiente?.acquisitionId).not.toBe("OP01-P01");
   });
 
   it("el estado del assessment refleja la adquisición respondida", async () => {
     const inicial = await getAssessmentState(deps, "assess-1");
     expect(inicial?.status).toBe("not_started");
-    expect(inicial?.totalAcquisitions).toBe(1);
+    expect(inicial?.totalAcquisitions).toBe(12);
 
     await submitAcquisitionResponse(deps, { ...comando, knowledgeState: "KNOWN", semanticValue: "Definida" });
     const despues = await getAssessmentState(deps, "assess-1");
