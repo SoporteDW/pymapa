@@ -1009,5 +1009,151 @@ export function createInMemoryProductionRepository(
     async listAuditEvents(organizationId) {
       return auditEvents.filter((a) => a.organizationId === organizationId);
     },
+
+    /* CRV, Validation, Follow-up, Reassessment (M1-KL) */
+    async getMembershipRole(organizationId, userId) {
+      return (
+        memberships.find((m) => m.organizationId === organizationId && m.userId === userId)?.role ??
+        null
+      );
+    },
+    async insertAssessment(input) {
+      const row: AssessmentRecord = {
+        ...input,
+        id: nuevoId("ass"),
+        updatedAt: new Date().toISOString(),
+      };
+      assessments.push(row);
+      mapaAssessments.set(row.id, row);
+      return row;
+    },
+    async listAssessments(caseId) {
+      return assessments.filter((a) => a.caseId === caseId);
+    },
+    async listEvaluationRuns(assessmentId) {
+      return runs.filter((r) => r.assessmentId === assessmentId);
+    },
+    async listVariableEvaluations(runId) {
+      return variableEvaluations.filter((v) => v.evaluationRunId === runId);
+    },
+    async markActivityDone(id, doneAt, doneBy) {
+      const row = activities.find((a) => a.id === id);
+      if (!row) throw new Error(`activity inexistente: ${id}`);
+      row.doneAt = doneAt;
+      row.doneBy = doneBy;
+      return row;
+    },
+    async insertValidationRequirement(input) {
+      const row: ValidationRequirementRecord = {
+        ...input,
+        id: nuevoId("crv"),
+        createdAt: new Date().toISOString(),
+      };
+      validationRequirements.push(row);
+      return row;
+    },
+    async getValidationRequirement(id) {
+      return validationRequirements.find((v) => v.id === id) ?? null;
+    },
+    async listValidationRequirements(interventionId) {
+      return validationRequirements.filter((v) => v.interventionId === interventionId);
+    },
+    async updateValidationRequirementStatus(id, status) {
+      const row = validationRequirements.find((v) => v.id === id);
+      if (!row) throw new Error(`validation_requirement inexistente: ${id}`);
+      row.status = status;
+      return row;
+    },
+    async insertValidationRequirementCase(input) {
+      const row: ValidationRequirementCaseRecord = {
+        ...input,
+        id: nuevoId("vrc"),
+        createdAt: new Date().toISOString(),
+      };
+      validationCases.push(row);
+      return row;
+    },
+    async listValidationRequirementCases(validationRequirementId) {
+      return validationCases
+        .filter((c) => c.validationRequirementId === validationRequirementId)
+        .sort((a, b) => a.sequenceIndex - b.sequenceIndex);
+    },
+    async insertValidation(input) {
+      const row: ValidationRecord = { ...input, id: nuevoId("val"), createdAt: new Date().toISOString() };
+      validations.push(row);
+      return row;
+    },
+    async getValidation(id) {
+      return validations.find((v) => v.id === id) ?? null;
+    },
+    async listValidations(assessmentId) {
+      return validations.filter((v) => v.assessmentId === assessmentId);
+    },
+    async updateValidation(id, patch) {
+      const row = validations.find((v) => v.id === id);
+      if (!row) throw new Error(`validation inexistente: ${id}`);
+      Object.assign(row, patch);
+      return row;
+    },
+    async linkValidationEvidence(input) {
+      const existente = validationEvidence.find(
+        (l) => l.validationId === input.validationId && l.evidenceId === input.evidenceId,
+      );
+      if (existente) return existente;
+      const row: ValidationEvidenceLink = {
+        ...input,
+        id: nuevoId("vev"),
+        createdAt: new Date().toISOString(),
+      };
+      validationEvidence.push(row);
+      return row;
+    },
+    async listValidationEvidenceLinks(validationId) {
+      return validationEvidence.filter((l) => l.validationId === validationId);
+    },
+    async insertFollowUp(input) {
+      const row: FollowUpRecord = { ...input, id: nuevoId("fup"), createdAt: new Date().toISOString() };
+      followUps.push(row);
+      return row;
+    },
+    async getFollowUp(id) {
+      return followUps.find((f) => f.id === id) ?? null;
+    },
+    async listFollowUps(activityId) {
+      return followUps.filter((f) => f.activityId === activityId);
+    },
+    async updateFollowUp(id, patch) {
+      const row = followUps.find((f) => f.id === id);
+      if (!row) throw new Error(`follow_up inexistente: ${id}`);
+      Object.assign(row, patch);
+      return row;
+    },
+    async insertLearningCandidate(input) {
+      const row: LearningCandidateRecord = {
+        ...input,
+        // Invariante estructural: un aprendizaje del cliente nunca se aplica
+        // al Knowledge Master.
+        appliedToMaster: false,
+        id: nuevoId("lrn"),
+        createdAt: new Date().toISOString(),
+      };
+      learningCandidates.push(row);
+      return row;
+    },
+    async listLearningCandidates(organizationId) {
+      return learningCandidates.filter((l) => l.organizationId === organizationId);
+    },
+    async insertAssessmentSnapshot(input) {
+      const row: AssessmentSnapshotRecord = {
+        ...input,
+        id: nuevoId("snp"),
+        createdAt: new Date().toISOString(),
+      };
+      snapshots.push(row);
+      return row;
+    },
+    async listAssessmentSnapshots(assessmentId) {
+      return snapshots.filter((s) => s.assessmentId === assessmentId);
+    },
   };
 }
