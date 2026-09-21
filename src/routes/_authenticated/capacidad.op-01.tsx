@@ -81,6 +81,7 @@ function CapacidadOp01() {
   const [revisionId, setRevisionId] = useState<string | null>(null);
   const [refActividad, setRefActividad] = useState<string>("");
   const [ejecutorCaso, setEjecutorCaso] = useState<string>("");
+  const [ejecutorPrimario, setEjecutorPrimario] = useState<string>("");
   const [notaSeguimiento, setNotaSeguimiento] = useState<string>("");
   const [tituloEntregable, setTituloEntregable] = useState<string>("");
 
@@ -961,7 +962,12 @@ function CapacidadOp01() {
                       <Button
                         size="sm"
                         variant="outline"
-                        onClick={() => prepararComprobacion.mutate({ activityId: a.id })}
+                        onClick={() =>
+                          prepararComprobacion.mutate({
+                            activityId: a.id,
+                            primaryExecutorRespondentId: ejecutorPrimario || null,
+                          })
+                        }
                         disabled={prepararComprobacion.isPending}
                       >
                         Preparar comprobación
@@ -974,6 +980,22 @@ function CapacidadOp01() {
                       >
                         Abrir comprobación
                       </Button>
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor={`prim-${a.id}`}>Quién hace la tarea habitualmente</Label>
+                      <select
+                        id={`prim-${a.id}`}
+                        className="w-full rounded-md border border-input bg-background p-2 text-sm"
+                        value={ejecutorPrimario}
+                        onChange={(e) => setEjecutorPrimario(e.target.value)}
+                      >
+                        <option value="">Selecciona a la persona</option>
+                        {(colaboracion.data?.respondents ?? []).map((pp) => (
+                          <option key={pp.id} value={pp.id}>
+                            {pp.displayName ?? pp.email ?? pp.id}
+                          </option>
+                        ))}
+                      </select>
                     </div>
                     {a.deliverables.map((d) => (
                       <p key={d.id} className="text-xs text-muted-foreground">
