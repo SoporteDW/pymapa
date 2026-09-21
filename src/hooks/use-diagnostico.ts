@@ -29,6 +29,13 @@ import type {
 } from "@/lib/diagnostico/tipos";
 import { registrarEvento } from "@/lib/analytics";
 import { useSesion } from "./use-sesion";
+import {
+  createMvpAssessmentClient,
+  sesionMvpAAssessmentState,
+  type AssessmentClient,
+} from "@/services/production";
+import type { AssessmentStateDTO } from "@pymapa/contracts";
+import { preguntasEnOrden as preguntasInstrumento } from "@/lib/diagnostico/definicion";
 
 /**
  * Servicio de sesión, respuestas, validación, cálculo y persistencia del
