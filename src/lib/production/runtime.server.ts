@@ -304,44 +304,53 @@ export function createSupabaseProductionRepository(): ProductionRepository {
 }
 
 /* ------------------------------------------------------------------ */
-/* Bootstrap del vertical                                              */
+/* Bootstrap del vertical (M1-D2)                                      */
 /* ------------------------------------------------------------------ */
 
 /**
- * Resuelve (o crea) el Case y el Assessment OP-01 del usuario autenticado,
- * siempre pinneado a la KnowledgeVersion gobernada.
+ * Cliente Supabase con la identidad del usuario autenticado (RLS activa).
+ * El bootstrap tenant-owned SIEMPRE usa este cliente: nunca el service role.
  */
-export async function asegurarAssessmentOp01(userId: string): Promise<AssessmentRecord> {
-  const db = await admin();
+export type ClienteUsuario = SupabaseClient<Database>;
+
+/**
+ * Resuelve (o crea) Organization → Membership → Case → Assessment BASELINE del
+ * usuario autenticado, ejecutando toda operación tenant-owned bajo RLS con su
+ * propia identidad. La única parte privilegiada es el registro de la
+ * KnowledgeVersion gobernada (knowledge_versions es solo-lectura para clientes).
+ */
+export async function asegurarContextoProductivo(
+  db: ClienteUsuario,
+  userId: string,
+): Promise<AssessmentRecord> {
   const knowledgeVersionId = await asegurarKnowledgeVersion();
 
+  // 1. Organization + Membership vía función gobernada (SECURITY DEFINER):
+  //    crea la organización del usuario y su membresía OWNER, o devuelve la
+  //    existente. No permite operar sobre organizaciones de terceros.
+  const bootstrap = await db.rpc("bootstrap_organization", {
+    _name: "Organización de trabajo",
+  });
+  lanzar("bootstrap_organization", bootstrap.error);
+  const organizationId = bootstrap.data as string | null;
+  if (!organizationId) throw new Error("bootstrap_organization: sin organización");
+
+  // 2. Membership verificada con la identidad del usuario (RLS).
   const membresia = await db
     .from("memberships")
-    .select("organization_id")
+    .select("organization_id, role")
     .eq("user_id", userId)
-    .limit(1)
+    .eq("organization_id", organizationId)
     .maybeSingle();
   lanzar("memberships.select", membresia.error);
+  if (!membresia.data) throw new Error("MEMBERSHIP_REQUIRED");
 
-  let organizationId = membresia.data?.organization_id ?? null;
-  if (!organizationId) {
-    const org = await db
-      .from("organizations")
-      .insert({ name: "Organización de trabajo" })
-      .select("id")
-      .single();
-    lanzar("organizations.insert", org.error);
-    organizationId = org.data!.id;
-    const mem = await db
-      .from("memberships")
-      .insert({ organization_id: organizationId, user_id: userId, role: "OWNER" });
-    lanzar("memberships.insert", mem.error);
-  }
-
+  // 3. Case de transformación de largo plazo.
   const caso = await db
     .from("cases")
     .select("id")
     .eq("organization_id", organizationId)
+    .order("created_at", { ascending: true })
     .limit(1)
     .maybeSingle();
   lanzar("cases.select", caso.error);
@@ -357,6 +366,7 @@ export async function asegurarAssessmentOp01(userId: string): Promise<Assessment
     caseId = creado.data!.id;
   }
 
+  // 4. Assessment BASELINE pinneado a la KnowledgeVersion publicada.
   const existente = await db
     .from("assessments")
     .select("id, organization_id, case_id, knowledge_version_id, type, started_at, closed_at, updated_at")
