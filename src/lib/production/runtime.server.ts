@@ -12,11 +12,17 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Database, Json } from "@/integrations/supabase/types";
 import type {
   AssessmentRecord,
+  AssignmentRecord,
+  AssignmentStatus,
   EvaluationRunRecord,
   EvaluationRunStatus,
+  EvidenceRecord,
   InformationNeedStateRecord,
+  InvitationRecord,
+  ObservationEvidenceLink,
   ObservationRecord,
   ProductionRepository,
+  RespondentRecord,
   ResponseRecord,
   VariableEvaluationRecord,
 } from "./puertos";
