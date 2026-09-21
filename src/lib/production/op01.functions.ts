@@ -25,11 +25,16 @@ const submitSchema = z.object({
 });
 
 /** Carga runtime + repositorio + assessment pinneado del usuario autenticado. */
-async function prepararContexto(userId: string) {
+async function prepararContexto(context: { userId: string; supabase: unknown }) {
   const runtime = await import("./runtime.server");
   const engine = runtime.cargarEngineOp01();
   const repository = runtime.createSupabaseProductionRepository();
-  const assessment = await runtime.asegurarAssessmentOp01(userId);
+  // El bootstrap tenant-owned se ejecuta con la identidad del usuario (RLS).
+  type ClienteUsuario = Parameters<typeof runtime.asegurarContextoProductivo>[0];
+  const assessment = await runtime.asegurarContextoProductivo(
+    context.supabase as ClienteUsuario,
+    context.userId,
+  );
   return {
     assessment,
     deps: {
@@ -40,11 +45,26 @@ async function prepararContexto(userId: string) {
   };
 }
 
+/** Contexto productivo visible: Organization → Case → Assessment BASELINE. */
+export const getOp01Context = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    const { assessment } = await prepararContexto(context);
+    return {
+      userId: context.userId,
+      organizationId: assessment.organizationId,
+      caseId: assessment.caseId,
+      assessmentId: assessment.id,
+      assessmentType: assessment.type,
+      knowledgeVersionId: assessment.knowledgeVersionId,
+    };
+  });
+
 export const getOp01AssessmentState = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {
     const casoUso = await import("./caso-uso");
-    const { assessment, deps } = await prepararContexto(context.userId);
+    const { assessment, deps } = await prepararContexto(context);
     const state = await casoUso.getAssessmentState(deps, assessment.id);
     return { assessmentId: assessment.id, state };
   });
@@ -53,7 +73,7 @@ export const getOp01NextAcquisition = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {
     const casoUso = await import("./caso-uso");
-    const { assessment, deps } = await prepararContexto(context.userId);
+    const { assessment, deps } = await prepararContexto(context);
     const acquisition = await casoUso.getNextAcquisition(deps, assessment.id);
     return { assessmentId: assessment.id, acquisition };
   });
@@ -63,7 +83,7 @@ export const submitOp01Response = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => submitSchema.parse(data))
   .handler(async ({ data, context }) => {
     const casoUso = await import("./caso-uso");
-    const { assessment, deps } = await prepararContexto(context.userId);
+    const { assessment, deps } = await prepararContexto(context);
     return casoUso.submitAcquisitionResponse(deps, {
       assessmentId: assessment.id,
       organizationId: assessment.organizationId,

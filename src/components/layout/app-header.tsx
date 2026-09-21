@@ -1,9 +1,11 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
+import { useQueryClient } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
-import { FlaskConical, HelpCircle, PanelLeft, User } from "lucide-react";
+import { FlaskConical, HelpCircle, LogIn, LogOut, PanelLeft, User } from "lucide-react";
 import type { ReactNode } from "react";
 import type { Empresa } from "@/types";
 import { BrandLogo } from "./brand-logo";
+import { useAuth } from "@/hooks/use-auth";
 
 interface AppHeaderProps {
   empresa?: Empresa;
@@ -12,6 +14,17 @@ interface AppHeaderProps {
 }
 
 export function AppHeader({ empresa, onToggleSidebar, mobileNav }: AppHeaderProps) {
+  const { isHydrated, user, signOut } = useAuth();
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+
+  const cerrarSesion = async () => {
+    await queryClient.cancelQueries();
+    queryClient.clear();
+    await signOut();
+    await navigate({ to: "/acceso", replace: true });
+  };
+
   return (
     <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border bg-card px-3 sm:px-6">
       <div className="flex items-center gap-1 sm:gap-2">
@@ -59,6 +72,23 @@ export function AppHeader({ empresa, onToggleSidebar, mobileNav }: AppHeaderProp
             <User className="h-5 w-5 text-primary" aria-hidden="true" />
           </Link>
         </Button>
+        {isHydrated && user ? (
+          <Button
+            variant="ghost"
+            size="icon"
+            className="rounded-full"
+            onClick={() => void cerrarSesion()}
+            aria-label="Cerrar sesión"
+          >
+            <LogOut className="h-5 w-5 text-primary" aria-hidden="true" />
+          </Button>
+        ) : (
+          <Button variant="ghost" size="icon" className="rounded-full" asChild>
+            <Link to="/acceso" aria-label="Iniciar sesión">
+              <LogIn className="h-5 w-5 text-primary" aria-hidden="true" />
+            </Link>
+          </Button>
+        )}
       </div>
     </header>
   );

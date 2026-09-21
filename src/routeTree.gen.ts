@@ -10,6 +10,8 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AccesoRouteImport } from './routes/acceso'
 import { Route as ApoyoRouteImport } from './routes/apoyo'
 import { Route as AyudaRouteImport } from './routes/ayuda'
 import { Route as CohorteRouteImport } from './routes/cohorte'
@@ -46,6 +48,7 @@ import { Route as RoadmapAccionRouteImport } from './routes/roadmap.$accion'
 import { Route as SeguimientoIndexRouteImport } from './routes/seguimiento.index'
 import { Route as SeguimientoActividadRouteImport } from './routes/seguimiento.$actividad'
 import { Route as SeguimientoEntradaRouteImport } from './routes/seguimiento.entrada'
+import { Route as AuthenticatedCapacidadOp01RouteImport } from './routes/_authenticated/capacidad.op-01'
 import { Route as DashboardDimensionDimensionRouteImport } from './routes/dashboard.dimension.$dimension'
 import { Route as DiagnosticoEspecializadosIndexRouteImport } from './routes/diagnostico.especializados.index'
 import { Route as DiagnosticoEspecializadosEcommerceRouteImport } from './routes/diagnostico.especializados.ecommerce'
@@ -55,6 +58,15 @@ import { Route as PlanDeAccionWorkspaceActividadRouteImport } from './routes/pla
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccesoRoute = AccesoRouteImport.update({
+  id: '/acceso',
+  path: '/acceso',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApoyoRoute = ApoyoRouteImport.update({
@@ -238,6 +250,12 @@ const SeguimientoEntradaRoute = SeguimientoEntradaRouteImport.update({
   path: '/entrada',
   getParentRoute: () => SeguimientoRoute,
 } as any)
+const AuthenticatedCapacidadOp01Route =
+  AuthenticatedCapacidadOp01RouteImport.update({
+    id: '/capacidad/op-01',
+    path: '/capacidad/op-01',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const DashboardDimensionDimensionRoute =
   DashboardDimensionDimensionRouteImport.update({
     id: '/dimension/$dimension',
@@ -270,6 +288,7 @@ const PlanDeAccionWorkspaceActividadRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/acceso': typeof AccesoRoute
   '/apoyo': typeof ApoyoRoute
   '/ayuda': typeof AyudaRoute
   '/cohorte': typeof CohorteRoute
@@ -306,6 +325,7 @@ export interface FileRoutesByFullPath {
   '/resultados/': typeof ResultadosIndexRoute
   '/roadmap/': typeof RoadmapIndexRoute
   '/seguimiento/': typeof SeguimientoIndexRoute
+  '/capacidad/op-01': typeof AuthenticatedCapacidadOp01Route
   '/dashboard/dimension/$dimension': typeof DashboardDimensionDimensionRoute
   '/diagnostico/especializados/ecommerce': typeof DiagnosticoEspecializadosEcommerceRoute
   '/diagnostico/paso/$id': typeof DiagnosticoPasoIdRoute
@@ -314,6 +334,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/acceso': typeof AccesoRoute
   '/apoyo': typeof ApoyoRoute
   '/ayuda': typeof AyudaRoute
   '/cohorte': typeof CohorteRoute
@@ -343,6 +364,7 @@ export interface FileRoutesByTo {
   '/resultados': typeof ResultadosIndexRoute
   '/roadmap': typeof RoadmapIndexRoute
   '/seguimiento': typeof SeguimientoIndexRoute
+  '/capacidad/op-01': typeof AuthenticatedCapacidadOp01Route
   '/dashboard/dimension/$dimension': typeof DashboardDimensionDimensionRoute
   '/diagnostico/especializados/ecommerce': typeof DiagnosticoEspecializadosEcommerceRoute
   '/diagnostico/paso/$id': typeof DiagnosticoPasoIdRoute
@@ -352,6 +374,8 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/acceso': typeof AccesoRoute
   '/apoyo': typeof ApoyoRoute
   '/ayuda': typeof AyudaRoute
   '/cohorte': typeof CohorteRoute
@@ -388,6 +412,7 @@ export interface FileRoutesById {
   '/resultados/': typeof ResultadosIndexRoute
   '/roadmap/': typeof RoadmapIndexRoute
   '/seguimiento/': typeof SeguimientoIndexRoute
+  '/_authenticated/capacidad/op-01': typeof AuthenticatedCapacidadOp01Route
   '/dashboard/dimension/$dimension': typeof DashboardDimensionDimensionRoute
   '/diagnostico/especializados/ecommerce': typeof DiagnosticoEspecializadosEcommerceRoute
   '/diagnostico/paso/$id': typeof DiagnosticoPasoIdRoute
@@ -398,6 +423,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/acceso'
     | '/apoyo'
     | '/ayuda'
     | '/cohorte'
@@ -434,6 +460,7 @@ export interface FileRouteTypes {
     | '/resultados/'
     | '/roadmap/'
     | '/seguimiento/'
+    | '/capacidad/op-01'
     | '/dashboard/dimension/$dimension'
     | '/diagnostico/especializados/ecommerce'
     | '/diagnostico/paso/$id'
@@ -442,6 +469,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/acceso'
     | '/apoyo'
     | '/ayuda'
     | '/cohorte'
@@ -471,6 +499,7 @@ export interface FileRouteTypes {
     | '/resultados'
     | '/roadmap'
     | '/seguimiento'
+    | '/capacidad/op-01'
     | '/dashboard/dimension/$dimension'
     | '/diagnostico/especializados/ecommerce'
     | '/diagnostico/paso/$id'
@@ -479,6 +508,8 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/_authenticated'
+    | '/acceso'
     | '/apoyo'
     | '/ayuda'
     | '/cohorte'
@@ -515,6 +546,7 @@ export interface FileRouteTypes {
     | '/resultados/'
     | '/roadmap/'
     | '/seguimiento/'
+    | '/_authenticated/capacidad/op-01'
     | '/dashboard/dimension/$dimension'
     | '/diagnostico/especializados/ecommerce'
     | '/diagnostico/paso/$id'
@@ -524,6 +556,8 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AccesoRoute: typeof AccesoRoute
   ApoyoRoute: typeof ApoyoRoute
   AyudaRoute: typeof AyudaRoute
   CohorteRoute: typeof CohorteRoute
@@ -548,6 +582,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/acceso': {
+      id: '/acceso'
+      path: '/acceso'
+      fullPath: '/acceso'
+      preLoaderRoute: typeof AccesoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/apoyo': {
@@ -802,6 +850,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SeguimientoEntradaRouteImport
       parentRoute: typeof SeguimientoRoute
     }
+    '/_authenticated/capacidad/op-01': {
+      id: '/_authenticated/capacidad/op-01'
+      path: '/capacidad/op-01'
+      fullPath: '/capacidad/op-01'
+      preLoaderRoute: typeof AuthenticatedCapacidadOp01RouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/dashboard/dimension/$dimension': {
       id: '/dashboard/dimension/$dimension'
       path: '/dimension/$dimension'
@@ -839,6 +894,17 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedCapacidadOp01Route: typeof AuthenticatedCapacidadOp01Route
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedCapacidadOp01Route: AuthenticatedCapacidadOp01Route,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
 
 interface DashboardRouteChildren {
   DashboardAlertasRoute: typeof DashboardAlertasRoute
@@ -966,6 +1032,8 @@ const SeguimientoRouteWithChildren = SeguimientoRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AccesoRoute: AccesoRoute,
   ApoyoRoute: ApoyoRoute,
   AyudaRoute: AyudaRoute,
   CohorteRoute: CohorteRoute,
