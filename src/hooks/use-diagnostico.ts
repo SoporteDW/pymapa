@@ -31,7 +31,10 @@ import { registrarEvento } from "@/lib/analytics";
 import { useSesion } from "./use-sesion";
 import {
   createMvpAssessmentClient,
+  createProductionAssessmentClient,
   sesionMvpAAssessmentState,
+  resolveExecutionSource,
+  ExecutionSource,
   type AssessmentClient,
 } from "@/services/production";
 import type { AssessmentStateDTO } from "@pymapa/contracts";
@@ -356,6 +359,19 @@ export function useDiagnostico() {
     [responder]
   );
 
+  /**
+   * Enrutamiento de ejecución (M1-D): OP-01 se sirve desde PRODUCTION_ENGINE
+   * (application boundary → Knowledge Engine → PostgreSQL); el resto del MVP
+   * continúa en MVP_ENGINE sin cambio alguno. La UI solo consume el cliente.
+   */
+  const clienteParaCapacidad = useCallback(
+    (capabilityId: string | null | undefined): AssessmentClient =>
+      resolveExecutionSource(capabilityId) === ExecutionSource.PRODUCTION_ENGINE
+        ? createProductionAssessmentClient()
+        : assessmentClient,
+    [assessmentClient]
+  );
+
   const assessmentState: AssessmentStateDTO = useMemo(
     () =>
       sesionMvpAAssessmentState({
@@ -369,6 +385,7 @@ export function useDiagnostico() {
   return {
     definicion: definicionDiagnostico,
     assessmentClient,
+    clienteParaCapacidad,
     assessmentState,
     isHydrated,
     configuracionValida,

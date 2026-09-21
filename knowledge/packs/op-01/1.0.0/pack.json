@@ -1,0 +1,193 @@
+{
+  "$schema": "../../../schemas/knowledge-pack.schema.json",
+  "packId": "op-01",
+  "packVersion": "1.0.0",
+  "status": "published",
+  "knowledgeMaster": {
+    "identifier": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "status": "BASELINE-APPROVED",
+    "sourceReference": "AT-04 · KNOWLEDGE SOURCE PACKAGE — OP-01"
+  },
+  "governanceNote": "Contenido exclusivamente transcrito del paquete gobernado AT-04. Todo elemento no explícito queda marcado como NOT_EXPLICIT_IN_KNOWLEDGE_MASTER y NO se completa por inferencia.",
+  "capability": {
+    "id": "OP-01",
+    "domainId": "OP",
+    "name": "Diseñar y organizar procesos funcionalmente",
+    "definition": "Capacidad de definir, organizar y mantener con suficiente claridad y funcionalidad los procesos relevantes de la empresa, incluyendo sus actividades, secuencia, responsabilidades, coordinación y controles necesarios para obtener resultados consistentes.",
+    "centralQuestion": "¿Los procesos relevantes están suficientemente claros y organizados para funcionar de manera consistente sin depender principalmente de improvisación o conocimiento individual?"
+  },
+  "conditionsOfExistence": [
+    { "id": "CE01", "statement": "El proceso puede identificarse como una unidad reconocible de trabajo." },
+    { "id": "CE02", "statement": "Existe alguna estructura o secuencia reconocible para ejecutarlo." },
+    { "id": "CE03", "statement": "Las responsabilidades asociadas al proceso pueden identificarse." },
+    { "id": "CE04", "statement": "Existe un grado funcional de estandarización suficiente para el contexto." },
+    { "id": "CE05", "statement": "La definición existente se encuentra razonablemente vigente y utilizada." }
+  ],
+  "conditionsNote": "Estas condiciones no constituyen una escala numérica de madurez.",
+  "variables": [
+    {
+      "id": "VA01",
+      "name": "Forma de ejecución del proceso",
+      "criticality": "CRITICAL",
+      "minimumEvidence": "E1",
+      "semanticStates": ["No identificable", "Implícita", "Definida", "Formalizada"]
+    },
+    { "id": "VA02", "name": "Actividades y secuencia", "criticality": "CRITICAL", "minimumEvidence": "E1", "semanticStates": null },
+    { "id": "VA03", "name": "Entradas y resultados esperados", "criticality": "IMPORTANT", "minimumEvidence": "E1", "semanticStates": null },
+    { "id": "VA04", "name": "Responsabilidades", "criticality": "CRITICAL", "minimumEvidence": "E1", "semanticStates": null },
+    {
+      "id": "VA05",
+      "name": "Controles",
+      "criticality": "IMPORTANT",
+      "minimumEvidence": "E1",
+      "minimumEvidenceNote": "E1/E2 depending on risk. No existe fórmula aprobada para el incremento.",
+      "semanticStates": null
+    },
+    { "id": "VA06", "name": "Estandarización", "criticality": "CRITICAL", "minimumEvidence": "E1", "semanticStates": null },
+    { "id": "VA07", "name": "Dependencia de conocimiento individual", "criticality": "CRITICAL", "minimumEvidence": "E1", "semanticStates": null },
+    {
+      "id": "VA08",
+      "name": "Documentación o soporte",
+      "criticality": "IMPORTANT",
+      "minimumEvidence": "E0",
+      "minimumEvidenceNote": "E0/E1 según el material gobernado.",
+      "semanticStates": null
+    },
+    {
+      "id": "VA09",
+      "name": "Correspondencia entre definición y práctica",
+      "criticality": "CRITICAL",
+      "minimumEvidence": "E2",
+      "minimumEvidenceNote": "E2 cuando la conclusión lo requiera.",
+      "semanticStates": ["Desconocida", "Baja", "Parcial", "Alta", "Contradictoria"]
+    },
+    { "id": "VA10", "name": "Mecanismo de actualización", "criticality": "COMPLEMENTARY", "minimumEvidence": "E1", "semanticStates": null }
+  ],
+  "criticalityNote": "CRITICAL, IMPORTANT y COMPLEMENTARY expresan relevancia diagnóstica. No se convierten en pesos numéricos.",
+  "informationNeeds": [
+    { "id": "NI01", "variableRefs": ["VA01"], "acquisitionRefs": ["OP01-P01"], "mappingStatus": "EXPLICIT_FOR_P01_ONLY" },
+    { "id": "NI02", "variableRefs": [], "acquisitionRefs": [], "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER" },
+    { "id": "NI03", "variableRefs": [], "acquisitionRefs": [], "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER" },
+    { "id": "NI04", "variableRefs": [], "acquisitionRefs": [], "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER" },
+    { "id": "NI05", "variableRefs": [], "acquisitionRefs": [], "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER" },
+    { "id": "NI06", "variableRefs": [], "acquisitionRefs": [], "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER" }
+  ],
+  "acquisitionLevels": [
+    { "level": "P1", "purpose": "Core acquisition" },
+    { "level": "P2", "purpose": "Conditional acquisition" },
+    { "level": "P3", "purpose": "Deepening" },
+    { "level": "P4", "purpose": "Clarification" },
+    { "level": "P5", "purpose": "Validation" }
+  ],
+  "acquisitions": [
+    {
+      "id": "OP01-P01",
+      "level": "P1",
+      "informationNeedRef": "NI01",
+      "variableRefs": ["VA01"],
+      "purpose": "Establecer inicialmente cómo se encuentra definida/reconocida la forma de ejecución del proceso relevante.",
+      "question": "Pensando en este proceso, ¿qué tan clara está actualmente la forma en que debe realizarse?",
+      "responseModel": {
+        "kind": "semantic_state_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"],
+        "semanticValuesFromVariable": "VA01",
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "notes": [
+          "UNKNOWN debe poder registrarse explícitamente y no equivale a respuesta negativa ni a ausencia del proceso.",
+          "UNKNOWN no se transforma automáticamente en finding adverso.",
+          "NOT_APPLICABLE requiere razón contextual.",
+          "CONTRADICTORY requiere referencias a las fuentes/observaciones en conflicto.",
+          "No existe conjunto gobernado de opciones A/B/C/D: se preserva el estado semántico aprobado de VA01 sin fabricar escala."
+        ]
+      }
+    }
+  ],
+  "acquisitionsNote": "OP-01 dispone de adquisiciones P01–P15 en el Knowledge Master. Este pack implementa únicamente P01 (M1-D). P02–P15 permanecen NOT_IMPLEMENTED_IN_THIS_PACK.",
+  "evidence": {
+    "levels": ["E0", "E1", "E2", "E3"],
+    "escalationFactors": ["criticality", "regulatory exposure", "risk"],
+    "escalationFormula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+    "candidates": [
+      { "id": "EV01", "name": "Mapa de proceso" },
+      { "id": "EV02", "name": "Procedimiento" },
+      { "id": "EV03", "name": "Checklist" },
+      { "id": "EV04", "name": "Matriz de responsabilidades" },
+      { "id": "EV05", "name": "Evidencia de ejecución reciente" },
+      { "id": "EV06", "name": "Controles" },
+      { "id": "EV07", "name": "Casos de ejecución" },
+      { "id": "EV08", "name": "Historial de actualización" },
+      { "id": "EV09", "name": "Segunda fuente humana" }
+    ],
+    "candidatesNote": "Candidatos de evidencia: no todos son obligatorios en cada evaluación."
+  },
+  "sufficiency": {
+    "states": ["INSUFFICIENT", "PARTIAL", "SUFFICIENT", "BLOCKED", "NOT_APPLICABLE"],
+    "formula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+    "closureConditions": [
+      "Todas las variables críticas aplicables tienen información suficiente.",
+      "No existe una contradicción crítica sin resolver.",
+      "Puede establecerse razonablemente la definición/organización del proceso.",
+      "Puede establecerse su dependencia relevante.",
+      "Puede evaluarse la relación definición-práctica.",
+      "Las variables importantes pendientes no podrían cambiar materialmente el finding principal."
+    ],
+    "notes": ["VA10 no es requisito universal obligatorio para cerrar OP-01.", "Sufficiency se mantiene separada de Confidence."]
+  },
+  "confidence": {
+    "states": ["LOW", "MEDIUM", "HIGH"],
+    "formula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+    "factors": ["quality of evidence", "source diversity", "consistency", "recency", "risk/context"]
+  },
+  "rules": [
+    { "id": "R-OP01-01", "statement": "Si no existe una forma reconocible de ejecución y existe información suficiente para sostenerlo, puede derivarse una evaluación adversa sobre definición funcional.", "classification": "GOVERNED_JUDGMENT", "implemented": false },
+    { "id": "R-OP01-02", "statement": "Si la ejecución existe habitualmente pero depende de una persona, esto no equivale a ausencia del proceso. Debe evaluarse VA07.", "classification": "GOVERNED_JUDGMENT", "implemented": false },
+    { "id": "R-OP01-03", "statement": "Ausencia, duplicación o ambigüedad material de responsabilidades puede indicar insuficiencia de organización.", "classification": "GOVERNED_JUDGMENT", "implemented": false },
+    { "id": "R-OP01-04", "statement": "Diferencias materiales e injustificadas en la forma de ejecución pueden indicar estandarización insuficiente.", "classification": "GOVERNED_JUDGMENT", "implemented": false },
+    { "id": "R-OP01-05", "statement": "Dependencia material de una sola persona que afecte continuidad o calidad puede constituir dependencia crítica.", "classification": "GOVERNED_JUDGMENT", "implemented": false },
+    { "id": "R-OP01-06", "statement": "Si existe documentación pero la práctica difiere materialmente de ella, debe evaluarse el desalineamiento definición-práctica (VA09).", "classification": "GOVERNED_JUDGMENT", "implemented": false },
+    { "id": "R-OP01-07", "statement": "Un proceso simple, de bajo riesgo y con pocos ejecutores no requiere automáticamente formalización compleja.", "classification": "GOVERNED_JUDGMENT", "implemented": false },
+    { "id": "R-OP01-08", "statement": "Mayor riesgo, criticidad u otras condiciones relevantes pueden exigir mayor evidencia/confianza antes del cierre.", "classification": "GOVERNED_JUDGMENT", "implemented": false },
+    { "id": "R-OP01-09", "statement": "Cuando causas materialmente diferentes pueden explicar el mismo estado observado, no debe seleccionarse una intervención específica hasta discriminar razonablemente la causa.", "classification": "GOVERNED_JUDGMENT", "implemented": false },
+    { "id": "R-OP01-10", "statement": "Debe preferirse la intervención menos compleja capaz de resolver materialmente el problema.", "classification": "GOVERNED_JUDGMENT", "implemented": false },
+    { "id": "R-OP01-11", "statement": "Mayor criticidad, riesgo, número de participantes o necesidad de transferencia puede justificar mayor formalización/control. Contextos menores pueden justificar soluciones más ligeras.", "classification": "GOVERNED_JUDGMENT", "implemented": false },
+    { "id": "R-OP01-12", "statement": "Cuando exista una fortaleza y no haya oportunidad material de mejora, puede preservarse y monitorearse en lugar de intervenir.", "classification": "GOVERNED_JUDGMENT", "implemented": false },
+    { "id": "R-OP01-13", "statement": "Cuando la causa primaria pertenezca a otra capacidad, debe preservarse el finding OP-01 y vincularse a la capacidad correspondiente.", "classification": "GOVERNED_JUDGMENT", "implemented": false }
+  ],
+  "contradictionHandling": {
+    "referenceCase": {
+      "leader": "Todos realizan el proceso de la misma forma.",
+      "executor": "Cada persona decide cómo hacerlo.",
+      "expectedVariableState": { "variableRef": "VA06", "state": "CONTRADICTORY" },
+      "clarificationAcquisitionRef": "OP01-P15",
+      "evidenceRefs": ["EV05", "EV07"]
+    },
+    "notes": ["No debe promediarse.", "P15 no se implementa en M1-D, pero el modelo de datos y el runtime no lo impiden."]
+  },
+  "findings": [
+    { "id": "H01", "name": "Insuficiencia de definición funcional" },
+    { "id": "H02", "name": "Insuficiencia en actividades/responsabilidades" },
+    { "id": "H03", "name": "Insuficiencia de estandarización" },
+    { "id": "H04", "name": "Dependencia individual crítica" },
+    { "id": "H05", "name": "Desalineamiento definición-práctica" },
+    { "id": "H06", "name": "Necesidad de preservación/transferencia" },
+    { "id": "H07", "name": "Formalización desproporcionada" },
+    { "id": "H08", "name": "Fortaleza" }
+  ],
+  "findingsNote": "Severidad cualitativa. No existe algoritmo aprobado de severidad ni de prioridad. M1-D no produce findings.",
+  "crossCapabilityReferences": [
+    { "cause": "competency-related cause", "targetCapabilityId": "PC-02", "executable": false },
+    { "cause": "technology-related cause", "targetDomainId": "DT", "executable": false },
+    { "cause": "execution consistency", "targetCapabilityId": "OP-02", "executable": false },
+    { "cause": "end-to-end process", "targetCapabilityId": "OP-03", "executable": false },
+    { "cause": "simplification / automation", "targetCapabilityId": "OP-04", "executable": false }
+  ],
+  "knowledgeChangeCandidates": [
+    { "id": "KCC-AT04-01", "statement": "No existe lógica OP-01 formal aprobada para seleccionar Build / Access / Hybrid / Specialist." },
+    { "id": "KCC-AT04-02", "statement": "No existe formalización suficiente de Capability Gap / Bottleneck para ejecución automática en OP-01." },
+    { "id": "KCC-AT04-03", "statement": "No existe gate general formal y ejecutable del umbral exacto de evidencia positiva requerido para una conclusión positiva." },
+    { "id": "KCC-AT04-04", "statement": "No existe todavía un schema formal completo de Required Capabilities." }
+  ]
+}

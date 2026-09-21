@@ -1,9 +1,10 @@
 /**
- * Capa de cliente productivo (M1-B).
+ * Capa de cliente productivo.
  *
- * Punto único de acceso a la interfaz AssessmentClient y a la fuente de
- * ejecución activa. El comportamiento actual usa MVP_ENGINE;
- * PRODUCTION_ENGINE no está activo todavía.
+ * Punto único de acceso a AssessmentClient y a la fuente de ejecución.
+ * Las 12 capacidades del MVP siguen en MVP_ENGINE; OP-01 usa PRODUCTION_ENGINE.
+ *
+ * El frontend consume SIEMPRE esta capa: nunca el Knowledge Engine.
  */
 export type { AssessmentClient } from "./assessment-client";
 export {
@@ -12,4 +13,13 @@ export {
   comandoARespuestaMvp,
   type MvpAssessmentClientDeps,
 } from "./assessment-adapter";
-export { ExecutionSource, ACTIVE_EXECUTION_SOURCE } from "./execution-source";
+export {
+  ExecutionSource,
+  ACTIVE_EXECUTION_SOURCE,
+  PRODUCTION_CAPABILITY_IDS,
+  resolveExecutionSource,
+} from "./execution-source";
+export {
+  createProductionAssessmentClient,
+  type ProductionAssessmentClient,
+} from "./production-client";
