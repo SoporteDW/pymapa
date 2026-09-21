@@ -178,9 +178,9 @@ describe("M1-M · 10/11 · onboarding de una capacidad no requiere copiar el eng
   it("el mismo engine interpreta otro pack sin cambios de código", () => {
     const engine = createKnowledgeEngine(packFixture);
     expect(engine.pack.capability.id).toBe("FIXTURE-CAP");
+    expect(engine.engineVersion).toBe(ENGINE_VERSION);
     expect(engine.listAcquisitions().length).toBeGreaterThan(0);
     const evaluacion = engine.evaluate({ observations: [], knowledgeVersionId: "kv-fixture" });
-    expect(evaluacion.engineVersion).toBe(ENGINE_VERSION);
     expect(engine.getNextAcquisition(evaluacion)).not.toBeNull();
   });
 
@@ -190,9 +190,11 @@ describe("M1-M · 10/11 · onboarding de una capacidad no requiere copiar el eng
     expect(packs.length).toBeGreaterThan(0);
     for (const ruta of packs) {
       const resultado = validateKnowledgePack(JSON.parse(leer(ruta)));
-      expect(resultado.valid, `${rel(ruta)}: ${JSON.stringify(resultado.issues ?? [])}`).toBe(true);
+      const detalle = resultado.ok ? "" : JSON.stringify(resultado.issues);
+      expect(resultado.ok, `${rel(ruta)}: ${detalle}`).toBe(true);
     }
   });
+
 
   it("el runtime resuelve los packs por registro, no por capacidad hardcodeada", () => {
     const fuente = leer(join(SRC, "lib", "production", "runtime.server.ts"));
