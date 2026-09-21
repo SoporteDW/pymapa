@@ -38,6 +38,8 @@ const AUTORIZADOS = [
   "src/lib/production/colaborativo-evidencia.test.ts",
   "src/lib/production/findings-intervencion.test.ts",
   "src/lib/production/crv-validacion-reassessment.test.ts",
+  "src/lib/production/cierre-m1m.test.ts",
+
 ];
 
 describe("arquitectura · separación frontend / knowledge-engine", () => {
