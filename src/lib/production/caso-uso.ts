@@ -41,6 +41,16 @@ import type {
   FindingRecord,
   InterventionRecord,
   RecommendationCandidateRecord,
+  AssessmentRecord,
+  AssessmentSnapshotRecord,
+  FollowUpRecord,
+  LearningCandidateRecord,
+  ValidationCaseOutcome,
+  ValidationRecord,
+  ValidationRequirementCaseRecord,
+  ValidationRequirementRecord,
+  ValidationRequirementStatus,
+  ValidationStatus,
 } from "./puertos";
 
 export const KNOWLEDGE_VERSION_MISMATCH = "KNOWLEDGE_VERSION_MISMATCH" as const;
