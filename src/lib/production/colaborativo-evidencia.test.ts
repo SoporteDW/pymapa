@@ -101,7 +101,8 @@ describe("M1-EFG · adquisición adaptativa", () => {
 
     const va01 = salida.state?.variableStates.find((v) => v.variableRef === "VA01");
     expect(va01?.state).toBe("UNKNOWN");
-    expect(salida.state?.variableStates.some((v) => v.state === "NO" as unknown)).toBe(false);
+    // UNKNOWN ≠ NO: no existe ningún estado negativo derivado.
+    expect(salida.state?.variableStates.map((v) => v.state)).not.toContain("NOT_APPLICABLE");
 
     // La necesidad queda parcial: abierta a delegación, otra fuente o evidencia.
     const ni01 = salida.state?.informationNeedStates.find((n) => n.needRef === "NI01");
@@ -189,7 +190,7 @@ describe("M1-EFG · diagnóstico colaborativo y delegación", () => {
       delegatedFromAssignmentId: asignacionOwner.id,
       delegationReason: "El responsable del proceso conoce la ejecución real.",
     });
-    expect((await repository.getAssignment(asignacionOwner.id))?.status).toBe("DELEGADO" in {} ? "" : "DELEGATED");
+    expect((await repository.getAssignment(asignacionOwner.id))?.status).toBe("DELEGATED");
     expect(delegado.assignment.delegatedFromAssignmentId).toBe(asignacionOwner.id);
 
     // 3. El segundo respondent aporta al MISMO assessment y la necesidad avanza.
