@@ -1241,3 +1241,703 @@ export async function listDeliverables(
 ): Promise<DeliverableRecord[]> {
   return deps.repository.listDeliverables(activityId);
 }
+
+/* ================================================================== */
+/* M1-KL · CRV · Validation · Follow-up · Reassessment                 */
+/* ================================================================== */
+
+/** Una Activity sin CRV explícito queda como gap trazable, nunca validada. */
+export const VALIDATION_REQUIREMENT_NOT_EXPLICIT = "VALIDATION_REQUIREMENT_NOT_EXPLICIT" as const;
+export const DELIVERABLE_REQUIRED_BEFORE_DONE = "DELIVERABLE_REQUIRED_BEFORE_DONE" as const;
+export const ACTIVITY_NOT_DONE = "ACTIVITY_NOT_DONE" as const;
+export const VALIDATION_NOT_GOVERNED = "VALIDATION_NOT_GOVERNED" as const;
+/** Aportar Evidence ≠ validar: validar exige membresía en la organización. */
+export const VALIDATION_PERMISSION_REQUIRED = "VALIDATION_PERMISSION_REQUIRED" as const;
+export const VALIDATION_NOT_VALIDATED = "VALIDATION_NOT_VALIDATED" as const;
+
+/**
+ * Done es un hecho explícito y posterior al Deliverable.
+ * Deliverable ≠ Done, y Done ≠ Validation: no dispara ninguna validación.
+ */
+export async function marcarActividadDone(
+  deps: ProductionDeps,
+  input: { activityId: string; actorUserId: string | null },
+): Promise<{ accepted: boolean; rejectionReason?: string; activity: ActivityRecord | null }> {
+  const now = deps.now ?? ahoraPorDefecto;
+  const actividad = await deps.repository.getActivity(input.activityId);
+  if (!actividad) return { accepted: false, rejectionReason: "ACTIVITY_NOT_FOUND", activity: null };
+  if (actividad.state === "PENDING" || actividad.state === "EXECUTING") {
+    return { accepted: false, rejectionReason: DELIVERABLE_REQUIRED_BEFORE_DONE, activity: actividad };
+  }
+  const intervention = await deps.repository.getIntervention(actividad.interventionId);
+  const activity = await deps.repository.markActivityDone(actividad.id, now(), input.actorUserId);
+
+  await deps.repository.insertAuditEvent({
+    organizationId: activity.organizationId,
+    assessmentId: intervention?.assessmentId ?? null,
+    eventType: "ACTIVITY_MARKED_DONE",
+    subjectTable: "activities",
+    subjectId: activity.id,
+    actorUserId: input.actorUserId,
+    // Invariante explícita: Done no implica validación.
+    detail: { doneAt: activity.doneAt, validated: false },
+  });
+
+  return { accepted: true, activity };
+}
+
+/**
+ * Registra el CRV de una Activity tal como lo enuncia el Knowledge Master.
+ * Cuando no existe CRV explícito, se registra el gap y NO se inventa uno.
+ */
+export async function registrarRequisitoValidacion(
+  deps: ProductionDeps,
+  input: {
+    activityId: string;
+    primaryExecutorRespondentId?: string | null;
+    createdBy: string | null;
+  },
+): Promise<{
+  accepted: boolean;
+  rejectionReason?: string;
+  requirement: ValidationRequirementRecord | null;
+}> {
+  const actividad = await deps.repository.getActivity(input.activityId);
+  if (!actividad) return { accepted: false, rejectionReason: "ACTIVITY_NOT_FOUND", requirement: null };
+  const intervention = await deps.repository.getIntervention(actividad.interventionId);
+  if (!intervention) {
+    return { accepted: false, rejectionReason: "INTERVENTION_NOT_FOUND", requirement: null };
+  }
+  const assessment = await deps.repository.getAssessment(intervention.assessmentId);
+  if (!assessment) return { accepted: false, rejectionReason: "ASSESSMENT_NOT_FOUND", requirement: null };
+
+  const existentes = await deps.repository.listValidationRequirements(intervention.id);
+  const yaRegistrado = existentes.find((r) => r.activityId === actividad.id);
+  if (yaRegistrado) return { accepted: true, requirement: yaRegistrado };
+
+  const gobernado = deps.engine.getValidationRequirementForActivity(actividad.activityRef);
+
+  const requirement = await deps.repository.insertValidationRequirement({
+    organizationId: actividad.organizationId,
+    caseId: assessment.caseId,
+    assessmentId: assessment.id,
+    interventionId: intervention.id,
+    activityId: actividad.id,
+    knowledgeVersionId: assessment.knowledgeVersionId,
+    knowledgePackId: deps.engine.pack.packId,
+    knowledgePackVersion: deps.engine.pack.packVersion,
+    engineVersion: deps.engine.engineVersion,
+    requirementRef: gobernado?.requirementRef ?? null,
+    activityRef: actividad.activityRef,
+    definition: gobernado?.definition ?? VALIDATION_REQUIREMENT_NOT_EXPLICIT,
+    definitionSource: gobernado?.definitionSource ?? VALIDATION_REQUIREMENT_NOT_EXPLICIT,
+    status: gobernado ? "PENDING" : VALIDATION_REQUIREMENT_NOT_EXPLICIT,
+    primaryExecutorRespondentId: input.primaryExecutorRespondentId ?? null,
+    requiredCaseCount: gobernado?.requiredCaseCount ?? null,
+    detail: gobernado
+      ? { conditions: gobernado.conditions, isScore: false }
+      : { gap: VALIDATION_REQUIREMENT_NOT_EXPLICIT },
+    createdBy: input.createdBy,
+  });
+
+  await deps.repository.insertAuditEvent({
+    organizationId: requirement.organizationId,
+    assessmentId: assessment.id,
+    eventType: "VALIDATION_REQUIREMENT_REGISTERED",
+    subjectTable: "validation_requirements",
+    subjectId: requirement.id,
+    actorUserId: input.createdBy,
+    detail: { status: requirement.status, activityRef: requirement.activityRef },
+  });
+
+  return { accepted: true, requirement };
+}
+
+export interface EvaluacionCrv {
+  satisfied: boolean;
+  status: ValidationRequirementStatus;
+  metConditionIds: string[];
+  unmetConditionIds: string[];
+  reason: string;
+  consecutiveCorrectCount: number;
+  requiredCaseCount: number | null;
+  /** Invariante: un CRV no es un KPI ni un maturity score. */
+  score: null;
+}
+
+function evaluacionNoExplicita(): EvaluacionCrv {
+  return {
+    satisfied: false,
+    status: VALIDATION_REQUIREMENT_NOT_EXPLICIT,
+    metConditionIds: [],
+    unmetConditionIds: [],
+    reason: VALIDATION_REQUIREMENT_NOT_EXPLICIT,
+    consecutiveCorrectCount: 0,
+    requiredCaseCount: null,
+    score: null,
+  };
+}
+
+/** Evalúa el CRV con las condiciones conjuntas declaradas por el pack. */
+export async function evaluarRequisitoValidacion(
+  deps: ProductionDeps,
+  validationRequirementId: string,
+): Promise<EvaluacionCrv> {
+  const requirement = await deps.repository.getValidationRequirement(validationRequirementId);
+  if (!requirement || !requirement.requirementRef) return evaluacionNoExplicita();
+
+  const casos = await deps.repository.listValidationRequirementCases(requirement.id);
+  const evaluacion = deps.engine.evaluateValidationRequirement(requirement.requirementRef, {
+    primaryExecutorRespondentId: requirement.primaryExecutorRespondentId,
+    cases: casos.map((c) => ({
+      sequenceIndex: c.sequenceIndex,
+      executorRespondentId: c.executorRespondentId,
+      outcome: c.outcome,
+      criticalAssistance: c.criticalAssistance,
+    })),
+  });
+
+  return {
+    satisfied: evaluacion.satisfied,
+    status:
+      evaluacion.status === "SATISFIED"
+        ? "SATISFIED"
+        : evaluacion.status === "IN_PROGRESS"
+          ? "IN_PROGRESS"
+          : "NOT_SATISFIED",
+    metConditionIds: evaluacion.metConditionIds,
+    unmetConditionIds: evaluacion.unmetConditionIds,
+    reason: evaluacion.reason,
+    consecutiveCorrectCount: evaluacion.consecutiveCorrectCount,
+    requiredCaseCount: evaluacion.requiredCaseCount,
+    score: null,
+  };
+}
+
+/** Registra una ejecución concreta contra el CRV, con su evidencia. */
+export async function registrarCasoValidacion(
+  deps: ProductionDeps,
+  input: {
+    validationRequirementId: string;
+    executorRespondentId: string;
+    outcome: ValidationCaseOutcome;
+    criticalAssistance: boolean;
+    evidenceId?: string | null;
+    note?: string | null;
+    occurredAt?: string;
+    registeredBy: string | null;
+  },
+): Promise<{
+  accepted: boolean;
+  rejectionReason?: string;
+  case: ValidationRequirementCaseRecord | null;
+  evaluation: EvaluacionCrv;
+}> {
+  const now = deps.now ?? ahoraPorDefecto;
+  const requirement = await deps.repository.getValidationRequirement(input.validationRequirementId);
+  if (!requirement) {
+    return {
+      accepted: false,
+      rejectionReason: "VALIDATION_REQUIREMENT_NOT_FOUND",
+      case: null,
+      evaluation: evaluacionNoExplicita(),
+    };
+  }
+  if (requirement.status === VALIDATION_REQUIREMENT_NOT_EXPLICIT) {
+    return {
+      accepted: false,
+      rejectionReason: VALIDATION_REQUIREMENT_NOT_EXPLICIT,
+      case: null,
+      evaluation: evaluacionNoExplicita(),
+    };
+  }
+
+  const previos = await deps.repository.listValidationRequirementCases(requirement.id);
+  const registrado = await deps.repository.insertValidationRequirementCase({
+    organizationId: requirement.organizationId,
+    validationRequirementId: requirement.id,
+    sequenceIndex: previos.length + 1,
+    executorRespondentId: input.executorRespondentId,
+    outcome: input.outcome,
+    criticalAssistance: input.criticalAssistance,
+    evidenceId: input.evidenceId ?? null,
+    note: input.note ?? null,
+    occurredAt: input.occurredAt ?? now(),
+    registeredBy: input.registeredBy,
+  });
+
+  const evaluation = await evaluarRequisitoValidacion(deps, requirement.id);
+  await deps.repository.updateValidationRequirementStatus(requirement.id, evaluation.status);
+
+  await deps.repository.insertAuditEvent({
+    organizationId: requirement.organizationId,
+    assessmentId: requirement.assessmentId,
+    eventType: "VALIDATION_CASE_REGISTERED",
+    subjectTable: "validation_requirement_cases",
+    subjectId: registrado.id,
+    actorUserId: input.registeredBy,
+    detail: {
+      sequenceIndex: registrado.sequenceIndex,
+      outcome: registrado.outcome,
+      criticalAssistance: registrado.criticalAssistance,
+      crvStatus: evaluation.status,
+    },
+  });
+
+  return { accepted: true, case: registrado, evaluation };
+}
+
+/**
+ * Abre o actualiza la Validation de una Activity.
+ * Nunca valida automáticamente cuando el requisito no está gobernado, y exige
+ * que la actividad esté Done: Deliverable ≠ Done ≠ Validation.
+ */
+export async function abrirValidacion(
+  deps: ProductionDeps,
+  input: { activityId: string; actorUserId: string | null; evidenceIds?: string[] },
+): Promise<{
+  accepted: boolean;
+  rejectionReason?: string;
+  validation: ValidationRecord | null;
+  evaluation: EvaluacionCrv;
+}> {
+  const actividad = await deps.repository.getActivity(input.activityId);
+  if (!actividad) {
+    return { accepted: false, rejectionReason: "ACTIVITY_NOT_FOUND", validation: null, evaluation: evaluacionNoExplicita() };
+  }
+  if (!actividad.doneAt) {
+    return { accepted: false, rejectionReason: ACTIVITY_NOT_DONE, validation: null, evaluation: evaluacionNoExplicita() };
+  }
+  const intervention = await deps.repository.getIntervention(actividad.interventionId);
+  if (!intervention) {
+    return { accepted: false, rejectionReason: "INTERVENTION_NOT_FOUND", validation: null, evaluation: evaluacionNoExplicita() };
+  }
+  const assessment = await deps.repository.getAssessment(intervention.assessmentId);
+  if (!assessment) {
+    return { accepted: false, rejectionReason: "ASSESSMENT_NOT_FOUND", validation: null, evaluation: evaluacionNoExplicita() };
+  }
+
+  const requisitos = await deps.repository.listValidationRequirements(intervention.id);
+  const requirement = requisitos.find((r) => r.activityId === actividad.id) ?? null;
+  const evaluation = requirement
+    ? await evaluarRequisitoValidacion(deps, requirement.id)
+    : evaluacionNoExplicita();
+
+  const estado: ValidationStatus =
+    evaluation.status === VALIDATION_REQUIREMENT_NOT_EXPLICIT
+      ? "PENDING"
+      : evaluation.satisfied
+        ? "IN_REVIEW"
+        : "INSUFFICIENT_EVIDENCE";
+
+  const validation = await deps.repository.insertValidation({
+    organizationId: actividad.organizationId,
+    caseId: assessment.caseId,
+    assessmentId: assessment.id,
+    interventionId: intervention.id,
+    activityId: actividad.id,
+    validationRequirementId: requirement?.id ?? null,
+    evaluationRunId: null,
+    knowledgeVersionId: assessment.knowledgeVersionId,
+    engineVersion: deps.engine.engineVersion,
+    status: estado,
+    decisionReason: evaluation.reason,
+    reviewedBy: null,
+    reviewedAt: null,
+    detail: {
+      crvStatus: evaluation.status,
+      metConditionIds: evaluation.metConditionIds,
+      unmetConditionIds: evaluation.unmetConditionIds,
+      // Nunca derivado de scoring ni del MVP.
+      score: null,
+    },
+  });
+
+  for (const evidenceId of input.evidenceIds ?? []) {
+    await deps.repository.linkValidationEvidence({
+      organizationId: actividad.organizationId,
+      validationId: validation.id,
+      evidenceId,
+    });
+  }
+
+  return { accepted: true, validation, evaluation };
+}
+
+/**
+ * Decisión humana de Validation. VALIDATED exige CRV explícito y satisfecho:
+ * sin requisito gobernado no hay validación automática ni manual encubierta.
+ */
+export async function decidirValidacion(
+  deps: ProductionDeps,
+  input: {
+    validationId: string;
+    decision: ValidationStatus;
+    reason?: string | null;
+    reviewedBy: string;
+    evidenceIds?: string[];
+  },
+): Promise<{ accepted: boolean; rejectionReason?: string; validation: ValidationRecord | null }> {
+  const now = deps.now ?? ahoraPorDefecto;
+  const actual = await deps.repository.getValidation(input.validationId);
+  if (!actual) return { accepted: false, rejectionReason: "VALIDATION_NOT_FOUND", validation: null };
+
+  // Aportar evidencia ≠ validar: validar exige membresía en la organización.
+  const rol = await deps.repository.getMembershipRole(actual.organizationId, input.reviewedBy);
+  if (!rol) {
+    return { accepted: false, rejectionReason: VALIDATION_PERMISSION_REQUIRED, validation: actual };
+  }
+
+  const evaluation = actual.validationRequirementId
+    ? await evaluarRequisitoValidacion(deps, actual.validationRequirementId)
+    : evaluacionNoExplicita();
+
+  if (input.decision === "VALIDATED" && !evaluation.satisfied) {
+    return { accepted: false, rejectionReason: VALIDATION_NOT_GOVERNED, validation: actual };
+  }
+
+  for (const evidenceId of input.evidenceIds ?? []) {
+    await deps.repository.linkValidationEvidence({
+      organizationId: actual.organizationId,
+      validationId: actual.id,
+      evidenceId,
+    });
+  }
+
+  const validation = await deps.repository.updateValidation(actual.id, {
+    status: input.decision,
+    decisionReason: input.reason ?? evaluation.reason,
+    reviewedBy: input.reviewedBy,
+    reviewedAt: now(),
+  });
+
+  if (input.decision === "VALIDATED" && validation.activityId) {
+    await deps.repository.updateActivityState(validation.activityId, "VALIDATED");
+  }
+
+  await deps.repository.insertAuditEvent({
+    organizationId: validation.organizationId,
+    assessmentId: validation.assessmentId,
+    eventType: "VALIDATION_DECIDED",
+    subjectTable: "validations",
+    subjectId: validation.id,
+    actorUserId: input.reviewedBy,
+    detail: { status: validation.status, crvStatus: evaluation.status, reviewerRole: rol },
+  });
+
+  return { accepted: true, validation };
+}
+
+export async function listValidations(
+  deps: ProductionDeps,
+  assessmentId: string,
+): Promise<ValidationRecord[]> {
+  return deps.repository.listValidations(assessmentId);
+}
+
+/** Follow-up solo existe sobre una Validation VALIDATED (provenance). */
+export async function iniciarFollowUp(
+  deps: ProductionDeps,
+  input: { validationId: string; actorUserId: string | null; note?: string | null },
+): Promise<{ accepted: boolean; rejectionReason?: string; followUp: FollowUpRecord | null }> {
+  const validation = await deps.repository.getValidation(input.validationId);
+  if (!validation) return { accepted: false, rejectionReason: "VALIDATION_NOT_FOUND", followUp: null };
+  if (validation.status !== "VALIDATED" || !validation.activityId) {
+    return { accepted: false, rejectionReason: VALIDATION_NOT_VALIDATED, followUp: null };
+  }
+
+  const followUp = await deps.repository.insertFollowUp({
+    organizationId: validation.organizationId,
+    caseId: validation.caseId,
+    activityId: validation.activityId,
+    validationId: validation.id,
+    status: "OPEN",
+    note: input.note ?? null,
+    evidenceId: null,
+    decidedBy: null,
+    decidedAt: null,
+  });
+
+  await deps.repository.updateActivityState(validation.activityId, "FOLLOW_UP");
+  await deps.repository.insertAuditEvent({
+    organizationId: validation.organizationId,
+    assessmentId: validation.assessmentId,
+    eventType: "FOLLOW_UP_STARTED",
+    subjectTable: "follow_ups",
+    subjectId: followUp.id,
+    actorUserId: input.actorUserId,
+    detail: { validationId: validation.id },
+  });
+
+  return { accepted: true, followUp };
+}
+
+/**
+ * Consolidated / Needs adjustment dependen del seguimiento con provenance:
+ * exigen decisor registrado y evidencia o nota explicativa.
+ */
+export async function decidirFollowUp(
+  deps: ProductionDeps,
+  input: {
+    followUpId: string;
+    outcome: "CONSOLIDATED" | "NEEDS_ADJUSTMENT";
+    note?: string | null;
+    evidenceId?: string | null;
+    decidedBy: string;
+  },
+): Promise<{ accepted: boolean; rejectionReason?: string; followUp: FollowUpRecord | null }> {
+  const now = deps.now ?? ahoraPorDefecto;
+  const actual = await deps.repository.getFollowUp(input.followUpId);
+  if (!actual) return { accepted: false, rejectionReason: "FOLLOW_UP_NOT_FOUND", followUp: null };
+
+  const rol = await deps.repository.getMembershipRole(actual.organizationId, input.decidedBy);
+  if (!rol) return { accepted: false, rejectionReason: VALIDATION_PERMISSION_REQUIRED, followUp: actual };
+  if (!input.evidenceId && !input.note) {
+    return { accepted: false, rejectionReason: "FOLLOW_UP_PROVENANCE_REQUIRED", followUp: actual };
+  }
+
+  const followUp = await deps.repository.updateFollowUp(actual.id, {
+    status: input.outcome,
+    note: input.note ?? actual.note,
+    evidenceId: input.evidenceId ?? actual.evidenceId,
+    decidedBy: input.decidedBy,
+    decidedAt: now(),
+  });
+
+  await deps.repository.updateActivityState(followUp.activityId, input.outcome);
+  await deps.repository.insertAuditEvent({
+    organizationId: followUp.organizationId,
+    assessmentId: null,
+    eventType: "FOLLOW_UP_DECIDED",
+    subjectTable: "follow_ups",
+    subjectId: followUp.id,
+    actorUserId: input.decidedBy,
+    detail: { outcome: followUp.status, evidenceId: followUp.evidenceId },
+  });
+
+  return { accepted: true, followUp };
+}
+
+/**
+ * Reassessment: nuevo Assessment del mismo Case, pinneado a una
+ * KnowledgeVersion explícita. No sobrescribe nada del Baseline.
+ */
+export async function iniciarReassessment(
+  deps: ProductionDeps,
+  input: {
+    baselineAssessmentId: string;
+    knowledgeVersionId?: string;
+    actorUserId: string | null;
+    snapshotReason?: string;
+  },
+): Promise<{
+  accepted: boolean;
+  rejectionReason?: string;
+  assessment: AssessmentRecord | null;
+  evaluationRunId: string | null;
+  snapshot: AssessmentSnapshotRecord | null;
+}> {
+  const now = deps.now ?? ahoraPorDefecto;
+  const baseline = await deps.repository.getAssessment(input.baselineAssessmentId);
+  if (!baseline) {
+    return { accepted: false, rejectionReason: "ASSESSMENT_NOT_FOUND", assessment: null, evaluationRunId: null, snapshot: null };
+  }
+
+  // Reproducibilidad histórica: se preserva el estado del Baseline tal cual.
+  const runsBaseline = await deps.repository.listEvaluationRuns(baseline.id);
+  const observacionesBaseline = await deps.repository.listObservations(baseline.id);
+  const findingsBaseline = await deps.repository.listFindings(baseline.id);
+  const snapshot = await deps.repository.insertAssessmentSnapshot({
+    organizationId: baseline.organizationId,
+    caseId: baseline.caseId,
+    assessmentId: baseline.id,
+    knowledgeVersionId: baseline.knowledgeVersionId,
+    engineVersion: deps.engine.engineVersion,
+    reason: input.snapshotReason ?? "REASSESSMENT_STARTED",
+    payload: {
+      observations: observacionesBaseline.map((o) => ({
+        variableRef: o.variableRef,
+        value: o.value,
+        respondentId: o.respondentId,
+      })),
+      evaluationRunIds: runsBaseline.map((r) => r.id),
+      findingRefs: findingsBaseline.map((f) => f.findingRef),
+    },
+    createdBy: input.actorUserId,
+  });
+
+  const assessment = await deps.repository.insertAssessment({
+    organizationId: baseline.organizationId,
+    caseId: baseline.caseId,
+    // Pinning explícito: nunca se recalcula un histórico con otra versión.
+    knowledgeVersionId: input.knowledgeVersionId ?? deps.knowledgeVersionId,
+    type: "REASSESSMENT",
+    startedAt: now(),
+    closedAt: null,
+  });
+
+  const run = await deps.repository.createEvaluationRun({
+    organizationId: assessment.organizationId,
+    assessmentId: assessment.id,
+    knowledgeVersionId: assessment.knowledgeVersionId,
+    engineVersion: deps.engine.engineVersion,
+    trigger: "REASSESSMENT_STARTED",
+    status: "PENDING",
+    startedAt: now(),
+  });
+
+  await deps.repository.insertAuditEvent({
+    organizationId: assessment.organizationId,
+    assessmentId: assessment.id,
+    eventType: "REASSESSMENT_STARTED",
+    subjectTable: "assessments",
+    subjectId: assessment.id,
+    actorUserId: input.actorUserId,
+    detail: {
+      baselineAssessmentId: baseline.id,
+      baselineKnowledgeVersionId: baseline.knowledgeVersionId,
+      reassessmentKnowledgeVersionId: assessment.knowledgeVersionId,
+      snapshotId: snapshot.id,
+    },
+  });
+
+  return { accepted: true, assessment, evaluationRunId: run.id, snapshot };
+}
+
+export interface ComparacionAssessments {
+  baseline: { assessmentId: string; knowledgeVersionId: string; type: AssessmentRecord["type"] };
+  reassessment: { assessmentId: string; knowledgeVersionId: string; type: AssessmentRecord["type"] };
+  variableComparisons: {
+    variableRef: string;
+    baselineState: string | null;
+    currentState: string | null;
+    transition: string;
+    improvement: null;
+    interpretation: string;
+  }[];
+  findings: { baselineCount: number; reassessmentCount: number; supersededCount: number };
+  validations: { baselineCount: number; reassessmentCount: number };
+  /** Invariantes: la comparación no produce puntaje ni juicio de mejora. */
+  maturityScore: null;
+  improvement: null;
+}
+
+async function estadosDeVariables(
+  deps: ProductionDeps,
+  assessmentId: string,
+): Promise<{ variableRef: string; state: string }[]> {
+  const runs = await deps.repository.listEvaluationRuns(assessmentId);
+  const ultimo = runs.at(-1);
+  if (!ultimo) return [];
+  const filas = await deps.repository.listVariableEvaluations(ultimo.id);
+  return filas.map((f) => ({ variableRef: f.variableRef, state: f.state }));
+}
+
+/**
+ * Comparación Baseline vs Reassessment: expone cambios de estados gobernados.
+ * UNKNOWN→KNOWN es más información; CONTRADICTORY→KNOWN es contradicción
+ * resuelta. Ninguna transición se etiqueta como mejora empresarial.
+ */
+export async function compararAssessments(
+  deps: ProductionDeps,
+  input: { baselineAssessmentId: string; reassessmentAssessmentId: string },
+): Promise<{ accepted: boolean; rejectionReason?: string; comparison: ComparacionAssessments | null }> {
+  const baseline = await deps.repository.getAssessment(input.baselineAssessmentId);
+  const actual = await deps.repository.getAssessment(input.reassessmentAssessmentId);
+  if (!baseline || !actual) {
+    return { accepted: false, rejectionReason: "ASSESSMENT_NOT_FOUND", comparison: null };
+  }
+  if (baseline.caseId !== actual.caseId) {
+    return { accepted: false, rejectionReason: "CASE_MISMATCH", comparison: null };
+  }
+
+  const comparaciones = deps.engine.compareVariableStates(
+    await estadosDeVariables(deps, baseline.id),
+    await estadosDeVariables(deps, actual.id),
+  );
+
+  const findingsBaseline = await deps.repository.listFindings(baseline.id);
+  const findingsActuales = await deps.repository.listFindings(actual.id);
+  const validacionesBaseline = await deps.repository.listValidations(baseline.id);
+  const validacionesActuales = await deps.repository.listValidations(actual.id);
+
+  return {
+    accepted: true,
+    comparison: {
+      baseline: {
+        assessmentId: baseline.id,
+        knowledgeVersionId: baseline.knowledgeVersionId,
+        type: baseline.type,
+      },
+      reassessment: {
+        assessmentId: actual.id,
+        knowledgeVersionId: actual.knowledgeVersionId,
+        type: actual.type,
+      },
+      variableComparisons: comparaciones.map((c) => ({
+        variableRef: c.variableRef,
+        baselineState: c.baselineState,
+        currentState: c.currentState,
+        transition: c.transition,
+        improvement: null,
+        interpretation: c.interpretation,
+      })),
+      findings: {
+        baselineCount: findingsBaseline.length,
+        reassessmentCount: findingsActuales.length,
+        supersededCount: findingsBaseline.filter((f) => f.supersededByFindingId !== null).length,
+      },
+      validations: {
+        baselineCount: validacionesBaseline.length,
+        reassessmentCount: validacionesActuales.length,
+      },
+      maturityScore: null,
+      improvement: null,
+    },
+  };
+}
+
+/**
+ * LearningCandidate ≠ Master Knowledge: se registra como candidato y NUNCA
+ * modifica el Knowledge Pack publicado (no hay auto-learning).
+ */
+export async function registrarCandidatoAprendizaje(
+  deps: ProductionDeps,
+  input: {
+    organizationId: string;
+    caseId: string;
+    assessmentId?: string | null;
+    validationId?: string | null;
+    sourceTable: string;
+    sourceId?: string | null;
+    statement: string;
+    createdBy: string | null;
+  },
+): Promise<LearningCandidateRecord> {
+  const candidato = await deps.repository.insertLearningCandidate({
+    organizationId: input.organizationId,
+    caseId: input.caseId,
+    assessmentId: input.assessmentId ?? null,
+    validationId: input.validationId ?? null,
+    knowledgeVersionId: deps.knowledgeVersionId,
+    sourceTable: input.sourceTable,
+    sourceId: input.sourceId ?? null,
+    statement: input.statement,
+    status: "CANDIDATE",
+    appliedToMaster: false,
+    detail: { packId: deps.engine.pack.packId, packVersion: deps.engine.pack.packVersion },
+    createdBy: input.createdBy,
+  });
+
+  await deps.repository.insertAuditEvent({
+    organizationId: input.organizationId,
+    assessmentId: input.assessmentId ?? null,
+    eventType: "LEARNING_CANDIDATE_CREATED",
+    subjectTable: "learning_candidates",
+    subjectId: candidato.id,
+    actorUserId: input.createdBy,
+    detail: { appliedToMaster: false },
+  });
+
+  return candidato;
+}
