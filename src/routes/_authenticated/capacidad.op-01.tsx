@@ -166,21 +166,33 @@ function CapacidadOp01() {
   });
 
   const adjuntar = useMutation({
-    mutationFn: async () =>
-      cliente.registerEvidence({
+    mutationFn: async () => {
+      let storagePath: string | null = null;
+      if (archivo && contexto.data) {
+        // El archivo vive en el almacén privado, no en la base de datos.
+        const ruta = `${contexto.data.organizationId}/${contexto.data.assessmentId}/${crypto.randomUUID()}-${archivo.name}`;
+        const { error } = await supabase.storage.from("evidence").upload(ruta, archivo, {
+          upsert: false,
+        });
+        if (error) throw new Error(error.message);
+        storagePath = ruta;
+      }
+      return cliente.registerEvidence({
         candidateRef: tipoEvidencia || null,
         evidenceType: tipoEvidencia || "DOCUMENT",
         source: "DOCUMENT",
-        storageBucket: null,
-        storagePath: null,
+        storageBucket: storagePath ? "evidence" : null,
+        storagePath,
         externalReference: referenciaEvidencia.trim() || null,
-        title: referenciaEvidencia.trim() || null,
+        title: referenciaEvidencia.trim() || archivo?.name || null,
         note: null,
         observationIds: observacionesEvidencia,
-      }),
+      });
+    },
     onSuccess: async () => {
       toast.success("Evidencia registrada");
       setReferenciaEvidencia("");
+      setArchivo(null);
       setObservacionesEvidencia([]);
       await queryClient.invalidateQueries({ queryKey: ["op01"] });
     },
