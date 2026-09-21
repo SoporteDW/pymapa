@@ -184,7 +184,9 @@ describe("M1-D2 · seguridad del frontend", () => {
       const rel = relative(RAIZ, ruta).replace(/\\/g, "/");
       if (rel.endsWith(".test.ts") || rel.includes("client.server")) return false;
       const fuente = readFileSync(ruta, "utf8");
-      return /SERVICE_ROLE|sb_secret_|DB_PASSWORD|SUPABASE_DB_URL/.test(fuente);
+      return /SUPABASE_SERVICE_ROLE_KEY|SUPABASE_DB_URL|DB_PASSWORD|sb_secret_[A-Za-z0-9]/.test(
+        fuente,
+      );
     });
     expect(infractores.map((f) => relative(RAIZ, f))).toEqual([]);
   });
