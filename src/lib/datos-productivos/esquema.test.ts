@@ -45,6 +45,14 @@ const TABLAS = [
   "activities",
   "deliverables",
   "audit_events",
+  // M1-KL · CRV, Validation, Follow-up y Reassessment
+  "validation_requirements",
+  "validation_requirement_cases",
+  "validations",
+  "validation_evidence",
+  "follow_ups",
+  "learning_candidates",
+  "assessment_snapshots",
 ] as const;
 
 const TABLAS_TENANT_OWNED = TABLAS.filter((t) => t !== "organizations" && t !== "knowledge_versions");
@@ -257,5 +265,62 @@ describe("M1-HIJ · findings y preparación de ejecución", () => {
     // findings y referencias derivadas se escriben server-side (service_role).
     expect(sql).toMatch(/grant select on public\.findings to authenticated/);
     expect(sql).not.toMatch(/grant insert[^;]*public\.findings to authenticated/);
+  });
+});
+
+describe("M1-KL · CRV, Validation, Follow-up y Reassessment", () => {
+  it("el CRV cuelga de intervención y actividad, con lineage de conocimiento", () => {
+    const bloque = sql.slice(sql.indexOf("create table public.validation_requirements"));
+    const cuerpo = bloque.slice(0, bloque.indexOf(");"));
+    for (const columna of [
+      "intervention_id uuid not null",
+      "knowledge_version_id uuid not null",
+      "knowledge_pack_id text not null",
+      "knowledge_pack_version text not null",
+      "engine_version text not null",
+      "definition text not null",
+      "definition_source text not null",
+    ]) {
+      expect(cuerpo).toContain(columna);
+    }
+  });
+
+  it("un CRV no es un KPI: no existe columna de puntaje ni de umbral numérico", () => {
+    const bloque = sql.slice(sql.indexOf("create table public.validation_requirements"));
+    const cuerpo = bloque.slice(0, bloque.indexOf(");"));
+    expect(cuerpo).not.toMatch(/score|kpi|threshold|maturity/);
+  });
+
+  it("registra el gap cuando el CRV no está explícito en el Knowledge Master", () => {
+    expect(sql).toContain("validation_requirement_not_explicit");
+  });
+
+  it("Done es un hecho propio de la actividad, distinto del entregable", () => {
+    expect(sql).toContain("add column if not exists done_at timestamptz");
+    expect(sql).toContain("add column if not exists done_by uuid");
+  });
+
+  it("el ciclo de ejecución llega hasta consolidación sin confundir estados", () => {
+    for (const estado of ["validated", "follow_up", "consolidated", "needs_adjustment"]) {
+      expect(sql).toContain(`'${estado}'`);
+    }
+  });
+
+  it("los estados de validación incluyen evidencia insuficiente", () => {
+    for (const estado of ["pending", "in_review", "validated", "not_validated", "insufficient_evidence"]) {
+      expect(sql).toContain(`'${estado}'`);
+    }
+  });
+
+  it("un LearningCandidate nunca se aplica al Knowledge Master", () => {
+    expect(sql).toContain("applied_to_master boolean not null default false");
+    expect(sql).toMatch(/check \(applied_to_master = false\)/);
+  });
+
+  it("los objetos de validación no son escribibles desde el cliente", () => {
+    for (const tabla of ["validations", "validation_requirements", "assessment_snapshots"]) {
+      expect(sql).toMatch(new RegExp(`grant select on public\\.${tabla} to authenticated`));
+      expect(sql).not.toMatch(new RegExp(`grant insert[^;]*public\\.${tabla} to authenticated`));
+    }
   });
 });
