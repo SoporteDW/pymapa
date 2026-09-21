@@ -143,10 +143,10 @@ export function useDiagnostico() {
 
   /** Guarda automáticamente al seleccionar o cambiar una respuesta (R-NAV-05). */
   const responder = useCallback(
-    (questionId: string, valor: ValorRespuesta) => {
+    (questionId: string, valor: ValorRespuesta): boolean => {
       const pregunta = obtenerPregunta(questionId);
-      if (!pregunta) return;
-      if (!valorValido(pregunta, valor)) return;
+      if (!pregunta) return false;
+      if (!valorValido(pregunta, valor)) return false;
 
       const respuesta: DiagnosticAnswer = {
         questionId,
