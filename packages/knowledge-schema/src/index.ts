@@ -229,6 +229,39 @@ export const knowledgePackSchema = z.object({
     )
     .optional(),
   activitiesNote: z.string().optional(),
+  /**
+   * CRV (ValidationRequirement): requisitos de validación explícitamente
+   * aprobados. Solo existen los que el Knowledge Master enuncia; una Activity
+   * sin CRV explícito queda como gap trazable, jamás con un CRV inventado.
+   * `formula` es literal NOT_A_SCORE: un CRV no es un KPI ni un maturity score.
+   */
+  validationRequirements: z
+    .array(
+      z.object({
+        id: z.string().min(1),
+        activityRef: z.string().min(1),
+        definition: z.string().min(1),
+        definitionSource: z.string().min(1),
+        formula: z.literal("NOT_A_SCORE"),
+        conditions: z
+          .array(
+            z.object({
+              id: z.string().min(1),
+              kind: z.enum([
+                "DISTINCT_SECOND_EXECUTOR",
+                "CONSECUTIVE_CORRECT_CASES",
+                "NO_CRITICAL_ASSISTANCE",
+              ]),
+              statement: z.string().min(1),
+              requiredCount: z.number().int().positive().optional(),
+            }),
+          )
+          .min(1),
+        notes: z.array(z.string()).optional(),
+      }),
+    )
+    .optional(),
+  validationRequirementsNote: z.string().optional(),
   /** Minimum Sufficient Intervention: principio, nunca fórmula. */
   interventionPrinciple: z
     .object({
@@ -386,6 +419,31 @@ export function validateKnowledgePack(raw: unknown): KnowledgePackValidation {
       });
     }
   });
+
+  // CRV: identidad única, actividad conocida y condiciones bien formadas.
+  const activityIds = new Set((pack.activities ?? []).map((a) => a.id));
+  const crvIds = new Set<string>();
+  (pack.validationRequirements ?? []).forEach((crv, index) => {
+    if (crvIds.has(crv.id)) {
+      issues.push({ path: `validationRequirements.${index}.id`, message: `CRV duplicado: ${crv.id}` });
+    }
+    crvIds.add(crv.id);
+    if (!activityIds.has(crv.activityRef)) {
+      issues.push({
+        path: `validationRequirements.${index}.activityRef`,
+        message: `actividad desconocida: ${crv.activityRef}`,
+      });
+    }
+    crv.conditions.forEach((condicion, i) => {
+      if (condicion.kind === "CONSECUTIVE_CORRECT_CASES" && !condicion.requiredCount) {
+        issues.push({
+          path: `validationRequirements.${index}.conditions.${i}.requiredCount`,
+          message: "una condición de casos consecutivos debe declarar cuántos exige",
+        });
+      }
+    });
+  });
+
 
   pack.informationNeeds.forEach((need, index) => {
     need.variableRefs.forEach((ref) => {

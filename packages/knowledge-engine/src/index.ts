@@ -288,6 +288,76 @@ export interface KnowledgeEngine {
   } | null;
   /** Identidades de actividad gobernadas (A01–A09), sin mapeo automático. */
   listActivityIdentities(): { activityRef: string; title: string | null; contentStatus: string; mappingStatus: string }[];
+  /** CRV explícitamente aprobados. Nunca se inventan para otras actividades. */
+  listValidationRequirements(): ValidationRequirementIdentity[];
+  getValidationRequirementForActivity(activityRef: string | null): ValidationRequirementIdentity | null;
+  /** Evalúa las condiciones conjuntas del CRV. No produce puntaje alguno. */
+  evaluateValidationRequirement(
+    requirementRef: string,
+    input: { primaryExecutorRespondentId: string | null; cases: ValidationCaseInput[] },
+  ): ValidationRequirementEvaluation;
+  /** Comparación Baseline vs Reassessment: cambios de estado, nunca mejora. */
+  compareVariableStates(
+    baseline: { variableRef: string; state: string }[],
+    current: { variableRef: string; state: string }[],
+  ): StateComparison[];
+}
+
+export interface ValidationRequirementCondition {
+  id: string;
+  kind: "DISTINCT_SECOND_EXECUTOR" | "CONSECUTIVE_CORRECT_CASES" | "NO_CRITICAL_ASSISTANCE";
+  statement: string;
+  requiredCount: number | null;
+}
+
+export interface ValidationRequirementIdentity {
+  requirementRef: string;
+  activityRef: string;
+  definition: string;
+  definitionSource: string;
+  conditions: ValidationRequirementCondition[];
+  requiredCaseCount: number | null;
+  /** Invariante: un CRV no es un KPI ni un maturity score. */
+  isScore: false;
+}
+
+export interface ValidationCaseInput {
+  sequenceIndex: number;
+  executorRespondentId: string;
+  outcome: "CORRECT" | "INCORRECT";
+  criticalAssistance: boolean;
+}
+
+export interface ValidationRequirementEvaluation {
+  requirementRef: string;
+  satisfied: boolean;
+  status: "SATISFIED" | "NOT_SATISFIED" | "IN_PROGRESS";
+  metConditionIds: string[];
+  unmetConditionIds: string[];
+  reason: string;
+  consecutiveCorrectCount: number;
+  requiredCaseCount: number | null;
+  secondExecutorRespondentId: string | null;
+}
+
+export type StateTransition =
+  | "UNCHANGED"
+  | "MORE_INFORMATION"
+  | "LESS_INFORMATION"
+  | "CONTRADICTION_RESOLVED"
+  | "CONTRADICTION_INTRODUCED"
+  | "CHANGED"
+  | "NEW"
+  | "REMOVED";
+
+export interface StateComparison {
+  variableRef: string;
+  baselineState: string | null;
+  currentState: string | null;
+  transition: StateTransition;
+  /** Siempre null: no existe algoritmo aprobado de mejora empresarial. */
+  improvement: null;
+  interpretation: string;
 }
 
 interface EstadoVariable {
@@ -791,5 +861,192 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
       );
       return disponibles.map(aNextAcquisition);
     },
+
+    /* ------------------- CRV / Validation (M1-KL) -------------------- */
+
+    listValidationRequirements() {
+      return (pack.validationRequirements ?? []).map(aIdentidadCrv);
+    },
+
+    getValidationRequirementForActivity(activityRef) {
+      if (!activityRef) return null;
+      const crv = (pack.validationRequirements ?? []).find((v) => v.activityRef === activityRef);
+      return crv ? aIdentidadCrv(crv) : null;
+    },
+
+    evaluateValidationRequirement(requirementRef, input) {
+      const crv = (pack.validationRequirements ?? []).find((v) => v.id === requirementRef);
+      if (!crv) {
+        return {
+          requirementRef,
+          satisfied: false,
+          status: "NOT_SATISFIED" as const,
+          metConditionIds: [],
+          unmetConditionIds: [],
+          reason: "VALIDATION_REQUIREMENT_NOT_EXPLICIT",
+          consecutiveCorrectCount: 0,
+          requiredCaseCount: null,
+          secondExecutorRespondentId: null,
+        };
+      }
+      return evaluarCrv(crv, input);
+    },
+
+    compareVariableStates(baseline, current) {
+      return compararEstados(baseline, current);
+    },
   };
+}
+
+/* ------------------------------------------------------------------ */
+/* CRV: identidad y evaluación determinística de condiciones           */
+/* ------------------------------------------------------------------ */
+
+type CrvPack = NonNullable<KnowledgePack["validationRequirements"]>[number];
+
+function aIdentidadCrv(crv: CrvPack): ValidationRequirementIdentity {
+  const consecutiva = crv.conditions.find((c) => c.kind === "CONSECUTIVE_CORRECT_CASES");
+  return {
+    requirementRef: crv.id,
+    activityRef: crv.activityRef,
+    definition: crv.definition,
+    definitionSource: crv.definitionSource,
+    conditions: crv.conditions.map((c) => ({
+      id: c.id,
+      kind: c.kind,
+      statement: c.statement,
+      requiredCount: c.requiredCount ?? null,
+    })),
+    requiredCaseCount: consecutiva?.requiredCount ?? null,
+    // Un CRV nunca es un puntaje: la satisfacción es conjunta y cualitativa.
+    isScore: false,
+  };
+}
+
+/**
+ * Evalúa un CRV únicamente con las condiciones declaradas por el pack.
+ * Las condiciones son CONJUNTAS: satisfacer dos de tres no satisface el CRV.
+ */
+function evaluarCrv(
+  crv: CrvPack,
+  input: { primaryExecutorRespondentId: string | null; cases: ValidationCaseInput[] },
+): ValidationRequirementEvaluation {
+  const requerido = crv.conditions.find((c) => c.kind === "CONSECUTIVE_CORRECT_CASES")?.requiredCount ?? null;
+  const ordenados = [...input.cases].sort((a, b) => a.sequenceIndex - b.sequenceIndex);
+  const segundos = ordenados.filter(
+    (c) => !input.primaryExecutorRespondentId || c.executorRespondentId !== input.primaryExecutorRespondentId,
+  );
+
+  // Mejor racha consecutiva por ejecutor: correcta y sin asistencia crítica.
+  let mejorRacha = 0;
+  let mejorRachaCorrectos = 0;
+  let ejecutorRacha: string | null = null;
+  const porEjecutor = new Map<string, ValidationCaseInput[]>();
+  for (const caso of segundos) {
+    porEjecutor.set(caso.executorRespondentId, [
+      ...(porEjecutor.get(caso.executorRespondentId) ?? []),
+      caso,
+    ]);
+  }
+  for (const [ejecutor, casos] of porEjecutor) {
+    let racha = 0;
+    let rachaCorrectos = 0;
+    for (const caso of casos) {
+      if (caso.outcome === "CORRECT") rachaCorrectos += 1;
+      else rachaCorrectos = 0;
+      if (caso.outcome === "CORRECT" && !caso.criticalAssistance) racha += 1;
+      else racha = 0;
+      if (racha > mejorRacha) {
+        mejorRacha = racha;
+        ejecutorRacha = ejecutor;
+      }
+      if (rachaCorrectos > mejorRachaCorrectos) mejorRachaCorrectos = rachaCorrectos;
+    }
+  }
+
+  const met: string[] = [];
+  const unmet: string[] = [];
+  for (const condicion of crv.conditions) {
+    let cumple = false;
+    switch (condicion.kind) {
+      case "DISTINCT_SECOND_EXECUTOR":
+        cumple = input.primaryExecutorRespondentId !== null && segundos.length > 0;
+        break;
+      case "CONSECUTIVE_CORRECT_CASES":
+        cumple = mejorRachaCorrectos >= (condicion.requiredCount ?? Number.POSITIVE_INFINITY);
+        break;
+      case "NO_CRITICAL_ASSISTANCE":
+        cumple =
+          requerido === null
+            ? segundos.every((c) => !c.criticalAssistance)
+            : mejorRacha >= requerido;
+        break;
+    }
+    (cumple ? met : unmet).push(condicion.id);
+  }
+
+  const satisfied = unmet.length === 0;
+  const enProgreso = !satisfied && mejorRacha > 0 && requerido !== null && mejorRacha < requerido;
+  return {
+    requirementRef: crv.id,
+    satisfied,
+    status: satisfied ? "SATISFIED" : enProgreso ? "IN_PROGRESS" : "NOT_SATISFIED",
+    metConditionIds: met,
+    unmetConditionIds: unmet,
+    reason: satisfied
+      ? `CRV satisfecho: ${crv.definition}`
+      : `CRV no satisfecho; condiciones pendientes: ${unmet.join(", ")}`,
+    consecutiveCorrectCount: mejorRacha,
+    requiredCaseCount: requerido,
+    secondExecutorRespondentId: satisfied ? ejecutorRacha : null,
+  };
+}
+
+/* ------------------------------------------------------------------ */
+/* Comparación de estados gobernados (Baseline vs Reassessment)        */
+/* ------------------------------------------------------------------ */
+
+const INTERPRETACION: Record<StateTransition, string> = {
+  UNCHANGED: "Sin cambio de estado gobernado.",
+  MORE_INFORMATION: "Mayor información disponible. NO significa mejora empresarial.",
+  LESS_INFORMATION: "Menor información disponible que en la línea base.",
+  CONTRADICTION_RESOLVED: "Contradicción resuelta. NO significa mejora empresarial.",
+  CONTRADICTION_INTRODUCED: "Aparece una contradicción entre fuentes.",
+  CHANGED: "El estado gobernado cambió.",
+  NEW: "Variable evaluada por primera vez.",
+  REMOVED: "Variable sin evaluación en la reevaluación.",
+};
+
+function transicion(previo: string | null, actual: string | null): StateTransition {
+  if (previo === null) return "NEW";
+  if (actual === null) return "REMOVED";
+  if (previo === actual) return "UNCHANGED";
+  if (previo === "CONTRADICTORY") return actual === "KNOWN" ? "CONTRADICTION_RESOLVED" : "CHANGED";
+  if (actual === "CONTRADICTORY") return "CONTRADICTION_INTRODUCED";
+  if (previo === "UNKNOWN" && actual === "KNOWN") return "MORE_INFORMATION";
+  if (previo === "KNOWN" && actual === "UNKNOWN") return "LESS_INFORMATION";
+  return "CHANGED";
+}
+
+function compararEstados(
+  baseline: { variableRef: string; state: string }[],
+  current: { variableRef: string; state: string }[],
+): StateComparison[] {
+  const previos = new Map(baseline.map((b) => [b.variableRef, b.state]));
+  const actuales = new Map(current.map((c) => [c.variableRef, c.state]));
+  const refs = [...new Set([...previos.keys(), ...actuales.keys()])].sort();
+  return refs.map((variableRef) => {
+    const previo = previos.get(variableRef) ?? null;
+    const actual = actuales.get(variableRef) ?? null;
+    const kind = transicion(previo, actual);
+    return {
+      variableRef,
+      baselineState: previo,
+      currentState: actual,
+      transition: kind,
+      // No existe algoritmo aprobado para etiquetar mejora empresarial.
+      improvement: null,
+      interpretation: INTERPRETACION[kind],
+    };
+  });
 }

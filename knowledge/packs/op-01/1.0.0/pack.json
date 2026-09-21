@@ -981,6 +981,14 @@
     {
       "id": "KCC-AT04-11",
       "statement": "No existe mapeo gobernado Finding→Recommendation→Activity: la selección requiere decisión humana registrada."
+    },
+    {
+      "id": "KCC-AT04-12",
+      "statement": "No existe CRV explícito para A01-A03 ni A05-A09: solo A04 tiene requisito de validación aprobado. Inventar uno sería conocimiento no gobernado."
+    },
+    {
+      "id": "KCC-AT04-13",
+      "statement": "No existe algoritmo aprobado para interpretar Validation o Reassessment como mejora empresarial ni como maturity score: la comparación Baseline/Reassessment solo expone cambios de estados gobernados."
     }
   ],
   "recommendations": [
@@ -1119,5 +1127,37 @@
     "notes": [
       "Principio, no fórmula. Si varias intervenciones son plausibles y el conocimiento no permite discriminar, la selección queda en revisión humana."
     ]
-  }
+  },
+  "validationRequirements": [
+    {
+      "id": "CRV-A04-01",
+      "activityRef": "A04",
+      "definition": "Second executor correctly completes 3 consecutive cases without critical assistance.",
+      "definitionSource": "APPROVED_KNOWLEDGE_MASTER",
+      "formula": "NOT_A_SCORE",
+      "conditions": [
+        {
+          "id": "SECOND_EXECUTOR",
+          "kind": "DISTINCT_SECOND_EXECUTOR",
+          "statement": "La ejecución debe realizarla un segundo ejecutor, distinto del ejecutor original."
+        },
+        {
+          "id": "THREE_CONSECUTIVE_CORRECT",
+          "kind": "CONSECUTIVE_CORRECT_CASES",
+          "statement": "Deben completarse correctamente 3 casos consecutivos.",
+          "requiredCount": 3
+        },
+        {
+          "id": "NO_CRITICAL_ASSISTANCE",
+          "kind": "NO_CRITICAL_ASSISTANCE",
+          "statement": "Ninguno de los casos considerados puede haber requerido asistencia crítica."
+        }
+      ],
+      "notes": [
+        "Las tres condiciones son conjuntas: satisfacer dos no satisface el CRV.",
+        "No es un KPI ni un maturity score: no admite conversión a puntaje."
+      ]
+    }
+  ],
+  "validationRequirementsNote": "Único CRV explícito aprobado en OP-01 1.0.0. Las demás actividades (A01-A03, A05-A09) no tienen requisito de validación explícito y deben registrarse como VALIDATION_REQUIREMENT_NOT_EXPLICIT."
 }

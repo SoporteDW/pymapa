@@ -307,8 +307,23 @@ export interface InterventionRecord {
   createdAt: string;
 }
 
-/** Estado mínimo de ejecución. VALIDATED / FOLLOW_UP pertenecen a M1-KL. */
-export type ExecutionState = "PENDING" | "EXECUTING" | "DELIVERABLE_PRODUCED";
+/**
+ * Ciclo de ejecución y seguimiento (M1-KL).
+ * Deliverable produced ≠ Done ≠ Validated: cada transición es un acto distinto
+ * con provenance propio. CONSOLIDATED / NEEDS_ADJUSTMENT solo pueden alcanzarse
+ * con una Validation registrada y un Follow-up decidido.
+ */
+export type ExecutionState =
+  | "PENDING"
+  | "EXECUTING"
+  | "DELIVERABLE_PRODUCED"
+  | "VALIDATED"
+  | "FOLLOW_UP"
+  | "CONSOLIDATED"
+  | "NEEDS_ADJUSTMENT";
+
+/** Estados que una persona puede fijar manualmente (sin validación). */
+export type ManualExecutionState = "PENDING" | "EXECUTING" | "DELIVERABLE_PRODUCED";
 
 export interface ActivityRecord {
   id: string;
@@ -319,6 +334,9 @@ export interface ActivityRecord {
   mappingStatus: string;
   title: string;
   state: ExecutionState;
+  /** Done: marca de ejecución terminada. NO implica validación. */
+  doneAt: string | null;
+  doneBy: string | null;
   createdAt: string;
 }
 
@@ -345,7 +363,162 @@ export type AuditEventType =
   | "RECOMMENDATION_REJECTED"
   | "INTERVENTION_CREATED"
   | "ACTIVITY_STATE_CHANGED"
-  | "DELIVERABLE_REGISTERED";
+  | "DELIVERABLE_REGISTERED"
+  | "ACTIVITY_MARKED_DONE"
+  | "VALIDATION_REQUIREMENT_REGISTERED"
+  | "VALIDATION_CASE_REGISTERED"
+  | "VALIDATION_DECIDED"
+  | "FOLLOW_UP_STARTED"
+  | "FOLLOW_UP_DECIDED"
+  | "REASSESSMENT_STARTED"
+  | "SNAPSHOT_CREATED"
+  | "LEARNING_CANDIDATE_CREATED";
+
+/* ------------------------------------------------------------------ */
+/* CRV / Validation / Follow-up / Learning (M1-KL)                     */
+/* ------------------------------------------------------------------ */
+
+export type MembershipRole = "OWNER" | "ADMIN" | "MEMBER";
+
+/**
+ * Estado de un ValidationRequirement (CRV).
+ * VALIDATION_REQUIREMENT_NOT_EXPLICIT es un gap de conocimiento trazable:
+ * jamás se inventa un CRV para una Activity que no lo tiene aprobado.
+ */
+export type ValidationRequirementStatus =
+  | "VALIDATION_REQUIREMENT_NOT_EXPLICIT"
+  | "PENDING"
+  | "IN_PROGRESS"
+  | "SATISFIED"
+  | "NOT_SATISFIED";
+
+/** CRV: requisito de validación gobernado. No es un KPI ni un score. */
+export interface ValidationRequirementRecord {
+  id: string;
+  organizationId: string;
+  caseId: string;
+  assessmentId: string;
+  interventionId: string;
+  activityId: string | null;
+  knowledgeVersionId: string;
+  knowledgePackId: string;
+  knowledgePackVersion: string;
+  engineVersion: string;
+  requirementRef: string | null;
+  activityRef: string | null;
+  /** Enunciado literal aprobado, sin reinterpretación. */
+  definition: string;
+  definitionSource: string;
+  status: ValidationRequirementStatus;
+  /** Ejecutor original: el "segundo ejecutor" debe ser distinto de éste. */
+  primaryExecutorRespondentId: string | null;
+  requiredCaseCount: number | null;
+  detail: Record<string, unknown> | null;
+  createdBy: string | null;
+  createdAt: string;
+}
+
+export type ValidationCaseOutcome = "CORRECT" | "INCORRECT";
+
+/** Ejecución concreta registrada contra un CRV, con su evidencia. */
+export interface ValidationRequirementCaseRecord {
+  id: string;
+  organizationId: string;
+  validationRequirementId: string;
+  sequenceIndex: number;
+  executorRespondentId: string;
+  outcome: ValidationCaseOutcome;
+  criticalAssistance: boolean;
+  evidenceId: string | null;
+  note: string | null;
+  occurredAt: string;
+  registeredBy: string | null;
+  createdAt: string;
+}
+
+export type ValidationStatus =
+  | "PENDING"
+  | "IN_REVIEW"
+  | "VALIDATED"
+  | "NOT_VALIDATED"
+  | "INSUFFICIENT_EVIDENCE";
+
+/** Validation ≠ Done ≠ Deliverable. Siempre con lineage y decisión humana. */
+export interface ValidationRecord {
+  id: string;
+  organizationId: string;
+  caseId: string;
+  assessmentId: string;
+  interventionId: string;
+  activityId: string | null;
+  validationRequirementId: string | null;
+  evaluationRunId: string | null;
+  knowledgeVersionId: string;
+  engineVersion: string;
+  status: ValidationStatus;
+  decisionReason: string | null;
+  reviewedBy: string | null;
+  reviewedAt: string | null;
+  detail: Record<string, unknown> | null;
+  createdAt: string;
+}
+
+export interface ValidationEvidenceLink {
+  id: string;
+  organizationId: string;
+  validationId: string;
+  evidenceId: string;
+  createdAt: string;
+}
+
+export type FollowUpOutcome = "OPEN" | "CONSOLIDATED" | "NEEDS_ADJUSTMENT";
+
+/** Follow-up: solo existe sobre una Validation registrada (provenance). */
+export interface FollowUpRecord {
+  id: string;
+  organizationId: string;
+  caseId: string;
+  activityId: string;
+  validationId: string;
+  status: FollowUpOutcome;
+  note: string | null;
+  evidenceId: string | null;
+  decidedBy: string | null;
+  decidedAt: string | null;
+  createdAt: string;
+}
+
+/** LearningCandidate ≠ Master Knowledge: nunca se aplica automáticamente. */
+export interface LearningCandidateRecord {
+  id: string;
+  organizationId: string;
+  caseId: string;
+  assessmentId: string | null;
+  validationId: string | null;
+  knowledgeVersionId: string;
+  sourceTable: string;
+  sourceId: string | null;
+  statement: string;
+  status: string;
+  appliedToMaster: false;
+  detail: Record<string, unknown> | null;
+  createdBy: string | null;
+  createdAt: string;
+}
+
+/** Snapshot puntual para reproducibilidad histórica. No es event sourcing. */
+export interface AssessmentSnapshotRecord {
+  id: string;
+  organizationId: string;
+  caseId: string;
+  assessmentId: string;
+  knowledgeVersionId: string;
+  engineVersion: string;
+  reason: string;
+  payload: Record<string, unknown>;
+  createdBy: string | null;
+  createdAt: string;
+}
 
 /** Registro de acciones relevantes. No es event sourcing. */
 export interface AuditEventRecord {
@@ -446,6 +619,58 @@ export interface ProductionRepository {
   listDeliverables(activityId: string): Promise<DeliverableRecord[]>;
   insertAuditEvent(input: Omit<AuditEventRecord, "id" | "createdAt">): Promise<AuditEventRecord>;
   listAuditEvents(organizationId: string): Promise<AuditEventRecord[]>;
+
+  /* CRV, Validation, Follow-up, Reassessment (M1-KL) */
+  /** Permiso de validación: aportar evidencia ≠ validar. */
+  getMembershipRole(organizationId: string, userId: string): Promise<MembershipRole | null>;
+  insertAssessment(input: Omit<AssessmentRecord, "id" | "updatedAt">): Promise<AssessmentRecord>;
+  listAssessments(caseId: string): Promise<AssessmentRecord[]>;
+  listEvaluationRuns(assessmentId: string): Promise<EvaluationRunRecord[]>;
+  listVariableEvaluations(runId: string): Promise<VariableEvaluationRecord[]>;
+  markActivityDone(id: string, doneAt: string, doneBy: string | null): Promise<ActivityRecord>;
+  insertValidationRequirement(
+    input: Omit<ValidationRequirementRecord, "id" | "createdAt">,
+  ): Promise<ValidationRequirementRecord>;
+  getValidationRequirement(id: string): Promise<ValidationRequirementRecord | null>;
+  listValidationRequirements(interventionId: string): Promise<ValidationRequirementRecord[]>;
+  updateValidationRequirementStatus(
+    id: string,
+    status: ValidationRequirementStatus,
+  ): Promise<ValidationRequirementRecord>;
+  insertValidationRequirementCase(
+    input: Omit<ValidationRequirementCaseRecord, "id" | "createdAt">,
+  ): Promise<ValidationRequirementCaseRecord>;
+  listValidationRequirementCases(
+    validationRequirementId: string,
+  ): Promise<ValidationRequirementCaseRecord[]>;
+  insertValidation(input: Omit<ValidationRecord, "id" | "createdAt">): Promise<ValidationRecord>;
+  getValidation(id: string): Promise<ValidationRecord | null>;
+  listValidations(assessmentId: string): Promise<ValidationRecord[]>;
+  updateValidation(
+    id: string,
+    patch: Partial<
+      Pick<ValidationRecord, "status" | "decisionReason" | "reviewedBy" | "reviewedAt" | "detail">
+    >,
+  ): Promise<ValidationRecord>;
+  linkValidationEvidence(
+    input: Omit<ValidationEvidenceLink, "id" | "createdAt">,
+  ): Promise<ValidationEvidenceLink>;
+  listValidationEvidenceLinks(validationId: string): Promise<ValidationEvidenceLink[]>;
+  insertFollowUp(input: Omit<FollowUpRecord, "id" | "createdAt">): Promise<FollowUpRecord>;
+  getFollowUp(id: string): Promise<FollowUpRecord | null>;
+  listFollowUps(activityId: string): Promise<FollowUpRecord[]>;
+  updateFollowUp(
+    id: string,
+    patch: Partial<Pick<FollowUpRecord, "status" | "note" | "evidenceId" | "decidedBy" | "decidedAt">>,
+  ): Promise<FollowUpRecord>;
+  insertLearningCandidate(
+    input: Omit<LearningCandidateRecord, "id" | "createdAt">,
+  ): Promise<LearningCandidateRecord>;
+  listLearningCandidates(organizationId: string): Promise<LearningCandidateRecord[]>;
+  insertAssessmentSnapshot(
+    input: Omit<AssessmentSnapshotRecord, "id" | "createdAt">,
+  ): Promise<AssessmentSnapshotRecord>;
+  listAssessmentSnapshots(assessmentId: string): Promise<AssessmentSnapshotRecord[]>;
 }
 
 /* ------------------------------------------------------------------ */
@@ -457,6 +682,8 @@ const nuevoId = (prefijo: string) => `${prefijo}-${String(++contador).padStart(6
 
 export function createInMemoryProductionRepository(
   assessments: AssessmentRecord[],
+  /** Membresías conocidas: sin membresía no hay permiso de validación. */
+  memberships: { organizationId: string; userId: string; role: MembershipRole }[] = [],
 ): ProductionRepository & { readonly estado: Readonly<Record<string, unknown[]>> } {
   const mapaAssessments = new Map(assessments.map((a) => [a.id, a]));
   const responses: ResponseRecord[] = [];
@@ -478,6 +705,13 @@ export function createInMemoryProductionRepository(
   const activities: ActivityRecord[] = [];
   const deliverables: DeliverableRecord[] = [];
   const auditEvents: AuditEventRecord[] = [];
+  const validationRequirements: ValidationRequirementRecord[] = [];
+  const validationCases: ValidationRequirementCaseRecord[] = [];
+  const validations: ValidationRecord[] = [];
+  const validationEvidence: ValidationEvidenceLink[] = [];
+  const followUps: FollowUpRecord[] = [];
+  const learningCandidates: LearningCandidateRecord[] = [];
+  const snapshots: AssessmentSnapshotRecord[] = [];
 
   const assessmentIdsDe = (organizationOrAssessment: string) => organizationOrAssessment;
 
@@ -502,6 +736,14 @@ export function createInMemoryProductionRepository(
       activities,
       deliverables,
       auditEvents,
+      assessments,
+      validationRequirements,
+      validationCases,
+      validations,
+      validationEvidence,
+      followUps,
+      learningCandidates,
+      snapshots,
     },
 
     async getAssessment(assessmentId) {
@@ -766,6 +1008,152 @@ export function createInMemoryProductionRepository(
     },
     async listAuditEvents(organizationId) {
       return auditEvents.filter((a) => a.organizationId === organizationId);
+    },
+
+    /* CRV, Validation, Follow-up, Reassessment (M1-KL) */
+    async getMembershipRole(organizationId, userId) {
+      return (
+        memberships.find((m) => m.organizationId === organizationId && m.userId === userId)?.role ??
+        null
+      );
+    },
+    async insertAssessment(input) {
+      const row: AssessmentRecord = {
+        ...input,
+        id: nuevoId("ass"),
+        updatedAt: new Date().toISOString(),
+      };
+      assessments.push(row);
+      mapaAssessments.set(row.id, row);
+      return row;
+    },
+    async listAssessments(caseId) {
+      return assessments.filter((a) => a.caseId === caseId);
+    },
+    async listEvaluationRuns(assessmentId) {
+      return runs.filter((r) => r.assessmentId === assessmentId);
+    },
+    async listVariableEvaluations(runId) {
+      return variableEvaluations.filter((v) => v.evaluationRunId === runId);
+    },
+    async markActivityDone(id, doneAt, doneBy) {
+      const row = activities.find((a) => a.id === id);
+      if (!row) throw new Error(`activity inexistente: ${id}`);
+      row.doneAt = doneAt;
+      row.doneBy = doneBy;
+      return row;
+    },
+    async insertValidationRequirement(input) {
+      const row: ValidationRequirementRecord = {
+        ...input,
+        id: nuevoId("crv"),
+        createdAt: new Date().toISOString(),
+      };
+      validationRequirements.push(row);
+      return row;
+    },
+    async getValidationRequirement(id) {
+      return validationRequirements.find((v) => v.id === id) ?? null;
+    },
+    async listValidationRequirements(interventionId) {
+      return validationRequirements.filter((v) => v.interventionId === interventionId);
+    },
+    async updateValidationRequirementStatus(id, status) {
+      const row = validationRequirements.find((v) => v.id === id);
+      if (!row) throw new Error(`validation_requirement inexistente: ${id}`);
+      row.status = status;
+      return row;
+    },
+    async insertValidationRequirementCase(input) {
+      const row: ValidationRequirementCaseRecord = {
+        ...input,
+        id: nuevoId("vrc"),
+        createdAt: new Date().toISOString(),
+      };
+      validationCases.push(row);
+      return row;
+    },
+    async listValidationRequirementCases(validationRequirementId) {
+      return validationCases
+        .filter((c) => c.validationRequirementId === validationRequirementId)
+        .sort((a, b) => a.sequenceIndex - b.sequenceIndex);
+    },
+    async insertValidation(input) {
+      const row: ValidationRecord = { ...input, id: nuevoId("val"), createdAt: new Date().toISOString() };
+      validations.push(row);
+      return row;
+    },
+    async getValidation(id) {
+      return validations.find((v) => v.id === id) ?? null;
+    },
+    async listValidations(assessmentId) {
+      return validations.filter((v) => v.assessmentId === assessmentId);
+    },
+    async updateValidation(id, patch) {
+      const row = validations.find((v) => v.id === id);
+      if (!row) throw new Error(`validation inexistente: ${id}`);
+      Object.assign(row, patch);
+      return row;
+    },
+    async linkValidationEvidence(input) {
+      const existente = validationEvidence.find(
+        (l) => l.validationId === input.validationId && l.evidenceId === input.evidenceId,
+      );
+      if (existente) return existente;
+      const row: ValidationEvidenceLink = {
+        ...input,
+        id: nuevoId("vev"),
+        createdAt: new Date().toISOString(),
+      };
+      validationEvidence.push(row);
+      return row;
+    },
+    async listValidationEvidenceLinks(validationId) {
+      return validationEvidence.filter((l) => l.validationId === validationId);
+    },
+    async insertFollowUp(input) {
+      const row: FollowUpRecord = { ...input, id: nuevoId("fup"), createdAt: new Date().toISOString() };
+      followUps.push(row);
+      return row;
+    },
+    async getFollowUp(id) {
+      return followUps.find((f) => f.id === id) ?? null;
+    },
+    async listFollowUps(activityId) {
+      return followUps.filter((f) => f.activityId === activityId);
+    },
+    async updateFollowUp(id, patch) {
+      const row = followUps.find((f) => f.id === id);
+      if (!row) throw new Error(`follow_up inexistente: ${id}`);
+      Object.assign(row, patch);
+      return row;
+    },
+    async insertLearningCandidate(input) {
+      const row: LearningCandidateRecord = {
+        ...input,
+        // Invariante estructural: un aprendizaje del cliente nunca se aplica
+        // al Knowledge Master.
+        appliedToMaster: false,
+        id: nuevoId("lrn"),
+        createdAt: new Date().toISOString(),
+      };
+      learningCandidates.push(row);
+      return row;
+    },
+    async listLearningCandidates(organizationId) {
+      return learningCandidates.filter((l) => l.organizationId === organizationId);
+    },
+    async insertAssessmentSnapshot(input) {
+      const row: AssessmentSnapshotRecord = {
+        ...input,
+        id: nuevoId("snp"),
+        createdAt: new Date().toISOString(),
+      };
+      snapshots.push(row);
+      return row;
+    },
+    async listAssessmentSnapshots(assessmentId) {
+      return snapshots.filter((s) => s.assessmentId === assessmentId);
     },
   };
 }

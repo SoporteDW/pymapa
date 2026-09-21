@@ -35,7 +35,30 @@ import type {
   DeliverableRecord,
   AuditEventRecord,
   ExecutionState,
+  ValidationRequirementRecord,
+  ValidationRequirementCaseRecord,
+  ValidationRecord,
+  ValidationEvidenceLink,
+  FollowUpRecord,
+  LearningCandidateRecord,
+  AssessmentSnapshotRecord,
 } from "./puertos";
+
+/** Columnas persistidas por entidad (literales: la tipificación las exige). */
+const COLUMNAS_ASSESSMENT =
+  "id, organization_id, case_id, knowledge_version_id, type, started_at, closed_at, updated_at" as const;
+const COLUMNAS_CRV =
+  "id, organization_id, case_id, assessment_id, intervention_id, activity_id, knowledge_version_id, knowledge_pack_id, knowledge_pack_version, engine_version, requirement_ref, activity_ref, definition, definition_source, status, primary_executor_respondent_id, required_case_count, detail, created_by, created_at" as const;
+const COLUMNAS_CASO_CRV =
+  "id, organization_id, validation_requirement_id, sequence_index, executor_respondent_id, outcome, critical_assistance, evidence_id, note, occurred_at, registered_by, created_at" as const;
+const COLUMNAS_VALIDACION =
+  "id, organization_id, case_id, assessment_id, intervention_id, activity_id, validation_requirement_id, evaluation_run_id, knowledge_version_id, engine_version, status, decision_reason, reviewed_by, reviewed_at, detail, created_at" as const;
+const COLUMNAS_FOLLOW_UP =
+  "id, organization_id, case_id, activity_id, validation_id, status, note, evidence_id, decided_by, decided_at, created_at" as const;
+const COLUMNAS_APRENDIZAJE =
+  "id, organization_id, case_id, assessment_id, validation_id, knowledge_version_id, source_table, source_id, statement, status, applied_to_master, detail, created_by, created_at" as const;
+const COLUMNAS_SNAPSHOT =
+  "id, organization_id, case_id, assessment_id, knowledge_version_id, engine_version, reason, payload, created_by, created_at" as const;
 
 /** Engine genérico ya enlazado al pack OP-01 1.0.0 (declarativo). */
 export function cargarEngineOp01(): KnowledgeEngine {
@@ -892,7 +915,7 @@ export function createSupabaseProductionRepository(): ProductionRepository {
           title: input.title,
           state: input.state,
         })
-        .select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, created_at")
+        .select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, done_at, done_by, created_at")
         .single();
       lanzar("activities.insert", error);
       return aActividad(data!);
@@ -900,7 +923,7 @@ export function createSupabaseProductionRepository(): ProductionRepository {
 
     async getActivity(id): Promise<ActivityRecord | null> {
       const db = await admin();
-      const { data, error } = await db.from("activities").select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, created_at").eq("id", id).maybeSingle();
+      const { data, error } = await db.from("activities").select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, done_at, done_by, created_at").eq("id", id).maybeSingle();
       lanzar("activities.get", error);
       return data ? aActividad(data) : null;
     },
@@ -909,7 +932,7 @@ export function createSupabaseProductionRepository(): ProductionRepository {
       const db = await admin();
       const { data, error } = await db
         .from("activities")
-        .select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, created_at")
+        .select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, done_at, done_by, created_at")
         .eq("intervention_id", interventionId)
         .order("created_at", { ascending: true });
       lanzar("activities.list", error);
@@ -922,7 +945,7 @@ export function createSupabaseProductionRepository(): ProductionRepository {
         .from("activities")
         .update({ state })
         .eq("id", id)
-        .select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, created_at")
+        .select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, done_at, done_by, created_at")
         .single();
       lanzar("activities.updateState", error);
       return aActividad(data!);
@@ -986,6 +1009,442 @@ export function createSupabaseProductionRepository(): ProductionRepository {
         .order("created_at", { ascending: false });
       lanzar("audit_events.list", error);
       return (data ?? []).map(aAuditoria);
+    },
+
+    /* ---------------- CRV / Validation / Follow-up (M1-KL) -------------- */
+
+    async getMembershipRole(organizationId, userId) {
+      const db = await admin();
+      const { data, error } = await db
+        .from("memberships")
+        .select("role")
+        .eq("organization_id", organizationId)
+        .eq("user_id", userId)
+        .maybeSingle();
+      lanzar("memberships.role", error);
+      return data?.role ?? null;
+    },
+
+    async insertAssessment(input): Promise<AssessmentRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("assessments")
+        .insert({
+          organization_id: input.organizationId,
+          case_id: input.caseId,
+          knowledge_version_id: input.knowledgeVersionId,
+          type: input.type,
+          started_at: input.startedAt,
+          closed_at: input.closedAt,
+        })
+        .select(COLUMNAS_ASSESSMENT)
+        .single();
+      lanzar("assessments.insert", error);
+      return aAssessment(data!);
+    },
+
+    async listAssessments(caseId): Promise<AssessmentRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("assessments")
+        .select(COLUMNAS_ASSESSMENT)
+        .eq("case_id", caseId)
+        .order("created_at", { ascending: true });
+      lanzar("assessments.list", error);
+      return (data ?? []).map(aAssessment);
+    },
+
+    async listEvaluationRuns(assessmentId): Promise<EvaluationRunRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("evaluation_runs")
+        .select("id, organization_id, assessment_id, knowledge_version_id, engine_version, trigger, status, started_at, completed_at, created_at")
+        .eq("assessment_id", assessmentId)
+        .order("created_at", { ascending: true });
+      lanzar("evaluation_runs.list", error);
+      return (data ?? []).map((r) => ({
+        id: r.id,
+        organizationId: r.organization_id,
+        assessmentId: r.assessment_id,
+        knowledgeVersionId: r.knowledge_version_id,
+        engineVersion: r.engine_version,
+        trigger: r.trigger,
+        status: r.status,
+        startedAt: r.started_at,
+        completedAt: r.completed_at,
+        createdAt: r.created_at,
+      }));
+    },
+
+    async listVariableEvaluations(runId): Promise<VariableEvaluationRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("variable_evaluations")
+        .select("id, organization_id, evaluation_run_id, variable_ref, state, detail")
+        .eq("evaluation_run_id", runId);
+      lanzar("variable_evaluations.list", error);
+      return (data ?? []).map((v) => ({
+        id: v.id,
+        organizationId: v.organization_id,
+        evaluationRunId: v.evaluation_run_id,
+        variableRef: v.variable_ref,
+        state: v.state,
+        detail: (v.detail as Record<string, unknown> | null) ?? null,
+      }));
+    },
+
+    async markActivityDone(id, doneAt, doneBy): Promise<ActivityRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("activities")
+        .update({ done_at: doneAt, done_by: doneBy })
+        .eq("id", id)
+        .select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, done_at, done_by, created_at")
+        .single();
+      lanzar("activities.markDone", error);
+      return aActividad(data!);
+    },
+
+    async insertValidationRequirement(input): Promise<ValidationRequirementRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("validation_requirements")
+        .insert({
+          organization_id: input.organizationId,
+          case_id: input.caseId,
+          assessment_id: input.assessmentId,
+          intervention_id: input.interventionId,
+          activity_id: input.activityId,
+          knowledge_version_id: input.knowledgeVersionId,
+          knowledge_pack_id: input.knowledgePackId,
+          knowledge_pack_version: input.knowledgePackVersion,
+          engine_version: input.engineVersion,
+          requirement_ref: input.requirementRef,
+          activity_ref: input.activityRef,
+          definition: input.definition,
+          definition_source: input.definitionSource,
+          status: input.status,
+          primary_executor_respondent_id: input.primaryExecutorRespondentId,
+          required_case_count: input.requiredCaseCount,
+          detail: aJson(input.detail ?? {}),
+          created_by: input.createdBy,
+        })
+        .select(COLUMNAS_CRV)
+        .single();
+      lanzar("validation_requirements.insert", error);
+      return aRequisitoValidacion(data!);
+    },
+
+    async getValidationRequirement(id): Promise<ValidationRequirementRecord | null> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("validation_requirements")
+        .select(COLUMNAS_CRV)
+        .eq("id", id)
+        .maybeSingle();
+      lanzar("validation_requirements.get", error);
+      return data ? aRequisitoValidacion(data) : null;
+    },
+
+    async listValidationRequirements(interventionId): Promise<ValidationRequirementRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("validation_requirements")
+        .select(COLUMNAS_CRV)
+        .eq("intervention_id", interventionId)
+        .order("created_at", { ascending: true });
+      lanzar("validation_requirements.list", error);
+      return (data ?? []).map(aRequisitoValidacion);
+    },
+
+    async updateValidationRequirementStatus(id, status): Promise<ValidationRequirementRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("validation_requirements")
+        .update({ status })
+        .eq("id", id)
+        .select(COLUMNAS_CRV)
+        .single();
+      lanzar("validation_requirements.update", error);
+      return aRequisitoValidacion(data!);
+    },
+
+    async insertValidationRequirementCase(input): Promise<ValidationRequirementCaseRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("validation_requirement_cases")
+        .insert({
+          organization_id: input.organizationId,
+          validation_requirement_id: input.validationRequirementId,
+          sequence_index: input.sequenceIndex,
+          executor_respondent_id: input.executorRespondentId,
+          outcome: input.outcome,
+          critical_assistance: input.criticalAssistance,
+          evidence_id: input.evidenceId,
+          note: input.note,
+          occurred_at: input.occurredAt,
+          registered_by: input.registeredBy,
+        })
+        .select(COLUMNAS_CASO_CRV)
+        .single();
+      lanzar("validation_requirement_cases.insert", error);
+      return aCasoValidacion(data!);
+    },
+
+    async listValidationRequirementCases(
+      validationRequirementId,
+    ): Promise<ValidationRequirementCaseRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("validation_requirement_cases")
+        .select(COLUMNAS_CASO_CRV)
+        .eq("validation_requirement_id", validationRequirementId)
+        .order("sequence_index", { ascending: true });
+      lanzar("validation_requirement_cases.list", error);
+      return (data ?? []).map(aCasoValidacion);
+    },
+
+    async insertValidation(input): Promise<ValidationRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("validations")
+        .insert({
+          organization_id: input.organizationId,
+          case_id: input.caseId,
+          assessment_id: input.assessmentId,
+          intervention_id: input.interventionId,
+          activity_id: input.activityId,
+          validation_requirement_id: input.validationRequirementId,
+          evaluation_run_id: input.evaluationRunId,
+          knowledge_version_id: input.knowledgeVersionId,
+          engine_version: input.engineVersion,
+          status: input.status,
+          decision_reason: input.decisionReason,
+          reviewed_by: input.reviewedBy,
+          reviewed_at: input.reviewedAt,
+          detail: aJson(input.detail ?? {}),
+        })
+        .select(COLUMNAS_VALIDACION)
+        .single();
+      lanzar("validations.insert", error);
+      return aValidacion(data!);
+    },
+
+    async getValidation(id): Promise<ValidationRecord | null> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("validations")
+        .select(COLUMNAS_VALIDACION)
+        .eq("id", id)
+        .maybeSingle();
+      lanzar("validations.get", error);
+      return data ? aValidacion(data) : null;
+    },
+
+    async listValidations(assessmentId): Promise<ValidationRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("validations")
+        .select(COLUMNAS_VALIDACION)
+        .eq("assessment_id", assessmentId)
+        .order("created_at", { ascending: true });
+      lanzar("validations.list", error);
+      return (data ?? []).map(aValidacion);
+    },
+
+    async updateValidation(id, patch): Promise<ValidationRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("validations")
+        .update({
+          ...(patch.status !== undefined ? { status: patch.status } : {}),
+          ...(patch.decisionReason !== undefined ? { decision_reason: patch.decisionReason } : {}),
+          ...(patch.reviewedBy !== undefined ? { reviewed_by: patch.reviewedBy } : {}),
+          ...(patch.reviewedAt !== undefined ? { reviewed_at: patch.reviewedAt } : {}),
+          ...(patch.detail !== undefined ? { detail: aJson(patch.detail) } : {}),
+        })
+        .eq("id", id)
+        .select(COLUMNAS_VALIDACION)
+        .single();
+      lanzar("validations.update", error);
+      return aValidacion(data!);
+    },
+
+    async linkValidationEvidence(input): Promise<ValidationEvidenceLink> {
+      const db = await admin();
+      const existente = await db
+        .from("validation_evidence")
+        .select("id, organization_id, validation_id, evidence_id, created_at")
+        .eq("validation_id", input.validationId)
+        .eq("evidence_id", input.evidenceId)
+        .maybeSingle();
+      lanzar("validation_evidence.select", existente.error);
+      const fila =
+        existente.data ??
+        (await (async () => {
+          const creado = await db
+            .from("validation_evidence")
+            .insert({
+              organization_id: input.organizationId,
+              validation_id: input.validationId,
+              evidence_id: input.evidenceId,
+            })
+            .select("id, organization_id, validation_id, evidence_id, created_at")
+            .single();
+          lanzar("validation_evidence.insert", creado.error);
+          return creado.data!;
+        })());
+      return {
+        id: fila.id,
+        organizationId: fila.organization_id,
+        validationId: fila.validation_id,
+        evidenceId: fila.evidence_id,
+        createdAt: fila.created_at,
+      };
+    },
+
+    async listValidationEvidenceLinks(validationId): Promise<ValidationEvidenceLink[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("validation_evidence")
+        .select("id, organization_id, validation_id, evidence_id, created_at")
+        .eq("validation_id", validationId);
+      lanzar("validation_evidence.list", error);
+      return (data ?? []).map((l) => ({
+        id: l.id,
+        organizationId: l.organization_id,
+        validationId: l.validation_id,
+        evidenceId: l.evidence_id,
+        createdAt: l.created_at,
+      }));
+    },
+
+    async insertFollowUp(input): Promise<FollowUpRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("follow_ups")
+        .insert({
+          organization_id: input.organizationId,
+          case_id: input.caseId,
+          activity_id: input.activityId,
+          validation_id: input.validationId,
+          status: input.status,
+          note: input.note,
+          evidence_id: input.evidenceId,
+          decided_by: input.decidedBy,
+          decided_at: input.decidedAt,
+        })
+        .select(COLUMNAS_FOLLOW_UP)
+        .single();
+      lanzar("follow_ups.insert", error);
+      return aSeguimiento(data!);
+    },
+
+    async getFollowUp(id): Promise<FollowUpRecord | null> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("follow_ups")
+        .select(COLUMNAS_FOLLOW_UP)
+        .eq("id", id)
+        .maybeSingle();
+      lanzar("follow_ups.get", error);
+      return data ? aSeguimiento(data) : null;
+    },
+
+    async listFollowUps(activityId): Promise<FollowUpRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("follow_ups")
+        .select(COLUMNAS_FOLLOW_UP)
+        .eq("activity_id", activityId)
+        .order("created_at", { ascending: true });
+      lanzar("follow_ups.list", error);
+      return (data ?? []).map(aSeguimiento);
+    },
+
+    async updateFollowUp(id, patch): Promise<FollowUpRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("follow_ups")
+        .update({
+          ...(patch.status !== undefined ? { status: patch.status } : {}),
+          ...(patch.note !== undefined ? { note: patch.note } : {}),
+          ...(patch.evidenceId !== undefined ? { evidence_id: patch.evidenceId } : {}),
+          ...(patch.decidedBy !== undefined ? { decided_by: patch.decidedBy } : {}),
+          ...(patch.decidedAt !== undefined ? { decided_at: patch.decidedAt } : {}),
+        })
+        .eq("id", id)
+        .select(COLUMNAS_FOLLOW_UP)
+        .single();
+      lanzar("follow_ups.update", error);
+      return aSeguimiento(data!);
+    },
+
+    async insertLearningCandidate(input): Promise<LearningCandidateRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("learning_candidates")
+        .insert({
+          organization_id: input.organizationId,
+          case_id: input.caseId,
+          assessment_id: input.assessmentId,
+          validation_id: input.validationId,
+          knowledge_version_id: input.knowledgeVersionId,
+          source_table: input.sourceTable,
+          source_id: input.sourceId,
+          statement: input.statement,
+          status: input.status,
+          // applied_to_master queda en false por constraint: un aprendizaje del
+          // cliente no modifica el Knowledge Master.
+          detail: aJson(input.detail ?? {}),
+          created_by: input.createdBy,
+        })
+        .select(COLUMNAS_APRENDIZAJE)
+        .single();
+      lanzar("learning_candidates.insert", error);
+      return aAprendizaje(data!);
+    },
+
+    async listLearningCandidates(organizationId): Promise<LearningCandidateRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("learning_candidates")
+        .select(COLUMNAS_APRENDIZAJE)
+        .eq("organization_id", organizationId)
+        .order("created_at", { ascending: true });
+      lanzar("learning_candidates.list", error);
+      return (data ?? []).map(aAprendizaje);
+    },
+
+    async insertAssessmentSnapshot(input): Promise<AssessmentSnapshotRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("assessment_snapshots")
+        .insert({
+          organization_id: input.organizationId,
+          case_id: input.caseId,
+          assessment_id: input.assessmentId,
+          knowledge_version_id: input.knowledgeVersionId,
+          engine_version: input.engineVersion,
+          reason: input.reason,
+          payload: aJson(input.payload),
+          created_by: input.createdBy,
+        })
+        .select(COLUMNAS_SNAPSHOT)
+        .single();
+      lanzar("assessment_snapshots.insert", error);
+      return aSnapshot(data!);
+    },
+
+    async listAssessmentSnapshots(assessmentId): Promise<AssessmentSnapshotRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("assessment_snapshots")
+        .select(COLUMNAS_SNAPSHOT)
+        .eq("assessment_id", assessmentId)
+        .order("created_at", { ascending: true });
+      lanzar("assessment_snapshots.list", error);
+      return (data ?? []).map(aSnapshot);
     },
   };
 }
@@ -1149,6 +1608,8 @@ function aActividad(a: {
   mapping_status: string;
   title: string;
   state: ExecutionState;
+  done_at?: string | null;
+  done_by?: string | null;
   created_at: string;
 }): ActivityRecord {
   return {
@@ -1160,6 +1621,8 @@ function aActividad(a: {
     mappingStatus: a.mapping_status,
     title: a.title,
     state: a.state,
+    doneAt: a.done_at ?? null,
+    doneBy: a.done_by ?? null,
     createdAt: a.created_at,
   };
 }
@@ -1407,5 +1870,234 @@ export async function asegurarContextoProductivo(
     startedAt: fila.started_at,
     closedAt: fila.closed_at,
     updatedAt: fila.updated_at,
+  };
+}
+
+/* ------------------------------------------------------------------ */
+/* Mapeos M1-KL (CRV / Validation / Follow-up / Learning / Snapshot)    */
+/* ------------------------------------------------------------------ */
+
+function aAssessment(a: {
+  id: string;
+  organization_id: string;
+  case_id: string;
+  knowledge_version_id: string;
+  type: AssessmentRecord["type"];
+  started_at: string | null;
+  closed_at: string | null;
+  updated_at: string;
+}): AssessmentRecord {
+  return {
+    id: a.id,
+    organizationId: a.organization_id,
+    caseId: a.case_id,
+    knowledgeVersionId: a.knowledge_version_id,
+    type: a.type,
+    startedAt: a.started_at,
+    closedAt: a.closed_at,
+    updatedAt: a.updated_at,
+  };
+}
+
+function aRequisitoValidacion(v: {
+  id: string;
+  organization_id: string;
+  case_id: string;
+  assessment_id: string;
+  intervention_id: string;
+  activity_id: string | null;
+  knowledge_version_id: string;
+  knowledge_pack_id: string;
+  knowledge_pack_version: string;
+  engine_version: string;
+  requirement_ref: string | null;
+  activity_ref: string | null;
+  definition: string;
+  definition_source: string;
+  status: ValidationRequirementRecord["status"];
+  primary_executor_respondent_id: string | null;
+  required_case_count: number | null;
+  detail: unknown;
+  created_by: string | null;
+  created_at: string;
+}): ValidationRequirementRecord {
+  return {
+    id: v.id,
+    organizationId: v.organization_id,
+    caseId: v.case_id,
+    assessmentId: v.assessment_id,
+    interventionId: v.intervention_id,
+    activityId: v.activity_id,
+    knowledgeVersionId: v.knowledge_version_id,
+    knowledgePackId: v.knowledge_pack_id,
+    knowledgePackVersion: v.knowledge_pack_version,
+    engineVersion: v.engine_version,
+    requirementRef: v.requirement_ref,
+    activityRef: v.activity_ref,
+    definition: v.definition,
+    definitionSource: v.definition_source,
+    status: v.status,
+    primaryExecutorRespondentId: v.primary_executor_respondent_id,
+    requiredCaseCount: v.required_case_count,
+    detail: (v.detail as Record<string, unknown> | null) ?? null,
+    createdBy: v.created_by,
+    createdAt: v.created_at,
+  };
+}
+
+function aCasoValidacion(c: {
+  id: string;
+  organization_id: string;
+  validation_requirement_id: string;
+  sequence_index: number;
+  executor_respondent_id: string;
+  outcome: ValidationRequirementCaseRecord["outcome"];
+  critical_assistance: boolean;
+  evidence_id: string | null;
+  note: string | null;
+  occurred_at: string;
+  registered_by: string | null;
+  created_at: string;
+}): ValidationRequirementCaseRecord {
+  return {
+    id: c.id,
+    organizationId: c.organization_id,
+    validationRequirementId: c.validation_requirement_id,
+    sequenceIndex: c.sequence_index,
+    executorRespondentId: c.executor_respondent_id,
+    outcome: c.outcome,
+    criticalAssistance: c.critical_assistance,
+    evidenceId: c.evidence_id,
+    note: c.note,
+    occurredAt: c.occurred_at,
+    registeredBy: c.registered_by,
+    createdAt: c.created_at,
+  };
+}
+
+function aValidacion(v: {
+  id: string;
+  organization_id: string;
+  case_id: string;
+  assessment_id: string;
+  intervention_id: string;
+  activity_id: string | null;
+  validation_requirement_id: string | null;
+  evaluation_run_id: string | null;
+  knowledge_version_id: string;
+  engine_version: string;
+  status: ValidationRecord["status"];
+  decision_reason: string | null;
+  reviewed_by: string | null;
+  reviewed_at: string | null;
+  detail: unknown;
+  created_at: string;
+}): ValidationRecord {
+  return {
+    id: v.id,
+    organizationId: v.organization_id,
+    caseId: v.case_id,
+    assessmentId: v.assessment_id,
+    interventionId: v.intervention_id,
+    activityId: v.activity_id,
+    validationRequirementId: v.validation_requirement_id,
+    evaluationRunId: v.evaluation_run_id,
+    knowledgeVersionId: v.knowledge_version_id,
+    engineVersion: v.engine_version,
+    status: v.status,
+    decisionReason: v.decision_reason,
+    reviewedBy: v.reviewed_by,
+    reviewedAt: v.reviewed_at,
+    detail: (v.detail as Record<string, unknown> | null) ?? null,
+    createdAt: v.created_at,
+  };
+}
+
+function aSeguimiento(f: {
+  id: string;
+  organization_id: string;
+  case_id: string;
+  activity_id: string;
+  validation_id: string;
+  status: FollowUpRecord["status"];
+  note: string | null;
+  evidence_id: string | null;
+  decided_by: string | null;
+  decided_at: string | null;
+  created_at: string;
+}): FollowUpRecord {
+  return {
+    id: f.id,
+    organizationId: f.organization_id,
+    caseId: f.case_id,
+    activityId: f.activity_id,
+    validationId: f.validation_id,
+    status: f.status,
+    note: f.note,
+    evidenceId: f.evidence_id,
+    decidedBy: f.decided_by,
+    decidedAt: f.decided_at,
+    createdAt: f.created_at,
+  };
+}
+
+function aAprendizaje(l: {
+  id: string;
+  organization_id: string;
+  case_id: string;
+  assessment_id: string | null;
+  validation_id: string | null;
+  knowledge_version_id: string;
+  source_table: string;
+  source_id: string | null;
+  statement: string;
+  status: string;
+  applied_to_master: boolean;
+  detail: unknown;
+  created_by: string | null;
+  created_at: string;
+}): LearningCandidateRecord {
+  return {
+    id: l.id,
+    organizationId: l.organization_id,
+    caseId: l.case_id,
+    assessmentId: l.assessment_id,
+    validationId: l.validation_id,
+    knowledgeVersionId: l.knowledge_version_id,
+    sourceTable: l.source_table,
+    sourceId: l.source_id,
+    statement: l.statement,
+    status: l.status,
+    // Invariante: el conocimiento maestro no se modifica desde el cliente.
+    appliedToMaster: false,
+    detail: (l.detail as Record<string, unknown> | null) ?? null,
+    createdBy: l.created_by,
+    createdAt: l.created_at,
+  };
+}
+
+function aSnapshot(s: {
+  id: string;
+  organization_id: string;
+  case_id: string;
+  assessment_id: string;
+  knowledge_version_id: string;
+  engine_version: string;
+  reason: string;
+  payload: unknown;
+  created_by: string | null;
+  created_at: string;
+}): AssessmentSnapshotRecord {
+  return {
+    id: s.id,
+    organizationId: s.organization_id,
+    caseId: s.case_id,
+    assessmentId: s.assessment_id,
+    knowledgeVersionId: s.knowledge_version_id,
+    engineVersion: s.engine_version,
+    reason: s.reason,
+    payload: (s.payload as Record<string, unknown>) ?? {},
+    createdBy: s.created_by,
+    createdAt: s.created_at,
   };
 }

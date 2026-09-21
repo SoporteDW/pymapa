@@ -24,6 +24,16 @@ import {
   getOp01NextAcquisition,
   inviteOp01Respondent,
   registerOp01Deliverable,
+  compareOp01Assessments,
+  decideOp01FollowUp,
+  decideOp01Validation,
+  getOp01Validation,
+  markOp01ActivityDone,
+  openOp01Validation,
+  registerOp01ValidationCase,
+  registerOp01ValidationRequirement,
+  startOp01FollowUp,
+  startOp01Reassessment,
   registerOp01Evidence,
   reviewOp01Finding,
   submitOp01Response,
@@ -33,6 +43,8 @@ import type { AssessmentClient } from "./assessment-client";
 type CollaborationPayload = Awaited<ReturnType<typeof getOp01Collaboration>>;
 type StatePayload = Awaited<ReturnType<typeof getOp01AssessmentState>>["state"];
 type FindingsPayload = Awaited<ReturnType<typeof getOp01Findings>>;
+type ValidationPayload = Awaited<ReturnType<typeof getOp01Validation>>;
+type ComparisonPayload = Awaited<ReturnType<typeof compareOp01Assessments>>;
 
 export interface ReviewFindingInput {
   findingId: string;
@@ -117,6 +129,49 @@ export interface ProductionAssessmentClient extends AssessmentClient {
   }): Promise<ResultadoAccion>;
   /** Registrar un entregable nunca implica validación. */
   registerDeliverable(input: DeliverableInput): Promise<ResultadoAccion & { validated: false }>;
+
+  /* M1-KL · CRV, Validation, Follow-up y Reassessment. */
+  /** Done es explícito y nunca implica validación. */
+  markActivityDone(activityId: string): Promise<ResultadoAccion & { validated: false }>;
+  /** Registra el CRV gobernado o el gap VALIDATION_REQUIREMENT_NOT_EXPLICIT. */
+  registerValidationRequirement(input: {
+    activityId: string;
+    primaryExecutorRespondentId?: string | null;
+  }): Promise<ResultadoAccion>;
+  registerValidationCase(input: {
+    validationRequirementId: string;
+    executorRespondentId: string;
+    outcome: "CORRECT" | "INCORRECT";
+    criticalAssistance: boolean;
+    evidenceId?: string | null;
+    note?: string | null;
+  }): Promise<ResultadoAccion>;
+  openValidation(input: { activityId: string; evidenceIds?: string[] }): Promise<ResultadoAccion>;
+  decideValidation(input: {
+    validationId: string;
+    decision: "PENDING" | "IN_REVIEW" | "VALIDATED" | "NOT_VALIDATED" | "INSUFFICIENT_EVIDENCE";
+    reason?: string | null;
+    evidenceIds?: string[];
+  }): Promise<ResultadoAccion>;
+  startFollowUp(input: { validationId: string; note?: string | null }): Promise<ResultadoAccion>;
+  decideFollowUp(input: {
+    followUpId: string;
+    outcome: "CONSOLIDATED" | "NEEDS_ADJUSTMENT";
+    note?: string | null;
+    evidenceId?: string | null;
+  }): Promise<ResultadoAccion>;
+  getValidation(): Promise<ValidationPayload>;
+  startReassessment(input?: { knowledgeVersionId?: string }): Promise<{
+    accepted: boolean;
+    rejectionReason: string | null;
+    baselineAssessmentId: string;
+    reassessmentAssessmentId: string | null;
+  }>;
+  /** La comparación expone cambios de estado, nunca mejora ni puntaje. */
+  compareAssessments(input: {
+    baselineAssessmentId: string;
+    reassessmentAssessmentId: string;
+  }): Promise<ComparisonPayload>;
 }
 
 function aAssessmentStateDto(payload: {
@@ -254,6 +309,64 @@ export function createProductionAssessmentClient(): ProductionAssessmentClient {
         // El entregado no valida: la validación pertenece a otra etapa.
         validated: false as const,
       };
+    },
+
+    async markActivityDone(activityId) {
+      const salida = await markOp01ActivityDone({ data: { activityId } });
+      return {
+        accepted: salida.accepted,
+        rejectionReason: salida.rejectionReason,
+        // Done no valida: la validación exige CRV y decisión humana.
+        validated: false as const,
+      };
+    },
+
+    async registerValidationRequirement(input) {
+      const salida = await registerOp01ValidationRequirement({ data: input });
+      return { accepted: salida.accepted, rejectionReason: salida.rejectionReason };
+    },
+
+    async registerValidationCase(input) {
+      const salida = await registerOp01ValidationCase({ data: input });
+      return { accepted: salida.accepted, rejectionReason: salida.rejectionReason };
+    },
+
+    async openValidation(input) {
+      const salida = await openOp01Validation({ data: input });
+      return { accepted: salida.accepted, rejectionReason: salida.rejectionReason };
+    },
+
+    async decideValidation(input) {
+      const salida = await decideOp01Validation({ data: input });
+      return { accepted: salida.accepted, rejectionReason: salida.rejectionReason };
+    },
+
+    async startFollowUp(input) {
+      const salida = await startOp01FollowUp({ data: input });
+      return { accepted: salida.accepted, rejectionReason: salida.rejectionReason };
+    },
+
+    async decideFollowUp(input) {
+      const salida = await decideOp01FollowUp({ data: input });
+      return { accepted: salida.accepted, rejectionReason: salida.rejectionReason };
+    },
+
+    async getValidation() {
+      return getOp01Validation();
+    },
+
+    async startReassessment(input) {
+      const salida = await startOp01Reassessment({ data: input ?? {} });
+      return {
+        accepted: salida.accepted,
+        rejectionReason: salida.rejectionReason,
+        baselineAssessmentId: salida.baselineAssessmentId,
+        reassessmentAssessmentId: salida.reassessmentAssessmentId,
+      };
+    },
+
+    async compareAssessments(input) {
+      return compareOp01Assessments({ data: input });
     },
   };
 }
