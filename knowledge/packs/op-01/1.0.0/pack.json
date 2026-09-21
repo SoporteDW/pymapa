@@ -42,6 +42,8 @@
       "criticality": "IMPORTANT",
       "minimumEvidence": "E1",
       "minimumEvidenceNote": "E1/E2 depending on risk. No existe fórmula aprobada para el incremento.",
+      "minimumEvidenceConditional": true,
+      "minimumEvidenceOptions": ["E1", "E2"],
       "semanticStates": null
     },
     { "id": "VA06", "name": "Estandarización", "criticality": "CRITICAL", "minimumEvidence": "E1", "semanticStates": null },
@@ -51,7 +53,9 @@
       "name": "Documentación o soporte",
       "criticality": "IMPORTANT",
       "minimumEvidence": "E0",
-      "minimumEvidenceNote": "E0/E1 según el material gobernado.",
+      "minimumEvidenceNote": "E0/E1 según el material gobernado. No existe fórmula aprobada para el incremento.",
+      "minimumEvidenceConditional": true,
+      "minimumEvidenceOptions": ["E0", "E1"],
       "semanticStates": null
     },
     {
@@ -64,7 +68,7 @@
     },
     { "id": "VA10", "name": "Mecanismo de actualización", "criticality": "COMPLEMENTARY", "minimumEvidence": "E1", "semanticStates": null }
   ],
-  "criticalityNote": "CRITICAL, IMPORTANT y COMPLEMENTARY expresan relevancia diagnóstica. No se convierten en pesos numéricos.",
+  "criticalityNote": "CRITICAL, IMPORTANT y COMPLEMENTARY expresan relevancia diagnóstica. No se convierten en pesos numéricos. E0–E3 son estados de requisito de evidencia, no puntajes.",
   "informationNeeds": [
     { "id": "NI01", "variableRefs": ["VA01"], "acquisitionRefs": ["OP01-P01"], "mappingStatus": "EXPLICIT_FOR_P01_ONLY" },
     { "id": "NI02", "variableRefs": [], "acquisitionRefs": [], "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER" },
@@ -103,25 +107,264 @@
           "No existe conjunto gobernado de opciones A/B/C/D: se preserva el estado semántico aprobado de VA01 sin fabricar escala."
         ]
       }
+    },
+    {
+      "id": "OP01-P05",
+      "level": "P2",
+      "variableRefs": ["VA07", "VA01"],
+      "purpose": "Identificar qué partes están claras y cuáles dependen del juicio individual.",
+      "question": "¿Qué partes de este proceso están claras para todos y cuáles dependen del juicio de cada persona?",
+      "questionSource": "DERIVED_FROM_APPROVED_PURPOSE",
+      "trigger": {
+        "statement": "P01 indica definición parcial.",
+        "classification": "DETERMINISTIC",
+        "mode": "ALL",
+        "conditions": [{ "variableRef": "VA01", "states": ["KNOWN"], "semanticValues": ["Implícita"] }]
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "OP01-P06",
+      "level": "P2",
+      "variableRefs": ["VA02"],
+      "purpose": "Determinar si las actividades y su secuencia pueden describirse consistentemente.",
+      "question": "¿Puede describirse de forma consistente qué actividades incluye este proceso y en qué orden ocurren?",
+      "questionSource": "DERIVED_FROM_APPROVED_PURPOSE",
+      "trigger": {
+        "statement": "Secuencia incierta.",
+        "classification": "DETERMINISTIC",
+        "mode": "ANY",
+        "conditions": [
+          { "variableRef": "VA02", "observed": false },
+          { "variableRef": "VA02", "states": ["UNKNOWN"] }
+        ]
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "OP01-P07",
+      "level": "P2",
+      "variableRefs": ["VA03"],
+      "purpose": "Identificar las entradas del proceso y su resultado esperado.",
+      "question": "¿Qué necesita este proceso para empezar y cuál es el resultado que se espera al terminarlo?",
+      "questionSource": "DERIVED_FROM_APPROVED_PURPOSE",
+      "trigger": {
+        "statement": "VA03 no cubierta.",
+        "classification": "DETERMINISTIC",
+        "mode": "ALL",
+        "conditions": [{ "variableRef": "VA03", "observed": false }]
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "OP01-P08",
+      "level": "P2",
+      "variableRefs": ["VA04"],
+      "purpose": "Identificar responsable, participantes y gaps u overlaps de responsabilidad.",
+      "question": "¿Quién es responsable de este proceso, quiénes participan y dónde quedan responsabilidades sin cubrir o duplicadas?",
+      "questionSource": "DERIVED_FROM_APPROVED_PURPOSE",
+      "trigger": {
+        "statement": "P02 revela ambigüedad.",
+        "classification": "NOT_DETERMINISTIC",
+        "conditions": []
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "notes": ["El trigger aprobado depende de OP01-P02, no implementada en este pack."]
+      }
+    },
+    {
+      "id": "OP01-P09",
+      "level": "P2",
+      "variableRefs": ["VA05"],
+      "purpose": "Determinar si existe revisión, aprobación o control en el proceso.",
+      "question": "¿Existe alguna revisión, aprobación o control dentro de este proceso y en qué momento ocurre?",
+      "questionSource": "DERIVED_FROM_APPROVED_PURPOSE",
+      "trigger": {
+        "statement": "El proceso tiene controles relevantes.",
+        "classification": "NOT_DETERMINISTIC",
+        "conditions": []
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "notes": ["El trigger aprobado es un juicio gobernado: el runtime no lo infiere."]
+      }
+    },
+    {
+      "id": "OP01-P10",
+      "level": "P3",
+      "variableRefs": ["VA06"],
+      "purpose": "Determinar dónde y por qué varía la ejecución del proceso.",
+      "question": "¿En qué puntos varía la forma de ejecutar este proceso y por qué ocurre esa variación?",
+      "questionSource": "DERIVED_FROM_APPROVED_PURPOSE",
+      "trigger": {
+        "statement": "P03 revela variabilidad.",
+        "classification": "NOT_DETERMINISTIC",
+        "conditions": []
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "notes": ["El trigger aprobado depende de OP01-P03, no implementada en este pack."]
+      }
+    },
+    {
+      "id": "OP01-P11",
+      "level": "P3",
+      "variableRefs": ["VA07"],
+      "purpose": "Determinar el impacto si la persona clave no está disponible.",
+      "question": "Si la persona clave de este proceso no estuviera disponible, ¿qué pasaría con su ejecución?",
+      "questionSource": "DERIVED_FROM_APPROVED_PURPOSE",
+      "trigger": {
+        "statement": "Aparece dependencia individual.",
+        "classification": "NOT_DETERMINISTIC",
+        "conditions": []
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "notes": ["El trigger aprobado es un juicio gobernado: el runtime no lo infiere."]
+      }
+    },
+    {
+      "id": "OP01-P12",
+      "level": "P3",
+      "variableRefs": ["VA08"],
+      "purpose": "Determinar qué soporte o documentación existe y si realmente se utiliza.",
+      "question": "¿Qué documento, formato o material de apoyo existe para este proceso y se usa realmente al ejecutarlo?",
+      "questionSource": "DERIVED_FROM_APPROVED_PURPOSE",
+      "trigger": {
+        "statement": "Existe soporte o documentación.",
+        "classification": "NOT_DETERMINISTIC",
+        "conditions": []
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "notes": ["El trigger aprobado es un juicio gobernado: el runtime no lo infiere."]
+      }
+    },
+    {
+      "id": "OP01-P13",
+      "level": "P3",
+      "variableRefs": ["VA09"],
+      "purpose": "Contrastar la definición del proceso con la práctica real.",
+      "question": "¿Qué tanto coincide la forma definida de este proceso con la forma en que se ejecuta en la práctica?",
+      "questionSource": "DERIVED_FROM_APPROVED_PURPOSE",
+      "trigger": {
+        "statement": "P04 parcial o unknown.",
+        "classification": "NOT_DETERMINISTIC",
+        "conditions": []
+      },
+      "responseModel": {
+        "kind": "semantic_state_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"],
+        "semanticValuesFromVariable": "VA09",
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "notes": ["El trigger aprobado depende de OP01-P04, no implementada en este pack."]
+      }
+    },
+    {
+      "id": "OP01-P14",
+      "level": "P3",
+      "variableRefs": ["VA10"],
+      "purpose": "Determinar la última revisión y el mecanismo de actualización del proceso.",
+      "question": "¿Cuándo se revisó por última vez la forma de hacer este proceso y cómo se actualiza cuando cambia?",
+      "questionSource": "DERIVED_FROM_APPROVED_PURPOSE",
+      "trigger": {
+        "statement": "Proceso definido pero posiblemente desactualizado.",
+        "classification": "NOT_DETERMINISTIC",
+        "conditions": []
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "notes": ["El trigger aprobado es un juicio gobernado: el runtime no lo infiere."]
+      }
+    },
+    {
+      "id": "OP01-P15",
+      "level": "P4",
+      "variableRefs": ["VA06"],
+      "purpose": "Obtener aclaración o una fuente adicional cuando las fuentes son contradictorias.",
+      "question": "Las fuentes consultadas describen este punto de forma distinta: ¿qué ocurre realmente y en qué se basa esa respuesta?",
+      "questionSource": "DERIVED_FROM_APPROVED_PURPOSE",
+      "trigger": {
+        "statement": "Fuentes contradictorias.",
+        "classification": "DETERMINISTIC",
+        "mode": "ALL",
+        "conditions": [{ "variableRef": "*", "states": ["CONTRADICTORY"] }]
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "notes": [
+          "Aclaración: no resuelve la contradicción por promedio ni por jerarquía del rol.",
+          "La resolución de contradicciones no está implementada en esta etapa."
+        ]
+      }
     }
   ],
-  "acquisitionsNote": "OP-01 dispone de adquisiciones P01–P15 en el Knowledge Master. Este pack implementa únicamente P01 (M1-D). P02–P15 permanecen NOT_IMPLEMENTED_IN_THIS_PACK.",
+  "acquisitionsNote": "OP-01 dispone de adquisiciones P01–P15 en el Knowledge Master. Este pack implementa P01 y P05–P15 con el contenido explícitamente aprobado. P02, P03 y P04 permanecen NOT_IMPLEMENTED_IN_THIS_PACK, y por eso los triggers que dependen de ellas se declaran NOT_DETERMINISTIC. Los enunciados marcados questionSource=DERIVED_FROM_APPROVED_PURPOSE no son transcripción literal: derivan del purpose aprobado y son KNOWLEDGE CHANGE CANDIDATE de redacción.",
   "evidence": {
     "levels": ["E0", "E1", "E2", "E3"],
     "escalationFactors": ["criticality", "regulatory exposure", "risk"],
     "escalationFormula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
     "candidates": [
-      { "id": "EV01", "name": "Mapa de proceso" },
-      { "id": "EV02", "name": "Procedimiento" },
-      { "id": "EV03", "name": "Checklist" },
-      { "id": "EV04", "name": "Matriz de responsabilidades" },
-      { "id": "EV05", "name": "Evidencia de ejecución reciente" },
-      { "id": "EV06", "name": "Controles" },
-      { "id": "EV07", "name": "Casos de ejecución" },
-      { "id": "EV08", "name": "Historial de actualización" },
-      { "id": "EV09", "name": "Segunda fuente humana" }
+      { "id": "OP01-EV01", "name": "Mapa o diagrama de proceso" },
+      { "id": "OP01-EV02", "name": "Procedimiento o guía" },
+      { "id": "OP01-EV03", "name": "Checklist o formato operativo" },
+      { "id": "OP01-EV04", "name": "Matriz o asignación de responsabilidades" },
+      { "id": "OP01-EV05", "name": "Registro de ejecución reciente" },
+      { "id": "OP01-EV06", "name": "Evidencia de controles o aprobaciones" },
+      { "id": "OP01-EV07", "name": "Muestra de casos ejecutados" },
+      { "id": "OP01-EV08", "name": "Historial de actualización o revisión" },
+      { "id": "OP01-EV09", "name": "Segunda fuente humana" }
     ],
-    "candidatesNote": "Candidatos de evidencia: no todos son obligatorios en cada evaluación."
+    "candidatesNote": "Candidatos de evidencia: no todos son obligatorios en cada evaluación. Una evidencia puede soportar varias necesidades de información y variables. El mapeo evidencia→variable no está enumerado en el material gobernado."
   },
   "sufficiency": {
     "states": ["INSUFFICIENT", "PARTIAL", "SUFFICIENT", "BLOCKED", "NOT_APPLICABLE"],
@@ -162,9 +405,16 @@
       "executor": "Cada persona decide cómo hacerlo.",
       "expectedVariableState": { "variableRef": "VA06", "state": "CONTRADICTORY" },
       "clarificationAcquisitionRef": "OP01-P15",
-      "evidenceRefs": ["EV05", "EV07"]
+      "evidenceRefs": ["OP01-EV05", "OP01-EV07"]
     },
-    "notes": ["No debe promediarse.", "P15 no se implementa en M1-D, pero el modelo de datos y el runtime no lo impiden."]
+    "clarificationAcquisitionRefs": ["OP01-P15"],
+    "evidenceCandidateRefs": ["OP01-EV05", "OP01-EV07", "OP01-EV09"],
+    "notes": [
+      "No debe promediarse.",
+      "No debe escogerse automáticamente la respuesta del rol jerárquicamente mayor.",
+      "No debe pedirse a un LLM que decida cuál fuente es correcta.",
+      "La resolución de la contradicción no está implementada en esta etapa."
+    ]
   },
   "findings": [
     { "id": "H01", "name": "Insuficiencia de definición funcional" },
@@ -176,7 +426,7 @@
     { "id": "H07", "name": "Formalización desproporcionada" },
     { "id": "H08", "name": "Fortaleza" }
   ],
-  "findingsNote": "Severidad cualitativa. No existe algoritmo aprobado de severidad ni de prioridad. M1-D no produce findings.",
+  "findingsNote": "Severidad cualitativa. No existe algoritmo aprobado de severidad ni de prioridad. Esta etapa no produce findings.",
   "crossCapabilityReferences": [
     { "cause": "competency-related cause", "targetCapabilityId": "PC-02", "executable": false },
     { "cause": "technology-related cause", "targetDomainId": "DT", "executable": false },
@@ -188,6 +438,10 @@
     { "id": "KCC-AT04-01", "statement": "No existe lógica OP-01 formal aprobada para seleccionar Build / Access / Hybrid / Specialist." },
     { "id": "KCC-AT04-02", "statement": "No existe formalización suficiente de Capability Gap / Bottleneck para ejecución automática en OP-01." },
     { "id": "KCC-AT04-03", "statement": "No existe gate general formal y ejecutable del umbral exacto de evidencia positiva requerido para una conclusión positiva." },
-    { "id": "KCC-AT04-04", "statement": "No existe todavía un schema formal completo de Required Capabilities." }
+    { "id": "KCC-AT04-04", "statement": "No existe todavía un schema formal completo de Required Capabilities." },
+    { "id": "KCC-AT04-05", "statement": "No existe enunciado literal aprobado para las adquisiciones P05–P15: los enunciados actuales derivan del purpose aprobado (questionSource=DERIVED_FROM_APPROVED_PURPOSE)." },
+    { "id": "KCC-AT04-06", "statement": "No existe mapeo explícito entre adquisiciones P05–P15 e Information Needs NI02–NI06." },
+    { "id": "KCC-AT04-07", "statement": "No existe mapeo explícito entre candidatos de evidencia OP01-EV01–EV09 y variables/necesidades de información." },
+    { "id": "KCC-AT04-08", "statement": "No existen triggers expresables determinísticamente para P08–P14: dependen de adquisiciones no implementadas (P02–P04) o de juicio gobernado." }
   ]
 }
