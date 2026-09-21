@@ -4,7 +4,8 @@
  * Runtime GENÉRICO de conocimiento. Interpreta un Knowledge Pack declarativo.
  *
  * REGLAS DURAS:
- * - PROHIBIDO cualquier condicional por capacidad (`if capabilityId === "OP-01"`).
+ * - PROHIBIDO cualquier condicional por capacidad (comparar el id de una
+ *   capacidad concreta dentro del runtime).
  *   Todo comportamiento proviene del pack.
  * - No produce scoring numérico, ni maturity, ni priority, ni severidad.
  * - No convierte estados semánticos en números.
