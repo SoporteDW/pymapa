@@ -72,6 +72,80 @@ export type Database = {
           },
         ]
       }
+      assignments: {
+        Row: {
+          assessment_id: string
+          created_at: string
+          created_by: string | null
+          delegated_from_assignment_id: string | null
+          delegation_reason: string | null
+          id: string
+          organization_id: string
+          respondent_id: string
+          scope_ref: string
+          scope_type: Database["public"]["Enums"]["assignment_scope_type"]
+          status: Database["public"]["Enums"]["assignment_status"]
+          updated_at: string
+        }
+        Insert: {
+          assessment_id: string
+          created_at?: string
+          created_by?: string | null
+          delegated_from_assignment_id?: string | null
+          delegation_reason?: string | null
+          id?: string
+          organization_id: string
+          respondent_id: string
+          scope_ref: string
+          scope_type: Database["public"]["Enums"]["assignment_scope_type"]
+          status?: Database["public"]["Enums"]["assignment_status"]
+          updated_at?: string
+        }
+        Update: {
+          assessment_id?: string
+          created_at?: string
+          created_by?: string | null
+          delegated_from_assignment_id?: string | null
+          delegation_reason?: string | null
+          id?: string
+          organization_id?: string
+          respondent_id?: string
+          scope_ref?: string
+          scope_type?: Database["public"]["Enums"]["assignment_scope_type"]
+          status?: Database["public"]["Enums"]["assignment_status"]
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "assignments_assessment_id_fkey"
+            columns: ["assessment_id"]
+            isOneToOne: false
+            referencedRelation: "assessments"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "assignments_delegated_from_assignment_id_fkey"
+            columns: ["delegated_from_assignment_id"]
+            isOneToOne: false
+            referencedRelation: "assignments"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "assignments_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "assignments_respondent_id_fkey"
+            columns: ["respondent_id"]
+            isOneToOne: false
+            referencedRelation: "respondents"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       cases: {
         Row: {
           created_at: string
@@ -165,6 +239,95 @@ export type Database = {
           },
         ]
       }
+      evidence: {
+        Row: {
+          assessment_id: string
+          candidate_ref: string | null
+          captured_at: string | null
+          case_id: string
+          created_at: string
+          evidence_type: string
+          external_reference: string | null
+          id: string
+          note: string | null
+          organization_id: string
+          respondent_id: string | null
+          source: Database["public"]["Enums"]["evidence_source"]
+          storage_bucket: string | null
+          storage_path: string | null
+          submitted_by: string | null
+          title: string | null
+          updated_at: string
+        }
+        Insert: {
+          assessment_id: string
+          candidate_ref?: string | null
+          captured_at?: string | null
+          case_id: string
+          created_at?: string
+          evidence_type: string
+          external_reference?: string | null
+          id?: string
+          note?: string | null
+          organization_id: string
+          respondent_id?: string | null
+          source: Database["public"]["Enums"]["evidence_source"]
+          storage_bucket?: string | null
+          storage_path?: string | null
+          submitted_by?: string | null
+          title?: string | null
+          updated_at?: string
+        }
+        Update: {
+          assessment_id?: string
+          candidate_ref?: string | null
+          captured_at?: string | null
+          case_id?: string
+          created_at?: string
+          evidence_type?: string
+          external_reference?: string | null
+          id?: string
+          note?: string | null
+          organization_id?: string
+          respondent_id?: string | null
+          source?: Database["public"]["Enums"]["evidence_source"]
+          storage_bucket?: string | null
+          storage_path?: string | null
+          submitted_by?: string | null
+          title?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "evidence_assessment_id_fkey"
+            columns: ["assessment_id"]
+            isOneToOne: false
+            referencedRelation: "assessments"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "evidence_case_id_fkey"
+            columns: ["case_id"]
+            isOneToOne: false
+            referencedRelation: "cases"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "evidence_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "evidence_respondent_id_fkey"
+            columns: ["respondent_id"]
+            isOneToOne: false
+            referencedRelation: "respondents"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       information_need_states: {
         Row: {
           assessment_id: string
@@ -219,6 +382,70 @@ export type Database = {
             columns: ["organization_id"]
             isOneToOne: false
             referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      invitations: {
+        Row: {
+          accepted_at: string | null
+          assignment_id: string | null
+          created_at: string
+          created_by: string | null
+          expires_at: string | null
+          id: string
+          organization_id: string
+          respondent_id: string
+          status: Database["public"]["Enums"]["invitation_status"]
+          token_hash: string
+          updated_at: string
+        }
+        Insert: {
+          accepted_at?: string | null
+          assignment_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          expires_at?: string | null
+          id?: string
+          organization_id: string
+          respondent_id: string
+          status?: Database["public"]["Enums"]["invitation_status"]
+          token_hash: string
+          updated_at?: string
+        }
+        Update: {
+          accepted_at?: string | null
+          assignment_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          expires_at?: string | null
+          id?: string
+          organization_id?: string
+          respondent_id?: string
+          status?: Database["public"]["Enums"]["invitation_status"]
+          token_hash?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "invitations_assignment_id_fkey"
+            columns: ["assignment_id"]
+            isOneToOne: false
+            referencedRelation: "assignments"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "invitations_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "invitations_respondent_id_fkey"
+            columns: ["respondent_id"]
+            isOneToOne: false
+            referencedRelation: "respondents"
             referencedColumns: ["id"]
           },
         ]
@@ -291,12 +518,59 @@ export type Database = {
           },
         ]
       }
+      observation_evidence: {
+        Row: {
+          created_at: string
+          evidence_id: string
+          id: string
+          observation_id: string
+          organization_id: string
+        }
+        Insert: {
+          created_at?: string
+          evidence_id: string
+          id?: string
+          observation_id: string
+          organization_id: string
+        }
+        Update: {
+          created_at?: string
+          evidence_id?: string
+          id?: string
+          observation_id?: string
+          organization_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "observation_evidence_evidence_id_fkey"
+            columns: ["evidence_id"]
+            isOneToOne: false
+            referencedRelation: "evidence"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "observation_evidence_observation_id_fkey"
+            columns: ["observation_id"]
+            isOneToOne: false
+            referencedRelation: "observations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "observation_evidence_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       observations: {
         Row: {
           assessment_id: string
           created_at: string
           id: string
           organization_id: string
+          respondent_id: string | null
           source_response_id: string | null
           updated_at: string
           value: Json
@@ -307,6 +581,7 @@ export type Database = {
           created_at?: string
           id?: string
           organization_id: string
+          respondent_id?: string | null
           source_response_id?: string | null
           updated_at?: string
           value: Json
@@ -317,6 +592,7 @@ export type Database = {
           created_at?: string
           id?: string
           organization_id?: string
+          respondent_id?: string | null
           source_response_id?: string | null
           updated_at?: string
           value?: Json
@@ -335,6 +611,13 @@ export type Database = {
             columns: ["organization_id"]
             isOneToOne: false
             referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "observations_respondent_id_fkey"
+            columns: ["respondent_id"]
+            isOneToOne: false
+            referencedRelation: "respondents"
             referencedColumns: ["id"]
           },
           {
@@ -367,6 +650,53 @@ export type Database = {
         }
         Relationships: []
       }
+      respondents: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          display_name: string | null
+          email: string | null
+          id: string
+          organization_id: string
+          role_label: string | null
+          status: Database["public"]["Enums"]["respondent_status"]
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          display_name?: string | null
+          email?: string | null
+          id?: string
+          organization_id: string
+          role_label?: string | null
+          status?: Database["public"]["Enums"]["respondent_status"]
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          display_name?: string | null
+          email?: string | null
+          id?: string
+          organization_id?: string
+          role_label?: string | null
+          status?: Database["public"]["Enums"]["respondent_status"]
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "respondents_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       responses: {
         Row: {
           acquisition_ref: string
@@ -375,6 +705,7 @@ export type Database = {
           id: string
           organization_id: string
           payload: Json
+          respondent_id: string | null
           submitted_by: string | null
         }
         Insert: {
@@ -384,6 +715,7 @@ export type Database = {
           id?: string
           organization_id: string
           payload: Json
+          respondent_id?: string | null
           submitted_by?: string | null
         }
         Update: {
@@ -393,6 +725,7 @@ export type Database = {
           id?: string
           organization_id?: string
           payload?: Json
+          respondent_id?: string | null
           submitted_by?: string | null
         }
         Relationships: [
@@ -408,6 +741,13 @@ export type Database = {
             columns: ["organization_id"]
             isOneToOne: false
             referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "responses_respondent_id_fkey"
+            columns: ["respondent_id"]
+            isOneToOne: false
+            referencedRelation: "respondents"
             referencedColumns: ["id"]
           },
         ]
@@ -466,6 +806,17 @@ export type Database = {
     }
     Enums: {
       assessment_type: "BASELINE" | "REASSESSMENT" | "FOLLOW_UP"
+      assignment_scope_type:
+        | "DOMAIN"
+        | "CAPABILITY"
+        | "INFORMATION_NEED"
+        | "SECTION"
+      assignment_status:
+        | "PENDING"
+        | "IN_PROGRESS"
+        | "COMPLETED"
+        | "DELEGATED"
+        | "REVOKED"
       evaluation_run_status:
         | "PENDING"
         | "PROCESSING"
@@ -480,12 +831,19 @@ export type Database = {
         | "MANUAL_REEVALUATION"
         | "REASSESSMENT_STARTED"
         | "VALIDATION_COMPLETED"
+      evidence_source:
+        | "HUMAN_RESPONDENT"
+        | "DOCUMENT"
+        | "SYSTEM_RECORD"
+        | "OBSERVED_EXECUTION"
+      invitation_status: "PENDING" | "ACCEPTED" | "EXPIRED" | "REVOKED"
       knowledge_version_status:
         | "DRAFT"
         | "VALIDATED"
         | "PUBLISHED"
         | "SUPERSEDED"
       membership_role: "OWNER" | "ADMIN" | "MEMBER"
+      respondent_status: "INVITED" | "ACTIVE" | "REVOKED"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -614,6 +972,19 @@ export const Constants = {
   public: {
     Enums: {
       assessment_type: ["BASELINE", "REASSESSMENT", "FOLLOW_UP"],
+      assignment_scope_type: [
+        "DOMAIN",
+        "CAPABILITY",
+        "INFORMATION_NEED",
+        "SECTION",
+      ],
+      assignment_status: [
+        "PENDING",
+        "IN_PROGRESS",
+        "COMPLETED",
+        "DELEGATED",
+        "REVOKED",
+      ],
       evaluation_run_status: [
         "PENDING",
         "PROCESSING",
@@ -630,6 +1001,13 @@ export const Constants = {
         "REASSESSMENT_STARTED",
         "VALIDATION_COMPLETED",
       ],
+      evidence_source: [
+        "HUMAN_RESPONDENT",
+        "DOCUMENT",
+        "SYSTEM_RECORD",
+        "OBSERVED_EXECUTION",
+      ],
+      invitation_status: ["PENDING", "ACCEPTED", "EXPIRED", "REVOKED"],
       knowledge_version_status: [
         "DRAFT",
         "VALIDATED",
@@ -637,6 +1015,7 @@ export const Constants = {
         "SUPERSEDED",
       ],
       membership_role: ["OWNER", "ADMIN", "MEMBER"],
+      respondent_status: ["INVITED", "ACTIVE", "REVOKED"],
     },
   },
 } as const
