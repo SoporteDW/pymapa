@@ -288,6 +288,76 @@ export interface KnowledgeEngine {
   } | null;
   /** Identidades de actividad gobernadas (A01–A09), sin mapeo automático. */
   listActivityIdentities(): { activityRef: string; title: string | null; contentStatus: string; mappingStatus: string }[];
+  /** CRV explícitamente aprobados. Nunca se inventan para otras actividades. */
+  listValidationRequirements(): ValidationRequirementIdentity[];
+  getValidationRequirementForActivity(activityRef: string | null): ValidationRequirementIdentity | null;
+  /** Evalúa las condiciones conjuntas del CRV. No produce puntaje alguno. */
+  evaluateValidationRequirement(
+    requirementRef: string,
+    input: { primaryExecutorRespondentId: string | null; cases: ValidationCaseInput[] },
+  ): ValidationRequirementEvaluation;
+  /** Comparación Baseline vs Reassessment: cambios de estado, nunca mejora. */
+  compareVariableStates(
+    baseline: { variableRef: string; state: string }[],
+    current: { variableRef: string; state: string }[],
+  ): StateComparison[];
+}
+
+export interface ValidationRequirementCondition {
+  id: string;
+  kind: "DISTINCT_SECOND_EXECUTOR" | "CONSECUTIVE_CORRECT_CASES" | "NO_CRITICAL_ASSISTANCE";
+  statement: string;
+  requiredCount: number | null;
+}
+
+export interface ValidationRequirementIdentity {
+  requirementRef: string;
+  activityRef: string;
+  definition: string;
+  definitionSource: string;
+  conditions: ValidationRequirementCondition[];
+  requiredCaseCount: number | null;
+  /** Invariante: un CRV no es un KPI ni un maturity score. */
+  isScore: false;
+}
+
+export interface ValidationCaseInput {
+  sequenceIndex: number;
+  executorRespondentId: string;
+  outcome: "CORRECT" | "INCORRECT";
+  criticalAssistance: boolean;
+}
+
+export interface ValidationRequirementEvaluation {
+  requirementRef: string;
+  satisfied: boolean;
+  status: "SATISFIED" | "NOT_SATISFIED" | "IN_PROGRESS";
+  metConditionIds: string[];
+  unmetConditionIds: string[];
+  reason: string;
+  consecutiveCorrectCount: number;
+  requiredCaseCount: number | null;
+  secondExecutorRespondentId: string | null;
+}
+
+export type StateTransition =
+  | "UNCHANGED"
+  | "MORE_INFORMATION"
+  | "LESS_INFORMATION"
+  | "CONTRADICTION_RESOLVED"
+  | "CONTRADICTION_INTRODUCED"
+  | "CHANGED"
+  | "NEW"
+  | "REMOVED";
+
+export interface StateComparison {
+  variableRef: string;
+  baselineState: string | null;
+  currentState: string | null;
+  transition: StateTransition;
+  /** Siempre null: no existe algoritmo aprobado de mejora empresarial. */
+  improvement: null;
+  interpretation: string;
 }
 
 interface EstadoVariable {
