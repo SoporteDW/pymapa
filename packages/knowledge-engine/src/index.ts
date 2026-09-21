@@ -273,6 +273,21 @@ export interface KnowledgeEngine {
   getEligibleAcquisitions(evaluation: EvaluationResult): NextAcquisition[];
   /** Adquisiciones de aclaración habilitadas por una contradicción. */
   getClarificationCandidates(evaluation: EvaluationResult): NextAcquisition[];
+  /**
+   * Identidades de recomendación gobernadas. No genera recomendaciones a partir
+   * de un finding cuando el mapeo Finding→Recommendation no está gobernado.
+   */
+  getRecommendationCandidates(findingRef?: string): RecommendationCandidateResult[];
+  /** Principio Minimum Sufficient Intervention (principio, nunca fórmula). */
+  getInterventionPrinciple(): {
+    id: string;
+    statement: string;
+    formula: string;
+    ruleRefs: string[];
+    automatable: boolean;
+  } | null;
+  /** Identidades de actividad gobernadas (A01–A09), sin mapeo automático. */
+  listActivityIdentities(): { activityRef: string; title: string | null; contentStatus: string; mappingStatus: string }[];
 }
 
 interface EstadoVariable {
