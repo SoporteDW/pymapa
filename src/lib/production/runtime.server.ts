@@ -117,6 +117,7 @@ export function createSupabaseProductionRepository(): ProductionRepository {
           organization_id: input.organizationId,
           assessment_id: input.assessmentId,
           submitted_by: input.submittedBy,
+          respondent_id: input.respondentId ?? null,
           acquisition_ref: input.acquisitionRef,
           payload: aJson(input.payload),
         })
@@ -134,6 +135,7 @@ export function createSupabaseProductionRepository(): ProductionRepository {
           organization_id: input.organizationId,
           assessment_id: input.assessmentId,
           source_response_id: input.sourceResponseId,
+          respondent_id: input.respondentId ?? null,
           variable_ref: input.variableRef,
           value: aJson(input.value),
         })
@@ -147,7 +149,9 @@ export function createSupabaseProductionRepository(): ProductionRepository {
       const db = await admin();
       const { data, error } = await db
         .from("observations")
-        .select("id, organization_id, assessment_id, source_response_id, variable_ref, value, created_at")
+        .select(
+          "id, organization_id, assessment_id, source_response_id, respondent_id, variable_ref, value, created_at",
+        )
         .eq("assessment_id", assessmentId)
         .order("created_at", { ascending: true });
       lanzar("observations.list", error);
@@ -156,6 +160,7 @@ export function createSupabaseProductionRepository(): ProductionRepository {
         organizationId: o.organization_id,
         assessmentId: o.assessment_id,
         sourceResponseId: o.source_response_id,
+        respondentId: o.respondent_id,
         variableRef: o.variable_ref,
         value: o.value as ObservationRecord["value"],
         createdAt: o.created_at,
@@ -166,7 +171,9 @@ export function createSupabaseProductionRepository(): ProductionRepository {
       const db = await admin();
       const { data, error } = await db
         .from("responses")
-        .select("id, organization_id, assessment_id, submitted_by, acquisition_ref, payload, created_at")
+        .select(
+          "id, organization_id, assessment_id, submitted_by, respondent_id, acquisition_ref, payload, created_at",
+        )
         .eq("assessment_id", assessmentId)
         .order("created_at", { ascending: true });
       lanzar("responses.list", error);
@@ -175,11 +182,13 @@ export function createSupabaseProductionRepository(): ProductionRepository {
         organizationId: r.organization_id,
         assessmentId: r.assessment_id,
         submittedBy: r.submitted_by,
+        respondentId: r.respondent_id,
         acquisitionRef: r.acquisition_ref,
         payload: (r.payload ?? {}) as Record<string, unknown>,
         createdAt: r.created_at,
       }));
     },
+
 
     async createEvaluationRun(input): Promise<EvaluationRunRecord> {
       const db = await admin();
@@ -307,6 +316,351 @@ export function createSupabaseProductionRepository(): ProductionRepository {
         detail: (n.detail ?? null) as Record<string, unknown> | null,
       }));
     },
+
+    /* ---------------- Diagnóstico colaborativo ---------------- */
+
+    async insertRespondent(input): Promise<RespondentRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("respondents")
+        .insert({
+          organization_id: input.organizationId,
+          user_id: input.userId,
+          email: input.email,
+          display_name: input.displayName,
+          role_label: input.roleLabel,
+          status: input.status,
+        })
+        .select("id, created_at")
+        .single();
+      lanzar("respondents.insert", error);
+      return { ...input, id: data!.id, createdAt: data!.created_at };
+    },
+
+    async findRespondentByUserId(organizationId, userId): Promise<RespondentRecord | null> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("respondents")
+        .select("id, organization_id, user_id, email, display_name, role_label, status, created_at")
+        .eq("organization_id", organizationId)
+        .eq("user_id", userId)
+        .maybeSingle();
+      lanzar("respondents.byUser", error);
+      return data ? mapRespondent(data) : null;
+    },
+
+    async findRespondentByEmail(organizationId, email): Promise<RespondentRecord | null> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("respondents")
+        .select("id, organization_id, user_id, email, display_name, role_label, status, created_at")
+        .eq("organization_id", organizationId)
+        .ilike("email", email)
+        .maybeSingle();
+      lanzar("respondents.byEmail", error);
+      return data ? mapRespondent(data) : null;
+    },
+
+    async getRespondent(respondentId): Promise<RespondentRecord | null> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("respondents")
+        .select("id, organization_id, user_id, email, display_name, role_label, status, created_at")
+        .eq("id", respondentId)
+        .maybeSingle();
+      lanzar("respondents.get", error);
+      return data ? mapRespondent(data) : null;
+    },
+
+    async listRespondents(organizationId): Promise<RespondentRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("respondents")
+        .select("id, organization_id, user_id, email, display_name, role_label, status, created_at")
+        .eq("organization_id", organizationId)
+        .order("created_at", { ascending: true });
+      lanzar("respondents.list", error);
+      return (data ?? []).map(mapRespondent);
+    },
+
+    async insertAssignment(input): Promise<AssignmentRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("assignments")
+        .insert({
+          organization_id: input.organizationId,
+          assessment_id: input.assessmentId,
+          respondent_id: input.respondentId,
+          scope_type: input.scopeType,
+          scope_ref: input.scopeRef,
+          status: input.status,
+          delegated_from_assignment_id: input.delegatedFromAssignmentId,
+          delegation_reason: input.delegationReason,
+        })
+        .select("id, created_at")
+        .single();
+      lanzar("assignments.insert", error);
+      return { ...input, id: data!.id, createdAt: data!.created_at };
+    },
+
+    async getAssignment(assignmentId): Promise<AssignmentRecord | null> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("assignments")
+        .select(CAMPOS_ASSIGNMENT)
+        .eq("id", assignmentId)
+        .maybeSingle();
+      lanzar("assignments.get", error);
+      return data ? mapAssignment(data) : null;
+    },
+
+    async listAssignments(assessmentId): Promise<AssignmentRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("assignments")
+        .select(CAMPOS_ASSIGNMENT)
+        .eq("assessment_id", assessmentId)
+        .order("created_at", { ascending: true });
+      lanzar("assignments.list", error);
+      return (data ?? []).map(mapAssignment);
+    },
+
+    async updateAssignmentStatus(assignmentId, status: AssignmentStatus): Promise<AssignmentRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("assignments")
+        .update({ status })
+        .eq("id", assignmentId)
+        .select(CAMPOS_ASSIGNMENT)
+        .single();
+      lanzar("assignments.update", error);
+      return mapAssignment(data!);
+    },
+
+    async insertInvitation(input): Promise<InvitationRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("invitations")
+        .insert({
+          organization_id: input.organizationId,
+          respondent_id: input.respondentId,
+          assignment_id: input.assignmentId,
+          status: input.status,
+          token_hash: input.tokenHash,
+          expires_at: input.expiresAt,
+        })
+        .select("id, created_at")
+        .single();
+      lanzar("invitations.insert", error);
+      return { ...input, id: data!.id, createdAt: data!.created_at };
+    },
+
+    async listInvitations(organizationId): Promise<InvitationRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("invitations")
+        .select(
+          "id, organization_id, respondent_id, assignment_id, status, token_hash, expires_at, created_at",
+        )
+        .eq("organization_id", organizationId)
+        .order("created_at", { ascending: true });
+      lanzar("invitations.list", error);
+      return (data ?? []).map((i) => ({
+        id: i.id,
+        organizationId: i.organization_id,
+        respondentId: i.respondent_id,
+        assignmentId: i.assignment_id,
+        status: i.status,
+        tokenHash: i.token_hash,
+        expiresAt: i.expires_at,
+        createdAt: i.created_at,
+      }));
+    },
+
+    /* ---------------- Evidence Store ---------------- */
+
+    async insertEvidence(input): Promise<EvidenceRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("evidence")
+        .insert({
+          organization_id: input.organizationId,
+          case_id: input.caseId,
+          assessment_id: input.assessmentId,
+          candidate_ref: input.candidateRef,
+          evidence_type: input.evidenceType,
+          source: input.source,
+          storage_bucket: input.storageBucket,
+          storage_path: input.storagePath,
+          external_reference: input.externalReference,
+          title: input.title,
+          note: input.note,
+          submitted_by: input.submittedBy,
+          respondent_id: input.respondentId,
+          captured_at: input.capturedAt,
+        })
+        .select("id, created_at")
+        .single();
+      lanzar("evidence.insert", error);
+      return { ...input, id: data!.id, createdAt: data!.created_at };
+    },
+
+    async listEvidence(assessmentId): Promise<EvidenceRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("evidence")
+        .select(CAMPOS_EVIDENCE)
+        .eq("assessment_id", assessmentId)
+        .order("created_at", { ascending: true });
+      lanzar("evidence.list", error);
+      return (data ?? []).map(mapEvidence);
+    },
+
+    async linkEvidenceToObservation(input): Promise<ObservationEvidenceLink> {
+      const db = await admin();
+      const existente = await db
+        .from("observation_evidence")
+        .select("id, organization_id, observation_id, evidence_id, created_at")
+        .eq("observation_id", input.observationId)
+        .eq("evidence_id", input.evidenceId)
+        .maybeSingle();
+      lanzar("observation_evidence.select", existente.error);
+      if (existente.data) {
+        return {
+          id: existente.data.id,
+          organizationId: existente.data.organization_id,
+          observationId: existente.data.observation_id,
+          evidenceId: existente.data.evidence_id,
+          createdAt: existente.data.created_at,
+        };
+      }
+      const { data, error } = await db
+        .from("observation_evidence")
+        .insert({
+          organization_id: input.organizationId,
+          observation_id: input.observationId,
+          evidence_id: input.evidenceId,
+        })
+        .select("id, created_at")
+        .single();
+      lanzar("observation_evidence.insert", error);
+      return { ...input, id: data!.id, createdAt: data!.created_at };
+    },
+
+    async listEvidenceLinks(assessmentId): Promise<ObservationEvidenceLink[]> {
+      const db = await admin();
+      const observaciones = await db
+        .from("observations")
+        .select("id")
+        .eq("assessment_id", assessmentId);
+      lanzar("observations.idsForLinks", observaciones.error);
+      const ids = (observaciones.data ?? []).map((o) => o.id);
+      if (ids.length === 0) return [];
+      const { data, error } = await db
+        .from("observation_evidence")
+        .select("id, organization_id, observation_id, evidence_id, created_at")
+        .in("observation_id", ids);
+      lanzar("observation_evidence.list", error);
+      return (data ?? []).map((l) => ({
+        id: l.id,
+        organizationId: l.organization_id,
+        observationId: l.observation_id,
+        evidenceId: l.evidence_id,
+        createdAt: l.created_at,
+      }));
+    },
+  };
+}
+
+const CAMPOS_ASSIGNMENT =
+  "id, organization_id, assessment_id, respondent_id, scope_type, scope_ref, status, delegated_from_assignment_id, delegation_reason, created_at";
+
+const CAMPOS_EVIDENCE =
+  "id, organization_id, case_id, assessment_id, candidate_ref, evidence_type, source, storage_bucket, storage_path, external_reference, title, note, submitted_by, respondent_id, captured_at, created_at";
+
+function mapRespondent(row: {
+  id: string;
+  organization_id: string;
+  user_id: string | null;
+  email: string | null;
+  display_name: string | null;
+  role_label: string | null;
+  status: RespondentRecord["status"];
+  created_at: string;
+}): RespondentRecord {
+  return {
+    id: row.id,
+    organizationId: row.organization_id,
+    userId: row.user_id,
+    email: row.email,
+    displayName: row.display_name,
+    roleLabel: row.role_label,
+    status: row.status,
+    createdAt: row.created_at,
+  };
+}
+
+function mapAssignment(row: {
+  id: string;
+  organization_id: string;
+  assessment_id: string;
+  respondent_id: string;
+  scope_type: AssignmentRecord["scopeType"];
+  scope_ref: string;
+  status: AssignmentStatus;
+  delegated_from_assignment_id: string | null;
+  delegation_reason: string | null;
+  created_at: string;
+}): AssignmentRecord {
+  return {
+    id: row.id,
+    organizationId: row.organization_id,
+    assessmentId: row.assessment_id,
+    respondentId: row.respondent_id,
+    scopeType: row.scope_type,
+    scopeRef: row.scope_ref,
+    status: row.status,
+    delegatedFromAssignmentId: row.delegated_from_assignment_id,
+    delegationReason: row.delegation_reason,
+    createdAt: row.created_at,
+  };
+}
+
+function mapEvidence(row: {
+  id: string;
+  organization_id: string;
+  case_id: string;
+  assessment_id: string;
+  candidate_ref: string | null;
+  evidence_type: string;
+  source: EvidenceRecord["source"];
+  storage_bucket: string | null;
+  storage_path: string | null;
+  external_reference: string | null;
+  title: string | null;
+  note: string | null;
+  submitted_by: string | null;
+  respondent_id: string | null;
+  captured_at: string | null;
+  created_at: string;
+}): EvidenceRecord {
+  return {
+    id: row.id,
+    organizationId: row.organization_id,
+    caseId: row.case_id,
+    assessmentId: row.assessment_id,
+    candidateRef: row.candidate_ref,
+    evidenceType: row.evidence_type,
+    source: row.source,
+    storageBucket: row.storage_bucket,
+    storagePath: row.storage_path,
+    externalReference: row.external_reference,
+    title: row.title,
+    note: row.note,
+    submittedBy: row.submitted_by,
+    respondentId: row.respondent_id,
+    capturedAt: row.captured_at,
+    createdAt: row.created_at,
   };
 }
 
