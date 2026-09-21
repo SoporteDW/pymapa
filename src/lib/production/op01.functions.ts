@@ -30,8 +30,9 @@ async function prepararContexto(context: { userId: string; supabase: unknown }) 
   const engine = runtime.cargarEngineOp01();
   const repository = runtime.createSupabaseProductionRepository();
   // El bootstrap tenant-owned se ejecuta con la identidad del usuario (RLS).
+  type ClienteUsuario = Parameters<typeof runtime.asegurarContextoProductivo>[0];
   const assessment = await runtime.asegurarContextoProductivo(
-    context.supabase as runtime.ClienteUsuario,
+    context.supabase as ClienteUsuario,
     context.userId,
   );
   return {
@@ -63,7 +64,7 @@ export const getOp01AssessmentState = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {
     const casoUso = await import("./caso-uso");
-    const { assessment, deps } = await prepararContexto(context.userId);
+    const { assessment, deps } = await prepararContexto(context);
     const state = await casoUso.getAssessmentState(deps, assessment.id);
     return { assessmentId: assessment.id, state };
   });
@@ -72,7 +73,7 @@ export const getOp01NextAcquisition = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .handler(async ({ context }) => {
     const casoUso = await import("./caso-uso");
-    const { assessment, deps } = await prepararContexto(context.userId);
+    const { assessment, deps } = await prepararContexto(context);
     const acquisition = await casoUso.getNextAcquisition(deps, assessment.id);
     return { assessmentId: assessment.id, acquisition };
   });
@@ -82,7 +83,7 @@ export const submitOp01Response = createServerFn({ method: "POST" })
   .inputValidator((data: unknown) => submitSchema.parse(data))
   .handler(async ({ data, context }) => {
     const casoUso = await import("./caso-uso");
-    const { assessment, deps } = await prepararContexto(context.userId);
+    const { assessment, deps } = await prepararContexto(context);
     return casoUso.submitAcquisitionResponse(deps, {
       assessmentId: assessment.id,
       organizationId: assessment.organizationId,
