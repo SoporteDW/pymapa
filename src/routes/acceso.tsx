@@ -71,7 +71,7 @@ function Acceso() {
     <div className="space-y-6">
       <PageHeader
         titulo="Acceso"
-        descripcion="Entra con tu correo para trabajar sobre la información de tu organización."
+        subtitulo="Entra con tu correo para trabajar sobre la información de tu organización."
       />
 
       <Card className="mx-auto max-w-md">
