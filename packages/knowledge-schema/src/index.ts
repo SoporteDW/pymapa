@@ -144,7 +144,17 @@ export const knowledgePackSchema = z.object({
       levels: z.array(evidenceLevelSchema),
       escalationFactors: z.array(z.string()).optional(),
       escalationFormula: z.string().optional(),
-      candidates: z.array(z.object({ id: z.string(), name: z.string() })).optional(),
+      candidates: z
+        .array(
+          z.object({
+            id: z.string(),
+            name: z.string(),
+            /** Referencias que el candidato puede respaldar, si el material las declara. */
+            variableRefs: z.array(z.string()).optional(),
+            informationNeedRefs: z.array(z.string()).optional(),
+          }),
+        )
+        .optional(),
       candidatesNote: z.string().optional(),
     })
     .optional(),
