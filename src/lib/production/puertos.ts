@@ -682,6 +682,8 @@ const nuevoId = (prefijo: string) => `${prefijo}-${String(++contador).padStart(6
 
 export function createInMemoryProductionRepository(
   assessments: AssessmentRecord[],
+  /** Membresías conocidas: sin membresía no hay permiso de validación. */
+  memberships: { organizationId: string; userId: string; role: MembershipRole }[] = [],
 ): ProductionRepository & { readonly estado: Readonly<Record<string, unknown[]>> } {
   const mapaAssessments = new Map(assessments.map((a) => [a.id, a]));
   const responses: ResponseRecord[] = [];
