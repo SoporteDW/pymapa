@@ -1872,3 +1872,232 @@ export async function asegurarContextoProductivo(
     updatedAt: fila.updated_at,
   };
 }
+
+/* ------------------------------------------------------------------ */
+/* Mapeos M1-KL (CRV / Validation / Follow-up / Learning / Snapshot)    */
+/* ------------------------------------------------------------------ */
+
+function aAssessment(a: {
+  id: string;
+  organization_id: string;
+  case_id: string;
+  knowledge_version_id: string;
+  type: AssessmentRecord["type"];
+  started_at: string | null;
+  closed_at: string | null;
+  updated_at: string;
+}): AssessmentRecord {
+  return {
+    id: a.id,
+    organizationId: a.organization_id,
+    caseId: a.case_id,
+    knowledgeVersionId: a.knowledge_version_id,
+    type: a.type,
+    startedAt: a.started_at,
+    closedAt: a.closed_at,
+    updatedAt: a.updated_at,
+  };
+}
+
+function aRequisitoValidacion(v: {
+  id: string;
+  organization_id: string;
+  case_id: string;
+  assessment_id: string;
+  intervention_id: string;
+  activity_id: string | null;
+  knowledge_version_id: string;
+  knowledge_pack_id: string;
+  knowledge_pack_version: string;
+  engine_version: string;
+  requirement_ref: string | null;
+  activity_ref: string | null;
+  definition: string;
+  definition_source: string;
+  status: ValidationRequirementRecord["status"];
+  primary_executor_respondent_id: string | null;
+  required_case_count: number | null;
+  detail: unknown;
+  created_by: string | null;
+  created_at: string;
+}): ValidationRequirementRecord {
+  return {
+    id: v.id,
+    organizationId: v.organization_id,
+    caseId: v.case_id,
+    assessmentId: v.assessment_id,
+    interventionId: v.intervention_id,
+    activityId: v.activity_id,
+    knowledgeVersionId: v.knowledge_version_id,
+    knowledgePackId: v.knowledge_pack_id,
+    knowledgePackVersion: v.knowledge_pack_version,
+    engineVersion: v.engine_version,
+    requirementRef: v.requirement_ref,
+    activityRef: v.activity_ref,
+    definition: v.definition,
+    definitionSource: v.definition_source,
+    status: v.status,
+    primaryExecutorRespondentId: v.primary_executor_respondent_id,
+    requiredCaseCount: v.required_case_count,
+    detail: (v.detail as Record<string, unknown> | null) ?? null,
+    createdBy: v.created_by,
+    createdAt: v.created_at,
+  };
+}
+
+function aCasoValidacion(c: {
+  id: string;
+  organization_id: string;
+  validation_requirement_id: string;
+  sequence_index: number;
+  executor_respondent_id: string;
+  outcome: ValidationRequirementCaseRecord["outcome"];
+  critical_assistance: boolean;
+  evidence_id: string | null;
+  note: string | null;
+  occurred_at: string;
+  registered_by: string | null;
+  created_at: string;
+}): ValidationRequirementCaseRecord {
+  return {
+    id: c.id,
+    organizationId: c.organization_id,
+    validationRequirementId: c.validation_requirement_id,
+    sequenceIndex: c.sequence_index,
+    executorRespondentId: c.executor_respondent_id,
+    outcome: c.outcome,
+    criticalAssistance: c.critical_assistance,
+    evidenceId: c.evidence_id,
+    note: c.note,
+    occurredAt: c.occurred_at,
+    registeredBy: c.registered_by,
+    createdAt: c.created_at,
+  };
+}
+
+function aValidacion(v: {
+  id: string;
+  organization_id: string;
+  case_id: string;
+  assessment_id: string;
+  intervention_id: string;
+  activity_id: string | null;
+  validation_requirement_id: string | null;
+  evaluation_run_id: string | null;
+  knowledge_version_id: string;
+  engine_version: string;
+  status: ValidationRecord["status"];
+  decision_reason: string | null;
+  reviewed_by: string | null;
+  reviewed_at: string | null;
+  detail: unknown;
+  created_at: string;
+}): ValidationRecord {
+  return {
+    id: v.id,
+    organizationId: v.organization_id,
+    caseId: v.case_id,
+    assessmentId: v.assessment_id,
+    interventionId: v.intervention_id,
+    activityId: v.activity_id,
+    validationRequirementId: v.validation_requirement_id,
+    evaluationRunId: v.evaluation_run_id,
+    knowledgeVersionId: v.knowledge_version_id,
+    engineVersion: v.engine_version,
+    status: v.status,
+    decisionReason: v.decision_reason,
+    reviewedBy: v.reviewed_by,
+    reviewedAt: v.reviewed_at,
+    detail: (v.detail as Record<string, unknown> | null) ?? null,
+    createdAt: v.created_at,
+  };
+}
+
+function aSeguimiento(f: {
+  id: string;
+  organization_id: string;
+  case_id: string;
+  activity_id: string;
+  validation_id: string;
+  status: FollowUpRecord["status"];
+  note: string | null;
+  evidence_id: string | null;
+  decided_by: string | null;
+  decided_at: string | null;
+  created_at: string;
+}): FollowUpRecord {
+  return {
+    id: f.id,
+    organizationId: f.organization_id,
+    caseId: f.case_id,
+    activityId: f.activity_id,
+    validationId: f.validation_id,
+    status: f.status,
+    note: f.note,
+    evidenceId: f.evidence_id,
+    decidedBy: f.decided_by,
+    decidedAt: f.decided_at,
+    createdAt: f.created_at,
+  };
+}
+
+function aAprendizaje(l: {
+  id: string;
+  organization_id: string;
+  case_id: string;
+  assessment_id: string | null;
+  validation_id: string | null;
+  knowledge_version_id: string;
+  source_table: string;
+  source_id: string | null;
+  statement: string;
+  status: string;
+  applied_to_master: boolean;
+  detail: unknown;
+  created_by: string | null;
+  created_at: string;
+}): LearningCandidateRecord {
+  return {
+    id: l.id,
+    organizationId: l.organization_id,
+    caseId: l.case_id,
+    assessmentId: l.assessment_id,
+    validationId: l.validation_id,
+    knowledgeVersionId: l.knowledge_version_id,
+    sourceTable: l.source_table,
+    sourceId: l.source_id,
+    statement: l.statement,
+    status: l.status,
+    // Invariante: el conocimiento maestro no se modifica desde el cliente.
+    appliedToMaster: false,
+    detail: (l.detail as Record<string, unknown> | null) ?? null,
+    createdBy: l.created_by,
+    createdAt: l.created_at,
+  };
+}
+
+function aSnapshot(s: {
+  id: string;
+  organization_id: string;
+  case_id: string;
+  assessment_id: string;
+  knowledge_version_id: string;
+  engine_version: string;
+  reason: string;
+  payload: unknown;
+  created_by: string | null;
+  created_at: string;
+}): AssessmentSnapshotRecord {
+  return {
+    id: s.id,
+    organizationId: s.organization_id,
+    caseId: s.case_id,
+    assessmentId: s.assessment_id,
+    knowledgeVersionId: s.knowledge_version_id,
+    engineVersion: s.engine_version,
+    reason: s.reason,
+    payload: (s.payload as Record<string, unknown>) ?? {},
+    createdBy: s.created_by,
+    createdAt: s.created_at,
+  };
+}
