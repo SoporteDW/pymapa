@@ -647,7 +647,7 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
       const ruleById = new Map(rules.map((r) => [r.id, r]));
       const evaluacionPorVariable = new Map(variableEvaluations.map((v) => [v.variableRef, v]));
       const findingCandidates: FindingCandidateResult[] = (pack.findings ?? [])
-        .map((finding) => {
+        .map((finding): FindingCandidateResult | null => {
           const ruleRefs = finding.ruleRefs ?? [];
           const variableRefs = finding.variableRefs ?? [];
           const involucradas = variableRefs
@@ -708,6 +708,8 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
           contradictions.length > 0 ||
           evidenceRequirements.some((e) => e.resolution === "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED"),
         findings: [],
+        findingCandidates,
+        derivedDependencyReferences,
         sufficiency: { state: null, reason: NO_FORMULA },
         confidence: { state: null, reason: NO_FORMULA },
         traceability: {
@@ -733,6 +735,50 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
       // Una adquisición ya respondida no se repregunta, ni siquiera con UNKNOWN.
       const [siguiente] = elegibles(evaluation);
       return siguiente ? aNextAcquisition(siguiente) : null;
+    },
+
+    getRecommendationCandidates(findingRef) {
+      // Identidades gobernadas R01–R09. El mapeo Finding→Recommendation no está
+      // gobernado: nunca se genera una recomendación automáticamente.
+      return (pack.recommendations ?? [])
+        .filter((rec) => {
+          if (!findingRef) return true;
+          return (rec.findingRefs ?? []).includes(findingRef);
+        })
+        .map((rec) => ({
+          recommendationRef: rec.id,
+          title: rec.title ?? null,
+          contentStatus: rec.contentStatus,
+          mappingStatus: rec.mappingStatus,
+          findingRefs: (rec.findingRefs ?? []).slice(),
+          automatable: rec.mappingStatus === "GOVERNED" && (rec.findingRefs ?? []).length > 0,
+          reason:
+            rec.mappingStatus === "GOVERNED"
+              ? "mapeo gobernado declarado por el pack"
+              : "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: sin mapeo gobernado; requiere selección humana registrada",
+        }));
+    },
+
+    getInterventionPrinciple() {
+      const principio = pack.interventionPrinciple;
+      if (!principio) return null;
+      return {
+        id: principio.id,
+        statement: principio.statement,
+        formula: principio.formula,
+        ruleRefs: (principio.ruleRefs ?? []).slice(),
+        // Principio, nunca fórmula: la selección no es automatizable.
+        automatable: !principio.formula.startsWith("NOT_EXPLICIT"),
+      };
+    },
+
+    listActivityIdentities() {
+      return (pack.activities ?? []).map((a) => ({
+        activityRef: a.id,
+        title: a.title ?? null,
+        contentStatus: a.contentStatus,
+        mappingStatus: a.mappingStatus,
+      }));
     },
 
     getClarificationCandidates(evaluation) {
