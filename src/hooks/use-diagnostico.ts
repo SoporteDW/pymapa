@@ -179,6 +179,7 @@ export function useDiagnostico() {
         dimensionId: pregunta.dimensionId ?? "contexto",
         timestamp: respuesta.answeredAt,
       });
+      return true;
     },
     [estado, persistir]
   );
