@@ -7,7 +7,16 @@
     "declaration": true,
     "noEmit": true,
     "skipLibCheck": true,
-    "verbatimModuleSyntax": true
+    "verbatimModuleSyntax": true,
+    "baseUrl": ".",
+    "paths": {
+      "@pymapa/knowledge-schema": [
+        "../knowledge-schema/src/index.ts"
+      ]
+    },
+    "allowImportingTsExtensions": true
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }
