@@ -74,6 +74,11 @@ function CapacidadOp01() {
   const [referenciaEvidencia, setReferenciaEvidencia] = useState<string>("");
   const [observacionesEvidencia, setObservacionesEvidencia] = useState<string[]>([]);
   const [archivo, setArchivo] = useState<File | null>(null);
+  const [recomendacionElegida, setRecomendacionElegida] = useState<string>("");
+  const [tituloIntervencion, setTituloIntervencion] = useState<string>("");
+  const [notaSeleccion, setNotaSeleccion] = useState<string>("");
+  const [tituloActividad, setTituloActividad] = useState<string>("");
+  const [tituloEntregable, setTituloEntregable] = useState<string>("");
 
   const contexto = useQuery({
     queryKey: ["op01", "contexto"],
@@ -97,6 +102,87 @@ function CapacidadOp01() {
     queryFn: () => cliente.getCollaboration(),
     enabled: Boolean(contexto.data?.assessmentId),
   });
+
+  const hallazgos = useQuery({
+    queryKey: ["op01", "hallazgos"],
+    queryFn: () => cliente.getFindings(),
+    enabled: Boolean(contexto.data?.assessmentId),
+  });
+
+  /** Ejecuta una acción del servidor y refresca el estado productivo. */
+  function accionProductiva<TInput>(
+    ejecutar: (input: TInput) => Promise<{ accepted: boolean; rejectionReason: string | null }>,
+    exito: string,
+  ) {
+    return {
+      mutationFn: async (input: TInput) => {
+        const salida = await ejecutar(input);
+        if (!salida.accepted) throw new Error(salida.rejectionReason ?? "Acción no aceptada");
+        return salida;
+      },
+      onSuccess: async () => {
+        toast.success(exito);
+        await queryClient.invalidateQueries({ queryKey: ["op01"] });
+      },
+      onError: (error: Error) => {
+        toast.error("No pudimos completar la acción", { description: error.message });
+      },
+    };
+  }
+
+  const revisar = useMutation(
+    accionProductiva(
+      (input: { findingId: string; decision: "NEEDS_REVIEW" | "CONFIRMED" | "DISMISSED" }) =>
+        cliente.reviewFinding(input),
+      "Revisión registrada",
+    ),
+  );
+
+  const crearRecomendacion = useMutation(
+    accionProductiva(
+      (input: { recommendationRef: string; findingId: string | null }) =>
+        cliente.createRecommendationCandidate(input),
+      "Recomendación registrada como candidata",
+    ),
+  );
+
+  const decidirRecomendacion = useMutation(
+    accionProductiva(
+      (input: { recommendationCandidateId: string; decision: "SELECTED" | "REJECTED" }) =>
+        cliente.decideRecommendation(input),
+      "Decisión registrada",
+    ),
+  );
+
+  const crearIntervencion = useMutation(
+    accionProductiva(
+      (input: { title: string; recommendationCandidateId?: string | null; selectionNote?: string | null }) =>
+        cliente.createIntervention(input),
+      "Intervención creada",
+    ),
+  );
+
+  const crearActividad = useMutation(
+    accionProductiva(
+      (input: { interventionId: string; title: string }) => cliente.createActivity(input),
+      "Actividad creada",
+    ),
+  );
+
+  const cambiarEstadoActividad = useMutation(
+    accionProductiva(
+      (input: { activityId: string; state: "PENDING" | "EXECUTING" | "DELIVERABLE_PRODUCED" }) =>
+        cliente.changeActivityState(input),
+      "Estado de la actividad actualizado",
+    ),
+  );
+
+  const registrarEntregable = useMutation(
+    accionProductiva(
+      (input: { activityId: string; title: string }) => cliente.registerDeliverable(input),
+      "Entregable registrado (todavía sin validar)",
+    ),
+  );
 
   const enviar = useMutation({
     mutationFn: async () => {
@@ -537,6 +623,285 @@ function CapacidadOp01() {
               <p key={c.acquisitionId} className="rounded-lg border border-border p-3">
                 {c.question}
               </p>
+            ))}
+          </CardContent>
+        </Card>
+      )}
+
+
+      {(hallazgos.data?.findings.length ?? 0) > 0 && (
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-base font-semibold">Hallazgos por revisar</CardTitle>
+            <CardDescription>
+              Ninguno se confirma automáticamente: cada uno depende de criterio humano y conserva
+              el origen de la información que lo sustenta.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            {hallazgos.data!.findings.map((f) => (
+              <div key={f.id} className="space-y-3 rounded-lg border border-border p-4">
+                <div className="flex flex-wrap items-center gap-2">
+                  <Badge variant={f.polarity === "STRENGTH" ? "default" : "secondary"}>
+                    {f.polarity === "STRENGTH" ? "Fortaleza" : "Punto débil"}
+                  </Badge>
+                  <Badge variant="outline">{f.lifecycleState}</Badge>
+                  <span className="text-sm font-medium">{f.name}</span>
+                </div>
+                {f.reason && <p className="text-sm text-muted-foreground">{f.reason}</p>}
+                <p className="text-xs text-muted-foreground">
+                  Gravedad: {f.severityQualitative ?? "sin definir"}. {f.severityReason}
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  Basado en: {f.variableRefs.join(", ") || "sin variables"} · reglas{" "}
+                  {f.ruleRefs.join(", ") || "sin reglas"}
+                </p>
+                {f.lifecycleState !== "SUPERSEDED" && (
+                  <div className="flex flex-wrap gap-2">
+                    <Button
+                      size="sm"
+                      onClick={() => revisar.mutate({ findingId: f.id, decision: "CONFIRMED" })}
+                      disabled={revisar.isPending}
+                    >
+                      Confirmar
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={() => revisar.mutate({ findingId: f.id, decision: "NEEDS_REVIEW" })}
+                      disabled={revisar.isPending}
+                    >
+                      Dejar en revisión
+                    </Button>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={() => revisar.mutate({ findingId: f.id, decision: "DISMISSED" })}
+                      disabled={revisar.isPending}
+                    >
+                      Descartar
+                    </Button>
+                    {recomendacionElegida && (
+                      <Button
+                        size="sm"
+                        variant="secondary"
+                        onClick={() =>
+                          crearRecomendacion.mutate({
+                            recommendationRef: recomendacionElegida,
+                            findingId: f.id,
+                          })
+                        }
+                        disabled={crearRecomendacion.isPending}
+                      >
+                        Proponer {recomendacionElegida}
+                      </Button>
+                    )}
+                  </div>
+                )}
+              </div>
+            ))}
+            {(hallazgos.data?.recommendationIdentities.length ?? 0) > 0 && (
+              <div className="space-y-2">
+                <Label>Propuesta a considerar</Label>
+                <RadioGroup
+                  value={recomendacionElegida}
+                  onValueChange={setRecomendacionElegida}
+                  className="grid gap-2 sm:grid-cols-3"
+                >
+                  {hallazgos.data!.recommendationIdentities.map((r) => (
+                    <div key={r.recommendationRef} className="flex items-center gap-2">
+                      <RadioGroupItem value={r.recommendationRef} id={`rec-${r.recommendationRef}`} />
+                      <Label htmlFor={`rec-${r.recommendationRef}`} className="text-sm font-normal">
+                        {r.title ?? r.recommendationRef}
+                      </Label>
+                    </div>
+                  ))}
+                </RadioGroup>
+                <p className="text-xs text-muted-foreground">
+                  El contenido detallado de estas propuestas todavía no está definido, así que se
+                  registran solo como candidatas y nunca se generan por sí solas.
+                </p>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      )}
+
+      {(hallazgos.data?.derivedDependencyReferences.length ?? 0) > 0 && (
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-base font-semibold">Relación con otras áreas</CardTitle>
+            <CardDescription>
+              Se anota la relación como referencia. No se inicia ningún otro diagnóstico.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-2 text-sm text-muted-foreground">
+            {hallazgos.data!.derivedDependencyReferences.map((d) => (
+              <p key={d.id} className="rounded-lg border border-border p-3">
+                {d.cause} → {d.targetCapabilityId ?? d.targetDomainId ?? "sin destino definido"}
+                {" · "}
+                {d.note}
+              </p>
+            ))}
+          </CardContent>
+        </Card>
+      )}
+
+      {(hallazgos.data?.recommendationCandidates.length ?? 0) > 0 && (
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-base font-semibold">Propuestas registradas</CardTitle>
+            <CardDescription>
+              Una propuesta no es un plan: se convierte en plan solo cuando la eliges.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            {hallazgos.data!.recommendationCandidates.map((r) => (
+              <div key={r.id} className="space-y-2 rounded-lg border border-border p-3">
+                <div className="flex flex-wrap items-center gap-2 text-sm">
+                  <Badge variant="outline">{r.status}</Badge>
+                  <span>{r.title ?? r.recommendationRef}</span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <Button
+                    size="sm"
+                    onClick={() =>
+                      decidirRecomendacion.mutate({
+                        recommendationCandidateId: r.id,
+                        decision: "SELECTED",
+                      })
+                    }
+                    disabled={decidirRecomendacion.isPending || r.status === "SELECTED"}
+                  >
+                    Elegir
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() =>
+                      decidirRecomendacion.mutate({
+                        recommendationCandidateId: r.id,
+                        decision: "REJECTED",
+                      })
+                    }
+                    disabled={decidirRecomendacion.isPending}
+                  >
+                    Descartar
+                  </Button>
+                </div>
+                {r.status === "SELECTED" && (
+                  <div className="space-y-2 pt-2">
+                    <Label htmlFor={`itv-${r.id}`}>Nombre del plan de trabajo</Label>
+                    <Input
+                      id={`itv-${r.id}`}
+                      value={tituloIntervencion}
+                      onChange={(e) => setTituloIntervencion(e.target.value)}
+                      placeholder="Ej.: Aclarar quién hace qué en el proceso"
+                    />
+                    <Textarea
+                      value={notaSeleccion}
+                      onChange={(e) => setNotaSeleccion(e.target.value)}
+                      placeholder="Por qué eliges este plan"
+                    />
+                    <Button
+                      size="sm"
+                      onClick={() =>
+                        crearIntervencion.mutate({
+                          title: tituloIntervencion,
+                          recommendationCandidateId: r.id,
+                          selectionNote: notaSeleccion || null,
+                        })
+                      }
+                      disabled={crearIntervencion.isPending || tituloIntervencion.trim().length === 0}
+                    >
+                      Crear plan de trabajo
+                    </Button>
+                  </div>
+                )}
+              </div>
+            ))}
+          </CardContent>
+        </Card>
+      )}
+
+      {(hallazgos.data?.interventions.length ?? 0) > 0 && (
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-base font-semibold">Planes de trabajo</CardTitle>
+            <CardDescription>
+              Entregar algo no significa que quede aprobado: la comprobación llega más adelante.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            {hallazgos.data!.interventions.map((i) => (
+              <div key={i.id} className="space-y-3 rounded-lg border border-border p-4">
+                <div className="flex flex-wrap items-center gap-2 text-sm">
+                  <Badge variant="outline">{i.status}</Badge>
+                  <span className="font-medium">{i.title}</span>
+                </div>
+                {i.activities.map((a) => (
+                  <div key={a.id} className="space-y-2 rounded-lg border border-border p-3">
+                    <div className="flex flex-wrap items-center gap-2 text-sm">
+                      <Badge variant="secondary">{a.state}</Badge>
+                      <span>{a.title}</span>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() =>
+                          cambiarEstadoActividad.mutate({ activityId: a.id, state: "EXECUTING" })
+                        }
+                        disabled={cambiarEstadoActividad.isPending}
+                      >
+                        En curso
+                      </Button>
+                    </div>
+                    {a.deliverables.map((d) => (
+                      <p key={d.id} className="text-xs text-muted-foreground">
+                        Entregado: {d.title} (pendiente de comprobación)
+                      </p>
+                    ))}
+                    <div className="space-y-2">
+                      <Label htmlFor={`dlv-${a.id}`}>Registrar entregable</Label>
+                      <Input
+                        id={`dlv-${a.id}`}
+                        value={tituloEntregable}
+                        onChange={(e) => setTituloEntregable(e.target.value)}
+                        placeholder="Ej.: Mapa del proceso en una página"
+                      />
+                      <Button
+                        size="sm"
+                        onClick={() =>
+                          registrarEntregable.mutate({ activityId: a.id, title: tituloEntregable })
+                        }
+                        disabled={registrarEntregable.isPending || tituloEntregable.trim().length === 0}
+                      >
+                        Registrar entregable
+                      </Button>
+                    </div>
+                  </div>
+                ))}
+                <div className="space-y-2">
+                  <Label htmlFor={`act-${i.id}`}>Añadir tarea</Label>
+                  <Input
+                    id={`act-${i.id}`}
+                    value={tituloActividad}
+                    onChange={(e) => setTituloActividad(e.target.value)}
+                    placeholder="Ej.: Escribir la guía del proceso"
+                  />
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() =>
+                      crearActividad.mutate({ interventionId: i.id, title: tituloActividad })
+                    }
+                    disabled={crearActividad.isPending || tituloActividad.trim().length === 0}
+                  >
+                    Añadir tarea
+                  </Button>
+                </div>
+              </div>
             ))}
           </CardContent>
         </Card>
