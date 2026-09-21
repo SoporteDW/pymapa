@@ -96,6 +96,9 @@ describe("Knowledge Pack OP-01 · schema", () => {
       "KCC-AT04-06",
       "KCC-AT04-07",
       "KCC-AT04-08",
+      "KCC-AT04-09",
+      "KCC-AT04-10",
+      "KCC-AT04-11",
     ]);
   });
 

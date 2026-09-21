@@ -135,6 +135,58 @@ export interface ContradictionResult {
   note: string;
 }
 
+/* ------------------------------------------------------------------ */
+/* Findings (M1-HIJ)                                                   */
+/* ------------------------------------------------------------------ */
+
+/** Ciclo de vida del finding. El engine solo produce CANDIDATE/NEEDS_REVIEW. */
+export type FindingLifecycleState =
+  | "CANDIDATE"
+  | "NEEDS_REVIEW"
+  | "CONFIRMED"
+  | "SUPERSEDED"
+  | "DISMISSED";
+
+export interface FindingCandidateResult {
+  findingRef: string;
+  name: string;
+  polarity: "ADVERSE" | "STRENGTH";
+  /** Estado inicial gobernado. Un juicio gobernado nunca se confirma solo. */
+  lifecycleState: Extract<FindingLifecycleState, "CANDIDATE" | "NEEDS_REVIEW">;
+  /** true solo si TODAS sus reglas son DETERMINISTIC e implementadas. */
+  deterministicallyConfirmable: boolean;
+  /** Severidad cualitativa cuando el material la soporta; nunca numérica. */
+  severity: { state: string | null; reason: string };
+  ruleRefs: string[];
+  variableRefs: string[];
+  /** Lineage: observaciones y evidencias que lo sostienen. */
+  supportingObservationIds: string[];
+  supportingEvidenceIds: string[];
+  reason: string;
+}
+
+/** Referencia a otra capacidad. Nunca ejecuta la capacidad destino. */
+export interface DerivedDependencyReferenceResult {
+  cause: string;
+  sourceCapabilityId: string;
+  targetCapabilityId: string | null;
+  targetDomainId: string | null;
+  executable: false;
+  note: string;
+}
+
+/** Identidad gobernada de recomendación. El contenido puede no ser explícito. */
+export interface RecommendationCandidateResult {
+  recommendationRef: string;
+  title: string | null;
+  contentStatus: string;
+  mappingStatus: string;
+  findingRefs: string[];
+  /** false cuando el mapeo Finding→Recommendation no está gobernado. */
+  automatable: boolean;
+  reason: string;
+}
+
 export interface EvaluationTraceability {
   knowledgeMasterIdentifier: string;
   knowledgeMasterVersion: string;
@@ -161,8 +213,12 @@ export interface EvaluationResult {
   answeredAcquisitionRefs: string[];
   /** true cuando el resultado requiere revisión gobernada, no inferencia. */
   needsReview: boolean;
-  /** Esta etapa no produce findings: no se fabrican para demostrar el vertical. */
+  /** Findings CONFIRMADOS por el runtime: siempre vacío, no hay regla determinística. */
   findings: never[];
+  /** Candidatos de finding con su lineage; nunca confirmados automáticamente. */
+  findingCandidates: FindingCandidateResult[];
+  /** Referencias a otras capacidades. Nunca ejecutan la capacidad destino. */
+  derivedDependencyReferences: DerivedDependencyReferenceResult[];
   /** Sufficiency/Confidence no tienen fórmula aprobada. */
   sufficiency: { state: null; reason: string };
   confidence: { state: null; reason: string };
@@ -217,6 +273,21 @@ export interface KnowledgeEngine {
   getEligibleAcquisitions(evaluation: EvaluationResult): NextAcquisition[];
   /** Adquisiciones de aclaración habilitadas por una contradicción. */
   getClarificationCandidates(evaluation: EvaluationResult): NextAcquisition[];
+  /**
+   * Identidades de recomendación gobernadas. No genera recomendaciones a partir
+   * de un finding cuando el mapeo Finding→Recommendation no está gobernado.
+   */
+  getRecommendationCandidates(findingRef?: string): RecommendationCandidateResult[];
+  /** Principio Minimum Sufficient Intervention (principio, nunca fórmula). */
+  getInterventionPrinciple(): {
+    id: string;
+    statement: string;
+    formula: string;
+    ruleRefs: string[];
+    automatable: boolean;
+  } | null;
+  /** Identidades de actividad gobernadas (A01–A09), sin mapeo automático. */
+  listActivityIdentities(): { activityRef: string; title: string | null; contentStatus: string; mappingStatus: string }[];
 }
 
 interface EstadoVariable {
@@ -570,6 +641,61 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
 
       const answeredAcquisitionRefs = [...new Set(observations.map((o) => o.acquisitionRef))];
 
+      // Findings: el pack declara identidad, polaridad, reglas y variables.
+      // Ninguna regla de findings es DETERMINISTIC en el material gobernado, de
+      // modo que un candidato nunca se confirma por inferencia: NEEDS_REVIEW.
+      const ruleById = new Map(rules.map((r) => [r.id, r]));
+      const evaluacionPorVariable = new Map(variableEvaluations.map((v) => [v.variableRef, v]));
+      const findingCandidates: FindingCandidateResult[] = (pack.findings ?? [])
+        .map((finding): FindingCandidateResult | null => {
+          const ruleRefs = finding.ruleRefs ?? [];
+          const variableRefs = finding.variableRefs ?? [];
+          const involucradas = variableRefs
+            .map((ref) => evaluacionPorVariable.get(ref))
+            .filter((v): v is VariableEvaluationResult => Boolean(v));
+          const conDato = involucradas.filter((v) => v.detail.observationIds.length > 0);
+          if (conDato.length === 0) return null;
+          const reglas = ruleRefs.map((ref) => ruleById.get(ref));
+          const confirmable =
+            ruleRefs.length > 0 &&
+            reglas.every((r) => r?.classification === "DETERMINISTIC" && r.implemented);
+          return {
+            findingRef: finding.id,
+            name: finding.name,
+            polarity: (finding.polarity ?? "ADVERSE") as "ADVERSE" | "STRENGTH",
+            lifecycleState: confirmable ? ("CANDIDATE" as const) : ("NEEDS_REVIEW" as const),
+            deterministicallyConfirmable: confirmable,
+            severity: {
+              state: null,
+              reason:
+                "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: no existe algoritmo de severidad ni de priority; la severidad no se infiere.",
+            },
+            ruleRefs: ruleRefs.slice(),
+            variableRefs: variableRefs.slice(),
+            supportingObservationIds: [...new Set(conDato.flatMap((v) => v.detail.observationIds))],
+            supportingEvidenceIds: [...new Set(conDato.flatMap((v) => v.detail.evidenceIds))],
+            reason: confirmable
+              ? "reglas determinísticas implementadas: candidato evaluable"
+              : (finding.polarity ?? "ADVERSE") === "STRENGTH"
+                ? "fortaleza posible: no existe gate formal de evidencia positiva (KCC-AT04-03); requiere revisión gobernada"
+                : "depende de juicio gobernado (GOVERNED_JUDGMENT): no se confirma automáticamente",
+          };
+        })
+        .filter((f): f is FindingCandidateResult => f !== null);
+
+      const derivedDependencyReferences: DerivedDependencyReferenceResult[] = (
+        pack.crossCapabilityReferences ?? []
+      ).map((ref) => ({
+        cause: ref.cause,
+        sourceCapabilityId: pack.capability.id,
+        targetCapabilityId: ref.targetCapabilityId ?? null,
+        targetDomainId: ref.targetDomainId ?? null,
+        executable: false as const,
+        note: ref.targetCapabilityId
+          ? "referencia declarativa: no ejecuta la capacidad destino"
+          : "dominio declarado sin capacidad específica: no se infiere ninguna",
+      }));
+
       return {
         variableEvaluations,
         informationNeedStates,
@@ -582,6 +708,8 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
           contradictions.length > 0 ||
           evidenceRequirements.some((e) => e.resolution === "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED"),
         findings: [],
+        findingCandidates,
+        derivedDependencyReferences,
         sufficiency: { state: null, reason: NO_FORMULA },
         confidence: { state: null, reason: NO_FORMULA },
         traceability: {
@@ -607,6 +735,50 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
       // Una adquisición ya respondida no se repregunta, ni siquiera con UNKNOWN.
       const [siguiente] = elegibles(evaluation);
       return siguiente ? aNextAcquisition(siguiente) : null;
+    },
+
+    getRecommendationCandidates(findingRef) {
+      // Identidades gobernadas R01–R09. El mapeo Finding→Recommendation no está
+      // gobernado: nunca se genera una recomendación automáticamente.
+      return (pack.recommendations ?? [])
+        .filter((rec) => {
+          if (!findingRef) return true;
+          return (rec.findingRefs ?? []).includes(findingRef);
+        })
+        .map((rec) => ({
+          recommendationRef: rec.id,
+          title: rec.title ?? null,
+          contentStatus: rec.contentStatus,
+          mappingStatus: rec.mappingStatus,
+          findingRefs: (rec.findingRefs ?? []).slice(),
+          automatable: rec.mappingStatus === "GOVERNED" && (rec.findingRefs ?? []).length > 0,
+          reason:
+            rec.mappingStatus === "GOVERNED"
+              ? "mapeo gobernado declarado por el pack"
+              : "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: sin mapeo gobernado; requiere selección humana registrada",
+        }));
+    },
+
+    getInterventionPrinciple() {
+      const principio = pack.interventionPrinciple;
+      if (!principio) return null;
+      return {
+        id: principio.id,
+        statement: principio.statement,
+        formula: principio.formula,
+        ruleRefs: (principio.ruleRefs ?? []).slice(),
+        // Principio, nunca fórmula: la selección no es automatizable.
+        automatable: !principio.formula.startsWith("NOT_EXPLICIT"),
+      };
+    },
+
+    listActivityIdentities() {
+      return (pack.activities ?? []).map((a) => ({
+        activityRef: a.id,
+        title: a.title ?? null,
+        contentStatus: a.contentStatus,
+        mappingStatus: a.mappingStatus,
+      }));
     },
 
     getClarificationCandidates(evaluation) {

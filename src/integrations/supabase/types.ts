@@ -14,6 +14,60 @@ export type Database = {
   }
   public: {
     Tables: {
+      activities: {
+        Row: {
+          activity_ref: string | null
+          content_status: string
+          created_at: string
+          id: string
+          intervention_id: string
+          mapping_status: string
+          organization_id: string
+          state: Database["public"]["Enums"]["execution_state"]
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          activity_ref?: string | null
+          content_status?: string
+          created_at?: string
+          id?: string
+          intervention_id: string
+          mapping_status?: string
+          organization_id: string
+          state?: Database["public"]["Enums"]["execution_state"]
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          activity_ref?: string | null
+          content_status?: string
+          created_at?: string
+          id?: string
+          intervention_id?: string
+          mapping_status?: string
+          organization_id?: string
+          state?: Database["public"]["Enums"]["execution_state"]
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "activities_intervention_id_fkey"
+            columns: ["intervention_id"]
+            isOneToOne: false
+            referencedRelation: "interventions"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "activities_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       assessments: {
         Row: {
           case_id: string
@@ -146,6 +200,57 @@ export type Database = {
           },
         ]
       }
+      audit_events: {
+        Row: {
+          actor_user_id: string | null
+          assessment_id: string | null
+          created_at: string
+          detail: Json | null
+          event_type: Database["public"]["Enums"]["audit_event_type"]
+          id: string
+          organization_id: string
+          subject_id: string | null
+          subject_table: string
+        }
+        Insert: {
+          actor_user_id?: string | null
+          assessment_id?: string | null
+          created_at?: string
+          detail?: Json | null
+          event_type: Database["public"]["Enums"]["audit_event_type"]
+          id?: string
+          organization_id: string
+          subject_id?: string | null
+          subject_table: string
+        }
+        Update: {
+          actor_user_id?: string | null
+          assessment_id?: string | null
+          created_at?: string
+          detail?: Json | null
+          event_type?: Database["public"]["Enums"]["audit_event_type"]
+          id?: string
+          organization_id?: string
+          subject_id?: string | null
+          subject_table?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "audit_events_assessment_id_fkey"
+            columns: ["assessment_id"]
+            isOneToOne: false
+            referencedRelation: "assessments"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "audit_events_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       cases: {
         Row: {
           created_at: string
@@ -171,6 +276,131 @@ export type Database = {
         Relationships: [
           {
             foreignKeyName: "cases_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      deliverables: {
+        Row: {
+          activity_id: string
+          created_at: string
+          evidence_id: string | null
+          id: string
+          note: string | null
+          organization_id: string
+          registered_at: string
+          registered_by: string | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          activity_id: string
+          created_at?: string
+          evidence_id?: string | null
+          id?: string
+          note?: string | null
+          organization_id: string
+          registered_at?: string
+          registered_by?: string | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          activity_id?: string
+          created_at?: string
+          evidence_id?: string | null
+          id?: string
+          note?: string | null
+          organization_id?: string
+          registered_at?: string
+          registered_by?: string | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "deliverables_activity_id_fkey"
+            columns: ["activity_id"]
+            isOneToOne: false
+            referencedRelation: "activities"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "deliverables_evidence_id_fkey"
+            columns: ["evidence_id"]
+            isOneToOne: false
+            referencedRelation: "evidence"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "deliverables_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      derived_dependency_references: {
+        Row: {
+          assessment_id: string
+          cause: string
+          created_at: string
+          executable: boolean
+          finding_id: string | null
+          id: string
+          note: string | null
+          organization_id: string
+          source_capability_id: string
+          target_capability_id: string | null
+          target_domain_id: string | null
+        }
+        Insert: {
+          assessment_id: string
+          cause: string
+          created_at?: string
+          executable?: boolean
+          finding_id?: string | null
+          id?: string
+          note?: string | null
+          organization_id: string
+          source_capability_id: string
+          target_capability_id?: string | null
+          target_domain_id?: string | null
+        }
+        Update: {
+          assessment_id?: string
+          cause?: string
+          created_at?: string
+          executable?: boolean
+          finding_id?: string | null
+          id?: string
+          note?: string | null
+          organization_id?: string
+          source_capability_id?: string
+          target_capability_id?: string | null
+          target_domain_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "derived_dependency_references_assessment_id_fkey"
+            columns: ["assessment_id"]
+            isOneToOne: false
+            referencedRelation: "assessments"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "derived_dependency_references_finding_id_fkey"
+            columns: ["finding_id"]
+            isOneToOne: false
+            referencedRelation: "findings"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "derived_dependency_references_organization_id_fkey"
             columns: ["organization_id"]
             isOneToOne: false
             referencedRelation: "organizations"
@@ -328,6 +558,219 @@ export type Database = {
           },
         ]
       }
+      finding_evidence: {
+        Row: {
+          created_at: string
+          evidence_id: string
+          finding_id: string
+          id: string
+          organization_id: string
+        }
+        Insert: {
+          created_at?: string
+          evidence_id: string
+          finding_id: string
+          id?: string
+          organization_id: string
+        }
+        Update: {
+          created_at?: string
+          evidence_id?: string
+          finding_id?: string
+          id?: string
+          organization_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "finding_evidence_evidence_id_fkey"
+            columns: ["evidence_id"]
+            isOneToOne: false
+            referencedRelation: "evidence"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "finding_evidence_finding_id_fkey"
+            columns: ["finding_id"]
+            isOneToOne: false
+            referencedRelation: "findings"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "finding_evidence_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      finding_observations: {
+        Row: {
+          created_at: string
+          finding_id: string
+          id: string
+          observation_id: string
+          organization_id: string
+        }
+        Insert: {
+          created_at?: string
+          finding_id: string
+          id?: string
+          observation_id: string
+          organization_id: string
+        }
+        Update: {
+          created_at?: string
+          finding_id?: string
+          id?: string
+          observation_id?: string
+          organization_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "finding_observations_finding_id_fkey"
+            columns: ["finding_id"]
+            isOneToOne: false
+            referencedRelation: "findings"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "finding_observations_observation_id_fkey"
+            columns: ["observation_id"]
+            isOneToOne: false
+            referencedRelation: "observations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "finding_observations_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      findings: {
+        Row: {
+          assessment_id: string
+          capability_id: string
+          case_id: string
+          created_at: string
+          detail: Json | null
+          engine_version: string
+          evaluation_run_id: string
+          finding_ref: string
+          id: string
+          knowledge_pack_id: string
+          knowledge_pack_version: string
+          knowledge_version_id: string
+          lifecycle_state: Database["public"]["Enums"]["finding_lifecycle_state"]
+          organization_id: string
+          polarity: Database["public"]["Enums"]["finding_polarity"]
+          reviewed_at: string | null
+          reviewed_by: string | null
+          rule_refs: string[]
+          severity_qualitative: string | null
+          severity_reason: string
+          superseded_by_finding_id: string | null
+          updated_at: string
+          variable_refs: string[]
+        }
+        Insert: {
+          assessment_id: string
+          capability_id: string
+          case_id: string
+          created_at?: string
+          detail?: Json | null
+          engine_version: string
+          evaluation_run_id: string
+          finding_ref: string
+          id?: string
+          knowledge_pack_id: string
+          knowledge_pack_version: string
+          knowledge_version_id: string
+          lifecycle_state?: Database["public"]["Enums"]["finding_lifecycle_state"]
+          organization_id: string
+          polarity: Database["public"]["Enums"]["finding_polarity"]
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          rule_refs?: string[]
+          severity_qualitative?: string | null
+          severity_reason?: string
+          superseded_by_finding_id?: string | null
+          updated_at?: string
+          variable_refs?: string[]
+        }
+        Update: {
+          assessment_id?: string
+          capability_id?: string
+          case_id?: string
+          created_at?: string
+          detail?: Json | null
+          engine_version?: string
+          evaluation_run_id?: string
+          finding_ref?: string
+          id?: string
+          knowledge_pack_id?: string
+          knowledge_pack_version?: string
+          knowledge_version_id?: string
+          lifecycle_state?: Database["public"]["Enums"]["finding_lifecycle_state"]
+          organization_id?: string
+          polarity?: Database["public"]["Enums"]["finding_polarity"]
+          reviewed_at?: string | null
+          reviewed_by?: string | null
+          rule_refs?: string[]
+          severity_qualitative?: string | null
+          severity_reason?: string
+          superseded_by_finding_id?: string | null
+          updated_at?: string
+          variable_refs?: string[]
+        }
+        Relationships: [
+          {
+            foreignKeyName: "findings_assessment_id_fkey"
+            columns: ["assessment_id"]
+            isOneToOne: false
+            referencedRelation: "assessments"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "findings_case_id_fkey"
+            columns: ["case_id"]
+            isOneToOne: false
+            referencedRelation: "cases"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "findings_evaluation_run_id_fkey"
+            columns: ["evaluation_run_id"]
+            isOneToOne: false
+            referencedRelation: "evaluation_runs"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "findings_knowledge_version_id_fkey"
+            columns: ["knowledge_version_id"]
+            isOneToOne: false
+            referencedRelation: "knowledge_versions"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "findings_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "findings_superseded_by_finding_id_fkey"
+            columns: ["superseded_by_finding_id"]
+            isOneToOne: false
+            referencedRelation: "findings"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       information_need_states: {
         Row: {
           assessment_id: string
@@ -382,6 +825,90 @@ export type Database = {
             columns: ["organization_id"]
             isOneToOne: false
             referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      interventions: {
+        Row: {
+          accepted_at: string | null
+          accepted_by: string | null
+          assessment_id: string
+          case_id: string
+          created_at: string
+          finding_id: string | null
+          id: string
+          organization_id: string
+          recommendation_candidate_id: string | null
+          selection_note: string | null
+          status: Database["public"]["Enums"]["intervention_status"]
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          accepted_at?: string | null
+          accepted_by?: string | null
+          assessment_id: string
+          case_id: string
+          created_at?: string
+          finding_id?: string | null
+          id?: string
+          organization_id: string
+          recommendation_candidate_id?: string | null
+          selection_note?: string | null
+          status?: Database["public"]["Enums"]["intervention_status"]
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          accepted_at?: string | null
+          accepted_by?: string | null
+          assessment_id?: string
+          case_id?: string
+          created_at?: string
+          finding_id?: string | null
+          id?: string
+          organization_id?: string
+          recommendation_candidate_id?: string | null
+          selection_note?: string | null
+          status?: Database["public"]["Enums"]["intervention_status"]
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "interventions_assessment_id_fkey"
+            columns: ["assessment_id"]
+            isOneToOne: false
+            referencedRelation: "assessments"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "interventions_case_id_fkey"
+            columns: ["case_id"]
+            isOneToOne: false
+            referencedRelation: "cases"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "interventions_finding_id_fkey"
+            columns: ["finding_id"]
+            isOneToOne: false
+            referencedRelation: "findings"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "interventions_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "interventions_recommendation_candidate_id_fkey"
+            columns: ["recommendation_candidate_id"]
+            isOneToOne: false
+            referencedRelation: "recommendation_candidates"
             referencedColumns: ["id"]
           },
         ]
@@ -650,6 +1177,92 @@ export type Database = {
         }
         Relationships: []
       }
+      recommendation_candidates: {
+        Row: {
+          assessment_id: string
+          case_id: string
+          content_status: string
+          created_at: string
+          decided_at: string | null
+          decided_by: string | null
+          decision_note: string | null
+          detail: Json | null
+          finding_id: string | null
+          id: string
+          mapping_status: string
+          organization_id: string
+          recommendation_ref: string
+          status: Database["public"]["Enums"]["recommendation_selection_status"]
+          title: string | null
+          updated_at: string
+        }
+        Insert: {
+          assessment_id: string
+          case_id: string
+          content_status?: string
+          created_at?: string
+          decided_at?: string | null
+          decided_by?: string | null
+          decision_note?: string | null
+          detail?: Json | null
+          finding_id?: string | null
+          id?: string
+          mapping_status?: string
+          organization_id: string
+          recommendation_ref: string
+          status?: Database["public"]["Enums"]["recommendation_selection_status"]
+          title?: string | null
+          updated_at?: string
+        }
+        Update: {
+          assessment_id?: string
+          case_id?: string
+          content_status?: string
+          created_at?: string
+          decided_at?: string | null
+          decided_by?: string | null
+          decision_note?: string | null
+          detail?: Json | null
+          finding_id?: string | null
+          id?: string
+          mapping_status?: string
+          organization_id?: string
+          recommendation_ref?: string
+          status?: Database["public"]["Enums"]["recommendation_selection_status"]
+          title?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "recommendation_candidates_assessment_id_fkey"
+            columns: ["assessment_id"]
+            isOneToOne: false
+            referencedRelation: "assessments"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "recommendation_candidates_case_id_fkey"
+            columns: ["case_id"]
+            isOneToOne: false
+            referencedRelation: "cases"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "recommendation_candidates_finding_id_fkey"
+            columns: ["finding_id"]
+            isOneToOne: false
+            referencedRelation: "findings"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "recommendation_candidates_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       respondents: {
         Row: {
           created_at: string
@@ -817,6 +1430,17 @@ export type Database = {
         | "COMPLETED"
         | "DELEGATED"
         | "REVOKED"
+      audit_event_type:
+        | "FINDING_CREATED"
+        | "FINDING_REVIEWED"
+        | "FINDING_CONFIRMED"
+        | "FINDING_DISMISSED"
+        | "FINDING_SUPERSEDED"
+        | "RECOMMENDATION_SELECTED"
+        | "RECOMMENDATION_REJECTED"
+        | "INTERVENTION_CREATED"
+        | "ACTIVITY_STATE_CHANGED"
+        | "DELIVERABLE_REGISTERED"
       evaluation_run_status:
         | "PENDING"
         | "PROCESSING"
@@ -836,6 +1460,15 @@ export type Database = {
         | "DOCUMENT"
         | "SYSTEM_RECORD"
         | "OBSERVED_EXECUTION"
+      execution_state: "PENDING" | "EXECUTING" | "DELIVERABLE_PRODUCED"
+      finding_lifecycle_state:
+        | "CANDIDATE"
+        | "NEEDS_REVIEW"
+        | "CONFIRMED"
+        | "SUPERSEDED"
+        | "DISMISSED"
+      finding_polarity: "ADVERSE" | "STRENGTH"
+      intervention_status: "PROPOSED" | "ACCEPTED" | "IN_EXECUTION"
       invitation_status: "PENDING" | "ACCEPTED" | "EXPIRED" | "REVOKED"
       knowledge_version_status:
         | "DRAFT"
@@ -843,6 +1476,7 @@ export type Database = {
         | "PUBLISHED"
         | "SUPERSEDED"
       membership_role: "OWNER" | "ADMIN" | "MEMBER"
+      recommendation_selection_status: "CANDIDATE" | "SELECTED" | "REJECTED"
       respondent_status: "INVITED" | "ACTIVE" | "REVOKED"
     }
     CompositeTypes: {
@@ -985,6 +1619,18 @@ export const Constants = {
         "DELEGATED",
         "REVOKED",
       ],
+      audit_event_type: [
+        "FINDING_CREATED",
+        "FINDING_REVIEWED",
+        "FINDING_CONFIRMED",
+        "FINDING_DISMISSED",
+        "FINDING_SUPERSEDED",
+        "RECOMMENDATION_SELECTED",
+        "RECOMMENDATION_REJECTED",
+        "INTERVENTION_CREATED",
+        "ACTIVITY_STATE_CHANGED",
+        "DELIVERABLE_REGISTERED",
+      ],
       evaluation_run_status: [
         "PENDING",
         "PROCESSING",
@@ -1007,6 +1653,16 @@ export const Constants = {
         "SYSTEM_RECORD",
         "OBSERVED_EXECUTION",
       ],
+      execution_state: ["PENDING", "EXECUTING", "DELIVERABLE_PRODUCED"],
+      finding_lifecycle_state: [
+        "CANDIDATE",
+        "NEEDS_REVIEW",
+        "CONFIRMED",
+        "SUPERSEDED",
+        "DISMISSED",
+      ],
+      finding_polarity: ["ADVERSE", "STRENGTH"],
+      intervention_status: ["PROPOSED", "ACCEPTED", "IN_EXECUTION"],
       invitation_status: ["PENDING", "ACCEPTED", "EXPIRED", "REVOKED"],
       knowledge_version_status: [
         "DRAFT",
@@ -1015,6 +1671,7 @@ export const Constants = {
         "SUPERSEDED",
       ],
       membership_role: ["OWNER", "ADMIN", "MEMBER"],
+      recommendation_selection_status: ["CANDIDATE", "SELECTED", "REJECTED"],
       respondent_status: ["INVITED", "ACTIVE", "REVOKED"],
     },
   },

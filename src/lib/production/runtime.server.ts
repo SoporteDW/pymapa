@@ -25,6 +25,16 @@ import type {
   RespondentRecord,
   ResponseRecord,
   VariableEvaluationRecord,
+  FindingRecord,
+  FindingObservationLink,
+  FindingEvidenceLink,
+  DerivedDependencyReferenceRecord,
+  RecommendationCandidateRecord,
+  InterventionRecord,
+  ActivityRecord,
+  DeliverableRecord,
+  AuditEventRecord,
+  ExecutionState,
 } from "./puertos";
 
 /** Engine genérico ya enlazado al pack OP-01 1.0.0 (declarativo). */
@@ -574,6 +584,631 @@ export function createSupabaseProductionRepository(): ProductionRepository {
         createdAt: l.created_at,
       }));
     },
+
+    /* ---------------- Findings y preparación de ejecución -------------- */
+
+    async insertFinding(input): Promise<FindingRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("findings")
+        .insert({
+          organization_id: input.organizationId,
+          case_id: input.caseId,
+          assessment_id: input.assessmentId,
+          evaluation_run_id: input.evaluationRunId,
+          knowledge_version_id: input.knowledgeVersionId,
+          capability_id: input.capabilityId,
+          finding_ref: input.findingRef,
+          polarity: input.polarity,
+          lifecycle_state: input.lifecycleState,
+          severity_qualitative: input.severityQualitative,
+          severity_reason: input.severityReason,
+          knowledge_pack_id: input.knowledgePackId,
+          knowledge_pack_version: input.knowledgePackVersion,
+          engine_version: input.engineVersion,
+          rule_refs: input.ruleRefs,
+          variable_refs: input.variableRefs,
+          detail: aJson(input.detail ?? {}),
+        })
+        .select("id, organization_id, case_id, assessment_id, evaluation_run_id, knowledge_version_id, capability_id, finding_ref, polarity, lifecycle_state, severity_qualitative, severity_reason, knowledge_pack_id, knowledge_pack_version, engine_version, rule_refs, variable_refs, detail, superseded_by_finding_id, reviewed_by, reviewed_at, created_at")
+        .single();
+      lanzar("findings.insert", error);
+      return aFinding(data!);
+    },
+
+    async getFinding(findingId): Promise<FindingRecord | null> {
+      const db = await admin();
+      const { data, error } = await db.from("findings").select("id, organization_id, case_id, assessment_id, evaluation_run_id, knowledge_version_id, capability_id, finding_ref, polarity, lifecycle_state, severity_qualitative, severity_reason, knowledge_pack_id, knowledge_pack_version, engine_version, rule_refs, variable_refs, detail, superseded_by_finding_id, reviewed_by, reviewed_at, created_at").eq("id", findingId).maybeSingle();
+      lanzar("findings.get", error);
+      return data ? aFinding(data) : null;
+    },
+
+    async listFindings(assessmentId): Promise<FindingRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("findings")
+        .select("id, organization_id, case_id, assessment_id, evaluation_run_id, knowledge_version_id, capability_id, finding_ref, polarity, lifecycle_state, severity_qualitative, severity_reason, knowledge_pack_id, knowledge_pack_version, engine_version, rule_refs, variable_refs, detail, superseded_by_finding_id, reviewed_by, reviewed_at, created_at")
+        .eq("assessment_id", assessmentId)
+        .order("created_at", { ascending: true });
+      lanzar("findings.list", error);
+      return (data ?? []).map(aFinding);
+    },
+
+    async updateFinding(findingId, patch): Promise<FindingRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("findings")
+        .update({
+          ...(patch.lifecycleState !== undefined ? { lifecycle_state: patch.lifecycleState } : {}),
+          ...(patch.severityQualitative !== undefined ? { severity_qualitative: patch.severityQualitative } : {}),
+          ...(patch.severityReason !== undefined ? { severity_reason: patch.severityReason } : {}),
+          ...(patch.supersededByFindingId !== undefined
+            ? { superseded_by_finding_id: patch.supersededByFindingId }
+            : {}),
+          ...(patch.reviewedBy !== undefined ? { reviewed_by: patch.reviewedBy } : {}),
+          ...(patch.reviewedAt !== undefined ? { reviewed_at: patch.reviewedAt } : {}),
+        })
+        .eq("id", findingId)
+        .select("id, organization_id, case_id, assessment_id, evaluation_run_id, knowledge_version_id, capability_id, finding_ref, polarity, lifecycle_state, severity_qualitative, severity_reason, knowledge_pack_id, knowledge_pack_version, engine_version, rule_refs, variable_refs, detail, superseded_by_finding_id, reviewed_by, reviewed_at, created_at")
+        .single();
+      lanzar("findings.update", error);
+      return aFinding(data!);
+    },
+
+    async linkFindingObservation(input): Promise<FindingObservationLink> {
+      const db = await admin();
+      const existente = await db
+        .from("finding_observations")
+        .select("id, organization_id, finding_id, observation_id")
+        .eq("finding_id", input.findingId)
+        .eq("observation_id", input.observationId)
+        .maybeSingle();
+      lanzar("finding_observations.select", existente.error);
+      if (existente.data) {
+        return {
+          id: existente.data.id,
+          organizationId: existente.data.organization_id,
+          findingId: existente.data.finding_id,
+          observationId: existente.data.observation_id,
+        };
+      }
+      const { data, error } = await db
+        .from("finding_observations")
+        .insert({
+          organization_id: input.organizationId,
+          finding_id: input.findingId,
+          observation_id: input.observationId,
+        })
+        .select("id")
+        .single();
+      lanzar("finding_observations.insert", error);
+      return { ...input, id: data!.id };
+    },
+
+    async linkFindingEvidence(input): Promise<FindingEvidenceLink> {
+      const db = await admin();
+      const existente = await db
+        .from("finding_evidence")
+        .select("id, organization_id, finding_id, evidence_id")
+        .eq("finding_id", input.findingId)
+        .eq("evidence_id", input.evidenceId)
+        .maybeSingle();
+      lanzar("finding_evidence.select", existente.error);
+      if (existente.data) {
+        return {
+          id: existente.data.id,
+          organizationId: existente.data.organization_id,
+          findingId: existente.data.finding_id,
+          evidenceId: existente.data.evidence_id,
+        };
+      }
+      const { data, error } = await db
+        .from("finding_evidence")
+        .insert({
+          organization_id: input.organizationId,
+          finding_id: input.findingId,
+          evidence_id: input.evidenceId,
+        })
+        .select("id")
+        .single();
+      lanzar("finding_evidence.insert", error);
+      return { ...input, id: data!.id };
+    },
+
+    async listFindingObservationLinks(findingId): Promise<FindingObservationLink[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("finding_observations")
+        .select("id, organization_id, finding_id, observation_id")
+        .eq("finding_id", findingId);
+      lanzar("finding_observations.list", error);
+      return (data ?? []).map((l) => ({
+        id: l.id,
+        organizationId: l.organization_id,
+        findingId: l.finding_id,
+        observationId: l.observation_id,
+      }));
+    },
+
+    async listFindingEvidenceLinks(findingId): Promise<FindingEvidenceLink[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("finding_evidence")
+        .select("id, organization_id, finding_id, evidence_id")
+        .eq("finding_id", findingId);
+      lanzar("finding_evidence.list", error);
+      return (data ?? []).map((l) => ({
+        id: l.id,
+        organizationId: l.organization_id,
+        findingId: l.finding_id,
+        evidenceId: l.evidence_id,
+      }));
+    },
+
+    async insertDerivedDependencyReference(input): Promise<DerivedDependencyReferenceRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("derived_dependency_references")
+        .insert({
+          organization_id: input.organizationId,
+          assessment_id: input.assessmentId,
+          finding_id: input.findingId,
+          cause: input.cause,
+          source_capability_id: input.sourceCapabilityId,
+          target_capability_id: input.targetCapabilityId,
+          target_domain_id: input.targetDomainId,
+          // Invariante: una referencia derivada nunca es ejecutable.
+          executable: false,
+          note: input.note,
+        })
+        .select("id, organization_id, assessment_id, finding_id, cause, source_capability_id, target_capability_id, target_domain_id, executable, note, created_at")
+        .single();
+      lanzar("derived_dependency_references.insert", error);
+      return aDependencia(data!);
+    },
+
+    async listDerivedDependencyReferences(assessmentId): Promise<DerivedDependencyReferenceRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("derived_dependency_references")
+        .select("id, organization_id, assessment_id, finding_id, cause, source_capability_id, target_capability_id, target_domain_id, executable, note, created_at")
+        .eq("assessment_id", assessmentId)
+        .order("created_at", { ascending: true });
+      lanzar("derived_dependency_references.list", error);
+      return (data ?? []).map(aDependencia);
+    },
+
+    async insertRecommendationCandidate(input): Promise<RecommendationCandidateRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("recommendation_candidates")
+        .insert({
+          organization_id: input.organizationId,
+          case_id: input.caseId,
+          assessment_id: input.assessmentId,
+          finding_id: input.findingId,
+          recommendation_ref: input.recommendationRef,
+          content_status: input.contentStatus,
+          mapping_status: input.mappingStatus,
+          title: input.title,
+          status: input.status,
+          detail: aJson(input.detail ?? {}),
+        })
+        .select("id, organization_id, case_id, assessment_id, finding_id, recommendation_ref, content_status, mapping_status, title, status, decided_by, decided_at, decision_note, detail, created_at")
+        .single();
+      lanzar("recommendation_candidates.insert", error);
+      return aRecomendacion(data!);
+    },
+
+    async getRecommendationCandidate(id): Promise<RecommendationCandidateRecord | null> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("recommendation_candidates")
+        .select("id, organization_id, case_id, assessment_id, finding_id, recommendation_ref, content_status, mapping_status, title, status, decided_by, decided_at, decision_note, detail, created_at")
+        .eq("id", id)
+        .maybeSingle();
+      lanzar("recommendation_candidates.get", error);
+      return data ? aRecomendacion(data) : null;
+    },
+
+    async listRecommendationCandidates(assessmentId): Promise<RecommendationCandidateRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("recommendation_candidates")
+        .select("id, organization_id, case_id, assessment_id, finding_id, recommendation_ref, content_status, mapping_status, title, status, decided_by, decided_at, decision_note, detail, created_at")
+        .eq("assessment_id", assessmentId)
+        .order("created_at", { ascending: true });
+      lanzar("recommendation_candidates.list", error);
+      return (data ?? []).map(aRecomendacion);
+    },
+
+    async updateRecommendationCandidate(id, patch): Promise<RecommendationCandidateRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("recommendation_candidates")
+        .update({
+          ...(patch.status !== undefined ? { status: patch.status } : {}),
+          ...(patch.decidedBy !== undefined ? { decided_by: patch.decidedBy } : {}),
+          ...(patch.decidedAt !== undefined ? { decided_at: patch.decidedAt } : {}),
+          ...(patch.decisionNote !== undefined ? { decision_note: patch.decisionNote } : {}),
+        })
+        .eq("id", id)
+        .select("id, organization_id, case_id, assessment_id, finding_id, recommendation_ref, content_status, mapping_status, title, status, decided_by, decided_at, decision_note, detail, created_at")
+        .single();
+      lanzar("recommendation_candidates.update", error);
+      return aRecomendacion(data!);
+    },
+
+    async insertIntervention(input): Promise<InterventionRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("interventions")
+        .insert({
+          organization_id: input.organizationId,
+          case_id: input.caseId,
+          assessment_id: input.assessmentId,
+          recommendation_candidate_id: input.recommendationCandidateId,
+          finding_id: input.findingId,
+          title: input.title,
+          status: input.status,
+          selection_note: input.selectionNote,
+          accepted_by: input.acceptedBy,
+          accepted_at: input.acceptedAt,
+        })
+        .select("id, organization_id, case_id, assessment_id, recommendation_candidate_id, finding_id, title, status, selection_note, accepted_by, accepted_at, created_at")
+        .single();
+      lanzar("interventions.insert", error);
+      return aIntervencion(data!);
+    },
+
+    async getIntervention(id): Promise<InterventionRecord | null> {
+      const db = await admin();
+      const { data, error } = await db.from("interventions").select("id, organization_id, case_id, assessment_id, recommendation_candidate_id, finding_id, title, status, selection_note, accepted_by, accepted_at, created_at").eq("id", id).maybeSingle();
+      lanzar("interventions.get", error);
+      return data ? aIntervencion(data) : null;
+    },
+
+    async listInterventions(assessmentId): Promise<InterventionRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("interventions")
+        .select("id, organization_id, case_id, assessment_id, recommendation_candidate_id, finding_id, title, status, selection_note, accepted_by, accepted_at, created_at")
+        .eq("assessment_id", assessmentId)
+        .order("created_at", { ascending: true });
+      lanzar("interventions.list", error);
+      return (data ?? []).map(aIntervencion);
+    },
+
+    async insertActivity(input): Promise<ActivityRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("activities")
+        .insert({
+          organization_id: input.organizationId,
+          intervention_id: input.interventionId,
+          activity_ref: input.activityRef,
+          content_status: input.contentStatus,
+          mapping_status: input.mappingStatus,
+          title: input.title,
+          state: input.state,
+        })
+        .select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, created_at")
+        .single();
+      lanzar("activities.insert", error);
+      return aActividad(data!);
+    },
+
+    async getActivity(id): Promise<ActivityRecord | null> {
+      const db = await admin();
+      const { data, error } = await db.from("activities").select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, created_at").eq("id", id).maybeSingle();
+      lanzar("activities.get", error);
+      return data ? aActividad(data) : null;
+    },
+
+    async listActivities(interventionId): Promise<ActivityRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("activities")
+        .select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, created_at")
+        .eq("intervention_id", interventionId)
+        .order("created_at", { ascending: true });
+      lanzar("activities.list", error);
+      return (data ?? []).map(aActividad);
+    },
+
+    async updateActivityState(id, state: ExecutionState): Promise<ActivityRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("activities")
+        .update({ state })
+        .eq("id", id)
+        .select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, created_at")
+        .single();
+      lanzar("activities.updateState", error);
+      return aActividad(data!);
+    },
+
+    async insertDeliverable(input): Promise<DeliverableRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("deliverables")
+        .insert({
+          organization_id: input.organizationId,
+          activity_id: input.activityId,
+          evidence_id: input.evidenceId,
+          title: input.title,
+          note: input.note,
+          registered_by: input.registeredBy,
+          registered_at: input.registeredAt,
+        })
+        .select("id, organization_id, activity_id, evidence_id, title, note, registered_by, registered_at, created_at")
+        .single();
+      lanzar("deliverables.insert", error);
+      return aEntregable(data!);
+    },
+
+    async listDeliverables(activityId): Promise<DeliverableRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("deliverables")
+        .select("id, organization_id, activity_id, evidence_id, title, note, registered_by, registered_at, created_at")
+        .eq("activity_id", activityId)
+        .order("created_at", { ascending: true });
+      lanzar("deliverables.list", error);
+      return (data ?? []).map(aEntregable);
+    },
+
+    async insertAuditEvent(input): Promise<AuditEventRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("audit_events")
+        .insert({
+          organization_id: input.organizationId,
+          assessment_id: input.assessmentId,
+          event_type: input.eventType,
+          subject_table: input.subjectTable,
+          subject_id: input.subjectId,
+          actor_user_id: input.actorUserId,
+          detail: aJson(input.detail ?? {}),
+        })
+        .select("id, organization_id, assessment_id, event_type, subject_table, subject_id, actor_user_id, detail, created_at")
+        .single();
+      lanzar("audit_events.insert", error);
+      return aAuditoria(data!);
+    },
+
+    async listAuditEvents(organizationId): Promise<AuditEventRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("audit_events")
+        .select("id, organization_id, assessment_id, event_type, subject_table, subject_id, actor_user_id, detail, created_at")
+        .eq("organization_id", organizationId)
+        .order("created_at", { ascending: false });
+      lanzar("audit_events.list", error);
+      return (data ?? []).map(aAuditoria);
+    },
+  };
+}
+
+/* ------------------------------------------------------------------ */
+/* Mapeos snake_case → camelCase                                       */
+/* ------------------------------------------------------------------ */
+
+type FilaFinding = {
+  id: string;
+  organization_id: string;
+  case_id: string;
+  assessment_id: string;
+  evaluation_run_id: string;
+  knowledge_version_id: string;
+  capability_id: string;
+  finding_ref: string;
+  polarity: FindingRecord["polarity"];
+  lifecycle_state: FindingRecord["lifecycleState"];
+  severity_qualitative: string | null;
+  severity_reason: string;
+  knowledge_pack_id: string;
+  knowledge_pack_version: string;
+  engine_version: string;
+  rule_refs: string[] | null;
+  variable_refs: string[] | null;
+  detail: unknown;
+  superseded_by_finding_id: string | null;
+  reviewed_by: string | null;
+  reviewed_at: string | null;
+  created_at: string;
+};
+
+function aFinding(f: FilaFinding): FindingRecord {
+  return {
+    id: f.id,
+    organizationId: f.organization_id,
+    caseId: f.case_id,
+    assessmentId: f.assessment_id,
+    evaluationRunId: f.evaluation_run_id,
+    knowledgeVersionId: f.knowledge_version_id,
+    capabilityId: f.capability_id,
+    findingRef: f.finding_ref,
+    polarity: f.polarity,
+    lifecycleState: f.lifecycle_state,
+    severityQualitative: f.severity_qualitative,
+    severityReason: f.severity_reason,
+    knowledgePackId: f.knowledge_pack_id,
+    knowledgePackVersion: f.knowledge_pack_version,
+    engineVersion: f.engine_version,
+    ruleRefs: f.rule_refs ?? [],
+    variableRefs: f.variable_refs ?? [],
+    detail: (f.detail as Record<string, unknown> | null) ?? null,
+    supersededByFindingId: f.superseded_by_finding_id,
+    reviewedBy: f.reviewed_by,
+    reviewedAt: f.reviewed_at,
+    createdAt: f.created_at,
+  };
+}
+
+function aDependencia(d: {
+  id: string;
+  organization_id: string;
+  assessment_id: string;
+  finding_id: string | null;
+  cause: string;
+  source_capability_id: string;
+  target_capability_id: string | null;
+  target_domain_id: string | null;
+  executable: boolean;
+  note: string | null;
+  created_at: string;
+}): DerivedDependencyReferenceRecord {
+  return {
+    id: d.id,
+    organizationId: d.organization_id,
+    assessmentId: d.assessment_id,
+    findingId: d.finding_id,
+    cause: d.cause,
+    sourceCapabilityId: d.source_capability_id,
+    targetCapabilityId: d.target_capability_id,
+    targetDomainId: d.target_domain_id,
+    executable: false,
+    note: d.note,
+    createdAt: d.created_at,
+  };
+}
+
+function aRecomendacion(r: {
+  id: string;
+  organization_id: string;
+  case_id: string;
+  assessment_id: string;
+  finding_id: string | null;
+  recommendation_ref: string;
+  content_status: string;
+  mapping_status: string;
+  title: string | null;
+  status: RecommendationCandidateRecord["status"];
+  decided_by: string | null;
+  decided_at: string | null;
+  decision_note: string | null;
+  detail: unknown;
+  created_at: string;
+}): RecommendationCandidateRecord {
+  return {
+    id: r.id,
+    organizationId: r.organization_id,
+    caseId: r.case_id,
+    assessmentId: r.assessment_id,
+    findingId: r.finding_id,
+    recommendationRef: r.recommendation_ref,
+    contentStatus: r.content_status,
+    mappingStatus: r.mapping_status,
+    title: r.title,
+    status: r.status,
+    decidedBy: r.decided_by,
+    decidedAt: r.decided_at,
+    decisionNote: r.decision_note,
+    detail: (r.detail as Record<string, unknown> | null) ?? null,
+    createdAt: r.created_at,
+  };
+}
+
+function aIntervencion(i: {
+  id: string;
+  organization_id: string;
+  case_id: string;
+  assessment_id: string;
+  recommendation_candidate_id: string | null;
+  finding_id: string | null;
+  title: string;
+  status: InterventionRecord["status"];
+  selection_note: string | null;
+  accepted_by: string | null;
+  accepted_at: string | null;
+  created_at: string;
+}): InterventionRecord {
+  return {
+    id: i.id,
+    organizationId: i.organization_id,
+    caseId: i.case_id,
+    assessmentId: i.assessment_id,
+    recommendationCandidateId: i.recommendation_candidate_id,
+    findingId: i.finding_id,
+    title: i.title,
+    status: i.status,
+    selectionNote: i.selection_note,
+    acceptedBy: i.accepted_by,
+    acceptedAt: i.accepted_at,
+    createdAt: i.created_at,
+  };
+}
+
+function aActividad(a: {
+  id: string;
+  organization_id: string;
+  intervention_id: string;
+  activity_ref: string | null;
+  content_status: string;
+  mapping_status: string;
+  title: string;
+  state: ExecutionState;
+  created_at: string;
+}): ActivityRecord {
+  return {
+    id: a.id,
+    organizationId: a.organization_id,
+    interventionId: a.intervention_id,
+    activityRef: a.activity_ref,
+    contentStatus: a.content_status,
+    mappingStatus: a.mapping_status,
+    title: a.title,
+    state: a.state,
+    createdAt: a.created_at,
+  };
+}
+
+function aEntregable(d: {
+  id: string;
+  organization_id: string;
+  activity_id: string;
+  evidence_id: string | null;
+  title: string;
+  note: string | null;
+  registered_by: string | null;
+  registered_at: string;
+  created_at: string;
+}): DeliverableRecord {
+  return {
+    id: d.id,
+    organizationId: d.organization_id,
+    activityId: d.activity_id,
+    evidenceId: d.evidence_id,
+    title: d.title,
+    note: d.note,
+    registeredBy: d.registered_by,
+    registeredAt: d.registered_at,
+    createdAt: d.created_at,
+  };
+}
+
+function aAuditoria(a: {
+  id: string;
+  organization_id: string;
+  assessment_id: string | null;
+  event_type: AuditEventRecord["eventType"];
+  subject_table: string;
+  subject_id: string | null;
+  actor_user_id: string | null;
+  detail: unknown;
+  created_at: string;
+}): AuditEventRecord {
+  return {
+    id: a.id,
+    organizationId: a.organization_id,
+    assessmentId: a.assessment_id,
+    eventType: a.event_type,
+    subjectTable: a.subject_table,
+    subjectId: a.subject_id,
+    actorUserId: a.actor_user_id,
+    detail: (a.detail as Record<string, unknown> | null) ?? null,
+    createdAt: a.created_at,
   };
 }
 

@@ -185,8 +185,60 @@ export const knowledgePackSchema = z.object({
       notes: z.array(z.string()).optional(),
     })
     .optional(),
-  findings: z.array(z.object({ id: z.string(), name: z.string() })).optional(),
+  /**
+   * Identidades de finding aprobadas (H01–H08). El pack declara polaridad,
+   * reglas y variables involucradas; NUNCA severidad numérica ni priority.
+   */
+  findings: z
+    .array(
+      z.object({
+        id: z.string().min(1),
+        name: z.string().min(1),
+        polarity: z.enum(["ADVERSE", "STRENGTH"]).optional(),
+        ruleRefs: z.array(z.string().min(1)).optional(),
+        variableRefs: z.array(z.string().min(1)).optional(),
+        /** Severidad cualitativa o la marca explícita de ausencia. */
+        severity: z.string().optional(),
+        mappingStatus: z.string().optional(),
+      }),
+    )
+    .optional(),
   findingsNote: z.string().optional(),
+  /** Identidades R01–R09. El contenido puede no estar explícito. */
+  recommendations: z
+    .array(
+      z.object({
+        id: z.string().min(1),
+        title: z.string().nullable().optional(),
+        contentStatus: z.string().min(1),
+        findingRefs: z.array(z.string().min(1)).optional(),
+        mappingStatus: z.string().min(1),
+      }),
+    )
+    .optional(),
+  recommendationsNote: z.string().optional(),
+  /** Identidades A01–A09. Los mapeos Finding→Activity son candidatos. */
+  activities: z
+    .array(
+      z.object({
+        id: z.string().min(1),
+        title: z.string().nullable().optional(),
+        contentStatus: z.string().min(1),
+        mappingStatus: z.string().min(1),
+      }),
+    )
+    .optional(),
+  activitiesNote: z.string().optional(),
+  /** Minimum Sufficient Intervention: principio, nunca fórmula. */
+  interventionPrinciple: z
+    .object({
+      id: z.string().min(1),
+      statement: z.string().min(1),
+      formula: z.string().min(1),
+      ruleRefs: z.array(z.string().min(1)).optional(),
+      notes: z.array(z.string()).optional(),
+    })
+    .optional(),
   crossCapabilityReferences: z
     .array(
       z.object({
@@ -292,6 +344,45 @@ export function validateKnowledgePack(raw: unknown): KnowledgePackValidation {
       issues.push({
         path: `contradictionHandling.clarificationAcquisitionRefs.${index}`,
         message: `adquisición desconocida: ${ref}`,
+      });
+    }
+  });
+
+  const ruleIds = new Set((pack.rules ?? []).map((r) => r.id));
+  (pack.findings ?? []).forEach((finding, index) => {
+    (finding.ruleRefs ?? []).forEach((ref) => {
+      if (!ruleIds.has(ref)) {
+        issues.push({ path: `findings.${index}.ruleRefs`, message: `regla desconocida: ${ref}` });
+      }
+    });
+    (finding.variableRefs ?? []).forEach((ref) => {
+      if (!variableIds.has(ref)) {
+        issues.push({ path: `findings.${index}.variableRefs`, message: `variable desconocida: ${ref}` });
+      }
+    });
+    // Ninguna severidad puede ser numérica: no existe algoritmo aprobado.
+    if (finding.severity && /^\d+(\.\d+)?$/.test(finding.severity)) {
+      issues.push({
+        path: `findings.${index}.severity`,
+        message: "la severidad no puede ser numérica: no existe algoritmo aprobado",
+      });
+    }
+  });
+
+  const findingIds = new Set((pack.findings ?? []).map((f) => f.id));
+  (pack.recommendations ?? []).forEach((rec, index) => {
+    (rec.findingRefs ?? []).forEach((ref) => {
+      if (!findingIds.has(ref)) {
+        issues.push({ path: `recommendations.${index}.findingRefs`, message: `finding desconocido: ${ref}` });
+      }
+    });
+  });
+
+  (pack.interventionPrinciple?.ruleRefs ?? []).forEach((ref, index) => {
+    if (!ruleIds.has(ref)) {
+      issues.push({
+        path: `interventionPrinciple.ruleRefs.${index}`,
+        message: `regla desconocida: ${ref}`,
       });
     }
   });

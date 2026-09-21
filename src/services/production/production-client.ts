@@ -13,17 +13,56 @@ import type {
   SubmitResponseResult,
 } from "@pymapa/contracts";
 import {
+  changeOp01ActivityState,
+  createOp01Activity,
+  createOp01Intervention,
+  createOp01RecommendationCandidate,
+  decideOp01Recommendation,
   getOp01AssessmentState,
   getOp01Collaboration,
+  getOp01Findings,
   getOp01NextAcquisition,
   inviteOp01Respondent,
+  registerOp01Deliverable,
   registerOp01Evidence,
+  reviewOp01Finding,
   submitOp01Response,
 } from "@/lib/production/op01.functions";
 import type { AssessmentClient } from "./assessment-client";
 
 type CollaborationPayload = Awaited<ReturnType<typeof getOp01Collaboration>>;
 type StatePayload = Awaited<ReturnType<typeof getOp01AssessmentState>>["state"];
+type FindingsPayload = Awaited<ReturnType<typeof getOp01Findings>>;
+
+export interface ReviewFindingInput {
+  findingId: string;
+  decision: "NEEDS_REVIEW" | "CONFIRMED" | "DISMISSED";
+  /** Cualitativa. No hay severidad numérica ni prioridad calculada. */
+  severityQualitative?: string | null;
+  note?: string | null;
+}
+
+export interface InterventionInput {
+  title: string;
+  recommendationCandidateId?: string | null;
+  findingId?: string | null;
+  selectionNote?: string | null;
+}
+
+export interface ActivityInput {
+  interventionId: string;
+  title: string;
+  activityRef?: string | null;
+}
+
+export interface DeliverableInput {
+  activityId: string;
+  title: string;
+  note?: string | null;
+  evidenceId?: string | null;
+}
+
+export type ResultadoAccion = { accepted: boolean; rejectionReason: string | null };
 
 export interface InviteInput {
   email: string;
@@ -58,6 +97,26 @@ export interface ProductionAssessmentClient extends AssessmentClient {
   getCollaboration(): Promise<CollaborationPayload>;
   inviteRespondent(input: InviteInput): Promise<{ respondentId: string; assignmentId: string }>;
   registerEvidence(input: EvidenceInput): Promise<{ evidenceId: string; linkedObservationIds: string[] }>;
+  /** Findings, referencias cruzadas, recomendaciones e intervenciones. */
+  getFindings(): Promise<FindingsPayload>;
+  reviewFinding(input: ReviewFindingInput): Promise<ResultadoAccion>;
+  createRecommendationCandidate(input: {
+    recommendationRef: string;
+    findingId?: string | null;
+  }): Promise<ResultadoAccion>;
+  decideRecommendation(input: {
+    recommendationCandidateId: string;
+    decision: "SELECTED" | "REJECTED";
+    note?: string | null;
+  }): Promise<ResultadoAccion>;
+  createIntervention(input: InterventionInput): Promise<ResultadoAccion>;
+  createActivity(input: ActivityInput): Promise<ResultadoAccion>;
+  changeActivityState(input: {
+    activityId: string;
+    state: "PENDING" | "EXECUTING" | "DELIVERABLE_PRODUCED";
+  }): Promise<ResultadoAccion>;
+  /** Registrar un entregable nunca implica validación. */
+  registerDeliverable(input: DeliverableInput): Promise<ResultadoAccion & { validated: false }>;
 }
 
 function aAssessmentStateDto(payload: {
@@ -151,6 +210,50 @@ export function createProductionAssessmentClient(): ProductionAssessmentClient {
     async registerEvidence(input) {
       const salida = await registerOp01Evidence({ data: input });
       return { evidenceId: salida.evidenceId, linkedObservationIds: salida.linkedObservationIds };
+    },
+
+    async getFindings() {
+      return getOp01Findings();
+    },
+
+    async reviewFinding(input) {
+      const salida = await reviewOp01Finding({ data: input });
+      return { accepted: salida.accepted, rejectionReason: salida.rejectionReason };
+    },
+
+    async createRecommendationCandidate(input) {
+      const salida = await createOp01RecommendationCandidate({ data: input });
+      return { accepted: salida.accepted, rejectionReason: salida.rejectionReason };
+    },
+
+    async decideRecommendation(input) {
+      const salida = await decideOp01Recommendation({ data: input });
+      return { accepted: salida.accepted, rejectionReason: salida.rejectionReason };
+    },
+
+    async createIntervention(input) {
+      const salida = await createOp01Intervention({ data: input });
+      return { accepted: salida.accepted, rejectionReason: salida.rejectionReason };
+    },
+
+    async createActivity(input) {
+      const salida = await createOp01Activity({ data: input });
+      return { accepted: salida.accepted, rejectionReason: salida.rejectionReason };
+    },
+
+    async changeActivityState(input) {
+      const salida = await changeOp01ActivityState({ data: input });
+      return { accepted: salida.accepted, rejectionReason: salida.rejectionReason };
+    },
+
+    async registerDeliverable(input) {
+      const salida = await registerOp01Deliverable({ data: input });
+      return {
+        accepted: salida.accepted,
+        rejectionReason: salida.rejectionReason,
+        // El entregado no valida: la validación pertenece a otra etapa.
+        validated: false as const,
+      };
     },
   };
 }
