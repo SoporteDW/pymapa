@@ -603,6 +603,13 @@ export const registerOp01Deliverable = createServerFn({ method: "POST" })
 /* M1-KL · CRV · Validation · Follow-up · Reassessment                 */
 /* ================================================================== */
 
+/** Los payloads del boundary son serializables: `detail` queda server-side. */
+function sinDetalle<T extends { detail?: unknown }>(row: T | null) {
+  if (!row) return null;
+  const { detail: _detalle, ...resto } = row;
+  return resto;
+}
+
 const idSchema = z.string().uuid();
 
 const requisitoSchema = z.object({
@@ -667,7 +674,7 @@ export const registerOp01ValidationRequirement = createServerFn({ method: "POST"
     return {
       accepted: salida.accepted,
       rejectionReason: salida.rejectionReason ?? null,
-      requirement: salida.requirement,
+      requirement: sinDetalle(salida.requirement),
     };
   });
 
@@ -710,7 +717,7 @@ export const openOp01Validation = createServerFn({ method: "POST" })
     return {
       accepted: salida.accepted,
       rejectionReason: salida.rejectionReason ?? null,
-      validation: salida.validation,
+      validation: sinDetalle(salida.validation),
       evaluation: salida.evaluation,
     };
   });
@@ -731,7 +738,7 @@ export const decideOp01Validation = createServerFn({ method: "POST" })
     return {
       accepted: salida.accepted,
       rejectionReason: salida.rejectionReason ?? null,
-      validation: salida.validation,
+      validation: sinDetalle(salida.validation),
     };
   });
 
@@ -751,7 +758,7 @@ export const startOp01FollowUp = createServerFn({ method: "POST" })
     return {
       accepted: salida.accepted,
       rejectionReason: salida.rejectionReason ?? null,
-      followUp: salida.followUp,
+      followUp: sinDetalle(salida.followUp),
     };
   });
 
@@ -771,7 +778,7 @@ export const decideOp01FollowUp = createServerFn({ method: "POST" })
     return {
       accepted: salida.accepted,
       rejectionReason: salida.rejectionReason ?? null,
-      followUp: salida.followUp,
+      followUp: sinDetalle(salida.followUp),
     };
   });
 
@@ -834,8 +841,8 @@ export const getOp01Validation = createServerFn({ method: "GET" })
     const assessments = await deps.repository.listAssessments(assessment.caseId);
     return {
       assessmentId: assessment.id,
-      requirements,
-      validations,
+      requirements: requirements.map((r) => sinDetalle(r)),
+      validations: validations.map((v) => sinDetalle(v)),
       followUps,
       assessments: assessments.map((a) => ({
         id: a.id,
