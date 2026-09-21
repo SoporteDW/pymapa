@@ -433,8 +433,11 @@ describe("M1-M · 7/8 · pinning, reproducibilidad y lineage extremo a extremo",
       expect(sql, tabla).toContain(`alter table public.${tabla} enable row level security`);
     }
     expect(sql).toContain("private.is_organization_member");
-    // Ninguna política abierta a cualquier usuario autenticado.
-    expect(sql).not.toMatch(/to authenticated\s+using \(true\)/);
+    // La única lectura abierta a usuarios autenticados fue cerrada en M1-M:
+    // el catálogo de conocimiento solo expone versiones publicadas.
+    expect(sql).toContain('drop policy if exists "knowledge_versions_read"');
+    expect(sql).toContain("knowledge_versions_read_published");
+
   });
 });
 
