@@ -29,6 +29,12 @@ import type {
 } from "@/lib/diagnostico/tipos";
 import { registrarEvento } from "@/lib/analytics";
 import { useSesion } from "./use-sesion";
+import {
+  createMvpAssessmentClient,
+  sesionMvpAAssessmentState,
+  type AssessmentClient,
+} from "@/services/production";
+import type { AssessmentStateDTO } from "@pymapa/contracts";
 
 /**
  * Servicio de sesión, respuestas, validación, cálculo y persistencia del
@@ -143,10 +149,10 @@ export function useDiagnostico() {
 
   /** Guarda automáticamente al seleccionar o cambiar una respuesta (R-NAV-05). */
   const responder = useCallback(
-    (questionId: string, valor: ValorRespuesta) => {
+    (questionId: string, valor: ValorRespuesta): boolean => {
       const pregunta = obtenerPregunta(questionId);
-      if (!pregunta) return;
-      if (!valorValido(pregunta, valor)) return;
+      if (!pregunta) return false;
+      if (!valorValido(pregunta, valor)) return false;
 
       const respuesta: DiagnosticAnswer = {
         questionId,
@@ -179,6 +185,7 @@ export function useDiagnostico() {
         dimensionId: pregunta.dimensionId ?? "contexto",
         timestamp: respuesta.answeredAt,
       });
+      return true;
     },
     [estado, persistir]
   );
@@ -333,8 +340,36 @@ export function useDiagnostico() {
     });
   }, [sincronizarDiagnostico]);
 
+  /**
+   * Costura controlada M1-B: el hook expone la vista del estado a través de
+   * la interfaz AssessmentClient (fuente activa: MVP_ENGINE). Toda decisión
+   * la sigue tomando la lógica existente; esto solo traduce estructuras.
+   * La salida visible del journey permanece idéntica.
+   */
+  const assessmentClient: AssessmentClient = useMemo(
+    () =>
+      createMvpAssessmentClient({
+        leerEstado,
+        totalItems: preguntasEnOrden.length,
+        responderExistente: responder,
+      }),
+    [responder]
+  );
+
+  const assessmentState: AssessmentStateDTO = useMemo(
+    () =>
+      sesionMvpAAssessmentState({
+        sesion: estado.sesion,
+        respuestas: estado.respuestas,
+        totalItems: preguntasEnOrden.length,
+      }),
+    [estado.sesion, estado.respuestas]
+  );
+
   return {
     definicion: definicionDiagnostico,
+    assessmentClient,
+    assessmentState,
     isHydrated,
     configuracionValida,
     problemasConfiguracion,
