@@ -1,0 +1,13 @@
+{
+  "$id": "pymapa.knowledge.catalog",
+  "title": "Esquema estructural del catálogo gobernado de conocimiento",
+  "description": "Forma mínima de domains.json y capabilities.json. El gobierno editorial (quién publica, con qué aprobación) se definirá en etapas posteriores; este archivo solo fija la estructura técnica.",
+  "catalogItem": {
+    "required": ["id", "domainId", "name", "description", "version", "status"],
+    "statusEnum": ["draft", "review", "published", "deprecated"]
+  },
+  "governance": {
+    "rule": "Ningún ítem pasa a 'published' sin contenido editorial aprobado. El frontend nunca modifica este catálogo.",
+    "createdIn": "M1-A"
+  }
+}
