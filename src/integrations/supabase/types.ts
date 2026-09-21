@@ -462,17 +462,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      has_organization_role: {
-        Args: {
-          _organization_id: string
-          _roles: Database["public"]["Enums"]["membership_role"][]
-        }
-        Returns: boolean
-      }
-      is_organization_member: {
-        Args: { _organization_id: string }
-        Returns: boolean
-      }
+      [_ in never]: never
     }
     Enums: {
       assessment_type: "BASELINE" | "REASSESSMENT" | "FOLLOW_UP"
