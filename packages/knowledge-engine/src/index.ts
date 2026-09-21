@@ -135,6 +135,58 @@ export interface ContradictionResult {
   note: string;
 }
 
+/* ------------------------------------------------------------------ */
+/* Findings (M1-HIJ)                                                   */
+/* ------------------------------------------------------------------ */
+
+/** Ciclo de vida del finding. El engine solo produce CANDIDATE/NEEDS_REVIEW. */
+export type FindingLifecycleState =
+  | "CANDIDATE"
+  | "NEEDS_REVIEW"
+  | "CONFIRMED"
+  | "SUPERSEDED"
+  | "DISMISSED";
+
+export interface FindingCandidateResult {
+  findingRef: string;
+  name: string;
+  polarity: "ADVERSE" | "STRENGTH";
+  /** Estado inicial gobernado. Un juicio gobernado nunca se confirma solo. */
+  lifecycleState: Extract<FindingLifecycleState, "CANDIDATE" | "NEEDS_REVIEW">;
+  /** true solo si TODAS sus reglas son DETERMINISTIC e implementadas. */
+  deterministicallyConfirmable: boolean;
+  /** Severidad cualitativa cuando el material la soporta; nunca numérica. */
+  severity: { state: string | null; reason: string };
+  ruleRefs: string[];
+  variableRefs: string[];
+  /** Lineage: observaciones y evidencias que lo sostienen. */
+  supportingObservationIds: string[];
+  supportingEvidenceIds: string[];
+  reason: string;
+}
+
+/** Referencia a otra capacidad. Nunca ejecuta la capacidad destino. */
+export interface DerivedDependencyReferenceResult {
+  cause: string;
+  sourceCapabilityId: string;
+  targetCapabilityId: string | null;
+  targetDomainId: string | null;
+  executable: false;
+  note: string;
+}
+
+/** Identidad gobernada de recomendación. El contenido puede no ser explícito. */
+export interface RecommendationCandidateResult {
+  recommendationRef: string;
+  title: string | null;
+  contentStatus: string;
+  mappingStatus: string;
+  findingRefs: string[];
+  /** false cuando el mapeo Finding→Recommendation no está gobernado. */
+  automatable: boolean;
+  reason: string;
+}
+
 export interface EvaluationTraceability {
   knowledgeMasterIdentifier: string;
   knowledgeMasterVersion: string;
