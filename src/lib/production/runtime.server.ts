@@ -36,6 +36,11 @@ export function checksumPackOp01(): string {
   return createHash("sha256").update(JSON.stringify(packOp01)).digest("hex");
 }
 
+/** Hash del token de invitación. El token en claro nunca se persiste. */
+export function hashTokenInvitacion(token: string): string {
+  return createHash("sha256").update(token).digest("hex");
+}
+
 export const KNOWLEDGE_VERSION_IDENTIFIER = "PYMAPA-KNOWLEDGE-MASTER";
 export const KNOWLEDGE_VERSION_NUMBER = "1.0.0";
 
