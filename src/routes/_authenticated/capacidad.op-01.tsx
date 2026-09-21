@@ -79,7 +79,9 @@ function CapacidadOp01() {
   const [notaSeleccion, setNotaSeleccion] = useState<string>("");
   const [tituloActividad, setTituloActividad] = useState<string>("");
   const [revisionId, setRevisionId] = useState<string | null>(null);
+  const [refActividad, setRefActividad] = useState<string>("");
   const [ejecutorCaso, setEjecutorCaso] = useState<string>("");
+  const [ejecutorPrimario, setEjecutorPrimario] = useState<string>("");
   const [notaSeguimiento, setNotaSeguimiento] = useState<string>("");
   const [tituloEntregable, setTituloEntregable] = useState<string>("");
 
@@ -173,7 +175,8 @@ function CapacidadOp01() {
 
   const crearActividad = useMutation(
     accionProductiva(
-      (input: { interventionId: string; title: string }) => cliente.createActivity(input),
+      (input: { interventionId: string; title: string; activityRef?: string | null }) =>
+        cliente.createActivity(input),
       "Actividad creada",
     ),
   );
@@ -959,7 +962,12 @@ function CapacidadOp01() {
                       <Button
                         size="sm"
                         variant="outline"
-                        onClick={() => prepararComprobacion.mutate({ activityId: a.id })}
+                        onClick={() =>
+                          prepararComprobacion.mutate({
+                            activityId: a.id,
+                            primaryExecutorRespondentId: ejecutorPrimario || null,
+                          })
+                        }
                         disabled={prepararComprobacion.isPending}
                       >
                         Preparar comprobación
@@ -972,6 +980,22 @@ function CapacidadOp01() {
                       >
                         Abrir comprobación
                       </Button>
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor={`prim-${a.id}`}>Quién hace la tarea habitualmente</Label>
+                      <select
+                        id={`prim-${a.id}`}
+                        className="w-full rounded-md border border-input bg-background p-2 text-sm"
+                        value={ejecutorPrimario}
+                        onChange={(e) => setEjecutorPrimario(e.target.value)}
+                      >
+                        <option value="">Selecciona a la persona</option>
+                        {(colaboracion.data?.respondents ?? []).map((pp) => (
+                          <option key={pp.id} value={pp.id}>
+                            {pp.displayName ?? pp.email ?? pp.id}
+                          </option>
+                        ))}
+                      </select>
                     </div>
                     {a.deliverables.map((d) => (
                       <p key={d.id} className="text-xs text-muted-foreground">
@@ -1006,11 +1030,22 @@ function CapacidadOp01() {
                     onChange={(e) => setTituloActividad(e.target.value)}
                     placeholder="Ej.: Escribir la guía del proceso"
                   />
+                  <Label htmlFor={`ref-${i.id}`}>Referencia de la tarea (opcional)</Label>
+                  <Input
+                    id={`ref-${i.id}`}
+                    value={refActividad}
+                    onChange={(e) => setRefActividad(e.target.value)}
+                    placeholder="Ej.: A04"
+                  />
                   <Button
                     size="sm"
                     variant="outline"
                     onClick={() =>
-                      crearActividad.mutate({ interventionId: i.id, title: tituloActividad })
+                      crearActividad.mutate({
+                        interventionId: i.id,
+                        title: tituloActividad,
+                        activityRef: refActividad.trim() || null,
+                      })
                     }
                     disabled={crearActividad.isPending || tituloActividad.trim().length === 0}
                   >
