@@ -54,9 +54,26 @@ describe("Knowledge Pack OP-01 · schema", () => {
     });
   });
 
-  it("implementa únicamente P01 en esta versión", () => {
+  it("implementa P01 y P05–P15; P02–P04 permanecen sin contenido gobernado", () => {
     const engine = createKnowledgeEngine(packRaw);
-    expect(engine.listAcquisitions().map((a) => a.id)).toEqual(["OP01-P01"]);
+    const ids = engine.listAcquisitions().map((a) => a.id);
+    expect(ids).toEqual([
+      "OP01-P01",
+      "OP01-P05",
+      "OP01-P06",
+      "OP01-P07",
+      "OP01-P08",
+      "OP01-P09",
+      "OP01-P10",
+      "OP01-P11",
+      "OP01-P12",
+      "OP01-P13",
+      "OP01-P14",
+      "OP01-P15",
+    ]);
+    expect(ids).not.toContain("OP01-P02");
+    expect(ids).not.toContain("OP01-P03");
+    expect(ids).not.toContain("OP01-P04");
   });
 
   it("no introduce escalas numéricas para los estados semánticos", () => {
@@ -75,6 +92,10 @@ describe("Knowledge Pack OP-01 · schema", () => {
       "KCC-AT04-02",
       "KCC-AT04-03",
       "KCC-AT04-04",
+      "KCC-AT04-05",
+      "KCC-AT04-06",
+      "KCC-AT04-07",
+      "KCC-AT04-08",
     ]);
   });
 
