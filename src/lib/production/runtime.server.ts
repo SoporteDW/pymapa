@@ -987,6 +987,442 @@ export function createSupabaseProductionRepository(): ProductionRepository {
       lanzar("audit_events.list", error);
       return (data ?? []).map(aAuditoria);
     },
+
+    /* ---------------- CRV / Validation / Follow-up (M1-KL) -------------- */
+
+    async getMembershipRole(organizationId, userId) {
+      const db = await admin();
+      const { data, error } = await db
+        .from("memberships")
+        .select("role")
+        .eq("organization_id", organizationId)
+        .eq("user_id", userId)
+        .maybeSingle();
+      lanzar("memberships.role", error);
+      return data?.role ?? null;
+    },
+
+    async insertAssessment(input): Promise<AssessmentRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("assessments")
+        .insert({
+          organization_id: input.organizationId,
+          case_id: input.caseId,
+          knowledge_version_id: input.knowledgeVersionId,
+          type: input.type,
+          started_at: input.startedAt,
+          closed_at: input.closedAt,
+        })
+        .select(COLUMNAS_ASSESSMENT)
+        .single();
+      lanzar("assessments.insert", error);
+      return aAssessment(data!);
+    },
+
+    async listAssessments(caseId): Promise<AssessmentRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("assessments")
+        .select(COLUMNAS_ASSESSMENT)
+        .eq("case_id", caseId)
+        .order("created_at", { ascending: true });
+      lanzar("assessments.list", error);
+      return (data ?? []).map(aAssessment);
+    },
+
+    async listEvaluationRuns(assessmentId): Promise<EvaluationRunRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("evaluation_runs")
+        .select("id, organization_id, assessment_id, knowledge_version_id, engine_version, trigger, status, started_at, completed_at, created_at")
+        .eq("assessment_id", assessmentId)
+        .order("created_at", { ascending: true });
+      lanzar("evaluation_runs.list", error);
+      return (data ?? []).map((r) => ({
+        id: r.id,
+        organizationId: r.organization_id,
+        assessmentId: r.assessment_id,
+        knowledgeVersionId: r.knowledge_version_id,
+        engineVersion: r.engine_version,
+        trigger: r.trigger,
+        status: r.status,
+        startedAt: r.started_at,
+        completedAt: r.completed_at,
+        createdAt: r.created_at,
+      }));
+    },
+
+    async listVariableEvaluations(runId): Promise<VariableEvaluationRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("variable_evaluations")
+        .select("id, organization_id, evaluation_run_id, variable_ref, state, detail")
+        .eq("evaluation_run_id", runId);
+      lanzar("variable_evaluations.list", error);
+      return (data ?? []).map((v) => ({
+        id: v.id,
+        organizationId: v.organization_id,
+        evaluationRunId: v.evaluation_run_id,
+        variableRef: v.variable_ref,
+        state: v.state,
+        detail: (v.detail as Record<string, unknown> | null) ?? null,
+      }));
+    },
+
+    async markActivityDone(id, doneAt, doneBy): Promise<ActivityRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("activities")
+        .update({ done_at: doneAt, done_by: doneBy })
+        .eq("id", id)
+        .select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, done_at, done_by, created_at")
+        .single();
+      lanzar("activities.markDone", error);
+      return aActividad(data!);
+    },
+
+    async insertValidationRequirement(input): Promise<ValidationRequirementRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("validation_requirements")
+        .insert({
+          organization_id: input.organizationId,
+          case_id: input.caseId,
+          assessment_id: input.assessmentId,
+          intervention_id: input.interventionId,
+          activity_id: input.activityId,
+          knowledge_version_id: input.knowledgeVersionId,
+          knowledge_pack_id: input.knowledgePackId,
+          knowledge_pack_version: input.knowledgePackVersion,
+          engine_version: input.engineVersion,
+          requirement_ref: input.requirementRef,
+          activity_ref: input.activityRef,
+          definition: input.definition,
+          definition_source: input.definitionSource,
+          status: input.status,
+          primary_executor_respondent_id: input.primaryExecutorRespondentId,
+          required_case_count: input.requiredCaseCount,
+          detail: aJson(input.detail ?? {}),
+          created_by: input.createdBy,
+        })
+        .select(COLUMNAS_CRV)
+        .single();
+      lanzar("validation_requirements.insert", error);
+      return aRequisitoValidacion(data!);
+    },
+
+    async getValidationRequirement(id): Promise<ValidationRequirementRecord | null> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("validation_requirements")
+        .select(COLUMNAS_CRV)
+        .eq("id", id)
+        .maybeSingle();
+      lanzar("validation_requirements.get", error);
+      return data ? aRequisitoValidacion(data) : null;
+    },
+
+    async listValidationRequirements(interventionId): Promise<ValidationRequirementRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("validation_requirements")
+        .select(COLUMNAS_CRV)
+        .eq("intervention_id", interventionId)
+        .order("created_at", { ascending: true });
+      lanzar("validation_requirements.list", error);
+      return (data ?? []).map(aRequisitoValidacion);
+    },
+
+    async updateValidationRequirementStatus(id, status): Promise<ValidationRequirementRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("validation_requirements")
+        .update({ status })
+        .eq("id", id)
+        .select(COLUMNAS_CRV)
+        .single();
+      lanzar("validation_requirements.update", error);
+      return aRequisitoValidacion(data!);
+    },
+
+    async insertValidationRequirementCase(input): Promise<ValidationRequirementCaseRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("validation_requirement_cases")
+        .insert({
+          organization_id: input.organizationId,
+          validation_requirement_id: input.validationRequirementId,
+          sequence_index: input.sequenceIndex,
+          executor_respondent_id: input.executorRespondentId,
+          outcome: input.outcome,
+          critical_assistance: input.criticalAssistance,
+          evidence_id: input.evidenceId,
+          note: input.note,
+          occurred_at: input.occurredAt,
+          registered_by: input.registeredBy,
+        })
+        .select(COLUMNAS_CASO_CRV)
+        .single();
+      lanzar("validation_requirement_cases.insert", error);
+      return aCasoValidacion(data!);
+    },
+
+    async listValidationRequirementCases(
+      validationRequirementId,
+    ): Promise<ValidationRequirementCaseRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("validation_requirement_cases")
+        .select(COLUMNAS_CASO_CRV)
+        .eq("validation_requirement_id", validationRequirementId)
+        .order("sequence_index", { ascending: true });
+      lanzar("validation_requirement_cases.list", error);
+      return (data ?? []).map(aCasoValidacion);
+    },
+
+    async insertValidation(input): Promise<ValidationRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("validations")
+        .insert({
+          organization_id: input.organizationId,
+          case_id: input.caseId,
+          assessment_id: input.assessmentId,
+          intervention_id: input.interventionId,
+          activity_id: input.activityId,
+          validation_requirement_id: input.validationRequirementId,
+          evaluation_run_id: input.evaluationRunId,
+          knowledge_version_id: input.knowledgeVersionId,
+          engine_version: input.engineVersion,
+          status: input.status,
+          decision_reason: input.decisionReason,
+          reviewed_by: input.reviewedBy,
+          reviewed_at: input.reviewedAt,
+          detail: aJson(input.detail ?? {}),
+        })
+        .select(COLUMNAS_VALIDACION)
+        .single();
+      lanzar("validations.insert", error);
+      return aValidacion(data!);
+    },
+
+    async getValidation(id): Promise<ValidationRecord | null> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("validations")
+        .select(COLUMNAS_VALIDACION)
+        .eq("id", id)
+        .maybeSingle();
+      lanzar("validations.get", error);
+      return data ? aValidacion(data) : null;
+    },
+
+    async listValidations(assessmentId): Promise<ValidationRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("validations")
+        .select(COLUMNAS_VALIDACION)
+        .eq("assessment_id", assessmentId)
+        .order("created_at", { ascending: true });
+      lanzar("validations.list", error);
+      return (data ?? []).map(aValidacion);
+    },
+
+    async updateValidation(id, patch): Promise<ValidationRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("validations")
+        .update({
+          ...(patch.status !== undefined ? { status: patch.status } : {}),
+          ...(patch.decisionReason !== undefined ? { decision_reason: patch.decisionReason } : {}),
+          ...(patch.reviewedBy !== undefined ? { reviewed_by: patch.reviewedBy } : {}),
+          ...(patch.reviewedAt !== undefined ? { reviewed_at: patch.reviewedAt } : {}),
+          ...(patch.detail !== undefined ? { detail: aJson(patch.detail) } : {}),
+        })
+        .eq("id", id)
+        .select(COLUMNAS_VALIDACION)
+        .single();
+      lanzar("validations.update", error);
+      return aValidacion(data!);
+    },
+
+    async linkValidationEvidence(input): Promise<ValidationEvidenceLink> {
+      const db = await admin();
+      const existente = await db
+        .from("validation_evidence")
+        .select("id, organization_id, validation_id, evidence_id, created_at")
+        .eq("validation_id", input.validationId)
+        .eq("evidence_id", input.evidenceId)
+        .maybeSingle();
+      lanzar("validation_evidence.select", existente.error);
+      const fila =
+        existente.data ??
+        (await (async () => {
+          const creado = await db
+            .from("validation_evidence")
+            .insert({
+              organization_id: input.organizationId,
+              validation_id: input.validationId,
+              evidence_id: input.evidenceId,
+            })
+            .select("id, organization_id, validation_id, evidence_id, created_at")
+            .single();
+          lanzar("validation_evidence.insert", creado.error);
+          return creado.data!;
+        })());
+      return {
+        id: fila.id,
+        organizationId: fila.organization_id,
+        validationId: fila.validation_id,
+        evidenceId: fila.evidence_id,
+        createdAt: fila.created_at,
+      };
+    },
+
+    async listValidationEvidenceLinks(validationId): Promise<ValidationEvidenceLink[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("validation_evidence")
+        .select("id, organization_id, validation_id, evidence_id, created_at")
+        .eq("validation_id", validationId);
+      lanzar("validation_evidence.list", error);
+      return (data ?? []).map((l) => ({
+        id: l.id,
+        organizationId: l.organization_id,
+        validationId: l.validation_id,
+        evidenceId: l.evidence_id,
+        createdAt: l.created_at,
+      }));
+    },
+
+    async insertFollowUp(input): Promise<FollowUpRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("follow_ups")
+        .insert({
+          organization_id: input.organizationId,
+          case_id: input.caseId,
+          activity_id: input.activityId,
+          validation_id: input.validationId,
+          status: input.status,
+          note: input.note,
+          evidence_id: input.evidenceId,
+          decided_by: input.decidedBy,
+          decided_at: input.decidedAt,
+        })
+        .select(COLUMNAS_FOLLOW_UP)
+        .single();
+      lanzar("follow_ups.insert", error);
+      return aSeguimiento(data!);
+    },
+
+    async getFollowUp(id): Promise<FollowUpRecord | null> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("follow_ups")
+        .select(COLUMNAS_FOLLOW_UP)
+        .eq("id", id)
+        .maybeSingle();
+      lanzar("follow_ups.get", error);
+      return data ? aSeguimiento(data) : null;
+    },
+
+    async listFollowUps(activityId): Promise<FollowUpRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("follow_ups")
+        .select(COLUMNAS_FOLLOW_UP)
+        .eq("activity_id", activityId)
+        .order("created_at", { ascending: true });
+      lanzar("follow_ups.list", error);
+      return (data ?? []).map(aSeguimiento);
+    },
+
+    async updateFollowUp(id, patch): Promise<FollowUpRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("follow_ups")
+        .update({
+          ...(patch.status !== undefined ? { status: patch.status } : {}),
+          ...(patch.note !== undefined ? { note: patch.note } : {}),
+          ...(patch.evidenceId !== undefined ? { evidence_id: patch.evidenceId } : {}),
+          ...(patch.decidedBy !== undefined ? { decided_by: patch.decidedBy } : {}),
+          ...(patch.decidedAt !== undefined ? { decided_at: patch.decidedAt } : {}),
+        })
+        .eq("id", id)
+        .select(COLUMNAS_FOLLOW_UP)
+        .single();
+      lanzar("follow_ups.update", error);
+      return aSeguimiento(data!);
+    },
+
+    async insertLearningCandidate(input): Promise<LearningCandidateRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("learning_candidates")
+        .insert({
+          organization_id: input.organizationId,
+          case_id: input.caseId,
+          assessment_id: input.assessmentId,
+          validation_id: input.validationId,
+          knowledge_version_id: input.knowledgeVersionId,
+          source_table: input.sourceTable,
+          source_id: input.sourceId,
+          statement: input.statement,
+          status: input.status,
+          // applied_to_master queda en false por constraint: un aprendizaje del
+          // cliente no modifica el Knowledge Master.
+          detail: aJson(input.detail ?? {}),
+          created_by: input.createdBy,
+        })
+        .select(COLUMNAS_APRENDIZAJE)
+        .single();
+      lanzar("learning_candidates.insert", error);
+      return aAprendizaje(data!);
+    },
+
+    async listLearningCandidates(organizationId): Promise<LearningCandidateRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("learning_candidates")
+        .select(COLUMNAS_APRENDIZAJE)
+        .eq("organization_id", organizationId)
+        .order("created_at", { ascending: true });
+      lanzar("learning_candidates.list", error);
+      return (data ?? []).map(aAprendizaje);
+    },
+
+    async insertAssessmentSnapshot(input): Promise<AssessmentSnapshotRecord> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("assessment_snapshots")
+        .insert({
+          organization_id: input.organizationId,
+          case_id: input.caseId,
+          assessment_id: input.assessmentId,
+          knowledge_version_id: input.knowledgeVersionId,
+          engine_version: input.engineVersion,
+          reason: input.reason,
+          payload: aJson(input.payload),
+          created_by: input.createdBy,
+        })
+        .select(COLUMNAS_SNAPSHOT)
+        .single();
+      lanzar("assessment_snapshots.insert", error);
+      return aSnapshot(data!);
+    },
+
+    async listAssessmentSnapshots(assessmentId): Promise<AssessmentSnapshotRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("assessment_snapshots")
+        .select(COLUMNAS_SNAPSHOT)
+        .eq("assessment_id", assessmentId)
+        .order("created_at", { ascending: true });
+      lanzar("assessment_snapshots.list", error);
+      return (data ?? []).map(aSnapshot);
+    },
   };
 }
 
