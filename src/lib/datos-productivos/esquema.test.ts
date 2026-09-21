@@ -35,6 +35,16 @@ const TABLAS = [
   "invitations",
   "evidence",
   "observation_evidence",
+  // M1-HIJ · findings, recomendaciones y preparación de ejecución
+  "findings",
+  "finding_observations",
+  "finding_evidence",
+  "derived_dependency_references",
+  "recommendation_candidates",
+  "interventions",
+  "activities",
+  "deliverables",
+  "audit_events",
 ] as const;
 
 const TABLAS_TENANT_OWNED = TABLAS.filter((t) => t !== "organizations" && t !== "knowledge_versions");
@@ -196,5 +206,56 @@ describe("fundación de datos productiva · invariantes de dominio", () => {
     const bloque = sql.slice(sql.indexOf('create policy "evidence_select_members"'));
     expect(bloque).toContain("bucket_id = 'evidence'");
     expect(bloque).toContain("private.is_organization_member(((storage.foldername(name))[1])::uuid)");
+  });
+});
+
+describe("M1-HIJ · findings y preparación de ejecución", () => {
+  it("todo finding conserva su lineage en columnas obligatorias", () => {
+    for (const columna of [
+      "assessment_id uuid not null",
+      "evaluation_run_id uuid not null",
+      "knowledge_version_id uuid not null",
+      "capability_id text not null",
+      "knowledge_pack_id text not null",
+      "knowledge_pack_version text not null",
+      "engine_version text not null",
+    ]) {
+      expect(sql).toContain(columna);
+    }
+  });
+
+  it("la severidad es cualitativa: no existe columna numérica ni de prioridad", () => {
+    expect(sql).toContain("severity_qualitative text");
+    expect(sql).not.toMatch(/severity_score|severity numeric|priority_score|priority integer/);
+  });
+
+  it("una referencia derivada nunca es ejecutable", () => {
+    expect(sql).toContain("executable boolean not null default false");
+    expect(sql).toContain("check (executable = false)");
+  });
+
+  it("el estado de ejecución no incluye validación", () => {
+    expect(sql).toContain("create type public.execution_state as enum ('pending', 'executing', 'deliverable_produced')");
+    expect(sql).not.toMatch(/execution_state as enum[^;]*validated/);
+  });
+
+  it("las acciones relevantes quedan auditadas sin event sourcing", () => {
+    expect(sql).toContain("create table public.audit_events");
+    for (const evento of [
+      "finding_created",
+      "finding_confirmed",
+      "recommendation_selected",
+      "intervention_created",
+      "activity_state_changed",
+      "deliverable_registered",
+    ]) {
+      expect(sql).toContain(evento);
+    }
+  });
+
+  it("los outputs del engine no son escribibles desde el cliente", () => {
+    // findings y referencias derivadas se escriben server-side (service_role).
+    expect(sql).toMatch(/grant select on public\.findings to authenticated/);
+    expect(sql).not.toMatch(/grant insert[^;]*public\.findings to authenticated/);
   });
 });

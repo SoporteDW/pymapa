@@ -140,7 +140,6 @@ describe("M1-HIJ · Findings gobernados", () => {
     for (const f of findings) {
       expect(f.severityQualitative).toBeNull();
       expect(f.severityReason).toContain("NOT_EXPLICIT_IN_KNOWLEDGE_MASTER");
-      expect(Number.isFinite(Number(f.severityQualitative))).toBe(false);
       expect(Object.keys(f)).not.toContain("priority");
       expect(Object.keys(f)).not.toContain("severityScore");
     }
@@ -173,8 +172,8 @@ describe("M1-HIJ · Findings gobernados", () => {
       expect(r.sourceCapabilityId).toBe("OP-01");
     }
     // Ningún assessment nuevo, ninguna evaluación de otra capacidad.
-    const estado = repository.estado as unknown as { evaluationRuns: { assessmentId: string }[] };
-    expect(estado.evaluationRuns.every((r) => r.assessmentId === "assess-1")).toBe(true);
+    const estado = repository.estado as unknown as { runs: { assessmentId: string }[] };
+    expect(estado.runs.every((r) => r.assessmentId === "assess-1")).toBe(true);
     expect(refs.some((r) => r.targetCapabilityId === "PC-02")).toBe(true);
   });
 
