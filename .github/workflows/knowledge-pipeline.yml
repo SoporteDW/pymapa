@@ -1,0 +1,41 @@
+name: knowledge-pipeline
+
+on:
+  push:
+    paths:
+      - "knowledge/master/**"
+      - "knowledge/packs/**"
+      - "knowledge/schemas/**"
+      - "knowledge/fixtures/**"
+      - "packages/knowledge-pipeline/**"
+      - "packages/knowledge-schema/**"
+      - "packages/knowledge-engine/**"
+      - ".github/workflows/knowledge-pipeline.yml"
+  pull_request:
+    paths:
+      - "knowledge/master/**"
+      - "knowledge/packs/**"
+      - "knowledge/schemas/**"
+      - "knowledge/fixtures/**"
+      - "packages/knowledge-pipeline/**"
+      - "packages/knowledge-schema/**"
+      - "packages/knowledge-engine/**"
+  workflow_dispatch:
+
+jobs:
+  knowledge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - run: bun install --frozen-lockfile
+      # Validación estricta: schema, referencias, gobierno, runtime,
+      # knowledge tests, fixtures, regresión del Golden Pack y manifest al día.
+      - name: Validar pipeline de conocimiento
+        run: bun run knowledge:validate
+      - name: Pruebas
+        run: bun run test
+      - name: Typecheck
+        run: bun run typecheck
