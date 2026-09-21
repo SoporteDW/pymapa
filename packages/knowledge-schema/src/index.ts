@@ -348,6 +348,45 @@ export function validateKnowledgePack(raw: unknown): KnowledgePackValidation {
     }
   });
 
+  const ruleIds = new Set((pack.rules ?? []).map((r) => r.id));
+  (pack.findings ?? []).forEach((finding, index) => {
+    (finding.ruleRefs ?? []).forEach((ref) => {
+      if (!ruleIds.has(ref)) {
+        issues.push({ path: `findings.${index}.ruleRefs`, message: `regla desconocida: ${ref}` });
+      }
+    });
+    (finding.variableRefs ?? []).forEach((ref) => {
+      if (!variableIds.has(ref)) {
+        issues.push({ path: `findings.${index}.variableRefs`, message: `variable desconocida: ${ref}` });
+      }
+    });
+    // Ninguna severidad puede ser numérica: no existe algoritmo aprobado.
+    if (finding.severity && /^\d+(\.\d+)?$/.test(finding.severity)) {
+      issues.push({
+        path: `findings.${index}.severity`,
+        message: "la severidad no puede ser numérica: no existe algoritmo aprobado",
+      });
+    }
+  });
+
+  const findingIds = new Set((pack.findings ?? []).map((f) => f.id));
+  (pack.recommendations ?? []).forEach((rec, index) => {
+    (rec.findingRefs ?? []).forEach((ref) => {
+      if (!findingIds.has(ref)) {
+        issues.push({ path: `recommendations.${index}.findingRefs`, message: `finding desconocido: ${ref}` });
+      }
+    });
+  });
+
+  (pack.interventionPrinciple?.ruleRefs ?? []).forEach((ref, index) => {
+    if (!ruleIds.has(ref)) {
+      issues.push({
+        path: `interventionPrinciple.ruleRefs.${index}`,
+        message: `regla desconocida: ${ref}`,
+      });
+    }
+  });
+
   pack.informationNeeds.forEach((need, index) => {
     need.variableRefs.forEach((ref) => {
       if (!variableIds.has(ref)) {
