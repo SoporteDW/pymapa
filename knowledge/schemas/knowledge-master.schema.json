@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pymapa.co/schemas/knowledge-master.schema.json",
+  "title": "Pymapa Knowledge Master Index",
+  "description": "Índice gobernado de knowledge/master/<version>/master.json. Declara identidad, baseline, procedencia, dominios y el registro de capacidades con su disponibilidad de fuente. La validación ejecutable canónica vive en packages/knowledge-pipeline (validateMasterIndex).",
+  "type": "object",
+  "required": [
+    "identity",
+    "version",
+    "baselineStatus",
+    "provenance",
+    "publication",
+    "expectedCapabilityCount",
+    "domains",
+    "capabilities",
+    "checksum"
+  ],
+  "properties": {
+    "identity": { "const": "PYMAPA-KNOWLEDGE-MASTER" },
+    "version": { "type": "string" },
+    "baselineStatus": { "const": "BASELINE-APPROVED" },
+    "provenance": {
+      "type": "object",
+      "required": ["sourceReference"],
+      "properties": {
+        "sourceReference": { "type": "string", "minLength": 1 },
+        "custodian": { "type": "string" },
+        "approvedAt": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    },
+    "publication": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": { "enum": ["DRAFT", "BASELINE_APPROVED", "SUPERSEDED"] },
+        "publishedAt": { "type": "string" },
+        "publishedBy": { "type": "string" }
+      }
+    },
+    "expectedCapabilityCount": {
+      "description": "Número de capacidades que el Master declara (31). Una capacidad sin fuente materializada NO se registra como SOURCE_READY.",
+      "type": "integer",
+      "minimum": 1
+    },
+    "domains": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "status"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "status": { "enum": ["draft", "review", "published", "deprecated"] }
+        }
+      }
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "domainId", "name", "sourceAvailability"],
+        "properties": {
+          "id": { "type": "string" },
+          "domainId": { "type": "string" },
+          "name": { "type": "string" },
+          "sourceAvailability": { "enum": ["SOURCE_MISSING", "SOURCE_READY"] },
+          "sourceRef": {
+            "description": "Obligatorio si sourceAvailability = SOURCE_READY; prohibido si SOURCE_MISSING.",
+            "type": "string"
+          },
+          "sourceVersion": { "type": "string" }
+        }
+      }
+    },
+    "checksum": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }
+  }
+}

@@ -11,7 +11,10 @@
     "typecheck": "tsgo --noEmit",
     "preview": "vite preview",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "knowledge:pipeline": "bun run scripts/knowledge-pipeline.ts",
+    "knowledge:validate": "bun run scripts/knowledge-pipeline.ts --check",
+    "knowledge:write": "bun run scripts/knowledge-pipeline.ts --write"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

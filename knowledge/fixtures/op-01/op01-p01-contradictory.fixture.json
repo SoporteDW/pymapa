@@ -1,0 +1,29 @@
+{
+  "fixtureId": "OP01-FX-CONTRADICTORY",
+  "capabilityId": "OP-01",
+  "packId": "op-01",
+  "packVersion": "1.0.0",
+  "kind": "ARCHITECTURE_RUNTIME",
+  "description": "Contradicción entre fuentes preservada como estado, sin promediar, sin jerarquía de fuentes y sin resolución automática.",
+  "knowledgeVersionId": "fixture-kv-op01-1.0.0",
+  "observations": [
+    {
+      "id": "obs-contra-1",
+      "variableRef": "VA01",
+      "acquisitionRef": "OP01-P01",
+      "knowledgeState": "CONTRADICTORY",
+      "semanticValue": null,
+      "sourceResponseId": "resp-contra-1",
+      "respondentId": "respondent-2",
+      "conflictingObservationIds": ["obs-externa-a", "obs-externa-b"],
+      "recordedAt": "2026-01-01T00:00:00.000Z"
+    }
+  ],
+  "expected": {
+    "outcome": "PASS",
+    "variableStates": [{ "variableRef": "VA01", "state": "CONTRADICTORY", "semanticValue": null }],
+    "contradictionVariableRefs": ["VA01"],
+    "noConfirmedFindings": true,
+    "note": "La contradicción se conserva y habilita aclaración gobernada."
+  }
+}

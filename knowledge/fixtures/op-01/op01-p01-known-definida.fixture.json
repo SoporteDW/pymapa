@@ -1,0 +1,30 @@
+{
+  "fixtureId": "OP01-FX-KNOWN-DEFINIDA",
+  "capabilityId": "OP-01",
+  "packId": "op-01",
+  "packVersion": "1.0.0",
+  "kind": "SOURCE_DERIVED",
+  "description": "Estado semántico aprobado de VA01 capturado como KNOWN. El resultado se conserva sin transformarse en madurez ni en puntaje.",
+  "sourceReference": "AT-04 · KNOWLEDGE SOURCE PACKAGE — OP-01 (estados semánticos de VA01)",
+  "knowledgeVersionId": "fixture-kv-op01-1.0.0",
+  "observations": [
+    {
+      "id": "obs-known-1",
+      "variableRef": "VA01",
+      "acquisitionRef": "OP01-P01",
+      "knowledgeState": "KNOWN",
+      "semanticValue": "Definida",
+      "sourceResponseId": "resp-known-1",
+      "respondentId": "respondent-1",
+      "evidenceIds": ["evidence-1"],
+      "recordedAt": "2026-01-01T00:00:00.000Z"
+    }
+  ],
+  "expected": {
+    "outcome": "PASS",
+    "variableStates": [{ "variableRef": "VA01", "state": "KNOWN", "semanticValue": "Definida" }],
+    "contradictionVariableRefs": [],
+    "noConfirmedFindings": true,
+    "note": "El estado semántico aprobado se conserva literalmente."
+  }
+}

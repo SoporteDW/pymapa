@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pymapa.co/schemas/capability-source.schema.json",
+  "title": "Pymapa Capability Source (Knowledge Master)",
+  "description": "Forma gobernada de la fuente de una capacidad dentro de knowledge/master/<version>/capabilities/<id>/source.json. La validación ejecutable canónica vive en packages/knowledge-pipeline (validateCapabilitySource); este documento es la referencia editorial equivalente. La fuente representa conocimiento aprobado; el Pack representa su derivación ejecutable.",
+  "type": "object",
+  "required": ["master", "capability", "provenance", "targetPack", "sections", "checksum"],
+  "properties": {
+    "master": {
+      "type": "object",
+      "required": ["identity", "version", "baselineStatus"],
+      "properties": {
+        "identity": { "const": "PYMAPA-KNOWLEDGE-MASTER" },
+        "version": { "type": "string" },
+        "baselineStatus": { "const": "BASELINE-APPROVED" }
+      }
+    },
+    "capability": {
+      "type": "object",
+      "required": ["id", "domainId", "name", "definition"],
+      "properties": {
+        "id": { "type": "string" },
+        "domainId": { "type": "string" },
+        "name": { "type": "string" },
+        "definition": { "type": "string" },
+        "centralQuestion": { "type": "string" }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["sourceReference", "extractionStatus", "derivation"],
+      "properties": {
+        "sourceReference": { "type": "string", "minLength": 1 },
+        "extractionStatus": { "enum": ["APPROVED", "IN_REVIEW", "DRAFT"] },
+        "derivation": { "enum": ["MASTER_TRANSCRIPTION", "GOLDEN_PACK_TRANSCRIPTION"] },
+        "derivationNote": { "type": "string" },
+        "approvedBy": { "type": "string" },
+        "approvedAt": { "type": "string" }
+      }
+    },
+    "targetPack": {
+      "type": "object",
+      "required": ["packId", "packVersion"],
+      "properties": {
+        "packId": { "type": "string" },
+        "packVersion": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" }
+      }
+    },
+    "sections": {
+      "description": "Secciones gobernadas transcritas del Knowledge Master. Las claves admitidas son exactamente las secciones de contenido de un Knowledge Pack (PACK_SECTION_KEYS). El generador las copia verbatim: no completa, no reformula y no infiere.",
+      "type": "object",
+      "minProperties": 1
+    },
+    "gaps": {
+      "description": "Vacíos declarados por la fuente. Son datos de primera clase: el pipeline los preserva y nunca los resuelve por inferencia.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "statement", "publicationBlocking"],
+        "properties": {
+          "id": { "type": "string" },
+          "kind": {
+            "enum": [
+              "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+              "KNOWLEDGE_CHANGE_CANDIDATE",
+              "GOVERNED_JUDGMENT",
+              "UNIMPLEMENTED_GAP",
+              "ARCHITECTURE_GAP",
+              "GENERIC_RUNTIME_EXTENSION_REQUIRED"
+            ]
+          },
+          "statement": { "type": "string" },
+          "publicationBlocking": { "type": "boolean" },
+          "sourceReference": { "type": "string" }
+        }
+      }
+    },
+    "checksum": {
+      "description": "sha256 canónico del propio documento excluyendo este campo.",
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    }
+  }
+}
