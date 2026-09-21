@@ -363,7 +363,162 @@ export type AuditEventType =
   | "RECOMMENDATION_REJECTED"
   | "INTERVENTION_CREATED"
   | "ACTIVITY_STATE_CHANGED"
-  | "DELIVERABLE_REGISTERED";
+  | "DELIVERABLE_REGISTERED"
+  | "ACTIVITY_MARKED_DONE"
+  | "VALIDATION_REQUIREMENT_REGISTERED"
+  | "VALIDATION_CASE_REGISTERED"
+  | "VALIDATION_DECIDED"
+  | "FOLLOW_UP_STARTED"
+  | "FOLLOW_UP_DECIDED"
+  | "REASSESSMENT_STARTED"
+  | "SNAPSHOT_CREATED"
+  | "LEARNING_CANDIDATE_CREATED";
+
+/* ------------------------------------------------------------------ */
+/* CRV / Validation / Follow-up / Learning (M1-KL)                     */
+/* ------------------------------------------------------------------ */
+
+export type MembershipRole = "OWNER" | "ADMIN" | "MEMBER";
+
+/**
+ * Estado de un ValidationRequirement (CRV).
+ * VALIDATION_REQUIREMENT_NOT_EXPLICIT es un gap de conocimiento trazable:
+ * jamás se inventa un CRV para una Activity que no lo tiene aprobado.
+ */
+export type ValidationRequirementStatus =
+  | "VALIDATION_REQUIREMENT_NOT_EXPLICIT"
+  | "PENDING"
+  | "IN_PROGRESS"
+  | "SATISFIED"
+  | "NOT_SATISFIED";
+
+/** CRV: requisito de validación gobernado. No es un KPI ni un score. */
+export interface ValidationRequirementRecord {
+  id: string;
+  organizationId: string;
+  caseId: string;
+  assessmentId: string;
+  interventionId: string;
+  activityId: string | null;
+  knowledgeVersionId: string;
+  knowledgePackId: string;
+  knowledgePackVersion: string;
+  engineVersion: string;
+  requirementRef: string | null;
+  activityRef: string | null;
+  /** Enunciado literal aprobado, sin reinterpretación. */
+  definition: string;
+  definitionSource: string;
+  status: ValidationRequirementStatus;
+  /** Ejecutor original: el "segundo ejecutor" debe ser distinto de éste. */
+  primaryExecutorRespondentId: string | null;
+  requiredCaseCount: number | null;
+  detail: Record<string, unknown> | null;
+  createdBy: string | null;
+  createdAt: string;
+}
+
+export type ValidationCaseOutcome = "CORRECT" | "INCORRECT";
+
+/** Ejecución concreta registrada contra un CRV, con su evidencia. */
+export interface ValidationRequirementCaseRecord {
+  id: string;
+  organizationId: string;
+  validationRequirementId: string;
+  sequenceIndex: number;
+  executorRespondentId: string;
+  outcome: ValidationCaseOutcome;
+  criticalAssistance: boolean;
+  evidenceId: string | null;
+  note: string | null;
+  occurredAt: string;
+  registeredBy: string | null;
+  createdAt: string;
+}
+
+export type ValidationStatus =
+  | "PENDING"
+  | "IN_REVIEW"
+  | "VALIDATED"
+  | "NOT_VALIDATED"
+  | "INSUFFICIENT_EVIDENCE";
+
+/** Validation ≠ Done ≠ Deliverable. Siempre con lineage y decisión humana. */
+export interface ValidationRecord {
+  id: string;
+  organizationId: string;
+  caseId: string;
+  assessmentId: string;
+  interventionId: string;
+  activityId: string | null;
+  validationRequirementId: string | null;
+  evaluationRunId: string | null;
+  knowledgeVersionId: string;
+  engineVersion: string;
+  status: ValidationStatus;
+  decisionReason: string | null;
+  reviewedBy: string | null;
+  reviewedAt: string | null;
+  detail: Record<string, unknown> | null;
+  createdAt: string;
+}
+
+export interface ValidationEvidenceLink {
+  id: string;
+  organizationId: string;
+  validationId: string;
+  evidenceId: string;
+  createdAt: string;
+}
+
+export type FollowUpOutcome = "OPEN" | "CONSOLIDATED" | "NEEDS_ADJUSTMENT";
+
+/** Follow-up: solo existe sobre una Validation registrada (provenance). */
+export interface FollowUpRecord {
+  id: string;
+  organizationId: string;
+  caseId: string;
+  activityId: string;
+  validationId: string;
+  status: FollowUpOutcome;
+  note: string | null;
+  evidenceId: string | null;
+  decidedBy: string | null;
+  decidedAt: string | null;
+  createdAt: string;
+}
+
+/** LearningCandidate ≠ Master Knowledge: nunca se aplica automáticamente. */
+export interface LearningCandidateRecord {
+  id: string;
+  organizationId: string;
+  caseId: string;
+  assessmentId: string | null;
+  validationId: string | null;
+  knowledgeVersionId: string;
+  sourceTable: string;
+  sourceId: string | null;
+  statement: string;
+  status: string;
+  appliedToMaster: false;
+  detail: Record<string, unknown> | null;
+  createdBy: string | null;
+  createdAt: string;
+}
+
+/** Snapshot puntual para reproducibilidad histórica. No es event sourcing. */
+export interface AssessmentSnapshotRecord {
+  id: string;
+  organizationId: string;
+  caseId: string;
+  assessmentId: string;
+  knowledgeVersionId: string;
+  engineVersion: string;
+  reason: string;
+  payload: Record<string, unknown>;
+  createdBy: string | null;
+  createdAt: string;
+}
 
 /** Registro de acciones relevantes. No es event sourcing. */
 export interface AuditEventRecord {
