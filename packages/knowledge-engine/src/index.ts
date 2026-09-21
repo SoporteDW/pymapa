@@ -641,6 +641,61 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
 
       const answeredAcquisitionRefs = [...new Set(observations.map((o) => o.acquisitionRef))];
 
+      // Findings: el pack declara identidad, polaridad, reglas y variables.
+      // Ninguna regla de findings es DETERMINISTIC en el material gobernado, de
+      // modo que un candidato nunca se confirma por inferencia: NEEDS_REVIEW.
+      const ruleById = new Map(rules.map((r) => [r.id, r]));
+      const evaluacionPorVariable = new Map(variableEvaluations.map((v) => [v.variableRef, v]));
+      const findingCandidates: FindingCandidateResult[] = (pack.findings ?? [])
+        .map((finding) => {
+          const ruleRefs = finding.ruleRefs ?? [];
+          const variableRefs = finding.variableRefs ?? [];
+          const involucradas = variableRefs
+            .map((ref) => evaluacionPorVariable.get(ref))
+            .filter((v): v is VariableEvaluationResult => Boolean(v));
+          const conDato = involucradas.filter((v) => v.detail.observationIds.length > 0);
+          if (conDato.length === 0) return null;
+          const reglas = ruleRefs.map((ref) => ruleById.get(ref));
+          const confirmable =
+            ruleRefs.length > 0 &&
+            reglas.every((r) => r?.classification === "DETERMINISTIC" && r.implemented);
+          return {
+            findingRef: finding.id,
+            name: finding.name,
+            polarity: (finding.polarity ?? "ADVERSE") as "ADVERSE" | "STRENGTH",
+            lifecycleState: confirmable ? ("CANDIDATE" as const) : ("NEEDS_REVIEW" as const),
+            deterministicallyConfirmable: confirmable,
+            severity: {
+              state: null,
+              reason:
+                "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: no existe algoritmo de severidad ni de priority; la severidad no se infiere.",
+            },
+            ruleRefs: ruleRefs.slice(),
+            variableRefs: variableRefs.slice(),
+            supportingObservationIds: [...new Set(conDato.flatMap((v) => v.detail.observationIds))],
+            supportingEvidenceIds: [...new Set(conDato.flatMap((v) => v.detail.evidenceIds))],
+            reason: confirmable
+              ? "reglas determinísticas implementadas: candidato evaluable"
+              : (finding.polarity ?? "ADVERSE") === "STRENGTH"
+                ? "fortaleza posible: no existe gate formal de evidencia positiva (KCC-AT04-03); requiere revisión gobernada"
+                : "depende de juicio gobernado (GOVERNED_JUDGMENT): no se confirma automáticamente",
+          };
+        })
+        .filter((f): f is FindingCandidateResult => f !== null);
+
+      const derivedDependencyReferences: DerivedDependencyReferenceResult[] = (
+        pack.crossCapabilityReferences ?? []
+      ).map((ref) => ({
+        cause: ref.cause,
+        sourceCapabilityId: pack.capability.id,
+        targetCapabilityId: ref.targetCapabilityId ?? null,
+        targetDomainId: ref.targetDomainId ?? null,
+        executable: false as const,
+        note: ref.targetCapabilityId
+          ? "referencia declarativa: no ejecuta la capacidad destino"
+          : "dominio declarado sin capacidad específica: no se infiere ninguna",
+      }));
+
       return {
         variableEvaluations,
         informationNeedStates,
