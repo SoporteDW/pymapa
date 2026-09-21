@@ -24,6 +24,7 @@ import type {
   NextAcquisition,
 } from "@pymapa/knowledge-engine";
 import type {
+  ActivityRecord,
   AssignmentRecord,
   AssignmentScopeType,
   EvaluationRunTrigger,
@@ -34,11 +35,23 @@ import type {
   ObservationRecord,
   ProductionRepository,
   RespondentRecord,
+  DeliverableRecord,
+  DerivedDependencyReferenceRecord,
+  ExecutionState,
+  FindingRecord,
+  InterventionRecord,
+  RecommendationCandidateRecord,
 } from "./puertos";
 
 export const KNOWLEDGE_VERSION_MISMATCH = "KNOWLEDGE_VERSION_MISMATCH" as const;
 export const OUT_OF_ASSIGNMENT_SCOPE = "OUT_OF_ASSIGNMENT_SCOPE" as const;
 export const RESPONDENT_WITHOUT_ASSIGNMENT = "RESPONDENT_WITHOUT_ASSIGNMENT" as const;
+export const FINDING_NOT_REVIEWED = "FINDING_NOT_REVIEWED" as const;
+export const RECOMMENDATION_NOT_SELECTED = "RECOMMENDATION_NOT_SELECTED" as const;
+export const SELECTION_REQUIRED = "SELECTION_REQUIRED" as const;
+/** Razón única de severidad: no existe algoritmo aprobado. */
+export const SEVERITY_NOT_EXPLICIT =
+  "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: no existe algoritmo de severidad ni de priority.";
 
 export interface ProductionDeps {
   engine: KnowledgeEngine;
@@ -333,6 +346,14 @@ async function ejecutarEvaluacion(
     evaluation.needsReview ? "NEEDS_REVIEW" : "PROCESSED",
     now(),
   );
+
+  await materializarFindings(deps, {
+    assessmentId: params.assessmentId,
+    organizationId: params.organizationId,
+    knowledgeVersionId: params.knowledgeVersionId,
+    evaluationRunId: run.id,
+    evaluation,
+  });
 
   const responses = await deps.repository.listResponses(params.assessmentId);
   const state = construirEstado({
@@ -662,4 +683,558 @@ export async function registrarEvidencia(
   });
 
   return { evidence, links, evaluationRunId: run.id, state };
+}
+
+/* ------------------------------------------------------------------ */
+/* Findings (M1-HIJ)                                                   */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Materializa los candidatos de finding producidos por el engine.
+ *
+ * INVARIANTES:
+ * - Ningún finding se confirma automáticamente: un candidato derivado de una
+ *   regla GOVERNED_JUDGMENT nace en NEEDS_REVIEW.
+ * - Ningún finding se crea sin lineage completo (assessment, capability,
+ *   KnowledgeVersion, pack+versión, engine, EvaluationRun, reglas, variables,
+ *   observaciones y evidencias).
+ * - Una reevaluación no borra el finding anterior: lo marca SUPERSEDED
+ *   apuntando al nuevo, conservando el histórico.
+ * - No se calcula severidad ni prioridad.
+ */
+async function materializarFindings(
+  deps: ProductionDeps,
+  params: {
+    assessmentId: string;
+    organizationId: string;
+    knowledgeVersionId: string;
+    evaluationRunId: string;
+    evaluation: EvaluationResult;
+  },
+): Promise<FindingRecord[]> {
+  const now = deps.now ?? ahoraPorDefecto;
+  const assessment = await deps.repository.getAssessment(params.assessmentId);
+  if (!assessment) return [];
+
+  const previos = await deps.repository.listFindings(params.assessmentId);
+  const links = await deps.repository.listEvidenceLinks(params.assessmentId);
+  const creados: FindingRecord[] = [];
+
+  for (const candidato of params.evaluation.findingCandidates) {
+    const anterior = previos.find(
+      (f) =>
+        f.findingRef === candidato.findingRef &&
+        f.supersededByFindingId === null &&
+        f.lifecycleState !== "DISMISSED" &&
+        f.lifecycleState !== "SUPERSEDED",
+    );
+    // Sin cambio de run no hay nada que rehacer: se conserva la revisión humana.
+    if (anterior && anterior.evaluationRunId === params.evaluationRunId) continue;
+
+    const finding = await deps.repository.insertFinding({
+      organizationId: params.organizationId,
+      caseId: assessment.caseId,
+      assessmentId: params.assessmentId,
+      evaluationRunId: params.evaluationRunId,
+      knowledgeVersionId: params.knowledgeVersionId,
+      capabilityId: params.evaluation.traceability.capabilityId,
+      findingRef: candidato.findingRef,
+      polarity: candidato.polarity,
+      // El engine nunca entrega CONFIRMED: la confirmación es humana y gobernada.
+      lifecycleState: candidato.lifecycleState,
+      severityQualitative: candidato.severity.state,
+      severityReason: candidato.severity.reason,
+      knowledgePackId: params.evaluation.traceability.knowledgePackId,
+      knowledgePackVersion: params.evaluation.traceability.knowledgePackVersion,
+      engineVersion: params.evaluation.traceability.engineVersion,
+      ruleRefs: candidato.ruleRefs,
+      variableRefs: candidato.variableRefs,
+      detail: {
+        name: candidato.name,
+        reason: candidato.reason,
+        deterministicallyConfirmable: candidato.deterministicallyConfirmable,
+        traceability: params.evaluation.traceability,
+      },
+      supersededByFindingId: null,
+      reviewedBy: null,
+      reviewedAt: null,
+    });
+
+    for (const observationId of candidato.supportingObservationIds) {
+      await deps.repository.linkFindingObservation({
+        organizationId: params.organizationId,
+        findingId: finding.id,
+        observationId,
+      });
+    }
+    const evidencias = new Set([
+      ...candidato.supportingEvidenceIds,
+      ...links
+        .filter((l) => candidato.supportingObservationIds.includes(l.observationId))
+        .map((l) => l.evidenceId),
+    ]);
+    for (const evidenceId of evidencias) {
+      await deps.repository.linkFindingEvidence({
+        organizationId: params.organizationId,
+        findingId: finding.id,
+        evidenceId,
+      });
+    }
+
+    if (anterior) {
+      await deps.repository.updateFinding(anterior.id, {
+        lifecycleState: "SUPERSEDED",
+        supersededByFindingId: finding.id,
+      });
+      await deps.repository.insertAuditEvent({
+        organizationId: params.organizationId,
+        assessmentId: params.assessmentId,
+        eventType: "FINDING_SUPERSEDED",
+        subjectTable: "findings",
+        subjectId: anterior.id,
+        actorUserId: null,
+        detail: { supersededByFindingId: finding.id },
+      });
+    }
+
+    await deps.repository.insertAuditEvent({
+      organizationId: params.organizationId,
+      assessmentId: params.assessmentId,
+      eventType: "FINDING_CREATED",
+      subjectTable: "findings",
+      subjectId: finding.id,
+      actorUserId: null,
+      detail: {
+        findingRef: finding.findingRef,
+        lifecycleState: finding.lifecycleState,
+        evaluationRunId: params.evaluationRunId,
+        createdAt: now(),
+      },
+    });
+
+    creados.push(finding);
+  }
+
+  // Referencias cruzadas declarativas: nunca ejecutan la capacidad destino.
+  const existentes = await deps.repository.listDerivedDependencyReferences(params.assessmentId);
+  for (const ref of params.evaluation.derivedDependencyReferences) {
+    const yaEsta = existentes.some(
+      (d) =>
+        d.cause === ref.cause &&
+        d.targetCapabilityId === ref.targetCapabilityId &&
+        d.targetDomainId === ref.targetDomainId,
+    );
+    if (yaEsta) continue;
+    await deps.repository.insertDerivedDependencyReference({
+      organizationId: params.organizationId,
+      assessmentId: params.assessmentId,
+      findingId: null,
+      cause: ref.cause,
+      sourceCapabilityId: ref.sourceCapabilityId,
+      targetCapabilityId: ref.targetCapabilityId,
+      targetDomainId: ref.targetDomainId,
+      executable: false,
+      note: ref.note,
+    });
+  }
+
+  return creados;
+}
+
+export async function listFindings(
+  deps: ProductionDeps,
+  assessmentId: string,
+): Promise<FindingRecord[]> {
+  return deps.repository.listFindings(assessmentId);
+}
+
+export async function listDerivedDependencyReferences(
+  deps: ProductionDeps,
+  assessmentId: string,
+): Promise<DerivedDependencyReferenceRecord[]> {
+  return deps.repository.listDerivedDependencyReferences(assessmentId);
+}
+
+export type FindingReviewDecision = "NEEDS_REVIEW" | "CONFIRMED" | "DISMISSED";
+
+export interface RevisarFindingInput {
+  findingId: string;
+  decision: FindingReviewDecision;
+  reviewedBy: string | null;
+  /** Severidad cualitativa cuando la persona la establece. Jamás numérica. */
+  severityQualitative?: string | null;
+  note?: string | null;
+}
+
+/**
+ * Transición de lifecycle decidida por una persona con membresía.
+ * La confirmación de un finding que depende de juicio gobernado solo puede
+ * provenir de esta acción humana registrada, nunca del engine.
+ */
+export async function revisarFinding(
+  deps: ProductionDeps,
+  input: RevisarFindingInput,
+): Promise<{ accepted: boolean; rejectionReason?: string; finding: FindingRecord | null }> {
+  const now = deps.now ?? ahoraPorDefecto;
+  const actual = await deps.repository.getFinding(input.findingId);
+  if (!actual) return { accepted: false, rejectionReason: "FINDING_NOT_FOUND", finding: null };
+  if (actual.lifecycleState === "SUPERSEDED") {
+    return { accepted: false, rejectionReason: "FINDING_SUPERSEDED", finding: actual };
+  }
+
+  const finding = await deps.repository.updateFinding(input.findingId, {
+    lifecycleState: input.decision,
+    reviewedBy: input.reviewedBy,
+    reviewedAt: now(),
+    // La severidad sigue cualitativa: si no se aporta, permanece sin resolver.
+    ...(input.severityQualitative !== undefined
+      ? { severityQualitative: input.severityQualitative, severityReason: SEVERITY_NOT_EXPLICIT }
+      : {}),
+  });
+
+  await deps.repository.insertAuditEvent({
+    organizationId: finding.organizationId,
+    assessmentId: finding.assessmentId,
+    eventType:
+      input.decision === "CONFIRMED"
+        ? "FINDING_CONFIRMED"
+        : input.decision === "DISMISSED"
+          ? "FINDING_DISMISSED"
+          : "FINDING_REVIEWED",
+    subjectTable: "findings",
+    subjectId: finding.id,
+    actorUserId: input.reviewedBy,
+    detail: { decision: input.decision, note: input.note ?? null },
+  });
+
+  return { accepted: true, finding };
+}
+
+/* ------------------------------------------------------------------ */
+/* Recommendation Candidates (≠ Finding, ≠ Intervention)               */
+/* ------------------------------------------------------------------ */
+
+export interface RegistrarRecommendationCandidateInput {
+  assessmentId: string;
+  organizationId: string;
+  recommendationRef: string;
+  /** Opcional: un finding revisado o confirmado como origen del candidato. */
+  findingId?: string | null;
+  createdBy: string | null;
+}
+
+/**
+ * Registra un RecommendationCandidate. No se genera automáticamente desde un
+ * finding: el mapeo Finding→Recommendation no está gobernado (KCC-AT04-11).
+ */
+export async function registrarRecommendationCandidate(
+  deps: ProductionDeps,
+  input: RegistrarRecommendationCandidateInput,
+): Promise<{ accepted: boolean; rejectionReason?: string; candidate: RecommendationCandidateRecord | null }> {
+  const assessment = await deps.repository.getAssessment(input.assessmentId);
+  if (!assessment) return { accepted: false, rejectionReason: "ASSESSMENT_NOT_FOUND", candidate: null };
+
+  const identidades = deps.engine.getRecommendationCandidates();
+  const identidad = identidades.find((r) => r.recommendationRef === input.recommendationRef);
+  if (!identidad) {
+    return { accepted: false, rejectionReason: "RECOMMENDATION_NOT_IN_KNOWLEDGE", candidate: null };
+  }
+
+  if (input.findingId) {
+    const finding = await deps.repository.getFinding(input.findingId);
+    if (!finding) return { accepted: false, rejectionReason: "FINDING_NOT_FOUND", candidate: null };
+    // Un candidato solo se asocia a un finding ya revisado por una persona.
+    if (finding.lifecycleState !== "CONFIRMED" && finding.reviewedAt === null) {
+      return { accepted: false, rejectionReason: FINDING_NOT_REVIEWED, candidate: null };
+    }
+  }
+
+  const candidate = await deps.repository.insertRecommendationCandidate({
+    organizationId: input.organizationId,
+    caseId: assessment.caseId,
+    assessmentId: input.assessmentId,
+    findingId: input.findingId ?? null,
+    recommendationRef: identidad.recommendationRef,
+    contentStatus: identidad.contentStatus,
+    mappingStatus: identidad.mappingStatus,
+    title: identidad.title,
+    status: "CANDIDATE",
+    decidedBy: null,
+    decidedAt: null,
+    decisionNote: null,
+    detail: { reason: identidad.reason, automatable: identidad.automatable },
+  });
+
+  return { accepted: true, candidate };
+}
+
+export async function listRecommendationCandidates(
+  deps: ProductionDeps,
+  assessmentId: string,
+): Promise<RecommendationCandidateRecord[]> {
+  return deps.repository.listRecommendationCandidates(assessmentId);
+}
+
+export async function decidirRecommendationCandidate(
+  deps: ProductionDeps,
+  input: {
+    recommendationCandidateId: string;
+    decision: "SELECTED" | "REJECTED";
+    decidedBy: string | null;
+    note?: string | null;
+  },
+): Promise<{ accepted: boolean; rejectionReason?: string; candidate: RecommendationCandidateRecord | null }> {
+  const now = deps.now ?? ahoraPorDefecto;
+  const actual = await deps.repository.getRecommendationCandidate(input.recommendationCandidateId);
+  if (!actual) return { accepted: false, rejectionReason: "RECOMMENDATION_NOT_FOUND", candidate: null };
+
+  const candidate = await deps.repository.updateRecommendationCandidate(actual.id, {
+    status: input.decision,
+    decidedBy: input.decidedBy,
+    decidedAt: now(),
+    decisionNote: input.note ?? null,
+  });
+
+  await deps.repository.insertAuditEvent({
+    organizationId: candidate.organizationId,
+    assessmentId: candidate.assessmentId,
+    eventType: input.decision === "SELECTED" ? "RECOMMENDATION_SELECTED" : "RECOMMENDATION_REJECTED",
+    subjectTable: "recommendation_candidates",
+    subjectId: candidate.id,
+    actorUserId: input.decidedBy,
+    detail: { note: input.note ?? null },
+  });
+
+  return { accepted: true, candidate };
+}
+
+/* ------------------------------------------------------------------ */
+/* Intervention / Activity / Deliverable                               */
+/* ------------------------------------------------------------------ */
+
+export interface CrearIntervencionInput {
+  assessmentId: string;
+  organizationId: string;
+  title: string;
+  recommendationCandidateId?: string | null;
+  findingId?: string | null;
+  selectionNote?: string | null;
+  createdBy: string | null;
+}
+
+/**
+ * Una Intervention es una decisión de ejecución dentro del Case y es un objeto
+ * distinto del RecommendationCandidate. Sin automatismo gobernado (el principio
+ * Minimum Sufficient Intervention no es fórmula), exige selección explícita.
+ */
+export async function crearIntervencion(
+  deps: ProductionDeps,
+  input: CrearIntervencionInput,
+): Promise<{ accepted: boolean; rejectionReason?: string; intervention: InterventionRecord | null }> {
+  const now = deps.now ?? ahoraPorDefecto;
+  const assessment = await deps.repository.getAssessment(input.assessmentId);
+  if (!assessment) return { accepted: false, rejectionReason: "ASSESSMENT_NOT_FOUND", intervention: null };
+
+  const principio = deps.engine.getInterventionPrinciple();
+  const automatizable = principio?.automatable === true;
+
+  if (input.recommendationCandidateId) {
+    const candidato = await deps.repository.getRecommendationCandidate(input.recommendationCandidateId);
+    if (!candidato) {
+      return { accepted: false, rejectionReason: "RECOMMENDATION_NOT_FOUND", intervention: null };
+    }
+    // Sin automatismo gobernado, la recomendación debe haberse seleccionado.
+    if (!automatizable && candidato.status !== "SELECTED") {
+      return { accepted: false, rejectionReason: RECOMMENDATION_NOT_SELECTED, intervention: null };
+    }
+  } else if (!automatizable && !input.selectionNote) {
+    // Selección humana registrada obligatoria cuando no hay recomendación.
+    return { accepted: false, rejectionReason: SELECTION_REQUIRED, intervention: null };
+  }
+
+  const intervention = await deps.repository.insertIntervention({
+    organizationId: input.organizationId,
+    caseId: assessment.caseId,
+    assessmentId: input.assessmentId,
+    recommendationCandidateId: input.recommendationCandidateId ?? null,
+    findingId: input.findingId ?? null,
+    title: input.title,
+    status: "PROPOSED",
+    selectionNote: input.selectionNote ?? null,
+    acceptedBy: input.createdBy,
+    acceptedAt: now(),
+  });
+
+  await deps.repository.insertAuditEvent({
+    organizationId: input.organizationId,
+    assessmentId: input.assessmentId,
+    eventType: "INTERVENTION_CREATED",
+    subjectTable: "interventions",
+    subjectId: intervention.id,
+    actorUserId: input.createdBy,
+    detail: {
+      recommendationCandidateId: intervention.recommendationCandidateId,
+      findingId: intervention.findingId,
+      principle: principio?.id ?? null,
+      principleFormula: principio?.formula ?? null,
+    },
+  });
+
+  return { accepted: true, intervention };
+}
+
+export async function listInterventions(
+  deps: ProductionDeps,
+  assessmentId: string,
+): Promise<InterventionRecord[]> {
+  return deps.repository.listInterventions(assessmentId);
+}
+
+export interface CrearActividadInput {
+  interventionId: string;
+  organizationId: string;
+  title: string;
+  /** Identidad A01–A09 cuando la persona la elige; el mapeo no es automático. */
+  activityRef?: string | null;
+  createdBy: string | null;
+}
+
+/** Una Activity siempre pertenece a una Intervention. */
+export async function crearActividad(
+  deps: ProductionDeps,
+  input: CrearActividadInput,
+): Promise<{ accepted: boolean; rejectionReason?: string; activity: ActivityRecord | null }> {
+  const intervention = await deps.repository.getIntervention(input.interventionId);
+  if (!intervention) {
+    return { accepted: false, rejectionReason: "INTERVENTION_NOT_FOUND", activity: null };
+  }
+
+  const identidades = deps.engine.listActivityIdentities();
+  const identidad = input.activityRef
+    ? identidades.find((a) => a.activityRef === input.activityRef)
+    : null;
+  if (input.activityRef && !identidad) {
+    return { accepted: false, rejectionReason: "ACTIVITY_NOT_IN_KNOWLEDGE", activity: null };
+  }
+
+  const activity = await deps.repository.insertActivity({
+    organizationId: input.organizationId,
+    interventionId: intervention.id,
+    activityRef: identidad?.activityRef ?? null,
+    contentStatus: identidad?.contentStatus ?? "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+    mappingStatus: identidad?.mappingStatus ?? "NOT_GOVERNED",
+    title: input.title,
+    state: "PENDING",
+  });
+
+  await deps.repository.insertAuditEvent({
+    organizationId: input.organizationId,
+    assessmentId: intervention.assessmentId,
+    eventType: "ACTIVITY_STATE_CHANGED",
+    subjectTable: "activities",
+    subjectId: activity.id,
+    actorUserId: input.createdBy,
+    detail: { from: null, to: activity.state },
+  });
+
+  return { accepted: true, activity };
+}
+
+export async function listActivities(
+  deps: ProductionDeps,
+  interventionId: string,
+): Promise<ActivityRecord[]> {
+  return deps.repository.listActivities(interventionId);
+}
+
+/**
+ * Estado mínimo de ejecución: PENDING, EXECUTING, DELIVERABLE_PRODUCED.
+ * VALIDATED / FOLLOW_UP / CONSOLIDATED pertenecen a M1-KL y no existen aquí.
+ */
+export async function cambiarEstadoActividad(
+  deps: ProductionDeps,
+  input: { activityId: string; state: ExecutionState; actorUserId: string | null },
+): Promise<{ accepted: boolean; rejectionReason?: string; activity: ActivityRecord | null }> {
+  const actual = await deps.repository.getActivity(input.activityId);
+  if (!actual) return { accepted: false, rejectionReason: "ACTIVITY_NOT_FOUND", activity: null };
+  const intervention = await deps.repository.getIntervention(actual.interventionId);
+
+  const activity = await deps.repository.updateActivityState(actual.id, input.state);
+  await deps.repository.insertAuditEvent({
+    organizationId: activity.organizationId,
+    assessmentId: intervention?.assessmentId ?? null,
+    eventType: "ACTIVITY_STATE_CHANGED",
+    subjectTable: "activities",
+    subjectId: activity.id,
+    actorUserId: input.actorUserId,
+    detail: { from: actual.state, to: activity.state },
+  });
+  return { accepted: true, activity };
+}
+
+export interface RegistrarEntregableInput {
+  activityId: string;
+  organizationId: string;
+  title: string;
+  note?: string | null;
+  evidenceId?: string | null;
+  registeredBy: string | null;
+}
+
+/**
+ * Activity ≠ Deliverable ≠ Done: registrar un entregable mueve la actividad a
+ * DELIVERABLE_PRODUCED y NUNCA a un estado de validación (CRV es M1-KL).
+ */
+export async function registrarEntregable(
+  deps: ProductionDeps,
+  input: RegistrarEntregableInput,
+): Promise<{
+  accepted: boolean;
+  rejectionReason?: string;
+  deliverable: DeliverableRecord | null;
+  activity: ActivityRecord | null;
+}> {
+  const now = deps.now ?? ahoraPorDefecto;
+  const actividad = await deps.repository.getActivity(input.activityId);
+  if (!actividad) {
+    return { accepted: false, rejectionReason: "ACTIVITY_NOT_FOUND", deliverable: null, activity: null };
+  }
+  const intervention = await deps.repository.getIntervention(actividad.interventionId);
+
+  const deliverable = await deps.repository.insertDeliverable({
+    organizationId: input.organizationId,
+    activityId: actividad.id,
+    evidenceId: input.evidenceId ?? null,
+    title: input.title,
+    note: input.note ?? null,
+    registeredBy: input.registeredBy,
+    registeredAt: now(),
+  });
+
+  const activity = await deps.repository.updateActivityState(actividad.id, "DELIVERABLE_PRODUCED");
+
+  await deps.repository.insertAuditEvent({
+    organizationId: input.organizationId,
+    assessmentId: intervention?.assessmentId ?? null,
+    eventType: "DELIVERABLE_REGISTERED",
+    subjectTable: "deliverables",
+    subjectId: deliverable.id,
+    actorUserId: input.registeredBy,
+    detail: {
+      activityId: activity.id,
+      activityState: activity.state,
+      // Invariante explícita: producir un entregable no valida nada.
+      validated: false,
+      validationNote: "La validación (CRV) no pertenece a esta etapa.",
+    },
+  });
+
+  return { accepted: true, deliverable, activity };
+}
+
+export async function listDeliverables(
+  deps: ProductionDeps,
+  activityId: string,
+): Promise<DeliverableRecord[]> {
+  return deps.repository.listDeliverables(activityId);
 }
