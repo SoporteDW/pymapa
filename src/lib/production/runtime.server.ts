@@ -8,7 +8,8 @@
 import { createHash } from "node:crypto";
 import { createKnowledgeEngine, type KnowledgeEngine } from "@pymapa/knowledge-engine";
 import packOp01 from "../../../knowledge/packs/op-01/1.0.0/pack.json" with { type: "json" };
-import type { Json } from "@/integrations/supabase/types";
+import type { SupabaseClient } from "@supabase/supabase-js";
+import type { Database, Json } from "@/integrations/supabase/types";
 import type {
   AssessmentRecord,
   EvaluationRunRecord,
