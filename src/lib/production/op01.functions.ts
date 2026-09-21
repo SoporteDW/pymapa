@@ -758,7 +758,7 @@ export const startOp01FollowUp = createServerFn({ method: "POST" })
     return {
       accepted: salida.accepted,
       rejectionReason: salida.rejectionReason ?? null,
-      followUp: sinDetalle(salida.followUp),
+      followUp: salida.followUp,
     };
   });
 
@@ -778,7 +778,7 @@ export const decideOp01FollowUp = createServerFn({ method: "POST" })
     return {
       accepted: salida.accepted,
       rejectionReason: salida.rejectionReason ?? null,
-      followUp: sinDetalle(salida.followUp),
+      followUp: salida.followUp,
     };
   });
 
