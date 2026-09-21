@@ -73,6 +73,7 @@ function CapacidadOp01() {
   const [tipoEvidencia, setTipoEvidencia] = useState<string>("");
   const [referenciaEvidencia, setReferenciaEvidencia] = useState<string>("");
   const [observacionesEvidencia, setObservacionesEvidencia] = useState<string[]>([]);
+  const [archivo, setArchivo] = useState<File | null>(null);
 
   const contexto = useQuery({
     queryKey: ["op01", "contexto"],
