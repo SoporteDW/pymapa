@@ -309,9 +309,20 @@ describe("M1-M · 7/8 · pinning, reproducibilidad y lineage extremo a extremo",
     const obsLinks = await repository.listFindingObservationLinks(finding.id);
     expect(obsLinks.length).toBeGreaterThan(0);
 
-    const recomendaciones = await repository.listRecommendationCandidates("assess-1");
-    const recomendacion = recomendaciones.find((r) => r.findingId === finding.id)!;
-    expect(recomendacion).toBeTruthy();
+    await revisarFinding(deps, {
+      findingId: finding.id,
+      decision: "CONFIRMED",
+      reviewedBy: "user-1",
+    });
+    const registrada = await registrarRecommendationCandidate(deps, {
+      assessmentId: "assess-1",
+      organizationId: "org-1",
+      recommendationRef: "R01",
+      findingId: finding.id,
+      createdBy: "user-1",
+    });
+    const recomendacion = registrada.candidate!;
+    expect(recomendacion.findingId).toBe(finding.id);
     const decidida = await decidirRecommendationCandidate(deps, {
       recommendationCandidateId: recomendacion.id,
       decision: "SELECTED",
@@ -319,6 +330,7 @@ describe("M1-M · 7/8 · pinning, reproducibilidad y lineage extremo a extremo",
       note: "Decisión humana registrada",
     });
     expect(decidida.candidate!.status).toBe("SELECTED");
+
 
     const intervencionOut = await crearIntervencion(deps, {
       assessmentId: "assess-1",
