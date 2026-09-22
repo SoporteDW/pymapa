@@ -1,0 +1,550 @@
+{
+  "factoryVersion": "pymapa-knowledge-factory/0.1.0",
+  "masterIdentity": "PYMAPA-KNOWLEDGE-MASTER",
+  "masterVersion": "1.0",
+  "engineVersion": "pymapa-knowledge-engine/0.2.0",
+  "expectedCapabilityCount": 31,
+  "registeredCapabilityCount": 2,
+  "unregisteredSlotCount": 29,
+  "signal": "AUTHORITATIVE_SOURCE_REQUIRED",
+  "domains": [
+    {
+      "domainId": "DG",
+      "declaredCapabilityCount": 5,
+      "registered": [],
+      "unregisteredSlots": 5
+    },
+    {
+      "domainId": "PC",
+      "declaredCapabilityCount": 5,
+      "registered": [],
+      "unregisteredSlots": 5
+    },
+    {
+      "domainId": "OP",
+      "declaredCapabilityCount": 5,
+      "registered": [
+        "OP-01",
+        "OP-02"
+      ],
+      "unregisteredSlots": 3
+    },
+    {
+      "domainId": "DT",
+      "declaredCapabilityCount": 6,
+      "registered": [],
+      "unregisteredSlots": 6
+    },
+    {
+      "domainId": "CM",
+      "declaredCapabilityCount": 6,
+      "registered": [],
+      "unregisteredSlots": 6
+    },
+    {
+      "domainId": "EC",
+      "declaredCapabilityCount": 4,
+      "registered": [],
+      "unregisteredSlots": 4
+    }
+  ],
+  "counts": {
+    "byState": {
+      "RAW_SOURCE": 0,
+      "REGISTERED": 0,
+      "EXTRACTED_CANDIDATE": 0,
+      "CANONICAL_REVIEW_REQUIRED": 0,
+      "VALIDATED": 1,
+      "READY_FOR_PUBLICATION": 0,
+      "PUBLISHED": 1
+    },
+    "byOutcome": {
+      "PASS": 1,
+      "REVIEW_REQUIRED": 1,
+      "FAIL": 0
+    }
+  },
+  "extensionRegistry": {
+    "checksum": "sha256:bff7b082fea8b2c44dd6ec0b54535c86f7d829d7663a9b4941aab16b1b33fc66",
+    "open": 0,
+    "closed": 4,
+    "issues": []
+  },
+  "batchIssues": [],
+  "entries": [
+    {
+      "capabilityId": "OP-01",
+      "domainId": "OP",
+      "sourcePath": "MASTER",
+      "rawSource": {
+        "availability": "NOT_IN_REPOSITORY",
+        "ref": null,
+        "textSha256": null,
+        "originalFilename": null,
+        "originalSha256": null,
+        "extractor": null,
+        "registrationId": null
+      },
+      "extraction": {
+        "status": "NOT_STARTED",
+        "candidateId": null,
+        "producedBy": null
+      },
+      "canonical": {
+        "status": "NONE",
+        "baselineId": null,
+        "checksum": null,
+        "objectCount": null
+      },
+      "provenance": {
+        "sourceReference": "AT-04 · KNOWLEDGE SOURCE PACKAGE — OP-01",
+        "derivation": "GOLDEN_PACK_TRANSCRIPTION",
+        "extractionStatus": "APPROVED",
+        "historicalClosure": null
+      },
+      "gaps": {
+        "total": 26,
+        "notExplicit": [],
+        "sourceContentNotRecovered": [],
+        "runtimeExtension": [],
+        "publicationBlocking": []
+      },
+      "transcriptionCorrections": [],
+      "runtimeCompatibility": {
+        "requiredEngineVersion": "0.1.0",
+        "engineVersion": "0.2.0",
+        "compatible": true,
+        "extensions": []
+      },
+      "fixtures": {
+        "count": 4,
+        "pass": 4,
+        "governedJudgment": 0,
+        "fail": 0
+      },
+      "governance": {
+        "reviewStatus": "APPROVED",
+        "evidence": "NOT_APPLICABLE"
+      },
+      "publication": {
+        "status": "PUBLISHED",
+        "packId": "op-01",
+        "packVersion": "1.0.0",
+        "packChecksum": "sha256:a1ca01e6db23dc2661511527815ec2411b13f86784cc535b94d4a6b4fc0e8837"
+      },
+      "state": "PUBLISHED",
+      "outcome": "PASS",
+      "checks": [
+        {
+          "check": "RAW_REGISTRATION",
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "RAW_REGISTRATION",
+              "code": "GOLDEN_TRANSCRIPTION",
+              "severity": "INFO",
+              "message": "fuente ejecutable transcrita de un pack publicado; el raw histórico no está en el repositorio",
+              "action": "ninguna",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "STRUCTURAL",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
+          "check": "REFERENTIAL",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "status": "NOT_APPLICABLE",
+          "reasons": []
+        },
+        {
+          "check": "PROVENANCE",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
+          "check": "CANONICAL_TO_PACK",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
+          "check": "RUNTIME_COMPATIBILITY",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
+          "check": "FIXTURES",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_SILENCE",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
+          "check": "CAPABILITY_BRANCHING",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
+          "check": "GOLDEN_REGRESSION",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
+          "check": "GOVERNANCE_EVIDENCE",
+          "status": "NOT_APPLICABLE",
+          "reasons": []
+        }
+      ],
+      "reasons": [
+        {
+          "check": "RAW_REGISTRATION",
+          "code": "GOLDEN_TRANSCRIPTION",
+          "severity": "INFO",
+          "message": "fuente ejecutable transcrita de un pack publicado; el raw histórico no está en el repositorio",
+          "action": "ninguna",
+          "sourceLines": null,
+          "objectKey": null
+        }
+      ],
+      "metrics": {
+        "rawOriginalBytes": null,
+        "rawTextBytes": null,
+        "rawTextLines": null,
+        "candidateItems": null,
+        "canonicalObjects": null,
+        "executableSections": 26,
+        "checksAutoPassed": 11,
+        "humanReviewItems": 0,
+        "notExplicit": 0,
+        "sourceContentNotRecovered": 0,
+        "transcriptionIssues": 0,
+        "runtimeExtensionsRequired": 0,
+        "runtimeExtensionsClosed": 0,
+        "testFailures": 0,
+        "publicationBlockers": 0
+      }
+    },
+    {
+      "capabilityId": "OP-02",
+      "domainId": "OP",
+      "sourcePath": "MASTER",
+      "rawSource": {
+        "availability": "IN_REPOSITORY",
+        "ref": "raw/OP-02_Completo.txt",
+        "textSha256": "db27a2976db128e87cbcfa9f2df1a40f461ff91cb0eb8b07110181b5c3b34800",
+        "originalFilename": "OP-02_Completo.docx",
+        "originalSha256": "646fc9d1e7fc7df4825bf16a82687387437ed333204ffaff4c620a3b6ebb3da5",
+        "extractor": "pandoc 3.7.0.2",
+        "registrationId": null
+      },
+      "extraction": {
+        "status": "CANONICAL",
+        "candidateId": null,
+        "producedBy": null
+      },
+      "canonical": {
+        "status": "ACCEPTED",
+        "baselineId": "OP02-K4-v1.0",
+        "checksum": "sha256:8c24e39e0d4f31ac1006fc18dad5094bf16a4755e7596dfa90b7c2c90d016a00",
+        "objectCount": 329
+      },
+      "provenance": {
+        "sourceReference": "OP-02_Completo · OP02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "derivation": "MASTER_TRANSCRIPTION",
+        "extractionStatus": "APPROVED",
+        "historicalClosure": "OP02-K4-v1.0 · K4-VALIDATED · CLOSED"
+      },
+      "gaps": {
+        "total": 10,
+        "notExplicit": [
+          "NE-OP02-01",
+          "NE-OP02-02",
+          "NE-OP02-03",
+          "NE-OP02-04",
+          "NE-OP02-05",
+          "NE-OP02-06"
+        ],
+        "sourceContentNotRecovered": [],
+        "runtimeExtension": [
+          "GRE-OP02-01",
+          "GRE-OP02-02",
+          "GRE-OP02-03",
+          "GRE-OP02-04"
+        ],
+        "publicationBlocking": []
+      },
+      "transcriptionCorrections": [
+        "TC-OP02-01"
+      ],
+      "runtimeCompatibility": {
+        "requiredEngineVersion": "0.2.0",
+        "engineVersion": "0.2.0",
+        "compatible": true,
+        "extensions": [
+          {
+            "gapId": "GRE-OP02-01",
+            "extensionId": "GRX-001",
+            "semanticCapability": "INTERVENTION_PATTERN_OWNED_VALIDATION_REQUIREMENTS",
+            "status": "CLOSED",
+            "closedInEngineVersion": "0.2.0",
+            "blocksPublication": false,
+            "sourceResolution": "CLOSED_BY_GENERIC_RUNTIME_EXTENSION"
+          },
+          {
+            "gapId": "GRE-OP02-02",
+            "extensionId": "GRX-002",
+            "semanticCapability": "DONE_IMPLEMENTATION_LIFECYCLE",
+            "status": "CLOSED",
+            "closedInEngineVersion": "0.2.0",
+            "blocksPublication": false,
+            "sourceResolution": "CLOSED_BY_GENERIC_RUNTIME_EXTENSION"
+          },
+          {
+            "gapId": "GRE-OP02-03",
+            "extensionId": "GRX-003",
+            "semanticCapability": "EFFECTIVENESS_ATTRIBUTION_FOLLOW_UP",
+            "status": "CLOSED",
+            "closedInEngineVersion": "0.2.0",
+            "blocksPublication": false,
+            "sourceResolution": "CLOSED_BY_GENERIC_RUNTIME_EXTENSION"
+          },
+          {
+            "gapId": "GRE-OP02-04",
+            "extensionId": "GRX-004",
+            "semanticCapability": "CONTEXTUAL_GOVERNED_PROPERTIES",
+            "status": "CLOSED",
+            "closedInEngineVersion": "0.2.0",
+            "blocksPublication": false,
+            "sourceResolution": "CLOSED_BY_GENERIC_RUNTIME_EXTENSION"
+          }
+        ]
+      },
+      "fixtures": {
+        "count": 10,
+        "pass": 7,
+        "governedJudgment": 3,
+        "fail": 0
+      },
+      "governance": {
+        "reviewStatus": "NOT_REQUESTED",
+        "evidence": "OUTDATED"
+      },
+      "publication": {
+        "status": "UNPUBLISHED",
+        "packId": "op-02",
+        "packVersion": "1.0.0",
+        "packChecksum": "sha256:7f8072073a12961bea852c5bee36cce1574836cb0bc59c8c27acbe6ae0ebc6cc"
+      },
+      "state": "VALIDATED",
+      "outcome": "REVIEW_REQUIRED",
+      "checks": [
+        {
+          "check": "RAW_REGISTRATION",
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "RAW_REGISTRATION",
+              "code": "ORIGINAL_CHECKSUM_ONLY",
+              "severity": "INFO",
+              "message": "el original histórico está anclado por SHA-256 en la baseline; la transcripción raw está en el repositorio",
+              "action": "ninguna",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "STRUCTURAL",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
+          "check": "REFERENTIAL",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
+          "check": "PROVENANCE",
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "PROVENANCE",
+              "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+              "severity": "INFO",
+              "message": "cierre histórico OP02-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+              "action": "ninguna",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "CANONICAL_TO_PACK",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
+          "check": "RUNTIME_COMPATIBILITY",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
+          "check": "FIXTURES",
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "FIXTURES",
+              "code": "GOVERNED_JUDGMENT_EXPECTED",
+              "severity": "INFO",
+              "message": "3 fixture(s) coinciden con su resultado esperado de revisión gobernada",
+              "action": "ninguna: el runtime difiere al juicio humano como declara la fuente",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "SOURCE_SILENCE",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
+          "check": "CAPABILITY_BRANCHING",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
+          "check": "GOLDEN_REGRESSION",
+          "status": "NOT_APPLICABLE",
+          "reasons": []
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "PUBLICATION_GATE",
+              "code": "HUMAN_PUBLICATION_AUTHORIZATION_REQUIRED",
+              "severity": "REVIEW",
+              "message": "falta autorización humana de publicación",
+              "action": "la autoridad de gobierno registra governance-review.json (decision, reviewer, reviewedAt) tras revisar el dossier de evidencia",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "GOVERNANCE_EVIDENCE",
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "GOVERNANCE_EVIDENCE",
+              "code": "GOVERNANCE_EVIDENCE_OUTDATED",
+              "severity": "REVIEW",
+              "message": "el dossier en disco no corresponde al estado técnico actual",
+              "action": "bun run knowledge:factory -- --write",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        }
+      ],
+      "reasons": [
+        {
+          "check": "RAW_REGISTRATION",
+          "code": "ORIGINAL_CHECKSUM_ONLY",
+          "severity": "INFO",
+          "message": "el original histórico está anclado por SHA-256 en la baseline; la transcripción raw está en el repositorio",
+          "action": "ninguna",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "PROVENANCE",
+          "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+          "severity": "INFO",
+          "message": "cierre histórico OP02-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+          "action": "ninguna",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "FIXTURES",
+          "code": "GOVERNED_JUDGMENT_EXPECTED",
+          "severity": "INFO",
+          "message": "3 fixture(s) coinciden con su resultado esperado de revisión gobernada",
+          "action": "ninguna: el runtime difiere al juicio humano como declara la fuente",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "code": "HUMAN_PUBLICATION_AUTHORIZATION_REQUIRED",
+          "severity": "REVIEW",
+          "message": "falta autorización humana de publicación",
+          "action": "la autoridad de gobierno registra governance-review.json (decision, reviewer, reviewedAt) tras revisar el dossier de evidencia",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "GOVERNANCE_EVIDENCE",
+          "code": "GOVERNANCE_EVIDENCE_OUTDATED",
+          "severity": "REVIEW",
+          "message": "el dossier en disco no corresponde al estado técnico actual",
+          "action": "bun run knowledge:factory -- --write",
+          "sourceLines": null,
+          "objectKey": null
+        }
+      ],
+      "metrics": {
+        "rawOriginalBytes": 283468,
+        "rawTextBytes": 358595,
+        "rawTextLines": 12503,
+        "candidateItems": null,
+        "canonicalObjects": 329,
+        "executableSections": 31,
+        "checksAutoPassed": 10,
+        "humanReviewItems": 2,
+        "notExplicit": 6,
+        "sourceContentNotRecovered": 0,
+        "transcriptionIssues": 1,
+        "runtimeExtensionsRequired": 0,
+        "runtimeExtensionsClosed": 4,
+        "testFailures": 0,
+        "publicationBlockers": 1
+      }
+    }
+  ],
+  "checksum": "sha256:89eeaf4e7c259953950917af3a1d479d0dfb40e6d04090fc73183d02453bf3b9"
+}

@@ -1,0 +1,171 @@
+{
+  "dossierType": "PRE_PUBLICATION_GOVERNANCE_EVIDENCE",
+  "statement": "Evidencia técnica automatizada para la revisión humana de gobierno. NO constituye aprobación, firma ni publicación; no contiene identidad humana.",
+  "capabilityId": "OP-02",
+  "factoryVersion": "pymapa-knowledge-factory/0.1.0",
+  "readiness": "READY_FOR_HUMAN_PUBLICATION_AUTHORIZATION",
+  "blockers": [],
+  "humanAuthorization": {
+    "present": false,
+    "required": true,
+    "artifact": "knowledge/master/<version>/capabilities/OP-02/governance-review.json",
+    "statement": "Solo una autoridad humana de gobierno puede registrar la decisión; la Factory nunca la genera."
+  },
+  "historicalClosure": {
+    "marker": "OP02-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      12319,
+      12319
+    ],
+    "statement": "Cierre histórico del conocimiento (provenance). No equivale a publicación técnica actual."
+  },
+  "identity": {
+    "rawOriginal": {
+      "filename": "OP-02_Completo.docx",
+      "sha256": "646fc9d1e7fc7df4825bf16a82687387437ed333204ffaff4c620a3b6ebb3da5"
+    },
+    "rawText": {
+      "ref": "raw/OP-02_Completo.txt",
+      "sha256": "db27a2976db128e87cbcfa9f2df1a40f461ff91cb0eb8b07110181b5c3b34800"
+    },
+    "canonicalBaselineChecksum": "sha256:8c24e39e0d4f31ac1006fc18dad5094bf16a4755e7596dfa90b7c2c90d016a00",
+    "executableSourceChecksum": "sha256:7adea6a30966750ac06eded4d83491da0bc4c4b112f75ca9755d1cf616c638b4",
+    "packCandidate": {
+      "packId": "op-02",
+      "packVersion": "1.0.0",
+      "checksum": "sha256:7f8072073a12961bea852c5bee36cce1574836cb0bc59c8c27acbe6ae0ebc6cc"
+    }
+  },
+  "transcriptionCorrections": [
+    {
+      "id": "TC-OP02-01",
+      "kind": "SOURCE_TO_CANONICAL_OMISSION",
+      "detectedIn": "M2-OP02-02",
+      "correctedIn": "M2-OP02-03",
+      "objectKey": "IP05"
+    }
+  ],
+  "runtimeExtensions": [
+    {
+      "gapId": "GRE-OP02-01",
+      "extensionId": "GRX-001",
+      "semanticCapability": "INTERVENTION_PATTERN_OWNED_VALIDATION_REQUIREMENTS",
+      "status": "CLOSED",
+      "closedInEngineVersion": "0.2.0"
+    },
+    {
+      "gapId": "GRE-OP02-02",
+      "extensionId": "GRX-002",
+      "semanticCapability": "DONE_IMPLEMENTATION_LIFECYCLE",
+      "status": "CLOSED",
+      "closedInEngineVersion": "0.2.0"
+    },
+    {
+      "gapId": "GRE-OP02-03",
+      "extensionId": "GRX-003",
+      "semanticCapability": "EFFECTIVENESS_ATTRIBUTION_FOLLOW_UP",
+      "status": "CLOSED",
+      "closedInEngineVersion": "0.2.0"
+    },
+    {
+      "gapId": "GRE-OP02-04",
+      "extensionId": "GRX-004",
+      "semanticCapability": "CONTEXTUAL_GOVERNED_PROPERTIES",
+      "status": "CLOSED",
+      "closedInEngineVersion": "0.2.0"
+    }
+  ],
+  "notExplicit": [
+    "NE-OP02-01",
+    "NE-OP02-02",
+    "NE-OP02-03",
+    "NE-OP02-04",
+    "NE-OP02-05",
+    "NE-OP02-06"
+  ],
+  "governedBacklog": [
+    "A-OP02-01",
+    "A-OP02-02",
+    "A-OP02-03"
+  ],
+  "transversalCandidates": 12,
+  "engine": {
+    "current": "0.2.0",
+    "required": "0.2.0",
+    "semanticChangesCovered": [
+      "ENG-0.2-01",
+      "ENG-0.2-02",
+      "ENG-0.2-03",
+      "ENG-0.2-04",
+      "ENG-0.2-05",
+      "ENG-0.2-06"
+    ]
+  },
+  "checks": [
+    {
+      "check": "RAW_REGISTRATION",
+      "status": "PASS"
+    },
+    {
+      "check": "CANDIDATE_BOUNDARY",
+      "status": "NOT_RUN"
+    },
+    {
+      "check": "STRUCTURAL",
+      "status": "PASS"
+    },
+    {
+      "check": "REFERENTIAL",
+      "status": "PASS"
+    },
+    {
+      "check": "SOURCE_TO_CANONICAL",
+      "status": "PASS"
+    },
+    {
+      "check": "PROVENANCE",
+      "status": "PASS"
+    },
+    {
+      "check": "CANONICAL_TO_PACK",
+      "status": "PASS"
+    },
+    {
+      "check": "RUNTIME_COMPATIBILITY",
+      "status": "PASS"
+    },
+    {
+      "check": "FIXTURES",
+      "status": "PASS"
+    },
+    {
+      "check": "SOURCE_SILENCE",
+      "status": "PASS"
+    },
+    {
+      "check": "CAPABILITY_BRANCHING",
+      "status": "PASS"
+    },
+    {
+      "check": "GOLDEN_REGRESSION",
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "check": "PUBLICATION_GATE",
+      "status": "REVIEW_REQUIRED"
+    }
+  ],
+  "fixtures": {
+    "count": 10,
+    "pass": 7,
+    "governedJudgment": 3,
+    "fail": 0
+  },
+  "referenceRegression": [
+    {
+      "capabilityId": "OP-01",
+      "goldenStatus": "PASS"
+    }
+  ],
+  "checksum": "sha256:986948ec0931d95108a48d893eaa320c48f5ced6a3c87c35a4d0c8f8f22f22d9"
+}
