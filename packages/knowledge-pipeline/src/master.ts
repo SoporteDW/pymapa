@@ -51,6 +51,17 @@ export const gapSchema = z.object({
   /** Clasificación explícita: no todo gap bloquea publicación. */
   publicationBlocking: z.boolean(),
   sourceReference: z.string().optional(),
+  /**
+   * M2 runtime closure: cierre de un GENERIC_RUNTIME_EXTENSION_REQUIRED por extensión
+   * genérica del engine. El gap se conserva como registro histórico.
+   */
+  resolution: z
+    .object({
+      status: z.literal("CLOSED_BY_GENERIC_RUNTIME_EXTENSION"),
+      closedBy: z.string().min(1),
+      note: z.string().min(1),
+    })
+    .optional(),
 });
 export type KnowledgeGap = z.infer<typeof gapSchema>;
 

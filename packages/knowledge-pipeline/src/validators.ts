@@ -66,6 +66,9 @@ export const SUPPORTED_VALIDATION_CONDITION_KINDS = [
   "DISTINCT_SECOND_EXECUTOR",
   "CONSECUTIVE_CORRECT_CASES",
   "NO_CRITICAL_ASSISTANCE",
+  /* M2 runtime closure: condiciones que exigen juicio humano registrado. */
+  "GOVERNED_STATEMENT",
+  "JUSTIFYING_CONDITION_REFERENCE",
 ] as const;
 
 function issue(
@@ -109,10 +112,12 @@ interface PackLike {
   rules?: { id: string; classification: string; implemented: boolean; statement: string }[];
   findings?: { id: string; ruleRefs?: string[] }[];
   activities?: { id: string }[];
+  interventionPatterns?: { id: string; deliverables?: { id: string }[] }[];
   recommendations?: { id: string; findingRefs?: string[] }[];
   validationRequirements?: {
     id: string;
-    activityRef: string;
+    activityRef?: string;
+    owner?: { kind: string; ref: string };
     conditions?: { id: string; kind: string }[];
   }[];
   evidence?: {
@@ -197,10 +202,36 @@ export function validateReferential(pack: unknown): StageResult {
     });
   });
 
+  // CRV: el dueño gobernado puede ser Activity, patrón de intervención o
+  // deliverable. activityRef se conserva como forma retrocompatible.
   const actividades = new Set((p.activities ?? []).map((a) => a.id));
+  const patrones = new Set((p.interventionPatterns ?? []).map((ip) => ip.id));
+  const entregables = new Set(
+    (p.interventionPatterns ?? []).flatMap((ip) => (ip.deliverables ?? []).map((d) => d.id)),
+  );
   (p.validationRequirements ?? []).forEach((crv, i) => {
-    if (!actividades.has(crv.activityRef)) {
-      add("REFERENCE_UNKNOWN", `validationRequirements.${i}.activityRef`, `actividad desconocida`);
+    const owner = crv.owner ?? (crv.activityRef ? { kind: "ACTIVITY", ref: crv.activityRef } : null);
+    const campo = crv.owner ? "owner.ref" : "activityRef";
+    if (!owner) {
+      add("REFERENCE_UNKNOWN", `validationRequirements.${i}.owner`, `CRV sin dueño gobernado`);
+      return;
+    }
+    const universo =
+      owner.kind === "ACTIVITY"
+        ? actividades
+        : owner.kind === "INTERVENTION_PATTERN"
+          ? patrones
+          : owner.kind === "DELIVERABLE"
+            ? entregables
+            : new Set<string>();
+    const etiqueta =
+      owner.kind === "ACTIVITY"
+        ? "actividad desconocida"
+        : owner.kind === "INTERVENTION_PATTERN"
+          ? "patrón de intervención desconocido"
+          : "deliverable desconocido";
+    if (!universo.has(owner.ref)) {
+      add("REFERENCE_UNKNOWN", `validationRequirements.${i}.${campo}`, etiqueta);
     }
   });
 

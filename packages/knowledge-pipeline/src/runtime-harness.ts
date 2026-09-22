@@ -28,6 +28,7 @@ export interface RuntimeAcceptanceResult {
     needsReview: boolean;
     contradictionVariableRefs: string[];
     findingCandidateRefs: string[];
+    findingsAwaitingResolution: { findingRef: string; status: string }[];
     confirmedFindings: number;
   };
   note: string;
@@ -57,6 +58,7 @@ export function runRuntimeAcceptance(input: {
         needsReview: false,
         contradictionVariableRefs: [],
         findingCandidateRefs: [],
+        findingsAwaitingResolution: [],
         confirmedFindings: 0,
       },
       note: "el fixture no cumple su contrato",
@@ -106,6 +108,10 @@ export function runRuntimeAcceptance(input: {
     needsReview: evaluacion.needsReview,
     contradictionVariableRefs: evaluacion.contradictions.map((c) => c.variableRef),
     findingCandidateRefs: evaluacion.findingCandidates.map((f) => f.findingRef),
+    findingsAwaitingResolution: evaluacion.findingsAwaitingResolution.map((f) => ({
+      findingRef: f.findingRef,
+      status: f.status,
+    })),
     confirmedFindings: evaluacion.findings.length,
   };
 
@@ -159,6 +165,15 @@ export function runRuntimeAcceptance(input: {
     const reales = [...observed.findingCandidateRefs].sort();
     if (JSON.stringify(esperadas) !== JSON.stringify(reales)) {
       mismatches.push({ path: "findingCandidates", expected: esperadas, actual: reales });
+    }
+  }
+
+  if (fixture.expected.findingsAwaitingResolution) {
+    const clave = (f: { findingRef: string; status: string }) => `${f.findingRef}:${f.status}`;
+    const esperadas = fixture.expected.findingsAwaitingResolution.map(clave).sort();
+    const reales = observed.findingsAwaitingResolution.map(clave).sort();
+    if (JSON.stringify(esperadas) !== JSON.stringify(reales)) {
+      mismatches.push({ path: "findingsAwaitingResolution", expected: esperadas, actual: reales });
     }
   }
 

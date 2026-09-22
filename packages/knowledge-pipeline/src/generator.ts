@@ -49,6 +49,17 @@ export const PACK_SECTION_KEYS = [
   "validationRequirementsNote",
   "crossCapabilityReferences",
   "knowledgeChangeCandidates",
+  /* M2 runtime closure · ciclo de vida genérico (opcionales) */
+  "interventionPatterns",
+  "implementationModel",
+  "effectivenessModel",
+  "attributionModel",
+  "validationModel",
+  "followUp",
+  "reassessment",
+  "severity",
+  "contextualization",
+  "engineActions",
 ] as const;
 
 /** Claves del pack que el generador fija por sí mismo (identidad, no semántica). */
