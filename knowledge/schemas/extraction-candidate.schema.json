@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Candidato de extracción (no conocimiento aprobado)",
+  "description": "Contrato autoritativo: extractionCandidateSchema (packages/knowledge-pipeline/src/candidate.ts). Toda salida (herramienta, humano o IA) es CANDIDATE hasta aceptación canónica humana.",
+  "type": "object",
+  "required": [
+    "candidateId",
+    "capabilityId",
+    "status",
+    "registration",
+    "producedBy",
+    "baselineId",
+    "historicalStatus",
+    "provenanceVocabulary",
+    "controlCounts",
+    "verbatimKeys",
+    "items",
+    "checksum"
+  ],
+  "properties": {
+    "capabilityId": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}-\\d{2}$"
+    },
+    "status": {
+      "const": "CANDIDATE"
+    },
+    "producedBy": {
+      "type": "object",
+      "properties": {
+        "method": {
+          "enum": [
+            "DETERMINISTIC_TOOL",
+            "HUMAN_TRANSCRIPTION",
+            "AI_ASSISTED"
+          ]
+        }
+      }
+    },
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "key",
+          "classification",
+          "objectType",
+          "sourceId",
+          "fields",
+          "sourceLines"
+        ],
+        "properties": {
+          "classification": {
+            "enum": [
+              "FINAL_APPROVED",
+              "HISTORICAL_DRAFT",
+              "SUPERSEDED",
+              "GOVERNED_BACKLOG",
+              "TRANSVERSAL_CANDIDATE",
+              "NOT_EXPLICIT",
+              "SOURCE_CONTENT_NOT_RECOVERED",
+              "POTENTIAL_TRANSCRIPTION_DEFECT",
+              "GENERIC_RUNTIME_EXTENSION_REQUIRED"
+            ]
+          },
+          "sourceLines": {
+            "oneOf": [
+              {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "checksum": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    }
+  }
+}

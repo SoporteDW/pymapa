@@ -16,7 +16,10 @@
     "knowledge:validate": "bun run scripts/knowledge-pipeline.ts --check",
     "knowledge:write": "bun run scripts/knowledge-pipeline.ts --write",
     "knowledge:seal": "bun run scripts/knowledge-seal.ts",
-    "knowledge:seal:check": "bun run scripts/knowledge-seal.ts --check"
+    "knowledge:seal:check": "bun run scripts/knowledge-seal.ts --check",
+    "knowledge:factory": "bun run scripts/knowledge-factory.ts",
+    "knowledge:factory:write": "bun run scripts/knowledge-factory.ts --write",
+    "knowledge:factory:check": "bun run scripts/knowledge-factory.ts --check"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

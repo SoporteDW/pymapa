@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Registro genérico de extensiones de runtime",
+  "description": "Contrato autoritativo: runtimeExtensionRegistrySchema (packages/knowledge-pipeline/src/runtime-extensions.ts). Una extensión solo se cierra por un cambio genérico del engine registrado en ENGINE_SEMANTIC_HISTORY.",
+  "type": "object",
+  "required": [
+    "registryId",
+    "entries",
+    "checksum"
+  ],
+  "properties": {
+    "registryId": {
+      "type": "string"
+    },
+    "statement": {
+      "type": "string"
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "extensionId",
+          "semanticCapability",
+          "statement",
+          "status",
+          "publicationBlockingWhileOpen",
+          "occurrences"
+        ],
+        "properties": {
+          "extensionId": {
+            "type": "string",
+            "pattern": "^GRX-\\d{3}$"
+          },
+          "semanticCapability": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Z0-9_]*$"
+          },
+          "statement": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "OPEN",
+              "CLOSED"
+            ]
+          },
+          "closedInEngineVersion": {
+            "type": "string"
+          },
+          "engineChangeRefs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "publicationBlockingWhileOpen": {
+            "type": "boolean"
+          },
+          "occurrences": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "capabilityId",
+                "gapId",
+                "affectedObjectTypes",
+                "sourceEvidence"
+              ],
+              "properties": {
+                "capabilityId": {
+                  "type": "string",
+                  "pattern": "^[A-Z]{2}-\\d{2}$"
+                },
+                "gapId": {
+                  "type": "string"
+                },
+                "affectedObjectTypes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "sourceEvidence": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "checksum": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    }
+  }
+}

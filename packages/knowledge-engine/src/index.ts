@@ -85,7 +85,8 @@ export const ENGINE_SEMANTIC_HISTORY: readonly {
       {
         id: "ENG-0.2-05",
         semantic: "ATTRIBUTION",
-        statement: "Confianza de atribución evaluada de forma independiente de la efectividad; resultado ≠ atribución.",
+        statement:
+          "Confianza de atribución evaluada de forma independiente de la efectividad; resultado ≠ atribución.",
       },
       {
         id: "ENG-0.2-06",

@@ -7,6 +7,8 @@ on:
       - "knowledge/packs/**"
       - "knowledge/schemas/**"
       - "knowledge/fixtures/**"
+      - "knowledge/factory/**"
+      - "knowledge/intake/**"
       - "packages/knowledge-pipeline/**"
       - "packages/knowledge-schema/**"
       - "packages/knowledge-engine/**"
@@ -17,6 +19,8 @@ on:
       - "knowledge/packs/**"
       - "knowledge/schemas/**"
       - "knowledge/fixtures/**"
+      - "knowledge/factory/**"
+      - "knowledge/intake/**"
       - "packages/knowledge-pipeline/**"
       - "packages/knowledge-schema/**"
       - "packages/knowledge-engine/**"
@@ -35,6 +39,10 @@ jobs:
       # knowledge tests, fixtures, regresión del Golden Pack y manifest al día.
       - name: Validar pipeline de conocimiento
         run: bun run knowledge:validate
+      # Knowledge Factory por lotes: estado independiente por capacidad,
+      # dossiers de evidencia, batch manifest y benchmark al día.
+      - name: Validar Knowledge Factory
+        run: bun run knowledge:factory:check
       - name: Pruebas
         run: bun run test
       - name: Typecheck
