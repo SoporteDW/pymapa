@@ -63,6 +63,18 @@ export const fixtureSchema = z.object({
     needsReview: z.boolean().optional(),
     contradictionVariableRefs: z.array(z.string()).optional(),
     findingCandidateRefs: z.array(z.string()).optional(),
+    /**
+     * M2-OP02-02: findings con observaciones vinculadas pero sin soporte KNOWN.
+     * UNKNOWN / NOT_APPLICABLE / CONTRADICTORY nunca sostienen un candidato.
+     */
+    findingsAwaitingResolution: z
+      .array(
+        z.object({
+          findingRef: z.string().min(1),
+          status: z.enum(["AWAITING_INFORMATION", "EXCLUDED_NOT_APPLICABLE", "BLOCKED_BY_CONTRADICTION"]),
+        }),
+      )
+      .optional(),
     /** Referencias de finding que NUNCA deben confirmarse automáticamente. */
     noConfirmedFindings: z.boolean().optional(),
     note: z.string().optional(),
