@@ -1,0 +1,108 @@
+{
+  "$schema": "../schemas/runtime-extension-registry.schema.json",
+  "registryId": "PYMAPA-GENERIC-RUNTIME-EXTENSIONS",
+  "statement": "Registro de capacidades semánticas genéricas que el runtime necesitó para ejecutar fuentes gobernadas. Una extensión se cierra solo por un cambio genérico del engine (ENGINE_SEMANTIC_HISTORY); nunca por branching de capacidad.",
+  "entries": [
+    {
+      "extensionId": "GRX-001",
+      "semanticCapability": "INTERVENTION_PATTERN_OWNED_VALIDATION_REQUIREMENTS",
+      "statement": "Requisitos de validación cuyo dueño es un patrón de intervención o entregable, con condiciones de juicio gobernado.",
+      "status": "CLOSED",
+      "closedInEngineVersion": "0.2.0",
+      "engineChangeRefs": [
+        "ENG-0.2-02"
+      ],
+      "publicationBlockingWhileOpen": false,
+      "occurrences": [
+        {
+          "capabilityId": "OP-02",
+          "gapId": "GRE-OP02-01",
+          "affectedObjectTypes": [
+            "RESULT_CRITERION"
+          ],
+          "sourceEvidence": "canonical-baseline.json gaps[GRE-OP02-01] · OP02-K4-v1.0 · K4-VALIDATED · CLOSED · Los 9 CRV de OP-02 pertenecen a patrones de intervención (IP01–IP08), no a Activities. El contrato ejecutable de CRV exige activityRef y solo admite condiciones DISTINCT_SECOND_EXECUTOR / CONSECUTIVE_CORRECT_CASES / NO_CRITICAL_ASSISTANCE. Los CRV se preservan en la baseline canónica y no se proyectan al pack ejecutable."
+        }
+      ]
+    },
+    {
+      "extensionId": "GRX-002",
+      "semanticCapability": "DONE_IMPLEMENTATION_LIFECYCLE",
+      "statement": "Patrones de intervención, capas y criterios de Done, instrumentos, entregables y estados de implementación.",
+      "status": "CLOSED",
+      "closedInEngineVersion": "0.2.0",
+      "engineChangeRefs": [
+        "ENG-0.2-03"
+      ],
+      "publicationBlockingWhileOpen": false,
+      "occurrences": [
+        {
+          "capabilityId": "OP-02",
+          "gapId": "GRE-OP02-02",
+          "affectedObjectTypes": [
+            "INTERVENTION_PATTERN",
+            "INSTRUMENT",
+            "DELIVERABLE",
+            "DONE_CRITERION",
+            "DONE_LAYER",
+            "EXECUTION_STATE",
+            "DONE_RULE"
+          ],
+          "sourceEvidence": "canonical-baseline.json gaps[GRE-OP02-02] · OP02-K4-v1.0 · K4-VALIDATED · CLOSED · Patrones de intervención, instrumentos, entregables, Done Criteria (DC-A/DC-B/DC-C, DCxx.y) y estados de ejecución I0–I3 no tienen contrato en el Knowledge Pack ejecutable. Se preservan en la baseline canónica."
+        }
+      ]
+    },
+    {
+      "extensionId": "GRX-003",
+      "semanticCapability": "EFFECTIVENESS_ATTRIBUTION_FOLLOW_UP",
+      "statement": "Estados de efectividad, confianza de atribución, follow-up y reassessment declarados por el pack.",
+      "status": "CLOSED",
+      "closedInEngineVersion": "0.2.0",
+      "engineChangeRefs": [
+        "ENG-0.2-04",
+        "ENG-0.2-05",
+        "ENG-0.2-06"
+      ],
+      "publicationBlockingWhileOpen": false,
+      "occurrences": [
+        {
+          "capabilityId": "OP-02",
+          "gapId": "GRE-OP02-03",
+          "affectedObjectTypes": [
+            "EFFECTIVENESS_STATE",
+            "ATTRIBUTION_CONFIDENCE",
+            "VALIDATION_RULE",
+            "VALIDATION_DECISION",
+            "FOLLOW_UP_RULE",
+            "REASSESSMENT_RULE"
+          ],
+          "sourceEvidence": "canonical-baseline.json gaps[GRE-OP02-03] · OP02-K4-v1.0 · K4-VALIDATED · CLOSED · Estados de efectividad R0–R4, confianza de atribución AC0–AC3, decisiones post-validación, follow-up (FOLLOWUP-OP02-01/02) y reassessment de OP-02 no tienen contrato en el Knowledge Pack ejecutable. La capa productiva genérica (M1-KL) conserva su propio modelo; no se mapea sin gobierno."
+        }
+      ]
+    },
+    {
+      "extensionId": "GRX-004",
+      "semanticCapability": "CONTEXTUAL_GOVERNED_PROPERTIES",
+      "statement": "Severidad, confianza, contextualización y acciones del engine con resolución contextual gobernada.",
+      "status": "CLOSED",
+      "closedInEngineVersion": "0.2.0",
+      "engineChangeRefs": [
+        "ENG-0.2-01"
+      ],
+      "publicationBlockingWhileOpen": false,
+      "occurrences": [
+        {
+          "capabilityId": "OP-02",
+          "gapId": "GRE-OP02-04",
+          "affectedObjectTypes": [
+            "CONTEXT_RULE",
+            "SEVERITY_LEVEL",
+            "CONFIDENCE_RULE",
+            "ENGINE_ACTION"
+          ],
+          "sourceEvidence": "canonical-baseline.json gaps[GRE-OP02-04] · OP02-K4-v1.0 · K4-VALIDATED · CLOSED · Reglas de contextualización CTX-OP02-01…07, severidad S0–S3, confianza C0–C3 con CONF-OP02-01 / CONF-SEV-OP02-02, y acciones REUSE/STOP/FOLLOW/EVIDENCE/CONTRA/DERIVE/NA no son ejecutables por el runtime actual. El pack declara estados y factores como texto; el runtime devuelve sufficiency/confidence null sin fórmula."
+        }
+      ]
+    }
+  ],
+  "checksum": "sha256:bff7b082fea8b2c44dd6ec0b54535c86f7d829d7663a9b4941aab16b1b33fc66"
+}
