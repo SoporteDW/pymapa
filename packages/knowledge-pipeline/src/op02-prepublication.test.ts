@@ -117,7 +117,7 @@ describe("M2-OP02-03 · IP05 Done Criteria (corrección de transcripción)", () 
     it("valor posterior no literal", () => {
       const codes = conCorreccion((b) => {
         const texto = "Las dependencias críticas están claras.";
-        b.transcriptionCorrections[0].after = [texto];
+        b["transcriptionCorrections"][0].after = [texto];
         detalleIp05(b as { objects: Obj[] }).fields["doneCriteria"] = [texto];
       });
       expect(codes).toContain("NOT_VERBATIM");
@@ -130,13 +130,13 @@ describe("M2-OP02-03 · IP05 Done Criteria (corrección de transcripción)", () 
     });
     it("anclada a otra transcripción raw", () => {
       const codes = conCorreccion((b) => {
-        b.transcriptionCorrections[0].rawSha256 = "0".repeat(64);
+        b["transcriptionCorrections"][0].rawSha256 = "0".repeat(64);
       });
       expect(codes).toContain("TRANSCRIPTION_CORRECTION");
     });
     it("rango fuera del objeto", () => {
       const codes = conCorreccion((b) => {
-        b.transcriptionCorrections[0].sourceLines = [6983, 6999];
+        b["transcriptionCorrections"][0].sourceLines = [6983, 6999];
       });
       expect(codes).toContain("TRANSCRIPTION_CORRECTION");
     });
