@@ -1,0 +1,6857 @@
+{
+  "$schema": "../../../../schemas/capability-canonical-baseline.schema.json",
+  "baselineId": "OP02-K4-v1.0",
+  "capabilityId": "OP-02",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "historicalStatus": {
+    "marker": "OP02-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      12319,
+      12319
+    ]
+  },
+  "rawSource": {
+    "ref": "raw/OP-02_Completo.txt",
+    "sha256": "db27a2976db128e87cbcfa9f2df1a40f461ff91cb0eb8b07110181b5c3b34800",
+    "byteLength": 358595,
+    "lineCount": 12503,
+    "transcription": {
+      "tool": "pandoc 3.7.0.2",
+      "arguments": "-t plain --wrap=none"
+    },
+    "originalDocument": {
+      "filename": "OP-02_Completo.docx",
+      "byteLength": 283468,
+      "sha256": "646fc9d1e7fc7df4825bf16a82687387437ed333204ffaff4c620a3b6ebb3da5"
+    }
+  },
+  "provenanceVocabulary": [
+    {
+      "code": "SOURCE_ASSERTED",
+      "label": "Fuente externa",
+      "meaning": "La afirmación/concepto está directamente sustentado por una fuente identificable",
+      "sourceLines": [
+        9711,
+        9711
+      ]
+    },
+    {
+      "code": "DIGIWAY_INTERNAL",
+      "label": "Conocimiento propio",
+      "meaning": "Proviene de metodologías/materiales Digiway",
+      "sourceLines": [
+        9713,
+        9713
+      ]
+    },
+    {
+      "code": "PYMAPA_DERIVED",
+      "label": "Síntesis del Motor",
+      "meaning": "Pymapa deriva una regla/estructura a partir de varias fuentes y decisiones metodológicas",
+      "sourceLines": [
+        9715,
+        9715
+      ]
+    },
+    {
+      "code": "CONTEXTUAL",
+      "label": "Conocimiento contextual",
+      "meaning": "Especialización válida solo bajo determinadas condiciones",
+      "sourceLines": [
+        9717,
+        9717
+      ]
+    }
+  ],
+  "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 5,
+      "objectType": "CONDITION_OF_EXISTENCE",
+      "sourceLines": [
+        12364,
+        12364
+      ]
+    },
+    {
+      "label": "VA",
+      "declared": 10,
+      "objectType": "APPLIED_VARIABLE",
+      "sourceLines": [
+        12366,
+        12366
+      ]
+    },
+    {
+      "label": "Reglas diagnósticas primarias",
+      "declared": 10,
+      "objectType": "DIAGNOSTIC_RULE",
+      "sourceLines": [
+        12368,
+        12368
+      ],
+      "role": "PRIMARY"
+    },
+    {
+      "label": "Guardrails/derivaciones diagnósticas",
+      "declared": 5,
+      "objectType": "DIAGNOSTIC_RULE",
+      "sourceLines": [
+        12370,
+        12370
+      ],
+      "role": "GUARDRAIL_OR_DERIVATION"
+    },
+    {
+      "label": "Familias de hallazgo",
+      "declared": 8,
+      "objectType": "FINDING_FAMILY",
+      "sourceLines": [
+        12372,
+        12372
+      ]
+    },
+    {
+      "label": "Variantes principales de hallazgo",
+      "declared": 9,
+      "objectType": "FINDING_VARIANT",
+      "sourceLines": [
+        12374,
+        12374
+      ]
+    },
+    {
+      "label": "Patrones de intervención",
+      "declared": 8,
+      "objectType": "INTERVENTION_PATTERN",
+      "sourceLines": [
+        12376,
+        12376
+      ]
+    },
+    {
+      "label": "Familias de instrumentos",
+      "declared": 8,
+      "objectType": "INSTRUMENT",
+      "sourceLines": [
+        12378,
+        12378
+      ]
+    },
+    {
+      "label": "Familias de entregables",
+      "declared": 8,
+      "objectType": "DELIVERABLE",
+      "sourceLines": [
+        12380,
+        12380
+      ]
+    },
+    {
+      "label": "CRV principales",
+      "declared": 9,
+      "objectType": "RESULT_CRITERION",
+      "sourceLines": [
+        12382,
+        12382
+      ]
+    },
+    {
+      "label": "Quality Gates",
+      "declared": 4,
+      "objectType": "QUALITY_GATE",
+      "sourceLines": [
+        12384,
+        12384
+      ]
+    },
+    {
+      "label": "Definition of Done",
+      "declared": 27,
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceLines": [
+        12386,
+        12386
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "key": "IDENTITY",
+      "objectType": "CAPABILITY_IDENTITY",
+      "sourceId": "OP-02",
+      "fields": {
+        "name": "Planificar, coordinar y ejecutar procesos y recursos de manera consistente"
+      },
+      "sourceLines": [
+        67,
+        67
+      ]
+    },
+    {
+      "key": "CENTRAL_QUESTION",
+      "objectType": "CENTRAL_QUESTION",
+      "sourceId": null,
+      "fields": {
+        "statement": "¿esa forma puede planificarse, coordinarse y ejecutarse consistentemente bajo condiciones operacionales reales?"
+      },
+      "sourceLines": [
+        12462,
+        12462
+      ]
+    },
+    {
+      "key": "BOUNDARY",
+      "objectType": "BOUNDARY",
+      "sourceId": null,
+      "fields": {
+        "statement": "La capacidad no evalúa principalmente:",
+        "exclusions": [
+          "- si el proceso está bien diseñado → OP-01;",
+          "- integración E2E → OP-03;",
+          "- automatización → OP-04;",
+          "- ejecución de iniciativas → OP-05;",
+          "- competencias → PC;",
+          "- tecnología → DT."
+        ]
+      },
+      "sourceLines": [
+        11402,
+        11414
+      ]
+    },
+    {
+      "key": "UA-OP02-v0.8",
+      "objectType": "UNIT_OF_ANALYSIS",
+      "sourceId": "UA-OP02-v0.8",
+      "fields": {
+        "statement": "Ejecución recurrente de un proceso relevante, evaluada en relación con su carga y compromisos operativos, recursos/capacidad disponibles y condiciones materiales de ejecución."
+      },
+      "sourceLines": [
+        2870,
+        2876
+      ]
+    },
+    {
+      "key": "OP02-CEVA-v0.8",
+      "objectType": "VERSION_MARKER",
+      "sourceId": "OP02-CEVA-v0.8",
+      "fields": {
+        "marker": "OP02-CEVA-v0.8 · CANDIDATE-FROZEN"
+      },
+      "sourceLines": [
+        2836,
+        2836
+      ]
+    },
+    {
+      "key": "CE01",
+      "objectType": "CONDITION_OF_EXISTENCE",
+      "sourceId": "CE01",
+      "fields": {
+        "id": "CE01",
+        "name": "Planificación y priorización de la ejecución"
+      },
+      "sourceLines": [
+        2843,
+        2843
+      ],
+      "annotations": [
+        {
+          "relation": "EARLIER_IDENTIFIER",
+          "fields": {
+            "id": "OP02-CE01",
+            "name": "Planificación y priorización de la ejecución"
+          },
+          "sourceLines": [
+            695,
+            695
+          ]
+        },
+        {
+          "relation": "K1_CONFIRMED",
+          "fields": {
+            "text": "CE01 · Planificación y priorización de la ejecución"
+          },
+          "sourceLines": [
+            11420,
+            11432
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CE02",
+      "objectType": "CONDITION_OF_EXISTENCE",
+      "sourceId": "CE02",
+      "fields": {
+        "id": "CE02",
+        "name": "Capacidad y disposición de recursos"
+      },
+      "sourceLines": [
+        2847,
+        2847
+      ],
+      "annotations": [
+        {
+          "relation": "EARLIER_IDENTIFIER",
+          "fields": {
+            "id": "OP02-CE02",
+            "name": "Capacidad y disposición de recursos"
+          },
+          "sourceLines": [
+            717,
+            717
+          ]
+        },
+        {
+          "relation": "K1_CONFIRMED",
+          "fields": {
+            "text": "CE02 · Capacidad y disposición de recursos"
+          },
+          "sourceLines": [
+            11420,
+            11432
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CE03",
+      "objectType": "CONDITION_OF_EXISTENCE",
+      "sourceId": "CE03",
+      "fields": {
+        "id": "CE03",
+        "name": "Coordinación operativa"
+      },
+      "sourceLines": [
+        2853,
+        2853
+      ],
+      "annotations": [
+        {
+          "relation": "EARLIER_IDENTIFIER",
+          "fields": {
+            "id": "OP02-CE03",
+            "name": "Coordinación operativa"
+          },
+          "sourceLines": [
+            735,
+            735
+          ]
+        },
+        {
+          "relation": "K1_CONFIRMED",
+          "fields": {
+            "text": "CE03 · Coordinación operativa"
+          },
+          "sourceLines": [
+            11420,
+            11432
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CE04",
+      "objectType": "CONDITION_OF_EXISTENCE",
+      "sourceId": "CE04",
+      "fields": {
+        "id": "CE04",
+        "name": "Consistencia de ejecución"
+      },
+      "sourceLines": [
+        2855,
+        2855
+      ],
+      "annotations": [
+        {
+          "relation": "EARLIER_IDENTIFIER",
+          "fields": {
+            "id": "OP02-CE04",
+            "name": "Consistencia de ejecución"
+          },
+          "sourceLines": [
+            759,
+            759
+          ]
+        },
+        {
+          "relation": "K1_CONFIRMED",
+          "fields": {
+            "text": "CE04 · Consistencia de ejecución"
+          },
+          "sourceLines": [
+            11420,
+            11432
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CE05",
+      "objectType": "CONDITION_OF_EXISTENCE",
+      "sourceId": "CE05",
+      "fields": {
+        "id": "CE05",
+        "name": "Detección y respuesta ante desviaciones"
+      },
+      "sourceLines": [
+        2859,
+        2859
+      ],
+      "annotations": [
+        {
+          "relation": "EARLIER_IDENTIFIER",
+          "fields": {
+            "id": "OP02-CE05",
+            "name": "Detección y respuesta ante desviaciones"
+          },
+          "sourceLines": [
+            783,
+            783
+          ]
+        },
+        {
+          "relation": "K1_CONFIRMED",
+          "fields": {
+            "text": "CE05 · Detección y respuesta ante desviaciones"
+          },
+          "sourceLines": [
+            11420,
+            11432
+          ]
+        }
+      ]
+    },
+    {
+      "key": "VA01",
+      "objectType": "APPLIED_VARIABLE",
+      "sourceId": "VA01",
+      "fields": {
+        "id": "VA01",
+        "name": "Visibilidad de carga y compromisos operativos",
+        "conditionRef": "CE01"
+      },
+      "sourceLines": [
+        2843,
+        2843
+      ],
+      "annotations": [
+        {
+          "relation": "SECTION_HEADING",
+          "fields": {
+            "text": "VA01 · Visibilidad de carga y compromisos"
+          },
+          "sourceLines": [
+            2920,
+            2920
+          ]
+        }
+      ]
+    },
+    {
+      "key": "VA02",
+      "objectType": "APPLIED_VARIABLE",
+      "sourceId": "VA02",
+      "fields": {
+        "id": "VA02",
+        "name": "Priorización y programación del trabajo",
+        "conditionRef": "CE01"
+      },
+      "sourceLines": [
+        2843,
+        2845
+      ],
+      "annotations": [
+        {
+          "relation": "SECTION_HEADING",
+          "fields": {
+            "text": "VA02 · Priorización y programación"
+          },
+          "sourceLines": [
+            2942,
+            2942
+          ]
+        }
+      ]
+    },
+    {
+      "key": "VA03",
+      "objectType": "APPLIED_VARIABLE",
+      "sourceId": "VA03",
+      "fields": {
+        "id": "VA03",
+        "name": "Disponibilidad efectiva y oportuna de recursos necesarios",
+        "conditionRef": "CE02"
+      },
+      "sourceLines": [
+        2847,
+        2847
+      ],
+      "annotations": [
+        {
+          "relation": "SECTION_HEADING",
+          "fields": {
+            "text": "VA03 · Disponibilidad efectiva de recursos"
+          },
+          "sourceLines": [
+            2966,
+            2966
+          ]
+        }
+      ]
+    },
+    {
+      "key": "VA04",
+      "objectType": "APPLIED_VARIABLE",
+      "sourceId": "VA04",
+      "fields": {
+        "id": "VA04",
+        "name": "Adecuación entre capacidad disponible y carga operativa",
+        "conditionRef": "CE02"
+      },
+      "sourceLines": [
+        2847,
+        2849
+      ],
+      "annotations": [
+        {
+          "relation": "SECTION_HEADING",
+          "fields": {
+            "text": "VA04 · Adecuación capacidad–carga"
+          },
+          "sourceLines": [
+            2990,
+            2990
+          ]
+        }
+      ]
+    },
+    {
+      "key": "VA05",
+      "objectType": "APPLIED_VARIABLE",
+      "sourceId": "VA05",
+      "fields": {
+        "id": "VA05",
+        "name": "Asignación adecuada y oportuna de recursos",
+        "conditionRef": "CE02"
+      },
+      "sourceLines": [
+        2847,
+        2851
+      ],
+      "annotations": [
+        {
+          "relation": "SECTION_HEADING",
+          "fields": {
+            "text": "VA05 · Asignación adecuada de recursos"
+          },
+          "sourceLines": [
+            3014,
+            3014
+          ]
+        }
+      ]
+    },
+    {
+      "key": "VA06",
+      "objectType": "APPLIED_VARIABLE",
+      "sourceId": "VA06",
+      "fields": {
+        "id": "VA06",
+        "name": "Coordinación de dependencias operativas",
+        "conditionRef": "CE03"
+      },
+      "sourceLines": [
+        2853,
+        2853
+      ],
+      "annotations": [
+        {
+          "relation": "SECTION_HEADING",
+          "fields": {
+            "text": "VA06 · Coordinación de dependencias"
+          },
+          "sourceLines": [
+            3034,
+            3034
+          ]
+        }
+      ]
+    },
+    {
+      "key": "VA07",
+      "objectType": "APPLIED_VARIABLE",
+      "sourceId": "VA07",
+      "fields": {
+        "id": "VA07",
+        "name": "Consistencia de resultados operativos",
+        "conditionRef": "CE04"
+      },
+      "sourceLines": [
+        2855,
+        2855
+      ],
+      "annotations": [
+        {
+          "relation": "SECTION_HEADING",
+          "fields": {
+            "text": "VA07 · Consistencia de resultados"
+          },
+          "sourceLines": [
+            3064,
+            3064
+          ]
+        }
+      ]
+    },
+    {
+      "key": "VA08",
+      "objectType": "APPLIED_VARIABLE",
+      "sourceId": "VA08",
+      "fields": {
+        "id": "VA08",
+        "name": "Incidencia de interrupciones y pérdidas de flujo",
+        "conditionRef": "CE04"
+      },
+      "sourceLines": [
+        2855,
+        2857
+      ],
+      "annotations": [
+        {
+          "relation": "SECTION_HEADING",
+          "fields": {
+            "text": "VA08 · Interrupciones y pérdidas de flujo"
+          },
+          "sourceLines": [
+            3094,
+            3094
+          ]
+        }
+      ]
+    },
+    {
+      "key": "VA09",
+      "objectType": "APPLIED_VARIABLE",
+      "sourceId": "VA09",
+      "fields": {
+        "id": "VA09",
+        "name": "Visibilidad del estado y desviaciones de ejecución",
+        "conditionRef": "CE05"
+      },
+      "sourceLines": [
+        2859,
+        2859
+      ],
+      "annotations": [
+        {
+          "relation": "SECTION_HEADING",
+          "fields": {
+            "text": "VA09 · Visibilidad del estado y desviaciones"
+          },
+          "sourceLines": [
+            3124,
+            3124
+          ]
+        }
+      ]
+    },
+    {
+      "key": "VA10",
+      "objectType": "APPLIED_VARIABLE",
+      "sourceId": "VA10",
+      "fields": {
+        "id": "VA10",
+        "name": "Adaptación ante desviaciones operativas",
+        "conditionRef": "CE05"
+      },
+      "sourceLines": [
+        2859,
+        2861
+      ],
+      "annotations": [
+        {
+          "relation": "SECTION_HEADING",
+          "fields": {
+            "text": "VA10 · Adaptación ante desviaciones"
+          },
+          "sourceLines": [
+            3148,
+            3148
+          ]
+        }
+      ]
+    },
+    {
+      "key": "NI-01.1",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-01.1",
+      "fields": {
+        "id": "NI-01.1",
+        "statement": "Carga actual: qué trabajo relevante debe absorber el proceso.",
+        "variableRef": "VA01"
+      },
+      "sourceLines": [
+        2920,
+        2922
+      ]
+    },
+    {
+      "key": "NI-01.2",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-01.2",
+      "fields": {
+        "id": "NI-01.2",
+        "statement": "Compromisos: qué fechas, tiempos, cantidades, prioridades o niveles de servicio importan.",
+        "variableRef": "VA01"
+      },
+      "sourceLines": [
+        2920,
+        2924
+      ]
+    },
+    {
+      "key": "NI-01.3",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-01.3",
+      "fields": {
+        "id": "NI-01.3",
+        "statement": "Variabilidad/patrones: si la carga cambia significativamente por día, semana, temporada, campaña u otros eventos previsibles.",
+        "variableRef": "VA01"
+      },
+      "sourceLines": [
+        2920,
+        2926
+      ]
+    },
+    {
+      "key": "NI-01.4",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-01.4",
+      "fields": {
+        "id": "NI-01.4",
+        "statement": "Pendientes: si existe trabajo acumulado relevante y cómo evoluciona.",
+        "variableRef": "VA01"
+      },
+      "sourceLines": [
+        2920,
+        2928
+      ]
+    },
+    {
+      "key": "NI-02.1",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-02.1",
+      "fields": {
+        "id": "NI-02.1",
+        "statement": "Criterio de prioridad: cómo se decide qué trabajo atender primero.",
+        "variableRef": "VA02"
+      },
+      "sourceLines": [
+        2942,
+        2944
+      ]
+    },
+    {
+      "key": "NI-02.2",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-02.2",
+      "fields": {
+        "id": "NI-02.2",
+        "statement": "Temporalidad: cómo se organiza el trabajo en el tiempo cuando es necesario.",
+        "variableRef": "VA02"
+      },
+      "sourceLines": [
+        2942,
+        2946
+      ]
+    },
+    {
+      "key": "NI-02.3",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-02.3",
+      "fields": {
+        "id": "NI-02.3",
+        "statement": "Conflictos: qué sucede cuando varios trabajos compiten por los mismos recursos/tiempo.",
+        "variableRef": "VA02"
+      },
+      "sourceLines": [
+        2942,
+        2948
+      ]
+    },
+    {
+      "key": "NI-02.4",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-02.4",
+      "fields": {
+        "id": "NI-02.4",
+        "statement": "Replanificación: qué ocurre cuando cambia la carga o aparece una urgencia.",
+        "variableRef": "VA02"
+      },
+      "sourceLines": [
+        2942,
+        2950
+      ]
+    },
+    {
+      "key": "NI-03.1",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-03.1",
+      "fields": {
+        "id": "NI-03.1",
+        "statement": "cuáles recursos son materialmente necesarios.",
+        "variableRef": "VA03"
+      },
+      "sourceLines": [
+        2966,
+        2968
+      ]
+    },
+    {
+      "key": "NI-03.2",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-03.2",
+      "fields": {
+        "id": "NI-03.2",
+        "statement": "cuáles están realmente disponibles cuando se necesitan.",
+        "variableRef": "VA03"
+      },
+      "sourceLines": [
+        2966,
+        2970
+      ]
+    },
+    {
+      "key": "NI-03.3",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-03.3",
+      "fields": {
+        "id": "NI-03.3",
+        "statement": "qué indisponibilidades relevantes ocurren.",
+        "variableRef": "VA03"
+      },
+      "sourceLines": [
+        2966,
+        2972
+      ]
+    },
+    {
+      "key": "NI-03.4",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-03.4",
+      "fields": {
+        "id": "NI-03.4",
+        "statement": "si existen dependencias de recursos externos críticos.",
+        "variableRef": "VA03"
+      },
+      "sourceLines": [
+        2966,
+        2974
+      ]
+    },
+    {
+      "key": "NI-04.1",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-04.1",
+      "fields": {
+        "id": "NI-04.1",
+        "statement": "capacidad efectiva aproximada.",
+        "variableRef": "VA04"
+      },
+      "sourceLines": [
+        2990,
+        2992
+      ]
+    },
+    {
+      "key": "NI-04.2",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-04.2",
+      "fields": {
+        "id": "NI-04.2",
+        "statement": "carga que debe absorber.",
+        "variableRef": "VA04"
+      },
+      "sourceLines": [
+        2990,
+        2994
+      ]
+    },
+    {
+      "key": "NI-04.3",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-04.3",
+      "fields": {
+        "id": "NI-04.3",
+        "statement": "comportamiento cuando aumenta la carga.",
+        "variableRef": "VA04"
+      },
+      "sourceLines": [
+        2990,
+        2996
+      ]
+    },
+    {
+      "key": "NI-04.4",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-04.4",
+      "fields": {
+        "id": "NI-04.4",
+        "statement": "señales de saturación: backlog, esperas, horas adicionales, incumplimientos, etc.",
+        "variableRef": "VA04"
+      },
+      "sourceLines": [
+        2990,
+        2998
+      ]
+    },
+    {
+      "key": "NI-04.5",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-04.5",
+      "fields": {
+        "id": "NI-04.5",
+        "statement": "variabilidad relevante.",
+        "variableRef": "VA04"
+      },
+      "sourceLines": [
+        2990,
+        3000
+      ]
+    },
+    {
+      "key": "NI-05.1",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-05.1",
+      "fields": {
+        "id": "NI-05.1",
+        "statement": "cómo se asignan recursos al trabajo.",
+        "variableRef": "VA05"
+      },
+      "sourceLines": [
+        3014,
+        3016
+      ]
+    },
+    {
+      "key": "NI-05.2",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-05.2",
+      "fields": {
+        "id": "NI-05.2",
+        "statement": "si prioridades y asignación guardan coherencia.",
+        "variableRef": "VA05"
+      },
+      "sourceLines": [
+        3014,
+        3018
+      ]
+    },
+    {
+      "key": "NI-05.3",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-05.3",
+      "fields": {
+        "id": "NI-05.3",
+        "statement": "si aparecen recursos ociosos mientras trabajos relevantes se bloquean por falta de ellos.",
+        "variableRef": "VA05"
+      },
+      "sourceLines": [
+        3014,
+        3020
+      ]
+    },
+    {
+      "key": "NI-05.4",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-05.4",
+      "fields": {
+        "id": "NI-05.4",
+        "statement": "frecuencia/materialidad de reasignaciones.",
+        "variableRef": "VA05"
+      },
+      "sourceLines": [
+        3014,
+        3022
+      ]
+    },
+    {
+      "key": "NI-06.1",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-06.1",
+      "fields": {
+        "id": "NI-06.1",
+        "statement": "qué actividades/personas/recursos/información dependen unos de otros.",
+        "variableRef": "VA06"
+      },
+      "sourceLines": [
+        3034,
+        3038
+      ]
+    },
+    {
+      "key": "NI-06.2",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-06.2",
+      "fields": {
+        "id": "NI-06.2",
+        "statement": "cómo se produce la sincronización.",
+        "variableRef": "VA06"
+      },
+      "sourceLines": [
+        3034,
+        3040
+      ]
+    },
+    {
+      "key": "NI-06.3",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-06.3",
+      "fields": {
+        "id": "NI-06.3",
+        "statement": "dónde aparecen esperas, errores o bloqueos asociados a esas dependencias.",
+        "variableRef": "VA06"
+      },
+      "sourceLines": [
+        3034,
+        3042
+      ]
+    },
+    {
+      "key": "NI-06.4",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-06.4",
+      "fields": {
+        "id": "NI-06.4",
+        "statement": "frecuencia e impacto.",
+        "variableRef": "VA06"
+      },
+      "sourceLines": [
+        3034,
+        3044
+      ]
+    },
+    {
+      "key": "NI-06.5",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-06.5",
+      "fields": {
+        "id": "NI-06.5",
+        "statement": "si la condición es local al proceso o realmente E2E.",
+        "variableRef": "VA06"
+      },
+      "sourceLines": [
+        3034,
+        3046
+      ]
+    },
+    {
+      "key": "NI-07.1",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-07.1",
+      "fields": {
+        "id": "NI-07.1",
+        "statement": "qué resultado operacional se espera.",
+        "variableRef": "VA07"
+      },
+      "sourceLines": [
+        3064,
+        3068
+      ]
+    },
+    {
+      "key": "NI-07.2",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-07.2",
+      "fields": {
+        "id": "NI-07.2",
+        "statement": "qué dimensiones importan: tiempo, calidad, cantidad, cumplimiento u otras.",
+        "variableRef": "VA07"
+      },
+      "sourceLines": [
+        3064,
+        3070
+      ]
+    },
+    {
+      "key": "NI-07.3",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-07.3",
+      "fields": {
+        "id": "NI-07.3",
+        "statement": "qué tan variables son ejecuciones comparables.",
+        "variableRef": "VA07"
+      },
+      "sourceLines": [
+        3064,
+        3072
+      ]
+    },
+    {
+      "key": "NI-07.4",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-07.4",
+      "fields": {
+        "id": "NI-07.4",
+        "statement": "si las variaciones tienen explicaciones contextuales razonables.",
+        "variableRef": "VA07"
+      },
+      "sourceLines": [
+        3064,
+        3074
+      ]
+    },
+    {
+      "key": "NI-07.5",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-07.5",
+      "fields": {
+        "id": "NI-07.5",
+        "statement": "recurrencia/materialidad de resultados anómalos.",
+        "variableRef": "VA07"
+      },
+      "sourceLines": [
+        3064,
+        3076
+      ]
+    },
+    {
+      "key": "NI-08.1",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-08.1",
+      "fields": {
+        "id": "NI-08.1",
+        "statement": "presencia de esperas relevantes.",
+        "variableRef": "VA08"
+      },
+      "sourceLines": [
+        3094,
+        3096
+      ]
+    },
+    {
+      "key": "NI-08.2",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-08.2",
+      "fields": {
+        "id": "NI-08.2",
+        "statement": "acumulaciones/backlog.",
+        "variableRef": "VA08"
+      },
+      "sourceLines": [
+        3094,
+        3098
+      ]
+    },
+    {
+      "key": "NI-08.3",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-08.3",
+      "fields": {
+        "id": "NI-08.3",
+        "statement": "bloqueos/interrupciones.",
+        "variableRef": "VA08"
+      },
+      "sourceLines": [
+        3094,
+        3100
+      ]
+    },
+    {
+      "key": "NI-08.4",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-08.4",
+      "fields": {
+        "id": "NI-08.4",
+        "statement": "reproceso.",
+        "variableRef": "VA08"
+      },
+      "sourceLines": [
+        3094,
+        3102
+      ]
+    },
+    {
+      "key": "NI-08.5",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-08.5",
+      "fields": {
+        "id": "NI-08.5",
+        "statement": "restricciones/cuello de botella potencial.",
+        "variableRef": "VA08"
+      },
+      "sourceLines": [
+        3094,
+        3104
+      ]
+    },
+    {
+      "key": "NI-08.6",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-08.6",
+      "fields": {
+        "id": "NI-08.6",
+        "statement": "impacto sobre flujo/resultados.",
+        "variableRef": "VA08"
+      },
+      "sourceLines": [
+        3094,
+        3106
+      ]
+    },
+    {
+      "key": "NI-09.1",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-09.1",
+      "fields": {
+        "id": "NI-09.1",
+        "statement": "cómo se conoce el estado del trabajo.",
+        "variableRef": "VA09"
+      },
+      "sourceLines": [
+        3124,
+        3126
+      ]
+    },
+    {
+      "key": "NI-09.2",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-09.2",
+      "fields": {
+        "id": "NI-09.2",
+        "statement": "cómo se detecta atraso/desviación.",
+        "variableRef": "VA09"
+      },
+      "sourceLines": [
+        3124,
+        3128
+      ]
+    },
+    {
+      "key": "NI-09.3",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-09.3",
+      "fields": {
+        "id": "NI-09.3",
+        "statement": "oportunidad de la información.",
+        "variableRef": "VA09"
+      },
+      "sourceLines": [
+        3124,
+        3130
+      ]
+    },
+    {
+      "key": "NI-09.4",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-09.4",
+      "fields": {
+        "id": "NI-09.4",
+        "statement": "quién recibe/usa esa información cuando importa.",
+        "variableRef": "VA09"
+      },
+      "sourceLines": [
+        3124,
+        3132
+      ]
+    },
+    {
+      "key": "NI-10.1",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-10.1",
+      "fields": {
+        "id": "NI-10.1",
+        "statement": "qué tipos de desviaciones manejables aparecen.",
+        "variableRef": "VA10"
+      },
+      "sourceLines": [
+        3148,
+        3150
+      ]
+    },
+    {
+      "key": "NI-10.2",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-10.2",
+      "fields": {
+        "id": "NI-10.2",
+        "statement": "qué respuesta suele producirse.",
+        "variableRef": "VA10"
+      },
+      "sourceLines": [
+        3148,
+        3152
+      ]
+    },
+    {
+      "key": "NI-10.3",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-10.3",
+      "fields": {
+        "id": "NI-10.3",
+        "statement": "capacidad para reprogramar/repriorizar.",
+        "variableRef": "VA10"
+      },
+      "sourceLines": [
+        3148,
+        3154
+      ]
+    },
+    {
+      "key": "NI-10.4",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-10.4",
+      "fields": {
+        "id": "NI-10.4",
+        "statement": "capacidad para reasignar recursos.",
+        "variableRef": "VA10"
+      },
+      "sourceLines": [
+        3148,
+        3156
+      ]
+    },
+    {
+      "key": "NI-10.5",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-10.5",
+      "fields": {
+        "id": "NI-10.5",
+        "statement": "capacidad para restablecer ejecución esperada.",
+        "variableRef": "VA10"
+      },
+      "sourceLines": [
+        3148,
+        3158
+      ]
+    },
+    {
+      "key": "NI-10.6",
+      "objectType": "INFORMATION_NEED",
+      "sourceId": "NI-10.6",
+      "fields": {
+        "id": "NI-10.6",
+        "statement": "cuándo la desviación excede la capacidad operacional ordinaria.",
+        "variableRef": "VA10"
+      },
+      "sourceLines": [
+        3148,
+        3160
+      ]
+    },
+    {
+      "key": "SI-0",
+      "objectType": "SUFFICIENCY_LEVEL",
+      "sourceId": "SI-0",
+      "fields": {
+        "id": "SI-0",
+        "label": "SI-0 · No resuelta",
+        "definition": "No existe información útil suficiente."
+      },
+      "sourceLines": [
+        3180,
+        3182
+      ]
+    },
+    {
+      "key": "SI-1",
+      "objectType": "SUFFICIENCY_LEVEL",
+      "sourceId": "SI-1",
+      "fields": {
+        "id": "SI-1",
+        "label": "SI-1 · Exploratoria",
+        "definition": "Existe una señal/declaración inicial que orienta, pero no permite cerrar la VA."
+      },
+      "sourceLines": [
+        3184,
+        3186
+      ]
+    },
+    {
+      "key": "SI-2",
+      "objectType": "SUFFICIENCY_LEVEL",
+      "sourceId": "SI-2",
+      "fields": {
+        "id": "SI-2",
+        "label": "SI-2 · Diagnóstica",
+        "definition": "Existe información suficiente y coherente para evaluar razonablemente la VA en el contexto actual."
+      },
+      "sourceLines": [
+        3188,
+        3190
+      ]
+    },
+    {
+      "key": "SI-3",
+      "objectType": "SUFFICIENCY_LEVEL",
+      "sourceId": "SI-3",
+      "fields": {
+        "id": "SI-3",
+        "label": "SI-3 · Reforzada",
+        "definition": "La evaluación está corroborada mediante evidencia adicional apropiada a su materialidad."
+      },
+      "sourceLines": [
+        3192,
+        3194
+      ]
+    },
+    {
+      "key": "ACTION-REUSE",
+      "objectType": "ENGINE_ACTION",
+      "sourceId": "REUSE",
+      "fields": {
+        "id": "REUSE",
+        "meaning": "Información ya disponible; no volver a preguntar"
+      },
+      "sourceLines": [
+        3235,
+        3235
+      ]
+    },
+    {
+      "key": "ACTION-STOP",
+      "objectType": "ENGINE_ACTION",
+      "sourceId": "STOP",
+      "fields": {
+        "id": "STOP",
+        "meaning": "Suficiencia alcanzada; detener profundización"
+      },
+      "sourceLines": [
+        3237,
+        3237
+      ]
+    },
+    {
+      "key": "ACTION-FOLLOW",
+      "objectType": "ENGINE_ACTION",
+      "sourceId": "FOLLOW",
+      "fields": {
+        "id": "FOLLOW",
+        "meaning": "Falta información material; hacer siguiente pregunta"
+      },
+      "sourceLines": [
+        3239,
+        3239
+      ]
+    },
+    {
+      "key": "ACTION-EVIDENCE",
+      "objectType": "ENGINE_ACTION",
+      "sourceId": "EVIDENCE",
+      "fields": {
+        "id": "EVIDENCE",
+        "meaning": "La materialidad/confianza requiere corroboración"
+      },
+      "sourceLines": [
+        3241,
+        3241
+      ]
+    },
+    {
+      "key": "ACTION-CONTRA",
+      "objectType": "ENGINE_ACTION",
+      "sourceId": "CONTRA",
+      "fields": {
+        "id": "CONTRA",
+        "meaning": "Existe contradicción material; aclarar antes de cerrar"
+      },
+      "sourceLines": [
+        3243,
+        3243
+      ]
+    },
+    {
+      "key": "ACTION-DERIVE",
+      "objectType": "ENGINE_ACTION",
+      "sourceId": "DERIVE",
+      "fields": {
+        "id": "DERIVE",
+        "meaning": "Observación válida, pero causa/diagnóstico especializado pertenece a otra capacidad"
+      },
+      "sourceLines": [
+        3245,
+        3245
+      ]
+    },
+    {
+      "key": "ACTION-NA",
+      "objectType": "ENGINE_ACTION",
+      "sourceId": "NA",
+      "fields": {
+        "id": "NA",
+        "meaning": "Variable legítimamente no aplicable al caso/contexto"
+      },
+      "sourceLines": [
+        3247,
+        3247
+      ]
+    },
+    {
+      "key": "ACTIONS-NOT-MATURITY",
+      "objectType": "SEMANTIC_SEPARATION",
+      "sourceId": null,
+      "fields": {
+        "statement": "No son estados de madurez."
+      },
+      "sourceLines": [
+        3250,
+        3250
+      ]
+    },
+    {
+      "key": "EVIDENCE-E0",
+      "objectType": "EVIDENCE_LEVEL",
+      "sourceId": "E0",
+      "fields": {
+        "id": "E0",
+        "label": "E0 · no requerida"
+      },
+      "sourceLines": [
+        3290,
+        3290
+      ]
+    },
+    {
+      "key": "EVIDENCE-E1",
+      "objectType": "EVIDENCE_LEVEL",
+      "sourceId": "E1",
+      "fields": {
+        "id": "E1",
+        "label": "E1 · opcional"
+      },
+      "sourceLines": [
+        3291,
+        3291
+      ]
+    },
+    {
+      "key": "EVIDENCE-E2",
+      "objectType": "EVIDENCE_LEVEL",
+      "sourceId": "E2",
+      "fields": {
+        "id": "E2",
+        "label": "E2 · requerida"
+      },
+      "sourceLines": [
+        3292,
+        3292
+      ]
+    },
+    {
+      "key": "EVIDENCE-E3",
+      "objectType": "EVIDENCE_LEVEL",
+      "sourceId": "E3",
+      "fields": {
+        "id": "E3",
+        "label": "E3 · crítica"
+      },
+      "sourceLines": [
+        3293,
+        3293
+      ]
+    },
+    {
+      "key": "EVIDENCE-DYNAMIC",
+      "objectType": "EVIDENCE_RULE",
+      "sourceId": null,
+      "fields": {
+        "statement": "pero asignados dinámicamente."
+      },
+      "sourceLines": [
+        3295,
+        3295
+      ]
+    },
+    {
+      "key": "CRITICALITY-CONTEXTUAL",
+      "objectType": "CRITICALITY_RULE",
+      "sourceId": null,
+      "fields": {
+        "statement": "Cambio “críticos” por “necesarios”, porque la criticidad puede ser una propiedad contextual posterior."
+      },
+      "sourceLines": [
+        857,
+        857
+      ]
+    },
+    {
+      "key": "SUF-OP02-01",
+      "objectType": "SUFFICIENCY_RULE",
+      "sourceId": "SUF-OP02-01",
+      "fields": {
+        "id": "SUF-OP02-01",
+        "statement": "sus necesidades críticas de información están suficientemente resueltas, no existe contradicción material pendiente y la información adicional razonablemente disponible tiene baja probabilidad de cambiar la evaluación o decisión asociada."
+      },
+      "sourceLines": [
+        3319,
+        3333
+      ]
+    },
+    {
+      "key": "SUF-OP02-CAP-01",
+      "objectType": "SUFFICIENCY_RULE",
+      "sourceId": "SUF-OP02-CAP-01",
+      "fields": {
+        "id": "SUF-OP02-CAP-01",
+        "statement": "las CE aplicables están cerradas, no persisten gaps críticos que puedan cambiar materialmente el diagnóstico, las contradicciones relevantes están resueltas o declaradas, y existe confianza suficiente para producir hallazgos explicables y recomendaciones proporcionales."
+      },
+      "sourceLines": [
+        3361,
+        3367
+      ]
+    },
+    {
+      "key": "OBS-OP02-01",
+      "objectType": "OBSERVATION_RULE",
+      "sourceId": "OBS-OP02-01",
+      "fields": {
+        "id": "OBS-OP02-01",
+        "name": "Observación ≠ inferencia causal"
+      },
+      "sourceLines": [
+        3403,
+        3419
+      ]
+    },
+    {
+      "key": "EVD-OP02-01",
+      "objectType": "EVIDENCE_RULE",
+      "sourceId": "EVD-OP02-01",
+      "fields": {
+        "id": "EVD-OP02-01",
+        "statement": "Solicitar evidencia adicional cuando al menos una de estas condiciones sea material:",
+        "conditions": "alta severidad potencial; contradicción; baja confianza; intervención relevante/costosa; afirmación difícil de corroborar conversacionalmente; dato disponible cuyo valor informativo sea alto."
+      },
+      "sourceLines": [
+        3776,
+        3792
+      ]
+    },
+    {
+      "key": "CONF-OP02-01",
+      "objectType": "CONFIDENCE_RULE",
+      "sourceId": "CONF-OP02-01",
+      "fields": {
+        "id": "CONF-OP02-01",
+        "statement": "La confianza requerida para afirmar una causa debe ser mayor que la necesaria para afirmar una condición observada."
+      },
+      "sourceLines": [
+        4707,
+        4723
+      ]
+    },
+    {
+      "key": "CONF-SEV-OP02-02",
+      "objectType": "CONFIDENCE_RULE",
+      "sourceId": "CONF-SEV-OP02-02",
+      "fields": {
+        "id": "CONF-SEV-OP02-02",
+        "statement": "Cuando una inferencia candidata tenga S2/S3 y confianza C0/C1:",
+        "action": "no consolidarla todavía como hallazgo causal confirmado."
+      },
+      "sourceLines": [
+        4796,
+        4808
+      ]
+    },
+    {
+      "key": "CONFIDENCE-C0",
+      "objectType": "CONFIDENCE_LEVEL",
+      "sourceId": "C0",
+      "fields": {
+        "id": "C0",
+        "label": "C0 · No determinable",
+        "definition": "Información insuficiente o contradicción crítica."
+      },
+      "sourceLines": [
+        4663,
+        4665
+      ]
+    },
+    {
+      "key": "CONFIDENCE-C1",
+      "objectType": "CONFIDENCE_LEVEL",
+      "sourceId": "C1",
+      "fields": {
+        "id": "C1",
+        "label": "C1 · Baja",
+        "definition": "Inferencia plausible pero débilmente sustentada."
+      },
+      "sourceLines": [
+        4667,
+        4669
+      ]
+    },
+    {
+      "key": "CONFIDENCE-C2",
+      "objectType": "CONFIDENCE_LEVEL",
+      "sourceId": "C2",
+      "fields": {
+        "id": "C2",
+        "label": "C2 · Media",
+        "definition": "Evidencia suficiente, específica y razonablemente coherente."
+      },
+      "sourceLines": [
+        4671,
+        4673
+      ]
+    },
+    {
+      "key": "CONFIDENCE-C3",
+      "objectType": "CONFIDENCE_LEVEL",
+      "sourceId": "C3",
+      "fields": {
+        "id": "C3",
+        "label": "C3 · Alta",
+        "definition": "Evidencia fuerte/corroborada, coherente y suficientemente actual."
+      },
+      "sourceLines": [
+        4675,
+        4677
+      ]
+    },
+    {
+      "key": "CONFIDENCE-FACTORS",
+      "objectType": "CONFIDENCE_FACTORS",
+      "sourceId": null,
+      "fields": {
+        "factors": [
+          "Especificidad: ¿hablamos de hechos concretos?",
+          "Calidad: ¿la fuente realmente conoce la operación?",
+          "Corroboración: ¿hay más de una señal/fuente?",
+          "Actualidad: ¿representa la operación vigente?",
+          "Consistencia: ¿las evidencias coinciden?",
+          "Comparabilidad: especialmente VA07, ¿estamos comparando casos realmente comparables?",
+          "Atribución causal: cuando declaramos causa, ¿hemos descartado explicaciones razonables alternativas?"
+        ]
+      },
+      "sourceLines": [
+        4687,
+        4699
+      ]
+    },
+    {
+      "key": "CONFIDENCE-NOT-AVERAGE",
+      "objectType": "SEMANTIC_SEPARATION",
+      "sourceId": null,
+      "fields": {
+        "statement": "No es un promedio matemático."
+      },
+      "sourceLines": [
+        4679,
+        4679
+      ]
+    },
+    {
+      "key": "SEVERITY-S0",
+      "objectType": "SEVERITY_LEVEL",
+      "sourceId": "S0",
+      "fields": {
+        "id": "S0",
+        "label": "S0 · No material",
+        "definition": "Sin efecto significativo."
+      },
+      "sourceLines": [
+        4731,
+        4733
+      ]
+    },
+    {
+      "key": "SEVERITY-S1",
+      "objectType": "SEVERITY_LEVEL",
+      "sourceId": "S1",
+      "fields": {
+        "id": "S1",
+        "label": "S1 · Baja",
+        "definition": "Impacto limitado/local/ocasional."
+      },
+      "sourceLines": [
+        4735,
+        4737
+      ]
+    },
+    {
+      "key": "SEVERITY-S2",
+      "objectType": "SEVERITY_LEVEL",
+      "sourceId": "S2",
+      "fields": {
+        "id": "S2",
+        "label": "S2 · Media",
+        "definition": "Impacto relevante o recurrente que deteriora ejecución/resultados."
+      },
+      "sourceLines": [
+        4739,
+        4741
+      ]
+    },
+    {
+      "key": "SEVERITY-S3",
+      "objectType": "SEVERITY_LEVEL",
+      "sourceId": "S3",
+      "fields": {
+        "id": "S3",
+        "label": "S3 · Alta",
+        "definition": "Impacto material sobre procesos críticos, clientes, ingresos, cumplimiento, continuidad u otros resultados importantes."
+      },
+      "sourceLines": [
+        4743,
+        4745
+      ]
+    },
+    {
+      "key": "LEVEL-P1",
+      "objectType": "ACQUISITION_LEVEL",
+      "sourceId": "P1",
+      "fields": {
+        "level": "P1",
+        "purpose": "Pregunta núcleo de alto rendimiento"
+      },
+      "sourceLines": [
+        3534,
+        3548
+      ]
+    },
+    {
+      "key": "LEVEL-P2",
+      "objectType": "ACQUISITION_LEVEL",
+      "sourceId": "P2",
+      "fields": {
+        "level": "P2",
+        "purpose": "Preguntas condicionales"
+      },
+      "sourceLines": [
+        3601,
+        3633
+      ]
+    },
+    {
+      "key": "LEVEL-P3",
+      "objectType": "ACQUISITION_LEVEL",
+      "sourceId": "P3",
+      "fields": {
+        "level": "P3",
+        "purpose": "Profundización"
+      },
+      "sourceLines": [
+        3637,
+        3660
+      ]
+    },
+    {
+      "key": "LEVEL-P4",
+      "objectType": "ACQUISITION_LEVEL",
+      "sourceId": "P4",
+      "fields": {
+        "level": "P4",
+        "purpose": "Aclaración de contradicciones"
+      },
+      "sourceLines": [
+        3686,
+        3716
+      ]
+    },
+    {
+      "key": "LEVEL-P5",
+      "objectType": "ACQUISITION_LEVEL",
+      "sourceId": "P5",
+      "fields": {
+        "level": "P5",
+        "purpose": "Validación"
+      },
+      "sourceLines": [
+        3720,
+        3732
+      ]
+    },
+    {
+      "key": "P1-OP02-01",
+      "objectType": "ACQUISITION",
+      "sourceId": "P1-OP02-01",
+      "fields": {
+        "id": "P1-OP02-01",
+        "purpose": "Ejecución habitual",
+        "question": "Pensando en este proceso cuando está funcionando normalmente, ¿cómo organizan el trabajo desde que saben lo que tienen que atender hasta que lo completan? Cuéntame especialmente cómo deciden prioridades, quién o qué recursos intervienen y qué hacen cuando la carga cambia o aparece algún problema.",
+        "feeds": "VA01, VA02, VA03, VA05, VA06, VA09 y VA10",
+        "signals": "VA04, VA07 y VA08"
+      },
+      "sourceLines": [
+        3538,
+        3548
+      ]
+    },
+    {
+      "key": "P1-OP02-02",
+      "objectType": "ACQUISITION",
+      "sourceId": "P1-OP02-02",
+      "fields": {
+        "id": "P1-OP02-02",
+        "purpose": "Caso reciente",
+        "question": "Ahora piensa en una situación reciente en la que tuvieron bastante trabajo o algo no salió como esperaban. ¿Qué ocurrió y cómo lo manejaron?",
+        "variables": [
+          "VA04",
+          "VA06",
+          "VA07",
+          "VA08",
+          "VA09",
+          "VA10"
+        ]
+      },
+      "sourceLines": [
+        3558,
+        3577
+      ],
+      "annotations": [
+        {
+          "relation": "TRIGGER",
+          "fields": {
+            "statement": "solo cuando no exista ya evidencia equivalente"
+          },
+          "sourceLines": [
+            3556,
+            3556
+          ]
+        }
+      ]
+    },
+    {
+      "key": "R-OP02-00",
+      "objectType": "DIAGNOSTIC_RULE",
+      "sourceId": "R-OP02-00",
+      "fields": {
+        "id": "R-OP02-00",
+        "name": "Señal operacional no determina causa",
+        "heading": "R-OP02-00 · Señal operacional no determina causa"
+      },
+      "sourceLines": [
+        4217,
+        4223
+      ],
+      "annotations": [
+        {
+          "relation": "CONSOLIDATED_ROLE",
+          "fields": {
+            "statement": "Aquí hay 10 reglas diagnósticas principales + 5 guardrails/derivaciones."
+          },
+          "sourceLines": [
+            4598,
+            4598
+          ]
+        }
+      ],
+      "role": "GUARDRAIL_OR_DERIVATION"
+    },
+    {
+      "key": "R-OP02-01",
+      "objectType": "DIAGNOSTIC_RULE",
+      "sourceId": "R-OP02-01",
+      "fields": {
+        "id": "R-OP02-01",
+        "name": "Visibilidad insuficiente de carga/compromisos",
+        "heading": "R-OP02-01 · Visibilidad insuficiente de carga/compromisos",
+        "variables": "VA principal: VA01."
+      },
+      "sourceLines": [
+        4229,
+        4249
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED"
+        ],
+        "sourceLines": [
+          9966,
+          9979
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "CONSOLIDATED_ROLE",
+          "fields": {
+            "statement": "Aquí hay 10 reglas diagnósticas principales + 5 guardrails/derivaciones."
+          },
+          "sourceLines": [
+            4598,
+            4598
+          ]
+        }
+      ],
+      "role": "PRIMARY"
+    },
+    {
+      "key": "R-OP02-02",
+      "objectType": "DIAGNOSTIC_RULE",
+      "sourceId": "R-OP02-02",
+      "fields": {
+        "id": "R-OP02-02",
+        "name": "Priorización/programación insuficiente",
+        "heading": "R-OP02-02 · Priorización/programación insuficiente",
+        "variables": "VA: VA02."
+      },
+      "sourceLines": [
+        4253,
+        4271
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED"
+        ],
+        "sourceLines": [
+          9966,
+          9979
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "CONSOLIDATED_ROLE",
+          "fields": {
+            "statement": "Aquí hay 10 reglas diagnósticas principales + 5 guardrails/derivaciones."
+          },
+          "sourceLines": [
+            4598,
+            4598
+          ]
+        }
+      ],
+      "role": "PRIMARY"
+    },
+    {
+      "key": "R-OP02-03",
+      "objectType": "DIAGNOSTIC_RULE",
+      "sourceId": "R-OP02-03",
+      "fields": {
+        "id": "R-OP02-03",
+        "name": "Indisponibilidad material de recursos",
+        "heading": "R-OP02-03 · Indisponibilidad material de recursos",
+        "variables": "VA: VA03."
+      },
+      "sourceLines": [
+        4277,
+        4299
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED"
+        ],
+        "sourceLines": [
+          9966,
+          9979
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "CONSOLIDATED_ROLE",
+          "fields": {
+            "statement": "Aquí hay 10 reglas diagnósticas principales + 5 guardrails/derivaciones."
+          },
+          "sourceLines": [
+            4598,
+            4598
+          ]
+        }
+      ],
+      "role": "PRIMARY"
+    },
+    {
+      "key": "R-OP02-04",
+      "objectType": "DIAGNOSTIC_RULE",
+      "sourceId": "R-OP02-04",
+      "fields": {
+        "id": "R-OP02-04",
+        "name": "Desajuste capacidad–carga",
+        "heading": "R-OP02-04 · Desajuste capacidad–carga",
+        "variables": "VA: VA04."
+      },
+      "sourceLines": [
+        4303,
+        4339
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED"
+        ],
+        "sourceLines": [
+          9966,
+          9979
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "CONSOLIDATED_ROLE",
+          "fields": {
+            "statement": "Aquí hay 10 reglas diagnósticas principales + 5 guardrails/derivaciones."
+          },
+          "sourceLines": [
+            4598,
+            4598
+          ]
+        }
+      ],
+      "role": "PRIMARY"
+    },
+    {
+      "key": "R-OP02-04A",
+      "objectType": "DIAGNOSTIC_RULE",
+      "sourceId": "R-OP02-04A",
+      "fields": {
+        "id": "R-OP02-04A",
+        "name": "Indicadores indirectos requieren contraste causal",
+        "heading": "R-OP02-04A · Indicadores indirectos requieren contraste causal"
+      },
+      "sourceLines": [
+        4359,
+        4363
+      ],
+      "annotations": [
+        {
+          "relation": "CONSOLIDATED_ROLE",
+          "fields": {
+            "statement": "Aquí hay 10 reglas diagnósticas principales + 5 guardrails/derivaciones."
+          },
+          "sourceLines": [
+            4598,
+            4598
+          ]
+        }
+      ],
+      "role": "GUARDRAIL_OR_DERIVATION"
+    },
+    {
+      "key": "R-OP02-05",
+      "objectType": "DIAGNOSTIC_RULE",
+      "sourceId": "R-OP02-05",
+      "fields": {
+        "id": "R-OP02-05",
+        "name": "Asignación inadecuada de recursos",
+        "heading": "R-OP02-05 · Asignación inadecuada de recursos",
+        "variables": "VA: VA05."
+      },
+      "sourceLines": [
+        4367,
+        4395
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED"
+        ],
+        "sourceLines": [
+          9966,
+          9979
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "CONSOLIDATED_ROLE",
+          "fields": {
+            "statement": "Aquí hay 10 reglas diagnósticas principales + 5 guardrails/derivaciones."
+          },
+          "sourceLines": [
+            4598,
+            4598
+          ]
+        }
+      ],
+      "role": "PRIMARY"
+    },
+    {
+      "key": "R-OP02-06",
+      "objectType": "DIAGNOSTIC_RULE",
+      "sourceId": "R-OP02-06",
+      "fields": {
+        "id": "R-OP02-06",
+        "name": "Dependencia operativa insuficientemente coordinada",
+        "heading": "R-OP02-06 · Dependencia operativa insuficientemente coordinada",
+        "variables": "VA: VA06."
+      },
+      "sourceLines": [
+        4401,
+        4418
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED"
+        ],
+        "sourceLines": [
+          9966,
+          9979
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "CONSOLIDATED_ROLE",
+          "fields": {
+            "statement": "Aquí hay 10 reglas diagnósticas principales + 5 guardrails/derivaciones."
+          },
+          "sourceLines": [
+            4598,
+            4598
+          ]
+        }
+      ],
+      "role": "PRIMARY"
+    },
+    {
+      "key": "R-OP02-06A",
+      "objectType": "DIAGNOSTIC_RULE",
+      "sourceId": "R-OP02-06A",
+      "fields": {
+        "id": "R-OP02-06A",
+        "name": "Derivación E2E",
+        "heading": "R-OP02-06A · Derivación E2E"
+      },
+      "sourceLines": [
+        4422,
+        4434
+      ],
+      "annotations": [
+        {
+          "relation": "CONSOLIDATED_ROLE",
+          "fields": {
+            "statement": "Aquí hay 10 reglas diagnósticas principales + 5 guardrails/derivaciones."
+          },
+          "sourceLines": [
+            4598,
+            4598
+          ]
+        }
+      ],
+      "role": "GUARDRAIL_OR_DERIVATION"
+    },
+    {
+      "key": "R-OP02-07",
+      "objectType": "DIAGNOSTIC_RULE",
+      "sourceId": "R-OP02-07",
+      "fields": {
+        "id": "R-OP02-07",
+        "name": "Inconsistencia material de resultados",
+        "heading": "R-OP02-07 · Inconsistencia material de resultados",
+        "variables": "VA: VA07."
+      },
+      "sourceLines": [
+        4440,
+        4464
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED"
+        ],
+        "sourceLines": [
+          9966,
+          9979
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "CONSOLIDATED_ROLE",
+          "fields": {
+            "statement": "Aquí hay 10 reglas diagnósticas principales + 5 guardrails/derivaciones."
+          },
+          "sourceLines": [
+            4598,
+            4598
+          ]
+        }
+      ],
+      "role": "PRIMARY"
+    },
+    {
+      "key": "R-OP02-07A",
+      "objectType": "DIAGNOSTIC_RULE",
+      "sourceId": "R-OP02-07A",
+      "fields": {
+        "id": "R-OP02-07A",
+        "name": "Variabilidad legítima",
+        "heading": "R-OP02-07A · Variabilidad legítima"
+      },
+      "sourceLines": [
+        4468,
+        4484
+      ],
+      "annotations": [
+        {
+          "relation": "CONSOLIDATED_ROLE",
+          "fields": {
+            "statement": "Aquí hay 10 reglas diagnósticas principales + 5 guardrails/derivaciones."
+          },
+          "sourceLines": [
+            4598,
+            4598
+          ]
+        }
+      ],
+      "role": "GUARDRAIL_OR_DERIVATION"
+    },
+    {
+      "key": "R-OP02-08",
+      "objectType": "DIAGNOSTIC_RULE",
+      "sourceId": "R-OP02-08",
+      "fields": {
+        "id": "R-OP02-08",
+        "name": "Pérdida material de flujo",
+        "heading": "R-OP02-08 · Pérdida material de flujo",
+        "variables": "VA: VA08."
+      },
+      "sourceLines": [
+        4488,
+        4500
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED"
+        ],
+        "sourceLines": [
+          9966,
+          9979
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "CONSOLIDATED_ROLE",
+          "fields": {
+            "statement": "Aquí hay 10 reglas diagnósticas principales + 5 guardrails/derivaciones."
+          },
+          "sourceLines": [
+            4598,
+            4598
+          ]
+        }
+      ],
+      "role": "PRIMARY"
+    },
+    {
+      "key": "R-OP02-08A",
+      "objectType": "DIAGNOSTIC_RULE",
+      "sourceId": "R-OP02-08A",
+      "fields": {
+        "id": "R-OP02-08A",
+        "name": "Pérdida de flujo ≠ causa",
+        "heading": "R-OP02-08A · Pérdida de flujo ≠ causa"
+      },
+      "sourceLines": [
+        4502,
+        4512
+      ],
+      "annotations": [
+        {
+          "relation": "CONSOLIDATED_ROLE",
+          "fields": {
+            "statement": "Aquí hay 10 reglas diagnósticas principales + 5 guardrails/derivaciones."
+          },
+          "sourceLines": [
+            4598,
+            4598
+          ]
+        }
+      ],
+      "role": "GUARDRAIL_OR_DERIVATION"
+    },
+    {
+      "key": "R-OP02-09",
+      "objectType": "DIAGNOSTIC_RULE",
+      "sourceId": "R-OP02-09",
+      "fields": {
+        "id": "R-OP02-09",
+        "name": "Visibilidad operacional insuficiente",
+        "heading": "R-OP02-09 · Visibilidad operacional insuficiente",
+        "variables": "VA: VA09."
+      },
+      "sourceLines": [
+        4518,
+        4534
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED"
+        ],
+        "sourceLines": [
+          9966,
+          9979
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "CONSOLIDATED_ROLE",
+          "fields": {
+            "statement": "Aquí hay 10 reglas diagnósticas principales + 5 guardrails/derivaciones."
+          },
+          "sourceLines": [
+            4598,
+            4598
+          ]
+        }
+      ],
+      "role": "PRIMARY"
+    },
+    {
+      "key": "R-OP02-10",
+      "objectType": "DIAGNOSTIC_RULE",
+      "sourceId": "R-OP02-10",
+      "fields": {
+        "id": "R-OP02-10",
+        "name": "Adaptación operacional insuficiente",
+        "heading": "R-OP02-10 · Adaptación operacional insuficiente",
+        "variables": "VA: VA10."
+      },
+      "sourceLines": [
+        4538,
+        4556
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED"
+        ],
+        "sourceLines": [
+          9966,
+          9979
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "CONSOLIDATED_ROLE",
+          "fields": {
+            "statement": "Aquí hay 10 reglas diagnósticas principales + 5 guardrails/derivaciones."
+          },
+          "sourceLines": [
+            4598,
+            4598
+          ]
+        }
+      ],
+      "role": "PRIMARY"
+    },
+    {
+      "key": "FAMILY-HF01",
+      "objectType": "FINDING_FAMILY",
+      "sourceId": "HF01",
+      "fields": {
+        "id": "HF01",
+        "name": "Planificación operacional insuficiente"
+      },
+      "sourceLines": [
+        5064,
+        5064
+      ]
+    },
+    {
+      "key": "FAMILY-HF02",
+      "objectType": "FINDING_FAMILY",
+      "sourceId": "HF02",
+      "fields": {
+        "id": "HF02",
+        "name": "Capacidad efectiva insuficiente frente a la carga"
+      },
+      "sourceLines": [
+        5066,
+        5066
+      ]
+    },
+    {
+      "key": "FAMILY-HF03",
+      "objectType": "FINDING_FAMILY",
+      "sourceId": "HF03",
+      "fields": {
+        "id": "HF03",
+        "name": "Disponibilidad/asignación de recursos insuficiente"
+      },
+      "sourceLines": [
+        5068,
+        5068
+      ]
+    },
+    {
+      "key": "FAMILY-HF04",
+      "objectType": "FINDING_FAMILY",
+      "sourceId": "HF04",
+      "fields": {
+        "id": "HF04",
+        "name": "Coordinación de dependencias insuficiente"
+      },
+      "sourceLines": [
+        5070,
+        5070
+      ]
+    },
+    {
+      "key": "FAMILY-HF05",
+      "objectType": "FINDING_FAMILY",
+      "sourceId": "HF05",
+      "fields": {
+        "id": "HF05",
+        "name": "Ejecución materialmente inconsistente"
+      },
+      "sourceLines": [
+        5072,
+        5072
+      ]
+    },
+    {
+      "key": "FAMILY-HF06",
+      "objectType": "FINDING_FAMILY",
+      "sourceId": "HF06",
+      "fields": {
+        "id": "HF06",
+        "name": "Pérdidas materiales de flujo"
+      },
+      "sourceLines": [
+        5074,
+        5074
+      ]
+    },
+    {
+      "key": "FAMILY-HF07",
+      "objectType": "FINDING_FAMILY",
+      "sourceId": "HF07",
+      "fields": {
+        "id": "HF07",
+        "name": "Visibilidad operacional insuficiente"
+      },
+      "sourceLines": [
+        5076,
+        5076
+      ]
+    },
+    {
+      "key": "FAMILY-HF08",
+      "objectType": "FINDING_FAMILY",
+      "sourceId": "HF08",
+      "fields": {
+        "id": "HF08",
+        "name": "Adaptación insuficiente ante desviaciones"
+      },
+      "sourceLines": [
+        5078,
+        5078
+      ]
+    },
+    {
+      "key": "OP02-HF01",
+      "objectType": "FINDING_VARIANT",
+      "sourceId": "OP02-HF01",
+      "fields": {
+        "id": "OP02-HF01",
+        "name": "Planificación operacional insuficiente",
+        "familyRef": "HF01"
+      },
+      "sourceLines": [
+        5667,
+        5667
+      ],
+      "annotations": [
+        {
+          "relation": "CATALOG_VERSION",
+          "fields": {
+            "marker": "Catálogo OP-02 v0.1"
+          },
+          "sourceLines": [
+            5660,
+            5660
+          ]
+        },
+        {
+          "relation": "RULE_BASIS",
+          "fields": {
+            "rules": [
+              "R01 · ",
+              "R02 · "
+            ]
+          },
+          "sourceLines": [
+            5091,
+            5107
+          ]
+        },
+        {
+          "relation": "VARIANT_COUNT",
+          "fields": {
+            "statement": "Tenemos 9 variantes operativas dentro de 8 familias conceptuales."
+          },
+          "sourceLines": [
+            5686,
+            5686
+          ]
+        }
+      ]
+    },
+    {
+      "key": "OP02-HF02",
+      "objectType": "FINDING_VARIANT",
+      "sourceId": "OP02-HF02",
+      "fields": {
+        "id": "OP02-HF02",
+        "name": "Desajuste capacidad–carga",
+        "familyRef": "HF02"
+      },
+      "sourceLines": [
+        5669,
+        5669
+      ],
+      "annotations": [
+        {
+          "relation": "CATALOG_VERSION",
+          "fields": {
+            "marker": "Catálogo OP-02 v0.1"
+          },
+          "sourceLines": [
+            5660,
+            5660
+          ]
+        },
+        {
+          "relation": "RULE_BASIS",
+          "fields": {
+            "rules": [
+              "R04"
+            ]
+          },
+          "sourceLines": [
+            5112,
+            5128
+          ]
+        },
+        {
+          "relation": "VARIANT_COUNT",
+          "fields": {
+            "statement": "Tenemos 9 variantes operativas dentro de 8 familias conceptuales."
+          },
+          "sourceLines": [
+            5686,
+            5686
+          ]
+        }
+      ]
+    },
+    {
+      "key": "OP02-HF03A",
+      "objectType": "FINDING_VARIANT",
+      "sourceId": "OP02-HF03A",
+      "fields": {
+        "id": "OP02-HF03A",
+        "name": "Indisponibilidad efectiva de recursos",
+        "familyRef": "HF03"
+      },
+      "sourceLines": [
+        5671,
+        5671
+      ],
+      "annotations": [
+        {
+          "relation": "CATALOG_VERSION",
+          "fields": {
+            "marker": "Catálogo OP-02 v0.1"
+          },
+          "sourceLines": [
+            5660,
+            5660
+          ]
+        },
+        {
+          "relation": "RULE_BASIS",
+          "fields": {
+            "rules": [
+              "R03 / VA03"
+            ]
+          },
+          "sourceLines": [
+            5138,
+            5154
+          ]
+        },
+        {
+          "relation": "VARIANT_COUNT",
+          "fields": {
+            "statement": "Tenemos 9 variantes operativas dentro de 8 familias conceptuales."
+          },
+          "sourceLines": [
+            5686,
+            5686
+          ]
+        }
+      ]
+    },
+    {
+      "key": "OP02-HF03B",
+      "objectType": "FINDING_VARIANT",
+      "sourceId": "OP02-HF03B",
+      "fields": {
+        "id": "OP02-HF03B",
+        "name": "Asignación inadecuada de recursos",
+        "familyRef": "HF03"
+      },
+      "sourceLines": [
+        5673,
+        5673
+      ],
+      "annotations": [
+        {
+          "relation": "CATALOG_VERSION",
+          "fields": {
+            "marker": "Catálogo OP-02 v0.1"
+          },
+          "sourceLines": [
+            5660,
+            5660
+          ]
+        },
+        {
+          "relation": "RULE_BASIS",
+          "fields": {
+            "rules": [
+              "R05 / VA05"
+            ]
+          },
+          "sourceLines": [
+            5144,
+            5158
+          ]
+        },
+        {
+          "relation": "VARIANT_COUNT",
+          "fields": {
+            "statement": "Tenemos 9 variantes operativas dentro de 8 familias conceptuales."
+          },
+          "sourceLines": [
+            5686,
+            5686
+          ]
+        }
+      ]
+    },
+    {
+      "key": "OP02-HF04",
+      "objectType": "FINDING_VARIANT",
+      "sourceId": "OP02-HF04",
+      "fields": {
+        "id": "OP02-HF04",
+        "name": "Coordinación insuficiente de dependencias",
+        "familyRef": "HF04"
+      },
+      "sourceLines": [
+        5675,
+        5675
+      ],
+      "annotations": [
+        {
+          "relation": "CATALOG_VERSION",
+          "fields": {
+            "marker": "Catálogo OP-02 v0.1"
+          },
+          "sourceLines": [
+            5660,
+            5660
+          ]
+        },
+        {
+          "relation": "RULE_BASIS",
+          "fields": {
+            "rules": [
+              "R06"
+            ]
+          },
+          "sourceLines": [
+            5162,
+            5176
+          ]
+        },
+        {
+          "relation": "VARIANT_COUNT",
+          "fields": {
+            "statement": "Tenemos 9 variantes operativas dentro de 8 familias conceptuales."
+          },
+          "sourceLines": [
+            5686,
+            5686
+          ]
+        }
+      ]
+    },
+    {
+      "key": "OP02-HF05",
+      "objectType": "FINDING_VARIANT",
+      "sourceId": "OP02-HF05",
+      "fields": {
+        "id": "OP02-HF05",
+        "name": "Inconsistencia material de ejecución",
+        "familyRef": "HF05"
+      },
+      "sourceLines": [
+        5677,
+        5677
+      ],
+      "annotations": [
+        {
+          "relation": "CATALOG_VERSION",
+          "fields": {
+            "marker": "Catálogo OP-02 v0.1"
+          },
+          "sourceLines": [
+            5660,
+            5660
+          ]
+        },
+        {
+          "relation": "RULE_BASIS",
+          "fields": {
+            "rules": [
+              "R07"
+            ]
+          },
+          "sourceLines": [
+            5180,
+            5192
+          ]
+        },
+        {
+          "relation": "VARIANT_COUNT",
+          "fields": {
+            "statement": "Tenemos 9 variantes operativas dentro de 8 familias conceptuales."
+          },
+          "sourceLines": [
+            5686,
+            5686
+          ]
+        }
+      ]
+    },
+    {
+      "key": "OP02-HF06",
+      "objectType": "FINDING_VARIANT",
+      "sourceId": "OP02-HF06",
+      "fields": {
+        "id": "OP02-HF06",
+        "name": "Pérdidas materiales de flujo",
+        "familyRef": "HF06"
+      },
+      "sourceLines": [
+        5679,
+        5679
+      ],
+      "annotations": [
+        {
+          "relation": "CATALOG_VERSION",
+          "fields": {
+            "marker": "Catálogo OP-02 v0.1"
+          },
+          "sourceLines": [
+            5660,
+            5660
+          ]
+        },
+        {
+          "relation": "RULE_BASIS",
+          "fields": {
+            "rules": [
+              "R08"
+            ]
+          },
+          "sourceLines": [
+            5196,
+            5210
+          ]
+        },
+        {
+          "relation": "VARIANT_COUNT",
+          "fields": {
+            "statement": "Tenemos 9 variantes operativas dentro de 8 familias conceptuales."
+          },
+          "sourceLines": [
+            5686,
+            5686
+          ]
+        }
+      ]
+    },
+    {
+      "key": "OP02-HF07",
+      "objectType": "FINDING_VARIANT",
+      "sourceId": "OP02-HF07",
+      "fields": {
+        "id": "OP02-HF07",
+        "name": "Visibilidad operacional insuficiente",
+        "familyRef": "HF07"
+      },
+      "sourceLines": [
+        5681,
+        5681
+      ],
+      "annotations": [
+        {
+          "relation": "CATALOG_VERSION",
+          "fields": {
+            "marker": "Catálogo OP-02 v0.1"
+          },
+          "sourceLines": [
+            5660,
+            5660
+          ]
+        },
+        {
+          "relation": "RULE_BASIS",
+          "fields": {
+            "rules": [
+              "R09"
+            ]
+          },
+          "sourceLines": [
+            5214,
+            5226
+          ]
+        },
+        {
+          "relation": "VARIANT_COUNT",
+          "fields": {
+            "statement": "Tenemos 9 variantes operativas dentro de 8 familias conceptuales."
+          },
+          "sourceLines": [
+            5686,
+            5686
+          ]
+        }
+      ]
+    },
+    {
+      "key": "OP02-HF08",
+      "objectType": "FINDING_VARIANT",
+      "sourceId": "OP02-HF08",
+      "fields": {
+        "id": "OP02-HF08",
+        "name": "Adaptación insuficiente ante desviaciones",
+        "familyRef": "HF08"
+      },
+      "sourceLines": [
+        5683,
+        5683
+      ],
+      "annotations": [
+        {
+          "relation": "CATALOG_VERSION",
+          "fields": {
+            "marker": "Catálogo OP-02 v0.1"
+          },
+          "sourceLines": [
+            5660,
+            5660
+          ]
+        },
+        {
+          "relation": "RULE_BASIS",
+          "fields": {
+            "rules": [
+              "R10"
+            ]
+          },
+          "sourceLines": [
+            5230,
+            5242
+          ]
+        },
+        {
+          "relation": "VARIANT_COUNT",
+          "fields": {
+            "statement": "Tenemos 9 variantes operativas dentro de 8 familias conceptuales."
+          },
+          "sourceLines": [
+            5686,
+            5686
+          ]
+        }
+      ]
+    },
+    {
+      "key": "DERIVATION-OP-03",
+      "objectType": "CROSS_CAPABILITY_DERIVATION",
+      "sourceId": null,
+      "fields": {
+        "cause": "Derivación hacia OP-03",
+        "target": "OP-03"
+      },
+      "sourceLines": [
+        5417,
+        5459
+      ]
+    },
+    {
+      "key": "DERIVATION-OP-04",
+      "objectType": "CROSS_CAPABILITY_DERIVATION",
+      "sourceId": null,
+      "fields": {
+        "cause": "Derivación hacia OP-04",
+        "target": "OP-04"
+      },
+      "sourceLines": [
+        5437,
+        5459
+      ]
+    },
+    {
+      "key": "DERIVATION-PC",
+      "objectType": "CROSS_CAPABILITY_DERIVATION",
+      "sourceId": null,
+      "fields": {
+        "cause": "Derivación hacia PC",
+        "target": "PC"
+      },
+      "sourceLines": [
+        5463,
+        5483
+      ]
+    },
+    {
+      "key": "DERIVATION-DT",
+      "objectType": "CROSS_CAPABILITY_DERIVATION",
+      "sourceId": null,
+      "fields": {
+        "cause": "Derivación hacia DT",
+        "target": "DT"
+      },
+      "sourceLines": [
+        5487,
+        5505
+      ]
+    },
+    {
+      "key": "DERIVATION-DG",
+      "objectType": "CROSS_CAPABILITY_DERIVATION",
+      "sourceId": null,
+      "fields": {
+        "cause": "Derivación hacia DG",
+        "target": "DG"
+      },
+      "sourceLines": [
+        5509,
+        5525
+      ]
+    },
+    {
+      "key": "DERIVATION-DT-05",
+      "objectType": "CROSS_CAPABILITY_DERIVATION",
+      "sourceId": null,
+      "fields": {
+        "cause": "DT-05 / continuidad / riesgo, según corresponda.",
+        "target": "DT-05",
+        "ruleRef": "R-OP02-10"
+      },
+      "sourceLines": [
+        4538,
+        4556
+      ]
+    },
+    {
+      "key": "DER-OP02-01",
+      "objectType": "DERIVATION_RULE",
+      "sourceId": "DER-OP02-01",
+      "fields": {
+        "id": "DER-OP02-01",
+        "statement": "OP-02 conserva la observación y el impacto que pertenecen a su unidad de análisis, pero deriva la evaluación causal especializada cuando la explicación principal pertenece a otra capacidad."
+      },
+      "sourceLines": [
+        5531,
+        5541
+      ]
+    },
+    {
+      "key": "INT-OP02-01",
+      "objectType": "INTERVENTION_RULE",
+      "sourceId": "INT-OP02-01",
+      "fields": {
+        "id": "INT-OP02-01",
+        "name": "Mínima intervención suficiente",
+        "statement": "Seleccionar la intervención menos compleja, costosa e invasiva que tenga una probabilidad razonable de corregir o reducir materialmente la condición diagnosticada dentro del contexto de la pyme."
+      },
+      "sourceLines": [
+        5824,
+        5834
+      ]
+    },
+    {
+      "key": "INT-OP02-02",
+      "objectType": "INTERVENTION_RULE",
+      "sourceId": "INT-OP02-02",
+      "fields": {
+        "id": "INT-OP02-02",
+        "name": "Sofisticación proporcional",
+        "statement": "La sofisticación del mecanismo de intervención debe crecer solamente cuando volumen, variabilidad, criticidad o complejidad hagan insuficiente una solución más simple."
+      },
+      "sourceLines": [
+        5939,
+        5941
+      ]
+    },
+    {
+      "key": "INT-OP02-03",
+      "objectType": "INTERVENTION_RULE",
+      "sourceId": "INT-OP02-03",
+      "fields": {
+        "id": "INT-OP02-03",
+        "name": "Capacidad insuficiente ≠ adquisición automática de recursos",
+        "statement": "Antes de incrementar capacidad estructural, contrastar si la brecha puede reducirse suficientemente mediante planificación, disponibilidad, asignación, flujo o adaptación."
+      },
+      "sourceLines": [
+        5983,
+        5989
+      ]
+    },
+    {
+      "key": "INT-OP02-04",
+      "objectType": "INTERVENTION_RULE",
+      "sourceId": "INT-OP02-04",
+      "fields": {
+        "id": "INT-OP02-04",
+        "name": "Síntoma de flujo ≠ solución predeterminada"
+      },
+      "sourceLines": [
+        6174,
+        6174
+      ]
+    },
+    {
+      "key": "INT-OP02-05",
+      "objectType": "INTERVENTION_RULE",
+      "sourceId": "INT-OP02-05",
+      "fields": {
+        "id": "INT-OP02-05",
+        "statement": "Consolidar patrones cuando:"
+      },
+      "sourceLines": [
+        6434,
+        6450
+      ]
+    },
+    {
+      "key": "RECOMMENDATION-OBJECT",
+      "objectType": "OBJECT_CONTRACT",
+      "sourceId": null,
+      "fields": {
+        "name": "Objeto Recommendation",
+        "fields": [
+          "Recommendation_ID",
+          "Finding_ID[]",
+          "Capability_ID",
+          "Objective",
+          "Recommendation_Text",
+          "Cause_Confidence",
+          "Target_VA[]",
+          "Intervention_Pattern_Candidates[]",
+          "Context_Conditions[]",
+          "Derivation[]",
+          "Rationale",
+          "Provenance[]",
+          "Status",
+          "Version"
+        ]
+      },
+      "sourceLines": [
+        6478,
+        6508
+      ]
+    },
+    {
+      "key": "INTERVENTION-PATTERN-OBJECT",
+      "objectType": "OBJECT_CONTRACT",
+      "sourceId": null,
+      "fields": {
+        "name": "Objeto Intervention Pattern",
+        "fields": [
+          "Pattern_ID",
+          "Capability_ID",
+          "Pattern_Name",
+          "Purpose",
+          "Applicable_Findings[]",
+          "Applicability_Conditions[]",
+          "Non_Applicability_Conditions[]",
+          "Intervention_Type[]",
+          "Minimum_Viable_Intervention",
+          "Escalation_Options[]",
+          "Dependencies[]",
+          "Derived_Capabilities[]",
+          "Expected_Outcome",
+          "Activities[]",
+          "Instruments[]",
+          "Deliverables[]",
+          "Done_Criteria[]",
+          "CRV[]",
+          "KPI[]",
+          "Evidence_of_Result[]",
+          "Version",
+          "Governance_Status"
+        ]
+      },
+      "sourceLines": [
+        6512,
+        6560
+      ]
+    },
+    {
+      "key": "IP01",
+      "objectType": "INTERVENTION_PATTERN",
+      "sourceId": "IP01",
+      "fields": {
+        "id": "IP01",
+        "name": "Visibilizar y anticipar carga",
+        "objective": "Hacer manejables carga y compromisos"
+      },
+      "sourceLines": [
+        5866,
+        5866
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED",
+          "DIGIWAY_INTERNAL"
+        ],
+        "sourceLines": [
+          9995,
+          10013
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "PATTERN_DETAIL",
+          "fields": {
+            "purpose": "Hacer suficientemente visible el trabajo actual, pendiente y razonablemente esperado para poder planificar.",
+            "minimumActivities": [
+              "1.  Identificar qué representa “carga” en el proceso.",
+              "2.  Consolidar trabajo pendiente y compromisos relevantes.",
+              "3.  Identificar patrones previsibles relevantes.",
+              "4.  Definir cómo y cuándo se actualiza.",
+              "5.  Utilizar esa información en la planificación operacional."
+            ],
+            "doneCriteria": [
+              "DC01.1 La carga materialmente relevante está representada.",
+              "DC01.2 Los compromisos necesarios para planificar son visibles.",
+              "DC01.3 Los patrones previsibles relevantes están incorporados cuando aplican.",
+              "DC01.4 Existe mecanismo/responsable de actualización.",
+              "DC01.5 La vista ha sido utilizada al menos en un ciclo real de planificación."
+            ]
+          },
+          "sourceLines": [
+            6745,
+            6789
+          ]
+        }
+      ]
+    },
+    {
+      "key": "INS-OP02-01",
+      "objectType": "INSTRUMENT",
+      "sourceId": "INS-OP02-01",
+      "fields": {
+        "id": "INS-OP02-01",
+        "name": "Vista de Carga y Compromisos",
+        "patternRef": "IP01"
+      },
+      "sourceLines": [
+        6745,
+        6765
+      ]
+    },
+    {
+      "key": "DEL-OP02-01",
+      "objectType": "DELIVERABLE",
+      "sourceId": "DEL-OP02-01",
+      "fields": {
+        "id": "DEL-OP02-01",
+        "name": "Vista operacional vigente de carga y compromisos.",
+        "patternRef": "IP01",
+        "instrumentRef": "INS-OP02-01"
+      },
+      "sourceLines": [
+        6745,
+        6775
+      ]
+    },
+    {
+      "key": "DC01.1",
+      "objectType": "DONE_CRITERION",
+      "sourceId": "DC01.1",
+      "fields": {
+        "id": "DC01.1",
+        "statement": "La carga materialmente relevante está representada.",
+        "patternRef": "IP01"
+      },
+      "sourceLines": [
+        6745,
+        6779
+      ]
+    },
+    {
+      "key": "DC01.2",
+      "objectType": "DONE_CRITERION",
+      "sourceId": "DC01.2",
+      "fields": {
+        "id": "DC01.2",
+        "statement": "Los compromisos necesarios para planificar son visibles.",
+        "patternRef": "IP01"
+      },
+      "sourceLines": [
+        6745,
+        6781
+      ]
+    },
+    {
+      "key": "DC01.3",
+      "objectType": "DONE_CRITERION",
+      "sourceId": "DC01.3",
+      "fields": {
+        "id": "DC01.3",
+        "statement": "Los patrones previsibles relevantes están incorporados cuando aplican.",
+        "patternRef": "IP01"
+      },
+      "sourceLines": [
+        6745,
+        6783
+      ]
+    },
+    {
+      "key": "DC01.4",
+      "objectType": "DONE_CRITERION",
+      "sourceId": "DC01.4",
+      "fields": {
+        "id": "DC01.4",
+        "statement": "Existe mecanismo/responsable de actualización.",
+        "patternRef": "IP01"
+      },
+      "sourceLines": [
+        6745,
+        6785
+      ]
+    },
+    {
+      "key": "DC01.5",
+      "objectType": "DONE_CRITERION",
+      "sourceId": "DC01.5",
+      "fields": {
+        "id": "DC01.5",
+        "statement": "La vista ha sido utilizada al menos en un ciclo real de planificación.",
+        "patternRef": "IP01"
+      },
+      "sourceLines": [
+        6745,
+        6787
+      ]
+    },
+    {
+      "key": "IP02",
+      "objectType": "INTERVENTION_PATTERN",
+      "sourceId": "IP02",
+      "fields": {
+        "id": "IP02",
+        "name": "Establecer lógica de priorización y programación",
+        "objective": "Organizar el trabajo"
+      },
+      "sourceLines": [
+        5868,
+        5868
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED",
+          "DIGIWAY_INTERNAL"
+        ],
+        "sourceLines": [
+          9995,
+          10013
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "PATTERN_DETAIL",
+          "fields": {
+            "purpose": "Organizar el trabajo cuando existen prioridades, restricciones o competencia por capacidad.",
+            "minimumActivities": [
+              "1.  Identificar tipos de trabajo que compiten.",
+              "2.  Definir criterios materiales de prioridad.",
+              "3.  Resolver conflictos entre criterios.",
+              "4.  Definir horizonte/ritmo de programación.",
+              "5.  Probar la lógica con casos reales.",
+              "6.  Ajustar excepciones necesarias."
+            ],
+            "doneCriteria": [
+              "- permite decidir qué atender primero cuando existe conflicto;",
+              "- contempla excepciones relevantes;",
+              "- puede ser comprendida por quienes la aplican;",
+              "- ha sido probada con casos reales;",
+              "- no depende exclusivamente de improvisación individual."
+            ]
+          },
+          "sourceLines": [
+            6793,
+            6841
+          ]
+        }
+      ]
+    },
+    {
+      "key": "INS-OP02-02",
+      "objectType": "INSTRUMENT",
+      "sourceId": "INS-OP02-02",
+      "fields": {
+        "id": "INS-OP02-02",
+        "name": "Matriz de Priorización Operativa",
+        "patternRef": "IP02"
+      },
+      "sourceLines": [
+        6793,
+        6815
+      ]
+    },
+    {
+      "key": "DEL-OP02-02",
+      "objectType": "DELIVERABLE",
+      "sourceId": "DEL-OP02-02",
+      "fields": {
+        "id": "DEL-OP02-02",
+        "name": "Lógica operacional de priorización y programación en uso.",
+        "patternRef": "IP02",
+        "instrumentRef": "INS-OP02-02"
+      },
+      "sourceLines": [
+        6793,
+        6825
+      ]
+    },
+    {
+      "key": "IP03",
+      "objectType": "INTERVENTION_PATTERN",
+      "sourceId": "IP03",
+      "fields": {
+        "id": "IP03",
+        "name": "Ajustar capacidad y disponibilidad",
+        "objective": "Alinear capacidad efectiva con necesidad"
+      },
+      "sourceLines": [
+        5870,
+        5870
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED",
+          "DIGIWAY_INTERNAL"
+        ],
+        "sourceLines": [
+          9995,
+          10013
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "PATTERN_DETAIL",
+          "fields": {
+            "purpose": "Lograr que la capacidad efectiva pueda absorber razonablemente la carga relevante.",
+            "minimumActivities": [
+              "1.  Identificar carga/periodos críticos.",
+              "2.  Determinar capacidad efectiva relevante.",
+              "3.  Identificar causas de indisponibilidad.",
+              "4.  Comparar capacidad–carga.",
+              "5.  evaluar alternativas antes de aumentar capacidad estructural;",
+              "6.  seleccionar ajuste proporcional;",
+              "7.  ejecutar durante un periodo de prueba cuando sea posible."
+            ],
+            "doneCriteria": [
+              "DC03.1 La condición capacidad–carga fue caracterizada.",
+              "DC03.2 Se contrastaron alternativas razonables.",
+              "DC03.3 Existe una decisión explícita de ajuste.",
+              "DC03.4 Los recursos/condiciones requeridos están disponibles.",
+              "DC03.5 El ajuste fue puesto en operación."
+            ]
+          },
+          "sourceLines": [
+            6845,
+            6899
+          ]
+        }
+      ]
+    },
+    {
+      "key": "INS-OP02-03",
+      "objectType": "INSTRUMENT",
+      "sourceId": "INS-OP02-03",
+      "fields": {
+        "id": "INS-OP02-03",
+        "name": "Mapa Capacidad–Carga",
+        "patternRef": "IP03"
+      },
+      "sourceLines": [
+        6845,
+        6871
+      ]
+    },
+    {
+      "key": "DEL-OP02-03",
+      "objectType": "DELIVERABLE",
+      "sourceId": "DEL-OP02-03",
+      "fields": {
+        "id": "DEL-OP02-03",
+        "name": "Esquema de capacidad ajustado para la condición diagnosticada.",
+        "patternRef": "IP03",
+        "instrumentRef": "INS-OP02-03"
+      },
+      "sourceLines": [
+        6845,
+        6881
+      ]
+    },
+    {
+      "key": "DC03.1",
+      "objectType": "DONE_CRITERION",
+      "sourceId": "DC03.1",
+      "fields": {
+        "id": "DC03.1",
+        "statement": "La condición capacidad–carga fue caracterizada.",
+        "patternRef": "IP03"
+      },
+      "sourceLines": [
+        6845,
+        6889
+      ]
+    },
+    {
+      "key": "DC03.2",
+      "objectType": "DONE_CRITERION",
+      "sourceId": "DC03.2",
+      "fields": {
+        "id": "DC03.2",
+        "statement": "Se contrastaron alternativas razonables.",
+        "patternRef": "IP03"
+      },
+      "sourceLines": [
+        6845,
+        6891
+      ]
+    },
+    {
+      "key": "DC03.3",
+      "objectType": "DONE_CRITERION",
+      "sourceId": "DC03.3",
+      "fields": {
+        "id": "DC03.3",
+        "statement": "Existe una decisión explícita de ajuste.",
+        "patternRef": "IP03"
+      },
+      "sourceLines": [
+        6845,
+        6893
+      ]
+    },
+    {
+      "key": "DC03.4",
+      "objectType": "DONE_CRITERION",
+      "sourceId": "DC03.4",
+      "fields": {
+        "id": "DC03.4",
+        "statement": "Los recursos/condiciones requeridos están disponibles.",
+        "patternRef": "IP03"
+      },
+      "sourceLines": [
+        6845,
+        6895
+      ]
+    },
+    {
+      "key": "DC03.5",
+      "objectType": "DONE_CRITERION",
+      "sourceId": "DC03.5",
+      "fields": {
+        "id": "DC03.5",
+        "statement": "El ajuste fue puesto en operación.",
+        "patternRef": "IP03"
+      },
+      "sourceLines": [
+        6845,
+        6897
+      ]
+    },
+    {
+      "key": "IP04",
+      "objectType": "INTERVENTION_PATTERN",
+      "sourceId": "IP04",
+      "fields": {
+        "id": "IP04",
+        "name": "Reasignar recursos operativamente",
+        "objective": "Utilizar mejor capacidad existente"
+      },
+      "sourceLines": [
+        5872,
+        5872
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED",
+          "DIGIWAY_INTERNAL"
+        ],
+        "sourceLines": [
+          9995,
+          10013
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "PATTERN_DETAIL",
+          "fields": {
+            "purpose": "Utilizar mejor capacidad existente antes de asumir que falta capacidad.",
+            "minimumActivities": [
+              "1.  Identificar dónde están los recursos.",
+              "2.  Identificar dónde se requiere capacidad.",
+              "3.  detectar conflictos/desbalances;",
+              "4.  definir reglas de asignación/reasignación;",
+              "5.  establecer autoridad para mover recursos cuando sea necesario;",
+              "6.  probar en operación."
+            ],
+            "doneCriteria": [
+              "- distingue prioridades materiales;",
+              "- permite reconocer desbalances;",
+              "- establece quién puede reasignar;",
+              "- puede ejecutarse con la oportunidad requerida;",
+              "- ha sido aplicado en una situación operacional real o simulación suficientemente representativa."
+            ]
+          },
+          "sourceLines": [
+            6903,
+            6945
+          ]
+        }
+      ]
+    },
+    {
+      "key": "INS-OP02-04",
+      "objectType": "INSTRUMENT",
+      "sourceId": "INS-OP02-04",
+      "fields": {
+        "id": "INS-OP02-04",
+        "name": "Matriz de Asignación Operativa",
+        "patternRef": "IP04"
+      },
+      "sourceLines": [
+        6903,
+        6925
+      ]
+    },
+    {
+      "key": "DEL-OP02-04",
+      "objectType": "DELIVERABLE",
+      "sourceId": "DEL-OP02-04",
+      "fields": {
+        "id": "DEL-OP02-04",
+        "name": "Mecanismo operativo de asignación y reasignación.",
+        "patternRef": "IP04",
+        "instrumentRef": "INS-OP02-04"
+      },
+      "sourceLines": [
+        6903,
+        6931
+      ]
+    },
+    {
+      "key": "IP05",
+      "objectType": "INTERVENTION_PATTERN",
+      "sourceId": "IP05",
+      "fields": {
+        "id": "IP05",
+        "name": "Coordinar dependencias críticas",
+        "objective": "Reducir esperas y fallos de sincronización"
+      },
+      "sourceLines": [
+        5874,
+        5874
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED",
+          "DIGIWAY_INTERNAL"
+        ],
+        "sourceLines": [
+          9995,
+          10013
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "PATTERN_DETAIL",
+          "fields": {
+            "purpose": "Reducir fricciones causadas por dependencias entre actividades, personas, información, decisiones o recursos.",
+            "minimumActivities": [
+              "1.  Identificar dependencias críticas.",
+              "2.  definir qué necesita cada dependencia;",
+              "3.  determinar momento/condición necesaria;",
+              "4.  identificar responsable;",
+              "5.  establecer mecanismo de coordinación;",
+              "6.  definir qué ocurre ante incumplimiento;",
+              "7.  probarlo."
+            ],
+            "doneCriteria": []
+          },
+          "sourceLines": [
+            6949,
+            6987
+          ]
+        }
+      ]
+    },
+    {
+      "key": "INS-OP02-05",
+      "objectType": "INSTRUMENT",
+      "sourceId": "INS-OP02-05",
+      "fields": {
+        "id": "INS-OP02-05",
+        "name": "Mapa de Dependencias Operativas",
+        "patternRef": "IP05"
+      },
+      "sourceLines": [
+        6949,
+        6973
+      ]
+    },
+    {
+      "key": "DEL-OP02-05",
+      "objectType": "DELIVERABLE",
+      "sourceId": "DEL-OP02-05",
+      "fields": {
+        "id": "DEL-OP02-05",
+        "name": "Mecanismo de coordinación para dependencias críticas.",
+        "patternRef": "IP05",
+        "instrumentRef": "INS-OP02-05"
+      },
+      "sourceLines": [
+        6949,
+        6979
+      ]
+    },
+    {
+      "key": "IP06",
+      "objectType": "INTERVENTION_PATTERN",
+      "sourceId": "IP06",
+      "fields": {
+        "id": "IP06",
+        "name": "Estabilizar ejecución y flujo",
+        "objective": "Reducir variación problemática, espera y reproceso"
+      },
+      "sourceLines": [
+        5876,
+        5876
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED",
+          "DIGIWAY_INTERNAL"
+        ],
+        "sourceLines": [
+          9995,
+          10013
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "PATTERN_DETAIL",
+          "fields": {
+            "purpose": "Reducir variación problemática, esperas, acumulaciones, bloqueos o reproceso.",
+            "minimumActivities": [
+              "1.  Identificar dónde aparece la condición.",
+              "2.  caracterizar patrón/frecuencia;",
+              "3.  separar variabilidad legítima de problemática;",
+              "4.  identificar causa suficientemente sustentada;",
+              "5.  seleccionar cambio mínimo;",
+              "6.  probarlo;",
+              "7.  observar comportamiento."
+            ],
+            "doneCriteria": [
+              "- condición objetivo identificada;",
+              "- causa suficientemente sustentada o intervención explícitamente clasificada como aprendizaje;",
+              "- cambio definido;",
+              "- responsables conocen el cambio;",
+              "- cambio ejecutado en casos reales;",
+              "- existe mecanismo para observar su comportamiento posterior."
+            ]
+          },
+          "sourceLines": [
+            6991,
+            7047
+          ]
+        }
+      ]
+    },
+    {
+      "key": "INS-OP02-06",
+      "objectType": "INSTRUMENT",
+      "sourceId": "INS-OP02-06",
+      "fields": {
+        "id": "INS-OP02-06",
+        "name": "Registro de Estabilidad y Flujo",
+        "patternRef": "IP06"
+      },
+      "sourceLines": [
+        6991,
+        7019
+      ]
+    },
+    {
+      "key": "DEL-OP02-06",
+      "objectType": "DELIVERABLE",
+      "sourceId": "DEL-OP02-06",
+      "fields": {
+        "id": "DEL-OP02-06",
+        "name": "Ajuste operacional aplicado al punto de inestabilidad o pérdida de flujo.",
+        "patternRef": "IP06",
+        "instrumentRef": "INS-OP02-06"
+      },
+      "sourceLines": [
+        6991,
+        7031
+      ]
+    },
+    {
+      "key": "IP07",
+      "objectType": "INTERVENTION_PATTERN",
+      "sourceId": "IP07",
+      "fields": {
+        "id": "IP07",
+        "name": "Hacer visible estado y desviaciones",
+        "objective": "Detectar oportunamente"
+      },
+      "sourceLines": [
+        5878,
+        5878
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED",
+          "DIGIWAY_INTERNAL"
+        ],
+        "sourceLines": [
+          9995,
+          10013
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "PATTERN_DETAIL",
+          "fields": {
+            "purpose": "Detectar desviaciones con suficiente anticipación para permitir acción.",
+            "minimumActivities": [
+              "1.  Definir qué estados/importantes necesitan visibilidad.",
+              "2.  identificar qué desviaciones requieren atención;",
+              "3.  determinar cuándo deben detectarse;",
+              "4.  establecer mecanismo de seguimiento;",
+              "5.  definir responsable;",
+              "6.  definir alerta/escalamiento;",
+              "7.  utilizarlo en operación."
+            ],
+            "doneCriteria": [
+              "DC07.1 Estados materiales son visibles.",
+              "DC07.2 Las desviaciones relevantes pueden identificarse.",
+              "DC07.3 La información llega a quien puede actuar.",
+              "DC07.4 Existe una respuesta/escalamiento definido.",
+              "DC07.5 El mecanismo ha operado durante ejecución real."
+            ]
+          },
+          "sourceLines": [
+            7051,
+            7097
+          ]
+        }
+      ]
+    },
+    {
+      "key": "INS-OP02-07",
+      "objectType": "INSTRUMENT",
+      "sourceId": "INS-OP02-07",
+      "fields": {
+        "id": "INS-OP02-07",
+        "name": "Tablero Operacional de Estado y Excepciones",
+        "patternRef": "IP07"
+      },
+      "sourceLines": [
+        7051,
+        7075
+      ]
+    },
+    {
+      "key": "DEL-OP02-07",
+      "objectType": "DELIVERABLE",
+      "sourceId": "DEL-OP02-07",
+      "fields": {
+        "id": "DEL-OP02-07",
+        "name": "Mecanismo activo de visibilidad operacional y excepciones.",
+        "patternRef": "IP07",
+        "instrumentRef": "INS-OP02-07"
+      },
+      "sourceLines": [
+        7051,
+        7085
+      ]
+    },
+    {
+      "key": "DC07.1",
+      "objectType": "DONE_CRITERION",
+      "sourceId": "DC07.1",
+      "fields": {
+        "id": "DC07.1",
+        "statement": "Estados materiales son visibles.",
+        "patternRef": "IP07"
+      },
+      "sourceLines": [
+        7051,
+        7089
+      ]
+    },
+    {
+      "key": "DC07.2",
+      "objectType": "DONE_CRITERION",
+      "sourceId": "DC07.2",
+      "fields": {
+        "id": "DC07.2",
+        "statement": "Las desviaciones relevantes pueden identificarse.",
+        "patternRef": "IP07"
+      },
+      "sourceLines": [
+        7051,
+        7091
+      ]
+    },
+    {
+      "key": "DC07.3",
+      "objectType": "DONE_CRITERION",
+      "sourceId": "DC07.3",
+      "fields": {
+        "id": "DC07.3",
+        "statement": "La información llega a quien puede actuar.",
+        "patternRef": "IP07"
+      },
+      "sourceLines": [
+        7051,
+        7093
+      ]
+    },
+    {
+      "key": "DC07.4",
+      "objectType": "DONE_CRITERION",
+      "sourceId": "DC07.4",
+      "fields": {
+        "id": "DC07.4",
+        "statement": "Existe una respuesta/escalamiento definido.",
+        "patternRef": "IP07"
+      },
+      "sourceLines": [
+        7051,
+        7095
+      ]
+    },
+    {
+      "key": "DC07.5",
+      "objectType": "DONE_CRITERION",
+      "sourceId": "DC07.5",
+      "fields": {
+        "id": "DC07.5",
+        "statement": "El mecanismo ha operado durante ejecución real.",
+        "patternRef": "IP07"
+      },
+      "sourceLines": [
+        7051,
+        7097
+      ]
+    },
+    {
+      "key": "IP08",
+      "objectType": "INTERVENTION_PATTERN",
+      "sourceId": "IP08",
+      "fields": {
+        "id": "IP08",
+        "name": "Fortalecer adaptación operacional",
+        "objective": "Responder y recuperar ejecución"
+      },
+      "sourceLines": [
+        5880,
+        5880
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED",
+          "DIGIWAY_INTERNAL"
+        ],
+        "sourceLines": [
+          9995,
+          10013
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "PATTERN_DETAIL",
+          "fields": {
+            "purpose": "Responder a desviaciones manejables antes de que escalen.",
+            "minimumActivities": [
+              "1.  Identificar excepciones frecuentes/materiales.",
+              "2.  definir respuestas razonables.",
+              "3.  establecer quién puede decidir.",
+              "4.  definir opciones de repriorización/reasignación.",
+              "5.  establecer umbral de escalamiento.",
+              "6.  probar respuestas.",
+              "7.  incorporar aprendizaje."
+            ],
+            "doneCriteria": [
+              "- existe respuesta definida;",
+              "- existe autoridad suficiente;",
+              "- están disponibles los mecanismos necesarios;",
+              "- existe límite de actuación/escalamiento;",
+              "- la respuesta ha sido probada o utilizada;",
+              "- el equipo relevante sabe cómo actuar."
+            ]
+          },
+          "sourceLines": [
+            7101,
+            7147
+          ]
+        }
+      ]
+    },
+    {
+      "key": "INS-OP02-08",
+      "objectType": "INSTRUMENT",
+      "sourceId": "INS-OP02-08",
+      "fields": {
+        "id": "INS-OP02-08",
+        "name": "Matriz de Respuesta Operacional",
+        "patternRef": "IP08"
+      },
+      "sourceLines": [
+        7101,
+        7125
+      ]
+    },
+    {
+      "key": "DEL-OP02-08",
+      "objectType": "DELIVERABLE",
+      "sourceId": "DEL-OP02-08",
+      "fields": {
+        "id": "DEL-OP02-08",
+        "name": "Mecanismo operativo de respuesta a desviaciones.",
+        "patternRef": "IP08",
+        "instrumentRef": "INS-OP02-08"
+      },
+      "sourceLines": [
+        7101,
+        7131
+      ]
+    },
+    {
+      "key": "DC-A",
+      "objectType": "DONE_LAYER",
+      "sourceId": "DC-A",
+      "fields": {
+        "id": "DC-A",
+        "name": "Configurado",
+        "definition": "La intervención está definida:"
+      },
+      "sourceLines": [
+        7197,
+        7199
+      ]
+    },
+    {
+      "key": "DC-B",
+      "objectType": "DONE_LAYER",
+      "sourceId": "DC-B",
+      "fields": {
+        "id": "DC-B",
+        "name": "Activado",
+        "definition": "La intervención ya fue puesta en operación."
+      },
+      "sourceLines": [
+        7203,
+        7205
+      ]
+    },
+    {
+      "key": "DC-C",
+      "objectType": "DONE_LAYER",
+      "sourceId": "DC-C",
+      "fields": {
+        "id": "DC-C",
+        "name": "Adoptado inicialmente",
+        "definition": "Existe evidencia de utilización real suficiente para afirmar que no quedó simplemente diseñada."
+      },
+      "sourceLines": [
+        7207,
+        7209
+      ]
+    },
+    {
+      "key": "DONE-IMPLEMENTED",
+      "objectType": "SEMANTIC_SEPARATION",
+      "sourceId": null,
+      "fields": {
+        "statement": "DC-A + DC-B + DC-C → IMPLEMENTED",
+        "separation": "implementación exitosa ≠ intervención efectiva."
+      },
+      "sourceLines": [
+        7223,
+        7229
+      ]
+    },
+    {
+      "key": "I0",
+      "objectType": "EXECUTION_STATE",
+      "sourceId": "I0",
+      "fields": {
+        "id": "I0",
+        "name": "Not started",
+        "definition": "No iniciada."
+      },
+      "sourceLines": [
+        7239,
+        7241
+      ]
+    },
+    {
+      "key": "I1",
+      "objectType": "EXECUTION_STATE",
+      "sourceId": "I1",
+      "fields": {
+        "id": "I1",
+        "name": "Configured",
+        "definition": "Diseñada/configurada."
+      },
+      "sourceLines": [
+        7243,
+        7245
+      ]
+    },
+    {
+      "key": "I2",
+      "objectType": "EXECUTION_STATE",
+      "sourceId": "I2",
+      "fields": {
+        "id": "I2",
+        "name": "Activated",
+        "definition": "Puesta en funcionamiento."
+      },
+      "sourceLines": [
+        7247,
+        7249
+      ]
+    },
+    {
+      "key": "I3",
+      "objectType": "EXECUTION_STATE",
+      "sourceId": "I3",
+      "fields": {
+        "id": "I3",
+        "name": "Implemented",
+        "definition": "Cumple Done Criteria, incluida adopción inicial requerida."
+      },
+      "sourceLines": [
+        7251,
+        7253
+      ]
+    },
+    {
+      "key": "DONE-OP02-01",
+      "objectType": "DONE_RULE",
+      "sourceId": "DONE-OP02-01",
+      "fields": {
+        "id": "DONE-OP02-01",
+        "statement": "Una intervención se considera implementada cuando sus elementos mínimos han sido configurados, puestos en funcionamiento y utilizados suficientemente en el contexto real para demostrar adopción inicial, con evidencia proporcional a su materialidad."
+      },
+      "sourceLines": [
+        7357,
+        7359
+      ]
+    },
+    {
+      "key": "DONE-OP02-02",
+      "objectType": "DONE_RULE",
+      "sourceId": "DONE-OP02-02",
+      "fields": {
+        "id": "DONE-OP02-02",
+        "statement": "El cumplimiento del Done Criteria no constituye evidencia suficiente de efectividad."
+      },
+      "sourceLines": [
+        7363,
+        7365
+      ]
+    },
+    {
+      "key": "RES-OP02-01",
+      "objectType": "RESULT_RULE",
+      "sourceId": "RES-OP02-01",
+      "fields": {
+        "id": "RES-OP02-01",
+        "statement": "Definir primero qué cambio verificable se espera conseguir y solamente después determinar si un indicador cuantitativo aporta valor para validarlo o seguirlo.",
+        "name": "Resultado antes que indicador"
+      },
+      "sourceLines": [
+        7752,
+        7754
+      ]
+    },
+    {
+      "key": "RES-OP02-02",
+      "objectType": "RESULT_RULE",
+      "sourceId": "RES-OP02-02",
+      "fields": {
+        "id": "RES-OP02-02",
+        "statement": "El KPI aparece cuando aporta capacidad real de evaluación o seguimiento.",
+        "name": "Resultado verificable ≠ KPI obligatorio"
+      },
+      "sourceLines": [
+        7780,
+        7782
+      ]
+    },
+    {
+      "key": "RES-OP02-03",
+      "objectType": "RESULT_RULE",
+      "sourceId": "RES-OP02-03",
+      "fields": {
+        "id": "RES-OP02-03",
+        "statement": "Una utilización mayor no demuestra necesariamente mejor capacidad operacional.",
+        "name": "Utilización máxima ≠ resultado deseable universal"
+      },
+      "sourceLines": [
+        7912,
+        7914
+      ]
+    },
+    {
+      "key": "RES-OP02-04",
+      "objectType": "RESULT_RULE",
+      "sourceId": "RES-OP02-04",
+      "fields": {
+        "id": "RES-OP02-04",
+        "statement": "La línea base debe tener la precisión suficiente para soportar la decisión de efectividad, no una precisión mayor que la utilidad de la decisión requiera."
+      },
+      "sourceLines": [
+        8124,
+        8126
+      ]
+    },
+    {
+      "key": "RES-OP02-05",
+      "objectType": "RESULT_RULE",
+      "sourceId": "RES-OP02-05",
+      "fields": {
+        "id": "RES-OP02-05",
+        "statement": "Este principio debe ser transversal.",
+        "name": "Target cuantitativo requiere fundamento"
+      },
+      "sourceLines": [
+        8639,
+        8641
+      ]
+    },
+    {
+      "key": "OP02-CRV-v0.1",
+      "objectType": "VERSION_MARKER",
+      "sourceId": "OP02-CRV-v0.1",
+      "fields": {
+        "marker": "OP02-CRV-v0.1 · CANDIDATE-FROZEN"
+      },
+      "sourceLines": [
+        8096,
+        8096
+      ]
+    },
+    {
+      "key": "CRV-01",
+      "objectType": "RESULT_CRITERION",
+      "sourceId": "CRV-01",
+      "fields": {
+        "id": "CRV-01",
+        "statement": "La información sobre carga, pendientes y compromisos está disponible con suficiente anticipación para influir en decisiones reales de planificación.",
+        "patternRef": "IP01"
+      },
+      "sourceLines": [
+        7810,
+        7818
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED"
+        ],
+        "sourceLines": [
+          10023,
+          10029
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "FREEZE",
+          "fields": {
+            "marker": "OP02-CRV-v0.1 · CANDIDATE-FROZEN"
+          },
+          "sourceLines": [
+            8096,
+            8096
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CRV-02",
+      "objectType": "RESULT_CRITERION",
+      "sourceId": "CRV-02",
+      "fields": {
+        "id": "CRV-02",
+        "statement": "Ante conflictos reales de trabajo, la organización puede determinar y aplicar una prioridad suficientemente consistente sin depender principalmente de improvisación o escalamiento tardío.",
+        "patternRef": "IP02"
+      },
+      "sourceLines": [
+        7848,
+        7856
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED"
+        ],
+        "sourceLines": [
+          10023,
+          10029
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "FREEZE",
+          "fields": {
+            "marker": "OP02-CRV-v0.1 · CANDIDATE-FROZEN"
+          },
+          "sourceLines": [
+            8096,
+            8096
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CRV-03",
+      "objectType": "RESULT_CRITERION",
+      "sourceId": "CRV-03",
+      "fields": {
+        "id": "CRV-03",
+        "statement": "Bajo las condiciones de carga para las cuales se diseñó el ajuste, la operación puede absorber el trabajo sin generar el patrón material de acumulación, espera o incumplimiento que originó la intervención.",
+        "patternRef": "IP03"
+      },
+      "sourceLines": [
+        7874,
+        7882
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED"
+        ],
+        "sourceLines": [
+          10023,
+          10029
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "FREEZE",
+          "fields": {
+            "marker": "OP02-CRV-v0.1 · CANDIDATE-FROZEN"
+          },
+          "sourceLines": [
+            8096,
+            8096
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CRV-04",
+      "objectType": "RESULT_CRITERION",
+      "sourceId": "CRV-04",
+      "fields": {
+        "id": "CRV-04",
+        "statement": "Cuando aparecen desbalances relevantes de carga, la organización puede reasignar capacidad disponible con oportunidad suficiente para evitar o reducir materialmente el impacto operacional objetivo.",
+        "patternRef": "IP04"
+      },
+      "sourceLines": [
+        7920,
+        7928
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED"
+        ],
+        "sourceLines": [
+          10023,
+          10029
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "FREEZE",
+          "fields": {
+            "marker": "OP02-CRV-v0.1 · CANDIDATE-FROZEN"
+          },
+          "sourceLines": [
+            8096,
+            8096
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CRV-05",
+      "objectType": "RESULT_CRITERION",
+      "sourceId": "CRV-05",
+      "fields": {
+        "id": "CRV-05",
+        "statement": "Las actividades dependientes reciben la información, decisión, recurso o participación requerida con oportunidad y suficiencia para continuar la ejecución sin la fricción material que originó la intervención.",
+        "patternRef": "IP05"
+      },
+      "sourceLines": [
+        7948,
+        7956
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED"
+        ],
+        "sourceLines": [
+          10023,
+          10029
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "FREEZE",
+          "fields": {
+            "marker": "OP02-CRV-v0.1 · CANDIDATE-FROZEN"
+          },
+          "sourceLines": [
+            8096,
+            8096
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CRV-06A",
+      "objectType": "RESULT_CRITERION",
+      "sourceId": "CRV-06A",
+      "fields": {
+        "id": "CRV-06A",
+        "statement": "Las ejecuciones comparables muestran una reducción suficiente de la variación problemática objetivo, preservando la variabilidad legítima requerida por el contexto.",
+        "patternRef": "IP06",
+        "name": "Consistencia"
+      },
+      "sourceLines": [
+        7980,
+        7986
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED"
+        ],
+        "sourceLines": [
+          10023,
+          10029
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "FREEZE",
+          "fields": {
+            "marker": "OP02-CRV-v0.1 · CANDIDATE-FROZEN"
+          },
+          "sourceLines": [
+            8096,
+            8096
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CRV-06B",
+      "objectType": "RESULT_CRITERION",
+      "sourceId": "CRV-06B",
+      "fields": {
+        "id": "CRV-06B",
+        "statement": "La espera, acumulación, interrupción, bloqueo o reproceso objetivo disminuye suficientemente para dejar de producir el impacto material diagnosticado.",
+        "patternRef": "IP06",
+        "name": "Flujo"
+      },
+      "sourceLines": [
+        7980,
+        7990
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED"
+        ],
+        "sourceLines": [
+          10023,
+          10029
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "FREEZE",
+          "fields": {
+            "marker": "OP02-CRV-v0.1 · CANDIDATE-FROZEN"
+          },
+          "sourceLines": [
+            8096,
+            8096
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CRV-07",
+      "objectType": "RESULT_CRITERION",
+      "sourceId": "CRV-07",
+      "fields": {
+        "id": "CRV-07",
+        "statement": "Las desviaciones materiales objetivo son detectadas suficientemente antes de su consecuencia operacional para permitir una acción útil.",
+        "patternRef": "IP07"
+      },
+      "sourceLines": [
+        8012,
+        8020
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED"
+        ],
+        "sourceLines": [
+          10023,
+          10029
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "FREEZE",
+          "fields": {
+            "marker": "OP02-CRV-v0.1 · CANDIDATE-FROZEN"
+          },
+          "sourceLines": [
+            8096,
+            8096
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CRV-08",
+      "objectType": "RESULT_CRITERION",
+      "sourceId": "CRV-08",
+      "fields": {
+        "id": "CRV-08",
+        "statement": "Ante las desviaciones objetivo, la organización puede ejecutar oportunamente una respuesta que reduzca el impacto o restablezca la ejecución esperada dentro de condiciones aceptables.",
+        "patternRef": "IP08"
+      },
+      "sourceLines": [
+        8042,
+        8050
+      ],
+      "provenance": {
+        "classes": [
+          "PYMAPA_DERIVED"
+        ],
+        "sourceLines": [
+          10023,
+          10029
+        ]
+      },
+      "annotations": [
+        {
+          "relation": "FREEZE",
+          "fields": {
+            "marker": "OP02-CRV-v0.1 · CANDIDATE-FROZEN"
+          },
+          "sourceLines": [
+            8096,
+            8096
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CRV-NOT-KPI",
+      "objectType": "SEMANTIC_SEPARATION",
+      "sourceId": null,
+      "fields": {
+        "name": "Resultado verificable ≠ KPI obligatorio"
+      },
+      "sourceLines": [
+        7780,
+        7780
+      ]
+    },
+    {
+      "key": "EFFECTIVENESS-R0",
+      "objectType": "EFFECTIVENESS_STATE",
+      "sourceId": "R0",
+      "fields": {
+        "id": "R0",
+        "name": "NOT EVALUATED",
+        "definition": "Todavía no se ha evaluado."
+      },
+      "sourceLines": [
+        8176,
+        8178
+      ]
+    },
+    {
+      "key": "EFFECTIVENESS-R1",
+      "objectType": "EFFECTIVENESS_STATE",
+      "sourceId": "R1",
+      "fields": {
+        "id": "R1",
+        "name": "INSUFFICIENT EVIDENCE",
+        "definition": "Se intentó evaluar, pero la evidencia no permite concluir."
+      },
+      "sourceLines": [
+        8180,
+        8182
+      ]
+    },
+    {
+      "key": "EFFECTIVENESS-R2",
+      "objectType": "EFFECTIVENESS_STATE",
+      "sourceId": "R2",
+      "fields": {
+        "id": "R2",
+        "name": "NOT EFFECTIVE",
+        "definition": "La intervención fue implementada, pero el resultado esperado no se observa suficientemente."
+      },
+      "sourceLines": [
+        8184,
+        8186
+      ]
+    },
+    {
+      "key": "EFFECTIVENESS-R3",
+      "objectType": "EFFECTIVENESS_STATE",
+      "sourceId": "R3",
+      "fields": {
+        "id": "R3",
+        "name": "PARTIALLY EFFECTIVE",
+        "definition": "Existe mejora material, pero el CRV no está completamente satisfecho o quedan condiciones relevantes sin resolver."
+      },
+      "sourceLines": [
+        8188,
+        8190
+      ]
+    },
+    {
+      "key": "EFFECTIVENESS-R4",
+      "objectType": "EFFECTIVENESS_STATE",
+      "sourceId": "R4",
+      "fields": {
+        "id": "R4",
+        "name": "EFFECTIVE",
+        "definition": "El CRV está suficientemente satisfecho bajo las condiciones de validación definidas."
+      },
+      "sourceLines": [
+        8192,
+        8194
+      ]
+    },
+    {
+      "key": "ATTRIBUTION-AC0",
+      "objectType": "ATTRIBUTION_CONFIDENCE",
+      "sourceId": "AC0",
+      "fields": {
+        "id": "AC0",
+        "label": "AC0 · No atribuible",
+        "definition": "No podemos relacionar razonablemente resultado e intervención."
+      },
+      "sourceLines": [
+        8335,
+        8337
+      ]
+    },
+    {
+      "key": "ATTRIBUTION-AC1",
+      "objectType": "ATTRIBUTION_CONFIDENCE",
+      "sourceId": "AC1",
+      "fields": {
+        "id": "AC1",
+        "label": "AC1 · Atribución débil",
+        "definition": "Relación plausible, pero existen explicaciones alternativas materiales."
+      },
+      "sourceLines": [
+        8339,
+        8341
+      ]
+    },
+    {
+      "key": "ATTRIBUTION-AC2",
+      "objectType": "ATTRIBUTION_CONFIDENCE",
+      "sourceId": "AC2",
+      "fields": {
+        "id": "AC2",
+        "label": "AC2 · Atribución razonable",
+        "definition": "Temporalidad, mecanismo y evidencia son coherentes; alternativas materiales están suficientemente controladas/conocidas."
+      },
+      "sourceLines": [
+        8343,
+        8345
+      ]
+    },
+    {
+      "key": "ATTRIBUTION-AC3",
+      "objectType": "ATTRIBUTION_CONFIDENCE",
+      "sourceId": "AC3",
+      "fields": {
+        "id": "AC3",
+        "label": "AC3 · Atribución fuerte",
+        "definition": "Evidencia repetida/corroborada bajo condiciones suficientemente comparables respalda fuertemente la relación."
+      },
+      "sourceLines": [
+        8347,
+        8349
+      ]
+    },
+    {
+      "key": "EFFECTIVENESS-NOT-ATTRIBUTION",
+      "objectType": "SEMANTIC_SEPARATION",
+      "sourceId": null,
+      "fields": {
+        "name": "Efectividad ≠ atribución"
+      },
+      "sourceLines": [
+        8355,
+        8355
+      ]
+    },
+    {
+      "key": "VAL-OP02-01",
+      "objectType": "VALIDATION_RULE",
+      "sourceId": "VAL-OP02-01",
+      "fields": {
+        "id": "VAL-OP02-01",
+        "statement": "La efectividad no debe atribuirse a una intervención que no haya alcanzado el nivel mínimo de implementación necesario para producir razonablemente el resultado esperado."
+      },
+      "sourceLines": [
+        8266,
+        8268
+      ]
+    },
+    {
+      "key": "VAL-OP02-02",
+      "objectType": "VALIDATION_RULE",
+      "sourceId": "VAL-OP02-02",
+      "fields": {
+        "id": "VAL-OP02-02",
+        "statement": "La validación debe considerar efectos materiales no previstos que puedan alterar la valoración global de efectividad."
+      },
+      "sourceLines": [
+        8497,
+        8499
+      ]
+    },
+    {
+      "key": "VAL-OP02-03",
+      "objectType": "VALIDATION_RULE",
+      "sourceId": "VAL-OP02-03",
+      "fields": {
+        "id": "VAL-OP02-03",
+        "statement": "El CRV debe comprobar la condición real que justificó la intervención.",
+        "name": "Mejora de indicador ≠ mejora operacional automática"
+      },
+      "sourceLines": [
+        8519,
+        8521
+      ]
+    },
+    {
+      "key": "VALIDATION-OBJECT",
+      "objectType": "OBJECT_CONTRACT",
+      "sourceId": null,
+      "fields": {
+        "name": "Objeto Validation",
+        "fields": [
+          "Validation_ID",
+          "CRV_ID",
+          "Intervention_ID",
+          "Implementation_State",
+          "Evaluation_Date",
+          "Validation_Window",
+          "Observed_Result",
+          "Evidence[]",
+          "Baseline_Comparison",
+          "Context_Changes[]",
+          "Alternative_Explanations[]",
+          "Unintended_Outcomes[]",
+          "Effectiveness_State",
+          "Attribution_Confidence",
+          "Validation_Confidence",
+          "Decision",
+          "Next_Action",
+          "Validated_By"
+        ]
+      },
+      "sourceLines": [
+        8645,
+        8681
+      ]
+    },
+    {
+      "key": "VALIDATION-DECISIONS",
+      "objectType": "VALIDATION_DECISION",
+      "sourceId": null,
+      "fields": {
+        "decisions": [
+          "SUSTAIN",
+          "ADJUST",
+          "REASSESS",
+          "EXTEND / EVIDENCE",
+          "MODIFY / STOP / REASSESS"
+        ]
+      },
+      "sourceLines": [
+        8685,
+        8719
+      ]
+    },
+    {
+      "key": "LEARNING-NOT-MASTER",
+      "objectType": "SEMANTIC_SEPARATION",
+      "sourceId": null,
+      "fields": {
+        "statement": "Pero eso todavía será Candidate Learning, no conocimiento maestro automático."
+      },
+      "sourceLines": [
+        8737,
+        8737
+      ]
+    },
+    {
+      "key": "FOLLOWUP-OP02-01",
+      "objectType": "FOLLOW_UP_RULE",
+      "sourceId": "FOLLOWUP-OP02-01",
+      "fields": {
+        "id": "FOLLOWUP-OP02-01",
+        "statement": "Toda intervención validada como R3 o R4 debe establecer un seguimiento proporcional cuando exista riesgo razonable de regresión, variabilidad relevante o necesidad de comprobar sostenibilidad.",
+        "fields": [
+          "Followup_ID",
+          "Intervention_ID",
+          "CRV_ID[]",
+          "Reason",
+          "Frequency_or_Trigger",
+          "Evidence[]",
+          "KPI_ID[]",
+          "Expected_Range_or_Condition",
+          "Owner",
+          "Review_Date",
+          "Result",
+          "Action"
+        ]
+      },
+      "sourceLines": [
+        11144,
+        11172
+      ]
+    },
+    {
+      "key": "FOLLOWUP-OP02-02",
+      "objectType": "FOLLOW_UP_RULE",
+      "sourceId": "FOLLOWUP-OP02-02",
+      "fields": {
+        "id": "FOLLOWUP-OP02-02",
+        "statement": "La frecuencia de seguimiento debe ser proporcional a criticidad, variabilidad y riesgo de regresión."
+      },
+      "sourceLines": [
+        11176,
+        11178
+      ]
+    },
+    {
+      "key": "REASSESSMENT",
+      "objectType": "REASSESSMENT_RULE",
+      "sourceId": null,
+      "fields": {
+        "statement": "Cuando R2/R3 indique que la intervención no resolvió suficientemente el problema, no debemos limitararnos a recomendar “hacer más”.",
+        "loop": "hallazgo → hipótesis causal → evidencia → reglas."
+      },
+      "sourceLines": [
+        8743,
+        8767
+      ]
+    },
+    {
+      "key": "CTX-OP02-01",
+      "objectType": "CONTEXT_RULE",
+      "sourceId": "CTX-OP02-01",
+      "fields": {
+        "id": "CTX-OP02-01",
+        "statement": "El contexto modifica la aplicación de OP-02, no su identidad básica.",
+        "name": "Núcleo transversal por defecto"
+      },
+      "sourceLines": [
+        8923,
+        8925
+      ]
+    },
+    {
+      "key": "CTX-OP02-02",
+      "objectType": "CONTEXT_RULE",
+      "sourceId": "CTX-OP02-02",
+      "fields": {
+        "id": "CTX-OP02-02",
+        "statement": "El tamaño modifica la complejidad necesaria de la solución, no determina directamente la evaluación.",
+        "name": "Tamaño ≠ madurez operacional"
+      },
+      "sourceLines": [
+        8969,
+        8971
+      ]
+    },
+    {
+      "key": "CTX-OP02-03",
+      "objectType": "CONTEXT_RULE",
+      "sourceId": "CTX-OP02-03",
+      "fields": {
+        "id": "CTX-OP02-03",
+        "statement": "La variabilidad puede aumentar la necesidad de:",
+        "name": "Demanda promedio ≠ exigencia operacional completa"
+      },
+      "sourceLines": [
+        9018,
+        9020
+      ]
+    },
+    {
+      "key": "CTX-OP02-04",
+      "objectType": "CONTEXT_RULE",
+      "sourceId": "CTX-OP02-04",
+      "fields": {
+        "id": "CTX-OP02-04",
+        "statement": "El contexto modifica el estándar requerido para cerrar una evaluación, no necesariamente la estructura conceptual evaluada."
+      },
+      "sourceLines": [
+        9060,
+        9062
+      ]
+    },
+    {
+      "key": "CTX-OP02-05",
+      "objectType": "CONTEXT_RULE",
+      "sourceId": "CTX-OP02-05",
+      "fields": {
+        "id": "CTX-OP02-05",
+        "statement": "Crear especialización reusable solamente cuando una diferencia sectorial:",
+        "name": "Regla de persistencia contextual"
+      },
+      "sourceLines": [
+        9126,
+        9128
+      ]
+    },
+    {
+      "key": "CTX-OP02-06",
+      "objectType": "CONTEXT_RULE",
+      "sourceId": "CTX-OP02-06",
+      "fields": {
+        "id": "CTX-OP02-06",
+        "statement": "Todo hallazgo material debe conservar el contexto bajo el cual aplica.",
+        "name": "Condición de evaluación explícita"
+      },
+      "sourceLines": [
+        9208,
+        9210
+      ]
+    },
+    {
+      "key": "CTX-OP02-07",
+      "objectType": "CONTEXT_RULE",
+      "sourceId": "CTX-OP02-07",
+      "fields": {
+        "id": "CTX-OP02-07",
+        "statement": "No crear una variante sectorial permanente de OP-02 cuando las diferencias puedan resolverse suficientemente mediante contexto, lenguaje, evidencia, parámetros o instrumentos adaptativos."
+      },
+      "sourceLines": [
+        9564,
+        9566
+      ]
+    },
+    {
+      "key": "SRC-OP02-001",
+      "objectType": "SOURCE",
+      "sourceId": "SRC-OP02-001",
+      "fields": {
+        "id": "SRC-OP02-001",
+        "family": "Documento Maestro Pymapa Fase 2",
+        "use": "arquitectura completa",
+        "recordedProvenance": "DIGIWAY/PYMAPA"
+      },
+      "sourceLines": [
+        9832,
+        9832
+      ]
+    },
+    {
+      "key": "SRC-OP02-002",
+      "objectType": "SOURCE",
+      "sourceId": "SRC-OP02-002",
+      "fields": {
+        "id": "SRC-OP02-002",
+        "family": "Digiway Growth Framework",
+        "use": "OE / intervención",
+        "recordedProvenance": "DIGIWAY_INTERNAL"
+      },
+      "sourceLines": [
+        9834,
+        9834
+      ],
+      "provenance": {
+        "classes": [
+          "DIGIWAY_INTERNAL"
+        ],
+        "sourceLines": [
+          9834,
+          9834
+        ]
+      }
+    },
+    {
+      "key": "SRC-OP02-003",
+      "objectType": "SOURCE",
+      "sourceId": "SRC-OP02-003",
+      "fields": {
+        "id": "SRC-OP02-003",
+        "family": "Guide to Digiway Growth Framework",
+        "use": "metodología/intervención",
+        "recordedProvenance": "DIGIWAY_INTERNAL"
+      },
+      "sourceLines": [
+        9836,
+        9836
+      ],
+      "provenance": {
+        "classes": [
+          "DIGIWAY_INTERNAL"
+        ],
+        "sourceLines": [
+          9836,
+          9836
+        ]
+      }
+    },
+    {
+      "key": "SRC-OP02-004",
+      "objectType": "SOURCE",
+      "sourceId": "SRC-OP02-004",
+      "fields": {
+        "id": "SRC-OP02-004",
+        "family": "Material BPM recuperado",
+        "use": "proceso/ejecución",
+        "recordedProvenance": "fuente metodológica"
+      },
+      "sourceLines": [
+        9838,
+        9838
+      ]
+    },
+    {
+      "key": "SRC-OP02-005",
+      "objectType": "SOURCE",
+      "sourceId": "SRC-OP02-005",
+      "fields": {
+        "id": "SRC-OP02-005",
+        "family": "AS-IS / TO-BE",
+        "use": "diseño/intervención",
+        "recordedProvenance": "DIGIWAY/metodológico"
+      },
+      "sourceLines": [
+        9840,
+        9840
+      ]
+    },
+    {
+      "key": "SRC-OP02-006",
+      "objectType": "SOURCE",
+      "sourceId": "SRC-OP02-006",
+      "fields": {
+        "id": "SRC-OP02-006",
+        "family": "Open University — Capacity & Demand Management",
+        "use": "VA01/03/04",
+        "recordedProvenance": "SOURCE_ASSERTED"
+      },
+      "sourceLines": [
+        9842,
+        9842
+      ],
+      "provenance": {
+        "classes": [
+          "SOURCE_ASSERTED"
+        ],
+        "sourceLines": [
+          9842,
+          9842
+        ]
+      }
+    },
+    {
+      "key": "SRC-OP02-007",
+      "objectType": "SOURCE",
+      "sourceId": "SRC-OP02-007",
+      "fields": {
+        "id": "SRC-OP02-007",
+        "family": "Open University — Operations Management",
+        "use": "VA01/02",
+        "recordedProvenance": "SOURCE_ASSERTED"
+      },
+      "sourceLines": [
+        9844,
+        9844
+      ],
+      "provenance": {
+        "classes": [
+          "SOURCE_ASSERTED"
+        ],
+        "sourceLines": [
+          9844,
+          9844
+        ]
+      }
+    },
+    {
+      "key": "SRC-OP02-008",
+      "objectType": "SOURCE",
+      "sourceId": "SRC-OP02-008",
+      "fields": {
+        "id": "SRC-OP02-008",
+        "family": "IBM — Capacity Planning",
+        "use": "VA03/04",
+        "recordedProvenance": "SOURCE_ASSERTED"
+      },
+      "sourceLines": [
+        9846,
+        9846
+      ],
+      "provenance": {
+        "classes": [
+          "SOURCE_ASSERTED"
+        ],
+        "sourceLines": [
+          9846,
+          9846
+        ]
+      }
+    },
+    {
+      "key": "SRC-OP02-009",
+      "objectType": "SOURCE",
+      "sourceId": "SRC-OP02-009",
+      "fields": {
+        "id": "SRC-OP02-009",
+        "family": "IBM — Resource Allocation",
+        "use": "VA05",
+        "recordedProvenance": "SOURCE_ASSERTED"
+      },
+      "sourceLines": [
+        9848,
+        9848
+      ],
+      "provenance": {
+        "classes": [
+          "SOURCE_ASSERTED"
+        ],
+        "sourceLines": [
+          9848,
+          9848
+        ]
+      }
+    },
+    {
+      "key": "SRC-OP02-010",
+      "objectType": "SOURCE",
+      "sourceId": "SRC-OP02-010",
+      "fields": {
+        "id": "SRC-OP02-010",
+        "family": "MIT / Little's Law",
+        "use": "VA04/08",
+        "recordedProvenance": "SOURCE_ASSERTED"
+      },
+      "sourceLines": [
+        9850,
+        9850
+      ],
+      "provenance": {
+        "classes": [
+          "SOURCE_ASSERTED"
+        ],
+        "sourceLines": [
+          9850,
+          9850
+        ]
+      }
+    },
+    {
+      "key": "SRC-OP02-011",
+      "objectType": "SOURCE",
+      "sourceId": "SRC-OP02-011",
+      "fields": {
+        "id": "SRC-OP02-011",
+        "family": "ASQ — Variation",
+        "use": "VA07",
+        "recordedProvenance": "SOURCE_ASSERTED"
+      },
+      "sourceLines": [
+        9852,
+        9852
+      ],
+      "provenance": {
+        "classes": [
+          "SOURCE_ASSERTED"
+        ],
+        "sourceLines": [
+          9852,
+          9852
+        ]
+      }
+    },
+    {
+      "key": "SRC-OP02-012",
+      "objectType": "SOURCE",
+      "sourceId": "SRC-OP02-012",
+      "fields": {
+        "id": "SRC-OP02-012",
+        "family": "ASQ — Theory of Constraints",
+        "use": "VA08",
+        "recordedProvenance": "SOURCE_ASSERTED"
+      },
+      "sourceLines": [
+        9854,
+        9854
+      ],
+      "provenance": {
+        "classes": [
+          "SOURCE_ASSERTED"
+        ],
+        "sourceLines": [
+          9854,
+          9854
+        ]
+      }
+    },
+    {
+      "key": "SRC-OP02-013",
+      "objectType": "SOURCE",
+      "sourceId": "SRC-OP02-013",
+      "fields": {
+        "id": "SRC-OP02-013",
+        "family": "literatura académica coordinación/interdependencia",
+        "use": "VA06",
+        "recordedProvenance": "SOURCE_ASSERTED"
+      },
+      "sourceLines": [
+        9856,
+        9856
+      ],
+      "provenance": {
+        "classes": [
+          "SOURCE_ASSERTED"
+        ],
+        "sourceLines": [
+          9856,
+          9856
+        ]
+      }
+    },
+    {
+      "key": "SRC-OP02-014",
+      "objectType": "SOURCE",
+      "sourceId": "SRC-OP02-014",
+      "fields": {
+        "id": "SRC-OP02-014",
+        "family": "APQC — End-to-End Processes",
+        "use": "frontera OP-02/OP-03",
+        "recordedProvenance": "SOURCE_ASSERTED"
+      },
+      "sourceLines": [
+        9858,
+        9858
+      ],
+      "provenance": {
+        "classes": [
+          "SOURCE_ASSERTED"
+        ],
+        "sourceLines": [
+          9858,
+          9858
+        ]
+      }
+    },
+    {
+      "key": "SRC-OP02-015",
+      "objectType": "SOURCE",
+      "sourceId": "SRC-OP02-015",
+      "fields": {
+        "id": "SRC-OP02-015",
+        "family": "ISO Process Approach",
+        "use": "procesos/interacciones",
+        "recordedProvenance": "SOURCE_ASSERTED"
+      },
+      "sourceLines": [
+        9860,
+        9860
+      ],
+      "provenance": {
+        "classes": [
+          "SOURCE_ASSERTED"
+        ],
+        "sourceLines": [
+          9860,
+          9860
+        ]
+      }
+    },
+    {
+      "key": "SRC-OP02-016",
+      "objectType": "SOURCE",
+      "sourceId": "SRC-OP02-016",
+      "fields": {
+        "id": "SRC-OP02-016",
+        "family": "ISO monitoring/measuring guidance",
+        "use": "VA09",
+        "recordedProvenance": "SOURCE_ASSERTED"
+      },
+      "sourceLines": [
+        9862,
+        9862
+      ],
+      "provenance": {
+        "classes": [
+          "SOURCE_ASSERTED"
+        ],
+        "sourceLines": [
+          9862,
+          9862
+        ]
+      }
+    },
+    {
+      "key": "SRC-OP02-017",
+      "objectType": "SOURCE",
+      "sourceId": "SRC-OP02-017",
+      "fields": {
+        "id": "SRC-OP02-017",
+        "family": "ISO 22301 / NIST resilience",
+        "use": "frontera VA10/continuidad",
+        "recordedProvenance": "SOURCE_ASSERTED"
+      },
+      "sourceLines": [
+        9864,
+        9864
+      ],
+      "provenance": {
+        "classes": [
+          "SOURCE_ASSERTED"
+        ],
+        "sourceLines": [
+          9864,
+          9864
+        ]
+      }
+    },
+    {
+      "key": "PRINCIPLE-P01",
+      "objectType": "PRINCIPLE",
+      "sourceId": "P01",
+      "fields": {
+        "id": "P01",
+        "statement": "Capacidad ≠ utilización máxima."
+      },
+      "sourceLines": [
+        9935,
+        9935
+      ],
+      "annotations": [
+        {
+          "relation": "CLASSIFICATION",
+          "fields": {
+            "classification": "Fuertemente anclados externamente",
+            "range": "P01–P05, P08–P10, P12."
+          },
+          "sourceLines": [
+            9952,
+            9954
+          ]
+        }
+      ]
+    },
+    {
+      "key": "PRINCIPLE-P02",
+      "objectType": "PRINCIPLE",
+      "sourceId": "P02",
+      "fields": {
+        "id": "P02",
+        "statement": "Evento adverso aislado ≠ inconsistencia."
+      },
+      "sourceLines": [
+        9936,
+        9936
+      ],
+      "annotations": [
+        {
+          "relation": "CLASSIFICATION",
+          "fields": {
+            "classification": "Fuertemente anclados externamente",
+            "range": "P01–P05, P08–P10, P12."
+          },
+          "sourceLines": [
+            9952,
+            9954
+          ]
+        }
+      ]
+    },
+    {
+      "key": "PRINCIPLE-P03",
+      "objectType": "PRINCIPLE",
+      "sourceId": "P03",
+      "fields": {
+        "id": "P03",
+        "statement": "Consistencia ≠ uniformidad absoluta."
+      },
+      "sourceLines": [
+        9937,
+        9937
+      ],
+      "annotations": [
+        {
+          "relation": "CLASSIFICATION",
+          "fields": {
+            "classification": "Fuertemente anclados externamente",
+            "range": "P01–P05, P08–P10, P12."
+          },
+          "sourceLines": [
+            9952,
+            9954
+          ]
+        }
+      ]
+    },
+    {
+      "key": "PRINCIPLE-P04",
+      "objectType": "PRINCIPLE",
+      "sourceId": "P04",
+      "fields": {
+        "id": "P04",
+        "statement": "Ineficiencia local ≠ restricción sistémica."
+      },
+      "sourceLines": [
+        9938,
+        9938
+      ],
+      "annotations": [
+        {
+          "relation": "CLASSIFICATION",
+          "fields": {
+            "classification": "Fuertemente anclados externamente",
+            "range": "P01–P05, P08–P10, P12."
+          },
+          "sourceLines": [
+            9952,
+            9954
+          ]
+        }
+      ]
+    },
+    {
+      "key": "PRINCIPLE-P05",
+      "objectType": "PRINCIPLE",
+      "sourceId": "P05",
+      "fields": {
+        "id": "P05",
+        "statement": "Señal operacional ≠ causa."
+      },
+      "sourceLines": [
+        9939,
+        9939
+      ],
+      "annotations": [
+        {
+          "relation": "CLASSIFICATION",
+          "fields": {
+            "classification": "Fuertemente anclados externamente",
+            "range": "P01–P05, P08–P10, P12."
+          },
+          "sourceLines": [
+            9952,
+            9954
+          ]
+        }
+      ]
+    },
+    {
+      "key": "PRINCIPLE-P06",
+      "objectType": "PRINCIPLE",
+      "sourceId": "P06",
+      "fields": {
+        "id": "P06",
+        "statement": "Demanda comercial ≠ carga operacional."
+      },
+      "sourceLines": [
+        9940,
+        9940
+      ],
+      "annotations": [
+        {
+          "relation": "CLASSIFICATION",
+          "fields": {
+            "classification": "Síntesis metodológica Pymapa sustentada por arquitectura/fuentes",
+            "range": "P06, P07, P11, P13, P14."
+          },
+          "sourceLines": [
+            9956,
+            9958
+          ]
+        }
+      ]
+    },
+    {
+      "key": "PRINCIPLE-P07",
+      "objectType": "PRINCIPLE",
+      "sourceId": "P07",
+      "fields": {
+        "id": "P07",
+        "statement": "Planificación suficiente ≠ sofisticada."
+      },
+      "sourceLines": [
+        9941,
+        9941
+      ],
+      "annotations": [
+        {
+          "relation": "CLASSIFICATION",
+          "fields": {
+            "classification": "Síntesis metodológica Pymapa sustentada por arquitectura/fuentes",
+            "range": "P06, P07, P11, P13, P14."
+          },
+          "sourceLines": [
+            9956,
+            9958
+          ]
+        }
+      ]
+    },
+    {
+      "key": "PRINCIPLE-P08",
+      "objectType": "PRINCIPLE",
+      "sourceId": "P08",
+      "fields": {
+        "id": "P08",
+        "statement": "Disponibilidad nominal ≠ efectiva."
+      },
+      "sourceLines": [
+        9942,
+        9942
+      ],
+      "annotations": [
+        {
+          "relation": "CLASSIFICATION",
+          "fields": {
+            "classification": "Fuertemente anclados externamente",
+            "range": "P01–P05, P08–P10, P12."
+          },
+          "sourceLines": [
+            9952,
+            9954
+          ]
+        }
+      ]
+    },
+    {
+      "key": "PRINCIPLE-P09",
+      "objectType": "PRINCIPLE",
+      "sourceId": "P09",
+      "fields": {
+        "id": "P09",
+        "statement": "Disponibilidad ≠ asignación."
+      },
+      "sourceLines": [
+        9943,
+        9943
+      ],
+      "annotations": [
+        {
+          "relation": "CLASSIFICATION",
+          "fields": {
+            "classification": "Fuertemente anclados externamente",
+            "range": "P01–P05, P08–P10, P12."
+          },
+          "sourceLines": [
+            9952,
+            9954
+          ]
+        }
+      ]
+    },
+    {
+      "key": "PRINCIPLE-P10",
+      "objectType": "PRINCIPLE",
+      "sourceId": "P10",
+      "fields": {
+        "id": "P10",
+        "statement": "Coordinación local ≠ integración E2E."
+      },
+      "sourceLines": [
+        9944,
+        9944
+      ],
+      "annotations": [
+        {
+          "relation": "CLASSIFICATION",
+          "fields": {
+            "classification": "Fuertemente anclados externamente",
+            "range": "P01–P05, P08–P10, P12."
+          },
+          "sourceLines": [
+            9952,
+            9954
+          ]
+        }
+      ]
+    },
+    {
+      "key": "PRINCIPLE-P11",
+      "objectType": "PRINCIPLE",
+      "sourceId": "P11",
+      "fields": {
+        "id": "P11",
+        "statement": "Visibilidad operacional ≠ instrumentación sofisticada."
+      },
+      "sourceLines": [
+        9945,
+        9945
+      ],
+      "annotations": [
+        {
+          "relation": "CLASSIFICATION",
+          "fields": {
+            "classification": "Síntesis metodológica Pymapa sustentada por arquitectura/fuentes",
+            "range": "P06, P07, P11, P13, P14."
+          },
+          "sourceLines": [
+            9956,
+            9958
+          ]
+        }
+      ]
+    },
+    {
+      "key": "PRINCIPLE-P12",
+      "objectType": "PRINCIPLE",
+      "sourceId": "P12",
+      "fields": {
+        "id": "P12",
+        "statement": "Detección ≠ respuesta."
+      },
+      "sourceLines": [
+        9946,
+        9946
+      ],
+      "annotations": [
+        {
+          "relation": "CLASSIFICATION",
+          "fields": {
+            "classification": "Fuertemente anclados externamente",
+            "range": "P01–P05, P08–P10, P12."
+          },
+          "sourceLines": [
+            9952,
+            9954
+          ]
+        }
+      ]
+    },
+    {
+      "key": "PRINCIPLE-P13",
+      "objectType": "PRINCIPLE",
+      "sourceId": "P13",
+      "fields": {
+        "id": "P13",
+        "statement": "Evidencia suficiente ≠ documentación formal."
+      },
+      "sourceLines": [
+        9947,
+        9947
+      ],
+      "annotations": [
+        {
+          "relation": "CLASSIFICATION",
+          "fields": {
+            "classification": "Síntesis metodológica Pymapa sustentada por arquitectura/fuentes",
+            "range": "P06, P07, P11, P13, P14."
+          },
+          "sourceLines": [
+            9956,
+            9958
+          ]
+        }
+      ]
+    },
+    {
+      "key": "PRINCIPLE-P14",
+      "objectType": "PRINCIPLE",
+      "sourceId": "P14",
+      "fields": {
+        "id": "P14",
+        "statement": "Ausencia de brecha ≠ fortaleza demostrada."
+      },
+      "sourceLines": [
+        9948,
+        9948
+      ],
+      "annotations": [
+        {
+          "relation": "CLASSIFICATION",
+          "fields": {
+            "classification": "Síntesis metodológica Pymapa sustentada por arquitectura/fuentes",
+            "range": "P06, P07, P11, P13, P14."
+          },
+          "sourceLines": [
+            9956,
+            9958
+          ]
+        }
+      ]
+    },
+    {
+      "key": "DoD-01",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-01",
+      "fields": {
+        "id": "DoD-01",
+        "name": "Definición y límites"
+      },
+      "sourceLines": [
+        10859,
+        10869
+      ]
+    },
+    {
+      "key": "DoD-02",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-02",
+      "fields": {
+        "id": "DoD-02",
+        "name": "Condiciones evaluables"
+      },
+      "sourceLines": [
+        10873,
+        10883
+      ]
+    },
+    {
+      "key": "DoD-03",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-03",
+      "fields": {
+        "id": "DoD-03",
+        "name": "Variables aplicadas"
+      },
+      "sourceLines": [
+        10887,
+        10893
+      ]
+    },
+    {
+      "key": "DoD-04",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-04",
+      "fields": {
+        "id": "DoD-04",
+        "name": "Necesidades de información"
+      },
+      "sourceLines": [
+        10897,
+        10905
+      ]
+    },
+    {
+      "key": "DoD-05",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-05",
+      "fields": {
+        "id": "DoD-05",
+        "name": "Captura"
+      },
+      "sourceLines": [
+        10909,
+        10921
+      ]
+    },
+    {
+      "key": "DoD-06",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-06",
+      "fields": {
+        "id": "DoD-06",
+        "name": "Evidencia"
+      },
+      "sourceLines": [
+        10925,
+        10931
+      ]
+    },
+    {
+      "key": "DoD-07",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-07",
+      "fields": {
+        "id": "DoD-07",
+        "name": "Suficiencia por variable"
+      },
+      "sourceLines": [
+        10935,
+        10943
+      ]
+    },
+    {
+      "key": "DoD-08",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-08",
+      "fields": {
+        "id": "DoD-08",
+        "name": "Suficiencia por capacidad"
+      },
+      "sourceLines": [
+        10947,
+        10955
+      ]
+    },
+    {
+      "key": "DoD-09",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-09",
+      "fields": {
+        "id": "DoD-09",
+        "name": "Suficiencia de cobertura"
+      },
+      "sourceLines": [
+        10959,
+        10967
+      ]
+    },
+    {
+      "key": "DoD-10",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-10",
+      "fields": {
+        "id": "DoD-10",
+        "name": "Confianza"
+      },
+      "sourceLines": [
+        10971,
+        10981
+      ]
+    },
+    {
+      "key": "DoD-11",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-11",
+      "fields": {
+        "id": "DoD-11",
+        "name": "Observaciones vs inferencias"
+      },
+      "sourceLines": [
+        10985,
+        10993
+      ]
+    },
+    {
+      "key": "DoD-12",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-12",
+      "fields": {
+        "id": "DoD-12",
+        "name": "Reglas diagnósticas"
+      },
+      "sourceLines": [
+        10997,
+        11003
+      ]
+    },
+    {
+      "key": "DoD-13",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-13",
+      "fields": {
+        "id": "DoD-13",
+        "name": "Hallazgos explicables"
+      },
+      "sourceLines": [
+        11007,
+        11015
+      ]
+    },
+    {
+      "key": "DoD-14",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-14",
+      "fields": {
+        "id": "DoD-14",
+        "name": "Recomendaciones"
+      },
+      "sourceLines": [
+        11019,
+        11027
+      ]
+    },
+    {
+      "key": "DoD-15",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-15",
+      "fields": {
+        "id": "DoD-15",
+        "name": "Patrones de intervención"
+      },
+      "sourceLines": [
+        11031,
+        11039
+      ]
+    },
+    {
+      "key": "DoD-16",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-16",
+      "fields": {
+        "id": "DoD-16",
+        "name": "Actividades"
+      },
+      "sourceLines": [
+        11043,
+        11051
+      ]
+    },
+    {
+      "key": "DoD-17",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-17",
+      "fields": {
+        "id": "DoD-17",
+        "name": "Instrumentos"
+      },
+      "sourceLines": [
+        11055,
+        11061
+      ]
+    },
+    {
+      "key": "DoD-18",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-18",
+      "fields": {
+        "id": "DoD-18",
+        "name": "Entregables"
+      },
+      "sourceLines": [
+        11065,
+        11073
+      ]
+    },
+    {
+      "key": "DoD-19",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-19",
+      "fields": {
+        "id": "DoD-19",
+        "name": "Done Criteria"
+      },
+      "sourceLines": [
+        11077,
+        11091
+      ]
+    },
+    {
+      "key": "DoD-20",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-20",
+      "fields": {
+        "id": "DoD-20",
+        "name": "CRV/KPI"
+      },
+      "sourceLines": [
+        11095,
+        11104
+      ]
+    },
+    {
+      "key": "DoD-21",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-21",
+      "fields": {
+        "id": "DoD-21",
+        "name": "Validación"
+      },
+      "sourceLines": [
+        11108,
+        11114
+      ]
+    },
+    {
+      "key": "DoD-22",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-22",
+      "fields": {
+        "id": "DoD-22",
+        "name": "Seguimiento"
+      },
+      "sourceLines": [
+        11118,
+        11136
+      ]
+    },
+    {
+      "key": "DoD-23",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-23",
+      "fields": {
+        "id": "DoD-23",
+        "name": "Reassessment"
+      },
+      "sourceLines": [
+        11186,
+        11194
+      ]
+    },
+    {
+      "key": "DoD-24",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-24",
+      "fields": {
+        "id": "DoD-24",
+        "name": "Contextualización"
+      },
+      "sourceLines": [
+        11198,
+        11204
+      ]
+    },
+    {
+      "key": "DoD-25",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-25",
+      "fields": {
+        "id": "DoD-25",
+        "name": "Trazabilidad"
+      },
+      "sourceLines": [
+        11208,
+        11220
+      ]
+    },
+    {
+      "key": "DoD-26",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-26",
+      "fields": {
+        "id": "DoD-26",
+        "name": "Provenance / fuentes"
+      },
+      "sourceLines": [
+        11224,
+        11234
+      ]
+    },
+    {
+      "key": "DoD-27",
+      "objectType": "DEFINITION_OF_DONE",
+      "sourceId": "DoD-27",
+      "fields": {
+        "id": "DoD-27",
+        "name": "Estado, versión y gobierno"
+      },
+      "sourceLines": [
+        11238,
+        11260
+      ]
+    },
+    {
+      "key": "GATE-K1",
+      "objectType": "QUALITY_GATE",
+      "sourceId": "K1",
+      "fields": {
+        "id": "K1",
+        "name": "Coherencia",
+        "result": "PASS"
+      },
+      "sourceLines": [
+        12300,
+        12300
+      ]
+    },
+    {
+      "key": "GATE-K2",
+      "objectType": "QUALITY_GATE",
+      "sourceId": "K2",
+      "fields": {
+        "id": "K2",
+        "name": "Razonamiento",
+        "result": "PASS"
+      },
+      "sourceLines": [
+        12302,
+        12302
+      ]
+    },
+    {
+      "key": "GATE-K3",
+      "objectType": "QUALITY_GATE",
+      "sourceId": "K3",
+      "fields": {
+        "id": "K3",
+        "name": "Acción",
+        "result": "PASS"
+      },
+      "sourceLines": [
+        12304,
+        12304
+      ]
+    },
+    {
+      "key": "GATE-K4",
+      "objectType": "QUALITY_GATE",
+      "sourceId": "K4",
+      "fields": {
+        "id": "K4",
+        "name": "Conocimiento",
+        "result": "PASS"
+      },
+      "sourceLines": [
+        12306,
+        12306
+      ]
+    },
+    {
+      "key": "A-OP02-01",
+      "objectType": "GOVERNED_BACKLOG_ITEM",
+      "sourceId": "A-OP02-01",
+      "fields": {
+        "id": "A-OP02-01",
+        "name": "Frontera de resiliencia",
+        "statement": "Revisar cuando se industrialice DT-05 / continuidad / riesgo."
+      },
+      "sourceLines": [
+        12428,
+        12430
+      ],
+      "annotations": [
+        {
+          "relation": "DOES_NOT_REOPEN",
+          "fields": {
+            "statement": "Ninguno reabre OP-02 automáticamente."
+          },
+          "sourceLines": [
+            12440,
+            12440
+          ]
+        }
+      ]
+    },
+    {
+      "key": "A-OP02-02",
+      "objectType": "GOVERNED_BACKLOG_ITEM",
+      "sourceId": "A-OP02-02",
+      "fields": {
+        "id": "A-OP02-02",
+        "name": "Boundary Validation OP-03",
+        "statement": "Revalidar dependencia local vs integración estructural E2E al construir OP-03."
+      },
+      "sourceLines": [
+        12432,
+        12434
+      ],
+      "annotations": [
+        {
+          "relation": "DOES_NOT_REOPEN",
+          "fields": {
+            "statement": "Ninguno reabre OP-02 automáticamente."
+          },
+          "sourceLines": [
+            12440,
+            12440
+          ]
+        }
+      ]
+    },
+    {
+      "key": "A-OP02-03",
+      "objectType": "GOVERNED_BACKLOG_ITEM",
+      "sourceId": "A-OP02-03",
+      "fields": {
+        "id": "A-OP02-03",
+        "name": "KPI Contextual Library",
+        "statement": "Construir progresivamente mediante conocimiento gobernado."
+      },
+      "sourceLines": [
+        12436,
+        12438
+      ],
+      "annotations": [
+        {
+          "relation": "DOES_NOT_REOPEN",
+          "fields": {
+            "statement": "Ninguno reabre OP-02 automáticamente."
+          },
+          "sourceLines": [
+            12440,
+            12440
+          ]
+        }
+      ]
+    },
+    {
+      "key": "TRANSVERSAL-CANDIDATE-01",
+      "objectType": "TRANSVERSAL_CANDIDATE",
+      "sourceId": null,
+      "fields": {
+        "statement": "Observación ≠ inferencia."
+      },
+      "sourceLines": [
+        12399,
+        12399
+      ],
+      "annotations": [
+        {
+          "relation": "STATUS",
+          "fields": {
+            "status": "TRANSVERSAL-CANDIDATE"
+          },
+          "sourceLines": [
+            12416,
+            12416
+          ]
+        }
+      ]
+    },
+    {
+      "key": "TRANSVERSAL-CANDIDATE-02",
+      "objectType": "TRANSVERSAL_CANDIDATE",
+      "sourceId": null,
+      "fields": {
+        "statement": "Condición ≠ causa."
+      },
+      "sourceLines": [
+        12400,
+        12400
+      ],
+      "annotations": [
+        {
+          "relation": "STATUS",
+          "fields": {
+            "status": "TRANSVERSAL-CANDIDATE"
+          },
+          "sourceLines": [
+            12416,
+            12416
+          ]
+        }
+      ]
+    },
+    {
+      "key": "TRANSVERSAL-CANDIDATE-03",
+      "objectType": "TRANSVERSAL_CANDIDATE",
+      "sourceId": null,
+      "fields": {
+        "statement": "Ausencia de brecha ≠ fortaleza demostrada."
+      },
+      "sourceLines": [
+        12401,
+        12401
+      ],
+      "annotations": [
+        {
+          "relation": "STATUS",
+          "fields": {
+            "status": "TRANSVERSAL-CANDIDATE"
+          },
+          "sourceLines": [
+            12416,
+            12416
+          ]
+        }
+      ]
+    },
+    {
+      "key": "TRANSVERSAL-CANDIDATE-04",
+      "objectType": "TRANSVERSAL_CANDIDATE",
+      "sourceId": null,
+      "fields": {
+        "statement": "Evidencia suficiente ≠ documentación formal."
+      },
+      "sourceLines": [
+        12402,
+        12402
+      ],
+      "annotations": [
+        {
+          "relation": "STATUS",
+          "fields": {
+            "status": "TRANSVERSAL-CANDIDATE"
+          },
+          "sourceLines": [
+            12416,
+            12416
+          ]
+        }
+      ]
+    },
+    {
+      "key": "TRANSVERSAL-CANDIDATE-05",
+      "objectType": "TRANSVERSAL_CANDIDATE",
+      "sourceId": null,
+      "fields": {
+        "statement": "Intervención mínima suficiente."
+      },
+      "sourceLines": [
+        12403,
+        12403
+      ],
+      "annotations": [
+        {
+          "relation": "STATUS",
+          "fields": {
+            "status": "TRANSVERSAL-CANDIDATE"
+          },
+          "sourceLines": [
+            12416,
+            12416
+          ]
+        }
+      ]
+    },
+    {
+      "key": "TRANSVERSAL-CANDIDATE-06",
+      "objectType": "TRANSVERSAL_CANDIDATE",
+      "sourceId": null,
+      "fields": {
+        "statement": "Especificidad de recomendación ≤ confianza causal."
+      },
+      "sourceLines": [
+        12404,
+        12404
+      ],
+      "annotations": [
+        {
+          "relation": "STATUS",
+          "fields": {
+            "status": "TRANSVERSAL-CANDIDATE"
+          },
+          "sourceLines": [
+            12416,
+            12416
+          ]
+        }
+      ]
+    },
+    {
+      "key": "TRANSVERSAL-CANDIDATE-07",
+      "objectType": "TRANSVERSAL_CANDIDATE",
+      "sourceId": null,
+      "fields": {
+        "statement": "Implementación ≠ efectividad."
+      },
+      "sourceLines": [
+        12405,
+        12405
+      ],
+      "annotations": [
+        {
+          "relation": "STATUS",
+          "fields": {
+            "status": "TRANSVERSAL-CANDIDATE"
+          },
+          "sourceLines": [
+            12416,
+            12416
+          ]
+        }
+      ]
+    },
+    {
+      "key": "TRANSVERSAL-CANDIDATE-08",
+      "objectType": "TRANSVERSAL_CANDIDATE",
+      "sourceId": null,
+      "fields": {
+        "statement": "Resultado ≠ atribución."
+      },
+      "sourceLines": [
+        12406,
+        12406
+      ],
+      "annotations": [
+        {
+          "relation": "STATUS",
+          "fields": {
+            "status": "TRANSVERSAL-CANDIDATE"
+          },
+          "sourceLines": [
+            12416,
+            12416
+          ]
+        }
+      ]
+    },
+    {
+      "key": "TRANSVERSAL-CANDIDATE-09",
+      "objectType": "TRANSVERSAL_CANDIDATE",
+      "sourceId": null,
+      "fields": {
+        "statement": "CRV antes que KPI."
+      },
+      "sourceLines": [
+        12407,
+        12407
+      ],
+      "annotations": [
+        {
+          "relation": "STATUS",
+          "fields": {
+            "status": "TRANSVERSAL-CANDIDATE"
+          },
+          "sourceLines": [
+            12416,
+            12416
+          ]
+        }
+      ]
+    },
+    {
+      "key": "TRANSVERSAL-CANDIDATE-10",
+      "objectType": "TRANSVERSAL_CANDIDATE",
+      "sourceId": null,
+      "fields": {
+        "statement": "Target cuantitativo requiere fundamento."
+      },
+      "sourceLines": [
+        12408,
+        12408
+      ],
+      "annotations": [
+        {
+          "relation": "STATUS",
+          "fields": {
+            "status": "TRANSVERSAL-CANDIDATE"
+          },
+          "sourceLines": [
+            12416,
+            12416
+          ]
+        }
+      ]
+    },
+    {
+      "key": "TRANSVERSAL-CANDIDATE-11",
+      "objectType": "TRANSVERSAL_CANDIDATE",
+      "sourceId": null,
+      "fields": {
+        "statement": "Aprendizaje ≠ conocimiento maestro automático."
+      },
+      "sourceLines": [
+        12409,
+        12409
+      ],
+      "annotations": [
+        {
+          "relation": "STATUS",
+          "fields": {
+            "status": "TRANSVERSAL-CANDIDATE"
+          },
+          "sourceLines": [
+            12416,
+            12416
+          ]
+        }
+      ]
+    },
+    {
+      "key": "TRANSVERSAL-CANDIDATE-12",
+      "objectType": "TRANSVERSAL_CANDIDATE",
+      "sourceId": null,
+      "fields": {
+        "statement": "Freeze ≠ inmutabilidad."
+      },
+      "sourceLines": [
+        12410,
+        12410
+      ],
+      "annotations": [
+        {
+          "relation": "STATUS",
+          "fields": {
+            "status": "TRANSVERSAL-CANDIDATE"
+          },
+          "sourceLines": [
+            12416,
+            12416
+          ]
+        }
+      ]
+    },
+    {
+      "key": "HISTORICAL-CLOSURE",
+      "objectType": "HISTORICAL_CLOSURE",
+      "sourceId": "OP02-K4-v1.0",
+      "fields": {
+        "marker": "OP02-K4-v1.0 · K4-VALIDATED · CLOSED"
+      },
+      "sourceLines": [
+        12319,
+        12319
+      ],
+      "annotations": [
+        {
+          "relation": "FINAL_REGISTER",
+          "fields": {
+            "dod": "DoD: 27/27 PASS",
+            "blockers": "OPEN BLOCKERS: 0",
+            "backlog": "GOVERNED BACKLOG: 3",
+            "status": "STATUS: K4-VALIDATED · CLOSED"
+          },
+          "sourceLines": [
+            12484,
+            12502
+          ]
+        }
+      ]
+    },
+    {
+      "key": "CHANGE-CONTROL",
+      "objectType": "GOVERNANCE_RULE",
+      "sourceId": null,
+      "fields": {
+        "statement": "Change Request → impacto → revisión → Gates necesarios → nueva versión."
+      },
+      "sourceLines": [
+        12351,
+        12351
+      ]
+    },
+    {
+      "key": "PROVENANCE-VOCABULARY",
+      "objectType": "PROVENANCE_VOCABULARY",
+      "sourceId": null,
+      "fields": {
+        "codes": [
+          "SOURCE_ASSERTED",
+          "DIGIWAY_INTERNAL",
+          "PYMAPA_DERIVED",
+          "CONTEXTUAL"
+        ]
+      },
+      "sourceLines": [
+        9709,
+        9717
+      ]
+    },
+    {
+      "key": "OBS-NOT-INFERENCE",
+      "objectType": "SEMANTIC_SEPARATION",
+      "sourceId": null,
+      "fields": {
+        "statement": "Observación ≠ inferencia."
+      },
+      "sourceLines": [
+        12399,
+        12399
+      ]
+    },
+    {
+      "key": "CONDITION-NOT-CAUSE",
+      "objectType": "SEMANTIC_SEPARATION",
+      "sourceId": null,
+      "fields": {
+        "statement": "Condición ≠ causa."
+      },
+      "sourceLines": [
+        12400,
+        12400
+      ]
+    },
+    {
+      "key": "IMPLEMENTATION-NOT-EFFECTIVENESS",
+      "objectType": "SEMANTIC_SEPARATION",
+      "sourceId": null,
+      "fields": {
+        "statement": "Implementación ≠ efectividad."
+      },
+      "sourceLines": [
+        12405,
+        12405
+      ]
+    },
+    {
+      "key": "RESULT-NOT-ATTRIBUTION",
+      "objectType": "SEMANTIC_SEPARATION",
+      "sourceId": null,
+      "fields": {
+        "statement": "Resultado ≠ atribución."
+      },
+      "sourceLines": [
+        12406,
+        12406
+      ]
+    }
+  ],
+  "supersessions": [
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "CE01 · Planificación operativa",
+        "sourceLines": [
+          683,
+          683
+        ]
+      },
+      "supersededBy": {
+        "objectKey": "CE01",
+        "text": "OP02-CE01 · Planificación y priorización de la ejecución",
+        "sourceLines": [
+          695,
+          695
+        ]
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "CE02 · Disponibilidad y asignación de recursos",
+        "sourceLines": [
+          703,
+          703
+        ]
+      },
+      "supersededBy": {
+        "objectKey": "CE02",
+        "text": "OP02-CE02 · Capacidad y disposición de recursos",
+        "sourceLines": [
+          717,
+          717
+        ]
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "CE03 · Coordinación de la ejecución",
+        "sourceLines": [
+          731,
+          731
+        ]
+      },
+      "supersededBy": {
+        "objectKey": "CE03",
+        "text": "OP02-CE03 · Coordinación operativa",
+        "sourceLines": [
+          735,
+          735
+        ]
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "CE04 · Consistencia operacional",
+        "sourceLines": [
+          749,
+          749
+        ]
+      },
+      "supersededBy": {
+        "objectKey": "CE04",
+        "text": "OP02-CE04 · Consistencia de ejecución",
+        "sourceLines": [
+          759,
+          759
+        ]
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "CE05 · Seguimiento y ajuste",
+        "sourceLines": [
+          771,
+          771
+        ]
+      },
+      "supersededBy": {
+        "objectKey": "CE05",
+        "text": "OP02-CE05 · Detección y respuesta ante desviaciones",
+        "sourceLines": [
+          783,
+          783
+        ]
+      }
+    },
+    {
+      "relation": "STATUS_SUPERSEDED_BY",
+      "superseded": {
+        "text": "PARTIAL 🟡",
+        "sourceLines": [
+          11132,
+          11132
+        ]
+      },
+      "supersededBy": {
+        "objectKey": "DoD-22",
+        "text": "DoD-22 → PASS 🟢",
+        "sourceLines": [
+          11182,
+          11182
+        ]
+      }
+    }
+  ],
+  "executableProjection": {
+    "sourceRef": "source.json",
+    "verbatimKeys": [
+      "name",
+      "statement",
+      "question",
+      "purpose",
+      "definition",
+      "centralQuestion",
+      "cause",
+      "states",
+      "factors",
+      "closureConditions",
+      "escalationFactors"
+    ],
+    "projectedObjectTypes": [
+      "CAPABILITY_IDENTITY",
+      "CENTRAL_QUESTION",
+      "CONDITION_OF_EXISTENCE",
+      "APPLIED_VARIABLE",
+      "INFORMATION_NEED",
+      "ACQUISITION_LEVEL",
+      "ACQUISITION",
+      "EVIDENCE_LEVEL",
+      "EVIDENCE_RULE",
+      "SUFFICIENCY_LEVEL",
+      "SUFFICIENCY_RULE",
+      "CONFIDENCE_LEVEL",
+      "CONFIDENCE_FACTORS",
+      "DIAGNOSTIC_RULE",
+      "FINDING_VARIANT",
+      "CROSS_CAPABILITY_DERIVATION",
+      "INTERVENTION_RULE"
+    ],
+    "canonicalOnlyGapRefs": [
+      "GRE-OP02-01",
+      "GRE-OP02-02",
+      "GRE-OP02-03",
+      "GRE-OP02-04"
+    ]
+  },
+  "gaps": [
+    {
+      "id": "GRE-OP02-01",
+      "kind": "GENERIC_RUNTIME_EXTENSION_REQUIRED",
+      "publicationBlocking": false,
+      "statement": "Los 9 CRV de OP-02 pertenecen a patrones de intervención (IP01–IP08), no a Activities. El contrato ejecutable de CRV exige activityRef y solo admite condiciones DISTINCT_SECOND_EXECUTOR / CONSECUTIVE_CORRECT_CASES / NO_CRITICAL_ASSISTANCE. Los CRV se preservan en la baseline canónica y no se proyectan al pack ejecutable.",
+      "objectTypes": [
+        "RESULT_CRITERION"
+      ]
+    },
+    {
+      "id": "GRE-OP02-02",
+      "kind": "GENERIC_RUNTIME_EXTENSION_REQUIRED",
+      "publicationBlocking": false,
+      "statement": "Patrones de intervención, instrumentos, entregables, Done Criteria (DC-A/DC-B/DC-C, DCxx.y) y estados de ejecución I0–I3 no tienen contrato en el Knowledge Pack ejecutable. Se preservan en la baseline canónica.",
+      "objectTypes": [
+        "INTERVENTION_PATTERN",
+        "INSTRUMENT",
+        "DELIVERABLE",
+        "DONE_CRITERION",
+        "DONE_LAYER",
+        "EXECUTION_STATE",
+        "DONE_RULE"
+      ]
+    },
+    {
+      "id": "GRE-OP02-03",
+      "kind": "GENERIC_RUNTIME_EXTENSION_REQUIRED",
+      "publicationBlocking": false,
+      "statement": "Estados de efectividad R0–R4, confianza de atribución AC0–AC3, decisiones post-validación, follow-up (FOLLOWUP-OP02-01/02) y reassessment de OP-02 no tienen contrato en el Knowledge Pack ejecutable. La capa productiva genérica (M1-KL) conserva su propio modelo; no se mapea sin gobierno.",
+      "objectTypes": [
+        "EFFECTIVENESS_STATE",
+        "ATTRIBUTION_CONFIDENCE",
+        "VALIDATION_RULE",
+        "VALIDATION_DECISION",
+        "FOLLOW_UP_RULE",
+        "REASSESSMENT_RULE"
+      ]
+    },
+    {
+      "id": "GRE-OP02-04",
+      "kind": "GENERIC_RUNTIME_EXTENSION_REQUIRED",
+      "publicationBlocking": false,
+      "statement": "Reglas de contextualización CTX-OP02-01…07, severidad S0–S3, confianza C0–C3 con CONF-OP02-01 / CONF-SEV-OP02-02, y acciones REUSE/STOP/FOLLOW/EVIDENCE/CONTRA/DERIVE/NA no son ejecutables por el runtime actual. El pack declara estados y factores como texto; el runtime devuelve sufficiency/confidence null sin fórmula.",
+      "objectTypes": [
+        "CONTEXT_RULE",
+        "SEVERITY_LEVEL",
+        "CONFIDENCE_RULE",
+        "ENGINE_ACTION"
+      ]
+    },
+    {
+      "id": "NE-OP02-01",
+      "kind": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "publicationBlocking": false,
+      "statement": "Las preguntas P2–P5 están descritas por arquitectura y ejemplos sin identificadores gobernados; no se proyectan como adquisiciones ejecutables y no se inventan IDs.",
+      "objectTypes": [
+        "ACQUISITION_LEVEL"
+      ]
+    },
+    {
+      "id": "NE-OP02-02",
+      "kind": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "publicationBlocking": false,
+      "statement": "No existe mapeo explícito NI → adquisición ni option set de respuesta para P1-OP02-01/02. Las necesidades quedan con acquisitionRefs vacíos y la respuesta es declaración libre o UNKNOWN.",
+      "objectTypes": [
+        "INFORMATION_NEED",
+        "ACQUISITION"
+      ]
+    },
+    {
+      "id": "NE-OP02-03",
+      "kind": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "publicationBlocking": false,
+      "statement": "No existe criticidad fija por VA ni nivel mínimo fijo de evidencia: la criticidad es contextual y E0–E3 se asignan dinámicamente. El pack usa CONTEXT_DEPENDENT y NOT_EXPLICIT_IN_KNOWLEDGE_MASTER con requisito condicional.",
+      "objectTypes": [
+        "APPLIED_VARIABLE",
+        "EVIDENCE_LEVEL"
+      ]
+    },
+    {
+      "id": "NE-OP02-04",
+      "kind": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "publicationBlocking": false,
+      "statement": "No existen estados semánticos aprobados por VA para el runtime; los valores capturados se preservan tal cual (semanticStates null).",
+      "objectTypes": [
+        "APPLIED_VARIABLE"
+      ]
+    },
+    {
+      "id": "NE-OP02-05",
+      "kind": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "publicationBlocking": false,
+      "statement": "No existe fecha de aprobación del cierre histórico OP02-K4-v1.0 en la fuente recuperada; approvedAt se registra como SOURCE_CONTENT_NOT_RECOVERED.",
+      "objectTypes": [
+        "HISTORICAL_CLOSURE"
+      ]
+    },
+    {
+      "id": "NE-OP02-06",
+      "kind": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "publicationBlocking": false,
+      "statement": "Las actividades mínimas de IP01–IP08 y los Done Criteria de IP02, IP04, IP05, IP06 e IP08 no tienen identificadores gobernados; se preservan como texto literal dentro del patrón.",
+      "objectTypes": [
+        "INTERVENTION_PATTERN"
+      ]
+    }
+  ]
+}
