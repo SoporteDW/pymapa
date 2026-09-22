@@ -232,13 +232,22 @@ const GLOBAL_BRANCH_PATTERNS: { re: RegExp; label: string }[] = [
   { re: /\bcase\s+["'`][A-Z]{2}-\d{2}["'`]\s*:/, label: "switch sobre identificador de capacidad" },
 ];
 
+/** Elimina comentarios preservando el número de línea (los comentarios no ramifican). */
+export function stripComments(code: string): string {
+  const sinBloques = code.replace(/\/\*[\s\S]*?\*\//g, (m) => m.replace(/[^\n]/g, " "));
+  return sinBloques
+    .split("\n")
+    .map((l) => (/^\s*\/\//.test(l) ? "" : l.replace(/\s\/\/\s.*$/, "")))
+    .join("\n");
+}
+
 export function detectCapabilitySpecificBranching(
   corpus: { path: string; content: string }[],
   identifiers: string[],
 ): { path: string; line: number; label: string; identifier: string | null }[] {
   const hits: { path: string; line: number; label: string; identifier: string | null }[] = [];
   for (const file of corpus) {
-    file.content.split("\n").forEach((l, i) => {
+    stripComments(file.content).split("\n").forEach((l, i) => {
       for (const p of GLOBAL_BRANCH_PATTERNS) if (p.re.test(l)) hits.push({ path: file.path, line: i + 1, label: p.label, identifier: null });
       for (const id of identifiers) {
         if (!id) continue;
