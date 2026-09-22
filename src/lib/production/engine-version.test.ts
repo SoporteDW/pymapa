@@ -67,6 +67,7 @@ describe("A1 · engine 0.2.0", () => {
 describe("A2 · reproducibilidad histórica", () => {
   it("un run nuevo registra 0.2.0; el run histórico 0.1.0 permanece intacto", async () => {
     const repository = createInMemoryProductionRepository([assessment()]);
+    const runs = repository.estado["runs"] as EvaluationRunRecord[];
     const historico: EvaluationRunRecord = {
       id: "run-historico",
       organizationId: "org-1",
@@ -79,7 +80,7 @@ describe("A2 · reproducibilidad histórica", () => {
       completedAt: "2025-12-01T00:00:01.000Z",
       createdAt: "2025-12-01T00:00:00.000Z",
     } as EvaluationRunRecord;
-    repository.estado.runs.push(historico);
+    runs.push(historico);
     const copia = JSON.parse(JSON.stringify(historico)) as EvaluationRunRecord;
 
     const engine = createKnowledgeEngine(pack);
@@ -94,7 +95,6 @@ describe("A2 · reproducibilidad histórica", () => {
     });
     expect(r.accepted).toBe(true);
 
-    const runs = repository.estado.runs;
     expect(runs.find((x) => x.id === "run-historico")).toEqual(copia);
     const nuevos = runs.filter((x) => x.id !== "run-historico");
     expect(nuevos.length).toBeGreaterThan(0);
