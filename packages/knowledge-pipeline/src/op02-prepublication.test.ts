@@ -91,7 +91,8 @@ describe("M2-OP02-03 · IP05 Done Criteria (corrección de transcripción)", () 
     expect(ip05.doneCriteria).toEqual([{ id: null, statement: BLOQUE_IP05 }]);
     const previo = JSON.parse(JSON.stringify(source));
     const p = previo.sections.interventionPatterns.find((x: { id: string }) => x.id === "IP05");
-    p.doneCriteria = [];
+    // Antes de la corrección la proyección no declaraba la clave doneCriteria.
+    delete p.doneCriteria;
     p.identifierNote = NOTA_SOURCE_PREVIA;
     expect(computeSelfChecksum(previo)).toBe(CHECKSUM_SOURCE_PREVIO);
   });
