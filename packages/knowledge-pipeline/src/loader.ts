@@ -94,7 +94,12 @@ export function discoverCapabilityPipelineInputs(
   root: string,
   masterVersion: string,
 ): CapabilityPipelineInput[] {
-  return listCapabilitySourceIds(root, masterVersion).map((capabilityId) => {
+  const base = join(root, MASTER_DIR, masterVersion, "capabilities");
+  // Una capacidad con baseline canónica aceptada pero sin proyección ejecutable
+  // (source.json) aún no entra al pipeline de packs; la Factory la reporta.
+  return listCapabilitySourceIds(root, masterVersion)
+    .filter((capabilityId) => existsSync(join(base, capabilityId, "source.json")))
+    .map((capabilityId) => {
     const source = loadCapabilitySource(root, masterVersion, capabilityId) as {
       targetPack?: { packId?: string; packVersion?: string };
     };
