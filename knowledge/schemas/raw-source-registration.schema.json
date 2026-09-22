@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Registro de fuente raw histórica",
+  "description": "Contrato autoritativo: rawSourceRegistrationSchema (packages/knowledge-pipeline/src/raw-source.ts). La extracción raw NO es conocimiento canónico.",
+  "type": "object",
+  "required": [
+    "registrationId",
+    "capabilityId",
+    "domainId",
+    "masterVersion",
+    "status",
+    "statement",
+    "original",
+    "extraction",
+    "text",
+    "outline",
+    "pageStartLines",
+    "declaredHistoricalMarker",
+    "registeredAt",
+    "checksum"
+  ],
+  "properties": {
+    "capabilityId": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}-\\d{2}$"
+    },
+    "domainId": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "status": {
+      "const": "REGISTERED"
+    },
+    "original": {
+      "type": "object",
+      "required": [
+        "filename",
+        "ref",
+        "mediaType",
+        "byteLength",
+        "sha256"
+      ],
+      "properties": {
+        "mediaType": {
+          "enum": [
+            "DOCX",
+            "PDF",
+            "TEXT"
+          ]
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "text": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "checksum": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    }
+  }
+}
