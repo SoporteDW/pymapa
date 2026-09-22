@@ -575,7 +575,7 @@ function evaluateCapability(
     }
     (pipeline.knowledgeTests?.checks ?? [])
       .filter((k) => !k.ok)
-      .forEach((k) => ctx.reason("CANONICAL_TO_PACK", "FAIL", `KNOWLEDGE_TEST_${k.id}`, k.detail, "corregir la fuente ejecutable"));
+      .forEach((k) => ctx.reason("CANONICAL_TO_PACK", "FAIL", `KNOWLEDGE_TEST_${k.check}`, k.detail, "corregir la fuente ejecutable"));
     if (pipeline.candidate) ctx.set("CANONICAL_TO_PACK", "PASS");
 
     // Runtime compatibility + extensiones
@@ -774,10 +774,7 @@ function buildGovernanceEvidence(input: {
       rawOriginal: { filename: entry.rawSource.originalFilename, sha256: entry.rawSource.originalSha256 },
       rawText: { ref: entry.rawSource.ref, sha256: entry.rawSource.textSha256 },
       canonicalBaselineChecksum: entry.canonical.checksum,
-      executableSourceChecksum: ((): string | null => {
-        const s = (pipeline.candidate ? (pipeline as { candidate: { sourceChecksum?: string } }).candidate.sourceChecksum : undefined) ?? null;
-        return s;
-      })(),
+      executableSourceChecksum: pipeline.candidate?.provenance.sourceChecksum ?? null,
       packCandidate: { packId: entry.publication.packId, packVersion: entry.publication.packVersion, checksum: entry.publication.packChecksum },
     },
     transcriptionCorrections: tcs.map((t) => ({ id: t.id, kind: t.kind, detectedIn: t.detectedIn, correctedIn: t.correctedIn, objectKey: t.objectKey })),
