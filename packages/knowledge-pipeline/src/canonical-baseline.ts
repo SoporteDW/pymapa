@@ -169,7 +169,7 @@ export interface CanonicalBaselineInput {
   /** Bytes de la transcripción raw para verificar identidad. */
   rawBytes: Uint8Array;
   /** Proyección ejecutable (source.json) cuando existe. */
-  source?: { capability: { id: string }; sections: Record<string, unknown>; gaps: { id: string; kind: string }[] };
+  source?: { capability: { id: string }; sections: Record<string, unknown>; gaps: { id: string; kind: string }[] } | undefined;
 }
 
 export function validateCanonicalBaseline(input: CanonicalBaselineInput): CanonicalBaselineValidation {
