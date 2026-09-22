@@ -411,7 +411,7 @@ export interface ValidationRequirementEvaluation {
 }
 
 /* ------------------------------------------------------------------ */
-/* M2-OP02-02 · Ciclo de vida genérico de intervención                  */
+/* M2 runtime closure · Ciclo de vida genérico de intervención                  */
 /* ------------------------------------------------------------------ */
 
 /** Juicio humano registrado sobre un CRV de juicio gobernado. */
@@ -949,7 +949,7 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
       // Findings: el pack declara identidad, polaridad, reglas y variables.
       // Ninguna regla de findings es DETERMINISTIC en el material gobernado, de
       // modo que un candidato nunca se confirma por inferencia: NEEDS_REVIEW.
-      // Soporte (M2-OP02-02): SOLO una variable KNOWN sostiene un candidato.
+      // Soporte (M2 runtime closure): SOLO una variable KNOWN sostiene un candidato.
       // UNKNOWN no es respuesta negativa, NOT_APPLICABLE excluye por
       // aplicabilidad y CONTRADICTORY exige aclaración: ninguno de los tres
       // establece por sí mismo un finding adverso.
@@ -1349,7 +1349,7 @@ function evaluarCrv(
 }
 
 /* ------------------------------------------------------------------ */
-/* M2-OP02-02 · Juicio de CRV, Done, validación y consolidación         */
+/* M2 runtime closure · Juicio de CRV, Done, validación y consolidación         */
 /* Todo es genérico: la semántica proviene exclusivamente del pack.     */
 /* ------------------------------------------------------------------ */
 

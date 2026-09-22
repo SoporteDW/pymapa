@@ -49,7 +49,7 @@ export const PACK_SECTION_KEYS = [
   "validationRequirementsNote",
   "crossCapabilityReferences",
   "knowledgeChangeCandidates",
-  /* M2-OP02-02 · ciclo de vida genérico (opcionales) */
+  /* M2 runtime closure · ciclo de vida genérico (opcionales) */
   "interventionPatterns",
   "implementationModel",
   "effectivenessModel",

@@ -52,7 +52,7 @@ export const gapSchema = z.object({
   publicationBlocking: z.boolean(),
   sourceReference: z.string().optional(),
   /**
-   * M2-OP02-02: cierre de un GENERIC_RUNTIME_EXTENSION_REQUIRED por extensión
+   * M2 runtime closure: cierre de un GENERIC_RUNTIME_EXTENSION_REQUIRED por extensión
    * genérica del engine. El gap se conserva como registro histórico.
    */
   resolution: z

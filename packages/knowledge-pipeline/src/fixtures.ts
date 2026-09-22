@@ -64,7 +64,7 @@ export const fixtureSchema = z.object({
     contradictionVariableRefs: z.array(z.string()).optional(),
     findingCandidateRefs: z.array(z.string()).optional(),
     /**
-     * M2-OP02-02: findings con observaciones vinculadas pero sin soporte KNOWN.
+     * M2 runtime closure: findings con observaciones vinculadas pero sin soporte KNOWN.
      * UNKNOWN / NOT_APPLICABLE / CONTRADICTORY nunca sostienen un candidato.
      */
     findingsAwaitingResolution: z

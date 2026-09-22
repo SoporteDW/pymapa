@@ -66,7 +66,7 @@ export const SUPPORTED_VALIDATION_CONDITION_KINDS = [
   "DISTINCT_SECOND_EXECUTOR",
   "CONSECUTIVE_CORRECT_CASES",
   "NO_CRITICAL_ASSISTANCE",
-  /* M2-OP02-02: condiciones que exigen juicio humano registrado. */
+  /* M2 runtime closure: condiciones que exigen juicio humano registrado. */
   "GOVERNED_STATEMENT",
   "JUSTIFYING_CONDITION_REFERENCE",
 ] as const;

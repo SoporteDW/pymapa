@@ -121,7 +121,7 @@ export const ruleSchema = z.object({
 });
 
 /* ------------------------------------------------------------------ */
-/* Extensiones genéricas M2-OP02-02 (capability-neutral)               */
+/* Extensiones genéricas M2 runtime closure (capability-neutral)               */
 /* ------------------------------------------------------------------ */
 
 /**
@@ -161,7 +161,7 @@ export const VALIDATION_REQUIREMENT_OWNER_KINDS = [
 
 /**
  * Condiciones de CRV. Las tres primeras son determinísticas (M1-KL). Las dos
- * últimas (M2-OP02-02) expresan condiciones cuyo cumplimiento exige juicio
+ * últimas (M2 runtime closure) expresan condiciones cuyo cumplimiento exige juicio
  * humano registrado: el runtime nunca las da por satisfechas.
  */
 export const VALIDATION_CONDITION_KINDS = [
@@ -521,7 +521,7 @@ export const knowledgePackSchema = z.object({
       notes: z.array(z.string()).optional(),
     })
     .optional(),
-  /* ---- Extensiones genéricas M2-OP02-02 (todas opcionales) ---- */
+  /* ---- Extensiones genéricas M2 runtime closure (todas opcionales) ---- */
   interventionPatterns: z.array(interventionPatternSchema).optional(),
   implementationModel: implementationModelSchema.optional(),
   effectivenessModel: effectivenessModelSchema.optional(),
