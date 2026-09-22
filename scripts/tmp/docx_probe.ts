@@ -1,5 +1,5 @@
 import { readFileSync } from "node:fs";
-import { extractDocxText } from "../packages/knowledge-pipeline/src/raw-source.ts";
+import { extractDocxText } from "../../packages/knowledge-pipeline/src/raw-source.ts";
 const bytes = new Uint8Array(readFileSync("/mnt/user-uploads/OP-02_Completo.docx"));
 const t0 = performance.now();
 const r = extractDocxText(bytes);
