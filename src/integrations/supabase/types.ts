@@ -724,6 +724,95 @@ export type Database = {
           },
         ]
       }
+      finding_resolution_states: {
+        Row: {
+          assessment_id: string
+          capability_id: string
+          created_at: string
+          detail: Json | null
+          evaluation_run_id: string
+          evidence_ids: string[]
+          finding_ref: string
+          id: string
+          knowledge_version_id: string
+          observation_ids: string[]
+          organization_id: string
+          reason: string
+          resolution_acquisition_refs: string[]
+          resolution_requirement: string
+          status: string
+          unresolved_states: string[]
+          variable_states: Json
+        }
+        Insert: {
+          assessment_id: string
+          capability_id: string
+          created_at?: string
+          detail?: Json | null
+          evaluation_run_id: string
+          evidence_ids?: string[]
+          finding_ref: string
+          id?: string
+          knowledge_version_id: string
+          observation_ids?: string[]
+          organization_id: string
+          reason: string
+          resolution_acquisition_refs?: string[]
+          resolution_requirement: string
+          status: string
+          unresolved_states?: string[]
+          variable_states?: Json
+        }
+        Update: {
+          assessment_id?: string
+          capability_id?: string
+          created_at?: string
+          detail?: Json | null
+          evaluation_run_id?: string
+          evidence_ids?: string[]
+          finding_ref?: string
+          id?: string
+          knowledge_version_id?: string
+          observation_ids?: string[]
+          organization_id?: string
+          reason?: string
+          resolution_acquisition_refs?: string[]
+          resolution_requirement?: string
+          status?: string
+          unresolved_states?: string[]
+          variable_states?: Json
+        }
+        Relationships: [
+          {
+            foreignKeyName: "finding_resolution_states_assessment_id_fkey"
+            columns: ["assessment_id"]
+            isOneToOne: false
+            referencedRelation: "assessments"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "finding_resolution_states_evaluation_run_id_fkey"
+            columns: ["evaluation_run_id"]
+            isOneToOne: false
+            referencedRelation: "evaluation_runs"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "finding_resolution_states_knowledge_version_id_fkey"
+            columns: ["knowledge_version_id"]
+            isOneToOne: false
+            referencedRelation: "knowledge_versions"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "finding_resolution_states_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       findings: {
         Row: {
           assessment_id: string

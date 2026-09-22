@@ -347,12 +347,13 @@ export const getOp01Findings = createServerFn({ method: "GET" })
   .handler(async ({ context }) => {
     const casoUso = await import("./caso-uso");
     const { assessment, deps } = await prepararContexto(context);
-    const [findings, dependencies, recommendations, interventions, auditEvents] = await Promise.all([
+    const [findings, dependencies, recommendations, interventions, auditEvents, pendientes] = await Promise.all([
       casoUso.listFindings(deps, assessment.id),
       casoUso.listDerivedDependencyReferences(deps, assessment.id),
       casoUso.listRecommendationCandidates(deps, assessment.id),
       casoUso.listInterventions(deps, assessment.id),
       deps.repository.listAuditEvents(assessment.organizationId),
+      casoUso.listFindingsAwaitingResolution(deps, assessment.id),
     ]);
 
     const conActividades = await Promise.all(
@@ -412,6 +413,23 @@ export const getOp01Findings = createServerFn({ method: "GET" })
         },
         createdAt: f.createdAt,
       })),
+      // Persistidos por EvaluationRun; separados de findings: nunca son Findings.
+      findingsAwaitingResolution: {
+        evaluationRunId: pendientes.evaluationRunId,
+        items: pendientes.items.map((f) => ({
+          findingRef: f.findingRef,
+          status: f.status,
+          unresolvedStates: f.unresolvedStates,
+          variableStates: f.variableStates,
+          observationIds: f.observationIds,
+          evidenceIds: f.evidenceIds,
+          resolutionRequirement: f.resolutionRequirement,
+          resolutionAcquisitionRefs: f.resolutionAcquisitionRefs,
+          reason: f.reason,
+          evaluationRunId: f.evaluationRunId,
+          knowledgeVersionId: f.knowledgeVersionId,
+        })),
+      },
       derivedDependencyReferences: dependencies.map((d) => ({
         id: d.id,
         cause: d.cause,

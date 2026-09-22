@@ -18,6 +18,7 @@ import type {
   EvaluationRunStatus,
   EvidenceRecord,
   InformationNeedStateRecord,
+  FindingResolutionStateRecord,
   InvitationRecord,
   ObservationEvidenceLink,
   ObservationRecord,
@@ -106,6 +107,32 @@ export const KNOWLEDGE_VERSION_NUMBER = "1.0.0";
 
 /** Los campos jsonb del esquema aceptan objetos; el cast es solo de tipos. */
 const aJson = (valor: unknown): Json => valor as Json;
+
+const COLUMNAS_RESOLUCION =
+  "id, organization_id, assessment_id, evaluation_run_id, knowledge_version_id, capability_id, finding_ref, status, unresolved_states, variable_states, observation_ids, evidence_ids, resolution_requirement, resolution_acquisition_refs, reason, detail, created_at" as const;
+
+type FilaResolucion = Database["public"]["Tables"]["finding_resolution_states"]["Row"];
+function aResolucion(r: FilaResolucion): FindingResolutionStateRecord {
+  return {
+    id: r.id,
+    organizationId: r.organization_id,
+    assessmentId: r.assessment_id,
+    evaluationRunId: r.evaluation_run_id,
+    knowledgeVersionId: r.knowledge_version_id,
+    capabilityId: r.capability_id,
+    findingRef: r.finding_ref,
+    status: r.status as FindingResolutionStateRecord["status"],
+    unresolvedStates: r.unresolved_states as FindingResolutionStateRecord["unresolvedStates"],
+    variableStates: (r.variable_states ?? []) as FindingResolutionStateRecord["variableStates"],
+    observationIds: r.observation_ids,
+    evidenceIds: r.evidence_ids,
+    resolutionRequirement: r.resolution_requirement as FindingResolutionStateRecord["resolutionRequirement"],
+    resolutionAcquisitionRefs: r.resolution_acquisition_refs,
+    reason: r.reason,
+    detail: (r.detail as Record<string, unknown> | null) ?? null,
+    createdAt: r.created_at,
+  };
+}
 
 async function admin() {
   const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
@@ -380,6 +407,46 @@ export function createSupabaseProductionRepository(): ProductionRepository {
         state: n.state,
         detail: (n.detail ?? null) as Record<string, unknown> | null,
       }));
+    },
+
+    async insertFindingResolutionStates(rows): Promise<FindingResolutionStateRecord[]> {
+      if (rows.length === 0) return [];
+      const db = await admin();
+      const { data, error } = await db
+        .from("finding_resolution_states")
+        .insert(
+          rows.map((r) => ({
+            organization_id: r.organizationId,
+            assessment_id: r.assessmentId,
+            evaluation_run_id: r.evaluationRunId,
+            knowledge_version_id: r.knowledgeVersionId,
+            capability_id: r.capabilityId,
+            finding_ref: r.findingRef,
+            status: r.status,
+            unresolved_states: r.unresolvedStates,
+            variable_states: aJson(r.variableStates),
+            observation_ids: r.observationIds,
+            evidence_ids: r.evidenceIds,
+            resolution_requirement: r.resolutionRequirement,
+            resolution_acquisition_refs: r.resolutionAcquisitionRefs,
+            reason: r.reason,
+            detail: aJson(r.detail),
+          })),
+        )
+        .select(COLUMNAS_RESOLUCION);
+      lanzar("finding_resolution_states.insert", error);
+      return (data ?? []).map(aResolucion);
+    },
+
+    async listFindingResolutionStates(assessmentId): Promise<FindingResolutionStateRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("finding_resolution_states")
+        .select(COLUMNAS_RESOLUCION)
+        .eq("assessment_id", assessmentId)
+        .order("created_at", { ascending: true });
+      lanzar("finding_resolution_states.list", error);
+      return (data ?? []).map(aResolucion);
     },
 
     /* ---------------- Diagnóstico colaborativo ---------------- */

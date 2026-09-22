@@ -194,11 +194,28 @@ export interface FindingCandidateResult {
  * queda a la espera de información, excluido por aplicabilidad o bloqueado
  * por contradicción (aclaración), jamás como candidato.
  */
+export type FindingResolutionRequirement =
+  /** UNKNOWN: falta información; se re-adquiere por las adquisiciones del pack. */
+  | "INFORMATION_REQUIRED"
+  /** CONTRADICTORY: se aclara por las adquisiciones de aclaración del pack. */
+  | "CLARIFICATION_REQUIRED"
+  /** NOT_APPLICABLE en todas las variables: excluido por aplicabilidad. */
+  | "NONE_EXCLUDED_BY_APPLICABILITY";
+
+/**
+ * Finding que NO puede sostenerse todavía (M2 runtime closure / M2-OP02-03).
+ * Nunca es un finding confirmado ni una conclusión adversa.
+ */
 export interface FindingAwaitingResolutionResult {
   findingRef: string;
   status: "AWAITING_INFORMATION" | "EXCLUDED_NOT_APPLICABLE" | "BLOCKED_BY_CONTRADICTION";
   variableStates: { variableRef: string; state: KnowledgeState | "NOT_OBSERVED" }[];
+  /** Estados no resueltos presentes (UNKNOWN / NOT_APPLICABLE / CONTRADICTORY). */
+  unresolvedStates: Exclude<KnowledgeState, "KNOWN">[];
   observationIds: string[];
+  evidenceIds: string[];
+  /** Qué hace falta para resolverlo y por qué adquisiciones declaradas. */
+  resolution: { requirement: FindingResolutionRequirement; acquisitionRefs: string[] };
   reason: string;
 }
 
@@ -975,6 +992,32 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
         if (soporte.length === 0) {
           const hayContradiccion = conDato.some((v) => v.state === "CONTRADICTORY");
           const todasNoAplican = conDato.every((v) => v.state === "NOT_APPLICABLE");
+          const unresolvedStates = (["UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"] as const).filter((st) =>
+            conDato.some((v) => v.state === st),
+          );
+          const requirement: FindingResolutionRequirement = hayContradiccion
+            ? "CLARIFICATION_REQUIRED"
+            : todasNoAplican
+              ? "NONE_EXCLUDED_BY_APPLICABILITY"
+              : "INFORMATION_REQUIRED";
+          // Solo referencias declaradas por el pack; nunca se infiere una ruta.
+          const variablesPendientes = new Set(
+            conDato.filter((v) => v.state === "UNKNOWN").map((v) => v.variableRef),
+          );
+          const acquisitionRefs =
+            requirement === "CLARIFICATION_REQUIRED"
+              ? [
+                  ...new Set(
+                    contradictions
+                      .filter((c) => variableRefs.includes(c.variableRef))
+                      .flatMap((c) => c.clarificationAcquisitionRefs),
+                  ),
+                ]
+              : requirement === "INFORMATION_REQUIRED"
+                ? pack.acquisitions
+                    .filter((a) => a.variableRefs.some((ref) => variablesPendientes.has(ref)))
+                    .map((a) => a.id)
+                : [];
           findingsAwaitingResolution.push({
             findingRef: finding.id,
             status: hayContradiccion
@@ -983,7 +1026,10 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
                 ? "EXCLUDED_NOT_APPLICABLE"
                 : "AWAITING_INFORMATION",
             variableStates,
+            unresolvedStates: [...unresolvedStates],
             observationIds: [...new Set(conDato.flatMap((v) => v.detail.observationIds))],
+            evidenceIds: [...new Set(conDato.flatMap((v) => v.detail.evidenceIds))],
+            resolution: { requirement, acquisitionRefs },
             reason: hayContradiccion
               ? "contradicción material sin resolver: se aclara antes de cualquier finding; no se promedia ni se decide por jerarquía"
               : todasNoAplican

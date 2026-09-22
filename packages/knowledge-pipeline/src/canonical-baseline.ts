@@ -14,6 +14,10 @@
  * - Los conteos de control declarados por la fuente coinciden con los objetos.
  * - La proyección ejecutable (source.json) solo contiene texto literal de la
  *   fuente en sus claves verbatim y preserva los gaps canon-only.
+ * - Toda corrección de transcripción source→canonical (M2-OP02-03) queda
+ *   registrada con su valor previo, su valor literal posterior, su rango raw
+ *   y la identidad raw; la baseline debe reflejar exactamente el valor
+ *   posterior y este debe ser literal de su rango.
  *
  * La baseline NO interpreta, completa ni normaliza conocimiento.
  */
@@ -115,6 +119,27 @@ export const canonicalBaselineSchema = z.object({
       objectTypes: z.array(z.string().min(1)).optional(),
     }),
   ),
+  /** Historial de correcciones source→canonical (vacío = ninguna). */
+  transcriptionCorrections: z
+    .array(
+      z.object({
+        id: z.string().min(1),
+        kind: z.enum(["SOURCE_TO_CANONICAL_OMISSION", "SOURCE_TO_CANONICAL_MISTRANSCRIPTION"]),
+        detectedIn: z.string().min(1),
+        correctedIn: z.string().min(1),
+        objectKey: z.string().min(1),
+        annotationRelation: z.string().min(1).nullable(),
+        field: z.string().min(1),
+        before: fieldValue,
+        after: fieldValue,
+        sourceLines: lineRange,
+        rawSha256: z.string().regex(/^[0-9a-f]{64}$/),
+        baselineChecksumBefore: z.string().regex(/^sha256:[0-9a-f]{64}$/),
+        form: z.string().min(1),
+        note: z.string().min(1),
+      }),
+    )
+    .optional(),
   checksum: z.string().regex(/^sha256:[0-9a-f]{64}$/),
 });
 export type CanonicalBaseline = z.infer<typeof canonicalBaselineSchema>;
@@ -132,7 +157,8 @@ export interface CanonicalIssue {
     | "SUPERSESSION"
     | "PROJECTION_NOT_VERBATIM"
     | "PROJECTION_IDENTITY"
-    | "GAP_NOT_PRESERVED";
+    | "GAP_NOT_PRESERVED"
+    | "TRANSCRIPTION_CORRECTION";
   path: string;
   message: string;
 }
@@ -147,6 +173,7 @@ export interface CanonicalBaselineSummary {
   gapCount: number;
   genericRuntimeExtensionCount: number;
   notExplicitCount: number;
+  transcriptionCorrectionCount: number;
 }
 
 export interface CanonicalBaselineValidation {
@@ -304,6 +331,38 @@ export function validateCanonicalBaseline(input: CanonicalBaselineInput): Canoni
     }
   });
 
+  // Correcciones de transcripción: registradas, aplicadas y literales.
+  const vistos = new Set<string>();
+  (b.transcriptionCorrections ?? []).forEach((c, i) => {
+    const path = `transcriptionCorrections.${i}(${c.id})`;
+    const fallo = (message: string) => issues.push({ code: "TRANSCRIPTION_CORRECTION", path, message });
+    if (vistos.has(c.id)) fallo(`corrección duplicada ${c.id}`);
+    vistos.add(c.id);
+    if (c.rawSha256 !== b.rawSource.sha256) fallo("la corrección no está anclada a la transcripción raw vigente");
+    if (JSON.stringify(c.before) === JSON.stringify(c.after)) fallo("valor previo y posterior idénticos");
+    literal(hojas(c.after), c.sourceLines, `${path}.after`);
+    const objeto = porClave.get(c.objectKey);
+    if (!objeto) {
+      fallo(`objeto inexistente ${c.objectKey}`);
+      return;
+    }
+    const destino =
+      c.annotationRelation === null
+        ? { fields: objeto.fields, sourceLines: objeto.sourceLines }
+        : (objeto.annotations ?? []).find((a) => a.relation === c.annotationRelation);
+    if (!destino) {
+      fallo(`anotación ${c.annotationRelation} inexistente en ${c.objectKey}`);
+      return;
+    }
+    const [a0, a1] = destino.sourceLines;
+    if (c.sourceLines[0] < a0 || c.sourceLines[1] > a1) {
+      fallo(`rango ${c.sourceLines.join("-")} fuera del rango del objeto ${a0}-${a1}`);
+    }
+    if (JSON.stringify(destino.fields[c.field]) !== JSON.stringify(c.after)) {
+      fallo(`${c.objectKey}.${c.field} no refleja exactamente el valor corregido`);
+    }
+  });
+
   if (input.source) {
     if (input.source.capability.id !== b.capabilityId) {
       issues.push({ code: "PROJECTION_IDENTITY", path: "source.capability.id", message: "identidad ≠ baseline" });
@@ -356,6 +415,7 @@ export function validateCanonicalBaseline(input: CanonicalBaselineInput): Canoni
       gapCount: b.gaps.length,
       genericRuntimeExtensionCount: b.gaps.filter((g) => g.kind === "GENERIC_RUNTIME_EXTENSION_REQUIRED").length,
       notExplicitCount: b.gaps.filter((g) => g.kind === "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER").length,
+      transcriptionCorrectionCount: (b.transcriptionCorrections ?? []).length,
     },
   };
 }

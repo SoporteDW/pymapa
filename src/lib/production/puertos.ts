@@ -188,6 +188,40 @@ export interface VariableEvaluationRecord {
   detail: Record<string, unknown> | null;
 }
 
+/**
+ * M2-OP02-03 · Finding pendiente de resolución, persistido por EvaluationRun.
+ * NO es un Finding: no tiene ciclo de vida, severidad ni revisión. Es la
+ * proyección `findingsAwaitingResolution` del engine, inmutable por run.
+ */
+export type FindingResolutionStatus =
+  | "AWAITING_INFORMATION"
+  | "EXCLUDED_NOT_APPLICABLE"
+  | "BLOCKED_BY_CONTRADICTION";
+export type FindingResolutionRequirement =
+  | "INFORMATION_REQUIRED"
+  | "CLARIFICATION_REQUIRED"
+  | "NONE_EXCLUDED_BY_APPLICABILITY";
+
+export interface FindingResolutionStateRecord {
+  id: string;
+  organizationId: string;
+  assessmentId: string;
+  evaluationRunId: string;
+  knowledgeVersionId: string;
+  capabilityId: string;
+  findingRef: string;
+  status: FindingResolutionStatus;
+  unresolvedStates: ("UNKNOWN" | "NOT_APPLICABLE" | "CONTRADICTORY")[];
+  variableStates: { variableRef: string; state: string }[];
+  observationIds: string[];
+  evidenceIds: string[];
+  resolutionRequirement: FindingResolutionRequirement;
+  resolutionAcquisitionRefs: string[];
+  reason: string;
+  detail: Record<string, unknown> | null;
+  createdAt: string;
+}
+
 export interface InformationNeedStateRecord {
   id: string;
   organizationId: string;
@@ -556,6 +590,11 @@ export interface ProductionRepository {
     rows: Omit<InformationNeedStateRecord, "id">[],
   ): Promise<InformationNeedStateRecord[]>;
   listInformationNeedStates(assessmentId: string): Promise<InformationNeedStateRecord[]>;
+  /** Append-only por run: un run nunca reescribe los registros de otro. */
+  insertFindingResolutionStates(
+    rows: Omit<FindingResolutionStateRecord, "id" | "createdAt">[],
+  ): Promise<FindingResolutionStateRecord[]>;
+  listFindingResolutionStates(assessmentId: string): Promise<FindingResolutionStateRecord[]>;
 
   /* Colaborativo */
   insertRespondent(input: Omit<RespondentRecord, "id" | "createdAt">): Promise<RespondentRecord>;
@@ -691,6 +730,7 @@ export function createInMemoryProductionRepository(
   const runs: EvaluationRunRecord[] = [];
   const variableEvaluations: VariableEvaluationRecord[] = [];
   const needStates: InformationNeedStateRecord[] = [];
+  const findingResolutionStates: FindingResolutionStateRecord[] = [];
   const respondents: RespondentRecord[] = [];
   const assignments: AssignmentRecord[] = [];
   const invitations: InvitationRecord[] = [];
@@ -722,6 +762,7 @@ export function createInMemoryProductionRepository(
       runs,
       variableEvaluations,
       needStates,
+      findingResolutionStates,
       respondents,
       assignments,
       invitations,
@@ -809,6 +850,30 @@ export function createInMemoryProductionRepository(
     },
     async listInformationNeedStates(assessmentId) {
       return needStates.filter((n) => n.assessmentId === assessmentId);
+    },
+    async insertFindingResolutionStates(rows) {
+      const insertadas: FindingResolutionStateRecord[] = [];
+      for (const fila of rows) {
+        // Mismo contrato que la base: único por (run, findingRef), inmutable.
+        if (
+          findingResolutionStates.some(
+            (f) => f.evaluationRunId === fila.evaluationRunId && f.findingRef === fila.findingRef,
+          )
+        ) {
+          throw new Error(`finding_resolution_states duplicado: ${fila.evaluationRunId}/${fila.findingRef}`);
+        }
+        const row: FindingResolutionStateRecord = Object.freeze({
+          ...structuredClone(fila),
+          id: nuevoId("frs"),
+          createdAt: new Date().toISOString(),
+        }) as FindingResolutionStateRecord;
+        findingResolutionStates.push(row);
+        insertadas.push(row);
+      }
+      return insertadas;
+    },
+    async listFindingResolutionStates(assessmentId) {
+      return findingResolutionStates.filter((f) => f.assessmentId === assessmentId);
     },
 
     /* Colaborativo */

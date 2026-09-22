@@ -3683,7 +3683,9 @@
               "6.  definir qué ocurre ante incumplimiento;",
               "7.  probarlo."
             ],
-            "doneCriteria": []
+            "doneCriteria": [
+              "Las dependencias críticas seleccionadas tienen:\n\norigen + receptor + necesidad + momento + mecanismo + responsabilidad + respuesta ante excepción\n\nsuficientemente claros y el mecanismo ha sido utilizado."
+            ]
           },
           "sourceLines": [
             6949,
@@ -6854,5 +6856,28 @@
       ]
     }
   ],
-  "checksum": "sha256:856633be10f2fc5d27f23ff6e0729da306431bb51585317ca1b38ae1e1ee3c59"
+  "transcriptionCorrections": [
+    {
+      "id": "TC-OP02-01",
+      "kind": "SOURCE_TO_CANONICAL_OMISSION",
+      "detectedIn": "M2-OP02-02",
+      "correctedIn": "M2-OP02-03",
+      "objectKey": "IP05",
+      "annotationRelation": "PATTERN_DETAIL",
+      "field": "doneCriteria",
+      "before": [],
+      "after": [
+        "Las dependencias críticas seleccionadas tienen:\n\norigen + receptor + necesidad + momento + mecanismo + responsabilidad + respuesta ante excepción\n\nsuficientemente claros y el mecanismo ha sido utilizado."
+      ],
+      "sourceLines": [
+        6983,
+        6987
+      ],
+      "rawSha256": "db27a2976db128e87cbcfa9f2df1a40f461ff91cb0eb8b07110181b5c3b34800",
+      "baselineChecksumBefore": "sha256:856633be10f2fc5d27f23ff6e0729da306431bb51585317ca1b38ae1e1ee3c59",
+      "form": "SINGLE_COMPOSITE_STATEMENT",
+      "note": "La fuente enuncia los Done Criteria de IP05 bajo el encabezado 'Done Criteria' (raw línea 6981) como un único enunciado compuesto de tres líneas (6983, 6985, 6987). Se transcribe el bloque literal completo, sin resumir, dividir, reinterpretar ni asignar identificador (NE-OP02-06). Ningún otro objeto, conteo, gap ni la transcripción raw cambian."
+    }
+  ],
+  "checksum": "sha256:8c24e39e0d4f31ac1006fc18dad5094bf16a4755e7596dfa90b7c2c90d016a00"
 }
