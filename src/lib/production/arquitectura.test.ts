@@ -41,7 +41,6 @@ const AUTORIZADOS = [
   "src/lib/production/cierre-m1m.test.ts",
   "src/lib/production/resolucion-pendiente.test.ts",
   "src/lib/production/engine-version.test.ts",
-
 ];
 
 describe("arquitectura · separación frontend / knowledge-engine", () => {
