@@ -290,6 +290,11 @@ describe("M2-OP02-03 · base de datos y RLS", () => {
     expect(sql).toContain("grant select on public.finding_resolution_states to authenticated");
     expect(sql).toContain("grant all on public.finding_resolution_states to service_role");
     expect(sql).not.toMatch(/grant[^;]*on public\.finding_resolution_states to anon/);
+    // Los privilegios por defecto del esquema se retiran explícitamente.
+    expect(sql).toContain("revoke all on public.finding_resolution_states from anon");
+    expect(sql).toContain(
+      "revoke insert, update, delete, truncate, references, trigger on public.finding_resolution_states from authenticated",
+    );
     expect(sql).toMatch(
       /create policy "finding_resolution_states_select_members" on public\.finding_resolution_states\s+for select to authenticated using \(private\.is_organization_member\(organization_id\)\)/,
     );
