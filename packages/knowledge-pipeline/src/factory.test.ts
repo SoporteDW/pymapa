@@ -387,7 +387,7 @@ describe("Registro de fuente raw", () => {
     expect(s.registration.original.sha256).toBe(sha256Bytes(DOCX));
     expect(s.registration.outline[0]).toMatchObject({ line: 1, level: 1 });
     expect(extractRawSource({ filename: "sintetica.docx", bytes: DOCX }).text).toBe(s.text);
-    expect(s.registration.historicalMarker?.sourceLines).toEqual([7, 7]);
+    expect(s.registration.declaredHistoricalMarker?.lines).toEqual([7]);
   });
 
   it("verificación: re-extracción byte a byte; original o texto alterados → FAIL", () => {
