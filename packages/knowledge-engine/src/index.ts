@@ -20,15 +20,19 @@
  */
 import {
   parseKnowledgePack,
+  resolveValidationRequirementOwner,
   validateKnowledgePack,
+  VALIDATION_CONDITION_KINDS,
+  VALIDATION_REQUIREMENT_OWNER_KINDS,
   type KnowledgePack,
   type KnowledgePackAcquisition,
   type KnowledgeState,
+  type PropertyResolutionMode,
 } from "@pymapa/knowledge-schema";
 
 export const ENGINE_VERSION = "pymapa-knowledge-engine/0.1.0";
 
-export type { KnowledgePack, KnowledgeState };
+export type { KnowledgePack, KnowledgeState, PropertyResolutionMode };
 export { validateKnowledgePack, parseKnowledgePack };
 
 /* ------------------------------------------------------------------ */
@@ -70,6 +74,8 @@ export interface VariableEvaluationResult {
   semanticValue: string | null;
   detail: {
     criticality: string;
+    /** FIXED / CONTEXTUAL / NOT_EXPLICIT: la criticidad contextual nunca se adivina. */
+    criticalityResolution: PropertyResolutionMode;
     minimumEvidence: string;
     observationIds: string[];
     /** Lineage explícito: Response ≠ Evidence ≠ Observation ≠ Evaluation. */
@@ -113,6 +119,8 @@ export interface EvidenceRequirementResult {
   /** Niveles admisibles cuando el requisito es condicional. */
   options: string[] | null;
   resolution: EvidenceRequirementResolution;
+  /** FIXED / CONTEXTUAL / NOT_EXPLICIT del requisito declarado. */
+  resolutionMode: PropertyResolutionMode;
   provenance: {
     knowledgePackId: string;
     knowledgePackVersion: string;
@@ -156,12 +164,41 @@ export interface FindingCandidateResult {
   /** true solo si TODAS sus reglas son DETERMINISTIC e implementadas. */
   deterministicallyConfirmable: boolean;
   /** Severidad cualitativa cuando el material la soporta; nunca numérica. */
-  severity: { state: string | null; reason: string };
+  severity: {
+    state: string | null;
+    reason: string;
+    /** FIXED / CONTEXTUAL / NOT_EXPLICIT. CONTEXTUAL exige juicio gobernado. */
+    resolution: PropertyResolutionMode;
+    admissibleLevels: string[];
+  };
+  /** Confianza del candidato: nunca calculada; niveles admisibles si existen. */
+  confidence: {
+    state: null;
+    resolution: PropertyResolutionMode;
+    admissibleLevels: string[];
+    reason: string;
+  };
   ruleRefs: string[];
   variableRefs: string[];
+  /** Estado de cada variable involucrada (solo KNOWN aporta soporte). */
+  variableStates: { variableRef: string; state: KnowledgeState | "NOT_OBSERVED" }[];
   /** Lineage: observaciones y evidencias que lo sostienen. */
   supportingObservationIds: string[];
   supportingEvidenceIds: string[];
+  reason: string;
+}
+
+/**
+ * Finding cuya evidencia existe pero ninguna variable involucrada es KNOWN.
+ * UNKNOWN, NOT_APPLICABLE y CONTRADICTORY no son soporte adverso: el finding
+ * queda a la espera de información, excluido por aplicabilidad o bloqueado
+ * por contradicción (aclaración), jamás como candidato.
+ */
+export interface FindingAwaitingResolutionResult {
+  findingRef: string;
+  status: "AWAITING_INFORMATION" | "EXCLUDED_NOT_APPLICABLE" | "BLOCKED_BY_CONTRADICTION";
+  variableStates: { variableRef: string; state: KnowledgeState | "NOT_OBSERVED" }[];
+  observationIds: string[];
   reason: string;
 }
 
@@ -217,11 +254,21 @@ export interface EvaluationResult {
   findings: never[];
   /** Candidatos de finding con su lineage; nunca confirmados automáticamente. */
   findingCandidates: FindingCandidateResult[];
+  /** Findings con observaciones pero sin soporte KNOWN (UNKNOWN/NA/CONTRADICTORY). */
+  findingsAwaitingResolution: FindingAwaitingResolutionResult[];
   /** Referencias a otras capacidades. Nunca ejecutan la capacidad destino. */
   derivedDependencyReferences: DerivedDependencyReferenceResult[];
   /** Sufficiency/Confidence no tienen fórmula aprobada. */
   sufficiency: { state: null; reason: string };
-  confidence: { state: null; reason: string };
+  confidence: {
+    state: null;
+    reason: string;
+    resolution: PropertyResolutionMode;
+    admissibleLevels: string[];
+    factors: string[];
+  };
+  /** Contextualización: reglas gobernadas, nunca aplicadas automáticamente. */
+  contextualization: { resolution: PropertyResolutionMode; ruleRefs: string[]; reason: string };
   traceability: EvaluationTraceability;
 }
 
@@ -296,6 +343,21 @@ export interface KnowledgeEngine {
     requirementRef: string,
     input: { primaryExecutorRespondentId: string | null; cases: ValidationCaseInput[] },
   ): ValidationRequirementEvaluation;
+  /** CRV de un dueño gobernado (Activity, patrón o deliverable). */
+  getValidationRequirementsForOwner(kind: ValidationRequirementOwnerKind, ref: string): ValidationRequirementIdentity[];
+  /** Admisibilidad de un juicio humano sobre un CRV. Nunca decide por sí mismo. */
+  assessValidationRequirementJudgment(
+    requirementRef: string,
+    input: ValidationRequirementJudgmentInput,
+  ): ValidationRequirementJudgmentAssessment;
+  listInterventionPatterns(): InterventionPatternIdentity[];
+  /** Done: capas + criterios del patrón → estado de ejecución. Done ≠ efectividad. */
+  evaluateImplementation(patternRef: string, input: ImplementationInput): ImplementationEvaluation;
+  /** Efectividad, atribución, decisión, follow-up y reassessment (sin scoring). */
+  assessValidation(input: ValidationAssessmentInput): ValidationAssessment;
+  /** Guardas severidad × confianza antes de consolidar un finding. */
+  assessFindingConsolidation(findingRef: string, input: FindingConsolidationInput): FindingConsolidationAssessment;
+  listEngineActions(): { id: string; meaning: string }[];
   /** Comparación Baseline vs Reassessment: cambios de estado, nunca mejora. */
   compareVariableStates(
     baseline: { variableRef: string; state: string }[],
@@ -305,16 +367,23 @@ export interface KnowledgeEngine {
 
 export interface ValidationRequirementCondition {
   id: string;
-  kind: "DISTINCT_SECOND_EXECUTOR" | "CONSECUTIVE_CORRECT_CASES" | "NO_CRITICAL_ASSISTANCE";
+  kind: (typeof VALIDATION_CONDITION_KINDS)[number];
   statement: string;
   requiredCount: number | null;
 }
 
+export type ValidationRequirementOwnerKind = (typeof VALIDATION_REQUIREMENT_OWNER_KINDS)[number];
+
 export interface ValidationRequirementIdentity {
   requirementRef: string;
-  activityRef: string;
+  /** Activity dueña (retrocompatible). null cuando el dueño no es una Activity. */
+  activityRef: string | null;
+  /** Dueño gobernado: Activity, patrón de intervención o deliverable. */
+  owner: { kind: ValidationRequirementOwnerKind; ref: string };
+  name: string | null;
   definition: string;
   definitionSource: string;
+  evaluation: "DETERMINISTIC_CONDITIONS" | "GOVERNED_JUDGMENT";
   conditions: ValidationRequirementCondition[];
   requiredCaseCount: number | null;
   /** Invariante: un CRV no es un KPI ni un maturity score. */
@@ -331,13 +400,131 @@ export interface ValidationCaseInput {
 export interface ValidationRequirementEvaluation {
   requirementRef: string;
   satisfied: boolean;
-  status: "SATISFIED" | "NOT_SATISFIED" | "IN_PROGRESS";
+  /** REVIEW_REQUIRED: CRV de juicio gobernado; el runtime nunca lo satisface solo. */
+  status: "SATISFIED" | "NOT_SATISFIED" | "IN_PROGRESS" | "REVIEW_REQUIRED";
   metConditionIds: string[];
   unmetConditionIds: string[];
   reason: string;
   consecutiveCorrectCount: number;
   requiredCaseCount: number | null;
   secondExecutorRespondentId: string | null;
+}
+
+/* ------------------------------------------------------------------ */
+/* M2-OP02-02 · Ciclo de vida genérico de intervención                  */
+/* ------------------------------------------------------------------ */
+
+/** Juicio humano registrado sobre un CRV de juicio gobernado. */
+export interface ValidationRequirementJudgmentInput {
+  judgment: "SATISFIED" | "NOT_SATISFIED" | "INSUFFICIENT_EVIDENCE";
+  judgedBy: string | null;
+  evidenceIds: string[];
+  /** Findings/condiciones que justificaron la intervención. */
+  justifyingFindingRefs?: string[];
+  /** KPIs citados: nunca sustituyen evidencia (CRV ≠ KPI). */
+  kpiRefs?: string[];
+}
+
+export interface ValidationRequirementJudgmentAssessment {
+  requirementRef: string;
+  admissible: boolean;
+  /** Juicio aceptado; null si no es admisible. Nunca un puntaje. */
+  status: "SATISFIED" | "NOT_SATISFIED" | "INSUFFICIENT_EVIDENCE" | null;
+  metConditionIds: string[];
+  unmetConditionIds: string[];
+  issues: string[];
+  isScore: false;
+}
+
+export interface InterventionPatternIdentity {
+  patternRef: string;
+  name: string;
+  objective: string | null;
+  purpose: string | null;
+  instruments: { id: string; name: string }[];
+  deliverables: { id: string; name: string; instrumentRef: string | null }[];
+  minimumActivities: string[];
+  /** Done Criteria direccionados por posición (1..n); id null si la fuente no lo da. */
+  doneCriteria: { position: number; id: string | null; statement: string }[];
+  validationRequirementRefs: string[];
+}
+
+export interface ImplementationInput {
+  layerRecords: { layerRef: string; completed: boolean; evidenceIds?: string[] }[];
+  doneCriteriaRecords: { position: number; met: boolean; evidenceIds?: string[] }[];
+  /** Estado declarado por una persona; el runtime lo contrasta, no lo inventa. */
+  assertedExecutionStateRef?: string | null;
+}
+
+export interface ImplementationEvaluation {
+  patternRef: string;
+  /** Estado implementado solo si se cumplen TODOS sus requisitos declarados. */
+  executionStateRef: string | null;
+  implemented: boolean;
+  stateSelection: "DETERMINISTIC" | "GOVERNED_JUDGMENT";
+  candidateExecutionStateRefs: string[];
+  completedLayerRefs: string[];
+  missingLayerRefs: string[];
+  layersMissingEvidence: string[];
+  unmetDoneCriteriaPositions: number[];
+  issues: string[];
+  /** Invariantes: Done ≠ CRV ≠ Validation ≠ efectividad. */
+  validationRequirementSatisfied: null;
+  effectivenessStateRef: null;
+  reason: string;
+}
+
+export interface ValidationAssessmentInput {
+  requirementRef: string;
+  implementationStateRef: string | null;
+  effectivenessStateRef: string;
+  /** Resultado del juicio del CRV (assessValidationRequirementJudgment). */
+  validationRequirementStatus: "SATISFIED" | "NOT_SATISFIED" | "INSUFFICIENT_EVIDENCE" | null;
+  attributionConfidenceRef: string | null;
+  unintendedNegativeOutcome: boolean;
+  evidenceIds: string[];
+  validatedBy: string | null;
+  kpiRefs?: string[];
+}
+
+export interface ValidationAssessment {
+  requirementRef: string;
+  admissible: boolean;
+  issues: string[];
+  effectivenessStateRef: string;
+  /** Nunca derivada de la efectividad: resultado observado ≠ atribución. */
+  attributionConfidenceRef: string | null;
+  decisions: { decision: string; action: string | null; selection: "DETERMINISTIC" | "GOVERNED_JUDGMENT" }[];
+  followUp: {
+    triggered: boolean;
+    ruleRefs: (string | null)[];
+    status: "NOT_TRIGGERED" | "REQUIRED" | "REVIEW_REQUIRED";
+    frequencyFormula: string;
+  };
+  reassessment: {
+    triggered: boolean;
+    status: "NOT_TRIGGERED" | "REQUIRED" | "REVIEW_REQUIRED";
+    loop: string | null;
+    createsNewAssessment: true;
+    distinctFromFollowUp: true;
+  };
+  isMaturity: false;
+  isScore: false;
+}
+
+export interface FindingConsolidationInput {
+  severityRef: string | null;
+  confidenceRef: string | null;
+  claim: "CAUSAL" | "NON_CAUSAL";
+  judgedBy: string | null;
+}
+
+export interface FindingConsolidationAssessment {
+  findingRef: string;
+  status: "ADMISSIBLE" | "BLOCKED" | "INVALID_INPUT";
+  blockedByGuardIds: string[];
+  requiredActions: string[];
+  issues: string[];
 }
 
 export type StateTransition =
@@ -370,6 +557,50 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
   const pack = parseKnowledgePack(rawPack);
   const variableById = new Map(pack.variables.map((v) => [v.id, v]));
   const acquisitionById = new Map(pack.acquisitions.map((a) => [a.id, a]));
+  const severityLevelIds = (pack.severity?.levels ?? []).map((l) => l.id);
+  const confidenceLevelIds = (pack.confidence?.levels ?? []).map((l) => l.id);
+
+  /** Severidad del candidato: FIXED solo si la fuente la fija; CONTEXTUAL nunca se adivina. */
+  function severidadCandidato(declarada: string | undefined): FindingCandidateResult["severity"] {
+    const explicita = declarada && !declarada.startsWith("NOT_EXPLICIT") ? declarada : null;
+    if (explicita && (severityLevelIds.length === 0 || severityLevelIds.includes(explicita))) {
+      return {
+        state: explicita,
+        reason: "severidad fijada por el Knowledge Master",
+        resolution: "FIXED",
+        admissibleLevels: severityLevelIds.slice(),
+      };
+    }
+    if (pack.severity?.resolution === "CONTEXTUAL") {
+      return {
+        state: null,
+        reason:
+          "CONTEXTUAL: la severidad depende del caso; requiere juicio gobernado registrado (ni el runtime ni un LLM la asignan).",
+        resolution: "CONTEXTUAL",
+        admissibleLevels: severityLevelIds.slice(),
+      };
+    }
+    return {
+      state: null,
+      reason:
+        "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: no existe algoritmo de severidad ni de priority; la severidad no se infiere.",
+      resolution: "NOT_EXPLICIT",
+      admissibleLevels: severityLevelIds.slice(),
+    };
+  }
+
+  function confianzaCandidato(): FindingCandidateResult["confidence"] {
+    const resolution = pack.confidence?.resolution ?? "NOT_EXPLICIT";
+    return {
+      state: null,
+      resolution,
+      admissibleLevels: confidenceLevelIds.slice(),
+      reason:
+        resolution === "CONTEXTUAL"
+          ? "CONTEXTUAL: la confianza se asigna por juicio gobernado con los factores declarados; no se calcula."
+          : NO_FORMULA,
+    };
+  }
 
   function semanticValuesFor(acq: KnowledgePackAcquisition): string[] | null {
     const ref = acq.responseModel.semanticValuesFromVariable;
@@ -389,6 +620,7 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
     const ids = own.map((o) => o.id);
     const base = {
       criticality: variable?.criticality ?? "UNKNOWN_VARIABLE",
+      criticalityResolution: resolucionCriticidad(variable?.criticality),
       minimumEvidence: variable?.minimumEvidence ?? "UNKNOWN_VARIABLE",
       observationIds: ids,
       responseIds: own.map((o) => o.sourceResponseId).filter((x): x is string => Boolean(x)),
@@ -675,6 +907,7 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
           requiredLevel: v.minimumEvidence,
           options: v.minimumEvidenceOptions ? v.minimumEvidenceOptions.slice() : null,
           resolution: revision ? "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED" : "RESOLVED",
+          resolutionMode: condicional ? "CONTEXTUAL" : nivelNoExplicito ? "NOT_EXPLICIT" : "FIXED",
           provenance: {
             knowledgePackId: pack.packId,
             knowledgePackVersion: pack.packVersion,
@@ -716,44 +949,73 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
       // Findings: el pack declara identidad, polaridad, reglas y variables.
       // Ninguna regla de findings es DETERMINISTIC en el material gobernado, de
       // modo que un candidato nunca se confirma por inferencia: NEEDS_REVIEW.
+      // Soporte (M2-OP02-02): SOLO una variable KNOWN sostiene un candidato.
+      // UNKNOWN no es respuesta negativa, NOT_APPLICABLE excluye por
+      // aplicabilidad y CONTRADICTORY exige aclaración: ninguno de los tres
+      // establece por sí mismo un finding adverso.
       const ruleById = new Map(rules.map((r) => [r.id, r]));
       const evaluacionPorVariable = new Map(variableEvaluations.map((v) => [v.variableRef, v]));
-      const findingCandidates: FindingCandidateResult[] = (pack.findings ?? [])
-        .map((finding): FindingCandidateResult | null => {
-          const ruleRefs = finding.ruleRefs ?? [];
-          const variableRefs = finding.variableRefs ?? [];
-          const involucradas = variableRefs
-            .map((ref) => evaluacionPorVariable.get(ref))
-            .filter((v): v is VariableEvaluationResult => Boolean(v));
-          const conDato = involucradas.filter((v) => v.detail.observationIds.length > 0);
-          if (conDato.length === 0) return null;
-          const reglas = ruleRefs.map((ref) => ruleById.get(ref));
-          const confirmable =
-            ruleRefs.length > 0 &&
-            reglas.every((r) => r?.classification === "DETERMINISTIC" && r.implemented);
-          return {
+      const findingCandidates: FindingCandidateResult[] = [];
+      const findingsAwaitingResolution: FindingAwaitingResolutionResult[] = [];
+      for (const finding of pack.findings ?? []) {
+        const ruleRefs = finding.ruleRefs ?? [];
+        const variableRefs = finding.variableRefs ?? [];
+        const involucradas = variableRefs
+          .map((ref) => evaluacionPorVariable.get(ref))
+          .filter((v): v is VariableEvaluationResult => Boolean(v));
+        const conDato = involucradas.filter((v) => v.detail.observationIds.length > 0);
+        if (conDato.length === 0) continue;
+        const variableStates = involucradas.map((v) => ({
+          variableRef: v.variableRef,
+          state: (v.detail.observationIds.length > 0 ? v.state : "NOT_OBSERVED") as
+            | KnowledgeState
+            | "NOT_OBSERVED",
+        }));
+        const soporte = conDato.filter((v) => v.state === "KNOWN");
+        if (soporte.length === 0) {
+          const hayContradiccion = conDato.some((v) => v.state === "CONTRADICTORY");
+          const todasNoAplican = conDato.every((v) => v.state === "NOT_APPLICABLE");
+          findingsAwaitingResolution.push({
             findingRef: finding.id,
-            name: finding.name,
-            polarity: (finding.polarity ?? "ADVERSE") as "ADVERSE" | "STRENGTH",
-            lifecycleState: confirmable ? ("CANDIDATE" as const) : ("NEEDS_REVIEW" as const),
-            deterministicallyConfirmable: confirmable,
-            severity: {
-              state: null,
-              reason:
-                "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: no existe algoritmo de severidad ni de priority; la severidad no se infiere.",
-            },
-            ruleRefs: ruleRefs.slice(),
-            variableRefs: variableRefs.slice(),
-            supportingObservationIds: [...new Set(conDato.flatMap((v) => v.detail.observationIds))],
-            supportingEvidenceIds: [...new Set(conDato.flatMap((v) => v.detail.evidenceIds))],
-            reason: confirmable
-              ? "reglas determinísticas implementadas: candidato evaluable"
-              : (finding.polarity ?? "ADVERSE") === "STRENGTH"
-                ? "fortaleza posible: no existe gate formal de evidencia positiva (KCC-AT04-03); requiere revisión gobernada"
-                : "depende de juicio gobernado (GOVERNED_JUDGMENT): no se confirma automáticamente",
-          };
-        })
-        .filter((f): f is FindingCandidateResult => f !== null);
+            status: hayContradiccion
+              ? "BLOCKED_BY_CONTRADICTION"
+              : todasNoAplican
+                ? "EXCLUDED_NOT_APPLICABLE"
+                : "AWAITING_INFORMATION",
+            variableStates,
+            observationIds: [...new Set(conDato.flatMap((v) => v.detail.observationIds))],
+            reason: hayContradiccion
+              ? "contradicción material sin resolver: se aclara antes de cualquier finding; no se promedia ni se decide por jerarquía"
+              : todasNoAplican
+                ? "variables legítimamente no aplicables: excluidas por aplicabilidad, no constituyen finding"
+                : "UNKNOWN registrado: dato capturado, no respuesta negativa; no sostiene un finding",
+          });
+          continue;
+        }
+        const reglas = ruleRefs.map((ref) => ruleById.get(ref));
+        const confirmable =
+          ruleRefs.length > 0 &&
+          reglas.every((r) => r?.classification === "DETERMINISTIC" && r.implemented);
+        findingCandidates.push({
+          findingRef: finding.id,
+          name: finding.name,
+          polarity: (finding.polarity ?? "ADVERSE") as "ADVERSE" | "STRENGTH",
+          lifecycleState: confirmable ? ("CANDIDATE" as const) : ("NEEDS_REVIEW" as const),
+          deterministicallyConfirmable: confirmable,
+          severity: severidadCandidato(finding.severity),
+          confidence: confianzaCandidato(),
+          ruleRefs: ruleRefs.slice(),
+          variableRefs: variableRefs.slice(),
+          variableStates,
+          supportingObservationIds: [...new Set(soporte.flatMap((v) => v.detail.observationIds))],
+          supportingEvidenceIds: [...new Set(soporte.flatMap((v) => v.detail.evidenceIds))],
+          reason: confirmable
+            ? "reglas determinísticas implementadas: candidato evaluable"
+            : (finding.polarity ?? "ADVERSE") === "STRENGTH"
+              ? "fortaleza posible: no existe gate formal de evidencia positiva (KCC-AT04-03); requiere revisión gobernada"
+              : "depende de juicio gobernado (GOVERNED_JUDGMENT): no se confirma automáticamente",
+        });
+      }
 
       const derivedDependencyReferences: DerivedDependencyReferenceResult[] = (
         pack.crossCapabilityReferences ?? []
@@ -781,9 +1043,25 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
           evidenceRequirements.some((e) => e.resolution === "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED"),
         findings: [],
         findingCandidates,
+        findingsAwaitingResolution,
         derivedDependencyReferences,
         sufficiency: { state: null, reason: NO_FORMULA },
-        confidence: { state: null, reason: NO_FORMULA },
+        confidence: {
+          state: null,
+          reason: NO_FORMULA,
+          resolution: pack.confidence?.resolution ?? "NOT_EXPLICIT",
+          admissibleLevels: (pack.confidence?.levels ?? []).map((l) => l.id),
+          factors: (pack.confidence?.factors ?? []).slice(),
+        },
+        contextualization: {
+          resolution: pack.contextualization ? "CONTEXTUAL" : "NOT_EXPLICIT",
+          ruleRefs: (pack.contextualization?.rules ?? [])
+            .map((r) => r.id)
+            .filter((id): id is string => id !== null),
+          reason: pack.contextualization
+            ? "reglas de contextualización gobernadas: modifican la aplicación, nunca se aplican automáticamente"
+            : "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: el pack no declara contextualización",
+        },
         traceability: {
           knowledgeMasterIdentifier: pack.knowledgeMaster.identifier,
           knowledgeMasterVersion: pack.knowledgeMaster.version,
@@ -872,8 +1150,45 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
 
     getValidationRequirementForActivity(activityRef) {
       if (!activityRef) return null;
-      const crv = (pack.validationRequirements ?? []).find((v) => v.activityRef === activityRef);
+      const crv = (pack.validationRequirements ?? []).find((v) => {
+        const owner = resolveValidationRequirementOwner(v);
+        return owner?.kind === "ACTIVITY" && owner.ref === activityRef;
+      });
       return crv ? aIdentidadCrv(crv) : null;
+    },
+
+    getValidationRequirementsForOwner(kind, ref) {
+      return (pack.validationRequirements ?? [])
+        .filter((v) => {
+          const owner = resolveValidationRequirementOwner(v);
+          return owner?.kind === kind && owner.ref === ref;
+        })
+        .map(aIdentidadCrv);
+    },
+
+    assessValidationRequirementJudgment(requirementRef, input) {
+      const crv = (pack.validationRequirements ?? []).find((v) => v.id === requirementRef);
+      return evaluarJuicioCrv(requirementRef, crv, input);
+    },
+
+    listInterventionPatterns() {
+      return (pack.interventionPatterns ?? []).map((ip) => identidadPatron(pack, ip));
+    },
+
+    evaluateImplementation(patternRef, input) {
+      return evaluarImplementacion(pack, patternRef, input);
+    },
+
+    assessValidation(input) {
+      return evaluarValidacion(pack, input);
+    },
+
+    assessFindingConsolidation(findingRef, input) {
+      return evaluarConsolidacion(pack, findingRef, input);
+    },
+
+    listEngineActions() {
+      return (pack.engineActions ?? []).map((a) => ({ id: a.id, meaning: a.meaning }));
     },
 
     evaluateValidationRequirement(requirementRef, input) {
@@ -891,6 +1206,20 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
           secondExecutorRespondentId: null,
         };
       }
+      if ((crv.evaluation ?? "DETERMINISTIC_CONDITIONS") === "GOVERNED_JUDGMENT") {
+        return {
+          requirementRef,
+          satisfied: false,
+          status: "REVIEW_REQUIRED" as const,
+          metConditionIds: [],
+          unmetConditionIds: crv.conditions.map((c) => c.id),
+          reason:
+            "CRV de juicio gobernado: requiere juicio humano registrado (assessValidationRequirementJudgment); el runtime no lo satisface",
+          consecutiveCorrectCount: 0,
+          requiredCaseCount: null,
+          secondExecutorRespondentId: null,
+        };
+      }
       return evaluarCrv(crv, input);
     },
 
@@ -898,6 +1227,12 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
       return compararEstados(baseline, current);
     },
   };
+}
+
+function resolucionCriticidad(criticidad: string | undefined): PropertyResolutionMode {
+  if (!criticidad || criticidad.startsWith("NOT_EXPLICIT")) return "NOT_EXPLICIT";
+  if (criticidad === "CONTEXT_DEPENDENT") return "CONTEXTUAL";
+  return "FIXED";
 }
 
 /* ------------------------------------------------------------------ */
@@ -908,11 +1243,15 @@ type CrvPack = NonNullable<KnowledgePack["validationRequirements"]>[number];
 
 function aIdentidadCrv(crv: CrvPack): ValidationRequirementIdentity {
   const consecutiva = crv.conditions.find((c) => c.kind === "CONSECUTIVE_CORRECT_CASES");
+  const owner = resolveValidationRequirementOwner(crv) as { kind: ValidationRequirementOwnerKind; ref: string };
   return {
     requirementRef: crv.id,
-    activityRef: crv.activityRef,
+    activityRef: owner.kind === "ACTIVITY" ? owner.ref : null,
+    owner: { kind: owner.kind, ref: owner.ref },
+    name: crv.name ?? null,
     definition: crv.definition,
     definitionSource: crv.definitionSource,
+    evaluation: crv.evaluation ?? "DETERMINISTIC_CONDITIONS",
     conditions: crv.conditions.map((c) => ({
       id: c.id,
       kind: c.kind,
@@ -971,6 +1310,11 @@ function evaluarCrv(
   for (const condicion of crv.conditions) {
     let cumple = false;
     switch (condicion.kind) {
+      case "GOVERNED_STATEMENT":
+      case "JUSTIFYING_CONDITION_REFERENCE":
+        // Nunca alcanzable por el evaluador determinístico (el schema lo impide).
+        cumple = false;
+        break;
       case "DISTINCT_SECOND_EXECUTOR":
         cumple = input.primaryExecutorRespondentId !== null && segundos.length > 0;
         break;
@@ -1001,6 +1345,338 @@ function evaluarCrv(
     consecutiveCorrectCount: mejorRacha,
     requiredCaseCount: requerido,
     secondExecutorRespondentId: satisfied ? ejecutorRacha : null,
+  };
+}
+
+/* ------------------------------------------------------------------ */
+/* M2-OP02-02 · Juicio de CRV, Done, validación y consolidación         */
+/* Todo es genérico: la semántica proviene exclusivamente del pack.     */
+/* ------------------------------------------------------------------ */
+
+type PatronPack = NonNullable<KnowledgePack["interventionPatterns"]>[number];
+
+function evaluarJuicioCrv(
+  requirementRef: string,
+  crv: CrvPack | undefined,
+  input: ValidationRequirementJudgmentInput,
+): ValidationRequirementJudgmentAssessment {
+  const base = { requirementRef, isScore: false as const };
+  if (!crv) {
+    return {
+      ...base,
+      admissible: false,
+      status: null,
+      metConditionIds: [],
+      unmetConditionIds: [],
+      issues: ["VALIDATION_REQUIREMENT_NOT_EXPLICIT"],
+    };
+  }
+  if ((crv.evaluation ?? "DETERMINISTIC_CONDITIONS") !== "GOVERNED_JUDGMENT") {
+    return {
+      ...base,
+      admissible: false,
+      status: null,
+      metConditionIds: [],
+      unmetConditionIds: [],
+      issues: ["CRV determinístico: se evalúa con evaluateValidationRequirement, no por juicio"],
+    };
+  }
+  const issues: string[] = [];
+  const met: string[] = [];
+  const unmet: string[] = [];
+  const humano = Boolean(input.judgedBy);
+  if (!humano) issues.push("el juicio de un CRV exige una persona responsable registrada (judgedBy)");
+  const concluyente = input.judgment === "SATISFIED" || input.judgment === "NOT_SATISFIED";
+  if (concluyente && input.evidenceIds.length === 0) {
+    issues.push(
+      (input.kpiRefs ?? []).length > 0
+        ? "un KPI no sustituye evidencia: CRV ≠ KPI"
+        : "un juicio concluyente de CRV exige evidencia registrada",
+    );
+  }
+  for (const condicion of crv.conditions) {
+    let cumple = false;
+    if (condicion.kind === "GOVERNED_STATEMENT") {
+      cumple = humano && (!concluyente || input.evidenceIds.length > 0);
+    } else if (condicion.kind === "JUSTIFYING_CONDITION_REFERENCE") {
+      cumple = (input.justifyingFindingRefs ?? []).length > 0;
+      if (!cumple && concluyente) {
+        issues.push(`${condicion.id}: el juicio debe referenciar la condición que justificó la intervención`);
+      }
+    }
+    (cumple ? met : unmet).push(condicion.id);
+  }
+  const admissible = issues.length === 0;
+  return {
+    ...base,
+    admissible,
+    status: admissible ? input.judgment : null,
+    metConditionIds: met,
+    unmetConditionIds: unmet,
+    issues,
+  };
+}
+
+function identidadPatron(pack: KnowledgePack, ip: PatronPack): InterventionPatternIdentity {
+  return {
+    patternRef: ip.id,
+    name: ip.name,
+    objective: ip.objective ?? null,
+    purpose: ip.purpose ?? null,
+    instruments: (ip.instruments ?? []).map((i) => ({ id: i.id, name: i.name })),
+    deliverables: (ip.deliverables ?? []).map((d) => ({
+      id: d.id,
+      name: d.name,
+      instrumentRef: d.instrumentRef ?? null,
+    })),
+    minimumActivities: (ip.minimumActivities ?? []).slice(),
+    doneCriteria: (ip.doneCriteria ?? []).map((c, i) => ({
+      position: i + 1,
+      id: c.id,
+      statement: c.statement,
+    })),
+    validationRequirementRefs: (pack.validationRequirements ?? [])
+      .filter((v) => {
+        const owner = resolveValidationRequirementOwner(v);
+        return owner?.kind === "INTERVENTION_PATTERN" && owner.ref === ip.id;
+      })
+      .map((v) => v.id),
+  };
+}
+
+function evaluarImplementacion(
+  pack: KnowledgePack,
+  patternRef: string,
+  input: ImplementationInput,
+): ImplementationEvaluation {
+  const vacio = {
+    patternRef,
+    executionStateRef: null,
+    implemented: false,
+    stateSelection: "GOVERNED_JUDGMENT" as const,
+    candidateExecutionStateRefs: [] as string[],
+    completedLayerRefs: [] as string[],
+    missingLayerRefs: [] as string[],
+    layersMissingEvidence: [] as string[],
+    unmetDoneCriteriaPositions: [] as number[],
+    validationRequirementSatisfied: null,
+    effectivenessStateRef: null,
+  };
+  const patron = (pack.interventionPatterns ?? []).find((p) => p.id === patternRef);
+  const modelo = pack.implementationModel;
+  if (!patron || !modelo) {
+    return {
+      ...vacio,
+      issues: [patron ? "IMPLEMENTATION_MODEL_NOT_EXPLICIT" : "INTERVENTION_PATTERN_NOT_EXPLICIT"],
+      reason: "el pack no declara el modelo de implementación o el patrón",
+    };
+  }
+  const issues: string[] = [];
+  const capas = new Map(modelo.doneLayers.map((l) => [l.id, l]));
+  const completadas: string[] = [];
+  const sinEvidencia: string[] = [];
+  for (const registro of input.layerRecords) {
+    const capa = capas.get(registro.layerRef);
+    if (!capa) {
+      issues.push(`capa de Done desconocida: ${registro.layerRef}`);
+      continue;
+    }
+    if (!registro.completed) continue;
+    if (capa.requiresEvidence && (registro.evidenceIds ?? []).length === 0) {
+      sinEvidencia.push(capa.id);
+      continue;
+    }
+    completadas.push(capa.id);
+  }
+  const criterios = patron.doneCriteria ?? [];
+  const cumplidos = new Set(input.doneCriteriaRecords.filter((r) => r.met).map((r) => r.position));
+  input.doneCriteriaRecords.forEach((r) => {
+    if (r.position < 1 || r.position > criterios.length) issues.push(`Done Criterion inexistente: posición ${r.position}`);
+  });
+  const noCumplidos = criterios.map((_, i) => i + 1).filter((pos) => !cumplidos.has(pos));
+
+  const implementado = modelo.executionStates.find((e) => e.implemented) ?? null;
+  const requeridas = implementado?.requiresDoneLayerRefs ?? [];
+  const faltantes = requeridas.filter((ref) => !completadas.includes(ref));
+  const criteriosOk = !implementado?.requiresAllDoneCriteria || noCumplidos.length === 0;
+  const alcanzaImplementado = Boolean(implementado) && faltantes.length === 0 && criteriosOk && issues.length === 0;
+  const noImplementados = modelo.executionStates.filter((e) => !e.implemented).map((e) => e.id);
+
+  const declarado = input.assertedExecutionStateRef ?? null;
+  if (declarado) {
+    const estado = modelo.executionStates.find((e) => e.id === declarado);
+    if (!estado) issues.push(`estado de ejecución desconocido: ${declarado}`);
+    else if (estado.implemented && !alcanzaImplementado) {
+      issues.push(`${declarado} declarado sin cumplir sus requisitos: capas o Done Criteria pendientes`);
+    }
+  }
+
+  if (alcanzaImplementado && implementado) {
+    return {
+      ...vacio,
+      executionStateRef: implementado.id,
+      implemented: true,
+      stateSelection: "DETERMINISTIC",
+      candidateExecutionStateRefs: [implementado.id],
+      completedLayerRefs: completadas,
+      layersMissingEvidence: sinEvidencia,
+      issues,
+      reason: `requisitos de ${implementado.id} cumplidos. Done no implica CRV satisfecho ni efectividad.`,
+    };
+  }
+  // Por debajo del estado implementado la fuente no declara requisitos
+  // evaluables: el estado exacto es juicio gobernado (se acepta el declarado).
+  const declaradoValido =
+    declarado && noImplementados.includes(declarado) && issues.length === 0 ? declarado : null;
+  return {
+    ...vacio,
+    executionStateRef: declaradoValido,
+    candidateExecutionStateRefs: noImplementados,
+    completedLayerRefs: completadas,
+    missingLayerRefs: faltantes,
+    layersMissingEvidence: sinEvidencia,
+    unmetDoneCriteriaPositions: noCumplidos,
+    issues,
+    reason: implementado
+      ? `${implementado.id} no alcanzado; el estado anterior se registra por juicio gobernado`
+      : "el pack no declara un estado implementado",
+  };
+}
+
+function evaluarValidacion(pack: KnowledgePack, input: ValidationAssessmentInput): ValidationAssessment {
+  const issues: string[] = [];
+  const efectividad = pack.effectivenessModel;
+  const estados = efectividad?.states ?? [];
+  const estado = estados.find((e) => e.id === input.effectivenessStateRef) ?? null;
+  const crv = (pack.validationRequirements ?? []).find((v) => v.id === input.requirementRef);
+  if (!crv) issues.push("VALIDATION_REQUIREMENT_NOT_EXPLICIT");
+  if (!efectividad) issues.push("EFFECTIVENESS_MODEL_NOT_EXPLICIT");
+  else if (!estado) issues.push(`estado de efectividad desconocido: ${input.effectivenessStateRef}`);
+
+  const implementado = pack.implementationModel?.executionStates.find((e) => e.implemented) ?? null;
+  if (estado?.presupposesImplementation && input.implementationStateRef !== implementado?.id) {
+    issues.push(
+      `${estado.id} presupone implementación (${implementado?.id ?? "estado implementado no declarado"})` +
+        (efectividad?.implementationRuleRef ? ` · ${efectividad.implementationRuleRef}` : ""),
+    );
+  }
+  if (estado?.requiresValidationRequirement === "SATISFIED" && input.validationRequirementStatus !== "SATISFIED") {
+    issues.push(`${estado.id} exige un juicio de CRV satisfecho`);
+  }
+  if (estado?.requiresValidationRequirement === "NOT_SATISFIED" && input.validationRequirementStatus === "SATISFIED") {
+    issues.push(`${estado.id} es incompatible con un CRV satisfecho`);
+  }
+  if (estado?.requiresEvidence && input.evidenceIds.length === 0) {
+    issues.push(
+      (input.kpiRefs ?? []).length > 0
+        ? "un KPI no sustituye evidencia: CRV ≠ KPI"
+        : `${estado.id} es un juicio concluyente y exige evidencia registrada`,
+    );
+  }
+  const noEvaluado = estado !== null && !estado.presupposesImplementation && !estado.requiresEvidence && estados[0]?.id === estado.id;
+  if (!noEvaluado && !input.validatedBy) issues.push("una validación exige una persona responsable (validatedBy)");
+  const niveles = (pack.attributionModel?.levels ?? []).map((l) => l.id);
+  if (input.attributionConfidenceRef && !niveles.includes(input.attributionConfidenceRef)) {
+    issues.push(`nivel de atribución desconocido: ${input.attributionConfidenceRef}`);
+  }
+  if (
+    input.unintendedNegativeOutcome &&
+    efectividad?.negativeOutcomeStateRef &&
+    estado &&
+    estado.id !== efectividad.negativeOutcomeStateRef &&
+    estado.requiresValidationRequirement === "SATISFIED"
+  ) {
+    issues.push(
+      `efecto negativo material registrado: ${estado.id} exige revisión; la fuente lo registra como ${efectividad.negativeOutcomeStateRef}`,
+    );
+  }
+
+  const admissible = issues.length === 0;
+  const modeloValidacion = pack.validationModel;
+  const decisiones = admissible
+    ? (modeloValidacion?.decisions ?? [])
+        .filter(
+          (d) =>
+            (d.whenEffectivenessStateRef && d.whenEffectivenessStateRef === input.effectivenessStateRef) ||
+            (d.whenNegativeUnintendedOutcome && input.unintendedNegativeOutcome),
+        )
+        .map((d) => ({ decision: d.decision, action: d.action ?? null, selection: d.selection }))
+    : [];
+
+  const reglasSeguimiento = (pack.followUp?.rules ?? []).filter((r) =>
+    (r.triggerEffectivenessStateRefs ?? []).includes(input.effectivenessStateRef),
+  );
+  const seguimientoActivado = admissible && reglasSeguimiento.length > 0;
+  const reglasReassessment = (pack.reassessment?.rules ?? []).filter((r) =>
+    r.triggerEffectivenessStateRefs.includes(input.effectivenessStateRef),
+  );
+  const reassessmentActivado = admissible && reglasReassessment.length > 0;
+
+  return {
+    requirementRef: input.requirementRef,
+    admissible,
+    issues,
+    effectivenessStateRef: input.effectivenessStateRef,
+    attributionConfidenceRef: input.attributionConfidenceRef,
+    decisions: decisiones,
+    followUp: {
+      triggered: seguimientoActivado,
+      ruleRefs: seguimientoActivado ? reglasSeguimiento.map((r) => r.id) : [],
+      status: !seguimientoActivado
+        ? "NOT_TRIGGERED"
+        : reglasSeguimiento.some((r) => r.conditionClassification === "GOVERNED_JUDGMENT")
+          ? "REVIEW_REQUIRED"
+          : "REQUIRED",
+      frequencyFormula: pack.followUp?.frequencyFormula ?? "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+    },
+    reassessment: {
+      triggered: reassessmentActivado,
+      status: !reassessmentActivado
+        ? "NOT_TRIGGERED"
+        : reglasReassessment.some((r) => r.conditionClassification === "GOVERNED_JUDGMENT")
+          ? "REVIEW_REQUIRED"
+          : "REQUIRED",
+      loop: reassessmentActivado ? (reglasReassessment[0]?.loop ?? null) : null,
+      createsNewAssessment: true,
+      distinctFromFollowUp: true,
+    },
+    isMaturity: false,
+    isScore: false,
+  };
+}
+
+function evaluarConsolidacion(
+  pack: KnowledgePack,
+  findingRef: string,
+  input: FindingConsolidationInput,
+): FindingConsolidationAssessment {
+  const issues: string[] = [];
+  if (!(pack.findings ?? []).some((f) => f.id === findingRef)) issues.push(`finding desconocido: ${findingRef}`);
+  const sev = (pack.severity?.levels ?? []).map((l) => l.id);
+  const conf = (pack.confidence?.levels ?? []).map((l) => l.id);
+  if (input.severityRef && !sev.includes(input.severityRef)) issues.push(`severidad desconocida: ${input.severityRef}`);
+  if (input.confidenceRef && !conf.includes(input.confidenceRef)) issues.push(`confianza desconocida: ${input.confidenceRef}`);
+  const contextual = pack.severity?.resolution === "CONTEXTUAL" || pack.confidence?.resolution === "CONTEXTUAL";
+  if (contextual && (input.severityRef || input.confidenceRef) && !input.judgedBy) {
+    issues.push("severidad/confianza contextuales exigen juicio gobernado registrado (judgedBy)");
+  }
+  if (issues.length > 0) {
+    return { findingRef, status: "INVALID_INPUT", blockedByGuardIds: [], requiredActions: [], issues };
+  }
+  const bloqueos = (pack.severity?.consolidationGuards ?? []).filter(
+    (g) =>
+      (g.appliesToClaim === "ANY" || (g.appliesToClaim === "CAUSAL" && input.claim === "CAUSAL")) &&
+      input.severityRef !== null &&
+      input.confidenceRef !== null &&
+      g.severityRefs.includes(input.severityRef) &&
+      g.confidenceRefs.includes(input.confidenceRef),
+  );
+  return {
+    findingRef,
+    status: bloqueos.length > 0 ? "BLOCKED" : "ADMISSIBLE",
+    blockedByGuardIds: bloqueos.map((g) => g.id),
+    requiredActions: bloqueos.map((g) => g.action).filter((a): a is string => Boolean(a)),
+    issues,
   };
 }
 

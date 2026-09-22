@@ -120,6 +120,234 @@ export const ruleSchema = z.object({
   implemented: z.boolean(),
 });
 
+/* ------------------------------------------------------------------ */
+/* Extensiones genéricas M2-OP02-02 (capability-neutral)               */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Modo de resolución de una propiedad gobernada (criticidad, requisito de
+ * evidencia, severidad, confianza, contexto).
+ * - FIXED: la fuente fija el valor; el runtime lo usa tal cual.
+ * - CONTEXTUAL: la fuente declara la propiedad como dependiente del caso; el
+ *   runtime NUNCA la resuelve ni la adivina (ni él ni un LLM): exige juicio
+ *   gobernado registrado.
+ * - NOT_EXPLICIT: la fuente guarda silencio; el runtime lo preserva.
+ */
+export const PROPERTY_RESOLUTION_MODES = ["FIXED", "CONTEXTUAL", "NOT_EXPLICIT"] as const;
+export const propertyResolutionModeSchema = z.enum(PROPERTY_RESOLUTION_MODES);
+export type PropertyResolutionMode = (typeof PROPERTY_RESOLUTION_MODES)[number];
+
+/** Nivel gobernado (S0–S3, C0–C3, AC0–AC3…). Estado cualitativo, nunca número. */
+const governedLevelSchema = z.object({
+  id: z.string().min(1),
+  label: z.string().min(1).optional(),
+  name: z.string().min(1).optional(),
+  definition: z.string().min(1).optional(),
+});
+
+/** Regla gobernada enunciada. `id` null cuando la fuente no le asigna identificador. */
+const governedStatementSchema = z.object({
+  id: z.string().min(1).nullable(),
+  name: z.string().min(1).optional(),
+  statement: z.string().min(1),
+});
+
+/** Dueño gobernado de un CRV: no todo CRV pertenece a una Activity. */
+export const VALIDATION_REQUIREMENT_OWNER_KINDS = [
+  "ACTIVITY",
+  "INTERVENTION_PATTERN",
+  "DELIVERABLE",
+] as const;
+
+/**
+ * Condiciones de CRV. Las tres primeras son determinísticas (M1-KL). Las dos
+ * últimas (M2-OP02-02) expresan condiciones cuyo cumplimiento exige juicio
+ * humano registrado: el runtime nunca las da por satisfechas.
+ */
+export const VALIDATION_CONDITION_KINDS = [
+  "DISTINCT_SECOND_EXECUTOR",
+  "CONSECUTIVE_CORRECT_CASES",
+  "NO_CRITICAL_ASSISTANCE",
+  "GOVERNED_STATEMENT",
+  "JUSTIFYING_CONDITION_REFERENCE",
+] as const;
+export const DETERMINISTIC_VALIDATION_CONDITION_KINDS = [
+  "DISTINCT_SECOND_EXECUTOR",
+  "CONSECUTIVE_CORRECT_CASES",
+  "NO_CRITICAL_ASSISTANCE",
+] as const;
+
+export const interventionPatternSchema = z.object({
+  id: z.string().min(1),
+  name: z.string().min(1),
+  objective: z.string().min(1).optional(),
+  purpose: z.string().min(1).optional(),
+  instruments: z.array(z.object({ id: z.string().min(1), name: z.string().min(1) })).optional(),
+  deliverables: z
+    .array(
+      z.object({
+        id: z.string().min(1),
+        name: z.string().min(1),
+        instrumentRef: z.string().min(1).optional(),
+      }),
+    )
+    .optional(),
+  /** Actividades mínimas literales. Sin IDs cuando la fuente no los da. */
+  minimumActivities: z.array(z.string().min(1)).optional(),
+  /**
+   * Done Criteria del patrón. `id` null cuando la fuente no los identifica: el
+   * runtime los direcciona por posición (1..n), nunca inventa un identificador.
+   */
+  doneCriteria: z
+    .array(z.object({ id: z.string().min(1).nullable(), statement: z.string().min(1) }))
+    .optional(),
+  identifierNote: z.string().optional(),
+});
+
+export const implementationModelSchema = z.object({
+  doneLayers: z
+    .array(
+      z.object({
+        id: z.string().min(1),
+        name: z.string().min(1),
+        definition: z.string().min(1),
+        /** La definición literal exige evidencia de uso real (p. ej. adopción). */
+        requiresEvidence: z.boolean().optional(),
+      }),
+    )
+    .min(1),
+  executionStates: z
+    .array(
+      z.object({
+        id: z.string().min(1),
+        name: z.string().min(1),
+        definition: z.string().min(1),
+        /** Estado que la fuente denomina "implementado". */
+        implemented: z.boolean(),
+        /** Capas de Done que la fuente exige para este estado. */
+        requiresDoneLayerRefs: z.array(z.string().min(1)).optional(),
+        /** La fuente exige cumplir todos los Done Criteria del patrón. */
+        requiresAllDoneCriteria: z.boolean().optional(),
+        basis: z.string().min(1).optional(),
+      }),
+    )
+    .min(1),
+  rules: z.array(governedStatementSchema).optional(),
+  /** Invariantes: Done ≠ CRV ≠ Validation ≠ Effectiveness. */
+  doneImpliesValidationRequirement: z.literal(false),
+  doneImpliesEffectiveness: z.literal(false),
+});
+
+export const effectivenessModelSchema = z.object({
+  states: z
+    .array(
+      z.object({
+        id: z.string().min(1),
+        name: z.string().min(1),
+        definition: z.string().min(1),
+        /** El estado solo es admisible si la intervención alcanzó el estado implementado. */
+        presupposesImplementation: z.boolean(),
+        /** Juicio de CRV que la definición literal del estado exige. */
+        requiresValidationRequirement: z.enum(["SATISFIED", "NOT_SATISFIED"]).optional(),
+        /** Estado concluyente: exige evidencia registrada (no basta el tiempo transcurrido). */
+        requiresEvidence: z.boolean().optional(),
+        basis: z.string().min(1).optional(),
+      }),
+    )
+    .min(1),
+  /** Regla que prohíbe atribuir efectividad sin implementación suficiente. */
+  implementationRuleRef: z.string().min(1).optional(),
+  /** Estado que la fuente asigna cuando el resultado empeora materialmente. */
+  negativeOutcomeStateRef: z.string().min(1).optional(),
+  negativeOutcomeBasis: z.string().min(1).optional(),
+  rules: z.array(governedStatementSchema).optional(),
+  /** Efectividad ≠ madurez. */
+  isMaturity: z.literal(false),
+});
+
+export const attributionModelSchema = z.object({
+  levels: z.array(governedLevelSchema).min(1),
+  /** Resultado observado ≠ atribución: nunca se deriva de la efectividad. */
+  independentOfEffectiveness: z.literal(true),
+  formula: z.string().min(1),
+  rules: z.array(governedStatementSchema).optional(),
+});
+
+export const validationModelSchema = z.object({
+  /** Campos del objeto Validation declarados por la fuente. */
+  recordFields: z.array(z.string().min(1)).min(1),
+  decisions: z
+    .array(
+      z.object({
+        decision: z.string().min(1),
+        action: z.string().min(1).optional(),
+        whenEffectivenessStateRef: z.string().min(1).optional(),
+        whenNegativeUnintendedOutcome: z.boolean().optional(),
+        /** GOVERNED_JUDGMENT cuando la fuente condiciona la decisión (p. ej. "según riesgo"). */
+        selection: z.enum(["DETERMINISTIC", "GOVERNED_JUDGMENT"]),
+      }),
+    )
+    .min(1),
+  rules: z.array(governedStatementSchema).optional(),
+});
+
+export const followUpModelSchema = z.object({
+  rules: z
+    .array(
+      z.object({
+        id: z.string().min(1).nullable(),
+        statement: z.string().min(1),
+        triggerEffectivenessStateRefs: z.array(z.string().min(1)).optional(),
+        /** GOVERNED_JUDGMENT cuando la condición exige juicio (riesgo, variabilidad…). */
+        conditionClassification: z.enum(["DETERMINISTIC", "GOVERNED_JUDGMENT"]),
+      }),
+    )
+    .min(1),
+  recordFields: z.array(z.string().min(1)).optional(),
+  frequencyFormula: z.string().min(1),
+});
+
+export const reassessmentModelSchema = z.object({
+  rules: z
+    .array(
+      z.object({
+        id: z.string().min(1).nullable(),
+        statement: z.string().min(1),
+        triggerEffectivenessStateRefs: z.array(z.string().min(1)).min(1),
+        conditionClassification: z.enum(["DETERMINISTIC", "GOVERNED_JUDGMENT"]),
+        loop: z.string().min(1).optional(),
+      }),
+    )
+    .min(1),
+  /** Reassessment = nuevo Assessment; nunca sobrescribe el histórico. */
+  createsNewAssessment: z.literal(true),
+  distinctFromFollowUp: z.literal(true),
+});
+
+export const severityModelSchema = z.object({
+  levels: z.array(governedLevelSchema).min(1),
+  resolution: propertyResolutionModeSchema,
+  formula: z.string().min(1),
+  /** Guardas de consolidación (comportamiento, nunca scoring). */
+  consolidationGuards: z
+    .array(
+      z.object({
+        id: z.string().min(1),
+        statement: z.string().min(1),
+        action: z.string().min(1).optional(),
+        severityRefs: z.array(z.string().min(1)).min(1),
+        confidenceRefs: z.array(z.string().min(1)).min(1),
+        appliesToClaim: z.enum(["CAUSAL", "ANY"]),
+        effect: z.literal("BLOCK_CONFIRMATION"),
+      }),
+    )
+    .optional(),
+});
+
+export const contextualizationSchema = z.object({
+  rules: z.array(governedStatementSchema).min(1),
+});
+
 export const knowledgePackSchema = z.object({
   $schema: z.string().optional(),
   packId: z.string().min(1),
@@ -182,6 +410,11 @@ export const knowledgePackSchema = z.object({
       states: z.array(z.string()),
       formula: z.string(),
       factors: z.array(z.string()).optional(),
+      /** Niveles cualitativos (C0–C3…) cuando la fuente los declara. */
+      levels: z.array(governedLevelSchema).optional(),
+      /** Por defecto NOT_EXPLICIT (retrocompatible). */
+      resolution: propertyResolutionModeSchema.optional(),
+      rules: z.array(governedStatementSchema).optional(),
     })
     .optional(),
   rules: z.array(ruleSchema).optional(),
@@ -249,24 +482,30 @@ export const knowledgePackSchema = z.object({
     .array(
       z.object({
         id: z.string().min(1),
-        activityRef: z.string().min(1),
+        /** Retrocompatible (M1-KL): CRV propiedad de una Activity. */
+        activityRef: z.string().min(1).optional(),
+        /** Dueño gobernado genérico. Si coexiste con activityRef deben coincidir. */
+        owner: z
+          .object({ kind: z.enum(VALIDATION_REQUIREMENT_OWNER_KINDS), ref: z.string().min(1) })
+          .optional(),
+        name: z.string().min(1).optional(),
         definition: z.string().min(1),
         definitionSource: z.string().min(1),
         formula: z.literal("NOT_A_SCORE"),
-        conditions: z
-          .array(
-            z.object({
-              id: z.string().min(1),
-              kind: z.enum([
-                "DISTINCT_SECOND_EXECUTOR",
-                "CONSECUTIVE_CORRECT_CASES",
-                "NO_CRITICAL_ASSISTANCE",
-              ]),
-              statement: z.string().min(1),
-              requiredCount: z.number().int().positive().optional(),
-            }),
-          )
-          .min(1),
+        /**
+         * DETERMINISTIC_CONDITIONS (por defecto): el runtime evalúa condiciones
+         * determinísticas. GOVERNED_JUDGMENT: el cumplimiento exige juicio humano
+         * registrado; el runtime solo verifica su admisibilidad.
+         */
+        evaluation: z.enum(["DETERMINISTIC_CONDITIONS", "GOVERNED_JUDGMENT"]).optional(),
+        conditions: z.array(
+          z.object({
+            id: z.string().min(1),
+            kind: z.enum(VALIDATION_CONDITION_KINDS),
+            statement: z.string().min(1),
+            requiredCount: z.number().int().positive().optional(),
+          }),
+        ),
         notes: z.array(z.string()).optional(),
       }),
     )
@@ -281,6 +520,19 @@ export const knowledgePackSchema = z.object({
       ruleRefs: z.array(z.string().min(1)).optional(),
       notes: z.array(z.string()).optional(),
     })
+    .optional(),
+  /* ---- Extensiones genéricas M2-OP02-02 (todas opcionales) ---- */
+  interventionPatterns: z.array(interventionPatternSchema).optional(),
+  implementationModel: implementationModelSchema.optional(),
+  effectivenessModel: effectivenessModelSchema.optional(),
+  attributionModel: attributionModelSchema.optional(),
+  validationModel: validationModelSchema.optional(),
+  followUp: followUpModelSchema.optional(),
+  reassessment: reassessmentModelSchema.optional(),
+  severity: severityModelSchema.optional(),
+  contextualization: contextualizationSchema.optional(),
+  engineActions: z
+    .array(z.object({ id: z.string().min(1), meaning: z.string().min(1) }))
     .optional(),
   crossCapabilityReferences: z
     .array(
@@ -300,6 +552,21 @@ export type KnowledgePack = z.infer<typeof knowledgePackSchema>;
 export type KnowledgePackVariable = z.infer<typeof variableSchema>;
 export type KnowledgePackAcquisition = z.infer<typeof acquisitionSchema>;
 export type KnowledgePackRule = z.infer<typeof ruleSchema>;
+export type KnowledgePackValidationRequirement = NonNullable<KnowledgePack["validationRequirements"]>[number];
+export type KnowledgePackInterventionPattern = z.infer<typeof interventionPatternSchema>;
+
+/**
+ * Dueño gobernado de un CRV: `owner` explícito o, retrocompatible, la
+ * Activity declarada en `activityRef`. null si la fuente no declara ninguno.
+ */
+export function resolveValidationRequirementOwner(crv: {
+  activityRef?: string | undefined;
+  owner?: { kind: (typeof VALIDATION_REQUIREMENT_OWNER_KINDS)[number]; ref: string } | undefined;
+}): { kind: (typeof VALIDATION_REQUIREMENT_OWNER_KINDS)[number]; ref: string } | null {
+  if (crv.owner) return crv.owner;
+  if (crv.activityRef) return { kind: "ACTIVITY", ref: crv.activityRef };
+  return null;
+}
 
 export interface KnowledgePackValidationIssue {
   path: string;
@@ -437,30 +704,129 @@ export function validateKnowledgePack(raw: unknown): KnowledgePackValidation {
     }
   });
 
-  // CRV: identidad única, actividad conocida y condiciones bien formadas.
+  // CRV: identidad única, dueño gobernado conocido y condiciones bien formadas.
   const activityIds = new Set((pack.activities ?? []).map((a) => a.id));
+  const patternIds = new Set((pack.interventionPatterns ?? []).map((p) => p.id));
+  const deliverableIds = new Set(
+    (pack.interventionPatterns ?? []).flatMap((p) => (p.deliverables ?? []).map((d) => d.id)),
+  );
   const crvIds = new Set<string>();
   (pack.validationRequirements ?? []).forEach((crv, index) => {
+    const base = `validationRequirements.${index}`;
     if (crvIds.has(crv.id)) {
-      issues.push({ path: `validationRequirements.${index}.id`, message: `CRV duplicado: ${crv.id}` });
+      issues.push({ path: `${base}.id`, message: `CRV duplicado: ${crv.id}` });
     }
     crvIds.add(crv.id);
-    if (!activityIds.has(crv.activityRef)) {
+    const owner = resolveValidationRequirementOwner(crv);
+    if (!owner) {
+      issues.push({ path: `${base}.owner`, message: "un CRV debe declarar su dueño gobernado" });
+    } else {
+      if (crv.activityRef && crv.owner && (crv.owner.kind !== "ACTIVITY" || crv.owner.ref !== crv.activityRef)) {
+        issues.push({ path: `${base}.owner`, message: "owner y activityRef se contradicen" });
+      }
+      const universo =
+        owner.kind === "ACTIVITY" ? activityIds : owner.kind === "INTERVENTION_PATTERN" ? patternIds : deliverableIds;
+      if (!universo.has(owner.ref)) {
+        const campo = crv.owner ? "owner.ref" : "activityRef";
+        const etiqueta =
+          owner.kind === "ACTIVITY" ? "actividad" : owner.kind === "INTERVENTION_PATTERN" ? "patrón" : "deliverable";
+        issues.push({ path: `${base}.${campo}`, message: `${etiqueta} desconocida: ${owner.ref}` });
+      }
+    }
+    const evaluation = crv.evaluation ?? "DETERMINISTIC_CONDITIONS";
+    const deterministas = new Set<string>(DETERMINISTIC_VALIDATION_CONDITION_KINDS);
+    if (evaluation === "DETERMINISTIC_CONDITIONS") {
+      if (crv.conditions.length === 0) {
+        issues.push({ path: `${base}.conditions`, message: "un CRV determinístico exige al menos una condición" });
+      }
+      crv.conditions.forEach((c, i) => {
+        if (!deterministas.has(c.kind)) {
+          issues.push({
+            path: `${base}.conditions.${i}.kind`,
+            message: `condición ${c.kind} exige evaluation GOVERNED_JUDGMENT`,
+          });
+        }
+      });
+    } else if (!crv.conditions.some((c) => c.kind === "GOVERNED_STATEMENT")) {
       issues.push({
-        path: `validationRequirements.${index}.activityRef`,
-        message: `actividad desconocida: ${crv.activityRef}`,
+        path: `${base}.conditions`,
+        message: "un CRV GOVERNED_JUDGMENT debe declarar su enunciado gobernado (GOVERNED_STATEMENT)",
       });
     }
     crv.conditions.forEach((condicion, i) => {
       if (condicion.kind === "CONSECUTIVE_CORRECT_CASES" && !condicion.requiredCount) {
         issues.push({
-          path: `validationRequirements.${index}.conditions.${i}.requiredCount`,
+          path: `${base}.conditions.${i}.requiredCount`,
           message: "una condición de casos consecutivos debe declarar cuántos exige",
         });
       }
     });
   });
 
+  // Modelos de ciclo de vida: integridad referencial interna, sin semántica.
+  const im = pack.implementationModel;
+  if (im) {
+    const layerIds = new Set(im.doneLayers.map((l) => l.id));
+    const implementados = im.executionStates.filter((e) => e.implemented);
+    if (implementados.length > 1) {
+      issues.push({ path: "implementationModel.executionStates", message: "solo un estado puede ser implementado" });
+    }
+    im.executionStates.forEach((estado, i) => {
+      (estado.requiresDoneLayerRefs ?? []).forEach((ref) => {
+        if (!layerIds.has(ref)) {
+          issues.push({
+            path: `implementationModel.executionStates.${i}.requiresDoneLayerRefs`,
+            message: `capa de Done desconocida: ${ref}`,
+          });
+        }
+      });
+    });
+  }
+  const effIds = new Set((pack.effectivenessModel?.states ?? []).map((e) => e.id));
+  const neg = pack.effectivenessModel?.negativeOutcomeStateRef;
+  if (neg && !effIds.has(neg)) {
+    issues.push({ path: "effectivenessModel.negativeOutcomeStateRef", message: `estado de efectividad desconocido: ${neg}` });
+  }
+  const implRule = pack.effectivenessModel?.implementationRuleRef;
+  if (implRule && !(pack.validationModel?.rules ?? []).some((r) => r.id === implRule)) {
+    issues.push({ path: "effectivenessModel.implementationRuleRef", message: `regla de validación desconocida: ${implRule}` });
+  }
+  if (pack.effectivenessModel?.states.some((e) => e.presupposesImplementation) && !im) {
+    issues.push({
+      path: "effectivenessModel.states",
+      message: "un estado de efectividad que presupone implementación exige implementationModel",
+    });
+  }
+  const checkEffRefs = (refs: string[] | undefined, path: string) =>
+    (refs ?? []).forEach((ref) => {
+      if (!effIds.has(ref)) issues.push({ path, message: `estado de efectividad desconocido: ${ref}` });
+    });
+  (pack.validationModel?.decisions ?? []).forEach((d, i) =>
+    checkEffRefs(d.whenEffectivenessStateRef ? [d.whenEffectivenessStateRef] : [], `validationModel.decisions.${i}`),
+  );
+  (pack.followUp?.rules ?? []).forEach((r, i) =>
+    checkEffRefs(r.triggerEffectivenessStateRefs, `followUp.rules.${i}.triggerEffectivenessStateRefs`),
+  );
+  (pack.reassessment?.rules ?? []).forEach((r, i) =>
+    checkEffRefs(r.triggerEffectivenessStateRefs, `reassessment.rules.${i}.triggerEffectivenessStateRefs`),
+  );
+  const sevIds = new Set((pack.severity?.levels ?? []).map((l) => l.id));
+  const confIds = new Set((pack.confidence?.levels ?? []).map((l) => l.id));
+  (pack.severity?.consolidationGuards ?? []).forEach((g, i) => {
+    g.severityRefs.forEach((ref) => {
+      if (!sevIds.has(ref)) issues.push({ path: `severity.consolidationGuards.${i}`, message: `severidad desconocida: ${ref}` });
+    });
+    g.confidenceRefs.forEach((ref) => {
+      if (!confIds.has(ref)) issues.push({ path: `severity.consolidationGuards.${i}`, message: `confianza desconocida: ${ref}` });
+    });
+  });
+  if (pack.severity) {
+    for (const l of pack.severity.levels) {
+      if (/^\d+(\.\d+)?$/.test(l.id)) {
+        issues.push({ path: "severity.levels", message: "un nivel de severidad no puede ser numérico" });
+      }
+    }
+  }
 
   pack.informationNeeds.forEach((need, index) => {
     need.variableRefs.forEach((ref) => {
