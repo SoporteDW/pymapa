@@ -627,12 +627,12 @@ function evaluateCapability(
     ctx.set("FIXTURES", "PASS");
 
     // Silencio de la fuente
-    const packGaps = new Set(((pipeline.candidate?.pack as { gaps?: { id: string }[] } | undefined)?.gaps ?? []).map((g) => g.id));
+    const packGaps = new Set((pipeline.candidate?.gaps ?? []).map((g) => g.id));
     for (const g of gaps) {
       if (g.kind === "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER" && g.resolution)
         ctx.reason("SOURCE_SILENCE", "FAIL", "SILENCE_RESOLVED_WITHOUT_SOURCE", `${g.id} NOT_EXPLICIT declara resolution`, "un silencio de la fuente solo se resuelve con nueva fuente gobernada", { objectKey: g.id });
       if (pipeline.candidate && !packGaps.has(g.id))
-        ctx.reason("SOURCE_SILENCE", "FAIL", "GAP_NOT_IN_PACK", `${g.id} no llega al pack`, "preservar el gap en el pack", { objectKey: g.id });
+        ctx.reason("SOURCE_SILENCE", "FAIL", "GAP_NOT_IN_PACK", `${g.id} no llega al Pack Candidate`, "preservar el gap en el candidato generado", { objectKey: g.id });
     }
     if (baseline) {
       const srcIds = new Map(gaps.map((g) => [g.id, g.kind]));
