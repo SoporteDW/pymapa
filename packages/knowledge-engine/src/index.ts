@@ -667,16 +667,18 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
       const evidenceRequirements: EvidenceRequirementResult[] = pack.variables.map((v) => {
         const condicional = Boolean(v.minimumEvidenceConditional);
         const sinFormula = escalationFormula.startsWith("NOT_EXPLICIT");
+        // Un nivel mínimo no explícito nunca se resuelve: el runtime no fija umbral.
+        const nivelNoExplicito = v.minimumEvidence.startsWith("NOT_EXPLICIT");
+        const revision = nivelNoExplicito || (condicional && sinFormula);
         return {
           variableRef: v.id,
           requiredLevel: v.minimumEvidence,
           options: v.minimumEvidenceOptions ? v.minimumEvidenceOptions.slice() : null,
-          resolution:
-            condicional && sinFormula ? "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED" : "RESOLVED",
+          resolution: revision ? "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED" : "RESOLVED",
           provenance: {
             knowledgePackId: pack.packId,
             knowledgePackVersion: pack.packVersion,
-            note: condicional && sinFormula ? NO_EVIDENCE_FORMULA : (v.minimumEvidenceNote ?? "requisito declarado"),
+            note: revision ? NO_EVIDENCE_FORMULA : (v.minimumEvidenceNote ?? "requisito declarado"),
             escalationFactors: escalationFactors.slice(),
             escalationFormula,
           },
