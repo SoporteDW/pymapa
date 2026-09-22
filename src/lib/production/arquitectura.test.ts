@@ -39,6 +39,7 @@ const AUTORIZADOS = [
   "src/lib/production/findings-intervencion.test.ts",
   "src/lib/production/crv-validacion-reassessment.test.ts",
   "src/lib/production/cierre-m1m.test.ts",
+  "src/lib/production/resolucion-pendiente.test.ts",
 
 ];
 

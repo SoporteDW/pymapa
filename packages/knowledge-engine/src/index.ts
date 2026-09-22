@@ -203,7 +203,7 @@ export type FindingResolutionRequirement =
   | "NONE_EXCLUDED_BY_APPLICABILITY";
 
 /**
- * Finding que NO puede sostenerse todavía (M2 runtime closure / M2-OP02-03).
+ * Finding que NO puede sostenerse todavía (M2 runtime closure; persistido por run).
  * Nunca es un finding confirmado ni una conclusión adversa.
  */
 export interface FindingAwaitingResolutionResult {

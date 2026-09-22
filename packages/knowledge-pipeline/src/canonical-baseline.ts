@@ -14,7 +14,7 @@
  * - Los conteos de control declarados por la fuente coinciden con los objetos.
  * - La proyección ejecutable (source.json) solo contiene texto literal de la
  *   fuente en sus claves verbatim y preserva los gaps canon-only.
- * - Toda corrección de transcripción source→canonical (M2-OP02-03) queda
+ * - Toda corrección de transcripción source→canonical queda
  *   registrada con su valor previo, su valor literal posterior, su rango raw
  *   y la identidad raw; la baseline debe reflejar exactamente el valor
  *   posterior y este debe ser literal de su rango.
