@@ -1,16 +1,20 @@
 # Roadmap
 
 ## M2-OP02-02 · Generic Runtime Compatibility Closure
-- [x] A. CRV ownership + governed conditions (generic schema/engine)
-- [x] B. Intervention patterns + Done model (Done ≠ CRV ≠ effectiveness)
-- [x] C. Effectiveness / attribution / validation decisions / follow-up / reassessment
-- [x] D. Property resolution FIXED / CONTEXTUAL / NOT_EXPLICIT (criticality, evidence, severity, confidence, context)
-- [x] Fix UNKNOWN / NOT_APPLICABLE finding-candidate behavior (generic) + regression tests
-- [x] Project OP-02 lifecycle sections into source.json (baseline + raw unchanged)
-- [x] OP-01 byte-equivalence + runtime output comparison
-- [x] OP-02 runtime certification (fixtures + lifecycle checks)
-- [x] Architecture guard search
-- [x] Full validation (pipeline, seal, tests, typecheck, security)
-- [x] docs/architecture/M2_OP02_RUNTIME_COMPATIBILITY_CLOSURE.md
+- [x] Cerrado (ver docs/architecture/M2_OP02_RUNTIME_COMPATIBILITY_CLOSURE.md)
 
-Out of scope / blocked: OP-02 publication (human governance review), OP-03.
+## M2-OP02-03 · Pre-Publication Integrity Closure
+- [x] IP05 Done Criteria: corrección literal source→canonical (raw 6983–6987) + historial TC-OP02-01
+- [x] Proyección IP05 en source.json + sello + manifest/reports
+- [x] Validador genérico de correcciones de transcripción
+- [x] Tests IP05 → actividades → deliverable → Done → implementación → CRV
+- [x] Engine: findingsAwaitingResolution con evidencia + requisito de adquisición/aclaración
+- [x] Persistencia (tabla finding_resolution_states + RLS + inmutabilidad + repositorios + caso de uso)
+- [x] Tests persistencia/recarga, resolución posterior, reproducibilidad histórica
+- [x] Regresión completa (673/673, typecheck, validate, seal, pipeline, OP-01 bytes, linter, security)
+- [x] docs/architecture/M2_OP02_PREPUBLICATION_INTEGRITY_CLOSURE.md
+
+## Blocked / next
+- [ ] Revisión humana de gobierno de OP-02 (governance-review.json) — espera al usuario
+- [ ] Decisión: versionar el engine antes de publicar — espera al usuario
+- [ ] Publicar OP-02 → OP-03 — tras la revisión

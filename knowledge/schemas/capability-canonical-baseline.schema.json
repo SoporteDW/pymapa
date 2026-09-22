@@ -47,6 +47,21 @@
       "required": ["sourceRef", "verbatimKeys", "projectedObjectTypes", "canonicalOnlyGapRefs"]
     },
     "gaps": { "type": "array" },
+    "transcriptionCorrections": {
+      "description": "Historial de correcciones source→canonical (M2-OP02-03). Cada entrada conserva el valor previo, el valor literal corregido, su rango raw y la identidad raw; la baseline debe reflejar exactamente el valor corregido.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "kind", "detectedIn", "correctedIn", "objectKey", "annotationRelation", "field", "before", "after", "sourceLines", "rawSha256", "baselineChecksumBefore", "form", "note"],
+        "properties": {
+          "kind": { "enum": ["SOURCE_TO_CANONICAL_OMISSION", "SOURCE_TO_CANONICAL_MISTRANSCRIPTION"] },
+          "annotationRelation": { "type": ["string", "null"] },
+          "sourceLines": { "type": "array", "items": { "type": "integer" }, "minItems": 2, "maxItems": 2 },
+          "rawSha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+          "baselineChecksumBefore": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }
+        }
+      }
+    },
     "checksum": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }
   }
 }

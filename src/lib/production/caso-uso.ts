@@ -39,6 +39,7 @@ import type {
   DerivedDependencyReferenceRecord,
   ExecutionState,
   FindingRecord,
+  FindingResolutionStateRecord,
   InterventionRecord,
   RecommendationCandidateRecord,
   AssessmentRecord,
@@ -88,6 +89,8 @@ export interface ProductionAssessmentState {
   contradictions: EvaluationResult["contradictions"];
   /** Requisitos de evidencia (E0–E3 como estados, nunca puntajes). */
   evidenceRequirements: EvaluationResult["evidenceRequirements"];
+  /** Findings que aún no pueden sostenerse (UNKNOWN / NA / CONTRADICTORY). Nunca Findings. */
+  findingsAwaitingResolution: EvaluationResult["findingsAwaitingResolution"];
   needsReview: boolean;
   sufficiency: null;
   confidence: null;
@@ -182,6 +185,7 @@ function construirEstado(params: {
     pendingJudgmentRuleRefs: evaluation.pendingJudgments.map((p) => p.ruleRef),
     contradictions: evaluation.contradictions,
     evidenceRequirements: evaluation.evidenceRequirements,
+    findingsAwaitingResolution: evaluation.findingsAwaitingResolution,
     needsReview: evaluation.needsReview,
     sufficiency: null,
     confidence: null,
@@ -346,6 +350,28 @@ async function ejecutarEvaluacion(
       needRef: n.needRef,
       state: n.state,
       detail: { ...n.detail, traceability: evaluation.traceability },
+    })),
+  );
+
+  // M2-OP02-03 · Findings pendientes de resolución: se persisten por run, en
+  // una estructura propia, NUNCA como Finding ni conclusión adversa.
+  await deps.repository.insertFindingResolutionStates(
+    evaluation.findingsAwaitingResolution.map((f) => ({
+      organizationId: params.organizationId,
+      assessmentId: params.assessmentId,
+      evaluationRunId: run.id,
+      knowledgeVersionId: params.knowledgeVersionId,
+      capabilityId: evaluation.traceability.capabilityId,
+      findingRef: f.findingRef,
+      status: f.status,
+      unresolvedStates: f.unresolvedStates.slice(),
+      variableStates: f.variableStates.map((v) => ({ ...v })),
+      observationIds: f.observationIds.slice(),
+      evidenceIds: f.evidenceIds.slice(),
+      resolutionRequirement: f.resolution.requirement,
+      resolutionAcquisitionRefs: f.resolution.acquisitionRefs.slice(),
+      reason: f.reason,
+      detail: { notAFinding: true, traceability: evaluation.traceability },
     })),
   );
 
@@ -856,6 +882,24 @@ export async function listFindings(
   assessmentId: string,
 ): Promise<FindingRecord[]> {
   return deps.repository.listFindings(assessmentId);
+}
+
+/**
+ * M2-OP02-03 · Recarga persistida de `findingsAwaitingResolution`.
+ * Por defecto devuelve la proyección del último EvaluationRun; con
+ * `evaluationRunId` devuelve la de un run histórico, sin re-evaluar.
+ */
+export async function listFindingsAwaitingResolution(
+  deps: ProductionDeps,
+  assessmentId: string,
+  options: { evaluationRunId?: string } = {},
+): Promise<{ evaluationRunId: string | null; items: FindingResolutionStateRecord[] }> {
+  const runs = await deps.repository.listEvaluationRuns(assessmentId);
+  const runId = options.evaluationRunId ?? runs.at(-1)?.id ?? null;
+  if (!runId) return { evaluationRunId: null, items: [] };
+  if (!runs.some((r) => r.id === runId)) return { evaluationRunId: null, items: [] };
+  const filas = await deps.repository.listFindingResolutionStates(assessmentId);
+  return { evaluationRunId: runId, items: filas.filter((f) => f.evaluationRunId === runId) };
 }
 
 export async function listDerivedDependencyReferences(

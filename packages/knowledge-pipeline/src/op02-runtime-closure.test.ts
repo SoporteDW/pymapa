@@ -213,7 +213,14 @@ describe("M2-OP02-02 · Done / implementación (Done ≠ CRV ≠ efectividad)", 
   });
 
   it("un patrón sin Done Criteria explícitos nunca alcanza I3 de forma vacía", () => {
-    const r = op02.evaluateImplementation("IP05", { layerRecords: capas(true), doneCriteriaRecords: [] });
+    // M2-OP02-03: IP05 ya tiene su criterio transcrito; la guarda genérica se
+    // verifica sobre un pack derivado cuyo patrón no declara criterios.
+    const sinCriterios = clonar(op02Pack) as { interventionPatterns: { id: string; doneCriteria: unknown[] }[] };
+    sinCriterios.interventionPatterns.find((p) => p.id === "IP05")!.doneCriteria = [];
+    const r = createKnowledgeEngine(sinCriterios as unknown as Record<string, unknown>).evaluateImplementation("IP05", {
+      layerRecords: capas(true),
+      doneCriteriaRecords: [],
+    });
     expect(r.implemented).toBe(false);
     expect(r.issues.join(" ")).toMatch(/DONE_CRITERIA_NOT_EXPLICIT/);
   });

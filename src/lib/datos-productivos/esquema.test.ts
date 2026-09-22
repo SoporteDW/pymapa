@@ -53,6 +53,8 @@ const TABLAS = [
   "follow_ups",
   "learning_candidates",
   "assessment_snapshots",
+  // M2 · pre-publication integrity: findings pendientes de resolución por run
+  "finding_resolution_states",
 ] as const;
 
 const TABLAS_TENANT_OWNED = TABLAS.filter((t) => t !== "organizations" && t !== "knowledge_versions");

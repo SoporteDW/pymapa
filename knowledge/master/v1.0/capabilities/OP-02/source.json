@@ -1353,7 +1353,13 @@
           "definir qué ocurre ante incumplimiento;",
           "probarlo."
         ],
-        "identifierNote": "Done Criteria de este patrón no transcritos en la baseline canónica (la fuente los enuncia como criterio compuesto, raw líneas 6983–6987). Defecto de transcripción detectado en M2-OP02-02; corrección sujeta a gobierno. Sin Done Criteria explícitos el runtime no puede alcanzar el estado implementado."
+        "doneCriteria": [
+          {
+            "id": null,
+            "statement": "Las dependencias críticas seleccionadas tienen:\n\norigen + receptor + necesidad + momento + mecanismo + responsabilidad + respuesta ante excepción\n\nsuficientemente claros y el mecanismo ha sido utilizado."
+          }
+        ],
+        "identifierNote": "Done Criteria sin identificador gobernado en la fuente (NE-OP02-06): la fuente los enuncia como un único criterio compuesto (raw líneas 6983–6987), proyectado literalmente como un solo criterio direccionado por posición. Transcripción corregida en M2-OP02-03 (TC-OP02-01)."
       },
       {
         "id": "IP06",
@@ -2225,5 +2231,5 @@
       "sourceReference": "OP-02_Completo · OP02-K4-v1.0 · K4-VALIDATED · CLOSED"
     }
   ],
-  "checksum": "sha256:8c7484979e3a99ceb7c8e89bf6f7935f32e3386f59ac9ddfb5e2a04ce24550c6"
+  "checksum": "sha256:7adea6a30966750ac06eded4d83491da0bc4c4b112f75ca9755d1cf616c638b4"
 }
