@@ -15,11 +15,17 @@ import {
   ENGINE_VERSION,
   createKnowledgeEngine,
 } from "@pymapa/knowledge-engine";
-import { createInMemoryProductionRepository, type AssessmentRecord, type EvaluationRunRecord } from "./puertos";
+import {
+  createInMemoryProductionRepository,
+  type AssessmentRecord,
+  type EvaluationRunRecord,
+} from "./puertos";
 import { submitAcquisitionResponse, type ProductionDeps } from "./caso-uso";
 
 const RAIZ = process.cwd();
-const pack = JSON.parse(readFileSync(join(RAIZ, "knowledge", "packs", "op-01", "1.0.0", "pack.json"), "utf8")) as Record<string, unknown>;
+const pack = JSON.parse(
+  readFileSync(join(RAIZ, "knowledge", "packs", "op-01", "1.0.0", "pack.json"), "utf8"),
+) as Record<string, unknown>;
 
 const assessment = (): AssessmentRecord => ({
   id: "assess-1",
@@ -36,7 +42,9 @@ describe("A1 · engine 0.2.0", () => {
   it("versión y semver alineados, package.json coherente", () => {
     expect(ENGINE_SEMVER).toBe("0.2.0");
     expect(ENGINE_VERSION).toBe("pymapa-knowledge-engine/0.2.0");
-    const pkg = JSON.parse(readFileSync(join(RAIZ, "packages", "knowledge-engine", "package.json"), "utf8")) as { version: string };
+    const pkg = JSON.parse(
+      readFileSync(join(RAIZ, "packages", "knowledge-engine", "package.json"), "utf8"),
+    ) as { version: string };
     expect(pkg.version).toBe(ENGINE_SEMVER);
   });
 
@@ -84,7 +92,12 @@ describe("A2 · reproducibilidad histórica", () => {
     const copia = JSON.parse(JSON.stringify(historico)) as EvaluationRunRecord;
 
     const engine = createKnowledgeEngine(pack);
-    const deps: ProductionDeps = { engine, repository, knowledgeVersionId: "kv-1", hashToken: (t) => `sha256:${t}` };
+    const deps: ProductionDeps = {
+      engine,
+      repository,
+      knowledgeVersionId: "kv-1",
+      hashToken: (t) => `sha256:${t}`,
+    };
     const acq = engine.listAcquisitions()[0]!;
     const r = await submitAcquisitionResponse(deps, {
       assessmentId: "assess-1",
@@ -103,7 +116,9 @@ describe("A2 · reproducibilidad histórica", () => {
 
   it("el adaptador de producción nunca actualiza engine_version de evaluation_runs", () => {
     const src = readFileSync(join(RAIZ, "src", "lib", "production", "runtime.server.ts"), "utf8");
-    const updates = [...src.matchAll(/from\("evaluation_runs"\)\s*\.update\(([^)]*)\)/g)].map((m) => m[1] ?? "");
+    const updates = [...src.matchAll(/from\("evaluation_runs"\)\s*\.update\(([^)]*)\)/g)].map(
+      (m) => m[1] ?? "",
+    );
     updates.forEach((u) => expect(u).not.toMatch(/engine_version|knowledge_version_id/));
   });
 

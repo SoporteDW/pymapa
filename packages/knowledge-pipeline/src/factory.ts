@@ -13,15 +13,26 @@
  * produce evidencia técnica y el estado derivado de artefactos del repo.
  */
 import { computeChecksum, computeSelfChecksum, verifySelfChecksum } from "./checksum.ts";
-import { validateCanonicalBaseline, type CanonicalBaselineValidation } from "./canonical-baseline.ts";
+import {
+  validateCanonicalBaseline,
+  type CanonicalBaselineValidation,
+} from "./canonical-baseline.ts";
 import {
   promoteCandidateToCanonicalBaseline,
   validateExtractionCandidate,
   type CandidateValidation,
 } from "./candidate.ts";
 import { AUTHORITATIVE_SOURCE_REQUIRED, type MasterIndex } from "./master.ts";
-import { runBatch, type CapabilityPipelineInput, type CapabilityPipelineResult } from "./pipeline.ts";
-import { verifyRawSourceRegistration, type PdfTextRunner, type RawRegistrationVerification } from "./raw-source.ts";
+import {
+  runBatch,
+  type CapabilityPipelineInput,
+  type CapabilityPipelineResult,
+} from "./pipeline.ts";
+import {
+  verifyRawSourceRegistration,
+  type PdfTextRunner,
+  type RawRegistrationVerification,
+} from "./raw-source.ts";
 import {
   compareSemver,
   resolveCapabilityExtensions,
@@ -117,14 +128,25 @@ export interface FactoryCapabilityEntry {
     candidateId: string | null;
     producedBy: string | null;
   };
-  canonical: { status: "NONE" | "ACCEPTED"; baselineId: string | null; checksum: string | null; objectCount: number | null };
+  canonical: {
+    status: "NONE" | "ACCEPTED";
+    baselineId: string | null;
+    checksum: string | null;
+    objectCount: number | null;
+  };
   provenance: {
     sourceReference: string | null;
     derivation: string | null;
     extractionStatus: string | null;
     historicalClosure: string | null;
   };
-  gaps: { total: number; notExplicit: string[]; sourceContentNotRecovered: string[]; runtimeExtension: string[]; publicationBlocking: string[] };
+  gaps: {
+    total: number;
+    notExplicit: string[];
+    sourceContentNotRecovered: string[];
+    runtimeExtension: string[];
+    publicationBlocking: string[];
+  };
   transcriptionCorrections: string[];
   runtimeCompatibility: {
     requiredEngineVersion: string;
@@ -133,8 +155,16 @@ export interface FactoryCapabilityEntry {
     extensions: CapabilityExtensionOccurrence[];
   };
   fixtures: { count: number; pass: number; governedJudgment: number; fail: number };
-  governance: { reviewStatus: string; evidence: "NOT_APPLICABLE" | "CURRENT" | "MISSING" | "OUTDATED" };
-  publication: { status: string; packId: string | null; packVersion: string | null; packChecksum: string | null };
+  governance: {
+    reviewStatus: string;
+    evidence: "NOT_APPLICABLE" | "CURRENT" | "MISSING" | "OUTDATED";
+  };
+  publication: {
+    status: string;
+    packId: string | null;
+    packVersion: string | null;
+    packChecksum: string | null;
+  };
   checks: FactoryCheckResult[];
   reasons: FactoryReason[];
   metrics: FactoryMetrics;
@@ -178,7 +208,11 @@ export interface GovernanceEvidenceDossier {
   readiness: "READY_FOR_HUMAN_PUBLICATION_AUTHORIZATION" | "NOT_READY";
   blockers: string[];
   humanAuthorization: { present: false; required: true; artifact: string; statement: string };
-  historicalClosure: { marker: string | null; sourceLines: [number, number] | null; statement: string };
+  historicalClosure: {
+    marker: string | null;
+    sourceLines: [number, number] | null;
+    statement: string;
+  };
   identity: {
     rawOriginal: { filename: string | null; sha256: string | null };
     rawText: { ref: string | null; sha256: string | null };
@@ -186,8 +220,20 @@ export interface GovernanceEvidenceDossier {
     executableSourceChecksum: string | null;
     packCandidate: { packId: string | null; packVersion: string | null; checksum: string | null };
   };
-  transcriptionCorrections: { id: string; kind: string; detectedIn: string; correctedIn: string; objectKey: string }[];
-  runtimeExtensions: { gapId: string; extensionId: string | null; semanticCapability: string | null; status: string; closedInEngineVersion: string | null }[];
+  transcriptionCorrections: {
+    id: string;
+    kind: string;
+    detectedIn: string;
+    correctedIn: string;
+    objectKey: string;
+  }[];
+  runtimeExtensions: {
+    gapId: string;
+    extensionId: string | null;
+    semanticCapability: string | null;
+    status: string;
+    closedInEngineVersion: string | null;
+  }[];
   notExplicit: string[];
   governedBacklog: string[];
   transversalCandidates: number;
@@ -215,7 +261,12 @@ export interface FactoryBatchManifest {
   registeredCapabilityCount: number;
   unregisteredSlotCount: number;
   signal: typeof AUTHORITATIVE_SOURCE_REQUIRED | "SOURCE_COMPLETE";
-  domains: { domainId: string; declaredCapabilityCount: number; registered: string[]; unregisteredSlots: number }[];
+  domains: {
+    domainId: string;
+    declaredCapabilityCount: number;
+    registered: string[];
+    unregisteredSlots: number;
+  }[];
   counts: { byState: Record<FactoryState, number>; byOutcome: Record<FactoryOutcome, number> };
   extensionRegistry: { checksum: string | null; open: number; closed: number; issues: string[] };
   batchIssues: string[];
@@ -228,7 +279,10 @@ export interface FactoryBatchManifest {
 /* ------------------------------------------------------------------ */
 
 const GLOBAL_BRANCH_PATTERNS: { re: RegExp; label: string }[] = [
-  { re: /\b(?:capabilityId|packId|capability\.id|pack\.id)\s*[!=]==?\s*["'`]/, label: "comparación literal de identidad de capacidad" },
+  {
+    re: /\b(?:capabilityId|packId|capability\.id|pack\.id)\s*[!=]==?\s*["'`]/,
+    label: "comparación literal de identidad de capacidad",
+  },
   { re: /\bcase\s+["'`][A-Z]{2}-\d{2}["'`]\s*:/, label: "switch sobre identificador de capacidad" },
 ];
 
@@ -247,14 +301,24 @@ export function detectCapabilitySpecificBranching(
 ): { path: string; line: number; label: string; identifier: string | null }[] {
   const hits: { path: string; line: number; label: string; identifier: string | null }[] = [];
   for (const file of corpus) {
-    stripComments(file.content).split("\n").forEach((l, i) => {
-      for (const p of GLOBAL_BRANCH_PATTERNS) if (p.re.test(l)) hits.push({ path: file.path, line: i + 1, label: p.label, identifier: null });
-      for (const id of identifiers) {
-        if (!id) continue;
-        const quoted = new RegExp(`["'\`]${id.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}["'\`]`);
-        if (quoted.test(l)) hits.push({ path: file.path, line: i + 1, label: "literal de identidad de capacidad en código genérico", identifier: id });
-      }
-    });
+    stripComments(file.content)
+      .split("\n")
+      .forEach((l, i) => {
+        for (const p of GLOBAL_BRANCH_PATTERNS)
+          if (p.re.test(l))
+            hits.push({ path: file.path, line: i + 1, label: p.label, identifier: null });
+        for (const id of identifiers) {
+          if (!id) continue;
+          const quoted = new RegExp(`["'\`]${id.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}["'\`]`);
+          if (quoted.test(l))
+            hits.push({
+              path: file.path,
+              line: i + 1,
+              label: "literal de identidad de capacidad en código genérico",
+              identifier: id,
+            });
+        }
+      });
   }
   return hits;
 }
@@ -271,7 +335,14 @@ function statusFrom(reasons: FactoryReason[]): FactoryCheckStatus {
 
 interface Ctx {
   checks: Map<FactoryCheck, FactoryCheckResult>;
-  reason(check: FactoryCheck, severity: FactoryReason["severity"], code: string, message: string, action: string, extra?: { sourceLines?: [number, number] | null; objectKey?: string | null }): void;
+  reason(
+    check: FactoryCheck,
+    severity: FactoryReason["severity"],
+    code: string,
+    message: string,
+    action: string,
+    extra?: { sourceLines?: [number, number] | null; objectKey?: string | null },
+  ): void;
   set(check: FactoryCheck, status: FactoryCheckStatus): void;
 }
 
@@ -282,7 +353,15 @@ function newCtx(): Ctx {
     checks,
     reason(check, severity, code, message, action, extra) {
       const c = checks.get(check) as FactoryCheckResult;
-      c.reasons.push({ check, code, severity, message, action, sourceLines: extra?.sourceLines ?? null, objectKey: extra?.objectKey ?? null });
+      c.reasons.push({
+        check,
+        code,
+        severity,
+        message,
+        action,
+        sourceLines: extra?.sourceLines ?? null,
+        objectKey: extra?.objectKey ?? null,
+      });
       c.status = statusFrom(c.reasons);
     },
     set(check, status) {
@@ -332,8 +411,18 @@ function registrationChecks(ctx: Ctx, v: RawRegistrationVerification) {
             : "corregir el registro con knowledge:factory register";
     ctx.reason("RAW_REGISTRATION", i.severity, i.code, i.message, action);
   }
-  if (!v.reextractionVerified && v.registration?.text && !v.issues.some((i) => i.severity === "FAIL"))
-    ctx.reason("RAW_REGISTRATION", "INFO", "REEXTRACTION_NOT_VERIFIED", "el extractor externo no está disponible en este entorno; se verificaron solo checksums", "ejecutar la verificación donde el extractor esté instalado");
+  if (
+    !v.reextractionVerified &&
+    v.registration?.text &&
+    !v.issues.some((i) => i.severity === "FAIL")
+  )
+    ctx.reason(
+      "RAW_REGISTRATION",
+      "INFO",
+      "REEXTRACTION_NOT_VERIFIED",
+      "el extractor externo no está disponible en este entorno; se verificaron solo checksums",
+      "ejecutar la verificación donde el extractor esté instalado",
+    );
   ctx.set("RAW_REGISTRATION", "PASS");
 }
 
@@ -351,7 +440,14 @@ function candidateChecks(ctx: Ctx, v: CandidateValidation) {
               : i.code === "AI_ASSISTED_EXTRACTION"
                 ? "revisión canónica humana del candidato"
                 : "corregir el candidato";
-    ctx.reason("CANDIDATE_BOUNDARY", i.severity === "FAIL" ? "FAIL" : "REVIEW", i.code, i.message, action, { sourceLines: i.sourceLines, objectKey: i.itemKey });
+    ctx.reason(
+      "CANDIDATE_BOUNDARY",
+      i.severity === "FAIL" ? "FAIL" : "REVIEW",
+      i.code,
+      i.message,
+      action,
+      { sourceLines: i.sourceLines, objectKey: i.itemKey },
+    );
   }
   ctx.set("CANDIDATE_BOUNDARY", "PASS");
 }
@@ -367,17 +463,44 @@ function evaluateCapability(
   let state: FactoryState = "RAW_SOURCE";
   let domainId: string | null = null;
 
-  const entry: Omit<FactoryCapabilityEntry, "state" | "outcome" | "checks" | "reasons" | "metrics"> = {
+  const entry: Omit<
+    FactoryCapabilityEntry,
+    "state" | "outcome" | "checks" | "reasons" | "metrics"
+  > = {
     capabilityId: id,
     domainId: null,
     sourcePath: input.master ? "MASTER" : "INTAKE",
-    rawSource: { availability: "NOT_IN_REPOSITORY", ref: null, textSha256: null, originalFilename: null, originalSha256: null, extractor: null, registrationId: null },
+    rawSource: {
+      availability: "NOT_IN_REPOSITORY",
+      ref: null,
+      textSha256: null,
+      originalFilename: null,
+      originalSha256: null,
+      extractor: null,
+      registrationId: null,
+    },
     extraction: { status: "NOT_STARTED", candidateId: null, producedBy: null },
     canonical: { status: "NONE", baselineId: null, checksum: null, objectCount: null },
-    provenance: { sourceReference: null, derivation: null, extractionStatus: null, historicalClosure: null },
-    gaps: { total: 0, notExplicit: [], sourceContentNotRecovered: [], runtimeExtension: [], publicationBlocking: [] },
+    provenance: {
+      sourceReference: null,
+      derivation: null,
+      extractionStatus: null,
+      historicalClosure: null,
+    },
+    gaps: {
+      total: 0,
+      notExplicit: [],
+      sourceContentNotRecovered: [],
+      runtimeExtension: [],
+      publicationBlocking: [],
+    },
     transcriptionCorrections: [],
-    runtimeCompatibility: { requiredEngineVersion: shared.engine.baselineSemver, engineVersion: shared.engine.semver, compatible: true, extensions: [] },
+    runtimeCompatibility: {
+      requiredEngineVersion: shared.engine.baselineSemver,
+      engineVersion: shared.engine.semver,
+      compatible: true,
+      extensions: [],
+    },
     fixtures: { count: 0, pass: 0, governedJudgment: 0, fail: 0 },
     governance: { reviewStatus: "NOT_REQUESTED", evidence: "NOT_APPLICABLE" },
     publication: { status: "UNPUBLISHED", packId: null, packVersion: null, packChecksum: null },
@@ -410,41 +533,99 @@ function evaluateCapability(
         registrationId: reg.registrationId,
       };
       if (!shared.masterDomains.has(reg.domainId))
-        ctx.reason("RAW_REGISTRATION", "FAIL", "UNKNOWN_DOMAIN", `dominio ${reg.domainId} no declarado en master.json`, "corregir domainId del registro");
+        ctx.reason(
+          "RAW_REGISTRATION",
+          "FAIL",
+          "UNKNOWN_DOMAIN",
+          `dominio ${reg.domainId} no declarado en master.json`,
+          "corregir domainId del registro",
+        );
     }
-    registrationOk = v.ok && !ctx.checks.get("RAW_REGISTRATION")?.reasons.some((r) => r.severity === "FAIL");
+    registrationOk =
+      v.ok && !ctx.checks.get("RAW_REGISTRATION")?.reasons.some((r) => r.severity === "FAIL");
     if (registrationOk) state = "REGISTERED";
 
     if (registrationOk && reg && !input.master) {
       if (input.intake.candidate === undefined) {
-        ctx.reason("CANDIDATE_BOUNDARY", "REVIEW", "CANDIDATE_EXTRACTION_REQUIRED", "fuente registrada sin candidato de extracción", "producir intake/<id>/candidate.json anclado a text.sha256 (herramienta, humano o IA: siempre CANDIDATE)");
+        ctx.reason(
+          "CANDIDATE_BOUNDARY",
+          "REVIEW",
+          "CANDIDATE_EXTRACTION_REQUIRED",
+          "fuente registrada sin candidato de extracción",
+          "producir intake/<id>/candidate.json anclado a text.sha256 (herramienta, humano o IA: siempre CANDIDATE)",
+        );
       } else {
         const rawText = new TextDecoder("utf-8").decode(input.intake.textBytes ?? new Uint8Array());
-        const cv = validateExtractionCandidate({ candidate: input.intake.candidate, registration: reg, rawText, extensionRegistry: shared.registry });
+        const cv = validateExtractionCandidate({
+          candidate: input.intake.candidate,
+          registration: reg,
+          rawText,
+          extensionRegistry: shared.registry,
+        });
         candidateChecks(ctx, cv);
         state = "EXTRACTED_CANDIDATE";
         if (cv.candidate) {
-          entry.extraction = { status: "CANDIDATE", candidateId: cv.candidate.candidateId, producedBy: cv.candidate.producedBy.method };
+          entry.extraction = {
+            status: "CANDIDATE",
+            candidateId: cv.candidate.candidateId,
+            producedBy: cv.candidate.producedBy.method,
+          };
           metrics.candidateItems = cv.summary?.itemCount ?? null;
           metrics.notExplicit = cv.summary?.notExplicitCount ?? 0;
           metrics.sourceContentNotRecovered = cv.summary?.sourceContentNotRecoveredCount ?? 0;
           metrics.transcriptionIssues = cv.summary?.potentialTranscriptionDefectCount ?? 0;
           metrics.runtimeExtensionsRequired = cv.summary?.runtimeExtensionCount ?? 0;
-          entry.gaps.notExplicit = cv.candidate.items.filter((i) => i.classification === "NOT_EXPLICIT").map((i) => i.key);
-          entry.gaps.sourceContentNotRecovered = cv.candidate.items.filter((i) => i.classification === "SOURCE_CONTENT_NOT_RECOVERED").map((i) => i.key);
-          entry.gaps.runtimeExtension = cv.candidate.items.filter((i) => i.classification === "GENERIC_RUNTIME_EXTENSION_REQUIRED").map((i) => i.key);
-          entry.gaps.total = entry.gaps.notExplicit.length + entry.gaps.sourceContentNotRecovered.length + entry.gaps.runtimeExtension.length;
+          entry.gaps.notExplicit = cv.candidate.items
+            .filter((i) => i.classification === "NOT_EXPLICIT")
+            .map((i) => i.key);
+          entry.gaps.sourceContentNotRecovered = cv.candidate.items
+            .filter((i) => i.classification === "SOURCE_CONTENT_NOT_RECOVERED")
+            .map((i) => i.key);
+          entry.gaps.runtimeExtension = cv.candidate.items
+            .filter((i) => i.classification === "GENERIC_RUNTIME_EXTENSION_REQUIRED")
+            .map((i) => i.key);
+          entry.gaps.total =
+            entry.gaps.notExplicit.length +
+            entry.gaps.sourceContentNotRecovered.length +
+            entry.gaps.runtimeExtension.length;
           entry.provenance.historicalClosure = cv.candidate.historicalStatus?.marker ?? null;
         }
         if (cv.ok) {
           state = "CANONICAL_REVIEW_REQUIRED";
           if (input.intake.acceptance === undefined) {
-            ctx.reason("SOURCE_TO_CANONICAL", "REVIEW", "CANONICAL_ACCEPTANCE_REQUIRED", "el candidato no tiene aceptación canónica humana", "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente");
+            ctx.reason(
+              "SOURCE_TO_CANONICAL",
+              "REVIEW",
+              "CANONICAL_ACCEPTANCE_REQUIRED",
+              "el candidato no tiene aceptación canónica humana",
+              "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+            );
           } else {
-            const prom = promoteCandidateToCanonicalBaseline({ validation: cv, acceptance: input.intake.acceptance, registration: reg, rawRef: "raw/<text>", sourceRef: "source.json" });
+            const prom = promoteCandidateToCanonicalBaseline({
+              validation: cv,
+              acceptance: input.intake.acceptance,
+              registration: reg,
+              rawRef: "raw/<text>",
+              sourceRef: "source.json",
+            });
             if (prom.ok)
-              ctx.reason("SOURCE_TO_CANONICAL", "REVIEW", "PROMOTION_PENDING", "aceptación canónica vigente; la baseline aún no está materializada en knowledge/master", "ejecutar bun run knowledge:factory -- promote <id>");
-            else prom.reasons.forEach((r) => ctx.reason("SOURCE_TO_CANONICAL", "REVIEW", "PROMOTION_BLOCKED", r, "resolver antes de promover"));
+              ctx.reason(
+                "SOURCE_TO_CANONICAL",
+                "REVIEW",
+                "PROMOTION_PENDING",
+                "aceptación canónica vigente; la baseline aún no está materializada en knowledge/master",
+                "ejecutar bun run knowledge:factory -- promote <id>",
+              );
+            else
+              prom.reasons.forEach((r) =>
+                ctx.reason(
+                  "SOURCE_TO_CANONICAL",
+                  "REVIEW",
+                  "PROMOTION_BLOCKED",
+                  r,
+                  "resolver antes de promover",
+                ),
+              );
           }
         }
       }
@@ -460,17 +641,39 @@ function evaluateCapability(
     if (canonical) {
       baseline = canonical.baseline as Record<string, unknown>;
       const self = verifySelfChecksum(baseline);
-      if (!self.ok) ctx.reason("SOURCE_TO_CANONICAL", "FAIL", "BASELINE_CHECKSUM", `checksum de baseline inválido (esperado ${self.expected})`, "no editar la baseline sin registrar corrección; re-sellar con knowledge:seal");
+      if (!self.ok)
+        ctx.reason(
+          "SOURCE_TO_CANONICAL",
+          "FAIL",
+          "BASELINE_CHECKSUM",
+          `checksum de baseline inválido (esperado ${self.expected})`,
+          "no editar la baseline sin registrar corrección; re-sellar con knowledge:seal",
+        );
       baselineValidation = validateCanonicalBaseline({
         baseline,
         rawText: canonical.rawText,
         rawBytes: canonical.rawBytes,
-        source: (input.master.pipelineInput?.source ?? undefined) as Parameters<typeof validateCanonicalBaseline>[0]["source"],
+        source: (input.master.pipelineInput?.source ?? undefined) as Parameters<
+          typeof validateCanonicalBaseline
+        >[0]["source"],
       });
       baselineValidation.issues.forEach((i) =>
-        ctx.reason(i.code === "RAW_INTEGRITY" ? "RAW_REGISTRATION" : "SOURCE_TO_CANONICAL", "FAIL", i.code, `${i.path}: ${i.message}`, "restaurar la literalidad baseline↔raw o registrar una corrección de transcripción"),
+        ctx.reason(
+          i.code === "RAW_INTEGRITY" ? "RAW_REGISTRATION" : "SOURCE_TO_CANONICAL",
+          "FAIL",
+          i.code,
+          `${i.path}: ${i.message}`,
+          "restaurar la literalidad baseline↔raw o registrar una corrección de transcripción",
+        ),
       );
-      const raw = (baseline["rawSource"] ?? {}) as { ref?: string; sha256?: string; byteLength?: number; lineCount?: number; transcription?: { tool?: string }; originalDocument?: { filename?: string; sha256?: string; byteLength?: number } };
+      const raw = (baseline["rawSource"] ?? {}) as {
+        ref?: string;
+        sha256?: string;
+        byteLength?: number;
+        lineCount?: number;
+        transcription?: { tool?: string };
+        originalDocument?: { filename?: string; sha256?: string; byteLength?: number };
+      };
       if (!input.intake) {
         entry.rawSource = {
           availability: "IN_REPOSITORY",
@@ -484,8 +687,17 @@ function evaluateCapability(
         metrics.rawOriginalBytes = raw.originalDocument?.byteLength ?? null;
         metrics.rawTextBytes = raw.byteLength ?? null;
         metrics.rawTextLines = raw.lineCount ?? null;
-        ctx.reason("RAW_REGISTRATION", "INFO", "ORIGINAL_CHECKSUM_ONLY", "el original histórico está anclado por SHA-256 en la baseline; la transcripción raw está en el repositorio", "ninguna");
-        ctx.set("RAW_REGISTRATION", baselineValidation.issues.some((i) => i.code === "RAW_INTEGRITY") ? "FAIL" : "PASS");
+        ctx.reason(
+          "RAW_REGISTRATION",
+          "INFO",
+          "ORIGINAL_CHECKSUM_ONLY",
+          "el original histórico está anclado por SHA-256 en la baseline; la transcripción raw está en el repositorio",
+          "ninguna",
+        );
+        ctx.set(
+          "RAW_REGISTRATION",
+          baselineValidation.issues.some((i) => i.code === "RAW_INTEGRITY") ? "FAIL" : "PASS",
+        );
       }
       const hs = baseline["historicalStatus"] as { marker?: string } | undefined;
       entry.provenance.historicalClosure = hs?.marker ?? null;
@@ -496,15 +708,24 @@ function evaluateCapability(
         objectCount: baselineValidation.summary?.objectCount ?? null,
       };
       metrics.canonicalObjects = baselineValidation.summary?.objectCount ?? null;
-      entry.transcriptionCorrections = ((baseline["transcriptionCorrections"] as { id: string }[] | undefined) ?? []).map((t) => t.id);
+      entry.transcriptionCorrections = (
+        (baseline["transcriptionCorrections"] as { id: string }[] | undefined) ?? []
+      ).map((t) => t.id);
       metrics.transcriptionIssues = entry.transcriptionCorrections.length;
       entry.extraction.status = "CANONICAL";
-      if (!ctx.checks.get("SOURCE_TO_CANONICAL")?.reasons.length) ctx.set("SOURCE_TO_CANONICAL", "PASS");
+      if (!ctx.checks.get("SOURCE_TO_CANONICAL")?.reasons.length)
+        ctx.set("SOURCE_TO_CANONICAL", "PASS");
     }
 
     if (!input.master.pipelineInput) {
       state = "CANONICAL_REVIEW_REQUIRED";
-      ctx.reason("CANONICAL_TO_PACK", "REVIEW", "EXECUTABLE_PROJECTION_MISSING", "baseline canónica aceptada sin proyección ejecutable (source.json)", "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures");
+      ctx.reason(
+        "CANONICAL_TO_PACK",
+        "REVIEW",
+        "EXECUTABLE_PROJECTION_MISSING",
+        "baseline canónica aceptada sin proyección ejecutable (source.json)",
+        "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+      );
     }
   }
 
@@ -512,8 +733,18 @@ function evaluateCapability(
     const src = input.master?.pipelineInput?.source as
       | {
           capability?: { domainId?: string };
-          provenance?: { sourceReference?: string; derivation?: string; extractionStatus?: string; approvedBy?: string };
-          gaps?: { id: string; kind: string; publicationBlocking: boolean; resolution?: { status: string } }[];
+          provenance?: {
+            sourceReference?: string;
+            derivation?: string;
+            extractionStatus?: string;
+            approvedBy?: string;
+          };
+          gaps?: {
+            id: string;
+            kind: string;
+            publicationBlocking: boolean;
+            resolution?: { status: string };
+          }[];
           sections?: Record<string, unknown>;
         }
       | undefined;
@@ -529,23 +760,56 @@ function evaluateCapability(
     const gaps = src?.gaps ?? [];
     entry.gaps = {
       total: gaps.length,
-      notExplicit: gaps.filter((g) => g.kind === "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER").map((g) => g.id),
-      sourceContentNotRecovered: gaps.filter((g) => g.kind === "SOURCE_CONTENT_NOT_RECOVERED").map((g) => g.id),
-      runtimeExtension: gaps.filter((g) => g.kind === "GENERIC_RUNTIME_EXTENSION_REQUIRED").map((g) => g.id),
+      notExplicit: gaps
+        .filter((g) => g.kind === "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER")
+        .map((g) => g.id),
+      sourceContentNotRecovered: gaps
+        .filter((g) => g.kind === "SOURCE_CONTENT_NOT_RECOVERED")
+        .map((g) => g.id),
+      runtimeExtension: gaps
+        .filter((g) => g.kind === "GENERIC_RUNTIME_EXTENSION_REQUIRED")
+        .map((g) => g.id),
       publicationBlocking: gaps.filter((g) => g.publicationBlocking).map((g) => g.id),
     };
     metrics.notExplicit = entry.gaps.notExplicit.length;
     metrics.sourceContentNotRecovered = entry.gaps.sourceContentNotRecovered.length;
 
     // Estructural / referencial
-    pipeline.sourceIssues.forEach((i) => ctx.reason("STRUCTURAL", "FAIL", "SOURCE_CONTRACT", `${i.path}: ${i.message}`, "corregir source.json"));
-    if (!pipeline.candidate) pipeline.errors.forEach((e) => ctx.reason("STRUCTURAL", "FAIL", "PACK_CANDIDATE_NOT_GENERATED", e, "corregir source.json"));
+    pipeline.sourceIssues.forEach((i) =>
+      ctx.reason(
+        "STRUCTURAL",
+        "FAIL",
+        "SOURCE_CONTRACT",
+        `${i.path}: ${i.message}`,
+        "corregir source.json",
+      ),
+    );
+    if (!pipeline.candidate)
+      pipeline.errors.forEach((e) =>
+        ctx.reason("STRUCTURAL", "FAIL", "PACK_CANDIDATE_NOT_GENERATED", e, "corregir source.json"),
+      );
     for (const stage of pipeline.validation?.stages ?? []) {
       const check: FactoryCheck | null =
-        stage.stage === "STRUCTURAL" ? "STRUCTURAL" : stage.stage === "REFERENTIAL" ? "REFERENTIAL" : stage.stage === "GOVERNANCE" ? "CANONICAL_TO_PACK" : stage.stage === "RUNTIME_COMPATIBILITY" ? "RUNTIME_COMPATIBILITY" : null;
+        stage.stage === "STRUCTURAL"
+          ? "STRUCTURAL"
+          : stage.stage === "REFERENTIAL"
+            ? "REFERENTIAL"
+            : stage.stage === "GOVERNANCE"
+              ? "CANONICAL_TO_PACK"
+              : stage.stage === "RUNTIME_COMPATIBILITY"
+                ? "RUNTIME_COMPATIBILITY"
+                : null;
       if (!check) continue;
       stage.issues.forEach((i) =>
-        ctx.reason(check, i.code === "GENERIC_RUNTIME_EXTENSION_REQUIRED" ? "REVIEW" : "FAIL", i.code, `${i.path}: ${i.message}`, check === "RUNTIME_COMPATIBILITY" ? "registrar la extensión genérica requerida" : "corregir la proyección ejecutable"),
+        ctx.reason(
+          check,
+          i.code === "GENERIC_RUNTIME_EXTENSION_REQUIRED" ? "REVIEW" : "FAIL",
+          i.code,
+          `${i.path}: ${i.message}`,
+          check === "RUNTIME_COMPATIBILITY"
+            ? "registrar la extensión genérica requerida"
+            : "corregir la proyección ejecutable",
+        ),
       );
       ctx.set(check, "PASS");
     }
@@ -553,21 +817,61 @@ function evaluateCapability(
     // Provenance
     if (prov) {
       if (prov.extractionStatus !== "APPROVED")
-        ctx.reason("PROVENANCE", "REVIEW", "EXTRACTION_NOT_APPROVED", `extractionStatus ${prov.extractionStatus}`, "completar la revisión de extracción");
-      if (!prov.approvedBy) ctx.reason("PROVENANCE", "FAIL", "APPROVAL_ATTRIBUTION_MISSING", "provenance sin approvedBy", "declarar la autoridad de extracción");
+        ctx.reason(
+          "PROVENANCE",
+          "REVIEW",
+          "EXTRACTION_NOT_APPROVED",
+          `extractionStatus ${prov.extractionStatus}`,
+          "completar la revisión de extracción",
+        );
+      if (!prov.approvedBy)
+        ctx.reason(
+          "PROVENANCE",
+          "FAIL",
+          "APPROVAL_ATTRIBUTION_MISSING",
+          "provenance sin approvedBy",
+          "declarar la autoridad de extracción",
+        );
       if (prov.derivation === "MASTER_TRANSCRIPTION" && !baseline)
-        ctx.reason("PROVENANCE", "REVIEW", "CANONICAL_BASELINE_MISSING", "transcripción de Master sin baseline canónica anclada al raw", "materializar canonical-baseline.json");
+        ctx.reason(
+          "PROVENANCE",
+          "REVIEW",
+          "CANONICAL_BASELINE_MISSING",
+          "transcripción de Master sin baseline canónica anclada al raw",
+          "materializar canonical-baseline.json",
+        );
       const marker = entry.provenance.historicalClosure;
       if (marker && !(prov.sourceReference ?? "").includes(marker))
-        ctx.reason("PROVENANCE", "REVIEW", "HISTORICAL_MARKER_NOT_CITED", `sourceReference no cita el cierre histórico ${marker}`, "citar el marcador literal en provenance.sourceReference");
+        ctx.reason(
+          "PROVENANCE",
+          "REVIEW",
+          "HISTORICAL_MARKER_NOT_CITED",
+          `sourceReference no cita el cierre histórico ${marker}`,
+          "citar el marcador literal en provenance.sourceReference",
+        );
       if (marker)
-        ctx.reason("PROVENANCE", "INFO", "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION", `cierre histórico ${marker}: provenance del conocimiento, no publicación técnica`, "ninguna");
+        ctx.reason(
+          "PROVENANCE",
+          "INFO",
+          "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+          `cierre histórico ${marker}: provenance del conocimiento, no publicación técnica`,
+          "ninguna",
+        );
     }
     ctx.set("PROVENANCE", "PASS");
     if (!baseline) {
-      ctx.set("SOURCE_TO_CANONICAL", prov?.derivation === "GOLDEN_PACK_TRANSCRIPTION" ? "NOT_APPLICABLE" : "REVIEW_REQUIRED");
+      ctx.set(
+        "SOURCE_TO_CANONICAL",
+        prov?.derivation === "GOLDEN_PACK_TRANSCRIPTION" ? "NOT_APPLICABLE" : "REVIEW_REQUIRED",
+      );
       if (prov?.derivation === "GOLDEN_PACK_TRANSCRIPTION" && !input.intake) {
-        ctx.reason("RAW_REGISTRATION", "INFO", "GOLDEN_TRANSCRIPTION", "fuente ejecutable transcrita de un pack publicado; el raw histórico no está en el repositorio", "ninguna");
+        ctx.reason(
+          "RAW_REGISTRATION",
+          "INFO",
+          "GOLDEN_TRANSCRIPTION",
+          "fuente ejecutable transcrita de un pack publicado; el raw histórico no está en el repositorio",
+          "ninguna",
+        );
         ctx.set("RAW_REGISTRATION", "NOT_APPLICABLE");
         entry.rawSource.availability = "NOT_IN_REPOSITORY";
       }
@@ -576,18 +880,63 @@ function evaluateCapability(
     // Canonical → pack
     const diff = pipeline.diff;
     if (diff) {
-      diff.addedContent.forEach((d) => ctx.reason("CANONICAL_TO_PACK", "FAIL", "ADDED_CONTENT", `contenido añadido sin fuente: ${d.path}`, "eliminar del pack o anclar en la fuente"));
-      diff.missingSourceContent.forEach((d) => ctx.reason("CANONICAL_TO_PACK", "FAIL", "MISSING_SOURCE_CONTENT", `contenido de fuente ausente en el pack: ${d.path}`, "proyectar el contenido"));
-      diff.semanticChanges.forEach((d) => ctx.reason("CANONICAL_TO_PACK", "FAIL", "SEMANTIC_CHANGE", `cambio semántico: ${d.path}`, "restaurar el texto literal"));
-      diff.provenanceLoss.forEach((d) => ctx.reason("CANONICAL_TO_PACK", "FAIL", "PROVENANCE_LOSS", `pérdida de provenance: ${d.path}`, "restaurar provenance"));
+      diff.addedContent.forEach((d) =>
+        ctx.reason(
+          "CANONICAL_TO_PACK",
+          "FAIL",
+          "ADDED_CONTENT",
+          `contenido añadido sin fuente: ${d.path}`,
+          "eliminar del pack o anclar en la fuente",
+        ),
+      );
+      diff.missingSourceContent.forEach((d) =>
+        ctx.reason(
+          "CANONICAL_TO_PACK",
+          "FAIL",
+          "MISSING_SOURCE_CONTENT",
+          `contenido de fuente ausente en el pack: ${d.path}`,
+          "proyectar el contenido",
+        ),
+      );
+      diff.semanticChanges.forEach((d) =>
+        ctx.reason(
+          "CANONICAL_TO_PACK",
+          "FAIL",
+          "SEMANTIC_CHANGE",
+          `cambio semántico: ${d.path}`,
+          "restaurar el texto literal",
+        ),
+      );
+      diff.provenanceLoss.forEach((d) =>
+        ctx.reason(
+          "CANONICAL_TO_PACK",
+          "FAIL",
+          "PROVENANCE_LOSS",
+          `pérdida de provenance: ${d.path}`,
+          "restaurar provenance",
+        ),
+      );
     }
     (pipeline.knowledgeTests?.checks ?? [])
       .filter((k) => !k.ok)
-      .forEach((k) => ctx.reason("CANONICAL_TO_PACK", "FAIL", `KNOWLEDGE_TEST_${k.check}`, k.detail, "corregir la fuente ejecutable"));
+      .forEach((k) =>
+        ctx.reason(
+          "CANONICAL_TO_PACK",
+          "FAIL",
+          `KNOWLEDGE_TEST_${k.check}`,
+          k.detail,
+          "corregir la fuente ejecutable",
+        ),
+      );
     if (pipeline.candidate) ctx.set("CANONICAL_TO_PACK", "PASS");
 
     // Runtime compatibility + extensiones
-    const ext = resolveCapabilityExtensions({ capabilityId: id, gaps, registry: shared.registry, baselineEngineVersion: shared.engine.baselineSemver });
+    const ext = resolveCapabilityExtensions({
+      capabilityId: id,
+      gaps,
+      registry: shared.registry,
+      baselineEngineVersion: shared.engine.baselineSemver,
+    });
     entry.runtimeCompatibility = {
       requiredEngineVersion: ext.requiredEngineVersion,
       engineVersion: shared.engine.semver,
@@ -598,14 +947,50 @@ function evaluateCapability(
     metrics.runtimeExtensionsClosed = ext.occurrences.filter((o) => o.status === "CLOSED").length;
     for (const o of ext.occurrences) {
       if (o.status === "UNREGISTERED")
-        ctx.reason("RUNTIME_COMPATIBILITY", "REVIEW", "RUNTIME_EXTENSION_UNREGISTERED", `${o.gapId} no está registrado en runtime-extensions.json`, "vincular la ocurrencia a una capacidad semántica genérica", { objectKey: o.gapId });
+        ctx.reason(
+          "RUNTIME_COMPATIBILITY",
+          "REVIEW",
+          "RUNTIME_EXTENSION_UNREGISTERED",
+          `${o.gapId} no está registrado en runtime-extensions.json`,
+          "vincular la ocurrencia a una capacidad semántica genérica",
+          { objectKey: o.gapId },
+        );
       if (o.status === "OPEN")
-        ctx.reason("RUNTIME_COMPATIBILITY", o.blocksPublication ? "REVIEW" : "INFO", "RUNTIME_EXTENSION_OPEN", `${o.gapId} → ${o.extensionId} (${o.semanticCapability}) abierta`, "extensión genérica del engine; nunca branching por capacidad", { objectKey: o.gapId });
+        ctx.reason(
+          "RUNTIME_COMPATIBILITY",
+          o.blocksPublication ? "REVIEW" : "INFO",
+          "RUNTIME_EXTENSION_OPEN",
+          `${o.gapId} → ${o.extensionId} (${o.semanticCapability}) abierta`,
+          "extensión genérica del engine; nunca branching por capacidad",
+          { objectKey: o.gapId },
+        );
     }
-    ext.inconsistencies.forEach((m) => ctx.reason("RUNTIME_COMPATIBILITY", "FAIL", "EXTENSION_STATE_INCONSISTENT", m, "alinear source.json y runtime-extensions.json"));
-    ext.danglingGapIds.forEach((g) => ctx.reason("RUNTIME_COMPATIBILITY", "FAIL", "EXTENSION_OCCURRENCE_DANGLING", `runtime-extensions.json registra ${g} y la capacidad no lo declara`, "eliminar la ocurrencia o restaurar el gap"));
+    ext.inconsistencies.forEach((m) =>
+      ctx.reason(
+        "RUNTIME_COMPATIBILITY",
+        "FAIL",
+        "EXTENSION_STATE_INCONSISTENT",
+        m,
+        "alinear source.json y runtime-extensions.json",
+      ),
+    );
+    ext.danglingGapIds.forEach((g) =>
+      ctx.reason(
+        "RUNTIME_COMPATIBILITY",
+        "FAIL",
+        "EXTENSION_OCCURRENCE_DANGLING",
+        `runtime-extensions.json registra ${g} y la capacidad no lo declara`,
+        "eliminar la ocurrencia o restaurar el gap",
+      ),
+    );
     if (!entry.runtimeCompatibility.compatible)
-      ctx.reason("RUNTIME_COMPATIBILITY", "FAIL", "ENGINE_TOO_OLD", `requiere engine ${ext.requiredEngineVersion}, disponible ${shared.engine.semver}`, "actualizar el engine genérico");
+      ctx.reason(
+        "RUNTIME_COMPATIBILITY",
+        "FAIL",
+        "ENGINE_TOO_OLD",
+        `requiere engine ${ext.requiredEngineVersion}, disponible ${shared.engine.semver}`,
+        "actualizar el engine genérico",
+      );
     ctx.set("RUNTIME_COMPATIBILITY", "PASS");
 
     // Fixtures
@@ -616,36 +1001,91 @@ function evaluateCapability(
       governedJudgment: rr.filter((r) => r.outcome === "NEEDS_GOVERNANCE_REVIEW").length,
       fail: rr.filter((r) => r.outcome === "FAIL").length,
     };
-    if (rr.length === 0) ctx.reason("FIXTURES", "REVIEW", "FIXTURES_MISSING", "sin fixtures de aceptación runtime", "añadir knowledge/fixtures/<packId>/ con casos UNKNOWN, NOT_APPLICABLE y CONTRADICTORY");
+    if (rr.length === 0)
+      ctx.reason(
+        "FIXTURES",
+        "REVIEW",
+        "FIXTURES_MISSING",
+        "sin fixtures de aceptación runtime",
+        "añadir knowledge/fixtures/<packId>/ con casos UNKNOWN, NOT_APPLICABLE y CONTRADICTORY",
+      );
     rr.filter((r) => r.outcome === "FAIL").forEach((r) =>
-      ctx.reason("FIXTURES", "FAIL", "FIXTURE_FAILED", `${r.fixtureId}: ${r.mismatches.map((m) => m.path).join(", ") || "sin detalle"}`, "corregir pack o fixture (nunca el engine por capacidad)"),
+      ctx.reason(
+        "FIXTURES",
+        "FAIL",
+        "FIXTURE_FAILED",
+        `${r.fixtureId}: ${r.mismatches.map((m) => m.path).join(", ") || "sin detalle"}`,
+        "corregir pack o fixture (nunca el engine por capacidad)",
+      ),
     );
     if (entry.fixtures.governedJudgment > 0)
-      ctx.reason("FIXTURES", "INFO", "GOVERNED_JUDGMENT_EXPECTED", `${entry.fixtures.governedJudgment} fixture(s) coinciden con su resultado esperado de revisión gobernada`, "ninguna: el runtime difiere al juicio humano como declara la fuente");
-    metrics.testFailures = entry.fixtures.fail + (pipeline.knowledgeTests?.checks.filter((k) => !k.ok).length ?? 0);
+      ctx.reason(
+        "FIXTURES",
+        "INFO",
+        "GOVERNED_JUDGMENT_EXPECTED",
+        `${entry.fixtures.governedJudgment} fixture(s) coinciden con su resultado esperado de revisión gobernada`,
+        "ninguna: el runtime difiere al juicio humano como declara la fuente",
+      );
+    metrics.testFailures =
+      entry.fixtures.fail + (pipeline.knowledgeTests?.checks.filter((k) => !k.ok).length ?? 0);
     ctx.set("FIXTURES", "PASS");
 
     // Silencio de la fuente
     const packGaps = new Set((pipeline.candidate?.gaps ?? []).map((g) => g.id));
     for (const g of gaps) {
       if (g.kind === "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER" && g.resolution)
-        ctx.reason("SOURCE_SILENCE", "FAIL", "SILENCE_RESOLVED_WITHOUT_SOURCE", `${g.id} NOT_EXPLICIT declara resolution`, "un silencio de la fuente solo se resuelve con nueva fuente gobernada", { objectKey: g.id });
+        ctx.reason(
+          "SOURCE_SILENCE",
+          "FAIL",
+          "SILENCE_RESOLVED_WITHOUT_SOURCE",
+          `${g.id} NOT_EXPLICIT declara resolution`,
+          "un silencio de la fuente solo se resuelve con nueva fuente gobernada",
+          { objectKey: g.id },
+        );
       if (pipeline.candidate && !packGaps.has(g.id))
-        ctx.reason("SOURCE_SILENCE", "FAIL", "GAP_NOT_IN_PACK", `${g.id} no llega al Pack Candidate`, "preservar el gap en el candidato generado", { objectKey: g.id });
+        ctx.reason(
+          "SOURCE_SILENCE",
+          "FAIL",
+          "GAP_NOT_IN_PACK",
+          `${g.id} no llega al Pack Candidate`,
+          "preservar el gap en el candidato generado",
+          { objectKey: g.id },
+        );
     }
     if (baseline) {
       const srcIds = new Map(gaps.map((g) => [g.id, g.kind]));
       for (const g of (baseline["gaps"] as { id: string; kind: string }[] | undefined) ?? [])
         if (srcIds.get(g.id) !== g.kind)
-          ctx.reason("SOURCE_SILENCE", "FAIL", "GAP_NOT_PRESERVED", `${g.id} (${g.kind}) de la baseline no se preserva en la fuente ejecutable`, "restaurar el gap", { objectKey: g.id });
+          ctx.reason(
+            "SOURCE_SILENCE",
+            "FAIL",
+            "GAP_NOT_PRESERVED",
+            `${g.id} (${g.kind}) de la baseline no se preserva en la fuente ejecutable`,
+            "restaurar el gap",
+            { objectKey: g.id },
+          );
     }
     ctx.set("SOURCE_SILENCE", "PASS");
 
     // Golden / regresión
     const gr = pipeline.goldenRegression;
     if (gr && gr.compared) {
-      if (!gr.equivalent) ctx.reason("GOLDEN_REGRESSION", "FAIL", "GOLDEN_DIVERGENCE", `el candidato difiere del pack publicado en ${gr.differences.map((d) => d.path).join(", ")}`, "restaurar la fuente o publicar una versión nueva");
-      if (!gr.immutability.ok) ctx.reason("GOLDEN_REGRESSION", "FAIL", "PUBLISHED_PACK_MUTATED", gr.immutability.message, "restaurar el pack publicado");
+      if (!gr.equivalent)
+        ctx.reason(
+          "GOLDEN_REGRESSION",
+          "FAIL",
+          "GOLDEN_DIVERGENCE",
+          `el candidato difiere del pack publicado en ${gr.differences.map((d) => d.path).join(", ")}`,
+          "restaurar la fuente o publicar una versión nueva",
+        );
+      if (!gr.immutability.ok)
+        ctx.reason(
+          "GOLDEN_REGRESSION",
+          "FAIL",
+          "PUBLISHED_PACK_MUTATED",
+          gr.immutability.message,
+          "restaurar el pack publicado",
+        );
       ctx.set("GOLDEN_REGRESSION", "PASS");
     } else ctx.set("GOLDEN_REGRESSION", "NOT_APPLICABLE");
 
@@ -660,17 +1100,40 @@ function evaluateCapability(
     entry.governance.reviewStatus = pipeline.manifestEntry.governanceReviewStatus;
     for (const b of pub?.blockers ?? []) {
       if (b.code === "GOVERNANCE_REVIEW_PENDING")
-        ctx.reason("PUBLICATION_GATE", "REVIEW", "HUMAN_PUBLICATION_AUTHORIZATION_REQUIRED", "falta autorización humana de publicación", "la autoridad de gobierno registra governance-review.json (decision, reviewer, reviewedAt) tras revisar el dossier de evidencia");
+        ctx.reason(
+          "PUBLICATION_GATE",
+          "REVIEW",
+          "HUMAN_PUBLICATION_AUTHORIZATION_REQUIRED",
+          "falta autorización humana de publicación",
+          "la autoridad de gobierno registra governance-review.json (decision, reviewer, reviewedAt) tras revisar el dossier de evidencia",
+        );
       else if (b.code === "GOVERNANCE_REVIEW_REJECTED")
-        ctx.reason("PUBLICATION_GATE", "FAIL", b.code, b.message, "resolver las objeciones de gobierno");
+        ctx.reason(
+          "PUBLICATION_GATE",
+          "FAIL",
+          b.code,
+          b.message,
+          "resolver las objeciones de gobierno",
+        );
       else ctx.reason("PUBLICATION_GATE", "FAIL", b.code, b.message, "resolver el bloqueo técnico");
     }
     metrics.publicationBlockers = (pub?.blockers ?? []).length;
     ctx.set("PUBLICATION_GATE", "PASS");
 
     // Branching
-    const hits = detectCapabilitySpecificBranching(shared.codeCorpus, [id, pipeline.candidate?.packId ?? ""]);
-    hits.forEach((h) => ctx.reason("CAPABILITY_BRANCHING", "FAIL", "CAPABILITY_SPECIFIC_BRANCHING", `${h.path}:${h.line} ${h.label}${h.identifier ? ` (${h.identifier})` : ""}`, "sustituir por un contrato genérico del pack/engine"));
+    const hits = detectCapabilitySpecificBranching(shared.codeCorpus, [
+      id,
+      pipeline.candidate?.packId ?? "",
+    ]);
+    hits.forEach((h) =>
+      ctx.reason(
+        "CAPABILITY_BRANCHING",
+        "FAIL",
+        "CAPABILITY_SPECIFIC_BRANCHING",
+        `${h.path}:${h.line} ${h.label}${h.identifier ? ` (${h.identifier})` : ""}`,
+        "sustituir por un contrato genérico del pack/engine",
+      ),
+    );
     ctx.set("CAPABILITY_BRANCHING", "PASS");
 
     // Estado
@@ -682,7 +1145,14 @@ function evaluateCapability(
       state = "CANONICAL_REVIEW_REQUIRED";
     } else {
       state = "VALIDATED";
-      dossier = buildGovernanceEvidence({ entry: { ...entry, domainId }, checks: ctx.checks, baseline, pipeline, shared, readyCandidate: true });
+      dossier = buildGovernanceEvidence({
+        entry: { ...entry, domainId },
+        checks: ctx.checks,
+        baseline,
+        pipeline,
+        shared,
+        readyCandidate: true,
+      });
     }
   }
 
@@ -690,7 +1160,8 @@ function evaluateCapability(
   if (pipeline) {
     for (const c of FACTORY_CHECKS) {
       const r = ctx.checks.get(c) as FactoryCheckResult;
-      if (r.status === "NOT_RUN" && r.reasons.length === 0 && c !== "GOVERNANCE_EVIDENCE") r.status = "NOT_APPLICABLE";
+      if (r.status === "NOT_RUN" && r.reasons.length === 0 && c !== "GOVERNANCE_EVIDENCE")
+        r.status = "NOT_APPLICABLE";
     }
   }
 
@@ -726,19 +1197,28 @@ function buildGovernanceEvidence(input: {
   readyCandidate: boolean;
 }): GovernanceEvidenceDossier {
   const { entry, baseline, pipeline, shared } = input;
-  const objects = (baseline?.["objects"] as { key: string; objectType: string }[] | undefined) ?? [];
-  const hs = baseline?.["historicalStatus"] as { marker: string; sourceLines: [number, number] } | undefined;
-  const tcs = (baseline?.["transcriptionCorrections"] as { id: string; kind: string; detectedIn: string; correctedIn: string; objectKey: string }[] | undefined) ?? [];
+  const objects =
+    (baseline?.["objects"] as { key: string; objectType: string }[] | undefined) ?? [];
+  const hs = baseline?.["historicalStatus"] as
+    { marker: string; sourceLines: [number, number] } | undefined;
+  const tcs =
+    (baseline?.["transcriptionCorrections"] as
+      | { id: string; kind: string; detectedIn: string; correctedIn: string; objectKey: string }[]
+      | undefined) ?? [];
   const covered = new Set<string>();
   for (const o of entry.runtimeCompatibility.extensions) {
     const e = shared.registry?.entries.find((x) => x.extensionId === o.extensionId);
     e?.engineChangeRefs.forEach((r) => covered.add(r));
   }
-  const technical = FACTORY_CHECKS.filter((c) => c !== "GOVERNANCE_EVIDENCE" && c !== "PUBLICATION_GATE");
+  const technical = FACTORY_CHECKS.filter(
+    (c) => c !== "GOVERNANCE_EVIDENCE" && c !== "PUBLICATION_GATE",
+  );
   const blockers: string[] = [];
   for (const c of technical) {
     const r = input.checks.get(c) as FactoryCheckResult;
-    r.reasons.filter((x) => x.severity !== "INFO").forEach((x) => blockers.push(`${c} ${x.code}: ${x.message}`));
+    r.reasons
+      .filter((x) => x.severity !== "INFO")
+      .forEach((x) => blockers.push(`${c} ${x.code}: ${x.message}`));
   }
   (input.checks.get("PUBLICATION_GATE")?.reasons ?? [])
     .filter((x) => x.code !== "HUMAN_PUBLICATION_AUTHORIZATION_REQUIRED" && x.severity !== "INFO")
@@ -759,21 +1239,36 @@ function buildGovernanceEvidence(input: {
       present: false,
       required: true,
       artifact: `knowledge/master/<version>/capabilities/${entry.capabilityId}/governance-review.json`,
-      statement: "Solo una autoridad humana de gobierno puede registrar la decisión; la Factory nunca la genera.",
+      statement:
+        "Solo una autoridad humana de gobierno puede registrar la decisión; la Factory nunca la genera.",
     },
     historicalClosure: {
       marker: hs?.marker ?? null,
       sourceLines: hs?.sourceLines ?? null,
-      statement: "Cierre histórico del conocimiento (provenance). No equivale a publicación técnica actual.",
+      statement:
+        "Cierre histórico del conocimiento (provenance). No equivale a publicación técnica actual.",
     },
     identity: {
-      rawOriginal: { filename: entry.rawSource.originalFilename, sha256: entry.rawSource.originalSha256 },
+      rawOriginal: {
+        filename: entry.rawSource.originalFilename,
+        sha256: entry.rawSource.originalSha256,
+      },
       rawText: { ref: entry.rawSource.ref, sha256: entry.rawSource.textSha256 },
       canonicalBaselineChecksum: entry.canonical.checksum,
       executableSourceChecksum: pipeline.candidate?.provenance.sourceChecksum ?? null,
-      packCandidate: { packId: entry.publication.packId, packVersion: entry.publication.packVersion, checksum: entry.publication.packChecksum },
+      packCandidate: {
+        packId: entry.publication.packId,
+        packVersion: entry.publication.packVersion,
+        checksum: entry.publication.packChecksum,
+      },
     },
-    transcriptionCorrections: tcs.map((t) => ({ id: t.id, kind: t.kind, detectedIn: t.detectedIn, correctedIn: t.correctedIn, objectKey: t.objectKey })),
+    transcriptionCorrections: tcs.map((t) => ({
+      id: t.id,
+      kind: t.kind,
+      detectedIn: t.detectedIn,
+      correctedIn: t.correctedIn,
+      objectKey: t.objectKey,
+    })),
     runtimeExtensions: entry.runtimeCompatibility.extensions.map((o) => ({
       gapId: o.gapId,
       extensionId: o.extensionId,
@@ -782,10 +1277,19 @@ function buildGovernanceEvidence(input: {
       closedInEngineVersion: o.closedInEngineVersion,
     })),
     notExplicit: entry.gaps.notExplicit,
-    governedBacklog: objects.filter((o) => o.objectType === "GOVERNED_BACKLOG_ITEM").map((o) => o.key),
+    governedBacklog: objects
+      .filter((o) => o.objectType === "GOVERNED_BACKLOG_ITEM")
+      .map((o) => o.key),
     transversalCandidates: objects.filter((o) => o.objectType === "TRANSVERSAL_CANDIDATE").length,
-    engine: { current: shared.engine.semver, required: entry.runtimeCompatibility.requiredEngineVersion, semanticChangesCovered: [...covered].sort() },
-    checks: FACTORY_CHECKS.filter((c) => c !== "GOVERNANCE_EVIDENCE").map((c) => ({ check: c, status: (input.checks.get(c) as FactoryCheckResult).status })),
+    engine: {
+      current: shared.engine.semver,
+      required: entry.runtimeCompatibility.requiredEngineVersion,
+      semanticChangesCovered: [...covered].sort(),
+    },
+    checks: FACTORY_CHECKS.filter((c) => c !== "GOVERNANCE_EVIDENCE").map((c) => ({
+      check: c,
+      status: (input.checks.get(c) as FactoryCheckResult).status,
+    })),
     fixtures: entry.fixtures,
     referenceRegression: [],
   };
@@ -806,22 +1310,48 @@ function applyGovernanceEvidence(
   let evidence: FactoryCapabilityEntry["governance"]["evidence"];
   let state = e.state;
   const push = (code: string, message: string) =>
-    ev.reasons.push({ check: "GOVERNANCE_EVIDENCE", code, severity: "REVIEW", message, action: "bun run knowledge:factory -- --write", sourceLines: null, objectKey: null });
+    ev.reasons.push({
+      check: "GOVERNANCE_EVIDENCE",
+      code,
+      severity: "REVIEW",
+      message,
+      action: "bun run knowledge:factory -- --write",
+      sourceLines: null,
+      objectKey: null,
+    });
   if (onDisk === undefined) {
     evidence = "MISSING";
     push("GOVERNANCE_EVIDENCE_MISSING", "no existe dossier de evidencia de gobierno");
   } else if (onDisk["checksum"] !== dossier.checksum || !verifySelfChecksum(onDisk).ok) {
     evidence = "OUTDATED";
-    push("GOVERNANCE_EVIDENCE_OUTDATED", "el dossier en disco no corresponde al estado técnico actual");
+    push(
+      "GOVERNANCE_EVIDENCE_OUTDATED",
+      "el dossier en disco no corresponde al estado técnico actual",
+    );
   } else {
     evidence = "CURRENT";
-    if (dossier.readiness === "READY_FOR_HUMAN_PUBLICATION_AUTHORIZATION") state = "READY_FOR_PUBLICATION";
+    if (dossier.readiness === "READY_FOR_HUMAN_PUBLICATION_AUTHORIZATION")
+      state = "READY_FOR_PUBLICATION";
   }
   if (dossier.readiness === "NOT_READY")
-    dossier.blockers.forEach((b) => ev.reasons.push({ check: "GOVERNANCE_EVIDENCE", code: "NOT_READY", severity: "REVIEW", message: b, action: "resolver antes de solicitar autorización humana", sourceLines: null, objectKey: null }));
+    dossier.blockers.forEach((b) =>
+      ev.reasons.push({
+        check: "GOVERNANCE_EVIDENCE",
+        code: "NOT_READY",
+        severity: "REVIEW",
+        message: b,
+        action: "resolver antes de solicitar autorización humana",
+        sourceLines: null,
+        objectKey: null,
+      }),
+    );
   ev.status = statusFrom(ev.reasons);
   const reasons = checks.flatMap((c) => c.reasons);
-  const outcome: FactoryOutcome = reasons.some((r) => r.severity === "FAIL") ? "FAIL" : reasons.some((r) => r.severity === "REVIEW") ? "REVIEW_REQUIRED" : "PASS";
+  const outcome: FactoryOutcome = reasons.some((r) => r.severity === "FAIL")
+    ? "FAIL"
+    : reasons.some((r) => r.severity === "REVIEW")
+      ? "REVIEW_REQUIRED"
+      : "PASS";
   return {
     ...e,
     state,
@@ -851,13 +1381,17 @@ export function runFactoryBatch(input: FactoryBatchInput): FactoryBatchResult {
     pdfRunner: input.pdfRunner ?? null,
     masterDomains: new Set(input.master.domains.map((d) => d.id)),
   };
-  const batchIssues: string[] = regValidation.issues.map((i) => `runtime-extensions ${i.code}: ${i.message}`);
+  const batchIssues: string[] = regValidation.issues.map(
+    (i) => `runtime-extensions ${i.code}: ${i.message}`,
+  );
 
   const seen = new Set<string>();
   const entries: FactoryCapabilityEntry[] = [];
   const dossiers = new Map<string, GovernanceEvidenceDossier>();
   const durationsMs = new Map<string, number>();
-  const sorted = input.capabilities.slice().sort((a, b) => (a.capabilityId < b.capabilityId ? -1 : 1));
+  const sorted = input.capabilities
+    .slice()
+    .sort((a, b) => (a.capabilityId < b.capabilityId ? -1 : 1));
 
   for (const cap of sorted) {
     if (seen.has(cap.capabilityId)) {
@@ -867,9 +1401,13 @@ export function runFactoryBatch(input: FactoryBatchInput): FactoryBatchResult {
     seen.add(cap.capabilityId);
     const t0 = now();
     try {
-      const pipeline = cap.master?.pipelineInput ? (runBatch([cap.master.pipelineInput]).results[0] ?? null) : null;
+      const pipeline = cap.master?.pipelineInput
+        ? (runBatch([cap.master.pipelineInput]).results[0] ?? null)
+        : null;
       if (pipeline && pipeline.capabilityId !== cap.capabilityId)
-        throw new Error(`source.json declara ${pipeline.capabilityId} en el directorio ${cap.capabilityId}`);
+        throw new Error(
+          `source.json declara ${pipeline.capabilityId} en el directorio ${cap.capabilityId}`,
+        );
       const { entry, dossier } = evaluateCapability(cap, pipeline, shared);
       entries.push(entry);
       if (dossier) dossiers.set(cap.capabilityId, dossier);
@@ -881,13 +1419,37 @@ export function runFactoryBatch(input: FactoryBatchInput): FactoryBatchResult {
         state: "RAW_SOURCE",
         outcome: "FAIL",
         sourcePath: cap.master ? "MASTER" : "INTAKE",
-        rawSource: { availability: "NOT_IN_REPOSITORY", ref: null, textSha256: null, originalFilename: null, originalSha256: null, extractor: null, registrationId: null },
+        rawSource: {
+          availability: "NOT_IN_REPOSITORY",
+          ref: null,
+          textSha256: null,
+          originalFilename: null,
+          originalSha256: null,
+          extractor: null,
+          registrationId: null,
+        },
         extraction: { status: "NOT_STARTED", candidateId: null, producedBy: null },
         canonical: { status: "NONE", baselineId: null, checksum: null, objectCount: null },
-        provenance: { sourceReference: null, derivation: null, extractionStatus: null, historicalClosure: null },
-        gaps: { total: 0, notExplicit: [], sourceContentNotRecovered: [], runtimeExtension: [], publicationBlocking: [] },
+        provenance: {
+          sourceReference: null,
+          derivation: null,
+          extractionStatus: null,
+          historicalClosure: null,
+        },
+        gaps: {
+          total: 0,
+          notExplicit: [],
+          sourceContentNotRecovered: [],
+          runtimeExtension: [],
+          publicationBlocking: [],
+        },
         transcriptionCorrections: [],
-        runtimeCompatibility: { requiredEngineVersion: input.engine.baselineSemver, engineVersion: input.engine.semver, compatible: false, extensions: [] },
+        runtimeCompatibility: {
+          requiredEngineVersion: input.engine.baselineSemver,
+          engineVersion: input.engine.semver,
+          compatible: false,
+          extensions: [],
+        },
         fixtures: { count: 0, pass: 0, governedJudgment: 0, fail: 0 },
         governance: { reviewStatus: "NOT_REQUESTED", evidence: "NOT_APPLICABLE" },
         publication: { status: "UNPUBLISHED", packId: null, packVersion: null, packChecksum: null },
@@ -898,7 +1460,8 @@ export function runFactoryBatch(input: FactoryBatchInput): FactoryBatchResult {
             code: "ISOLATED_EXCEPTION",
             severity: "FAIL",
             message: `excepción aislada: ${(error as Error).message}`,
-            action: "corregir los artefactos de esta capacidad; el resto del lote no se ve afectado",
+            action:
+              "corregir los artefactos de esta capacidad; el resto del lote no se ve afectado",
             sourceLines: null,
             objectKey: null,
           },
@@ -912,13 +1475,21 @@ export function runFactoryBatch(input: FactoryBatchInput): FactoryBatchResult {
   // Regresión de referencia: capacidades publicadas con Golden PASS.
   const references = entries
     .filter((e) => e.state === "PUBLISHED")
-    .map((e) => ({ capabilityId: e.capabilityId, goldenStatus: e.checks.find((c) => c.check === "GOLDEN_REGRESSION")?.status ?? "NOT_RUN" }));
+    .map((e) => ({
+      capabilityId: e.capabilityId,
+      goldenStatus: e.checks.find((c) => c.check === "GOLDEN_REGRESSION")?.status ?? "NOT_RUN",
+    }));
   for (const [capId, d] of dossiers) {
     const { checksum: _c, ...rest } = d;
     const withRefs = { ...rest, referenceRegression: references };
-    if (references.some((r) => r.goldenStatus !== "PASS")) withRefs.blockers = [...withRefs.blockers, "regresión de la capacidad de referencia no PASS"];
-    withRefs.readiness = withRefs.blockers.length === 0 ? "READY_FOR_HUMAN_PUBLICATION_AUTHORIZATION" : "NOT_READY";
-    dossiers.set(capId, { ...withRefs, checksum: computeSelfChecksum(withRefs as unknown as Record<string, unknown>) });
+    if (references.some((r) => r.goldenStatus !== "PASS"))
+      withRefs.blockers = [...withRefs.blockers, "regresión de la capacidad de referencia no PASS"];
+    withRefs.readiness =
+      withRefs.blockers.length === 0 ? "READY_FOR_HUMAN_PUBLICATION_AUTHORIZATION" : "NOT_READY";
+    dossiers.set(capId, {
+      ...withRefs,
+      checksum: computeSelfChecksum(withRefs as unknown as Record<string, unknown>),
+    });
   }
   const posicion = new Map(entries.map((e, i) => [e.capabilityId, i]));
   const enDisco = new Map(sorted.map((c) => [c.capabilityId, c.governanceEvidenceOnDisk]));
@@ -926,19 +1497,36 @@ export function runFactoryBatch(input: FactoryBatchInput): FactoryBatchResult {
     const idx = posicion.get(capId);
     const e = idx === undefined ? undefined : entries[idx];
     if (idx === undefined || !e) continue;
-    entries[idx] = applyGovernanceEvidence(e, d, enDisco.get(capId) as Record<string, unknown> | undefined);
+    entries[idx] = applyGovernanceEvidence(
+      e,
+      d,
+      enDisco.get(capId) as Record<string, unknown> | undefined,
+    );
   }
 
-  const vs = input.master.verticalStatus as { domainClosures?: { domainId: string; declaredCapabilityCount: number }[] } | undefined;
-  const closures = vs?.domainClosures ?? input.master.domains.map((d) => ({ domainId: d.id, declaredCapabilityCount: 0 }));
+  const vs = input.master.verticalStatus as
+    { domainClosures?: { domainId: string; declaredCapabilityCount: number }[] } | undefined;
+  const closures =
+    vs?.domainClosures ??
+    input.master.domains.map((d) => ({ domainId: d.id, declaredCapabilityCount: 0 }));
   const domains = closures.map((d) => {
     const registered = entries.filter((e) => e.domainId === d.domainId).map((e) => e.capabilityId);
     if (registered.length > d.declaredCapabilityCount)
-      batchIssues.push(`dominio ${d.domainId}: ${registered.length} capacidades registradas > ${d.declaredCapabilityCount} declaradas`);
-    return { domainId: d.domainId, declaredCapabilityCount: d.declaredCapabilityCount, registered, unregisteredSlots: Math.max(0, d.declaredCapabilityCount - registered.length) };
+      batchIssues.push(
+        `dominio ${d.domainId}: ${registered.length} capacidades registradas > ${d.declaredCapabilityCount} declaradas`,
+      );
+    return {
+      domainId: d.domainId,
+      declaredCapabilityCount: d.declaredCapabilityCount,
+      registered,
+      unregisteredSlots: Math.max(0, d.declaredCapabilityCount - registered.length),
+    };
   });
   const unregisteredSlotCount = Math.max(0, input.master.expectedCapabilityCount - entries.length);
-  const byState = Object.fromEntries(FACTORY_STATES.map((s) => [s, 0])) as Record<FactoryState, number>;
+  const byState = Object.fromEntries(FACTORY_STATES.map((s) => [s, 0])) as Record<
+    FactoryState,
+    number
+  >;
   const byOutcome: Record<FactoryOutcome, number> = { PASS: 0, REVIEW_REQUIRED: 0, FAIL: 0 };
   entries.forEach((e) => {
     byState[e.state] += 1;
@@ -977,7 +1565,10 @@ export function runFactoryBatch(input: FactoryBatchInput): FactoryBatchResult {
 /* Reportes                                                            */
 /* ------------------------------------------------------------------ */
 
-export function buildFactoryBenchmarkMarkdown(result: FactoryBatchResult, durations?: Map<string, number>): string {
+export function buildFactoryBenchmarkMarkdown(
+  result: FactoryBatchResult,
+  durations?: Map<string, number>,
+): string {
   const m = result.manifest;
   const rows = result.entries.map((e) => {
     const x = e.metrics;
@@ -1007,7 +1598,9 @@ export function buildFactoryBenchmarkMarkdown(result: FactoryBatchResult, durati
     lines.push(`### ${e.capabilityId} · ${e.outcome}`);
     if (rs.length === 0) lines.push("- sin motivos pendientes");
     rs.forEach((r) =>
-      lines.push(`- **${r.severity}** \`${r.check}/${r.code}\`${r.objectKey ? ` [${r.objectKey}]` : ""}${r.sourceLines ? ` (líneas ${r.sourceLines[0]}–${r.sourceLines[1]})` : ""}: ${r.message} → ${r.action}`),
+      lines.push(
+        `- **${r.severity}** \`${r.check}/${r.code}\`${r.objectKey ? ` [${r.objectKey}]` : ""}${r.sourceLines ? ` (líneas ${r.sourceLines[0]}–${r.sourceLines[1]})` : ""}: ${r.message} → ${r.action}`,
+      ),
     );
     lines.push("");
   }

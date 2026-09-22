@@ -71,8 +71,10 @@ export function readZipEntries(bytes: Uint8Array): Map<string, Uint8Array> {
     const localOffset = view.getUint32(ptr + 42, true);
     const name = decoder.decode(bytes.subarray(ptr + 46, ptr + 46 + nameLen));
     if (flags & 0x1) throw new Error(`ZIP_ENCRYPTED_ENTRY ${name}`);
-    if (compressedSize === 0xffffffff || localOffset === 0xffffffff) throw new Error("ZIP64_NOT_SUPPORTED");
-    if (view.getUint32(localOffset, true) !== 0x04034b50) throw new Error(`ZIP_LOCAL_HEADER_CORRUPT ${name}`);
+    if (compressedSize === 0xffffffff || localOffset === 0xffffffff)
+      throw new Error("ZIP64_NOT_SUPPORTED");
+    if (view.getUint32(localOffset, true) !== 0x04034b50)
+      throw new Error(`ZIP_LOCAL_HEADER_CORRUPT ${name}`);
     const lNameLen = view.getUint16(localOffset + 26, true);
     const lExtraLen = view.getUint16(localOffset + 28, true);
     const start = localOffset + 30 + lNameLen + lExtraLen;
@@ -136,7 +138,13 @@ function* tokens(xml: string): Generator<XmlToken> {
         text: "",
       };
     } else if (m[6] !== undefined) {
-      yield { kind: "text", name: "", attrs: {}, selfClosing: false, text: decodeXmlEntities(m[6]) };
+      yield {
+        kind: "text",
+        name: "",
+        attrs: {},
+        selfClosing: false,
+        text: decodeXmlEntities(m[6]),
+      };
     }
   }
 }
@@ -159,7 +167,10 @@ function parseStyles(xml: string | null): Map<string, StyleInfo> {
     if (t.kind === "open" && t.name === "w:style") {
       const type = t.attrs["w:type"];
       const id = t.attrs["w:styleId"];
-      current = type === "paragraph" && id ? { id, info: { name: null, outlineLevel: null, basedOn: null } } : null;
+      current =
+        type === "paragraph" && id
+          ? { id, info: { name: null, outlineLevel: null, basedOn: null } }
+          : null;
       if (t.selfClosing) current = null;
     } else if (t.kind === "close" && t.name === "w:style") {
       if (current) styles.set(current.id, current.info);
@@ -181,7 +192,8 @@ function headingLevel(
   directOutline: number | null,
   styles: Map<string, StyleInfo>,
 ): number | null {
-  if (directOutline !== null) return directOutline >= 0 && directOutline <= 8 ? directOutline + 1 : null;
+  if (directOutline !== null)
+    return directOutline >= 0 && directOutline <= 8 ? directOutline + 1 : null;
   let id = styleId;
   for (let depth = 0; id && depth < 10; depth += 1) {
     const s = styles.get(id);
@@ -297,12 +309,18 @@ export function extractDocxText(bytes: Uint8Array): RawExtraction {
           case "w:footnote":
           case "w:endnote": {
             const type = t.attrs["w:type"];
-            noteId = type === "separator" || type === "continuationSeparator" || type === "continuationNotice" ? null : (t.attrs["w:id"] ?? null);
+            noteId =
+              type === "separator" ||
+              type === "continuationSeparator" ||
+              type === "continuationNotice"
+                ? null
+                : (t.attrs["w:id"] ?? null);
             noteParts = [];
             break;
           }
           case "w:p":
-            if (!t.selfClosing) paraStack.push({ parts: [], styleId: null, outline: null, list: false, ilvl: 0 });
+            if (!t.selfClosing)
+              paraStack.push({ parts: [], styleId: null, outline: null, list: false, ilvl: 0 });
             else if (tableDepth === 0 && mode === "body") emitLine("");
             break;
           case "w:pPr":
@@ -455,13 +473,21 @@ export function extractDocxText(bytes: Uint8Array): RawExtraction {
 
   const warnings: string[] = [];
   if ((stats["images"] ?? 0) > 0)
-    warnings.push(`IMAGES_NOT_TRANSCRIBED: ${stats["images"]} imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.`);
+    warnings.push(
+      `IMAGES_NOT_TRANSCRIBED: ${stats["images"]} imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.`,
+    );
   if ((stats["deletions"] ?? 0) > 0 || (stats["insertions"] ?? 0) > 0)
-    warnings.push(`TRACKED_CHANGES_PRESENT: ${stats["insertions"]} inserción(es) conservadas, ${stats["deletions"]} eliminación(es) omitidas; revisar si el original debía aceptarse antes de registrar.`);
+    warnings.push(
+      `TRACKED_CHANGES_PRESENT: ${stats["insertions"]} inserción(es) conservadas, ${stats["deletions"]} eliminación(es) omitidas; revisar si el original debía aceptarse antes de registrar.`,
+    );
   if ((stats["textBoxes"] ?? 0) > 0)
-    warnings.push(`TEXT_BOXES_PRESENT: ${stats["textBoxes"]} cuadro(s) de texto emitidos en línea antes del párrafo que los contiene.`);
+    warnings.push(
+      `TEXT_BOXES_PRESENT: ${stats["textBoxes"]} cuadro(s) de texto emitidos en línea antes del párrafo que los contiene.`,
+    );
   if ((stats["headings"] ?? 0) === 0)
-    warnings.push("NO_HEADINGS_DETECTED: el documento no declara estilos de heading; el outline queda vacío.");
+    warnings.push(
+      "NO_HEADINGS_DETECTED: el documento no declara estilos de heading; el outline queda vacío.",
+    );
 
   return {
     mediaType: "DOCX",
@@ -518,7 +544,9 @@ export function extractPdfText(bytes: Uint8Array, runner: PdfTextRunner | null):
       text: null,
       outline: [],
       pageStartLines: [],
-      warnings: ["EXTRACTOR_UNAVAILABLE: pdftotext no disponible; el original se registra pero no hay texto citable."],
+      warnings: [
+        "EXTRACTOR_UNAVAILABLE: pdftotext no disponible; el original se registra pero no hay texto citable.",
+      ],
       stats: {},
     };
   }
@@ -598,7 +626,11 @@ export const rawSourceRegistrationSchema = z.object({
     })
     .nullable(),
   outline: z.array(
-    z.object({ line: z.number().int().positive(), level: z.number().int().min(1).max(9), text: z.string().min(1) }),
+    z.object({
+      line: z.number().int().positive(),
+      level: z.number().int().min(1).max(9),
+      text: z.string().min(1),
+    }),
   ),
   pageStartLines: z.array(z.number().int().positive()),
   /** Marcador histórico declarado por el operador; debe aparecer literal en el texto. */
@@ -667,7 +699,9 @@ export function buildRawSourceRegistration(input: {
     outline: input.extraction.outline,
     pageStartLines: input.extraction.pageStartLines,
     declaredHistoricalMarker:
-      marker === null ? null : { text: marker, lines: text === null ? [] : findLiteralLines(text, marker) },
+      marker === null
+        ? null
+        : { text: marker, lines: text === null ? [] : findLiteralLines(text, marker) },
     registeredAt: input.registeredAt,
   };
   return { ...body, checksum: computeSelfChecksum(body as Record<string, unknown>) };
@@ -729,16 +763,32 @@ export function verifyRawSourceRegistration(input: {
   }
   const reg = parsed.data;
   const self = verifySelfChecksum(input.registration as Record<string, unknown>);
-  if (!self.ok) issues.push({ code: "CHECKSUM", severity: "FAIL", message: `checksum del registro inválido (esperado ${self.expected})` });
+  if (!self.ok)
+    issues.push({
+      code: "CHECKSUM",
+      severity: "FAIL",
+      message: `checksum del registro inválido (esperado ${self.expected})`,
+    });
   if (input.expectedCapabilityId && reg.capabilityId !== input.expectedCapabilityId)
-    issues.push({ code: "IDENTITY", severity: "FAIL", message: `el registro declara ${reg.capabilityId}, esperado ${input.expectedCapabilityId}` });
+    issues.push({
+      code: "IDENTITY",
+      severity: "FAIL",
+      message: `el registro declara ${reg.capabilityId}, esperado ${input.expectedCapabilityId}`,
+    });
 
   let reextractionVerified = false;
   if (!input.originalBytes) {
-    issues.push({ code: "ORIGINAL_MISSING", severity: "FAIL", message: `falta el original ${reg.original.ref}` });
+    issues.push({
+      code: "ORIGINAL_MISSING",
+      severity: "FAIL",
+      message: `falta el original ${reg.original.ref}`,
+    });
   } else {
     const hash = sha256Bytes(input.originalBytes);
-    if (hash !== reg.original.sha256 || input.originalBytes.byteLength !== reg.original.byteLength) {
+    if (
+      hash !== reg.original.sha256 ||
+      input.originalBytes.byteLength !== reg.original.byteLength
+    ) {
       issues.push({
         code: "ORIGINAL_INTEGRITY",
         severity: "FAIL",
@@ -748,17 +798,30 @@ export function verifyRawSourceRegistration(input: {
   }
 
   if (reg.extraction.status === "EXTRACTOR_UNAVAILABLE") {
-    issues.push({ code: "EXTRACTOR_UNAVAILABLE", severity: "REVIEW", message: "sin texto citable: registrar con el extractor disponible antes de extraer candidatos" });
+    issues.push({
+      code: "EXTRACTOR_UNAVAILABLE",
+      severity: "REVIEW",
+      message:
+        "sin texto citable: registrar con el extractor disponible antes de extraer candidatos",
+    });
   }
 
   let text: string | null = null;
   if (reg.text) {
     if (!input.textBytes) {
-      issues.push({ code: "TEXT_MISSING", severity: "FAIL", message: `falta el texto extraído ${reg.text.ref}` });
+      issues.push({
+        code: "TEXT_MISSING",
+        severity: "FAIL",
+        message: `falta el texto extraído ${reg.text.ref}`,
+      });
     } else {
       const hash = sha256Bytes(input.textBytes);
       if (hash !== reg.text.sha256) {
-        issues.push({ code: "TEXT_INTEGRITY", severity: "FAIL", message: `el texto ${reg.text.ref} cambió (sha256 ${hash}, registrado ${reg.text.sha256})` });
+        issues.push({
+          code: "TEXT_INTEGRITY",
+          severity: "FAIL",
+          message: `el texto ${reg.text.ref} cambió (sha256 ${hash}, registrado ${reg.text.sha256})`,
+        });
       } else {
         text = new TextDecoder("utf-8").decode(input.textBytes);
       }
@@ -766,15 +829,31 @@ export function verifyRawSourceRegistration(input: {
   }
 
   if (input.originalBytes && reg.text && !issues.some((i) => i.code === "ORIGINAL_INTEGRITY")) {
-    const builtIn = reg.extraction.extractorId === DOCX_EXTRACTOR.id || reg.extraction.extractorId === TEXT_EXTRACTOR.id;
-    const canRun = builtIn || (input.pdfRunner?.version() ?? null) === reg.extraction.externalTool?.version;
+    const builtIn =
+      reg.extraction.extractorId === DOCX_EXTRACTOR.id ||
+      reg.extraction.extractorId === TEXT_EXTRACTOR.id;
+    const canRun =
+      builtIn || (input.pdfRunner?.version() ?? null) === reg.extraction.externalTool?.version;
     if (canRun) {
-      const again = extractRawSource({ filename: reg.original.filename, bytes: input.originalBytes, pdfRunner: input.pdfRunner ?? null });
-      const againHash = again.text === null ? null : sha256Bytes(new TextEncoder().encode(again.text));
+      const again = extractRawSource({
+        filename: reg.original.filename,
+        bytes: input.originalBytes,
+        pdfRunner: input.pdfRunner ?? null,
+      });
+      const againHash =
+        again.text === null ? null : sha256Bytes(new TextEncoder().encode(again.text));
       if (again.extractor.version !== reg.extraction.extractorVersion) {
-        issues.push({ code: "NON_DETERMINISTIC_EXTRACTION", severity: "REVIEW", message: `extractor ${reg.extraction.extractorId} ${reg.extraction.extractorVersion} ≠ disponible ${again.extractor.version}; re-registrar como nueva versión si se quiere cambiar de extractor` });
+        issues.push({
+          code: "NON_DETERMINISTIC_EXTRACTION",
+          severity: "REVIEW",
+          message: `extractor ${reg.extraction.extractorId} ${reg.extraction.extractorVersion} ≠ disponible ${again.extractor.version}; re-registrar como nueva versión si se quiere cambiar de extractor`,
+        });
       } else if (againHash !== reg.text.sha256) {
-        issues.push({ code: "NON_DETERMINISTIC_EXTRACTION", severity: "FAIL", message: `re-extraer el original no reproduce el texto registrado (${againHash} ≠ ${reg.text.sha256})` });
+        issues.push({
+          code: "NON_DETERMINISTIC_EXTRACTION",
+          severity: "FAIL",
+          message: `re-extraer el original no reproduce el texto registrado (${againHash} ≠ ${reg.text.sha256})`,
+        });
       } else {
         reextractionVerified = true;
       }
@@ -786,15 +865,27 @@ export function verifyRawSourceRegistration(input: {
     for (const o of reg.outline) {
       const l = lines[o.line - 1];
       if (l === undefined || !l.includes(o.text))
-        issues.push({ code: "OUTLINE_NOT_ANCHORED", severity: "FAIL", message: `heading "${o.text}" no aparece en la línea ${o.line}` });
+        issues.push({
+          code: "OUTLINE_NOT_ANCHORED",
+          severity: "FAIL",
+          message: `heading "${o.text}" no aparece en la línea ${o.line}`,
+        });
     }
     const marker = reg.declaredHistoricalMarker;
     if (marker) {
       const found = findLiteralLines(text, marker.text);
       if (found.length === 0)
-        issues.push({ code: "HISTORICAL_MARKER_NOT_FOUND", severity: "REVIEW", message: `el marcador histórico declarado "${marker.text}" no aparece literal en el texto; no puede usarse como evidencia de cierre` });
+        issues.push({
+          code: "HISTORICAL_MARKER_NOT_FOUND",
+          severity: "REVIEW",
+          message: `el marcador histórico declarado "${marker.text}" no aparece literal en el texto; no puede usarse como evidencia de cierre`,
+        });
       else if (found.join(",") !== marker.lines.join(","))
-        issues.push({ code: "HISTORICAL_MARKER_NOT_FOUND", severity: "FAIL", message: `el marcador histórico aparece en ${found.join(",")} y el registro declara ${marker.lines.join(",")}` });
+        issues.push({
+          code: "HISTORICAL_MARKER_NOT_FOUND",
+          severity: "FAIL",
+          message: `el marcador histórico aparece en ${found.join(",")} y el registro declara ${marker.lines.join(",")}`,
+        });
     }
   }
   for (const w of reg.extraction.warnings) {

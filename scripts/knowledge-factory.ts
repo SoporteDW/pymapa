@@ -11,7 +11,15 @@
  * La Factory no publica, no aprueba y no genera identidad humana.
  */
 import { spawnSync } from "node:child_process";
-import { copyFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import {
+  copyFileSync,
+  existsSync,
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from "node:fs";
 import { tmpdir } from "node:os";
 import { basename, extname, join } from "node:path";
 import { ENGINE_SEMANTIC_HISTORY, ENGINE_SEMVER, ENGINE_VERSION } from "@pymapa/knowledge-engine";
@@ -59,7 +67,10 @@ const pdfRunner: PdfTextRunner = {
     try {
       const f = join(dir, "in.pdf");
       writeFileSync(f, bytes);
-      const r = spawnSync("pdftotext", ["-enc", "UTF-8", "-eol", "unix", f, "-"], { encoding: "utf8", maxBuffer: 256 * 1024 * 1024 });
+      const r = spawnSync("pdftotext", ["-enc", "UTF-8", "-eol", "unix", f, "-"], {
+        encoding: "utf8",
+        maxBuffer: 256 * 1024 * 1024,
+      });
       if (r.status !== 0) throw new Error(`pdftotext falló: ${r.stderr}`);
       return r.stdout;
     } finally {
@@ -96,10 +107,14 @@ if (argv[0] === "register") {
   if (existsSync(join(ROOT, regPath))) {
     const prev = rawSourceRegistrationSchema.safeParse(readJson(regPath));
     if (prev.success && prev.data.original.sha256 === sha256Bytes(bytes)) {
-      console.log(`✓ ${capabilityId} ya registrado con el mismo original (${prev.data.registrationId}); sin cambios`);
+      console.log(
+        `✓ ${capabilityId} ya registrado con el mismo original (${prev.data.registrationId}); sin cambios`,
+      );
       process.exit(0);
     }
-    fail(`${regPath} ya existe con otro original: un registro es inmutable; retirar explícitamente el registro anterior antes de registrar una nueva fuente`);
+    fail(
+      `${regPath} ya existe con otro original: un registro es inmutable; retirar explícitamente el registro anterior antes de registrar una nueva fuente`,
+    );
   }
   const extraction = extractRawSource({ filename, bytes, pdfRunner });
   mkdirSync(join(ROOT, dir, "original"), { recursive: true });
@@ -119,7 +134,9 @@ if (argv[0] === "register") {
     registeredAt: opt("--registered-at") ?? new Date().toISOString().slice(0, 10),
   });
   writeJson(regPath, registration);
-  console.log(`✓ registrado ${registration.registrationId}: ${registration.original.byteLength} bytes, ${registration.text?.lineCount ?? 0} líneas, ${registration.outline.length} headings`);
+  console.log(
+    `✓ registrado ${registration.registrationId}: ${registration.original.byteLength} bytes, ${registration.text?.lineCount ?? 0} líneas, ${registration.outline.length} headings`,
+  );
   registration.extraction.warnings.forEach((w) => console.log(`  · ${w}`));
   process.exit(0);
 }
@@ -131,8 +148,17 @@ if (argv[0] === "promote") {
   const reg = rawSourceRegistrationSchema.parse(readJson(join(dir, "registration.json")));
   if (!reg.text) fail("registro sin texto");
   const rawText = readFileSync(join(ROOT, dir, reg.text.ref), "utf8");
-  const registry = validateRuntimeExtensionRegistry({ registry: readJson(RUNTIME_EXTENSIONS_PATH), engineSemver: ENGINE_SEMVER, engineChangeIds: ENGINE_SEMANTIC_HISTORY.flatMap((v) => v.changes.map((c) => c.id)) });
-  const validation = validateExtractionCandidate({ candidate: readJson(join(dir, "candidate.json")), registration: reg, rawText, extensionRegistry: registry.registry });
+  const registry = validateRuntimeExtensionRegistry({
+    registry: readJson(RUNTIME_EXTENSIONS_PATH),
+    engineSemver: ENGINE_SEMVER,
+    engineChangeIds: ENGINE_SEMANTIC_HISTORY.flatMap((v) => v.changes.map((c) => c.id)),
+  });
+  const validation = validateExtractionCandidate({
+    candidate: readJson(join(dir, "candidate.json")),
+    registration: reg,
+    rawText,
+    extensionRegistry: registry.registry,
+  });
   const acceptancePath = join(dir, "canonical-acceptance.json");
   const target = join(MASTER_DIR, MASTER_VERSION, "capabilities", capabilityId);
   const rawRef = join("raw", basename(reg.text.ref));
@@ -147,11 +173,16 @@ if (argv[0] === "promote") {
     prom.reasons.forEach((r) => console.error(`  · ${r}`));
     fail(`${capabilityId}: promoción bloqueada`);
   }
-  if (existsSync(join(ROOT, target, "canonical-baseline.json"))) fail(`${target}/canonical-baseline.json ya existe; las correcciones se registran como transcriptionCorrections`);
+  if (existsSync(join(ROOT, target, "canonical-baseline.json")))
+    fail(
+      `${target}/canonical-baseline.json ya existe; las correcciones se registran como transcriptionCorrections`,
+    );
   mkdirSync(join(ROOT, target, "raw"), { recursive: true });
   copyFileSync(join(ROOT, dir, reg.text.ref), join(ROOT, target, rawRef));
   writeJson(join(target, "canonical-baseline.json"), prom.baseline);
-  console.log(`✓ baseline canónica ${prom.baseline.baselineId} materializada en ${target}; siguiente paso: proyección ejecutable source.json + fixtures`);
+  console.log(
+    `✓ baseline canónica ${prom.baseline.baselineId} materializada en ${target}; siguiente paso: proyección ejecutable source.json + fixtures`,
+  );
   process.exit(0);
 }
 
@@ -170,7 +201,9 @@ const run = () =>
   runFactoryBatch({
     master: master.value,
     capabilities: loadFactoryCapabilityInputs(ROOT, MASTER_VERSION),
-    extensionRegistry: existsSync(join(ROOT, RUNTIME_EXTENSIONS_PATH)) ? readJson(RUNTIME_EXTENSIONS_PATH) : { entries: [] },
+    extensionRegistry: existsSync(join(ROOT, RUNTIME_EXTENSIONS_PATH))
+      ? readJson(RUNTIME_EXTENSIONS_PATH)
+      : { entries: [] },
     codeCorpus: loadGenericCodeCorpus(ROOT),
     engine,
     pdfRunner,
@@ -184,7 +217,9 @@ if (escribir) {
   writeJson(BATCH_MANIFEST_PATH, result.manifest);
   mkdirSync(join(ROOT, BENCHMARK_PATH, ".."), { recursive: true });
   writeFileSync(join(ROOT, BENCHMARK_PATH), buildFactoryBenchmarkMarkdown(result));
-  console.log(`Escritos ${BATCH_MANIFEST_PATH}, ${BENCHMARK_PATH} y ${result.dossiers.size} dossier(s) de evidencia`);
+  console.log(
+    `Escritos ${BATCH_MANIFEST_PATH}, ${BENCHMARK_PATH} y ${result.dossiers.size} dossier(s) de evidencia`,
+  );
 }
 
 let fallos = 0;
@@ -194,20 +229,37 @@ const problema = (m: string) => {
 };
 console.log(`\n=== Knowledge Factory · ${ENGINE_VERSION} · Master ${MASTER_VERSION} ===`);
 for (const e of result.entries) {
-  console.log(`${e.capabilityId}  ${e.state.padEnd(26)} ${e.outcome.padEnd(16)} ${(result.durationsMs.get(e.capabilityId) ?? 0).toFixed(0)} ms`);
-  e.reasons.filter((r) => r.severity !== "INFO").forEach((r) => console.log(`   · ${r.severity} ${r.check}/${r.code}: ${r.message} → ${r.action}`));
+  console.log(
+    `${e.capabilityId}  ${e.state.padEnd(26)} ${e.outcome.padEnd(16)} ${(result.durationsMs.get(e.capabilityId) ?? 0).toFixed(0)} ms`,
+  );
+  e.reasons
+    .filter((r) => r.severity !== "INFO")
+    .forEach((r) =>
+      console.log(`   · ${r.severity} ${r.check}/${r.code}: ${r.message} → ${r.action}`),
+    );
   if (e.outcome === "FAIL") problema(`${e.capabilityId}: FAIL`);
 }
 const d = result.dossiers;
-for (const [id, dossier] of d) console.log(`Dossier ${id}: ${dossier.readiness}${dossier.blockers.length ? ` (${dossier.blockers.length} bloqueo(s))` : ""}`);
-console.log(`Slots sin fuente: ${result.manifest.unregisteredSlotCount}/${result.manifest.expectedCapabilityCount} · señal ${result.manifest.signal}`);
+for (const [id, dossier] of d)
+  console.log(
+    `Dossier ${id}: ${dossier.readiness}${dossier.blockers.length ? ` (${dossier.blockers.length} bloqueo(s))` : ""}`,
+  );
+console.log(
+  `Slots sin fuente: ${result.manifest.unregisteredSlotCount}/${result.manifest.expectedCapabilityCount} · señal ${result.manifest.signal}`,
+);
 result.batchIssues.forEach((i) => problema(`lote: ${i}`));
 
 if (estricto && !escribir) {
   const esperado = `${JSON.stringify(result.manifest, null, 2)}\n`;
-  if (!existsSync(join(ROOT, BATCH_MANIFEST_PATH)) || readFileSync(join(ROOT, BATCH_MANIFEST_PATH), "utf8") !== esperado)
+  if (
+    !existsSync(join(ROOT, BATCH_MANIFEST_PATH)) ||
+    readFileSync(join(ROOT, BATCH_MANIFEST_PATH), "utf8") !== esperado
+  )
     problema(`${BATCH_MANIFEST_PATH} desactualizado: bun run knowledge:factory -- --write`);
-  if (!existsSync(join(ROOT, BENCHMARK_PATH)) || readFileSync(join(ROOT, BENCHMARK_PATH), "utf8") !== buildFactoryBenchmarkMarkdown(result))
+  if (
+    !existsSync(join(ROOT, BENCHMARK_PATH)) ||
+    readFileSync(join(ROOT, BENCHMARK_PATH), "utf8") !== buildFactoryBenchmarkMarkdown(result)
+  )
     problema(`${BENCHMARK_PATH} desactualizado: bun run knowledge:factory -- --write`);
   result.entries
     .filter((e) => e.governance.evidence === "MISSING" || e.governance.evidence === "OUTDATED")

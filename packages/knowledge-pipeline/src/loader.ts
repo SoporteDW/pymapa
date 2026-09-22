@@ -101,21 +101,21 @@ export function discoverCapabilityPipelineInputs(
   return listCapabilitySourceIds(root, masterVersion)
     .filter((capabilityId) => existsSync(join(base, capabilityId, "source.json")))
     .map((capabilityId) => {
-    const source = loadCapabilitySource(root, masterVersion, capabilityId) as {
-      targetPack?: { packId?: string; packVersion?: string };
-    };
-    const packId = source.targetPack?.packId ?? "";
-    const packVersion = source.targetPack?.packVersion ?? "";
-    const review = loadGovernanceReview(root, masterVersion, capabilityId);
-    const publicado =
-      packId && packVersion ? loadPublishedPack(root, packId, packVersion) : undefined;
-    return {
-      source,
-      fixtures: packId ? loadFixtures(root, packId) : [],
-      ...(review ? { governanceReview: review } : {}),
-      ...(publicado ? { publishedPack: publicado } : {}),
-    } satisfies CapabilityPipelineInput;
-  });
+      const source = loadCapabilitySource(root, masterVersion, capabilityId) as {
+        targetPack?: { packId?: string; packVersion?: string };
+      };
+      const packId = source.targetPack?.packId ?? "";
+      const packVersion = source.targetPack?.packVersion ?? "";
+      const review = loadGovernanceReview(root, masterVersion, capabilityId);
+      const publicado =
+        packId && packVersion ? loadPublishedPack(root, packId, packVersion) : undefined;
+      return {
+        source,
+        fixtures: packId ? loadFixtures(root, packId) : [],
+        ...(review ? { governanceReview: review } : {}),
+        ...(publicado ? { publishedPack: publicado } : {}),
+      } satisfies CapabilityPipelineInput;
+    });
 }
 
 /** Índice del núcleo transversal (S1–S5), si está materializado. */
@@ -209,7 +209,10 @@ function bytesOpcionales(ruta: string): Uint8Array | null {
  * - knowledge/intake/<id>/registration.json (+ original, texto, candidato, aceptación).
  * Sin lista literal de capacidades.
  */
-export function loadFactoryCapabilityInputs(root: string, masterVersion: string): FactoryCapabilityInput[] {
+export function loadFactoryCapabilityInputs(
+  root: string,
+  masterVersion: string,
+): FactoryCapabilityInput[] {
   const porId = new Map<string, FactoryCapabilityInput>();
   const pipelineInputs = new Map(
     discoverCapabilityPipelineInputs(root, masterVersion).map((p) => [
@@ -217,14 +220,18 @@ export function loadFactoryCapabilityInputs(root: string, masterVersion: string)
       p,
     ]),
   );
-  const baselines = new Map(loadCanonicalBaselines(root, masterVersion).map((b) => [b.capabilityDir, b]));
+  const baselines = new Map(
+    loadCanonicalBaselines(root, masterVersion).map((b) => [b.capabilityDir, b]),
+  );
   for (const id of listCapabilitySourceIds(root, masterVersion)) {
     const b = baselines.get(id);
     porId.set(id, {
       capabilityId: id,
       master: {
         pipelineInput: pipelineInputs.get(id) ?? null,
-        ...(b ? { canonical: { baseline: b.baseline, rawText: b.rawText, rawBytes: b.rawBytes } } : {}),
+        ...(b
+          ? { canonical: { baseline: b.baseline, rawText: b.rawText, rawBytes: b.rawBytes } }
+          : {}),
       },
     });
   }
@@ -234,12 +241,19 @@ export function loadFactoryCapabilityInputs(root: string, masterVersion: string)
       | { masterVersion?: string; original?: { ref?: string }; text?: { ref?: string } | null }
       | undefined;
     if (!registration) continue;
-    if (registration.masterVersion && `v${registration.masterVersion}` !== masterVersion && registration.masterVersion !== masterVersion) continue;
+    if (
+      registration.masterVersion &&
+      `v${registration.masterVersion}` !== masterVersion &&
+      registration.masterVersion !== masterVersion
+    )
+      continue;
     const candidate = leerOpcional(join(dir, "candidate.json"));
     const acceptance = leerOpcional(join(dir, "canonical-acceptance.json"));
     const intake = {
       registration,
-      originalBytes: registration.original?.ref ? bytesOpcionales(join(dir, registration.original.ref)) : null,
+      originalBytes: registration.original?.ref
+        ? bytesOpcionales(join(dir, registration.original.ref))
+        : null,
       textBytes: registration.text?.ref ? bytesOpcionales(join(dir, registration.text.ref)) : null,
       ...(candidate !== undefined ? { candidate } : {}),
       ...(acceptance !== undefined ? { acceptance } : {}),
@@ -277,7 +291,8 @@ export function loadGenericCodeCorpus(root: string): { path: string; content: st
     }
   }
   for (const f of GENERIC_CODE_FILES) {
-    if (existsSync(join(root, f))) out.push({ path: f, content: readFileSync(join(root, f), "utf8") });
+    if (existsSync(join(root, f)))
+      out.push({ path: f, content: readFileSync(join(root, f), "utf8") });
   }
   return out;
 }

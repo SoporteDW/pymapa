@@ -43,7 +43,8 @@ const master = (() => {
   if (!m.ok) throw new Error("master inválido");
   return m.value;
 })();
-const readJson = (p: string) => JSON.parse(readFileSync(join(ROOT, p), "utf8")) as Record<string, unknown>;
+const readJson = (p: string) =>
+  JSON.parse(readFileSync(join(ROOT, p), "utf8")) as Record<string, unknown>;
 const registry = readJson(RUNTIME_EXTENSIONS_PATH);
 const engine = {
   semver: ENGINE_SEMVER,
@@ -84,24 +85,55 @@ function zip(files: Record<string, string>): Uint8Array {
   const local: number[] = [];
   const central: number[] = [];
   const u16 = (a: number[], v: number) => a.push(v & 255, (v >>> 8) & 255);
-  const u32 = (a: number[], v: number) => a.push(v & 255, (v >>> 8) & 255, (v >>> 16) & 255, (v >>> 24) & 255);
+  const u32 = (a: number[], v: number) =>
+    a.push(v & 255, (v >>> 8) & 255, (v >>> 16) & 255, (v >>> 24) & 255);
   let n = 0;
   for (const [name, content] of Object.entries(files)) {
     const data = enc.encode(content);
     const nb = enc.encode(name);
     const off = local.length;
     const crc = crc32(data);
-    u32(local, 0x04034b50); u16(local, 20); u16(local, 0); u16(local, 0); u16(local, 0); u16(local, 0);
-    u32(local, crc); u32(local, data.length); u32(local, data.length); u16(local, nb.length); u16(local, 0);
+    u32(local, 0x04034b50);
+    u16(local, 20);
+    u16(local, 0);
+    u16(local, 0);
+    u16(local, 0);
+    u16(local, 0);
+    u32(local, crc);
+    u32(local, data.length);
+    u32(local, data.length);
+    u16(local, nb.length);
+    u16(local, 0);
     local.push(...nb, ...data);
-    u32(central, 0x02014b50); u16(central, 20); u16(central, 20); u16(central, 0); u16(central, 0); u16(central, 0); u16(central, 0);
-    u32(central, crc); u32(central, data.length); u32(central, data.length); u16(central, nb.length);
-    u16(central, 0); u16(central, 0); u16(central, 0); u16(central, 0); u32(central, 0); u32(central, off);
+    u32(central, 0x02014b50);
+    u16(central, 20);
+    u16(central, 20);
+    u16(central, 0);
+    u16(central, 0);
+    u16(central, 0);
+    u16(central, 0);
+    u32(central, crc);
+    u32(central, data.length);
+    u32(central, data.length);
+    u16(central, nb.length);
+    u16(central, 0);
+    u16(central, 0);
+    u16(central, 0);
+    u16(central, 0);
+    u32(central, 0);
+    u32(central, off);
     central.push(...nb);
     n++;
   }
   const out = [...local, ...central];
-  u32(out, 0x06054b50); u16(out, 0); u16(out, 0); u16(out, n); u16(out, n); u32(out, central.length); u32(out, local.length); u16(out, 0);
+  u32(out, 0x06054b50);
+  u16(out, 0);
+  u16(out, 0);
+  u16(out, n);
+  u16(out, n);
+  u32(out, central.length);
+  u32(out, local.length);
+  u16(out, 0);
   return new Uint8Array(out);
 }
 const para = (t: string, style?: string) =>
@@ -118,7 +150,11 @@ const PARRAFOS: [string, string?][] = [
 ];
 const docXml = `<?xml version="1.0"?><w:document xmlns:w="x"><w:body>${PARRAFOS.map(([t, s]) => para(t, s)).join("")}</w:body></w:document>`;
 const stylesXml = `<?xml version="1.0"?><w:styles xmlns:w="x"><w:style w:styleId="Heading1"><w:name w:val="heading 1"/><w:pPr><w:outlineLvl w:val="0"/></w:pPr></w:style></w:styles>`;
-const DOCX = zip({ "[Content_Types].xml": "<Types/>", "word/document.xml": docXml, "word/styles.xml": stylesXml });
+const DOCX = zip({
+  "[Content_Types].xml": "<Types/>",
+  "word/document.xml": docXml,
+  "word/styles.xml": stylesXml,
+});
 const SYN_ID = "PC-90";
 
 function syntheticIntake() {
@@ -139,7 +175,10 @@ function syntheticIntake() {
   return { extraction, registration, textBytes, text: extraction.text as string };
 }
 
-function syntheticCandidate(reg: ReturnType<typeof syntheticIntake>["registration"], over: (c: Record<string, unknown>) => void = () => {}) {
+function syntheticCandidate(
+  reg: ReturnType<typeof syntheticIntake>["registration"],
+  over: (c: Record<string, unknown>) => void = () => {},
+) {
   const body: Record<string, unknown> = {
     candidateId: `CAND-${SYN_ID}-1`,
     capabilityId: SYN_ID,
@@ -148,14 +187,55 @@ function syntheticCandidate(reg: ReturnType<typeof syntheticIntake>["registratio
     producedBy: { method: "AI_ASSISTED", agent: "test" },
     baselineId: `${SYN_ID}-BASELINE-TEST`,
     historicalStatus: { marker: "FIXTURE-K4 · CERRADO", sourceLines: [7, 7] },
-    provenanceVocabulary: [{ code: "RV", label: "RECOVERED VERBATIM", meaning: "texto literal", sourceLines: [2, 2] }],
-    controlCounts: [{ label: "Condiciones de existencia", declared: 2, objectType: "CONDITION_OF_EXISTENCE", sourceLines: [3, 3] }],
+    provenanceVocabulary: [
+      { code: "RV", label: "RECOVERED VERBATIM", meaning: "texto literal", sourceLines: [2, 2] },
+    ],
+    controlCounts: [
+      {
+        label: "Condiciones de existencia",
+        declared: 2,
+        objectType: "CONDITION_OF_EXISTENCE",
+        sourceLines: [3, 3],
+      },
+    ],
     verbatimKeys: ["text"],
     items: [
-      { key: "CE1", classification: "FINAL_APPROVED", objectType: "CONDITION_OF_EXISTENCE", sourceId: "CE1", fields: { text: "Existe un registro sintético." }, sourceLines: [4, 4], approvalEvidence: { text: "FIXTURE-K4 · CERRADO", sourceLines: [7, 7] } },
-      { key: "CE2", classification: "FINAL_APPROVED", objectType: "CONDITION_OF_EXISTENCE", sourceId: "CE2", fields: { text: "Existe una revisión sintética." }, sourceLines: [5, 5], approvalEvidence: { text: "FIXTURE-K4 · CERRADO", sourceLines: [7, 7] } },
-      { key: "CE2-DRAFT", classification: "SUPERSEDED", objectType: "CONDITION_OF_EXISTENCE", sourceId: null, fields: { text: "Existe una revisión preliminar." }, sourceLines: [6, 6], supersededBy: "CE2" },
-      { key: "NE-1", classification: "NOT_EXPLICIT", objectType: "GAP", sourceId: null, fields: {}, sourceLines: null, statement: "La fuente no declara umbral de suficiencia." },
+      {
+        key: "CE1",
+        classification: "FINAL_APPROVED",
+        objectType: "CONDITION_OF_EXISTENCE",
+        sourceId: "CE1",
+        fields: { text: "Existe un registro sintético." },
+        sourceLines: [4, 4],
+        approvalEvidence: { text: "FIXTURE-K4 · CERRADO", sourceLines: [7, 7] },
+      },
+      {
+        key: "CE2",
+        classification: "FINAL_APPROVED",
+        objectType: "CONDITION_OF_EXISTENCE",
+        sourceId: "CE2",
+        fields: { text: "Existe una revisión sintética." },
+        sourceLines: [5, 5],
+        approvalEvidence: { text: "FIXTURE-K4 · CERRADO", sourceLines: [7, 7] },
+      },
+      {
+        key: "CE2-DRAFT",
+        classification: "SUPERSEDED",
+        objectType: "CONDITION_OF_EXISTENCE",
+        sourceId: null,
+        fields: { text: "Existe una revisión preliminar." },
+        sourceLines: [6, 6],
+        supersededBy: "CE2",
+      },
+      {
+        key: "NE-1",
+        classification: "NOT_EXPLICIT",
+        objectType: "GAP",
+        sourceId: null,
+        fields: {},
+        sourceLines: null,
+        statement: "La fuente no declara umbral de suficiencia.",
+      },
     ],
   };
   over(body);
@@ -195,8 +275,12 @@ describe("Factory dry-run sobre artefactos existentes", () => {
     const serial = JSON.stringify(d);
     expect(serial).not.toMatch(/"reviewer"|"reviewedAt"|"signature"|"approvedBy"/);
     expect(d.historicalClosure.marker).toBe("OP02-K4-v1.0 · K4-VALIDATED · CLOSED");
-    expect(d.identity.rawOriginal.sha256).toBe("646fc9d1e7fc7df4825bf16a82687387437ed333204ffaff4c620a3b6ebb3da5");
-    expect(d.identity.rawText.sha256).toBe("db27a2976db128e87cbcfa9f2df1a40f461ff91cb0eb8b07110181b5c3b34800");
+    expect(d.identity.rawOriginal.sha256).toBe(
+      "646fc9d1e7fc7df4825bf16a82687387437ed333204ffaff4c620a3b6ebb3da5",
+    );
+    expect(d.identity.rawText.sha256).toBe(
+      "db27a2976db128e87cbcfa9f2df1a40f461ff91cb0eb8b07110181b5c3b34800",
+    );
     expect(d.transcriptionCorrections.map((t) => t.id)).toEqual(["TC-OP02-01"]);
     expect(d.runtimeExtensions.map((x) => `${x.gapId}:${x.status}`)).toEqual([
       "GRE-OP02-01:CLOSED",
@@ -204,7 +288,14 @@ describe("Factory dry-run sobre artefactos existentes", () => {
       "GRE-OP02-03:CLOSED",
       "GRE-OP02-04:CLOSED",
     ]);
-    expect(d.notExplicit).toEqual(["NE-OP02-01", "NE-OP02-02", "NE-OP02-03", "NE-OP02-04", "NE-OP02-05", "NE-OP02-06"]);
+    expect(d.notExplicit).toEqual([
+      "NE-OP02-01",
+      "NE-OP02-02",
+      "NE-OP02-03",
+      "NE-OP02-04",
+      "NE-OP02-05",
+      "NE-OP02-06",
+    ]);
     expect(d.governedBacklog).toEqual(["A-OP02-01", "A-OP02-02", "A-OP02-03"]);
     expect(d.engine.current).toBe("0.2.0");
     expect(d.engine.required).toBe("0.2.0");
@@ -227,7 +318,22 @@ describe("Factory dry-run sobre artefactos existentes", () => {
     expect(r.manifest.signal).toBe("AUTHORITATIVE_SOURCE_REQUIRED");
     expect(r.batchIssues).toEqual([]);
     for (const e of r.manifest.entries) {
-      for (const k of ["capabilityId", "domainId", "rawSource", "extraction", "canonical", "provenance", "gaps", "transcriptionCorrections", "runtimeCompatibility", "fixtures", "governance", "publication", "state", "outcome"])
+      for (const k of [
+        "capabilityId",
+        "domainId",
+        "rawSource",
+        "extraction",
+        "canonical",
+        "provenance",
+        "gaps",
+        "transcriptionCorrections",
+        "runtimeCompatibility",
+        "fixtures",
+        "governance",
+        "publication",
+        "state",
+        "outcome",
+      ])
         expect(e).toHaveProperty(k);
       expect(FACTORY_STATES).toContain(e.state);
     }
@@ -259,7 +365,9 @@ describe("Aislamiento por capacidad", () => {
   it("corromper la baseline de OP-02 → OP-02 FAIL; OP-01 idéntico", () => {
     const caps = loadFactoryCapabilityInputs(ROOT, VERSION).map((c) => {
       if (c.capabilityId !== golden.capabilityId && c.master?.canonical) {
-        const b = clone(c.master.canonical.baseline) as { objects: { fields: Record<string, unknown> }[] };
+        const b = clone(c.master.canonical.baseline) as {
+          objects: { fields: Record<string, unknown> }[];
+        };
         b.objects[0]!.fields = { ...b.objects[0]!.fields, text: "texto inventado" };
         return { ...c, master: { ...c.master, canonical: { ...c.master.canonical, baseline: b } } };
       }
@@ -274,7 +382,16 @@ describe("Aislamiento por capacidad", () => {
   it("fuente ejecutable inválida (excepción) queda aislada", () => {
     const caps = loadFactoryCapabilityInputs(ROOT, VERSION).map((c) =>
       c.master?.pipelineInput && c.capabilityId !== golden.capabilityId
-        ? { ...c, master: { ...c.master, pipelineInput: { ...c.master.pipelineInput, source: { capability: { id: c.capabilityId } } } } }
+        ? {
+            ...c,
+            master: {
+              ...c.master,
+              pipelineInput: {
+                ...c.master.pipelineInput,
+                source: { capability: { id: c.capabilityId } },
+              },
+            },
+          }
         : c,
     );
     const r = runFactoryBatch(batchInput({ capabilities: caps }));
@@ -289,17 +406,33 @@ describe("Aislamiento por capacidad", () => {
       if (!pp) return c;
       const pack = clone(pp.pack) as Record<string, unknown>;
       pack["governanceNote"] = "alterado";
-      return { ...c, master: { ...c.master!, pipelineInput: { ...c.master!.pipelineInput!, publishedPack: { ...pp, pack } } } };
+      return {
+        ...c,
+        master: {
+          ...c.master!,
+          pipelineInput: { ...c.master!.pipelineInput!, publishedPack: { ...pp, pack } },
+        },
+      };
     });
     const r = runFactoryBatch(batchInput({ capabilities: caps }));
     expect(byId(r, "OP-01").outcome).toBe("FAIL");
-    expect(byId(r, "OP-01").checks.find((c) => c.check === "GOLDEN_REGRESSION")?.status).toBe("FAIL");
+    expect(byId(r, "OP-01").checks.find((c) => c.check === "GOLDEN_REGRESSION")?.status).toBe(
+      "FAIL",
+    );
     expect(byId(r, "OP-02").outcome).toBe(op02.outcome);
   });
 
   it("dossier en disco desactualizado → REVIEW, no FAIL, y no READY_FOR_PUBLICATION", () => {
     const caps = loadFactoryCapabilityInputs(ROOT, VERSION).map((c) =>
-      c.governanceEvidenceOnDisk ? { ...c, governanceEvidenceOnDisk: { ...(c.governanceEvidenceOnDisk as object), checksum: `sha256:${"0".repeat(64)}` } } : c,
+      c.governanceEvidenceOnDisk
+        ? {
+            ...c,
+            governanceEvidenceOnDisk: {
+              ...(c.governanceEvidenceOnDisk as object),
+              checksum: `sha256:${"0".repeat(64)}`,
+            },
+          }
+        : c,
     );
     const r = runFactoryBatch(batchInput({ capabilities: caps }));
     const e = byId(r, "OP-02");
@@ -312,16 +445,28 @@ describe("Aislamiento por capacidad", () => {
 /* ===================== Registro de extensiones ===================== */
 describe("Registro genérico de extensiones runtime", () => {
   it("registro vigente válido y cerrado por cambios reales del engine 0.2.0", () => {
-    const v = validateRuntimeExtensionRegistry({ registry, engineSemver: ENGINE_SEMVER, engineChangeIds: engine.changeIds });
+    const v = validateRuntimeExtensionRegistry({
+      registry,
+      engineSemver: ENGINE_SEMVER,
+      engineChangeIds: engine.changeIds,
+    });
     expect(v.issues).toEqual([]);
-    expect(v.registry?.entries.every((e) => e.status === "CLOSED" && e.closedInEngineVersion === "0.2.0")).toBe(true);
+    expect(
+      v.registry?.entries.every(
+        (e) => e.status === "CLOSED" && e.closedInEngineVersion === "0.2.0",
+      ),
+    ).toBe(true);
   });
 
   it("cierre en una versión de engine futura → inválido", () => {
     const r = clone(registry) as { entries: { closedInEngineVersion: string }[] };
     r.entries[0]!.closedInEngineVersion = "9.0.0";
     delete (r as Record<string, unknown>)["checksum"];
-    const v = validateRuntimeExtensionRegistry({ registry: { ...r, checksum: computeSelfChecksum(r) }, engineSemver: ENGINE_SEMVER, engineChangeIds: engine.changeIds });
+    const v = validateRuntimeExtensionRegistry({
+      registry: { ...r, checksum: computeSelfChecksum(r) },
+      engineSemver: ENGINE_SEMVER,
+      engineChangeIds: engine.changeIds,
+    });
     expect(v.ok).toBe(false);
   });
 
@@ -331,7 +476,9 @@ describe("Registro genérico de extensiones runtime", () => {
     delete r.entries[0]!["closedInEngineVersion"];
     r.entries[0]!["publicationBlockingWhileOpen"] = true;
     delete (r as Record<string, unknown>)["checksum"];
-    const res = runFactoryBatch(batchInput({ extensionRegistry: { ...r, checksum: computeSelfChecksum(r) } }));
+    const res = runFactoryBatch(
+      batchInput({ extensionRegistry: { ...r, checksum: computeSelfChecksum(r) } }),
+    );
     const e = byId(res, "OP-02");
     expect(e.outcome).not.toBe("PASS");
     expect(e.state).not.toBe("READY_FOR_PUBLICATION");
@@ -343,7 +490,9 @@ describe("Registro genérico de extensiones runtime", () => {
     const r = clone(registry) as { entries: { occurrences: unknown[] }[] };
     r.entries[1]!.occurrences = [];
     delete (r as Record<string, unknown>)["checksum"];
-    const res = runFactoryBatch(batchInput({ extensionRegistry: { ...r, checksum: computeSelfChecksum(r) } }));
+    const res = runFactoryBatch(
+      batchInput({ extensionRegistry: { ...r, checksum: computeSelfChecksum(r) } }),
+    );
     const x = byId(res, "OP-02").reasons.find((z) => z.code === "RUNTIME_EXTENSION_UNREGISTERED");
     expect(x?.severity).toBe("REVIEW");
     expect(x?.objectKey).toBe("GRE-OP02-02");
@@ -353,7 +502,9 @@ describe("Registro genérico de extensiones runtime", () => {
 /* ========================= Anti-branching ========================= */
 describe("Detección de branching específico de capacidad", () => {
   it("el código genérico real está limpio", () => {
-    expect(detectCapabilitySpecificBranching(loadGenericCodeCorpus(ROOT), ["OP-01", "OP-02"])).toEqual([]);
+    expect(
+      detectCapabilitySpecificBranching(loadGenericCodeCorpus(ROOT), ["OP-01", "OP-02"]),
+    ).toEqual([]);
   });
 
   it("detecta comparaciones y literales por identificador; ignora comentarios", () => {
@@ -372,9 +523,14 @@ describe("Detección de branching específico de capacidad", () => {
   });
 
   it("branching inyectado en el corpus → CAPABILITY_BRANCHING FAIL para la capacidad afectada", () => {
-    const corpus = [...loadGenericCodeCorpus(ROOT), { path: "inyectado.ts", content: 'if (id === "OP-02") hack();' }];
+    const corpus = [
+      ...loadGenericCodeCorpus(ROOT),
+      { path: "inyectado.ts", content: 'if (id === "OP-02") hack();' },
+    ];
     const r = runFactoryBatch(batchInput({ codeCorpus: corpus }));
-    expect(byId(r, "OP-02").checks.find((c) => c.check === "CAPABILITY_BRANCHING")?.status).toBe("FAIL");
+    expect(byId(r, "OP-02").checks.find((c) => c.check === "CAPABILITY_BRANCHING")?.status).toBe(
+      "FAIL",
+    );
     expect(byId(r, "OP-02").outcome).toBe("FAIL");
   });
 });
@@ -392,13 +548,30 @@ describe("Registro de fuente raw", () => {
   });
 
   it("verificación: re-extracción byte a byte; original o texto alterados → FAIL", () => {
-    const ok = verifyRawSourceRegistration({ registration: s.registration, expectedCapabilityId: SYN_ID, originalBytes: DOCX, textBytes: s.textBytes });
+    const ok = verifyRawSourceRegistration({
+      registration: s.registration,
+      expectedCapabilityId: SYN_ID,
+      originalBytes: DOCX,
+      textBytes: s.textBytes,
+    });
     expect(ok.ok).toBe(true);
     expect(ok.reextractionVerified).toBe(true);
     const otroOriginal = zip({ "word/document.xml": docXml.replace("sintético.", "alterado.") });
-    expect(verifyRawSourceRegistration({ registration: s.registration, originalBytes: otroOriginal, textBytes: s.textBytes }).ok).toBe(false);
+    expect(
+      verifyRawSourceRegistration({
+        registration: s.registration,
+        originalBytes: otroOriginal,
+        textBytes: s.textBytes,
+      }).ok,
+    ).toBe(false);
     const otroTexto = new TextEncoder().encode(s.text.replace("sintético", "editado"));
-    expect(verifyRawSourceRegistration({ registration: s.registration, originalBytes: DOCX, textBytes: otroTexto }).ok).toBe(false);
+    expect(
+      verifyRawSourceRegistration({
+        registration: s.registration,
+        originalBytes: DOCX,
+        textBytes: otroTexto,
+      }).ok,
+    ).toBe(false);
   });
 
   it("PDF sin herramienta de extracción → EXTRACTOR_UNAVAILABLE explícito (nunca texto inventado)", () => {
@@ -414,7 +587,12 @@ describe("Frontera de extracción de candidatos", () => {
   const s = syntheticIntake();
 
   it("candidato literal válido; IA → REVIEW (dato candidato hasta aceptación)", () => {
-    const v = validateExtractionCandidate({ candidate: syntheticCandidate(s.registration), registration: s.registration, rawText: s.text, extensionRegistry: null });
+    const v = validateExtractionCandidate({
+      candidate: syntheticCandidate(s.registration),
+      registration: s.registration,
+      rawText: s.text,
+      extensionRegistry: null,
+    });
     expect(v.ok).toBe(true);
     expect(v.issues.map((i) => i.code)).toEqual(["AI_ASSISTED_EXTRACTION"]);
     expect(v.summary?.notExplicitCount).toBe(1);
@@ -422,17 +600,31 @@ describe("Frontera de extracción de candidatos", () => {
 
   it("texto no literal → NOT_VERBATIM FAIL", () => {
     const c = syntheticCandidate(s.registration, (b) => {
-      (b["items"] as { fields: Record<string, string> }[])[0]!.fields = { text: "Existe un registro mejorado." };
+      (b["items"] as { fields: Record<string, string> }[])[0]!.fields = {
+        text: "Existe un registro mejorado.",
+      };
     });
-    const v = validateExtractionCandidate({ candidate: c, registration: s.registration, rawText: s.text, extensionRegistry: null });
+    const v = validateExtractionCandidate({
+      candidate: c,
+      registration: s.registration,
+      rawText: s.text,
+      extensionRegistry: null,
+    });
     expect(v.issues.some((i) => i.code === "NOT_VERBATIM" && i.severity === "FAIL")).toBe(true);
   });
 
   it("rellenar silencio NOT_EXPLICIT → SILENCE_FILLED FAIL", () => {
     const c = syntheticCandidate(s.registration, (b) => {
-      (b["items"] as { fields: Record<string, string> }[])[3]!.fields = { text: "Existe un registro sintético." };
+      (b["items"] as { fields: Record<string, string> }[])[3]!.fields = {
+        text: "Existe un registro sintético.",
+      };
     });
-    const v = validateExtractionCandidate({ candidate: c, registration: s.registration, rawText: s.text, extensionRegistry: null });
+    const v = validateExtractionCandidate({
+      candidate: c,
+      registration: s.registration,
+      rawText: s.text,
+      extensionRegistry: null,
+    });
     expect(v.issues.some((i) => i.code === "SILENCE_FILLED")).toBe(true);
   });
 
@@ -441,9 +633,21 @@ describe("Frontera de extracción de candidatos", () => {
       const items = b["items"] as Record<string, unknown>[];
       delete items[1]!["approvalEvidence"];
       items.splice(2, 1);
-      items.push({ key: "CE3", classification: "FINAL_APPROVED", objectType: "CONDITION_OF_EXISTENCE", sourceId: null, fields: { text: "Existe una revisión preliminar." }, sourceLines: [6, 6] });
+      items.push({
+        key: "CE3",
+        classification: "FINAL_APPROVED",
+        objectType: "CONDITION_OF_EXISTENCE",
+        sourceId: null,
+        fields: { text: "Existe una revisión preliminar." },
+        sourceLines: [6, 6],
+      });
     });
-    const v = validateExtractionCandidate({ candidate: c, registration: s.registration, rawText: s.text, extensionRegistry: null });
+    const v = validateExtractionCandidate({
+      candidate: c,
+      registration: s.registration,
+      rawText: s.text,
+      extensionRegistry: null,
+    });
     const codes = v.issues.map((i) => i.code);
     expect(codes).toContain("APPROVAL_EVIDENCE_MISSING");
     expect(codes).toContain("CONTROL_COUNT_MISMATCH");
@@ -451,20 +655,57 @@ describe("Frontera de extracción de candidatos", () => {
 
   it("GENERIC_RUNTIME_EXTENSION_REQUIRED no registrada → REVIEW accionable", () => {
     const c = syntheticCandidate(s.registration, (b) => {
-      (b["items"] as unknown[]).push({ key: "GRE-1", classification: "GENERIC_RUNTIME_EXTENSION_REQUIRED", objectType: "GAP", sourceId: null, fields: {}, sourceLines: [5, 5], statement: "constructo no soportado", semanticCapability: "SYNTHETIC_CONSTRUCT", affectedObjectKeys: ["CE2"], publicationBlocking: true });
+      (b["items"] as unknown[]).push({
+        key: "GRE-1",
+        classification: "GENERIC_RUNTIME_EXTENSION_REQUIRED",
+        objectType: "GAP",
+        sourceId: null,
+        fields: {},
+        sourceLines: [5, 5],
+        statement: "constructo no soportado",
+        semanticCapability: "SYNTHETIC_CONSTRUCT",
+        affectedObjectKeys: ["CE2"],
+        publicationBlocking: true,
+      });
     });
-    const v = validateExtractionCandidate({ candidate: c, registration: s.registration, rawText: s.text, extensionRegistry: null });
-    expect(v.issues.find((i) => i.code === "RUNTIME_EXTENSION_UNREGISTERED")?.message).toMatch(/runtime-extensions\.json/);
+    const v = validateExtractionCandidate({
+      candidate: c,
+      registration: s.registration,
+      rawText: s.text,
+      extensionRegistry: null,
+    });
+    expect(v.issues.find((i) => i.code === "RUNTIME_EXTENSION_UNREGISTERED")?.message).toMatch(
+      /runtime-extensions\.json/,
+    );
   });
 
   it("promoción: sin aceptación / aceptación sobre otro checksum → bloqueada; ACCEPTED vigente → baseline", () => {
     const cand = syntheticCandidate(s.registration);
-    const v = validateExtractionCandidate({ candidate: cand, registration: s.registration, rawText: s.text, extensionRegistry: null });
-    const base = { validation: v, registration: s.registration, rawRef: "raw/sintetica.txt", sourceRef: "source.json" };
+    const v = validateExtractionCandidate({
+      candidate: cand,
+      registration: s.registration,
+      rawText: s.text,
+      extensionRegistry: null,
+    });
+    const base = {
+      validation: v,
+      registration: s.registration,
+      rawRef: "raw/sintetica.txt",
+      sourceRef: "source.json",
+    };
     expect(promoteCandidateToCanonicalBaseline({ ...base, acceptance: undefined }).ok).toBe(false);
-    const acc = { capabilityId: SYN_ID, candidateChecksum: `sha256:${"1".repeat(64)}`, decision: "ACCEPTED", reviewer: "test", reviewedAt: "2026-01-01" };
+    const acc = {
+      capabilityId: SYN_ID,
+      candidateChecksum: `sha256:${"1".repeat(64)}`,
+      decision: "ACCEPTED",
+      reviewer: "test",
+      reviewedAt: "2026-01-01",
+    };
     expect(promoteCandidateToCanonicalBaseline({ ...base, acceptance: acc }).ok).toBe(false);
-    const p = promoteCandidateToCanonicalBaseline({ ...base, acceptance: { ...acc, candidateChecksum: cand.checksum } });
+    const p = promoteCandidateToCanonicalBaseline({
+      ...base,
+      acceptance: { ...acc, candidateChecksum: cand.checksum },
+    });
     expect(p.ok).toBe(true);
     if (p.ok) {
       expect(p.baseline.objects.map((o) => o.key)).toEqual(["CE1", "CE2"]);
@@ -477,11 +718,16 @@ describe("Frontera de extracción de candidatos", () => {
 /* ===================== Intake en el lote (sintético) ===================== */
 describe("Estados independientes de intake en el mismo lote", () => {
   const s = syntheticIntake();
-  const intake = (extra: Partial<FactoryCapabilityInput["intake"]> = {}): FactoryCapabilityInput => ({
+  const intake = (
+    extra: Partial<FactoryCapabilityInput["intake"]> = {},
+  ): FactoryCapabilityInput => ({
     capabilityId: SYN_ID,
     intake: { registration: s.registration, originalBytes: DOCX, textBytes: s.textBytes, ...extra },
   });
-  const run = (c: FactoryCapabilityInput) => runFactoryBatch(batchInput({ capabilities: [...loadFactoryCapabilityInputs(ROOT, VERSION), c] }));
+  const run = (c: FactoryCapabilityInput) =>
+    runFactoryBatch(
+      batchInput({ capabilities: [...loadFactoryCapabilityInputs(ROOT, VERSION), c] }),
+    );
   const base = runFactoryBatch(batchInput());
 
   it("registrado sin candidato → REGISTERED / REVIEW; OP-01 y OP-02 sin cambios", () => {
@@ -494,7 +740,9 @@ describe("Estados independientes de intake en el mismo lote", () => {
   });
 
   it("candidato válido → CANONICAL_REVIEW_REQUIRED; candidato no literal → FAIL aislado", () => {
-    expect(byId(run(intake({ candidate: syntheticCandidate(s.registration) })), SYN_ID).state).toBe("CANONICAL_REVIEW_REQUIRED");
+    expect(byId(run(intake({ candidate: syntheticCandidate(s.registration) })), SYN_ID).state).toBe(
+      "CANONICAL_REVIEW_REQUIRED",
+    );
     const malo = syntheticCandidate(s.registration, (b) => {
       (b["items"] as { fields: Record<string, string> }[])[0]!.fields = { text: "inventado" };
     });
@@ -504,7 +752,9 @@ describe("Estados independientes de intake en el mismo lote", () => {
   });
 
   it("original alterado → RAW_REGISTRATION FAIL", () => {
-    const r = run(intake({ originalBytes: zip({ "word/document.xml": docXml.replace("CERRADO", "ABIERTO") }) }));
+    const r = run(
+      intake({ originalBytes: zip({ "word/document.xml": docXml.replace("CERRADO", "ABIERTO") }) }),
+    );
     expect(byId(r, SYN_ID).checks.find((c) => c.check === "RAW_REGISTRATION")?.status).toBe("FAIL");
   });
 
