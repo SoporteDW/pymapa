@@ -365,7 +365,8 @@ describe("Detección de branching específico de capacidad", () => {
       ],
       ["XX-01"],
     );
-    expect(hits.map((h) => h.path).sort()).toEqual(["a.ts", "b.ts", "b.ts"].slice(0, hits.length).sort());
+    expect(hits.some((h) => h.path === "a.ts")).toBe(true);
+    expect(hits.some((h) => h.path === "b.ts" && h.identifier === "XX-01")).toBe(true);
     expect(hits.some((h) => h.path === "c.ts")).toBe(false);
     expect(stripComments('a // "x"\n/* "y" */b').includes('"x"')).toBe(false);
   });
