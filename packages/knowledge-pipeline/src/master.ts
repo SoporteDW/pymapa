@@ -121,6 +121,11 @@ export const masterIndexSchema = z.object({
         /** Ruta de la sección fuente; null cuando la fuente no está disponible. */
         sourceRef: z.string().nullable(),
         sourceVersion: z.string().nullable(),
+        /**
+         * Baseline canónica completa (todos los objetos de la fuente con anclaje
+         * literal). Opcional: una capacidad puede no tenerla (OP-01 Golden).
+         */
+        canonicalBaselineRef: z.string().optional(),
       }),
     )
     .min(1),

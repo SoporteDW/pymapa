@@ -74,6 +74,8 @@ for (const version of listMasterVersions(ROOT)) {
     for (const id of readdirSync(capabilitiesDir)) {
       const ruta = join(capabilitiesDir, id, "source.json");
       if (existsSync(ruta)) sellar(ruta);
+      const baseline = join(capabilitiesDir, id, "canonical-baseline.json");
+      if (existsSync(baseline)) sellar(baseline);
     }
   }
 

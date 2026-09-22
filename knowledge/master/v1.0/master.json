@@ -50,11 +50,11 @@
         "closure": "EC 4/4"
       }
     ],
-    "materializedSourceCount": 1,
-    "unrecoveredCapabilityCount": 30,
+    "materializedSourceCount": 2,
+    "unrecoveredCapabilityCount": 29,
     "unrecoveredCapabilityStatus": "APPROVED_HISTORY_CONFIRMED",
     "unrecoveredRecoveryClass": "SOURCE_CONTENT_NOT_RECOVERED",
-    "note": "K4-VALIDATED ≠ SOURCE_READY. El cierre histórico 31/31 está confirmado; los identificadores, nombres y cuerpos de las 30 capacidades no materializadas no están recuperados y no se infieren. Detalle en transversal/registries/taxonomy-registry-6x31.json."
+    "note": "K4-VALIDATED ≠ SOURCE_READY. El cierre histórico 31/31 está confirmado. OP-01 (Golden) y OP-02 (M2-OP02-01, fuente OP02-K4-v1.0 · K4-VALIDATED · CLOSED) tienen fuente materializada; los identificadores, nombres y cuerpos de las 29 capacidades restantes no están recuperados y no se infieren. transversal/registries/taxonomy-registry-6x31.json es el snapshot histórico de M2-SOURCE (1 materializada) y no se modifica."
   },
   "transversal": {
     "ref": "transversal/index.json",
@@ -100,7 +100,16 @@
       "sourceAvailability": "SOURCE_READY",
       "sourceRef": "capabilities/OP-01/source.json",
       "sourceVersion": "1.0"
+    },
+    {
+      "id": "OP-02",
+      "domainId": "OP",
+      "name": "Planificar, coordinar y ejecutar procesos y recursos de manera consistente",
+      "sourceAvailability": "SOURCE_READY",
+      "sourceRef": "capabilities/OP-02/source.json",
+      "sourceVersion": "1.0",
+      "canonicalBaselineRef": "capabilities/OP-02/canonical-baseline.json"
     }
   ],
-  "checksum": "sha256:acecc90a556bd15a575084565b0fd4ed894f9ea60d413063b83865ea1ad327a9"
+  "checksum": "sha256:0dd115c856b2163831f7e1d92b28d2c074d855792ac910e5268bde248a751f23"
 }

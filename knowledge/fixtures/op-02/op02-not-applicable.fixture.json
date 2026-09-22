@@ -1,0 +1,40 @@
+{
+  "fixtureId": "OP02-FX-NOT-APPLICABLE",
+  "capabilityId": "OP-02",
+  "packId": "op-02",
+  "packVersion": "1.0.0",
+  "kind": "SOURCE_DERIVED",
+  "description": "NA · Variable legítimamente no aplicable al caso/contexto: exige razón contextual y no se convierte en brecha.",
+  "sourceReference": "OP-02_Completo · OP02-K4-v1.0 · K4-VALIDATED · CLOSED",
+  "knowledgeVersionId": "fixture-kv-op02-1.0.0",
+  "observations": [
+    {
+      "id": "na1",
+      "variableRef": "VA06",
+      "acquisitionRef": "P1-OP02-01",
+      "knowledgeState": "NOT_APPLICABLE",
+      "semanticValue": null,
+      "sourceResponseId": "resp-na1",
+      "respondentId": "respondent-1",
+      "evidenceIds": [],
+      "recordedAt": "2026-01-01T00:00:00.000Z",
+      "notApplicableReason": "Fixture: el caso de prueba no presenta dependencias operativas entre actividades."
+    }
+  ],
+  "expected": {
+    "outcome": "PASS",
+    "variableStates": [
+      {
+        "variableRef": "VA06",
+        "state": "NOT_APPLICABLE",
+        "semanticValue": null
+      }
+    ],
+    "contradictionVariableRefs": [],
+    "noConfirmedFindings": true,
+    "findingCandidateRefs": [
+      "OP02-HF04"
+    ],
+    "needsReview": true
+  }
+}

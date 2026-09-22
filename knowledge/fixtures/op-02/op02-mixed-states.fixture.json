@@ -1,0 +1,71 @@
+{
+  "fixtureId": "OP02-FX-MIXED-STATES",
+  "capabilityId": "OP-02",
+  "packId": "op-02",
+  "packVersion": "1.0.0",
+  "kind": "ARCHITECTURE_RUNTIME",
+  "description": "Estados mixtos en P1-OP02-01: UNKNOWN, NOT_APPLICABLE y KNOWN coexisten y se preservan por variable.",
+  "knowledgeVersionId": "fixture-kv-op02-1.0.0",
+  "observations": [
+    {
+      "id": "m1",
+      "variableRef": "VA01",
+      "acquisitionRef": "P1-OP02-01",
+      "knowledgeState": "UNKNOWN",
+      "semanticValue": null,
+      "sourceResponseId": "resp-m1",
+      "respondentId": "respondent-1",
+      "evidenceIds": [],
+      "recordedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "m2",
+      "variableRef": "VA02",
+      "acquisitionRef": "P1-OP02-01",
+      "knowledgeState": "KNOWN",
+      "semanticValue": "Fixture: se atiende primero lo que pide el cliente más antiguo.",
+      "sourceResponseId": "resp-m2",
+      "respondentId": "respondent-1",
+      "evidenceIds": [],
+      "recordedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "m3",
+      "variableRef": "VA03",
+      "acquisitionRef": "P1-OP02-01",
+      "knowledgeState": "NOT_APPLICABLE",
+      "semanticValue": null,
+      "sourceResponseId": "resp-m3",
+      "respondentId": "respondent-1",
+      "evidenceIds": [],
+      "recordedAt": "2026-01-01T00:00:00.000Z",
+      "notApplicableReason": "Fixture: el caso no utiliza recursos compartidos."
+    }
+  ],
+  "expected": {
+    "outcome": "NEEDS_GOVERNANCE_REVIEW",
+    "variableStates": [
+      {
+        "variableRef": "VA01",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      },
+      {
+        "variableRef": "VA02",
+        "state": "KNOWN"
+      },
+      {
+        "variableRef": "VA03",
+        "state": "NOT_APPLICABLE",
+        "semanticValue": null
+      }
+    ],
+    "contradictionVariableRefs": [],
+    "noConfirmedFindings": true,
+    "findingCandidateRefs": [
+      "OP02-HF01",
+      "OP02-HF03A"
+    ],
+    "needsReview": true
+  }
+}

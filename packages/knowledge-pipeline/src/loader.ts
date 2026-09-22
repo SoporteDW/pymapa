@@ -137,3 +137,39 @@ export function loadTransversalRegistries(
       return { ref: `${TRANSVERSAL_DIR}/registries/${f}`, raw, checksum: computeSelfChecksum(raw) };
     });
 }
+
+/**
+ * Baselines canónicas por descubrimiento de directorio:
+ * capabilities/<id>/canonical-baseline.json + su transcripción raw declarada.
+ * Sin lista de capacidades: cualquier capacidad que la traiga se valida igual.
+ */
+export function loadCanonicalBaselines(
+  root: string,
+  masterVersion: string,
+): {
+  capabilityDir: string;
+  baseline: unknown;
+  rawText: string;
+  rawBytes: Uint8Array;
+  source: unknown | undefined;
+}[] {
+  const base = join(root, MASTER_DIR, masterVersion, "capabilities");
+  return listCapabilitySourceIds(root, masterVersion)
+    .filter((id) => existsSync(join(base, id, "canonical-baseline.json")))
+    .map((id) => {
+      const baseline = leerJson(join(base, id, "canonical-baseline.json")) as {
+        rawSource?: { ref?: string };
+      };
+      const ref = baseline.rawSource?.ref ?? "";
+      const rutaRaw = join(base, id, ref);
+      const rawBytes = ref && existsSync(rutaRaw) ? readFileSync(rutaRaw) : new Uint8Array();
+      const rutaFuente = join(base, id, "source.json");
+      return {
+        capabilityDir: id,
+        baseline,
+        rawText: new TextDecoder("utf-8").decode(rawBytes),
+        rawBytes,
+        source: existsSync(rutaFuente) ? leerJson(rutaFuente) : undefined,
+      };
+    });
+}

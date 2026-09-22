@@ -1,0 +1,44 @@
+{
+  "fixtureId": "OP02-FX-CONTRADICTORY",
+  "capabilityId": "OP-02",
+  "packId": "op-02",
+  "packVersion": "1.0.0",
+  "kind": "ARCHITECTURE_RUNTIME",
+  "description": "CONTRA · contradicción material declarada sobre VA07: se preserva, no se promedia ni se resuelve por jerarquía.",
+  "knowledgeVersionId": "fixture-kv-op02-1.0.0",
+  "observations": [
+    {
+      "id": "c1",
+      "variableRef": "VA07",
+      "acquisitionRef": "P1-OP02-02",
+      "knowledgeState": "CONTRADICTORY",
+      "semanticValue": null,
+      "sourceResponseId": "resp-c1",
+      "respondentId": "respondent-2",
+      "evidenceIds": [],
+      "recordedAt": "2026-01-01T00:00:00.000Z",
+      "conflictingObservationIds": [
+        "obs-a",
+        "obs-b"
+      ]
+    }
+  ],
+  "expected": {
+    "outcome": "PASS",
+    "variableStates": [
+      {
+        "variableRef": "VA07",
+        "state": "CONTRADICTORY",
+        "semanticValue": null
+      }
+    ],
+    "contradictionVariableRefs": [
+      "VA07"
+    ],
+    "noConfirmedFindings": true,
+    "findingCandidateRefs": [
+      "OP02-HF05"
+    ],
+    "needsReview": true
+  }
+}

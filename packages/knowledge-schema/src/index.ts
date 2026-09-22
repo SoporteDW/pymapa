@@ -19,7 +19,12 @@ export type KnowledgeState = (typeof KNOWLEDGE_STATES)[number];
 /** Marca explícita para semántica ausente en el material gobernado. */
 export const NOT_EXPLICIT = "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER" as const;
 
-export const criticalitySchema = z.enum(["CRITICAL", "IMPORTANT", "COMPLEMENTARY"]);
+/**
+ * CONTEXT_DEPENDENT (extensión genérica M2-OP02-01): la fuente declara la
+ * criticidad como propiedad contextual del caso, sin valor fijo por variable.
+ * El runtime no la resuelve: no es un nivel ordenable.
+ */
+export const criticalitySchema = z.enum(["CRITICAL", "IMPORTANT", "COMPLEMENTARY", "CONTEXT_DEPENDENT"]);
 export const evidenceLevelSchema = z.enum(["E0", "E1", "E2", "E3"]);
 export const acquisitionLevelSchema = z.enum(["P1", "P2", "P3", "P4", "P5"]);
 export const ruleClassificationSchema = z.enum([
@@ -34,7 +39,12 @@ export const variableSchema = z.object({
   id: z.string().min(1),
   name: z.string().min(1),
   criticality: criticalitySchema,
-  minimumEvidence: evidenceLevelSchema,
+  /**
+   * Nivel mínimo fijo o, cuando la fuente no fija ninguno (asignación dinámica),
+   * la marca NOT_EXPLICIT_IN_KNOWLEDGE_MASTER. En ese caso el requisito debe
+   * ser condicional y declarar sus niveles admisibles.
+   */
+  minimumEvidence: z.union([evidenceLevelSchema, z.literal(NOT_EXPLICIT)]),
   minimumEvidenceNote: z.string().optional(),
   /**
    * true cuando el material gobernado expresa el requisito de forma condicional
@@ -368,6 +378,13 @@ export function validateKnowledgePack(raw: unknown): KnowledgePackValidation {
       issues.push({
         path: `variables.${index}.minimumEvidenceOptions`,
         message: "un requisito de evidencia condicional debe declarar sus niveles admisibles",
+      });
+    }
+    if (variable.minimumEvidence === NOT_EXPLICIT && !variable.minimumEvidenceConditional) {
+      issues.push({
+        path: `variables.${index}.minimumEvidenceConditional`,
+        message:
+          "un nivel mínimo de evidencia no explícito debe declararse como requisito condicional con niveles admisibles",
       });
     }
   });

@@ -308,8 +308,8 @@ describe("taxonomía 6×31 · cierre histórico sin fuente inventada", () => {
     expect(resultado.value.expectedCapabilityCount).toBe(31);
     expect(resultado.value.domains).toHaveLength(6);
     expect(resultado.value.verticalStatus?.k4ValidatedCapabilityCount).toBe(31);
-    expect(resultado.value.verticalStatus?.materializedSourceCount).toBe(1);
-    expect(resultado.value.verticalStatus?.unrecoveredCapabilityCount).toBe(30);
+    expect(resultado.value.verticalStatus?.materializedSourceCount).toBe(2);
+    expect(resultado.value.verticalStatus?.unrecoveredCapabilityCount).toBe(29);
     expect(resultado.value.verticalStatus?.unrecoveredCapabilityStatus).toBe(
       "APPROVED_HISTORY_CONFIRMED",
     );
@@ -318,14 +318,14 @@ describe("taxonomía 6×31 · cierre histórico sin fuente inventada", () => {
     );
   });
 
-  it("K4-VALIDATED no se traduce a SOURCE_READY: solo OP-01 tiene fuente", () => {
+  it("K4-VALIDATED no se traduce a SOURCE_READY: solo OP-01 y OP-02 tienen fuente", () => {
     const resultado = validateMasterIndex(master);
     expect(resultado.ok).toBe(true);
     if (!resultado.ok) return;
     const listas = resultado.value.capabilities.filter(
       (c) => c.sourceAvailability === "SOURCE_READY",
     );
-    expect(listas.map((c) => c.id)).toEqual(["OP-01"]);
+    expect(listas.map((c) => c.id)).toEqual(["OP-01", "OP-02"]);
   });
 
   it("no se inventan identificadores de capacidad para los otros dominios", () => {

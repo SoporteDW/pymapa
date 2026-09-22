@@ -1,0 +1,40 @@
+{
+  "fixtureId": "OP02-FX-SIGNAL-NOT-CAUSE",
+  "capabilityId": "OP-02",
+  "packId": "op-02",
+  "packVersion": "1.0.0",
+  "kind": "SOURCE_DERIVED",
+  "description": "OBS-OP02-01 · Observación ≠ inferencia causal / R-OP02-00: una señal operacional registrada no determina causa ni confirma hallazgo.",
+  "sourceReference": "OP-02_Completo · OP02-K4-v1.0 · K4-VALIDATED · CLOSED",
+  "knowledgeVersionId": "fixture-kv-op02-1.0.0",
+  "observations": [
+    {
+      "id": "s1",
+      "variableRef": "VA04",
+      "acquisitionRef": "P1-OP02-02",
+      "knowledgeState": "KNOWN",
+      "semanticValue": "Tenemos atrasos cuando aumenta el volumen.",
+      "sourceResponseId": "resp-s1",
+      "respondentId": "respondent-1",
+      "evidenceIds": [],
+      "recordedAt": "2026-01-01T00:00:00.000Z"
+    }
+  ],
+  "expected": {
+    "outcome": "NEEDS_GOVERNANCE_REVIEW",
+    "variableStates": [
+      {
+        "variableRef": "VA04",
+        "state": "KNOWN",
+        "semanticValue": "Tenemos atrasos cuando aumenta el volumen."
+      }
+    ],
+    "contradictionVariableRefs": [],
+    "noConfirmedFindings": true,
+    "note": "Las reglas de OP-02 son GOVERNED_JUDGMENT: la señal queda para revisión, no se consolida como hallazgo causal.",
+    "findingCandidateRefs": [
+      "OP02-HF02"
+    ],
+    "needsReview": true
+  }
+}

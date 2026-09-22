@@ -47,8 +47,8 @@
         "properties": {
           "id": { "type": "string" },
           "name": { "type": "string" },
-          "criticality": { "enum": ["CRITICAL", "IMPORTANT", "COMPLEMENTARY"] },
-          "minimumEvidence": { "enum": ["E0", "E1", "E2", "E3"] },
+          "criticality": { "enum": ["CRITICAL", "IMPORTANT", "COMPLEMENTARY", "CONTEXT_DEPENDENT"] },
+          "minimumEvidence": { "enum": ["E0", "E1", "E2", "E3", "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"] },
           "semanticStates": {
             "description": "Estados semánticos aprobados. null cuando el Knowledge Master no los enumera.",
             "oneOf": [

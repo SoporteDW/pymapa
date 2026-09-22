@@ -16,10 +16,12 @@ import {
   buildGovernanceReviewReport,
   discoverCapabilityPipelineInputs,
   listMasterVersions,
+  loadCanonicalBaselines,
   loadMasterIndex,
   loadTransversalIndex,
   loadTransversalRegistries,
   runBatch,
+  validateCanonicalBaseline,
   validateMasterIndex,
   validateTransversalCore,
   verifySelfChecksum,
@@ -81,7 +83,26 @@ for (const version of versiones) {
     );
   }
 
-
+  for (const cb of loadCanonicalBaselines(ROOT, version)) {
+    const checksumBaseline = verifySelfChecksum(cb.baseline as Record<string, unknown>);
+    if (!checksumBaseline.ok) {
+      problema(
+        `${cb.capabilityDir}: checksum de baseline canónica inválido (esperado ${checksumBaseline.expected})`,
+      );
+    }
+    const v = validateCanonicalBaseline({
+      baseline: cb.baseline,
+      rawText: cb.rawText,
+      rawBytes: cb.rawBytes,
+      source: cb.source as Parameters<typeof validateCanonicalBaseline>[0]["source"],
+    });
+    v.issues.forEach((i) => problema(`${cb.capabilityDir} baseline ${i.code} ${i.path}: ${i.message}`));
+    if (v.summary) {
+      console.log(
+        `Baseline canónica ${v.summary.capabilityId} (${v.summary.baselineId}): ${v.summary.objectCount} objetos · ${v.summary.supersessionCount} supersesiones · ${v.summary.gapCount} gaps (${v.summary.genericRuntimeExtensionCount} GENERIC_RUNTIME_EXTENSION_REQUIRED, ${v.summary.notExplicitCount} NOT_EXPLICIT) · conteos de control ${v.summary.controlCounts.filter((c) => c.declared === c.materialized).length}/${v.summary.controlCounts.length}`,
+      );
+    }
+  }
 
   const entradas = discoverCapabilityPipelineInputs(ROOT, version);
   for (const entrada of entradas) {

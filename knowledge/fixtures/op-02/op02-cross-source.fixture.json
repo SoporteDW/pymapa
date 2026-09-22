@@ -1,0 +1,50 @@
+{
+  "fixtureId": "OP02-FX-CROSS-SOURCE",
+  "capabilityId": "OP-02",
+  "packId": "op-02",
+  "packVersion": "1.0.0",
+  "kind": "ARCHITECTURE_RUNTIME",
+  "description": "Dos respondentes declaran valores distintos sobre VA07: el runtime genérico detecta contradicción entre fuentes sin promediar y sin jerarquía.",
+  "knowledgeVersionId": "fixture-kv-op02-1.0.0",
+  "observations": [
+    {
+      "id": "x1",
+      "variableRef": "VA07",
+      "acquisitionRef": "P1-OP02-02",
+      "knowledgeState": "KNOWN",
+      "semanticValue": "Fixture: los resultados son iguales en todos los turnos.",
+      "sourceResponseId": "resp-x1",
+      "respondentId": "respondent-1",
+      "evidenceIds": [],
+      "recordedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "x2",
+      "variableRef": "VA07",
+      "acquisitionRef": "P1-OP02-02",
+      "knowledgeState": "KNOWN",
+      "semanticValue": "Fixture: cada turno obtiene resultados distintos.",
+      "sourceResponseId": "resp-x2",
+      "respondentId": "respondent-2",
+      "evidenceIds": [],
+      "recordedAt": "2026-01-01T00:00:00.000Z"
+    }
+  ],
+  "expected": {
+    "outcome": "PASS",
+    "variableStates": [
+      {
+        "variableRef": "VA07",
+        "state": "CONTRADICTORY"
+      }
+    ],
+    "contradictionVariableRefs": [
+      "VA07"
+    ],
+    "noConfirmedFindings": true,
+    "findingCandidateRefs": [
+      "OP02-HF05"
+    ],
+    "needsReview": true
+  }
+}
