@@ -360,7 +360,6 @@ function evaluateCapability(
   input: FactoryCapabilityInput,
   pipeline: CapabilityPipelineResult | null,
   shared: EvalShared,
-  onDiskEvidence: unknown,
 ): { entry: FactoryCapabilityEntry; dossier: GovernanceEvidenceDossier | null } {
   const ctx = newCtx();
   const metrics = emptyMetrics();
@@ -684,26 +683,14 @@ function evaluateCapability(
     } else {
       state = "VALIDATED";
       dossier = buildGovernanceEvidence({ entry: { ...entry, domainId }, checks: ctx.checks, baseline, pipeline, shared, readyCandidate: true });
-      const onDisk = onDiskEvidence as { checksum?: string } | undefined;
-      if (onDisk === undefined) {
-        entry.governance.evidence = "MISSING";
-        ctx.reason("GOVERNANCE_EVIDENCE", "REVIEW", "GOVERNANCE_EVIDENCE_MISSING", "no existe dossier de evidencia de gobierno", "bun run knowledge:factory -- --write");
-      } else if (onDisk.checksum !== dossier.checksum || !verifySelfChecksum(onDisk as Record<string, unknown>).ok) {
-        entry.governance.evidence = "OUTDATED";
-        ctx.reason("GOVERNANCE_EVIDENCE", "REVIEW", "GOVERNANCE_EVIDENCE_OUTDATED", "el dossier en disco no corresponde al estado técnico actual", "bun run knowledge:factory -- --write");
-      } else {
-        entry.governance.evidence = "CURRENT";
-        ctx.set("GOVERNANCE_EVIDENCE", "PASS");
-        if (dossier.readiness === "READY_FOR_HUMAN_PUBLICATION_AUTHORIZATION") state = "READY_FOR_PUBLICATION";
-      }
     }
   }
 
   // No se ejecutan checks que dependen de artefactos ausentes.
-  if (!pipeline) {
+  if (pipeline) {
     for (const c of FACTORY_CHECKS) {
       const r = ctx.checks.get(c) as FactoryCheckResult;
-      if (r.status === "NOT_RUN" && r.reasons.length === 0) r.status = "NOT_RUN";
+      if (r.status === "NOT_RUN" && r.reasons.length === 0 && c !== "GOVERNANCE_EVIDENCE") r.status = "NOT_APPLICABLE";
     }
   }
 
@@ -809,6 +796,47 @@ function buildGovernanceEvidence(input: {
 /* Lote                                                                */
 /* ------------------------------------------------------------------ */
 
+function applyGovernanceEvidence(
+  e: FactoryCapabilityEntry,
+  dossier: GovernanceEvidenceDossier,
+  onDisk: Record<string, unknown> | undefined,
+): FactoryCapabilityEntry {
+  const checks = e.checks.map((c) => ({ ...c, reasons: c.reasons.slice() }));
+  const ev = checks.find((c) => c.check === "GOVERNANCE_EVIDENCE") as FactoryCheckResult;
+  let evidence: FactoryCapabilityEntry["governance"]["evidence"];
+  let state = e.state;
+  const push = (code: string, message: string) =>
+    ev.reasons.push({ check: "GOVERNANCE_EVIDENCE", code, severity: "REVIEW", message, action: "bun run knowledge:factory -- --write", sourceLines: null, objectKey: null });
+  if (onDisk === undefined) {
+    evidence = "MISSING";
+    push("GOVERNANCE_EVIDENCE_MISSING", "no existe dossier de evidencia de gobierno");
+  } else if (onDisk["checksum"] !== dossier.checksum || !verifySelfChecksum(onDisk).ok) {
+    evidence = "OUTDATED";
+    push("GOVERNANCE_EVIDENCE_OUTDATED", "el dossier en disco no corresponde al estado técnico actual");
+  } else {
+    evidence = "CURRENT";
+    if (dossier.readiness === "READY_FOR_HUMAN_PUBLICATION_AUTHORIZATION") state = "READY_FOR_PUBLICATION";
+  }
+  if (dossier.readiness === "NOT_READY")
+    dossier.blockers.forEach((b) => ev.reasons.push({ check: "GOVERNANCE_EVIDENCE", code: "NOT_READY", severity: "REVIEW", message: b, action: "resolver antes de solicitar autorización humana", sourceLines: null, objectKey: null }));
+  ev.status = statusFrom(ev.reasons);
+  const reasons = checks.flatMap((c) => c.reasons);
+  const outcome: FactoryOutcome = reasons.some((r) => r.severity === "FAIL") ? "FAIL" : reasons.some((r) => r.severity === "REVIEW") ? "REVIEW_REQUIRED" : "PASS";
+  return {
+    ...e,
+    state,
+    outcome,
+    checks,
+    reasons,
+    governance: { ...e.governance, evidence },
+    metrics: {
+      ...e.metrics,
+      checksAutoPassed: checks.filter((c) => c.status === "PASS").length,
+      humanReviewItems: reasons.filter((r) => r.severity === "REVIEW").length,
+    },
+  };
+}
+
 export function runFactoryBatch(input: FactoryBatchInput): FactoryBatchResult {
   const now = input.now ?? (() => 0);
   const regValidation = validateRuntimeExtensionRegistry({
@@ -842,7 +870,7 @@ export function runFactoryBatch(input: FactoryBatchInput): FactoryBatchResult {
       const pipeline = cap.master?.pipelineInput ? (runBatch([cap.master.pipelineInput]).results[0] ?? null) : null;
       if (pipeline && pipeline.capabilityId !== cap.capabilityId)
         throw new Error(`source.json declara ${pipeline.capabilityId} en el directorio ${cap.capabilityId}`);
-      const { entry, dossier } = evaluateCapability(cap, pipeline, shared, cap.governanceEvidenceOnDisk);
+      const { entry, dossier } = evaluateCapability(cap, pipeline, shared);
       entries.push(entry);
       if (dossier) dossiers.set(cap.capabilityId, dossier);
     } catch (error) {
@@ -891,6 +919,13 @@ export function runFactoryBatch(input: FactoryBatchInput): FactoryBatchResult {
     if (references.some((r) => r.goldenStatus !== "PASS")) withRefs.blockers = [...withRefs.blockers, "regresión de la capacidad de referencia no PASS"];
     withRefs.readiness = withRefs.blockers.length === 0 ? "READY_FOR_HUMAN_PUBLICATION_AUTHORIZATION" : "NOT_READY";
     dossiers.set(capId, { ...withRefs, checksum: computeSelfChecksum(withRefs as unknown as Record<string, unknown>) });
+  }
+  for (const [capId, d] of dossiers) {
+    const idx = entries.findIndex((e) => e.capabilityId === capId);
+    const e = entries[idx];
+    if (!e) continue;
+    const onDisk = sorted.find((c) => c.capabilityId === capId)?.governanceEvidenceOnDisk as Record<string, unknown> | undefined;
+    entries[idx] = applyGovernanceEvidence(e, d, onDisk);
   }
 
   const vs = input.master.verticalStatus as { domainClosures?: { domainId: string; declaredCapabilityCount: number }[] } | undefined;

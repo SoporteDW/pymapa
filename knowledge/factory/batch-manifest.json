@@ -54,8 +54,8 @@
       "REGISTERED": 0,
       "EXTRACTED_CANDIDATE": 0,
       "CANONICAL_REVIEW_REQUIRED": 0,
-      "VALIDATED": 1,
-      "READY_FOR_PUBLICATION": 0,
+      "VALIDATED": 0,
+      "READY_FOR_PUBLICATION": 1,
       "PUBLISHED": 1
     },
     "byOutcome": {
@@ -152,7 +152,7 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
@@ -348,7 +348,7 @@
       },
       "governance": {
         "reviewStatus": "NOT_REQUESTED",
-        "evidence": "OUTDATED"
+        "evidence": "CURRENT"
       },
       "publication": {
         "status": "UNPUBLISHED",
@@ -356,7 +356,7 @@
         "packVersion": "1.0.0",
         "packChecksum": "sha256:7f8072073a12961bea852c5bee36cce1574836cb0bc59c8c27acbe6ae0ebc6cc"
       },
-      "state": "VALIDATED",
+      "state": "READY_FOR_PUBLICATION",
       "outcome": "REVIEW_REQUIRED",
       "checks": [
         {
@@ -376,7 +376,7 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
@@ -466,18 +466,8 @@
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "GOVERNANCE_EVIDENCE_OUTDATED",
-              "severity": "REVIEW",
-              "message": "el dossier en disco no corresponde al estado técnico actual",
-              "action": "bun run knowledge:factory -- --write",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         }
       ],
       "reasons": [
@@ -516,15 +506,6 @@
           "action": "la autoridad de gobierno registra governance-review.json (decision, reviewer, reviewedAt) tras revisar el dossier de evidencia",
           "sourceLines": null,
           "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "GOVERNANCE_EVIDENCE_OUTDATED",
-          "severity": "REVIEW",
-          "message": "el dossier en disco no corresponde al estado técnico actual",
-          "action": "bun run knowledge:factory -- --write",
-          "sourceLines": null,
-          "objectKey": null
         }
       ],
       "metrics": {
@@ -534,8 +515,8 @@
         "candidateItems": null,
         "canonicalObjects": 329,
         "executableSections": 31,
-        "checksAutoPassed": 10,
-        "humanReviewItems": 2,
+        "checksAutoPassed": 11,
+        "humanReviewItems": 1,
         "notExplicit": 6,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 1,
@@ -546,5 +527,5 @@
       }
     }
   ],
-  "checksum": "sha256:89eeaf4e7c259953950917af3a1d479d0dfb40e6d04090fc73183d02453bf3b9"
+  "checksum": "sha256:37e0aa8863cf24f2432de5fbc684bf8e0d046606d4bc3c0f9a20c4a415303e2a"
 }
