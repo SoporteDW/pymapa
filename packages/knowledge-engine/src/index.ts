@@ -30,7 +30,84 @@ import {
   type PropertyResolutionMode,
 } from "@pymapa/knowledge-schema";
 
-export const ENGINE_VERSION = "pymapa-knowledge-engine/0.1.0";
+/** Versión semántica del runtime genérico. Independiente de la versión de cualquier Knowledge Pack. */
+export const ENGINE_SEMVER = "0.2.0";
+export const ENGINE_VERSION = `pymapa-knowledge-engine/${ENGINE_SEMVER}`;
+
+/**
+ * Historial de semántica genérica del runtime. Cada versión describe cambios de
+ * interpretación aplicables a CUALQUIER pack; ninguna entrada es específica de
+ * una capacidad. Los EvaluationRuns persistidos conservan la versión con la que
+ * se produjeron: nunca se reetiquetan ni se recalculan.
+ */
+export const ENGINE_SEMANTIC_HISTORY: readonly {
+  version: string;
+  changes: readonly { id: string; semantic: string; statement: string }[];
+}[] = [
+  {
+    version: "0.1.0",
+    changes: [
+      {
+        id: "ENG-0.1-BASE",
+        semantic: "BASELINE_RUNTIME",
+        statement:
+          "Interpretación declarativa de packs: variables, adquisiciones P1–P5, estados de conocimiento, contradicciones, candidatos de finding con lineage, reglas no determinísticas como juicio pendiente, CRV determinísticos por actividad.",
+      },
+    ],
+  },
+  {
+    version: "0.2.0",
+    changes: [
+      {
+        id: "ENG-0.2-01",
+        semantic: "CONTEXTUAL_GOVERNED_PROPERTIES",
+        statement:
+          "Propiedades gobernadas con modo de resolución FIXED / CONTEXTUAL / NOT_EXPLICIT (severidad, confianza, contextualización, acciones del engine); guardas severidad×confianza declaradas por el pack; estado null cuando la propiedad es contextual.",
+      },
+      {
+        id: "ENG-0.2-02",
+        semantic: "INTERVENTION_PATTERN_OWNED_VALIDATION_REQUIREMENTS",
+        statement:
+          "Requisitos de validación (CRV) con dueño ACTIVITY | INTERVENTION_PATTERN | DELIVERABLE, condiciones GOVERNED_STATEMENT y JUSTIFYING_CONDITION_REFERENCE; un CRV de juicio gobernado solo se satisface por juicio humano con evidencia.",
+      },
+      {
+        id: "ENG-0.2-03",
+        semantic: "DONE_IMPLEMENTATION_LIFECYCLE",
+        statement:
+          "Patrones de intervención, capas de Done, Done Criteria con o sin identificador y estados de ejecución; implementado solo si todas las capas y criterios se cumplen; sin criterios explícitos → DONE_CRITERIA_NOT_EXPLICIT; Done no implica CRV ni efectividad.",
+      },
+      {
+        id: "ENG-0.2-04",
+        semantic: "EFFECTIVENESS",
+        statement:
+          "Estados de efectividad declarados por el pack; sin implementación no hay efectividad; el estado superior exige CRV satisfecho y evidencia; efecto negativo material fuerza el estado negativo declarado.",
+      },
+      {
+        id: "ENG-0.2-05",
+        semantic: "ATTRIBUTION",
+        statement: "Confianza de atribución evaluada de forma independiente de la efectividad; resultado ≠ atribución.",
+      },
+      {
+        id: "ENG-0.2-06",
+        semantic: "FOLLOW_UP_REASSESSMENT",
+        statement:
+          "Follow-up y reassessment señalados como REVIEW_REQUIRED según el pack, sin frecuencia, fórmula, score ni madurez inferidos.",
+      },
+      {
+        id: "ENG-0.2-07",
+        semantic: "UNRESOLVED_FINDING_PROJECTION",
+        statement:
+          "Proyección findingsAwaitingResolution con estados no resueltos, observaciones, evidencias y requisito de adquisición/aclaración derivado solo de referencias declaradas por el pack.",
+      },
+      {
+        id: "ENG-0.2-08",
+        semantic: "UNKNOWN_NOT_APPLICABLE_CONTRADICTORY_CORRECTION",
+        statement:
+          "Corrección genérica: solo KNOWN aporta soporte a un candidato de finding; UNKNOWN → AWAITING_INFORMATION, todo NOT_APPLICABLE → EXCLUDED_NOT_APPLICABLE, alguna CONTRADICTORY → BLOCKED_BY_CONTRADICTION. En 0.1.0 cualquier observación vinculada creaba candidato.",
+      },
+    ],
+  },
+];
 
 export type { KnowledgePack, KnowledgeState, PropertyResolutionMode };
 export { validateKnowledgePack, parseKnowledgePack };
