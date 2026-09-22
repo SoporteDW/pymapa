@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pymapa.co/schemas/capability-canonical-baseline.schema.json",
+  "title": "Pymapa Capability Canonical Baseline",
+  "description": "Baseline canónica completa de una capacidad: todos los objetos gobernados de la fuente histórica, incluidos los no ejecutables por el runtime genérico, con anclaje literal (rango de líneas) a la transcripción raw. La validación ejecutable canónica vive en packages/knowledge-pipeline/src/canonical-baseline.ts (validateCanonicalBaseline).",
+  "type": "object",
+  "required": ["baselineId", "capabilityId", "master", "historicalStatus", "rawSource", "provenanceVocabulary", "controlCounts", "objects", "supersessions", "executableProjection", "gaps", "checksum"],
+  "properties": {
+    "baselineId": { "type": "string" },
+    "capabilityId": { "type": "string" },
+    "master": { "type": "object", "required": ["identity", "version", "baselineStatus"] },
+    "historicalStatus": { "type": "object", "required": ["marker", "sourceLines"] },
+    "rawSource": {
+      "type": "object",
+      "required": ["ref", "sha256", "byteLength", "lineCount", "transcription", "originalDocument"]
+    },
+    "provenanceVocabulary": {
+      "description": "Códigos de procedencia declarados por la propia fuente. Ningún objeto puede usar un código fuera de este vocabulario.",
+      "type": "array",
+      "items": { "type": "object", "required": ["code", "label", "meaning", "sourceLines"] }
+    },
+    "controlCounts": {
+      "description": "Conteos declarados por la fuente (control de configuración). Deben coincidir con los objetos materializados.",
+      "type": "array",
+      "items": { "type": "object", "required": ["label", "declared", "objectType", "sourceLines"] }
+    },
+    "objects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["key", "objectType", "sourceId", "fields", "sourceLines"],
+        "properties": {
+          "key": { "type": "string" },
+          "objectType": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]*$" },
+          "sourceId": { "type": ["string", "null"], "description": "Identificador literal de la fuente; null cuando la fuente no asigna identificador (nunca se inventa)." },
+          "fields": { "type": "object", "description": "Todo valor textual es literal de sourceLines." },
+          "sourceLines": { "type": "array", "items": { "type": "integer" }, "minItems": 2, "maxItems": 2 },
+          "role": { "type": "string" },
+          "provenance": { "type": "object", "required": ["classes", "sourceLines"] },
+          "annotations": { "type": "array" }
+        }
+      }
+    },
+    "supersessions": { "type": "array" },
+    "executableProjection": {
+      "type": "object",
+      "required": ["sourceRef", "verbatimKeys", "projectedObjectTypes", "canonicalOnlyGapRefs"]
+    },
+    "gaps": { "type": "array" },
+    "checksum": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }
+  }
+}
