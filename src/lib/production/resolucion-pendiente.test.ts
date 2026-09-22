@@ -224,7 +224,15 @@ for (const cap of CAPACIDADES) {
         .map((f) => f.findingRef)
         .filter((ref) => !run2.items.some((g) => g.findingRef === ref));
       const variable = r2.state!.variableStates.find((v) => adquisicion.variableRefs.includes(v.variableRef));
-      if (variable?.state === "KNOWN") expect(resueltos.length).toBeGreaterThan(0);
+      expect(variable?.state).toBe("KNOWN");
+      expect(resueltos.length).toBeGreaterThan(0);
+      // Lo resuelto se materializa como candidato en el run posterior, nunca confirmado.
+      const findingsRun2 = (await listFindings(deps, "assess-1")).filter((f) => resueltos.includes(f.findingRef));
+      expect(findingsRun2.length).toBeGreaterThan(0);
+      findingsRun2.forEach((f) => {
+        expect(f.evaluationRunId).toBe(r2.evaluationRunId);
+        expect(f.lifecycleState).not.toBe("CONFIRMED");
+      });
 
       // El run histórico permanece intacto y recargable por su id.
       const historico = await listFindingsAwaitingResolution(deps, "assess-1", {
