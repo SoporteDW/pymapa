@@ -1,0 +1,36 @@
+{
+  "fixtureId": "OP02-FX-EVIDENCE-DYNAMIC",
+  "capabilityId": "OP-02",
+  "packId": "op-02",
+  "packVersion": "1.0.0",
+  "kind": "SOURCE_DERIVED",
+  "description": "E0–E3 asignados dinámicamente (EVD-OP02-01): una observación con evidencia no fija un nivel mínimo; el requisito queda para revisión gobernada.",
+  "sourceReference": "OP-02_Completo · OP02-K4-v1.0 · K4-VALIDATED · CLOSED",
+  "knowledgeVersionId": "fixture-kv-op02-1.0.0",
+  "observations": [
+    {
+      "id": "e1",
+      "variableRef": "VA09",
+      "acquisitionRef": "P1-OP02-01",
+      "knowledgeState": "KNOWN",
+      "semanticValue": "Fixture: el estado de los pedidos se revisa en una planilla compartida.",
+      "sourceResponseId": "resp-e1",
+      "respondentId": "respondent-1",
+      "evidenceIds": [
+        "ev-fixture-1"
+      ],
+      "recordedAt": "2026-01-01T00:00:00.000Z"
+    }
+  ],
+  "expected": {
+    "outcome": "NEEDS_GOVERNANCE_REVIEW",
+    "variableStates": [
+      {
+        "variableRef": "VA09",
+        "state": "KNOWN"
+      }
+    ],
+    "contradictionVariableRefs": [],
+    "noConfirmedFindings": true
+  }
+}

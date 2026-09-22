@@ -1,0 +1,35 @@
+{
+  "fixtureId": "OP02-FX-P1-02-TRIGGER",
+  "capabilityId": "OP-02",
+  "packId": "op-02",
+  "packVersion": "1.0.0",
+  "kind": "SOURCE_DERIVED",
+  "description": "P1-OP02-02 se sirve «solo cuando no exista ya evidencia equivalente»: trigger NOT_DETERMINISTIC. Una respuesta registrada es admisible, pero el runtime nunca la sirve por inferencia.",
+  "sourceReference": "OP-02_Completo · OP02-K4-v1.0 · K4-VALIDATED · CLOSED",
+  "knowledgeVersionId": "fixture-kv-op02-1.0.0",
+  "observations": [
+    {
+      "id": "t1",
+      "variableRef": "VA10",
+      "acquisitionRef": "P1-OP02-02",
+      "knowledgeState": "UNKNOWN",
+      "semanticValue": null,
+      "sourceResponseId": "resp-t1",
+      "respondentId": "respondent-1",
+      "evidenceIds": [],
+      "recordedAt": "2026-01-01T00:00:00.000Z"
+    }
+  ],
+  "expected": {
+    "outcome": "PASS",
+    "variableStates": [
+      {
+        "variableRef": "VA10",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      }
+    ],
+    "contradictionVariableRefs": [],
+    "noConfirmedFindings": true
+  }
+}
