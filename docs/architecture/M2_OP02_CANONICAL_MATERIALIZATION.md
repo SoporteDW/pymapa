@@ -114,7 +114,7 @@ Las 6 supersesiones (p. ej. `CE01 · Planificación operativa` → `OP02-CE01 ·
 | --- | --- |
 | `bun run knowledge:validate` | ✓ sin problemas |
 | `bun run knowledge:seal:check` | ✓ identidades selladas |
-| `vitest run` | 27 archivos · **614 tests verdes** (+20 de OP-02) |
+| `vitest run` | 27 archivos · **614 tests verdes** (+21 de OP-02) |
 | `tsgo --noEmit` | sin errores |
 | Pipeline | OP-01 PASS/PUBLISHED · OP-02 REVIEW_REQUIRED/VALIDATED · FAIL=0 |
 
