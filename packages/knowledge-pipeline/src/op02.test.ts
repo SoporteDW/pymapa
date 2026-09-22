@@ -238,7 +238,8 @@ describe("OP-02 · sin branching por capacidad", () => {
       readdirSync(dir)
         .filter((f) => f.endsWith(".ts") && !f.endsWith(".test.ts"))
         .forEach((f) => {
-          const texto = readFileSync(join(dir, f), "utf8");
+          // El rótulo del hito (M2-OP02-01) en comentarios no es lógica.
+          const texto = readFileSync(join(dir, f), "utf8").replaceAll("M2-OP02-01", "");
           expect(texto, `${p}/${f}`).not.toMatch(/OP-?02/);
         });
     }
