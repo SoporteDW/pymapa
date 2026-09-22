@@ -210,6 +210,7 @@ for (const cap of CAPACIDADES) {
         knowledgeState: "KNOWN",
         semanticValue: "declaración",
       });
+      expect(r2.rejectionReason).toBeUndefined();
       expect(r2.evaluationRunId).not.toBe(r1.evaluationRunId);
       const run2 = await listFindingsAwaitingResolution(deps, "assess-1");
       expect(run2.evaluationRunId).toBe(r2.evaluationRunId);
