@@ -191,11 +191,11 @@ for (const cap of CAPACIDADES) {
         title: "doc",
         observationIds: [r.observationId!],
       } as Parameters<typeof registrarEvidencia>[1]);
-      expect(ev.accepted).toBe(true);
+      expect(ev.evidence.id).toBeTruthy();
       const { items, evaluationRunId } = await listFindingsAwaitingResolution(deps, "assess-1");
       expect(evaluationRunId).not.toBe(r.evaluationRunId);
       expect(items.length).toBeGreaterThan(0);
-      items.forEach((f) => expect(f.evidenceIds).toEqual([ev.evidence!.id]));
+      items.forEach((f) => expect(f.evidenceIds).toEqual([ev.evidence.id]));
     });
 
     it("resolución en un EvaluationRun posterior sin reescribir el histórico", async () => {
@@ -208,7 +208,7 @@ for (const cap of CAPACIDADES) {
       const r2 = await submitAcquisitionResponse(deps, {
         ...base,
         knowledgeState: "KNOWN",
-        semanticValue: adquisicion.options?.[0] ?? "declaración",
+        semanticValue: "declaración",
       });
       expect(r2.evaluationRunId).not.toBe(r1.evaluationRunId);
       const run2 = await listFindingsAwaitingResolution(deps, "assess-1");
