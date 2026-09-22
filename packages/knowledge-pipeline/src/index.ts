@@ -30,3 +30,7 @@ export * from "./report.ts";
 export * from "./loader.ts";
 export * from "./transversal.ts";
 export * from "./canonical-baseline.ts";
+export * from "./raw-source.ts";
+export * from "./candidate.ts";
+export * from "./runtime-extensions.ts";
+export * from "./factory.ts";
