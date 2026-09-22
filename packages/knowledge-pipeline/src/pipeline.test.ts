@@ -181,7 +181,7 @@ describe("M2-A · fuente gobernada", () => {
     const manifest = buildCapabilityManifest({ master: master.value, results: [] });
     expect(manifest.expectedCapabilityCount).toBe(31);
     expect(manifest.sourceReadyCount).toBeLessThan(manifest.expectedCapabilityCount);
-    expect(manifest.missingSourceCount).toBe(30);
+    expect(manifest.missingSourceCount).toBe(29);
     expect(manifest.signal).toBe(AUTHORITATIVE_SOURCE_REQUIRED);
     expect(
       manifest.entries.every((e) =>
