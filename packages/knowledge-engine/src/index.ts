@@ -1498,7 +1498,12 @@ function evaluarImplementacion(
   const implementado = modelo.executionStates.find((e) => e.implemented) ?? null;
   const requeridas = implementado?.requiresDoneLayerRefs ?? [];
   const faltantes = requeridas.filter((ref) => !completadas.includes(ref));
-  const criteriosOk = !implementado?.requiresAllDoneCriteria || noCumplidos.length === 0;
+  // Sin Done Criteria explícitos, "todos los criterios" no es verificable:
+  // nunca se da por cumplido de forma vacía.
+  const criteriosNoExplicitos = Boolean(implementado?.requiresAllDoneCriteria) && criterios.length === 0;
+  if (criteriosNoExplicitos) issues.push("DONE_CRITERIA_NOT_EXPLICIT: el patrón no declara Done Criteria");
+  const criteriosOk =
+    !implementado?.requiresAllDoneCriteria || (!criteriosNoExplicitos && noCumplidos.length === 0);
   const alcanzaImplementado = Boolean(implementado) && faltantes.length === 0 && criteriosOk && issues.length === 0;
   const noImplementados = modelo.executionStates.filter((e) => !e.implemented).map((e) => e.id);
 
