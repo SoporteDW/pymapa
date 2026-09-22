@@ -22,7 +22,7 @@ import { computeSelfChecksum, verifySelfChecksum } from "./checksum.ts";
 import type { CanonicalBaseline } from "./canonical-baseline.ts";
 import { BASELINE_STATUS, MASTER_IDENTITY } from "./master.ts";
 import type { RawSourceRegistration } from "./raw-source.ts";
-import type { RuntimeExtensionRegistry } from "./runtime-extensions.ts";
+import { indexExtensionOccurrences, type RuntimeExtensionRegistry } from "./runtime-extensions.ts";
 
 export const CANDIDATE_CLASSIFICATIONS = [
   "FINAL_APPROVED",
@@ -229,6 +229,7 @@ export function validateExtractionCandidate(input: {
     }
   }
 
+  const indiceExtensiones = indexExtensionOccurrences(input.extensionRegistry);
   const keys = new Map<string, CandidateItem>();
   const sourceIds = new Set<string>();
   for (const item of c.items) {
@@ -293,7 +294,7 @@ export function validateExtractionCandidate(input: {
       (item.affectedObjectKeys ?? [])
         .filter((x) => !keys.has(x))
         .forEach((x) => add("UNRESOLVED_REFERENCE", "FAIL", `${k}: objeto afectado ${x} inexistente`, k, r));
-      const e = input.extensionRegistry?.entries.find((x) => x.occurrences.some((o) => o.capabilityId === c.capabilityId && o.gapId === k));
+      const e = indiceExtensiones.get(`${c.capabilityId}/${k}`);
       if (!e)
         add("RUNTIME_EXTENSION_UNREGISTERED", "REVIEW", `${k}: registrar la ocurrencia en knowledge/factory/runtime-extensions.json (semántica ${item.semanticCapability ?? "?"}) o vincularla a una extensión existente`, k, r);
       else if (e.status === "OPEN")

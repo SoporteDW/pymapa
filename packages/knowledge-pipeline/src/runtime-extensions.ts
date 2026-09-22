@@ -40,6 +40,15 @@ export const runtimeExtensionRegistrySchema = z.object({
 });
 export type RuntimeExtensionRegistry = z.infer<typeof runtimeExtensionRegistrySchema>;
 
+/** Índice por ocurrencia `<capabilityId>/<gapId>` (búsqueda por identidad, no branching). */
+export function indexExtensionOccurrences(
+  registry: RuntimeExtensionRegistry | null,
+): Map<string, RuntimeExtensionRegistry["entries"][number]> {
+  const m = new Map<string, RuntimeExtensionRegistry["entries"][number]>();
+  for (const e of registry?.entries ?? []) for (const o of e.occurrences) m.set(`${o.capabilityId}/${o.gapId}`, e);
+  return m;
+}
+
 export function compareSemver(a: string, b: string): number {
   const pa = a.split(".").map(Number);
   const pb = b.split(".").map(Number);
@@ -133,8 +142,12 @@ export function resolveCapabilityExtensions(input: {
   baselineEngineVersion: string;
 }): CapabilityExtensionResolution {
   const byOccurrence = new Map<string, RuntimeExtensionRegistry["entries"][number]>();
+  const prefijo = `${input.capabilityId}/`;
   for (const e of input.registry?.entries ?? [])
-    for (const o of e.occurrences) if (o.capabilityId === input.capabilityId) byOccurrence.set(o.gapId, e);
+    for (const o of e.occurrences) {
+      const clave = `${o.capabilityId}/${o.gapId}`;
+      if (clave.startsWith(prefijo)) byOccurrence.set(o.gapId, e);
+    }
   const occurrences: CapabilityExtensionOccurrence[] = [];
   const inconsistencies: string[] = [];
   let required = input.baselineEngineVersion;

@@ -920,12 +920,13 @@ export function runFactoryBatch(input: FactoryBatchInput): FactoryBatchResult {
     withRefs.readiness = withRefs.blockers.length === 0 ? "READY_FOR_HUMAN_PUBLICATION_AUTHORIZATION" : "NOT_READY";
     dossiers.set(capId, { ...withRefs, checksum: computeSelfChecksum(withRefs as unknown as Record<string, unknown>) });
   }
+  const posicion = new Map(entries.map((e, i) => [e.capabilityId, i]));
+  const enDisco = new Map(sorted.map((c) => [c.capabilityId, c.governanceEvidenceOnDisk]));
   for (const [capId, d] of dossiers) {
-    const idx = entries.findIndex((e) => e.capabilityId === capId);
-    const e = entries[idx];
-    if (!e) continue;
-    const onDisk = sorted.find((c) => c.capabilityId === capId)?.governanceEvidenceOnDisk as Record<string, unknown> | undefined;
-    entries[idx] = applyGovernanceEvidence(e, d, onDisk);
+    const idx = posicion.get(capId);
+    const e = idx === undefined ? undefined : entries[idx];
+    if (idx === undefined || !e) continue;
+    entries[idx] = applyGovernanceEvidence(e, d, enDisco.get(capId) as Record<string, unknown> | undefined);
   }
 
   const vs = input.master.verticalStatus as { domainClosures?: { domainId: string; declaredCapabilityCount: number }[] } | undefined;
