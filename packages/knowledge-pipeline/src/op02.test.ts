@@ -109,14 +109,22 @@ describe("OP-02 · fuente autoritativa y baseline canónica", () => {
     expect(JSON.stringify(source)).not.toMatch(/P[2-5]-OP02-\d/);
   });
 
-  it("los objetos no ejecutables quedan registrados como GENERIC_RUNTIME_EXTENSION_REQUIRED", () => {
+  it("los GENERIC_RUNTIME_EXTENSION_REQUIRED se preservan y quedan cerrados por extensión genérica", () => {
     const gre = baseline.gaps.filter((g) => g.kind === "GENERIC_RUNTIME_EXTENSION_REQUIRED").map((g) => g.id);
     expect(gre).toEqual(["GRE-OP02-01", "GRE-OP02-02", "GRE-OP02-03", "GRE-OP02-04"]);
-    expect(Object.keys(source.sections)).not.toContain("validationRequirements");
+    // M2-OP02-02: los CRV se proyectan con dueño de patrón; sin activities ni recomendaciones inventadas.
+    expect(Object.keys(source.sections)).toContain("validationRequirements");
     expect(Object.keys(source.sections)).not.toContain("activities");
     expect(Object.keys(source.sections)).not.toContain("recommendations");
-    const fuenteGaps = new Set(source.gaps.map((g) => g.id));
+    const fuenteGaps = new Map(source.gaps.map((g) => [g.id, g as { resolution?: { status: string } }]));
     baseline.gaps.forEach((g) => expect(fuenteGaps.has(g.id)).toBe(true));
+    gre.forEach((id) =>
+      expect(fuenteGaps.get(id)?.resolution?.status).toBe("CLOSED_BY_GENERIC_RUNTIME_EXTENSION"),
+    );
+    // Los NOT_EXPLICIT nunca se "cierran".
+    source.gaps
+      .filter((g) => g.kind === "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER")
+      .forEach((g) => expect((g as { resolution?: unknown }).resolution).toBeUndefined());
   });
 
   it("no inventa fecha de aprobación ni aprobación de publicación", () => {
@@ -240,6 +248,7 @@ describe("OP-02 · sin branching por capacidad", () => {
         .forEach((f) => {
           // El rótulo del hito (M2-OP02-01) en comentarios no es lógica.
           const texto = readFileSync(join(dir, f), "utf8").replaceAll("M2-OP02-01", "");
+          expect(texto, `${p}/${f}`).not.toMatch(/M2-OP02-02/);
           expect(texto, `${p}/${f}`).not.toMatch(/OP-?02/);
         });
     }
