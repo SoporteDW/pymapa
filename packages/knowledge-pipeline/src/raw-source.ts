@@ -689,7 +689,8 @@ export type RawRegistrationIssueCode =
 
 export interface RawRegistrationIssue {
   code: RawRegistrationIssueCode;
-  severity: "FAIL" | "REVIEW";
+  /** INFO se reporta pero no altera la clasificación de la capacidad. */
+  severity: "FAIL" | "REVIEW" | "INFO";
   message: string;
 }
 
@@ -797,7 +798,7 @@ export function verifyRawSourceRegistration(input: {
     }
   }
   for (const w of reg.extraction.warnings) {
-    issues.push({ code: "EXTRACTION_WARNING", severity: "REVIEW", message: w });
+    issues.push({ code: "EXTRACTION_WARNING", severity: "INFO", message: w });
   }
 
   return {
