@@ -100,9 +100,9 @@ for (const cap of CAPACIDADES) {
       .listAcquisitions()
       .find((a) => a.variableRefs.some((v) => findingsPack.some((f) => (f.variableRefs ?? []).includes(v))))!;
     // Primer estado semántico aprobado por el pack para la variable (sin inventar).
-    const variablesPack = (cap.pack["variables"] ?? []) as { id: string; states?: string[] }[];
+    const variablesPack = (cap.pack["variables"] ?? []) as { id: string; semanticStates?: string[] }[];
     const valorAprobado =
-      variablesPack.find((v) => v.id === adquisicion.variableRefs[0])?.states?.[0] ?? "declaración";
+      variablesPack.find((v) => v.id === adquisicion.variableRefs[0])?.semanticStates?.[0] ?? "declaración";
     const base = {
       assessmentId: "assess-1",
       organizationId: "org-1",
