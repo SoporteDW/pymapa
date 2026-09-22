@@ -99,6 +99,10 @@ for (const cap of CAPACIDADES) {
     const adquisicion = engine
       .listAcquisitions()
       .find((a) => a.variableRefs.some((v) => findingsPack.some((f) => (f.variableRefs ?? []).includes(v))))!;
+    // Primer estado semántico aprobado por el pack para la variable (sin inventar).
+    const variablesPack = (cap.pack["variables"] ?? []) as { id: string; states?: string[] }[];
+    const valorAprobado =
+      variablesPack.find((v) => v.id === adquisicion.variableRefs[0])?.states?.[0] ?? "declaración";
     const base = {
       assessmentId: "assess-1",
       organizationId: "org-1",
@@ -208,7 +212,7 @@ for (const cap of CAPACIDADES) {
       const r2 = await submitAcquisitionResponse(deps, {
         ...base,
         knowledgeState: "KNOWN",
-        semanticValue: "declaración",
+        semanticValue: valorAprobado,
       });
       expect(r2.rejectionReason).toBeUndefined();
       expect(r2.evaluationRunId).not.toBe(r1.evaluationRunId);
