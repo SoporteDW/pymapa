@@ -23,6 +23,7 @@ import type { CanonicalBaseline } from "./canonical-baseline.ts";
 import { BASELINE_STATUS, MASTER_IDENTITY } from "./master.ts";
 import type { RawSourceRegistration } from "./raw-source.ts";
 import { indexExtensionOccurrences, type RuntimeExtensionRegistry } from "./runtime-extensions.ts";
+import { SUPERSESSION_KINDS, SUPERSESSION_RULES } from "./supersession-resolver.ts";
 
 export const CANDIDATE_CLASSIFICATIONS = [
   "FINAL_APPROVED",
@@ -382,14 +383,58 @@ export function validateExtractionCandidate(input: {
         k,
         r,
       );
+    if (item.supersession) {
+      const sp = item.supersession;
+      sp.evidence.forEach((e, n) => {
+        if (rangoValido(e.sourceLines, k))
+          literal(e.text, e.sourceLines, k, `${k}.supersession.evidence.${n}`);
+      });
+      const expected =
+        sp.kind === "CANONICAL_SELECTED"
+          ? "FINAL_APPROVED"
+          : sp.kind === "SUPERSEDED_BY_SUCCESSOR"
+            ? "SUPERSEDED"
+            : "HISTORICAL_DRAFT";
+      if (item.classification !== expected)
+        add(
+          "SUPERSESSION",
+          "FAIL",
+          `${k}: supersesión ${sp.kind} exige clasificación ${expected} (tiene ${item.classification})`,
+          k,
+          r,
+        );
+      if (sp.canonicalKey) {
+        const t = keys.get(sp.canonicalKey);
+        if (!t || t.classification !== "FINAL_APPROVED" || t.sourceId !== item.sourceId)
+          add(
+            "SUPERSESSION",
+            "FAIL",
+            `${k}: canonicalKey ${sp.canonicalKey} debe ser la definición FINAL_APPROVED del mismo identificador`,
+            k,
+            r,
+          );
+      }
+    }
     if (item.classification === "SUPERSEDED") {
       const target = item.supersededBy ? keys.get(item.supersededBy) : undefined;
+      // Cadena de supersesión: termina en un objeto aprobado o en una versión
+      // histórica cuya propia supersesión está evidenciada literalmente.
+      let terminal = target;
+      const vistos = new Set<string>([k]);
+      while (terminal && terminal.classification === "SUPERSEDED" && terminal.supersededBy) {
+        if (vistos.has(terminal.key)) break;
+        vistos.add(terminal.key);
+        terminal = keys.get(terminal.supersededBy);
+      }
+      const cerrada =
+        !!terminal &&
+        (terminal.classification === "FINAL_APPROVED" ||
+          (terminal.classification === "HISTORICAL_DRAFT" && !!terminal.supersession));
       if (!item.supersededBy || !target)
         add("SUPERSESSION", "FAIL", `${k}: SUPERSEDED exige supersededBy existente`, k, r);
-      else if (
-        target.classification === "SUPERSEDED" ||
-        target.classification === "HISTORICAL_DRAFT"
-      )
+      else if (terminal && vistos.has(terminal.key))
+        add("SUPERSESSION", "FAIL", `${k}: ciclo en la cadena de supersesión`, k, r);
+      else if (!cerrada)
         add(
           "SUPERSESSION",
           "REVIEW",
@@ -472,7 +517,23 @@ export function validateExtractionCandidate(input: {
   });
   for (const [sid, occ] of porSourceId) {
     if (occ.length < 2) continue;
-    if (!occ.every((i) => i.classification === "HISTORICAL_DRAFT")) continue;
+    const finales = occ.filter((i) => i.classification === "FINAL_APPROVED");
+    if (finales.length > 1) {
+      add(
+        "SUPERSESSION_AMBIGUOUS",
+        "REVIEW",
+        `${sid}: ${finales.length} definiciones FINAL_APPROVED (${finales.map((i) => `L${i.sourceLines?.[0] ?? "?"}`).join(", ")}); una definición canónica por identificador`,
+        sid,
+        finales[0]?.sourceLines ?? null,
+      );
+      continue;
+    }
+    if (finales.length === 1) continue;
+    if (!occ.every((i) => i.classification === "HISTORICAL_DRAFT" || i.classification === "SUPERSEDED"))
+      continue;
+    // Resuelto sin definición canónica: toda aparición tiene evidencia literal.
+    if (occ.every((i) => i.supersession)) continue;
+    if (!occ.some((i) => i.classification === "HISTORICAL_DRAFT" && !i.supersession)) continue;
     add(
       "SUPERSESSION_AMBIGUOUS",
       "REVIEW",
