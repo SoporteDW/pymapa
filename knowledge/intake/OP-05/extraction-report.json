@@ -4,7 +4,7 @@
   "capabilityId": "OP-05",
   "registrationId": "RAW-OP-05-16734c65ee57",
   "textSha256": "09629d4e6ff63c925057ca821e4fc4640c098544ba7f51942fec886336a4b31c",
-  "extractor": "pymapa-structural-segmenter@0.1.0",
+  "extractor": "pymapa-structural-segmenter@0.2.0",
   "identity": {
     "declaredName": "Gestionar iniciativas hasta su implementación efectiva",
     "literalLines": [
@@ -20,7 +20,7 @@
       1673
     ],
     "selectedLine": 1673,
-    "requiresHumanConfirmation": true,
+    "requiresHumanConfirmation": false,
     "statement": "Cierre histórico literal (provenance). No equivale a publicación técnica actual ni a aceptación canónica."
   },
   "chronology": [
@@ -67,8 +67,8 @@
     "conflictingDefinitions": 14,
     "draftMarked": 1,
     "governedBacklog": 0,
-    "finalApprovedCandidates": 107,
-    "historicalDrafts": 29
+    "finalApprovedCandidates": 117,
+    "historicalDrafts": 19
   },
   "ambiguousSupersessions": [
     {
@@ -122,136 +122,6 @@
           "heading": "K4 · CONOCIMIENTO — PASS"
         }
       ]
-    },
-    {
-      "sourceId": "VA01",
-      "occurrences": [
-        {
-          "line": 129,
-          "heading": "VA01 · Objetivo y resultado esperado"
-        },
-        {
-          "line": 252,
-          "heading": "VA01 · Objetivo y resultado"
-        }
-      ]
-    },
-    {
-      "sourceId": "VA02",
-      "occurrences": [
-        {
-          "line": 132,
-          "heading": "VA02 · Alcance y criterios de terminación"
-        },
-        {
-          "line": 262,
-          "heading": "VA02 · Alcance y terminación"
-        }
-      ]
-    },
-    {
-      "sourceId": "VA03",
-      "occurrences": [
-        {
-          "line": 141,
-          "heading": "VA03 · Responsabilidad y capacidad de decisión"
-        },
-        {
-          "line": 273,
-          "heading": "VA03 · Responsabilidad/decisión"
-        }
-      ]
-    },
-    {
-      "sourceId": "VA04",
-      "occurrences": [
-        {
-          "line": 147,
-          "heading": "VA04 · Recursos y capacidad disponible"
-        },
-        {
-          "line": 283,
-          "heading": "VA04 · Recursos/capacidad"
-        }
-      ]
-    },
-    {
-      "sourceId": "VA05",
-      "occurrences": [
-        {
-          "line": 154,
-          "heading": "VA05 · Dependencias y prerrequisitos"
-        },
-        {
-          "line": 294,
-          "heading": "VA05 · Dependencias"
-        }
-      ]
-    },
-    {
-      "sourceId": "VA06",
-      "occurrences": [
-        {
-          "line": 167,
-          "heading": "VA06 · Plan y secuencia de ejecución"
-        },
-        {
-          "line": 306,
-          "heading": "VA06 · Plan/secuencia"
-        }
-      ]
-    },
-    {
-      "sourceId": "VA07",
-      "occurrences": [
-        {
-          "line": 171,
-          "heading": "VA07 · Visibilidad de avance y estado real"
-        },
-        {
-          "line": 317,
-          "heading": "VA07 · Visibilidad"
-        }
-      ]
-    },
-    {
-      "sourceId": "VA08",
-      "occurrences": [
-        {
-          "line": 177,
-          "heading": "VA08 · Gestión de bloqueos, riesgos y cambios"
-        },
-        {
-          "line": 328,
-          "heading": "VA08 · Riesgos/bloqueos/cambios"
-        }
-      ]
-    },
-    {
-      "sourceId": "VA09",
-      "occurrences": [
-        {
-          "line": 185,
-          "heading": "VA09 · Activación, adopción y transición operativa"
-        },
-        {
-          "line": 340,
-          "heading": "VA09 · Activación/adopción"
-        }
-      ]
-    },
-    {
-      "sourceId": "VA10",
-      "occurrences": [
-        {
-          "line": 191,
-          "heading": "VA10 · Verificación y cierre de implementación"
-        },
-        {
-          "line": 353,
-          "heading": "VA10 · Verificación/cierre"
-        }
-      ]
     }
   ],
   "crossCapabilityReferences": [
@@ -286,5 +156,333 @@
       "IMAGES_NOT_TRANSCRIBED: 132 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw."
     ]
   },
-  "checksum": "sha256:395ccd2e9b9ab7a9771dc3acb09ea576d2750f63d239f3105ed56c5345f499b3"
+  "supersessionResolution": {
+    "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+    "mode": "GOVERNED",
+    "statement": "Resolución de supersesión solo por evidencia explícita de la fuente. La cronología sola y la última aparición sola nunca deciden; toda versión previa se preserva como provenance histórica. No es aceptación canónica.",
+    "baseline": {
+      "extractor": "pymapa-structural-segmenter@0.1.0",
+      "ambiguousIds": 14,
+      "ambiguousIdList": [
+        "K1",
+        "K2",
+        "K3",
+        "K4",
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10"
+      ],
+      "finalApproved": 107,
+      "historicalDrafts": 29
+    },
+    "after": {
+      "ambiguousIds": 4,
+      "finalApproved": 117,
+      "superseded": 0,
+      "historicalDrafts": 19,
+      "governedBacklog": 0,
+      "itemsWithSupersessionEvidence": 20
+    },
+    "resolvedFromBaselineAmbiguous": 10,
+    "resolvedFromBaselineAmbiguousList": [
+      "VA01",
+      "VA02",
+      "VA03",
+      "VA04",
+      "VA05",
+      "VA06",
+      "VA07",
+      "VA08",
+      "VA09",
+      "VA10"
+    ],
+    "byRule": {
+      "EXPLICIT_ELIMINATION": 0,
+      "EXPLICIT_REFORMULATION": 0,
+      "GOVERNED_FREEZE": 20,
+      "FROZEN_HEADING": 0,
+      "VERBATIM_DUPLICATE": 0
+    },
+    "resolvedIds": [
+      {
+        "sourceId": "VA01",
+        "outcome": "CANONICAL_SELECTED",
+        "rules": [
+          "GOVERNED_FREEZE"
+        ],
+        "canonicalKey": "VA01@L252",
+        "occurrences": 2
+      },
+      {
+        "sourceId": "VA02",
+        "outcome": "CANONICAL_SELECTED",
+        "rules": [
+          "GOVERNED_FREEZE"
+        ],
+        "canonicalKey": "VA02@L262",
+        "occurrences": 2
+      },
+      {
+        "sourceId": "VA03",
+        "outcome": "CANONICAL_SELECTED",
+        "rules": [
+          "GOVERNED_FREEZE"
+        ],
+        "canonicalKey": "VA03@L273",
+        "occurrences": 2
+      },
+      {
+        "sourceId": "VA04",
+        "outcome": "CANONICAL_SELECTED",
+        "rules": [
+          "GOVERNED_FREEZE"
+        ],
+        "canonicalKey": "VA04@L283",
+        "occurrences": 2
+      },
+      {
+        "sourceId": "VA05",
+        "outcome": "CANONICAL_SELECTED",
+        "rules": [
+          "GOVERNED_FREEZE"
+        ],
+        "canonicalKey": "VA05@L294",
+        "occurrences": 2
+      },
+      {
+        "sourceId": "VA06",
+        "outcome": "CANONICAL_SELECTED",
+        "rules": [
+          "GOVERNED_FREEZE"
+        ],
+        "canonicalKey": "VA06@L306",
+        "occurrences": 2
+      },
+      {
+        "sourceId": "VA07",
+        "outcome": "CANONICAL_SELECTED",
+        "rules": [
+          "GOVERNED_FREEZE"
+        ],
+        "canonicalKey": "VA07@L317",
+        "occurrences": 2
+      },
+      {
+        "sourceId": "VA08",
+        "outcome": "CANONICAL_SELECTED",
+        "rules": [
+          "GOVERNED_FREEZE"
+        ],
+        "canonicalKey": "VA08@L328",
+        "occurrences": 2
+      },
+      {
+        "sourceId": "VA09",
+        "outcome": "CANONICAL_SELECTED",
+        "rules": [
+          "GOVERNED_FREEZE"
+        ],
+        "canonicalKey": "VA09@L340",
+        "occurrences": 2
+      },
+      {
+        "sourceId": "VA10",
+        "outcome": "CANONICAL_SELECTED",
+        "rules": [
+          "GOVERNED_FREEZE"
+        ],
+        "canonicalKey": "VA10@L353",
+        "occurrences": 2
+      }
+    ],
+    "unresolvedIds": [
+      {
+        "sourceId": "K1",
+        "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
+        "occurrences": [
+          1506,
+          1529
+        ]
+      },
+      {
+        "sourceId": "K2",
+        "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
+        "occurrences": [
+          1532,
+          1560
+        ]
+      },
+      {
+        "sourceId": "K3",
+        "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
+        "occurrences": [
+          1563,
+          1576
+        ]
+      },
+      {
+        "sourceId": "K4",
+        "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
+        "occurrences": [
+          1579,
+          1661
+        ]
+      }
+    ],
+    "singlesReclassified": [],
+    "governingFreezes": [
+      {
+        "prefix": "CE",
+        "area": "CEVA",
+        "marker": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+        "line": 249,
+        "ratifiedFrom": 1,
+        "frozenUntil": 947
+      },
+      {
+        "prefix": "CRV",
+        "area": "RESULTS",
+        "marker": "OP05-RESULTS-v0.1 · 8-CRV · CANDIDATE-FROZEN",
+        "line": 1373,
+        "ratifiedFrom": 1240,
+        "frozenUntil": 1618
+      },
+      {
+        "prefix": "VA",
+        "area": "CEVA",
+        "marker": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+        "line": 249,
+        "ratifiedFrom": 1,
+        "frozenUntil": 947
+      }
+    ]
+  },
+  "governance": {
+    "decisionSetId": "M2-BATCH-01R",
+    "ref": "knowledge/intake/OP-05/governance-decisions.json",
+    "checksum": "sha256:2a8c30eb2ce3c548fb9ad507e93474beb6940b525e1a1b8a853532ebbcb41462",
+    "closureSelection": {
+      "selectedBy": "GOVERNANCE_DECISION",
+      "selectedLine": 1673,
+      "confirmationOrNonFinalLines": [
+        1631
+      ],
+      "criteria": [
+        "marcador literal \"OP05-K4-v1.0 · K4-VALIDATED · CLOSED\"",
+        "precedido en 6 líneas por \"DoD: 27/27 PASS\", \"A–V: 22/22 PASS\", \"K1–K4: 4/4 PASS\""
+      ]
+    },
+    "approvedCounts": [
+      {
+        "label": "CE",
+        "declared": 4,
+        "sourceLines": [
+          1606,
+          1606
+        ],
+        "controlCount": {
+          "declared": 4,
+          "sourceLines": [
+            1606,
+            1606
+          ]
+        },
+        "finalApprovedMaterialized": 4,
+        "consistent": true
+      },
+      {
+        "label": "VA",
+        "declared": 10,
+        "sourceLines": [
+          1607,
+          1607
+        ],
+        "controlCount": {
+          "declared": 10,
+          "sourceLines": [
+            1607,
+            1607
+          ]
+        },
+        "finalApprovedMaterialized": 10,
+        "consistent": true
+      },
+      {
+        "label": "Reglas primarias",
+        "declared": 11,
+        "sourceLines": [
+          1608,
+          1608
+        ],
+        "controlCount": null,
+        "finalApprovedMaterialized": null,
+        "consistent": null
+      },
+      {
+        "label": "Familias de hallazgo",
+        "declared": 8,
+        "sourceLines": [
+          1609,
+          1609
+        ],
+        "controlCount": null,
+        "finalApprovedMaterialized": null,
+        "consistent": null
+      },
+      {
+        "label": "Patrones de intervención",
+        "declared": 8,
+        "sourceLines": [
+          1610,
+          1610
+        ],
+        "controlCount": null,
+        "finalApprovedMaterialized": null,
+        "consistent": null
+      },
+      {
+        "label": "Familias de instrumentos",
+        "declared": 8,
+        "sourceLines": [
+          1611,
+          1611
+        ],
+        "controlCount": null,
+        "finalApprovedMaterialized": null,
+        "consistent": null
+      },
+      {
+        "label": "Familias de entregables",
+        "declared": 8,
+        "sourceLines": [
+          1612,
+          1612
+        ],
+        "controlCount": null,
+        "finalApprovedMaterialized": null,
+        "consistent": null
+      },
+      {
+        "label": "CRV principales",
+        "declared": 8,
+        "sourceLines": [
+          1613,
+          1613
+        ],
+        "controlCount": null,
+        "finalApprovedMaterialized": null,
+        "consistent": null
+      }
+    ],
+    "backlogAdded": [],
+    "errors": []
+  },
+  "checksum": "sha256:5565b13aaf4cccc6fb8df84541ec8a6ccac16b4c28c93c5192df8e7452557876"
 }

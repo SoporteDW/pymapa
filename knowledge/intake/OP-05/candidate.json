@@ -1,5 +1,5 @@
 {
-  "candidateId": "CAND-OP-05-0.1.0-09629d4e6ff6",
+  "candidateId": "CAND-OP-05-0.2.0-09629d4e6ff6",
   "capabilityId": "OP-05",
   "status": "CANDIDATE",
   "registration": {
@@ -8,8 +8,8 @@
   },
   "producedBy": {
     "method": "DETERMINISTIC_TOOL",
-    "agent": "pymapa-structural-segmenter@0.1.0",
-    "note": "Segmentación literal por headings con identificador; clasificación solo por evidencia literal. No decide supersesión ni tipo semántico."
+    "agent": "pymapa-structural-segmenter@0.2.0 + pymapa-governed-supersession-resolver@0.1.0",
+    "note": "Segmentación literal por headings con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
   },
   "baselineId": "OP05-K4-v1.0",
   "historicalStatus": {
@@ -290,7 +290,22 @@
       "sourceLines": [
         129,
         131
-      ]
+      ],
+      "supersession": {
+        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+        "rule": "GOVERNED_FREEZE",
+        "kind": "SUPERSEDED_BY_FROZEN_STATEMENT",
+        "evidence": [
+          {
+            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+            "sourceLines": [
+              249,
+              249
+            ]
+          }
+        ],
+        "canonicalKey": "VA01@L252"
+      }
     },
     {
       "key": "VA02@L132",
@@ -310,7 +325,22 @@
       "sourceLines": [
         132,
         136
-      ]
+      ],
+      "supersession": {
+        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+        "rule": "GOVERNED_FREEZE",
+        "kind": "SUPERSEDED_BY_FROZEN_STATEMENT",
+        "evidence": [
+          {
+            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+            "sourceLines": [
+              249,
+              249
+            ]
+          }
+        ],
+        "canonicalKey": "VA02@L262"
+      }
     },
     {
       "key": "CE02",
@@ -356,7 +386,22 @@
       "sourceLines": [
         141,
         146
-      ]
+      ],
+      "supersession": {
+        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+        "rule": "GOVERNED_FREEZE",
+        "kind": "SUPERSEDED_BY_FROZEN_STATEMENT",
+        "evidence": [
+          {
+            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+            "sourceLines": [
+              249,
+              249
+            ]
+          }
+        ],
+        "canonicalKey": "VA03@L273"
+      }
     },
     {
       "key": "VA04@L147",
@@ -378,7 +423,22 @@
       "sourceLines": [
         147,
         153
-      ]
+      ],
+      "supersession": {
+        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+        "rule": "GOVERNED_FREEZE",
+        "kind": "SUPERSEDED_BY_FROZEN_STATEMENT",
+        "evidence": [
+          {
+            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+            "sourceLines": [
+              249,
+              249
+            ]
+          }
+        ],
+        "canonicalKey": "VA04@L283"
+      }
     },
     {
       "key": "VA05@L154",
@@ -402,7 +462,22 @@
       "sourceLines": [
         154,
         162
-      ]
+      ],
+      "supersession": {
+        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+        "rule": "GOVERNED_FREEZE",
+        "kind": "SUPERSEDED_BY_FROZEN_STATEMENT",
+        "evidence": [
+          {
+            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+            "sourceLines": [
+              249,
+              249
+            ]
+          }
+        ],
+        "canonicalKey": "VA05@L294"
+      }
     },
     {
       "key": "CE03",
@@ -446,7 +521,22 @@
       "sourceLines": [
         167,
         170
-      ]
+      ],
+      "supersession": {
+        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+        "rule": "GOVERNED_FREEZE",
+        "kind": "SUPERSEDED_BY_FROZEN_STATEMENT",
+        "evidence": [
+          {
+            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+            "sourceLines": [
+              249,
+              249
+            ]
+          }
+        ],
+        "canonicalKey": "VA06@L306"
+      }
     },
     {
       "key": "VA07@L171",
@@ -467,7 +557,22 @@
       "sourceLines": [
         171,
         176
-      ]
+      ],
+      "supersession": {
+        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+        "rule": "GOVERNED_FREEZE",
+        "kind": "SUPERSEDED_BY_FROZEN_STATEMENT",
+        "evidence": [
+          {
+            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+            "sourceLines": [
+              249,
+              249
+            ]
+          }
+        ],
+        "canonicalKey": "VA07@L317"
+      }
     },
     {
       "key": "VA08@L177",
@@ -486,7 +591,22 @@
       "sourceLines": [
         177,
         180
-      ]
+      ],
+      "supersession": {
+        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+        "rule": "GOVERNED_FREEZE",
+        "kind": "SUPERSEDED_BY_FROZEN_STATEMENT",
+        "evidence": [
+          {
+            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+            "sourceLines": [
+              249,
+              249
+            ]
+          }
+        ],
+        "canonicalKey": "VA08@L328"
+      }
     },
     {
       "key": "CE04",
@@ -532,7 +652,22 @@
       "sourceLines": [
         185,
         190
-      ]
+      ],
+      "supersession": {
+        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+        "rule": "GOVERNED_FREEZE",
+        "kind": "SUPERSEDED_BY_FROZEN_STATEMENT",
+        "evidence": [
+          {
+            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+            "sourceLines": [
+              249,
+              249
+            ]
+          }
+        ],
+        "canonicalKey": "VA09@L340"
+      }
     },
     {
       "key": "VA10@L191",
@@ -550,7 +685,22 @@
       "sourceLines": [
         191,
         193
-      ]
+      ],
+      "supersession": {
+        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+        "rule": "GOVERNED_FREEZE",
+        "kind": "SUPERSEDED_BY_FROZEN_STATEMENT",
+        "evidence": [
+          {
+            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+            "sourceLines": [
+              249,
+              249
+            ]
+          }
+        ],
+        "canonicalKey": "VA10@L353"
+      }
     },
     {
       "key": "P-OP05-05",
@@ -648,7 +798,7 @@
     },
     {
       "key": "VA01@L252",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_VA",
       "sourceId": "VA01",
       "fields": {
@@ -668,11 +818,32 @@
       "sourceLines": [
         252,
         260
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+        "sourceLines": [
+          249,
+          249
+        ]
+      },
+      "supersession": {
+        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+        "rule": "GOVERNED_FREEZE",
+        "kind": "CANONICAL_SELECTED",
+        "evidence": [
+          {
+            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+            "sourceLines": [
+              249,
+              249
+            ]
+          }
+        ]
+      }
     },
     {
       "key": "VA02@L262",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_VA",
       "sourceId": "VA02",
       "fields": {
@@ -693,11 +864,32 @@
       "sourceLines": [
         262,
         271
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+        "sourceLines": [
+          249,
+          249
+        ]
+      },
+      "supersession": {
+        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+        "rule": "GOVERNED_FREEZE",
+        "kind": "CANONICAL_SELECTED",
+        "evidence": [
+          {
+            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+            "sourceLines": [
+              249,
+              249
+            ]
+          }
+        ]
+      }
     },
     {
       "key": "VA03@L273",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_VA",
       "sourceId": "VA03",
       "fields": {
@@ -717,11 +909,32 @@
       "sourceLines": [
         273,
         281
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+        "sourceLines": [
+          249,
+          249
+        ]
+      },
+      "supersession": {
+        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+        "rule": "GOVERNED_FREEZE",
+        "kind": "CANONICAL_SELECTED",
+        "evidence": [
+          {
+            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+            "sourceLines": [
+              249,
+              249
+            ]
+          }
+        ]
+      }
     },
     {
       "key": "VA04@L283",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_VA",
       "sourceId": "VA04",
       "fields": {
@@ -742,11 +955,32 @@
       "sourceLines": [
         283,
         292
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+        "sourceLines": [
+          249,
+          249
+        ]
+      },
+      "supersession": {
+        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+        "rule": "GOVERNED_FREEZE",
+        "kind": "CANONICAL_SELECTED",
+        "evidence": [
+          {
+            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+            "sourceLines": [
+              249,
+              249
+            ]
+          }
+        ]
+      }
     },
     {
       "key": "VA05@L294",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_VA",
       "sourceId": "VA05",
       "fields": {
@@ -768,11 +1002,32 @@
       "sourceLines": [
         294,
         304
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+        "sourceLines": [
+          249,
+          249
+        ]
+      },
+      "supersession": {
+        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+        "rule": "GOVERNED_FREEZE",
+        "kind": "CANONICAL_SELECTED",
+        "evidence": [
+          {
+            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+            "sourceLines": [
+              249,
+              249
+            ]
+          }
+        ]
+      }
     },
     {
       "key": "VA06@L306",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_VA",
       "sourceId": "VA06",
       "fields": {
@@ -793,11 +1048,32 @@
       "sourceLines": [
         306,
         315
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+        "sourceLines": [
+          249,
+          249
+        ]
+      },
+      "supersession": {
+        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+        "rule": "GOVERNED_FREEZE",
+        "kind": "CANONICAL_SELECTED",
+        "evidence": [
+          {
+            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+            "sourceLines": [
+              249,
+              249
+            ]
+          }
+        ]
+      }
     },
     {
       "key": "VA07@L317",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_VA",
       "sourceId": "VA07",
       "fields": {
@@ -818,11 +1094,32 @@
       "sourceLines": [
         317,
         326
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+        "sourceLines": [
+          249,
+          249
+        ]
+      },
+      "supersession": {
+        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+        "rule": "GOVERNED_FREEZE",
+        "kind": "CANONICAL_SELECTED",
+        "evidence": [
+          {
+            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+            "sourceLines": [
+              249,
+              249
+            ]
+          }
+        ]
+      }
     },
     {
       "key": "VA08@L328",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_VA",
       "sourceId": "VA08",
       "fields": {
@@ -844,11 +1141,32 @@
       "sourceLines": [
         328,
         338
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+        "sourceLines": [
+          249,
+          249
+        ]
+      },
+      "supersession": {
+        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+        "rule": "GOVERNED_FREEZE",
+        "kind": "CANONICAL_SELECTED",
+        "evidence": [
+          {
+            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+            "sourceLines": [
+              249,
+              249
+            ]
+          }
+        ]
+      }
     },
     {
       "key": "VA09@L340",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_VA",
       "sourceId": "VA09",
       "fields": {
@@ -871,11 +1189,32 @@
       "sourceLines": [
         340,
         351
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+        "sourceLines": [
+          249,
+          249
+        ]
+      },
+      "supersession": {
+        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+        "rule": "GOVERNED_FREEZE",
+        "kind": "CANONICAL_SELECTED",
+        "evidence": [
+          {
+            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+            "sourceLines": [
+              249,
+              249
+            ]
+          }
+        ]
+      }
     },
     {
       "key": "VA10@L353",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_VA",
       "sourceId": "VA10",
       "fields": {
@@ -898,7 +1237,28 @@
       "sourceLines": [
         353,
         364
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+        "sourceLines": [
+          249,
+          249
+        ]
+      },
+      "supersession": {
+        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+        "rule": "GOVERNED_FREEZE",
+        "kind": "CANONICAL_SELECTED",
+        "evidence": [
+          {
+            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
+            "sourceLines": [
+              249,
+              249
+            ]
+          }
+        ]
+      }
     },
     {
       "key": "SUF-OP05-01",
@@ -3513,5 +3873,10 @@
       ]
     }
   ],
-  "checksum": "sha256:9f72dafb64c27bc6eddafdca5c5704c2cf6ad6b9868752fca04234afc7c3d477"
+  "governanceDecisions": {
+    "decisionSetId": "M2-BATCH-01R",
+    "ref": "knowledge/intake/OP-05/governance-decisions.json",
+    "checksum": "sha256:2a8c30eb2ce3c548fb9ad507e93474beb6940b525e1a1b8a853532ebbcb41462"
+  },
+  "checksum": "sha256:02810ee2839d26eb2954c9f68a920a042be82f10b5485889e099fc9e39ff5585"
 }
