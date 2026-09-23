@@ -93,7 +93,7 @@ describe.each(["OP-03", "OP-04", "OP-05"])("%s · candidato estructural", (cap) 
       candidate: x.candidate,
       registration: x.registration,
       rawText: x.rawText,
-      extensionRegistry: { entries: [] } as never,
+      extensionRegistry: null,
     });
     expect(v.issues.filter((i) => i.severity === "FAIL")).toEqual([]);
     expect(v.issues.some((i) => i.code === "SUPERSESSION_AMBIGUOUS")).toBe(true);
@@ -131,7 +131,7 @@ describe("cronología y frontera de candidatos", () => {
       candidate: x.candidate,
       registration: x.registration,
       rawText: x.rawText,
-      extensionRegistry: { entries: [] } as never,
+      extensionRegistry: null,
     });
     const p = promoteCandidateToCanonicalBaseline({
       validation: v,
