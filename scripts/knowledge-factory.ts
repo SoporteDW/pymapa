@@ -28,16 +28,22 @@ import {
   BENCHMARK_PATH,
   INTAKE_DIR,
   MASTER_DIR,
+  PACKS_DIR,
   RUNTIME_EXTENSIONS_PATH,
   buildFactoryBenchmarkMarkdown,
   buildRawSourceRegistration,
+  computeChecksum,
+  discoverCapabilityPipelineInputs,
   extractRawSource,
+  extractStructuralCandidate,
   governanceEvidencePath,
+  governanceReviewRecordSchema,
   loadFactoryCapabilityInputs,
   loadGenericCodeCorpus,
   loadMasterIndex,
   promoteCandidateToCanonicalBaseline,
   rawSourceRegistrationSchema,
+  runBatch,
   sha256Bytes,
   validateExtractionCandidate,
   validateMasterIndex,
@@ -183,6 +189,70 @@ if (argv[0] === "promote") {
   console.log(
     `✓ baseline canónica ${prom.baseline.baselineId} materializada en ${target}; siguiente paso: proyección ejecutable source.json + fixtures`,
   );
+  process.exit(0);
+}
+
+/* ---------------------------- publish ----------------------------- */
+/*
+ * Ciclo gobernado de publicación. Solo materializa pack.json + published.json
+ * si: (1) existe governance-review.json APPROVED con reviewer y reviewedAt;
+ * (2) la revisión cita el dossier de evidencia y el checksum del candidato
+ * vigentes; (3) el publication gate devuelve PUBLISHED sin bloqueos técnicos.
+ * Una versión publicada es inmutable: nunca se sobrescribe.
+ */
+if (argv[0] === "publish") {
+  const capabilityId = opt("--capability") ?? fail("--capability requerido");
+  const input = discoverCapabilityPipelineInputs(ROOT, MASTER_VERSION).find(
+    (p) => (p.source as { capability?: { id?: string } }).capability?.id === capabilityId,
+  );
+  if (!input) fail(`${capabilityId}: sin source.json ejecutable`);
+  const review = governanceReviewRecordSchema.safeParse(input.governanceReview);
+  if (!review.success)
+    fail(`${capabilityId}: governance-review.json ausente o incompleto (decision, reviewer, reviewedAt)`);
+  if (review.data.decision !== "APPROVED") fail(`${capabilityId}: decisión ${review.data.decision}`);
+  const r = runBatch([input]).results[0];
+  if (!r?.candidate) fail(`${capabilityId}: pack candidate no generado`);
+  const packChecksum = computeChecksum(r.candidate.pack);
+  const dossierPath = governanceEvidencePath(capabilityId);
+  if (!existsSync(join(ROOT, dossierPath))) fail(`${dossierPath} no existe`);
+  const dossier = readJson(dossierPath) as {
+    checksum?: string;
+    readiness?: string;
+    identity?: { packCandidate?: { checksum?: string } };
+  };
+  const cited = review.data.reviewedEvidence;
+  if (!cited || cited.dossierChecksum !== dossier.checksum)
+    fail(`${capabilityId}: la revisión no cita el dossier de evidencia vigente`);
+  if (dossier.readiness !== "READY_FOR_HUMAN_PUBLICATION_AUTHORIZATION")
+    fail(`${capabilityId}: el dossier revisado no está READY_FOR_HUMAN_PUBLICATION_AUTHORIZATION`);
+  if (cited.packCandidateChecksum !== packChecksum || dossier.identity?.packCandidate?.checksum !== packChecksum)
+    fail(`${capabilityId}: el candidato actual (${packChecksum}) no es el revisado`);
+  const dir = join(PACKS_DIR, r.candidate.packId, r.candidate.packVersion);
+  if (input.publishedPack) {
+    if (input.publishedPack.record.checksum === packChecksum) {
+      console.log(`✓ ${r.candidate.packId}@${r.candidate.packVersion} ya publicado (${packChecksum}); sin cambios`);
+      process.exit(0);
+    }
+    fail(`${dir} ya publicado con otro checksum: una versión publicada es inmutable`);
+  }
+  if (r.state !== "PUBLISHED" || r.outcome !== "PASS") {
+    r.publication?.blockers.forEach((b) => console.error(`  · ${b.code}: ${b.message}`));
+    r.errors.forEach((e) => console.error(`  · ${e}`));
+    fail(`${capabilityId}: publication gate ${r.state}/${r.outcome}`);
+  }
+  writeJson(join(dir, "pack.json"), r.candidate.pack);
+  writeJson(join(dir, "published.json"), {
+    packId: r.candidate.packId,
+    packVersion: r.candidate.packVersion,
+    status: "PUBLISHED",
+    publishedAt: review.data.reviewedAt,
+    knowledgeMasterVersion: MASTER_VERSION.replace(/^v/, ""),
+    requiredEngineVersion: opt("--engine") ?? ENGINE_SEMVER,
+    governanceReview: join(MASTER_DIR, MASTER_VERSION, "capabilities", capabilityId, "governance-review.json"),
+    checksum: packChecksum,
+    note: "Registro de inmutabilidad. Un cambio de contenido exige una versión nueva y SUPERSEDED para esta.",
+  });
+  console.log(`✓ ${r.candidate.packId}@${r.candidate.packVersion} PUBLISHED · ${packChecksum}`);
   process.exit(0);
 }
 
