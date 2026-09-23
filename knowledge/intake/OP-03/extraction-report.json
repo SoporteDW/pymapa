@@ -721,9 +721,9 @@
       "VA08"
     ],
     "byRule": {
-      "EXPLICIT_ELIMINATION": 1,
+      "EXPLICIT_ELIMINATION": 2,
       "EXPLICIT_REFORMULATION": 9,
-      "GOVERNED_FREEZE": 70,
+      "GOVERNED_FREEZE": 69,
       "FROZEN_HEADING": 4,
       "VERBATIM_DUPLICATE": 0
     },
@@ -866,7 +866,7 @@
         "sourceId": "VA09",
         "outcome": "NO_CANONICAL_DEFINITION",
         "rules": [
-          "GOVERNED_FREEZE"
+          "EXPLICIT_ELIMINATION"
         ],
         "canonicalKey": null,
         "occurrences": 1
@@ -1002,7 +1002,7 @@
     "singlesReclassified": [
       {
         "sourceId": "VA09",
-        "kind": "NOT_IN_FROZEN_ARCHITECTURE",
+        "kind": "ELIMINATED",
         "line": 656
       },
       {
@@ -1106,5 +1106,5 @@
     ],
     "errors": []
   },
-  "checksum": "sha256:95254a71d7da127501af2b164e4ac97b7de9dc9452e356289625444879963162"
+  "checksum": "sha256:67ca6ac547c21be3ee1839cf887e2f457635c409db92b1924de677ca5d4b576b"
 }

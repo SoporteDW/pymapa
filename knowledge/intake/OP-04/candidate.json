@@ -4637,7 +4637,7 @@
     },
     {
       "key": "IP01@L3419",
-      "classification": "FINAL_APPROVED",
+      "classification": "HISTORICAL_DRAFT",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP01",
       "fields": {
@@ -4647,28 +4647,7 @@
       "sourceLines": [
         3419,
         3419
-      ],
-      "approvalEvidence": {
-        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          5993,
-          5993
-        ]
-      },
-      "supersession": {
-        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "VERBATIM_DUPLICATE",
-        "kind": "CANONICAL_SELECTED",
-        "evidence": [
-          {
-            "text": "IP01 · Eliminar trabajo innecesario",
-            "sourceLines": [
-              3419,
-              3419
-            ]
-          }
-        ]
-      }
+      ]
     },
     {
       "key": "IP-OP04-01",
@@ -4791,7 +4770,7 @@
     },
     {
       "key": "IP03@L3479",
-      "classification": "FINAL_APPROVED",
+      "classification": "HISTORICAL_DRAFT",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP03",
       "fields": {
@@ -4801,28 +4780,7 @@
       "sourceLines": [
         3479,
         3479
-      ],
-      "approvalEvidence": {
-        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          5993,
-          5993
-        ]
-      },
-      "supersession": {
-        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "VERBATIM_DUPLICATE",
-        "kind": "CANONICAL_SELECTED",
-        "evidence": [
-          {
-            "text": "IP03 · Simplificar trabajo necesario",
-            "sourceLines": [
-              3479,
-              3479
-            ]
-          }
-        ]
-      }
+      ]
     },
     {
       "key": "IP-OP04-03",
@@ -4945,7 +4903,7 @@
     },
     {
       "key": "IP05@L3532",
-      "classification": "FINAL_APPROVED",
+      "classification": "HISTORICAL_DRAFT",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP05",
       "fields": {
@@ -4955,28 +4913,7 @@
       "sourceLines": [
         3532,
         3532
-      ],
-      "approvalEvidence": {
-        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          5993,
-          5993
-        ]
-      },
-      "supersession": {
-        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "VERBATIM_DUPLICATE",
-        "kind": "CANONICAL_SELECTED",
-        "evidence": [
-          {
-            "text": "IP05 · Automatización asistida",
-            "sourceLines": [
-              3532,
-              3532
-            ]
-          }
-        ]
-      }
+      ]
     },
     {
       "key": "IP-OP04-05",
@@ -5435,18 +5372,17 @@
       ],
       "supersession": {
         "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "VERBATIM_DUPLICATE",
-        "kind": "RESTATEMENT_OF_CANONICAL",
+        "rule": "EXPLICIT_ELIMINATION",
+        "kind": "ELIMINATED",
         "evidence": [
           {
-            "text": "IP01 · Eliminar trabajo innecesario",
+            "text": "- qué se elimina;",
             "sourceLines": [
-              3951,
-              3951
+              3963,
+              3963
             ]
           }
-        ],
-        "canonicalKey": "IP01@L3419"
+        ]
       }
     },
     {
@@ -5475,22 +5411,7 @@
       "sourceLines": [
         4002,
         4002
-      ],
-      "supersession": {
-        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "VERBATIM_DUPLICATE",
-        "kind": "RESTATEMENT_OF_CANONICAL",
-        "evidence": [
-          {
-            "text": "IP03 · Simplificar trabajo necesario",
-            "sourceLines": [
-              4002,
-              4002
-            ]
-          }
-        ],
-        "canonicalKey": "IP03@L3479"
-      }
+      ]
     },
     {
       "key": "DONE-OP04-02",
@@ -5565,22 +5486,7 @@
       "sourceLines": [
         4079,
         4079
-      ],
-      "supersession": {
-        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "VERBATIM_DUPLICATE",
-        "kind": "RESTATEMENT_OF_CANONICAL",
-        "evidence": [
-          {
-            "text": "IP05 · Automatización asistida",
-            "sourceLines": [
-              4079,
-              4079
-            ]
-          }
-        ],
-        "canonicalKey": "IP05@L3532"
-      }
+      ]
     },
     {
       "key": "DONE-OP04-04",
@@ -7240,5 +7146,5 @@
     "ref": "knowledge/intake/OP-04/governance-decisions.json",
     "checksum": "sha256:230ea7de9e5a94f1cf7c8be80b5b4f2a6b66b6d4b55f7a96eb0e0a4491ff2f5a"
   },
-  "checksum": "sha256:1f08e388565049615aa031b9157bcd829ca079d027fa8d4cb1bae51cbf65d63b"
+  "checksum": "sha256:99bf970cf50b03de8edb129d6fdf05c306e0fa5a236347fff5fbb417f7bed17c"
 }

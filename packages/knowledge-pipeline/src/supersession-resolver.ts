@@ -31,15 +31,15 @@
  *    (READY-TO-FREEZE / FOUNDATION-SUPPORTED), declaración). La definición
  *    canónica es la única ocurrencia en A (o, si no hay, la única en B); las
  *    demás previas quedan SUPERSEDED_BY_GOVERNED_STAGE; las posteriores solo son
- *    confirmación si su título coincide o es subcadena del canónico y su cuerpo
- *    no declara cambio. Un identificador de la familia ausente de A∪B y solo
+ *    confirmación si su título coincide o es subcadena del canónico y su
+ *    sección no declara eliminación ni reformulación. Un identificador de la familia ausente de A∪B y solo
  *    previo queda NOT_IN_FROZEN_ARCHITECTURE.
  * R4 FROZEN_HEADING — un identificador cuya única ocurrencia con token de
  *    congelación en su propio heading es la canónica; previas superadas,
  *    posteriores solo confirmación compatible.
- * R5 VERBATIM_DUPLICATE — todas las ocurrencias con heading y cuerpo idénticos
- *    byte a byte: no hay elección semántica; la primera es la definición y el
- *    resto repetición literal.
+ * R5 VERBATIM_DUPLICATE — todas las ocurrencias con heading y sección completa
+ *    (subsecciones incluidas) idénticos byte a byte: no hay elección semántica;
+ *    la primera es la definición y el resto repetición literal.
  *
  * La cronología sola NUNCA decide; la última ocurrencia sola NUNCA decide. Si
  * alguna ocurrencia de un identificador queda sin explicación, el identificador

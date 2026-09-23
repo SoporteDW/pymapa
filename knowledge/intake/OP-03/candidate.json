@@ -1084,21 +1084,14 @@
       ],
       "supersession": {
         "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "GOVERNED_FREEZE",
-        "kind": "NOT_IN_FROZEN_ARCHITECTURE",
+        "rule": "EXPLICIT_ELIMINATION",
+        "kind": "ELIMINATED",
         "evidence": [
           {
-            "text": "OP03-CEVA-v0.4 · CANDIDATE-FROZEN",
+            "text": "Se elimina como VA independiente.",
             "sourceLines": [
-              1759,
-              1759
-            ]
-          },
-          {
-            "text": "OP03-CEVA-v0.3 · FOUNDATION-SUPPORTED · READY-TO-FREEZE",
-            "sourceLines": [
-              1346,
-              1346
+              668,
+              668
             ]
           }
         ]
@@ -7910,5 +7903,5 @@
     "ref": "knowledge/intake/OP-03/governance-decisions.json",
     "checksum": "sha256:7a9e4626110fff13b2d7bd69229493d346d372c8195ef9c56cab0276c845fa55"
   },
-  "checksum": "sha256:398c4627ece956da4b9df43b5de191902811d5281fb235d3ebe44fd7ceb02859"
+  "checksum": "sha256:1a43ce78779601cddeecb4e3bacf317fbadf7228d45727cbe89fd6f38ad26f1c"
 }

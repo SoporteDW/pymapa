@@ -130,8 +130,8 @@
     "conflictingDefinitions": 30,
     "draftMarked": 3,
     "governedBacklog": 8,
-    "finalApprovedCandidates": 166,
-    "historicalDrafts": 83
+    "finalApprovedCandidates": 163,
+    "historicalDrafts": 86
   },
   "ambiguousSupersessions": [
     {
@@ -239,6 +239,19 @@
       ]
     },
     {
+      "sourceId": "IP01",
+      "occurrences": [
+        {
+          "line": 3419,
+          "heading": "IP01 · Eliminar trabajo innecesario"
+        },
+        {
+          "line": 3951,
+          "heading": "IP01 · Eliminar trabajo innecesario"
+        }
+      ]
+    },
+    {
       "sourceId": "IP02",
       "occurrences": [
         {
@@ -252,6 +265,19 @@
       ]
     },
     {
+      "sourceId": "IP03",
+      "occurrences": [
+        {
+          "line": 3479,
+          "heading": "IP03 · Simplificar trabajo necesario"
+        },
+        {
+          "line": 4002,
+          "heading": "IP03 · Simplificar trabajo necesario"
+        }
+      ]
+    },
+    {
       "sourceId": "IP04",
       "occurrences": [
         {
@@ -261,6 +287,19 @@
         {
           "line": 4030,
           "heading": "IP04 · Automatización"
+        }
+      ]
+    },
+    {
+      "sourceId": "IP05",
+      "occurrences": [
+        {
+          "line": 3532,
+          "heading": "IP05 · Automatización asistida"
+        },
+        {
+          "line": 4079,
+          "heading": "IP05 · Automatización asistida"
         }
       ]
     },
@@ -627,21 +666,18 @@
       "historicalDrafts": 97
     },
     "after": {
-      "ambiguousIds": 18,
-      "finalApproved": 166,
+      "ambiguousIds": 21,
+      "finalApproved": 163,
       "superseded": 0,
-      "historicalDrafts": 83,
+      "historicalDrafts": 86,
       "governedBacklog": 8,
-      "itemsWithSupersessionEvidence": 56
+      "itemsWithSupersessionEvidence": 51
     },
-    "resolvedFromBaselineAmbiguous": 15,
+    "resolvedFromBaselineAmbiguous": 12,
     "resolvedFromBaselineAmbiguousList": [
       "CE01",
       "CE02",
       "CE03",
-      "IP01",
-      "IP03",
-      "IP05",
       "VA01",
       "VA02",
       "VA03",
@@ -653,11 +689,11 @@
       "VA09"
     ],
     "byRule": {
-      "EXPLICIT_ELIMINATION": 0,
+      "EXPLICIT_ELIMINATION": 1,
       "EXPLICIT_REFORMULATION": 0,
       "GOVERNED_FREEZE": 50,
       "FROZEN_HEADING": 0,
-      "VERBATIM_DUPLICATE": 6
+      "VERBATIM_DUPLICATE": 0
     },
     "resolvedIds": [
       {
@@ -695,33 +731,6 @@
         ],
         "canonicalKey": null,
         "occurrences": 1
-      },
-      {
-        "sourceId": "IP01",
-        "outcome": "CANONICAL_SELECTED",
-        "rules": [
-          "VERBATIM_DUPLICATE"
-        ],
-        "canonicalKey": "IP01@L3419",
-        "occurrences": 2
-      },
-      {
-        "sourceId": "IP03",
-        "outcome": "CANONICAL_SELECTED",
-        "rules": [
-          "VERBATIM_DUPLICATE"
-        ],
-        "canonicalKey": "IP03@L3479",
-        "occurrences": 2
-      },
-      {
-        "sourceId": "IP05",
-        "outcome": "CANONICAL_SELECTED",
-        "rules": [
-          "VERBATIM_DUPLICATE"
-        ],
-        "canonicalKey": "IP05@L3532",
-        "occurrences": 2
       },
       {
         "sourceId": "VA01",
@@ -871,6 +880,14 @@
         ]
       },
       {
+        "sourceId": "IP01",
+        "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
+        "occurrences": [
+          3419,
+          3951
+        ]
+      },
+      {
         "sourceId": "IP02",
         "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
         "occurrences": [
@@ -879,11 +896,27 @@
         ]
       },
       {
+        "sourceId": "IP03",
+        "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
+        "occurrences": [
+          3479,
+          4002
+        ]
+      },
+      {
         "sourceId": "IP04",
         "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
         "occurrences": [
           3504,
           4030
+        ]
+      },
+      {
+        "sourceId": "IP05",
+        "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
+        "occurrences": [
+          3532,
+          4079
         ]
       },
       {
@@ -1035,5 +1068,5 @@
     "backlogAdded": [],
     "errors": []
   },
-  "checksum": "sha256:51b26dd2afe5373d968c0fbb3ef1fc726ddbd0c2cc4c6cecc6b4bb172eb47bfd"
+  "checksum": "sha256:8061e420762ab3c7a76c3dd889af2663d1c4c518298657b9eb3881e19540ec05"
 }
