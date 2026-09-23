@@ -153,14 +153,14 @@ cronología, no-apropiación de otras capacidades, bloqueo de promoción, ausenc
 
 Detalle completo en `docs/architecture/M2_BATCH01_SUPERSESSION_RESOLUTION.md`.
 
-| Métrica (antes → después)                     | OP-03       | OP-04       | OP-05       | Lote        |
-| --------------------------------------------- | ----------- | ----------- | ----------- | ----------- |
-| IDs ambiguos                                  | 25 → 12     | 33 → 21     | 14 → 4      | 72 → 37     |
-| FINAL_APPROVED candidatos                     | 158 → 170   | 152 → 163   | 107 → 117   | 417 → 450   |
-| Objetos en revisión humana                    | 125 → 44    | 97 → 48     | 28 → 8      | 250 → 100   |
-| `HUMAN_REVIEW_OBJECTS / CANONICAL_OBJECTS`    | 0,79 → 0,26 | 0,64 → 0,29 | 0,26 → 0,07 | 0,60 → 0,22 |
-| Motivos REVIEW                                | 29 → 15     | 37 → 24     | 16 → 6      | 82 → 45     |
-| FAIL                                          | 0           | 0           | 0           | 0           |
+| Métrica (antes → después)                  | OP-03       | OP-04       | OP-05       | Lote        |
+| ------------------------------------------ | ----------- | ----------- | ----------- | ----------- |
+| IDs ambiguos                               | 25 → 12     | 33 → 21     | 14 → 4      | 72 → 37     |
+| FINAL_APPROVED candidatos                  | 158 → 170   | 152 → 163   | 107 → 117   | 417 → 450   |
+| Objetos en revisión humana                 | 125 → 44    | 97 → 48     | 28 → 8      | 250 → 100   |
+| `HUMAN_REVIEW_OBJECTS / CANONICAL_OBJECTS` | 0,79 → 0,26 | 0,64 → 0,29 | 0,26 → 0,07 | 0,60 → 0,22 |
+| Motivos REVIEW                             | 29 → 15     | 37 → 24     | 16 → 6      | 82 → 45     |
+| FAIL                                       | 0           | 0           | 0           | 0           |
 
 Las tablas anteriores de este documento reflejan el estado de M2-BATCH-01 (extractor 0.1.0) y se
 conservan como registro histórico; el extractor 0.2.0 en modo `NONE` las reproduce.
