@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Registro gobernado de integridad entre capacidades",
+  "description": "Contrato autoritativo: crossCapabilityRegistrySchema (packages/knowledge-pipeline/src/cross-capability.ts). Decisiones humanas entre capacidades; nunca modifica packs publicados y ninguna entrada se cierra automáticamente.",
+  "type": "object",
+  "required": ["registryId", "statement", "entries", "checksum"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "registryId": { "type": "string", "minLength": 1 },
+    "statement": { "type": "string", "minLength": 1 },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "capabilities",
+          "decision",
+          "decidedBy",
+          "decidedAt",
+          "authorizationSource",
+          "statement",
+          "evidence",
+          "resolutionCondition",
+          "resolutionEvent"
+        ],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "kind": { "enum": ["GOVERNED_BACKLOG_RESOLUTION", "CANONICAL_BOUNDARY"] },
+          "capabilities": {
+            "type": "array",
+            "minItems": 2,
+            "items": { "type": "string", "pattern": "^[A-Z]{2}-\\d{2}$" }
+          },
+          "decision": {
+            "enum": [
+              "KEEP_OPEN_PENDING_OP03_CANONICAL_ACCEPTANCE",
+              "KEEP_OPEN",
+              "REQUIRES_HUMAN_REVIEW",
+              "CLOSE",
+              "ACCEPTED_CONDITIONAL",
+              "ACCEPTED"
+            ]
+          },
+          "decidedBy": { "type": "string", "minLength": 1 },
+          "decidedAt": { "type": "string", "minLength": 1 },
+          "authorizationSource": { "type": "string", "minLength": 1 },
+          "statement": { "type": "string", "minLength": 1 },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["capabilityId", "textSha256", "sourceLines", "text"],
+              "properties": {
+                "capabilityId": { "type": "string", "pattern": "^[A-Z]{2}-\\d{2}$" },
+                "textSha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+                "sourceLines": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": { "type": "integer", "minimum": 1 }
+                },
+                "text": { "type": "string", "minLength": 1 }
+              }
+            }
+          },
+          "resolutionCondition": {
+            "oneOf": [
+              { "type": "null" },
+              {
+                "type": "object",
+                "required": ["type", "capabilityId"],
+                "properties": {
+                  "type": { "enum": ["CANONICAL_ACCEPTANCE", "NO_LATER_SOURCE_CONTRADICTION"] },
+                  "capabilityId": { "type": "string", "pattern": "^[A-Z]{2}-\\d{2}$" },
+                  "sourceId": { "type": "string", "minLength": 1 }
+                }
+              }
+            ]
+          },
+          "resolutionEvent": {
+            "oneOf": [
+              { "type": "null" },
+              {
+                "type": "object",
+                "required": ["recordedAt", "canonicalAcceptanceChecksum", "evidenceRefs"],
+                "properties": {
+                  "recordedAt": { "type": "string", "minLength": 1 },
+                  "canonicalAcceptanceChecksum": {
+                    "type": "string",
+                    "pattern": "^sha256:[0-9a-f]{64}$"
+                  },
+                  "evidenceRefs": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": { "type": "integer", "minimum": 0 }
+                  }
+                }
+              }
+            ]
+          },
+          "publishedPackUnchanged": {
+            "type": "object",
+            "required": ["packId", "packVersion", "checksum"],
+            "properties": {
+              "packId": { "type": "string" },
+              "packVersion": { "type": "string" },
+              "checksum": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "checksum": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }
+  }
+}

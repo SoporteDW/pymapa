@@ -95,7 +95,9 @@ describe("M2-OP02-02 · proyección literal del ciclo de vida", () => {
         if (clave && LITERAL_KEYS.has(clave) && !raw.includes(v)) noLiterales.push(`${path}: ${v}`);
       } else if (Array.isArray(v)) v.forEach((x, i) => recorrer(x, clave, `${path}[${i}]`));
       else if (v && typeof v === "object")
-        Object.entries(v as Record<string, unknown>).forEach(([k, x]) => recorrer(x, k, `${path}.${k}`));
+        Object.entries(v as Record<string, unknown>).forEach(([k, x]) =>
+          recorrer(x, k, `${path}.${k}`),
+        );
     };
     LIFECYCLE.forEach((k) => recorrer(source.sections[k], null, k));
     expect(noLiterales).toEqual([]);
@@ -105,7 +107,10 @@ describe("M2-OP02-02 · proyección literal del ciclo de vida", () => {
     const conocidos = new Set(baseline.objects.map((o) => o.sourceId).filter(Boolean));
     const inventados: string[] = [];
     const recorrer = (v: unknown, clave: string | null) => {
-      if (typeof v === "string" && (clave === "id" || (clave?.endsWith("Ref") ?? false) || clave?.endsWith("Refs"))) {
+      if (
+        typeof v === "string" &&
+        (clave === "id" || (clave?.endsWith("Ref") ?? false) || clave?.endsWith("Refs"))
+      ) {
         if (!conocidos.has(v)) inventados.push(`${clave}=${v}`);
       } else if (Array.isArray(v)) v.forEach((x) => recorrer(x, clave));
       else if (v && typeof v === "object")
@@ -131,7 +136,15 @@ describe("M2-OP02-02 · CRV con dueño de patrón y juicio gobernado", () => {
   it("9 CRV pertenecen a patrones IP01–IP08, ninguno a una Activity", () => {
     const crvs = op02.listValidationRequirements();
     expect(crvs.map((c) => c.requirementRef)).toEqual([
-      "CRV-01", "CRV-02", "CRV-03", "CRV-04", "CRV-05", "CRV-06A", "CRV-06B", "CRV-07", "CRV-08",
+      "CRV-01",
+      "CRV-02",
+      "CRV-03",
+      "CRV-04",
+      "CRV-05",
+      "CRV-06A",
+      "CRV-06B",
+      "CRV-07",
+      "CRV-08",
     ]);
     crvs.forEach((c) => {
       expect(c.owner.kind).toBe("INTERVENTION_PATTERN");
@@ -139,30 +152,48 @@ describe("M2-OP02-02 · CRV con dueño de patrón y juicio gobernado", () => {
       expect(c.evaluation).toBe("GOVERNED_JUDGMENT");
       expect(c.isScore).toBe(false);
     });
-    expect(op02.getValidationRequirementsForOwner("INTERVENTION_PATTERN", "IP06").map((c) => c.name)).toEqual([
-      "Consistencia",
-      "Flujo",
-    ]);
+    expect(
+      op02.getValidationRequirementsForOwner("INTERVENTION_PATTERN", "IP06").map((c) => c.name),
+    ).toEqual(["Consistencia", "Flujo"]);
     expect(op02.getValidationRequirementForActivity("IP01")).toBeNull();
   });
 
   it("el runtime nunca satisface solo un CRV de juicio gobernado", () => {
     const r = op02.evaluateValidationRequirement("CRV-03", {
       primaryExecutorRespondentId: "a",
-      cases: [1, 2, 3].map((i) => ({ sequenceIndex: i, executorRespondentId: "b", outcome: "CORRECT" as const, criticalAssistance: false })),
+      cases: [1, 2, 3].map((i) => ({
+        sequenceIndex: i,
+        executorRespondentId: "b",
+        outcome: "CORRECT" as const,
+        criticalAssistance: false,
+      })),
     });
     expect(r.status).toBe("REVIEW_REQUIRED");
     expect(r.satisfied).toBe(false);
   });
 
   it("juicio humano: exige persona, evidencia (KPI no basta) y la condición justificante", () => {
-    const base = { judgment: "SATISFIED" as const, judgedBy: "u1", evidenceIds: ["ev1"], justifyingFindingRefs: ["OP02-HF02"] };
+    const base = {
+      judgment: "SATISFIED" as const,
+      judgedBy: "u1",
+      evidenceIds: ["ev1"],
+      justifyingFindingRefs: ["OP02-HF02"],
+    };
     expect(op02.assessValidationRequirementJudgment("CRV-03", base).status).toBe("SATISFIED");
-    expect(op02.assessValidationRequirementJudgment("CRV-03", { ...base, judgedBy: null }).admissible).toBe(false);
-    const soloKpi = op02.assessValidationRequirementJudgment("CRV-03", { ...base, evidenceIds: [], kpiRefs: ["KPI-x"] });
+    expect(
+      op02.assessValidationRequirementJudgment("CRV-03", { ...base, judgedBy: null }).admissible,
+    ).toBe(false);
+    const soloKpi = op02.assessValidationRequirementJudgment("CRV-03", {
+      ...base,
+      evidenceIds: [],
+      kpiRefs: ["KPI-x"],
+    });
     expect(soloKpi.admissible).toBe(false);
     expect(soloKpi.issues.join(" ")).toMatch(/KPI no sustituye evidencia/);
-    const sinJustificacion = op02.assessValidationRequirementJudgment("CRV-03", { ...base, justifyingFindingRefs: [] });
+    const sinJustificacion = op02.assessValidationRequirementJudgment("CRV-03", {
+      ...base,
+      justifyingFindingRefs: [],
+    });
     expect(sinJustificacion.admissible).toBe(false);
     expect(sinJustificacion.unmetConditionIds).toContain("VAL-OP02-03");
     expect(op02.assessValidationRequirementJudgment("CRV-99", base).issues).toEqual([
@@ -177,16 +208,23 @@ describe("M2-OP02-02 · Done / implementación (Done ≠ CRV ≠ efectividad)", 
     { layerRef: "DC-B", completed: true },
     { layerRef: "DC-C", completed: true, evidenceIds: evidenciaC ? ["ev-uso"] : [] },
   ];
-  const todos = (n: number) => Array.from({ length: n }, (_, i) => ({ position: i + 1, met: true }));
+  const todos = (n: number) =>
+    Array.from({ length: n }, (_, i) => ({ position: i + 1, met: true }));
 
   it("I3 exige DC-A/DC-B/DC-C, evidencia de adopción y todos los Done Criteria", () => {
-    const ok = op02.evaluateImplementation("IP01", { layerRecords: capas(true), doneCriteriaRecords: todos(5) });
+    const ok = op02.evaluateImplementation("IP01", {
+      layerRecords: capas(true),
+      doneCriteriaRecords: todos(5),
+    });
     expect(ok.executionStateRef).toBe("I3");
     expect(ok.implemented).toBe(true);
     expect(ok.validationRequirementSatisfied).toBeNull();
     expect(ok.effectivenessStateRef).toBeNull();
 
-    const sinEvidencia = op02.evaluateImplementation("IP01", { layerRecords: capas(false), doneCriteriaRecords: todos(5) });
+    const sinEvidencia = op02.evaluateImplementation("IP01", {
+      layerRecords: capas(false),
+      doneCriteriaRecords: todos(5),
+    });
     expect(sinEvidencia.implemented).toBe(false);
     expect(sinEvidencia.layersMissingEvidence).toEqual(["DC-C"]);
 
@@ -215,9 +253,13 @@ describe("M2-OP02-02 · Done / implementación (Done ≠ CRV ≠ efectividad)", 
   it("un patrón sin Done Criteria explícitos nunca alcanza I3 de forma vacía", () => {
     // M2-OP02-03: IP05 ya tiene su criterio transcrito; la guarda genérica se
     // verifica sobre un pack derivado cuyo patrón no declara criterios.
-    const sinCriterios = clonar(op02Pack) as { interventionPatterns: { id: string; doneCriteria: unknown[] }[] };
+    const sinCriterios = clonar(op02Pack) as {
+      interventionPatterns: { id: string; doneCriteria: unknown[] }[];
+    };
     sinCriterios.interventionPatterns.find((p) => p.id === "IP05")!.doneCriteria = [];
-    const r = createKnowledgeEngine(sinCriterios as unknown as Record<string, unknown>).evaluateImplementation("IP05", {
+    const r = createKnowledgeEngine(
+      sinCriterios as unknown as Record<string, unknown>,
+    ).evaluateImplementation("IP05", {
       layerRecords: capas(true),
       doneCriteriaRecords: [],
     });
@@ -242,9 +284,17 @@ describe("M2-OP02-02 · efectividad, atribución, decisión, follow-up y reasses
     const r = op02.assessValidation(base);
     expect(r.admissible).toBe(true);
     expect(r.decisions).toEqual([
-      { decision: "SUSTAIN", action: "mantener y pasar a seguimiento proporcional.", selection: "DETERMINISTIC" },
+      {
+        decision: "SUSTAIN",
+        action: "mantener y pasar a seguimiento proporcional.",
+        selection: "DETERMINISTIC",
+      },
     ]);
-    expect(r.followUp).toMatchObject({ triggered: true, ruleRefs: ["FOLLOWUP-OP02-01"], status: "REVIEW_REQUIRED" });
+    expect(r.followUp).toMatchObject({
+      triggered: true,
+      ruleRefs: ["FOLLOWUP-OP02-01"],
+      status: "REVIEW_REQUIRED",
+    });
     expect(r.followUp.frequencyFormula).toBe("NOT_EXPLICIT_IN_KNOWLEDGE_MASTER");
     expect(r.reassessment.triggered).toBe(false);
     expect(r.isMaturity).toBe(false);
@@ -259,13 +309,19 @@ describe("M2-OP02-02 · efectividad, atribución, decisión, follow-up y reasses
   });
 
   it("R4 exige CRV satisfecho y evidencia (KPI no basta)", () => {
-    expect(op02.assessValidation({ ...base, validationRequirementStatus: "NOT_SATISFIED" }).admissible).toBe(false);
+    expect(
+      op02.assessValidation({ ...base, validationRequirementStatus: "NOT_SATISFIED" }).admissible,
+    ).toBe(false);
     const kpi = op02.assessValidation({ ...base, evidenceIds: [], kpiRefs: ["KPI-1"] });
     expect(kpi.issues.join(" ")).toMatch(/KPI no sustituye evidencia/);
   });
 
   it("R2 → REASSESS + reassessment con el bucle literal; distinto de follow-up", () => {
-    const r = op02.assessValidation({ ...base, effectivenessStateRef: "R2", validationRequirementStatus: "NOT_SATISFIED" });
+    const r = op02.assessValidation({
+      ...base,
+      effectivenessStateRef: "R2",
+      validationRequirementStatus: "NOT_SATISFIED",
+    });
     expect(r.decisions.map((d) => d.decision)).toEqual(["REASSESS"]);
     expect(r.reassessment).toMatchObject({
       triggered: true,
@@ -284,16 +340,29 @@ describe("M2-OP02-02 · efectividad, atribución, decisión, follow-up y reasses
       validationRequirementStatus: "NOT_SATISFIED",
       unintendedNegativeOutcome: true,
     });
-    expect(r2.decisions).toContainEqual({ decision: "MODIFY / STOP / REASSESS", action: "según riesgo.", selection: "GOVERNED_JUDGMENT" });
+    expect(r2.decisions).toContainEqual({
+      decision: "MODIFY / STOP / REASSESS",
+      action: "según riesgo.",
+      selection: "GOVERNED_JUDGMENT",
+    });
     const r4 = op02.assessValidation({ ...base, unintendedNegativeOutcome: true });
     expect(r4.admissible).toBe(false);
     expect(r4.issues.join(" ")).toMatch(/R2/);
   });
 
   it("R1 → EXTEND / EVIDENCE; R3 → ADJUST + follow-up", () => {
-    const r1 = op02.assessValidation({ ...base, effectivenessStateRef: "R1", validationRequirementStatus: "INSUFFICIENT_EVIDENCE", evidenceIds: [] });
+    const r1 = op02.assessValidation({
+      ...base,
+      effectivenessStateRef: "R1",
+      validationRequirementStatus: "INSUFFICIENT_EVIDENCE",
+      evidenceIds: [],
+    });
     expect(r1.decisions.map((d) => d.decision)).toEqual(["EXTEND / EVIDENCE"]);
-    const r3 = op02.assessValidation({ ...base, effectivenessStateRef: "R3", validationRequirementStatus: "NOT_SATISFIED" });
+    const r3 = op02.assessValidation({
+      ...base,
+      effectivenessStateRef: "R3",
+      validationRequirementStatus: "NOT_SATISFIED",
+    });
     expect(r3.decisions.map((d) => d.decision)).toEqual(["ADJUST"]);
     expect(r3.followUp.triggered).toBe(true);
     expect(r3.reassessment.triggered).toBe(true);
@@ -303,24 +372,48 @@ describe("M2-OP02-02 · efectividad, atribución, decisión, follow-up y reasses
     const r = op02.assessValidation({ ...base, attributionConfidenceRef: "AC1" });
     expect(r.admissible).toBe(true);
     expect(r.attributionConfidenceRef).toBe("AC1");
-    expect(op02.assessValidation({ ...base, attributionConfidenceRef: "AC9" }).admissible).toBe(false);
+    expect(op02.assessValidation({ ...base, attributionConfidenceRef: "AC9" }).admissible).toBe(
+      false,
+    );
   });
 });
 
 describe("M2-OP02-02 · severidad y confianza contextuales", () => {
   it("S2/S3 con C0/C1 bloquea solo la confirmación causal (CONF-SEV-OP02-02)", () => {
-    const causal = op02.assessFindingConsolidation("OP02-HF02", { severityRef: "S3", confidenceRef: "C1", claim: "CAUSAL", judgedBy: "u1" });
+    const causal = op02.assessFindingConsolidation("OP02-HF02", {
+      severityRef: "S3",
+      confidenceRef: "C1",
+      claim: "CAUSAL",
+      judgedBy: "u1",
+    });
     expect(causal.status).toBe("BLOCKED");
     expect(causal.blockedByGuardIds).toEqual(["CONF-SEV-OP02-02"]);
-    expect(causal.requiredActions).toEqual(["no consolidarla todavía como hallazgo causal confirmado."]);
+    expect(causal.requiredActions).toEqual([
+      "no consolidarla todavía como hallazgo causal confirmado.",
+    ]);
     expect(
-      op02.assessFindingConsolidation("OP02-HF02", { severityRef: "S3", confidenceRef: "C1", claim: "NON_CAUSAL", judgedBy: "u1" }).status,
+      op02.assessFindingConsolidation("OP02-HF02", {
+        severityRef: "S3",
+        confidenceRef: "C1",
+        claim: "NON_CAUSAL",
+        judgedBy: "u1",
+      }).status,
     ).toBe("ADMISSIBLE");
     expect(
-      op02.assessFindingConsolidation("OP02-HF02", { severityRef: "S3", confidenceRef: "C1", claim: "CAUSAL", judgedBy: null }).status,
+      op02.assessFindingConsolidation("OP02-HF02", {
+        severityRef: "S3",
+        confidenceRef: "C1",
+        claim: "CAUSAL",
+        judgedBy: null,
+      }).status,
     ).toBe("INVALID_INPUT");
     expect(
-      op02.assessFindingConsolidation("OP02-HF02", { severityRef: "S9", confidenceRef: "C1", claim: "CAUSAL", judgedBy: "u1" }).status,
+      op02.assessFindingConsolidation("OP02-HF02", {
+        severityRef: "S9",
+        confidenceRef: "C1",
+        claim: "CAUSAL",
+        judgedBy: "u1",
+      }).status,
     ).toBe("INVALID_INPUT");
   });
 
@@ -330,9 +423,25 @@ describe("M2-OP02-02 · severidad y confianza contextuales", () => {
       knowledgeVersionId: "kv",
     });
     const c = ev.findingCandidates.find((f) => f.findingRef === "OP02-HF02");
-    expect(c?.severity).toMatchObject({ state: null, resolution: "CONTEXTUAL", admissibleLevels: ["S0", "S1", "S2", "S3"] });
-    expect(c?.confidence).toMatchObject({ state: null, resolution: "CONTEXTUAL", admissibleLevels: ["C0", "C1", "C2", "C3"] });
-    expect(op02.listEngineActions().map((a) => a.id)).toEqual(["REUSE", "STOP", "FOLLOW", "EVIDENCE", "CONTRA", "DERIVE", "NA"]);
+    expect(c?.severity).toMatchObject({
+      state: null,
+      resolution: "CONTEXTUAL",
+      admissibleLevels: ["S0", "S1", "S2", "S3"],
+    });
+    expect(c?.confidence).toMatchObject({
+      state: null,
+      resolution: "CONTEXTUAL",
+      admissibleLevels: ["C0", "C1", "C2", "C3"],
+    });
+    expect(op02.listEngineActions().map((a) => a.id)).toEqual([
+      "REUSE",
+      "STOP",
+      "FOLLOW",
+      "EVIDENCE",
+      "CONTRA",
+      "DERIVE",
+      "NA",
+    ]);
   });
 });
 
@@ -342,10 +451,16 @@ describe("M2-OP02-02 · UNKNOWN / NOT_APPLICABLE / CONTRADICTORY nunca sostienen
     ["NOT_APPLICABLE", "EXCLUDED_NOT_APPLICABLE"],
     ["CONTRADICTORY", "BLOCKED_BY_CONTRADICTION"],
   ] as const)("%s → %s en OP-01 y OP-02 (mismo engine)", (estado, esperado) => {
-    const e2 = op02.evaluate({ observations: [obs("x", "VA04", estado, "P1-OP02-02")], knowledgeVersionId: "kv" });
+    const e2 = op02.evaluate({
+      observations: [obs("x", "VA04", estado, "P1-OP02-02")],
+      knowledgeVersionId: "kv",
+    });
     expect(e2.findingCandidates).toEqual([]);
     expect(e2.findingsAwaitingResolution.map((f) => f.status)).toEqual([esperado]);
-    const e1 = op01.evaluate({ observations: [obs("x", "VA01", estado, "P01")], knowledgeVersionId: "kv" });
+    const e1 = op01.evaluate({
+      observations: [obs("x", "VA01", estado, "P01")],
+      knowledgeVersionId: "kv",
+    });
     expect(e1.findingCandidates).toEqual([]);
     expect(e1.findingsAwaitingResolution.every((f) => f.status === esperado)).toBe(true);
   });
@@ -353,11 +468,13 @@ describe("M2-OP02-02 · UNKNOWN / NOT_APPLICABLE / CONTRADICTORY nunca sostienen
 
 describe("M2-OP02-02 · OP-01 Golden intacto", () => {
   it("OP-01 no declara ciclo de vida: las APIs lo reportan como no explícito, sin inventar", () => {
-    LIFECYCLE.filter((k) => k !== "validationRequirements").forEach((k) => expect(op01Pack[k]).toBeUndefined());
+    LIFECYCLE.filter((k) => k !== "validationRequirements").forEach((k) =>
+      expect(op01Pack[k]).toBeUndefined(),
+    );
     expect(op01.listInterventionPatterns()).toEqual([]);
-    expect(op01.evaluateImplementation("A04", { layerRecords: [], doneCriteriaRecords: [] }).issues).toEqual([
-      "INTERVENTION_PATTERN_NOT_EXPLICIT",
-    ]);
+    expect(
+      op01.evaluateImplementation("A04", { layerRecords: [], doneCriteriaRecords: [] }).issues,
+    ).toEqual(["INTERVENTION_PATTERN_NOT_EXPLICIT"]);
     expect(op01.listEngineActions()).toEqual([]);
   });
 
@@ -370,11 +487,16 @@ describe("M2-OP02-02 · OP-01 Golden intacto", () => {
       evaluation: "DETERMINISTIC_CONDITIONS",
       requiredCaseCount: 3,
     });
-    expect(op01.getValidationRequirementForActivity("A04")?.requirementRef).toBe(crvs[0]!.requirementRef);
+    expect(op01.getValidationRequirementForActivity("A04")?.requirementRef).toBe(
+      crvs[0]!.requirementRef,
+    );
   });
 
   it("OP-01 KNOWN sigue produciendo H01/H08 con severidad NOT_EXPLICIT", () => {
-    const ev = op01.evaluate({ observations: [obs("k", "VA01", "KNOWN", "P01")], knowledgeVersionId: "kv" });
+    const ev = op01.evaluate({
+      observations: [obs("k", "VA01", "KNOWN", "P01")],
+      knowledgeVersionId: "kv",
+    });
     expect(ev.findingCandidates.map((f) => f.findingRef).sort()).toEqual(["H01", "H08"]);
     ev.findingCandidates.forEach((f) => expect(f.severity.resolution).toBe("NOT_EXPLICIT"));
   });
@@ -391,7 +513,9 @@ describe("M2-OP02-02 · el schema rechaza CRV y modelos mal formados", () => {
     expect(
       con((p) => {
         const v = crvs();
-        v[0]!["conditions"] = (v[0]!["conditions"] as { kind: string }[]).filter((c) => c.kind !== "GOVERNED_STATEMENT");
+        v[0]!["conditions"] = (v[0]!["conditions"] as { kind: string }[]).filter(
+          (c) => c.kind !== "GOVERNED_STATEMENT",
+        );
         p["validationRequirements"] = v;
       }),
     ).toBe(false);

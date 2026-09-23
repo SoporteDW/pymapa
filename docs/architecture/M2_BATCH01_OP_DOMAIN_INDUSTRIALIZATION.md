@@ -138,22 +138,38 @@ Tests actualizados por el cambio de estado autorizado de OP-02: los de
 Nuevo `structural-extractor.test.ts` (determinismo, identidad, cierre, no-promoción por
 cronología, no-apropiación de otras capacidades, bloqueo de promoción, ausencia de aprobaciones).
 
-## Decisiones humanas siguientes (exactas)
+## Decisiones humanas siguientes (exactas) · estado tras M2-BATCH-01R
 
-1. **OP-03/04/05 · cierre histórico**: confirmar la línea de cierre vigente (OP-03 L6078 vs L6152; OP-05 L1673, no L1631).
-2. **OP-03/04/05 · supersesión**: para cada ID ambiguo (25 / 33 / 14) seleccionar la definición vigente con evidencia literal y marcar el resto `SUPERSEDED`/`HISTORICAL_DRAFT`, y asignar tipo semántico.
-3. **Discrepancias de conteo**: OP-03 VA09/VA10 vs 8 VA; OP-04 CE04 vs 3 CE; doble familia CRV en OP-03/OP-04.
-4. **Backlog OP-03**: incorporar A-OP03-01..03 (L6104–6108) al candidato.
-5. Registrar `canonical-acceptance.json` por capacidad sobre el checksum vigente; solo entonces ejecutar proyección, runtime 0.2.0 y fixtures.
-6. **A-OP02-02**: decidir cierre tras la aceptación canónica de OP-03.
-7. **OP-02 / OP-05**: aceptar `BOUND-OP05-02` como frontera nueva sin modificar `op-02@1.0.0`.
+1. ~~Cierre histórico~~ → **aplicado** (OP-03 L6078, L6152 confirmación; OP-05 L1673, L1631 rechazada).
+2. Supersesión → **parcial**: 35 de 72 IDs ambiguos resueltos por evidencia explícita; quedan 12 / 21 / 4 (ver `M2_BATCH01_SUPERSESSION_RESOLUTION.md` §6).
+3. Conteos → OP-03 4 CE / 8 VA y OP-04 3 CE / 9 VA **consistentes**; queda la doble familia CRV en OP-03/OP-04.
+4. ~~Backlog OP-03~~ → **aplicado** (A-OP03-01..03 como GOVERNED_BACKLOG).
+5. `canonical-acceptance.json` por capacidad → pendiente; antes, vocabulario de provenance (`PROVENANCE_VOCABULARY_REQUIRED`).
+6. A-OP02-02 → `KEEP_OPEN_PENDING_OP03_CANONICAL_ACCEPTANCE` en `knowledge/factory/cross-capability-registry.json`.
+7. BOUND-OP05-02 → `ACCEPTED_CONDITIONAL`, condición validada `CONDITION_MET`; `op-02@1.0.0` sin cambios.
 8. Mejora genérica opcional del extractor raw: clasificar reglas horizontales VML para eliminar el falso positivo `IMAGES_NOT_TRANSCRIBED`.
+
+## Actualización M2-BATCH-01R (supersesión gobernada)
+
+Detalle completo en `docs/architecture/M2_BATCH01_SUPERSESSION_RESOLUTION.md`.
+
+| Métrica (antes → después)                  | OP-03       | OP-04       | OP-05       | Lote        |
+| ------------------------------------------ | ----------- | ----------- | ----------- | ----------- |
+| IDs ambiguos                               | 25 → 12     | 33 → 21     | 14 → 4      | 72 → 37     |
+| FINAL_APPROVED candidatos                  | 158 → 170   | 152 → 163   | 107 → 117   | 417 → 450   |
+| Objetos en revisión humana                 | 125 → 44    | 97 → 48     | 28 → 8      | 250 → 100   |
+| `HUMAN_REVIEW_OBJECTS / CANONICAL_OBJECTS` | 0,79 → 0,26 | 0,64 → 0,29 | 0,26 → 0,07 | 0,60 → 0,22 |
+| Motivos REVIEW                             | 29 → 15     | 37 → 24     | 16 → 6      | 82 → 45     |
+| FAIL                                       | 0           | 0           | 0           | 0           |
+
+Las tablas anteriores de este documento reflejan el estado de M2-BATCH-01 (extractor 0.1.0) y se
+conservan como registro histórico; el extractor 0.2.0 en modo `NONE` las reproduce.
 
 ## Conclusión
 
 Registro raw y extracción de candidatos corrieron por la Factory con un único flujo genérico,
-aislado por capacidad, en menos de 4 s por lote y sin FAIL; OP-02 quedó publicado bajo
-autorización humana. La selección canónica (250 ocurrencias ambiguas) sigue siendo humana y las
-etapas runtime/fixtures no se alcanzaron para OP-03/04/05.
+aislado por capacidad y sin FAIL; OP-02 quedó publicado bajo autorización humana. Tras M2-BATCH-01R
+el resolver genérico redujo a la mitad la ambigüedad y a un 22 % la razón revisión/canónico, pero la
+aceptación canónica sigue pendiente y runtime/fixtures no se alcanzaron para OP-03/04/05.
 
 FACTORY_TRACTION_PARTIAL

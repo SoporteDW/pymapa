@@ -4,7 +4,7 @@
   "capabilityId": "OP-03",
   "registrationId": "RAW-OP-03-afe0758fb2b4",
   "textSha256": "26d6a7a9d5d6a2867492f0eafcde1b447242dc1beff2dea13e372e7b833c2157",
-  "extractor": "pymapa-structural-segmenter@0.1.0",
+  "extractor": "pymapa-structural-segmenter@0.2.0",
   "identity": {
     "declaredName": "Integrar procesos de extremo a extremo",
     "literalLines": [
@@ -20,8 +20,8 @@
       6078,
       6152
     ],
-    "selectedLine": 6152,
-    "requiresHumanConfirmation": true,
+    "selectedLine": 6078,
+    "requiresHumanConfirmation": false,
     "statement": "Cierre histórico literal (provenance). No equivale a publicación técnica actual ni a aceptación canónica."
   },
   "chronology": [
@@ -124,162 +124,14 @@
     "idHeadings": 286,
     "distinctSourceIds": 186,
     "singleDefinition": 161,
-    "restatedIdentical": 5,
-    "conflictingDefinitions": 20,
+    "restatedIdentical": 0,
+    "conflictingDefinitions": 25,
     "draftMarked": 4,
-    "governedBacklog": 0,
-    "finalApprovedCandidates": 158,
-    "historicalDrafts": 128
+    "governedBacklog": 3,
+    "finalApprovedCandidates": 170,
+    "historicalDrafts": 107
   },
   "ambiguousSupersessions": [
-    {
-      "sourceId": "CE01",
-      "occurrences": [
-        {
-          "line": 452,
-          "heading": "CE01 · Articulación del flujo extremo a extremo"
-        },
-        {
-          "line": 529,
-          "heading": "CE01 · Articulación del flujo extremo a extremo"
-        },
-        {
-          "line": 883,
-          "heading": "CE01 · Articulación del flujo extremo a extremo"
-        },
-        {
-          "line": 946,
-          "heading": "CE01 · Articulación del flujo E2E"
-        },
-        {
-          "line": 1281,
-          "heading": "CE01 · Articulación del flujo extremo a extremo"
-        },
-        {
-          "line": 1351,
-          "heading": "CE01 · Articulación del flujo extremo a extremo"
-        },
-        {
-          "line": 1781,
-          "heading": "CE01 · Articulación del flujo E2E"
-        },
-        {
-          "line": 2352,
-          "heading": "CE01 · Articulación del flujo E2E"
-        }
-      ]
-    },
-    {
-      "sourceId": "CE02",
-      "occurrences": [
-        {
-          "line": 468,
-          "heading": "CE02 · Continuidad de información extremo a extremo"
-        },
-        {
-          "line": 531,
-          "heading": "CE02 · Continuidad de información extremo a extremo"
-        },
-        {
-          "line": 886,
-          "heading": "CE02 · Continuidad de información extremo a extremo"
-        },
-        {
-          "line": 983,
-          "heading": "CE02 · Continuidad de información E2E"
-        },
-        {
-          "line": 1284,
-          "heading": "CE02 · Continuidad de información extremo a extremo"
-        },
-        {
-          "line": 1354,
-          "heading": "CE02 · Continuidad de información extremo a extremo"
-        },
-        {
-          "line": 1784,
-          "heading": "CE02 · Continuidad de información E2E"
-        },
-        {
-          "line": 2379,
-          "heading": "CE02 · Continuidad de información E2E"
-        }
-      ]
-    },
-    {
-      "sourceId": "CE03",
-      "occurrences": [
-        {
-          "line": 489,
-          "heading": "CE03 · Gobernanza operacional del resultado E2E"
-        },
-        {
-          "line": 533,
-          "heading": "CE03 · Gobernanza operacional del resultado extremo a extremo"
-        },
-        {
-          "line": 888,
-          "heading": "CE03 · Gobernanza operacional del resultado extremo a extremo"
-        },
-        {
-          "line": 1016,
-          "heading": "CE03 · Gobernanza operacional del resultado E2E"
-        },
-        {
-          "line": 1286,
-          "heading": "CE03 · Gobernanza operacional del resultado extremo a extremo"
-        },
-        {
-          "line": 1356,
-          "heading": "CE03 · Gobernanza operacional del resultado extremo a extremo"
-        },
-        {
-          "line": 1786,
-          "heading": "CE03 · Gobernanza operacional del resultado E2E"
-        },
-        {
-          "line": 2397,
-          "heading": "CE03 · Gobernanza operacional del resultado E2E"
-        }
-      ]
-    },
-    {
-      "sourceId": "CE04",
-      "occurrences": [
-        {
-          "line": 524,
-          "heading": "CE04 · Visibilidad y retroalimentación extremo a extremo"
-        },
-        {
-          "line": 535,
-          "heading": "CE04 · Visibilidad y retroalimentación extremo a extremo"
-        },
-        {
-          "line": 892,
-          "heading": "CE04 · Visibilidad y retroalimentación extremo a extremo"
-        },
-        {
-          "line": 1072,
-          "heading": "CE04 · Visibilidad y retroalimentación E2E"
-        },
-        {
-          "line": 1290,
-          "heading": "CE04 · Visibilidad y retroalimentación extremo a extremo"
-        },
-        {
-          "line": 1360,
-          "heading": "CE04 · Visibilidad y retroalimentación extremo a extremo"
-        },
-        {
-          "line": 1790,
-          "heading": "CE04 · Visibilidad y retroalimentación E2E"
-        },
-        {
-          "line": 2441,
-          "heading": "CE04 · Visibilidad y retroalimentación"
-        }
-      ]
-    },
     {
       "sourceId": "IP01",
       "occurrences": [
@@ -513,247 +365,6 @@
         {
           "line": 1842,
           "heading": "REUSE-OP03-01"
-        }
-      ]
-    },
-    {
-      "sourceId": "SCOPE-OP03-01",
-      "occurrences": [
-        {
-          "line": 562,
-          "heading": "SCOPE-OP03-01"
-        },
-        {
-          "line": 1368,
-          "heading": "SCOPE-OP03-01"
-        },
-        {
-          "line": 1773,
-          "heading": "SCOPE-OP03-01 · CANDIDATE-FROZEN"
-        }
-      ]
-    },
-    {
-      "sourceId": "VA01",
-      "occurrences": [
-        {
-          "line": 552,
-          "heading": "VA01 · Claridad de extremos del flujo"
-        },
-        {
-          "line": 570,
-          "heading": "VA01 · Articulación entre componentes del flujo"
-        },
-        {
-          "line": 709,
-          "heading": "VA01"
-        },
-        {
-          "line": 971,
-          "heading": "VA01 · Articulación funcional del flujo E2E"
-        },
-        {
-          "line": 1376,
-          "heading": "VA01 · Articulación funcional del flujo E2E"
-        }
-      ]
-    },
-    {
-      "sourceId": "VA02",
-      "occurrences": [
-        {
-          "line": 566,
-          "heading": "VA02 · Continuidad entre procesos/funciones"
-        },
-        {
-          "line": 582,
-          "heading": "VA02 · Efectividad de traspasos críticos entre fronteras"
-        },
-        {
-          "line": 711,
-          "heading": "VA02"
-        },
-        {
-          "line": 975,
-          "heading": "VA02 · Handoffs"
-        },
-        {
-          "line": 977,
-          "heading": "VA02 · Efectividad de traspasos críticos entre fronteras"
-        },
-        {
-          "line": 1397,
-          "heading": "VA02 · Efectividad de traspasos críticos"
-        }
-      ]
-    },
-    {
-      "sourceId": "VA03",
-      "occurrences": [
-        {
-          "line": 574,
-          "heading": "VA03 · Calidad de handoffs críticos"
-        },
-        {
-          "line": 594,
-          "heading": "VA03 · Continuidad y preservación de información relevante"
-        },
-        {
-          "line": 713,
-          "heading": "VA03"
-        },
-        {
-          "line": 992,
-          "heading": "VA03 · Continuidad y preservación de información relevante"
-        },
-        {
-          "line": 1420,
-          "heading": "VA03 · Continuidad y preservación de información relevante"
-        }
-      ]
-    },
-    {
-      "sourceId": "VA04",
-      "occurrences": [
-        {
-          "line": 590,
-          "heading": "VA04 · Continuidad de información relevante"
-        },
-        {
-          "line": 619,
-          "heading": "VA04 · Responsabilidad funcional sobre el resultado E2E"
-        },
-        {
-          "line": 715,
-          "heading": "VA04"
-        },
-        {
-          "line": 1023,
-          "heading": "VA04 · Responsabilidad funcional sobre el resultado E2E"
-        },
-        {
-          "line": 1442,
-          "heading": "VA04 · Responsabilidad funcional sobre el resultado E2E"
-        }
-      ]
-    },
-    {
-      "sourceId": "VA05",
-      "occurrences": [
-        {
-          "line": 614,
-          "heading": "VA05 · Responsabilidad sobre resultado E2E"
-        },
-        {
-          "line": 631,
-          "heading": "VA05 · Coherencia de decisiones interdependientes"
-        },
-        {
-          "line": 717,
-          "heading": "VA05"
-        },
-        {
-          "line": 1033,
-          "heading": "VA05 · Coherencia de decisiones interdependientes"
-        },
-        {
-          "line": 1463,
-          "heading": "VA05 · Coherencia de decisiones interdependientes"
-        }
-      ]
-    },
-    {
-      "sourceId": "VA06",
-      "occurrences": [
-        {
-          "line": 626,
-          "heading": "VA06 · Coherencia de decisiones interdependientes"
-        },
-        {
-          "line": 643,
-          "heading": "VA06 · Alineación entre objetivos locales y resultado E2E"
-        },
-        {
-          "line": 719,
-          "heading": "VA06"
-        },
-        {
-          "line": 1046,
-          "heading": "VA06 · Alineación entre objetivos locales y resultado E2E"
-        },
-        {
-          "line": 1481,
-          "heading": "VA06 · Alineación entre objetivos locales y resultado E2E"
-        }
-      ]
-    },
-    {
-      "sourceId": "VA07",
-      "occurrences": [
-        {
-          "line": 635,
-          "heading": "VA07 · Alineación de objetivos/prioridades locales"
-        },
-        {
-          "line": 650,
-          "heading": "VA07 · Visibilidad del estado extremo a extremo"
-        },
-        {
-          "line": 721,
-          "heading": "VA07"
-        },
-        {
-          "line": 1079,
-          "heading": "VA07 · Visibilidad del estado E2E"
-        },
-        {
-          "line": 1083,
-          "heading": "VA07 · Visibilidad del estado E2E"
-        },
-        {
-          "line": 1503,
-          "heading": "VA07 · Visibilidad del estado E2E"
-        }
-      ]
-    },
-    {
-      "sourceId": "VA08",
-      "occurrences": [
-        {
-          "line": 648,
-          "heading": "VA08 · Visibilidad transversal del estado"
-        },
-        {
-          "line": 676,
-          "heading": "VA08 · Retroalimentación transversal para ajuste del flujo"
-        },
-        {
-          "line": 723,
-          "heading": "VA08"
-        },
-        {
-          "line": 1090,
-          "heading": "VA08 · Retroalimentación transversal"
-        },
-        {
-          "line": 1105,
-          "heading": "VA08 · 🟡 CONDITIONAL — requiere reformulación"
-        },
-        {
-          "line": 1112,
-          "heading": "VA08 · Retroalimentación operacional entre fronteras"
-        },
-        {
-          "line": 1219,
-          "heading": "VA08 · Retroalimentación operacional entre fronteras"
-        },
-        {
-          "line": 1275,
-          "heading": "VA08"
-        },
-        {
-          "line": 1522,
-          "heading": "VA08 · Retroalimentación operacional entre fronteras"
         }
       ]
     }
@@ -1048,5 +659,452 @@
       "IMAGES_NOT_TRANSCRIBED: 457 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw."
     ]
   },
-  "checksum": "sha256:e7c67899bfb6947f6d110c0e4d3752d6d779b169ee66d19ce90123f65238caa7"
+  "supersessionResolution": {
+    "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+    "mode": "GOVERNED",
+    "statement": "Resolución de supersesión solo por evidencia explícita de la fuente. La cronología sola y la última aparición sola nunca deciden; toda versión previa se preserva como provenance histórica. No es aceptación canónica.",
+    "baseline": {
+      "extractor": "pymapa-structural-segmenter@0.1.0",
+      "ambiguousIds": 25,
+      "ambiguousIdList": [
+        "CE01",
+        "CE02",
+        "CE03",
+        "CE04",
+        "IP01",
+        "IP02",
+        "IP03",
+        "IP04",
+        "IP05",
+        "IP06",
+        "IP07",
+        "IP08",
+        "P-OP03-02",
+        "P1",
+        "REC-OP03-01",
+        "REUSE-OP03-01",
+        "SCOPE-OP03-01",
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08"
+      ],
+      "finalApproved": 158,
+      "historicalDrafts": 128
+    },
+    "after": {
+      "ambiguousIds": 12,
+      "finalApproved": 170,
+      "superseded": 9,
+      "historicalDrafts": 107,
+      "governedBacklog": 3,
+      "itemsWithSupersessionEvidence": 84
+    },
+    "resolvedFromBaselineAmbiguous": 13,
+    "resolvedFromBaselineAmbiguousList": [
+      "CE01",
+      "CE02",
+      "CE03",
+      "CE04",
+      "SCOPE-OP03-01",
+      "VA01",
+      "VA02",
+      "VA03",
+      "VA04",
+      "VA05",
+      "VA06",
+      "VA07",
+      "VA08"
+    ],
+    "byRule": {
+      "EXPLICIT_ELIMINATION": 2,
+      "EXPLICIT_REFORMULATION": 9,
+      "GOVERNED_FREEZE": 69,
+      "FROZEN_HEADING": 4,
+      "VERBATIM_DUPLICATE": 0
+    },
+    "resolvedIds": [
+      {
+        "sourceId": "CE01",
+        "outcome": "CANONICAL_SELECTED",
+        "rules": [
+          "GOVERNED_FREEZE"
+        ],
+        "canonicalKey": "CE01@L1781",
+        "occurrences": 8
+      },
+      {
+        "sourceId": "CE02",
+        "outcome": "CANONICAL_SELECTED",
+        "rules": [
+          "GOVERNED_FREEZE"
+        ],
+        "canonicalKey": "CE02@L1784",
+        "occurrences": 8
+      },
+      {
+        "sourceId": "CE03",
+        "outcome": "CANONICAL_SELECTED",
+        "rules": [
+          "GOVERNED_FREEZE"
+        ],
+        "canonicalKey": "CE03@L1786",
+        "occurrences": 8
+      },
+      {
+        "sourceId": "CE04",
+        "outcome": "CANONICAL_SELECTED",
+        "rules": [
+          "GOVERNED_FREEZE"
+        ],
+        "canonicalKey": "CE04@L1790",
+        "occurrences": 8
+      },
+      {
+        "sourceId": "SCOPE-OP03-01",
+        "outcome": "CANONICAL_SELECTED",
+        "rules": [
+          "FROZEN_HEADING"
+        ],
+        "canonicalKey": "SCOPE-OP03-01@L1773",
+        "occurrences": 3
+      },
+      {
+        "sourceId": "UA-OP03-v0.4",
+        "outcome": "CANONICAL_SELECTED",
+        "rules": [
+          "FROZEN_HEADING"
+        ],
+        "canonicalKey": "UA-OP03-v0.4",
+        "occurrences": 1
+      },
+      {
+        "sourceId": "VA01",
+        "outcome": "CANONICAL_SELECTED",
+        "rules": [
+          "EXPLICIT_ELIMINATION",
+          "GOVERNED_FREEZE"
+        ],
+        "canonicalKey": "VA01@L1376",
+        "occurrences": 5
+      },
+      {
+        "sourceId": "VA02",
+        "outcome": "CANONICAL_SELECTED",
+        "rules": [
+          "EXPLICIT_REFORMULATION",
+          "GOVERNED_FREEZE"
+        ],
+        "canonicalKey": "VA02@L1397",
+        "occurrences": 6
+      },
+      {
+        "sourceId": "VA03",
+        "outcome": "CANONICAL_SELECTED",
+        "rules": [
+          "EXPLICIT_REFORMULATION",
+          "GOVERNED_FREEZE"
+        ],
+        "canonicalKey": "VA03@L1420",
+        "occurrences": 5
+      },
+      {
+        "sourceId": "VA04",
+        "outcome": "CANONICAL_SELECTED",
+        "rules": [
+          "EXPLICIT_REFORMULATION",
+          "GOVERNED_FREEZE"
+        ],
+        "canonicalKey": "VA04@L1442",
+        "occurrences": 5
+      },
+      {
+        "sourceId": "VA05",
+        "outcome": "CANONICAL_SELECTED",
+        "rules": [
+          "EXPLICIT_REFORMULATION",
+          "GOVERNED_FREEZE"
+        ],
+        "canonicalKey": "VA05@L1463",
+        "occurrences": 5
+      },
+      {
+        "sourceId": "VA06",
+        "outcome": "CANONICAL_SELECTED",
+        "rules": [
+          "EXPLICIT_REFORMULATION",
+          "GOVERNED_FREEZE"
+        ],
+        "canonicalKey": "VA06@L1481",
+        "occurrences": 5
+      },
+      {
+        "sourceId": "VA07",
+        "outcome": "CANONICAL_SELECTED",
+        "rules": [
+          "EXPLICIT_REFORMULATION",
+          "GOVERNED_FREEZE"
+        ],
+        "canonicalKey": "VA07@L1503",
+        "occurrences": 6
+      },
+      {
+        "sourceId": "VA08",
+        "outcome": "CANONICAL_SELECTED",
+        "rules": [
+          "EXPLICIT_REFORMULATION",
+          "GOVERNED_FREEZE"
+        ],
+        "canonicalKey": "VA08@L1522",
+        "occurrences": 9
+      },
+      {
+        "sourceId": "VA09",
+        "outcome": "NO_CANONICAL_DEFINITION",
+        "rules": [
+          "EXPLICIT_ELIMINATION"
+        ],
+        "canonicalKey": null,
+        "occurrences": 1
+      },
+      {
+        "sourceId": "VA10",
+        "outcome": "NO_CANONICAL_DEFINITION",
+        "rules": [
+          "EXPLICIT_REFORMULATION"
+        ],
+        "canonicalKey": null,
+        "occurrences": 1
+      }
+    ],
+    "unresolvedIds": [
+      {
+        "sourceId": "IP01",
+        "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
+        "occurrences": [
+          3356,
+          3366,
+          3926,
+          4530
+        ]
+      },
+      {
+        "sourceId": "IP02",
+        "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
+        "occurrences": [
+          3357,
+          3384,
+          3431,
+          3960,
+          4548
+        ]
+      },
+      {
+        "sourceId": "IP03",
+        "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
+        "occurrences": [
+          3358,
+          3408,
+          3433,
+          3992,
+          4580
+        ]
+      },
+      {
+        "sourceId": "IP04",
+        "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
+        "occurrences": [
+          3359,
+          3440,
+          4033,
+          4593
+        ]
+      },
+      {
+        "sourceId": "IP05",
+        "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
+        "occurrences": [
+          3360,
+          3454,
+          4065,
+          4608
+        ]
+      },
+      {
+        "sourceId": "IP06",
+        "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
+        "occurrences": [
+          3361,
+          3478,
+          4089,
+          4619
+        ]
+      },
+      {
+        "sourceId": "IP07",
+        "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
+        "occurrences": [
+          3362,
+          3503,
+          4115,
+          4634
+        ]
+      },
+      {
+        "sourceId": "IP08",
+        "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
+        "occurrences": [
+          3363,
+          3527,
+          4152,
+          4646
+        ]
+      },
+      {
+        "sourceId": "P-OP03-02",
+        "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
+        "occurrences": [
+          759,
+          1155
+        ]
+      },
+      {
+        "sourceId": "P1",
+        "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
+        "occurrences": [
+          1845,
+          1857,
+          1869,
+          1878
+        ]
+      },
+      {
+        "sourceId": "REC-OP03-01",
+        "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
+        "occurrences": [
+          379,
+          3333
+        ]
+      },
+      {
+        "sourceId": "REUSE-OP03-01",
+        "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
+        "occurrences": [
+          1641,
+          1842
+        ]
+      }
+    ],
+    "singlesReclassified": [
+      {
+        "sourceId": "VA09",
+        "kind": "ELIMINATED",
+        "line": 656
+      },
+      {
+        "sourceId": "VA10",
+        "kind": "SUPERSEDED_BY_SUCCESSOR",
+        "line": 672
+      }
+    ],
+    "governingFreezes": [
+      {
+        "prefix": "CE",
+        "area": "CEVA",
+        "marker": "OP03-CEVA-v0.4 · CANDIDATE-FROZEN",
+        "line": 1759,
+        "ratifiedFrom": 1346,
+        "frozenUntil": 2288
+      },
+      {
+        "prefix": "VA",
+        "area": "CEVA",
+        "marker": "OP03-CEVA-v0.4 · CANDIDATE-FROZEN",
+        "line": 1759,
+        "ratifiedFrom": 1346,
+        "frozenUntil": 2288
+      }
+    ]
+  },
+  "governance": {
+    "decisionSetId": "M2-BATCH-01R",
+    "ref": "knowledge/intake/OP-03/governance-decisions.json",
+    "checksum": "sha256:7a9e4626110fff13b2d7bd69229493d346d372c8195ef9c56cab0276c845fa55",
+    "closureSelection": {
+      "selectedBy": "GOVERNANCE_DECISION",
+      "selectedLine": 6078,
+      "confirmationOrNonFinalLines": [
+        6152
+      ],
+      "criteria": [
+        "marcador literal \"OP03-K4-v1.0 · K4-VALIDATED · CLOSED\"",
+        "sección \"34. Cierre formal OP-03\""
+      ]
+    },
+    "approvedCounts": [
+      {
+        "label": "CE",
+        "declared": 4,
+        "sourceLines": [
+          6082,
+          6082
+        ],
+        "controlCount": {
+          "declared": 4,
+          "sourceLines": [
+            6082,
+            6082
+          ]
+        },
+        "finalApprovedMaterialized": 4,
+        "consistent": true
+      },
+      {
+        "label": "VA",
+        "declared": 8,
+        "sourceLines": [
+          6083,
+          6083
+        ],
+        "controlCount": {
+          "declared": 8,
+          "sourceLines": [
+            6083,
+            6083
+          ]
+        },
+        "finalApprovedMaterialized": 8,
+        "consistent": true
+      }
+    ],
+    "backlogAdded": [
+      {
+        "sourceId": "A-OP03-01",
+        "sourceLines": [
+          6104,
+          6105
+        ]
+      },
+      {
+        "sourceId": "A-OP03-02",
+        "sourceLines": [
+          6106,
+          6107
+        ]
+      },
+      {
+        "sourceId": "A-OP03-03",
+        "sourceLines": [
+          6108,
+          6109
+        ]
+      }
+    ],
+    "errors": []
+  },
+  "checksum": "sha256:67ca6ac547c21be3ee1839cf887e2f457635c409db92b1924de677ca5d4b576b"
 }

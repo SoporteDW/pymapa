@@ -40,7 +40,9 @@ for (const version of listMasterVersions(ROOT)) {
   const registriesDir = join(transversal, "registries");
 
   if (existsSync(registriesDir)) {
-    for (const archivo of readdirSync(registriesDir).filter((f) => f.endsWith(".json")).sort()) {
+    for (const archivo of readdirSync(registriesDir)
+      .filter((f) => f.endsWith(".json"))
+      .sort()) {
       sellar(join(registriesDir, archivo));
     }
   }
@@ -48,7 +50,11 @@ for (const version of listMasterVersions(ROOT)) {
   const rutaIndice = join(transversal, "index.json");
   if (existsSync(rutaIndice)) {
     const indice = JSON.parse(readFileSync(rutaIndice, "utf8")) as Record<string, unknown>;
-    const registries = indice["registries"] as { registryId: string; ref: string; checksum: string }[];
+    const registries = indice["registries"] as {
+      registryId: string;
+      ref: string;
+      checksum: string;
+    }[];
     let cambiado = false;
     for (const entrada of registries) {
       const registro = JSON.parse(readFileSync(join(transversal, entrada.ref), "utf8")) as Record<

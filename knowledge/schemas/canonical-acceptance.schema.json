@@ -3,13 +3,7 @@
   "title": "Aceptación canónica humana de un candidato",
   "description": "Contrato autoritativo: canonicalAcceptanceSchema (packages/knowledge-pipeline/src/candidate.ts). Solo la registra una persona; la Factory nunca la genera.",
   "type": "object",
-  "required": [
-    "capabilityId",
-    "candidateChecksum",
-    "decision",
-    "reviewer",
-    "reviewedAt"
-  ],
+  "required": ["capabilityId", "candidateChecksum", "decision", "reviewer", "reviewedAt"],
   "properties": {
     "capabilityId": {
       "type": "string",
@@ -20,11 +14,7 @@
       "pattern": "^sha256:[0-9a-f]{64}$"
     },
     "decision": {
-      "enum": [
-        "ACCEPTED",
-        "REJECTED",
-        "CHANGES_REQUESTED"
-      ]
+      "enum": ["ACCEPTED", "REJECTED", "CHANGES_REQUESTED"]
     },
     "reviewer": {
       "type": "string",

@@ -210,7 +210,8 @@ export function validateReferential(pack: unknown): StageResult {
     (p.interventionPatterns ?? []).flatMap((ip) => (ip.deliverables ?? []).map((d) => d.id)),
   );
   (p.validationRequirements ?? []).forEach((crv, i) => {
-    const owner = crv.owner ?? (crv.activityRef ? { kind: "ACTIVITY", ref: crv.activityRef } : null);
+    const owner =
+      crv.owner ?? (crv.activityRef ? { kind: "ACTIVITY", ref: crv.activityRef } : null);
     const campo = crv.owner ? "owner.ref" : "activityRef";
     if (!owner) {
       add("REFERENCE_UNKNOWN", `validationRequirements.${i}.owner`, `CRV sin dueño gobernado`);

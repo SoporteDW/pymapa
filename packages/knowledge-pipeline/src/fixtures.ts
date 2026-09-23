@@ -71,7 +71,11 @@ export const fixtureSchema = z.object({
       .array(
         z.object({
           findingRef: z.string().min(1),
-          status: z.enum(["AWAITING_INFORMATION", "EXCLUDED_NOT_APPLICABLE", "BLOCKED_BY_CONTRADICTION"]),
+          status: z.enum([
+            "AWAITING_INFORMATION",
+            "EXCLUDED_NOT_APPLICABLE",
+            "BLOCKED_BY_CONTRADICTION",
+          ]),
         }),
       )
       .optional(),

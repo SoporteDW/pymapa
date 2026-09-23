@@ -23,6 +23,7 @@ import type { CanonicalBaseline } from "./canonical-baseline.ts";
 import { BASELINE_STATUS, MASTER_IDENTITY } from "./master.ts";
 import type { RawSourceRegistration } from "./raw-source.ts";
 import { indexExtensionOccurrences, type RuntimeExtensionRegistry } from "./runtime-extensions.ts";
+import { SUPERSESSION_KINDS, SUPERSESSION_RULES } from "./supersession-resolver.ts";
 
 export const CANDIDATE_CLASSIFICATIONS = [
   "FINAL_APPROVED",
@@ -83,6 +84,21 @@ export const candidateItemSchema = z.object({
   /** Evidencia literal de aprobación/cierre (obligatoria para FINAL_APPROVED). */
   approvalEvidence: z.object({ text: z.string().min(1), sourceLines: lineRange }).optional(),
   supersededBy: z.string().min(1).optional(),
+  /**
+   * Evidencia literal de supersesión resuelta por el resolver genérico
+   * (supersession-resolver.ts). Preserva la versión previa como provenance.
+   */
+  supersession: z
+    .object({
+      resolver: z.string().min(1),
+      rule: z.enum(SUPERSESSION_RULES),
+      kind: z.enum(SUPERSESSION_KINDS),
+      evidence: z.array(z.object({ text: z.string().min(1), sourceLines: lineRange })).min(1),
+      canonicalKey: z.string().min(1).optional(),
+    })
+    .optional(),
+  /** Ítem materializado por una decisión humana de gobierno (decisionSetId). */
+  governanceDecision: z.string().min(1).optional(),
   /** Texto del operador para clases de silencio/gobierno: NO es conocimiento. */
   statement: z.string().min(1).optional(),
   semanticCapability: z
@@ -129,6 +145,14 @@ export const extractionCandidateSchema = z.object({
   ),
   verbatimKeys: z.array(z.string().min(1)).min(1),
   items: z.array(candidateItemSchema).min(1),
+  /** Decisiones humanas de gobierno aplicadas por el extractor (verificadas literalmente). */
+  governanceDecisions: z
+    .object({
+      decisionSetId: z.string().min(1),
+      ref: z.string().min(1),
+      checksum: z.string().regex(/^sha256:[0-9a-f]{64}$/),
+    })
+    .optional(),
   checksum: z.string().regex(/^sha256:[0-9a-f]{64}$/),
 });
 export type ExtractionCandidate = z.infer<typeof extractionCandidateSchema>;
@@ -359,14 +383,58 @@ export function validateExtractionCandidate(input: {
         k,
         r,
       );
+    if (item.supersession) {
+      const sp = item.supersession;
+      sp.evidence.forEach((e, n) => {
+        if (rangoValido(e.sourceLines, k))
+          literal(e.text, e.sourceLines, k, `${k}.supersession.evidence.${n}`);
+      });
+      const expected =
+        sp.kind === "CANONICAL_SELECTED"
+          ? "FINAL_APPROVED"
+          : sp.kind === "SUPERSEDED_BY_SUCCESSOR"
+            ? "SUPERSEDED"
+            : "HISTORICAL_DRAFT";
+      if (item.classification !== expected)
+        add(
+          "SUPERSESSION",
+          "FAIL",
+          `${k}: supersesión ${sp.kind} exige clasificación ${expected} (tiene ${item.classification})`,
+          k,
+          r,
+        );
+      if (sp.canonicalKey) {
+        const t = keys.get(sp.canonicalKey);
+        if (!t || t.classification !== "FINAL_APPROVED" || t.sourceId !== item.sourceId)
+          add(
+            "SUPERSESSION",
+            "FAIL",
+            `${k}: canonicalKey ${sp.canonicalKey} debe ser la definición FINAL_APPROVED del mismo identificador`,
+            k,
+            r,
+          );
+      }
+    }
     if (item.classification === "SUPERSEDED") {
       const target = item.supersededBy ? keys.get(item.supersededBy) : undefined;
+      // Cadena de supersesión: termina en un objeto aprobado o en una versión
+      // histórica cuya propia supersesión está evidenciada literalmente.
+      let terminal = target;
+      const vistos = new Set<string>([k]);
+      while (terminal && terminal.classification === "SUPERSEDED" && terminal.supersededBy) {
+        if (vistos.has(terminal.key)) break;
+        vistos.add(terminal.key);
+        terminal = keys.get(terminal.supersededBy);
+      }
+      const cerrada =
+        !!terminal &&
+        (terminal.classification === "FINAL_APPROVED" ||
+          (terminal.classification === "HISTORICAL_DRAFT" && !!terminal.supersession));
       if (!item.supersededBy || !target)
         add("SUPERSESSION", "FAIL", `${k}: SUPERSEDED exige supersededBy existente`, k, r);
-      else if (
-        target.classification === "SUPERSEDED" ||
-        target.classification === "HISTORICAL_DRAFT"
-      )
+      else if (terminal && vistos.has(terminal.key))
+        add("SUPERSESSION", "FAIL", `${k}: ciclo en la cadena de supersesión`, k, r);
+      else if (!cerrada)
         add(
           "SUPERSESSION",
           "REVIEW",
@@ -449,7 +517,27 @@ export function validateExtractionCandidate(input: {
   });
   for (const [sid, occ] of porSourceId) {
     if (occ.length < 2) continue;
-    if (!occ.every((i) => i.classification === "HISTORICAL_DRAFT")) continue;
+    const finales = occ.filter((i) => i.classification === "FINAL_APPROVED");
+    if (finales.length > 1) {
+      add(
+        "SUPERSESSION_AMBIGUOUS",
+        "REVIEW",
+        `${sid}: ${finales.length} definiciones FINAL_APPROVED (${finales.map((i) => `L${i.sourceLines?.[0] ?? "?"}`).join(", ")}); una definición canónica por identificador`,
+        sid,
+        finales[0]?.sourceLines ?? null,
+      );
+      continue;
+    }
+    if (finales.length === 1) continue;
+    if (
+      !occ.every(
+        (i) => i.classification === "HISTORICAL_DRAFT" || i.classification === "SUPERSEDED",
+      )
+    )
+      continue;
+    // Resuelto sin definición canónica: toda aparición tiene evidencia literal.
+    if (occ.every((i) => i.supersession)) continue;
+    if (!occ.some((i) => i.classification === "HISTORICAL_DRAFT" && !i.supersession)) continue;
     add(
       "SUPERSESSION_AMBIGUOUS",
       "REVIEW",
@@ -553,6 +641,26 @@ export function promoteCandidateToCanonicalBaseline(input: {
     if (acc.data.capabilityId !== c.capabilityId)
       reasons.push("la aceptación es de otra capacidad");
   }
+  const preview = previewCanonicalProjection(input);
+  reasons.push(...preview.blockers);
+  if (reasons.length > 0 || !preview.baseline) return { ok: false, reasons };
+  return { ok: true, baseline: preview.baseline };
+}
+
+/**
+ * Proyección candidato → baseline SIN aceptación humana, solo para verificar
+ * integridad source→canonical y provenance antes de la revisión. El resultado
+ * NO es una baseline aceptada, no se escribe y no habilita promoción.
+ */
+export function previewCanonicalProjection(input: {
+  validation: CandidateValidation;
+  registration: RawSourceRegistration;
+  rawRef: string;
+  sourceRef: string;
+}): { baseline: CanonicalBaseline | null; blockers: string[] } {
+  const reasons: string[] = [];
+  const c = input.validation.candidate;
+  if (!c) return { baseline: null, blockers: ["candidato inválido"] };
   input.validation.issues
     .filter((i) => i.severity === "FAIL")
     .forEach((i) => reasons.push(`FAIL ${i.code}: ${i.message}`));
@@ -570,8 +678,8 @@ export function promoteCandidateToCanonicalBaseline(input: {
   if (c.provenanceVocabulary.length === 0) reasons.push("provenanceVocabulary vacío");
   const reg = input.registration;
   if (!reg.text) reasons.push("registro sin texto");
-  if (reasons.length > 0 || !c.historicalStatus || !c.baselineId || !reg.text)
-    return { ok: false, reasons };
+  if (!c.historicalStatus || !c.baselineId || !reg.text)
+    return { baseline: null, blockers: reasons };
 
   const byKey = new Map(c.items.map((i) => [i.key, i]));
   const first = (i: CandidateItem) => [...hojas(i.fields)][0] as string;
@@ -660,7 +768,7 @@ export function promoteCandidateToCanonicalBaseline(input: {
     transcriptionCorrections: [],
   };
   return {
-    ok: true,
     baseline: { ...body, checksum: computeSelfChecksum(body) } as CanonicalBaseline,
+    blockers: reasons,
   };
 }

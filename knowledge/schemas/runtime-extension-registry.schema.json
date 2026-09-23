@@ -3,11 +3,7 @@
   "title": "Registro genérico de extensiones de runtime",
   "description": "Contrato autoritativo: runtimeExtensionRegistrySchema (packages/knowledge-pipeline/src/runtime-extensions.ts). Una extensión solo se cierra por un cambio genérico del engine registrado en ENGINE_SEMANTIC_HISTORY.",
   "type": "object",
-  "required": [
-    "registryId",
-    "entries",
-    "checksum"
-  ],
+  "required": ["registryId", "entries", "checksum"],
   "properties": {
     "registryId": {
       "type": "string"
@@ -40,10 +36,7 @@
             "type": "string"
           },
           "status": {
-            "enum": [
-              "OPEN",
-              "CLOSED"
-            ]
+            "enum": ["OPEN", "CLOSED"]
           },
           "closedInEngineVersion": {
             "type": "string"
@@ -61,12 +54,7 @@
             "type": "array",
             "items": {
               "type": "object",
-              "required": [
-                "capabilityId",
-                "gapId",
-                "affectedObjectTypes",
-                "sourceEvidence"
-              ],
+              "required": ["capabilityId", "gapId", "affectedObjectTypes", "sourceEvidence"],
               "properties": {
                 "capabilityId": {
                   "type": "string",

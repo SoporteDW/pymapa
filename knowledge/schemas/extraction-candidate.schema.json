@@ -29,11 +29,7 @@
       "type": "object",
       "properties": {
         "method": {
-          "enum": [
-            "DETERMINISTIC_TOOL",
-            "HUMAN_TRANSCRIPTION",
-            "AI_ASSISTED"
-          ]
+          "enum": ["DETERMINISTIC_TOOL", "HUMAN_TRANSCRIPTION", "AI_ASSISTED"]
         }
       }
     },
@@ -42,14 +38,7 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": [
-          "key",
-          "classification",
-          "objectType",
-          "sourceId",
-          "fields",
-          "sourceLines"
-        ],
+        "required": ["key", "classification", "objectType", "sourceId", "fields", "sourceLines"],
         "properties": {
           "classification": {
             "enum": [

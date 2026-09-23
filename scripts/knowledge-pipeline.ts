@@ -96,7 +96,9 @@ for (const version of versiones) {
       rawBytes: cb.rawBytes,
       source: cb.source as Parameters<typeof validateCanonicalBaseline>[0]["source"],
     });
-    v.issues.forEach((i) => problema(`${cb.capabilityDir} baseline ${i.code} ${i.path}: ${i.message}`));
+    v.issues.forEach((i) =>
+      problema(`${cb.capabilityDir} baseline ${i.code} ${i.path}: ${i.message}`),
+    );
     if (v.summary) {
       console.log(
         `Baseline canónica ${v.summary.capabilityId} (${v.summary.baselineId}): ${v.summary.objectCount} objetos · ${v.summary.supersessionCount} supersesiones · ${v.summary.gapCount} gaps (${v.summary.genericRuntimeExtensionCount} GENERIC_RUNTIME_EXTENSION_REQUIRED, ${v.summary.notExplicitCount} NOT_EXPLICIT) · conteos de control ${v.summary.controlCounts.filter((c) => c.declared === c.materialized).length}/${v.summary.controlCounts.length}`,

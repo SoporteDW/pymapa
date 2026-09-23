@@ -592,6 +592,14 @@ function evaluateCapability(
         }
         if (cv.ok) {
           state = "CANONICAL_REVIEW_REQUIRED";
+          if (cv.candidate && cv.candidate.provenanceVocabulary.length === 0)
+            ctx.reason(
+              "SOURCE_TO_CANONICAL",
+              "REVIEW",
+              "PROVENANCE_VOCABULARY_REQUIRED",
+              "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
+              "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
+            );
           if (input.intake.acceptance === undefined) {
             ctx.reason(
               "SOURCE_TO_CANONICAL",

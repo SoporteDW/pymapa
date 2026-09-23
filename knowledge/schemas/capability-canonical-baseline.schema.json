@@ -4,7 +4,20 @@
   "title": "Pymapa Capability Canonical Baseline",
   "description": "Baseline canónica completa de una capacidad: todos los objetos gobernados de la fuente histórica, incluidos los no ejecutables por el runtime genérico, con anclaje literal (rango de líneas) a la transcripción raw. La validación ejecutable canónica vive en packages/knowledge-pipeline/src/canonical-baseline.ts (validateCanonicalBaseline).",
   "type": "object",
-  "required": ["baselineId", "capabilityId", "master", "historicalStatus", "rawSource", "provenanceVocabulary", "controlCounts", "objects", "supersessions", "executableProjection", "gaps", "checksum"],
+  "required": [
+    "baselineId",
+    "capabilityId",
+    "master",
+    "historicalStatus",
+    "rawSource",
+    "provenanceVocabulary",
+    "controlCounts",
+    "objects",
+    "supersessions",
+    "executableProjection",
+    "gaps",
+    "checksum"
+  ],
   "properties": {
     "baselineId": { "type": "string" },
     "capabilityId": { "type": "string" },
@@ -32,9 +45,20 @@
         "properties": {
           "key": { "type": "string" },
           "objectType": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]*$" },
-          "sourceId": { "type": ["string", "null"], "description": "Identificador literal de la fuente; null cuando la fuente no asigna identificador (nunca se inventa)." },
-          "fields": { "type": "object", "description": "Todo valor textual es literal de sourceLines." },
-          "sourceLines": { "type": "array", "items": { "type": "integer" }, "minItems": 2, "maxItems": 2 },
+          "sourceId": {
+            "type": ["string", "null"],
+            "description": "Identificador literal de la fuente; null cuando la fuente no asigna identificador (nunca se inventa)."
+          },
+          "fields": {
+            "type": "object",
+            "description": "Todo valor textual es literal de sourceLines."
+          },
+          "sourceLines": {
+            "type": "array",
+            "items": { "type": "integer" },
+            "minItems": 2,
+            "maxItems": 2
+          },
           "role": { "type": "string" },
           "provenance": { "type": "object", "required": ["classes", "sourceLines"] },
           "annotations": { "type": "array" }
@@ -52,11 +76,33 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "kind", "detectedIn", "correctedIn", "objectKey", "annotationRelation", "field", "before", "after", "sourceLines", "rawSha256", "baselineChecksumBefore", "form", "note"],
+        "required": [
+          "id",
+          "kind",
+          "detectedIn",
+          "correctedIn",
+          "objectKey",
+          "annotationRelation",
+          "field",
+          "before",
+          "after",
+          "sourceLines",
+          "rawSha256",
+          "baselineChecksumBefore",
+          "form",
+          "note"
+        ],
         "properties": {
-          "kind": { "enum": ["SOURCE_TO_CANONICAL_OMISSION", "SOURCE_TO_CANONICAL_MISTRANSCRIPTION"] },
+          "kind": {
+            "enum": ["SOURCE_TO_CANONICAL_OMISSION", "SOURCE_TO_CANONICAL_MISTRANSCRIPTION"]
+          },
           "annotationRelation": { "type": ["string", "null"] },
-          "sourceLines": { "type": "array", "items": { "type": "integer" }, "minItems": 2, "maxItems": 2 },
+          "sourceLines": {
+            "type": "array",
+            "items": { "type": "integer" },
+            "minItems": 2,
+            "maxItems": 2
+          },
           "rawSha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
           "baselineChecksumBefore": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }
         }
