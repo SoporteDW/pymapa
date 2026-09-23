@@ -128,9 +128,14 @@ export function validateCrossCapabilityRegistry(input: {
     ids.add(e.id);
     e.evidence.forEach((ev, n) => {
       const src = input.sources.get(ev.capabilityId);
-      if (!src) return fail(`evidencia ${n}: sin fuente registrada de ${ev.capabilityId}`);
-      if (src.textSha256 !== ev.textSha256)
-        return fail(`evidencia ${n}: la fuente de ${ev.capabilityId} no es la citada (sha256)`);
+      if (!src) {
+        fail(`evidencia ${n}: sin fuente registrada de ${ev.capabilityId}`);
+        return;
+      }
+      if (src.textSha256 !== ev.textSha256) {
+        fail(`evidencia ${n}: la fuente de ${ev.capabilityId} no es la citada (sha256)`);
+        return;
+      }
       const [a, b] = ev.sourceLines;
       const tramo = src.rawText.split("\n").slice(a - 1, b).join("\n");
       if (a > b || !tramo.includes(ev.text))

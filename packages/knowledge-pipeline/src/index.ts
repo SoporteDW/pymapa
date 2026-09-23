@@ -37,3 +37,4 @@ export * from "./factory.ts";
 export * from "./structural-extractor.ts";
 export * from "./supersession-resolver.ts";
 export * from "./governance-decisions.ts";
+export * from "./cross-capability.ts";
