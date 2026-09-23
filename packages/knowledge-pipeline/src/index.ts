@@ -34,3 +34,4 @@ export * from "./raw-source.ts";
 export * from "./candidate.ts";
 export * from "./runtime-extensions.ts";
 export * from "./factory.ts";
+export * from "./structural-extractor.ts";

@@ -146,6 +146,7 @@ export interface CandidateIssue {
     | "STATEMENT_MISSING"
     | "APPROVAL_EVIDENCE_MISSING"
     | "SUPERSESSION"
+    | "SUPERSESSION_AMBIGUOUS"
     | "UNRESOLVED_REFERENCE"
     | "UNKNOWN_PROVENANCE_CLASS"
     | "CONTROL_COUNT_MISMATCH"
@@ -440,6 +441,24 @@ export function validateExtractionCandidate(input: {
         );
   }
 
+  // Identificadores con varias definiciones y ninguna resuelta: la cronología
+  // no decide la supersesión; exige decisión canónica explícita.
+  const porSourceId = new Map<string, CandidateItem[]>();
+  c.items.forEach((i) => {
+    if (i.sourceId) porSourceId.set(i.sourceId, [...(porSourceId.get(i.sourceId) ?? []), i]);
+  });
+  for (const [sid, occ] of porSourceId) {
+    if (occ.length < 2) continue;
+    if (!occ.every((i) => i.classification === "HISTORICAL_DRAFT")) continue;
+    add(
+      "SUPERSESSION_AMBIGUOUS",
+      "REVIEW",
+      `${sid}: ${occ.length} definiciones (${occ.map((i) => `L${i.sourceLines?.[0] ?? "?"}`).join(", ")}) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT`,
+      sid,
+      occ[0]?.sourceLines ?? null,
+    );
+  }
+
   for (const cc of c.controlCounts) {
     if (!rangoValido(cc.sourceLines, null)) continue;
     literal(String(cc.declared), cc.sourceLines, null, `controlCounts.${cc.label}`);
@@ -542,7 +561,8 @@ export function promoteCandidateToCanonicalBaseline(input: {
       (i) =>
         i.code === "POTENTIAL_TRANSCRIPTION_DEFECT" ||
         i.code === "APPROVAL_EVIDENCE_MISSING" ||
-        i.code === "CONTROL_COUNT_MISMATCH",
+        i.code === "CONTROL_COUNT_MISMATCH" ||
+        i.code === "SUPERSESSION_AMBIGUOUS",
     )
     .forEach((i) => reasons.push(`pendiente ${i.code}: ${i.message}`));
   if (!c.historicalStatus) reasons.push("historicalStatus requerido para la baseline");

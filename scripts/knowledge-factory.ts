@@ -147,6 +147,42 @@ if (argv[0] === "register") {
   process.exit(0);
 }
 
+/* ---------------------------- extract ----------------------------- */
+/*
+ * Candidato determinista (herramienta genérica): siempre CANDIDATE. Se niega a
+ * reemplazar un candidato ya ligado a una aceptación canónica.
+ */
+if (argv[0] === "extract") {
+  const capabilityId = opt("--capability") ?? fail("--capability requerido");
+  const dir = join(INTAKE_DIR, capabilityId);
+  const reg = rawSourceRegistrationSchema.parse(readJson(join(dir, "registration.json")));
+  if (!reg.text) fail("registro sin texto");
+  if (existsSync(join(ROOT, dir, "canonical-acceptance.json")))
+    fail(`${dir}/canonical-acceptance.json existe: el candidato aceptado no se regenera`);
+  const master = validateMasterIndex(loadMasterIndex(ROOT, MASTER_VERSION));
+  if (!master.ok) fail("master.json inválido");
+  const vs = master.value.verticalStatus as
+    | { domainClosures?: { domainId: string; declaredCapabilityCount: number }[] }
+    | undefined;
+  const capabilityIds = (vs?.domainClosures ?? []).flatMap((d) =>
+    Array.from({ length: d.declaredCapabilityCount }, (_, i) => `${d.domainId}-${String(i + 1).padStart(2, "0")}`),
+  );
+  const rawText = readFileSync(join(ROOT, dir, reg.text.ref), "utf8");
+  const { candidate, report } = extractStructuralCandidate({
+    registration: reg,
+    rawText,
+    capabilityName: opt("--name") ?? null,
+    capabilityIds,
+    domainIds: master.value.domains.map((d) => d.id),
+  });
+  writeJson(join(dir, "candidate.json"), candidate);
+  writeJson(join(dir, "extraction-report.json"), report);
+  console.log(
+    `✓ ${capabilityId}: ${candidate.items.length} ítems candidatos (${report.counts.finalApprovedCandidates} FINAL_APPROVED, ${report.counts.historicalDrafts} HISTORICAL_DRAFT, ${report.counts.governedBacklog} backlog) · ${report.ambiguousSupersessions.length} supersesiones ambiguas · cierre ${report.historicalClosure.marker ?? "NO ENCONTRADO"}`,
+  );
+  process.exit(0);
+}
+
 /* ---------------------------- promote ----------------------------- */
 if (argv[0] === "promote") {
   const capabilityId = opt("--capability") ?? fail("--capability requerido");
