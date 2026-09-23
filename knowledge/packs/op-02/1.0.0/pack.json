@@ -1,0 +1,2124 @@
+{
+  "packId": "op-02",
+  "packVersion": "1.0.0",
+  "status": "draft",
+  "knowledgeMaster": {
+    "identifier": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "status": "BASELINE-APPROVED",
+    "sourceReference": "OP-02_Completo · OP02-K4-v1.0 · K4-VALIDATED · CLOSED"
+  },
+  "governanceNote": "Proyección ejecutable de OP02-K4-v1.0 · K4-VALIDATED · CLOSED. Todo valor textual es literal de la transcripción raw anclada en canonical-baseline.json. Lo no representable por el runtime genérico permanece solo en la baseline canónica y se declara como GENERIC_RUNTIME_EXTENSION_REQUIRED; lo no explícito queda como NOT_EXPLICIT_IN_KNOWLEDGE_MASTER.",
+  "capability": {
+    "id": "OP-02",
+    "domainId": "OP",
+    "name": "Planificar, coordinar y ejecutar procesos y recursos de manera consistente",
+    "definition": "Ejecución recurrente de un proceso relevante, evaluada en relación con su carga y compromisos operativos, recursos/capacidad disponibles y condiciones materiales de ejecución.",
+    "centralQuestion": "¿esa forma puede planificarse, coordinarse y ejecutarse consistentemente bajo condiciones operacionales reales?"
+  },
+  "conditionsOfExistence": [
+    {
+      "id": "CE01",
+      "statement": "Planificación y priorización de la ejecución"
+    },
+    {
+      "id": "CE02",
+      "statement": "Capacidad y disposición de recursos"
+    },
+    {
+      "id": "CE03",
+      "statement": "Coordinación operativa"
+    },
+    {
+      "id": "CE04",
+      "statement": "Consistencia de ejecución"
+    },
+    {
+      "id": "CE05",
+      "statement": "Detección y respuesta ante desviaciones"
+    }
+  ],
+  "conditionsNote": "Arquitectura consolidada OP02-CEVA-v0.8 · CANDIDATE-FROZEN, confirmada en K1.",
+  "variables": [
+    {
+      "id": "VA01",
+      "name": "Visibilidad de carga y compromisos operativos",
+      "criticality": "CONTEXT_DEPENDENT",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceNote": "pero asignados dinámicamente.",
+      "minimumEvidenceConditional": true,
+      "minimumEvidenceOptions": [
+        "E0",
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "semanticStates": null
+    },
+    {
+      "id": "VA02",
+      "name": "Priorización y programación del trabajo",
+      "criticality": "CONTEXT_DEPENDENT",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceNote": "pero asignados dinámicamente.",
+      "minimumEvidenceConditional": true,
+      "minimumEvidenceOptions": [
+        "E0",
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "semanticStates": null
+    },
+    {
+      "id": "VA03",
+      "name": "Disponibilidad efectiva y oportuna de recursos necesarios",
+      "criticality": "CONTEXT_DEPENDENT",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceNote": "pero asignados dinámicamente.",
+      "minimumEvidenceConditional": true,
+      "minimumEvidenceOptions": [
+        "E0",
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "semanticStates": null
+    },
+    {
+      "id": "VA04",
+      "name": "Adecuación entre capacidad disponible y carga operativa",
+      "criticality": "CONTEXT_DEPENDENT",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceNote": "pero asignados dinámicamente.",
+      "minimumEvidenceConditional": true,
+      "minimumEvidenceOptions": [
+        "E0",
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "semanticStates": null
+    },
+    {
+      "id": "VA05",
+      "name": "Asignación adecuada y oportuna de recursos",
+      "criticality": "CONTEXT_DEPENDENT",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceNote": "pero asignados dinámicamente.",
+      "minimumEvidenceConditional": true,
+      "minimumEvidenceOptions": [
+        "E0",
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "semanticStates": null
+    },
+    {
+      "id": "VA06",
+      "name": "Coordinación de dependencias operativas",
+      "criticality": "CONTEXT_DEPENDENT",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceNote": "pero asignados dinámicamente.",
+      "minimumEvidenceConditional": true,
+      "minimumEvidenceOptions": [
+        "E0",
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "semanticStates": null
+    },
+    {
+      "id": "VA07",
+      "name": "Consistencia de resultados operativos",
+      "criticality": "CONTEXT_DEPENDENT",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceNote": "pero asignados dinámicamente.",
+      "minimumEvidenceConditional": true,
+      "minimumEvidenceOptions": [
+        "E0",
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "semanticStates": null
+    },
+    {
+      "id": "VA08",
+      "name": "Incidencia de interrupciones y pérdidas de flujo",
+      "criticality": "CONTEXT_DEPENDENT",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceNote": "pero asignados dinámicamente.",
+      "minimumEvidenceConditional": true,
+      "minimumEvidenceOptions": [
+        "E0",
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "semanticStates": null
+    },
+    {
+      "id": "VA09",
+      "name": "Visibilidad del estado y desviaciones de ejecución",
+      "criticality": "CONTEXT_DEPENDENT",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceNote": "pero asignados dinámicamente.",
+      "minimumEvidenceConditional": true,
+      "minimumEvidenceOptions": [
+        "E0",
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "semanticStates": null
+    },
+    {
+      "id": "VA10",
+      "name": "Adaptación ante desviaciones operativas",
+      "criticality": "CONTEXT_DEPENDENT",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceNote": "pero asignados dinámicamente.",
+      "minimumEvidenceConditional": true,
+      "minimumEvidenceOptions": [
+        "E0",
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "semanticStates": null
+    }
+  ],
+  "criticalityNote": "Cambio “críticos” por “necesarios”, porque la criticidad puede ser una propiedad contextual posterior.",
+  "informationNeeds": [
+    {
+      "id": "NI-01.1",
+      "statement": "Carga actual: qué trabajo relevante debe absorber el proceso.",
+      "variableRefs": [
+        "VA01"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-01.2",
+      "statement": "Compromisos: qué fechas, tiempos, cantidades, prioridades o niveles de servicio importan.",
+      "variableRefs": [
+        "VA01"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-01.3",
+      "statement": "Variabilidad/patrones: si la carga cambia significativamente por día, semana, temporada, campaña u otros eventos previsibles.",
+      "variableRefs": [
+        "VA01"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-01.4",
+      "statement": "Pendientes: si existe trabajo acumulado relevante y cómo evoluciona.",
+      "variableRefs": [
+        "VA01"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-02.1",
+      "statement": "Criterio de prioridad: cómo se decide qué trabajo atender primero.",
+      "variableRefs": [
+        "VA02"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-02.2",
+      "statement": "Temporalidad: cómo se organiza el trabajo en el tiempo cuando es necesario.",
+      "variableRefs": [
+        "VA02"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-02.3",
+      "statement": "Conflictos: qué sucede cuando varios trabajos compiten por los mismos recursos/tiempo.",
+      "variableRefs": [
+        "VA02"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-02.4",
+      "statement": "Replanificación: qué ocurre cuando cambia la carga o aparece una urgencia.",
+      "variableRefs": [
+        "VA02"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-03.1",
+      "statement": "cuáles recursos son materialmente necesarios.",
+      "variableRefs": [
+        "VA03"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-03.2",
+      "statement": "cuáles están realmente disponibles cuando se necesitan.",
+      "variableRefs": [
+        "VA03"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-03.3",
+      "statement": "qué indisponibilidades relevantes ocurren.",
+      "variableRefs": [
+        "VA03"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-03.4",
+      "statement": "si existen dependencias de recursos externos críticos.",
+      "variableRefs": [
+        "VA03"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-04.1",
+      "statement": "capacidad efectiva aproximada.",
+      "variableRefs": [
+        "VA04"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-04.2",
+      "statement": "carga que debe absorber.",
+      "variableRefs": [
+        "VA04"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-04.3",
+      "statement": "comportamiento cuando aumenta la carga.",
+      "variableRefs": [
+        "VA04"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-04.4",
+      "statement": "señales de saturación: backlog, esperas, horas adicionales, incumplimientos, etc.",
+      "variableRefs": [
+        "VA04"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-04.5",
+      "statement": "variabilidad relevante.",
+      "variableRefs": [
+        "VA04"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-05.1",
+      "statement": "cómo se asignan recursos al trabajo.",
+      "variableRefs": [
+        "VA05"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-05.2",
+      "statement": "si prioridades y asignación guardan coherencia.",
+      "variableRefs": [
+        "VA05"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-05.3",
+      "statement": "si aparecen recursos ociosos mientras trabajos relevantes se bloquean por falta de ellos.",
+      "variableRefs": [
+        "VA05"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-05.4",
+      "statement": "frecuencia/materialidad de reasignaciones.",
+      "variableRefs": [
+        "VA05"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-06.1",
+      "statement": "qué actividades/personas/recursos/información dependen unos de otros.",
+      "variableRefs": [
+        "VA06"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-06.2",
+      "statement": "cómo se produce la sincronización.",
+      "variableRefs": [
+        "VA06"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-06.3",
+      "statement": "dónde aparecen esperas, errores o bloqueos asociados a esas dependencias.",
+      "variableRefs": [
+        "VA06"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-06.4",
+      "statement": "frecuencia e impacto.",
+      "variableRefs": [
+        "VA06"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-06.5",
+      "statement": "si la condición es local al proceso o realmente E2E.",
+      "variableRefs": [
+        "VA06"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-07.1",
+      "statement": "qué resultado operacional se espera.",
+      "variableRefs": [
+        "VA07"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-07.2",
+      "statement": "qué dimensiones importan: tiempo, calidad, cantidad, cumplimiento u otras.",
+      "variableRefs": [
+        "VA07"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-07.3",
+      "statement": "qué tan variables son ejecuciones comparables.",
+      "variableRefs": [
+        "VA07"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-07.4",
+      "statement": "si las variaciones tienen explicaciones contextuales razonables.",
+      "variableRefs": [
+        "VA07"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-07.5",
+      "statement": "recurrencia/materialidad de resultados anómalos.",
+      "variableRefs": [
+        "VA07"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-08.1",
+      "statement": "presencia de esperas relevantes.",
+      "variableRefs": [
+        "VA08"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-08.2",
+      "statement": "acumulaciones/backlog.",
+      "variableRefs": [
+        "VA08"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-08.3",
+      "statement": "bloqueos/interrupciones.",
+      "variableRefs": [
+        "VA08"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-08.4",
+      "statement": "reproceso.",
+      "variableRefs": [
+        "VA08"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-08.5",
+      "statement": "restricciones/cuello de botella potencial.",
+      "variableRefs": [
+        "VA08"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-08.6",
+      "statement": "impacto sobre flujo/resultados.",
+      "variableRefs": [
+        "VA08"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-09.1",
+      "statement": "cómo se conoce el estado del trabajo.",
+      "variableRefs": [
+        "VA09"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-09.2",
+      "statement": "cómo se detecta atraso/desviación.",
+      "variableRefs": [
+        "VA09"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-09.3",
+      "statement": "oportunidad de la información.",
+      "variableRefs": [
+        "VA09"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-09.4",
+      "statement": "quién recibe/usa esa información cuando importa.",
+      "variableRefs": [
+        "VA09"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-10.1",
+      "statement": "qué tipos de desviaciones manejables aparecen.",
+      "variableRefs": [
+        "VA10"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-10.2",
+      "statement": "qué respuesta suele producirse.",
+      "variableRefs": [
+        "VA10"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-10.3",
+      "statement": "capacidad para reprogramar/repriorizar.",
+      "variableRefs": [
+        "VA10"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-10.4",
+      "statement": "capacidad para reasignar recursos.",
+      "variableRefs": [
+        "VA10"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-10.5",
+      "statement": "capacidad para restablecer ejecución esperada.",
+      "variableRefs": [
+        "VA10"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    },
+    {
+      "id": "NI-10.6",
+      "statement": "cuándo la desviación excede la capacidad operacional ordinaria.",
+      "variableRefs": [
+        "VA10"
+      ],
+      "acquisitionRefs": [],
+      "mappingStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+    }
+  ],
+  "acquisitionLevels": [
+    {
+      "level": "P1",
+      "purpose": "Pregunta núcleo de alto rendimiento"
+    },
+    {
+      "level": "P2",
+      "purpose": "Preguntas condicionales"
+    },
+    {
+      "level": "P3",
+      "purpose": "Profundización"
+    },
+    {
+      "level": "P4",
+      "purpose": "Aclaración de contradicciones"
+    },
+    {
+      "level": "P5",
+      "purpose": "Validación"
+    }
+  ],
+  "acquisitions": [
+    {
+      "id": "P1-OP02-01",
+      "level": "P1",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA05",
+        "VA06",
+        "VA09",
+        "VA10",
+        "VA04",
+        "VA07",
+        "VA08"
+      ],
+      "purpose": "Ejecución habitual",
+      "question": "Pensando en este proceso cuando está funcionando normalmente, ¿cómo organizan el trabajo desde que saben lo que tienen que atender hasta que lo completan? Cuéntame especialmente cómo deciden prioridades, quién o qué recursos intervienen y qué hacen cuando la carga cambia o aparece algún problema.",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "notes": [
+          "UNKNOWN se registra explícitamente y no equivale a respuesta negativa.",
+          "NOT_APPLICABLE requiere razón contextual.",
+          "CONTRADICTORY requiere referencias a las observaciones en conflicto."
+        ]
+      }
+    },
+    {
+      "id": "P1-OP02-02",
+      "level": "P1",
+      "variableRefs": [
+        "VA04",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10"
+      ],
+      "purpose": "Caso reciente",
+      "question": "Ahora piensa en una situación reciente en la que tuvieron bastante trabajo o algo no salió como esperaban. ¿Qué ocurrió y cómo lo manejaron?",
+      "trigger": {
+        "statement": "solo cuando no exista ya evidencia equivalente",
+        "classification": "NOT_DETERMINISTIC"
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "notes": [
+          "UNKNOWN se registra explícitamente y no equivale a respuesta negativa.",
+          "NOT_APPLICABLE requiere razón contextual.",
+          "CONTRADICTORY requiere referencias a las observaciones en conflicto."
+        ]
+      }
+    }
+  ],
+  "acquisitionsNote": "Solo P1-OP02-01 y P1-OP02-02 tienen identificador gobernado. P2–P5 se preservan en la baseline canónica (NE-OP02-01).",
+  "evidence": {
+    "levels": [
+      "E0",
+      "E1",
+      "E2",
+      "E3"
+    ],
+    "escalationFactors": [
+      "alta severidad potencial; contradicción; baja confianza; intervención relevante/costosa; afirmación difícil de corroborar conversacionalmente; dato disponible cuyo valor informativo sea alto."
+    ],
+    "escalationFormula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+    "candidatesNote": "La fuente no declara candidatos de evidencia con identificador para OP-02."
+  },
+  "sufficiency": {
+    "states": [
+      "SI-0 · No resuelta",
+      "SI-1 · Exploratoria",
+      "SI-2 · Diagnóstica",
+      "SI-3 · Reforzada"
+    ],
+    "formula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+    "closureConditions": [
+      "sus necesidades críticas de información están suficientemente resueltas, no existe contradicción material pendiente y la información adicional razonablemente disponible tiene baja probabilidad de cambiar la evaluación o decisión asociada.",
+      "las CE aplicables están cerradas, no persisten gaps críticos que puedan cambiar materialmente el diagnóstico, las contradicciones relevantes están resueltas o declaradas, y existe confianza suficiente para producir hallazgos explicables y recomendaciones proporcionales."
+    ],
+    "notes": [
+      "SI no es confianza."
+    ]
+  },
+  "confidence": {
+    "states": [
+      "C0 · No determinable",
+      "C1 · Baja",
+      "C2 · Media",
+      "C3 · Alta"
+    ],
+    "formula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+    "factors": [
+      "Especificidad: ¿hablamos de hechos concretos?",
+      "Calidad: ¿la fuente realmente conoce la operación?",
+      "Corroboración: ¿hay más de una señal/fuente?",
+      "Actualidad: ¿representa la operación vigente?",
+      "Consistencia: ¿las evidencias coinciden?",
+      "Comparabilidad: especialmente VA07, ¿estamos comparando casos realmente comparables?",
+      "Atribución causal: cuando declaramos causa, ¿hemos descartado explicaciones razonables alternativas?"
+    ],
+    "levels": [
+      {
+        "id": "C0",
+        "label": "C0 · No determinable",
+        "definition": "Información insuficiente o contradicción crítica."
+      },
+      {
+        "id": "C1",
+        "label": "C1 · Baja",
+        "definition": "Inferencia plausible pero débilmente sustentada."
+      },
+      {
+        "id": "C2",
+        "label": "C2 · Media",
+        "definition": "Evidencia suficiente, específica y razonablemente coherente."
+      },
+      {
+        "id": "C3",
+        "label": "C3 · Alta",
+        "definition": "Evidencia fuerte/corroborada, coherente y suficientemente actual."
+      }
+    ],
+    "resolution": "CONTEXTUAL",
+    "rules": [
+      {
+        "id": "CONF-OP02-01",
+        "statement": "La confianza requerida para afirmar una causa debe ser mayor que la necesaria para afirmar una condición observada."
+      }
+    ]
+  },
+  "rules": [
+    {
+      "id": "R-OP02-00",
+      "statement": "R-OP02-00 · Señal operacional no determina causa",
+      "classification": "GOVERNED_JUDGMENT",
+      "implemented": false,
+      "role": "GUARDRAIL_OR_DERIVATION",
+      "variableRefs": []
+    },
+    {
+      "id": "R-OP02-01",
+      "statement": "R-OP02-01 · Visibilidad insuficiente de carga/compromisos",
+      "classification": "GOVERNED_JUDGMENT",
+      "implemented": false,
+      "role": "PRIMARY",
+      "variableRefs": [
+        "VA01"
+      ],
+      "provenanceClass": "PYMAPA_DERIVED"
+    },
+    {
+      "id": "R-OP02-02",
+      "statement": "R-OP02-02 · Priorización/programación insuficiente",
+      "classification": "GOVERNED_JUDGMENT",
+      "implemented": false,
+      "role": "PRIMARY",
+      "variableRefs": [
+        "VA02"
+      ],
+      "provenanceClass": "PYMAPA_DERIVED"
+    },
+    {
+      "id": "R-OP02-03",
+      "statement": "R-OP02-03 · Indisponibilidad material de recursos",
+      "classification": "GOVERNED_JUDGMENT",
+      "implemented": false,
+      "role": "PRIMARY",
+      "variableRefs": [
+        "VA03"
+      ],
+      "provenanceClass": "PYMAPA_DERIVED"
+    },
+    {
+      "id": "R-OP02-04",
+      "statement": "R-OP02-04 · Desajuste capacidad–carga",
+      "classification": "GOVERNED_JUDGMENT",
+      "implemented": false,
+      "role": "PRIMARY",
+      "variableRefs": [
+        "VA04"
+      ],
+      "provenanceClass": "PYMAPA_DERIVED"
+    },
+    {
+      "id": "R-OP02-04A",
+      "statement": "R-OP02-04A · Indicadores indirectos requieren contraste causal",
+      "classification": "GOVERNED_JUDGMENT",
+      "implemented": false,
+      "role": "GUARDRAIL_OR_DERIVATION",
+      "variableRefs": []
+    },
+    {
+      "id": "R-OP02-05",
+      "statement": "R-OP02-05 · Asignación inadecuada de recursos",
+      "classification": "GOVERNED_JUDGMENT",
+      "implemented": false,
+      "role": "PRIMARY",
+      "variableRefs": [
+        "VA05"
+      ],
+      "provenanceClass": "PYMAPA_DERIVED"
+    },
+    {
+      "id": "R-OP02-06",
+      "statement": "R-OP02-06 · Dependencia operativa insuficientemente coordinada",
+      "classification": "GOVERNED_JUDGMENT",
+      "implemented": false,
+      "role": "PRIMARY",
+      "variableRefs": [
+        "VA06"
+      ],
+      "provenanceClass": "PYMAPA_DERIVED"
+    },
+    {
+      "id": "R-OP02-06A",
+      "statement": "R-OP02-06A · Derivación E2E",
+      "classification": "GOVERNED_JUDGMENT",
+      "implemented": false,
+      "role": "GUARDRAIL_OR_DERIVATION",
+      "variableRefs": []
+    },
+    {
+      "id": "R-OP02-07",
+      "statement": "R-OP02-07 · Inconsistencia material de resultados",
+      "classification": "GOVERNED_JUDGMENT",
+      "implemented": false,
+      "role": "PRIMARY",
+      "variableRefs": [
+        "VA07"
+      ],
+      "provenanceClass": "PYMAPA_DERIVED"
+    },
+    {
+      "id": "R-OP02-07A",
+      "statement": "R-OP02-07A · Variabilidad legítima",
+      "classification": "GOVERNED_JUDGMENT",
+      "implemented": false,
+      "role": "GUARDRAIL_OR_DERIVATION",
+      "variableRefs": []
+    },
+    {
+      "id": "R-OP02-08",
+      "statement": "R-OP02-08 · Pérdida material de flujo",
+      "classification": "GOVERNED_JUDGMENT",
+      "implemented": false,
+      "role": "PRIMARY",
+      "variableRefs": [
+        "VA08"
+      ],
+      "provenanceClass": "PYMAPA_DERIVED"
+    },
+    {
+      "id": "R-OP02-08A",
+      "statement": "R-OP02-08A · Pérdida de flujo ≠ causa",
+      "classification": "GOVERNED_JUDGMENT",
+      "implemented": false,
+      "role": "GUARDRAIL_OR_DERIVATION",
+      "variableRefs": []
+    },
+    {
+      "id": "R-OP02-09",
+      "statement": "R-OP02-09 · Visibilidad operacional insuficiente",
+      "classification": "GOVERNED_JUDGMENT",
+      "implemented": false,
+      "role": "PRIMARY",
+      "variableRefs": [
+        "VA09"
+      ],
+      "provenanceClass": "PYMAPA_DERIVED"
+    },
+    {
+      "id": "R-OP02-10",
+      "statement": "R-OP02-10 · Adaptación operacional insuficiente",
+      "classification": "GOVERNED_JUDGMENT",
+      "implemented": false,
+      "role": "PRIMARY",
+      "variableRefs": [
+        "VA10"
+      ],
+      "provenanceClass": "PYMAPA_DERIVED"
+    }
+  ],
+  "contradictionHandling": {
+    "clarificationAcquisitionRefs": [],
+    "evidenceCandidateRefs": [],
+    "notes": [
+      "P4 · Aclaración de contradicciones no tiene adquisición con identificador gobernado.",
+      "CONTRA: Existe contradicción material; aclarar antes de cerrar"
+    ]
+  },
+  "findings": [
+    {
+      "id": "OP02-HF01",
+      "name": "Planificación operacional insuficiente",
+      "polarity": "ADVERSE",
+      "ruleRefs": [
+        "R-OP02-01",
+        "R-OP02-02"
+      ],
+      "variableRefs": [
+        "VA01",
+        "VA02"
+      ],
+      "severity": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "mappingStatus": "RULES_FROM_FINDING_SECTION_VARIABLES_FROM_RULE_DECLARATION"
+    },
+    {
+      "id": "OP02-HF02",
+      "name": "Desajuste capacidad–carga",
+      "polarity": "ADVERSE",
+      "ruleRefs": [
+        "R-OP02-04"
+      ],
+      "variableRefs": [
+        "VA04"
+      ],
+      "severity": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "mappingStatus": "RULES_FROM_FINDING_SECTION_VARIABLES_FROM_RULE_DECLARATION"
+    },
+    {
+      "id": "OP02-HF03A",
+      "name": "Indisponibilidad efectiva de recursos",
+      "polarity": "ADVERSE",
+      "ruleRefs": [
+        "R-OP02-03"
+      ],
+      "variableRefs": [
+        "VA03"
+      ],
+      "severity": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "mappingStatus": "RULES_FROM_FINDING_SECTION_VARIABLES_FROM_RULE_DECLARATION"
+    },
+    {
+      "id": "OP02-HF03B",
+      "name": "Asignación inadecuada de recursos",
+      "polarity": "ADVERSE",
+      "ruleRefs": [
+        "R-OP02-05"
+      ],
+      "variableRefs": [
+        "VA05"
+      ],
+      "severity": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "mappingStatus": "RULES_FROM_FINDING_SECTION_VARIABLES_FROM_RULE_DECLARATION"
+    },
+    {
+      "id": "OP02-HF04",
+      "name": "Coordinación insuficiente de dependencias",
+      "polarity": "ADVERSE",
+      "ruleRefs": [
+        "R-OP02-06"
+      ],
+      "variableRefs": [
+        "VA06"
+      ],
+      "severity": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "mappingStatus": "RULES_FROM_FINDING_SECTION_VARIABLES_FROM_RULE_DECLARATION"
+    },
+    {
+      "id": "OP02-HF05",
+      "name": "Inconsistencia material de ejecución",
+      "polarity": "ADVERSE",
+      "ruleRefs": [
+        "R-OP02-07"
+      ],
+      "variableRefs": [
+        "VA07"
+      ],
+      "severity": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "mappingStatus": "RULES_FROM_FINDING_SECTION_VARIABLES_FROM_RULE_DECLARATION"
+    },
+    {
+      "id": "OP02-HF06",
+      "name": "Pérdidas materiales de flujo",
+      "polarity": "ADVERSE",
+      "ruleRefs": [
+        "R-OP02-08"
+      ],
+      "variableRefs": [
+        "VA08"
+      ],
+      "severity": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "mappingStatus": "RULES_FROM_FINDING_SECTION_VARIABLES_FROM_RULE_DECLARATION"
+    },
+    {
+      "id": "OP02-HF07",
+      "name": "Visibilidad operacional insuficiente",
+      "polarity": "ADVERSE",
+      "ruleRefs": [
+        "R-OP02-09"
+      ],
+      "variableRefs": [
+        "VA09"
+      ],
+      "severity": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "mappingStatus": "RULES_FROM_FINDING_SECTION_VARIABLES_FROM_RULE_DECLARATION"
+    },
+    {
+      "id": "OP02-HF08",
+      "name": "Adaptación insuficiente ante desviaciones",
+      "polarity": "ADVERSE",
+      "ruleRefs": [
+        "R-OP02-10"
+      ],
+      "variableRefs": [
+        "VA10"
+      ],
+      "severity": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "mappingStatus": "RULES_FROM_FINDING_SECTION_VARIABLES_FROM_RULE_DECLARATION"
+    }
+  ],
+  "findingsNote": "Catálogo OP-02 v0.1: 9 variantes operativas dentro de 8 familias conceptuales. Severidad S0–S3 es contextual: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER en el pack.",
+  "interventionPrinciple": {
+    "id": "INT-OP02-01",
+    "statement": "Seleccionar la intervención menos compleja, costosa e invasiva que tenga una probabilidad razonable de corregir o reducir materialmente la condición diagnosticada dentro del contexto de la pyme.",
+    "formula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+    "notes": [
+      "Principio, no fórmula: la selección de intervención no es automatizable."
+    ]
+  },
+  "validationRequirements": [
+    {
+      "id": "CRV-01",
+      "owner": {
+        "kind": "INTERVENTION_PATTERN",
+        "ref": "IP01"
+      },
+      "definition": "La información sobre carga, pendientes y compromisos está disponible con suficiente anticipación para influir en decisiones reales de planificación.",
+      "definitionSource": "OP-02_Completo · OP02-K4-v1.0 · K4-VALIDATED · CLOSED · raw líneas 7810–7818",
+      "formula": "NOT_A_SCORE",
+      "evaluation": "GOVERNED_JUDGMENT",
+      "conditions": [
+        {
+          "id": "CRV-01",
+          "kind": "GOVERNED_STATEMENT",
+          "statement": "La información sobre carga, pendientes y compromisos está disponible con suficiente anticipación para influir en decisiones reales de planificación."
+        },
+        {
+          "id": "VAL-OP02-03",
+          "kind": "JUSTIFYING_CONDITION_REFERENCE",
+          "statement": "El CRV debe comprobar la condición real que justificó la intervención."
+        }
+      ],
+      "notes": [
+        "OP02-CRV-v0.1 · CANDIDATE-FROZEN"
+      ]
+    },
+    {
+      "id": "CRV-02",
+      "owner": {
+        "kind": "INTERVENTION_PATTERN",
+        "ref": "IP02"
+      },
+      "definition": "Ante conflictos reales de trabajo, la organización puede determinar y aplicar una prioridad suficientemente consistente sin depender principalmente de improvisación o escalamiento tardío.",
+      "definitionSource": "OP-02_Completo · OP02-K4-v1.0 · K4-VALIDATED · CLOSED · raw líneas 7848–7856",
+      "formula": "NOT_A_SCORE",
+      "evaluation": "GOVERNED_JUDGMENT",
+      "conditions": [
+        {
+          "id": "CRV-02",
+          "kind": "GOVERNED_STATEMENT",
+          "statement": "Ante conflictos reales de trabajo, la organización puede determinar y aplicar una prioridad suficientemente consistente sin depender principalmente de improvisación o escalamiento tardío."
+        },
+        {
+          "id": "VAL-OP02-03",
+          "kind": "JUSTIFYING_CONDITION_REFERENCE",
+          "statement": "El CRV debe comprobar la condición real que justificó la intervención."
+        }
+      ],
+      "notes": [
+        "OP02-CRV-v0.1 · CANDIDATE-FROZEN"
+      ]
+    },
+    {
+      "id": "CRV-03",
+      "owner": {
+        "kind": "INTERVENTION_PATTERN",
+        "ref": "IP03"
+      },
+      "definition": "Bajo las condiciones de carga para las cuales se diseñó el ajuste, la operación puede absorber el trabajo sin generar el patrón material de acumulación, espera o incumplimiento que originó la intervención.",
+      "definitionSource": "OP-02_Completo · OP02-K4-v1.0 · K4-VALIDATED · CLOSED · raw líneas 7874–7882",
+      "formula": "NOT_A_SCORE",
+      "evaluation": "GOVERNED_JUDGMENT",
+      "conditions": [
+        {
+          "id": "CRV-03",
+          "kind": "GOVERNED_STATEMENT",
+          "statement": "Bajo las condiciones de carga para las cuales se diseñó el ajuste, la operación puede absorber el trabajo sin generar el patrón material de acumulación, espera o incumplimiento que originó la intervención."
+        },
+        {
+          "id": "VAL-OP02-03",
+          "kind": "JUSTIFYING_CONDITION_REFERENCE",
+          "statement": "El CRV debe comprobar la condición real que justificó la intervención."
+        }
+      ],
+      "notes": [
+        "OP02-CRV-v0.1 · CANDIDATE-FROZEN"
+      ]
+    },
+    {
+      "id": "CRV-04",
+      "owner": {
+        "kind": "INTERVENTION_PATTERN",
+        "ref": "IP04"
+      },
+      "definition": "Cuando aparecen desbalances relevantes de carga, la organización puede reasignar capacidad disponible con oportunidad suficiente para evitar o reducir materialmente el impacto operacional objetivo.",
+      "definitionSource": "OP-02_Completo · OP02-K4-v1.0 · K4-VALIDATED · CLOSED · raw líneas 7920–7928",
+      "formula": "NOT_A_SCORE",
+      "evaluation": "GOVERNED_JUDGMENT",
+      "conditions": [
+        {
+          "id": "CRV-04",
+          "kind": "GOVERNED_STATEMENT",
+          "statement": "Cuando aparecen desbalances relevantes de carga, la organización puede reasignar capacidad disponible con oportunidad suficiente para evitar o reducir materialmente el impacto operacional objetivo."
+        },
+        {
+          "id": "VAL-OP02-03",
+          "kind": "JUSTIFYING_CONDITION_REFERENCE",
+          "statement": "El CRV debe comprobar la condición real que justificó la intervención."
+        }
+      ],
+      "notes": [
+        "OP02-CRV-v0.1 · CANDIDATE-FROZEN"
+      ]
+    },
+    {
+      "id": "CRV-05",
+      "owner": {
+        "kind": "INTERVENTION_PATTERN",
+        "ref": "IP05"
+      },
+      "definition": "Las actividades dependientes reciben la información, decisión, recurso o participación requerida con oportunidad y suficiencia para continuar la ejecución sin la fricción material que originó la intervención.",
+      "definitionSource": "OP-02_Completo · OP02-K4-v1.0 · K4-VALIDATED · CLOSED · raw líneas 7948–7956",
+      "formula": "NOT_A_SCORE",
+      "evaluation": "GOVERNED_JUDGMENT",
+      "conditions": [
+        {
+          "id": "CRV-05",
+          "kind": "GOVERNED_STATEMENT",
+          "statement": "Las actividades dependientes reciben la información, decisión, recurso o participación requerida con oportunidad y suficiencia para continuar la ejecución sin la fricción material que originó la intervención."
+        },
+        {
+          "id": "VAL-OP02-03",
+          "kind": "JUSTIFYING_CONDITION_REFERENCE",
+          "statement": "El CRV debe comprobar la condición real que justificó la intervención."
+        }
+      ],
+      "notes": [
+        "OP02-CRV-v0.1 · CANDIDATE-FROZEN"
+      ]
+    },
+    {
+      "id": "CRV-06A",
+      "owner": {
+        "kind": "INTERVENTION_PATTERN",
+        "ref": "IP06"
+      },
+      "name": "Consistencia",
+      "definition": "Las ejecuciones comparables muestran una reducción suficiente de la variación problemática objetivo, preservando la variabilidad legítima requerida por el contexto.",
+      "definitionSource": "OP-02_Completo · OP02-K4-v1.0 · K4-VALIDATED · CLOSED · raw líneas 7980–7986",
+      "formula": "NOT_A_SCORE",
+      "evaluation": "GOVERNED_JUDGMENT",
+      "conditions": [
+        {
+          "id": "CRV-06A",
+          "kind": "GOVERNED_STATEMENT",
+          "statement": "Las ejecuciones comparables muestran una reducción suficiente de la variación problemática objetivo, preservando la variabilidad legítima requerida por el contexto."
+        },
+        {
+          "id": "VAL-OP02-03",
+          "kind": "JUSTIFYING_CONDITION_REFERENCE",
+          "statement": "El CRV debe comprobar la condición real que justificó la intervención."
+        }
+      ],
+      "notes": [
+        "OP02-CRV-v0.1 · CANDIDATE-FROZEN"
+      ]
+    },
+    {
+      "id": "CRV-06B",
+      "owner": {
+        "kind": "INTERVENTION_PATTERN",
+        "ref": "IP06"
+      },
+      "name": "Flujo",
+      "definition": "La espera, acumulación, interrupción, bloqueo o reproceso objetivo disminuye suficientemente para dejar de producir el impacto material diagnosticado.",
+      "definitionSource": "OP-02_Completo · OP02-K4-v1.0 · K4-VALIDATED · CLOSED · raw líneas 7980–7990",
+      "formula": "NOT_A_SCORE",
+      "evaluation": "GOVERNED_JUDGMENT",
+      "conditions": [
+        {
+          "id": "CRV-06B",
+          "kind": "GOVERNED_STATEMENT",
+          "statement": "La espera, acumulación, interrupción, bloqueo o reproceso objetivo disminuye suficientemente para dejar de producir el impacto material diagnosticado."
+        },
+        {
+          "id": "VAL-OP02-03",
+          "kind": "JUSTIFYING_CONDITION_REFERENCE",
+          "statement": "El CRV debe comprobar la condición real que justificó la intervención."
+        }
+      ],
+      "notes": [
+        "OP02-CRV-v0.1 · CANDIDATE-FROZEN"
+      ]
+    },
+    {
+      "id": "CRV-07",
+      "owner": {
+        "kind": "INTERVENTION_PATTERN",
+        "ref": "IP07"
+      },
+      "definition": "Las desviaciones materiales objetivo son detectadas suficientemente antes de su consecuencia operacional para permitir una acción útil.",
+      "definitionSource": "OP-02_Completo · OP02-K4-v1.0 · K4-VALIDATED · CLOSED · raw líneas 8012–8020",
+      "formula": "NOT_A_SCORE",
+      "evaluation": "GOVERNED_JUDGMENT",
+      "conditions": [
+        {
+          "id": "CRV-07",
+          "kind": "GOVERNED_STATEMENT",
+          "statement": "Las desviaciones materiales objetivo son detectadas suficientemente antes de su consecuencia operacional para permitir una acción útil."
+        },
+        {
+          "id": "VAL-OP02-03",
+          "kind": "JUSTIFYING_CONDITION_REFERENCE",
+          "statement": "El CRV debe comprobar la condición real que justificó la intervención."
+        }
+      ],
+      "notes": [
+        "OP02-CRV-v0.1 · CANDIDATE-FROZEN"
+      ]
+    },
+    {
+      "id": "CRV-08",
+      "owner": {
+        "kind": "INTERVENTION_PATTERN",
+        "ref": "IP08"
+      },
+      "definition": "Ante las desviaciones objetivo, la organización puede ejecutar oportunamente una respuesta que reduzca el impacto o restablezca la ejecución esperada dentro de condiciones aceptables.",
+      "definitionSource": "OP-02_Completo · OP02-K4-v1.0 · K4-VALIDATED · CLOSED · raw líneas 8042–8050",
+      "formula": "NOT_A_SCORE",
+      "evaluation": "GOVERNED_JUDGMENT",
+      "conditions": [
+        {
+          "id": "CRV-08",
+          "kind": "GOVERNED_STATEMENT",
+          "statement": "Ante las desviaciones objetivo, la organización puede ejecutar oportunamente una respuesta que reduzca el impacto o restablezca la ejecución esperada dentro de condiciones aceptables."
+        },
+        {
+          "id": "VAL-OP02-03",
+          "kind": "JUSTIFYING_CONDITION_REFERENCE",
+          "statement": "El CRV debe comprobar la condición real que justificó la intervención."
+        }
+      ],
+      "notes": [
+        "OP02-CRV-v0.1 · CANDIDATE-FROZEN"
+      ]
+    }
+  ],
+  "validationRequirementsNote": "Los CRV pertenecen a patrones de intervención (owner INTERVENTION_PATTERN) y se evalúan por juicio gobernado: el runtime nunca los satisface solo; exige juicio humano con evidencia y referencia a la condición que justificó la intervención (VAL-OP02-03).",
+  "crossCapabilityReferences": [
+    {
+      "cause": "Derivación hacia OP-03",
+      "executable": false,
+      "targetCapabilityId": "OP-03"
+    },
+    {
+      "cause": "Derivación hacia OP-04",
+      "executable": false,
+      "targetCapabilityId": "OP-04"
+    },
+    {
+      "cause": "Derivación hacia PC",
+      "executable": false,
+      "targetDomainId": "PC"
+    },
+    {
+      "cause": "Derivación hacia DT",
+      "executable": false,
+      "targetDomainId": "DT"
+    },
+    {
+      "cause": "Derivación hacia DG",
+      "executable": false,
+      "targetDomainId": "DG"
+    },
+    {
+      "cause": "DT-05 / continuidad / riesgo, según corresponda.",
+      "targetCapabilityId": "DT-05",
+      "executable": false
+    }
+  ],
+  "interventionPatterns": [
+    {
+      "id": "IP01",
+      "name": "Visibilizar y anticipar carga",
+      "objective": "Hacer manejables carga y compromisos",
+      "purpose": "Hacer suficientemente visible el trabajo actual, pendiente y razonablemente esperado para poder planificar.",
+      "instruments": [
+        {
+          "id": "INS-OP02-01",
+          "name": "Vista de Carga y Compromisos"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "DEL-OP02-01",
+          "name": "Vista operacional vigente de carga y compromisos.",
+          "instrumentRef": "INS-OP02-01"
+        }
+      ],
+      "minimumActivities": [
+        "Identificar qué representa “carga” en el proceso.",
+        "Consolidar trabajo pendiente y compromisos relevantes.",
+        "Identificar patrones previsibles relevantes.",
+        "Definir cómo y cuándo se actualiza.",
+        "Utilizar esa información en la planificación operacional."
+      ],
+      "doneCriteria": [
+        {
+          "id": "DC01.1",
+          "statement": "La carga materialmente relevante está representada."
+        },
+        {
+          "id": "DC01.2",
+          "statement": "Los compromisos necesarios para planificar son visibles."
+        },
+        {
+          "id": "DC01.3",
+          "statement": "Los patrones previsibles relevantes están incorporados cuando aplican."
+        },
+        {
+          "id": "DC01.4",
+          "statement": "Existe mecanismo/responsable de actualización."
+        },
+        {
+          "id": "DC01.5",
+          "statement": "La vista ha sido utilizada al menos en un ciclo real de planificación."
+        }
+      ]
+    },
+    {
+      "id": "IP02",
+      "name": "Establecer lógica de priorización y programación",
+      "objective": "Organizar el trabajo",
+      "purpose": "Organizar el trabajo cuando existen prioridades, restricciones o competencia por capacidad.",
+      "instruments": [
+        {
+          "id": "INS-OP02-02",
+          "name": "Matriz de Priorización Operativa"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "DEL-OP02-02",
+          "name": "Lógica operacional de priorización y programación en uso.",
+          "instrumentRef": "INS-OP02-02"
+        }
+      ],
+      "minimumActivities": [
+        "Identificar tipos de trabajo que compiten.",
+        "Definir criterios materiales de prioridad.",
+        "Resolver conflictos entre criterios.",
+        "Definir horizonte/ritmo de programación.",
+        "Probar la lógica con casos reales.",
+        "Ajustar excepciones necesarias."
+      ],
+      "doneCriteria": [
+        {
+          "id": null,
+          "statement": "permite decidir qué atender primero cuando existe conflicto;"
+        },
+        {
+          "id": null,
+          "statement": "contempla excepciones relevantes;"
+        },
+        {
+          "id": null,
+          "statement": "puede ser comprendida por quienes la aplican;"
+        },
+        {
+          "id": null,
+          "statement": "ha sido probada con casos reales;"
+        },
+        {
+          "id": null,
+          "statement": "no depende exclusivamente de improvisación individual."
+        }
+      ],
+      "identifierNote": "Done Criteria sin identificador gobernado en la fuente (NE-OP02-06): el runtime los direcciona por posición."
+    },
+    {
+      "id": "IP03",
+      "name": "Ajustar capacidad y disponibilidad",
+      "objective": "Alinear capacidad efectiva con necesidad",
+      "purpose": "Lograr que la capacidad efectiva pueda absorber razonablemente la carga relevante.",
+      "instruments": [
+        {
+          "id": "INS-OP02-03",
+          "name": "Mapa Capacidad–Carga"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "DEL-OP02-03",
+          "name": "Esquema de capacidad ajustado para la condición diagnosticada.",
+          "instrumentRef": "INS-OP02-03"
+        }
+      ],
+      "minimumActivities": [
+        "Identificar carga/periodos críticos.",
+        "Determinar capacidad efectiva relevante.",
+        "Identificar causas de indisponibilidad.",
+        "Comparar capacidad–carga.",
+        "evaluar alternativas antes de aumentar capacidad estructural;",
+        "seleccionar ajuste proporcional;",
+        "ejecutar durante un periodo de prueba cuando sea posible."
+      ],
+      "doneCriteria": [
+        {
+          "id": "DC03.1",
+          "statement": "La condición capacidad–carga fue caracterizada."
+        },
+        {
+          "id": "DC03.2",
+          "statement": "Se contrastaron alternativas razonables."
+        },
+        {
+          "id": "DC03.3",
+          "statement": "Existe una decisión explícita de ajuste."
+        },
+        {
+          "id": "DC03.4",
+          "statement": "Los recursos/condiciones requeridos están disponibles."
+        },
+        {
+          "id": "DC03.5",
+          "statement": "El ajuste fue puesto en operación."
+        }
+      ]
+    },
+    {
+      "id": "IP04",
+      "name": "Reasignar recursos operativamente",
+      "objective": "Utilizar mejor capacidad existente",
+      "purpose": "Utilizar mejor capacidad existente antes de asumir que falta capacidad.",
+      "instruments": [
+        {
+          "id": "INS-OP02-04",
+          "name": "Matriz de Asignación Operativa"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "DEL-OP02-04",
+          "name": "Mecanismo operativo de asignación y reasignación.",
+          "instrumentRef": "INS-OP02-04"
+        }
+      ],
+      "minimumActivities": [
+        "Identificar dónde están los recursos.",
+        "Identificar dónde se requiere capacidad.",
+        "detectar conflictos/desbalances;",
+        "definir reglas de asignación/reasignación;",
+        "establecer autoridad para mover recursos cuando sea necesario;",
+        "probar en operación."
+      ],
+      "doneCriteria": [
+        {
+          "id": null,
+          "statement": "distingue prioridades materiales;"
+        },
+        {
+          "id": null,
+          "statement": "permite reconocer desbalances;"
+        },
+        {
+          "id": null,
+          "statement": "establece quién puede reasignar;"
+        },
+        {
+          "id": null,
+          "statement": "puede ejecutarse con la oportunidad requerida;"
+        },
+        {
+          "id": null,
+          "statement": "ha sido aplicado en una situación operacional real o simulación suficientemente representativa."
+        }
+      ],
+      "identifierNote": "Done Criteria sin identificador gobernado en la fuente (NE-OP02-06): el runtime los direcciona por posición."
+    },
+    {
+      "id": "IP05",
+      "name": "Coordinar dependencias críticas",
+      "objective": "Reducir esperas y fallos de sincronización",
+      "purpose": "Reducir fricciones causadas por dependencias entre actividades, personas, información, decisiones o recursos.",
+      "instruments": [
+        {
+          "id": "INS-OP02-05",
+          "name": "Mapa de Dependencias Operativas"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "DEL-OP02-05",
+          "name": "Mecanismo de coordinación para dependencias críticas.",
+          "instrumentRef": "INS-OP02-05"
+        }
+      ],
+      "minimumActivities": [
+        "Identificar dependencias críticas.",
+        "definir qué necesita cada dependencia;",
+        "determinar momento/condición necesaria;",
+        "identificar responsable;",
+        "establecer mecanismo de coordinación;",
+        "definir qué ocurre ante incumplimiento;",
+        "probarlo."
+      ],
+      "doneCriteria": [
+        {
+          "id": null,
+          "statement": "Las dependencias críticas seleccionadas tienen:\n\norigen + receptor + necesidad + momento + mecanismo + responsabilidad + respuesta ante excepción\n\nsuficientemente claros y el mecanismo ha sido utilizado."
+        }
+      ],
+      "identifierNote": "Done Criteria sin identificador gobernado en la fuente (NE-OP02-06): la fuente los enuncia como un único criterio compuesto (raw líneas 6983–6987), proyectado literalmente como un solo criterio direccionado por posición. Transcripción corregida en M2-OP02-03 (TC-OP02-01)."
+    },
+    {
+      "id": "IP06",
+      "name": "Estabilizar ejecución y flujo",
+      "objective": "Reducir variación problemática, espera y reproceso",
+      "purpose": "Reducir variación problemática, esperas, acumulaciones, bloqueos o reproceso.",
+      "instruments": [
+        {
+          "id": "INS-OP02-06",
+          "name": "Registro de Estabilidad y Flujo"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "DEL-OP02-06",
+          "name": "Ajuste operacional aplicado al punto de inestabilidad o pérdida de flujo.",
+          "instrumentRef": "INS-OP02-06"
+        }
+      ],
+      "minimumActivities": [
+        "Identificar dónde aparece la condición.",
+        "caracterizar patrón/frecuencia;",
+        "separar variabilidad legítima de problemática;",
+        "identificar causa suficientemente sustentada;",
+        "seleccionar cambio mínimo;",
+        "probarlo;",
+        "observar comportamiento."
+      ],
+      "doneCriteria": [
+        {
+          "id": null,
+          "statement": "condición objetivo identificada;"
+        },
+        {
+          "id": null,
+          "statement": "causa suficientemente sustentada o intervención explícitamente clasificada como aprendizaje;"
+        },
+        {
+          "id": null,
+          "statement": "cambio definido;"
+        },
+        {
+          "id": null,
+          "statement": "responsables conocen el cambio;"
+        },
+        {
+          "id": null,
+          "statement": "cambio ejecutado en casos reales;"
+        },
+        {
+          "id": null,
+          "statement": "existe mecanismo para observar su comportamiento posterior."
+        }
+      ],
+      "identifierNote": "Done Criteria sin identificador gobernado en la fuente (NE-OP02-06): el runtime los direcciona por posición."
+    },
+    {
+      "id": "IP07",
+      "name": "Hacer visible estado y desviaciones",
+      "objective": "Detectar oportunamente",
+      "purpose": "Detectar desviaciones con suficiente anticipación para permitir acción.",
+      "instruments": [
+        {
+          "id": "INS-OP02-07",
+          "name": "Tablero Operacional de Estado y Excepciones"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "DEL-OP02-07",
+          "name": "Mecanismo activo de visibilidad operacional y excepciones.",
+          "instrumentRef": "INS-OP02-07"
+        }
+      ],
+      "minimumActivities": [
+        "Definir qué estados/importantes necesitan visibilidad.",
+        "identificar qué desviaciones requieren atención;",
+        "determinar cuándo deben detectarse;",
+        "establecer mecanismo de seguimiento;",
+        "definir responsable;",
+        "definir alerta/escalamiento;",
+        "utilizarlo en operación."
+      ],
+      "doneCriteria": [
+        {
+          "id": "DC07.1",
+          "statement": "Estados materiales son visibles."
+        },
+        {
+          "id": "DC07.2",
+          "statement": "Las desviaciones relevantes pueden identificarse."
+        },
+        {
+          "id": "DC07.3",
+          "statement": "La información llega a quien puede actuar."
+        },
+        {
+          "id": "DC07.4",
+          "statement": "Existe una respuesta/escalamiento definido."
+        },
+        {
+          "id": "DC07.5",
+          "statement": "El mecanismo ha operado durante ejecución real."
+        }
+      ]
+    },
+    {
+      "id": "IP08",
+      "name": "Fortalecer adaptación operacional",
+      "objective": "Responder y recuperar ejecución",
+      "purpose": "Responder a desviaciones manejables antes de que escalen.",
+      "instruments": [
+        {
+          "id": "INS-OP02-08",
+          "name": "Matriz de Respuesta Operacional"
+        }
+      ],
+      "deliverables": [
+        {
+          "id": "DEL-OP02-08",
+          "name": "Mecanismo operativo de respuesta a desviaciones.",
+          "instrumentRef": "INS-OP02-08"
+        }
+      ],
+      "minimumActivities": [
+        "Identificar excepciones frecuentes/materiales.",
+        "definir respuestas razonables.",
+        "establecer quién puede decidir.",
+        "definir opciones de repriorización/reasignación.",
+        "establecer umbral de escalamiento.",
+        "probar respuestas.",
+        "incorporar aprendizaje."
+      ],
+      "doneCriteria": [
+        {
+          "id": null,
+          "statement": "existe respuesta definida;"
+        },
+        {
+          "id": null,
+          "statement": "existe autoridad suficiente;"
+        },
+        {
+          "id": null,
+          "statement": "están disponibles los mecanismos necesarios;"
+        },
+        {
+          "id": null,
+          "statement": "existe límite de actuación/escalamiento;"
+        },
+        {
+          "id": null,
+          "statement": "la respuesta ha sido probada o utilizada;"
+        },
+        {
+          "id": null,
+          "statement": "el equipo relevante sabe cómo actuar."
+        }
+      ],
+      "identifierNote": "Done Criteria sin identificador gobernado en la fuente (NE-OP02-06): el runtime los direcciona por posición."
+    }
+  ],
+  "implementationModel": {
+    "doneLayers": [
+      {
+        "id": "DC-A",
+        "name": "Configurado",
+        "definition": "La intervención está definida:",
+        "requiresEvidence": false
+      },
+      {
+        "id": "DC-B",
+        "name": "Activado",
+        "definition": "La intervención ya fue puesta en operación.",
+        "requiresEvidence": false
+      },
+      {
+        "id": "DC-C",
+        "name": "Adoptado inicialmente",
+        "definition": "Existe evidencia de utilización real suficiente para afirmar que no quedó simplemente diseñada.",
+        "requiresEvidence": true
+      }
+    ],
+    "executionStates": [
+      {
+        "id": "I0",
+        "name": "Not started",
+        "definition": "No iniciada.",
+        "implemented": false
+      },
+      {
+        "id": "I1",
+        "name": "Configured",
+        "definition": "Diseñada/configurada.",
+        "implemented": false
+      },
+      {
+        "id": "I2",
+        "name": "Activated",
+        "definition": "Puesta en funcionamiento.",
+        "implemented": false
+      },
+      {
+        "id": "I3",
+        "name": "Implemented",
+        "definition": "Cumple Done Criteria, incluida adopción inicial requerida.",
+        "implemented": true,
+        "requiresDoneLayerRefs": [
+          "DC-A",
+          "DC-B",
+          "DC-C"
+        ],
+        "requiresAllDoneCriteria": true,
+        "basis": "Una intervención se considera implementada cuando sus elementos mínimos han sido configurados, puestos en funcionamiento y utilizados suficientemente en el contexto real para demostrar adopción inicial, con evidencia proporcional a su materialidad."
+      }
+    ],
+    "rules": [
+      {
+        "id": "DONE-OP02-01",
+        "statement": "Una intervención se considera implementada cuando sus elementos mínimos han sido configurados, puestos en funcionamiento y utilizados suficientemente en el contexto real para demostrar adopción inicial, con evidencia proporcional a su materialidad."
+      },
+      {
+        "id": "DONE-OP02-02",
+        "statement": "El cumplimiento del Done Criteria no constituye evidencia suficiente de efectividad."
+      }
+    ],
+    "doneImpliesValidationRequirement": false,
+    "doneImpliesEffectiveness": false
+  },
+  "effectivenessModel": {
+    "states": [
+      {
+        "id": "R0",
+        "name": "NOT EVALUATED",
+        "definition": "Todavía no se ha evaluado.",
+        "presupposesImplementation": false
+      },
+      {
+        "id": "R1",
+        "name": "INSUFFICIENT EVIDENCE",
+        "definition": "Se intentó evaluar, pero la evidencia no permite concluir.",
+        "presupposesImplementation": true,
+        "basis": "21. Implementación y resultado como dos ejes"
+      },
+      {
+        "id": "R2",
+        "name": "NOT EFFECTIVE",
+        "definition": "La intervención fue implementada, pero el resultado esperado no se observa suficientemente.",
+        "presupposesImplementation": true,
+        "basis": "21. Implementación y resultado como dos ejes",
+        "requiresEvidence": true
+      },
+      {
+        "id": "R3",
+        "name": "PARTIALLY EFFECTIVE",
+        "definition": "Existe mejora material, pero el CRV no está completamente satisfecho o quedan condiciones relevantes sin resolver.",
+        "presupposesImplementation": true,
+        "basis": "21. Implementación y resultado como dos ejes",
+        "requiresEvidence": true
+      },
+      {
+        "id": "R4",
+        "name": "EFFECTIVE",
+        "definition": "El CRV está suficientemente satisfecho bajo las condiciones de validación definidas.",
+        "presupposesImplementation": true,
+        "basis": "21. Implementación y resultado como dos ejes",
+        "requiresValidationRequirement": "SATISFIED",
+        "requiresEvidence": true
+      }
+    ],
+    "implementationRuleRef": "VAL-OP02-01",
+    "negativeOutcomeStateRef": "R2",
+    "negativeOutcomeBasis": "Si el resultado empeora materialmente, sigue siendo:",
+    "rules": [
+      {
+        "id": null,
+        "statement": "Estos estados son de efectividad, no de madurez."
+      },
+      {
+        "id": null,
+        "statement": "tiempo transcurrido ≠ evidencia suficiente."
+      }
+    ],
+    "isMaturity": false
+  },
+  "attributionModel": {
+    "levels": [
+      {
+        "id": "AC0",
+        "label": "AC0 · No atribuible",
+        "definition": "No podemos relacionar razonablemente resultado e intervención."
+      },
+      {
+        "id": "AC1",
+        "label": "AC1 · Atribución débil",
+        "definition": "Relación plausible, pero existen explicaciones alternativas materiales."
+      },
+      {
+        "id": "AC2",
+        "label": "AC2 · Atribución razonable",
+        "definition": "Temporalidad, mecanismo y evidencia son coherentes; alternativas materiales están suficientemente controladas/conocidas."
+      },
+      {
+        "id": "AC3",
+        "label": "AC3 · Atribución fuerte",
+        "definition": "Evidencia repetida/corroborada bajo condiciones suficientemente comparables respalda fuertemente la relación."
+      }
+    ],
+    "independentOfEffectiveness": true,
+    "formula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+  },
+  "validationModel": {
+    "recordFields": [
+      "Validation_ID",
+      "CRV_ID",
+      "Intervention_ID",
+      "Implementation_State",
+      "Evaluation_Date",
+      "Validation_Window",
+      "Observed_Result",
+      "Evidence[]",
+      "Baseline_Comparison",
+      "Context_Changes[]",
+      "Alternative_Explanations[]",
+      "Unintended_Outcomes[]",
+      "Effectiveness_State",
+      "Attribution_Confidence",
+      "Validation_Confidence",
+      "Decision",
+      "Next_Action",
+      "Validated_By"
+    ],
+    "decisions": [
+      {
+        "decision": "SUSTAIN",
+        "action": "mantener y pasar a seguimiento proporcional.",
+        "whenEffectivenessStateRef": "R4",
+        "selection": "DETERMINISTIC"
+      },
+      {
+        "decision": "ADJUST",
+        "action": "ajustar intervención y volver a validar.",
+        "whenEffectivenessStateRef": "R3",
+        "selection": "DETERMINISTIC"
+      },
+      {
+        "decision": "REASSESS",
+        "action": "revisar causa, hipótesis o intervención.",
+        "whenEffectivenessStateRef": "R2",
+        "selection": "DETERMINISTIC"
+      },
+      {
+        "decision": "EXTEND / EVIDENCE",
+        "action": "ampliar ventana o adquirir evidencia.",
+        "whenEffectivenessStateRef": "R1",
+        "selection": "DETERMINISTIC"
+      },
+      {
+        "decision": "MODIFY / STOP / REASSESS",
+        "action": "según riesgo.",
+        "whenNegativeUnintendedOutcome": true,
+        "selection": "GOVERNED_JUDGMENT"
+      }
+    ],
+    "rules": [
+      {
+        "id": "VAL-OP02-01",
+        "statement": "La efectividad no debe atribuirse a una intervención que no haya alcanzado el nivel mínimo de implementación necesario para producir razonablemente el resultado esperado."
+      },
+      {
+        "id": "VAL-OP02-02",
+        "statement": "La validación debe considerar efectos materiales no previstos que puedan alterar la valoración global de efectividad."
+      },
+      {
+        "id": "VAL-OP02-03",
+        "name": "Mejora de indicador ≠ mejora operacional automática",
+        "statement": "El CRV debe comprobar la condición real que justificó la intervención."
+      }
+    ]
+  },
+  "followUp": {
+    "rules": [
+      {
+        "id": "FOLLOWUP-OP02-01",
+        "statement": "Toda intervención validada como R3 o R4 debe establecer un seguimiento proporcional cuando exista riesgo razonable de regresión, variabilidad relevante o necesidad de comprobar sostenibilidad.",
+        "triggerEffectivenessStateRefs": [
+          "R3",
+          "R4"
+        ],
+        "conditionClassification": "GOVERNED_JUDGMENT"
+      },
+      {
+        "id": "FOLLOWUP-OP02-02",
+        "statement": "La frecuencia de seguimiento debe ser proporcional a criticidad, variabilidad y riesgo de regresión.",
+        "conditionClassification": "GOVERNED_JUDGMENT"
+      }
+    ],
+    "recordFields": [
+      "Followup_ID",
+      "Intervention_ID",
+      "CRV_ID[]",
+      "Reason",
+      "Frequency_or_Trigger",
+      "Evidence[]",
+      "KPI_ID[]",
+      "Expected_Range_or_Condition",
+      "Owner",
+      "Review_Date",
+      "Result",
+      "Action"
+    ],
+    "frequencyFormula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+  },
+  "reassessment": {
+    "rules": [
+      {
+        "id": null,
+        "statement": "Cuando R2/R3 indique que la intervención no resolvió suficientemente el problema, no debemos limitararnos a recomendar “hacer más”.",
+        "triggerEffectivenessStateRefs": [
+          "R2",
+          "R3"
+        ],
+        "conditionClassification": "GOVERNED_JUDGMENT",
+        "loop": "hallazgo → hipótesis causal → evidencia → reglas."
+      }
+    ],
+    "createsNewAssessment": true,
+    "distinctFromFollowUp": true
+  },
+  "severity": {
+    "levels": [
+      {
+        "id": "S0",
+        "label": "S0 · No material",
+        "definition": "Sin efecto significativo."
+      },
+      {
+        "id": "S1",
+        "label": "S1 · Baja",
+        "definition": "Impacto limitado/local/ocasional."
+      },
+      {
+        "id": "S2",
+        "label": "S2 · Media",
+        "definition": "Impacto relevante o recurrente que deteriora ejecución/resultados."
+      },
+      {
+        "id": "S3",
+        "label": "S3 · Alta",
+        "definition": "Impacto material sobre procesos críticos, clientes, ingresos, cumplimiento, continuidad u otros resultados importantes."
+      }
+    ],
+    "resolution": "CONTEXTUAL",
+    "formula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+    "consolidationGuards": [
+      {
+        "id": "CONF-SEV-OP02-02",
+        "statement": "Cuando una inferencia candidata tenga S2/S3 y confianza C0/C1:",
+        "action": "no consolidarla todavía como hallazgo causal confirmado.",
+        "severityRefs": [
+          "S2",
+          "S3"
+        ],
+        "confidenceRefs": [
+          "C0",
+          "C1"
+        ],
+        "appliesToClaim": "CAUSAL",
+        "effect": "BLOCK_CONFIRMATION"
+      }
+    ]
+  },
+  "contextualization": {
+    "rules": [
+      {
+        "id": "CTX-OP02-01",
+        "name": "Núcleo transversal por defecto",
+        "statement": "El contexto modifica la aplicación de OP-02, no su identidad básica."
+      },
+      {
+        "id": "CTX-OP02-02",
+        "name": "Tamaño ≠ madurez operacional",
+        "statement": "El tamaño modifica la complejidad necesaria de la solución, no determina directamente la evaluación."
+      },
+      {
+        "id": "CTX-OP02-03",
+        "name": "Demanda promedio ≠ exigencia operacional completa",
+        "statement": "La variabilidad puede aumentar la necesidad de:"
+      },
+      {
+        "id": "CTX-OP02-04",
+        "statement": "El contexto modifica el estándar requerido para cerrar una evaluación, no necesariamente la estructura conceptual evaluada."
+      },
+      {
+        "id": "CTX-OP02-05",
+        "name": "Regla de persistencia contextual",
+        "statement": "Crear especialización reusable solamente cuando una diferencia sectorial:"
+      },
+      {
+        "id": "CTX-OP02-06",
+        "name": "Condición de evaluación explícita",
+        "statement": "Todo hallazgo material debe conservar el contexto bajo el cual aplica."
+      },
+      {
+        "id": "CTX-OP02-07",
+        "statement": "No crear una variante sectorial permanente de OP-02 cuando las diferencias puedan resolverse suficientemente mediante contexto, lenguaje, evidencia, parámetros o instrumentos adaptativos."
+      }
+    ]
+  },
+  "engineActions": [
+    {
+      "id": "REUSE",
+      "meaning": "Información ya disponible; no volver a preguntar"
+    },
+    {
+      "id": "STOP",
+      "meaning": "Suficiencia alcanzada; detener profundización"
+    },
+    {
+      "id": "FOLLOW",
+      "meaning": "Falta información material; hacer siguiente pregunta"
+    },
+    {
+      "id": "EVIDENCE",
+      "meaning": "La materialidad/confianza requiere corroboración"
+    },
+    {
+      "id": "CONTRA",
+      "meaning": "Existe contradicción material; aclarar antes de cerrar"
+    },
+    {
+      "id": "DERIVE",
+      "meaning": "Observación válida, pero causa/diagnóstico especializado pertenece a otra capacidad"
+    },
+    {
+      "id": "NA",
+      "meaning": "Variable legítimamente no aplicable al caso/contexto"
+    }
+  ]
+}

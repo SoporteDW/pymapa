@@ -4,8 +4,8 @@
   "masterVersion": "1.0",
   "engineVersion": "pymapa-knowledge-engine/0.2.0",
   "expectedCapabilityCount": 31,
-  "registeredCapabilityCount": 2,
-  "unregisteredSlotCount": 29,
+  "registeredCapabilityCount": 5,
+  "unregisteredSlotCount": 26,
   "signal": "AUTHORITATIVE_SOURCE_REQUIRED",
   "domains": [
     {
@@ -25,9 +25,12 @@
       "declaredCapabilityCount": 5,
       "registered": [
         "OP-01",
-        "OP-02"
+        "OP-02",
+        "OP-03",
+        "OP-04",
+        "OP-05"
       ],
-      "unregisteredSlots": 3
+      "unregisteredSlots": 0
     },
     {
       "domainId": "DT",
@@ -53,14 +56,14 @@
       "RAW_SOURCE": 0,
       "REGISTERED": 0,
       "EXTRACTED_CANDIDATE": 0,
-      "CANONICAL_REVIEW_REQUIRED": 0,
+      "CANONICAL_REVIEW_REQUIRED": 3,
       "VALIDATED": 0,
-      "READY_FOR_PUBLICATION": 1,
-      "PUBLISHED": 1
+      "READY_FOR_PUBLICATION": 0,
+      "PUBLISHED": 2
     },
     "byOutcome": {
-      "PASS": 1,
-      "REVIEW_REQUIRED": 1,
+      "PASS": 2,
+      "REVIEW_REQUIRED": 3,
       "FAIL": 0
     }
   },
@@ -347,17 +350,17 @@
         "fail": 0
       },
       "governance": {
-        "reviewStatus": "NOT_REQUESTED",
-        "evidence": "CURRENT"
+        "reviewStatus": "APPROVED",
+        "evidence": "NOT_APPLICABLE"
       },
       "publication": {
-        "status": "UNPUBLISHED",
+        "status": "PUBLISHED",
         "packId": "op-02",
         "packVersion": "1.0.0",
         "packChecksum": "sha256:7f8072073a12961bea852c5bee36cce1574836cb0bc59c8c27acbe6ae0ebc6cc"
       },
-      "state": "READY_FOR_PUBLICATION",
-      "outcome": "REVIEW_REQUIRED",
+      "state": "PUBLISHED",
+      "outcome": "PASS",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -446,27 +449,17 @@
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_APPLICABLE",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "PUBLICATION_GATE",
-              "code": "HUMAN_PUBLICATION_AUTHORIZATION_REQUIRED",
-              "severity": "REVIEW",
-              "message": "falta autorización humana de publicación",
-              "action": "la autoridad de gobierno registra governance-review.json (decision, reviewer, reviewedAt) tras revisar el dossier de evidencia",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
-          "status": "PASS",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         }
       ],
@@ -497,15 +490,6 @@
           "action": "ninguna: el runtime difiere al juicio humano como declara la fuente",
           "sourceLines": null,
           "objectKey": null
-        },
-        {
-          "check": "PUBLICATION_GATE",
-          "code": "HUMAN_PUBLICATION_AUTHORIZATION_REQUIRED",
-          "severity": "REVIEW",
-          "message": "falta autorización humana de publicación",
-          "action": "la autoridad de gobierno registra governance-review.json (decision, reviewer, reviewedAt) tras revisar el dossier de evidencia",
-          "sourceLines": null,
-          "objectKey": null
         }
       ],
       "metrics": {
@@ -515,17 +499,2492 @@
         "candidateItems": null,
         "canonicalObjects": 329,
         "executableSections": 31,
-        "checksAutoPassed": 11,
-        "humanReviewItems": 1,
+        "checksAutoPassed": 12,
+        "humanReviewItems": 0,
         "notExplicit": 6,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 1,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 4,
         "testFailures": 0,
-        "publicationBlockers": 1
+        "publicationBlockers": 0
+      }
+    },
+    {
+      "capabilityId": "OP-03",
+      "domainId": "OP",
+      "sourcePath": "INTAKE",
+      "rawSource": {
+        "availability": "IN_REPOSITORY",
+        "ref": "text/OP-03_Completo.txt",
+        "textSha256": "26d6a7a9d5d6a2867492f0eafcde1b447242dc1beff2dea13e372e7b833c2157",
+        "originalFilename": "OP-03_Completo.docx",
+        "originalSha256": "afe0758fb2b448c7a09f4c015d3e0b67acc69341ece1e00f0ae877bdf389c497",
+        "extractor": "pymapa-docx-text@1.0.0",
+        "registrationId": "RAW-OP-03-afe0758fb2b4"
+      },
+      "extraction": {
+        "status": "CANDIDATE",
+        "candidateId": "CAND-OP-03-0.1.0-26d6a7a9d5d6",
+        "producedBy": "DETERMINISTIC_TOOL"
+      },
+      "canonical": {
+        "status": "NONE",
+        "baselineId": null,
+        "checksum": null,
+        "objectCount": null
+      },
+      "provenance": {
+        "sourceReference": null,
+        "derivation": null,
+        "extractionStatus": null,
+        "historicalClosure": "OP03-K4-v1.0 · K4-VALIDATED · CLOSED"
+      },
+      "gaps": {
+        "total": 0,
+        "notExplicit": [],
+        "sourceContentNotRecovered": [],
+        "runtimeExtension": [],
+        "publicationBlocking": []
+      },
+      "transcriptionCorrections": [],
+      "runtimeCompatibility": {
+        "requiredEngineVersion": "0.1.0",
+        "engineVersion": "0.2.0",
+        "compatible": true,
+        "extensions": []
+      },
+      "fixtures": {
+        "count": 0,
+        "pass": 0,
+        "governedJudgment": 0,
+        "fail": 0
+      },
+      "governance": {
+        "reviewStatus": "NOT_REQUESTED",
+        "evidence": "NOT_APPLICABLE"
+      },
+      "publication": {
+        "status": "UNPUBLISHED",
+        "packId": null,
+        "packVersion": null,
+        "packChecksum": null
+      },
+      "state": "CANONICAL_REVIEW_REQUIRED",
+      "outcome": "REVIEW_REQUIRED",
+      "checks": [
+        {
+          "check": "RAW_REGISTRATION",
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "RAW_REGISTRATION",
+              "code": "EXTRACTION_WARNING",
+              "severity": "INFO",
+              "message": "IMAGES_NOT_TRANSCRIBED: 457 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+              "action": "considerar en la extracción de candidatos",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "REC-OP03-01: 2 definiciones (L379, L3333) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                379,
+                381
+              ],
+              "objectKey": "REC-OP03-01"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "CE01: 8 definiciones (L452, L529, L883, L946, L1281, L1351, L1781, L2352) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                452,
+                457
+              ],
+              "objectKey": "CE01"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "CE02: 8 definiciones (L468, L531, L886, L983, L1284, L1354, L1784, L2379) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                468,
+                470
+              ],
+              "objectKey": "CE02"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "CE03: 8 definiciones (L489, L533, L888, L1016, L1286, L1356, L1786, L2397) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                489,
+                495
+              ],
+              "objectKey": "CE03"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "CE04: 8 definiciones (L524, L535, L892, L1072, L1290, L1360, L1790, L2441) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                524,
+                525
+              ],
+              "objectKey": "CE04"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA01: 5 definiciones (L552, L570, L709, L971, L1376) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                552,
+                559
+              ],
+              "objectKey": "VA01"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "SCOPE-OP03-01: 3 definiciones (L562, L1368, L1773) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                562,
+                564
+              ],
+              "objectKey": "SCOPE-OP03-01"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA02: 6 definiciones (L566, L582, L711, L975, L977, L1397) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                566,
+                569
+              ],
+              "objectKey": "VA02"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA03: 5 definiciones (L574, L594, L713, L992, L1420) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                574,
+                576
+              ],
+              "objectKey": "VA03"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA04: 5 definiciones (L590, L619, L715, L1023, L1442) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                590,
+                593
+              ],
+              "objectKey": "VA04"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA05: 5 definiciones (L614, L631, L717, L1033, L1463) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                614,
+                618
+              ],
+              "objectKey": "VA05"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA06: 5 definiciones (L626, L643, L719, L1046, L1481) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                626,
+                630
+              ],
+              "objectKey": "VA06"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA07: 6 definiciones (L635, L650, L721, L1079, L1083, L1503) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                635,
+                642
+              ],
+              "objectKey": "VA07"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA08: 9 definiciones (L648, L676, L723, L1090, L1105, L1112, L1219, L1275, L1522) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                648,
+                649
+              ],
+              "objectKey": "VA08"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "P-OP03-02: 2 definiciones (L759, L1155) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                759,
+                759
+              ],
+              "objectKey": "P-OP03-02"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "REUSE-OP03-01: 2 definiciones (L1641, L1842) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                1641,
+                1643
+              ],
+              "objectKey": "REUSE-OP03-01"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "P1: 4 definiciones (L1845, L1857, L1869, L1878) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                1845,
+                1846
+              ],
+              "objectKey": "P1"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "IP01: 4 definiciones (L3356, L3366, L3926, L4530) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                3356,
+                3356
+              ],
+              "objectKey": "IP01"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "IP02: 5 definiciones (L3357, L3384, L3431, L3960, L4548) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                3357,
+                3357
+              ],
+              "objectKey": "IP02"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "IP03: 5 definiciones (L3358, L3408, L3433, L3992, L4580) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                3358,
+                3358
+              ],
+              "objectKey": "IP03"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "IP04: 4 definiciones (L3359, L3440, L4033, L4593) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                3359,
+                3359
+              ],
+              "objectKey": "IP04"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "IP05: 4 definiciones (L3360, L3454, L4065, L4608) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                3360,
+                3360
+              ],
+              "objectKey": "IP05"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "IP06: 4 definiciones (L3361, L3478, L4089, L4619) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                3361,
+                3361
+              ],
+              "objectKey": "IP06"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "IP07: 4 definiciones (L3362, L3503, L4115, L4634) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                3362,
+                3362
+              ],
+              "objectKey": "IP07"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "IP08: 4 definiciones (L3363, L3527, L4152, L4646) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                3363,
+                3364
+              ],
+              "objectKey": "IP08"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "CONTROL_COUNT_MISMATCH",
+              "severity": "REVIEW",
+              "message": "CE: la fuente declara 4 y el candidato materializa 0 SOURCE_ID_CE FINAL_APPROVED; posible omisión o duplicado de transcripción (líneas 6082–6082)",
+              "action": "contrastar el conteo de control con los ítems materializados",
+              "sourceLines": [
+                6082,
+                6082
+              ],
+              "objectKey": null
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "CONTROL_COUNT_MISMATCH",
+              "severity": "REVIEW",
+              "message": "CRV: la fuente declara 8 y el candidato materializa 10 SOURCE_ID_CRV FINAL_APPROVED; posible omisión o duplicado de transcripción (líneas 6089–6089)",
+              "action": "contrastar el conteo de control con los ítems materializados",
+              "sourceLines": [
+                6089,
+                6089
+              ],
+              "objectKey": null
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "CONTROL_COUNT_MISMATCH",
+              "severity": "REVIEW",
+              "message": "VA: la fuente declara 8 y el candidato materializa 2 SOURCE_ID_VA FINAL_APPROVED; posible omisión o duplicado de transcripción (líneas 6083–6083)",
+              "action": "contrastar el conteo de control con los ítems materializados",
+              "sourceLines": [
+                6083,
+                6083
+              ],
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "STRUCTURAL",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "REFERENTIAL",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "SOURCE_TO_CANONICAL",
+              "code": "CANONICAL_ACCEPTANCE_REQUIRED",
+              "severity": "REVIEW",
+              "message": "el candidato no tiene aceptación canónica humana",
+              "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "PROVENANCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "CANONICAL_TO_PACK",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "RUNTIME_COMPATIBILITY",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "FIXTURES",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_SILENCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "CAPABILITY_BRANCHING",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "GOLDEN_REGRESSION",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "GOVERNANCE_EVIDENCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        }
+      ],
+      "reasons": [
+        {
+          "check": "RAW_REGISTRATION",
+          "code": "EXTRACTION_WARNING",
+          "severity": "INFO",
+          "message": "IMAGES_NOT_TRANSCRIBED: 457 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+          "action": "considerar en la extracción de candidatos",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "REC-OP03-01: 2 definiciones (L379, L3333) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            379,
+            381
+          ],
+          "objectKey": "REC-OP03-01"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "CE01: 8 definiciones (L452, L529, L883, L946, L1281, L1351, L1781, L2352) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            452,
+            457
+          ],
+          "objectKey": "CE01"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "CE02: 8 definiciones (L468, L531, L886, L983, L1284, L1354, L1784, L2379) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            468,
+            470
+          ],
+          "objectKey": "CE02"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "CE03: 8 definiciones (L489, L533, L888, L1016, L1286, L1356, L1786, L2397) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            489,
+            495
+          ],
+          "objectKey": "CE03"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "CE04: 8 definiciones (L524, L535, L892, L1072, L1290, L1360, L1790, L2441) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            524,
+            525
+          ],
+          "objectKey": "CE04"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA01: 5 definiciones (L552, L570, L709, L971, L1376) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            552,
+            559
+          ],
+          "objectKey": "VA01"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "SCOPE-OP03-01: 3 definiciones (L562, L1368, L1773) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            562,
+            564
+          ],
+          "objectKey": "SCOPE-OP03-01"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA02: 6 definiciones (L566, L582, L711, L975, L977, L1397) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            566,
+            569
+          ],
+          "objectKey": "VA02"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA03: 5 definiciones (L574, L594, L713, L992, L1420) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            574,
+            576
+          ],
+          "objectKey": "VA03"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA04: 5 definiciones (L590, L619, L715, L1023, L1442) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            590,
+            593
+          ],
+          "objectKey": "VA04"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA05: 5 definiciones (L614, L631, L717, L1033, L1463) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            614,
+            618
+          ],
+          "objectKey": "VA05"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA06: 5 definiciones (L626, L643, L719, L1046, L1481) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            626,
+            630
+          ],
+          "objectKey": "VA06"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA07: 6 definiciones (L635, L650, L721, L1079, L1083, L1503) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            635,
+            642
+          ],
+          "objectKey": "VA07"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA08: 9 definiciones (L648, L676, L723, L1090, L1105, L1112, L1219, L1275, L1522) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            648,
+            649
+          ],
+          "objectKey": "VA08"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "P-OP03-02: 2 definiciones (L759, L1155) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            759,
+            759
+          ],
+          "objectKey": "P-OP03-02"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "REUSE-OP03-01: 2 definiciones (L1641, L1842) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            1641,
+            1643
+          ],
+          "objectKey": "REUSE-OP03-01"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "P1: 4 definiciones (L1845, L1857, L1869, L1878) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            1845,
+            1846
+          ],
+          "objectKey": "P1"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "IP01: 4 definiciones (L3356, L3366, L3926, L4530) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            3356,
+            3356
+          ],
+          "objectKey": "IP01"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "IP02: 5 definiciones (L3357, L3384, L3431, L3960, L4548) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            3357,
+            3357
+          ],
+          "objectKey": "IP02"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "IP03: 5 definiciones (L3358, L3408, L3433, L3992, L4580) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            3358,
+            3358
+          ],
+          "objectKey": "IP03"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "IP04: 4 definiciones (L3359, L3440, L4033, L4593) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            3359,
+            3359
+          ],
+          "objectKey": "IP04"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "IP05: 4 definiciones (L3360, L3454, L4065, L4608) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            3360,
+            3360
+          ],
+          "objectKey": "IP05"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "IP06: 4 definiciones (L3361, L3478, L4089, L4619) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            3361,
+            3361
+          ],
+          "objectKey": "IP06"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "IP07: 4 definiciones (L3362, L3503, L4115, L4634) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            3362,
+            3362
+          ],
+          "objectKey": "IP07"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "IP08: 4 definiciones (L3363, L3527, L4152, L4646) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            3363,
+            3364
+          ],
+          "objectKey": "IP08"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "CONTROL_COUNT_MISMATCH",
+          "severity": "REVIEW",
+          "message": "CE: la fuente declara 4 y el candidato materializa 0 SOURCE_ID_CE FINAL_APPROVED; posible omisión o duplicado de transcripción (líneas 6082–6082)",
+          "action": "contrastar el conteo de control con los ítems materializados",
+          "sourceLines": [
+            6082,
+            6082
+          ],
+          "objectKey": null
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "CONTROL_COUNT_MISMATCH",
+          "severity": "REVIEW",
+          "message": "CRV: la fuente declara 8 y el candidato materializa 10 SOURCE_ID_CRV FINAL_APPROVED; posible omisión o duplicado de transcripción (líneas 6089–6089)",
+          "action": "contrastar el conteo de control con los ítems materializados",
+          "sourceLines": [
+            6089,
+            6089
+          ],
+          "objectKey": null
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "CONTROL_COUNT_MISMATCH",
+          "severity": "REVIEW",
+          "message": "VA: la fuente declara 8 y el candidato materializa 2 SOURCE_ID_VA FINAL_APPROVED; posible omisión o duplicado de transcripción (líneas 6083–6083)",
+          "action": "contrastar el conteo de control con los ítems materializados",
+          "sourceLines": [
+            6083,
+            6083
+          ],
+          "objectKey": null
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "code": "CANONICAL_ACCEPTANCE_REQUIRED",
+          "severity": "REVIEW",
+          "message": "el candidato no tiene aceptación canónica humana",
+          "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+          "sourceLines": null,
+          "objectKey": null
+        }
+      ],
+      "metrics": {
+        "rawOriginalBytes": 288189,
+        "rawTextBytes": 236618,
+        "rawTextLines": 6185,
+        "candidateItems": 286,
+        "canonicalObjects": null,
+        "executableSections": null,
+        "checksAutoPassed": 1,
+        "humanReviewItems": 29,
+        "notExplicit": 0,
+        "sourceContentNotRecovered": 0,
+        "transcriptionIssues": 0,
+        "runtimeExtensionsRequired": 0,
+        "runtimeExtensionsClosed": 0,
+        "testFailures": 0,
+        "publicationBlockers": 0
+      }
+    },
+    {
+      "capabilityId": "OP-04",
+      "domainId": "OP",
+      "sourcePath": "INTAKE",
+      "rawSource": {
+        "availability": "IN_REPOSITORY",
+        "ref": "text/OP-04_Completo.txt",
+        "textSha256": "8a749c56e19b133d240e89f7510116d1bde57deec1ec030be5613e857b74db11",
+        "originalFilename": "OP-04_Completo.docx",
+        "originalSha256": "98e7bf95daf4dbe4e0a0b7da5eeaae8a72e929f0cf0a4d7490cfea2cbaedf299",
+        "extractor": "pymapa-docx-text@1.0.0",
+        "registrationId": "RAW-OP-04-98e7bf95daf4"
+      },
+      "extraction": {
+        "status": "CANDIDATE",
+        "candidateId": "CAND-OP-04-0.1.0-8a749c56e19b",
+        "producedBy": "DETERMINISTIC_TOOL"
+      },
+      "canonical": {
+        "status": "NONE",
+        "baselineId": null,
+        "checksum": null,
+        "objectCount": null
+      },
+      "provenance": {
+        "sourceReference": null,
+        "derivation": null,
+        "extractionStatus": null,
+        "historicalClosure": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED"
+      },
+      "gaps": {
+        "total": 0,
+        "notExplicit": [],
+        "sourceContentNotRecovered": [],
+        "runtimeExtension": [],
+        "publicationBlocking": []
+      },
+      "transcriptionCorrections": [],
+      "runtimeCompatibility": {
+        "requiredEngineVersion": "0.1.0",
+        "engineVersion": "0.2.0",
+        "compatible": true,
+        "extensions": []
+      },
+      "fixtures": {
+        "count": 0,
+        "pass": 0,
+        "governedJudgment": 0,
+        "fail": 0
+      },
+      "governance": {
+        "reviewStatus": "NOT_REQUESTED",
+        "evidence": "NOT_APPLICABLE"
+      },
+      "publication": {
+        "status": "UNPUBLISHED",
+        "packId": null,
+        "packVersion": null,
+        "packChecksum": null
+      },
+      "state": "CANONICAL_REVIEW_REQUIRED",
+      "outcome": "REVIEW_REQUIRED",
+      "checks": [
+        {
+          "check": "RAW_REGISTRATION",
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "RAW_REGISTRATION",
+              "code": "EXTRACTION_WARNING",
+              "severity": "INFO",
+              "message": "IMAGES_NOT_TRANSCRIBED: 431 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+              "action": "considerar en la extracción de candidatos",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "CE01: 8 definiciones (L252, L409, L450, L757, L1223, L1265, L1667, L5544) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                252,
+                253
+              ],
+              "objectKey": "CE01"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "CE02: 8 definiciones (L254, L422, L525, L759, L1227, L1269, L1671, L5546) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                254,
+                255
+              ],
+              "objectKey": "CE02"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "CE03: 9 definiciones (L256, L434, L604, L750, L761, L1231, L1273, L1675, L5548) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                256,
+                257
+              ],
+              "objectKey": "CE03"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA01: 2 definiciones (L453, L1297) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                453,
+                463
+              ],
+              "objectKey": "VA01"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA02: 2 definiciones (L464, L1314) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                464,
+                477
+              ],
+              "objectKey": "VA02"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA03: 2 definiciones (L480, L1328) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                480,
+                491
+              ],
+              "objectKey": "VA03"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA04: 3 definiciones (L548, L943, L1358) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                548,
+                555
+              ],
+              "objectKey": "VA04"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA05: 3 definiciones (L557, L948, L1369) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                557,
+                574
+              ],
+              "objectKey": "VA05"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA06: 3 definiciones (L578, L969, L1388) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                578,
+                589
+              ],
+              "objectKey": "VA06"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA07: 3 definiciones (L610, L1010, L1415) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                610,
+                627
+              ],
+              "objectKey": "VA07"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA08: 3 definiciones (L629, L1044, L1428) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                629,
+                644
+              ],
+              "objectKey": "VA08"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA09: 3 definiciones (L648, L1050, L1441) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                648,
+                664
+              ],
+              "objectKey": "VA09"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "UA-OP04-v0.4: 2 definiciones (L1282, L1663) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                1282,
+                1295
+              ],
+              "objectKey": "UA-OP04-v0.4"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "HF01: 2 definiciones (L2872, L5722) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                2872,
+                2872
+              ],
+              "objectKey": "HF01"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "HF02: 2 definiciones (L2886, L5731) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                2886,
+                2886
+              ],
+              "objectKey": "HF02"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "HF03: 2 definiciones (L2902, L5740) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                2902,
+                2902
+              ],
+              "objectKey": "HF03"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "HF04: 2 definiciones (L2912, L5749) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                2912,
+                2912
+              ],
+              "objectKey": "HF04"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "HF05: 2 definiciones (L2930, L5757) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                2930,
+                2930
+              ],
+              "objectKey": "HF05"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "HF06: 2 definiciones (L2941, L5764) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                2941,
+                2941
+              ],
+              "objectKey": "HF06"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "HF07: 2 definiciones (L2954, L5771) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                2954,
+                2954
+              ],
+              "objectKey": "HF07"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "HF08: 2 definiciones (L2965, L5778) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                2965,
+                2965
+              ],
+              "objectKey": "HF08"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "IP01: 2 definiciones (L3419, L3951) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                3419,
+                3419
+              ],
+              "objectKey": "IP01"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "IP02: 2 definiciones (L3447, L3978) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                3447,
+                3447
+              ],
+              "objectKey": "IP02"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "IP03: 2 definiciones (L3479, L4002) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                3479,
+                3479
+              ],
+              "objectKey": "IP03"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "IP04: 2 definiciones (L3504, L4030) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                3504,
+                3504
+              ],
+              "objectKey": "IP04"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "IP05: 2 definiciones (L3532, L4079) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                3532,
+                3532
+              ],
+              "objectKey": "IP05"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "IP06: 2 definiciones (L3552, L4114) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                3552,
+                3552
+              ],
+              "objectKey": "IP06"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "IP07: 2 definiciones (L3570, L4141) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                3570,
+                3570
+              ],
+              "objectKey": "IP07"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "IP08: 2 definiciones (L3597, L4170) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                3597,
+                3597
+              ],
+              "objectKey": "IP08"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "K1: 4 definiciones (L5120, L5442, L5542, L5559) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                5120,
+                5122
+              ],
+              "objectKey": "K1"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "K2: 4 definiciones (L5123, L5561, L5700, L5715) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                5123,
+                5125
+              ],
+              "objectKey": "K2"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "K3: 3 definiciones (L5126, L5717, L5829) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                5126,
+                5127
+              ],
+              "objectKey": "K3"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "K4: 3 definiciones (L5128, L5831, L5935) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                5128,
+                5130
+              ],
+              "objectKey": "K4"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "CONTROL_COUNT_MISMATCH",
+              "severity": "REVIEW",
+              "message": "CE: la fuente declara 3 y el candidato materializa 1 SOURCE_ID_CE FINAL_APPROVED; posible omisión o duplicado de transcripción (líneas 5380–5380)",
+              "action": "contrastar el conteo de control con los ítems materializados",
+              "sourceLines": [
+                5380,
+                5380
+              ],
+              "objectKey": null
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "CONTROL_COUNT_MISMATCH",
+              "severity": "REVIEW",
+              "message": "CRV: la fuente declara 8 y el candidato materializa 10 SOURCE_ID_CRV FINAL_APPROVED; posible omisión o duplicado de transcripción (líneas 5962–5962)",
+              "action": "contrastar el conteo de control con los ítems materializados",
+              "sourceLines": [
+                5962,
+                5962
+              ],
+              "objectKey": null
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "CONTROL_COUNT_MISMATCH",
+              "severity": "REVIEW",
+              "message": "VA: la fuente declara 9 y el candidato materializa 0 SOURCE_ID_VA FINAL_APPROVED; posible omisión o duplicado de transcripción (líneas 5381–5381)",
+              "action": "contrastar el conteo de control con los ítems materializados",
+              "sourceLines": [
+                5381,
+                5381
+              ],
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "STRUCTURAL",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "REFERENTIAL",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "SOURCE_TO_CANONICAL",
+              "code": "CANONICAL_ACCEPTANCE_REQUIRED",
+              "severity": "REVIEW",
+              "message": "el candidato no tiene aceptación canónica humana",
+              "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "PROVENANCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "CANONICAL_TO_PACK",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "RUNTIME_COMPATIBILITY",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "FIXTURES",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_SILENCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "CAPABILITY_BRANCHING",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "GOLDEN_REGRESSION",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "GOVERNANCE_EVIDENCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        }
+      ],
+      "reasons": [
+        {
+          "check": "RAW_REGISTRATION",
+          "code": "EXTRACTION_WARNING",
+          "severity": "INFO",
+          "message": "IMAGES_NOT_TRANSCRIBED: 431 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+          "action": "considerar en la extracción de candidatos",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "CE01: 8 definiciones (L252, L409, L450, L757, L1223, L1265, L1667, L5544) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            252,
+            253
+          ],
+          "objectKey": "CE01"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "CE02: 8 definiciones (L254, L422, L525, L759, L1227, L1269, L1671, L5546) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            254,
+            255
+          ],
+          "objectKey": "CE02"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "CE03: 9 definiciones (L256, L434, L604, L750, L761, L1231, L1273, L1675, L5548) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            256,
+            257
+          ],
+          "objectKey": "CE03"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA01: 2 definiciones (L453, L1297) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            453,
+            463
+          ],
+          "objectKey": "VA01"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA02: 2 definiciones (L464, L1314) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            464,
+            477
+          ],
+          "objectKey": "VA02"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA03: 2 definiciones (L480, L1328) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            480,
+            491
+          ],
+          "objectKey": "VA03"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA04: 3 definiciones (L548, L943, L1358) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            548,
+            555
+          ],
+          "objectKey": "VA04"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA05: 3 definiciones (L557, L948, L1369) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            557,
+            574
+          ],
+          "objectKey": "VA05"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA06: 3 definiciones (L578, L969, L1388) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            578,
+            589
+          ],
+          "objectKey": "VA06"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA07: 3 definiciones (L610, L1010, L1415) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            610,
+            627
+          ],
+          "objectKey": "VA07"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA08: 3 definiciones (L629, L1044, L1428) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            629,
+            644
+          ],
+          "objectKey": "VA08"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA09: 3 definiciones (L648, L1050, L1441) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            648,
+            664
+          ],
+          "objectKey": "VA09"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "UA-OP04-v0.4: 2 definiciones (L1282, L1663) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            1282,
+            1295
+          ],
+          "objectKey": "UA-OP04-v0.4"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "HF01: 2 definiciones (L2872, L5722) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            2872,
+            2872
+          ],
+          "objectKey": "HF01"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "HF02: 2 definiciones (L2886, L5731) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            2886,
+            2886
+          ],
+          "objectKey": "HF02"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "HF03: 2 definiciones (L2902, L5740) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            2902,
+            2902
+          ],
+          "objectKey": "HF03"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "HF04: 2 definiciones (L2912, L5749) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            2912,
+            2912
+          ],
+          "objectKey": "HF04"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "HF05: 2 definiciones (L2930, L5757) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            2930,
+            2930
+          ],
+          "objectKey": "HF05"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "HF06: 2 definiciones (L2941, L5764) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            2941,
+            2941
+          ],
+          "objectKey": "HF06"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "HF07: 2 definiciones (L2954, L5771) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            2954,
+            2954
+          ],
+          "objectKey": "HF07"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "HF08: 2 definiciones (L2965, L5778) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            2965,
+            2965
+          ],
+          "objectKey": "HF08"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "IP01: 2 definiciones (L3419, L3951) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            3419,
+            3419
+          ],
+          "objectKey": "IP01"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "IP02: 2 definiciones (L3447, L3978) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            3447,
+            3447
+          ],
+          "objectKey": "IP02"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "IP03: 2 definiciones (L3479, L4002) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            3479,
+            3479
+          ],
+          "objectKey": "IP03"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "IP04: 2 definiciones (L3504, L4030) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            3504,
+            3504
+          ],
+          "objectKey": "IP04"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "IP05: 2 definiciones (L3532, L4079) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            3532,
+            3532
+          ],
+          "objectKey": "IP05"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "IP06: 2 definiciones (L3552, L4114) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            3552,
+            3552
+          ],
+          "objectKey": "IP06"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "IP07: 2 definiciones (L3570, L4141) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            3570,
+            3570
+          ],
+          "objectKey": "IP07"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "IP08: 2 definiciones (L3597, L4170) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            3597,
+            3597
+          ],
+          "objectKey": "IP08"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "K1: 4 definiciones (L5120, L5442, L5542, L5559) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            5120,
+            5122
+          ],
+          "objectKey": "K1"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "K2: 4 definiciones (L5123, L5561, L5700, L5715) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            5123,
+            5125
+          ],
+          "objectKey": "K2"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "K3: 3 definiciones (L5126, L5717, L5829) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            5126,
+            5127
+          ],
+          "objectKey": "K3"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "K4: 3 definiciones (L5128, L5831, L5935) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            5128,
+            5130
+          ],
+          "objectKey": "K4"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "CONTROL_COUNT_MISMATCH",
+          "severity": "REVIEW",
+          "message": "CE: la fuente declara 3 y el candidato materializa 1 SOURCE_ID_CE FINAL_APPROVED; posible omisión o duplicado de transcripción (líneas 5380–5380)",
+          "action": "contrastar el conteo de control con los ítems materializados",
+          "sourceLines": [
+            5380,
+            5380
+          ],
+          "objectKey": null
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "CONTROL_COUNT_MISMATCH",
+          "severity": "REVIEW",
+          "message": "CRV: la fuente declara 8 y el candidato materializa 10 SOURCE_ID_CRV FINAL_APPROVED; posible omisión o duplicado de transcripción (líneas 5962–5962)",
+          "action": "contrastar el conteo de control con los ítems materializados",
+          "sourceLines": [
+            5962,
+            5962
+          ],
+          "objectKey": null
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "CONTROL_COUNT_MISMATCH",
+          "severity": "REVIEW",
+          "message": "VA: la fuente declara 9 y el candidato materializa 0 SOURCE_ID_VA FINAL_APPROVED; posible omisión o duplicado de transcripción (líneas 5381–5381)",
+          "action": "contrastar el conteo de control con los ítems materializados",
+          "sourceLines": [
+            5381,
+            5381
+          ],
+          "objectKey": null
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "code": "CANONICAL_ACCEPTANCE_REQUIRED",
+          "severity": "REVIEW",
+          "message": "el candidato no tiene aceptación canónica humana",
+          "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+          "sourceLines": null,
+          "objectKey": null
+        }
+      ],
+      "metrics": {
+        "rawOriginalBytes": 335872,
+        "rawTextBytes": 203835,
+        "rawTextLines": 6015,
+        "candidateItems": 257,
+        "canonicalObjects": null,
+        "executableSections": null,
+        "checksAutoPassed": 1,
+        "humanReviewItems": 37,
+        "notExplicit": 0,
+        "sourceContentNotRecovered": 0,
+        "transcriptionIssues": 0,
+        "runtimeExtensionsRequired": 0,
+        "runtimeExtensionsClosed": 0,
+        "testFailures": 0,
+        "publicationBlockers": 0
+      }
+    },
+    {
+      "capabilityId": "OP-05",
+      "domainId": "OP",
+      "sourcePath": "INTAKE",
+      "rawSource": {
+        "availability": "IN_REPOSITORY",
+        "ref": "text/OP-05_Completo.txt",
+        "textSha256": "09629d4e6ff63c925057ca821e4fc4640c098544ba7f51942fec886336a4b31c",
+        "originalFilename": "OP-05_Completo.docx",
+        "originalSha256": "16734c65ee5761a6e086a1e54d978ef51883074b8a6c3593ef476713a0c92321",
+        "extractor": "pymapa-docx-text@1.0.0",
+        "registrationId": "RAW-OP-05-16734c65ee57"
+      },
+      "extraction": {
+        "status": "CANDIDATE",
+        "candidateId": "CAND-OP-05-0.1.0-09629d4e6ff6",
+        "producedBy": "DETERMINISTIC_TOOL"
+      },
+      "canonical": {
+        "status": "NONE",
+        "baselineId": null,
+        "checksum": null,
+        "objectCount": null
+      },
+      "provenance": {
+        "sourceReference": null,
+        "derivation": null,
+        "extractionStatus": null,
+        "historicalClosure": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED"
+      },
+      "gaps": {
+        "total": 0,
+        "notExplicit": [],
+        "sourceContentNotRecovered": [],
+        "runtimeExtension": [],
+        "publicationBlocking": []
+      },
+      "transcriptionCorrections": [],
+      "runtimeCompatibility": {
+        "requiredEngineVersion": "0.1.0",
+        "engineVersion": "0.2.0",
+        "compatible": true,
+        "extensions": []
+      },
+      "fixtures": {
+        "count": 0,
+        "pass": 0,
+        "governedJudgment": 0,
+        "fail": 0
+      },
+      "governance": {
+        "reviewStatus": "NOT_REQUESTED",
+        "evidence": "NOT_APPLICABLE"
+      },
+      "publication": {
+        "status": "UNPUBLISHED",
+        "packId": null,
+        "packVersion": null,
+        "packChecksum": null
+      },
+      "state": "CANONICAL_REVIEW_REQUIRED",
+      "outcome": "REVIEW_REQUIRED",
+      "checks": [
+        {
+          "check": "RAW_REGISTRATION",
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "RAW_REGISTRATION",
+              "code": "EXTRACTION_WARNING",
+              "severity": "INFO",
+              "message": "IMAGES_NOT_TRANSCRIBED: 132 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+              "action": "considerar en la extracción de candidatos",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA01: 2 definiciones (L129, L252) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                129,
+                131
+              ],
+              "objectKey": "VA01"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA02: 2 definiciones (L132, L262) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                132,
+                136
+              ],
+              "objectKey": "VA02"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA03: 2 definiciones (L141, L273) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                141,
+                146
+              ],
+              "objectKey": "VA03"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA04: 2 definiciones (L147, L283) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                147,
+                153
+              ],
+              "objectKey": "VA04"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA05: 2 definiciones (L154, L294) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                154,
+                162
+              ],
+              "objectKey": "VA05"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA06: 2 definiciones (L167, L306) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                167,
+                170
+              ],
+              "objectKey": "VA06"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA07: 2 definiciones (L171, L317) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                171,
+                176
+              ],
+              "objectKey": "VA07"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA08: 2 definiciones (L177, L328) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                177,
+                180
+              ],
+              "objectKey": "VA08"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA09: 2 definiciones (L185, L340) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                185,
+                190
+              ],
+              "objectKey": "VA09"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "VA10: 2 definiciones (L191, L353) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                191,
+                193
+              ],
+              "objectKey": "VA10"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "K1: 2 definiciones (L1506, L1529) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                1506,
+                1506
+              ],
+              "objectKey": "K1"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "K2: 2 definiciones (L1532, L1560) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                1532,
+                1559
+              ],
+              "objectKey": "K2"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "K3: 2 definiciones (L1563, L1576) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                1563,
+                1575
+              ],
+              "objectKey": "K3"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "K4: 2 definiciones (L1579, L1661) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                1579,
+                1594
+              ],
+              "objectKey": "K4"
+            },
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "CONTROL_COUNT_MISMATCH",
+              "severity": "REVIEW",
+              "message": "VA: la fuente declara 10 y el candidato materializa 0 SOURCE_ID_VA FINAL_APPROVED; posible omisión o duplicado de transcripción (líneas 1607–1607)",
+              "action": "contrastar el conteo de control con los ítems materializados",
+              "sourceLines": [
+                1607,
+                1607
+              ],
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "STRUCTURAL",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "REFERENTIAL",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "SOURCE_TO_CANONICAL",
+              "code": "CANONICAL_ACCEPTANCE_REQUIRED",
+              "severity": "REVIEW",
+              "message": "el candidato no tiene aceptación canónica humana",
+              "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "PROVENANCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "CANONICAL_TO_PACK",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "RUNTIME_COMPATIBILITY",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "FIXTURES",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_SILENCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "CAPABILITY_BRANCHING",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "GOLDEN_REGRESSION",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "GOVERNANCE_EVIDENCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        }
+      ],
+      "reasons": [
+        {
+          "check": "RAW_REGISTRATION",
+          "code": "EXTRACTION_WARNING",
+          "severity": "INFO",
+          "message": "IMAGES_NOT_TRANSCRIBED: 132 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+          "action": "considerar en la extracción de candidatos",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA01: 2 definiciones (L129, L252) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            129,
+            131
+          ],
+          "objectKey": "VA01"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA02: 2 definiciones (L132, L262) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            132,
+            136
+          ],
+          "objectKey": "VA02"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA03: 2 definiciones (L141, L273) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            141,
+            146
+          ],
+          "objectKey": "VA03"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA04: 2 definiciones (L147, L283) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            147,
+            153
+          ],
+          "objectKey": "VA04"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA05: 2 definiciones (L154, L294) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            154,
+            162
+          ],
+          "objectKey": "VA05"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA06: 2 definiciones (L167, L306) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            167,
+            170
+          ],
+          "objectKey": "VA06"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA07: 2 definiciones (L171, L317) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            171,
+            176
+          ],
+          "objectKey": "VA07"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA08: 2 definiciones (L177, L328) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            177,
+            180
+          ],
+          "objectKey": "VA08"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA09: 2 definiciones (L185, L340) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            185,
+            190
+          ],
+          "objectKey": "VA09"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "VA10: 2 definiciones (L191, L353) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            191,
+            193
+          ],
+          "objectKey": "VA10"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "K1: 2 definiciones (L1506, L1529) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            1506,
+            1506
+          ],
+          "objectKey": "K1"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "K2: 2 definiciones (L1532, L1560) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            1532,
+            1559
+          ],
+          "objectKey": "K2"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "K3: 2 definiciones (L1563, L1576) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            1563,
+            1575
+          ],
+          "objectKey": "K3"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "K4: 2 definiciones (L1579, L1661) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            1579,
+            1594
+          ],
+          "objectKey": "K4"
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "CONTROL_COUNT_MISMATCH",
+          "severity": "REVIEW",
+          "message": "VA: la fuente declara 10 y el candidato materializa 0 SOURCE_ID_VA FINAL_APPROVED; posible omisión o duplicado de transcripción (líneas 1607–1607)",
+          "action": "contrastar el conteo de control con los ítems materializados",
+          "sourceLines": [
+            1607,
+            1607
+          ],
+          "objectKey": null
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "code": "CANONICAL_ACCEPTANCE_REQUIRED",
+          "severity": "REVIEW",
+          "message": "el candidato no tiene aceptación canónica humana",
+          "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+          "sourceLines": null,
+          "objectKey": null
+        }
+      ],
+      "metrics": {
+        "rawOriginalBytes": 92912,
+        "rawTextBytes": 65087,
+        "rawTextLines": 1786,
+        "candidateItems": 136,
+        "canonicalObjects": null,
+        "executableSections": null,
+        "checksAutoPassed": 1,
+        "humanReviewItems": 16,
+        "notExplicit": 0,
+        "sourceContentNotRecovered": 0,
+        "transcriptionIssues": 0,
+        "runtimeExtensionsRequired": 0,
+        "runtimeExtensionsClosed": 0,
+        "testFailures": 0,
+        "publicationBlockers": 0
       }
     }
   ],
-  "checksum": "sha256:37e0aa8863cf24f2432de5fbc684bf8e0d046606d4bc3c0f9a20c4a415303e2a"
+  "checksum": "sha256:48b0ee5f8ecc2692de466ed2c991f37341bf5add0f4fa4e97f60d636bbca6cb2"
 }

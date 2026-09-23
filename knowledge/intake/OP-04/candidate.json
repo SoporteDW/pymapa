@@ -1,0 +1,6247 @@
+{
+  "candidateId": "CAND-OP-04-0.1.0-8a749c56e19b",
+  "capabilityId": "OP-04",
+  "status": "CANDIDATE",
+  "registration": {
+    "registrationId": "RAW-OP-04-98e7bf95daf4",
+    "textSha256": "8a749c56e19b133d240e89f7510116d1bde57deec1ec030be5613e857b74db11"
+  },
+  "producedBy": {
+    "method": "DETERMINISTIC_TOOL",
+    "agent": "pymapa-structural-segmenter@0.1.0",
+    "note": "Segmentación literal por headings con identificador; clasificación solo por evidencia literal. No decide supersesión ni tipo semántico."
+  },
+  "baselineId": "OP04-K4-v1.0",
+  "historicalStatus": {
+    "marker": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      5993,
+      5993
+    ]
+  },
+  "provenanceVocabulary": [],
+  "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 3,
+      "objectType": "SOURCE_ID_CE",
+      "sourceLines": [
+        5380,
+        5380
+      ]
+    },
+    {
+      "label": "CRV",
+      "declared": 8,
+      "objectType": "SOURCE_ID_CRV",
+      "sourceLines": [
+        5962,
+        5962
+      ]
+    },
+    {
+      "label": "VA",
+      "declared": 9,
+      "objectType": "SOURCE_ID_VA",
+      "sourceLines": [
+        5381,
+        5381
+      ]
+    }
+  ],
+  "verbatimKeys": [
+    "heading",
+    "title",
+    "body"
+  ],
+  "items": [
+    {
+      "key": "BOUND-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_BOUND",
+      "sourceId": "BOUND-OP04-01",
+      "fields": {
+        "heading": "BOUND-OP04-01",
+        "body": [
+          "La automatización de una actividad o frontera no constituye evidencia de integración E2E ni corrige por sí misma una fragmentación estructural del flujo."
+        ]
+      },
+      "sourceLines": [
+        35,
+        36
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "BOUND-OP04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_BOUND",
+      "sourceId": "BOUND-OP04-02",
+      "fields": {
+        "heading": "BOUND-OP04-02",
+        "body": [
+          "OP-04 determina la pertinencia funcional de simplificar o automatizar; la capacidad tecnológica necesaria para implementar una solución específica puede requerir evaluación especializada en el dominio tecnológico."
+        ]
+      },
+      "sourceLines": [
+        70,
+        71
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "P-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-OP04-01",
+      "fields": {
+        "heading": "P-OP04-01 · Automatización ≠ mejora",
+        "title": "Automatización ≠ mejora",
+        "body": [
+          "Automatizar una actividad no demuestra que la actividad sea necesaria ni que la solución mejore suficientemente el proceso."
+        ]
+      },
+      "sourceLines": [
+        94,
+        95
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "P-OP04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-OP04-02",
+      "fields": {
+        "heading": "P-OP04-02 · Simplificar antes de sofisticar",
+        "title": "Simplificar antes de sofisticar",
+        "body": [
+          "Antes de recomendar automatización debe evaluarse si el problema puede resolverse suficientemente eliminando, combinando, reorganizando o simplificando el trabajo.",
+          "Esto está directamente alineado con el principio de mínima intervención suficiente que ya descubrimos en OP-02/OP-03."
+        ]
+      },
+      "sourceLines": [
+        96,
+        98
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "P-OP04-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-OP04-03",
+      "fields": {
+        "heading": "P-OP04-03",
+        "body": [
+          "La ejecución manual no constituye por sí misma una brecha ni una oportunidad material de automatización.",
+          "Esto será esencial para pymes."
+        ]
+      },
+      "sourceLines": [
+        164,
+        166
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "P-OP04-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-OP04-04",
+      "fields": {
+        "heading": "P-OP04-04",
+        "body": [
+          "Factibilidad técnica de automatización ≠ pertinencia empresarial de automatización."
+        ]
+      },
+      "sourceLines": [
+        177,
+        178
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "CE01@L252",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Necesidad y simplicidad del trabajo",
+        "title": "Necesidad y simplicidad del trabajo",
+        "body": [
+          "¿Las actividades y pasos existen por una razón material válida y están suficientemente simplificados?"
+        ]
+      },
+      "sourceLines": [
+        252,
+        253
+      ]
+    },
+    {
+      "key": "CE02@L254",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Fricción y desperdicio operativo",
+        "title": "Fricción y desperdicio operativo",
+        "body": [
+          "¿Existe trabajo evitable, duplicación, espera, retrabajo o complejidad material?"
+        ]
+      },
+      "sourceLines": [
+        254,
+        255
+      ]
+    },
+    {
+      "key": "CE03@L256",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Aptitud para automatización",
+        "title": "Aptitud para automatización",
+        "body": [
+          "¿Las actividades candidatas tienen características suficientemente adecuadas para automatizarse?"
+        ]
+      },
+      "sourceLines": [
+        256,
+        257
+      ]
+    },
+    {
+      "key": "CE04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE04",
+      "fields": {
+        "heading": "CE04 · Pertinencia y proporcionalidad de automatización",
+        "title": "Pertinencia y proporcionalidad de automatización",
+        "body": [
+          "¿La automatización propuesta produce valor suficiente respecto de costo, riesgo, complejidad y contexto?",
+          "No las declaramos finales porque hay potencial solapamiento entre CE01 y CE02 que debemos depurar."
+        ]
+      },
+      "sourceLines": [
+        258,
+        260
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "BOUND-OP04-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_BOUND",
+      "sourceId": "BOUND-OP04-03",
+      "fields": {
+        "heading": "BOUND-OP04-03",
+        "body": [
+          "La identificación, diseño o priorización de una automatización pertenece a OP-04; la capacidad organizacional para gestionar la iniciativa hasta su implementación efectiva pertenece a OP-05."
+        ]
+      },
+      "sourceLines": [
+        286,
+        287
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "P-OP04-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-OP04-05",
+      "fields": {
+        "heading": "P-OP04-05",
+        "body": [
+          "La ausencia de intervención puede constituir una decisión válida cuando el valor esperado de simplificar o automatizar no supera suficientemente su costo, riesgo o complejidad."
+        ]
+      },
+      "sourceLines": [
+        313,
+        314
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "REUSE-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_REUSE",
+      "sourceId": "REUSE-OP04-01",
+      "fields": {
+        "heading": "REUSE-OP04-01",
+        "body": [
+          "La evidencia recuperada puede alimentar OP-04; la conclusión diagnóstica de la capacidad origen no se transfiere automáticamente."
+        ]
+      },
+      "sourceLines": [
+        367,
+        368
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "CE01@L409",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Necesidad y simplicidad funcional del trabajo",
+        "title": "Necesidad y simplicidad funcional del trabajo",
+        "body": [
+          "Pregunta:",
+          "¿El trabajo realizado es materialmente necesario y está configurado con una complejidad razonablemente mínima para producir el resultado requerido?",
+          "Aquí viven:",
+          "- necesidad;",
+          "- redundancia;",
+          "- duplicación;",
+          "- pasos evitables;",
+          "- esperas estructuralmente evitables;",
+          "- retrabajo evitable;",
+          "- complejidad;",
+          "- secuencia;",
+          "- controles innecesarios."
+        ]
+      },
+      "sourceLines": [
+        409,
+        421
+      ]
+    },
+    {
+      "key": "CE02@L422",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Aptitud funcional para automatización",
+        "title": "Aptitud funcional para automatización",
+        "body": [
+          "Pregunta:",
+          "Cuando permanece trabajo material después de cuestionarlo y simplificarlo, ¿presenta características que permiten automatizarlo de manera suficientemente confiable?",
+          "Aquí viven:",
+          "- repetitividad;",
+          "- reglas;",
+          "- estabilidad;",
+          "- variabilidad;",
+          "- excepciones;",
+          "- información;",
+          "- juicio requerido;",
+          "- posibilidad de supervisión."
+        ]
+      },
+      "sourceLines": [
+        422,
+        433
+      ]
+    },
+    {
+      "key": "CE03@L434",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Pertinencia empresarial de automatización",
+        "title": "Pertinencia empresarial de automatización",
+        "body": [
+          "Pregunta:",
+          "Si el trabajo es automatizable, ¿automatizarlo produce suficiente valor neto dadas la materialidad, costo, riesgo, complejidad y sostenibilidad de la solución?",
+          "Aquí viven:",
+          "- beneficio;",
+          "- frecuencia/volumen;",
+          "- esfuerzo;",
+          "- riesgo;",
+          "- costo;",
+          "- mantenimiento;",
+          "- impacto;",
+          "- reversibilidad;",
+          "- proporcionalidad.",
+          "Esto produce una secuencia muy potente:",
+          "¿Debe existir? → ¿Puede hacerse más simple? → ¿Puede automatizarse? → ¿Vale la pena automatizarlo?"
+        ]
+      },
+      "sourceLines": [
+        434,
+        448
+      ]
+    },
+    {
+      "key": "CE01@L450",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Necesidad y simplicidad funcional",
+        "title": "Necesidad y simplicidad funcional",
+        "body": [
+          "Aquí necesitamos evitar un catálogo de siete desperdicios Lean convertido en siete VA.",
+          "Propongo tres VA."
+        ]
+      },
+      "sourceLines": [
+        450,
+        452
+      ]
+    },
+    {
+      "key": "VA01@L453",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA01",
+      "fields": {
+        "heading": "VA01 · Necesidad funcional del trabajo",
+        "title": "Necesidad funcional del trabajo",
+        "body": [
+          "Evalúa:",
+          "si una actividad, control, transferencia, captura, decisión o paso tiene una razón material vigente para existir.",
+          "Preguntas conceptuales:",
+          "- ¿Qué resultado protege o produce?",
+          "- ¿Qué ocurriría si desaparece?",
+          "- ¿Responde a requisito real?",
+          "- ¿Su razón original sigue vigente?",
+          "- ¿Existe porque siempre se ha hecho así?",
+          "Esto permite identificar:",
+          "trabajo eliminable."
+        ]
+      },
+      "sourceLines": [
+        453,
+        463
+      ]
+    },
+    {
+      "key": "VA02@L464",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA02",
+      "fields": {
+        "heading": "VA02 · Redundancia y retrabajo evitable",
+        "title": "Redundancia y retrabajo evitable",
+        "body": [
+          "Evalúa:",
+          "trabajo repetido o reconstruido que no debería necesitar realizarse nuevamente en condiciones normales.",
+          "Incluye:",
+          "- doble digitación;",
+          "- verificaciones duplicadas;",
+          "- conciliaciones evitables;",
+          "- reconstrucción de información;",
+          "- corrección recurrente;",
+          "- múltiples capturas equivalentes;",
+          "- reprocesamiento.",
+          "No toda repetición es desperdicio.",
+          "Una segunda verificación puede ser necesaria por riesgo.",
+          "Por tanto:"
+        ]
+      },
+      "sourceLines": [
+        464,
+        477
+      ]
+    },
+    {
+      "key": "P-OP04-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-OP04-06",
+      "fields": {
+        "heading": "P-OP04-06",
+        "body": [
+          "Duplicación aparente ≠ redundancia evitable; debe evaluarse la función que cumple la repetición."
+        ]
+      },
+      "sourceLines": [
+        478,
+        479
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "VA03@L480",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA03",
+      "fields": {
+        "heading": "VA03 · Complejidad operativa evitable",
+        "title": "Complejidad operativa evitable",
+        "body": [
+          "Evalúa:",
+          "si el trabajo necesario contiene más pasos, transferencias, decisiones, esperas, variantes o esfuerzo que los requeridos razonablemente para cumplir su propósito.",
+          "Aquí entran:",
+          "- combinar;",
+          "- reorganizar;",
+          "- simplificar;",
+          "- reducir pasos;",
+          "- reducir aprobaciones;",
+          "- reducir movimientos;",
+          "- disminuir variantes innecesarias.",
+          "ECRS funciona muy bien como lente de intervención de VA01–VA03, no como taxonomía CE/VA. Lean Enterprise Institute señala precisamente que ECRS no es estrictamente MECE y que sus categorías pueden solaparse. Lean Enterprise Institute"
+        ]
+      },
+      "sourceLines": [
+        480,
+        491
+      ]
+    },
+    {
+      "key": "BOUND-OP04-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_BOUND",
+      "sourceId": "BOUND-OP04-04",
+      "fields": {
+        "heading": "BOUND-OP04-04",
+        "body": [
+          "La espera constituye evidencia de fricción, pero su clasificación diagnóstica depende de la condición que la produce."
+        ]
+      },
+      "sourceLines": [
+        507,
+        508
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "CE02@L525",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Aptitud funcional para automatización",
+        "title": "Aptitud funcional para automatización",
+        "body": [
+          "Aquí la literatura externa sí aporta discriminación importante.",
+          "La investigación sobre RPA encuentra recurrentemente factores como:",
+          "- estandarización;",
+          "- reglas definidas;",
+          "- repetición;",
+          "- volumen;",
+          "- datos estructurados;",
+          "- estabilidad;",
+          "- baja necesidad cognitiva;",
+          "- excepciones limitadas. Wiley Online Library",
+          "Pero nosotros no estamos diseñando solamente RPA.",
+          "OP-04 debe servir también para:",
+          "- workflow;",
+          "- integración;",
+          "- macros;",
+          "- reglas;",
+          "- IA;",
+          "- agentes;",
+          "- automatización parcial.",
+          "Por eso debemos abstraer.",
+          "Propongo tres VA."
+        ]
+      },
+      "sourceLines": [
+        525,
+        546
+      ]
+    },
+    {
+      "key": "VA04@L548",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "VA04 · Repetitividad y recurrencia automatizable",
+        "title": "Repetitividad y recurrencia automatizable",
+        "body": [
+          "Evalúa:",
+          "si existe suficiente recurrencia o patrón reutilizable para que delegar trabajo a un mecanismo automatizado tenga sentido funcional.",
+          "Importante:",
+          "repetitividad ≠ volumen alto obligatorio.",
+          "Una actividad mensual extremadamente costosa puede ser candidata.",
+          "Una actividad diaria de cinco segundos quizá no.",
+          "Por tanto volumen y frecuencia son evidencia, no diagnóstico aislado."
+        ]
+      },
+      "sourceLines": [
+        548,
+        555
+      ]
+    },
+    {
+      "key": "VA05@L557",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "VA05 · Determinabilidad del trabajo",
+        "title": "Determinabilidad del trabajo",
+        "body": [
+          "Este concepto me parece mejor que simplemente:",
+          "“estandarización”.",
+          "Evalúa:",
+          "hasta qué punto las entradas, reglas, decisiones, transformaciones y resultados esperados pueden determinarse suficientemente para que un mecanismo automatizado actúe de manera confiable.",
+          "Puede incluir:",
+          "- reglas explícitas;",
+          "- patrones suficientemente reconocibles;",
+          "- datos disponibles;",
+          "- criterios de decisión;",
+          "- estados identificables;",
+          "- resultados verificables.",
+          "Esto permite incluir IA.",
+          "Una tarea no necesita ser:",
+          "IF X THEN Y",
+          "para ser parcialmente automatizable.",
+          "Pero sí necesitamos alguna forma suficiente de determinar:",
+          "qué debe hacer el sistema y cómo sabemos si actuó aceptablemente."
+        ]
+      },
+      "sourceLines": [
+        557,
+        574
+      ]
+    },
+    {
+      "key": "P-OP04-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-OP04-07",
+      "fields": {
+        "heading": "P-OP04-07",
+        "body": [
+          "Automatización no exige determinismo absoluto, pero sí condiciones suficientes para gobernar comportamiento, resultado y excepción."
+        ]
+      },
+      "sourceLines": [
+        575,
+        576
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "VA06@L578",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "VA06 · Variabilidad, excepciones y necesidad de juicio",
+        "title": "Variabilidad, excepciones y necesidad de juicio",
+        "body": [
+          "Evalúa:",
+          "cuánto del trabajo depende de excepciones, contexto, ambigüedad, juicio humano o situaciones difíciles de anticipar y gobernar.",
+          "Esto no funciona como:",
+          "más excepciones = no automatizar.",
+          "Puede llevar a:",
+          "automatización total",
+          "automatización parcial",
+          "human-in-the-loop",
+          "decision support",
+          "no automatización",
+          "Y aquí tendremos conexión directa con automatización basada en IA."
+        ]
+      },
+      "sourceLines": [
+        578,
+        589
+      ]
+    },
+    {
+      "key": "P-OP04-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-OP04-08",
+      "fields": {
+        "heading": "P-OP04-08",
+        "body": [
+          "La presencia de juicio o excepciones no invalida automáticamente la automatización; puede modificar su alcance, autonomía y mecanismo de supervisión."
+        ]
+      },
+      "sourceLines": [
+        601,
+        602
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "CE03@L604",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Pertinencia empresarial",
+        "title": "Pertinencia empresarial",
+        "body": [
+          "Aquí aparece la distinción más importante de OP-04:",
+          "puede automatizarse ≠ conviene automatizarlo.",
+          "La literatura reciente sobre suitability de RPA distingue precisamente feasibility de relevance: una actividad puede prestarse técnicamente a automatización sin que hacerlo genere suficiente valor. Wiley Online Library",
+          "Propongo otras tres VA."
+        ]
+      },
+      "sourceLines": [
+        604,
+        608
+      ]
+    },
+    {
+      "key": "VA07@L610",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "VA07 · Materialidad y valor esperado",
+        "title": "Materialidad y valor esperado",
+        "body": [
+          "Evalúa:",
+          "la magnitud razonable del beneficio que eliminar, simplificar o automatizar puede producir.",
+          "Puede provenir de:",
+          "- tiempo;",
+          "- costo;",
+          "- capacidad;",
+          "- errores;",
+          "- calidad;",
+          "- velocidad;",
+          "- experiencia;",
+          "- riesgo;",
+          "- escalabilidad;",
+          "- carga de personas.",
+          "No reduciremos todo a ROI financiero.",
+          "Para una pyme puede ser extremadamente valioso:",
+          "liberar al dueño de seis horas semanales.",
+          "Aunque no exista un business case financiero sofisticado."
+        ]
+      },
+      "sourceLines": [
+        610,
+        627
+      ]
+    },
+    {
+      "key": "VA08@L629",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "VA08 · Costo y complejidad total de solución",
+        "title": "Costo y complejidad total de solución",
+        "body": [
+          "Evalúa:",
+          "el esfuerzo y recursos necesarios no solo para implementar, sino para sostener la solución.",
+          "Incluye:",
+          "- implementación;",
+          "- integración;",
+          "- configuración;",
+          "- capacitación;",
+          "- licencias;",
+          "- mantenimiento;",
+          "- cambios futuros;",
+          "- dependencia de proveedor;",
+          "- monitoreo;",
+          "- gestión de excepciones.",
+          "Esto evita recomendar una arquitectura de $30.000 para ahorrar:",
+          "$300 anuales."
+        ]
+      },
+      "sourceLines": [
+        629,
+        644
+      ]
+    },
+    {
+      "key": "P-OP04-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-OP04-09",
+      "fields": {
+        "heading": "P-OP04-09",
+        "body": [
+          "El costo de automatización debe considerar ciclo de vida y no solamente implementación inicial."
+        ]
+      },
+      "sourceLines": [
+        645,
+        646
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "VA09@L648",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA09",
+      "fields": {
+        "heading": "VA09 · Riesgo y gobernabilidad de automatización",
+        "title": "Riesgo y gobernabilidad de automatización",
+        "body": [
+          "Evalúa:",
+          "si el nivel de autonomía y el mecanismo propuesto mantienen el riesgo dentro de condiciones aceptables y controlables.",
+          "Puede considerar:",
+          "- impacto del error;",
+          "- reversibilidad;",
+          "- supervisión;",
+          "- privacidad;",
+          "- seguridad;",
+          "- cumplimiento;",
+          "- trazabilidad;",
+          "- dependencia;",
+          "- continuidad;",
+          "- capacidad de intervención humana.",
+          "Aquí OP-04 identifica:",
+          "riesgo funcional de automatizar.",
+          "Los riesgos tecnológicos especializados pueden derivarse."
+        ]
+      },
+      "sourceLines": [
+        648,
+        664
+      ]
+    },
+    {
+      "key": "CE03@L750",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Pertinencia y proporcionalidad de la intervención",
+        "title": "Pertinencia y proporcionalidad de la intervención",
+        "body": [
+          "Así evalúa:",
+          "eliminar / combinar / reorganizar / simplificar / automatizar.",
+          "Esto hace la arquitectura más coherente."
+        ]
+      },
+      "sourceLines": [
+        750,
+        753
+      ]
+    },
+    {
+      "key": "CE01@L757",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Necesidad y simplicidad funcional del trabajo",
+        "title": "Necesidad y simplicidad funcional del trabajo",
+        "body": [
+          "VA01–VA03."
+        ]
+      },
+      "sourceLines": [
+        757,
+        758
+      ]
+    },
+    {
+      "key": "CE02@L759",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Aptitud funcional para automatización",
+        "title": "Aptitud funcional para automatización",
+        "body": [
+          "VA04–VA06."
+        ]
+      },
+      "sourceLines": [
+        759,
+        760
+      ]
+    },
+    {
+      "key": "CE03@L761",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Pertinencia y proporcionalidad de la intervención",
+        "title": "Pertinencia y proporcionalidad de la intervención",
+        "body": [
+          "VA07–VA09.",
+          "Mucho mejor."
+        ]
+      },
+      "sourceLines": [
+        761,
+        763
+      ]
+    },
+    {
+      "key": "APP-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_APP",
+      "sourceId": "APP-OP04-01",
+      "fields": {
+        "heading": "APP-OP04-01",
+        "body": [
+          "Las VA de automatización no necesitan evaluarse cuando existe evidencia suficiente de que el trabajo debe eliminarse y la eliminación constituye una intervención viable y proporcional.",
+          "Esto reducirá mucho el diagnóstico."
+        ]
+      },
+      "sourceLines": [
+        772,
+        774
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "P-OP04-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-OP04-10",
+      "fields": {
+        "heading": "P-OP04-10 · Beneficio local ≠ mejora neta",
+        "title": "Beneficio local ≠ mejora neta",
+        "body": [
+          "Una intervención que reduce esfuerzo en una actividad no constituye mejora suficiente si introduce efectos materiales adversos en calidad, riesgo, experiencia o desempeño E2E.",
+          "Este principio conecta directamente con OP-03."
+        ]
+      },
+      "sourceLines": [
+        846,
+        848
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "P-OP04-11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-OP04-11",
+      "fields": {
+        "heading": "P-OP04-11 · No valor directo ≠ innecesario",
+        "title": "No valor directo ≠ innecesario",
+        "body": [
+          "Una actividad que no agrega valor directamente al cliente puede ser funcionalmente necesaria por una restricción o propósito material válido.",
+          "Esto mejora nuestra arquitectura frente a una lectura demasiado literal de Lean."
+        ]
+      },
+      "sourceLines": [
+        916,
+        918
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "VA04@L943",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "VA04 · Recurrencia y apalancamiento potencial de automatización",
+        "title": "Recurrencia y apalancamiento potencial de automatización",
+        "body": [
+          "Pregunta:",
+          "¿Existe suficiente recurrencia, volumen, esfuerzo acumulado o reutilización potencial para que automatizar genere un apalancamiento material?",
+          "Esto es mejor que medir simplemente frecuencia."
+        ]
+      },
+      "sourceLines": [
+        943,
+        946
+      ]
+    },
+    {
+      "key": "VA05@L948",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "VA05 · Determinabilidad del trabajo",
+        "title": "Determinabilidad del trabajo",
+        "body": [
+          "La mantengo.",
+          "Es una de las decisiones conceptuales más útiles de OP-04.",
+          "La literatura RPA habla de:",
+          "- reglas claras;",
+          "- estabilidad;",
+          "- predictibilidad;",
+          "- inputs;",
+          "- outputs;",
+          "- datos estructurados;",
+          "- baja ambigüedad. Wiley Online Library",
+          "Nosotros abstraemos todo eso mediante:",
+          "determinabilidad suficiente.",
+          "Esto permite que OP-04 sobreviva al cambio tecnológico.",
+          "Para RPA clásica puede significar:",
+          "reglas deterministas.",
+          "Para IA puede significar:",
+          "comportamiento probabilístico gobernable dentro de criterios de aceptación.",
+          "Por tanto:",
+          "VA05 CONFIRMADA."
+        ]
+      },
+      "sourceLines": [
+        948,
+        967
+      ]
+    },
+    {
+      "key": "VA06@L969",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "VA06 · Variabilidad, excepciones y necesidad de juicio",
+        "title": "Variabilidad, excepciones y necesidad de juicio",
+        "body": [
+          "También queda fuertemente sustentada.",
+          "La literatura de selección RPA considera cantidad de excepciones, estabilidad del contexto y requerimientos cognitivos entre los factores relevantes. Wiley Online Library",
+          "Pero Pymapa hace algo deliberadamente diferente:",
+          "no interpreta automáticamente alta variabilidad como “no automatizable”.",
+          "Puede conducir a:",
+          "automatización total",
+          "automatización parcial",
+          "asistencia a decisión",
+          "human-in-the-loop",
+          "gestión automática + excepción humana",
+          "mantener manual",
+          "Eso nos permite incorporar IA sin romper el modelo."
+        ]
+      },
+      "sourceLines": [
+        969,
+        981
+      ]
+    },
+    {
+      "key": "VA07@L1010",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "VA07 · Materialidad y valor esperado",
+        "title": "Materialidad y valor esperado",
+        "body": [
+          "Se mantiene exactamente porque necesitamos separar:",
+          "“puede hacerse”",
+          "de:",
+          "“vale la pena hacerlo”.",
+          "El valor puede ser:",
+          "- ahorro;",
+          "- capacidad;",
+          "- velocidad;",
+          "- calidad;",
+          "- reducción de error;",
+          "- reducción de carga;",
+          "- escalabilidad;",
+          "- reducción de riesgo;",
+          "- experiencia de cliente/empleado.",
+          "No obligaremos a monetizar todo."
+        ]
+      },
+      "sourceLines": [
+        1010,
+        1025
+      ]
+    },
+    {
+      "key": "P-OP04-12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-OP04-12",
+      "fields": {
+        "heading": "P-OP04-12",
+        "body": [
+          "El valor esperado de una intervención puede ser económico o no económico, siempre que sea material, explícito y verificable."
+        ]
+      },
+      "sourceLines": [
+        1026,
+        1027
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "VA08@L1044",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "VA08 · Esfuerzo y sostenibilidad de la solución",
+        "title": "Esfuerzo y sostenibilidad de la solución",
+        "body": [
+          "Definición:",
+          "Evalúa los recursos, complejidad y capacidades requeridas para implementar, operar, mantener y adaptar suficientemente la intervención durante su vida útil esperada.",
+          "Costo sigue siendo evidencia central.",
+          "Pero ya no domina semánticamente la variable."
+        ]
+      },
+      "sourceLines": [
+        1044,
+        1048
+      ]
+    },
+    {
+      "key": "VA09@L1050",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA09",
+      "fields": {
+        "heading": "VA09 · Riesgo y gobernabilidad",
+        "title": "Riesgo y gobernabilidad",
+        "body": [
+          "Queda confirmada y probablemente será todavía más importante con IA.",
+          "NIST estructura la gestión de riesgos de IA alrededor de Govern, Map, Measure y Manage, considerando beneficios, costos, impactos, supervisión humana, accountability y riesgos durante todo el ciclo de vida. NIST AI Resource Center",
+          "Además, el AI RMF está actualmente en revisión, algo que debemos registrar en provenance: NIST indica que AI RMF 1.0 está siendo actualizado. NIST",
+          "Esto significa que no debemos codificar en OP-04 reglas dependientes de una versión particular del framework.",
+          "Extraemos el principio estable:",
+          "mayor autonomía/impacto exige gobernabilidad proporcional."
+        ]
+      },
+      "sourceLines": [
+        1050,
+        1056
+      ]
+    },
+    {
+      "key": "P-OP04-13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-OP04-13",
+      "fields": {
+        "heading": "P-OP04-13 · Autonomía proporcional al riesgo",
+        "title": "Autonomía proporcional al riesgo",
+        "body": [
+          "El grado de autonomía de una automatización debe ser proporcional a la capacidad de controlar, detectar, corregir y asumir las consecuencias de sus resultados.",
+          "Esto será muy importante para Pymapa.",
+          "No será igual:",
+          "automatizar el nombre de un archivo",
+          "que:",
+          "automatizar una decisión de crédito."
+        ]
+      },
+      "sourceLines": [
+        1059,
+        1065
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "SRC-BACKLOG-OP04-01",
+      "classification": "GOVERNED_BACKLOG",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-BACKLOG-OP04-01",
+      "fields": {
+        "heading": "SRC-BACKLOG-OP04-01 · Intelligent Automation",
+        "title": "Intelligent Automation",
+        "body": [
+          "Buscar literatura adicional únicamente si al construir reglas necesitamos discriminar mejor:",
+          "deterministic automation ↔ AI-assisted ↔ AI autonomous."
+        ]
+      },
+      "sourceLines": [
+        1191,
+        1193
+      ]
+    },
+    {
+      "key": "SRC-BACKLOG-OP04-02",
+      "classification": "GOVERNED_BACKLOG",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-BACKLOG-OP04-02",
+      "fields": {
+        "heading": "SRC-BACKLOG-OP04-02 · SME automation economics",
+        "title": "SME automation economics",
+        "body": [
+          "Buscar evidencia específica de pymes si necesitamos definir reglas contextuales sobre costo, capacidad o proporcionalidad."
+        ]
+      },
+      "sourceLines": [
+        1194,
+        1195
+      ]
+    },
+    {
+      "key": "SRC-BACKLOG-OP04-03",
+      "classification": "GOVERNED_BACKLOG",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-BACKLOG-OP04-03",
+      "fields": {
+        "heading": "SRC-BACKLOG-OP04-03 · Digiway/internal methodology",
+        "title": "Digiway/internal methodology",
+        "body": [
+          "Solicitar documentos propios solamente cuando una regla concreta pueda enriquecerse con metodología interna.",
+          "Ninguno bloquea la construcción actual."
+        ]
+      },
+      "sourceLines": [
+        1196,
+        1198
+      ]
+    },
+    {
+      "key": "CE01@L1223",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Necesidad y simplicidad funcional del trabajo",
+        "title": "Necesidad y simplicidad funcional del trabajo",
+        "body": [
+          "- VA01 · Necesidad funcional del trabajo",
+          "- VA02 · Redundancia y retrabajo evitable",
+          "- VA03 · Complejidad operativa evitable"
+        ]
+      },
+      "sourceLines": [
+        1223,
+        1226
+      ]
+    },
+    {
+      "key": "CE02@L1227",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Aptitud funcional para automatización",
+        "title": "Aptitud funcional para automatización",
+        "body": [
+          "- VA04 · Recurrencia y apalancamiento potencial de automatización",
+          "- VA05 · Determinabilidad del trabajo",
+          "- VA06 · Variabilidad, excepciones y necesidad de juicio"
+        ]
+      },
+      "sourceLines": [
+        1227,
+        1230
+      ]
+    },
+    {
+      "key": "CE03@L1231",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Pertinencia y proporcionalidad de la intervención",
+        "title": "Pertinencia y proporcionalidad de la intervención",
+        "body": [
+          "- VA07 · Materialidad y valor esperado",
+          "- VA08 · Esfuerzo y sostenibilidad de la solución",
+          "- VA09 · Riesgo y gobernabilidad de la intervención",
+          "Esto me parece suficientemente robusto para pasar al siguiente bloque."
+        ]
+      },
+      "sourceLines": [
+        1231,
+        1235
+      ]
+    },
+    {
+      "key": "CE01@L1265",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Necesidad y simplicidad funcional del trabajo",
+        "title": "Necesidad y simplicidad funcional del trabajo",
+        "body": [
+          "- VA01 · Necesidad funcional del trabajo",
+          "- VA02 · Redundancia y retrabajo evitable",
+          "- VA03 · Complejidad operativa evitable"
+        ]
+      },
+      "sourceLines": [
+        1265,
+        1268
+      ]
+    },
+    {
+      "key": "CE02@L1269",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Aptitud funcional para automatización",
+        "title": "Aptitud funcional para automatización",
+        "body": [
+          "- VA04 · Recurrencia y apalancamiento potencial de automatización",
+          "- VA05 · Determinabilidad del trabajo",
+          "- VA06 · Variabilidad, excepciones y necesidad de juicio"
+        ]
+      },
+      "sourceLines": [
+        1269,
+        1272
+      ]
+    },
+    {
+      "key": "CE03@L1273",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Pertinencia y proporcionalidad de la intervención",
+        "title": "Pertinencia y proporcionalidad de la intervención",
+        "body": [
+          "- VA07 · Materialidad y valor esperado",
+          "- VA08 · Esfuerzo y sostenibilidad de la solución",
+          "- VA09 · Riesgo y gobernabilidad de la intervención",
+          "La secuencia conceptual queda:",
+          "¿Debe existir? → ¿Puede simplificarse? → ¿Puede automatizarse? → ¿Vale la pena intervenir así?"
+        ]
+      },
+      "sourceLines": [
+        1273,
+        1278
+      ]
+    },
+    {
+      "key": "UA-OP04-v0.4@L1282",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_UA",
+      "sourceId": "UA-OP04-v0.4",
+      "fields": {
+        "heading": "UA-OP04-v0.4 · CANDIDATE-FROZEN",
+        "title": "CANDIDATE-FROZEN",
+        "body": [
+          "Unidad de trabajo material dentro de un proceso o flujo que puede ser evaluada respecto de su necesidad, complejidad, potencial de simplificación y pertinencia de automatización.",
+          "Puede ser:",
+          "- actividad;",
+          "- conjunto de pasos;",
+          "- validación;",
+          "- transferencia;",
+          "- captura;",
+          "- conciliación;",
+          "- decisión;",
+          "- rutina;",
+          "- excepción;",
+          "- subproceso.",
+          "No obliga a analizar el proceso completo."
+        ]
+      },
+      "sourceLines": [
+        1282,
+        1295
+      ]
+    },
+    {
+      "key": "VA01@L1297",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA01",
+      "fields": {
+        "heading": "VA01 · Necesidad funcional del trabajo",
+        "title": "Necesidad funcional del trabajo"
+      },
+      "sourceLines": [
+        1297,
+        1297
+      ]
+    },
+    {
+      "key": "VA02@L1314",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA02",
+      "fields": {
+        "heading": "VA02 · Redundancia y retrabajo evitable",
+        "title": "Redundancia y retrabajo evitable"
+      },
+      "sourceLines": [
+        1314,
+        1314
+      ]
+    },
+    {
+      "key": "VA03@L1328",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA03",
+      "fields": {
+        "heading": "VA03 · Complejidad operativa evitable",
+        "title": "Complejidad operativa evitable"
+      },
+      "sourceLines": [
+        1328,
+        1328
+      ]
+    },
+    {
+      "key": "STOP-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_STOP",
+      "sourceId": "STOP-OP04-01",
+      "fields": {
+        "heading": "STOP-OP04-01",
+        "body": [
+          "Si el trabajo puede eliminarse suficientemente sin impacto adverso material, detener la evaluación de automatización salvo que exista una razón específica para continuar.",
+          "Esto operacionaliza:",
+          "no automatizar trabajo innecesario."
+        ]
+      },
+      "sourceLines": [
+        1353,
+        1356
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "VA04@L1358",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "VA04 · Recurrencia y apalancamiento potencial",
+        "title": "Recurrencia y apalancamiento potencial"
+      },
+      "sourceLines": [
+        1358,
+        1358
+      ]
+    },
+    {
+      "key": "VA05@L1369",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "VA05 · Determinabilidad del trabajo",
+        "title": "Determinabilidad del trabajo",
+        "body": [
+          "Esta será una de las VA centrales de OP-04."
+        ]
+      },
+      "sourceLines": [
+        1369,
+        1370
+      ]
+    },
+    {
+      "key": "VA06@L1388",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "VA06 · Variabilidad, excepciones y juicio",
+        "title": "Variabilidad, excepciones y juicio"
+      },
+      "sourceLines": [
+        1388,
+        1388
+      ]
+    },
+    {
+      "key": "VA07@L1415",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "VA07 · Materialidad y valor esperado",
+        "title": "Materialidad y valor esperado"
+      },
+      "sourceLines": [
+        1415,
+        1415
+      ]
+    },
+    {
+      "key": "VA08@L1428",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "VA08 · Esfuerzo y sostenibilidad de la solución",
+        "title": "Esfuerzo y sostenibilidad de la solución"
+      },
+      "sourceLines": [
+        1428,
+        1428
+      ]
+    },
+    {
+      "key": "VA09@L1441",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA09",
+      "fields": {
+        "heading": "VA09 · Riesgo y gobernabilidad",
+        "title": "Riesgo y gobernabilidad"
+      },
+      "sourceLines": [
+        1441,
+        1441
+      ]
+    },
+    {
+      "key": "SUF-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SUF",
+      "sourceId": "SUF-OP04-01",
+      "fields": {
+        "heading": "SUF-OP04-01 · Mayor impacto → mayor exigencia",
+        "title": "Mayor impacto → mayor exigencia",
+        "body": [
+          "Cuanto mayor sea la consecuencia potencial de error o autonomía, mayor debe ser la evidencia, supervisión, trazabilidad y confianza requeridas antes de recomendar una automatización de mayor autonomía.",
+          "Esto es especialmente importante con IA."
+        ]
+      },
+      "sourceLines": [
+        1461,
+        1463
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "SUF-OP04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SUF",
+      "sourceId": "SUF-OP04-02",
+      "fields": {
+        "heading": "SUF-OP04-02",
+        "body": [
+          "Una VA puede cerrarse cuando sus necesidades críticas de información están suficientemente resueltas, no existe contradicción material pendiente y obtener información adicional tiene baja probabilidad de cambiar la decisión asociada.",
+          "Esta última parte es clave.",
+          "No queremos hacer business cases perfectos para decisiones obvias."
+        ]
+      },
+      "sourceLines": [
+        1474,
+        1477
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "COV-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_COV",
+      "sourceId": "COV-OP04-01",
+      "fields": {
+        "heading": "COV-OP04-01",
+        "body": [
+          "La evaluación OP-04 puede operar sobre unidades de trabajo priorizadas sin requerir cobertura exhaustiva del proceso completo, siempre que el alcance de la conclusión permanezca explícito.",
+          "Muy importante para la pyme."
+        ]
+      },
+      "sourceLines": [
+        1534,
+        1536
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "EVD-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_EVD",
+      "sourceId": "EVD-OP04-01",
+      "fields": {
+        "heading": "EVD-OP04-01",
+        "body": [
+          "La evidencia requerida debe crecer con el costo, irreversibilidad, autonomía, riesgo y consecuencia potencial de la intervención propuesta.",
+          "Ejemplo:",
+          "Automatizar renombrado de archivos:",
+          "evidencia ligera.",
+          "IA que toma decisiones de alto impacto:",
+          "evidencia y gobierno reforzados."
+        ]
+      },
+      "sourceLines": [
+        1618,
+        1624
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "STOP-OP04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_STOP",
+      "sourceId": "STOP-OP04-02",
+      "fields": {
+        "heading": "STOP-OP04-02",
+        "body": [
+          "Detener profundización cuando:",
+          "- intervención suficiente ya identificada;",
+          "- alternativas relevantes razonablemente contrastadas;",
+          "- automatización no aportará valor adicional material;",
+          "- evidencia adicional tiene bajo valor;",
+          "- riesgo/costo hace inviable seguir;",
+          "- solución debe derivarse a otro dominio.",
+          "Esto protege de:",
+          "“ya que estamos, automaticemos todo”."
+        ]
+      },
+      "sourceLines": [
+        1627,
+        1636
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "DERIVE-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DERIVE",
+      "sourceId": "DERIVE-OP04-01",
+      "fields": {
+        "heading": "DERIVE-OP04-01",
+        "body": [
+          "OP-04 debe detener análisis especializado cuando la decisión depende principalmente de:",
+          "- arquitectura tecnológica → DT;",
+          "- calidad/gobierno de datos → DT/DG correspondiente;",
+          "- capacidades humanas → PC;",
+          "- gestión de implementación → OP-05;",
+          "- proceso insuficientemente definido → OP-01;",
+          "- ejecución inestable → OP-02;",
+          "- fragmentación E2E → OP-03.",
+          "OP-04 conserva:",
+          "oportunidad/intervención funcional y evidencia."
+        ]
+      },
+      "sourceLines": [
+        1639,
+        1649
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "UA-OP04-v0.4@L1663",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_UA",
+      "sourceId": "UA-OP04-v0.4",
+      "fields": {
+        "heading": "UA-OP04-v0.4 · CANDIDATE-FROZEN",
+        "title": "CANDIDATE-FROZEN",
+        "body": [
+          "Unidad de trabajo material dentro de un proceso o flujo que puede ser evaluada respecto de su necesidad, complejidad, potencial de simplificación y pertinencia de automatización."
+        ]
+      },
+      "sourceLines": [
+        1663,
+        1664
+      ]
+    },
+    {
+      "key": "CE01@L1667",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Necesidad y simplicidad funcional",
+        "title": "Necesidad y simplicidad funcional",
+        "body": [
+          "- VA01 Necesidad funcional",
+          "- VA02 Redundancia/retrabajo evitable",
+          "- VA03 Complejidad operativa evitable"
+        ]
+      },
+      "sourceLines": [
+        1667,
+        1670
+      ]
+    },
+    {
+      "key": "CE02@L1671",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Aptitud funcional para automatización",
+        "title": "Aptitud funcional para automatización",
+        "body": [
+          "- VA04 Recurrencia/apalancamiento",
+          "- VA05 Determinabilidad",
+          "- VA06 Variabilidad/excepciones/juicio"
+        ]
+      },
+      "sourceLines": [
+        1671,
+        1674
+      ]
+    },
+    {
+      "key": "CE03@L1675",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Pertinencia y proporcionalidad de intervención",
+        "title": "Pertinencia y proporcionalidad de intervención",
+        "body": [
+          "- VA07 Materialidad/valor",
+          "- VA08 Esfuerzo/sostenibilidad",
+          "- VA09 Riesgo/gobernabilidad"
+        ]
+      },
+      "sourceLines": [
+        1675,
+        1678
+      ]
+    },
+    {
+      "key": "P1-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P1-OP04-01",
+      "fields": {
+        "heading": "P1-OP04-01 · Trabajo pesado/repetitivo",
+        "title": "Trabajo pesado/repetitivo",
+        "body": [
+          "¿Qué tareas o actividades les consumen tiempo de forma recurrente y sienten que podrían hacerse de una manera más sencilla?",
+          "Puede alimentar:",
+          "VA02, VA03, VA04, VA07."
+        ]
+      },
+      "sourceLines": [
+        1728,
+        1731
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "P1-OP04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P1-OP04-02",
+      "fields": {
+        "heading": "P1-OP04-02 · Repetición de información/trabajo",
+        "title": "Repetición de información/trabajo",
+        "body": [
+          "¿Hay información o trabajo que tengan que volver a registrar, copiar, revisar, conciliar o reconstruir varias veces?",
+          "Alimenta:",
+          "VA01, VA02, VA04, VA05, VA07."
+        ]
+      },
+      "sourceLines": [
+        1732,
+        1735
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "P1-OP04-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P1-OP04-03",
+      "fields": {
+        "heading": "P1-OP04-03 · Complejidad",
+        "title": "Complejidad",
+        "body": [
+          "¿Hay alguna actividad que requiera más pasos, aprobaciones, movimientos o coordinación de lo que consideran razonable?",
+          "Alimenta:",
+          "VA01, VA03, VA07."
+        ]
+      },
+      "sourceLines": [
+        1736,
+        1739
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "P1-OP04-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P1-OP04-04",
+      "fields": {
+        "heading": "P1-OP04-04 · Automatización existente/deseada",
+        "title": "Automatización existente/deseada",
+        "body": [
+          "¿Hay tareas que hoy hacen manualmente y que hayan pensado que una herramienta podría hacer total o parcialmente?",
+          "Esta pregunta no supone que deban automatizarse.",
+          "Alimenta:",
+          "VA04–VA09."
+        ]
+      },
+      "sourceLines": [
+        1740,
+        1744
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "REUSE-OP04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_REUSE",
+      "sourceId": "REUSE-OP04-02",
+      "fields": {
+        "heading": "REUSE-OP04-02",
+        "body": [
+          "No repetir una pregunta cuando existe evidencia previa suficientemente actual y específica para cubrir la misma necesidad de información."
+        ]
+      },
+      "sourceLines": [
+        1753,
+        1754
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "P2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P2",
+      "fields": {
+        "heading": "P2 · Profundización por VA",
+        "title": "Profundización por VA",
+        "body": [
+          "La lógica P2 queda así:",
+          "| VA | Profundización principal |",
+          "| VA01 | ¿Por qué existe? ¿Qué protege? |",
+          "| VA02 | ¿Qué se repite y por qué? |",
+          "| VA03 | ¿Qué pasos/esperas/aprobaciones podrían evitarse? |",
+          "| VA04 | ¿Con qué frecuencia/volumen/esfuerzo ocurre? |",
+          "| VA05 | ¿Qué inputs, reglas y outputs determinan el trabajo? |",
+          "| VA06 | ¿Qué excepciones y juicio aparecen? |",
+          "| VA07 | ¿Qué impacto tendría mejorarlo? |",
+          "| VA08 | ¿Qué exigiría implementar/sostener la solución? |",
+          "| VA09 | ¿Qué ocurre si falla o se equivoca? |",
+          "No son nueve preguntas obligatorias.",
+          "El Motor selecciona."
+        ]
+      },
+      "sourceLines": [
+        1807,
+        1820
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "NEXT-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NEXT",
+      "sourceId": "NEXT-OP04-01",
+      "fields": {
+        "heading": "NEXT-OP04-01",
+        "body": [
+          "La siguiente candidata a investigar debe maximizar el valor esperado de información considerando materialidad potencial, incertidumbre, costo de profundización y probabilidad de cambiar una decisión.",
+          "Así Pymapa puede seleccionar:",
+          "“Empecemos por la conciliación, porque consume mucho tiempo y ocurre diariamente.”",
+          "Sin afirmar todavía:",
+          "“es la mejor automatización”."
+        ]
+      },
+      "sourceLines": [
+        1837,
+        1842
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "SIMPLIFY-SCREEN-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SIMPLIFY",
+      "sourceId": "SIMPLIFY-SCREEN-OP04-01",
+      "fields": {
+        "heading": "SIMPLIFY-SCREEN-OP04-01",
+        "body": [
+          "Para una candidata material, evaluar:",
+          "Eliminar",
+          "¿Puede dejar de hacerse?",
+          "Combinar",
+          "¿Puede integrarse con otro trabajo?",
+          "Reorganizar",
+          "¿Puede cambiarse secuencia/responsabilidad?",
+          "Simplificar",
+          "¿Puede reducirse complejidad?",
+          "Mantener",
+          "¿Ya es suficientemente simple?",
+          "ECRS funciona aquí como instrumento de razonamiento, no como CE."
+        ]
+      },
+      "sourceLines": [
+        1846,
+        1858
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "P3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P3",
+      "fields": {
+        "heading": "P3 · Preguntas discriminantes",
+        "title": "Preguntas discriminantes",
+        "body": [
+          "P3 aparece cuando necesitamos separar alternativas.",
+          "Ejemplo:",
+          "“La tarea es repetitiva.”",
+          "No basta.",
+          "P3:",
+          "“Cuando aparece un caso distinto, ¿la persona sabe qué hacer siguiendo una regla o necesita analizar la situación y decidir?”",
+          "Esto discrimina:",
+          "automation",
+          "vs.",
+          "partial automation",
+          "vs.",
+          "assistance",
+          "vs.",
+          "human execution."
+        ]
+      },
+      "sourceLines": [
+        1881,
+        1895
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "EVD-OP04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_EVD",
+      "sourceId": "EVD-OP04-02",
+      "fields": {
+        "heading": "EVD-OP04-02",
+        "body": [
+          "Solicitar evidencia especialmente cuando exista:",
+          "- estimación de alto impacto;",
+          "- contradicción sobre esfuerzo/volumen;",
+          "- automatización costosa;",
+          "- riesgo significativo;",
+          "- decisión de autonomía elevada;",
+          "- causalidad dudosa;",
+          "- business case material.",
+          "Evidencia posible:",
+          "- muestra de casos;",
+          "- hoja;",
+          "- reporte;",
+          "- logs;",
+          "- formulario;",
+          "- captura;",
+          "- SOP;",
+          "- tiempos;",
+          "- volumen;",
+          "- errores;",
+          "- costos;",
+          "- ejemplos de excepciones."
+        ]
+      },
+      "sourceLines": [
+        1941,
+        1962
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "EVD-OP04-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_EVD",
+      "sourceId": "EVD-OP04-03",
+      "fields": {
+        "heading": "EVD-OP04-03",
+        "body": [
+          "La precisión requerida de la evidencia debe ser proporcional a la irreversibilidad, costo, riesgo y materialidad de la decisión que pretende soportar."
+        ]
+      },
+      "sourceLines": [
+        1971,
+        1972
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "POS-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_POS",
+      "sourceId": "POS-OP04-01",
+      "fields": {
+        "heading": "POS-OP04-01",
+        "body": [
+          "Ausencia sustentada de fricción material puede justificar no profundizar una oportunidad de automatización."
+        ]
+      },
+      "sourceLines": [
+        1980,
+        1981
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "CONTRA-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONTRA",
+      "sourceId": "CONTRA-OP04-01",
+      "fields": {
+        "heading": "CONTRA-OP04-01",
+        "body": [
+          "Una contradicción material sobre esfuerzo, frecuencia, error o impacto debe resolverse o reflejarse como incertidumbre antes de sustentar una intervención relevante."
+        ]
+      },
+      "sourceLines": [
+        1995,
+        1996
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "COLLAB-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_COLLAB",
+      "sourceId": "COLLAB-OP04-01",
+      "fields": {
+        "heading": "COLLAB-OP04-01",
+        "body": [
+          "Cuando la evaluación depende materialmente del conocimiento operativo de quien ejecuta o controla el trabajo, Pymapa debe incorporar esa perspectiva antes de recomendar una intervención de impacto relevante.",
+          "Pero no enviamos automáticamente todo OP-04 al contador.",
+          "Delegamos:",
+          "NI concretas."
+        ]
+      },
+      "sourceLines": [
+        2005,
+        2009
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "PROV-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_PROV",
+      "sourceId": "PROV-OP04-01",
+      "fields": {
+        "heading": "PROV-OP04-01",
+        "body": [
+          "Toda cuantificación utilizada para justificar una intervención debe conservar origen y método de obtención o derivación."
+        ]
+      },
+      "sourceLines": [
+        2031,
+        2032
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "SOL-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SOL",
+      "sourceId": "SOL-OP04-01",
+      "fields": {
+        "heading": "SOL-OP04-01",
+        "body": [
+          "La tecnología sugerida por el usuario constituye una alternativa candidata, no evidencia de que sea la intervención apropiada."
+        ]
+      },
+      "sourceLines": [
+        2068,
+        2069
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "SOL-OP04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SOL",
+      "sourceId": "SOL-OP04-02",
+      "fields": {
+        "heading": "SOL-OP04-02",
+        "body": [
+          "Pymapa no debe favorecer una tecnología por afinidad con su propia arquitectura o disponibilidad; la alternativa debe justificarse por las condiciones de la unidad evaluada.",
+          "Este principio merece convertirse en transversal."
+        ]
+      },
+      "sourceLines": [
+        2074,
+        2076
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "COV-OP04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_COV",
+      "sourceId": "COV-OP04-02",
+      "fields": {
+        "heading": "COV-OP04-02",
+        "body": [
+          "El objetivo de adquisición es identificar suficientes unidades materialmente relevantes para soportar decisiones útiles, no demostrar exhaustividad sobre todas las tareas empresariales."
+        ]
+      },
+      "sourceLines": [
+        2113,
+        2114
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "STOP-OP04-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_STOP",
+      "sourceId": "STOP-OP04-03",
+      "fields": {
+        "heading": "STOP-OP04-03",
+        "body": [
+          "Podemos cerrar adquisición cuando:",
+          "- las candidatas materiales conocidas fueron suficientemente clasificadas;",
+          "- las candidatas prioritarias alcanzaron SI-2 o SI-3 según materialidad;",
+          "- no quedan contradicciones críticas;",
+          "- las alternativas relevantes están suficientemente discriminadas;",
+          "- nueva información tiene baja probabilidad de cambiar la decisión;",
+          "- el resto tiene baja materialidad o queda explícitamente fuera de alcance."
+        ]
+      },
+      "sourceLines": [
+        2117,
+        2124
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "R-OP04-00",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP04-00",
+      "fields": {
+        "heading": "R-OP04-00 · Fricción no determina intervención",
+        "title": "Fricción no determina intervención",
+        "body": [
+          "La existencia de trabajo manual, repetitivo, complejo o costoso no determina por sí misma que deba automatizarse.",
+          "Esta debe ser la regla cero.",
+          "Porque evita:",
+          "problema → tecnología",
+          "sin pasar por razonamiento."
+        ]
+      },
+      "sourceLines": [
+        2236,
+        2241
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "R-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP04-01",
+      "fields": {
+        "heading": "R-OP04-01 · Trabajo sin necesidad funcional material vigente",
+        "title": "Trabajo sin necesidad funcional material vigente",
+        "body": [
+          "Se activa cuando existe evidencia suficiente de que:",
+          "- una actividad consume esfuerzo;",
+          "- su propósito original desapareció o ya está cubierto;",
+          "- no protege resultado, control, requisito o riesgo material;",
+          "- eliminarla no introduce consecuencia adversa relevante conocida.",
+          "Inferencia:",
+          "UNNECESSARY_WORK",
+          "Dirección candidata:",
+          "ELIMINATE",
+          "Pero con un guardrail."
+        ]
+      },
+      "sourceLines": [
+        2245,
+        2255
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "R-OP04-01A",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP04-01A",
+      "fields": {
+        "heading": "R-OP04-01A",
+        "body": [
+          "Ausencia de una razón conocida ≠ evidencia suficiente de innecesariedad.",
+          "Si nadie sabe por qué existe:",
+          "INVESTIGATE.",
+          "No:",
+          "eliminar."
+        ]
+      },
+      "sourceLines": [
+        2256,
+        2261
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "R-OP04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP04-02",
+      "fields": {
+        "heading": "R-OP04-02 · Repetición funcionalmente evitable",
+        "title": "Repetición funcionalmente evitable",
+        "body": [
+          "Se activa cuando:",
+          "- trabajo equivalente se realiza nuevamente;",
+          "- la repetición es material;",
+          "- no cumple una función independiente necesaria;",
+          "- existe evidencia razonable de que puede evitarse.",
+          "Ejemplos:",
+          "doble digitación;",
+          "reconstrucción de información;",
+          "conciliación causada por múltiples registros equivalentes;",
+          "corrección recurrente.",
+          "Inferencia:",
+          "AVOIDABLE_REDUNDANCY_REWORK",
+          "Dirección:",
+          "eliminar causa / reutilizar / integrar / simplificar.",
+          "No automáticamente:",
+          "automatizar el retrabajo."
+        ]
+      },
+      "sourceLines": [
+        2265,
+        2281
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "R-OP04-02A",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP04-02A",
+      "fields": {
+        "heading": "R-OP04-02A · Retrabajo ≠ causa",
+        "title": "Retrabajo ≠ causa",
+        "body": [
+          "El retrabajo puede originarse en:",
+          "- OP-01 definición;",
+          "- OP-02 ejecución;",
+          "- OP-03 frontera/información;",
+          "- DT;",
+          "- PC;",
+          "- otra causa.",
+          "Por tanto:",
+          "OP-04 puede diagnosticar trabajo evitable sin afirmar automáticamente qué originó ese trabajo.",
+          "Esto preserva nuestra arquitectura causal."
+        ]
+      },
+      "sourceLines": [
+        2284,
+        2294
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "R-OP04-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP04-03",
+      "fields": {
+        "heading": "R-OP04-03 · Complejidad superior a la funcionalmente necesaria",
+        "title": "Complejidad superior a la funcionalmente necesaria",
+        "body": [
+          "Se activa cuando:",
+          "- existen pasos, aprobaciones, transferencias, esperas, variantes o controles materiales;",
+          "- parte de esa complejidad no es necesaria para cumplir el propósito;",
+          "- puede reducirse razonablemente sin introducir perjuicio material.",
+          "Inferencia:",
+          "AVOIDABLE_COMPLEXITY",
+          "Dirección:",
+          "SIMPLIFY / COMBINE / REARRANGE / ELIMINATE"
+        ]
+      },
+      "sourceLines": [
+        2298,
+        2306
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "R-OP04-03A",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP04-03A",
+      "fields": {
+        "heading": "R-OP04-03A",
+        "body": [
+          "Mayor cantidad de pasos ≠ complejidad evitable.",
+          "Un proceso con doce pasos puede estar correctamente diseñado.",
+          "Otro con tres puede ser absurdamente complejo.",
+          "El Motor debe entender:",
+          "necesidad relativa, no contar pasos."
+        ]
+      },
+      "sourceLines": [
+        2309,
+        2314
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "R-OP04-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP04-04",
+      "fields": {
+        "heading": "R-OP04-04 · Recurrencia o esfuerzo acumulado materialmente automatizable",
+        "title": "Recurrencia o esfuerzo acumulado materialmente automatizable",
+        "body": [
+          "Se activa cuando existe suficiente:",
+          "- recurrencia;",
+          "- volumen;",
+          "- esfuerzo acumulado;",
+          "- reutilización;",
+          "- crecimiento esperado,",
+          "para que delegar trabajo pueda producir un beneficio material.",
+          "Inferencia:",
+          "AUTOMATION_LEVERAGE_PRESENT",
+          "Pero:"
+        ]
+      },
+      "sourceLines": [
+        2318,
+        2328
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "R-OP04-04A",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP04-04A",
+      "fields": {
+        "heading": "R-OP04-04A",
+        "body": [
+          "Bajo volumen ≠ baja oportunidad automáticamente.",
+          "Un evento poco frecuente puede ser:",
+          "- muy costoso;",
+          "- muy lento;",
+          "- crítico;",
+          "- altamente riesgoso."
+        ]
+      },
+      "sourceLines": [
+        2329,
+        2335
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "R-OP04-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP04-05",
+      "fields": {
+        "heading": "R-OP04-05 · Trabajo suficientemente determinable",
+        "title": "Trabajo suficientemente determinable",
+        "body": [
+          "Se activa cuando:",
+          "- inputs son suficientemente identificables;",
+          "- outputs esperados son suficientemente verificables;",
+          "- reglas/patrones pueden describirse;",
+          "- existe información utilizable;",
+          "- comportamiento aceptable puede gobernarse.",
+          "Inferencia:",
+          "AUTOMATION_DETERMINABILITY_SUPPORTED",
+          "No significa todavía:",
+          "automatización total."
+        ]
+      },
+      "sourceLines": [
+        2339,
+        2349
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "R-OP04-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP04-06",
+      "fields": {
+        "heading": "R-OP04-06 · Autonomía limitada por variabilidad o juicio material",
+        "title": "Autonomía limitada por variabilidad o juicio material",
+        "body": [
+          "Se activa cuando:",
+          "- existen excepciones relevantes;",
+          "- hay ambigüedad material;",
+          "- decisiones dependen de contexto;",
+          "- consecuencias requieren juicio;",
+          "- el mecanismo no puede gobernar suficientemente todas las situaciones.",
+          "Inferencia:",
+          "AUTONOMY_CONSTRAINT",
+          "Esto modifica la arquitectura candidata:",
+          "Full Automation",
+          "↓",
+          "Automation + Exceptions",
+          "↓",
+          "Human-in-the-loop",
+          "↓",
+          "Assistance",
+          "↓",
+          "Keep Manual",
+          "No es una escala de madurez.",
+          "Es una decisión de diseño."
+        ]
+      },
+      "sourceLines": [
+        2365,
+        2385
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "R-OP04-06A",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP04-06A",
+      "fields": {
+        "heading": "R-OP04-06A",
+        "body": [
+          "Capacidad técnica de un modelo para producir una respuesta ≠ evidencia suficiente para delegarle autónomamente la decisión o acción.",
+          "Necesitamos además:",
+          "- calidad suficiente;",
+          "- verificabilidad;",
+          "- impacto;",
+          "- supervisión;",
+          "- reversibilidad;",
+          "- gobernabilidad.",
+          "Este guardrail será cada vez más importante."
+        ]
+      },
+      "sourceLines": [
+        2388,
+        2397
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "R-OP04-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP04-07",
+      "fields": {
+        "heading": "R-OP04-07 · Valor material de intervención",
+        "title": "Valor material de intervención",
+        "body": [
+          "Se activa cuando existe evidencia suficiente de beneficio material en uno o más de:",
+          "- tiempo;",
+          "- capacidad;",
+          "- costo;",
+          "- calidad;",
+          "- error;",
+          "- velocidad;",
+          "- riesgo;",
+          "- experiencia;",
+          "- escalabilidad.",
+          "Inferencia:",
+          "MATERIAL_INTERVENTION_VALUE",
+          "No requiere monetización."
+        ]
+      },
+      "sourceLines": [
+        2401,
+        2414
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "R-OP04-07A",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP04-07A",
+      "fields": {
+        "heading": "R-OP04-07A",
+        "body": [
+          "Puede existir:",
+          "simplificación o automatización técnicamente posible,",
+          "pero:",
+          "beneficio material insuficiente.",
+          "Inferencia:",
+          "LOW_VALUE_OPPORTUNITY",
+          "Dirección:",
+          "NO_ACTION / DEFER",
+          "Esto es un resultado diagnóstico válido."
+        ]
+      },
+      "sourceLines": [
+        2417,
+        2426
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "R-OP04-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP04-08",
+      "fields": {
+        "heading": "R-OP04-08 · Solución desproporcionada o difícilmente sostenible",
+        "title": "Solución desproporcionada o difícilmente sostenible",
+        "body": [
+          "Se activa cuando implementación u operación requieren recursos, dependencias o complejidad desproporcionados respecto del valor esperado/contexto.",
+          "Inferencia:",
+          "SOLUTION_SUSTAINABILITY_CONSTRAINT",
+          "Puede producir:",
+          "simplificación alternativa;",
+          "solución menor;",
+          "diferir;",
+          "mantener manual;",
+          "derivación tecnológica."
+        ]
+      },
+      "sourceLines": [
+        2430,
+        2439
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "R-OP04-08A",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP04-08A",
+      "fields": {
+        "heading": "R-OP04-08A",
+        "body": [
+          "Inversión tecnológica previa o disponibilidad de una herramienta ≠ pertinencia de utilizarla para una intervención concreta.",
+          "Muy importante comercialmente."
+        ]
+      },
+      "sourceLines": [
+        2445,
+        2447
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "R-OP04-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP04-09",
+      "fields": {
+        "heading": "R-OP04-09 · Automatización insuficientemente gobernable",
+        "title": "Automatización insuficientemente gobernable",
+        "body": [
+          "Se activa cuando:",
+          "- consecuencia de error es material;",
+          "- error puede pasar inadvertido;",
+          "- reversibilidad es baja;",
+          "- supervisión es insuficiente;",
+          "- trazabilidad requerida no está disponible;",
+          "- autonomía propuesta excede control razonable.",
+          "Inferencia:",
+          "AUTOMATION_GOVERNANCE_CONSTRAINT",
+          "Dirección:",
+          "reducir autonomía / añadir control / human-in-the-loop / mantener humano / derivar."
+        ]
+      },
+      "sourceLines": [
+        2451,
+        2462
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "R-OP04-09A",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP04-09A",
+      "fields": {
+        "heading": "R-OP04-09A",
+        "body": [
+          "A mayor consecuencia potencial de error, mayor evidencia y gobernabilidad requeridas para recomendar autonomía.",
+          "Esto operacionaliza P-OP04-13."
+        ]
+      },
+      "sourceLines": [
+        2465,
+        2467
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "CONF-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONF",
+      "sourceId": "CONF-OP04-01",
+      "fields": {
+        "heading": "CONF-OP04-01",
+        "body": [
+          "Una estimación de valor no debe recibir mayor confianza que la calidad de sus supuestos de frecuencia, esfuerzo, costo e impacto.",
+          "Ejemplo:",
+          "“ahorraremos $50.000”",
+          "basado en:",
+          "“creo que gastamos como diez horas”.",
+          "No puede tratarse como C3."
+        ]
+      },
+      "sourceLines": [
+        2513,
+        2519
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "CONF-OP04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONF",
+      "sourceId": "CONF-OP04-02",
+      "fields": {
+        "heading": "CONF-OP04-02",
+        "body": [
+          "La confianza en automatizabilidad debe disminuir cuando no se han observado suficientes excepciones representativas o cuando la evaluación se basa únicamente en el caso normal.",
+          "Esto evita automatizar:",
+          "“happy path”",
+          "ignorando el 30% problemático."
+        ]
+      },
+      "sourceLines": [
+        2522,
+        2526
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "TECH-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_TECH",
+      "sourceId": "TECH-OP04-01",
+      "fields": {
+        "heading": "TECH-OP04-01",
+        "body": [
+          "El diagnóstico OP-04 determina arquitectura funcional de intervención antes de determinar producto, proveedor o tecnología específica."
+        ]
+      },
+      "sourceLines": [
+        2624,
+        2625
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "R-OP04-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP04-10",
+      "fields": {
+        "heading": "R-OP04-10 · Automatización prematura",
+        "title": "Automatización prematura",
+        "body": [
+          "Se activa cuando:",
+          "- existe automatización candidata;",
+          "- pero VA01–03 muestran trabajo eliminable/redundante/complejidad evitable material;",
+          "- automatizar sin corregirlo preservaría materialmente esa fricción.",
+          "Inferencia:",
+          "PREMATURE_AUTOMATION",
+          "Dirección:",
+          "simplificar primero o rediseñar conjuntamente.",
+          "Esto merece ser una regla adicional transversal, aunque no corresponde a una VA independiente."
+        ]
+      },
+      "sourceLines": [
+        2629,
+        2638
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "R-OP04-11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP04-11",
+      "fields": {
+        "heading": "R-OP04-11 · Sobreautomatización",
+        "title": "Sobreautomatización",
+        "body": [
+          "Se activa cuando:",
+          "- automatización técnicamente posible;",
+          "- beneficio marginal bajo;",
+          "- costo/complexity/risk material;",
+          "- alternativa más simple suficiente.",
+          "Inferencia:",
+          "OVERAUTOMATION_RISK",
+          "Dirección:",
+          "solución menor / mantener manual / no acción.",
+          "Esto captura el corazón de “pertinente”."
+        ]
+      },
+      "sourceLines": [
+        2642,
+        2652
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "R-OP04-12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP04-12",
+      "fields": {
+        "heading": "R-OP04-12 · Intervención insuficiente",
+        "title": "Intervención insuficiente",
+        "body": [
+          "Se activa cuando:",
+          "la automatización propuesta no aborda suficientemente la fuente material de fricción u oportunidad.",
+          "Inferencia:",
+          "INSUFFICIENT_INTERVENTION_SCOPE",
+          "Esto será importante después en intervención."
+        ]
+      },
+      "sourceLines": [
+        2660,
+        2665
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "CAUS-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAUS",
+      "sourceId": "CAUS-OP04-01",
+      "fields": {
+        "heading": "CAUS-OP04-01",
+        "body": [
+          "Coexistencia de trabajo manual y bajo desempeño no demuestra que la manualidad sea la causa.",
+          "Ejemplo:",
+          "pedidos tardíos + proceso manual.",
+          "La causa puede ser:",
+          "- falta de inventario;",
+          "- decisión;",
+          "- proveedor;",
+          "- mala coordinación.",
+          "Automatizar puede no resolver nada."
+        ]
+      },
+      "sourceLines": [
+        2668,
+        2677
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "ALT-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_ALT",
+      "sourceId": "ALT-OP04-01",
+      "fields": {
+        "heading": "ALT-OP04-01",
+        "body": [
+          "Una recomendación material de automatización requiere haber considerado explicaciones alternativas suficientemente plausibles que podrían hacer inefectiva la intervención."
+        ]
+      },
+      "sourceLines": [
+        2688,
+        2689
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "POS-OP04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_POS",
+      "sourceId": "POS-OP04-02",
+      "fields": {
+        "heading": "POS-OP04-02",
+        "body": [
+          "Ausencia de una brecha no demuestra automáticamente una fortaleza en simplificación o automatización.",
+          "Para STRENGTH necesitaremos evidencia afirmativa."
+        ]
+      },
+      "sourceLines": [
+        2805,
+        2807
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "HF01@L2872",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_HF",
+      "sourceId": "HF01",
+      "fields": {
+        "heading": "HF01 · Trabajo funcionalmente innecesario",
+        "title": "Trabajo funcionalmente innecesario"
+      },
+      "sourceLines": [
+        2872,
+        2872
+      ]
+    },
+    {
+      "key": "OP04-HF01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_OP",
+      "sourceId": "OP04-HF01",
+      "fields": {
+        "heading": "OP04-HF01",
+        "body": [
+          "Trabajo que consume esfuerzo sin una necesidad funcional material vigente suficientemente sustentada.",
+          "Regla principal:",
+          "R-OP04-01.",
+          "Naturaleza usual:",
+          "GAP",
+          "Dirección:",
+          "eliminación.",
+          "Ejemplo para usuario:",
+          "“El archivo físico de estas solicitudes continúa realizándose, pero no encontramos un requisito, control o uso vigente que justifique mantenerlo.”",
+          "Mucho mejor que:",
+          "“VA01 = deficiente”."
+        ]
+      },
+      "sourceLines": [
+        2873,
+        2884
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "HF02@L2886",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_HF",
+      "sourceId": "HF02",
+      "fields": {
+        "heading": "HF02 · Redundancia o retrabajo evitable",
+        "title": "Redundancia o retrabajo evitable"
+      },
+      "sourceLines": [
+        2886,
+        2886
+      ]
+    },
+    {
+      "key": "OP04-HF02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_OP",
+      "sourceId": "OP04-HF02",
+      "fields": {
+        "heading": "OP04-HF02",
+        "body": [
+          "Trabajo material que debe repetirse, reconstruirse o corregirse sin que la repetición cumpla una función independiente necesaria.",
+          "Regla:",
+          "R-OP04-02.",
+          "Puede incluir:",
+          "- doble digitación;",
+          "- conciliación evitable;",
+          "- reconstrucción;",
+          "- corrección recurrente;",
+          "- verificación duplicada.",
+          "Naturaleza:",
+          "GAP",
+          "Pero la causa puede quedar:",
+          "CAUSE-0."
+        ]
+      },
+      "sourceLines": [
+        2887,
+        2900
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "HF03@L2902",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_HF",
+      "sourceId": "HF03",
+      "fields": {
+        "heading": "HF03 · Complejidad operativa evitable",
+        "title": "Complejidad operativa evitable"
+      },
+      "sourceLines": [
+        2902,
+        2902
+      ]
+    },
+    {
+      "key": "OP04-HF03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_OP",
+      "sourceId": "OP04-HF03",
+      "fields": {
+        "heading": "OP04-HF03",
+        "body": [
+          "Trabajo necesario cuya configuración incorpora pasos, controles, transferencias, esperas o variantes que exceden materialmente lo requerido para cumplir su propósito.",
+          "Regla:",
+          "R-OP04-03.",
+          "Naturaleza:",
+          "GAP",
+          "Dirección:",
+          "simplificación/rediseño."
+        ]
+      },
+      "sourceLines": [
+        2903,
+        2910
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "HF04@L2912",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_HF",
+      "sourceId": "HF04",
+      "fields": {
+        "heading": "HF04 · Oportunidad material de automatización",
+        "title": "Oportunidad material de automatización"
+      },
+      "sourceLines": [
+        2912,
+        2912
+      ]
+    },
+    {
+      "key": "OP04-HF04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_OP",
+      "sourceId": "OP04-HF04",
+      "fields": {
+        "heading": "OP04-HF04",
+        "body": [
+          "Trabajo necesario con suficiente apalancamiento, determinabilidad y características operativas para que una forma de automatización pueda generar valor material.",
+          "Aquí combinamos:",
+          "- R04;",
+          "- R05;",
+          "- R06;",
+          "- R07.",
+          "Naturaleza:",
+          "OPPORTUNITY",
+          "Importante:",
+          "HF04 no significa automáticamente “automatización total”.",
+          "Debe incluir arquitectura candidata:",
+          "FULL",
+          "EXCEPTION_BASED",
+          "HUMAN_IN_LOOP",
+          "ASSISTANCE"
+        ]
+      },
+      "sourceLines": [
+        2913,
+        2928
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "HF05@L2930",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_HF",
+      "sourceId": "HF05",
+      "fields": {
+        "heading": "HF05 · Automatización de bajo valor o desproporcionada",
+        "title": "Automatización de bajo valor o desproporcionada"
+      },
+      "sourceLines": [
+        2930,
+        2930
+      ]
+    },
+    {
+      "key": "OP04-HF05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_OP",
+      "sourceId": "OP04-HF05",
+      "fields": {
+        "heading": "OP04-HF05",
+        "body": [
+          "Oportunidad técnicamente automatizable cuyo beneficio esperado no justifica suficientemente el esfuerzo, costo, complejidad o sostenimiento requerido.",
+          "Reglas:",
+          "R07A + R08.",
+          "Naturaleza:",
+          "CONSTRAINT / NO_ACTION",
+          "Ejemplo:",
+          "“La tarea puede automatizarse técnicamente, pero el esfuerzo requerido para implementar y mantener la solución resulta desproporcionado frente al trabajo que actualmente consume.”",
+          "Este hallazgo es valioso porque evita gasto innecesario."
+        ]
+      },
+      "sourceLines": [
+        2931,
+        2939
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "HF06@L2941",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_HF",
+      "sourceId": "HF06",
+      "fields": {
+        "heading": "HF06 · Automatización limitada por riesgo o gobernabilidad",
+        "title": "Automatización limitada por riesgo o gobernabilidad"
+      },
+      "sourceLines": [
+        2941,
+        2941
+      ]
+    },
+    {
+      "key": "OP04-HF06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_OP",
+      "sourceId": "OP04-HF06",
+      "fields": {
+        "heading": "OP04-HF06",
+        "body": [
+          "Oportunidad de automatización cuyo grado de autonomía debe limitarse porque las consecuencias de error, capacidad de detección, reversibilidad o supervisión disponible no soportan suficientemente una ejecución autónoma mayor.",
+          "Reglas:",
+          "R06 + R09.",
+          "Naturaleza:",
+          "CONSTRAINT",
+          "Dirección posible:",
+          "human-in-the-loop;",
+          "asistencia;",
+          "control reforzado;",
+          "mantener humano."
+        ]
+      },
+      "sourceLines": [
+        2942,
+        2952
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "HF07@L2954",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_HF",
+      "sourceId": "HF07",
+      "fields": {
+        "heading": "HF07 · Automatización prematura o mal enfocada",
+        "title": "Automatización prematura o mal enfocada"
+      },
+      "sourceLines": [
+        2954,
+        2954
+      ]
+    },
+    {
+      "key": "OP04-HF07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_OP",
+      "sourceId": "OP04-HF07",
+      "fields": {
+        "heading": "OP04-HF07",
+        "body": [
+          "Alternativa de automatización que preservaría trabajo innecesario, redundancia o complejidad material que debería cuestionarse antes o conjuntamente con la solución tecnológica.",
+          "Reglas:",
+          "R10 + eventualmente R12.",
+          "Naturaleza:",
+          "GAP / CONSTRAINT",
+          "Ejemplo:",
+          "“Automatizar la digitación reduciría esfuerzo, pero conservaría tres capturas equivalentes del mismo dato. La oportunidad principal está en eliminar la duplicación, no en acelerar cada captura.”",
+          "Este será uno de los hallazgos más distintivos de Pymapa."
+        ]
+      },
+      "sourceLines": [
+        2955,
+        2963
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "HF08@L2965",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_HF",
+      "sourceId": "HF08",
+      "fields": {
+        "heading": "HF08 · Forma actual suficientemente proporcional",
+        "title": "Forma actual suficientemente proporcional"
+      },
+      "sourceLines": [
+        2965,
+        2965
+      ]
+    },
+    {
+      "key": "OP04-HF08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_OP",
+      "sourceId": "OP04-HF08",
+      "fields": {
+        "heading": "OP04-HF08",
+        "body": [
+          "Trabajo cuya ejecución actual resulta suficientemente simple y proporcional a su materialidad, contexto, costo y riesgo, sin evidencia de una intervención adicional que produzca valor material suficiente.",
+          "Naturaleza:",
+          "POSITIVE",
+          "Puede llevar a:",
+          "KEEP_MANUAL",
+          "o:",
+          "NO_ACTION.",
+          "Pero requiere evidencia afirmativa.",
+          "No basta:",
+          "“no encontramos problema”."
+        ]
+      },
+      "sourceLines": [
+        2966,
+        2976
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "FIND-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_FIND",
+      "sourceId": "FIND-OP04-01",
+      "fields": {
+        "heading": "FIND-OP04-01",
+        "body": [
+          "La confianza en la existencia de una fricción u oportunidad debe separarse de la confianza en su causa.",
+          "Este principio debería convertirse en transversal del Motor."
+        ]
+      },
+      "sourceLines": [
+        3056,
+        3058
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "CONS-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONS",
+      "sourceId": "CONS-OP04-01",
+      "fields": {
+        "heading": "CONS-OP04-01",
+        "body": [
+          "Consolidar cuando múltiples inferencias describen manifestaciones del mismo fenómeno material y su separación no cambia sustancialmente la decisión."
+        ]
+      },
+      "sourceLines": [
+        3074,
+        3075
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "CONS-OP04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONS",
+      "sourceId": "CONS-OP04-02",
+      "fields": {
+        "heading": "CONS-OP04-02",
+        "body": [
+          "No consolidar cuando hacerlo oculta causas, riesgos o intervenciones materialmente diferentes."
+        ]
+      },
+      "sourceLines": [
+        3099,
+        3100
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "GEN-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_GEN",
+      "sourceId": "GEN-OP04-01",
+      "fields": {
+        "heading": "GEN-OP04-01",
+        "body": [
+          "Un hallazgo sobre una unidad de trabajo no debe generalizarse al proceso, flujo o capacidad completa sin cobertura suficientemente representativa.",
+          "Esto será importante cuando eventualmente Pymapa genere una vista ejecutiva por dominio."
+        ]
+      },
+      "sourceLines": [
+        3118,
+        3120
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "POS-OP04-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_POS",
+      "sourceId": "POS-OP04-03",
+      "fields": {
+        "heading": "POS-OP04-03",
+        "body": [
+          "NO GAP ≠ HF08 POSITIVE."
+        ]
+      },
+      "sourceLines": [
+        3146,
+        3147
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "DERIVE-OP04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DERIVE",
+      "sourceId": "DERIVE-OP04-02",
+      "fields": {
+        "heading": "DERIVE-OP04-02",
+        "body": [
+          "Una derivación indica que otra capacidad debe evaluar una causa, restricción o intervención especializada; no constituye diagnóstico automático de dicha capacidad.",
+          "Ejemplo:",
+          "DT Needs Evaluation",
+          "no:",
+          "“DT deficiente”."
+        ]
+      },
+      "sourceLines": [
+        3162,
+        3167
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "BOUND-OP04-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_BOUND",
+      "sourceId": "BOUND-OP04-05",
+      "fields": {
+        "heading": "BOUND-OP04-05",
+        "body": [
+          "La incapacidad para llevar una intervención ya suficientemente definida a implementación no debe reinterpretarse como falta de pertinencia de la intervención."
+        ]
+      },
+      "sourceLines": [
+        3234,
+        3235
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "REC-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_REC",
+      "sourceId": "REC-OP04-01",
+      "fields": {
+        "heading": "REC-OP04-01",
+        "body": [
+          "La especificidad de una recomendación no debe superar la confianza disponible sobre la condición, causa y restricciones relevantes.",
+          "Si sabemos:",
+          "duplicación C3,",
+          "pero causa C1,",
+          "podemos recomendar:",
+          "“eliminar la recaptura mediante un mecanismo de reutilización de información”.",
+          "No necesariamente:",
+          "“implementar API entre X e Y”."
+        ]
+      },
+      "sourceLines": [
+        3294,
+        3302
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "PRIO-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_PRIO",
+      "sourceId": "PRIO-OP04-01",
+      "fields": {
+        "heading": "PRIO-OP04-01",
+        "body": [
+          "Hallazgo material ≠ prioridad automática de implementación."
+        ]
+      },
+      "sourceLines": [
+        3320,
+        3321
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "INT-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-OP04-01",
+      "fields": {
+        "heading": "INT-OP04-01 · Mínima intervención suficiente",
+        "title": "Mínima intervención suficiente",
+        "body": [
+          "Seleccionar la intervención de menor complejidad que tenga capacidad razonable de corregir la condición o capturar suficientemente la oportunidad sin introducir efectos adversos materiales."
+        ]
+      },
+      "sourceLines": [
+        3387,
+        3388
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "REC-OP04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_REC",
+      "sourceId": "REC-OP04-02",
+      "fields": {
+        "heading": "REC-OP04-02",
+        "body": [
+          "La recomendación debe describir primero el cambio funcional requerido; la tecnología específica solo se incorpora cuando existe evidencia suficiente para justificarla."
+        ]
+      },
+      "sourceLines": [
+        3413,
+        3414
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "IP01@L3419",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP01",
+      "fields": {
+        "heading": "IP01 · Eliminar trabajo innecesario",
+        "title": "Eliminar trabajo innecesario"
+      },
+      "sourceLines": [
+        3419,
+        3419
+      ]
+    },
+    {
+      "key": "IP-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP-OP04-01",
+      "fields": {
+        "heading": "IP-OP04-01 · Eliminar trabajo sin función material vigente",
+        "title": "Eliminar trabajo sin función material vigente",
+        "body": [
+          "Origen típico:",
+          "HF01.",
+          "Objetivo:",
+          "dejar de consumir recursos en una actividad que ya no necesita existir.",
+          "Acciones candidatas:",
+          "- confirmar ausencia de requisito;",
+          "- retirar actividad;",
+          "- retirar control redundante;",
+          "- ajustar secuencia;",
+          "- comunicar cambio;",
+          "- observar efectos.",
+          "Intervención mínima:",
+          "la actividad deja de ejecutarse sin deterioro material conocido del resultado protegido.",
+          "No requiere automatización."
+        ]
+      },
+      "sourceLines": [
+        3420,
+        3434
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "INT-OP04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-OP04-02",
+      "fields": {
+        "heading": "INT-OP04-02",
+        "body": [
+          "No eliminar una actividad únicamente porque su propósito no sea evidente para quien responde el diagnóstico.",
+          "Antes debemos:",
+          "verificar propósito/restricción suficientemente.",
+          "Esto protege especialmente:",
+          "- controles financieros;",
+          "- cumplimiento;",
+          "- seguridad;",
+          "- obligaciones contractuales."
+        ]
+      },
+      "sourceLines": [
+        3437,
+        3445
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "IP02@L3447",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP02",
+      "fields": {
+        "heading": "IP02 · Eliminar redundancia y retrabajo",
+        "title": "Eliminar redundancia y retrabajo"
+      },
+      "sourceLines": [
+        3447,
+        3447
+      ]
+    },
+    {
+      "key": "IP-OP04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP-OP04-02",
+      "fields": {
+        "heading": "IP-OP04-02 · Establecer ejecución o captura única suficiente",
+        "title": "Establecer ejecución o captura única suficiente",
+        "body": [
+          "Origen:",
+          "HF02.",
+          "Objetivo:",
+          "evitar que información o trabajo tenga que reconstruirse, repetirse o corregirse innecesariamente.",
+          "Puede implicar:",
+          "- fuente única;",
+          "- reutilización;",
+          "- captura única;",
+          "- corrección de causa;",
+          "- transferencia funcional;",
+          "- integración.",
+          "Intervención mínima:",
+          "el trabajo deja de repetirse materialmente en condiciones normales.",
+          "Tecnología:",
+          "opcional."
+        ]
+      },
+      "sourceLines": [
+        3448,
+        3463
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "IP03@L3479",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP03",
+      "fields": {
+        "heading": "IP03 · Simplificar trabajo necesario",
+        "title": "Simplificar trabajo necesario"
+      },
+      "sourceLines": [
+        3479,
+        3479
+      ]
+    },
+    {
+      "key": "IP-OP04-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP-OP04-03",
+      "fields": {
+        "heading": "IP-OP04-03 · Reducir complejidad operativa evitable",
+        "title": "Reducir complejidad operativa evitable",
+        "body": [
+          "Origen:",
+          "HF03.",
+          "Objetivo:",
+          "realizar el trabajo necesario con menos complejidad sin perder su función.",
+          "Puede aplicar:",
+          "- eliminar pasos;",
+          "- combinar;",
+          "- reorganizar;",
+          "- reducir aprobaciones;",
+          "- reducir variantes;",
+          "- simplificar reglas;",
+          "- simplificar interfaces;",
+          "- eliminar esperas estructurales.",
+          "Done funcional esperado:",
+          "el resultado se obtiene con una configuración materialmente más simple y sin efectos adversos relevantes."
+        ]
+      },
+      "sourceLines": [
+        3480,
+        3495
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "IP04@L3504",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP04",
+      "fields": {
+        "heading": "IP04 · Automatizar trabajo determinable",
+        "title": "Automatizar trabajo determinable"
+      },
+      "sourceLines": [
+        3504,
+        3504
+      ]
+    },
+    {
+      "key": "IP-OP04-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP-OP04-04",
+      "fields": {
+        "heading": "IP-OP04-04 · Automatizar trabajo suficientemente determinable y pertinente",
+        "title": "Automatizar trabajo suficientemente determinable y pertinente",
+        "body": [
+          "Origen:",
+          "HF04.",
+          "Aplica cuando:",
+          "- trabajo necesario;",
+          "- simplificación previa suficiente;",
+          "- apalancamiento material;",
+          "- determinabilidad suficiente;",
+          "- valor esperado;",
+          "- sostenibilidad;",
+          "- gobernabilidad.",
+          "Objetivo:",
+          "transferir ejecución repetitiva a un mecanismo automatizado manteniendo control suficiente sobre resultados y excepciones.",
+          "Puede ser:",
+          "Full Automation",
+          "o",
+          "Automation + Exception Handling."
+        ]
+      },
+      "sourceLines": [
+        3505,
+        3521
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "INT-OP04-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-OP04-03",
+      "fields": {
+        "heading": "INT-OP04-03",
+        "body": [
+          "La existencia de una oportunidad material de automatización no implica que la automatización deba cubrir la totalidad de la unidad de trabajo.",
+          "Puede automatizarse:",
+          "60% del flujo,",
+          "si eso constituye la mínima intervención suficiente.",
+          "No necesitamos perseguir:",
+          "“100% touchless”."
+        ]
+      },
+      "sourceLines": [
+        3524,
+        3530
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "IP05@L3532",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP05",
+      "fields": {
+        "heading": "IP05 · Automatización asistida",
+        "title": "Automatización asistida"
+      },
+      "sourceLines": [
+        3532,
+        3532
+      ]
+    },
+    {
+      "key": "IP-OP04-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP-OP04-05",
+      "fields": {
+        "heading": "IP-OP04-05 · Automatizar parcialmente manteniendo juicio humano material",
+        "title": "Automatizar parcialmente manteniendo juicio humano material",
+        "body": [
+          "Origen:",
+          "HF04 + HF06.",
+          "Objetivo:",
+          "reducir trabajo manual o cognitivo sin delegar decisiones que todavía requieren contexto, responsabilidad o juicio humano.",
+          "Puede incluir:",
+          "- preparar información;",
+          "- extraer;",
+          "- clasificar;",
+          "- resumir;",
+          "- detectar;",
+          "- sugerir;",
+          "- recomendar;",
+          "- prellenar;",
+          "- priorizar.",
+          "La persona:",
+          "valida/decide/actúa.",
+          "Este patrón será muy relevante con IA."
+        ]
+      },
+      "sourceLines": [
+        3533,
+        3550
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "IP06@L3552",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP06",
+      "fields": {
+        "heading": "IP06 · Automatización con control de excepción",
+        "title": "Automatización con control de excepción"
+      },
+      "sourceLines": [
+        3552,
+        3552
+      ]
+    },
+    {
+      "key": "IP-OP04-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP-OP04-06",
+      "fields": {
+        "heading": "IP-OP04-06 · Automatizar ruta gobernable y escalar excepciones",
+        "title": "Automatizar ruta gobernable y escalar excepciones",
+        "body": [
+          "Origen:",
+          "HF04 + R06.",
+          "Objetivo:",
+          "automatizar los casos suficientemente determinables y enviar los demás a tratamiento humano.",
+          "Arquitectura:",
+          "Normal Path → Automation",
+          "Exception → Human",
+          "No debe diseñarse como:",
+          "“robot intenta todo y vemos qué pasa”.",
+          "Debe existir:",
+          "- criterio de excepción;",
+          "- detección;",
+          "- destino;",
+          "- responsabilidad;",
+          "- recuperación."
+        ]
+      },
+      "sourceLines": [
+        3553,
+        3568
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "IP07@L3570",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP07",
+      "fields": {
+        "heading": "IP07 · Ajustar autonomía y controles",
+        "title": "Ajustar autonomía y controles"
+      },
+      "sourceLines": [
+        3570,
+        3570
+      ]
+    },
+    {
+      "key": "IP-OP04-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP-OP04-07",
+      "fields": {
+        "heading": "IP-OP04-07 · Establecer gobernabilidad proporcional de automatización",
+        "title": "Establecer gobernabilidad proporcional de automatización",
+        "body": [
+          "Origen:",
+          "HF06.",
+          "Objetivo:",
+          "adecuar autonomía, supervisión y control al impacto potencial.",
+          "Puede incluir:",
+          "- aprobación humana;",
+          "- revisión por muestreo;",
+          "- alertas;",
+          "- logs;",
+          "- reversión;",
+          "- límites;",
+          "- escalamiento;",
+          "- autorización;",
+          "- monitoreo.",
+          "Particularmente para IA:",
+          "human-in-the-loop no debe agregarse ceremonialmente.",
+          "Debe tener función real."
+        ]
+      },
+      "sourceLines": [
+        3571,
+        3588
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "INT-OP04-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-OP04-04",
+      "fields": {
+        "heading": "INT-OP04-04",
+        "body": [
+          "Supervisión humana solo constituye control efectivo cuando la persona dispone de información, tiempo, autoridad y mecanismo suficiente para detectar e intervenir ante resultados inadecuados.",
+          "Un botón:",
+          "“Approve”",
+          "no demuestra human oversight efectivo."
+        ]
+      },
+      "sourceLines": [
+        3591,
+        3595
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "IP08@L3597",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP08",
+      "fields": {
+        "heading": "IP08 · Mantener / diferir conscientemente",
+        "title": "Mantener / diferir conscientemente"
+      },
+      "sourceLines": [
+        3597,
+        3597
+      ]
+    },
+    {
+      "key": "IP-OP04-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP-OP04-08",
+      "fields": {
+        "heading": "IP-OP04-08 · Mantener forma actual o diferir intervención",
+        "title": "Mantener forma actual o diferir intervención",
+        "body": [
+          "Origen:",
+          "HF05 o HF08.",
+          "Objetivo:",
+          "evitar inversión o complejidad que no produce suficiente valor actualmente.",
+          "Puede resultar:",
+          "KEEP_MANUAL",
+          "NO_ACTION",
+          "DEFER",
+          "REASSESS_LATER",
+          "Esto es una recomendación real, no ausencia de diagnóstico."
+        ]
+      },
+      "sourceLines": [
+        3598,
+        3608
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "INT-OP04-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-OP04-05",
+      "fields": {
+        "heading": "INT-OP04-05",
+        "body": [
+          "Cuando la automatización preservaría complejidad evitable material, la recomendación debe priorizar eliminar o simplificar esa complejidad antes o conjuntamente con la automatización."
+        ]
+      },
+      "sourceLines": [
+        3631,
+        3632
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "REC-OP04-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_REC",
+      "sourceId": "REC-OP04-03",
+      "fields": {
+        "heading": "REC-OP04-03",
+        "body": [
+          "La especificidad funcional y tecnológica de la recomendación debe ser proporcional a la confianza sobre causa, restricciones y condiciones de implementación.",
+          "Reutiliza el principio transversal descubierto anteriormente."
+        ]
+      },
+      "sourceLines": [
+        3672,
+        3674
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "INT-OP04-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-OP04-06",
+      "fields": {
+        "heading": "INT-OP04-06",
+        "body": [
+          "La sofisticación de la intervención debe ser proporcional a materialidad, escala, riesgo, capacidades y sostenibilidad del contexto empresarial.",
+          "Pero tampoco:",
+          "“pyme = solución rudimentaria”.",
+          "Una pequeña empresa digital puede justificar automatización avanzada.",
+          "La variable es el contexto."
+        ]
+      },
+      "sourceLines": [
+        3716,
+        3721
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "TECH-OP04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_TECH",
+      "sourceId": "TECH-OP04-02",
+      "fields": {
+        "heading": "TECH-OP04-02",
+        "body": [
+          "Los patrones maestros de OP-04 deben permanecer independientes de proveedores y productos salvo conocimiento contextual explícitamente versionado."
+        ]
+      },
+      "sourceLines": [
+        3744,
+        3745
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "INT-OP04-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-OP04-07",
+      "fields": {
+        "heading": "INT-OP04-07",
+        "body": [
+          "Un piloto diseñado para aprender no constituye evidencia automática de que la solución esté lista para implementación operativa.",
+          "El piloto debe responder una incertidumbre concreta.",
+          "Ejemplo:",
+          "¿puede clasificar suficientemente estas cinco categorías?"
+        ]
+      },
+      "sourceLines": [
+        3761,
+        3765
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "INT-OP04-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-OP04-08",
+      "fields": {
+        "heading": "INT-OP04-08",
+        "body": [
+          "Una automatización de contención que reduce el impacto de una fricción no demuestra que su causa estructural haya sido corregida."
+        ]
+      },
+      "sourceLines": [
+        3776,
+        3777
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "INT-OP04-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-OP04-09",
+      "fields": {
+        "heading": "INT-OP04-09",
+        "body": [
+          "La intervención debe considerar efectos materiales adversos sobre calidad, riesgo, experiencia, control y desempeño E2E.",
+          "Esto conecta con P-OP04-10."
+        ]
+      },
+      "sourceLines": [
+        3791,
+        3793
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "AUTO-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_AUTO",
+      "sourceId": "AUTO-OP04-01",
+      "fields": {
+        "heading": "AUTO-OP04-01",
+        "body": [
+          "Mayor autonomía ≠ mayor madurez.",
+          "Este principio merece ser transversal para Pymapa."
+        ]
+      },
+      "sourceLines": [
+        3825,
+        3827
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "DONE-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DONE",
+      "sourceId": "DONE-OP04-01",
+      "fields": {
+        "heading": "DONE-OP04-01",
+        "body": [
+          "Una intervención OP-04 se considera implementada cuando el mecanismo mínimo requerido ha sido configurado, activado y utilizado suficientemente en trabajo real para demostrar adopción inicial dentro del alcance definido.",
+          "Aplica tanto a:",
+          "- simplificación;",
+          "- automatización;",
+          "- asistencia;",
+          "- human-in-the-loop;",
+          "- mecanismos de excepción."
+        ]
+      },
+      "sourceLines": [
+        3942,
+        3949
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "IP01@L3951",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP01",
+      "fields": {
+        "heading": "IP01 · Eliminar trabajo innecesario",
+        "title": "Eliminar trabajo innecesario"
+      },
+      "sourceLines": [
+        3951,
+        3951
+      ]
+    },
+    {
+      "key": "IP02@L3978",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP02",
+      "fields": {
+        "heading": "IP02 · Eliminar redundancia/retrabajo",
+        "title": "Eliminar redundancia/retrabajo"
+      },
+      "sourceLines": [
+        3978,
+        3978
+      ]
+    },
+    {
+      "key": "IP03@L4002",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP03",
+      "fields": {
+        "heading": "IP03 · Simplificar trabajo necesario",
+        "title": "Simplificar trabajo necesario"
+      },
+      "sourceLines": [
+        4002,
+        4002
+      ]
+    },
+    {
+      "key": "DONE-OP04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DONE",
+      "sourceId": "DONE-OP04-02",
+      "fields": {
+        "heading": "DONE-OP04-02",
+        "body": [
+          "La reducción de pasos o esfuerzo solo constituye simplificación implementada cuando las funciones materiales necesarias permanecen suficientemente cubiertas."
+        ]
+      },
+      "sourceLines": [
+        4027,
+        4028
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "IP04@L4030",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP04",
+      "fields": {
+        "heading": "IP04 · Automatización",
+        "title": "Automatización"
+      },
+      "sourceLines": [
+        4030,
+        4030
+      ]
+    },
+    {
+      "key": "DONE-OP04-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DONE",
+      "sourceId": "DONE-OP04-03",
+      "fields": {
+        "heading": "DONE-OP04-03",
+        "body": [
+          "Una automatización no alcanza I3 cuando el trabajo manual equivalente continúa ejecutándose sistemáticamente como ruta paralela sin una función de control explícitamente justificada.",
+          "Esto será importante para medir adopción real."
+        ]
+      },
+      "sourceLines": [
+        4075,
+        4077
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "IP05@L4079",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP05",
+      "fields": {
+        "heading": "IP05 · Automatización asistida",
+        "title": "Automatización asistida"
+      },
+      "sourceLines": [
+        4079,
+        4079
+      ]
+    },
+    {
+      "key": "DONE-OP04-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DONE",
+      "sourceId": "DONE-OP04-04",
+      "fields": {
+        "heading": "DONE-OP04-04",
+        "body": [
+          "Disponibilidad de una herramienta ≠ implementación de una intervención asistida.",
+          "Este principio puede convertirse en transversal de transformación digital."
+        ]
+      },
+      "sourceLines": [
+        4110,
+        4112
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "IP06@L4114",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP06",
+      "fields": {
+        "heading": "IP06 · Automatización + excepciones",
+        "title": "Automatización + excepciones"
+      },
+      "sourceLines": [
+        4114,
+        4114
+      ]
+    },
+    {
+      "key": "DONE-OP04-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DONE",
+      "sourceId": "DONE-OP04-05",
+      "fields": {
+        "heading": "DONE-OP04-05",
+        "body": [
+          "Una automatización con excepciones solo alcanza I3 cuando tanto la ruta automatizada como el mecanismo de excepción funcionan suficientemente en condiciones reales."
+        ]
+      },
+      "sourceLines": [
+        4138,
+        4139
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "IP07@L4141",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP07",
+      "fields": {
+        "heading": "IP07 · Gobernabilidad y autonomía",
+        "title": "Gobernabilidad y autonomía"
+      },
+      "sourceLines": [
+        4141,
+        4141
+      ]
+    },
+    {
+      "key": "DONE-OP04-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DONE",
+      "sourceId": "DONE-OP04-06",
+      "fields": {
+        "heading": "DONE-OP04-06",
+        "body": [
+          "La capacidad de detener una automatización no sustituye mecanismos suficientes de detección, supervisión y recuperación."
+        ]
+      },
+      "sourceLines": [
+        4167,
+        4168
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "IP08@L4170",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP08",
+      "fields": {
+        "heading": "IP08 · Mantener / diferir",
+        "title": "Mantener / diferir",
+        "body": [
+          "Este patrón es diferente porque puede no generar cambio operativo inmediato.",
+          "Pero sí necesita una salida gobernada."
+        ]
+      },
+      "sourceLines": [
+        4170,
+        4172
+      ]
+    },
+    {
+      "key": "DEL-OP04-01-RULE",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-OP04-01-RULE",
+      "fields": {
+        "heading": "DEL-OP04-01-RULE",
+        "body": [
+          "Un documento que describe la intervención no constituye por sí mismo el entregable cuando el patrón requiere un cambio operativo.",
+          "Esto evita la consultoría clásica:",
+          "“entregamos el PowerPoint, proyecto terminado”."
+        ]
+      },
+      "sourceLines": [
+        4242,
+        4245
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "DONE-OP04-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DONE",
+      "sourceId": "DONE-OP04-07",
+      "fields": {
+        "heading": "DONE-OP04-07",
+        "body": [
+          "El estado de implementación se determina por cumplimiento funcional de Done Criteria, no por porcentaje de actividades ejecutadas.",
+          "Reutilizamos el principio transversal."
+        ]
+      },
+      "sourceLines": [
+        4308,
+        4310
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "DONE-OP04-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DONE",
+      "sourceId": "DONE-OP04-08",
+      "fields": {
+        "heading": "DONE-OP04-08",
+        "body": [
+          "Implementación efectiva de una intervención de contención no implica resolución de la causa estructural que la originó."
+        ]
+      },
+      "sourceLines": [
+        4319,
+        4320
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "DONE-OP04-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DONE",
+      "sourceId": "DONE-OP04-09",
+      "fields": {
+        "heading": "DONE-OP04-09",
+        "body": [
+          "Una intervención de aprendizaje está implementada cuando produce evidencia suficiente para resolver o reducir materialmente la incertidumbre para la que fue diseñada, independientemente de que la solución evaluada sea posteriormente adoptada.",
+          "Muy importante."
+        ]
+      },
+      "sourceLines": [
+        4335,
+        4337
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "CRV-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-OP04-01",
+      "fields": {
+        "heading": "CRV-OP04-01",
+        "body": [
+          "Primero se define qué condición debe observarse para considerar logrado el resultado; posteriormente, cuando agrega valor, se selecciona uno o más KPI para medir su magnitud, estabilidad o evolución.",
+          "Esto evita inventar dashboards antes de saber qué estamos intentando cambiar."
+        ]
+      },
+      "sourceLines": [
+        4499,
+        4501
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "CRV01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV01",
+      "fields": {
+        "heading": "CRV01 · Eliminación efectiva",
+        "title": "Eliminación efectiva",
+        "body": [
+          "Para IP01:",
+          "El trabajo identificado como innecesario deja de ejecutarse dentro del alcance definido sin pérdida material de la función, control o resultado que debía preservarse.",
+          "Código:",
+          "CRV-OP04-01A",
+          "Evidencia:",
+          "- casos reales;",
+          "- observación;",
+          "- registros;",
+          "- confirmación del responsable;",
+          "- ausencia de consecuencia material atribuible.",
+          "No basta:",
+          "“lo quitamos del procedimiento”."
+        ]
+      },
+      "sourceLines": [
+        4506,
+        4518
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "CRV02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV02",
+      "fields": {
+        "heading": "CRV02 · Redundancia/retrabajo removido",
+        "title": "Redundancia/retrabajo removido",
+        "body": [
+          "Para IP02:",
+          "La repetición, recaptura, reconstrucción o corrección objetivo deja de ser necesaria en las condiciones para las que fue intervenida.",
+          "Código:",
+          "CRV-OP04-02",
+          "KPI candidatos:",
+          "- frecuencia de recaptura;",
+          "- horas de conciliación;",
+          "- retrabajos por caso;",
+          "- errores asociados.",
+          "Solo si son útiles y medibles."
+        ]
+      },
+      "sourceLines": [
+        4520,
+        4530
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "CRV03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV03",
+      "fields": {
+        "heading": "CRV03 · Complejidad reducida",
+        "title": "Complejidad reducida",
+        "body": [
+          "Para IP03:",
+          "El trabajo logra su resultado requerido mediante una configuración materialmente más simple sin deterioro relevante de controles, calidad o resultados necesarios.",
+          "Código:",
+          "CRV-OP04-03",
+          "Podemos observar:",
+          "- pasos;",
+          "- tiempo;",
+          "- esperas;",
+          "- aprobaciones;",
+          "- transferencias;",
+          "- esfuerzo.",
+          "Pero:",
+          "menos pasos por sí solos no validan el resultado."
+        ]
+      },
+      "sourceLines": [
+        4532,
+        4545
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "CRV04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV04",
+      "fields": {
+        "heading": "CRV04 · Automatización funcional",
+        "title": "Automatización funcional",
+        "body": [
+          "Para IP04:",
+          "El mecanismo automatizado ejecuta suficientemente el trabajo objetivo en los casos definidos y produce resultados aceptables sin requerir intervención manual equivalente sistemática.",
+          "Código:",
+          "CRV-OP04-04",
+          "Esto diferencia:",
+          "automatización real",
+          "de:",
+          "“tenemos un bot”."
+        ]
+      },
+      "sourceLines": [
+        4547,
+        4555
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "CRV05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV05",
+      "fields": {
+        "heading": "CRV05 · Asistencia efectiva",
+        "title": "Asistencia efectiva",
+        "body": [
+          "Para IP05:",
+          "La asistencia automatizada reduce materialmente el esfuerzo objetivo manteniendo el juicio o responsabilidad humana definidos y sin introducir deterioro material en el resultado.",
+          "Código:",
+          "CRV-OP04-05",
+          "Esto será especialmente importante con IA."
+        ]
+      },
+      "sourceLines": [
+        4557,
+        4562
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "CRV06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV06",
+      "fields": {
+        "heading": "CRV06 · Excepciones gobernadas",
+        "title": "Excepciones gobernadas",
+        "body": [
+          "Para IP06:",
+          "La ruta normal se ejecuta automatizadamente y las excepciones relevantes son detectadas y tratadas mediante el mecanismo previsto sin pérdida material de casos.",
+          "Código:",
+          "CRV-OP04-06",
+          "No basta medir:",
+          "automation rate.",
+          "Debemos comprobar:",
+          "qué ocurre con lo que no automatizamos."
+        ]
+      },
+      "sourceLines": [
+        4564,
+        4572
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "CRV07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV07",
+      "fields": {
+        "heading": "CRV07 · Autonomía controlada",
+        "title": "Autonomía controlada",
+        "body": [
+          "Para IP07:",
+          "La automatización opera dentro de los límites definidos y los mecanismos de detección, supervisión, escalamiento y recuperación permiten gestionar suficientemente resultados inadecuados o situaciones fuera de alcance.",
+          "Código:",
+          "CRV-OP04-07",
+          "Especialmente aplicable a automatización de mayor riesgo."
+        ]
+      },
+      "sourceLines": [
+        4574,
+        4579
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "CRV08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV08",
+      "fields": {
+        "heading": "CRV08 · No intervención proporcional",
+        "title": "No intervención proporcional",
+        "body": [
+          "Para IP08:",
+          "Mantener o diferir la intervención no genera evidencia nueva de impacto material que invalide la decisión dentro del período o condición de seguimiento definida.",
+          "Código:",
+          "CRV-OP04-08",
+          "Esto convierte:",
+          "“no hacer nada”",
+          "en una decisión verificable cuando corresponde."
+        ]
+      },
+      "sourceLines": [
+        4581,
+        4588
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "CRV-OP04-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-OP04-09",
+      "fields": {
+        "heading": "CRV-OP04-09",
+        "body": [
+          "Una meta cuantitativa solo debe incorporarse cuando existe línea base y fundamento suficiente para justificar el nivel objetivo.",
+          "Si no:",
+          "“reducción material verificable del tiempo requerido”",
+          "puede ser inicialmente correcto."
+        ]
+      },
+      "sourceLines": [
+        4608,
+        4612
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "KPI-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_KPI",
+      "sourceId": "KPI-OP04-01",
+      "fields": {
+        "heading": "KPI-OP04-01",
+        "body": [
+          "La proporción de trabajo automatizado no constituye por sí sola evidencia de efectividad, calidad o pertinencia de la automatización.",
+          "Esto debe quedar como guardrail."
+        ]
+      },
+      "sourceLines": [
+        4649,
+        4651
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "KPI-OP04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_KPI",
+      "sourceId": "KPI-OP04-02",
+      "fields": {
+        "heading": "KPI-OP04-02",
+        "body": [
+          "El beneficio operacional debe considerar el esfuerzo residual, supervisión, corrección, excepción y mantenimiento materialmente atribuibles a la nueva forma de trabajo.",
+          "Especialmente importante para IA."
+        ]
+      },
+      "sourceLines": [
+        4663,
+        4665
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "BL-0",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_BL",
+      "sourceId": "BL-0",
+      "fields": {
+        "heading": "BL-0 · Declarada",
+        "title": "Declarada",
+        "body": [
+          "Estimación razonable del responsable."
+        ]
+      },
+      "sourceLines": [
+        4687,
+        4688
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "BL-1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_BL",
+      "sourceId": "BL-1",
+      "fields": {
+        "heading": "BL-1 · Evidenciada",
+        "title": "Evidenciada",
+        "body": [
+          "Registros/documentos/muestra."
+        ]
+      },
+      "sourceLines": [
+        4689,
+        4690
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "BL-2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_BL",
+      "sourceId": "BL-2",
+      "fields": {
+        "heading": "BL-2 · Medida",
+        "title": "Medida",
+        "body": [
+          "Medición explícita suficientemente representativa.",
+          "No necesitamos siempre BL-2."
+        ]
+      },
+      "sourceLines": [
+        4691,
+        4693
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "BASE-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_BASE",
+      "sourceId": "BASE-OP04-01",
+      "fields": {
+        "heading": "BASE-OP04-01",
+        "body": [
+          "La precisión requerida de la línea base debe ser proporcional a la materialidad de la conclusión que pretende soportar."
+        ]
+      },
+      "sourceLines": [
+        4694,
+        4695
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "VAL-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VAL",
+      "sourceId": "VAL-OP04-01",
+      "fields": {
+        "heading": "VAL-OP04-01",
+        "body": [
+          "La ventana de validación debe ser suficiente para observar condiciones normales y excepciones materialmente relevantes para el resultado evaluado.",
+          "No congelamos:",
+          "“30 días”."
+        ]
+      },
+      "sourceLines": [
+        4714,
+        4717
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "V1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V1",
+      "fields": {
+        "heading": "V1 · Early Signal",
+        "title": "Early Signal",
+        "body": [
+          "Significa:",
+          "primeros casos apuntan en la dirección esperada,",
+          "pero todavía no hay evidencia suficiente para concluir estabilidad.",
+          "Muy útil para pymes porque evita esperar demasiado para mostrar progreso."
+        ]
+      },
+      "sourceLines": [
+        4730,
+        4734
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "V2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V2",
+      "fields": {
+        "heading": "V2 · Validated",
+        "title": "Validated",
+        "body": [
+          "evidencia suficiente sustenta que el CRV se cumple dentro del alcance y ventana observada.",
+          "No significa:",
+          "“funcionará para siempre”."
+        ]
+      },
+      "sourceLines": [
+        4736,
+        4739
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "V3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V3",
+      "fields": {
+        "heading": "V3 · Sustained",
+        "title": "Sustained",
+        "body": [
+          "el resultado continúa observándose suficientemente a través del seguimiento definido y frente a variación material relevante.",
+          "Esto permite distinguir:",
+          "éxito inicial",
+          "de:",
+          "cambio sostenido."
+        ]
+      },
+      "sourceLines": [
+        4741,
+        4746
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "ATTR-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_ATTR",
+      "sourceId": "ATTR-OP04-01",
+      "fields": {
+        "heading": "ATTR-OP04-01",
+        "body": [
+          "La mejora observada y la intervención implementada deben registrarse separadamente; el grado de atribución depende de la evidencia que conecte razonablemente ambas.",
+          "Ejemplo:",
+          "“El tiempo cayó después de automatizar”",
+          "es observación.",
+          "“La automatización produjo toda la reducción”",
+          "requiere más."
+        ]
+      },
+      "sourceLines": [
+        4769,
+        4775
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "VAL-OP04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VAL",
+      "sourceId": "VAL-OP04-02",
+      "fields": {
+        "heading": "VAL-OP04-02",
+        "body": [
+          "La validación debe comprobar tanto el resultado objetivo como efectos adversos materiales razonablemente asociados a la intervención.",
+          "Esto conecta con P-OP04-10."
+        ]
+      },
+      "sourceLines": [
+        4789,
+        4791
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "FOLLOW-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_FOLLOW",
+      "sourceId": "FOLLOW-OP04-01",
+      "fields": {
+        "heading": "FOLLOW-OP04-01",
+        "body": [
+          "La validación de una intervención no elimina la necesidad de reevaluarla cuando cambian materialmente las condiciones que sustentaron su pertinencia o gobernabilidad."
+        ]
+      },
+      "sourceLines": [
+        4830,
+        4831
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "REASS-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_REASS",
+      "sourceId": "REASS-OP04-01",
+      "fields": {
+        "heading": "REASS-OP04-01",
+        "body": [
+          "Ante un trigger, Pymapa debe reabrir únicamente las VA, NI, reglas e intervenciones potencialmente afectadas, salvo que el cambio invalide materialmente el alcance completo.",
+          "Ejemplo:",
+          "sube volumen.",
+          "Puede reabrir:",
+          "VA04, VA07, VA08.",
+          "No necesariamente VA01.",
+          "Esto es conocimiento realmente incremental."
+        ]
+      },
+      "sourceLines": [
+        4858,
+        4865
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "VAL-OP04-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VAL",
+      "sourceId": "VAL-OP04-03",
+      "fields": {
+        "heading": "VAL-OP04-03",
+        "body": [
+          "Una decisión diagnóstica o de intervención es válida respecto del contexto y evidencia sobre los que fue tomada; un cambio posterior de condiciones no invalida retrospectivamente una decisión que era proporcional cuando se adoptó.",
+          "Muy importante para aprendizaje gobernado."
+        ]
+      },
+      "sourceLines": [
+        4918,
+        4920
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "LEARN-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_LEARN",
+      "sourceId": "LEARN-OP04-01",
+      "fields": {
+        "heading": "LEARN-OP04-01",
+        "body": [
+          "La experiencia acumulada puede generar conocimiento candidato, pero su promoción a conocimiento maestro requiere evaluación, contraste, provenance, versionado y aprobación.",
+          "Reutilizamos gobernanza transversal."
+        ]
+      },
+      "sourceLines": [
+        4966,
+        4968
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "RESULT-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_RESULT",
+      "sourceId": "RESULT-OP04-01",
+      "fields": {
+        "heading": "RESULT-OP04-01",
+        "body": [
+          "La validación debe conservar vínculo con la versión concreta de la intervención evaluada."
+        ]
+      },
+      "sourceLines": [
+        4988,
+        4989
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "CTX-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CTX",
+      "sourceId": "CTX-OP04-01",
+      "fields": {
+        "heading": "CTX-OP04-01",
+        "body": [
+          "Una variante sectorial solo debe incorporarse al conocimiento maestro cuando modifica de manera material, reusable y sustentable la evaluación, regla o intervención; diferencias meramente ejemplificativas permanecen en conocimiento contextual.",
+          "Esto evita multiplicar el Knowledge Pack."
+        ]
+      },
+      "sourceLines": [
+        5081,
+        5083
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "K1@L5120",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Master Structured Knowledge",
+        "title": "Master Structured Knowledge",
+        "body": [
+          "Contiene:",
+          "CE, VA, NI, reglas, hallazgos, patrones, CRV, guardrails."
+        ]
+      },
+      "sourceLines": [
+        5120,
+        5122
+      ]
+    },
+    {
+      "key": "K2@L5123",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Contextual Knowledge",
+        "title": "Contextual Knowledge",
+        "body": [
+          "Puede contener:",
+          "tecnologías, ejemplos sectoriales, KPI, patrones técnicos, economics."
+        ]
+      },
+      "sourceLines": [
+        5123,
+        5125
+      ]
+    },
+    {
+      "key": "K3@L5126",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · Curated Source Library",
+        "title": "Curated Source Library",
+        "body": [
+          "Fuentes externas."
+        ]
+      },
+      "sourceLines": [
+        5126,
+        5127
+      ]
+    },
+    {
+      "key": "K4@L5128",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · Candidate / Experimental Knowledge",
+        "title": "Candidate / Experimental Knowledge",
+        "body": [
+          "Aprendizajes todavía no promovidos.",
+          "Esta separación es particularmente importante para OP-04."
+        ]
+      },
+      "sourceLines": [
+        5128,
+        5130
+      ]
+    },
+    {
+      "key": "SRC-DEC-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DEC-OP04-01",
+      "fields": {
+        "heading": "SRC-DEC-OP04-01",
+        "body": [
+          "La fundamentación documental actual es suficiente para cerrar OP-04 V1.",
+          "Quedan tres backlogs deliberados:",
+          "SRC-BACKLOG-OP04-01 · Intelligent Automation",
+          "Profundizar únicamente cuando necesitemos distinguir técnicamente automatización determinística, IA asistida y autonomía IA.",
+          "SRC-BACKLOG-OP04-02 · SME Automation Economics",
+          "Profundizar cuando necesitemos reglas contextuales más precisas sobre costo/capacidad para pymes.",
+          "SRC-BACKLOG-OP04-03 · Digiway/Internal",
+          "Incorporar documentos propios específicos cuando encontremos una regla/intervención donde aporten conocimiento diferenciado.",
+          "No necesitamos subir ahora todos tus documentos."
+        ]
+      },
+      "sourceLines": [
+        5162,
+        5171
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "PROV-OP04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_PROV",
+      "sourceId": "PROV-OP04-02",
+      "fields": {
+        "heading": "PROV-OP04-02",
+        "body": [
+          "Todo objeto maestro debe conservar el origen intelectual suficiente para distinguir conocimiento externo, síntesis metodológica, conocimiento propio y aprendizaje experimental.",
+          "Esto protege:",
+          "- rigor;",
+          "- tesis;",
+          "- propiedad intelectual;",
+          "- actualización;",
+          "- auditoría."
+        ]
+      },
+      "sourceLines": [
+        5203,
+        5210
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "GOV-OP04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_GOV",
+      "sourceId": "GOV-OP04-01",
+      "fields": {
+        "heading": "GOV-OP04-01",
+        "body": [
+          "Congelar OP-04 V1 establece una baseline gobernada; no impide modificaciones futuras, sino que obliga a introducirlas mediante versionado y control explícito.",
+          "Reutilizamos la regla transversal."
+        ]
+      },
+      "sourceLines": [
+        5302,
+        5304
+      ],
+      "approvalEvidence": {
+        "text": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          5993,
+          5993
+        ]
+      }
+    },
+    {
+      "key": "K1@L5442",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Quality Gate de Coherencia",
+        "title": "Quality Gate de Coherencia",
+        "body": [
+          "Pregunta:",
+          "¿OP-04 constituye una capacidad conceptualmente coherente, delimitada y no redundante con las capacidades vecinas?"
+        ]
+      },
+      "sourceLines": [
+        5442,
+        5444
+      ]
+    },
+    {
+      "key": "K1@L5542",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Revisión interna CE/VA",
+        "title": "Revisión interna CE/VA",
+        "body": [
+          "Las tres CE responden preguntas diferentes:"
+        ]
+      },
+      "sourceLines": [
+        5542,
+        5543
+      ]
+    },
+    {
+      "key": "CE01@L5544",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01",
+        "body": [
+          "¿El trabajo debe existir y está suficientemente simplificado?"
+        ]
+      },
+      "sourceLines": [
+        5544,
+        5545
+      ]
+    },
+    {
+      "key": "CE02@L5546",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02",
+        "body": [
+          "¿El trabajo remanente tiene características funcionales que permiten automatización?"
+        ]
+      },
+      "sourceLines": [
+        5546,
+        5547
+      ]
+    },
+    {
+      "key": "CE03@L5548",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03",
+        "body": [
+          "¿La intervención tiene suficiente valor, sostenibilidad y gobernabilidad?",
+          "No existe CE redundante.",
+          "Las nueve VA tienen función diagnóstica distinta.",
+          "Además:",
+          "- datos no necesitan VA propia;",
+          "- estabilidad no necesita VA propia;",
+          "- tecnología utilizada no necesita VA;",
+          "- ROI no necesita VA;",
+          "- madurez de proceso no necesita VA."
+        ]
+      },
+      "sourceLines": [
+        5548,
+        5557
+      ]
+    },
+    {
+      "key": "K1@L5559",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · PASS",
+        "title": "PASS"
+      },
+      "sourceLines": [
+        5559,
+        5559
+      ]
+    },
+    {
+      "key": "K2@L5561",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Quality Gate de Razonamiento",
+        "title": "Quality Gate de Razonamiento",
+        "body": [
+          "Pregunta:",
+          "¿Puede OP-04 pasar de evidencia a conclusión sin introducir inferencias injustificadas?",
+          "Probamos los principales fallos posibles."
+        ]
+      },
+      "sourceLines": [
+        5561,
+        5564
+      ]
+    },
+    {
+      "key": "K2@L5700",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Cobertura de decisiones",
+        "title": "Cobertura de decisiones",
+        "body": [
+          "El Motor puede discriminar:",
+          "ELIMINATE",
+          "SIMPLIFY",
+          "AUTOMATE",
+          "PARTIAL AUTOMATION",
+          "HUMAN-IN-THE-LOOP",
+          "ASSIST",
+          "KEEP MANUAL",
+          "DEFER",
+          "INVESTIGATE",
+          "DERIVE",
+          "NO ACTION",
+          "No encontramos una salida funcional material sin representación."
+        ]
+      },
+      "sourceLines": [
+        5700,
+        5713
+      ]
+    },
+    {
+      "key": "K2@L5715",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · PASS",
+        "title": "PASS"
+      },
+      "sourceLines": [
+        5715,
+        5715
+      ]
+    },
+    {
+      "key": "K3@L5717",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · Quality Gate de Acción",
+        "title": "Quality Gate de Acción",
+        "body": [
+          "Pregunta:",
+          "¿Cada conclusión relevante puede transformarse en una intervención ejecutable y verificable?",
+          "Auditamos la cadena."
+        ]
+      },
+      "sourceLines": [
+        5717,
+        5720
+      ]
+    },
+    {
+      "key": "HF01@L5722",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_HF",
+      "sourceId": "HF01",
+      "fields": {
+        "heading": "HF01",
+        "body": [
+          "Trabajo innecesario",
+          "→ IP01 eliminar",
+          "→ INS01",
+          "→ DEL01",
+          "→ Done",
+          "→ CRV01.",
+          "PASS."
+        ]
+      },
+      "sourceLines": [
+        5722,
+        5729
+      ]
+    },
+    {
+      "key": "HF02@L5731",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_HF",
+      "sourceId": "HF02",
+      "fields": {
+        "heading": "HF02",
+        "body": [
+          "Redundancia/retrabajo",
+          "→ IP02",
+          "→ INS02",
+          "→ DEL02",
+          "→ Done",
+          "→ CRV02.",
+          "PASS."
+        ]
+      },
+      "sourceLines": [
+        5731,
+        5738
+      ]
+    },
+    {
+      "key": "HF03@L5740",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_HF",
+      "sourceId": "HF03",
+      "fields": {
+        "heading": "HF03",
+        "body": [
+          "Complejidad",
+          "→ IP03",
+          "→ INS03",
+          "→ DEL03",
+          "→ Done",
+          "→ CRV03.",
+          "PASS."
+        ]
+      },
+      "sourceLines": [
+        5740,
+        5747
+      ]
+    },
+    {
+      "key": "HF04@L5749",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_HF",
+      "sourceId": "HF04",
+      "fields": {
+        "heading": "HF04",
+        "body": [
+          "Oportunidad automatización",
+          "→ IP04/IP05/IP06 según arquitectura",
+          "→ instrumento correspondiente",
+          "→ mecanismo activo",
+          "→ CRV04/05/06.",
+          "PASS."
+        ]
+      },
+      "sourceLines": [
+        5749,
+        5755
+      ]
+    },
+    {
+      "key": "HF05@L5757",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_HF",
+      "sourceId": "HF05",
+      "fields": {
+        "heading": "HF05",
+        "body": [
+          "Bajo valor/desproporción",
+          "→ IP08 o reducción de alcance",
+          "→ decisión gobernada",
+          "→ CRV08.",
+          "PASS."
+        ]
+      },
+      "sourceLines": [
+        5757,
+        5762
+      ]
+    },
+    {
+      "key": "HF06@L5764",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_HF",
+      "sourceId": "HF06",
+      "fields": {
+        "heading": "HF06",
+        "body": [
+          "Restricción por riesgo/gobernabilidad",
+          "→ IP05/IP06/IP07",
+          "→ controles/autonomía",
+          "→ CRV05/06/07.",
+          "PASS."
+        ]
+      },
+      "sourceLines": [
+        5764,
+        5769
+      ]
+    },
+    {
+      "key": "HF07@L5771",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_HF",
+      "sourceId": "HF07",
+      "fields": {
+        "heading": "HF07",
+        "body": [
+          "Automatización prematura",
+          "→ IP01/02/03",
+          "→ reevaluación posterior.",
+          "No existe salto tecnológico.",
+          "PASS."
+        ]
+      },
+      "sourceLines": [
+        5771,
+        5776
+      ]
+    },
+    {
+      "key": "HF08@L5778",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_HF",
+      "sourceId": "HF08",
+      "fields": {
+        "heading": "HF08",
+        "body": [
+          "Forma actual proporcional",
+          "→ IP08",
+          "→ mantener/diferir",
+          "→ trigger",
+          "→ CRV08.",
+          "PASS."
+        ]
+      },
+      "sourceLines": [
+        5778,
+        5784
+      ]
+    },
+    {
+      "key": "K3@L5829",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · PASS",
+        "title": "PASS"
+      },
+      "sourceLines": [
+        5829,
+        5829
+      ]
+    },
+    {
+      "key": "K4@L5831",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · Quality Gate de Conocimiento",
+        "title": "Quality Gate de Conocimiento",
+        "body": [
+          "Pregunta:",
+          "¿El conocimiento publicado puede considerarse suficientemente fundamentado, trazado, versionado y gobernado?",
+          "Este Gate es distinto de:",
+          "K4 Candidate Knowledge.",
+          "Aquí hablamos de Quality Gate K4."
+        ]
+      },
+      "sourceLines": [
+        5831,
+        5836
+      ]
+    },
+    {
+      "key": "A-OP04-01",
+      "classification": "GOVERNED_BACKLOG",
+      "objectType": "SOURCE_ID_A",
+      "sourceId": "A-OP04-01",
+      "fields": {
+        "heading": "A-OP04-01 · Intelligent Automation taxonomy",
+        "title": "Intelligent Automation taxonomy",
+        "body": [
+          "Profundizar cuando necesitemos arquitectura más especializada de IA/autonomía."
+        ]
+      },
+      "sourceLines": [
+        5915,
+        5916
+      ]
+    },
+    {
+      "key": "A-OP04-02",
+      "classification": "GOVERNED_BACKLOG",
+      "objectType": "SOURCE_ID_A",
+      "sourceId": "A-OP04-02",
+      "fields": {
+        "heading": "A-OP04-02 · SME Automation Economics",
+        "title": "SME Automation Economics",
+        "body": [
+          "Desarrollar cuando necesitemos reglas económicas contextuales más precisas."
+        ]
+      },
+      "sourceLines": [
+        5917,
+        5918
+      ]
+    },
+    {
+      "key": "A-OP04-03",
+      "classification": "GOVERNED_BACKLOG",
+      "objectType": "SOURCE_ID_A",
+      "sourceId": "A-OP04-03",
+      "fields": {
+        "heading": "A-OP04-03 · Digiway proprietary enrichment",
+        "title": "Digiway proprietary enrichment",
+        "body": [
+          "Incorporar documentación propia cuando exista una necesidad específica."
+        ]
+      },
+      "sourceLines": [
+        5919,
+        5920
+      ]
+    },
+    {
+      "key": "A-OP04-04",
+      "classification": "GOVERNED_BACKLOG",
+      "objectType": "SOURCE_ID_A",
+      "sourceId": "A-OP04-04",
+      "fields": {
+        "heading": "A-OP04-04 · Contextual KPI Library",
+        "title": "Contextual KPI Library",
+        "body": [
+          "Construir posteriormente por procesos/sectores/casos."
+        ]
+      },
+      "sourceLines": [
+        5921,
+        5922
+      ]
+    },
+    {
+      "key": "A-OP04-05",
+      "classification": "GOVERNED_BACKLOG",
+      "objectType": "SOURCE_ID_A",
+      "sourceId": "A-OP04-05",
+      "fields": {
+        "heading": "A-OP04-05 · Machine-readable Knowledge Pack",
+        "title": "Machine-readable Knowledge Pack",
+        "body": [
+          "Transformar la baseline gobernada a objetos consumibles por el Motor.",
+          "Ninguno impide V1."
+        ]
+      },
+      "sourceLines": [
+        5923,
+        5925
+      ]
+    },
+    {
+      "key": "K4@L5935",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · PASS",
+        "title": "PASS"
+      },
+      "sourceLines": [
+        5935,
+        5935
+      ]
+    }
+  ],
+  "checksum": "sha256:7a1ec5c30dce53d367de8eec1f44c15c25783836126da78cc4ef515c6be62b30"
+}

@@ -8,6 +8,7 @@
  * genérica de runtime aún no aprobada, o contiene un gap clasificado como
  * publication-blocking. Un pack PUBLISHED es inmutable.
  */
+import { z } from "zod";
 import { computeChecksum } from "./checksum.ts";
 import type { PackCandidate } from "./generator.ts";
 import type { KnowledgeGap } from "./master.ts";
@@ -41,6 +42,26 @@ export interface GovernanceReview {
   reviewedAt?: string;
   note?: string;
 }
+
+/**
+ * Registro de revisión humana exigido por el ciclo de publicación (CLI publish).
+ * La Factory nunca lo genera: solo lo lee y lo liga a la evidencia revisada.
+ */
+export const governanceReviewRecordSchema = z
+  .object({
+    decision: z.enum(["APPROVED", "REJECTED", "PENDING"]),
+    reviewer: z.string().min(1),
+    reviewedAt: z.string().min(1),
+    note: z.string().optional(),
+    reviewedEvidence: z
+      .object({
+        dossier: z.string().min(1),
+        dossierChecksum: z.string().regex(/^sha256:[0-9a-f]{64}$/),
+        packCandidateChecksum: z.string().regex(/^sha256:[0-9a-f]{64}$/),
+      })
+      .optional(),
+  })
+  .passthrough();
 
 export interface PublicationGateResult {
   state: PublicationState;
