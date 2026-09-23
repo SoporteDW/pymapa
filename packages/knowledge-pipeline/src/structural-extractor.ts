@@ -57,6 +57,8 @@ export interface StructuralExtractionReport {
     marker: string | null;
     lines: number[];
     selectedLine: number | null;
+    /** Más de una aparición literal: la selección (última) exige confirmación humana. */
+    requiresHumanConfirmation: boolean;
     statement: string;
   };
   chronology: { line: number; marker: string }[];
@@ -301,6 +303,7 @@ export function extractStructuralCandidate(input: {
       marker,
       lines: closureLines,
       selectedLine: closureLine,
+      requiresHumanConfirmation: closureLines.length > 1,
       statement:
         "Cierre histórico literal (provenance). No equivale a publicación técnica actual ni a aceptación canónica.",
     },
