@@ -143,7 +143,7 @@ export interface ResolverResult {
   governingFreezes: GoverningFreeze[];
 }
 
-const ELIM_RE = /\bse eliminan? como\b|\bSE ELIMINAN?\b|\bELIMINAD[OA]S?\b|\bELIMINATED\b/i;
+const ELIM_RE = /\b[Ss]e eliminan? como\b|\bSE ELIMINAN?\b|\bELIMINAD[OA]S?\b|\bELIMINATED\b/;
 const RETAIN_RE = /\bse mantiene\b|\breformulad[oa]\b/i;
 const CHANGE_RE = /\bse eliminan? como\b|\bSE ELIMINAN?\b|\bELIMINAD[OA]S?\b|\bELIMINATED\b|\breformul/i;
 const FREEZE_RE = /(?<!NOT-)\b(?:CANDIDATE-)?FROZEN\b/;
