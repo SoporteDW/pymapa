@@ -103,7 +103,7 @@ decisión humana registrada tras la aceptación canónica de OP-03, sin modifica
 | Métrica | OP-03 | OP-04 | OP-05 | Lote |
 |---|---|---|---|---|
 | Raw (bytes) | 288 189 | 335 872 | 92 912 | 716 973 |
-| Registro (extracción DOCX) | < 1 s | < 1 s | < 1 s | — |
+| Registro (extracción DOCX) | no cronometrado | no cronometrado | no cronometrado | — |
 | Extracción de candidato | 127 ms | 156 ms | 134 ms | 417 ms |
 | Evaluación Factory | 1 607 ms | 1 551 ms | 566 ms | 3 724 ms |
 | Candidatos | 286 | 257 | 136 | 679 |
