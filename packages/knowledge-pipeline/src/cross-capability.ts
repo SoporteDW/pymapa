@@ -9,6 +9,8 @@
  * la fuente registrada, que el pack publicado citado no haya cambiado y el
  * estado efectivo de cada condición. Nunca cierra una entrada por sí mismo.
  */
+import { existsSync, readFileSync, readdirSync } from "node:fs";
+import { join } from "node:path";
 import { z } from "zod";
 import { computeSelfChecksum, verifySelfChecksum } from "./checksum.ts";
 import type { ExtractionCandidate } from "./candidate.ts";
@@ -195,4 +197,53 @@ export function sealCrossCapabilityRegistry(
   body: Omit<z.infer<typeof crossCapabilityRegistrySchema>, "checksum">,
 ) {
   return { ...body, checksum: computeSelfChecksum(body as unknown as Record<string, unknown>) };
+}
+
+/** Carga desde el repositorio el contexto que el validador necesita (solo lectura). */
+export function loadCrossCapabilityContext(root: string, masterVersion = "v1.0") {
+  const readJson = (p: string) => JSON.parse(readFileSync(join(root, p), "utf8")) as unknown;
+  const ls = (p: string) =>
+    existsSync(join(root, p)) ? readdirSync(join(root, p), { withFileTypes: true }) : [];
+  const sources = new Map<string, { textSha256: string; rawText: string }>();
+  const candidates = new Map<string, ExtractionCandidate>();
+  const acceptances = new Map<string, { decision: string; candidateChecksum: string } | undefined>();
+  const publishedPacks = new Map<string, string>();
+  const capDir = `knowledge/master/${masterVersion}/capabilities`;
+  for (const d of ls(capDir).filter((x) => x.isDirectory())) {
+    const ref = `${capDir}/${d.name}/canonical-baseline.json`;
+    if (!existsSync(join(root, ref))) continue;
+    const b = readJson(ref) as { rawSource?: { ref: string; sha256: string } };
+    if (!b.rawSource) continue;
+    const rawText = readFileSync(join(root, capDir, d.name, b.rawSource.ref), "utf8");
+    sources.set(d.name, { textSha256: b.rawSource.sha256, rawText });
+  }
+  for (const d of ls("knowledge/intake").filter((x) => x.isDirectory())) {
+    const dir = `knowledge/intake/${d.name}`;
+    if (!existsSync(join(root, dir, "registration.json"))) continue;
+    const reg = readJson(`${dir}/registration.json`) as { text?: { ref: string; sha256: string } };
+    if (reg.text)
+      sources.set(d.name, {
+        textSha256: reg.text.sha256,
+        rawText: readFileSync(join(root, dir, reg.text.ref), "utf8"),
+      });
+    if (existsSync(join(root, dir, "candidate.json")))
+      candidates.set(d.name, readJson(`${dir}/candidate.json`) as ExtractionCandidate);
+    acceptances.set(
+      d.name,
+      existsSync(join(root, dir, "canonical-acceptance.json"))
+        ? (readJson(`${dir}/canonical-acceptance.json`) as {
+            decision: string;
+            candidateChecksum: string;
+          })
+        : undefined,
+    );
+  }
+  for (const p of ls("knowledge/packs").filter((x) => x.isDirectory()))
+    for (const v of ls(`knowledge/packs/${p.name}`).filter((x) => x.isDirectory())) {
+      const ref = `knowledge/packs/${p.name}/${v.name}/published.json`;
+      if (!existsSync(join(root, ref))) continue;
+      const pub = readJson(ref) as { packId: string; packVersion: string; checksum: string };
+      publishedPacks.set(`${pub.packId}@${pub.packVersion}`, pub.checksum);
+    }
+  return { sources, candidates, acceptances, publishedPacks };
 }

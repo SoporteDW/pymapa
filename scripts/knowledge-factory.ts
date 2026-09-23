@@ -26,6 +26,7 @@ import { ENGINE_SEMANTIC_HISTORY, ENGINE_SEMVER, ENGINE_VERSION } from "@pymapa/
 import {
   BATCH_MANIFEST_PATH,
   BENCHMARK_PATH,
+  CROSS_CAPABILITY_REGISTRY_PATH,
   INTAKE_DIR,
   MASTER_DIR,
   PACKS_DIR,
@@ -42,12 +43,14 @@ import {
   governanceReviewRecordSchema,
   loadFactoryCapabilityInputs,
   loadGenericCodeCorpus,
+  loadCrossCapabilityContext,
   loadMasterIndex,
   promoteCandidateToCanonicalBaseline,
   rawSourceRegistrationSchema,
   runBatch,
   sha256Bytes,
   validateExtractionCandidate,
+  validateCrossCapabilityRegistry,
   validateMasterIndex,
   validateRuntimeExtensionRegistry,
   runFactoryBatch,
@@ -389,6 +392,22 @@ console.log(
   `Slots sin fuente: ${result.manifest.unregisteredSlotCount}/${result.manifest.expectedCapabilityCount} · señal ${result.manifest.signal}`,
 );
 result.batchIssues.forEach((i) => problema(`lote: ${i}`));
+
+if (existsSync(join(ROOT, CROSS_CAPABILITY_REGISTRY_PATH))) {
+  const cc = validateCrossCapabilityRegistry({
+    registry: readJson(CROSS_CAPABILITY_REGISTRY_PATH),
+    ...loadCrossCapabilityContext(ROOT, MASTER_VERSION),
+  });
+  console.log("Registro cross-capability:");
+  cc.entries.forEach((e) =>
+    console.log(`   · ${e.id}  ${e.decision} → ${e.effectiveStatus} · ${e.detail}`),
+  );
+  cc.issues.forEach((i) =>
+    i.severity === "FAIL"
+      ? problema(`cross-capability ${i.entryId ?? ""}: ${i.message}`)
+      : console.log(`   · REVIEW ${i.entryId ?? ""}: ${i.message}`),
+  );
+}
 
 if (estricto && !escribir) {
   const esperado = `${JSON.stringify(result.manifest, null, 2)}\n`;
