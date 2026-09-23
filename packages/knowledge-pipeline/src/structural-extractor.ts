@@ -14,11 +14,11 @@
  *   revisión canónica, no la herramienta;
  * - marcador de borrador en el propio heading (CANDIDATE, DRAFT, v0.x, …)
  *   → HISTORICAL_DRAFT;
- * - un identificador con dos o más definiciones de título distinto →
- *   todas HISTORICAL_DRAFT: la cronología NUNCA decide la supersesión; el
- *   validador lo reporta como SUPERSESSION_AMBIGUOUS;
+ * - un identificador con dos o más definiciones (título distinto o reformulado
+ *   con cuerpo distinto) → todas HISTORICAL_DRAFT: la cronología NUNCA decide
+ *   la supersesión; el validador lo reporta como SUPERSESSION_AMBIGUOUS;
  * - ítem bajo una sección cuyo heading contiene "Backlog" → GOVERNED_BACKLOG;
- * - identificador con una única definición (o definiciones idénticas) y
+ * - identificador con una única definición y
  *   cierre histórico literal → FINAL_APPROVED, citando como evidencia de
  *   aprobación el marcador de cierre literal (provenance, no publicación);
  * - identificadores de otras capacidades y secciones de frontera → no son
@@ -211,14 +211,14 @@ export function extractStructuralCandidate(input: {
     if (occ.length === 1) single += 1;
     else if (conflict) conflicting += 1;
     else restated += 1;
-    if (conflict)
+    if (occ.length > 1)
       ambiguous.push({ sourceId, occurrences: occ.map((o) => ({ line: o.line, heading: o.heading })) });
     occ.forEach((o) => {
       const draft = DRAFT_TOKENS.test(o.heading);
       if (draft) draftMarked += 1;
       const classification: CandidateItem["classification"] = o.backlog
         ? "GOVERNED_BACKLOG"
-        : draft || conflict || !marker || !closureLine || o.line > closureLine
+        : draft || occ.length > 1 || !marker || !closureLine || o.line > closureLine
           ? "HISTORICAL_DRAFT"
           : "FINAL_APPROVED";
       const fields: Record<string, unknown> = { heading: o.heading };
