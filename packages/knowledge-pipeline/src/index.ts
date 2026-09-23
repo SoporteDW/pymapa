@@ -35,3 +35,5 @@ export * from "./candidate.ts";
 export * from "./runtime-extensions.ts";
 export * from "./factory.ts";
 export * from "./structural-extractor.ts";
+export * from "./supersession-resolver.ts";
+export * from "./governance-decisions.ts";

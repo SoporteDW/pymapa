@@ -36,7 +36,9 @@ import {
   discoverCapabilityPipelineInputs,
   extractRawSource,
   extractStructuralCandidate,
+  GOVERNANCE_DECISIONS_FILE,
   governanceEvidencePath,
+  parseGovernanceDecisions,
   governanceReviewRecordSchema,
   loadFactoryCapabilityInputs,
   loadGenericCodeCorpus,
@@ -170,18 +172,35 @@ if (argv[0] === "extract") {
     ),
   );
   const rawText = readFileSync(join(ROOT, dir, reg.text.ref), "utf8");
+  const decisionsRef = join(dir, GOVERNANCE_DECISIONS_FILE);
+  let governanceDecisions = null;
+  if (existsSync(join(ROOT, decisionsRef))) {
+    const d = parseGovernanceDecisions(readJson(decisionsRef), capabilityId);
+    if (!d.ok) fail(`${decisionsRef}: ${d.reasons.join("; ")}`);
+    governanceDecisions = { value: d.value, ref: decisionsRef };
+  }
+  const mode = flag("--no-supersession") ? ("NONE" as const) : ("GOVERNED" as const);
   const { candidate, report } = extractStructuralCandidate({
     registration: reg,
     rawText,
     capabilityName: opt("--name") ?? null,
     capabilityIds,
     domainIds: master.value.domains.map((d) => d.id),
+    supersession: mode,
+    governanceDecisions,
   });
+  if (report.governance?.errors.length)
+    fail(`${capabilityId}: decisiones de gobierno no verificables: ${report.governance.errors.join("; ")}`);
   writeJson(join(dir, "candidate.json"), candidate);
   writeJson(join(dir, "extraction-report.json"), report);
   console.log(
-    `✓ ${capabilityId}: ${candidate.items.length} ítems candidatos (${report.counts.finalApprovedCandidates} FINAL_APPROVED, ${report.counts.historicalDrafts} HISTORICAL_DRAFT, ${report.counts.governedBacklog} backlog) · ${report.ambiguousSupersessions.length} supersesiones ambiguas · cierre ${report.historicalClosure.marker ?? "NO ENCONTRADO"}`,
+    `✓ ${capabilityId}: ${candidate.items.length} ítems candidatos (${report.counts.finalApprovedCandidates} FINAL_APPROVED, ${report.counts.historicalDrafts} HISTORICAL_DRAFT, ${report.counts.governedBacklog} backlog) · ${report.ambiguousSupersessions.length} supersesiones ambiguas · cierre ${report.historicalClosure.marker ?? "NO ENCONTRADO"} L${report.historicalClosure.selectedLine ?? "?"}`,
   );
+  const sr = report.supersessionResolution;
+  if (sr)
+    console.log(
+      `  supersesión: ${sr.baseline.ambiguousIds} → ${sr.after.ambiguousIds} ambiguas (${sr.resolvedFromBaselineAmbiguous} resueltas por evidencia explícita)`,
+    );
   process.exit(0);
 }
 
