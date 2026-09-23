@@ -49,7 +49,7 @@ function load(cap: string, mode: SupersessionMode = "GOVERNED", decisionsOverrid
   const rawText = readFileSync(join(ROOT, dir, registration.text!.ref), "utf8");
   const ref = join(dir, "governance-decisions.json");
   const d = parseGovernanceDecisions(decisionsOverride ?? readJson(ref), cap);
-  if (!d.ok) throw new Error(d.errors.join("; "));
+  if (!d.ok) throw new Error(d.reasons.join("; "));
   const out = extractStructuralCandidate({
     registration,
     rawText,
@@ -130,8 +130,10 @@ describe.each(["OP-03", "OP-04", "OP-05"])("%s · candidato estructural gobernad
     x.candidate.items
       .filter((i) => i.supersession)
       .forEach((i) => {
-        const [a, b] = i.supersession!.evidence.sourceLines;
-        expect(lines.slice(a - 1, b).join("\n")).toContain(i.supersession!.evidence.text);
+        i.supersession!.evidence.forEach((ev) => {
+          const [a, b] = ev.sourceLines;
+          expect(lines.slice(a - 1, b).join("\n")).toContain(ev.text);
+        });
       });
     // Las versiones previas siguen en el candidato (no se borran).
     const baseItems = load(cap, "NONE").candidate.items.filter((i) => i.sourceId);
