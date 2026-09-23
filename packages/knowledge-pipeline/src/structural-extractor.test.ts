@@ -14,9 +14,11 @@ import {
   promoteCandidateToCanonicalBaseline,
   rawSourceRegistrationSchema,
   resolveSupersessions,
+  sealGovernanceDecisions,
   validateExtractionCandidate,
   validateMasterIndex,
   type ExtractionCandidate,
+  type GovernanceDecisions,
   type ResolverOccurrence,
   type SupersessionMode,
 } from "./index.ts";
@@ -232,7 +234,11 @@ describe("ejemplos de certificación (emergen de la evidencia, no de mapeos)", (
     };
     const t = structuredClone(d);
     t.approvedCounts[0]!.sourceLiteral = "4 CE INVENTADOS";
-    const x = load("OP-03", "GOVERNED", t);
+    // Sin resellar: el checksum de la decisión lo rechaza.
+    expect(parseGovernanceDecisions(t, "OP-03").ok).toBe(false);
+    // Resellada: la decisión no es literal en la fuente → error de gobierno.
+    const { checksum: _c, ...body } = t as unknown as GovernanceDecisions;
+    const x = load("OP-03", "GOVERNED", sealGovernanceDecisions(body));
     expect(x.report.governance!.errors.length).toBeGreaterThan(0);
   });
 });
