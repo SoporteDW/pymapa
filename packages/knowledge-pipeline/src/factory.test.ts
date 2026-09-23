@@ -56,8 +56,20 @@ const engine = {
 const clone = <T>(v: T): T => JSON.parse(JSON.stringify(v)) as T;
 const OP02_PACK_CHECKSUM =
   "sha256:7f8072073a12961bea852c5bee36cce1574836cb0bc59c8c27acbe6ae0ebc6cc";
-const OP02_NE = ["NE-OP02-01", "NE-OP02-02", "NE-OP02-03", "NE-OP02-04", "NE-OP02-05", "NE-OP02-06"];
-const OP02_GRE = ["GRE-OP02-01:CLOSED", "GRE-OP02-02:CLOSED", "GRE-OP02-03:CLOSED", "GRE-OP02-04:CLOSED"];
+const OP02_NE = [
+  "NE-OP02-01",
+  "NE-OP02-02",
+  "NE-OP02-03",
+  "NE-OP02-04",
+  "NE-OP02-05",
+  "NE-OP02-06",
+];
+const OP02_GRE = [
+  "GRE-OP02-01:CLOSED",
+  "GRE-OP02-02:CLOSED",
+  "GRE-OP02-03:CLOSED",
+  "GRE-OP02-04:CLOSED",
+];
 
 /** Entradas reales con OP-02 en su estado pre-publicación (sin aprobación ni pack publicado). */
 function sinPublicacionOp02(): FactoryCapabilityInput[] {
@@ -286,7 +298,9 @@ describe("Factory dry-run sobre artefactos existentes", () => {
   });
 
   it("revisión de gobierno OP-02: rol, sin identidad personal fabricada, cita evidencia vigente", () => {
-    const g = readJson(join("knowledge", "master", VERSION, "capabilities", "OP-02", "governance-review.json")) as Record<string, any>;
+    const g = readJson(
+      join("knowledge", "master", VERSION, "capabilities", "OP-02", "governance-review.json"),
+    ) as Record<string, any>;
     expect(g["decision"]).toBe("APPROVED");
     expect(g["reviewer"]).toBe("PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY");
     expect(String(g["reviewerIdentity"])).toMatch(/no personal identity recorded or fabricated/);
@@ -295,13 +309,16 @@ describe("Factory dry-run sobre artefactos existentes", () => {
     const dossier = readJson(governanceEvidencePath("OP-02")) as { checksum: string };
     expect(g["reviewedEvidence"]["dossierChecksum"]).toBe(dossier.checksum);
     expect(g["reviewedEvidence"]["packCandidateChecksum"]).toBe(OP02_PACK_CHECKSUM);
-    const pub = readJson(join("knowledge", "packs", "op-02", "1.0.0", "published.json")) as Record<string, string>;
+    const pub = readJson(join("knowledge", "packs", "op-02", "1.0.0", "published.json")) as Record<
+      string,
+      string
+    >;
     expect(pub["status"]).toBe("PUBLISHED");
     expect(pub["checksum"]).toBe(OP02_PACK_CHECKSUM);
     expect(pub["requiredEngineVersion"]).toBe("0.2.0");
-    expect(computeChecksum(readJson(join("knowledge", "packs", "op-02", "1.0.0", "pack.json")))).toBe(
-      OP02_PACK_CHECKSUM,
-    );
+    expect(
+      computeChecksum(readJson(join("knowledge", "packs", "op-02", "1.0.0", "pack.json"))),
+    ).toBe(OP02_PACK_CHECKSUM);
   });
 
   /*

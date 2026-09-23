@@ -126,7 +126,9 @@ export function extractStructuralCandidate(input: {
     : [];
 
   /* -------- cierre histórico y cronología -------- */
-  const closureRe = new RegExp(`^${own}-K4-v\\d+(?:\\.\\d+)*${HISTORICAL_CLOSURE_SUFFIX.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`);
+  const closureRe = new RegExp(
+    `^${own}-K4-v\\d+(?:\\.\\d+)*${HISTORICAL_CLOSURE_SUFFIX.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`,
+  );
   const markerRe = new RegExp(`^${own}-[A-Z0-9]+-v\\d+(?:\\.\\d+)*\\s·\\s.+$`);
   const closureLines: number[] = [];
   const chronology: { line: number; marker: string }[] = [];
@@ -139,14 +141,17 @@ export function extractStructuralCandidate(input: {
     }
     if (markerRe.test(t)) chronology.push({ line: i + 1, marker: t });
   });
-  const closureLine = closureLines.length ? (closureLines[closureLines.length - 1] as number) : null;
+  const closureLine = closureLines.length
+    ? (closureLines[closureLines.length - 1] as number)
+    : null;
   const marker = closureText as string | null;
 
   /* -------- segmentación -------- */
   const headings: { line: number; text: string; level: number }[] = [];
   lines.forEach((l, i) => {
     const t = headingText(l);
-    if (t !== null) headings.push({ line: i + 1, text: t, level: (/^#+/.exec(l)?.[0] ?? "").length });
+    if (t !== null)
+      headings.push({ line: i + 1, text: t, level: (/^#+/.exec(l)?.[0] ?? "").length });
   });
   const cross: StructuralExtractionReport["crossCapabilityReferences"] = [];
   type Raw = {
@@ -161,11 +166,13 @@ export function extractStructuralCandidate(input: {
   const raws: Raw[] = [];
   const stack: { level: number; text: string }[] = [];
   headings.forEach((h, idx) => {
-    while (stack.length && (stack[stack.length - 1] as { level: number }).level >= h.level) stack.pop();
+    while (stack.length && (stack[stack.length - 1] as { level: number }).level >= h.level)
+      stack.pop();
     const ancestors = stack.map((s) => s.text);
     stack.push({ level: h.level, text: h.text });
     for (const o of others)
-      if (h.text.includes(o)) cross.push({ target: o, kind: "CAPABILITY", line: h.line, heading: h.text });
+      if (h.text.includes(o))
+        cross.push({ target: o, kind: "CAPABILITY", line: h.line, heading: h.text });
     for (const d of input.domainIds)
       if (d !== reg.domainId && new RegExp(`(?:^|[\\s/(])${d}(?:$|[\\s/)·,.])`).test(h.text))
         cross.push({ target: d, kind: "DOMAIN", line: h.line, heading: h.text });
@@ -214,7 +221,10 @@ export function extractStructuralCandidate(input: {
     else if (conflict) conflicting += 1;
     else restated += 1;
     if (occ.length > 1)
-      ambiguous.push({ sourceId, occurrences: occ.map((o) => ({ line: o.line, heading: o.heading })) });
+      ambiguous.push({
+        sourceId,
+        occurrences: occ.map((o) => ({ line: o.line, heading: o.heading })),
+      });
     occ.forEach((o) => {
       const draft = DRAFT_TOKENS.test(o.heading);
       if (draft) draftMarked += 1;
@@ -234,7 +244,12 @@ export function extractStructuralCandidate(input: {
         fields: fields as CandidateItem["fields"],
         sourceLines: [o.line, Math.max(o.line, o.end)],
         ...(classification === "FINAL_APPROVED" && marker && closureLine
-          ? { approvalEvidence: { text: marker, sourceLines: [closureLine, closureLine] as [number, number] } }
+          ? {
+              approvalEvidence: {
+                text: marker,
+                sourceLines: [closureLine, closureLine] as [number, number],
+              },
+            }
           : {}),
       });
     });

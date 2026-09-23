@@ -58,7 +58,9 @@ describe.each(["OP-03", "OP-04", "OP-05"])("%s · candidato estructural", (cap) 
   it("es CANDIDATE determinista e idéntico al artefacto en intake", () => {
     expect(x.candidate.status).toBe("CANDIDATE");
     expect(x.candidate.producedBy.method).toBe("DETERMINISTIC_TOOL");
-    expect(readJson(join(x.dir, "candidate.json"))).toEqual(JSON.parse(JSON.stringify(x.candidate)));
+    expect(readJson(join(x.dir, "candidate.json"))).toEqual(
+      JSON.parse(JSON.stringify(x.candidate)),
+    );
     expect(readJson(join(x.dir, "extraction-report.json"))).toEqual(
       JSON.parse(JSON.stringify(x.report)),
     );
@@ -110,7 +112,9 @@ describe.each(["OP-03", "OP-04", "OP-05"])("%s · candidato estructural", (cap) 
   it("sin aceptación canónica, revisión de gobierno ni pack fabricados", () => {
     expect(existsSync(join(ROOT, x.dir, "canonical-acceptance.json"))).toBe(false);
     expect(
-      existsSync(join(ROOT, "knowledge", "master", "v1.0", "capabilities", cap, "governance-review.json")),
+      existsSync(
+        join(ROOT, "knowledge", "master", "v1.0", "capabilities", cap, "governance-review.json"),
+      ),
     ).toBe(false);
     expect(existsSync(join(ROOT, "knowledge", "packs", cap.toLowerCase()))).toBe(false);
   });

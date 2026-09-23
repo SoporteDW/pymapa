@@ -80,7 +80,16 @@ describe("OP-02 · fuente autoritativa y baseline canónica", () => {
     expect(ids("CONDITION_OF_EXISTENCE")).toHaveLength(5);
     expect(ids("APPLIED_VARIABLE")).toHaveLength(10);
     expect(ids("INFORMATION_NEED")).toHaveLength(47);
-    expect(ids("FINDING_FAMILY")).toEqual(["HF01", "HF02", "HF03", "HF04", "HF05", "HF06", "HF07", "HF08"]);
+    expect(ids("FINDING_FAMILY")).toEqual([
+      "HF01",
+      "HF02",
+      "HF03",
+      "HF04",
+      "HF05",
+      "HF06",
+      "HF07",
+      "HF08",
+    ]);
     expect(ids("FINDING_VARIANT")).toContain("OP02-HF03A");
     expect(ids("FINDING_VARIANT")).toContain("OP02-HF03B");
     expect(ids("FINDING_VARIANT")).toHaveLength(9);
@@ -88,7 +97,15 @@ describe("OP-02 · fuente autoritativa y baseline canónica", () => {
     expect(ids("INSTRUMENT")).toHaveLength(8);
     expect(ids("DELIVERABLE")).toHaveLength(8);
     expect(ids("RESULT_CRITERION")).toEqual([
-      "CRV-01", "CRV-02", "CRV-03", "CRV-04", "CRV-05", "CRV-06A", "CRV-06B", "CRV-07", "CRV-08",
+      "CRV-01",
+      "CRV-02",
+      "CRV-03",
+      "CRV-04",
+      "CRV-05",
+      "CRV-06A",
+      "CRV-06B",
+      "CRV-07",
+      "CRV-08",
     ]);
     expect(ids("GOVERNED_BACKLOG_ITEM")).toEqual(["A-OP02-01", "A-OP02-02", "A-OP02-03"]);
     expect(ids("DEFINITION_OF_DONE")).toHaveLength(27);
@@ -96,10 +113,15 @@ describe("OP-02 · fuente autoritativa y baseline canónica", () => {
 
   it("la procedencia usa solo el vocabulario de la fuente", () => {
     expect(baseline.provenanceVocabulary.map((p) => p.code)).toEqual([
-      "SOURCE_ASSERTED", "DIGIWAY_INTERNAL", "PYMAPA_DERIVED", "CONTEXTUAL",
+      "SOURCE_ASSERTED",
+      "DIGIWAY_INTERNAL",
+      "PYMAPA_DERIVED",
+      "CONTEXTUAL",
     ]);
     const codigos = new Set(baseline.provenanceVocabulary.map((p) => p.code));
-    baseline.objects.forEach((o) => o.provenance?.classes.forEach((c) => expect(codigos.has(c)).toBe(true)));
+    baseline.objects.forEach((o) =>
+      o.provenance?.classes.forEach((c) => expect(codigos.has(c)).toBe(true)),
+    );
   });
 
   it("no inventa IDs de adquisición: solo P1-OP02-01/02 existen", () => {
@@ -110,13 +132,17 @@ describe("OP-02 · fuente autoritativa y baseline canónica", () => {
   });
 
   it("los GENERIC_RUNTIME_EXTENSION_REQUIRED se preservan y quedan cerrados por extensión genérica", () => {
-    const gre = baseline.gaps.filter((g) => g.kind === "GENERIC_RUNTIME_EXTENSION_REQUIRED").map((g) => g.id);
+    const gre = baseline.gaps
+      .filter((g) => g.kind === "GENERIC_RUNTIME_EXTENSION_REQUIRED")
+      .map((g) => g.id);
     expect(gre).toEqual(["GRE-OP02-01", "GRE-OP02-02", "GRE-OP02-03", "GRE-OP02-04"]);
     // M2-OP02-02: los CRV se proyectan con dueño de patrón; sin activities ni recomendaciones inventadas.
     expect(Object.keys(source.sections)).toContain("validationRequirements");
     expect(Object.keys(source.sections)).not.toContain("activities");
     expect(Object.keys(source.sections)).not.toContain("recommendations");
-    const fuenteGaps = new Map(source.gaps.map((g) => [g.id, g as { resolution?: { status: string } }]));
+    const fuenteGaps = new Map(
+      source.gaps.map((g) => [g.id, g as { resolution?: { status: string } }]),
+    );
     baseline.gaps.forEach((g) => expect(fuenteGaps.has(g.id)).toBe(true));
     gre.forEach((id) =>
       expect(fuenteGaps.get(id)?.resolution?.status).toBe("CLOSED_BY_GENERIC_RUNTIME_EXTENSION"),
@@ -129,11 +155,16 @@ describe("OP-02 · fuente autoritativa y baseline canónica", () => {
 
   it("no inventa fecha de aprobación histórica; la publicación solo existe por autorización humana registrada", () => {
     expect(source.provenance["approvedAt"]).toBe("SOURCE_CONTENT_NOT_RECOVERED");
-    const g = JSON.parse(readFileSync(join(DIR, "governance-review.json"), "utf8")) as Record<string, unknown>;
+    const g = JSON.parse(readFileSync(join(DIR, "governance-review.json"), "utf8")) as Record<
+      string,
+      unknown
+    >;
     expect(g["decision"]).toBe("APPROVED");
     expect(g["reviewer"]).toBe("PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY");
     expect(String(g["authorizationSource"])).toMatch(/^M2-BATCH-01/);
-    expect(existsSync(join(ROOT, "knowledge", "packs", "op-02", "1.0.0", "published.json"))).toBe(true);
+    expect(existsSync(join(ROOT, "knowledge", "packs", "op-02", "1.0.0", "published.json"))).toBe(
+      true,
+    );
   });
 });
 
@@ -159,7 +190,9 @@ describe("OP-02 · el validador de baseline rechaza desviaciones", () => {
   });
 
   it("raw alterado → RAW_INTEGRITY", () => {
-    expect(validar(baseline, source, `${cb.rawText} `).issues.map((i) => i.code)).toContain("RAW_INTEGRITY");
+    expect(validar(baseline, source, `${cb.rawText} `).issues.map((i) => i.code)).toContain(
+      "RAW_INTEGRITY",
+    );
   });
 
   it("gap perdido en la proyección → GAP_NOT_PRESERVED", () => {
@@ -170,7 +203,8 @@ describe("OP-02 · el validador de baseline rechaza desviaciones", () => {
 
   it("texto añadido a la proyección ejecutable → PROJECTION_NOT_VERBATIM", () => {
     const s = clonar(source);
-    (s.sections["variables"] as { name: string }[])[0]!.name = "Variable reformulada por inferencia";
+    (s.sections["variables"] as { name: string }[])[0]!.name =
+      "Variable reformulada por inferencia";
     expect(validar(baseline, s).issues.map((i) => i.code)).toContain("PROJECTION_NOT_VERBATIM");
   });
 
@@ -211,15 +245,24 @@ describe("OP-02 · pipeline genérico y engine genérico", () => {
       knowledgeVersionId: "test-kv-op02",
       observations: [
         {
-          id: "o1", variableRef: "VA01", acquisitionRef: "P1-OP02-01", knowledgeState: "KNOWN",
-          semanticValue: "Tenemos atrasos cuando aumenta el volumen.", sourceResponseId: "r1",
-          respondentId: "p1", evidenceIds: [], notApplicableReason: null,
-          conflictingObservationIds: [], recordedAt: "2026-01-01T00:00:00.000Z",
+          id: "o1",
+          variableRef: "VA01",
+          acquisitionRef: "P1-OP02-01",
+          knowledgeState: "KNOWN",
+          semanticValue: "Tenemos atrasos cuando aumenta el volumen.",
+          sourceResponseId: "r1",
+          respondentId: "p1",
+          evidenceIds: [],
+          notApplicableReason: null,
+          conflictingObservationIds: [],
+          recordedAt: "2026-01-01T00:00:00.000Z",
         },
       ],
     });
     expect(r.evidenceRequirements).toHaveLength(10);
-    r.evidenceRequirements.forEach((e) => expect(e.resolution).toBe("EVIDENCE_REQUIREMENT_REVIEW_REQUIRED"));
+    r.evidenceRequirements.forEach((e) =>
+      expect(e.resolution).toBe("EVIDENCE_REQUIREMENT_REVIEW_REQUIRED"),
+    );
     expect(r.findings).toHaveLength(0);
     r.findingCandidates.forEach((f) => {
       expect(f.lifecycleState).toBe("NEEDS_REVIEW");
@@ -264,7 +307,10 @@ describe("OP-02 · sin branching por capacidad", () => {
     expect(op01?.state).toBe("PUBLISHED");
     expect(op01?.goldenRegression).toMatchObject({ compared: true, equivalent: true });
     const fuente = JSON.parse(
-      readFileSync(join(ROOT, "knowledge", "master", VERSION, "capabilities", "OP-01", "source.json"), "utf8"),
+      readFileSync(
+        join(ROOT, "knowledge", "master", VERSION, "capabilities", "OP-01", "source.json"),
+        "utf8",
+      ),
     ) as Record<string, unknown>;
     expect(computeSelfChecksum(fuente)).toBe(fuente["checksum"]);
   });

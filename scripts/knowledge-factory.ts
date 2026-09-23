@@ -162,10 +162,12 @@ if (argv[0] === "extract") {
   const master = validateMasterIndex(loadMasterIndex(ROOT, MASTER_VERSION));
   if (!master.ok) fail("master.json inválido");
   const vs = master.value.verticalStatus as
-    | { domainClosures?: { domainId: string; declaredCapabilityCount: number }[] }
-    | undefined;
+    { domainClosures?: { domainId: string; declaredCapabilityCount: number }[] } | undefined;
   const capabilityIds = (vs?.domainClosures ?? []).flatMap((d) =>
-    Array.from({ length: d.declaredCapabilityCount }, (_, i) => `${d.domainId}-${String(i + 1).padStart(2, "0")}`),
+    Array.from(
+      { length: d.declaredCapabilityCount },
+      (_, i) => `${d.domainId}-${String(i + 1).padStart(2, "0")}`,
+    ),
   );
   const rawText = readFileSync(join(ROOT, dir, reg.text.ref), "utf8");
   const { candidate, report } = extractStructuralCandidate({
@@ -244,8 +246,11 @@ if (argv[0] === "publish") {
   if (!input) fail(`${capabilityId}: sin source.json ejecutable`);
   const review = governanceReviewRecordSchema.safeParse(input.governanceReview);
   if (!review.success)
-    fail(`${capabilityId}: governance-review.json ausente o incompleto (decision, reviewer, reviewedAt)`);
-  if (review.data.decision !== "APPROVED") fail(`${capabilityId}: decisión ${review.data.decision}`);
+    fail(
+      `${capabilityId}: governance-review.json ausente o incompleto (decision, reviewer, reviewedAt)`,
+    );
+  if (review.data.decision !== "APPROVED")
+    fail(`${capabilityId}: decisión ${review.data.decision}`);
   const r = runBatch([input]).results[0];
   if (!r?.candidate) fail(`${capabilityId}: pack candidate no generado`);
   const packChecksum = computeChecksum(r.candidate.pack);
@@ -261,12 +266,17 @@ if (argv[0] === "publish") {
     fail(`${capabilityId}: la revisión no cita el dossier de evidencia vigente`);
   if (dossier.readiness !== "READY_FOR_HUMAN_PUBLICATION_AUTHORIZATION")
     fail(`${capabilityId}: el dossier revisado no está READY_FOR_HUMAN_PUBLICATION_AUTHORIZATION`);
-  if (cited.packCandidateChecksum !== packChecksum || dossier.identity?.packCandidate?.checksum !== packChecksum)
+  if (
+    cited.packCandidateChecksum !== packChecksum ||
+    dossier.identity?.packCandidate?.checksum !== packChecksum
+  )
     fail(`${capabilityId}: el candidato actual (${packChecksum}) no es el revisado`);
   const dir = join(PACKS_DIR, r.candidate.packId, r.candidate.packVersion);
   if (input.publishedPack) {
     if (input.publishedPack.record.checksum === packChecksum) {
-      console.log(`✓ ${r.candidate.packId}@${r.candidate.packVersion} ya publicado (${packChecksum}); sin cambios`);
+      console.log(
+        `✓ ${r.candidate.packId}@${r.candidate.packVersion} ya publicado (${packChecksum}); sin cambios`,
+      );
       process.exit(0);
     }
     fail(`${dir} ya publicado con otro checksum: una versión publicada es inmutable`);
@@ -284,7 +294,13 @@ if (argv[0] === "publish") {
     publishedAt: review.data.reviewedAt,
     knowledgeMasterVersion: MASTER_VERSION.replace(/^v/, ""),
     requiredEngineVersion: opt("--engine") ?? ENGINE_SEMVER,
-    governanceReview: join(MASTER_DIR, MASTER_VERSION, "capabilities", capabilityId, "governance-review.json"),
+    governanceReview: join(
+      MASTER_DIR,
+      MASTER_VERSION,
+      "capabilities",
+      capabilityId,
+      "governance-review.json",
+    ),
     checksum: packChecksum,
     note: "Registro de inmutabilidad. Un cambio de contenido exige una versión nueva y SUPERSEDED para esta.",
   });
