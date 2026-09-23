@@ -637,6 +637,26 @@ export function promoteCandidateToCanonicalBaseline(input: {
     if (acc.data.capabilityId !== c.capabilityId)
       reasons.push("la aceptación es de otra capacidad");
   }
+  const preview = previewCanonicalProjection(input);
+  reasons.push(...preview.blockers);
+  if (reasons.length > 0 || !preview.baseline) return { ok: false, reasons };
+  return { ok: true, baseline: preview.baseline };
+}
+
+/**
+ * Proyección candidato → baseline SIN aceptación humana, solo para verificar
+ * integridad source→canonical y provenance antes de la revisión. El resultado
+ * NO es una baseline aceptada, no se escribe y no habilita promoción.
+ */
+export function previewCanonicalProjection(input: {
+  validation: CandidateValidation;
+  registration: RawSourceRegistration;
+  rawRef: string;
+  sourceRef: string;
+}): { baseline: CanonicalBaseline | null; blockers: string[] } {
+  const reasons: string[] = [];
+  const c = input.validation.candidate;
+  if (!c) return { baseline: null, blockers: ["candidato inválido"] };
   input.validation.issues
     .filter((i) => i.severity === "FAIL")
     .forEach((i) => reasons.push(`FAIL ${i.code}: ${i.message}`));
@@ -654,8 +674,7 @@ export function promoteCandidateToCanonicalBaseline(input: {
   if (c.provenanceVocabulary.length === 0) reasons.push("provenanceVocabulary vacío");
   const reg = input.registration;
   if (!reg.text) reasons.push("registro sin texto");
-  if (reasons.length > 0 || !c.historicalStatus || !c.baselineId || !reg.text)
-    return { ok: false, reasons };
+  if (!c.historicalStatus || !c.baselineId || !reg.text) return { baseline: null, blockers: reasons };
 
   const byKey = new Map(c.items.map((i) => [i.key, i]));
   const first = (i: CandidateItem) => [...hojas(i.fields)][0] as string;
@@ -744,7 +763,7 @@ export function promoteCandidateToCanonicalBaseline(input: {
     transcriptionCorrections: [],
   };
   return {
-    ok: true,
     baseline: { ...body, checksum: computeSelfChecksum(body) } as CanonicalBaseline,
+    blockers: reasons,
   };
 }
