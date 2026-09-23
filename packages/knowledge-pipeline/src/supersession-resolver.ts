@@ -91,6 +91,8 @@ export interface ResolverOccurrence {
   title: string | null;
   body: string[];
   backlog: boolean;
+  /** El heading contiene un marcador de borrador distinto del token de congelación. */
+  draftHeading: boolean;
 }
 
 export interface ResolverMarker {
@@ -343,7 +345,7 @@ export function resolveSupersessions(input: {
         out.push(l);
         continue;
       }
-      if (!inScope(o)) continue;
+      if (o.backlog) continue;
       if (o.line < c.line) {
         const kind: SupersessionKind =
           frozenStatementEvidence && frozenFrom !== null && c.line >= frozenFrom
@@ -415,7 +417,9 @@ export function resolveSupersessions(input: {
         decided.add(sid);
         continue;
       }
-      const out = occ.map(
+      const out = occ
+        .filter((o) => !o.backlog)
+        .map(
         (o) =>
           local.get(o.key) ?? {
             key: o.key,
@@ -448,6 +452,15 @@ export function resolveSupersessions(input: {
       continue;
     }
     const c = tier[0] as ResolverOccurrence;
+    if (c.draftHeading) {
+      unresolvedIds.push({
+        sourceId: sid,
+        reason: `la definición dentro del ámbito gobernado (L${c.line}) está marcada como borrador en su heading`,
+        occurrences: occ.map((o) => o.line),
+      });
+      decided.add(sid);
+      continue;
+    }
     const inFrozen = inA.length > 0;
     const canonicalEvidence = inFrozen ? [g.evidence[0] as SupersessionEvidence] : g.evidence;
     const why = settle(
@@ -491,6 +504,7 @@ export function resolveSupersessions(input: {
     const f = rem[0];
     if (
       f &&
+      !f.draftHeading &&
       rem.length >= 2 &&
       rem.every((o) => o.heading === f.heading && o.body.join("\n") === f.body.join("\n")) &&
       occ.every((o) => inScope(o))
@@ -522,6 +536,7 @@ export function resolveSupersessions(input: {
     if (resolvedIds.some((r) => r.sourceId === sid)) continue;
     const loc = occ.filter((o) => local.has(o.key));
     const all = occ.filter((o) => inScope(o));
+    if (occ.filter((o) => !o.backlog).length < 2 && loc.length === 0) continue;
     if (loc.length > 0 && loc.length === all.length) {
       accept(
         sid,

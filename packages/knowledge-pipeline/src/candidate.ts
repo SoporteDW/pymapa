@@ -83,6 +83,21 @@ export const candidateItemSchema = z.object({
   /** Evidencia literal de aprobación/cierre (obligatoria para FINAL_APPROVED). */
   approvalEvidence: z.object({ text: z.string().min(1), sourceLines: lineRange }).optional(),
   supersededBy: z.string().min(1).optional(),
+  /**
+   * Evidencia literal de supersesión resuelta por el resolver genérico
+   * (supersession-resolver.ts). Preserva la versión previa como provenance.
+   */
+  supersession: z
+    .object({
+      resolver: z.string().min(1),
+      rule: z.enum(SUPERSESSION_RULES),
+      kind: z.enum(SUPERSESSION_KINDS),
+      evidence: z.array(z.object({ text: z.string().min(1), sourceLines: lineRange })).min(1),
+      canonicalKey: z.string().min(1).optional(),
+    })
+    .optional(),
+  /** Ítem materializado por una decisión humana de gobierno (decisionSetId). */
+  governanceDecision: z.string().min(1).optional(),
   /** Texto del operador para clases de silencio/gobierno: NO es conocimiento. */
   statement: z.string().min(1).optional(),
   semanticCapability: z
@@ -129,6 +144,14 @@ export const extractionCandidateSchema = z.object({
   ),
   verbatimKeys: z.array(z.string().min(1)).min(1),
   items: z.array(candidateItemSchema).min(1),
+  /** Decisiones humanas de gobierno aplicadas por el extractor (verificadas literalmente). */
+  governanceDecisions: z
+    .object({
+      decisionSetId: z.string().min(1),
+      ref: z.string().min(1),
+      checksum: z.string().regex(/^sha256:[0-9a-f]{64}$/),
+    })
+    .optional(),
   checksum: z.string().regex(/^sha256:[0-9a-f]{64}$/),
 });
 export type ExtractionCandidate = z.infer<typeof extractionCandidateSchema>;
