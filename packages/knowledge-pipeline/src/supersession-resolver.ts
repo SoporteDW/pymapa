@@ -143,9 +143,9 @@ export interface ResolverResult {
   governingFreezes: GoverningFreeze[];
 }
 
-const ELIM_RE = /\bse eliminan? como\b|\bSE ELIMINAN?\b|\bELIMINAD[OA]S?\b|\bELIMINATED\b/;
+const ELIM_RE = /\bse eliminan? como\b|\bSE ELIMINAN?\b|\bELIMINAD[OA]S?\b|\bELIMINATED\b/i;
 const RETAIN_RE = /\bse mantiene\b|\breformulad[oa]\b/i;
-const CHANGE_RE = /\bse eliminan? como\b|\bSE ELIMINAN?\b|\bELIMINATED\b|\breformul/i;
+const CHANGE_RE = /\bse eliminan? como\b|\bSE ELIMINAN?\b|\bELIMINAD[OA]S?\b|\bELIMINATED\b|\breformul/i;
 const FREEZE_RE = /(?<!NOT-)\b(?:CANDIDATE-)?FROZEN\b/;
 const PROMOTION_RE = /\bREADY-TO-FREEZE\b|\bFOUNDATION-SUPPORTED\b/;
 const REFORMULATION_HEADING_RE = /\breformulaci[oó]n de\s+([A-Z][A-Z0-9]*(?:-[A-Za-z0-9.]+)*)/i;
@@ -202,6 +202,14 @@ export function resolveSupersessions(input: {
   const nested = (o: ResolverOccurrence) =>
     occurrences.filter((x) => x.line > o.line && x.line <= o.sectionEnd);
   const inScope = (o: ResolverOccurrence) => !o.backlog && o.line <= closure;
+  /** Contenido completo de la sección (subsecciones incluidas), sin líneas vacías. */
+  const sectionText = (o: ResolverOccurrence) =>
+    lines
+      .slice(o.line, o.sectionEnd)
+      .filter((l) => l.trim().length > 0)
+      .join("\n");
+  const sameDefinition = (a: ResolverOccurrence, b: ResolverOccurrence) =>
+    a.heading === b.heading && sectionText(a) === sectionText(b);
 
   /* ---------------- R1 · eliminación explícita ---------------- */
   for (const o of occurrences) {
@@ -324,7 +332,7 @@ export function resolveSupersessions(input: {
   };
   const compatible = (o: ResolverOccurrence, c: ResolverOccurrence) =>
     (o.title === null || (c.title ?? "").includes(o.title)) &&
-    !o.body.some((b) => CHANGE_RE.test(b));
+    !CHANGE_RE.test(sectionText(o));
 
   /** Selección canónica común (R3/R4): previas superadas, posteriores confirmación. */
   const settle = (
@@ -437,11 +445,7 @@ export function resolveSupersessions(input: {
     }
     if (
       tier.length > 1 &&
-      !tier.every(
-        (o) =>
-          o.heading === (tier[0] as ResolverOccurrence).heading &&
-          o.body.join("\n") === (tier[0] as ResolverOccurrence).body.join("\n"),
-      )
+      !tier.every((o) => sameDefinition(o, tier[0] as ResolverOccurrence))
     ) {
       unresolvedIds.push({
         sourceId: sid,
@@ -506,7 +510,7 @@ export function resolveSupersessions(input: {
       f &&
       !f.draftHeading &&
       rem.length >= 2 &&
-      rem.every((o) => o.heading === f.heading && o.body.join("\n") === f.body.join("\n")) &&
+      rem.every((o) => sameDefinition(o, f)) &&
       occ.every((o) => inScope(o))
     ) {
       const out = occ.map(
