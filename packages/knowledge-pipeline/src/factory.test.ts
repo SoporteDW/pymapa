@@ -22,6 +22,7 @@ import {
   extractRawSource,
   governanceEvidencePath,
   loadFactoryCapabilityInputs,
+  computeChecksum,
   loadGenericCodeCorpus,
   loadMasterIndex,
   promoteCandidateToCanonicalBaseline,
