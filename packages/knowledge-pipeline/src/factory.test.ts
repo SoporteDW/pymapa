@@ -53,6 +53,19 @@ const engine = {
   baselineSemver: ENGINE_SEMANTIC_HISTORY[0]!.version,
 };
 const clone = <T>(v: T): T => JSON.parse(JSON.stringify(v)) as T;
+const OP02_PACK_CHECKSUM =
+  "sha256:7f8072073a12961bea852c5bee36cce1574836cb0bc59c8c27acbe6ae0ebc6cc";
+const OP02_NE = ["NE-OP02-01", "NE-OP02-02", "NE-OP02-03", "NE-OP02-04", "NE-OP02-05", "NE-OP02-06"];
+const OP02_GRE = ["GRE-OP02-01:CLOSED", "GRE-OP02-02:CLOSED", "GRE-OP02-03:CLOSED", "GRE-OP02-04:CLOSED"];
+
+/** Entradas reales con OP-02 en su estado pre-publicación (sin aprobación ni pack publicado). */
+function sinPublicacionOp02(): FactoryCapabilityInput[] {
+  return loadFactoryCapabilityInputs(ROOT, VERSION).map((c) => {
+    if (c.capabilityId !== "OP-02" || !c.master?.pipelineInput) return c;
+    const { governanceReview: _g, publishedPack: _p, ...resto } = c.master.pipelineInput;
+    return { ...c, master: { ...c.master, pipelineInput: resto } };
+  });
+}
 
 function batchInput(over: Partial<FactoryBatchInput> = {}): FactoryBatchInput {
   return {
@@ -256,19 +269,59 @@ describe("Factory dry-run sobre artefactos existentes", () => {
     expect(e.checks.find((c) => c.check === "GOLDEN_REGRESSION")?.status).toBe("PASS");
   });
 
-  it("OP-02 = READY_FOR_PUBLICATION / REVIEW_REQUIRED con único motivo: autorización humana", () => {
+  it("OP-02 = PUBLISHED / PASS tras autorización humana registrada (M2-BATCH-01)", () => {
     const e = byId(r, "OP-02");
+    expect(e.state).toBe("PUBLISHED");
+    expect(e.outcome).toBe("PASS");
+    expect(e.reasons.filter((x) => x.severity !== "INFO")).toEqual([]);
+    expect(e.publication.status).toBe("PUBLISHED");
+    expect(e.publication.packChecksum).toBe(OP02_PACK_CHECKSUM);
+    expect(e.governance.reviewStatus).toBe("APPROVED");
+    expect(e.gaps.notExplicit).toEqual(OP02_NE);
+    expect(e.transcriptionCorrections).toEqual(["TC-OP02-01"]);
+    expect(e.runtimeCompatibility.extensions.map((x) => `${x.gapId}:${x.status}`)).toEqual(
+      OP02_GRE,
+    );
+  });
+
+  it("revisión de gobierno OP-02: rol, sin identidad personal fabricada, cita evidencia vigente", () => {
+    const g = readJson(join("knowledge", "master", VERSION, "capabilities", "OP-02", "governance-review.json")) as Record<string, any>;
+    expect(g["decision"]).toBe("APPROVED");
+    expect(g["reviewer"]).toBe("PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY");
+    expect(String(g["reviewerIdentity"])).toMatch(/no personal identity recorded or fabricated/);
+    expect(g["reviewedAt"]).toBe("2026-09-22");
+    expect(g["engineVersion"]).toBe("0.2.0");
+    const dossier = readJson(governanceEvidencePath("OP-02")) as { checksum: string };
+    expect(g["reviewedEvidence"]["dossierChecksum"]).toBe(dossier.checksum);
+    expect(g["reviewedEvidence"]["packCandidateChecksum"]).toBe(OP02_PACK_CHECKSUM);
+    const pub = readJson(join("knowledge", "packs", "op-02", "1.0.0", "published.json")) as Record<string, string>;
+    expect(pub["status"]).toBe("PUBLISHED");
+    expect(pub["checksum"]).toBe(OP02_PACK_CHECKSUM);
+    expect(pub["requiredEngineVersion"]).toBe("0.2.0");
+    expect(computeChecksum(readJson(join("knowledge", "packs", "op-02", "1.0.0", "pack.json")))).toBe(
+      OP02_PACK_CHECKSUM,
+    );
+  });
+
+  /*
+   * La evidencia que se autorizó es reproducible: retirando la aprobación y el
+   * pack publicado, la Factory vuelve a READY_FOR_PUBLICATION y recalcula
+   * byte a byte el dossier revisado.
+   */
+  const prePublicacion = runFactoryBatch(batchInput({ capabilities: sinPublicacionOp02() }));
+
+  it("pre-publicación reconstruida: OP-02 = READY_FOR_PUBLICATION con único motivo: autorización humana", () => {
+    const e = byId(prePublicacion, "OP-02");
     expect(e.state).toBe("READY_FOR_PUBLICATION");
     expect(e.outcome).toBe("REVIEW_REQUIRED");
     expect(e.publication.status).toBe("UNPUBLISHED");
     const motivos = e.reasons.filter((x) => x.severity !== "INFO").map((x) => x.code);
     expect(motivos).toEqual(["HUMAN_PUBLICATION_AUTHORIZATION_REQUIRED"]);
-    expect(e.reasons.find((x) => x.severity !== "INFO")?.action).toMatch(/governance-review\.json/);
     expect(e.governance.evidence).toBe("CURRENT");
   });
 
-  it("dossier OP-02: READY_FOR_HUMAN_PUBLICATION_AUTHORIZATION sin aprobación fabricada", () => {
-    const d = r.dossiers.get("OP-02")!;
+  it("dossier OP-02 revisado: READY_FOR_HUMAN_PUBLICATION_AUTHORIZATION sin aprobación fabricada", () => {
+    const d = prePublicacion.dossiers.get("OP-02")!;
     expect(d.readiness).toBe("READY_FOR_HUMAN_PUBLICATION_AUTHORIZATION");
     expect(d.blockers).toEqual([]);
     expect(d.humanAuthorization.present).toBe(false);
@@ -282,28 +335,16 @@ describe("Factory dry-run sobre artefactos existentes", () => {
       "db27a2976db128e87cbcfa9f2df1a40f461ff91cb0eb8b07110181b5c3b34800",
     );
     expect(d.transcriptionCorrections.map((t) => t.id)).toEqual(["TC-OP02-01"]);
-    expect(d.runtimeExtensions.map((x) => `${x.gapId}:${x.status}`)).toEqual([
-      "GRE-OP02-01:CLOSED",
-      "GRE-OP02-02:CLOSED",
-      "GRE-OP02-03:CLOSED",
-      "GRE-OP02-04:CLOSED",
-    ]);
-    expect(d.notExplicit).toEqual([
-      "NE-OP02-01",
-      "NE-OP02-02",
-      "NE-OP02-03",
-      "NE-OP02-04",
-      "NE-OP02-05",
-      "NE-OP02-06",
-    ]);
+    expect(d.runtimeExtensions.map((x) => `${x.gapId}:${x.status}`)).toEqual(OP02_GRE);
+    expect(d.notExplicit).toEqual(OP02_NE);
     expect(d.governedBacklog).toEqual(["A-OP02-01", "A-OP02-02", "A-OP02-03"]);
     expect(d.engine.current).toBe("0.2.0");
     expect(d.engine.required).toBe("0.2.0");
     expect(d.checks.every((c) => c.status !== "FAIL")).toBe(true);
   });
 
-  it("dossier en disco = dossier recalculado (knowledge:factory --check)", () => {
-    const d = r.dossiers.get("OP-02")!;
+  it("dossier en disco = dossier revisado recalculado (la aprobación cita exactamente esta evidencia)", () => {
+    const d = prePublicacion.dossiers.get("OP-02")!;
     expect(readJson(governanceEvidencePath("OP-02"))).toEqual(JSON.parse(JSON.stringify(d)));
   });
 
@@ -312,9 +353,9 @@ describe("Factory dry-run sobre artefactos existentes", () => {
     expect(readFileSync(join(ROOT, BENCHMARK_PATH), "utf8")).toBe(buildFactoryBenchmarkMarkdown(r));
   });
 
-  it("manifest: 31 slots, 29 sin fuente, señal AUTHORITATIVE_SOURCE_REQUIRED, sin issues de lote", () => {
+  it("manifest: 31 slots, 26 sin fuente, señal AUTHORITATIVE_SOURCE_REQUIRED, sin issues de lote", () => {
     expect(r.manifest.expectedCapabilityCount).toBe(31);
-    expect(r.manifest.unregisteredSlotCount).toBe(29);
+    expect(r.manifest.unregisteredSlotCount).toBe(26);
     expect(r.manifest.signal).toBe("AUTHORITATIVE_SOURCE_REQUIRED");
     expect(r.batchIssues).toEqual([]);
     for (const e of r.manifest.entries) {
@@ -338,8 +379,8 @@ describe("Factory dry-run sobre artefactos existentes", () => {
       expect(FACTORY_STATES).toContain(e.state);
     }
     const op = r.manifest.domains.find((d) => d.domainId === "OP")!;
-    expect(op.registered).toEqual(["OP-01", "OP-02"]);
-    expect(op.unregisteredSlots).toBe(3);
+    expect(op.registered).toEqual(["OP-01", "OP-02", "OP-03", "OP-04", "OP-05"]);
+    expect(op.unregisteredSlots).toBe(0);
   });
 
   it("versión de engine requerida por capacidad es independiente de la versión del pack", () => {
@@ -403,7 +444,7 @@ describe("Aislamiento por capacidad", () => {
     const op02 = byId(base, "OP-02");
     const caps = loadFactoryCapabilityInputs(ROOT, VERSION).map((c) => {
       const pp = c.master?.pipelineInput?.publishedPack;
-      if (!pp) return c;
+      if (!pp || c.capabilityId !== "OP-01") return c;
       const pack = clone(pp.pack) as Record<string, unknown>;
       pack["governanceNote"] = "alterado";
       return {
@@ -423,7 +464,7 @@ describe("Aislamiento por capacidad", () => {
   });
 
   it("dossier en disco desactualizado → REVIEW, no FAIL, y no READY_FOR_PUBLICATION", () => {
-    const caps = loadFactoryCapabilityInputs(ROOT, VERSION).map((c) =>
+    const caps = sinPublicacionOp02().map((c) =>
       c.governanceEvidenceOnDisk
         ? {
             ...c,
@@ -736,7 +777,7 @@ describe("Estados independientes de intake en el mismo lote", () => {
     expect(byId(r, SYN_ID).outcome).toBe("REVIEW_REQUIRED");
     expect(byId(r, "OP-01")).toEqual(byId(base, "OP-01"));
     expect(byId(r, "OP-02")).toEqual(byId(base, "OP-02"));
-    expect(r.manifest.unregisteredSlotCount).toBe(28);
+    expect(r.manifest.unregisteredSlotCount).toBe(25);
   });
 
   it("candidato válido → CANONICAL_REVIEW_REQUIRED; candidato no literal → FAIL aislado", () => {

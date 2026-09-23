@@ -562,7 +562,7 @@ describe("M2-A · Golden Pack OP-01", () => {
     if (!master.ok) throw new Error("master inválido");
     const manifest = buildCapabilityManifest({ master: master.value, results: lote.results });
     expect(manifest.signal).toBe(AUTHORITATIVE_SOURCE_REQUIRED);
-    expect(manifest.publishedCount).toBe(1);
+    expect(manifest.publishedCount).toBe(2);
     const enDisco = JSON.parse(readFileSync(join(ROOT, "knowledge", "manifest.json"), "utf8")) as {
       checksum: string;
     };

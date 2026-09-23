@@ -127,10 +127,13 @@ describe("OP-02 · fuente autoritativa y baseline canónica", () => {
       .forEach((g) => expect((g as { resolution?: unknown }).resolution).toBeUndefined());
   });
 
-  it("no inventa fecha de aprobación ni aprobación de publicación", () => {
+  it("no inventa fecha de aprobación histórica; la publicación solo existe por autorización humana registrada", () => {
     expect(source.provenance["approvedAt"]).toBe("SOURCE_CONTENT_NOT_RECOVERED");
-    expect(existsSync(join(DIR, "governance-review.json"))).toBe(false);
-    expect(existsSync(join(ROOT, "knowledge", "packs", "op-02"))).toBe(false);
+    const g = JSON.parse(readFileSync(join(DIR, "governance-review.json"), "utf8")) as Record<string, unknown>;
+    expect(g["decision"]).toBe("APPROVED");
+    expect(g["reviewer"]).toBe("PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY");
+    expect(String(g["authorizationSource"])).toMatch(/^M2-BATCH-01/);
+    expect(existsSync(join(ROOT, "knowledge", "packs", "op-02", "1.0.0", "published.json"))).toBe(true);
   });
 });
 
@@ -182,12 +185,13 @@ describe("OP-02 · pipeline genérico y engine genérico", () => {
   const lote = runBatch(discoverCapabilityPipelineInputs(ROOT, VERSION));
   const op02 = lote.results.find((r) => r.capabilityId === "OP-02")!;
 
-  it("pasa todas las validaciones técnicas y queda pendiente solo de revisión de gobierno", () => {
+  it("pasa todas las validaciones técnicas y, con la aprobación registrada, queda PUBLISHED sin bloqueos", () => {
     expect(op02.errors).toEqual([]);
-    expect(op02.outcome).toBe("REVIEW_REQUIRED");
-    expect(op02.state).toBe("VALIDATED");
-    expect(op02.publication?.blockers.map((b) => b.code)).toEqual(["GOVERNANCE_REVIEW_PENDING"]);
+    expect(op02.outcome).toBe("PASS");
+    expect(op02.state).toBe("PUBLISHED");
+    expect(op02.publication?.blockers).toEqual([]);
     expect(op02.diff?.clean).toBe(true);
+    expect(op02.goldenRegression).toMatchObject({ compared: true, equivalent: true });
   });
 
   it("los 10 fixtures OP-02 corren por el mismo harness sin FAIL y sin findings confirmados", () => {
