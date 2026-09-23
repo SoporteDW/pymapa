@@ -193,7 +193,9 @@ if (argv[0] === "extract") {
     governanceDecisions,
   });
   if (report.governance?.errors.length)
-    fail(`${capabilityId}: decisiones de gobierno no verificables: ${report.governance.errors.join("; ")}`);
+    fail(
+      `${capabilityId}: decisiones de gobierno no verificables: ${report.governance.errors.join("; ")}`,
+    );
   writeJson(join(dir, "candidate.json"), candidate);
   writeJson(join(dir, "extraction-report.json"), report);
   console.log(

@@ -145,7 +145,8 @@ export interface ResolverResult {
 
 const ELIM_RE = /\b[Ss]e eliminan? como\b|\bSE ELIMINAN?\b|\bELIMINAD[OA]S?\b|\bELIMINATED\b/;
 const RETAIN_RE = /\bse mantiene\b|\breformulad[oa]\b/i;
-const CHANGE_RE = /\bse eliminan? como\b|\bSE ELIMINAN?\b|\bELIMINAD[OA]S?\b|\bELIMINATED\b|\breformul/i;
+const CHANGE_RE =
+  /\bse eliminan? como\b|\bSE ELIMINAN?\b|\bELIMINAD[OA]S?\b|\bELIMINATED\b|\breformul/i;
 const FREEZE_RE = /(?<!NOT-)\b(?:CANDIDATE-)?FROZEN\b/;
 const PROMOTION_RE = /\bREADY-TO-FREEZE\b|\bFOUNDATION-SUPPORTED\b/;
 const REFORMULATION_HEADING_RE = /\breformulaci[oó]n de\s+([A-Z][A-Z0-9]*(?:-[A-Za-z0-9.]+)*)/i;
@@ -331,8 +332,7 @@ export function resolveSupersessions(input: {
     decided.add(sid);
   };
   const compatible = (o: ResolverOccurrence, c: ResolverOccurrence) =>
-    (o.title === null || (c.title ?? "").includes(o.title)) &&
-    !CHANGE_RE.test(sectionText(o));
+    (o.title === null || (c.title ?? "").includes(o.title)) && !CHANGE_RE.test(sectionText(o));
 
   /** Selección canónica común (R3/R4): previas superadas, posteriores confirmación. */
   const settle = (
@@ -428,14 +428,14 @@ export function resolveSupersessions(input: {
       const out = occ
         .filter((o) => !o.backlog)
         .map(
-        (o) =>
-          local.get(o.key) ?? {
-            key: o.key,
-            kind: "NOT_IN_FROZEN_ARCHITECTURE" as const,
-            rule: "GOVERNED_FREEZE" as const,
-            evidence: g.evidence,
-          },
-      );
+          (o) =>
+            local.get(o.key) ?? {
+              key: o.key,
+              kind: "NOT_IN_FROZEN_ARCHITECTURE" as const,
+              rule: "GOVERNED_FREEZE" as const,
+              evidence: g.evidence,
+            },
+        );
       accept(sid, out, null);
       continue;
     }
@@ -443,10 +443,7 @@ export function resolveSupersessions(input: {
       decided.add(sid); // única definición dentro del ámbito: sin cambio de clasificación
       continue;
     }
-    if (
-      tier.length > 1 &&
-      !tier.every((o) => sameDefinition(o, tier[0] as ResolverOccurrence))
-    ) {
+    if (tier.length > 1 && !tier.every((o) => sameDefinition(o, tier[0] as ResolverOccurrence))) {
       unresolvedIds.push({
         sourceId: sid,
         reason: `varias definiciones distintas dentro del ámbito gobernado por ${g.marker} (L${g.line})`,
@@ -476,7 +473,8 @@ export function resolveSupersessions(input: {
       inFrozen ? [g.evidence[0] as SupersessionEvidence] : null,
       inFrozen ? g.line : null,
     );
-    if (why) unresolvedIds.push({ sourceId: sid, reason: why, occurrences: occ.map((o) => o.line) });
+    if (why)
+      unresolvedIds.push({ sourceId: sid, reason: why, occurrences: occ.map((o) => o.line) });
     decided.add(sid);
   }
 
@@ -497,7 +495,8 @@ export function resolveSupersessions(input: {
     const c = frozen[0] as ResolverOccurrence;
     const e = [ev(c.line, c.heading)];
     const why = settle(sid, c, "FROZEN_HEADING", e, e, null, null);
-    if (why) unresolvedIds.push({ sourceId: sid, reason: why, occurrences: occ.map((o) => o.line) });
+    if (why)
+      unresolvedIds.push({ sourceId: sid, reason: why, occurrences: occ.map((o) => o.line) });
     decided.add(sid);
   }
 

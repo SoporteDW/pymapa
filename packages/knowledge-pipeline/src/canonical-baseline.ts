@@ -40,7 +40,9 @@ export const canonicalObjectSchema = z.object({
   sourceLines: lineRange,
   status: z.string().optional(),
   role: z.string().optional(),
-  provenance: z.object({ classes: z.array(z.string().min(1)).min(1), sourceLines: lineRange }).optional(),
+  provenance: z
+    .object({ classes: z.array(z.string().min(1)).min(1), sourceLines: lineRange })
+    .optional(),
   annotations: z
     .array(
       z.object({
@@ -196,10 +198,18 @@ export interface CanonicalBaselineInput {
   /** Bytes de la transcripción raw para verificar identidad. */
   rawBytes: Uint8Array;
   /** Proyección ejecutable (source.json) cuando existe. */
-  source?: { capability: { id: string }; sections: Record<string, unknown>; gaps: { id: string; kind: string }[] } | undefined;
+  source?:
+    | {
+        capability: { id: string };
+        sections: Record<string, unknown>;
+        gaps: { id: string; kind: string }[];
+      }
+    | undefined;
 }
 
-export function validateCanonicalBaseline(input: CanonicalBaselineInput): CanonicalBaselineValidation {
+export function validateCanonicalBaseline(
+  input: CanonicalBaselineInput,
+): CanonicalBaselineValidation {
   const issues: CanonicalIssue[] = [];
   const parsed = canonicalBaselineSchema.safeParse(input.baseline);
   if (!parsed.success) {
@@ -219,13 +229,25 @@ export function validateCanonicalBaseline(input: CanonicalBaselineInput): Canoni
   // Identidad de la transcripción raw.
   const sha = sha256Hex(input.rawText);
   if (sha !== b.rawSource.sha256) {
-    issues.push({ code: "RAW_INTEGRITY", path: "rawSource.sha256", message: `sha256 raw ${sha} ≠ declarado` });
+    issues.push({
+      code: "RAW_INTEGRITY",
+      path: "rawSource.sha256",
+      message: `sha256 raw ${sha} ≠ declarado`,
+    });
   }
   if (input.rawBytes.byteLength !== b.rawSource.byteLength) {
-    issues.push({ code: "RAW_INTEGRITY", path: "rawSource.byteLength", message: "longitud raw ≠ declarada" });
+    issues.push({
+      code: "RAW_INTEGRITY",
+      path: "rawSource.byteLength",
+      message: "longitud raw ≠ declarada",
+    });
   }
   if (lineas.length !== b.rawSource.lineCount) {
-    issues.push({ code: "RAW_INTEGRITY", path: "rawSource.lineCount", message: "número de líneas raw ≠ declarado" });
+    issues.push({
+      code: "RAW_INTEGRITY",
+      path: "rawSource.lineCount",
+      message: "número de líneas raw ≠ declarado",
+    });
   }
 
   const tramo = (rango: [number, number], path: string): string | null => {
@@ -260,7 +282,8 @@ export function validateCanonicalBaseline(input: CanonicalBaselineInput): Canoni
   const porSourceId = new Map<string, CanonicalObject[]>();
   b.objects.forEach((o, i) => {
     const path = `objects.${i}(${o.key})`;
-    if (porClave.has(o.key)) issues.push({ code: "DUPLICATE_KEY", path, message: `clave duplicada ${o.key}` });
+    if (porClave.has(o.key))
+      issues.push({ code: "DUPLICATE_KEY", path, message: `clave duplicada ${o.key}` });
     porClave.set(o.key, o);
     if (o.sourceId) porSourceId.set(o.sourceId, [...(porSourceId.get(o.sourceId) ?? []), o]);
     const extra = [o.sourceId, o.status].filter((x): x is string => typeof x === "string");
@@ -327,7 +350,11 @@ export function validateCanonicalBaseline(input: CanonicalBaselineInput): Canoni
   const gapIds = new Set(b.gaps.map((g) => g.id));
   b.executableProjection.canonicalOnlyGapRefs.forEach((ref) => {
     if (!gapIds.has(ref)) {
-      issues.push({ code: "GAP_NOT_PRESERVED", path: "executableProjection", message: `gap inexistente ${ref}` });
+      issues.push({
+        code: "GAP_NOT_PRESERVED",
+        path: "executableProjection",
+        message: `gap inexistente ${ref}`,
+      });
     }
   });
 
@@ -335,11 +362,14 @@ export function validateCanonicalBaseline(input: CanonicalBaselineInput): Canoni
   const vistos = new Set<string>();
   (b.transcriptionCorrections ?? []).forEach((c, i) => {
     const path = `transcriptionCorrections.${i}(${c.id})`;
-    const fallo = (message: string) => issues.push({ code: "TRANSCRIPTION_CORRECTION", path, message });
+    const fallo = (message: string) =>
+      issues.push({ code: "TRANSCRIPTION_CORRECTION", path, message });
     if (vistos.has(c.id)) fallo(`corrección duplicada ${c.id}`);
     vistos.add(c.id);
-    if (c.rawSha256 !== b.rawSource.sha256) fallo("la corrección no está anclada a la transcripción raw vigente");
-    if (JSON.stringify(c.before) === JSON.stringify(c.after)) fallo("valor previo y posterior idénticos");
+    if (c.rawSha256 !== b.rawSource.sha256)
+      fallo("la corrección no está anclada a la transcripción raw vigente");
+    if (JSON.stringify(c.before) === JSON.stringify(c.after))
+      fallo("valor previo y posterior idénticos");
     literal(hojas(c.after), c.sourceLines, `${path}.after`);
     const objeto = porClave.get(c.objectKey);
     if (!objeto) {
@@ -365,12 +395,21 @@ export function validateCanonicalBaseline(input: CanonicalBaselineInput): Canoni
 
   if (input.source) {
     if (input.source.capability.id !== b.capabilityId) {
-      issues.push({ code: "PROJECTION_IDENTITY", path: "source.capability.id", message: "identidad ≠ baseline" });
+      issues.push({
+        code: "PROJECTION_IDENTITY",
+        path: "source.capability.id",
+        message: "identidad ≠ baseline",
+      });
     }
     const verbatim = new Set(b.executableProjection.verbatimKeys);
     const recorrer = (valor: unknown, path: string, clave: string | null) => {
       if (typeof valor === "string") {
-        if (clave && verbatim.has(clave) && valor !== NOT_EXPLICIT && !input.rawText.includes(valor)) {
+        if (
+          clave &&
+          verbatim.has(clave) &&
+          valor !== NOT_EXPLICIT &&
+          !input.rawText.includes(valor)
+        ) {
           issues.push({
             code: "PROJECTION_NOT_VERBATIM",
             path,
@@ -380,7 +419,8 @@ export function validateCanonicalBaseline(input: CanonicalBaselineInput): Canoni
       } else if (Array.isArray(valor)) {
         valor.forEach((v, k) => recorrer(v, `${path}[${k}]`, clave));
       } else if (valor && typeof valor === "object") {
-        for (const [k, v] of Object.entries(valor as Record<string, unknown>)) recorrer(v, `${path}.${k}`, k);
+        for (const [k, v] of Object.entries(valor as Record<string, unknown>))
+          recorrer(v, `${path}.${k}`, k);
       }
     };
     for (const [k, v] of Object.entries(input.source.sections)) {
@@ -400,7 +440,9 @@ export function validateCanonicalBaseline(input: CanonicalBaselineInput): Canoni
   }
 
   const objectTypeCounts: Record<string, number> = {};
-  b.objects.forEach((o) => (objectTypeCounts[o.objectType] = (objectTypeCounts[o.objectType] ?? 0) + 1));
+  b.objects.forEach(
+    (o) => (objectTypeCounts[o.objectType] = (objectTypeCounts[o.objectType] ?? 0) + 1),
+  );
 
   return {
     ok: issues.length === 0,
@@ -413,7 +455,9 @@ export function validateCanonicalBaseline(input: CanonicalBaselineInput): Canoni
       controlCounts: conteos,
       supersessionCount: b.supersessions.length,
       gapCount: b.gaps.length,
-      genericRuntimeExtensionCount: b.gaps.filter((g) => g.kind === "GENERIC_RUNTIME_EXTENSION_REQUIRED").length,
+      genericRuntimeExtensionCount: b.gaps.filter(
+        (g) => g.kind === "GENERIC_RUNTIME_EXTENSION_REQUIRED",
+      ).length,
       notExplicitCount: b.gaps.filter((g) => g.kind === "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER").length,
       transcriptionCorrectionCount: (b.transcriptionCorrections ?? []).length,
     },

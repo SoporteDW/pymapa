@@ -30,11 +30,7 @@
     },
     "kind": {
       "description": "SOURCE_DERIVED exige sourceReference; ARCHITECTURE_RUNTIME cubre comportamiento del runtime genérico; MANUALLY_GOVERNED requiere decisión editorial.",
-      "enum": [
-        "SOURCE_DERIVED",
-        "ARCHITECTURE_RUNTIME",
-        "MANUALLY_GOVERNED"
-      ]
+      "enum": ["SOURCE_DERIVED", "ARCHITECTURE_RUNTIME", "MANUALLY_GOVERNED"]
     },
     "description": {
       "type": "string"
@@ -50,13 +46,7 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": [
-          "id",
-          "variableRef",
-          "acquisitionRef",
-          "knowledgeState",
-          "recordedAt"
-        ],
+        "required": ["id", "variableRef", "acquisitionRef", "knowledgeState", "recordedAt"],
         "properties": {
           "id": {
             "type": "string"
@@ -68,12 +58,7 @@
             "type": "string"
           },
           "knowledgeState": {
-            "enum": [
-              "KNOWN",
-              "UNKNOWN",
-              "NOT_APPLICABLE",
-              "CONTRADICTORY"
-            ]
+            "enum": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"]
           },
           "semanticValue": {
             "description": "Solo KNOWN aporta valor semántico.",
@@ -88,10 +73,7 @@
           },
           "notApplicableReason": {
             "description": "Obligatorio cuando knowledgeState = NOT_APPLICABLE.",
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "conflictingObservationIds": {
             "description": "Obligatorio cuando knowledgeState = CONTRADICTORY.",
@@ -101,16 +83,10 @@
             }
           },
           "sourceResponseId": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "respondentId": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": ["string", "null"]
           },
           "evidenceIds": {
             "type": "array",
@@ -127,35 +103,22 @@
     "expected": {
       "description": "Resultado esperado. UNKNOWN, CONTRADICTORY, NOT_APPLICABLE y NEEDS_REVIEW son resultados legítimos: no se fabrican conclusiones semánticas que el Master no permita determinar.",
       "type": "object",
-      "required": [
-        "outcome"
-      ],
+      "required": ["outcome"],
       "properties": {
         "outcome": {
-          "enum": [
-            "PASS",
-            "NEEDS_GOVERNANCE_REVIEW"
-          ]
+          "enum": ["PASS", "NEEDS_GOVERNANCE_REVIEW"]
         },
         "variableStates": {
           "type": "array",
           "items": {
             "type": "object",
-            "required": [
-              "variableRef",
-              "state"
-            ],
+            "required": ["variableRef", "state"],
             "properties": {
               "variableRef": {
                 "type": "string"
               },
               "state": {
-                "enum": [
-                  "KNOWN",
-                  "UNKNOWN",
-                  "NOT_APPLICABLE",
-                  "CONTRADICTORY"
-                ]
+                "enum": ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"]
               },
               "semanticValue": {
                 "oneOf": [
@@ -196,10 +159,7 @@
           "type": "array",
           "items": {
             "type": "object",
-            "required": [
-              "findingRef",
-              "status"
-            ],
+            "required": ["findingRef", "status"],
             "properties": {
               "findingRef": {
                 "type": "string"

@@ -73,7 +73,8 @@ const validate = (x: ReturnType<typeof load>) =>
 const finals = (x: ReturnType<typeof load>, prefix: string) =>
   x.candidate.items.filter(
     (i) =>
-      i.classification === "FINAL_APPROVED" && new RegExp(`^${prefix}\\d{2}$`).test(i.sourceId ?? ""),
+      i.classification === "FINAL_APPROVED" &&
+      new RegExp(`^${prefix}\\d{2}$`).test(i.sourceId ?? ""),
   );
 
 const BEFORE: Record<string, number> = { "OP-03": 25, "OP-04": 33, "OP-05": 14 };

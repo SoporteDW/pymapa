@@ -30,14 +30,18 @@ const leer = () => ({
 
 /** Bloque literal de la fuente, sin normalizar. */
 const BLOQUE_IP05 = lineas.slice(6982, 6987).join("\n");
-const CHECKSUM_BASELINE_PREVIO = "sha256:856633be10f2fc5d27f23ff6e0729da306431bb51585317ca1b38ae1e1ee3c59";
-const CHECKSUM_SOURCE_PREVIO = "sha256:8c7484979e3a99ceb7c8e89bf6f7935f32e3386f59ac9ddfb5e2a04ce24550c6";
+const CHECKSUM_BASELINE_PREVIO =
+  "sha256:856633be10f2fc5d27f23ff6e0729da306431bb51585317ca1b38ae1e1ee3c59";
+const CHECKSUM_SOURCE_PREVIO =
+  "sha256:8c7484979e3a99ceb7c8e89bf6f7935f32e3386f59ac9ddfb5e2a04ce24550c6";
 const NOTA_SOURCE_PREVIA =
   "Done Criteria de este patrón no transcritos en la baseline canónica (la fuente los enuncia como criterio compuesto, raw líneas 6983–6987). Defecto de transcripción detectado en M2-OP02-02; corrección sujeta a gobierno. Sin Done Criteria explícitos el runtime no puede alcanzar el estado implementado.";
 
 type Obj = { key: string; annotations?: { relation: string; fields: Record<string, unknown> }[] };
 const detalleIp05 = (b: { objects: Obj[] }) =>
-  b.objects.find((o) => o.key === "IP05")!.annotations!.find((a) => a.relation === "PATTERN_DETAIL")!;
+  b.objects
+    .find((o) => o.key === "IP05")!
+    .annotations!.find((a) => a.relation === "PATTERN_DETAIL")!;
 
 describe("M2-OP02-03 · IP05 Done Criteria (corrección de transcripción)", () => {
   it("la fuente contiene el criterio compuesto en las líneas 6983–6987", () => {
@@ -104,8 +108,17 @@ describe("M2-OP02-03 · IP05 Done Criteria (corrección de transcripción)", () 
     expect(v.summary?.objectCount).toBe(329);
     expect(v.summary?.gapCount).toBe(10);
     expect(v.summary?.transcriptionCorrectionCount).toBe(1);
-    const ne = (baseline.gaps as { id: string; kind: string }[]).filter((g) => g.id.startsWith("NE-OP02-"));
-    expect(ne.map((g) => g.id)).toEqual(["NE-OP02-01", "NE-OP02-02", "NE-OP02-03", "NE-OP02-04", "NE-OP02-05", "NE-OP02-06"]);
+    const ne = (baseline.gaps as { id: string; kind: string }[]).filter((g) =>
+      g.id.startsWith("NE-OP02-"),
+    );
+    expect(ne.map((g) => g.id)).toEqual([
+      "NE-OP02-01",
+      "NE-OP02-02",
+      "NE-OP02-03",
+      "NE-OP02-04",
+      "NE-OP02-05",
+      "NE-OP02-06",
+    ]);
     ne.forEach((g) => expect(g.kind).toBe("NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"));
   });
 
@@ -113,7 +126,9 @@ describe("M2-OP02-03 · IP05 Done Criteria (corrección de transcripción)", () 
     const conCorreccion = (mutar: (b: Record<string, any>) => void) => {
       const { baseline } = leer();
       mutar(baseline);
-      return validateCanonicalBaseline({ baseline, rawText: raw, rawBytes }).issues.map((i) => i.code);
+      return validateCanonicalBaseline({ baseline, rawText: raw, rawBytes }).issues.map(
+        (i) => i.code,
+      );
     };
     it("valor posterior no literal", () => {
       const codes = conCorreccion((b) => {
@@ -159,7 +174,11 @@ describe("M2-OP02-03 · IP05 → actividades → deliverable → Done → implem
     const ip05 = op02.listInterventionPatterns().find((p) => p.patternRef === "IP05")!;
     expect(ip05.minimumActivities).toHaveLength(7);
     expect(ip05.deliverables).toEqual([
-      { id: "DEL-OP02-05", name: "Mecanismo de coordinación para dependencias críticas.", instrumentRef: "INS-OP02-05" },
+      {
+        id: "DEL-OP02-05",
+        name: "Mecanismo de coordinación para dependencias críticas.",
+        instrumentRef: "INS-OP02-05",
+      },
     ]);
     expect(ip05.doneCriteria).toEqual([{ position: 1, id: null, statement: BLOQUE_IP05 }]);
     expect(ip05.validationRequirementRefs).toEqual(["CRV-05"]);
@@ -191,7 +210,10 @@ describe("M2-OP02-03 · IP05 → actividades → deliverable → Done → implem
 
     const inexistente = op02.evaluateImplementation("IP05", {
       layerRecords: capas(true),
-      doneCriteriaRecords: [{ position: 1, met: true }, { position: 2, met: true }],
+      doneCriteriaRecords: [
+        { position: 1, met: true },
+        { position: 2, met: true },
+      ],
     });
     expect(inexistente.issues.join(" ")).toMatch(/posición 2/);
   });

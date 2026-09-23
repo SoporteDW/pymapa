@@ -139,7 +139,10 @@ export function validateCrossCapabilityRegistry(input: {
         return;
       }
       const [a, b] = ev.sourceLines;
-      const tramo = src.rawText.split("\n").slice(a - 1, b).join("\n");
+      const tramo = src.rawText
+        .split("\n")
+        .slice(a - 1, b)
+        .join("\n");
       if (a > b || !tramo.includes(ev.text))
         fail(`evidencia ${n}: "${ev.text.slice(0, 60)}" no es literal en ${a}–${b}`);
     });
@@ -206,7 +209,10 @@ export function loadCrossCapabilityContext(root: string, masterVersion = "v1.0")
     existsSync(join(root, p)) ? readdirSync(join(root, p), { withFileTypes: true }) : [];
   const sources = new Map<string, { textSha256: string; rawText: string }>();
   const candidates = new Map<string, ExtractionCandidate>();
-  const acceptances = new Map<string, { decision: string; candidateChecksum: string } | undefined>();
+  const acceptances = new Map<
+    string,
+    { decision: string; candidateChecksum: string } | undefined
+  >();
   const publishedPacks = new Map<string, string>();
   const capDir = `knowledge/master/${masterVersion}/capabilities`;
   for (const d of ls(capDir).filter((x) => x.isDirectory())) {

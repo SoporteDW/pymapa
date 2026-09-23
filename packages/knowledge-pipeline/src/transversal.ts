@@ -158,7 +158,10 @@ export function validateTransversalRegistry(raw: unknown): SourceValidation<Tran
     issues.push({ path: "master.identity", message: "identidad de Master no autorizada" });
   }
   if (registro.master.baselineStatus !== BASELINE_STATUS) {
-    issues.push({ path: "master.baselineStatus", message: "el registro no está BASELINE-APPROVED" });
+    issues.push({
+      path: "master.baselineStatus",
+      message: "el registro no está BASELINE-APPROVED",
+    });
   }
   if (!registro.provenance.sourceReference.startsWith(TRANSVERSAL_SOURCE_REFERENCE)) {
     issues.push({
@@ -185,7 +188,8 @@ export function validateTransversalRegistry(raw: unknown): SourceValidation<Tran
     if (gap.kind === "SOURCE_CONTENT_NOT_RECOVERED" && !gap.publicationBlocking) {
       issues.push({
         path: `gaps.${i}.publicationBlocking`,
-        message: "SOURCE_CONTENT_NOT_RECOVERED bloquea publicación mientras no se recupere la fuente",
+        message:
+          "SOURCE_CONTENT_NOT_RECOVERED bloquea publicación mientras no se recupere la fuente",
       });
     }
     if (gap.kind === "SOURCE_CONTENT_NOT_RECOVERED" && "resolution" in gap) {
@@ -299,7 +303,10 @@ export function validateTransversalCore(input: {
       });
     }
     if (declarado.stage !== validado.value.stage) {
-      issues.push({ path: `${entrada.ref}.stage`, message: "etapa del índice distinta del registro" });
+      issues.push({
+        path: `${entrada.ref}.stage`,
+        message: "etapa del índice distinta del registro",
+      });
     }
   }
 

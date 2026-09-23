@@ -369,22 +369,20 @@ export function extractStructuralCandidate(input: StructuralExtractionInput): {
         headings,
         markers,
         closureLine,
-        occurrences: raws.map(
-          (o): ResolverOccurrence => ({
-            key: keyOf(o),
-            sourceId: o.sourceId,
-            prefix: prefixOf(o.sourceId),
-            line: o.line,
-            end: o.end,
-            sectionEnd: o.sectionEnd,
-            level: o.level,
-            heading: o.heading,
-            title: o.title,
-            body: o.body,
-            backlog: o.backlog,
-            draftHeading: DRAFT_TOKENS.test(o.heading.replace(FREEZE_TOKEN, "")),
-          }),
-        ),
+        occurrences: raws.map((o): ResolverOccurrence => ({
+          key: keyOf(o),
+          sourceId: o.sourceId,
+          prefix: prefixOf(o.sourceId),
+          line: o.line,
+          end: o.end,
+          sectionEnd: o.sectionEnd,
+          level: o.level,
+          heading: o.heading,
+          title: o.title,
+          body: o.body,
+          backlog: o.backlog,
+          draftHeading: DRAFT_TOKENS.test(o.heading.replace(FREEZE_TOKEN, "")),
+        })),
       })
     : null;
 
@@ -581,7 +579,9 @@ export function extractStructuralCandidate(input: StructuralExtractionInput): {
     registration: { registrationId: reg.registrationId, textSha256: reg.text?.sha256 ?? "" },
     producedBy: {
       method: "DETERMINISTIC_TOOL",
-      agent: governed ? `${agent} + ${SUPERSESSION_RESOLVER.id}@${SUPERSESSION_RESOLVER.version}` : agent,
+      agent: governed
+        ? `${agent} + ${SUPERSESSION_RESOLVER.id}@${SUPERSESSION_RESOLVER.version}`
+        : agent,
       note: governed
         ? "Segmentación literal por headings con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
         : "Segmentación literal por headings con identificador; clasificación solo por evidencia literal. No decide supersesión ni tipo semántico.",

@@ -367,7 +367,10 @@ describe("OP-01 Golden y pipeline M2-A intactos", () => {
 
   it("la materialización transversal no introduce vacíos en la fuente de OP-01", () => {
     const fuente = JSON.parse(
-      readFileSync(join(ROOT, "knowledge", "master", VERSION, "capabilities", "OP-01", "source.json"), "utf8"),
+      readFileSync(
+        join(ROOT, "knowledge", "master", VERSION, "capabilities", "OP-01", "source.json"),
+        "utf8",
+      ),
     ) as { gaps: { kind: string }[] };
     expect(verifySelfChecksum(fuente as unknown as Record<string, unknown>).ok).toBe(true);
     expect(fuente.gaps.some((g) => g.kind === "SOURCE_CONTENT_NOT_RECOVERED")).toBe(false);
@@ -376,7 +379,9 @@ describe("OP-01 Golden y pipeline M2-A intactos", () => {
   it("ningún candidato se promueve automáticamente a conocimiento aprobado", () => {
     for (const r of lote.results) {
       if (r.state === "PUBLISHED") {
-        expect(r.publication?.blockers.map((b) => b.code)).not.toContain("GOVERNANCE_REVIEW_PENDING");
+        expect(r.publication?.blockers.map((b) => b.code)).not.toContain(
+          "GOVERNANCE_REVIEW_PENDING",
+        );
       }
     }
     expect(lote.counts.FAIL).toBe(0);

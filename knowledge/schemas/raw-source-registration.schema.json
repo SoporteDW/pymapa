@@ -33,20 +33,10 @@
     },
     "original": {
       "type": "object",
-      "required": [
-        "filename",
-        "ref",
-        "mediaType",
-        "byteLength",
-        "sha256"
-      ],
+      "required": ["filename", "ref", "mediaType", "byteLength", "sha256"],
       "properties": {
         "mediaType": {
-          "enum": [
-            "DOCX",
-            "PDF",
-            "TEXT"
-          ]
+          "enum": ["DOCX", "PDF", "TEXT"]
         },
         "sha256": {
           "type": "string",
@@ -55,10 +45,7 @@
       }
     },
     "text": {
-      "type": [
-        "object",
-        "null"
-      ],
+      "type": ["object", "null"],
       "properties": {
         "sha256": {
           "type": "string",

@@ -529,7 +529,11 @@ export function validateExtractionCandidate(input: {
       continue;
     }
     if (finales.length === 1) continue;
-    if (!occ.every((i) => i.classification === "HISTORICAL_DRAFT" || i.classification === "SUPERSEDED"))
+    if (
+      !occ.every(
+        (i) => i.classification === "HISTORICAL_DRAFT" || i.classification === "SUPERSEDED",
+      )
+    )
       continue;
     // Resuelto sin definición canónica: toda aparición tiene evidencia literal.
     if (occ.every((i) => i.supersession)) continue;
@@ -674,7 +678,8 @@ export function previewCanonicalProjection(input: {
   if (c.provenanceVocabulary.length === 0) reasons.push("provenanceVocabulary vacío");
   const reg = input.registration;
   if (!reg.text) reasons.push("registro sin texto");
-  if (!c.historicalStatus || !c.baselineId || !reg.text) return { baseline: null, blockers: reasons };
+  if (!c.historicalStatus || !c.baselineId || !reg.text)
+    return { baseline: null, blockers: reasons };
 
   const byKey = new Map(c.items.map((i) => [i.key, i]));
   const first = (i: CandidateItem) => [...hojas(i.fields)][0] as string;
