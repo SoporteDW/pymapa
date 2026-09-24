@@ -6,9 +6,12 @@
   "textSha256": "9af887c2905718fcc6073d1e5f5d4ca946b249d22aeab2215fb71c5ed4759853",
   "extractor": "pymapa-structural-segmenter@0.2.0",
   "identity": {
-    "declaredName": null,
-    "literalLines": [],
-    "verified": false
+    "declaredName": "Asignar responsabilidad y capacidad de decisión",
+    "literalLines": [
+      1,
+      332
+    ],
+    "verified": true
   },
   "historicalClosure": {
     "marker": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
@@ -27,32 +30,18 @@
   ],
   "counts": {
     "lines": 593,
-    "headings": 113,
-    "idHeadings": 55,
-    "distinctSourceIds": 54,
-    "singleDefinition": 53,
+    "headings": 154,
+    "idHeadings": 96,
+    "distinctSourceIds": 95,
+    "singleDefinition": 94,
     "restatedIdentical": 0,
     "conflictingDefinitions": 1,
     "draftMarked": 0,
     "governedBacklog": 0,
-    "finalApprovedCandidates": 53,
-    "historicalDrafts": 2
+    "finalApprovedCandidates": 95,
+    "historicalDrafts": 0
   },
-  "ambiguousSupersessions": [
-    {
-      "sourceId": "CAND-MOTOR-AI-GOV-01",
-      "occurrences": [
-        {
-          "line": 309,
-          "heading": "CAND-MOTOR-AI-GOV-01 · AI-assisted decision ≠ AI accountability. El uso de IA para informar, recomendar o apoyar una decisión no elimina la necesidad de identificar responsabilidad humana/organizacional sobre la decisión material."
-        },
-        {
-          "line": 489,
-          "heading": "CAND-MOTOR-AI-GOV-01 · El uso de IA para apoyar una decisión no elimina la necesidad de accountability organizacional sobre la decisión material."
-        }
-      ]
-    }
-  ],
+  "ambiguousSupersessions": [],
   "crossCapabilityReferences": [],
   "nonTextElements": {
     "statement": "Advertencias del registro raw sobre elementos no textuales; su verificación consta en el reporte del lote.",
@@ -70,19 +59,21 @@
       "ambiguousIdList": [
         "CAND-MOTOR-AI-GOV-01"
       ],
-      "finalApproved": 53,
+      "finalApproved": 94,
       "historicalDrafts": 2
     },
     "after": {
-      "ambiguousIds": 1,
-      "finalApproved": 53,
-      "superseded": 0,
-      "historicalDrafts": 2,
+      "ambiguousIds": 0,
+      "finalApproved": 95,
+      "superseded": 1,
+      "historicalDrafts": 0,
       "governedBacklog": 0,
       "itemsWithSupersessionEvidence": 0
     },
-    "resolvedFromBaselineAmbiguous": 0,
-    "resolvedFromBaselineAmbiguousList": [],
+    "resolvedFromBaselineAmbiguous": 1,
+    "resolvedFromBaselineAmbiguousList": [
+      "CAND-MOTOR-AI-GOV-01"
+    ],
     "byRule": {
       "EXPLICIT_ELIMINATION": 0,
       "EXPLICIT_REFORMULATION": 0,
@@ -104,6 +95,37 @@
     "singlesReclassified": [],
     "governingFreezes": []
   },
-  "governance": null,
-  "checksum": "sha256:b46688a9f920be74c05342dd46a57de9e87bedda4767e44db7cada5c8092d7e1"
+  "governance": {
+    "decisionSetId": "M2-FACTORY-CLOSURE",
+    "ref": "knowledge/intake/DG-03/governance-decisions.json",
+    "checksum": "sha256:867b88ada53bd1b53399208d6278d2a9d41075b9eccc9f090f0f3559fc99b6d1",
+    "closureSelection": null,
+    "approvedCounts": [],
+    "backlogAdded": [],
+    "collisionsApplied": [
+      {
+        "sourceId": "CAND-MOTOR-AI-GOV-01",
+        "resolution": "SELECT_OCCURRENCE",
+        "selectedLine": 489,
+        "otherLines": [
+          309
+        ]
+      }
+    ],
+    "semanticTypesApplied": [],
+    "provenanceVocabularyApplied": [
+      {
+        "scheme": "PROVENANCE_CLASS",
+        "code": "SOURCE-DERIVED",
+        "line": 494
+      },
+      {
+        "scheme": "PROVENANCE_CLASS",
+        "code": "PYMAPA-DESIGNED / SYNTHESIZED",
+        "line": 507
+      }
+    ],
+    "errors": []
+  },
+  "checksum": "sha256:7171abf3cb31c4f7e4329261878edc7aebfbb130eaa064b0a5d5ad983f23ad0a"
 }

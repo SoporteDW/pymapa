@@ -19,7 +19,28 @@
       615
     ]
   },
-  "provenanceVocabulary": [],
+  "provenanceVocabulary": [
+    {
+      "code": "SOURCE-DERIVED",
+      "label": "SOURCE-DERIVED",
+      "meaning": "ISO 31000:2018 sustenta:",
+      "sourceLines": [
+        536,
+        537
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "PYMAPA-DESIGNED",
+      "label": "PYMAPA-DESIGNED",
+      "meaning": "Son diseño propio:",
+      "sourceLines": [
+        559,
+        560
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    }
+  ],
   "controlCounts": [
     {
       "label": "CE",
@@ -28,6 +49,24 @@
       "sourceLines": [
         618,
         618
+      ]
+    },
+    {
+      "label": "CRV",
+      "declared": 8,
+      "objectType": "SOURCE_ID_CRV",
+      "sourceLines": [
+        626,
+        626
+      ]
+    },
+    {
+      "label": "NI",
+      "declared": 12,
+      "objectType": "SOURCE_ID_NI",
+      "sourceLines": [
+        620,
+        620
       ]
     },
     {
@@ -541,6 +580,258 @@
       }
     },
     {
+      "key": "NI01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI01",
+      "fields": {
+        "heading": "| NI01 | Qué incertidumbres materiales pueden afectar transformación |",
+        "title": "Qué incertidumbres materiales pueden afectar transformación"
+      },
+      "sourceLines": [
+        171,
+        171
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
+      "key": "NI02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI02",
+      "fields": {
+        "heading": "| NI02 | Qué dependencias materiales existen |",
+        "title": "Qué dependencias materiales existen"
+      },
+      "sourceLines": [
+        172,
+        172
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
+      "key": "NI03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI03",
+      "fields": {
+        "heading": "| NI03 | Qué objetivos/resultados podrían verse afectados |",
+        "title": "Qué objetivos/resultados podrían verse afectados"
+      },
+      "sourceLines": [
+        173,
+        173
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
+      "key": "NI04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI04",
+      "fields": {
+        "heading": "| NI04 | Qué consecuencias plausibles existen |",
+        "title": "Qué consecuencias plausibles existen"
+      },
+      "sourceLines": [
+        174,
+        174
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
+      "key": "NI05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI05",
+      "fields": {
+        "heading": "| NI05 | Qué tan incierta/plausible es la exposición |",
+        "title": "Qué tan incierta/plausible es la exposición"
+      },
+      "sourceLines": [
+        175,
+        175
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
+      "key": "NI06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI06",
+      "fields": {
+        "heading": "| NI06 | Qué interacciones pueden amplificar/reducir exposición |",
+        "title": "Qué interacciones pueden amplificar/reducir exposición"
+      },
+      "sourceLines": [
+        176,
+        176
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
+      "key": "NI07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI07",
+      "fields": {
+        "heading": "| NI07 | Dónde existe concentración de exposición |",
+        "title": "Dónde existe concentración de exposición"
+      },
+      "sourceLines": [
+        177,
+        177
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
+      "key": "NI08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI08",
+      "fields": {
+        "heading": "| NI08 | Qué respuesta se ha definido |",
+        "title": "Qué respuesta se ha definido"
+      },
+      "sourceLines": [
+        178,
+        178
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
+      "key": "NI09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI09",
+      "fields": {
+        "heading": "| NI09 | Cómo modifica decisiones de transformación |",
+        "title": "Cómo modifica decisiones de transformación"
+      },
+      "sourceLines": [
+        179,
+        179
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
+      "key": "NI10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI10",
+      "fields": {
+        "heading": "| NI10 | Quién responde y quién puede aceptar/escalar |",
+        "title": "Quién responde y quién puede aceptar/escalar"
+      },
+      "sourceLines": [
+        180,
+        180
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
+      "key": "NI11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI11",
+      "fields": {
+        "heading": "| NI11 | Qué señales indican cambio de exposición |",
+        "title": "Qué señales indican cambio de exposición"
+      },
+      "sourceLines": [
+        181,
+        181
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
+      "key": "NI12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI12",
+      "fields": {
+        "heading": "| NI12 | Cómo se revisa la respuesta |",
+        "title": "Cómo se revisa la respuesta"
+      },
+      "sourceLines": [
+        182,
+        182
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
       "key": "MAT-DG05-01",
       "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_MAT",
@@ -995,6 +1286,174 @@
       }
     },
     {
+      "key": "IP-DG05-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP-DG05-01",
+      "fields": {
+        "heading": "| IP-DG05-01 | Hacer visible exposición material |",
+        "title": "Hacer visible exposición material"
+      },
+      "sourceLines": [
+        406,
+        406
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
+      "key": "IP-DG05-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP-DG05-02",
+      "fields": {
+        "heading": "| IP-DG05-02 | Mapear dependencias materiales |",
+        "title": "Mapear dependencias materiales"
+      },
+      "sourceLines": [
+        407,
+        407
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
+      "key": "IP-DG05-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP-DG05-03",
+      "fields": {
+        "heading": "| IP-DG05-03 | Caracterizar materialidad proporcionalmente |",
+        "title": "Caracterizar materialidad proporcionalmente"
+      },
+      "sourceLines": [
+        408,
+        408
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
+      "key": "IP-DG05-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP-DG05-04",
+      "fields": {
+        "heading": "| IP-DG05-04 | Evaluar concentración e interdependencias |",
+        "title": "Evaluar concentración e interdependencias"
+      },
+      "sourceLines": [
+        409,
+        409
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
+      "key": "IP-DG05-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP-DG05-05",
+      "fields": {
+        "heading": "| IP-DG05-05 | Definir respuesta proporcional |",
+        "title": "Definir respuesta proporcional"
+      },
+      "sourceLines": [
+        410,
+        410
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
+      "key": "IP-DG05-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP-DG05-06",
+      "fields": {
+        "heading": "| IP-DG05-06 | Integrar exposición en decisiones |",
+        "title": "Integrar exposición en decisiones"
+      },
+      "sourceLines": [
+        411,
+        411
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
+      "key": "IP-DG05-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP-DG05-07",
+      "fields": {
+        "heading": "| IP-DG05-07 | Establecer ownership/escalamiento |",
+        "title": "Establecer ownership/escalamiento"
+      },
+      "sourceLines": [
+        412,
+        412
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
+      "key": "IP-DG05-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP-DG05-08",
+      "fields": {
+        "heading": "| IP-DG05-08 | Implementar revisión adaptativa |",
+        "title": "Implementar revisión adaptativa"
+      },
+      "sourceLines": [
+        413,
+        413
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
       "key": "INS-DG05-01",
       "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_INS",
@@ -1303,6 +1762,174 @@
       "sourceLines": [
         441,
         441
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG05-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG05-01",
+      "fields": {
+        "heading": "| CRV-DG05-01 | Exposiciones materiales suficientemente identificadas |",
+        "title": "Exposiciones materiales suficientemente identificadas"
+      },
+      "sourceLines": [
+        459,
+        459
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG05-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG05-02",
+      "fields": {
+        "heading": "| CRV-DG05-02 | Dependencias materiales suficientemente identificadas |",
+        "title": "Dependencias materiales suficientemente identificadas"
+      },
+      "sourceLines": [
+        460,
+        460
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG05-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG05-03",
+      "fields": {
+        "heading": "| CRV-DG05-03 | Materialidad suficientemente caracterizada |",
+        "title": "Materialidad suficientemente caracterizada"
+      },
+      "sourceLines": [
+        461,
+        461
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG05-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG05-04",
+      "fields": {
+        "heading": "| CRV-DG05-04 | Concentraciones/interdependencias relevantes evaluadas |",
+        "title": "Concentraciones/interdependencias relevantes evaluadas"
+      },
+      "sourceLines": [
+        462,
+        462
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG05-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG05-05",
+      "fields": {
+        "heading": "| CRV-DG05-05 | Respuestas proporcionales explícitamente establecidas |",
+        "title": "Respuestas proporcionales explícitamente establecidas"
+      },
+      "sourceLines": [
+        463,
+        463
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG05-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG05-06",
+      "fields": {
+        "heading": "| CRV-DG05-06 | Evidencia de incorporación en decisiones materiales |",
+        "title": "Evidencia de incorporación en decisiones materiales"
+      },
+      "sourceLines": [
+        464,
+        464
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG05-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG05-07",
+      "fields": {
+        "heading": "| CRV-DG05-07 | Ownership/escalamiento funcionalmente establecidos |",
+        "title": "Ownership/escalamiento funcionalmente establecidos"
+      },
+      "sourceLines": [
+        465,
+        465
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          615,
+          615
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG05-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG05-08",
+      "fields": {
+        "heading": "| CRV-DG05-08 | Respuestas revisadas cuando cambia materialmente la exposición |",
+        "title": "Respuestas revisadas cuando cambia materialmente la exposición"
+      },
+      "sourceLines": [
+        466,
+        466
       ],
       "approvalEvidence": {
         "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
@@ -1633,5 +2260,10 @@
       ]
     }
   ],
-  "checksum": "sha256:ca341fde2bd4bcb6e4e56b08d9137ad37b46bdc00bb8a531516accbd040501f9"
+  "governanceDecisions": {
+    "decisionSetId": "M2-FACTORY-CLOSURE",
+    "ref": "knowledge/intake/DG-05/governance-decisions.json",
+    "checksum": "sha256:f72a64d345a2afa81ebc4f966c81cc18ab7852a78518461f877125eca2b25b1e"
+  },
+  "checksum": "sha256:88c7c6ae12c3e322d12dabdecb84c9b2960c4bfe96eee3abc516058927059d93"
 }

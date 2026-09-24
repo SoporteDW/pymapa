@@ -6,9 +6,13 @@
   "textSha256": "cf558c4af06289e5cc3096ec4dd5d500871f3a8b311dd4e72b356a77d6c2d310",
   "extractor": "pymapa-structural-segmenter@0.2.0",
   "identity": {
-    "declaredName": null,
-    "literalLines": [],
-    "verified": false
+    "declaredName": "Facilitar participación y adaptación de las personas al cambio",
+    "literalLines": [
+      1,
+      441,
+      806
+    ],
+    "verified": true
   },
   "historicalClosure": {
     "marker": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
@@ -32,15 +36,15 @@
   ],
   "counts": {
     "lines": 857,
-    "headings": 173,
-    "idHeadings": 84,
-    "distinctSourceIds": 84,
-    "singleDefinition": 84,
+    "headings": 201,
+    "idHeadings": 107,
+    "distinctSourceIds": 107,
+    "singleDefinition": 107,
     "restatedIdentical": 0,
     "conflictingDefinitions": 0,
     "draftMarked": 0,
     "governedBacklog": 0,
-    "finalApprovedCandidates": 83,
+    "finalApprovedCandidates": 106,
     "historicalDrafts": 1
   },
   "ambiguousSupersessions": [],
@@ -86,6 +90,30 @@
       "kind": "CAPABILITY",
       "line": 775,
       "heading": "K1 · Coherencia — PASS. PC-05 queda suficientemente separada de PC-03, PC-02 y DG-03."
+    },
+    {
+      "target": "PC-01",
+      "kind": "CAPABILITY",
+      "line": 810,
+      "heading": "PC-01 · ¿Podemos disponer/acceder al conocimiento necesario?"
+    },
+    {
+      "target": "PC-02",
+      "kind": "CAPABILITY",
+      "line": 811,
+      "heading": "PC-02 · ¿Podemos desarrollar la competencia necesaria?"
+    },
+    {
+      "target": "PC-03",
+      "kind": "CAPABILITY",
+      "line": 812,
+      "heading": "PC-03 · ¿La nueva forma de trabajo se incorpora y sostiene?"
+    },
+    {
+      "target": "PC-04",
+      "kind": "CAPABILITY",
+      "line": 813,
+      "heading": "PC-04 · ¿El conocimiento material puede circular y sobrevivir?"
     }
   ],
   "nonTextElements": {
@@ -102,12 +130,12 @@
       "extractor": "pymapa-structural-segmenter@0.1.0",
       "ambiguousIds": 0,
       "ambiguousIdList": [],
-      "finalApproved": 83,
+      "finalApproved": 106,
       "historicalDrafts": 1
     },
     "after": {
       "ambiguousIds": 0,
-      "finalApproved": 83,
+      "finalApproved": 106,
       "superseded": 0,
       "historicalDrafts": 1,
       "governedBacklog": 0,
@@ -127,6 +155,28 @@
     "singlesReclassified": [],
     "governingFreezes": []
   },
-  "governance": null,
-  "checksum": "sha256:bc1bb006986ecd27ffefcb7db88e93457a16eb59c834cf94125acd8d9b2e7e9a"
+  "governance": {
+    "decisionSetId": "M2-FACTORY-CLOSURE",
+    "ref": "knowledge/intake/PC-05/governance-decisions.json",
+    "checksum": "sha256:fb418c0464bff9109ebd7d39775053d5092d5a72107a74312ab85948f954416d",
+    "closureSelection": null,
+    "approvedCounts": [],
+    "backlogAdded": [],
+    "collisionsApplied": [],
+    "semanticTypesApplied": [],
+    "provenanceVocabularyApplied": [
+      {
+        "scheme": "PROVENANCE_CLASS",
+        "code": "SOURCE-DERIVED",
+        "line": 708
+      },
+      {
+        "scheme": "PROVENANCE_CLASS",
+        "code": "PYMAPA-DESIGNED",
+        "line": 716
+      }
+    ],
+    "errors": []
+  },
+  "checksum": "sha256:242827578e3a92ae63cc2cc30b80ce20eca9cec324691acfc949d15f548fd59c"
 }

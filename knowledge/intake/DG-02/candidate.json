@@ -19,7 +19,28 @@
       612
     ]
   },
-  "provenanceVocabulary": [],
+  "provenanceVocabulary": [
+    {
+      "code": "SOURCE-DERIVED",
+      "label": "SOURCE-DERIVED",
+      "meaning": "Las fuentes externas soportan conceptos como:",
+      "sourceLines": [
+        528,
+        529
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "PYMAPA-DESIGNED / SYNTHESIZED",
+      "label": "PYMAPA-DESIGNED / SYNTHESIZED",
+      "meaning": "Son diseño propio:",
+      "sourceLines": [
+        543,
+        544
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    }
+  ],
   "controlCounts": [
     {
       "label": "CE",
@@ -31,12 +52,39 @@
       ]
     },
     {
+      "label": "CRV",
+      "declared": 7,
+      "objectType": "SOURCE_ID_CRV",
+      "sourceLines": [
+        622,
+        622
+      ]
+    },
+    {
+      "label": "NI",
+      "declared": 10,
+      "objectType": "SOURCE_ID_NI",
+      "sourceLines": [
+        616,
+        616
+      ]
+    },
+    {
       "label": "STOP",
       "declared": 2,
       "objectType": "SOURCE_ID_STOP",
       "sourceLines": [
         339,
         339
+      ]
+    },
+    {
+      "label": "VA",
+      "declared": 10,
+      "objectType": "SOURCE_ID_VA",
+      "sourceLines": [
+        615,
+        615
       ]
     }
   ],
@@ -56,15 +104,57 @@
         "title": "Visibilidad de la demanda de transformación",
         "body": [
           "Antes de priorizar hay que conocer suficientemente qué compite por recursos.",
-          "| VA | Variable |",
-          "| VA01 | Visibilidad de iniciativas/necesidades relevantes |",
-          "| VA02 | Comparabilidad mínima de las alternativas |",
+          "| VA | Variable |"
+        ]
+      },
+      "sourceLines": [
+        43,
+        45
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "VA01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA01",
+      "fields": {
+        "heading": "| VA01 | Visibilidad de iniciativas/necesidades relevantes |",
+        "title": "Visibilidad de iniciativas/necesidades relevantes"
+      },
+      "sourceLines": [
+        46,
+        46
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "VA02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA02",
+      "fields": {
+        "heading": "| VA02 | Comparabilidad mínima de las alternativas |",
+        "title": "Comparabilidad mínima de las alternativas",
+        "body": [
           "“Comparabilidad” no significa business cases exhaustivos.",
           "Significa información suficiente para distinguir materialmente entre alternativas."
         ]
       },
       "sourceLines": [
-        43,
+        47,
         49
       ],
       "approvalEvidence": {
@@ -84,16 +174,58 @@
         "heading": "CE02 · Criterios de valor y alineación",
         "title": "Criterios de valor y alineación",
         "body": [
-          "| VA | Variable |",
-          "| VA03 | Contribución esperada a prioridades/resultados del negocio |",
-          "| VA04 | Valor/beneficio esperado y materialidad |",
+          "| VA | Variable |"
+        ]
+      },
+      "sourceLines": [
+        51,
+        52
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "VA03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA03",
+      "fields": {
+        "heading": "| VA03 | Contribución esperada a prioridades/resultados del negocio |",
+        "title": "Contribución esperada a prioridades/resultados del negocio"
+      },
+      "sourceLines": [
+        53,
+        53
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "VA04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "| VA04 | Valor/beneficio esperado y materialidad |",
+        "title": "Valor/beneficio esperado y materialidad",
+        "body": [
           "DG-01 aporta aquí una entrada esencial:",
           "dirección empresarial + necesidades de transformación.",
           "DG-02 no debe volver a diagnosticarlas salvo que detecte contradicción."
         ]
       },
       "sourceLines": [
-        51,
+        54,
         57
       ],
       "approvalEvidence": {
@@ -113,17 +245,79 @@
         "heading": "CE03 · Factibilidad y restricciones",
         "title": "Factibilidad y restricciones",
         "body": [
-          "| VA | Variable |",
-          "| VA05 | Esfuerzo/costo requerido |",
-          "| VA06 | Capacidad y recursos disponibles |",
-          "| VA07 | Riesgos, dependencias y prerrequisitos materiales |",
+          "| VA | Variable |"
+        ]
+      },
+      "sourceLines": [
+        59,
+        60
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "VA05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "| VA05 | Esfuerzo/costo requerido |",
+        "title": "Esfuerzo/costo requerido"
+      },
+      "sourceLines": [
+        61,
+        61
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "VA06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "| VA06 | Capacidad y recursos disponibles |",
+        "title": "Capacidad y recursos disponibles"
+      },
+      "sourceLines": [
+        62,
+        62
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "VA07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "| VA07 | Riesgos, dependencias y prerrequisitos materiales |",
+        "title": "Riesgos, dependencias y prerrequisitos materiales",
+        "body": [
           "Esto introduce una distinción importante:",
           "valor alto ≠ prioridad ejecutable inmediata.",
           "Una iniciativa puede ser estratégicamente muy importante y, sin embargo, requerir primero un prerrequisito."
         ]
       },
       "sourceLines": [
-        59,
+        63,
         66
       ],
       "approvalEvidence": {
@@ -143,9 +337,51 @@
         "heading": "CE04 · Decisión y balance",
         "title": "Decisión y balance",
         "body": [
-          "| VA | Variable |",
-          "| VA08 | Decisión explícita de prioridad y secuencia |",
-          "| VA09 | Coherencia entre prioridades declaradas y recursos asignados |",
+          "| VA | Variable |"
+        ]
+      },
+      "sourceLines": [
+        68,
+        69
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "VA08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "| VA08 | Decisión explícita de prioridad y secuencia |",
+        "title": "Decisión explícita de prioridad y secuencia"
+      },
+      "sourceLines": [
+        70,
+        70
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "VA09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA09",
+      "fields": {
+        "heading": "| VA09 | Coherencia entre prioridades declaradas y recursos asignados |",
+        "title": "Coherencia entre prioridades declaradas y recursos asignados",
+        "body": [
           "Esta segunda variable es crucial.",
           "La organización puede declarar:",
           "“La experiencia del cliente es nuestra prioridad.”",
@@ -154,7 +390,7 @@
         ]
       },
       "sourceLines": [
-        68,
+        71,
         76
       ],
       "approvalEvidence": {
@@ -174,14 +410,36 @@
         "heading": "CE05 · Revisión adaptativa",
         "title": "Revisión adaptativa",
         "body": [
-          "| VA | Variable |",
-          "| VA10 | Capacidad para revisar prioridades y reasignar recursos ante cambios materiales |",
+          "| VA | Variable |"
+        ]
+      },
+      "sourceLines": [
+        78,
+        79
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "VA10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA10",
+      "fields": {
+        "heading": "| VA10 | Capacidad para revisar prioridades y reasignar recursos ante cambios materiales |",
+        "title": "Capacidad para revisar prioridades y reasignar recursos ante cambios materiales",
+        "body": [
           "Priorizar una vez y nunca revisar no es suficiente.",
           "PMI describe el portfolio como dinámico y sujeto a cambios estratégicos, internos y externos; la optimización debe considerar capacidad, demanda, riesgos, dependencias y cambios de prioridades. Instituto de Gestión de Proyectos"
         ]
       },
       "sourceLines": [
-        78,
+        80,
         82
       ],
       "approvalEvidence": {
@@ -516,6 +774,216 @@
       "sourceLines": [
         120,
         122
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "NI01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI01",
+      "fields": {
+        "heading": "| NI01 | Qué iniciativas/necesidades relevantes compiten actualmente por atención o recursos |",
+        "title": "Qué iniciativas/necesidades relevantes compiten actualmente por atención o recursos"
+      },
+      "sourceLines": [
+        127,
+        127
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "NI02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI02",
+      "fields": {
+        "heading": "| NI02 | Qué información mínima existe para compararlas |",
+        "title": "Qué información mínima existe para compararlas"
+      },
+      "sourceLines": [
+        128,
+        128
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "NI03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI03",
+      "fields": {
+        "heading": "| NI03 | Cómo contribuye cada alternativa relevante a las prioridades empresariales |",
+        "title": "Cómo contribuye cada alternativa relevante a las prioridades empresariales"
+      },
+      "sourceLines": [
+        129,
+        129
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "NI04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI04",
+      "fields": {
+        "heading": "| NI04 | Qué valor/beneficio se espera y con qué fundamento |",
+        "title": "Qué valor/beneficio se espera y con qué fundamento"
+      },
+      "sourceLines": [
+        130,
+        130
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "NI05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI05",
+      "fields": {
+        "heading": "| NI05 | Qué esfuerzo/costo material requiere |",
+        "title": "Qué esfuerzo/costo material requiere"
+      },
+      "sourceLines": [
+        131,
+        131
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "NI06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI06",
+      "fields": {
+        "heading": "| NI06 | Qué recursos/capacidad están realmente disponibles |",
+        "title": "Qué recursos/capacidad están realmente disponibles"
+      },
+      "sourceLines": [
+        132,
+        132
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "NI07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI07",
+      "fields": {
+        "heading": "| NI07 | Qué riesgos, dependencias o prerrequisitos condicionan la decisión |",
+        "title": "Qué riesgos, dependencias o prerrequisitos condicionan la decisión"
+      },
+      "sourceLines": [
+        133,
+        133
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "NI08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI08",
+      "fields": {
+        "heading": "| NI08 | Qué decisión de prioridad/secuencia se tomó y por qué |",
+        "title": "Qué decisión de prioridad/secuencia se tomó y por qué"
+      },
+      "sourceLines": [
+        134,
+        134
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "NI09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI09",
+      "fields": {
+        "heading": "| NI09 | Si la asignación efectiva de recursos corresponde razonablemente con esa decisión |",
+        "title": "Si la asignación efectiva de recursos corresponde razonablemente con esa decisión"
+      },
+      "sourceLines": [
+        135,
+        135
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "NI10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI10",
+      "fields": {
+        "heading": "| NI10 | Cómo se revisan decisiones cuando cambian condiciones relevantes |",
+        "title": "Cómo se revisan decisiones cuando cambian condiciones relevantes"
+      },
+      "sourceLines": [
+        136,
+        136
       ],
       "approvalEvidence": {
         "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
@@ -1383,6 +1851,167 @@
       }
     },
     {
+      "key": "INS-DG02-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DG02-01",
+      "fields": {
+        "heading": "| INS-DG02-01 | Inventario mínimo de demanda de transformación |",
+        "title": "Inventario mínimo de demanda de transformación"
+      },
+      "sourceLines": [
+        408,
+        408
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "INS-DG02-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DG02-02",
+      "fields": {
+        "heading": "| INS-DG02-02 | Ficha comparable de iniciativa |",
+        "title": "Ficha comparable de iniciativa"
+      },
+      "sourceLines": [
+        409,
+        409
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "INS-DG02-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DG02-03",
+      "fields": {
+        "heading": "| INS-DG02-03 | Matriz proporcional de priorización |",
+        "title": "Matriz proporcional de priorización"
+      },
+      "sourceLines": [
+        410,
+        410
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "INS-DG02-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DG02-04",
+      "fields": {
+        "heading": "| INS-DG02-04 | Mapa demanda–capacidad |",
+        "title": "Mapa demanda–capacidad"
+      },
+      "sourceLines": [
+        411,
+        411
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "INS-DG02-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DG02-05",
+      "fields": {
+        "heading": "| INS-DG02-05 | Mapa de dependencias y secuencia |",
+        "title": "Mapa de dependencias y secuencia"
+      },
+      "sourceLines": [
+        412,
+        412
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "INS-DG02-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DG02-06",
+      "fields": {
+        "heading": "| INS-DG02-06 | Mapa prioridad–asignación |",
+        "title": "Mapa prioridad–asignación"
+      },
+      "sourceLines": [
+        413,
+        413
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "INS-DG02-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DG02-07",
+      "fields": {
+        "heading": "| INS-DG02-07 | Registro de decisiones/repriorización |",
+        "title": "Registro de decisiones/repriorización",
+        "body": [
+          "Importante: Pymapa no debe convertir INS-DG02-03 en un algoritmo universal de scoring.",
+          "Una fórmula como:",
+          "40% ROI + 30% alineación + 20% urgencia + 10% facilidad",
+          "sería falsa precisión si no existe fundamento para esos pesos.",
+          "El instrumento puede utilizar:",
+          "- categorías;",
+          "- reglas;",
+          "- umbrales;",
+          "- comparaciones;",
+          "- restricciones;",
+          "- scoring contextual;",
+          "pero los pesos deben estar fundamentados cuando se utilicen."
+        ]
+      },
+      "sourceLines": [
+        414,
+        426
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
       "key": "DEC-DG02-01",
       "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_DEC",
@@ -1397,6 +2026,304 @@
       "sourceLines": [
         439,
         441
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "DEL-DG02-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG02-01",
+      "fields": {
+        "heading": "| DEL-DG02-01 | Demanda material visible |",
+        "title": "Demanda material visible"
+      },
+      "sourceLines": [
+        445,
+        445
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "DEL-DG02-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG02-02",
+      "fields": {
+        "heading": "| DEL-DG02-02 | Alternativas suficientemente comparables |",
+        "title": "Alternativas suficientemente comparables"
+      },
+      "sourceLines": [
+        446,
+        446
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "DEL-DG02-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG02-03",
+      "fields": {
+        "heading": "| DEL-DG02-03 | Criterios de decisión suficientemente explícitos |",
+        "title": "Criterios de decisión suficientemente explícitos"
+      },
+      "sourceLines": [
+        447,
+        447
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "DEL-DG02-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG02-04",
+      "fields": {
+        "heading": "| DEL-DG02-04 | Demanda ajustada a capacidad disponible |",
+        "title": "Demanda ajustada a capacidad disponible"
+      },
+      "sourceLines": [
+        448,
+        448
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "DEL-DG02-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG02-05",
+      "fields": {
+        "heading": "| DEL-DG02-05 | Secuencia coherente con dependencias/prerrequisitos |",
+        "title": "Secuencia coherente con dependencias/prerrequisitos"
+      },
+      "sourceLines": [
+        449,
+        449
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "DEL-DG02-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG02-06",
+      "fields": {
+        "heading": "| DEL-DG02-06 | Recursos coherentemente asignados |",
+        "title": "Recursos coherentemente asignados"
+      },
+      "sourceLines": [
+        450,
+        450
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "DEL-DG02-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG02-07",
+      "fields": {
+        "heading": "| DEL-DG02-07 | Prioridades revisables y decisiones trazables |",
+        "title": "Prioridades revisables y decisiones trazables",
+        "body": [
+          "Otra vez:",
+          "“matriz creada” no es el entregable."
+        ]
+      },
+      "sourceLines": [
+        451,
+        453
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG02-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG02-01",
+      "fields": {
+        "heading": "| CRV-DG02-01 | Demanda material identificada |",
+        "title": "Demanda material identificada"
+      },
+      "sourceLines": [
+        469,
+        469
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG02-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG02-02",
+      "fields": {
+        "heading": "| CRV-DG02-02 | Alternativas comparables con suficiencia proporcional |",
+        "title": "Alternativas comparables con suficiencia proporcional"
+      },
+      "sourceLines": [
+        470,
+        470
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG02-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG02-03",
+      "fields": {
+        "heading": "| CRV-DG02-03 | Decisiones de prioridad explicables |",
+        "title": "Decisiones de prioridad explicables"
+      },
+      "sourceLines": [
+        471,
+        471
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG02-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG02-04",
+      "fields": {
+        "heading": "| CRV-DG02-04 | Demanda activa compatible con capacidad disponible |",
+        "title": "Demanda activa compatible con capacidad disponible"
+      },
+      "sourceLines": [
+        472,
+        472
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG02-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG02-05",
+      "fields": {
+        "heading": "| CRV-DG02-05 | Secuencia coherente con dependencias materiales |",
+        "title": "Secuencia coherente con dependencias materiales"
+      },
+      "sourceLines": [
+        473,
+        473
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG02-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG02-06",
+      "fields": {
+        "heading": "| CRV-DG02-06 | Recursos efectivamente coherentes con prioridades |",
+        "title": "Recursos efectivamente coherentes con prioridades"
+      },
+      "sourceLines": [
+        474,
+        474
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG02-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG02-07",
+      "fields": {
+        "heading": "| CRV-DG02-07 | Repriorización funcional ante cambios materiales |",
+        "title": "Repriorización funcional ante cambios materiales"
+      },
+      "sourceLines": [
+        475,
+        475
       ],
       "approvalEvidence": {
         "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
@@ -1564,5 +2491,10 @@
       }
     }
   ],
-  "checksum": "sha256:eedd6bf29a97548a137cf325635dc1b0299a09547ef7d0db086bdee6ccb3a858"
+  "governanceDecisions": {
+    "decisionSetId": "M2-FACTORY-CLOSURE",
+    "ref": "knowledge/intake/DG-02/governance-decisions.json",
+    "checksum": "sha256:f90b553d7bee159ab17d660e925461b90fd371290ea5a9b0d14ecc196fea1037"
+  },
+  "checksum": "sha256:85b532a964a08c8e50d03e38b690c19dabeeccb36970c3a28cacba7ef44ab641"
 }

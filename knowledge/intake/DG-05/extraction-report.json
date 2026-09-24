@@ -6,9 +6,13 @@
   "textSha256": "1d4ea86e3766ab2f7023497236ca0d70f77254eb214e53c5b299468bb1603f66",
   "extractor": "pymapa-structural-segmenter@0.2.0",
   "identity": {
-    "declaredName": null,
-    "literalLines": [],
-    "verified": false
+    "declaredName": "Gobernar riesgos y dependencias de la transformación",
+    "literalLines": [
+      1,
+      352,
+      637
+    ],
+    "verified": true
   },
   "historicalClosure": {
     "marker": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
@@ -27,15 +31,15 @@
   ],
   "counts": {
     "lines": 657,
-    "headings": 124,
-    "idHeadings": 68,
-    "distinctSourceIds": 68,
-    "singleDefinition": 68,
+    "headings": 152,
+    "idHeadings": 96,
+    "distinctSourceIds": 96,
+    "singleDefinition": 96,
     "restatedIdentical": 0,
     "conflictingDefinitions": 0,
     "draftMarked": 0,
     "governedBacklog": 0,
-    "finalApprovedCandidates": 67,
+    "finalApprovedCandidates": 95,
     "historicalDrafts": 1
   },
   "ambiguousSupersessions": [],
@@ -54,12 +58,12 @@
       "extractor": "pymapa-structural-segmenter@0.1.0",
       "ambiguousIds": 0,
       "ambiguousIdList": [],
-      "finalApproved": 67,
+      "finalApproved": 95,
       "historicalDrafts": 1
     },
     "after": {
       "ambiguousIds": 0,
-      "finalApproved": 67,
+      "finalApproved": 95,
       "superseded": 0,
       "historicalDrafts": 1,
       "governedBacklog": 0,
@@ -79,6 +83,28 @@
     "singlesReclassified": [],
     "governingFreezes": []
   },
-  "governance": null,
-  "checksum": "sha256:bbf8c0ee19578afbcdc7d4f00cb87ef098678c3c00258245f855042e74fad5f1"
+  "governance": {
+    "decisionSetId": "M2-FACTORY-CLOSURE",
+    "ref": "knowledge/intake/DG-05/governance-decisions.json",
+    "checksum": "sha256:f72a64d345a2afa81ebc4f966c81cc18ab7852a78518461f877125eca2b25b1e",
+    "closureSelection": null,
+    "approvedCounts": [],
+    "backlogAdded": [],
+    "collisionsApplied": [],
+    "semanticTypesApplied": [],
+    "provenanceVocabularyApplied": [
+      {
+        "scheme": "PROVENANCE_CLASS",
+        "code": "SOURCE-DERIVED",
+        "line": 536
+      },
+      {
+        "scheme": "PROVENANCE_CLASS",
+        "code": "PYMAPA-DESIGNED",
+        "line": 559
+      }
+    ],
+    "errors": []
+  },
+  "checksum": "sha256:39cdecda12e611e2458bca5f6170073fe4d798e4dc056dbe06c20bc6be7f0b99"
 }

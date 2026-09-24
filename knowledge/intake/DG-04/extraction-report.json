@@ -6,9 +6,12 @@
   "textSha256": "1223b7cc3debc250a116d36d63e464a608a87d8777ce52b9c62c1ab6dafae94d",
   "extractor": "pymapa-structural-segmenter@0.2.0",
   "identity": {
-    "declaredName": null,
-    "literalLines": [],
-    "verified": false
+    "declaredName": "Dar seguimiento a iniciativas y resultados",
+    "literalLines": [
+      1,
+      358
+    ],
+    "verified": true
   },
   "historicalClosure": {
     "marker": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
@@ -27,15 +30,15 @@
   ],
   "counts": {
     "lines": 675,
-    "headings": 111,
-    "idHeadings": 62,
-    "distinctSourceIds": 62,
-    "singleDefinition": 62,
+    "headings": 145,
+    "idHeadings": 96,
+    "distinctSourceIds": 96,
+    "singleDefinition": 96,
     "restatedIdentical": 0,
     "conflictingDefinitions": 0,
     "draftMarked": 0,
     "governedBacklog": 0,
-    "finalApprovedCandidates": 62,
+    "finalApprovedCandidates": 96,
     "historicalDrafts": 0
   },
   "ambiguousSupersessions": [],
@@ -61,12 +64,12 @@
       "extractor": "pymapa-structural-segmenter@0.1.0",
       "ambiguousIds": 0,
       "ambiguousIdList": [],
-      "finalApproved": 62,
+      "finalApproved": 96,
       "historicalDrafts": 0
     },
     "after": {
       "ambiguousIds": 0,
-      "finalApproved": 62,
+      "finalApproved": 96,
       "superseded": 0,
       "historicalDrafts": 0,
       "governedBacklog": 0,
@@ -86,6 +89,28 @@
     "singlesReclassified": [],
     "governingFreezes": []
   },
-  "governance": null,
-  "checksum": "sha256:aab7614218346779f98df98d4184a862dd2da1def90b45591bc1bc62a55e9091"
+  "governance": {
+    "decisionSetId": "M2-FACTORY-CLOSURE",
+    "ref": "knowledge/intake/DG-04/governance-decisions.json",
+    "checksum": "sha256:35808587e4f46ac59e377cbd8cd699fc5fda6cb7e0fe94dbf19d733e52443492",
+    "closureSelection": null,
+    "approvedCounts": [],
+    "backlogAdded": [],
+    "collisionsApplied": [],
+    "semanticTypesApplied": [],
+    "provenanceVocabularyApplied": [
+      {
+        "scheme": "PROVENANCE_CLASS",
+        "code": "SOURCE-DERIVED",
+        "line": 562
+      },
+      {
+        "scheme": "PROVENANCE_CLASS",
+        "code": "PYMAPA-DESIGNED / SYNTHESIZED",
+        "line": 573
+      }
+    ],
+    "errors": []
+  },
+  "checksum": "sha256:10421cb6a2a4fe04dd06bf6be8dddbdeb3dfbb2e53588a16f6a1f339f61f121b"
 }

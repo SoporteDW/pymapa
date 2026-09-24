@@ -1,0 +1,39 @@
+{
+  "$schema": "../../schemas/governance-decisions.schema.json",
+  "decisionSetId": "M2-FACTORY-CLOSURE",
+  "capabilityId": "PC-02",
+  "decidedBy": "PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY",
+  "decidedByIdentity": "ROLE_ONLY · no personal identity recorded or fabricated; the file-based governance mechanism exposes no authenticated project actor identity",
+  "decidedAt": "2026-09-24",
+  "authorizationSource": "M2-FACTORY-CLOSURE · B (governed source decisions) + C (DG/PC governed completion): provenance labels are source assertions verified literally",
+  "statement": "Decisiones humanas de gobierno sobre la fuente registrada. No son aceptación canónica, no aprueban el candidato y no publican; el extractor las aplica solo si se verifican literalmente contra la fuente.",
+  "approvedCounts": [],
+  "governedBacklog": [],
+  "collisionResolutions": [
+    {
+      "sourceIds": [
+        "CRV-PC02-07"
+      ],
+      "resolution": "SELECT_OCCURRENCE",
+      "within": {
+        "fromLiteral": "| CRV-PC02-06 | Aplicación en contexto de trabajo demostrada |",
+        "toLiteral": "| CRV-PC02-08 | Competencia mantenida/actualizada cuando la naturaleza de la capacidad lo requiere |"
+      },
+      "canonicalLiteral": "Competencia objetivo alcanzada al nivel requerido",
+      "rationale": "M2-FACTORY-CLOSURE B3: la fuente declara explícitamente 8 CRV en la tabla «# CRV»; la línea posterior «CRV-PC02-07 · competencia demostrada.» es una referencia abreviada al CRV central, no un objeto propio (defecto estructural de extracción, no decisión de conocimiento)."
+    }
+  ],
+  "semanticTypes": [],
+  "provenanceVocabulary": [
+    {
+      "scheme": "PROVENANCE_CLASS",
+      "anchorLiteral": "# Provenance",
+      "windowLines": 11,
+      "codes": [
+        "SOURCE-DERIVED",
+        "PYMAPA-DESIGNED"
+      ]
+    }
+  ],
+  "checksum": "sha256:8b5fefebf493659a5665034fb35d39cf210b86305dd4995e89ffc0d56b06ada8"
+}
