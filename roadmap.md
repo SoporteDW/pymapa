@@ -19,13 +19,11 @@
 - [x] Registro cross-capability (A-OP02-02 KEEP_OPEN, BOUND-OP05-02 CONDITION_MET)
 - [x] Re-run del lote: 72 → 37 IDs ambiguos · reporte M2_BATCH01_SUPERSESSION_RESOLUTION.md · FACTORY_TRACTION_PARTIAL
 
-## Blocked / next
-- [ ] Revisión humana de los 37 IDs no resueltos, familia CRV OP-03/04 y vocabulario de provenance — espera al usuario
-- [ ] canonical-acceptance.json OP-03/04/05 — espera al usuario
-- [ ] Evento de resolución A-OP02-02 tras aceptación canónica de OP-03 — espera al usuario
-- [ ] Activación de OP-02 en la aplicación — espera orden explícita
-
-## M2-BATCH-02 (FACTORY_NOT_READY_FOR_FINAL_MASS_BATCH)
-- [ ] Proyección ejecutable genérica baseline→source.json (bloquea publicación OP-03/04/05) — pendiente de construir
-- [ ] OP-03/04/05: re-extraer con nombre declarado y re-aceptar (identidad no verificada) — requiere decisión humana
-- [ ] DG/PC: decisiones de provenance, conteos, colisiones DG-03/PC-01 y CRV PC-02 — requiere revisión humana
+## M2-FACTORY-CLOSURE (FACTORY_NOT_READY_FOR_FINAL_MASS_BATCH)
+- [x] Etapa genérica baseline→source→pack (runnable-projection.ts) + tests
+- [x] Identidad OP-03/04/05: NON_SEMANTIC_METADATA_ENRICHMENT, aceptación preservada
+- [x] Extracción de filas de tabla (PC-02: 8 CRV)
+- [x] DG-03 / PC-01 / PC-02 decisiones aplicadas; DG/PC 10 baselines aceptadas
+- [ ] GRE-CRITICALITY-NOT-EXPLICIT — espera decisión de arquitectura (extensión genérica del Engine)
+- [ ] Captura de definición de capacidad y capa de adquisición (P1–P5 ↔ VA) — próximo ciclo de Factory
+- [ ] Activación en la aplicación — espera orden explícita
