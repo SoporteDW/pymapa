@@ -954,15 +954,47 @@ export function segmentMultiCapabilityText(
   text: string,
   capabilityIds: string[],
 ): { ok: true; segments: CapabilitySegment[] } | { ok: false; reasons: string[] } {
+  const primary = segmentByClosures(text, capabilityIds, "LAST");
+  if (primary.ok) return primary;
+  // Fallback determinista: un resumen final que repite todos los cierres K4
+  // (lista consecutiva) no es frontera; se elige, en orden, la última
+  // ocurrencia de cada cierre anterior a la primera ocurrencia posterior del
+  // cierre siguiente. El resumen queda dentro de la última capacidad.
+  const fallback = segmentByClosures(text, capabilityIds, "SEQUENTIAL");
+  return fallback.ok ? fallback : primary;
+}
+
+function segmentByClosures(
+  text: string,
+  capabilityIds: string[],
+  mode: "LAST" | "SEQUENTIAL",
+): { ok: true; segments: CapabilitySegment[] } | { ok: false; reasons: string[] } {
   const lines = text.split("\n");
+  const occ = capabilityIds.map((id) => {
+    const re = new RegExp(`^${id.replace("-", "")}-K4-v\\d+(?:\\.\\d+)* · K4-VALIDATED · CLOSED$`);
+    return lines.flatMap((l, i) => (re.test(l.replace(/^#{1,9}\s+/, "").trim()) ? [i + 1] : []));
+  });
+  const pick: (number | undefined)[] = [];
+  if (mode === "SEQUENTIAL") {
+    let prev = 0;
+    capabilityIds.forEach((_, k) => {
+      const after = occ[k]!.filter((l) => l > prev);
+      const nextFirst = occ[k + 1]?.find((l) => l > (after[0] ?? prev));
+      const within = nextFirst ? after.filter((l) => l < nextFirst) : after;
+      pick.push(within[within.length - 1]);
+      prev = pick[k] ?? prev;
+    });
+  }
   const reasons: string[] = [];
   const ends: { id: string; line: number; text: string }[] = [];
   for (const id of capabilityIds) {
     const own = id.replace("-", "");
     const re = new RegExp(`^${own}-K4-v\\d+(?:\\.\\d+)* · K4-VALIDATED · CLOSED$`);
-    const at = lines.flatMap((l, i) =>
+    const all = lines.flatMap((l, i) =>
       re.test(l.replace(/^#{1,9}\s+/, "").trim()) ? [i + 1] : [],
     );
+    const chosen = mode === "SEQUENTIAL" ? pick[capabilityIds.indexOf(id)] : undefined;
+    const at = mode === "SEQUENTIAL" ? (chosen ? [chosen] : []) : all;
     if (!at.length) reasons.push(`${id}: sin marcador literal de cierre K4`);
     else
       ends.push({
@@ -980,10 +1012,17 @@ export function segmentMultiCapabilityText(
   for (let k = 1; k < ends.length; k += 1) {
     const prev = (ends[k - 1] as { line: number }).line;
     const id = (ends[k] as { id: string }).id;
-    const at = lines.findIndex(
+    const heading = lines.findIndex(
       (l, i) =>
         i + 1 > prev && /^#{1,9}\s+/.test(l) && l.replace(/^#{1,9}\s+/, "").startsWith(`${id} · `),
     );
+    // Apertura de sesión nativa de la fuente («Seguimos con <ID> · …») anterior
+    // al heading de identidad: el contenido de la capacidad siguiente no debe
+    // quedar dentro de la anterior. Solo se usa si precede al heading.
+    const opener = lines.findIndex(
+      (l, i) => i + 1 > prev && new RegExp(`^Seguimos con ${id} · `).test(l.trim()),
+    );
+    const at = opener >= 0 && (heading < 0 || opener < heading) ? opener : heading;
     if (at < 0 || at + 1 > (ends[k] as { line: number }).line)
       reasons.push(
         `${id}: sin heading de identidad «${id} · …» tras el cierre de ${ends[k - 1]?.id}`,

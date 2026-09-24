@@ -1,0 +1,3039 @@
+{
+  "candidateId": "CAND-DT-01-0.2.0-995603f0154d",
+  "capabilityId": "DT-01",
+  "status": "CANDIDATE",
+  "registration": {
+    "registrationId": "RAW-DT-01-2fb3f526b68a",
+    "textSha256": "995603f0154d77d0ec30b3593ec0f9b5f534e29c338d181ff32474d91ca42c65"
+  },
+  "producedBy": {
+    "method": "DETERMINISTIC_TOOL",
+    "agent": "pymapa-structural-segmenter@0.2.0 + pymapa-governed-supersession-resolver@0.1.0",
+    "note": "Segmentación literal por headings y líneas planas «ID · título» con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
+  },
+  "baselineId": "DT01-K4-v1.0",
+  "historicalStatus": {
+    "marker": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      892,
+      892
+    ]
+  },
+  "provenanceVocabulary": [
+    {
+      "code": "PYMAPA-DESIGNED",
+      "label": "PYMAPA-DESIGNED",
+      "meaning": "PYMAPA-DESIGNED",
+      "sourceLines": [
+        822,
+        822
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    }
+  ],
+  "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 7,
+      "objectType": "SOURCE_ID_CE",
+      "sourceLines": [
+        877,
+        877
+      ]
+    },
+    {
+      "label": "CRV",
+      "declared": 8,
+      "objectType": "SOURCE_ID_CRV",
+      "sourceLines": [
+        887,
+        887
+      ]
+    },
+    {
+      "label": "NI",
+      "declared": 16,
+      "objectType": "SOURCE_ID_NI",
+      "sourceLines": [
+        879,
+        879
+      ]
+    },
+    {
+      "label": "VA",
+      "declared": 16,
+      "objectType": "SOURCE_ID_VA",
+      "sourceLines": [
+        878,
+        878
+      ]
+    }
+  ],
+  "verbatimKeys": [
+    "heading",
+    "title",
+    "body"
+  ],
+  "items": [
+    {
+      "key": "TB-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_TB",
+      "sourceId": "TB-01",
+      "fields": {
+        "heading": "TB-01 · Connectivity",
+        "title": "Connectivity",
+        "body": [
+          "Internet, redes y conectividad relevante."
+        ]
+      },
+      "sourceLines": [
+        56,
+        57
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "TB-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_TB",
+      "sourceId": "TB-02",
+      "fields": {
+        "heading": "TB-02 · End-user technology",
+        "title": "End-user technology",
+        "body": [
+          "Computadores, móviles, terminales u otros dispositivos."
+        ]
+      },
+      "sourceLines": [
+        58,
+        59
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "TB-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_TB",
+      "sourceId": "TB-03",
+      "fields": {
+        "heading": "TB-03 · Compute/Hosting",
+        "title": "Compute/Hosting",
+        "body": [
+          "Capacidad local, cloud o híbrida."
+        ]
+      },
+      "sourceLines": [
+        60,
+        61
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "TB-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_TB",
+      "sourceId": "TB-04",
+      "fields": {
+        "heading": "TB-04 · Business applications",
+        "title": "Business applications",
+        "body": [
+          "Aplicaciones utilizadas para realizar trabajo."
+        ]
+      },
+      "sourceLines": [
+        62,
+        63
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "TB-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_TB",
+      "sourceId": "TB-05",
+      "fields": {
+        "heading": "TB-05 · Platforms/Services",
+        "title": "Platforms/Services",
+        "body": [
+          "Servicios digitales externos sobre los que opera la empresa."
+        ]
+      },
+      "sourceLines": [
+        64,
+        65
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "TB-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_TB",
+      "sourceId": "TB-06",
+      "fields": {
+        "heading": "TB-06 · Technical foundations",
+        "title": "Technical foundations",
+        "body": [
+          "Configuraciones, componentes y servicios habilitadores necesarios.",
+          "Pero esta taxonomía:",
+          "no constituye una lista obligatoria de activos.",
+          "Una microempresa puede tener una base tecnológica perfectamente adecuada compuesta casi totalmente por:",
+          "portátil + móvil + conectividad + SaaS."
+        ]
+      },
+      "sourceLines": [
+        66,
+        71
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "APP-DT01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_APP",
+      "sourceId": "APP-DT01-01",
+      "fields": {
+        "heading": "APP-DT01-01",
+        "body": [
+          "Una característica tecnológica solo debe evaluarse en profundidad cuando exista una necesidad material de negocio, operación, decisión o transformación que dependa de ella.",
+          "Ejemplo:",
+          "No preguntaremos automáticamente:",
+          "“¿Tiene infraestructura cloud escalable?”",
+          "Preguntaremos primero:",
+          "“¿Qué actividades relevantes dependen de tecnología y qué necesitan de ella?”",
+          "Solo entonces determinamos qué evaluar."
+        ]
+      },
+      "sourceLines": [
+        98,
+        105
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "CE01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Necesidad tecnológica",
+        "title": "Necesidad tecnológica"
+      },
+      "sourceLines": [
+        172,
+        172
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "VA01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA01",
+      "fields": {
+        "heading": "VA01 · Necesidades materiales de habilitación identificadas",
+        "title": "Necesidades materiales de habilitación identificadas"
+      },
+      "sourceLines": [
+        173,
+        173
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "VA02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA02",
+      "fields": {
+        "heading": "VA02 · Relación necesidad tecnológica ↔ actividad/resultado suficientemente clara",
+        "title": "Relación necesidad tecnológica ↔ actividad/resultado suficientemente clara"
+      },
+      "sourceLines": [
+        174,
+        174
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "CE02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Disponibilidad funcional",
+        "title": "Disponibilidad funcional"
+      },
+      "sourceLines": [
+        176,
+        176
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "VA03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA03",
+      "fields": {
+        "heading": "VA03 · Recursos tecnológicos requeridos disponibles",
+        "title": "Recursos tecnológicos requeridos disponibles"
+      },
+      "sourceLines": [
+        177,
+        177
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "VA04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "VA04 · Acceso efectivo para usuarios/situaciones aplicables",
+        "title": "Acceso efectivo para usuarios/situaciones aplicables"
+      },
+      "sourceLines": [
+        178,
+        178
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "CE03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Adecuación funcional",
+        "title": "Adecuación funcional"
+      },
+      "sourceLines": [
+        180,
+        180
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "VA05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "VA05 · Funcionalidad suficiente",
+        "title": "Funcionalidad suficiente"
+      },
+      "sourceLines": [
+        181,
+        181
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "VA06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "VA06 · Desempeño/capacidad suficiente",
+        "title": "Desempeño/capacidad suficiente"
+      },
+      "sourceLines": [
+        182,
+        182
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "VA07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "VA07 · Compatibilidad con condiciones reales de uso",
+        "title": "Compatibilidad con condiciones reales de uso",
+        "body": [
+          "Aquí pueden entrar:",
+          "movilidad, ubicación, dispositivos, conectividad o condiciones operativas",
+          "solo cuando sean materiales."
+        ]
+      },
+      "sourceLines": [
+        183,
+        186
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "CE04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE04",
+      "fields": {
+        "heading": "CE04 · Confiabilidad operativa",
+        "title": "Confiabilidad operativa"
+      },
+      "sourceLines": [
+        188,
+        188
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "VA08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "VA08 · Disponibilidad suficientemente consistente",
+        "title": "Disponibilidad suficientemente consistente"
+      },
+      "sourceLines": [
+        189,
+        189
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "VA09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA09",
+      "fields": {
+        "heading": "VA09 · Estabilidad suficiente para el uso requerido",
+        "title": "Estabilidad suficiente para el uso requerido",
+        "body": [
+          "No convertimos DT-01 en continuidad formal; preguntamos si la base puede funcionar suficientemente en operación normal."
+        ]
+      },
+      "sourceLines": [
+        190,
+        191
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "CE05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE05",
+      "fields": {
+        "heading": "CE05 · Sostenibilidad técnica",
+        "title": "Sostenibilidad técnica"
+      },
+      "sourceLines": [
+        193,
+        193
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "VA10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA10",
+      "fields": {
+        "heading": "VA10 · Tecnología mantenible/soportable",
+        "title": "Tecnología mantenible/soportable"
+      },
+      "sourceLines": [
+        194,
+        194
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "VA11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA11",
+      "fields": {
+        "heading": "VA11 · Dependencias técnicas materiales conocidas",
+        "title": "Dependencias técnicas materiales conocidas"
+      },
+      "sourceLines": [
+        195,
+        195
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "VA12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA12",
+      "fields": {
+        "heading": "VA12 · Obsolescencia material controlada",
+        "title": "Obsolescencia material controlada"
+      },
+      "sourceLines": [
+        196,
+        196
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "CE06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE06",
+      "fields": {
+        "heading": "CE06 · Proporcionalidad",
+        "title": "Proporcionalidad"
+      },
+      "sourceLines": [
+        198,
+        198
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "VA13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA13",
+      "fields": {
+        "heading": "VA13 · Complejidad tecnológica proporcional",
+        "title": "Complejidad tecnológica proporcional"
+      },
+      "sourceLines": [
+        199,
+        199
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "VA14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA14",
+      "fields": {
+        "heading": "VA14 · Costo/esfuerzo de sostenimiento proporcional al valor/necesidad",
+        "title": "Costo/esfuerzo de sostenimiento proporcional al valor/necesidad",
+        "body": [
+          "Este CE es especialmente importante para pymes.",
+          "Más tecnología puede ser peor."
+        ]
+      },
+      "sourceLines": [
+        200,
+        202
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "CE07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE07",
+      "fields": {
+        "heading": "CE07 · Evolución prevista",
+        "title": "Evolución prevista"
+      },
+      "sourceLines": [
+        204,
+        204
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "VA15",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA15",
+      "fields": {
+        "heading": "VA15 · Capacidad suficiente frente a necesidades previsibles",
+        "title": "Capacidad suficiente frente a necesidades previsibles"
+      },
+      "sourceLines": [
+        205,
+        205
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "VA16",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA16",
+      "fields": {
+        "heading": "VA16 · Restricciones tecnológicas futuras materialmente visibles",
+        "title": "Restricciones tecnológicas futuras materialmente visibles",
+        "body": [
+          "No evaluamos innovación tecnológica —eso será DT-06— sino:",
+          "si una necesidad ya razonablemente previsible romperá la adecuación actual."
+        ]
+      },
+      "sourceLines": [
+        206,
+        208
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "NI01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI01",
+      "fields": {
+        "heading": "| NI01 | Qué actividades necesitan habilitación tecnológica |",
+        "title": "Qué actividades necesitan habilitación tecnológica"
+      },
+      "sourceLines": [
+        213,
+        213
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "NI02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI02",
+      "fields": {
+        "heading": "| NI02 | Qué resultado/necesidad debe satisfacer la tecnología |",
+        "title": "Qué resultado/necesidad debe satisfacer la tecnología"
+      },
+      "sourceLines": [
+        214,
+        214
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "NI03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI03",
+      "fields": {
+        "heading": "| NI03 | Qué recursos tecnológicos están disponibles |",
+        "title": "Qué recursos tecnológicos están disponibles"
+      },
+      "sourceLines": [
+        215,
+        215
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "NI04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI04",
+      "fields": {
+        "heading": "| NI04 | Quién puede utilizarlos y en qué situaciones |",
+        "title": "Quién puede utilizarlos y en qué situaciones"
+      },
+      "sourceLines": [
+        216,
+        216
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "NI05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI05",
+      "fields": {
+        "heading": "| NI05 | Si proporcionan la funcionalidad requerida |",
+        "title": "Si proporcionan la funcionalidad requerida"
+      },
+      "sourceLines": [
+        217,
+        217
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "NI06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI06",
+      "fields": {
+        "heading": "| NI06 | Si capacidad/desempeño son suficientes |",
+        "title": "Si capacidad/desempeño son suficientes"
+      },
+      "sourceLines": [
+        218,
+        218
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "NI07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI07",
+      "fields": {
+        "heading": "| NI07 | Si funcionan bajo condiciones reales de trabajo |",
+        "title": "Si funcionan bajo condiciones reales de trabajo"
+      },
+      "sourceLines": [
+        219,
+        219
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "NI08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI08",
+      "fields": {
+        "heading": "| NI08 | Si están disponibles cuando se necesitan |",
+        "title": "Si están disponibles cuando se necesitan"
+      },
+      "sourceLines": [
+        220,
+        220
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "NI09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI09",
+      "fields": {
+        "heading": "| NI09 | Si su funcionamiento es suficientemente estable |",
+        "title": "Si su funcionamiento es suficientemente estable"
+      },
+      "sourceLines": [
+        221,
+        221
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "NI10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI10",
+      "fields": {
+        "heading": "| NI10 | Si pueden mantenerse/soportarse |",
+        "title": "Si pueden mantenerse/soportarse"
+      },
+      "sourceLines": [
+        222,
+        222
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "NI11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI11",
+      "fields": {
+        "heading": "| NI11 | De qué dependencias técnicas materiales dependen |",
+        "title": "De qué dependencias técnicas materiales dependen"
+      },
+      "sourceLines": [
+        223,
+        223
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "NI12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI12",
+      "fields": {
+        "heading": "| NI12 | Si existe obsolescencia material |",
+        "title": "Si existe obsolescencia material"
+      },
+      "sourceLines": [
+        224,
+        224
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "NI13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI13",
+      "fields": {
+        "heading": "| NI13 | Si la complejidad está justificada |",
+        "title": "Si la complejidad está justificada"
+      },
+      "sourceLines": [
+        225,
+        225
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "NI14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI14",
+      "fields": {
+        "heading": "| NI14 | Si el costo/esfuerzo tecnológico es proporcional |",
+        "title": "Si el costo/esfuerzo tecnológico es proporcional"
+      },
+      "sourceLines": [
+        226,
+        226
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "NI15",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI15",
+      "fields": {
+        "heading": "| NI15 | Si puede soportar necesidades previsibles |",
+        "title": "Si puede soportar necesidades previsibles"
+      },
+      "sourceLines": [
+        227,
+        227
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "NI16",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI16",
+      "fields": {
+        "heading": "| NI16 | Qué restricciones futuras ya son visibles |",
+        "title": "Qué restricciones futuras ya son visibles"
+      },
+      "sourceLines": [
+        228,
+        228
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "P-DT01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT01-01",
+      "fields": {
+        "heading": "P-DT01-01",
+        "body": [
+          "Existencia tecnológica ≠ adecuación tecnológica."
+        ]
+      },
+      "sourceLines": [
+        252,
+        253
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "P-DT01-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT01-02",
+      "fields": {
+        "heading": "P-DT01-02",
+        "body": [
+          "Mayor sofisticación ≠ mayor adecuación."
+        ]
+      },
+      "sourceLines": [
+        254,
+        255
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "P-DT01-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT01-03",
+      "fields": {
+        "heading": "P-DT01-03",
+        "body": [
+          "Tecnología debe evaluarse respecto de una necesidad material."
+        ]
+      },
+      "sourceLines": [
+        256,
+        257
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "P-DT01-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT01-04",
+      "fields": {
+        "heading": "P-DT01-04",
+        "body": [
+          "Tecnología propia ≠ tecnología superior."
+        ]
+      },
+      "sourceLines": [
+        258,
+        259
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "P-DT01-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT01-05",
+      "fields": {
+        "heading": "P-DT01-05",
+        "body": [
+          "Cloud ≠ madurez automáticamente."
+        ]
+      },
+      "sourceLines": [
+        260,
+        261
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "P-DT01-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT01-06",
+      "fields": {
+        "heading": "P-DT01-06",
+        "body": [
+          "On-premise ≠ atraso automáticamente."
+        ]
+      },
+      "sourceLines": [
+        262,
+        263
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "P-DT01-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT01-07",
+      "fields": {
+        "heading": "P-DT01-07",
+        "body": [
+          "Outsourcing tecnológico ≠ incapacidad tecnológica automáticamente."
+        ]
+      },
+      "sourceLines": [
+        264,
+        265
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "P-DT01-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT01-08",
+      "fields": {
+        "heading": "P-DT01-08",
+        "body": [
+          "Solución técnicamente avanzada puede ser desproporcionada."
+        ]
+      },
+      "sourceLines": [
+        266,
+        267
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "P-DT01-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT01-09",
+      "fields": {
+        "heading": "P-DT01-09",
+        "body": [
+          "Solución simple puede ser plenamente suficiente."
+        ]
+      },
+      "sourceLines": [
+        268,
+        269
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "P-DT01-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT01-10",
+      "fields": {
+        "heading": "P-DT01-10",
+        "body": [
+          "Tecnología funcional hoy puede no ser sostenible."
+        ]
+      },
+      "sourceLines": [
+        270,
+        271
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "P-DT01-11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT01-11",
+      "fields": {
+        "heading": "P-DT01-11",
+        "body": [
+          "Obsolescencia cronológica ≠ obsolescencia material automáticamente."
+        ]
+      },
+      "sourceLines": [
+        272,
+        273
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "P-DT01-12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT01-12",
+      "fields": {
+        "heading": "P-DT01-12",
+        "body": [
+          "Limitación tecnológica debe conectarse con una consecuencia material."
+        ]
+      },
+      "sourceLines": [
+        274,
+        275
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "P-DT01-13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT01-13",
+      "fields": {
+        "heading": "P-DT01-13",
+        "body": [
+          "Problema de proceso no debe diagnosticarse automáticamente como problema tecnológico."
+        ]
+      },
+      "sourceLines": [
+        276,
+        277
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "P-DT01-14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT01-14",
+      "fields": {
+        "heading": "P-DT01-14",
+        "body": [
+          "Problema de adopción no demuestra insuficiencia tecnológica."
+        ]
+      },
+      "sourceLines": [
+        278,
+        279
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "P-DT01-15",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT01-15",
+      "fields": {
+        "heading": "P-DT01-15",
+        "body": [
+          "Adecuación tecnológica puede variar entre casos de uso dentro de la misma organización."
+        ]
+      },
+      "sourceLines": [
+        280,
+        281
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "P1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P1",
+      "fields": {
+        "heading": "P1 · Núcleo",
+        "title": "Núcleo",
+        "body": [
+          "Preguntas como:",
+          "“¿Qué actividades importantes dependen de tecnología para funcionar?”",
+          "“¿Hay algo que hoy no puedan hacer bien por una limitación tecnológica?”",
+          "“¿Qué herramientas o sistemas son realmente críticos?”",
+          "“¿Qué pasa cuando alguno no funciona?”",
+          "“¿Hay algo que pronto vaya a exigir más de la tecnología actual?”",
+          "Mucho más útil que:",
+          "“¿Cuál es su nivel de madurez de infraestructura?”"
+        ]
+      },
+      "sourceLines": [
+        285,
+        293
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "P2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P2",
+      "fields": {
+        "heading": "P2 · Condicional",
+        "title": "Condicional",
+        "body": [
+          "Se activa ante:",
+          "- lentitud recurrente;",
+          "- interrupciones;",
+          "- capacidad insuficiente;",
+          "- restricciones de acceso;",
+          "- dispositivos inadecuados;",
+          "- conectividad insuficiente;",
+          "- software fuera de soporte;",
+          "- infraestructura frágil;",
+          "- crecimiento;",
+          "- nuevos canales;",
+          "- nuevas ubicaciones;",
+          "- nuevo volumen;",
+          "- nuevos usuarios;",
+          "- dependencia de equipos antiguos;",
+          "- mantenimiento difícil;",
+          "- costos tecnológicos desproporcionados."
+        ]
+      },
+      "sourceLines": [
+        295,
+        312
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "P3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P3",
+      "fields": {
+        "heading": "P3 · Discriminación",
+        "title": "Discriminación",
+        "body": [
+          "Ante:",
+          "“el sistema no sirve”",
+          "Pymapa debe distinguir:",
+          "TECHNOLOGY FUNCTION GAP",
+          "CAPACITY/PERFORMANCE GAP",
+          "CONNECTIVITY GAP",
+          "DATA QUALITY GAP → DT-02",
+          "INTEGRATION GAP → DT-03",
+          "USER COMPETENCE GAP → PC-02",
+          "ADOPTION GAP → PC-03",
+          "PROCESS DESIGN GAP → OP",
+          "SECURITY/CONTINUITY GAP → DT-05",
+          "EXTERNAL PROVIDER GAP → EC",
+          "Esto es central para el Motor."
+        ]
+      },
+      "sourceLines": [
+        314,
+        328
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "SUFF-DT01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SUFF",
+      "sourceId": "SUFF-DT01-01",
+      "fields": {
+        "heading": "SUFF-DT01-01",
+        "body": [
+          "La suficiencia se alcanza cuando las necesidades tecnológicas materiales están cubiertas suficientemente y no permanecen restricciones críticas sin caracterizar que puedan cambiar la conclusión.",
+          "No exige inventariar toda la tecnología."
+        ]
+      },
+      "sourceLines": [
+        362,
+        364
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "SUFF-DT01-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SUFF",
+      "sourceId": "SUFF-DT01-02",
+      "fields": {
+        "heading": "SUFF-DT01-02",
+        "body": [
+          "Cobertura tecnológica debe seguir materialidad de los casos de uso, no exhaustividad de activos."
+        ]
+      },
+      "sourceLines": [
+        365,
+        366
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "R-DT01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT01-01",
+      "fields": {
+        "heading": "R-DT01-01 · MATERIAL_TECHNOLOGY_NEED_UNCLEAR",
+        "title": "MATERIAL_TECHNOLOGY_NEED_UNCLEAR",
+        "body": [
+          "Necesidad material insuficientemente identificada."
+        ]
+      },
+      "sourceLines": [
+        380,
+        381
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "R-DT01-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT01-02",
+      "fields": {
+        "heading": "R-DT01-02 · TECHNOLOGY_PURPOSE_UNCLEAR",
+        "title": "TECHNOLOGY_PURPOSE_UNCLEAR",
+        "body": [
+          "Relación tecnología-necesidad insuficiente."
+        ]
+      },
+      "sourceLines": [
+        382,
+        383
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "R-DT01-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT01-03",
+      "fields": {
+        "heading": "R-DT01-03 · REQUIRED_TECHNOLOGY_UNAVAILABLE",
+        "title": "REQUIRED_TECHNOLOGY_UNAVAILABLE"
+      },
+      "sourceLines": [
+        384,
+        384
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "R-DT01-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT01-04",
+      "fields": {
+        "heading": "R-DT01-04 · TECHNOLOGY_ACCESS_GAP",
+        "title": "TECHNOLOGY_ACCESS_GAP"
+      },
+      "sourceLines": [
+        385,
+        385
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "R-DT01-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT01-05",
+      "fields": {
+        "heading": "R-DT01-05 · FUNCTIONAL_FIT_GAP",
+        "title": "FUNCTIONAL_FIT_GAP"
+      },
+      "sourceLines": [
+        386,
+        386
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "R-DT01-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT01-06",
+      "fields": {
+        "heading": "R-DT01-06 · TECHNOLOGY_CAPACITY_GAP",
+        "title": "TECHNOLOGY_CAPACITY_GAP"
+      },
+      "sourceLines": [
+        387,
+        387
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "R-DT01-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT01-07",
+      "fields": {
+        "heading": "R-DT01-07 · REAL_USE_CONDITION_MISMATCH",
+        "title": "REAL_USE_CONDITION_MISMATCH"
+      },
+      "sourceLines": [
+        388,
+        388
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "R-DT01-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT01-08",
+      "fields": {
+        "heading": "R-DT01-08 · TECHNOLOGY_AVAILABILITY_GAP",
+        "title": "TECHNOLOGY_AVAILABILITY_GAP"
+      },
+      "sourceLines": [
+        389,
+        389
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "R-DT01-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT01-09",
+      "fields": {
+        "heading": "R-DT01-09 · TECHNOLOGY_STABILITY_GAP",
+        "title": "TECHNOLOGY_STABILITY_GAP"
+      },
+      "sourceLines": [
+        390,
+        390
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "R-DT01-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT01-10",
+      "fields": {
+        "heading": "R-DT01-10 · TECHNOLOGY_SUPPORTABILITY_GAP",
+        "title": "TECHNOLOGY_SUPPORTABILITY_GAP"
+      },
+      "sourceLines": [
+        391,
+        391
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "R-DT01-11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT01-11",
+      "fields": {
+        "heading": "R-DT01-11 · MATERIAL_TECHNICAL_DEPENDENCY_BLIND_SPOT",
+        "title": "MATERIAL_TECHNICAL_DEPENDENCY_BLIND_SPOT"
+      },
+      "sourceLines": [
+        392,
+        392
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "R-DT01-12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT01-12",
+      "fields": {
+        "heading": "R-DT01-12 · MATERIAL_TECHNOLOGY_OBSOLESCENCE",
+        "title": "MATERIAL_TECHNOLOGY_OBSOLESCENCE"
+      },
+      "sourceLines": [
+        393,
+        393
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "R-DT01-13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT01-13",
+      "fields": {
+        "heading": "R-DT01-13 · TECHNOLOGY_OVERCOMPLEXITY",
+        "title": "TECHNOLOGY_OVERCOMPLEXITY"
+      },
+      "sourceLines": [
+        394,
+        394
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "R-DT01-14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT01-14",
+      "fields": {
+        "heading": "R-DT01-14 · TECHNOLOGY_SUSTAINMENT_DISPROPORTIONATE",
+        "title": "TECHNOLOGY_SUSTAINMENT_DISPROPORTIONATE"
+      },
+      "sourceLines": [
+        395,
+        395
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "R-DT01-15",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT01-15",
+      "fields": {
+        "heading": "R-DT01-15 · FORESEEABLE_CAPACITY_GAP",
+        "title": "FORESEEABLE_CAPACITY_GAP"
+      },
+      "sourceLines": [
+        396,
+        396
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "R-DT01-16",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT01-16",
+      "fields": {
+        "heading": "R-DT01-16 · FUTURE_TECHNOLOGY_CONSTRAINT_BLIND_SPOT",
+        "title": "FUTURE_TECHNOLOGY_CONSTRAINT_BLIND_SPOT"
+      },
+      "sourceLines": [
+        397,
+        397
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "INT-DT01-01@L429",
+      "classification": "SUPERSEDED",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-DT01-01",
+      "fields": {
+        "heading": "INT-DT01-01",
+        "body": [
+          "La intervención tecnológica debe buscar la solución de menor complejidad total que satisfaga suficientemente la necesidad material y sus condiciones razonablemente previsibles.",
+          "“Complejidad total” incluye:",
+          "adquisición + configuración + integración + operación + soporte + conocimiento requerido + dependencia + cambio organizacional.",
+          "Esto es especialmente importante para Pymapa."
+        ]
+      },
+      "sourceLines": [
+        429,
+        433
+      ],
+      "governanceDecision": "M2-FINAL-MASS-BATCH",
+      "supersededBy": "INT-DT01-01@L560"
+    },
+    {
+      "key": "CAND-MOTOR-DT01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT01-01",
+      "fields": {
+        "heading": "CAND-MOTOR-DT01-01",
+        "body": [
+          "Una evaluación tecnológica debe partir de necesidad/caso de uso material antes de evaluar el activo o solución."
+        ]
+      },
+      "sourceLines": [
+        436,
+        437
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DT01-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT01-02",
+      "fields": {
+        "heading": "CAND-MOTOR-DT01-02",
+        "body": [
+          "Existencia, disponibilidad, acceso, fitness, confiabilidad y sostenibilidad tecnológica deben conservarse como estados distintos."
+        ]
+      },
+      "sourceLines": [
+        438,
+        439
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DT01-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT01-03",
+      "fields": {
+        "heading": "CAND-MOTOR-DT01-03",
+        "body": [
+          "La edad de una tecnología no constituye por sí misma evidencia suficiente de obsolescencia material."
+        ]
+      },
+      "sourceLines": [
+        440,
+        441
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DT01-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT01-04",
+      "fields": {
+        "heading": "CAND-MOTOR-DT01-04",
+        "body": [
+          "El Motor debe poder producir tanto UNDER-FIT como OVER-FIT; exceso injustificado de complejidad también puede ser una brecha."
+        ]
+      },
+      "sourceLines": [
+        442,
+        443
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DT01-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT01-05",
+      "fields": {
+        "heading": "CAND-MOTOR-DT01-05",
+        "body": [
+          "Una brecha observada en un sistema debe discriminar tecnología, datos, integración, proceso, competencia, adopción, seguridad/continuidad y proveedor antes de atribuir causalidad."
+        ]
+      },
+      "sourceLines": [
+        444,
+        445
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DT01-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT01-06",
+      "fields": {
+        "heading": "CAND-MOTOR-DT01-06",
+        "body": [
+          "La adecuación tecnológica debe evaluarse por caso de uso; una misma tecnología puede ser suficiente para una necesidad e insuficiente para otra."
+        ]
+      },
+      "sourceLines": [
+        446,
+        447
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "P-DT01-16",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT01-16",
+      "fields": {
+        "heading": "P-DT01-16",
+        "body": [
+          "Una limitación tecnológica se convierte en brecha cuando produce o amenaza suficientemente una consecuencia material dentro del contexto aplicable."
+        ]
+      },
+      "sourceLines": [
+        504,
+        505
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "REC-DT01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_REC",
+      "sourceId": "REC-DT01-01",
+      "fields": {
+        "heading": "REC-DT01-01",
+        "body": [
+          "La especificidad de una recomendación tecnológica no debe exceder la confianza existente sobre la necesidad, la causa de la brecha y las restricciones relevantes."
+        ]
+      },
+      "sourceLines": [
+        543,
+        544
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "INT-DT01-01@L560",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-DT01-01",
+      "fields": {
+        "heading": "INT-DT01-01 · Minimum Sufficient Technology",
+        "title": "Minimum Sufficient Technology",
+        "body": [
+          "La intervención debe buscar la alternativa de menor complejidad total que satisfaga suficientemente la necesidad material actual y las necesidades previsibles que sea razonable considerar.",
+          "Esto significa que Pymapa debe poder recomendar:",
+          "no comprar nada.",
+          "O:",
+          "configurar lo existente.",
+          "O:",
+          "eliminar herramientas.",
+          "O:",
+          "utilizar un servicio externo.",
+          "O:",
+          "reemplazar tecnología.",
+          "No existe una preferencia normativa por adquisición."
+        ]
+      },
+      "sourceLines": [
+        560,
+        572
+      ],
+      "approvalEvidence": {
+        "text": "## Minimum Sufficient Technology",
+        "sourceLines": [
+          558,
+          558
+        ]
+      },
+      "governanceDecision": "M2-FINAL-MASS-BATCH"
+    },
+    {
+      "key": "TC-DT01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_TC",
+      "sourceId": "TC-DT01",
+      "fields": {
+        "heading": "TC-DT01",
+        "body": [
+          "TOTAL TECHNOLOGY COMPLEXITY puede considerar:",
+          "- adquisición;",
+          "- implementación;",
+          "- configuración;",
+          "- integración;",
+          "- operación;",
+          "- soporte;",
+          "- actualización;",
+          "- conocimientos requeridos;",
+          "- dependencia;",
+          "- administración;",
+          "- cambio organizacional;",
+          "- salida/migración futura.",
+          "No lo convertimos automáticamente en fórmula matemática.",
+          "Es una estructura de razonamiento."
+        ]
+      },
+      "sourceLines": [
+        576,
+        591
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "HF-DT01-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_HF",
+      "sourceId": "HF-DT01-06",
+      "fields": {
+        "heading": "HF-DT01-06 · TECHNOLOGY OVERCOMPLEXITY",
+        "title": "TECHNOLOGY OVERCOMPLEXITY",
+        "body": [
+          "aunque también podría existir:"
+        ]
+      },
+      "sourceLines": [
+        604,
+        605
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "INS-DT01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT01-01",
+      "fields": {
+        "heading": "INS-DT01-01 · Technology Enablement Map",
+        "title": "Technology Enablement Map",
+        "body": [
+          "necesidad → actividad → tecnología habilitadora → criticidad."
+        ]
+      },
+      "sourceLines": [
+        634,
+        635
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "INS-DT01-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT01-02",
+      "fields": {
+        "heading": "INS-DT01-02 · Technology Fit Card",
+        "title": "Technology Fit Card",
+        "body": [
+          "necesidad → funcionalidad → capacidad → condición real → suficiencia."
+        ]
+      },
+      "sourceLines": [
+        636,
+        637
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "INS-DT01-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT01-03",
+      "fields": {
+        "heading": "INS-DT01-03 · Constraint Map",
+        "title": "Constraint Map",
+        "body": [
+          "restricción → consecuencia → materialidad → alternativa."
+        ]
+      },
+      "sourceLines": [
+        638,
+        639
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "INS-DT01-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT01-04",
+      "fields": {
+        "heading": "INS-DT01-04 · Technology Dependency Map",
+        "title": "Technology Dependency Map",
+        "body": [
+          "componente → dependencia → consecuencia → soporte.",
+          "Este instrumento puede reutilizar evidencia con DG-05 y EC, sin transferir conclusiones."
+        ]
+      },
+      "sourceLines": [
+        640,
+        642
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "INS-DT01-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT01-05",
+      "fields": {
+        "heading": "INS-DT01-05 · Supportability & Obsolescence Check",
+        "title": "Supportability & Obsolescence Check",
+        "body": [
+          "No pregunta simplemente:",
+          "“¿qué edad tiene?”",
+          "Evalúa:",
+          "soporte + mantenibilidad + compatibilidad + consecuencia."
+        ]
+      },
+      "sourceLines": [
+        643,
+        647
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "INS-DT01-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT01-06",
+      "fields": {
+        "heading": "INS-DT01-06 · Technology Simplification Map",
+        "title": "Technology Simplification Map",
+        "body": [
+          "componente → utilidad → dependencia → carga → posibilidad de retiro/consolidación."
+        ]
+      },
+      "sourceLines": [
+        648,
+        649
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "INS-DT01-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT01-07",
+      "fields": {
+        "heading": "INS-DT01-07 · Minimum Sufficient Technology Decision",
+        "title": "Minimum Sufficient Technology Decision",
+        "body": [
+          "Compara alternativas por:",
+          "suficiencia + complejidad total + restricciones + horizonte."
+        ]
+      },
+      "sourceLines": [
+        650,
+        652
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "DEL-DT01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT01-01",
+      "fields": {
+        "heading": "DEL-DT01-01 · necesidades materiales de habilitación visibles",
+        "title": "necesidades materiales de habilitación visibles"
+      },
+      "sourceLines": [
+        675,
+        675
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "DEL-DT01-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT01-02",
+      "fields": {
+        "heading": "DEL-DT01-02 · disponibilidad/acceso suficientes",
+        "title": "disponibilidad/acceso suficientes"
+      },
+      "sourceLines": [
+        676,
+        676
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "DEL-DT01-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT01-03",
+      "fields": {
+        "heading": "DEL-DT01-03 · fitness funcional suficiente",
+        "title": "fitness funcional suficiente"
+      },
+      "sourceLines": [
+        677,
+        677
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "DEL-DT01-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT01-04",
+      "fields": {
+        "heading": "DEL-DT01-04 · confiabilidad operativa suficiente",
+        "title": "confiabilidad operativa suficiente"
+      },
+      "sourceLines": [
+        678,
+        678
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "DEL-DT01-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT01-05",
+      "fields": {
+        "heading": "DEL-DT01-05 · sostenibilidad técnica suficiente",
+        "title": "sostenibilidad técnica suficiente"
+      },
+      "sourceLines": [
+        679,
+        679
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "DEL-DT01-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT01-06",
+      "fields": {
+        "heading": "DEL-DT01-06 · complejidad tecnológica proporcional",
+        "title": "complejidad tecnológica proporcional"
+      },
+      "sourceLines": [
+        680,
+        680
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "DEL-DT01-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT01-07",
+      "fields": {
+        "heading": "DEL-DT01-07 · esfuerzo/costo de sostenimiento proporcional",
+        "title": "esfuerzo/costo de sostenimiento proporcional"
+      },
+      "sourceLines": [
+        681,
+        681
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "DEL-DT01-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT01-08",
+      "fields": {
+        "heading": "DEL-DT01-08 · restricciones previsibles materialmente gobernadas",
+        "title": "restricciones previsibles materialmente gobernadas"
+      },
+      "sourceLines": [
+        682,
+        682
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "CRV-DT01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT01-01",
+      "fields": {
+        "heading": "| CRV-DT01-01 | Necesidades materiales vinculadas a habilitación tecnológica están explícitamente cubiertas |",
+        "title": "Necesidades materiales vinculadas a habilitación tecnológica están explícitamente cubiertas"
+      },
+      "sourceLines": [
+        702,
+        702
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "CRV-DT01-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT01-02",
+      "fields": {
+        "heading": "| CRV-DT01-02 | Usuarios/casos aplicables acceden a recursos requeridos |",
+        "title": "Usuarios/casos aplicables acceden a recursos requeridos"
+      },
+      "sourceLines": [
+        703,
+        703
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "CRV-DT01-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT01-03",
+      "fields": {
+        "heading": "| CRV-DT01-03 | Tecnología ejecuta suficientemente funciones y cargas requeridas |",
+        "title": "Tecnología ejecuta suficientemente funciones y cargas requeridas"
+      },
+      "sourceLines": [
+        704,
+        704
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "CRV-DT01-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT01-04",
+      "fields": {
+        "heading": "| CRV-DT01-04 | Interrupciones/inestabilidad no generan impacto material fuera del nivel aceptado |",
+        "title": "Interrupciones/inestabilidad no generan impacto material fuera del nivel aceptado"
+      },
+      "sourceLines": [
+        705,
+        705
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "CRV-DT01-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT01-05",
+      "fields": {
+        "heading": "| CRV-DT01-05 | Componentes materiales son suficientemente soportables/mantenibles |",
+        "title": "Componentes materiales son suficientemente soportables/mantenibles"
+      },
+      "sourceLines": [
+        706,
+        706
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "CRV-DT01-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT01-06",
+      "fields": {
+        "heading": "| CRV-DT01-06 | No permanece complejidad tecnológica material sin justificación suficiente |",
+        "title": "No permanece complejidad tecnológica material sin justificación suficiente"
+      },
+      "sourceLines": [
+        707,
+        707
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "CRV-DT01-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT01-07",
+      "fields": {
+        "heading": "| CRV-DT01-07 | Esfuerzo/costo de sostenimiento permanece proporcional al valor/necesidad |",
+        "title": "Esfuerzo/costo de sostenimiento permanece proporcional al valor/necesidad"
+      },
+      "sourceLines": [
+        708,
+        708
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "CRV-DT01-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT01-08",
+      "fields": {
+        "heading": "| CRV-DT01-08 | Restricciones futuras previsibles están resueltas, aceptadas o gobernadas |",
+        "title": "Restricciones futuras previsibles están resueltas, aceptadas o gobernadas"
+      },
+      "sourceLines": [
+        709,
+        709
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "V0",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V0",
+      "fields": {
+        "heading": "V0 · UNKNOWN",
+        "title": "UNKNOWN",
+        "body": [
+          "No existe evidencia suficiente."
+        ]
+      },
+      "sourceLines": [
+        734,
+        735
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "V1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V1",
+      "fields": {
+        "heading": "V1 · AVAILABLE",
+        "title": "AVAILABLE",
+        "body": [
+          "La tecnología existe y puede accederse."
+        ]
+      },
+      "sourceLines": [
+        736,
+        737
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "V2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V2",
+      "fields": {
+        "heading": "V2 · FUNCTIONALLY-FIT",
+        "title": "FUNCTIONALLY-FIT",
+        "body": [
+          "Demuestra capacidad funcional suficiente en condiciones relevantes."
+        ]
+      },
+      "sourceLines": [
+        738,
+        739
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "V3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V3",
+      "fields": {
+        "heading": "V3 · OPERATIONALLY-FIT",
+        "title": "OPERATIONALLY-FIT",
+        "body": [
+          "Funciona con confiabilidad suficiente en operación real."
+        ]
+      },
+      "sourceLines": [
+        740,
+        741
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "V4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V4",
+      "fields": {
+        "heading": "V4 · SUSTAINABLY-FIT",
+        "title": "SUSTAINABLY-FIT",
+        "body": [
+          "Además puede sostenerse razonablemente y no presenta una restricción previsible material no gobernada.",
+          "La capacidad completa no exige que cada componente alcance V4.",
+          "El nivel necesario depende de:",
+          "criticidad + horizonte + consecuencia."
+        ]
+      },
+      "sourceLines": [
+        742,
+        746
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "VAL-DT01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VAL",
+      "sourceId": "VAL-DT01-01",
+      "fields": {
+        "heading": "VAL-DT01-01",
+        "body": [
+          "La validación de fitness tecnológico debe asociarse al caso de uso material y no exclusivamente al activo tecnológico.",
+          "Esta regla será importante para el diseño del Case State."
+        ]
+      },
+      "sourceLines": [
+        754,
+        756
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "REASS-DT01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_REASS",
+      "sourceId": "REASS-DT01-01",
+      "fields": {
+        "heading": "REASS-DT01-01",
+        "body": [
+          "Un cambio material en necesidad, uso, dependencia o soportabilidad puede invalidar una conclusión previa de adecuación tecnológica."
+        ]
+      },
+      "sourceLines": [
+        776,
+        777
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-AI-TECH-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-TECH-01",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-TECH-01",
+        "body": [
+          "La presencia o ausencia de IA no debe actuar como indicador positivo o negativo de adecuación tecnológica sin una necesidad material asociada."
+        ]
+      },
+      "sourceLines": [
+        812,
+        813
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "K1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Coherencia — PASS",
+        "title": "Coherencia — PASS",
+        "body": [
+          "DT-01 queda delimitada respecto de DT-02–06, OP, PC y EC."
+        ]
+      },
+      "sourceLines": [
+        865,
+        866
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "K2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Razonamiento — PASS",
+        "title": "Razonamiento — PASS",
+        "body": [
+          "Distingue existencia, disponibilidad, acceso, fitness, confiabilidad, sostenibilidad, proporcionalidad y adecuación futura."
+        ]
+      },
+      "sourceLines": [
+        867,
+        868
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "K3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · Acción — PASS",
+        "title": "Acción — PASS",
+        "body": [
+          "Permite RETAIN, CONFIGURE, ENABLE, OPTIMIZE, SIMPLIFY, SUPPORT, UPGRADE, REPLACE, ADD, MIGRATE, DEFER, RETIRE o NO_ACTION."
+        ]
+      },
+      "sourceLines": [
+        869,
+        870
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    },
+    {
+      "key": "K4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · Knowledge — PASS",
+        "title": "Knowledge — PASS",
+        "body": [
+          "Objetos, provenance, grounding, validación, trazabilidad y governance quedan suficientemente definidos."
+        ]
+      },
+      "sourceLines": [
+        871,
+        872
+      ],
+      "approvalEvidence": {
+        "text": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          892,
+          892
+        ]
+      }
+    }
+  ],
+  "governanceDecisions": {
+    "decisionSetId": "M2-FINAL-MASS-BATCH",
+    "ref": "knowledge/intake/DT-01/governance-decisions.json",
+    "checksum": "sha256:1f69fb4bd5e4f4ffaadcde6dbf1798df4257af9095bc369231914baa418642ee"
+  },
+  "checksum": "sha256:22d7775bb471f24306ae5f8d80b2a4ca799b1fc534a54083c9463c99269d0e43"
+}

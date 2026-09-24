@@ -1,0 +1,606 @@
+{
+  "packId": "dg-02",
+  "packVersion": "1.0.0",
+  "status": "draft",
+  "knowledgeMaster": {
+    "identifier": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "status": "BASELINE-APPROVED",
+    "sourceReference": "canonical-baseline.json#DG02-K4-v1.0@sha256:492b34cf7c89ef84fea0f5a355248cb22eff73c53b20fffe166b2ea13a62001c · DG02-K4-v1.0 · K4-VALIDATED · CLOSED"
+  },
+  "capability": {
+    "id": "DG-02",
+    "domainId": "DG",
+    "name": "Priorizar iniciativas y recursos de transformación",
+    "definition": "DG-02 evalúa la capacidad de la organización para comparar, seleccionar, secuenciar y revisar iniciativas de transformación, asignando recursos de manera suficientemente coherente con las prioridades del negocio, el valor esperado, las restricciones existentes y la capacidad real de ejecución.",
+    "definitionStatus": "EXPLICIT",
+    "definitionSourceLines": [
+      9,
+      9
+    ]
+  },
+  "conditionsOfExistence": [
+    {
+      "id": "CE01",
+      "statement": "Visibilidad de la demanda de transformación"
+    },
+    {
+      "id": "CE02",
+      "statement": "Criterios de valor y alineación"
+    },
+    {
+      "id": "CE03",
+      "statement": "Factibilidad y restricciones"
+    },
+    {
+      "id": "CE04",
+      "statement": "Decisión y balance"
+    },
+    {
+      "id": "CE05",
+      "statement": "Revisión adaptativa"
+    }
+  ],
+  "variables": [
+    {
+      "id": "VA01",
+      "name": "Visibilidad de iniciativas/necesidades relevantes",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA02",
+      "name": "Comparabilidad mínima de las alternativas",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA03",
+      "name": "Contribución esperada a prioridades/resultados del negocio",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA04",
+      "name": "Valor/beneficio esperado y materialidad",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA05",
+      "name": "Esfuerzo/costo requerido",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA06",
+      "name": "Capacidad y recursos disponibles",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA07",
+      "name": "Riesgos, dependencias y prerrequisitos materiales",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA08",
+      "name": "Decisión explícita de prioridad y secuencia",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA09",
+      "name": "Coherencia entre prioridades declaradas y recursos asignados",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA10",
+      "name": "Capacidad para revisar prioridades y reasignar recursos ante cambios materiales",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    }
+  ],
+  "informationNeeds": [
+    {
+      "id": "NI01",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué iniciativas/necesidades relevantes compiten actualmente por atención o recursos",
+      "variableRefs": [
+        "VA01"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI01"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI01→VA01 · cardinalidad 10=10 · sección «Bloque 4 · Necesidades de información y suficiencia» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        127
+      ]
+    },
+    {
+      "id": "NI02",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué información mínima existe para compararlas",
+      "variableRefs": [
+        "VA02"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI02"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI02→VA02 · cardinalidad 10=10 · sección «Bloque 4 · Necesidades de información y suficiencia» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        128
+      ]
+    },
+    {
+      "id": "NI03",
+      "idStatus": "SOURCE_ID",
+      "statement": "Cómo contribuye cada alternativa relevante a las prioridades empresariales",
+      "variableRefs": [
+        "VA03"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI03"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI03→VA03 · cardinalidad 10=10 · sección «Bloque 4 · Necesidades de información y suficiencia» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        129
+      ]
+    },
+    {
+      "id": "NI04",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué valor/beneficio se espera y con qué fundamento",
+      "variableRefs": [
+        "VA04"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI04"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI04→VA04 · cardinalidad 10=10 · sección «Bloque 4 · Necesidades de información y suficiencia» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        130
+      ]
+    },
+    {
+      "id": "NI05",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué esfuerzo/costo material requiere",
+      "variableRefs": [
+        "VA05"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI05"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI05→VA05 · cardinalidad 10=10 · sección «Bloque 4 · Necesidades de información y suficiencia» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        131
+      ]
+    },
+    {
+      "id": "NI06",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué recursos/capacidad están realmente disponibles",
+      "variableRefs": [
+        "VA06"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI06"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI06→VA06 · cardinalidad 10=10 · sección «Bloque 4 · Necesidades de información y suficiencia» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        132
+      ]
+    },
+    {
+      "id": "NI07",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué riesgos, dependencias o prerrequisitos condicionan la decisión",
+      "variableRefs": [
+        "VA07"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI07"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI07→VA07 · cardinalidad 10=10 · sección «Bloque 4 · Necesidades de información y suficiencia» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        133
+      ]
+    },
+    {
+      "id": "NI08",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué decisión de prioridad/secuencia se tomó y por qué",
+      "variableRefs": [
+        "VA08"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI08"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI08→VA08 · cardinalidad 10=10 · sección «Bloque 4 · Necesidades de información y suficiencia» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        134
+      ]
+    },
+    {
+      "id": "NI09",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si la asignación efectiva de recursos corresponde razonablemente con esa decisión",
+      "variableRefs": [
+        "VA09"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI09"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI09→VA09 · cardinalidad 10=10 · sección «Bloque 4 · Necesidades de información y suficiencia» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        135
+      ]
+    },
+    {
+      "id": "NI10",
+      "idStatus": "SOURCE_ID",
+      "statement": "Cómo se revisan decisiones cuando cambian condiciones relevantes",
+      "variableRefs": [
+        "VA10"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI10"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI10→VA10 · cardinalidad 10=10 · sección «Bloque 4 · Necesidades de información y suficiencia» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        136
+      ]
+    }
+  ],
+  "acquisitions": [
+    {
+      "id": "ACQ·NI01",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI01",
+      "variableRefs": [
+        "VA01"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI02",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI02",
+      "variableRefs": [
+        "VA02"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI03",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI03",
+      "variableRefs": [
+        "VA03"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI04",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI04",
+      "variableRefs": [
+        "VA04"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI05",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI05",
+      "variableRefs": [
+        "VA05"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI06",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI06",
+      "variableRefs": [
+        "VA06"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI07",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI07",
+      "variableRefs": [
+        "VA07"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI08",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI08",
+      "variableRefs": [
+        "VA08"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI09",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI09",
+      "variableRefs": [
+        "VA09"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI10",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI10",
+      "variableRefs": [
+        "VA10"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    }
+  ],
+  "acquisitionStages": [
+    {
+      "id": "P1",
+      "level": "P1",
+      "heading": "P1 · Núcleo",
+      "prompts": [
+        "¿Qué cambios/iniciativas importantes están compitiendo por recursos?",
+        "¿Cómo deciden cuál va primero?",
+        "¿Qué recursos/capacidad tienen realmente disponibles?",
+        "¿Lo que recibe recursos coincide con lo que dicen que es prioritario?"
+      ],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        165,
+        170
+      ]
+    },
+    {
+      "id": "P2",
+      "level": "P2",
+      "heading": "P2 · Condicional",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        172,
+        184
+      ]
+    },
+    {
+      "id": "P3",
+      "level": "P3",
+      "heading": "P3 · Discriminación",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        186,
+        197
+      ]
+    },
+    {
+      "id": "P4",
+      "level": "P4",
+      "heading": "P4 · Contradicción",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        199,
+        205
+      ]
+    },
+    {
+      "id": "P5",
+      "level": "P5",
+      "heading": "P5 · Validación",
+      "prompts": [
+        "“Entendemos que A tiene prioridad sobre B porque contribuye a X, pero B debe ejecutarse primero por ser prerrequisito. ¿Es correcta esta interpretación?”"
+      ],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        215,
+        222
+      ]
+    }
+  ],
+  "governedStructuralMapping": {
+    "rule": "GOVERNED_STRUCTURAL_MAPPING",
+    "nature": "interpretación estructural gobernada de la fuente; la fuente no declara literalmente el vínculo",
+    "decisionSetId": "M2-FINAL-MASS-BATCH-A",
+    "authority": "PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY",
+    "decidedAt": "2026-09-24",
+    "applied": true,
+    "conditions": {
+      "equalCardinality": true,
+      "alignedOrdinalNumbering": true,
+      "niBlockBelongsToVaArchitecture": true,
+      "orderingPreserved": true,
+      "noExplicitContraryMapping": true
+    },
+    "evidence": {
+      "vaCount": 10,
+      "niCount": 10,
+      "niSection": "Bloque 4 · Necesidades de información y suficiencia",
+      "niLines": [
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136
+      ]
+    }
+  }
+}

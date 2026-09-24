@@ -1,0 +1,3643 @@
+{
+  "candidateId": "CAND-EC-04-0.2.0-1f7e5dd453c1",
+  "capabilityId": "EC-04",
+  "status": "CANDIDATE",
+  "registration": {
+    "registrationId": "RAW-EC-04-7c22240c1ff2",
+    "textSha256": "1f7e5dd453c19709647d2bb3eb338480904deba5114c876e09987cc44d0c81ea"
+  },
+  "producedBy": {
+    "method": "DETERMINISTIC_TOOL",
+    "agent": "pymapa-structural-segmenter@0.2.0 + pymapa-governed-supersession-resolver@0.1.0",
+    "note": "Segmentación literal por headings y líneas planas «ID · título» con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
+  },
+  "baselineId": "EC04-K4-v1.0",
+  "historicalStatus": {
+    "marker": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      1106,
+      1106
+    ]
+  },
+  "provenanceVocabulary": [
+    {
+      "code": "SOURCE-DERIVED",
+      "label": "SOURCE-DERIVED",
+      "meaning": "El grounding externo debe sostener:",
+      "sourceLines": [
+        1021,
+        1022
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "PYMAPA-DESIGNED",
+      "label": "PYMAPA-DESIGNED",
+      "meaning": "Quedan como objetos propios:",
+      "sourceLines": [
+        1029,
+        1030
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    }
+  ],
+  "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 10,
+      "objectType": "SOURCE_ID_CE",
+      "sourceLines": [
+        1109,
+        1109
+      ]
+    },
+    {
+      "label": "CRV",
+      "declared": 10,
+      "objectType": "SOURCE_ID_CRV",
+      "sourceLines": [
+        1119,
+        1119
+      ]
+    },
+    {
+      "label": "VA",
+      "declared": 24,
+      "objectType": "SOURCE_ID_VA",
+      "sourceLines": [
+        1110,
+        1110
+      ]
+    }
+  ],
+  "verbatimKeys": [
+    "heading",
+    "title",
+    "body"
+  ],
+  "items": [
+    {
+      "key": "A0",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_A",
+      "sourceId": "A0",
+      "fields": {
+        "heading": "A0 · ACCESSED",
+        "title": "ACCESSED",
+        "body": [
+          "Se obtuvo acceso."
+        ]
+      },
+      "sourceLines": [
+        78,
+        79
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "A1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_A",
+      "sourceId": "A1",
+      "fields": {
+        "heading": "A1 · RECEIVED",
+        "title": "RECEIVED",
+        "body": [
+          "El recurso fue efectivamente recibido."
+        ]
+      },
+      "sourceLines": [
+        80,
+        81
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "A2@L82",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_A",
+      "sourceId": "A2",
+      "fields": {
+        "heading": "A2 · UNDERSTOOD",
+        "title": "UNDERSTOOD",
+        "body": [
+          "Existe comprensión suficiente para el propósito."
+        ]
+      },
+      "sourceLines": [
+        82,
+        83
+      ],
+      "approvalEvidence": {
+        "text": "### A1 · RECEIVED",
+        "sourceLines": [
+          80,
+          80
+        ]
+      },
+      "governanceDecision": "M2-FINAL-MASS-BATCH"
+    },
+    {
+      "key": "A3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_A",
+      "sourceId": "A3",
+      "fields": {
+        "heading": "A3 · ADAPTED",
+        "title": "ADAPTED",
+        "body": [
+          "Se contextualizó cuando era necesario."
+        ]
+      },
+      "sourceLines": [
+        84,
+        85
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "A4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_A",
+      "sourceId": "A4",
+      "fields": {
+        "heading": "A4 · APPLIED",
+        "title": "APPLIED",
+        "body": [
+          "Se utiliza suficientemente en condiciones reales."
+        ]
+      },
+      "sourceLines": [
+        86,
+        87
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "A5@L88",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_A",
+      "sourceId": "A5",
+      "fields": {
+        "heading": "A5 · EMBEDDED",
+        "title": "EMBEDDED",
+        "body": [
+          "Se integra en prácticas, procesos, sistemas o decisiones relevantes."
+        ]
+      },
+      "sourceLines": [
+        88,
+        89
+      ],
+      "approvalEvidence": {
+        "text": "### A4 · APPLIED",
+        "sourceLines": [
+          86,
+          86
+        ]
+      },
+      "governanceDecision": "M2-FINAL-MASS-BATCH"
+    },
+    {
+      "key": "A6",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_A",
+      "sourceId": "A6",
+      "fields": {
+        "heading": "A6 · RETAINED",
+        "title": "RETAINED",
+        "body": [
+          "Puede mantenerse/reproducirse suficientemente sin depender de transferencia continua no prevista.",
+          "Estos estados no son niveles universales de madurez.",
+          "El target puede ser A2, A4 o A6 según el caso."
+        ]
+      },
+      "sourceLines": [
+        90,
+        93
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "P-EC04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC04-01",
+      "fields": {
+        "heading": "P-EC04-01",
+        "body": [
+          "EC-04 debe evaluar la profundidad alcanzada respecto del Absorption Target aplicable y no exigir internalización máxima de todos los recursos externos."
+        ]
+      },
+      "sourceLines": [
+        94,
+        95
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC04-01",
+      "fields": {
+        "heading": "CAND-MOTOR-EC04-01",
+        "body": [
+          "Access y Receipt deben mantenerse separados cuando el recurso puede existir pero no llegar efectivamente al usuario/receptor requerido."
+        ]
+      },
+      "sourceLines": [
+        186,
+        187
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "P-EC04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC04-02",
+      "fields": {
+        "heading": "P-EC04-02",
+        "body": [
+          "El volumen o completitud formal del material transferido no constituye evidencia suficiente de absorción."
+        ]
+      },
+      "sourceLines": [
+        209,
+        210
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "P-EC04-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC04-03",
+      "fields": {
+        "heading": "P-EC04-03",
+        "body": [
+          "Attendance/completion constituye evidencia de exposición, no prueba suficiente de competencia o comprensión aplicable."
+        ]
+      },
+      "sourceLines": [
+        223,
+        224
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "P-EC04-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC04-04",
+      "fields": {
+        "heading": "P-EC04-04",
+        "body": [
+          "La existencia de una práctica reconocida externamente no demuestra su adecuación contextual ni elimina la necesidad de adaptación cuando existan diferencias materiales."
+        ]
+      },
+      "sourceLines": [
+        244,
+        245
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "P-EC04-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC04-05",
+      "fields": {
+        "heading": "P-EC04-05",
+        "body": [
+          "La adaptación debe preservar los elementos funcionalmente necesarios del recurso cuando éstos sean conocidos y materiales."
+        ]
+      },
+      "sourceLines": [
+        250,
+        251
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "P-EC04-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC04-06",
+      "fields": {
+        "heading": "P-EC04-06",
+        "body": [
+          "Provisioning, installation o account creation no constituyen por sí solos evidencia de utilización efectiva."
+        ]
+      },
+      "sourceLines": [
+        266,
+        267
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "P-EC04-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC04-07",
+      "fields": {
+        "heading": "P-EC04-07",
+        "body": [
+          "El uso efectivo concentrado en una única persona no debe interpretarse automáticamente como capacidad organizacional absorbida."
+        ]
+      },
+      "sourceLines": [
+        296,
+        297
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "P-EC04-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC04-08",
+      "fields": {
+        "heading": "P-EC04-08",
+        "body": [
+          "La existencia de documentación no constituye evidencia suficiente de retención si la organización no puede localizarla, interpretarla o utilizarla cuando es necesaria."
+        ]
+      },
+      "sourceLines": [
+        313,
+        314
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "P-EC04-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC04-09",
+      "fields": {
+        "heading": "P-EC04-09",
+        "body": [
+          "Absorción suficiente no exige independencia total del actor externo.",
+          "Este principio evita que EC-04 compita con ecosistemas."
+        ]
+      },
+      "sourceLines": [
+        320,
+        322
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "P-EC04-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC04-10",
+      "fields": {
+        "heading": "P-EC04-10",
+        "body": [
+          "La utilización del recurso constituye evidencia de aplicación, no evidencia suficiente de valor creado."
+        ]
+      },
+      "sourceLines": [
+        339,
+        340
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "P-EC04-11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC04-11",
+      "fields": {
+        "heading": "P-EC04-11",
+        "body": [
+          "La falta de aprovechamiento no debe atribuirse al actor externo antes de evaluar condiciones internas necesarias para la absorción."
+        ]
+      },
+      "sourceLines": [
+        378,
+        379
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "INT-EC04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-EC04-01",
+      "fields": {
+        "heading": "INT-EC04-01",
+        "body": [
+          "La organización debe absorber únicamente la profundidad de conocimiento, práctica o capacidad necesaria para utilizar y gobernar suficientemente el recurso externo según su propósito y riesgo.",
+          "No buscamos internalización indiscriminada."
+        ]
+      },
+      "sourceLines": [
+        400,
+        402
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "INT-EC04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-EC04-02",
+      "fields": {
+        "heading": "INT-EC04-02",
+        "body": [
+          "La profundidad y amplitud de absorción deben ser proporcionales al uso esperado, materialidad, continuidad requerida y costo de no disponer de la capacidad internamente."
+        ]
+      },
+      "sourceLines": [
+        408,
+        409
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CE01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Absorption intent",
+        "title": "Absorption intent"
+      },
+      "sourceLines": [
+        413,
+        413
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "VA01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA01",
+      "fields": {
+        "heading": "VA01 recurso externo suficientemente identificado",
+        "title": "recurso externo suficientemente identificado"
+      },
+      "sourceLines": [
+        414,
+        414
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "VA02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA02",
+      "fields": {
+        "heading": "VA02 propósito/uso interno suficientemente claro",
+        "title": "propósito/uso interno suficientemente claro"
+      },
+      "sourceLines": [
+        415,
+        415
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "VA03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA03",
+      "fields": {
+        "heading": "VA03 Absorption Target suficientemente definido",
+        "title": "Absorption Target suficientemente definido"
+      },
+      "sourceLines": [
+        416,
+        416
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CE02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Readiness",
+        "title": "Readiness"
+      },
+      "sourceLines": [
+        417,
+        417
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "VA04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "VA04 receptor/owner suficientemente claro",
+        "title": "receptor/owner suficientemente claro"
+      },
+      "sourceLines": [
+        418,
+        418
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "VA05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "VA05 condiciones internas mínimas suficientemente disponibles",
+        "title": "condiciones internas mínimas suficientemente disponibles"
+      },
+      "sourceLines": [
+        419,
+        419
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CE03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Access/transfer",
+        "title": "Access/transfer"
+      },
+      "sourceLines": [
+        420,
+        420
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "VA06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "VA06 recurso suficientemente accesible",
+        "title": "recurso suficientemente accesible"
+      },
+      "sourceLines": [
+        421,
+        421
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "VA07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "VA07 transferencia suficientemente adecuada al receptor",
+        "title": "transferencia suficientemente adecuada al receptor"
+      },
+      "sourceLines": [
+        422,
+        422
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CE04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE04",
+      "fields": {
+        "heading": "CE04 · Understanding",
+        "title": "Understanding"
+      },
+      "sourceLines": [
+        423,
+        423
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "VA08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "VA08 comprensión suficiente para el target",
+        "title": "comprensión suficiente para el target"
+      },
+      "sourceLines": [
+        424,
+        424
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "VA09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA09",
+      "fields": {
+        "heading": "VA09 limitaciones/uncertainties suficientemente reconocidas",
+        "title": "limitaciones/uncertainties suficientemente reconocidas"
+      },
+      "sourceLines": [
+        425,
+        425
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CE05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE05",
+      "fields": {
+        "heading": "CE05 · Adaptation",
+        "title": "Adaptation"
+      },
+      "sourceLines": [
+        426,
+        426
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "VA10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA10",
+      "fields": {
+        "heading": "VA10 necesidad de adaptación suficientemente evaluada",
+        "title": "necesidad de adaptación suficientemente evaluada"
+      },
+      "sourceLines": [
+        427,
+        427
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "VA11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA11",
+      "fields": {
+        "heading": "VA11 recurso suficientemente contextualizado cuando aplica",
+        "title": "recurso suficientemente contextualizado cuando aplica"
+      },
+      "sourceLines": [
+        428,
+        428
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CE06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE06",
+      "fields": {
+        "heading": "CE06 · Application",
+        "title": "Application"
+      },
+      "sourceLines": [
+        429,
+        429
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "VA12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA12",
+      "fields": {
+        "heading": "VA12 recurso utilizado en casos relevantes",
+        "title": "recurso utilizado en casos relevantes"
+      },
+      "sourceLines": [
+        430,
+        430
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "VA13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA13",
+      "fields": {
+        "heading": "VA13 calidad de uso suficientemente adecuada",
+        "title": "calidad de uso suficientemente adecuada"
+      },
+      "sourceLines": [
+        431,
+        431
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "VA14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA14",
+      "fields": {
+        "heading": "VA14 barreras de aplicación suficientemente visibles",
+        "title": "barreras de aplicación suficientemente visibles"
+      },
+      "sourceLines": [
+        432,
+        432
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CE07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE07",
+      "fields": {
+        "heading": "CE07 · Embedding",
+        "title": "Embedding"
+      },
+      "sourceLines": [
+        433,
+        433
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "VA15",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA15",
+      "fields": {
+        "heading": "VA15 integración suficiente en práctica/proceso cuando aplica",
+        "title": "integración suficiente en práctica/proceso cuando aplica"
+      },
+      "sourceLines": [
+        434,
+        434
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "VA16",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA16",
+      "fields": {
+        "heading": "VA16 ownership operativo suficientemente sostenible",
+        "title": "ownership operativo suficientemente sostenible"
+      },
+      "sourceLines": [
+        435,
+        435
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CE08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE08",
+      "fields": {
+        "heading": "CE08 · Retention",
+        "title": "Retention"
+      },
+      "sourceLines": [
+        436,
+        436
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "VA17",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA17",
+      "fields": {
+        "heading": "VA17 conocimiento/configuración crítica suficientemente conservable",
+        "title": "conocimiento/configuración crítica suficientemente conservable"
+      },
+      "sourceLines": [
+        437,
+        437
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "VA18",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA18",
+      "fields": {
+        "heading": "VA18 concentración crítica suficientemente visible",
+        "title": "concentración crítica suficientemente visible"
+      },
+      "sourceLines": [
+        438,
+        438
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CE09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE09",
+      "fields": {
+        "heading": "CE09 · Utilization/outcome",
+        "title": "Utilization/outcome"
+      },
+      "sourceLines": [
+        439,
+        439
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "VA19",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA19",
+      "fields": {
+        "heading": "VA19 utilización suficientemente observable",
+        "title": "utilización suficientemente observable"
+      },
+      "sourceLines": [
+        440,
+        440
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "VA20",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA20",
+      "fields": {
+        "heading": "VA20 resultado esperado suficientemente observable",
+        "title": "resultado esperado suficientemente observable"
+      },
+      "sourceLines": [
+        441,
+        441
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "VA21",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA21",
+      "fields": {
+        "heading": "VA21 uso y outcome permanecen diferenciados",
+        "title": "uso y outcome permanecen diferenciados"
+      },
+      "sourceLines": [
+        442,
+        442
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CE10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE10",
+      "fields": {
+        "heading": "CE10 · Learning/adaptation",
+        "title": "Learning/adaptation"
+      },
+      "sourceLines": [
+        443,
+        443
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "VA22",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA22",
+      "fields": {
+        "heading": "VA22 evidencia actualiza forma de uso",
+        "title": "evidencia actualiza forma de uso"
+      },
+      "sourceLines": [
+        444,
+        444
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "VA23",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA23",
+      "fields": {
+        "heading": "VA23 Absorption Target puede revisarse",
+        "title": "Absorption Target puede revisarse"
+      },
+      "sourceLines": [
+        445,
+        445
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "VA24",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA24",
+      "fields": {
+        "heading": "VA24 soporte externo/interno puede reajustarse según necesidad",
+        "title": "soporte externo/interno puede reajustarse según necesidad"
+      },
+      "sourceLines": [
+        446,
+        446
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "P2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P2",
+      "fields": {
+        "heading": "P2 · Triggers",
+        "title": "Triggers",
+        "body": [
+          "Profundizamos ante:",
+          "- consultoría no utilizada;",
+          "- capacitación sin aplicación;",
+          "- herramienta subutilizada;",
+          "- dependencia de una persona;",
+          "- proveedor hace todo;",
+          "- documentación extensa sin uso;",
+          "- implementación “terminada” sin adopción;",
+          "- workarounds;",
+          "- rework;",
+          "- baja utilización;",
+          "- knowledge transfer pendiente;",
+          "- equipo no entiende configuración;",
+          "- baja disponibilidad de tiempo;",
+          "- falta de owner;",
+          "- datos insuficientes;",
+          "- incapacidad de operar sin tercero;",
+          "- repetición de capacitación sin mejora;",
+          "- prácticas copiadas sin adaptación."
+        ]
+      },
+      "sourceLines": [
+        463,
+        482
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "P3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P3",
+      "fields": {
+        "heading": "P3 · Discriminación",
+        "title": "Discriminación",
+        "body": [
+          "Ante “no aprovechamos la solución”:",
+          "WRONG EXTERNAL ACTOR → EC-02",
+          "BAD EXTERNAL GOVERNANCE → EC-03",
+          "ABSORPTION GAP → EC-04",
+          "DEPENDENCY EXPOSURE → EC-05",
+          "COMPETENCE GAP GENERAL → PC-02",
+          "KNOWLEDGE RETENTION GENERAL → PC-04",
+          "TECHNOLOGY FIT → DT-01/06",
+          "IMPLEMENTATION FAILURE → OP-05",
+          "VALUE GAP → CM-06"
+        ]
+      },
+      "sourceLines": [
+        484,
+        494
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "E-ABS-0",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_E",
+      "sourceId": "E-ABS-0",
+      "fields": {
+        "heading": "E-ABS-0",
+        "body": [
+          "Declaración."
+        ]
+      },
+      "sourceLines": [
+        541,
+        542
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "E-ABS-1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_E",
+      "sourceId": "E-ABS-1",
+      "fields": {
+        "heading": "E-ABS-1",
+        "body": [
+          "Exposición/receipt."
+        ]
+      },
+      "sourceLines": [
+        543,
+        544
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "E-ABS-2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_E",
+      "sourceId": "E-ABS-2",
+      "fields": {
+        "heading": "E-ABS-2",
+        "body": [
+          "Demostración de comprensión."
+        ]
+      },
+      "sourceLines": [
+        545,
+        546
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "E-ABS-3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_E",
+      "sourceId": "E-ABS-3",
+      "fields": {
+        "heading": "E-ABS-3",
+        "body": [
+          "Aplicación observable."
+        ]
+      },
+      "sourceLines": [
+        547,
+        548
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "E-ABS-4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_E",
+      "sourceId": "E-ABS-4",
+      "fields": {
+        "heading": "E-ABS-4",
+        "body": [
+          "Aplicación repetible/embedded bajo condiciones definidas.",
+          "No es una escala universal de madurez.",
+          "Sirve para:",
+          "fuerza de evidencia de absorción."
+        ]
+      },
+      "sourceLines": [
+        549,
+        553
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC04-02",
+      "fields": {
+        "heading": "CAND-MOTOR-EC04-02",
+        "body": [
+          "Absorption State y Absorption Evidence Strength deben ser objetos separados."
+        ]
+      },
+      "sourceLines": [
+        554,
+        555
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "SUFF-EC04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SUFF",
+      "sourceId": "SUFF-EC04-01",
+      "fields": {
+        "heading": "SUFF-EC04-01",
+        "body": [
+          "EC-04 alcanza suficiencia cuando los recursos externos materiales tienen un Absorption Target explícito o inferible con suficiente confianza, los receptores poseen condiciones mínimas para utilizarlos, existe evidencia proporcional de comprensión y aplicación hasta la profundidad requerida, y la organización puede conservar o acceder de forma sostenible a la capacidad necesaria para mantener el resultado esperado."
+        ]
+      },
+      "sourceLines": [
+        558,
+        559
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC04-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC04-03",
+      "fields": {
+        "heading": "CAND-MOTOR-EC04-03",
+        "body": [
+          "Confidence in external delivery must not transfer automatically to absorption confidence."
+        ]
+      },
+      "sourceLines": [
+        574,
+        575
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC04-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC04-04",
+      "fields": {
+        "heading": "CAND-MOTOR-EC04-04",
+        "body": [
+          "Application confidence must not transfer automatically to outcome confidence."
+        ]
+      },
+      "sourceLines": [
+        576,
+        577
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "R-EC04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC04-01",
+      "fields": {
+        "heading": "R-EC04-01 · EXTERNAL_RESOURCE_UNCLEAR",
+        "title": "EXTERNAL_RESOURCE_UNCLEAR"
+      },
+      "sourceLines": [
+        581,
+        581
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "R-EC04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC04-02",
+      "fields": {
+        "heading": "R-EC04-02 · EXTERNAL_RESOURCE_USE_INTENT_GAP",
+        "title": "EXTERNAL_RESOURCE_USE_INTENT_GAP"
+      },
+      "sourceLines": [
+        582,
+        582
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "R-EC04-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC04-03",
+      "fields": {
+        "heading": "R-EC04-03 · ABSORPTION_TARGET_GAP",
+        "title": "ABSORPTION_TARGET_GAP"
+      },
+      "sourceLines": [
+        583,
+        583
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "R-EC04-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC04-04",
+      "fields": {
+        "heading": "R-EC04-04 · ABSORPTION_OWNER_GAP",
+        "title": "ABSORPTION_OWNER_GAP"
+      },
+      "sourceLines": [
+        584,
+        584
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "R-EC04-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC04-05",
+      "fields": {
+        "heading": "R-EC04-05 · ABSORPTIVE_READINESS_GAP",
+        "title": "ABSORPTIVE_READINESS_GAP"
+      },
+      "sourceLines": [
+        585,
+        585
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "R-EC04-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC04-06",
+      "fields": {
+        "heading": "R-EC04-06 · EXTERNAL_RESOURCE_ACCESS_GAP",
+        "title": "EXTERNAL_RESOURCE_ACCESS_GAP"
+      },
+      "sourceLines": [
+        586,
+        586
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "R-EC04-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC04-07",
+      "fields": {
+        "heading": "R-EC04-07 · EXTERNAL_RESOURCE_TRANSFER_GAP",
+        "title": "EXTERNAL_RESOURCE_TRANSFER_GAP"
+      },
+      "sourceLines": [
+        587,
+        587
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "R-EC04-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC04-08",
+      "fields": {
+        "heading": "R-EC04-08 · EXTERNAL_RESOURCE_UNDERSTANDING_GAP",
+        "title": "EXTERNAL_RESOURCE_UNDERSTANDING_GAP"
+      },
+      "sourceLines": [
+        588,
+        588
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "R-EC04-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC04-09",
+      "fields": {
+        "heading": "R-EC04-09 · ABSORPTION_UNCERTAINTY_HIDDEN",
+        "title": "ABSORPTION_UNCERTAINTY_HIDDEN"
+      },
+      "sourceLines": [
+        589,
+        589
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "R-EC04-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC04-10",
+      "fields": {
+        "heading": "R-EC04-10 · EXTERNAL_RESOURCE_ADAPTATION_NEED_GAP",
+        "title": "EXTERNAL_RESOURCE_ADAPTATION_NEED_GAP"
+      },
+      "sourceLines": [
+        590,
+        590
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "R-EC04-11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC04-11",
+      "fields": {
+        "heading": "R-EC04-11 · EXTERNAL_RESOURCE_CONTEXT_FIT_GAP",
+        "title": "EXTERNAL_RESOURCE_CONTEXT_FIT_GAP"
+      },
+      "sourceLines": [
+        591,
+        591
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "R-EC04-12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC04-12",
+      "fields": {
+        "heading": "R-EC04-12 · EXTERNAL_RESOURCE_APPLICATION_GAP",
+        "title": "EXTERNAL_RESOURCE_APPLICATION_GAP"
+      },
+      "sourceLines": [
+        592,
+        592
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "R-EC04-13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC04-13",
+      "fields": {
+        "heading": "R-EC04-13 · EXTERNAL_RESOURCE_USE_QUALITY_GAP",
+        "title": "EXTERNAL_RESOURCE_USE_QUALITY_GAP"
+      },
+      "sourceLines": [
+        593,
+        593
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "R-EC04-14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC04-14",
+      "fields": {
+        "heading": "R-EC04-14 · ABSORPTION_BARRIER_GAP",
+        "title": "ABSORPTION_BARRIER_GAP"
+      },
+      "sourceLines": [
+        594,
+        594
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "R-EC04-15",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC04-15",
+      "fields": {
+        "heading": "R-EC04-15 · EXTERNAL_RESOURCE_EMBEDDING_GAP",
+        "title": "EXTERNAL_RESOURCE_EMBEDDING_GAP"
+      },
+      "sourceLines": [
+        595,
+        595
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "R-EC04-16",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC04-16",
+      "fields": {
+        "heading": "R-EC04-16 · EXTERNAL_RESOURCE_OPERATIONAL_OWNERSHIP_GAP",
+        "title": "EXTERNAL_RESOURCE_OPERATIONAL_OWNERSHIP_GAP"
+      },
+      "sourceLines": [
+        596,
+        596
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "R-EC04-17",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC04-17",
+      "fields": {
+        "heading": "R-EC04-17 · EXTERNAL_RESOURCE_RETENTION_GAP",
+        "title": "EXTERNAL_RESOURCE_RETENTION_GAP"
+      },
+      "sourceLines": [
+        597,
+        597
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "R-EC04-18",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC04-18",
+      "fields": {
+        "heading": "R-EC04-18 · EXTERNAL_RESOURCE_KNOWLEDGE_CONCENTRATION_GAP",
+        "title": "EXTERNAL_RESOURCE_KNOWLEDGE_CONCENTRATION_GAP"
+      },
+      "sourceLines": [
+        598,
+        598
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "R-EC04-19",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC04-19",
+      "fields": {
+        "heading": "R-EC04-19 · EXTERNAL_RESOURCE_UTILIZATION_VISIBILITY_GAP",
+        "title": "EXTERNAL_RESOURCE_UTILIZATION_VISIBILITY_GAP"
+      },
+      "sourceLines": [
+        599,
+        599
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "R-EC04-20",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC04-20",
+      "fields": {
+        "heading": "R-EC04-20 · EXTERNAL_RESOURCE_OUTCOME_VISIBILITY_GAP",
+        "title": "EXTERNAL_RESOURCE_OUTCOME_VISIBILITY_GAP"
+      },
+      "sourceLines": [
+        600,
+        600
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "R-EC04-21",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC04-21",
+      "fields": {
+        "heading": "R-EC04-21 · EXTERNAL_RESOURCE_USE_OUTCOME_CONFUSION",
+        "title": "EXTERNAL_RESOURCE_USE_OUTCOME_CONFUSION"
+      },
+      "sourceLines": [
+        601,
+        601
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "R-EC04-22",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC04-22",
+      "fields": {
+        "heading": "R-EC04-22 · EXTERNAL_RESOURCE_LEARNING_GAP",
+        "title": "EXTERNAL_RESOURCE_LEARNING_GAP"
+      },
+      "sourceLines": [
+        602,
+        602
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "R-EC04-23",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC04-23",
+      "fields": {
+        "heading": "R-EC04-23 · ABSORPTION_TARGET_ADAPTATION_GAP",
+        "title": "ABSORPTION_TARGET_ADAPTATION_GAP"
+      },
+      "sourceLines": [
+        603,
+        603
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "R-EC04-24",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC04-24",
+      "fields": {
+        "heading": "R-EC04-24 · EXTERNAL_INTERNAL_SUPPORT_BALANCE_GAP",
+        "title": "EXTERNAL_INTERNAL_SUPPORT_BALANCE_GAP"
+      },
+      "sourceLines": [
+        604,
+        604
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC04-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC04-05",
+      "fields": {
+        "heading": "CAND-MOTOR-EC04-05",
+        "body": [
+          "External Resource y Absorption Target deben ser objetos separados."
+        ]
+      },
+      "sourceLines": [
+        661,
+        662
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC04-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC04-06",
+      "fields": {
+        "heading": "CAND-MOTOR-EC04-06",
+        "body": [
+          "Absorption Target debe poder variar por recurso, receptor y propósito."
+        ]
+      },
+      "sourceLines": [
+        663,
+        664
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC04-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC04-07",
+      "fields": {
+        "heading": "CAND-MOTOR-EC04-07",
+        "body": [
+          "A0–A6 representan estados funcionales y no maturity score universal."
+        ]
+      },
+      "sourceLines": [
+        665,
+        666
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC04-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC04-08",
+      "fields": {
+        "heading": "CAND-MOTOR-EC04-08",
+        "body": [
+          "Required Absorption Depth y Observed Absorption State deben compararse explícitamente."
+        ]
+      },
+      "sourceLines": [
+        667,
+        668
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC04-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC04-09",
+      "fields": {
+        "heading": "CAND-MOTOR-EC04-09",
+        "body": [
+          "Absorption Barrier debe poder derivar hacia PC, OP o DT preservando su origen."
+        ]
+      },
+      "sourceLines": [
+        669,
+        670
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC04-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC04-10",
+      "fields": {
+        "heading": "CAND-MOTOR-EC04-10",
+        "body": [
+          "Individual capability y Organizational Absorption State deben permanecer diferenciados."
+        ]
+      },
+      "sourceLines": [
+        671,
+        672
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC04-11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC04-11",
+      "fields": {
+        "heading": "CAND-MOTOR-EC04-11",
+        "body": [
+          "Utilization y Outcome deben permanecer separados."
+        ]
+      },
+      "sourceLines": [
+        673,
+        674
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC04-12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC04-12",
+      "fields": {
+        "heading": "CAND-MOTOR-EC04-12",
+        "body": [
+          "External support puede coexistir con Absorption Sufficient."
+        ]
+      },
+      "sourceLines": [
+        675,
+        676
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC04-13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC04-13",
+      "fields": {
+        "heading": "CAND-MOTOR-EC04-13",
+        "body": [
+          "Retention requirement debe ser contextual, no universal."
+        ]
+      },
+      "sourceLines": [
+        677,
+        678
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC04-14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC04-14",
+      "fields": {
+        "heading": "CAND-MOTOR-EC04-14",
+        "body": [
+          "Evidence of completion no debe cerrar automáticamente absorption."
+        ]
+      },
+      "sourceLines": [
+        679,
+        680
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC04-15",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC04-15",
+      "fields": {
+        "heading": "CAND-MOTOR-EC04-15",
+        "body": [
+          "Absorption State debe poder deteriorarse cuando cambian personas, tecnología, procesos o contexto."
+        ]
+      },
+      "sourceLines": [
+        681,
+        682
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-AI-EC04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-EC04-01",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-EC04-01",
+        "body": [
+          "El acceso confiable a conocimiento mediante IA puede contribuir a capacidad organizacional cuando su disponibilidad, calidad, contexto y gobernanza sean suficientes para el uso requerido.",
+          "Pero:"
+        ]
+      },
+      "sourceLines": [
+        691,
+        693
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-AI-EC04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-EC04-02",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-EC04-02",
+        "body": [
+          "La capacidad de obtener una respuesta de IA no constituye por sí sola comprensión o competencia interna cuando la organización necesita evaluar, adaptar o responsabilizarse por el resultado.",
+          "Y:"
+        ]
+      },
+      "sourceLines": [
+        694,
+        696
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-AI-EC04-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-EC04-03",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-EC04-03",
+        "body": [
+          "La utilización de copilots o agentes debe evaluarse por la capacidad efectiva que habilitan y no por frecuencia de prompts o adopción nominal."
+        ]
+      },
+      "sourceLines": [
+        697,
+        698
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-AI-EC04-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-EC04-04",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-EC04-04",
+        "body": [
+          "Cuando conocimiento crítico reside parcialmente en sistemas externos de IA, continuidad de acceso, provenance, calidad y capacidad de verificación pueden convertirse en condiciones de absorción y/o dependencia.",
+          "Esto último derivará directamente a EC-05."
+        ]
+      },
+      "sourceLines": [
+        699,
+        701
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "FIND-EC04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_FIND",
+      "sourceId": "FIND-EC04-01",
+      "fields": {
+        "heading": "FIND-EC04-01",
+        "body": [
+          "Los findings de absorción deben localizar la brecha en la cadena de absorción antes de atribuirla a personas, proveedor, tecnología o proceso."
+        ]
+      },
+      "sourceLines": [
+        760,
+        761
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "A5@L769",
+      "classification": "SUPERSEDED",
+      "objectType": "SOURCE_ID_A",
+      "sourceId": "A5",
+      "fields": {
+        "heading": "A5 · EMBEDDED",
+        "title": "EMBEDDED",
+        "body": [
+          "Observed:"
+        ]
+      },
+      "sourceLines": [
+        769,
+        770
+      ],
+      "governanceDecision": "M2-FINAL-MASS-BATCH",
+      "supersededBy": "A5@L88"
+    },
+    {
+      "key": "A2@L771",
+      "classification": "SUPERSEDED",
+      "objectType": "SOURCE_ID_A",
+      "sourceId": "A2",
+      "fields": {
+        "heading": "A2 · UNDERSTOOD",
+        "title": "UNDERSTOOD",
+        "body": [
+          "Existe gap.",
+          "Pero si target era A2:",
+          "no existe necesariamente brecha."
+        ]
+      },
+      "sourceLines": [
+        771,
+        774
+      ],
+      "governanceDecision": "M2-FINAL-MASS-BATCH",
+      "supersededBy": "A2@L82"
+    },
+    {
+      "key": "CAND-MOTOR-EC04-16",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC04-16",
+      "fields": {
+        "heading": "CAND-MOTOR-EC04-16",
+        "body": [
+          "El Motor debe determinar brecha mediante Required Absorption Depth − Observed Absorption State, no mediante búsqueda universal de A6."
+        ]
+      },
+      "sourceLines": [
+        775,
+        776
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "P-EC04-12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC04-12",
+      "fields": {
+        "heading": "P-EC04-12",
+        "body": [
+          "Training solo debe recomendarse cuando la evidencia indica una brecha de comprensión o competencia que materialmente contribuye al Absorption Gap.",
+          "Esta regla es especialmente importante para evitar recomendaciones genéricas."
+        ]
+      },
+      "sourceLines": [
+        826,
+        828
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "INS-EC04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC04-01",
+      "fields": {
+        "heading": "INS-EC04-01 · External Resource Absorption Case Card",
+        "title": "External Resource Absorption Case Card",
+        "body": [
+          "resource → purpose → recipient → target → current state → gap → outcome."
+        ]
+      },
+      "sourceLines": [
+        853,
+        854
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "INS-EC04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC04-02",
+      "fields": {
+        "heading": "INS-EC04-02 · Absorption Target Card",
+        "title": "Absorption Target Card",
+        "body": [
+          "resource → required depth → rationale → critical users → horizon."
+        ]
+      },
+      "sourceLines": [
+        855,
+        856
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "INS-EC04-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC04-03",
+      "fields": {
+        "heading": "INS-EC04-03 · Absorptive Readiness Check",
+        "title": "Absorptive Readiness Check",
+        "body": [
+          "owner → time → prerequisite knowledge → data → technology → authority → availability."
+        ]
+      },
+      "sourceLines": [
+        857,
+        858
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "INS-EC04-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC04-04",
+      "fields": {
+        "heading": "INS-EC04-04 · Resource Transfer Map",
+        "title": "Resource Transfer Map",
+        "body": [
+          "external source → mechanism → recipient → receipt → confirmation."
+        ]
+      },
+      "sourceLines": [
+        859,
+        860
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "INS-EC04-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC04-05",
+      "fields": {
+        "heading": "INS-EC04-05 · Applied Understanding Check",
+        "title": "Applied Understanding Check",
+        "body": [
+          "concept/resource → explain → demonstrate → limitation → confidence."
+        ]
+      },
+      "sourceLines": [
+        861,
+        862
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "INS-EC04-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC04-06",
+      "fields": {
+        "heading": "INS-EC04-06 · Context Adaptation Card",
+        "title": "Context Adaptation Card",
+        "body": [
+          "external model → relevant assumptions → local difference → adaptation → preserved mechanism."
+        ]
+      },
+      "sourceLines": [
+        863,
+        864
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "INS-EC04-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC04-07",
+      "fields": {
+        "heading": "INS-EC04-07 · Application Evidence Card",
+        "title": "Application Evidence Card",
+        "body": [
+          "use case → application → quality → barrier → result."
+        ]
+      },
+      "sourceLines": [
+        865,
+        866
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "INS-EC04-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC04-08",
+      "fields": {
+        "heading": "INS-EC04-08 · Embedding Map",
+        "title": "Embedding Map",
+        "body": [
+          "resource → process/practice/decision → owner → frequency → operational evidence."
+        ]
+      },
+      "sourceLines": [
+        867,
+        868
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "INS-EC04-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC04-09",
+      "fields": {
+        "heading": "INS-EC04-09 · Knowledge Concentration & Retention Map",
+        "title": "Knowledge Concentration & Retention Map",
+        "body": [
+          "critical knowledge → holder/location → concentration → recoverability → treatment."
+        ]
+      },
+      "sourceLines": [
+        869,
+        870
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "INS-EC04-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC04-10",
+      "fields": {
+        "heading": "INS-EC04-10 · Internal–External Capability Balance Card",
+        "title": "Internal–External Capability Balance Card",
+        "body": [
+          "capability component → internal → external → rationale → continuity implications.",
+          "Registramos:"
+        ]
+      },
+      "sourceLines": [
+        871,
+        873
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CAND-INSTRUMENT-TRANSVERSAL-13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-INSTRUMENT-TRANSVERSAL-13",
+      "fields": {
+        "heading": "CAND-INSTRUMENT-TRANSVERSAL-13 · EXTERNAL-RESOURCE-ABSORPTION-CASE-CARD",
+        "title": "EXTERNAL-RESOURCE-ABSORPTION-CASE-CARD",
+        "body": [
+          "y:"
+        ]
+      },
+      "sourceLines": [
+        874,
+        875
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CAND-INSTRUMENT-TRANSVERSAL-14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-INSTRUMENT-TRANSVERSAL-14",
+      "fields": {
+        "heading": "CAND-INSTRUMENT-TRANSVERSAL-14 · KNOWLEDGE-CONCENTRATION-RETENTION-MAP",
+        "title": "KNOWLEDGE-CONCENTRATION-RETENTION-MAP"
+      },
+      "sourceLines": [
+        876,
+        876
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC04-01",
+      "fields": {
+        "heading": "DEL-EC04-01 · Absorption Targets suficientemente definidos",
+        "title": "Absorption Targets suficientemente definidos"
+      },
+      "sourceLines": [
+        879,
+        879
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC04-02",
+      "fields": {
+        "heading": "DEL-EC04-02 · readiness gaps materiales tratados",
+        "title": "readiness gaps materiales tratados"
+      },
+      "sourceLines": [
+        880,
+        880
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC04-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC04-03",
+      "fields": {
+        "heading": "DEL-EC04-03 · recursos accesibles/transferibles a receptores adecuados",
+        "title": "recursos accesibles/transferibles a receptores adecuados"
+      },
+      "sourceLines": [
+        881,
+        881
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC04-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC04-04",
+      "fields": {
+        "heading": "DEL-EC04-04 · comprensión aplicada suficientemente evidenciada",
+        "title": "comprensión aplicada suficientemente evidenciada"
+      },
+      "sourceLines": [
+        882,
+        882
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC04-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC04-05",
+      "fields": {
+        "heading": "DEL-EC04-05 · recursos contextualizados cuando corresponde",
+        "title": "recursos contextualizados cuando corresponde"
+      },
+      "sourceLines": [
+        883,
+        883
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC04-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC04-06",
+      "fields": {
+        "heading": "DEL-EC04-06 · aplicación real suficientemente evidenciada",
+        "title": "aplicación real suficientemente evidenciada"
+      },
+      "sourceLines": [
+        884,
+        884
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC04-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC04-07",
+      "fields": {
+        "heading": "DEL-EC04-07 · embedding suficiente donde es necesario",
+        "title": "embedding suficiente donde es necesario"
+      },
+      "sourceLines": [
+        885,
+        885
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC04-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC04-08",
+      "fields": {
+        "heading": "DEL-EC04-08 · concentración/retención suficientemente gobernadas",
+        "title": "concentración/retención suficientemente gobernadas"
+      },
+      "sourceLines": [
+        886,
+        886
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC04-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC04-09",
+      "fields": {
+        "heading": "DEL-EC04-09 · utilización y outcome diferenciados y observables",
+        "title": "utilización y outcome diferenciados y observables"
+      },
+      "sourceLines": [
+        887,
+        887
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC04-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC04-10",
+      "fields": {
+        "heading": "DEL-EC04-10 · balance interno-externo explícito y revisable",
+        "title": "balance interno-externo explícito y revisable"
+      },
+      "sourceLines": [
+        888,
+        888
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC04-01",
+      "fields": {
+        "heading": "| CRV-EC04-01 | Cada recurso intervenido tiene Absorption Target verificable |",
+        "title": "Cada recurso intervenido tiene Absorption Target verificable"
+      },
+      "sourceLines": [
+        914,
+        914
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC04-02",
+      "fields": {
+        "heading": "| CRV-EC04-02 | Barreras críticas de readiness necesarias para el target han sido tratadas |",
+        "title": "Barreras críticas de readiness necesarias para el target han sido tratadas"
+      },
+      "sourceLines": [
+        915,
+        915
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC04-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC04-03",
+      "fields": {
+        "heading": "| CRV-EC04-03 | Receptores requeridos pueden acceder efectivamente al recurso |",
+        "title": "Receptores requeridos pueden acceder efectivamente al recurso"
+      },
+      "sourceLines": [
+        916,
+        916
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC04-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC04-04",
+      "fields": {
+        "heading": "| CRV-EC04-04 | Comprensión necesaria puede demostrarse mediante uso o interpretación relevante |",
+        "title": "Comprensión necesaria puede demostrarse mediante uso o interpretación relevante"
+      },
+      "sourceLines": [
+        917,
+        917
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC04-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC04-05",
+      "fields": {
+        "heading": "| CRV-EC04-05 | Adaptaciones realizadas preservan mecanismos funcionales materiales |",
+        "title": "Adaptaciones realizadas preservan mecanismos funcionales materiales"
+      },
+      "sourceLines": [
+        918,
+        918
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC04-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC04-06",
+      "fields": {
+        "heading": "| CRV-EC04-06 | Recurso puede utilizarse suficientemente en casos reales requeridos |",
+        "title": "Recurso puede utilizarse suficientemente en casos reales requeridos"
+      },
+      "sourceLines": [
+        919,
+        919
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC04-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC04-07",
+      "fields": {
+        "heading": "| CRV-EC04-07 | Uso recurrente está integrado cuando el target exige embedding |",
+        "title": "Uso recurrente está integrado cuando el target exige embedding"
+      },
+      "sourceLines": [
+        920,
+        920
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC04-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC04-08",
+      "fields": {
+        "heading": "| CRV-EC04-08 | Conocimiento/capacidad crítica puede recuperarse ante ausencia de un holder material |",
+        "title": "Conocimiento/capacidad crítica puede recuperarse ante ausencia de un holder material"
+      },
+      "sourceLines": [
+        921,
+        921
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC04-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC04-09",
+      "fields": {
+        "heading": "| CRV-EC04-09 | Utilización y outcome pueden medirse o verificarse separadamente |",
+        "title": "Utilización y outcome pueden medirse o verificarse separadamente"
+      },
+      "sourceLines": [
+        922,
+        922
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC04-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC04-10",
+      "fields": {
+        "heading": "| CRV-EC04-10 | Organización puede justificar qué capacidad conserva internamente y cuál continúa obteniendo externamente |",
+        "title": "Organización puede justificar qué capacidad conserva internamente y cuál continúa obteniendo externamente"
+      },
+      "sourceLines": [
+        923,
+        923
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "V0",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V0",
+      "fields": {
+        "heading": "V0 · UNKNOWN",
+        "title": "UNKNOWN",
+        "body": [
+          "No existe evidencia suficiente para determinar absorción."
+        ]
+      },
+      "sourceLines": [
+        932,
+        933
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "V1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V1",
+      "fields": {
+        "heading": "V1 · ABSORPTION-TARGET-DEFINED",
+        "title": "ABSORPTION-TARGET-DEFINED",
+        "body": [
+          "Recurso, propósito, receptor y profundidad requerida están suficientemente definidos."
+        ]
+      },
+      "sourceLines": [
+        934,
+        935
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "V2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V2",
+      "fields": {
+        "heading": "V2 · ABSORPTION-EVIDENCED",
+        "title": "ABSORPTION-EVIDENCED",
+        "body": [
+          "Existe evidencia suficiente de comprensión/aplicación hasta algún estado observable."
+        ]
+      },
+      "sourceLines": [
+        936,
+        937
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "V3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V3",
+      "fields": {
+        "heading": "V3 · ABSORPTION-FIT",
+        "title": "ABSORPTION-FIT",
+        "body": [
+          "Observed Absorption State satisface suficientemente Required Absorption Depth."
+        ]
+      },
+      "sourceLines": [
+        938,
+        939
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "V4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V4",
+      "fields": {
+        "heading": "V4 · ABSORPTION-SUSTAINED/ADAPTIVE",
+        "title": "ABSORPTION-SUSTAINED/ADAPTIVE",
+        "body": [
+          "La capacidad absorbida puede mantenerse, reajustarse o recuperarse suficientemente cuando cambian personas, contexto o recurso."
+        ]
+      },
+      "sourceLines": [
+        940,
+        941
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC04-17",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC04-17",
+      "fields": {
+        "heading": "CAND-MOTOR-EC04-17",
+        "body": [
+          "Absorption Depth y Validation State deben permanecer como dimensiones independientes.",
+          "Ejemplo perfectamente válido:",
+          "Required = A2",
+          "Observed = A2",
+          "Validation = V3",
+          "No necesitamos A6."
+        ]
+      },
+      "sourceLines": [
+        942,
+        948
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "REASS-EC04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_REASS",
+      "sourceId": "REASS-EC04-01",
+      "fields": {
+        "heading": "REASS-EC04-01",
+        "body": [
+          "La suficiencia de absorción debe reevaluarse cuando cambie materialmente el recurso, el propósito, el receptor, las condiciones de uso o la capacidad para conservar/aplicar lo aprendido."
+        ]
+      },
+      "sourceLines": [
+        968,
+        969
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC04-18",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC04-18",
+      "fields": {
+        "heading": "CAND-MOTOR-EC04-18",
+        "body": [
+          "Una capacidad previamente absorbida no debe considerarse permanente; nueva evidencia puede reducir su estado observado o confidence.",
+          "Esto encaja con el principio general:",
+          "historical state ≠ current state."
+        ]
+      },
+      "sourceLines": [
+        975,
+        978
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "P-EC04-13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC04-13",
+      "fields": {
+        "heading": "P-EC04-13",
+        "body": [
+          "Cuando el recurso externo evoluciona rápidamente, absorción suficiente puede requerir capacidad continua de actualización en lugar de retención estática de conocimiento.",
+          "Muy importante para Pymapa."
+        ]
+      },
+      "sourceLines": [
+        987,
+        989
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CROSS-CAP-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CROSS-CAP-01",
+      "fields": {
+        "heading": "CAND-MOTOR-CROSS-CAP-01 · AUGMENTED-ORGANIZATIONAL-CAPABILITY",
+        "title": "AUGMENTED-ORGANIZATIONAL-CAPABILITY",
+        "body": [
+          "Será revisada en la consolidación transversal 6×31."
+        ]
+      },
+      "sourceLines": [
+        1000,
+        1001
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CROSS-CAP-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CROSS-CAP-02",
+      "fields": {
+        "heading": "CAND-MOTOR-CROSS-CAP-02 · CAPABILITY-WITHOUT-FULL-INTERNAL-OWNERSHIP",
+        "title": "CAPABILITY-WITHOUT-FULL-INTERNAL-OWNERSHIP",
+        "body": [
+          "Esto es especialmente pertinente para pymes."
+        ]
+      },
+      "sourceLines": [
+        1007,
+        1008
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "SOURCE-REVIEW-TRIGGER-EC04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SOURCE",
+      "sourceId": "SOURCE-REVIEW-TRIGGER-EC04-01",
+      "fields": {
+        "heading": "SOURCE-REVIEW-TRIGGER-EC04-01 · Revisar grounding sobre absorptive capacity, external knowledge integration y technology-enabled capability cuando aparezcan cambios materiales en prácticas o evidencia relevante.",
+        "title": "Revisar grounding sobre absorptive capacity, external knowledge integration y technology-enabled capability cuando aparezcan cambios materiales en prácticas o evidencia relevante.",
+        "body": [
+          "La bibliografía exacta se reconciliará con el Source Register maestro en el cierre 6×31."
+        ]
+      },
+      "sourceLines": [
+        1044,
+        1045
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "K1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Coherencia — PASS",
+        "title": "Coherencia — PASS",
+        "body": [
+          "EC-04 queda diferenciada de PC-01/02/04, OP-05, DT-06 y EC-03/05."
+        ]
+      },
+      "sourceLines": [
+        1091,
+        1092
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "K2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Razonamiento — PASS",
+        "title": "Razonamiento — PASS",
+        "body": [
+          "Preserva:",
+          "ACCESS ≠ ABSORPTION",
+          "TRANSFER ≠ UNDERSTANDING",
+          "UNDERSTANDING ≠ APPLICATION",
+          "APPLICATION ≠ EMBEDDING",
+          "RETENTION ≠ INDEPENDENCE",
+          "UTILIZATION ≠ OUTCOME"
+        ]
+      },
+      "sourceLines": [
+        1093,
+        1100
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "K3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · Acción — PASS",
+        "title": "Acción — PASS",
+        "body": [
+          "Puede intervenir exactamente donde está la barrera en vez de generar “más capacitación” genérica."
+        ]
+      },
+      "sourceLines": [
+        1101,
+        1102
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    },
+    {
+      "key": "K4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · Knowledge — PASS",
+        "title": "Knowledge — PASS",
+        "body": [
+          "Unidades, estados, reglas, evidence strength, confidence, contextualización, lifecycle y governance quedan explícitos."
+        ]
+      },
+      "sourceLines": [
+        1103,
+        1104
+      ],
+      "approvalEvidence": {
+        "text": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1106,
+          1106
+        ]
+      }
+    }
+  ],
+  "governanceDecisions": {
+    "decisionSetId": "M2-FINAL-MASS-BATCH",
+    "ref": "knowledge/intake/EC-04/governance-decisions.json",
+    "checksum": "sha256:62dc9ce35f4231d808668419db43d9e1e6bda174235a2744875ab9648bb30186"
+  },
+  "checksum": "sha256:222a293a654483d5ae61a8006d96aad756374e681070605c6c7475da0291488c"
+}

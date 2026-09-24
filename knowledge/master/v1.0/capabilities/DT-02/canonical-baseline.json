@@ -1,0 +1,1934 @@
+{
+  "baselineId": "DT02-K4-v1.0",
+  "capabilityId": "DT-02",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "historicalStatus": {
+    "marker": "DT02-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      999,
+      999
+    ]
+  },
+  "rawSource": {
+    "ref": "raw/DT-02.txt",
+    "sha256": "dffc6d933920f0efb819d8c38b1aebc9c0386e0edad84a2690575fe44bf8e5f2",
+    "byteLength": 38806,
+    "lineCount": 1017,
+    "transcription": {
+      "tool": "pymapa-docx-text 1.0.0",
+      "arguments": ""
+    },
+    "originalDocument": {
+      "filename": "DT_-_01_A_06_Completo.docx",
+      "byteLength": 304836,
+      "sha256": "2fb3f526b68a8bb801cf5af953d0aec8f204a7c7ef4d8bf6ef270bee4f413ccd"
+    }
+  },
+  "provenanceVocabulary": [
+    {
+      "code": "SOURCE-DERIVED",
+      "label": "SOURCE-DERIVED",
+      "meaning": "De ISO 8000 y DAMA obtenemos grounding sobre:",
+      "sourceLines": [
+        889,
+        890
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "PYMAPA-DESIGNED",
+      "label": "PYMAPA-DESIGNED",
+      "meaning": "Son objetos propios:",
+      "sourceLines": [
+        899,
+        900
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    }
+  ],
+  "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 7,
+      "objectType": "SOURCE_ID_CE",
+      "sourceLines": [
+        984,
+        984
+      ]
+    },
+    {
+      "label": "CRV",
+      "declared": 8,
+      "objectType": "SOURCE_ID_CRV",
+      "sourceLines": [
+        994,
+        994
+      ]
+    },
+    {
+      "label": "NI",
+      "declared": 17,
+      "objectType": "SOURCE_ID_NI",
+      "enumeration": "DECLARED_NOT_ENUMERATED",
+      "sourceLines": [
+        986,
+        986
+      ]
+    },
+    {
+      "label": "VA",
+      "declared": 17,
+      "objectType": "SOURCE_ID_VA",
+      "sourceLines": [
+        985,
+        985
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "key": "P-DT02-CORE-01",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT02-CORE-01",
+      "fields": {
+        "heading": "P-DT02-CORE-01",
+        "body": [
+          "La calidad de un dato debe evaluarse respecto de los requisitos del uso al que sirve, no mediante una expectativa universal de perfección."
+        ]
+      },
+      "sourceLines": [
+        98,
+        99
+      ]
+    },
+    {
+      "key": "APP-DT02-01",
+      "objectType": "SOURCE_ID_APP",
+      "sourceId": "APP-DT02-01",
+      "fields": {
+        "heading": "APP-DT02-01",
+        "body": [
+          "La profundidad de evaluación debe seguir la materialidad del uso y de las consecuencias asociadas a una condición insuficiente del dato.",
+          "Factores de materialidad:",
+          "- criticidad del proceso;",
+          "- relevancia para decisiones;",
+          "- impacto financiero;",
+          "- impacto sobre cliente;",
+          "- frecuencia;",
+          "- volumen;",
+          "- dependencia aguas abajo;",
+          "- riesgo;",
+          "- dificultad de corrección;",
+          "- uso regulatorio cuando aplique.",
+          "No forman todavía un score universal."
+        ]
+      },
+      "sourceLines": [
+        114,
+        127
+      ]
+    },
+    {
+      "key": "DQ-01",
+      "objectType": "SOURCE_ID_DQ",
+      "sourceId": "DQ-01",
+      "fields": {
+        "heading": "DQ-01 · Completeness",
+        "title": "Completeness",
+        "body": [
+          "¿Está presente lo necesario?"
+        ]
+      },
+      "sourceLines": [
+        181,
+        182
+      ]
+    },
+    {
+      "key": "DQ-02",
+      "objectType": "SOURCE_ID_DQ",
+      "sourceId": "DQ-02",
+      "fields": {
+        "heading": "DQ-02 · Accuracy",
+        "title": "Accuracy",
+        "body": [
+          "¿Representa suficientemente la realidad/referencia que pretende representar?"
+        ]
+      },
+      "sourceLines": [
+        183,
+        184
+      ]
+    },
+    {
+      "key": "DQ-03",
+      "objectType": "SOURCE_ID_DQ",
+      "sourceId": "DQ-03",
+      "fields": {
+        "heading": "DQ-03 · Consistency",
+        "title": "Consistency",
+        "body": [
+          "¿Mantiene compatibilidad suficiente entre representaciones relevantes?"
+        ]
+      },
+      "sourceLines": [
+        185,
+        186
+      ]
+    },
+    {
+      "key": "DQ-04",
+      "objectType": "SOURCE_ID_DQ",
+      "sourceId": "DQ-04",
+      "fields": {
+        "heading": "DQ-04 · Validity",
+        "title": "Validity",
+        "body": [
+          "¿Cumple las reglas/formato/dominio aplicables?"
+        ]
+      },
+      "sourceLines": [
+        187,
+        188
+      ]
+    },
+    {
+      "key": "DQ-05",
+      "objectType": "SOURCE_ID_DQ",
+      "sourceId": "DQ-05",
+      "fields": {
+        "heading": "DQ-05 · Currency",
+        "title": "Currency",
+        "body": [
+          "¿Está suficientemente actualizado para el uso?"
+        ]
+      },
+      "sourceLines": [
+        189,
+        190
+      ]
+    },
+    {
+      "key": "DQ-06",
+      "objectType": "SOURCE_ID_DQ",
+      "sourceId": "DQ-06",
+      "fields": {
+        "heading": "DQ-06 · Uniqueness/Identity",
+        "title": "Uniqueness/Identity",
+        "body": [
+          "¿Podemos distinguir suficientemente entidades/registros cuando el uso lo requiere?"
+        ]
+      },
+      "sourceLines": [
+        191,
+        192
+      ]
+    },
+    {
+      "key": "DQ-07",
+      "objectType": "SOURCE_ID_DQ",
+      "sourceId": "DQ-07",
+      "fields": {
+        "heading": "DQ-07 · Meaning/Interpretability",
+        "title": "Meaning/Interpretability",
+        "body": [
+          "¿Se entiende suficientemente qué representa el dato y cómo debe interpretarse?",
+          "Pero:",
+          "no todo CDE necesita ser evaluado contra las siete características.",
+          "El uso determina cuáles son materiales."
+        ]
+      },
+      "sourceLines": [
+        193,
+        197
+      ]
+    },
+    {
+      "key": "DA-01",
+      "objectType": "SOURCE_ID_DA",
+      "sourceId": "DA-01",
+      "fields": {
+        "heading": "DA-01 · LOCATABLE",
+        "title": "LOCATABLE",
+        "body": [
+          "Sabemos dónde está."
+        ]
+      },
+      "sourceLines": [
+        201,
+        202
+      ]
+    },
+    {
+      "key": "DA-02",
+      "objectType": "SOURCE_ID_DA",
+      "sourceId": "DA-02",
+      "fields": {
+        "heading": "DA-02 · ACCESSIBLE",
+        "title": "ACCESSIBLE",
+        "body": [
+          "El usuario/caso legítimo puede obtenerlo."
+        ]
+      },
+      "sourceLines": [
+        203,
+        204
+      ]
+    },
+    {
+      "key": "DA-03",
+      "objectType": "SOURCE_ID_DA",
+      "sourceId": "DA-03",
+      "fields": {
+        "heading": "DA-03 · TIMELY",
+        "title": "TIMELY",
+        "body": [
+          "Puede obtenerlo dentro del horizonte requerido."
+        ]
+      },
+      "sourceLines": [
+        205,
+        206
+      ]
+    },
+    {
+      "key": "DA-04",
+      "objectType": "SOURCE_ID_DA",
+      "sourceId": "DA-04",
+      "fields": {
+        "heading": "DA-04 · USABLE",
+        "title": "USABLE",
+        "body": [
+          "Se presenta en una forma suficientemente utilizable.",
+          "Esto genera otra separación:",
+          "LOCATABLE ≠ ACCESSIBLE ≠ TIMELY ≠ USABLE."
+        ]
+      },
+      "sourceLines": [
+        207,
+        210
+      ]
+    },
+    {
+      "key": "P-DT02-01",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT02-01",
+      "fields": {
+        "heading": "P-DT02-01",
+        "body": [
+          "La profundidad de provenance requerida debe ser proporcional a la materialidad del dato y a cuánto depende de ella la confianza en su uso.",
+          "ISO 8000-110, por ejemplo, señala que aspectos como exactitud y provenance deben tratarse como parte de una estrategia global de calidad de datos, aunque esa norma específica se centre en intercambio de master data. ISO"
+        ]
+      },
+      "sourceLines": [
+        221,
+        223
+      ]
+    },
+    {
+      "key": "CE01",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Necesidad y propósito",
+        "title": "Necesidad y propósito"
+      },
+      "sourceLines": [
+        227,
+        227
+      ]
+    },
+    {
+      "key": "VA01",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA01",
+      "fields": {
+        "heading": "VA01 · Datos materiales requeridos identificados",
+        "title": "Datos materiales requeridos identificados"
+      },
+      "sourceLines": [
+        228,
+        228
+      ]
+    },
+    {
+      "key": "VA02",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA02",
+      "fields": {
+        "heading": "VA02 · Uso/requisito suficientemente definido",
+        "title": "Uso/requisito suficientemente definido"
+      },
+      "sourceLines": [
+        229,
+        229
+      ]
+    },
+    {
+      "key": "CE02",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Existencia y captura",
+        "title": "Existencia y captura"
+      },
+      "sourceLines": [
+        231,
+        231
+      ]
+    },
+    {
+      "key": "VA03",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA03",
+      "fields": {
+        "heading": "VA03 · Dato requerido capturado/disponible en origen",
+        "title": "Dato requerido capturado/disponible en origen"
+      },
+      "sourceLines": [
+        232,
+        232
+      ]
+    },
+    {
+      "key": "VA04",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "VA04 · Cobertura/completitud suficiente",
+        "title": "Cobertura/completitud suficiente"
+      },
+      "sourceLines": [
+        233,
+        233
+      ]
+    },
+    {
+      "key": "CE03",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Significado",
+        "title": "Significado"
+      },
+      "sourceLines": [
+        235,
+        235
+      ]
+    },
+    {
+      "key": "VA05",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "VA05 · Definición suficientemente clara",
+        "title": "Definición suficientemente clara"
+      },
+      "sourceLines": [
+        236,
+        236
+      ]
+    },
+    {
+      "key": "VA06",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "VA06 · Interpretación suficientemente consistente",
+        "title": "Interpretación suficientemente consistente"
+      },
+      "sourceLines": [
+        237,
+        237
+      ]
+    },
+    {
+      "key": "CE04",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE04",
+      "fields": {
+        "heading": "CE04 · Calidad intrínseca/contextual",
+        "title": "Calidad intrínseca/contextual"
+      },
+      "sourceLines": [
+        239,
+        239
+      ]
+    },
+    {
+      "key": "VA07",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "VA07 · Exactitud suficiente",
+        "title": "Exactitud suficiente"
+      },
+      "sourceLines": [
+        240,
+        240
+      ]
+    },
+    {
+      "key": "VA08",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "VA08 · Validez suficiente",
+        "title": "Validez suficiente"
+      },
+      "sourceLines": [
+        241,
+        241
+      ]
+    },
+    {
+      "key": "VA09",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA09",
+      "fields": {
+        "heading": "VA09 · Consistencia suficiente",
+        "title": "Consistencia suficiente"
+      },
+      "sourceLines": [
+        242,
+        242
+      ]
+    },
+    {
+      "key": "VA10",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA10",
+      "fields": {
+        "heading": "VA10 · Actualidad/currency suficiente",
+        "title": "Actualidad/currency suficiente"
+      },
+      "sourceLines": [
+        243,
+        243
+      ]
+    },
+    {
+      "key": "VA11",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA11",
+      "fields": {
+        "heading": "VA11 · Identidad/unicidad suficiente cuando aplica",
+        "title": "Identidad/unicidad suficiente cuando aplica",
+        "body": [
+          "No todas estas VA serán materiales para todos los datos."
+        ]
+      },
+      "sourceLines": [
+        244,
+        245
+      ]
+    },
+    {
+      "key": "CE05",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE05",
+      "fields": {
+        "heading": "CE05 · Disponibilidad para uso",
+        "title": "Disponibilidad para uso"
+      },
+      "sourceLines": [
+        247,
+        247
+      ]
+    },
+    {
+      "key": "VA12",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA12",
+      "fields": {
+        "heading": "VA12 · Localización suficiente",
+        "title": "Localización suficiente"
+      },
+      "sourceLines": [
+        248,
+        248
+      ]
+    },
+    {
+      "key": "VA13",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA13",
+      "fields": {
+        "heading": "VA13 · Acceso legítimo suficiente",
+        "title": "Acceso legítimo suficiente"
+      },
+      "sourceLines": [
+        249,
+        249
+      ]
+    },
+    {
+      "key": "VA14",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA14",
+      "fields": {
+        "heading": "VA14 · Oportunidad suficiente",
+        "title": "Oportunidad suficiente"
+      },
+      "sourceLines": [
+        250,
+        250
+      ]
+    },
+    {
+      "key": "CE06",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE06",
+      "fields": {
+        "heading": "CE06 · Confiabilidad y trazabilidad",
+        "title": "Confiabilidad y trazabilidad"
+      },
+      "sourceLines": [
+        252,
+        252
+      ]
+    },
+    {
+      "key": "VA15",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA15",
+      "fields": {
+        "heading": "VA15 · Fuente/provenance suficientemente conocida cuando material",
+        "title": "Fuente/provenance suficientemente conocida cuando material"
+      },
+      "sourceLines": [
+        253,
+        253
+      ]
+    },
+    {
+      "key": "VA16",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA16",
+      "fields": {
+        "heading": "VA16 · Transformaciones/correcciones relevantes suficientemente trazables cuando material",
+        "title": "Transformaciones/correcciones relevantes suficientemente trazables cuando material"
+      },
+      "sourceLines": [
+        254,
+        254
+      ]
+    },
+    {
+      "key": "CE07",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE07",
+      "fields": {
+        "heading": "CE07 · Mantenimiento",
+        "title": "Mantenimiento"
+      },
+      "sourceLines": [
+        256,
+        256
+      ]
+    },
+    {
+      "key": "VA17",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA17",
+      "fields": {
+        "heading": "VA17 · Existe mecanismo proporcional para detectar/corregir deterioro material del dato",
+        "title": "Existe mecanismo proporcional para detectar/corregir deterioro material del dato",
+        "body": [
+          "Esta última variable evita evaluar calidad como fotografía estática."
+        ]
+      },
+      "sourceLines": [
+        257,
+        258
+      ]
+    },
+    {
+      "key": "NI-DT02-USE",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI-DT02-USE",
+      "fields": {
+        "heading": "NI-DT02-USE",
+        "body": [
+          "Antes de preguntar:",
+          "“¿qué tan buena es la calidad de sus datos?”",
+          "debemos saber:",
+          "¿para qué dato y para qué uso?",
+          "Sin esa información, Pymapa no debe emitir un diagnóstico fuerte de calidad."
+        ]
+      },
+      "sourceLines": [
+        263,
+        268
+      ]
+    },
+    {
+      "key": "P1",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P1",
+      "fields": {
+        "heading": "P1 · Núcleo",
+        "title": "Núcleo",
+        "body": [
+          "No preguntaremos:",
+          "“¿cuál es su nivel de data governance?”",
+          "Preguntaremos:",
+          "“¿Qué información necesita para operar o decidir y suele faltar?”",
+          "“¿Qué datos generan errores o retrabajo?”",
+          "“¿Hay datos que distintas personas interpretan de manera diferente?”",
+          "“¿Qué información suele llegar demasiado tarde?”",
+          "“¿Qué dato equivocado tendría consecuencias importantes?”",
+          "Estas preguntas permiten descubrir CDE candidatos."
+        ]
+      },
+      "sourceLines": [
+        324,
+        333
+      ]
+    },
+    {
+      "key": "P2",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P2",
+      "fields": {
+        "heading": "P2 · Condicional",
+        "title": "Condicional",
+        "body": [
+          "Se activa ante:",
+          "- retrabajo;",
+          "- correcciones frecuentes;",
+          "- datos faltantes;",
+          "- duplicados;",
+          "- diferencias entre reportes;",
+          "- información desactualizada;",
+          "- búsqueda manual recurrente;",
+          "- múltiples archivos;",
+          "- definiciones distintas;",
+          "- decisiones retrasadas;",
+          "- errores de cliente/producto/inventario;",
+          "- conciliaciones frecuentes;",
+          "- dependencia de una persona para interpretar datos."
+        ]
+      },
+      "sourceLines": [
+        335,
+        349
+      ]
+    },
+    {
+      "key": "P3",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P3",
+      "fields": {
+        "heading": "P3 · Discriminación",
+        "title": "Discriminación",
+        "body": [
+          "Ante:",
+          "“los datos no cuadran”",
+          "debemos distinguir:",
+          "CAPTURE QUALITY",
+          "DEFINITION/SEMANTIC GAP",
+          "DATA QUALITY",
+          "INTEGRATION/SYNCHRONIZATION → DT-03",
+          "TRANSFORMATION/ANALYTICS → DT-04",
+          "PROCESS EXECUTION → OP",
+          "COMPETENCE → PC-02",
+          "TECHNOLOGY → DT-01"
+        ]
+      },
+      "sourceLines": [
+        351,
+        362
+      ]
+    },
+    {
+      "key": "P4",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P4",
+      "fields": {
+        "heading": "P4 · Contradicciones",
+        "title": "Contradicciones"
+      },
+      "sourceLines": [
+        364,
+        364
+      ]
+    },
+    {
+      "key": "CONTR-DT02-01",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-DT02-01",
+      "fields": {
+        "heading": "CONTR-DT02-01",
+        "body": [
+          "DECLARED_DATA_QUALITY_vs_RECURRING_CORRECTIONS",
+          "“Nuestros datos están bien”",
+          "pero existe corrección manual recurrente material."
+        ]
+      },
+      "sourceLines": [
+        365,
+        368
+      ]
+    },
+    {
+      "key": "CONTR-DT02-02",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-DT02-02",
+      "fields": {
+        "heading": "CONTR-DT02-02",
+        "body": [
+          "SINGLE_SOURCE_vs_MULTIPLE_MEANINGS",
+          "Existe “fuente única”, pero distintos usuarios interpretan el campo de manera diferente."
+        ]
+      },
+      "sourceLines": [
+        369,
+        371
+      ]
+    },
+    {
+      "key": "CONTR-DT02-03",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-DT02-03",
+      "fields": {
+        "heading": "CONTR-DT02-03",
+        "body": [
+          "AVAILABLE_DATA_vs_LATE_FOR_USE",
+          "El dato existe, pero llega después de la decisión."
+        ]
+      },
+      "sourceLines": [
+        372,
+        374
+      ]
+    },
+    {
+      "key": "P5",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P5",
+      "fields": {
+        "heading": "P5 · Validación",
+        "title": "Validación",
+        "body": [
+          "En lugar de:",
+          "“¿sus datos son confiables?”",
+          "podemos validar:",
+          "“Para confirmar inventario antes de vender, ¿este dato refleja suficientemente la disponibilidad real en el momento en que el vendedor toma la decisión?”",
+          "Ahora tenemos:",
+          "DATA + USE + TIME + SUFFICIENCY."
+        ]
+      },
+      "sourceLines": [
+        376,
+        382
+      ]
+    },
+    {
+      "key": "EVID-DT02-01",
+      "objectType": "SOURCE_ID_EVID",
+      "sourceId": "EVID-DT02-01",
+      "fields": {
+        "heading": "EVID-DT02-01",
+        "body": [
+          "La exigencia de evidencia aumenta con la consecuencia material de utilizar un dato insuficiente."
+        ]
+      },
+      "sourceLines": [
+        412,
+        413
+      ]
+    },
+    {
+      "key": "SUFF-DT02-01",
+      "objectType": "SOURCE_ID_SUFF",
+      "sourceId": "SUFF-DT02-01",
+      "fields": {
+        "heading": "SUFF-DT02-01",
+        "body": [
+          "La capacidad alcanza suficiencia cuando los datos materialmente necesarios para los usos aplicables satisfacen sus requisitos críticos de calidad y disponibilidad, sin incertidumbres pendientes capaces de cambiar materialmente la conclusión.",
+          "No significa:",
+          "todos los datos perfectos."
+        ]
+      },
+      "sourceLines": [
+        416,
+        419
+      ]
+    },
+    {
+      "key": "C0",
+      "objectType": "SOURCE_ID_C",
+      "sourceId": "C0",
+      "fields": {
+        "heading": "C0 · desconocido",
+        "title": "desconocido"
+      },
+      "sourceLines": [
+        430,
+        430
+      ]
+    },
+    {
+      "key": "C1",
+      "objectType": "SOURCE_ID_C",
+      "sourceId": "C1",
+      "fields": {
+        "heading": "C1 · declarado",
+        "title": "declarado"
+      },
+      "sourceLines": [
+        431,
+        431
+      ]
+    },
+    {
+      "key": "C2",
+      "objectType": "SOURCE_ID_C",
+      "sourceId": "C2",
+      "fields": {
+        "heading": "C2 · evidencia/muestra consistente",
+        "title": "evidencia/muestra consistente"
+      },
+      "sourceLines": [
+        432,
+        432
+      ]
+    },
+    {
+      "key": "C3",
+      "objectType": "SOURCE_ID_C",
+      "sourceId": "C3",
+      "fields": {
+        "heading": "C3 · condición observada/repetida suficientemente",
+        "title": "condición observada/repetida suficientemente",
+        "body": [
+          "No creamos una escala nueva: reutilizamos el servicio genérico C0–C3 del Motor."
+        ]
+      },
+      "sourceLines": [
+        433,
+        434
+      ]
+    },
+    {
+      "key": "R-DT02-01",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT02-01",
+      "fields": {
+        "heading": "R-DT02-01 · MATERIAL_DATA_NEED_UNCLEAR",
+        "title": "MATERIAL_DATA_NEED_UNCLEAR"
+      },
+      "sourceLines": [
+        438,
+        438
+      ]
+    },
+    {
+      "key": "R-DT02-02",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT02-02",
+      "fields": {
+        "heading": "R-DT02-02 · DATA_USE_REQUIREMENT_UNCLEAR",
+        "title": "DATA_USE_REQUIREMENT_UNCLEAR"
+      },
+      "sourceLines": [
+        439,
+        439
+      ]
+    },
+    {
+      "key": "R-DT02-03",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT02-03",
+      "fields": {
+        "heading": "R-DT02-03 · REQUIRED_DATA_NOT_CAPTURED",
+        "title": "REQUIRED_DATA_NOT_CAPTURED"
+      },
+      "sourceLines": [
+        440,
+        440
+      ]
+    },
+    {
+      "key": "R-DT02-04",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT02-04",
+      "fields": {
+        "heading": "R-DT02-04 · MATERIAL_DATA_COMPLETENESS_GAP",
+        "title": "MATERIAL_DATA_COMPLETENESS_GAP"
+      },
+      "sourceLines": [
+        441,
+        441
+      ]
+    },
+    {
+      "key": "R-DT02-05",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT02-05",
+      "fields": {
+        "heading": "R-DT02-05 · DATA_DEFINITION_GAP",
+        "title": "DATA_DEFINITION_GAP"
+      },
+      "sourceLines": [
+        442,
+        442
+      ]
+    },
+    {
+      "key": "R-DT02-06",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT02-06",
+      "fields": {
+        "heading": "R-DT02-06 · DATA_INTERPRETATION_INCONSISTENCY",
+        "title": "DATA_INTERPRETATION_INCONSISTENCY"
+      },
+      "sourceLines": [
+        443,
+        443
+      ]
+    },
+    {
+      "key": "R-DT02-07",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT02-07",
+      "fields": {
+        "heading": "R-DT02-07 · MATERIAL_DATA_ACCURACY_GAP",
+        "title": "MATERIAL_DATA_ACCURACY_GAP"
+      },
+      "sourceLines": [
+        444,
+        444
+      ]
+    },
+    {
+      "key": "R-DT02-08",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT02-08",
+      "fields": {
+        "heading": "R-DT02-08 · MATERIAL_DATA_VALIDITY_GAP",
+        "title": "MATERIAL_DATA_VALIDITY_GAP"
+      },
+      "sourceLines": [
+        445,
+        445
+      ]
+    },
+    {
+      "key": "R-DT02-09",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT02-09",
+      "fields": {
+        "heading": "R-DT02-09 · MATERIAL_DATA_CONSISTENCY_GAP",
+        "title": "MATERIAL_DATA_CONSISTENCY_GAP"
+      },
+      "sourceLines": [
+        446,
+        446
+      ]
+    },
+    {
+      "key": "R-DT02-10",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT02-10",
+      "fields": {
+        "heading": "R-DT02-10 · MATERIAL_DATA_CURRENCY_GAP",
+        "title": "MATERIAL_DATA_CURRENCY_GAP"
+      },
+      "sourceLines": [
+        447,
+        447
+      ]
+    },
+    {
+      "key": "R-DT02-11",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT02-11",
+      "fields": {
+        "heading": "R-DT02-11 · MATERIAL_ENTITY_IDENTITY_GAP",
+        "title": "MATERIAL_ENTITY_IDENTITY_GAP"
+      },
+      "sourceLines": [
+        448,
+        448
+      ]
+    },
+    {
+      "key": "R-DT02-12",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT02-12",
+      "fields": {
+        "heading": "R-DT02-12 · MATERIAL_DATA_NOT_LOCATABLE",
+        "title": "MATERIAL_DATA_NOT_LOCATABLE"
+      },
+      "sourceLines": [
+        449,
+        449
+      ]
+    },
+    {
+      "key": "R-DT02-13",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT02-13",
+      "fields": {
+        "heading": "R-DT02-13 · LEGITIMATE_DATA_ACCESS_GAP",
+        "title": "LEGITIMATE_DATA_ACCESS_GAP"
+      },
+      "sourceLines": [
+        450,
+        450
+      ]
+    },
+    {
+      "key": "R-DT02-14",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT02-14",
+      "fields": {
+        "heading": "R-DT02-14 · DATA_NOT_TIMELY_FOR_USE",
+        "title": "DATA_NOT_TIMELY_FOR_USE"
+      },
+      "sourceLines": [
+        451,
+        451
+      ]
+    },
+    {
+      "key": "R-DT02-15",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT02-15",
+      "fields": {
+        "heading": "R-DT02-15 · MATERIAL_DATA_PROVENANCE_GAP",
+        "title": "MATERIAL_DATA_PROVENANCE_GAP"
+      },
+      "sourceLines": [
+        452,
+        452
+      ]
+    },
+    {
+      "key": "R-DT02-16",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT02-16",
+      "fields": {
+        "heading": "R-DT02-16 · MATERIAL_DATA_TRANSFORMATION_TRACE_GAP",
+        "title": "MATERIAL_DATA_TRANSFORMATION_TRACE_GAP"
+      },
+      "sourceLines": [
+        453,
+        453
+      ]
+    },
+    {
+      "key": "R-DT02-17",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT02-17",
+      "fields": {
+        "heading": "R-DT02-17 · DATA_QUALITY_MAINTENANCE_GAP",
+        "title": "DATA_QUALITY_MAINTENANCE_GAP"
+      },
+      "sourceLines": [
+        454,
+        454
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT02-01",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT02-01",
+      "fields": {
+        "heading": "CAND-MOTOR-DT02-01",
+        "body": [
+          "La calidad del dato debe evaluarse respecto de un uso material y sus requisitos, no en abstracto."
+        ]
+      },
+      "sourceLines": [
+        488,
+        489
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT02-02",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT02-02",
+      "fields": {
+        "heading": "CAND-MOTOR-DT02-02",
+        "body": [
+          "Existencia, captura, definición, validez, actualidad, disponibilidad y fitness-for-use deben mantenerse como estados diferentes."
+        ]
+      },
+      "sourceLines": [
+        490,
+        491
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT02-03",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT02-03",
+      "fields": {
+        "heading": "CAND-MOTOR-DT02-03",
+        "body": [
+          "Las dimensiones de calidad aplicables deben activarse condicionalmente por Data Need/CDE y uso."
+        ]
+      },
+      "sourceLines": [
+        492,
+        493
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT02-04",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT02-04",
+      "fields": {
+        "heading": "CAND-MOTOR-DT02-04",
+        "body": [
+          "Un mismo dato puede ser suficientemente bueno para un uso e insuficiente para otro."
+        ]
+      },
+      "sourceLines": [
+        494,
+        495
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT02-05",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT02-05",
+      "fields": {
+        "heading": "CAND-MOTOR-DT02-05",
+        "body": [
+          "Una inconsistencia observada entre fuentes no debe atribuirse automáticamente a calidad intrínseca; puede derivar hacia integración, transformación o proceso."
+        ]
+      },
+      "sourceLines": [
+        496,
+        497
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT02-06",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT02-06",
+      "fields": {
+        "heading": "CAND-MOTOR-DT02-06",
+        "body": [
+          "La profundidad de provenance y trazabilidad requerida debe aumentar con materialidad y dependencia de esas propiedades para establecer confianza."
+        ]
+      },
+      "sourceLines": [
+        498,
+        499
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT02-07",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT02-07",
+      "fields": {
+        "heading": "CAND-MOTOR-DT02-07",
+        "body": [
+          "El Motor debe priorizar Critical Data Elements derivados de usos materiales en vez de evaluar exhaustivamente todos los datos disponibles."
+        ]
+      },
+      "sourceLines": [
+        500,
+        501
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-AI-DATA-01",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-DATA-01",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-DATA-01",
+        "body": [
+          "La disponibilidad de grandes volúmenes de datos no constituye evidencia de aptitud para IA; cualquier uso de IA debe heredar las evaluaciones pertinentes de calidad, significado, provenance, actualidad y suficiencia respecto del caso de uso.",
+          "Esto nos será útil en DT-06 y posteriormente en Fase 3."
+        ]
+      },
+      "sourceLines": [
+        504,
+        506
+      ]
+    },
+    {
+      "key": "SOURCE-REVIEW-TRIGGER-DT02-01@L511",
+      "objectType": "SOURCE_ID_SOURCE",
+      "sourceId": "SOURCE-REVIEW-TRIGGER-DT02-01",
+      "fields": {
+        "heading": "SOURCE-REVIEW-TRIGGER-DT02-01 · Revisar DT-02 cuando ISO 8000-3 alcance publicación definitiva o cambie materialmente su alcance/estado.",
+        "title": "Revisar DT-02 cuando ISO 8000-3 alcance publicación definitiva o cambie materialmente su alcance/estado.",
+        "body": [
+          "DAMA también tiene en marcha su iniciativa DMBOK 3.0, iniciada en 2025 como proceso de actualización continua; por ello su evolución es otra dependencia documental a vigilar, no una razón para detener la ingeniería actual. DAMA International®"
+        ]
+      },
+      "sourceLines": [
+        511,
+        512
+      ]
+    },
+    {
+      "key": "SOURCE-REVIEW-TRIGGER-DT-DAMA-01@L513",
+      "objectType": "SOURCE_ID_SOURCE",
+      "sourceId": "SOURCE-REVIEW-TRIGGER-DT-DAMA-01",
+      "fields": {
+        "heading": "SOURCE-REVIEW-TRIGGER-DT-DAMA-01 · Revisar DT-02/03/04 y objetos de data governance ante una publicación material de DAMA-DMBOK 3.0.",
+        "title": "Revisar DT-02/03/04 y objetos de data governance ante una publicación material de DAMA-DMBOK 3.0."
+      },
+      "sourceLines": [
+        513,
+        513
+      ]
+    },
+    {
+      "key": "FIND-DT02-01",
+      "objectType": "SOURCE_ID_FIND",
+      "sourceId": "FIND-DT02-01",
+      "fields": {
+        "heading": "FIND-DT02-01",
+        "body": [
+          "Un finding de calidad de datos debe preservar la relación con el uso material que justificó su evaluación."
+        ]
+      },
+      "sourceLines": [
+        559,
+        560
+      ]
+    },
+    {
+      "key": "CAUS-DT02-01",
+      "objectType": "SOURCE_ID_CAUS",
+      "sourceId": "CAUS-DT02-01",
+      "fields": {
+        "heading": "CAUS-DT02-01",
+        "body": [
+          "La condición insuficiente del dato y la causa que la produce deben permanecer como objetos distintos hasta existir evidencia causal suficiente."
+        ]
+      },
+      "sourceLines": [
+        579,
+        580
+      ]
+    },
+    {
+      "key": "INT-DT02-01",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-DT02-01",
+      "fields": {
+        "heading": "INT-DT02-01 · SOURCE-FIRST CORRECTION",
+        "title": "SOURCE-FIRST CORRECTION",
+        "body": [
+          "Cuando sea razonable y causalmente sustentado, debe preferirse corregir el mecanismo que genera o deteriora un dato material antes que depender indefinidamente de correcciones posteriores.",
+          "Pero tampoco será dogma.",
+          "Si el problema ocurre:",
+          "tres veces al año",
+          "y corregir manualmente cuesta:",
+          "dos minutos,",
+          "una corrección manual puede ser perfectamente suficiente."
+        ]
+      },
+      "sourceLines": [
+        623,
+        630
+      ]
+    },
+    {
+      "key": "INT-DT02-02",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-DT02-02",
+      "fields": {
+        "heading": "INT-DT02-02",
+        "body": [
+          "La intervención debe utilizar el mecanismo de control menos complejo que mantenga el dato suficientemente apto para su uso material.",
+          "Puede ser:",
+          "- regla verbal clara;",
+          "- campo obligatorio;",
+          "- lista desplegable;",
+          "- validación;",
+          "- revisión humana;",
+          "- conciliación;",
+          "- automatización;",
+          "- master data;",
+          "- control técnico.",
+          "La solución depende de:",
+          "materialidad + frecuencia + volumen + consecuencia + costo de control."
+        ]
+      },
+      "sourceLines": [
+        634,
+        647
+      ]
+    },
+    {
+      "key": "INS-DT02-01",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT02-01",
+      "fields": {
+        "heading": "INS-DT02-01 · Data Need Card",
+        "title": "Data Need Card",
+        "body": [
+          "uso → dato requerido → requisito → consecuencia.",
+          "Éste probablemente será el instrumento nuclear de DT-02."
+        ]
+      },
+      "sourceLines": [
+        687,
+        689
+      ]
+    },
+    {
+      "key": "INS-DT02-02",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT02-02",
+      "fields": {
+        "heading": "INS-DT02-02 · Critical Data Map",
+        "title": "Critical Data Map",
+        "body": [
+          "CDE → uso → materialidad → dimensión aplicable → responsable/fuente.",
+          "No pretende ser un data catalog empresarial."
+        ]
+      },
+      "sourceLines": [
+        691,
+        693
+      ]
+    },
+    {
+      "key": "INS-DT02-03",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT02-03",
+      "fields": {
+        "heading": "INS-DT02-03 · Data Quality Rule Card",
+        "title": "Data Quality Rule Card",
+        "body": [
+          "dato → condición esperada → tolerancia → evidencia → acción.",
+          "Ejemplo:",
+          "fecha de entrega ≥ fecha de pedido."
+        ]
+      },
+      "sourceLines": [
+        695,
+        698
+      ]
+    },
+    {
+      "key": "INS-DT02-04",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT02-04",
+      "fields": {
+        "heading": "INS-DT02-04 · Data Issue/Cause Map",
+        "title": "Data Issue/Cause Map",
+        "body": [
+          "problema observado → uso afectado → consecuencia → hipótesis causal → evidencia."
+        ]
+      },
+      "sourceLines": [
+        700,
+        701
+      ]
+    },
+    {
+      "key": "INS-DT02-05",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT02-05",
+      "fields": {
+        "heading": "INS-DT02-05 · Data Availability Map",
+        "title": "Data Availability Map",
+        "body": [
+          "dato → ubicación → usuario/caso → acceso → horizonte requerido."
+        ]
+      },
+      "sourceLines": [
+        703,
+        704
+      ]
+    },
+    {
+      "key": "INS-DT02-06",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT02-06",
+      "fields": {
+        "heading": "INS-DT02-06 · Provenance Lite",
+        "title": "Provenance Lite",
+        "body": [
+          "dato → fuente → transformación material → destino/uso.",
+          "Solo cuando sea necesario."
+        ]
+      },
+      "sourceLines": [
+        706,
+        708
+      ]
+    },
+    {
+      "key": "INS-DT02-07",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT02-07",
+      "fields": {
+        "heading": "INS-DT02-07 · Data Quality Control Plan",
+        "title": "Data Quality Control Plan",
+        "body": [
+          "CDE → regla → detección → tratamiento → owner → frecuencia proporcional."
+        ]
+      },
+      "sourceLines": [
+        710,
+        711
+      ]
+    },
+    {
+      "key": "DEL-DT02-01",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT02-01",
+      "fields": {
+        "heading": "DEL-DT02-01 · usos y datos materiales identificados",
+        "title": "usos y datos materiales identificados"
+      },
+      "sourceLines": [
+        724,
+        724
+      ]
+    },
+    {
+      "key": "DEL-DT02-02",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT02-02",
+      "fields": {
+        "heading": "DEL-DT02-02 · captura/cobertura suficiente",
+        "title": "captura/cobertura suficiente"
+      },
+      "sourceLines": [
+        725,
+        725
+      ]
+    },
+    {
+      "key": "DEL-DT02-03",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT02-03",
+      "fields": {
+        "heading": "DEL-DT02-03 · significado suficientemente definido",
+        "title": "significado suficientemente definido"
+      },
+      "sourceLines": [
+        726,
+        726
+      ]
+    },
+    {
+      "key": "DEL-DT02-04",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT02-04",
+      "fields": {
+        "heading": "DEL-DT02-04 · calidad suficiente para usos materiales",
+        "title": "calidad suficiente para usos materiales"
+      },
+      "sourceLines": [
+        727,
+        727
+      ]
+    },
+    {
+      "key": "DEL-DT02-05",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT02-05",
+      "fields": {
+        "heading": "DEL-DT02-05 · disponibilidad y oportunidad suficientes",
+        "title": "disponibilidad y oportunidad suficientes"
+      },
+      "sourceLines": [
+        728,
+        728
+      ]
+    },
+    {
+      "key": "DEL-DT02-06",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT02-06",
+      "fields": {
+        "heading": "DEL-DT02-06 · provenance suficiente donde material",
+        "title": "provenance suficiente donde material"
+      },
+      "sourceLines": [
+        729,
+        729
+      ]
+    },
+    {
+      "key": "DEL-DT02-07",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT02-07",
+      "fields": {
+        "heading": "DEL-DT02-07 · causas recurrentes materialmente tratadas",
+        "title": "causas recurrentes materialmente tratadas"
+      },
+      "sourceLines": [
+        730,
+        730
+      ]
+    },
+    {
+      "key": "DEL-DT02-08",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT02-08",
+      "fields": {
+        "heading": "DEL-DT02-08 · mecanismo proporcional de mantenimiento activo",
+        "title": "mecanismo proporcional de mantenimiento activo"
+      },
+      "sourceLines": [
+        731,
+        731
+      ]
+    },
+    {
+      "key": "CRV-DT02-01",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT02-01",
+      "fields": {
+        "heading": "| CRV-DT02-01 | CDE requeridos para usos materiales están identificados |",
+        "title": "CDE requeridos para usos materiales están identificados"
+      },
+      "sourceLines": [
+        753,
+        753
+      ]
+    },
+    {
+      "key": "CRV-DT02-02",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT02-02",
+      "fields": {
+        "heading": "| CRV-DT02-02 | Datos requeridos alcanzan cobertura suficiente |",
+        "title": "Datos requeridos alcanzan cobertura suficiente"
+      },
+      "sourceLines": [
+        754,
+        754
+      ]
+    },
+    {
+      "key": "CRV-DT02-03",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT02-03",
+      "fields": {
+        "heading": "| CRV-DT02-03 | Usuarios relevantes interpretan suficientemente los CDE de manera compatible |",
+        "title": "Usuarios relevantes interpretan suficientemente los CDE de manera compatible"
+      },
+      "sourceLines": [
+        755,
+        755
+      ]
+    },
+    {
+      "key": "CRV-DT02-04",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT02-04",
+      "fields": {
+        "heading": "| CRV-DT02-04 | CDE satisfacen dimensiones de calidad aplicables dentro de tolerancias suficientes |",
+        "title": "CDE satisfacen dimensiones de calidad aplicables dentro de tolerancias suficientes"
+      },
+      "sourceLines": [
+        756,
+        756
+      ]
+    },
+    {
+      "key": "CRV-DT02-05",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT02-05",
+      "fields": {
+        "heading": "| CRV-DT02-05 | Datos pueden obtenerse dentro del horizonte requerido por el uso |",
+        "title": "Datos pueden obtenerse dentro del horizonte requerido por el uso"
+      },
+      "sourceLines": [
+        757,
+        757
+      ]
+    },
+    {
+      "key": "CRV-DT02-06",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT02-06",
+      "fields": {
+        "heading": "| CRV-DT02-06 | Origen/transformaciones materiales pueden establecerse cuando es necesario |",
+        "title": "Origen/transformaciones materiales pueden establecerse cuando es necesario"
+      },
+      "sourceLines": [
+        758,
+        758
+      ]
+    },
+    {
+      "key": "CRV-DT02-07",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT02-07",
+      "fields": {
+        "heading": "| CRV-DT02-07 | Causas recurrentes priorizadas muestran reducción/control verificable |",
+        "title": "Causas recurrentes priorizadas muestran reducción/control verificable"
+      },
+      "sourceLines": [
+        759,
+        759
+      ]
+    },
+    {
+      "key": "CRV-DT02-08",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT02-08",
+      "fields": {
+        "heading": "| CRV-DT02-08 | Deterioro material puede detectarse y tratarse suficientemente |",
+        "title": "Deterioro material puede detectarse y tratarse suficientemente"
+      },
+      "sourceLines": [
+        760,
+        760
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT02-08",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT02-08",
+      "fields": {
+        "heading": "CAND-MOTOR-DT02-08",
+        "body": [
+          "Las reglas de calidad deben poder incorporar tolerancias dependientes del uso y materialidad, en lugar de asumir perfección binaria."
+        ]
+      },
+      "sourceLines": [
+        774,
+        775
+      ]
+    },
+    {
+      "key": "V0",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V0",
+      "fields": {
+        "heading": "V0 · UNKNOWN",
+        "title": "UNKNOWN",
+        "body": [
+          "Condición desconocida."
+        ]
+      },
+      "sourceLines": [
+        797,
+        798
+      ]
+    },
+    {
+      "key": "V1",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V1",
+      "fields": {
+        "heading": "V1 · DEFINED",
+        "title": "DEFINED",
+        "body": [
+          "Dato, uso y requisitos suficientemente definidos."
+        ]
+      },
+      "sourceLines": [
+        799,
+        800
+      ]
+    },
+    {
+      "key": "V2",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V2",
+      "fields": {
+        "heading": "V2 · QUALITY-EVIDENCED",
+        "title": "QUALITY-EVIDENCED",
+        "body": [
+          "Muestra/evidencia demuestra calidad suficiente."
+        ]
+      },
+      "sourceLines": [
+        801,
+        802
+      ]
+    },
+    {
+      "key": "V3",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V3",
+      "fields": {
+        "heading": "V3 · FIT-FOR-USE",
+        "title": "FIT-FOR-USE",
+        "body": [
+          "El dato funciona suficientemente dentro del uso real."
+        ]
+      },
+      "sourceLines": [
+        803,
+        804
+      ]
+    },
+    {
+      "key": "V4",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V4",
+      "fields": {
+        "heading": "V4 · SUSTAINED",
+        "title": "SUSTAINED",
+        "body": [
+          "La suficiencia se mantiene mediante controles proporcionales durante el horizonte relevante."
+        ]
+      },
+      "sourceLines": [
+        805,
+        806
+      ]
+    },
+    {
+      "key": "VAL-DT02-01",
+      "objectType": "SOURCE_ID_VAL",
+      "sourceId": "VAL-DT02-01",
+      "fields": {
+        "heading": "VAL-DT02-01",
+        "body": [
+          "El estado de validación debe asociarse a DATA ELEMENT + USE, no únicamente al dato en abstracto.",
+          "Esto tiene consecuencias importantes para el futuro modelo de conocimiento."
+        ]
+      },
+      "sourceLines": [
+        815,
+        817
+      ]
+    },
+    {
+      "key": "REASS-DT02-01",
+      "objectType": "SOURCE_ID_REASS",
+      "sourceId": "REASS-DT02-01",
+      "fields": {
+        "heading": "REASS-DT02-01",
+        "body": [
+          "Una conclusión de fitness-for-use debe reevaluarse cuando cambien materialmente el uso, requisito, fuente, transformación o mecanismo de mantenimiento del dato."
+        ]
+      },
+      "sourceLines": [
+        837,
+        838
+      ]
+    },
+    {
+      "key": "P-DT02-18",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT02-18",
+      "fields": {
+        "heading": "P-DT02-18",
+        "body": [
+          "La existencia de accountability funcional importa más que la existencia del título formal de Data Owner."
+        ]
+      },
+      "sourceLines": [
+        871,
+        872
+      ]
+    },
+    {
+      "key": "K1",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Coherencia — PASS",
+        "title": "Coherencia — PASS",
+        "body": [
+          "DT-02 queda separada de infraestructura, integración, analítica, seguridad y proceso."
+        ]
+      },
+      "sourceLines": [
+        970,
+        971
+      ]
+    },
+    {
+      "key": "K2",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Razonamiento — PASS",
+        "title": "Razonamiento — PASS",
+        "body": [
+          "Distingue:",
+          "existencia → captura → significado → dimensiones de calidad → disponibilidad → provenance → fitness → mantenimiento."
+        ]
+      },
+      "sourceLines": [
+        972,
+        974
+      ]
+    },
+    {
+      "key": "K3",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · Acción — PASS",
+        "title": "Acción — PASS",
+        "body": [
+          "Puede:",
+          "definir, capturar, validar, corregir, prevenir, estandarizar, reconciliar, habilitar acceso, actualizar, trazar, monitorear o no actuar."
+        ]
+      },
+      "sourceLines": [
+        975,
+        977
+      ]
+    },
+    {
+      "key": "K4",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · Knowledge — PASS",
+        "title": "Knowledge — PASS",
+        "body": [
+          "Grounding, provenance, objetos, triggers, reglas, CRV, validación y gobierno están suficientemente definidos."
+        ]
+      },
+      "sourceLines": [
+        978,
+        979
+      ]
+    }
+  ],
+  "supersessions": [
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "SOURCE-REVIEW-TRIGGER-DT02-01 · Revisar DT-02 cuando ISO 8000-3 alcance publicación definitiva o cambie materialmente su alcance/estado.",
+        "sourceLines": [
+          919,
+          919
+        ]
+      },
+      "supersededBy": {
+        "text": "SOURCE-REVIEW-TRIGGER-DT02-01 · Revisar DT-02 cuando ISO 8000-3 alcance publicación definitiva o cambie materialmente su alcance/estado.",
+        "sourceLines": [
+          511,
+          512
+        ],
+        "objectKey": "SOURCE-REVIEW-TRIGGER-DT02-01@L511"
+      }
+    }
+  ],
+  "executableProjection": {
+    "sourceRef": "source.json",
+    "verbatimKeys": [
+      "heading",
+      "title",
+      "body"
+    ],
+    "projectedObjectTypes": [],
+    "canonicalOnlyGapRefs": []
+  },
+  "gaps": [],
+  "transcriptionCorrections": [],
+  "checksum": "sha256:84d04f6c56d63f1352f39ace1c17097bf5b92be1d76442e55dfee65261684da4"
+}

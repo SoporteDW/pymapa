@@ -1,0 +1,555 @@
+{
+  "packId": "dg-01",
+  "packVersion": "1.0.0",
+  "status": "draft",
+  "knowledgeMaster": {
+    "identifier": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "status": "BASELINE-APPROVED",
+    "sourceReference": "canonical-baseline.json#DG01-K4-v1.0@sha256:3f6de9b97d68b94e548beb9f9c47026c6bb717b2f799753be5cb1835bf0d809f · DG01-K4-v1.0 · K4-VALIDATED · CLOSED"
+  },
+  "capability": {
+    "id": "DG-01",
+    "domainId": "DG",
+    "name": "Orientar la transformación a partir del negocio y su entorno",
+    "definition": "DG-01 evalúa la capacidad de la organización para orientar su transformación a partir de una comprensión suficientemente actualizada de su negocio, sus objetivos, su situación y las condiciones relevantes de su entorno, traduciendo esa comprensión en una dirección de transformación coherente y útil para la toma de decisiones.",
+    "definitionStatus": "EXPLICIT",
+    "definitionSourceLines": [
+      314,
+      314
+    ]
+  },
+  "conditionsOfExistence": [
+    {
+      "id": "CE01",
+      "statement": "Comprensión actual del negocio"
+    },
+    {
+      "id": "CE02",
+      "statement": "Dirección empresarial"
+    },
+    {
+      "id": "CE03",
+      "statement": "Lectura del entorno relevante"
+    },
+    {
+      "id": "CE04",
+      "statement": "Traducción hacia una dirección de transformación"
+    }
+  ],
+  "variables": [
+    {
+      "id": "VA01",
+      "name": "Modelo y lógica actual de creación de valor",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA02",
+      "name": "Situación, desempeño y restricciones materiales del negocio",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA03",
+      "name": "Objetivos y prioridades relevantes del negocio",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA04",
+      "name": "Horizonte, ambición y cambios esperados",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA05",
+      "name": "Cambios relevantes en clientes y mercado",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA06",
+      "name": "Cambios competitivos, tecnológicos y del ecosistema",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA07",
+      "name": "Restricciones, riesgos y condiciones externas materiales",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA08",
+      "name": "Necesidades y oportunidades de transformación derivadas",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA09",
+      "name": "Coherencia entre dirección empresarial y dirección de transformación",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    }
+  ],
+  "informationNeeds": [
+    {
+      "id": "NI01",
+      "idStatus": "SOURCE_ID",
+      "statement": "Cómo crea valor actualmente la empresa",
+      "variableRefs": [
+        "VA01"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI01"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI01→VA01 · cardinalidad 9=9 · sección «Bloque 4 · Necesidades de información y suficiencia» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        402
+      ]
+    },
+    {
+      "id": "NI02",
+      "idStatus": "SOURCE_ID",
+      "statement": "Cuáles son sus principales restricciones/desafíos materiales",
+      "variableRefs": [
+        "VA02"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI02"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI02→VA02 · cardinalidad 9=9 · sección «Bloque 4 · Necesidades de información y suficiencia» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        403
+      ]
+    },
+    {
+      "id": "NI03",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué objetivos o resultados empresariales busca",
+      "variableRefs": [
+        "VA03"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI03"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI03→VA03 · cardinalidad 9=9 · sección «Bloque 4 · Necesidades de información y suficiencia» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        404
+      ]
+    },
+    {
+      "id": "NI04",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué cambios relevantes espera realizar o enfrentar",
+      "variableRefs": [
+        "VA04"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI04"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI04→VA04 · cardinalidad 9=9 · sección «Bloque 4 · Necesidades de información y suficiencia» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        405
+      ]
+    },
+    {
+      "id": "NI05",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué cambios de clientes/mercado pueden afectar esos objetivos",
+      "variableRefs": [
+        "VA05"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI05"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI05→VA05 · cardinalidad 9=9 · sección «Bloque 4 · Necesidades de información y suficiencia» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        406
+      ]
+    },
+    {
+      "id": "NI06",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué cambios competitivos, tecnológicos o del ecosistema son materiales",
+      "variableRefs": [
+        "VA06"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI06"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI06→VA06 · cardinalidad 9=9 · sección «Bloque 4 · Necesidades de información y suficiencia» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        407
+      ]
+    },
+    {
+      "id": "NI07",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué restricciones/riesgos externos condicionan la dirección",
+      "variableRefs": [
+        "VA07"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI07"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI07→VA07 · cardinalidad 9=9 · sección «Bloque 4 · Necesidades de información y suficiencia» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        408
+      ]
+    },
+    {
+      "id": "NI08",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué necesidades u oportunidades de transformación se derivan de lo anterior",
+      "variableRefs": [
+        "VA08"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI08"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI08→VA08 · cardinalidad 9=9 · sección «Bloque 4 · Necesidades de información y suficiencia» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        409
+      ]
+    },
+    {
+      "id": "NI09",
+      "idStatus": "SOURCE_ID",
+      "statement": "Cómo se conecta la transformación prevista con resultados del negocio",
+      "variableRefs": [
+        "VA09"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI09"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI09→VA09 · cardinalidad 9=9 · sección «Bloque 4 · Necesidades de información y suficiencia» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        410
+      ]
+    }
+  ],
+  "acquisitions": [
+    {
+      "id": "ACQ·NI01",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI01",
+      "variableRefs": [
+        "VA01"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI02",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI02",
+      "variableRefs": [
+        "VA02"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI03",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI03",
+      "variableRefs": [
+        "VA03"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI04",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI04",
+      "variableRefs": [
+        "VA04"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI05",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI05",
+      "variableRefs": [
+        "VA05"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI06",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI06",
+      "variableRefs": [
+        "VA06"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI07",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI07",
+      "variableRefs": [
+        "VA07"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI08",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI08",
+      "variableRefs": [
+        "VA08"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI09",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI09",
+      "variableRefs": [
+        "VA09"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    }
+  ],
+  "acquisitionStages": [
+    {
+      "id": "P1",
+      "level": "P1",
+      "heading": "P1 · Núcleo",
+      "prompts": [
+        "¿Qué busca conseguir/cambiar el negocio?",
+        "¿Qué está condicionando hoy ese resultado?",
+        "¿Qué cambios externos son realmente relevantes?",
+        "¿Qué se está intentando transformar y por qué?"
+      ],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        426,
+        432
+      ]
+    },
+    {
+      "id": "P2",
+      "level": "P2",
+      "heading": "P2 · Condicional",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        433,
+        442
+      ]
+    },
+    {
+      "id": "P3",
+      "level": "P3",
+      "heading": "P3 · Discriminación",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        443,
+        448
+      ]
+    },
+    {
+      "id": "P4",
+      "level": "P4",
+      "heading": "P4 · Contradicción",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        449,
+        454
+      ]
+    },
+    {
+      "id": "P5",
+      "level": "P5",
+      "heading": "P5 · Validación",
+      "prompts": [
+        "“Entendemos que X es actualmente una prioridad empresarial y que las iniciativas A/B deberían contribuir mediante Y. ¿Es correcta esa relación?”"
+      ],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        457,
+        460
+      ]
+    }
+  ],
+  "governedStructuralMapping": {
+    "rule": "GOVERNED_STRUCTURAL_MAPPING",
+    "nature": "interpretación estructural gobernada de la fuente; la fuente no declara literalmente el vínculo",
+    "decisionSetId": "M2-FINAL-MASS-BATCH-A",
+    "authority": "PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY",
+    "decidedAt": "2026-09-24",
+    "applied": true,
+    "conditions": {
+      "equalCardinality": true,
+      "alignedOrdinalNumbering": true,
+      "niBlockBelongsToVaArchitecture": true,
+      "orderingPreserved": true,
+      "noExplicitContraryMapping": true
+    },
+    "evidence": {
+      "vaCount": 9,
+      "niCount": 9,
+      "niSection": "Bloque 4 · Necesidades de información y suficiencia",
+      "niLines": [
+        402,
+        403,
+        404,
+        405,
+        406,
+        407,
+        408,
+        409,
+        410
+      ]
+    }
+  }
+}

@@ -14,35 +14,104 @@
     "checksum"
   ],
   "properties": {
-    "$schema": { "type": "string" },
-    "decisionSetId": { "type": "string", "minLength": 1 },
-    "capabilityId": { "type": "string", "pattern": "^[A-Z]{2}-\\d{2}$" },
-    "decidedBy": { "type": "string", "minLength": 1 },
-    "decidedByIdentity": { "type": "string", "minLength": 1 },
-    "decidedAt": { "type": "string", "minLength": 1 },
-    "authorizationSource": { "type": "string", "minLength": 1 },
-    "statement": { "type": "string", "minLength": 1 },
+    "$schema": {
+      "type": "string"
+    },
+    "decisionSetId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "capabilityId": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}-\\d{2}$"
+    },
+    "decidedBy": {
+      "type": "string",
+      "minLength": 1
+    },
+    "decidedByIdentity": {
+      "type": "string",
+      "minLength": 1
+    },
+    "decidedAt": {
+      "type": "string",
+      "minLength": 1
+    },
+    "authorizationSource": {
+      "type": "string",
+      "minLength": 1
+    },
+    "statement": {
+      "type": "string",
+      "minLength": 1
+    },
     "historicalClosure": {
       "type": "object",
-      "required": ["marker", "otherOccurrences"],
+      "required": [
+        "marker",
+        "otherOccurrences"
+      ],
       "properties": {
-        "marker": { "type": "string", "minLength": 1 },
-        "sectionHeading": { "type": "string", "minLength": 1 },
-        "precedingLiterals": { "type": "array", "items": { "type": "string", "minLength": 1 } },
-        "precedingWindowLines": { "type": "integer", "minimum": 1 },
-        "otherOccurrences": { "const": "CONFIRMATION_OR_NON_FINAL" },
-        "rejectedStates": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+        "marker": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sectionHeading": {
+          "type": "string",
+          "minLength": 1
+        },
+        "precedingLiterals": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "precedingWindowLines": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "otherOccurrences": {
+          "const": "CONFIRMATION_OR_NON_FINAL"
+        },
+        "rejectedStates": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
       }
     },
     "approvedCounts": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["label", "declared", "sourceLiteral"],
+        "required": [
+          "label",
+          "declared",
+          "sourceLiteral"
+        ],
         "properties": {
-          "label": { "type": "string", "minLength": 1 },
-          "declared": { "type": "integer", "minimum": 0 },
-          "sourceLiteral": { "type": "string", "minLength": 1 }
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "declared": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "sourceLiteral": {
+            "type": "string",
+            "minLength": 1
+          },
+          "role": {
+            "type": "string",
+            "pattern": "^[A-Z][A-Z0-9_]*$"
+          },
+          "enumeration": {
+            "const": "DECLARED_NOT_ENUMERATED"
+          }
         }
       }
     },
@@ -50,15 +119,34 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["sourceId", "title", "bodyLineCount", "publicationBlocking"],
+        "required": [
+          "sourceId",
+          "title",
+          "bodyLineCount",
+          "publicationBlocking"
+        ],
         "properties": {
-          "sourceId": { "type": "string", "minLength": 1 },
-          "title": { "type": "string", "minLength": 1 },
-          "bodyLineCount": { "type": "integer", "minimum": 0 },
-          "publicationBlocking": { "const": false }
+          "sourceId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "bodyLineCount": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "publicationBlocking": {
+            "const": false
+          }
         }
       }
     },
-    "checksum": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" }
+    "checksum": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    }
   }
 }

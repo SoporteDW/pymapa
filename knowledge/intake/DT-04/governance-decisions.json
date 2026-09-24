@@ -1,0 +1,54 @@
+{
+  "$schema": "../../schemas/governance-decisions.schema.json",
+  "decisionSetId": "M2-FINAL-MASS-BATCH",
+  "capabilityId": "DT-04",
+  "decidedBy": "PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY",
+  "decidedByIdentity": "ROLE_ONLY · no personal identity recorded or fabricated",
+  "decidedAt": "2026-09-24",
+  "authorizationSource": "M2-FINAL-MASS-BATCH §G/§I · etiquetas de provenance explícitas verificadas literalmente",
+  "statement": "Decisiones deterministas verificadas literalmente contra la fuente; no son aceptación canónica ni publicación.",
+  "approvedCounts": [
+    {
+      "label": "NI",
+      "declared": 18,
+      "sourceLiteral": "Resultan 18 NI.",
+      "enumeration": "DECLARED_NOT_ENUMERATED"
+    },
+    {
+      "label": "CRV",
+      "declared": 8,
+      "sourceLiteral": "Resultan 8 CRV.",
+      "role": "PRINCIPAL_RESULT_CRITERION"
+    }
+  ],
+  "governedBacklog": [],
+  "collisionResolutions": [],
+  "semanticTypes": [
+    {
+      "sourceIds": [
+        "CRV-DT04-01",
+        "CRV-DT04-02",
+        "CRV-DT04-03",
+        "CRV-DT04-04",
+        "CRV-DT04-05",
+        "CRV-DT04-06",
+        "CRV-DT04-07",
+        "CRV-DT04-08"
+      ],
+      "role": "PRINCIPAL_RESULT_CRITERION",
+      "rationale": "M2-FINAL-MASS-BATCH: la tabla bajo «Resultan 8 CRV.» enumera literalmente CRV-DT04-01..08; CRV-DT04-GUARD-01 es un guardrail posterior (heading propio) y no cuenta como CRV principal."
+    }
+  ],
+  "provenanceVocabulary": [
+    {
+      "scheme": "PROVENANCE_CLASS",
+      "anchorLiteral": "# Provenance",
+      "windowLines": 9,
+      "codes": [
+        "SOURCE-DERIVED",
+        "PYMAPA-DESIGNED"
+      ]
+    }
+  ],
+  "checksum": "sha256:412d1cf8aaf06c8224417671428d36aedf54eb6658746c0202364a53b1892fc2"
+}

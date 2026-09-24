@@ -1,0 +1,2441 @@
+{
+  "baselineId": "CM06-K4-v1.0",
+  "capabilityId": "CM-06",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "historicalStatus": {
+    "marker": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      1209,
+      1209
+    ]
+  },
+  "rawSource": {
+    "ref": "raw/CM-06.txt",
+    "sha256": "39a9ad4c71656112346a0d0ee8570a3ffacf5f837d01c2f9627c1970c5469b4d",
+    "byteLength": 55713,
+    "lineCount": 1292,
+    "transcription": {
+      "tool": "pymapa-docx-text 1.0.0",
+      "arguments": ""
+    },
+    "originalDocument": {
+      "filename": "CM_-_01_A_05_Completo.docx",
+      "byteLength": 319674,
+      "sha256": "4c27675630962a6344544f3e2b333aec933a3a37beea42c04e011b9b57f7c255"
+    }
+  },
+  "provenanceVocabulary": [
+    {
+      "code": "SOURCE-DERIVED",
+      "label": "SOURCE-DERIVED",
+      "meaning": "Grounding externo sostiene conceptos generales relativos a:",
+      "sourceLines": [
+        1106,
+        1107
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "PYMAPA-DESIGNED",
+      "label": "PYMAPA-DESIGNED",
+      "meaning": "Son propios:",
+      "sourceLines": [
+        1115,
+        1116
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    }
+  ],
+  "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 10,
+      "objectType": "SOURCE_ID_CE",
+      "sourceLines": [
+        1194,
+        1194
+      ]
+    },
+    {
+      "label": "CRV",
+      "declared": 10,
+      "objectType": "SOURCE_ID_CRV",
+      "sourceLines": [
+        1204,
+        1204
+      ]
+    },
+    {
+      "label": "VA",
+      "declared": 24,
+      "objectType": "SOURCE_ID_VA",
+      "sourceLines": [
+        1195,
+        1195
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "key": "P-CM06-CORE-01",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-CORE-01",
+      "fields": {
+        "heading": "P-CM06-CORE-01",
+        "body": [
+          "Ingreso es una medida económica relevante, pero no constituye por sí solo evidencia suficiente de creación de valor."
+        ]
+      },
+      "sourceLines": [
+        68,
+        69
+      ]
+    },
+    {
+      "key": "P-CM06-01",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-01",
+      "fields": {
+        "heading": "P-CM06-01",
+        "body": [
+          "Una variación positiva en una métrica no constituye creación de valor hasta establecer su relación con un resultado material para algún receptor relevante."
+        ]
+      },
+      "sourceLines": [
+        80,
+        81
+      ]
+    },
+    {
+      "key": "P-CM06-02",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-02",
+      "fields": {
+        "heading": "P-CM06-02",
+        "body": [
+          "Todo resultado de valor debe poder asociarse suficientemente con un receptor relevante."
+        ]
+      },
+      "sourceLines": [
+        166,
+        167
+      ]
+    },
+    {
+      "key": "P-CM06-03",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-03",
+      "fields": {
+        "heading": "P-CM06-03",
+        "body": [
+          "La creación sostenible de valor requiere mantener visibles los resultados para cliente y negocio sin asumir que necesariamente se mueven en la misma dirección."
+        ]
+      },
+      "sourceLines": [
+        211,
+        212
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM06-01",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-01",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-01",
+        "body": [
+          "El Motor debe poder representar value created, neutral value y value destroyed, no únicamente resultados positivos."
+        ]
+      },
+      "sourceLines": [
+        247,
+        248
+      ]
+    },
+    {
+      "key": "P-CM06-04",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-04",
+      "fields": {
+        "heading": "P-CM06-04",
+        "body": [
+          "El nivel de resultado utilizado debe corresponder con la decisión y la fuerza de evidencia disponible."
+        ]
+      },
+      "sourceLines": [
+        262,
+        263
+      ]
+    },
+    {
+      "key": "P-CM06-05",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-05",
+      "fields": {
+        "heading": "P-CM06-05",
+        "body": [
+          "Sin referencia suficiente puede ser posible describir un resultado, pero no necesariamente determinar cuánto valor adicional se creó."
+        ]
+      },
+      "sourceLines": [
+        303,
+        304
+      ]
+    },
+    {
+      "key": "P-CM06-06",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-06",
+      "fields": {
+        "heading": "P-CM06-06",
+        "body": [
+          "Medir una variable no demuestra que la variable represente valor."
+        ]
+      },
+      "sourceLines": [
+        319,
+        320
+      ]
+    },
+    {
+      "key": "P-CM06-07",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-07",
+      "fields": {
+        "heading": "P-CM06-07",
+        "body": [
+          "Las métricas económicas deben activarse cuando sean materiales para comprender captura y sostenibilidad del valor, no como plantilla universal."
+        ]
+      },
+      "sourceLines": [
+        355,
+        356
+      ]
+    },
+    {
+      "key": "P-CM06-08",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-08",
+      "fields": {
+        "heading": "P-CM06-08",
+        "body": [
+          "El crecimiento debe evaluarse junto con los economics materiales suficientes para evitar confundir expansión de volumen con creación sostenible de valor."
+        ]
+      },
+      "sourceLines": [
+        359,
+        360
+      ]
+    },
+    {
+      "key": "ATTR-0",
+      "objectType": "SOURCE_ID_ATTR",
+      "sourceId": "ATTR-0",
+      "fields": {
+        "heading": "ATTR-0",
+        "body": [
+          "Asociación desconocida."
+        ]
+      },
+      "sourceLines": [
+        366,
+        367
+      ]
+    },
+    {
+      "key": "ATTR-1",
+      "objectType": "SOURCE_ID_ATTR",
+      "sourceId": "ATTR-1",
+      "fields": {
+        "heading": "ATTR-1",
+        "body": [
+          "Asociación plausible."
+        ]
+      },
+      "sourceLines": [
+        368,
+        369
+      ]
+    },
+    {
+      "key": "ATTR-2",
+      "objectType": "SOURCE_ID_ATTR",
+      "sourceId": "ATTR-2",
+      "fields": {
+        "heading": "ATTR-2",
+        "body": [
+          "Contribución razonablemente sustentada."
+        ]
+      },
+      "sourceLines": [
+        370,
+        371
+      ]
+    },
+    {
+      "key": "ATTR-3",
+      "objectType": "SOURCE_ID_ATTR",
+      "sourceId": "ATTR-3",
+      "fields": {
+        "heading": "ATTR-3",
+        "body": [
+          "Atribución fuerte dentro de condiciones definidas.",
+          "No toda decisión exige ATTR-3."
+        ]
+      },
+      "sourceLines": [
+        372,
+        374
+      ]
+    },
+    {
+      "key": "P-CM06-09",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-09",
+      "fields": {
+        "heading": "P-CM06-09",
+        "body": [
+          "Cuando múltiples factores intervienen, Pymapa debe preferir lenguaje de contribución salvo que exista evidencia suficiente para atribución causal más fuerte."
+        ]
+      },
+      "sourceLines": [
+        379,
+        380
+      ]
+    },
+    {
+      "key": "P-CM06-10",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-10",
+      "fields": {
+        "heading": "P-CM06-10",
+        "body": [
+          "La evaluación de valor debe utilizar un horizonte compatible con el mecanismo mediante el cual se espera que el resultado ocurra."
+        ]
+      },
+      "sourceLines": [
+        403,
+        404
+      ]
+    },
+    {
+      "key": "P-CM06-11",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-11",
+      "fields": {
+        "heading": "P-CM06-11",
+        "body": [
+          "La optimización de una métrica local no debe tratarse como creación de valor global sin observar consecuencias materiales relacionadas."
+        ]
+      },
+      "sourceLines": [
+        424,
+        425
+      ]
+    },
+    {
+      "key": "CE01",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Value Intent",
+        "title": "Value Intent"
+      },
+      "sourceLines": [
+        461,
+        461
+      ]
+    },
+    {
+      "key": "VA01",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA01",
+      "fields": {
+        "heading": "VA01 receptor de valor suficientemente identificado",
+        "title": "receptor de valor suficientemente identificado"
+      },
+      "sourceLines": [
+        462,
+        462
+      ]
+    },
+    {
+      "key": "VA02",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA02",
+      "fields": {
+        "heading": "VA02 resultado de valor esperado suficientemente definido",
+        "title": "resultado de valor esperado suficientemente definido"
+      },
+      "sourceLines": [
+        463,
+        463
+      ]
+    },
+    {
+      "key": "CE02",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Outcome structure",
+        "title": "Outcome structure"
+      },
+      "sourceLines": [
+        464,
+        464
+      ]
+    },
+    {
+      "key": "VA03",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA03",
+      "fields": {
+        "heading": "VA03 output/outcome/impact suficientemente diferenciados",
+        "title": "output/outcome/impact suficientemente diferenciados"
+      },
+      "sourceLines": [
+        465,
+        465
+      ]
+    },
+    {
+      "key": "VA04",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "VA04 horizonte del resultado suficientemente claro",
+        "title": "horizonte del resultado suficientemente claro"
+      },
+      "sourceLines": [
+        466,
+        466
+      ]
+    },
+    {
+      "key": "CE03",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Customer Value",
+        "title": "Customer Value"
+      },
+      "sourceLines": [
+        467,
+        467
+      ]
+    },
+    {
+      "key": "VA05",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "VA05 resultado material para cliente suficientemente definido",
+        "title": "resultado material para cliente suficientemente definido"
+      },
+      "sourceLines": [
+        468,
+        468
+      ]
+    },
+    {
+      "key": "VA06",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "VA06 evidencia de customer value suficientemente disponible",
+        "title": "evidencia de customer value suficientemente disponible"
+      },
+      "sourceLines": [
+        469,
+        469
+      ]
+    },
+    {
+      "key": "CE04",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE04",
+      "fields": {
+        "heading": "CE04 · Business Value",
+        "title": "Business Value"
+      },
+      "sourceLines": [
+        470,
+        470
+      ]
+    },
+    {
+      "key": "VA07",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "VA07 resultado material para negocio suficientemente definido",
+        "title": "resultado material para negocio suficientemente definido"
+      },
+      "sourceLines": [
+        471,
+        471
+      ]
+    },
+    {
+      "key": "VA08",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "VA08 evidencia económica/estratégica suficientemente disponible",
+        "title": "evidencia económica/estratégica suficientemente disponible"
+      },
+      "sourceLines": [
+        472,
+        472
+      ]
+    },
+    {
+      "key": "CE05",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE05",
+      "fields": {
+        "heading": "CE05 · Measurement",
+        "title": "Measurement"
+      },
+      "sourceLines": [
+        473,
+        473
+      ]
+    },
+    {
+      "key": "VA09",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA09",
+      "fields": {
+        "heading": "VA09 métricas suficientemente relevantes",
+        "title": "métricas suficientemente relevantes"
+      },
+      "sourceLines": [
+        474,
+        474
+      ]
+    },
+    {
+      "key": "VA10",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA10",
+      "fields": {
+        "heading": "VA10 baseline/comparador suficiente cuando aplica",
+        "title": "baseline/comparador suficiente cuando aplica"
+      },
+      "sourceLines": [
+        475,
+        475
+      ]
+    },
+    {
+      "key": "VA11",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA11",
+      "fields": {
+        "heading": "VA11 calidad/oportunidad de información suficiente",
+        "title": "calidad/oportunidad de información suficiente"
+      },
+      "sourceLines": [
+        476,
+        476
+      ]
+    },
+    {
+      "key": "CE06",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE06",
+      "fields": {
+        "heading": "CE06 · Attribution",
+        "title": "Attribution"
+      },
+      "sourceLines": [
+        477,
+        477
+      ]
+    },
+    {
+      "key": "VA12",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA12",
+      "fields": {
+        "heading": "VA12 factores contribuyentes suficientemente visibles",
+        "title": "factores contribuyentes suficientemente visibles"
+      },
+      "sourceLines": [
+        478,
+        478
+      ]
+    },
+    {
+      "key": "VA13",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA13",
+      "fields": {
+        "heading": "VA13 nivel de atribución proporcional a evidencia",
+        "title": "nivel de atribución proporcional a evidencia"
+      },
+      "sourceLines": [
+        479,
+        479
+      ]
+    },
+    {
+      "key": "VA14",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA14",
+      "fields": {
+        "heading": "VA14 incertidumbre material suficientemente explícita",
+        "title": "incertidumbre material suficientemente explícita"
+      },
+      "sourceLines": [
+        480,
+        480
+      ]
+    },
+    {
+      "key": "CE07",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE07",
+      "fields": {
+        "heading": "CE07 · Value Capture",
+        "title": "Value Capture"
+      },
+      "sourceLines": [
+        481,
+        481
+      ]
+    },
+    {
+      "key": "VA15",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA15",
+      "fields": {
+        "heading": "VA15 mecanismo de captura suficientemente claro",
+        "title": "mecanismo de captura suficientemente claro"
+      },
+      "sourceLines": [
+        482,
+        482
+      ]
+    },
+    {
+      "key": "VA16",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA16",
+      "fields": {
+        "heading": "VA16 economics materiales suficientemente conocidos cuando aplican",
+        "title": "economics materiales suficientemente conocidos cuando aplican"
+      },
+      "sourceLines": [
+        483,
+        483
+      ]
+    },
+    {
+      "key": "CE08",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE08",
+      "fields": {
+        "heading": "CE08 · Trade-offs",
+        "title": "Trade-offs"
+      },
+      "sourceLines": [
+        484,
+        484
+      ]
+    },
+    {
+      "key": "VA17",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA17",
+      "fields": {
+        "heading": "VA17 trade-offs materiales suficientemente identificados",
+        "title": "trade-offs materiales suficientemente identificados"
+      },
+      "sourceLines": [
+        485,
+        485
+      ]
+    },
+    {
+      "key": "VA18",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA18",
+      "fields": {
+        "heading": "VA18 value leakage suficientemente visible",
+        "title": "value leakage suficientemente visible"
+      },
+      "sourceLines": [
+        486,
+        486
+      ]
+    },
+    {
+      "key": "VA19",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA19",
+      "fields": {
+        "heading": "VA19 destrucción de valor suficientemente detectable",
+        "title": "destrucción de valor suficientemente detectable"
+      },
+      "sourceLines": [
+        487,
+        487
+      ]
+    },
+    {
+      "key": "CE09",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE09",
+      "fields": {
+        "heading": "CE09 · Management",
+        "title": "Management"
+      },
+      "sourceLines": [
+        488,
+        488
+      ]
+    },
+    {
+      "key": "VA20",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA20",
+      "fields": {
+        "heading": "VA20 decisiones pueden modificarse desde evidencia de valor",
+        "title": "decisiones pueden modificarse desde evidencia de valor"
+      },
+      "sourceLines": [
+        489,
+        489
+      ]
+    },
+    {
+      "key": "VA21",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA21",
+      "fields": {
+        "heading": "VA21 inversión/esfuerzo puede redistribuirse según valor observado",
+        "title": "inversión/esfuerzo puede redistribuirse según valor observado"
+      },
+      "sourceLines": [
+        490,
+        490
+      ]
+    },
+    {
+      "key": "VA22",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA22",
+      "fields": {
+        "heading": "VA22 iniciativas/ofertas pueden mantenerse, ajustarse o detenerse",
+        "title": "iniciativas/ofertas pueden mantenerse, ajustarse o detenerse"
+      },
+      "sourceLines": [
+        491,
+        491
+      ]
+    },
+    {
+      "key": "CE10",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE10",
+      "fields": {
+        "heading": "CE10 · Sustainability/Learning",
+        "title": "Sustainability/Learning"
+      },
+      "sourceLines": [
+        492,
+        492
+      ]
+    },
+    {
+      "key": "VA23",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA23",
+      "fields": {
+        "heading": "VA23 valor suficientemente sostenible dentro del horizonte aplicable",
+        "title": "valor suficientemente sostenible dentro del horizonte aplicable"
+      },
+      "sourceLines": [
+        493,
+        493
+      ]
+    },
+    {
+      "key": "VA24",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA24",
+      "fields": {
+        "heading": "VA24 nueva evidencia puede actualizar hipótesis y métricas de valor",
+        "title": "nueva evidencia puede actualizar hipótesis y métricas de valor"
+      },
+      "sourceLines": [
+        494,
+        494
+      ]
+    },
+    {
+      "key": "P2",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P2",
+      "fields": {
+        "heading": "P2 · Triggers",
+        "title": "Triggers",
+        "body": [
+          "Profundizamos ante:",
+          "- revenue alto pero margen bajo;",
+          "- crecimiento sin cash;",
+          "- conversión alta y churn alto;",
+          "- satisfacción alta pero economics pobres;",
+          "- muchos outputs sin outcomes;",
+          "- iniciativa “exitosa” solo por ejecución;",
+          "- métricas vanity;",
+          "- ausencia de baseline;",
+          "- value claims sin evidence;",
+          "- costo-to-serve creciente;",
+          "- descuentos;",
+          "- clientes no rentables;",
+          "- automatización sin resultado;",
+          "- proyecto digital sin benefit realization;",
+          "- beneficios no observados;",
+          "- trade-offs ocultos."
+        ]
+      },
+      "sourceLines": [
+        507,
+        524
+      ]
+    },
+    {
+      "key": "P3",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P3",
+      "fields": {
+        "heading": "P3 · Discriminación",
+        "title": "Discriminación",
+        "body": [
+          "Ante:",
+          "“esta iniciativa genera valor”",
+          "debemos distinguir:",
+          "OUTPUT ONLY",
+          "CUSTOMER OUTCOME",
+          "BUSINESS OUTCOME",
+          "VALUE CAPTURE",
+          "CORRELATION",
+          "CONTRIBUTION",
+          "ATTRIBUTION",
+          "TEMPORARY RESULT",
+          "SUSTAINABLE RESULT"
+        ]
+      },
+      "sourceLines": [
+        525,
+        537
+      ]
+    },
+    {
+      "key": "CONTR-CM06-01",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-CM06-01",
+      "fields": {
+        "heading": "CONTR-CM06-01",
+        "body": [
+          "REVENUE_GROWTH_vs_MARGIN_DETERIORATION"
+        ]
+      },
+      "sourceLines": [
+        539,
+        540
+      ]
+    },
+    {
+      "key": "CONTR-CM06-02",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-CM06-02",
+      "fields": {
+        "heading": "CONTR-CM06-02",
+        "body": [
+          "HIGH_CUSTOMER_VALUE_vs_UNSUSTAINABLE_COST_TO_SERVE"
+        ]
+      },
+      "sourceLines": [
+        541,
+        542
+      ]
+    },
+    {
+      "key": "CONTR-CM06-03",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-CM06-03",
+      "fields": {
+        "heading": "CONTR-CM06-03",
+        "body": [
+          "PROJECT_SUCCESS_vs_NO_OUTCOME"
+        ]
+      },
+      "sourceLines": [
+        543,
+        544
+      ]
+    },
+    {
+      "key": "CONTR-CM06-04",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-CM06-04",
+      "fields": {
+        "heading": "CONTR-CM06-04",
+        "body": [
+          "METRIC_IMPROVEMENT_vs_NO_VALUE_LINK"
+        ]
+      },
+      "sourceLines": [
+        545,
+        546
+      ]
+    },
+    {
+      "key": "CONTR-CM06-05",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-CM06-05",
+      "fields": {
+        "heading": "CONTR-CM06-05",
+        "body": [
+          "HIGH_RETENTION_vs_NEGATIVE_RELATIONSHIP_ECONOMICS"
+        ]
+      },
+      "sourceLines": [
+        547,
+        548
+      ]
+    },
+    {
+      "key": "CONTR-CM06-06",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-CM06-06",
+      "fields": {
+        "heading": "CONTR-CM06-06",
+        "body": [
+          "VALUE_CLAIM_vs_ATTRIBUTION_UNKNOWN"
+        ]
+      },
+      "sourceLines": [
+        549,
+        550
+      ]
+    },
+    {
+      "key": "CONTR-CM06-07",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-CM06-07",
+      "fields": {
+        "heading": "CONTR-CM06-07",
+        "body": [
+          "CUSTOMER_OUTCOME_vs_BUSINESS_CAPTURE_GAP"
+        ]
+      },
+      "sourceLines": [
+        551,
+        552
+      ]
+    },
+    {
+      "key": "EVID-CM06-01",
+      "objectType": "SOURCE_ID_EVID",
+      "sourceId": "EVID-CM06-01",
+      "fields": {
+        "heading": "EVID-CM06-01",
+        "body": [
+          "La fuerza de evidencia requerida aumenta con magnitud de inversión, irreversibilidad, incertidumbre y consecuencia de una conclusión equivocada sobre valor."
+        ]
+      },
+      "sourceLines": [
+        580,
+        581
+      ]
+    },
+    {
+      "key": "SUFF-CM06-01",
+      "objectType": "SOURCE_ID_SUFF",
+      "sourceId": "SUFF-CM06-01",
+      "fields": {
+        "heading": "SUFF-CM06-01",
+        "body": [
+          "CM-06 alcanza suficiencia cuando los casos materiales de valor tienen receptores y resultados suficientemente definidos, evidencia proporcional sobre outcomes, medición y atribución compatibles con la decisión, y capacidad de ajustar o detener inversiones, ofertas o relaciones cuando el valor creado o capturado resulta insuficiente.",
+          "No exige:",
+          "conocer exactamente toda causalidad."
+        ]
+      },
+      "sourceLines": [
+        583,
+        586
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM06-02",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-02",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-02",
+        "body": [
+          "La confianza en un outcome observado no debe transferirse automáticamente a confianza en valor, atribución o sostenibilidad."
+        ]
+      },
+      "sourceLines": [
+        601,
+        602
+      ]
+    },
+    {
+      "key": "R-CM06-01",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-01",
+      "fields": {
+        "heading": "R-CM06-01 · VALUE_RECIPIENT_UNCLEAR",
+        "title": "VALUE_RECIPIENT_UNCLEAR"
+      },
+      "sourceLines": [
+        605,
+        605
+      ]
+    },
+    {
+      "key": "R-CM06-02",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-02",
+      "fields": {
+        "heading": "R-CM06-02 · VALUE_OUTCOME_UNCLEAR",
+        "title": "VALUE_OUTCOME_UNCLEAR"
+      },
+      "sourceLines": [
+        606,
+        606
+      ]
+    },
+    {
+      "key": "R-CM06-03",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-03",
+      "fields": {
+        "heading": "R-CM06-03 · OUTPUT_OUTCOME_IMPACT_CONFUSION",
+        "title": "OUTPUT_OUTCOME_IMPACT_CONFUSION"
+      },
+      "sourceLines": [
+        607,
+        607
+      ]
+    },
+    {
+      "key": "R-CM06-04",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-04",
+      "fields": {
+        "heading": "R-CM06-04 · VALUE_HORIZON_UNCLEAR",
+        "title": "VALUE_HORIZON_UNCLEAR"
+      },
+      "sourceLines": [
+        608,
+        608
+      ]
+    },
+    {
+      "key": "R-CM06-05",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-05",
+      "fields": {
+        "heading": "R-CM06-05 · CUSTOMER_VALUE_OUTCOME_GAP",
+        "title": "CUSTOMER_VALUE_OUTCOME_GAP"
+      },
+      "sourceLines": [
+        609,
+        609
+      ]
+    },
+    {
+      "key": "R-CM06-06",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-06",
+      "fields": {
+        "heading": "R-CM06-06 · CUSTOMER_VALUE_EVIDENCE_GAP",
+        "title": "CUSTOMER_VALUE_EVIDENCE_GAP"
+      },
+      "sourceLines": [
+        610,
+        610
+      ]
+    },
+    {
+      "key": "R-CM06-07",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-07",
+      "fields": {
+        "heading": "R-CM06-07 · BUSINESS_VALUE_OUTCOME_GAP",
+        "title": "BUSINESS_VALUE_OUTCOME_GAP"
+      },
+      "sourceLines": [
+        611,
+        611
+      ]
+    },
+    {
+      "key": "R-CM06-08",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-08",
+      "fields": {
+        "heading": "R-CM06-08 · BUSINESS_VALUE_EVIDENCE_GAP",
+        "title": "BUSINESS_VALUE_EVIDENCE_GAP"
+      },
+      "sourceLines": [
+        612,
+        612
+      ]
+    },
+    {
+      "key": "R-CM06-09",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-09",
+      "fields": {
+        "heading": "R-CM06-09 · VALUE_METRIC_RELEVANCE_GAP",
+        "title": "VALUE_METRIC_RELEVANCE_GAP"
+      },
+      "sourceLines": [
+        613,
+        613
+      ]
+    },
+    {
+      "key": "R-CM06-10",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-10",
+      "fields": {
+        "heading": "R-CM06-10 · VALUE_BASELINE_COMPARATOR_GAP",
+        "title": "VALUE_BASELINE_COMPARATOR_GAP"
+      },
+      "sourceLines": [
+        614,
+        614
+      ]
+    },
+    {
+      "key": "R-CM06-11",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-11",
+      "fields": {
+        "heading": "R-CM06-11 · VALUE_INFORMATION_QUALITY_GAP",
+        "title": "VALUE_INFORMATION_QUALITY_GAP"
+      },
+      "sourceLines": [
+        615,
+        615
+      ]
+    },
+    {
+      "key": "R-CM06-12",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-12",
+      "fields": {
+        "heading": "R-CM06-12 · VALUE_CONTRIBUTOR_BLIND_SPOT",
+        "title": "VALUE_CONTRIBUTOR_BLIND_SPOT"
+      },
+      "sourceLines": [
+        616,
+        616
+      ]
+    },
+    {
+      "key": "R-CM06-13",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-13",
+      "fields": {
+        "heading": "R-CM06-13 · VALUE_ATTRIBUTION_OVERREACH",
+        "title": "VALUE_ATTRIBUTION_OVERREACH"
+      },
+      "sourceLines": [
+        617,
+        617
+      ]
+    },
+    {
+      "key": "R-CM06-14",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-14",
+      "fields": {
+        "heading": "R-CM06-14 · VALUE_UNCERTAINTY_HIDDEN",
+        "title": "VALUE_UNCERTAINTY_HIDDEN"
+      },
+      "sourceLines": [
+        618,
+        618
+      ]
+    },
+    {
+      "key": "R-CM06-15",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-15",
+      "fields": {
+        "heading": "R-CM06-15 · VALUE_CAPTURE_MECHANISM_GAP",
+        "title": "VALUE_CAPTURE_MECHANISM_GAP"
+      },
+      "sourceLines": [
+        619,
+        619
+      ]
+    },
+    {
+      "key": "R-CM06-16",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-16",
+      "fields": {
+        "heading": "R-CM06-16 · VALUE_ECONOMICS_VISIBILITY_GAP",
+        "title": "VALUE_ECONOMICS_VISIBILITY_GAP"
+      },
+      "sourceLines": [
+        620,
+        620
+      ]
+    },
+    {
+      "key": "R-CM06-17",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-17",
+      "fields": {
+        "heading": "R-CM06-17 · MATERIAL_VALUE_TRADEOFF_BLIND_SPOT",
+        "title": "MATERIAL_VALUE_TRADEOFF_BLIND_SPOT"
+      },
+      "sourceLines": [
+        621,
+        621
+      ]
+    },
+    {
+      "key": "R-CM06-18",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-18",
+      "fields": {
+        "heading": "R-CM06-18 · VALUE_LEAKAGE_GAP",
+        "title": "VALUE_LEAKAGE_GAP"
+      },
+      "sourceLines": [
+        622,
+        622
+      ]
+    },
+    {
+      "key": "R-CM06-19",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-19",
+      "fields": {
+        "heading": "R-CM06-19 · VALUE_DESTRUCTION_BLIND_SPOT",
+        "title": "VALUE_DESTRUCTION_BLIND_SPOT"
+      },
+      "sourceLines": [
+        623,
+        623
+      ]
+    },
+    {
+      "key": "R-CM06-20",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-20",
+      "fields": {
+        "heading": "R-CM06-20 · VALUE_EVIDENCE_DECISION_GAP",
+        "title": "VALUE_EVIDENCE_DECISION_GAP"
+      },
+      "sourceLines": [
+        624,
+        624
+      ]
+    },
+    {
+      "key": "R-CM06-21",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-21",
+      "fields": {
+        "heading": "R-CM06-21 · VALUE_RESOURCE_REALLOCATION_GAP",
+        "title": "VALUE_RESOURCE_REALLOCATION_GAP"
+      },
+      "sourceLines": [
+        625,
+        625
+      ]
+    },
+    {
+      "key": "R-CM06-22",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-22",
+      "fields": {
+        "heading": "R-CM06-22 · VALUE_STOP_ADJUST_GAP",
+        "title": "VALUE_STOP_ADJUST_GAP"
+      },
+      "sourceLines": [
+        626,
+        626
+      ]
+    },
+    {
+      "key": "R-CM06-23",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-23",
+      "fields": {
+        "heading": "R-CM06-23 · VALUE_SUSTAINABILITY_GAP",
+        "title": "VALUE_SUSTAINABILITY_GAP"
+      },
+      "sourceLines": [
+        627,
+        627
+      ]
+    },
+    {
+      "key": "R-CM06-24",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-24",
+      "fields": {
+        "heading": "R-CM06-24 · VALUE_LEARNING_ADAPTATION_GAP",
+        "title": "VALUE_LEARNING_ADAPTATION_GAP"
+      },
+      "sourceLines": [
+        628,
+        628
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM06-03",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-03",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-03",
+        "body": [
+          "Value Creation Case debe preservar Value Recipient + Value Intent + Expected Outcome + Evidence + Observed Outcome + Attribution."
+        ]
+      },
+      "sourceLines": [
+        679,
+        680
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM06-04",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-04",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-04",
+        "body": [
+          "Output, Outcome e Impact deben permanecer como objetos distintos."
+        ]
+      },
+      "sourceLines": [
+        681,
+        682
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM06-05",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-05",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-05",
+        "body": [
+          "Customer Value, Business Value y Value Captured deben poder coexistir y divergir."
+        ]
+      },
+      "sourceLines": [
+        683,
+        684
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM06-06",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-06",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-06",
+        "body": [
+          "Delivered, Realized y Captured Value deben conservarse como estados diferentes."
+        ]
+      },
+      "sourceLines": [
+        685,
+        686
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM06-07",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-07",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-07",
+        "body": [
+          "Value metric debe mantener vínculo explícito con value recipient y outcome."
+        ]
+      },
+      "sourceLines": [
+        687,
+        688
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM06-08",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-08",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-08",
+        "body": [
+          "Value Horizon debe formar parte del caso antes de declarar ausencia o realización de valor."
+        ]
+      },
+      "sourceLines": [
+        689,
+        690
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM06-09",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-09",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-09",
+        "body": [
+          "Attribution debe reutilizar ATTR-0:3 y preservar uncertainty."
+        ]
+      },
+      "sourceLines": [
+        691,
+        692
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM06-10",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-10",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-10",
+        "body": [
+          "Value trade-offs deben poder vincular resultados positivos y negativos dentro del mismo caso."
+        ]
+      },
+      "sourceLines": [
+        693,
+        694
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM06-11",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-11",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-11",
+        "body": [
+          "Value leakage y value destruction deben existir como objetos explícitos, no únicamente como ausencia de value creation."
+        ]
+      },
+      "sourceLines": [
+        695,
+        696
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM06-12",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-12",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-12",
+        "body": [
+          "El Motor debe permitir continuar, expandir, adjust, reduce o stop una iniciativa/oferta según evidence of value."
+        ]
+      },
+      "sourceLines": [
+        697,
+        698
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM06-13",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-13",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-13",
+        "body": [
+          "Un resultado histórico puede haber creado valor en un periodo y dejar de hacerlo posteriormente sin invalidar la conclusión histórica."
+        ]
+      },
+      "sourceLines": [
+        699,
+        700
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM06-14",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-14",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-14",
+        "body": [
+          "Value Created y Value Captured deben poder agregarse solo preservando población, periodo, unidad y metodología suficiente."
+        ]
+      },
+      "sourceLines": [
+        701,
+        702
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-AI-CM06-01",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-CM06-01",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-CM06-01",
+        "body": [
+          "La adopción o uso de IA no constituye valor; debe existir evidencia suficiente de un outcome material para un receptor relevante."
+        ]
+      },
+      "sourceLines": [
+        705,
+        706
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-AI-CM06-02",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-CM06-02",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-CM06-02",
+        "body": [
+          "Productivity gain generado por IA debe considerar efectos de revisión, error, control, integración y retrabajo antes de declararse valor neto."
+        ]
+      },
+      "sourceLines": [
+        707,
+        708
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-AI-CM06-03",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-CM06-03",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-CM06-03",
+        "body": [
+          "Una estimación de valor producida por IA debe conservarse como inferencia y no sustituir evidencia observada del outcome cuando ésta sea necesaria."
+        ]
+      },
+      "sourceLines": [
+        709,
+        710
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-AI-CM06-04",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-CM06-04",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-CM06-04",
+        "body": [
+          "AI ROI debe separar inversión, costos recurrentes, habilitación organizacional, riesgos y beneficios suficientemente atribuibles antes de presentarse como valor capturado."
+        ]
+      },
+      "sourceLines": [
+        711,
+        712
+      ]
+    },
+    {
+      "key": "SRC-CM06-ISO9001-2026",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-CM06-ISO9001-2026",
+      "fields": {
+        "heading": "SRC-CM06-ISO9001-2026 · CURRENT",
+        "title": "CURRENT",
+        "body": [
+          "y:",
+          "ISO 9001:2015 · SUPERSEDED/HISTORICAL",
+          "También mantenemos:"
+        ]
+      },
+      "sourceLines": [
+        716,
+        719
+      ]
+    },
+    {
+      "key": "SRC-CM06-ISO10014-2021",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-CM06-ISO10014-2021",
+      "fields": {
+        "heading": "SRC-CM06-ISO10014-2021 · CURRENT / UNDER REVIEW",
+        "title": "CURRENT / UNDER REVIEW",
+        "body": [
+          "porque ISO 10014:2021 continúa publicada, aunque se encuentra en etapa de revisión. ISO",
+          "Por tanto:"
+        ]
+      },
+      "sourceLines": [
+        720,
+        722
+      ]
+    },
+    {
+      "key": "SOURCE-REVIEW-TRIGGER-CM06-01",
+      "objectType": "SOURCE_ID_SOURCE",
+      "sourceId": "SOURCE-REVIEW-TRIGGER-CM06-01",
+      "fields": {
+        "heading": "SOURCE-REVIEW-TRIGGER-CM06-01 · Revisar grounding de beneficios financieros/económicos cuando ISO 10014:2021 sea confirmada, revisada o sustituida.",
+        "title": "Revisar grounding de beneficios financieros/económicos cuando ISO 10014:2021 sea confirmada, revisada o sustituida.",
+        "body": [
+          "Y:"
+        ]
+      },
+      "sourceLines": [
+        723,
+        724
+      ]
+    },
+    {
+      "key": "SOURCE-REVIEW-TRIGGER-CM06-02",
+      "objectType": "SOURCE_ID_SOURCE",
+      "sourceId": "SOURCE-REVIEW-TRIGGER-CM06-02",
+      "fields": {
+        "heading": "SOURCE-REVIEW-TRIGGER-CM06-02 · Revisar referencias de quality/value management asociadas a ISO 9001 tras estabilizarse la adopción documental de ISO 9001:2026.",
+        "title": "Revisar referencias de quality/value management asociadas a ISO 9001 tras estabilizarse la adopción documental de ISO 9001:2026."
+      },
+      "sourceLines": [
+        725,
+        725
+      ]
+    },
+    {
+      "key": "FIND-CM06-01",
+      "objectType": "SOURCE_ID_FIND",
+      "sourceId": "FIND-CM06-01",
+      "fields": {
+        "heading": "FIND-CM06-01",
+        "body": [
+          "Todo finding CM-06 debe conservar receptor, resultado esperado, evidencia observada, horizonte y nivel de atribución suficiente para interpretar la conclusión."
+        ]
+      },
+      "sourceLines": [
+        778,
+        779
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM06-15",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-15",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-15",
+        "body": [
+          "El Motor debe poder representar múltiples outcomes positivos y negativos dentro del mismo Value Creation Case antes de emitir una conclusión agregada."
+        ]
+      },
+      "sourceLines": [
+        787,
+        788
+      ]
+    },
+    {
+      "key": "P-CM06-12",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-12",
+      "fields": {
+        "heading": "P-CM06-12",
+        "body": [
+          "La evidencia de valor en un alcance limitado no debe generalizarse automáticamente a una escala mayor."
+        ]
+      },
+      "sourceLines": [
+        832,
+        833
+      ]
+    },
+    {
+      "key": "P-CM06-13",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-13",
+      "fields": {
+        "heading": "P-CM06-13",
+        "body": [
+          "La decisión de detener una iniciativa por evidencia suficiente de bajo valor puede constituir una manifestación positiva de CM-06."
+        ]
+      },
+      "sourceLines": [
+        841,
+        842
+      ]
+    },
+    {
+      "key": "P-CM06-14",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-14",
+      "fields": {
+        "heading": "P-CM06-14",
+        "body": [
+          "Value creation total y marginal value deben poder divergir; una iniciativa valiosa puede haber alcanzado un punto donde expandirla deja de ser conveniente."
+        ]
+      },
+      "sourceLines": [
+        851,
+        852
+      ]
+    },
+    {
+      "key": "INT-CM06-01",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-CM06-01",
+      "fields": {
+        "heading": "INT-CM06-01",
+        "body": [
+          "Debe utilizarse el conjunto mínimo de resultados, métricas, comparadores y evidencia capaz de soportar suficientemente la decisión material sobre creación y captura de valor.",
+          "No buscamos:",
+          "tableros gigantes.",
+          "Buscamos:",
+          "decisión informada."
+        ]
+      },
+      "sourceLines": [
+        856,
+        861
+      ]
+    },
+    {
+      "key": "INT-CM06-02",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-CM06-02",
+      "fields": {
+        "heading": "INT-CM06-02",
+        "body": [
+          "La fuerza de atribución requerida debe limitarse al nivel mínimo suficiente para la decisión; no debe exigirse demostración causal más sofisticada cuando una estimación de contribución suficientemente robusta permite decidir responsablemente.",
+          "Esto mantiene CM-06 usable para pyme."
+        ]
+      },
+      "sourceLines": [
+        864,
+        866
+      ]
+    },
+    {
+      "key": "INS-CM06-01",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM06-01",
+      "fields": {
+        "heading": "INS-CM06-01 · Value Creation Case Card",
+        "title": "Value Creation Case Card",
+        "body": [
+          "Instrumento nuclear:",
+          "recipient → value intent → outcome → horizon → evidence → attribution → decision."
+        ]
+      },
+      "sourceLines": [
+        884,
+        886
+      ]
+    },
+    {
+      "key": "INS-CM06-02",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM06-02",
+      "fields": {
+        "heading": "INS-CM06-02 · Output–Outcome–Impact Map",
+        "title": "Output–Outcome–Impact Map",
+        "body": [
+          "activity → output → outcome → impact → evidence strength."
+        ]
+      },
+      "sourceLines": [
+        887,
+        888
+      ]
+    },
+    {
+      "key": "INS-CM06-03",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM06-03",
+      "fields": {
+        "heading": "INS-CM06-03 · Customer Value Evidence Card",
+        "title": "Customer Value Evidence Card",
+        "body": [
+          "expected customer outcome → observed outcome → baseline → confidence."
+        ]
+      },
+      "sourceLines": [
+        889,
+        890
+      ]
+    },
+    {
+      "key": "INS-CM06-04",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM06-04",
+      "fields": {
+        "heading": "INS-CM06-04 · Business Value Evidence Card",
+        "title": "Business Value Evidence Card",
+        "body": [
+          "expected business outcome → observed result → economics → confidence."
+        ]
+      },
+      "sourceLines": [
+        891,
+        892
+      ]
+    },
+    {
+      "key": "INS-CM06-05",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM06-05",
+      "fields": {
+        "heading": "INS-CM06-05 · Value Metric Card",
+        "title": "Value Metric Card",
+        "body": [
+          "metric → recipient → outcome → definition → source → limitation."
+        ]
+      },
+      "sourceLines": [
+        893,
+        894
+      ]
+    },
+    {
+      "key": "INS-CM06-06",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM06-06",
+      "fields": {
+        "heading": "INS-CM06-06 · Attribution Card",
+        "title": "Attribution Card",
+        "body": [
+          "outcome → potential contributors → evidence → ATTR level → uncertainty."
+        ]
+      },
+      "sourceLines": [
+        895,
+        896
+      ]
+    },
+    {
+      "key": "INS-CM06-07",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM06-07",
+      "fields": {
+        "heading": "INS-CM06-07 · Value Capture Map",
+        "title": "Value Capture Map",
+        "body": [
+          "value created → mechanism of capture → revenue/cost/capability → leakage."
+        ]
+      },
+      "sourceLines": [
+        897,
+        898
+      ]
+    },
+    {
+      "key": "INS-CM06-08",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM06-08",
+      "fields": {
+        "heading": "INS-CM06-08 · Value Trade-off Map",
+        "title": "Value Trade-off Map",
+        "body": [
+          "positive outcome → affected outcome/actor → negative consequence → materiality."
+        ]
+      },
+      "sourceLines": [
+        899,
+        900
+      ]
+    },
+    {
+      "key": "INS-CM06-09",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM06-09",
+      "fields": {
+        "heading": "INS-CM06-09 · Value Decision Card",
+        "title": "Value Decision Card",
+        "body": [
+          "evidence → maintain/expand/adjust/reduce/stop → rationale → next review."
+        ]
+      },
+      "sourceLines": [
+        901,
+        902
+      ]
+    },
+    {
+      "key": "INS-CM06-10",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM06-10",
+      "fields": {
+        "heading": "INS-CM06-10 · Value Learning Log",
+        "title": "Value Learning Log",
+        "body": [
+          "original hypothesis → evidence → result → learning → model/decision change."
+        ]
+      },
+      "sourceLines": [
+        903,
+        904
+      ]
+    },
+    {
+      "key": "CAND-INSTRUMENT-TRANSVERSAL-09",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-INSTRUMENT-TRANSVERSAL-09",
+      "fields": {
+        "heading": "CAND-INSTRUMENT-TRANSVERSAL-09 · VALUE-CREATION-CASE-CARD",
+        "title": "VALUE-CREATION-CASE-CARD"
+      },
+      "sourceLines": [
+        916,
+        916
+      ]
+    },
+    {
+      "key": "DEL-CM06-01",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM06-01",
+      "fields": {
+        "heading": "DEL-CM06-01 · Value Intents materiales definidos",
+        "title": "Value Intents materiales definidos"
+      },
+      "sourceLines": [
+        920,
+        920
+      ]
+    },
+    {
+      "key": "DEL-CM06-02",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM06-02",
+      "fields": {
+        "heading": "DEL-CM06-02 · outcomes/horizontes suficientemente especificados",
+        "title": "outcomes/horizontes suficientemente especificados"
+      },
+      "sourceLines": [
+        921,
+        921
+      ]
+    },
+    {
+      "key": "DEL-CM06-03",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM06-03",
+      "fields": {
+        "heading": "DEL-CM06-03 · Customer Value suficientemente evidenciado",
+        "title": "Customer Value suficientemente evidenciado"
+      },
+      "sourceLines": [
+        922,
+        922
+      ]
+    },
+    {
+      "key": "DEL-CM06-04",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM06-04",
+      "fields": {
+        "heading": "DEL-CM06-04 · Business Value suficientemente evidenciado",
+        "title": "Business Value suficientemente evidenciado"
+      },
+      "sourceLines": [
+        923,
+        923
+      ]
+    },
+    {
+      "key": "DEL-CM06-05",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM06-05",
+      "fields": {
+        "heading": "DEL-CM06-05 · medición/comparación suficientemente aptas",
+        "title": "medición/comparación suficientemente aptas"
+      },
+      "sourceLines": [
+        924,
+        924
+      ]
+    },
+    {
+      "key": "DEL-CM06-06",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM06-06",
+      "fields": {
+        "heading": "DEL-CM06-06 · attribution calibrada",
+        "title": "attribution calibrada"
+      },
+      "sourceLines": [
+        925,
+        925
+      ]
+    },
+    {
+      "key": "DEL-CM06-07",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM06-07",
+      "fields": {
+        "heading": "DEL-CM06-07 · Value Capture suficientemente visible",
+        "title": "Value Capture suficientemente visible"
+      },
+      "sourceLines": [
+        926,
+        926
+      ]
+    },
+    {
+      "key": "DEL-CM06-08",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM06-08",
+      "fields": {
+        "heading": "DEL-CM06-08 · trade-offs/leakage/destruction visibles y tratados",
+        "title": "trade-offs/leakage/destruction visibles y tratados"
+      },
+      "sourceLines": [
+        927,
+        927
+      ]
+    },
+    {
+      "key": "DEL-CM06-09",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM06-09",
+      "fields": {
+        "heading": "DEL-CM06-09 · asignación/continuidad conectadas con evidencia de valor",
+        "title": "asignación/continuidad conectadas con evidencia de valor"
+      },
+      "sourceLines": [
+        928,
+        928
+      ]
+    },
+    {
+      "key": "DEL-CM06-10",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM06-10",
+      "fields": {
+        "heading": "DEL-CM06-10 · hipótesis y decisiones actualizables desde aprendizaje",
+        "title": "hipótesis y decisiones actualizables desde aprendizaje"
+      },
+      "sourceLines": [
+        929,
+        929
+      ]
+    },
+    {
+      "key": "CRV-CM06-01",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM06-01",
+      "fields": {
+        "heading": "| CRV-CM06-01 | VCC materiales tienen receptor, resultado esperado y horizonte explícitos |",
+        "title": "VCC materiales tienen receptor, resultado esperado y horizonte explícitos"
+      },
+      "sourceLines": [
+        955,
+        955
+      ]
+    },
+    {
+      "key": "CRV-CM06-02",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM06-02",
+      "fields": {
+        "heading": "| CRV-CM06-02 | Outputs y outcomes utilizados en decisiones están suficientemente diferenciados |",
+        "title": "Outputs y outcomes utilizados en decisiones están suficientemente diferenciados"
+      },
+      "sourceLines": [
+        956,
+        956
+      ]
+    },
+    {
+      "key": "CRV-CM06-03",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM06-03",
+      "fields": {
+        "heading": "| CRV-CM06-03 | Customer Value prioritario cuenta con evidencia proporcional |",
+        "title": "Customer Value prioritario cuenta con evidencia proporcional"
+      },
+      "sourceLines": [
+        957,
+        957
+      ]
+    },
+    {
+      "key": "CRV-CM06-04",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM06-04",
+      "fields": {
+        "heading": "| CRV-CM06-04 | Business Value prioritario cuenta con evidencia proporcional |",
+        "title": "Business Value prioritario cuenta con evidencia proporcional"
+      },
+      "sourceLines": [
+        958,
+        958
+      ]
+    },
+    {
+      "key": "CRV-CM06-05",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM06-05",
+      "fields": {
+        "heading": "| CRV-CM06-05 | Métricas utilizadas mantienen vínculo explícito con outcome y receptor |",
+        "title": "Métricas utilizadas mantienen vínculo explícito con outcome y receptor"
+      },
+      "sourceLines": [
+        959,
+        959
+      ]
+    },
+    {
+      "key": "CRV-CM06-06",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM06-06",
+      "fields": {
+        "heading": "| CRV-CM06-06 | Atribuciones materiales declaran un nivel compatible con evidencia disponible |",
+        "title": "Atribuciones materiales declaran un nivel compatible con evidencia disponible"
+      },
+      "sourceLines": [
+        960,
+        960
+      ]
+    },
+    {
+      "key": "CRV-CM06-07",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM06-07",
+      "fields": {
+        "heading": "| CRV-CM06-07 | Mecanismo y magnitud material de Value Capture son suficientemente visibles |",
+        "title": "Mecanismo y magnitud material de Value Capture son suficientemente visibles"
+      },
+      "sourceLines": [
+        961,
+        961
+      ]
+    },
+    {
+      "key": "CRV-CM06-08",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM06-08",
+      "fields": {
+        "heading": "| CRV-CM06-08 | Trade-offs, leakage o destruction materiales pueden detectarse y tratarse |",
+        "title": "Trade-offs, leakage o destruction materiales pueden detectarse y tratarse"
+      },
+      "sourceLines": [
+        962,
+        962
+      ]
+    },
+    {
+      "key": "CRV-CM06-09",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM06-09",
+      "fields": {
+        "heading": "| CRV-CM06-09 | Evidencia de valor cambia de forma verificable decisiones de mantener, expandir, ajustar, reducir o detener |",
+        "title": "Evidencia de valor cambia de forma verificable decisiones de mantener, expandir, ajustar, reducir o detener"
+      },
+      "sourceLines": [
+        963,
+        963
+      ]
+    },
+    {
+      "key": "CRV-CM06-10",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM06-10",
+      "fields": {
+        "heading": "| CRV-CM06-10 | Resultados de valor pueden reevaluarse cuando cambian horizonte, contexto o economics |",
+        "title": "Resultados de valor pueden reevaluarse cuando cambian horizonte, contexto o economics"
+      },
+      "sourceLines": [
+        964,
+        964
+      ]
+    },
+    {
+      "key": "V0",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V0",
+      "fields": {
+        "heading": "V0 · UNKNOWN",
+        "title": "UNKNOWN",
+        "body": [
+          "Value Case insuficientemente definido."
+        ]
+      },
+      "sourceLines": [
+        987,
+        988
+      ]
+    },
+    {
+      "key": "V1",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V1",
+      "fields": {
+        "heading": "V1 · VALUE-DEFINED",
+        "title": "VALUE-DEFINED",
+        "body": [
+          "Receptor, intent, outcome y horizonte están definidos."
+        ]
+      },
+      "sourceLines": [
+        989,
+        990
+      ]
+    },
+    {
+      "key": "V2",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V2",
+      "fields": {
+        "heading": "V2 · VALUE-EVIDENCED",
+        "title": "VALUE-EVIDENCED",
+        "body": [
+          "Existe evidencia suficiente de que algún outcome material ocurrió."
+        ]
+      },
+      "sourceLines": [
+        991,
+        992
+      ]
+    },
+    {
+      "key": "V3",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V3",
+      "fields": {
+        "heading": "V3 · VALUE-MANAGEMENT-FIT",
+        "title": "VALUE-MANAGEMENT-FIT",
+        "body": [
+          "Customer/business value, captura y atribución son suficientemente entendidos para decidir."
+        ]
+      },
+      "sourceLines": [
+        993,
+        994
+      ]
+    },
+    {
+      "key": "V4",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V4",
+      "fields": {
+        "heading": "V4 · VALUE-SUSTAINED/ADAPTIVE",
+        "title": "VALUE-SUSTAINED/ADAPTIVE",
+        "body": [
+          "La organización puede reevaluar, reasignar y adaptar decisiones de forma repetible según evidencia de valor."
+        ]
+      },
+      "sourceLines": [
+        995,
+        996
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM06-16",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-16",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-16",
+        "body": [
+          "Validation state de outcome y attribution confidence deben permanecer desacoplados.",
+          "Eso permite conclusiones como:",
+          "Outcome V3 / ATTR-1",
+          "sin contradicción."
+        ]
+      },
+      "sourceLines": [
+        1006,
+        1010
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM06-17",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-17",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-17",
+        "body": [
+          "El Motor debe conservar explícitamente Value Decision State y la evidencia que lo justifica."
+        ]
+      },
+      "sourceLines": [
+        1023,
+        1024
+      ]
+    },
+    {
+      "key": "REASS-CM06-01",
+      "objectType": "SOURCE_ID_REASS",
+      "sourceId": "REASS-CM06-01",
+      "fields": {
+        "heading": "REASS-CM06-01",
+        "body": [
+          "Una conclusión de creación de valor debe reevaluarse cuando cambien materialmente outcomes, economics, horizonte, contexto, trade-offs o evidencia de atribución."
+        ]
+      },
+      "sourceLines": [
+        1045,
+        1046
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM06-18",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-18",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-18",
+        "body": [
+          "Los VCC deben poder alimentar priorización de portafolio sin perder outcome, confidence, horizon y attribution individuales."
+        ]
+      },
+      "sourceLines": [
+        1065,
+        1066
+      ]
+    },
+    {
+      "key": "P-CM06-15",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-15",
+      "fields": {
+        "heading": "P-CM06-15",
+        "body": [
+          "Resultados de naturaleza distinta no deben agregarse en un índice único salvo que exista una regla de agregación explícita, justificable y suficientemente interpretable.",
+          "Esto será especialmente importante para el scoring futuro de Pymapa."
+        ]
+      },
+      "sourceLines": [
+        1072,
+        1074
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CROSS-VAL-01",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CROSS-VAL-01",
+      "fields": {
+        "heading": "CAND-MOTOR-CROSS-VAL-01",
+        "body": [
+          "El Motor no debe convertir directamente el nivel de una capacidad en una estimación de valor creado; capability state y value outcome deben permanecer como dimensiones distintas.",
+          "Este candidato es crítico para la arquitectura final del diagnóstico."
+        ]
+      },
+      "sourceLines": [
+        1084,
+        1086
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-AI-CM06-05",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-CM06-05",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-CM06-05",
+        "body": [
+          "Los beneficios atribuidos a IA deben compararse, cuando sea material, con un baseline o alternativa suficientemente relevante y considerar costos adicionales de revisión, control y mantenimiento."
+        ]
+      },
+      "sourceLines": [
+        1090,
+        1091
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-AI-CM06-06",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-CM06-06",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-CM06-06",
+        "body": [
+          "El volumen de contenido, predicciones, automatizaciones o interacciones generadas por IA constituye output, no value outcome, salvo evidencia adicional suficiente."
+        ]
+      },
+      "sourceLines": [
+        1092,
+        1093
+      ]
+    },
+    {
+      "key": "K1",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Coherencia — PASS",
+        "title": "Coherencia — PASS",
+        "body": [
+          "CM-06 queda diferenciada de CM-02, CM-03, CM-05, DT-04 y DG-04."
+        ]
+      },
+      "sourceLines": [
+        1177,
+        1178
+      ]
+    },
+    {
+      "key": "K2",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Razonamiento — PASS",
+        "title": "Razonamiento — PASS",
+        "body": [
+          "Preserva:",
+          "ACTIVITY ≠ OUTPUT ≠ OUTCOME ≠ IMPACT",
+          "CUSTOMER VALUE ≠ BUSINESS VALUE",
+          "VALUE CREATED ≠ VALUE CAPTURED",
+          "MEASUREMENT ≠ ATTRIBUTION",
+          "TOTAL VALUE ≠ MARGINAL VALUE"
+        ]
+      },
+      "sourceLines": [
+        1179,
+        1185
+      ]
+    },
+    {
+      "key": "K3",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · Acción — PASS",
+        "title": "Acción — PASS",
+        "body": [
+          "Permite definir, medir, evidenciar, recalibrar, capturar, reducir leakage, gestionar trade-offs, ampliar, reducir o detener."
+        ]
+      },
+      "sourceLines": [
+        1186,
+        1187
+      ]
+    },
+    {
+      "key": "K4",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · Knowledge — PASS",
+        "title": "Knowledge — PASS",
+        "body": [
+          "Grounding, provenance, métricas, confidence, attribution, horizon, lifecycle y governance quedan suficientemente explícitos."
+        ]
+      },
+      "sourceLines": [
+        1188,
+        1189
+      ]
+    }
+  ],
+  "supersessions": [],
+  "executableProjection": {
+    "sourceRef": "source.json",
+    "verbatimKeys": [
+      "heading",
+      "title",
+      "body"
+    ],
+    "projectedObjectTypes": [],
+    "canonicalOnlyGapRefs": []
+  },
+  "gaps": [],
+  "transcriptionCorrections": [],
+  "checksum": "sha256:ccb557c8328874e1cc69bcf0036626b38e352c7c27aa62e2e289f6234ec3f65f"
+}

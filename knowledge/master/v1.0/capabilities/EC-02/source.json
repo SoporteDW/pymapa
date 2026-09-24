@@ -1,0 +1,334 @@
+{
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "capability": {
+    "id": "EC-02",
+    "domainId": "EC",
+    "name": "Buscar y seleccionar actores externos adecuados",
+    "definition": "EC-02 evalúa la capacidad de la organización para reconocer cuándo necesita acceder externamente a una capacidad, recurso o conocimiento material, identificar alternativas suficientemente pertinentes y seleccionar un actor externo cuyo ajuste a la necesidad, condiciones y riesgos sea suficiente para el propósito requerido.",
+    "definitionStatus": "EXPLICIT",
+    "definitionSourceLines": [
+      49,
+      49
+    ]
+  },
+  "provenance": {
+    "sourceReference": "canonical-baseline.json#EC02-K4-v1.0@sha256:6c0542e75e2e5c796108449351474b8a0daddf9682bc2806ab520ea1cf824f19 · EC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "extractionStatus": "APPROVED",
+    "derivation": "MASTER_TRANSCRIPTION",
+    "derivationNote": "Proyección genérica determinista (M2-FACTORY-CONTRACT-03) desde baseline canónica aceptada + estructura explícita de la fuente raw sellada.",
+    "approvedBy": "PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY",
+    "approvedAt": "2026-09-24"
+  },
+  "targetPack": {
+    "packId": "ec-02",
+    "packVersion": "1.0.0"
+  },
+  "sections": {
+    "capability": {
+      "id": "EC-02",
+      "domainId": "EC",
+      "name": "Buscar y seleccionar actores externos adecuados",
+      "definition": "EC-02 evalúa la capacidad de la organización para reconocer cuándo necesita acceder externamente a una capacidad, recurso o conocimiento material, identificar alternativas suficientemente pertinentes y seleccionar un actor externo cuyo ajuste a la necesidad, condiciones y riesgos sea suficiente para el propósito requerido.",
+      "definitionStatus": "EXPLICIT",
+      "definitionSourceLines": [
+        49,
+        49
+      ]
+    },
+    "conditionsOfExistence": [
+      {
+        "id": "CE01",
+        "statement": "External Need"
+      },
+      {
+        "id": "CE02",
+        "statement": "Sourcing logic"
+      },
+      {
+        "id": "CE03",
+        "statement": "Search"
+      },
+      {
+        "id": "CE04",
+        "statement": "Selection requirements"
+      },
+      {
+        "id": "CE05",
+        "statement": "Actor capability fit"
+      },
+      {
+        "id": "CE06",
+        "statement": "Delivery/economic fit"
+      },
+      {
+        "id": "CE07",
+        "statement": "Risk/dependency fit"
+      },
+      {
+        "id": "CE08",
+        "statement": "Evidence/comparison"
+      },
+      {
+        "id": "CE09",
+        "statement": "Selection decision"
+      }
+    ],
+    "variables": [
+      {
+        "id": "VA01",
+        "name": "necesidad externa material suficientemente clara",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA02",
+        "name": "resultado/capacidad requerida suficientemente definida",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA03",
+        "name": "externalización/acceso suficientemente justificados",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA04",
+        "name": "alternativas build/buy/partner/access consideradas cuando materialmente relevantes",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA05",
+        "name": "espacio razonable de actores suficientemente considerado",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA06",
+        "name": "candidatos identificados mediante fuentes suficientemente pertinentes",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA07",
+        "name": "criterios críticos suficientemente definidos",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA08",
+        "name": "preferencias/discriminadores suficientemente claros",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA09",
+        "name": "capacidad relevante suficientemente evidenciada",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA10",
+        "name": "experiencia/context fit suficientes cuando aplican",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA11",
+        "name": "capacidad/disponibilidad suficientemente plausible",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA12",
+        "name": "alcance/condiciones de entrega suficientemente compatibles",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA13",
+        "name": "economics suficientemente comprendidos",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA14",
+        "name": "riesgos materiales de selección suficientemente visibles",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA15",
+        "name": "dependencia/continuidad potencial suficientemente considerada",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA16",
+        "name": "exit/migration sufficiently considered cuando aplica",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA17",
+        "name": "afirmaciones críticas suficientemente verificadas",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA18",
+        "name": "alternativas suficientemente comparables",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA19",
+        "name": "incertidumbres materiales suficientemente explícitas",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA20",
+        "name": "actor seleccionado satisface condiciones críticas",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA21",
+        "name": "rationale de selección suficientemente trazable",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      }
+    ],
+    "informationNeeds": [],
+    "acquisitions": [],
+    "acquisitionStages": [
+      {
+        "id": "P2",
+        "level": "P2",
+        "heading": "P2 · Triggers",
+        "prompts": [],
+        "variableRefsResolution": "CONTEXTUAL",
+        "sourceLines": [
+          455,
+          472
+        ]
+      },
+      {
+        "id": "P3",
+        "level": "P3",
+        "heading": "P3 · Discriminación",
+        "prompts": [],
+        "variableRefsResolution": "CONTEXTUAL",
+        "sourceLines": [
+          474,
+          485
+        ]
+      }
+    ]
+  },
+  "gaps": [
+    {
+      "id": "NE-EC-02-CRITICALITY",
+      "kind": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "statement": "Criticidad no declarada por la fuente para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21; preservada como NOT_EXPLICIT (modo de resolución NOT_EXPLICIT), sin inferir nivel.",
+      "publicationBlocking": false
+    },
+    {
+      "id": "NE-EC-02-VA-ACQUISITION",
+      "kind": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "statement": "Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+      "publicationBlocking": true
+    }
+  ],
+  "checksum": "sha256:60525f6613c65cd0e88dac17e453ca9b49dee9f718274a4b5fa29a3f8a69be30"
+}

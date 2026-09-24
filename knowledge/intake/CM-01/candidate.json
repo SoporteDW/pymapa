@@ -1,0 +1,3355 @@
+{
+  "candidateId": "CAND-CM-01-0.2.0-76fc98cd7531",
+  "capabilityId": "CM-01",
+  "status": "CANDIDATE",
+  "registration": {
+    "registrationId": "RAW-CM-01-4c2767563096",
+    "textSha256": "76fc98cd7531ca889ac4546993e8be7aef4e84bc836a69920cb0c66e42fd6ec9"
+  },
+  "producedBy": {
+    "method": "DETERMINISTIC_TOOL",
+    "agent": "pymapa-structural-segmenter@0.2.0 + pymapa-governed-supersession-resolver@0.1.0",
+    "note": "Segmentación literal por headings y líneas planas «ID · título» con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
+  },
+  "baselineId": "CM01-K4-v1.0",
+  "historicalStatus": {
+    "marker": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      1154,
+      1154
+    ]
+  },
+  "provenanceVocabulary": [
+    {
+      "code": "SOURCE-DERIVED",
+      "label": "SOURCE-DERIVED",
+      "meaning": "Las fuentes externas fundamentan:",
+      "sourceLines": [
+        1053,
+        1054
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "PYMAPA-DESIGNED",
+      "label": "PYMAPA-DESIGNED",
+      "meaning": "Son propios:",
+      "sourceLines": [
+        1060,
+        1061
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    }
+  ],
+  "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 9,
+      "objectType": "SOURCE_ID_CE",
+      "sourceLines": [
+        1139,
+        1139
+      ]
+    },
+    {
+      "label": "CRV",
+      "declared": 9,
+      "objectType": "SOURCE_ID_CRV",
+      "sourceLines": [
+        1149,
+        1149
+      ]
+    },
+    {
+      "label": "VA",
+      "declared": 21,
+      "objectType": "SOURCE_ID_VA",
+      "sourceLines": [
+        1140,
+        1140
+      ]
+    }
+  ],
+  "verbatimKeys": [
+    "heading",
+    "title",
+    "body"
+  ],
+  "items": [
+    {
+      "key": "P-CM01-CORE-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM01-CORE-01",
+      "fields": {
+        "heading": "P-CM01-CORE-01",
+        "body": [
+          "Describir atributos de un cliente no equivale a comprender las condiciones, necesidades o comportamientos relevantes para una decisión empresarial.",
+          "Pero tampoco asumimos:",
+          "atributos demográficos/firmográficos son inútiles.",
+          "Pueden ser importantes cuando realmente explican o permiten actuar sobre diferencias materiales."
+        ]
+      },
+      "sourceLines": [
+        75,
+        79
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "P-CM01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM01-01",
+      "fields": {
+        "heading": "P-CM01-01",
+        "body": [
+          "La comprensión del cliente debe distinguir roles cuando su diferencia modifica materialmente necesidades, decisiones o experiencia."
+        ]
+      },
+      "sourceLines": [
+        100,
+        101
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM01-01",
+      "fields": {
+        "heading": "CAND-MOTOR-CM01-01",
+        "body": [
+          "El Motor debe poder representar múltiples actores asociados a una misma relación comercial cuando tengan necesidades o roles materialmente diferentes."
+        ]
+      },
+      "sourceLines": [
+        115,
+        116
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "APP-CM01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_APP",
+      "sourceId": "APP-CM01-01",
+      "fields": {
+        "heading": "APP-CM01-01",
+        "body": [
+          "La profundidad de diferenciación de clientes debe aumentar únicamente cuando las diferencias entre ellos puedan modificar materialmente propuesta, adquisición, canal, experiencia, servicio o creación de valor.",
+          "Por tanto:",
+          "segmentar por segmentar no es madurez."
+        ]
+      },
+      "sourceLines": [
+        123,
+        126
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "P-CM01-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM01-02",
+      "fields": {
+        "heading": "P-CM01-02",
+        "body": [
+          "Comprensión de la necesidad y adecuación de la propuesta deben mantenerse como capacidades distintas."
+        ]
+      },
+      "sourceLines": [
+        164,
+        165
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "P-CM01-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM01-03",
+      "fields": {
+        "heading": "P-CM01-03",
+        "body": [
+          "Una característica solo constituye una variable de segmentación útil cuando diferencia de manera relevante alguna decisión o respuesta empresarial."
+        ]
+      },
+      "sourceLines": [
+        234,
+        235
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM01-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM01-02",
+      "fields": {
+        "heading": "CAND-MOTOR-CM01-02",
+        "body": [
+          "El Motor debe distinguir clasificación descriptiva de segmentación funcional."
+        ]
+      },
+      "sourceLines": [
+        245,
+        246
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "P-CM01-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM01-04",
+      "fields": {
+        "heading": "P-CM01-04",
+        "body": [
+          "Persona, avatar o perfil sintético debe conservarse como representación hipotética o resumida y no confundirse con evidencia primaria sobre clientes.",
+          "Esto es particularmente importante cuando IA puede generar buyer personas muy convincentes sin evidencia real."
+        ]
+      },
+      "sourceLines": [
+        252,
+        254
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "P-CM01-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM01-05",
+      "fields": {
+        "heading": "P-CM01-05",
+        "body": [
+          "La solución solicitada por un cliente no debe confundirse automáticamente con la necesidad subyacente que intenta resolver.",
+          "No significa ignorar lo que pide el cliente.",
+          "Significa:",
+          "distinguir niveles."
+        ]
+      },
+      "sourceLines": [
+        279,
+        283
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM01-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM01-03",
+      "fields": {
+        "heading": "CAND-MOTOR-CM01-03",
+        "body": [
+          "Need, preference, expectation, complaint, request y behavior deben poder registrarse como tipos de evidencia/objeto diferentes."
+        ]
+      },
+      "sourceLines": [
+        293,
+        294
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "P-CM01-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM01-06",
+      "fields": {
+        "heading": "P-CM01-06",
+        "body": [
+          "Evidencia declarada y comportamiento observado deben poder coexistir incluso cuando divergen; la divergencia es una señal para profundizar, no una razón automática para descartar una fuente."
+        ]
+      },
+      "sourceLines": [
+        334,
+        335
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "E-CM01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_E",
+      "sourceId": "E-CM01-01",
+      "fields": {
+        "heading": "E-CM01-01 · DECLARED",
+        "title": "DECLARED",
+        "body": [
+          "Entrevistas, conversaciones, encuestas, feedback."
+        ]
+      },
+      "sourceLines": [
+        360,
+        361
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "E-CM01-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_E",
+      "sourceId": "E-CM01-02",
+      "fields": {
+        "heading": "E-CM01-02 · OBSERVED",
+        "title": "OBSERVED",
+        "body": [
+          "Observación, sesiones, tests, comportamiento visible."
+        ]
+      },
+      "sourceLines": [
+        362,
+        363
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "E-CM01-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_E",
+      "sourceId": "E-CM01-03",
+      "fields": {
+        "heading": "E-CM01-03 · TRANSACTIONAL",
+        "title": "TRANSACTIONAL",
+        "body": [
+          "Compras, renovaciones, devoluciones, cancelaciones."
+        ]
+      },
+      "sourceLines": [
+        364,
+        365
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "E-CM01-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_E",
+      "sourceId": "E-CM01-04",
+      "fields": {
+        "heading": "E-CM01-04 · DIGITAL BEHAVIOR",
+        "title": "DIGITAL BEHAVIOR",
+        "body": [
+          "Navegación, búsqueda, interacción, funnel, canal."
+        ]
+      },
+      "sourceLines": [
+        366,
+        367
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "E-CM01-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_E",
+      "sourceId": "E-CM01-05",
+      "fields": {
+        "heading": "E-CM01-05 · OPERATIONAL",
+        "title": "OPERATIONAL",
+        "body": [
+          "Tickets, llamadas, reclamos, consultas, soporte."
+        ]
+      },
+      "sourceLines": [
+        368,
+        369
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "E-CM01-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_E",
+      "sourceId": "E-CM01-06",
+      "fields": {
+        "heading": "E-CM01-06 · EXTERNAL/MARKET",
+        "title": "EXTERNAL/MARKET",
+        "body": [
+          "Investigación sectorial, competidores, fuentes públicas, terceros.",
+          "Una pregunta puede resolverse con una sola familia.",
+          "Otra puede necesitar triangulación."
+        ]
+      },
+      "sourceLines": [
+        370,
+        373
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "P-CM01-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM01-07",
+      "fields": {
+        "heading": "P-CM01-07",
+        "body": [
+          "La formalidad de la investigación no determina por sí sola la calidad de la comprensión del cliente."
+        ]
+      },
+      "sourceLines": [
+        380,
+        381
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "P-CM01-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM01-08",
+      "fields": {
+        "heading": "P-CM01-08",
+        "body": [
+          "La cercanía directa con clientes no elimina la necesidad de evaluar cobertura y posibles sesgos de la evidencia cuando éstos pueden cambiar materialmente la conclusión."
+        ]
+      },
+      "sourceLines": [
+        391,
+        392
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM01-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM01-04",
+      "fields": {
+        "heading": "CAND-MOTOR-CM01-04",
+        "body": [
+          "La población relevante de evidencia debe derivarse de la pregunta empresarial y puede incluir clientes, prospectos, no compradores o exclientes."
+        ]
+      },
+      "sourceLines": [
+        405,
+        406
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "P-CM01-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM01-09",
+      "fields": {
+        "heading": "P-CM01-09",
+        "body": [
+          "Las necesidades deben conservar contexto suficiente para evitar convertir una condición situacional en atributo permanente del cliente."
+        ]
+      },
+      "sourceLines": [
+        414,
+        415
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "P-CM01-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM01-10",
+      "fields": {
+        "heading": "P-CM01-10",
+        "body": [
+          "Una conclusión históricamente válida sobre clientes puede dejar de ser suficientemente vigente sin que la conclusión original haya sido incorrecta.",
+          "Este patrón ya es familiar en Pymapa."
+        ]
+      },
+      "sourceLines": [
+        427,
+        429
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM01-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM01-05",
+      "fields": {
+        "heading": "CAND-MOTOR-CM01-05",
+        "body": [
+          "El Motor debe distinguir assumption, evidence, inference y validated customer understanding."
+        ]
+      },
+      "sourceLines": [
+        441,
+        442
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "P-CM01-11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM01-11",
+      "fields": {
+        "heading": "P-CM01-11",
+        "body": [
+          "La confianza de una conclusión sobre clientes debe mantenerse proporcional a cobertura, consistencia, calidad y relevancia de la evidencia disponible."
+        ]
+      },
+      "sourceLines": [
+        450,
+        451
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CE01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Uso y pregunta",
+        "title": "Uso y pregunta"
+      },
+      "sourceLines": [
+        455,
+        455
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "VA01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA01",
+      "fields": {
+        "heading": "VA01 · Uso empresarial material suficientemente definido",
+        "title": "Uso empresarial material suficientemente definido"
+      },
+      "sourceLines": [
+        456,
+        456
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "VA02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA02",
+      "fields": {
+        "heading": "VA02 · Pregunta de comprensión de cliente suficientemente clara",
+        "title": "Pregunta de comprensión de cliente suficientemente clara"
+      },
+      "sourceLines": [
+        457,
+        457
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CE02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Población relevante",
+        "title": "Población relevante"
+      },
+      "sourceLines": [
+        459,
+        459
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "VA03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA03",
+      "fields": {
+        "heading": "VA03 · Cliente/actor relevante identificado",
+        "title": "Cliente/actor relevante identificado"
+      },
+      "sourceLines": [
+        460,
+        460
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "VA04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "VA04 · Roles diferentes distinguidos cuando son materiales",
+        "title": "Roles diferentes distinguidos cuando son materiales"
+      },
+      "sourceLines": [
+        461,
+        461
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CE03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Segmentación",
+        "title": "Segmentación"
+      },
+      "sourceLines": [
+        463,
+        463
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "VA05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "VA05 · Diferencias materialmente relevantes identificadas",
+        "title": "Diferencias materialmente relevantes identificadas"
+      },
+      "sourceLines": [
+        464,
+        464
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "VA06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "VA06 · Segmentos suficientemente coherentes para el uso pretendido",
+        "title": "Segmentos suficientemente coherentes para el uso pretendido"
+      },
+      "sourceLines": [
+        465,
+        465
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "VA07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "VA07 · Segmentación conectada con una decisión/acción diferenciada",
+        "title": "Segmentación conectada con una decisión/acción diferenciada"
+      },
+      "sourceLines": [
+        466,
+        466
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CE04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE04",
+      "fields": {
+        "heading": "CE04 · Necesidades",
+        "title": "Necesidades"
+      },
+      "sourceLines": [
+        468,
+        468
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "VA08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "VA08 · Necesidades/problemas/jobs/resultados relevantes identificados",
+        "title": "Necesidades/problemas/jobs/resultados relevantes identificados"
+      },
+      "sourceLines": [
+        469,
+        469
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "VA09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA09",
+      "fields": {
+        "heading": "VA09 · Contexto de la necesidad suficientemente comprendido",
+        "title": "Contexto de la necesidad suficientemente comprendido"
+      },
+      "sourceLines": [
+        470,
+        470
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "VA10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA10",
+      "fields": {
+        "heading": "VA10 · Importancia/materialidad suficientemente caracterizada",
+        "title": "Importancia/materialidad suficientemente caracterizada"
+      },
+      "sourceLines": [
+        471,
+        471
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CE05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE05",
+      "fields": {
+        "heading": "CE05 · Comportamiento",
+        "title": "Comportamiento"
+      },
+      "sourceLines": [
+        473,
+        473
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "VA11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA11",
+      "fields": {
+        "heading": "VA11 · Comportamientos materialmente relevantes observables/conocidos",
+        "title": "Comportamientos materialmente relevantes observables/conocidos"
+      },
+      "sourceLines": [
+        474,
+        474
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "VA12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA12",
+      "fields": {
+        "heading": "VA12 · Relación comportamiento–necesidad no sobreatribuida",
+        "title": "Relación comportamiento–necesidad no sobreatribuida"
+      },
+      "sourceLines": [
+        475,
+        475
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CE06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE06",
+      "fields": {
+        "heading": "CE06 · Evidencia",
+        "title": "Evidencia"
+      },
+      "sourceLines": [
+        477,
+        477
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "VA13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA13",
+      "fields": {
+        "heading": "VA13 · Evidencia suficiente disponible",
+        "title": "Evidencia suficiente disponible"
+      },
+      "sourceLines": [
+        478,
+        478
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "VA14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA14",
+      "fields": {
+        "heading": "VA14 · Cobertura/población de evidencia adecuada",
+        "title": "Cobertura/población de evidencia adecuada"
+      },
+      "sourceLines": [
+        479,
+        479
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "VA15",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA15",
+      "fields": {
+        "heading": "VA15 · Fuentes suficientemente diversas cuando triangulación es material",
+        "title": "Fuentes suficientemente diversas cuando triangulación es material"
+      },
+      "sourceLines": [
+        480,
+        480
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CE07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE07",
+      "fields": {
+        "heading": "CE07 · Interpretación",
+        "title": "Interpretación"
+      },
+      "sourceLines": [
+        482,
+        482
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "VA16",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA16",
+      "fields": {
+        "heading": "VA16 · Assumption, observation e inference suficientemente diferenciados",
+        "title": "Assumption, observation e inference suficientemente diferenciados"
+      },
+      "sourceLines": [
+        483,
+        483
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "VA17",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA17",
+      "fields": {
+        "heading": "VA17 · Conclusiones proporcionales a evidencia",
+        "title": "Conclusiones proporcionales a evidencia"
+      },
+      "sourceLines": [
+        484,
+        484
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "VA18",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA18",
+      "fields": {
+        "heading": "VA18 · Contradicciones materiales tratadas",
+        "title": "Contradicciones materiales tratadas"
+      },
+      "sourceLines": [
+        485,
+        485
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CE08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE08",
+      "fields": {
+        "heading": "CE08 · Vigencia",
+        "title": "Vigencia"
+      },
+      "sourceLines": [
+        487,
+        487
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "VA19",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA19",
+      "fields": {
+        "heading": "VA19 · Conocimiento suficientemente actual para el uso",
+        "title": "Conocimiento suficientemente actual para el uso"
+      },
+      "sourceLines": [
+        488,
+        488
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "VA20",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA20",
+      "fields": {
+        "heading": "VA20 · Triggers de cambio relevantes suficientemente visibles",
+        "title": "Triggers de cambio relevantes suficientemente visibles"
+      },
+      "sourceLines": [
+        489,
+        489
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CE09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE09",
+      "fields": {
+        "heading": "CE09 · Utilidad",
+        "title": "Utilidad"
+      },
+      "sourceLines": [
+        491,
+        491
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "VA21",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA21",
+      "fields": {
+        "heading": "VA21 · Comprensión obtenida puede informar suficientemente la decisión o acción que justificó el CUC",
+        "title": "Comprensión obtenida puede informar suficientemente la decisión o acción que justificó el CUC"
+      },
+      "sourceLines": [
+        492,
+        492
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "P2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P2",
+      "fields": {
+        "heading": "P2 · Triggers",
+        "title": "Triggers",
+        "body": [
+          "Profundizamos cuando aparece:",
+          "- “todos nuestros clientes son iguales”;",
+          "- definición excesivamente amplia;",
+          "- producto para “todo el mundo”;",
+          "- buyer persona sin evidencia;",
+          "- segmentación puramente demográfica;",
+          "- decisiones basadas solo en intuición;",
+          "- clientes que compran por razones inesperadas;",
+          "- churn no comprendido;",
+          "- conversión muy distinta por grupos;",
+          "- propuestas diferentes sin fundamento;",
+          "- encuesta antigua;",
+          "- feedback contradictorio;",
+          "- comportamiento distinto de lo declarado;",
+          "- concentración excesiva en mejores clientes;",
+          "- no compradores invisibles."
+        ]
+      },
+      "sourceLines": [
+        510,
+        526
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "P3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P3",
+      "fields": {
+        "heading": "P3 · Discriminación causal",
+        "title": "Discriminación causal",
+        "body": [
+          "Ante:",
+          "“los clientes no quieren pagar”",
+          "debemos distinguir:",
+          "NEED LOW",
+          "problema poco importante.",
+          "VALUE PROPOSITION GAP → CM-02",
+          "PRICING/VALUE PERCEPTION → CM-02/CM-06 según contexto",
+          "WRONG SEGMENT → CM-01",
+          "ACQUISITION/CONVERSION → CM-03",
+          "CHANNEL FRICTION → CM-04",
+          "EXPERIENCE → CM-05",
+          "EVIDENCE GAP → CM-01"
+        ]
+      },
+      "sourceLines": [
+        528,
+        540
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "P4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P4",
+      "fields": {
+        "heading": "P4 · Contradicciones",
+        "title": "Contradicciones"
+      },
+      "sourceLines": [
+        542,
+        542
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CONTR-CM01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-CM01-01",
+      "fields": {
+        "heading": "CONTR-CM01-01",
+        "body": [
+          "DECLARED_CUSTOMER_NEED_vs_BEHAVIOR",
+          "Clientes dicen que algo es crítico, pero casi ninguno actúa cuando se ofrece."
+        ]
+      },
+      "sourceLines": [
+        543,
+        545
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CONTR-CM01-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-CM01-02",
+      "fields": {
+        "heading": "CONTR-CM01-02",
+        "body": [
+          "SINGLE_SEGMENT_CLAIM_vs_DIFFERENT_BEHAVIOR",
+          "Empresa afirma mercado homogéneo pero observa diferencias sistemáticas relevantes."
+        ]
+      },
+      "sourceLines": [
+        546,
+        548
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CONTR-CM01-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-CM01-03",
+      "fields": {
+        "heading": "CONTR-CM01-03",
+        "body": [
+          "BUYER_PERSONA_CONFIDENCE_vs_NO_EVIDENCE",
+          "Perfil detallado sin provenance suficiente."
+        ]
+      },
+      "sourceLines": [
+        549,
+        551
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CONTR-CM01-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-CM01-04",
+      "fields": {
+        "heading": "CONTR-CM01-04",
+        "body": [
+          "CURRENT_CUSTOMER_VIEW_vs_MARKET_CHANGE",
+          "Conclusión antigua mantenida pese a cambio material."
+        ]
+      },
+      "sourceLines": [
+        552,
+        554
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "P5",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P5",
+      "fields": {
+        "heading": "P5 · Validación",
+        "title": "Validación",
+        "body": [
+          "En lugar de:",
+          "“¿sus clientes valoran la rapidez?”",
+          "preguntamos:",
+          "“¿Qué evidencia tienen de que la rapidez cambia realmente la elección o satisfacción de este grupo de clientes?”",
+          "La segunda pregunta separa:",
+          "assumption de evidence."
+        ]
+      },
+      "sourceLines": [
+        556,
+        562
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "EVID-CM01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_EVID",
+      "sourceId": "EVID-CM01-01",
+      "fields": {
+        "heading": "EVID-CM01-01",
+        "body": [
+          "La profundidad de evidencia requerida aumenta con compromiso, irreversibilidad, heterogeneidad de la población y consecuencia de una conclusión incorrecta."
+        ]
+      },
+      "sourceLines": [
+        569,
+        570
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "SUFF-CM01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SUFF",
+      "sourceId": "SUFF-CM01-01",
+      "fields": {
+        "heading": "SUFF-CM01-01",
+        "body": [
+          "CM-01 alcanza suficiencia cuando las preguntas materiales sobre clientes cuentan con una población relevante suficientemente delimitada, evidencia proporcional, diferencias y necesidades interpretadas sin exceder su soporte y una conclusión suficientemente vigente y útil para el uso empresarial que justificó la investigación.",
+          "No exige:",
+          "conocer todo sobre el cliente."
+        ]
+      },
+      "sourceLines": [
+        573,
+        576
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM01-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM01-06",
+      "fields": {
+        "heading": "CAND-MOTOR-CM01-06",
+        "body": [
+          "La confianza en una fuente de evidencia no debe transferirse automáticamente a la interpretación o segmentación derivada."
+        ]
+      },
+      "sourceLines": [
+        594,
+        595
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "R-CM01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM01-01",
+      "fields": {
+        "heading": "R-CM01-01 · CUSTOMER_UNDERSTANDING_USE_UNCLEAR",
+        "title": "CUSTOMER_UNDERSTANDING_USE_UNCLEAR"
+      },
+      "sourceLines": [
+        599,
+        599
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "R-CM01-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM01-02",
+      "fields": {
+        "heading": "R-CM01-02 · CUSTOMER_QUESTION_UNCLEAR",
+        "title": "CUSTOMER_QUESTION_UNCLEAR"
+      },
+      "sourceLines": [
+        600,
+        600
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "R-CM01-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM01-03",
+      "fields": {
+        "heading": "R-CM01-03 · RELEVANT_CUSTOMER_ACTOR_UNCLEAR",
+        "title": "RELEVANT_CUSTOMER_ACTOR_UNCLEAR"
+      },
+      "sourceLines": [
+        601,
+        601
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "R-CM01-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM01-04",
+      "fields": {
+        "heading": "R-CM01-04 · MATERIAL_CUSTOMER_ROLE_BLIND_SPOT",
+        "title": "MATERIAL_CUSTOMER_ROLE_BLIND_SPOT"
+      },
+      "sourceLines": [
+        602,
+        602
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "R-CM01-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM01-05",
+      "fields": {
+        "heading": "R-CM01-05 · MATERIAL_CUSTOMER_DIFFERENCE_UNCLEAR",
+        "title": "MATERIAL_CUSTOMER_DIFFERENCE_UNCLEAR"
+      },
+      "sourceLines": [
+        603,
+        603
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "R-CM01-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM01-06",
+      "fields": {
+        "heading": "R-CM01-06 · SEGMENT_COHERENCE_GAP",
+        "title": "SEGMENT_COHERENCE_GAP"
+      },
+      "sourceLines": [
+        604,
+        604
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "R-CM01-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM01-07",
+      "fields": {
+        "heading": "R-CM01-07 · SEGMENT_DECISION_RELEVANCE_GAP",
+        "title": "SEGMENT_DECISION_RELEVANCE_GAP"
+      },
+      "sourceLines": [
+        605,
+        605
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "R-CM01-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM01-08",
+      "fields": {
+        "heading": "R-CM01-08 · CUSTOMER_NEED_UNCLEAR",
+        "title": "CUSTOMER_NEED_UNCLEAR"
+      },
+      "sourceLines": [
+        606,
+        606
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "R-CM01-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM01-09",
+      "fields": {
+        "heading": "R-CM01-09 · CUSTOMER_NEED_CONTEXT_GAP",
+        "title": "CUSTOMER_NEED_CONTEXT_GAP"
+      },
+      "sourceLines": [
+        607,
+        607
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "R-CM01-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM01-10",
+      "fields": {
+        "heading": "R-CM01-10 · CUSTOMER_NEED_MATERIALITY_GAP",
+        "title": "CUSTOMER_NEED_MATERIALITY_GAP"
+      },
+      "sourceLines": [
+        608,
+        608
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "R-CM01-11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM01-11",
+      "fields": {
+        "heading": "R-CM01-11 · MATERIAL_CUSTOMER_BEHAVIOR_BLIND_SPOT",
+        "title": "MATERIAL_CUSTOMER_BEHAVIOR_BLIND_SPOT"
+      },
+      "sourceLines": [
+        609,
+        609
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "R-CM01-12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM01-12",
+      "fields": {
+        "heading": "R-CM01-12 · BEHAVIOR_CAUSAL_OVERINFERENCE",
+        "title": "BEHAVIOR_CAUSAL_OVERINFERENCE"
+      },
+      "sourceLines": [
+        610,
+        610
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "R-CM01-13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM01-13",
+      "fields": {
+        "heading": "R-CM01-13 · CUSTOMER_EVIDENCE_GAP",
+        "title": "CUSTOMER_EVIDENCE_GAP"
+      },
+      "sourceLines": [
+        611,
+        611
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "R-CM01-14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM01-14",
+      "fields": {
+        "heading": "R-CM01-14 · CUSTOMER_EVIDENCE_COVERAGE_GAP",
+        "title": "CUSTOMER_EVIDENCE_COVERAGE_GAP"
+      },
+      "sourceLines": [
+        612,
+        612
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "R-CM01-15",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM01-15",
+      "fields": {
+        "heading": "R-CM01-15 · MATERIAL_TRIANGULATION_GAP",
+        "title": "MATERIAL_TRIANGULATION_GAP"
+      },
+      "sourceLines": [
+        613,
+        613
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "R-CM01-16",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM01-16",
+      "fields": {
+        "heading": "R-CM01-16 · CUSTOMER_ASSUMPTION_EVIDENCE_CONFUSION",
+        "title": "CUSTOMER_ASSUMPTION_EVIDENCE_CONFUSION"
+      },
+      "sourceLines": [
+        614,
+        614
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "R-CM01-17",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM01-17",
+      "fields": {
+        "heading": "R-CM01-17 · CUSTOMER_INFERENCE_EXCEEDS_EVIDENCE",
+        "title": "CUSTOMER_INFERENCE_EXCEEDS_EVIDENCE"
+      },
+      "sourceLines": [
+        615,
+        615
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "R-CM01-18",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM01-18",
+      "fields": {
+        "heading": "R-CM01-18 · MATERIAL_CUSTOMER_EVIDENCE_CONTRADICTION_UNRESOLVED",
+        "title": "MATERIAL_CUSTOMER_EVIDENCE_CONTRADICTION_UNRESOLVED"
+      },
+      "sourceLines": [
+        616,
+        616
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "R-CM01-19",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM01-19",
+      "fields": {
+        "heading": "R-CM01-19 · CUSTOMER_UNDERSTANDING_CURRENCY_GAP",
+        "title": "CUSTOMER_UNDERSTANDING_CURRENCY_GAP"
+      },
+      "sourceLines": [
+        617,
+        617
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "R-CM01-20",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM01-20",
+      "fields": {
+        "heading": "R-CM01-20 · CUSTOMER_CHANGE_TRIGGER_BLIND_SPOT",
+        "title": "CUSTOMER_CHANGE_TRIGGER_BLIND_SPOT"
+      },
+      "sourceLines": [
+        618,
+        618
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "R-CM01-21",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM01-21",
+      "fields": {
+        "heading": "R-CM01-21 · CUSTOMER_UNDERSTANDING_UTILITY_GAP",
+        "title": "CUSTOMER_UNDERSTANDING_UTILITY_GAP"
+      },
+      "sourceLines": [
+        619,
+        619
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM01-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM01-07",
+      "fields": {
+        "heading": "CAND-MOTOR-CM01-07",
+        "body": [
+          "Customer Understanding Case debe preservar Business Use + Customer Question + Relevant Population + Evidence + Interpretation."
+        ]
+      },
+      "sourceLines": [
+        668,
+        669
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM01-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM01-08",
+      "fields": {
+        "heading": "CAND-MOTOR-CM01-08",
+        "body": [
+          "Customer, Buyer, User, Decision Maker, Influencer y Beneficiary deben poder representarse como roles diferentes dentro de una misma relación."
+        ]
+      },
+      "sourceLines": [
+        670,
+        671
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM01-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM01-09",
+      "fields": {
+        "heading": "CAND-MOTOR-CM01-09",
+        "body": [
+          "Segment debe existir como objeto distinto de descriptive classification."
+        ]
+      },
+      "sourceLines": [
+        672,
+        673
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM01-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM01-10",
+      "fields": {
+        "heading": "CAND-MOTOR-CM01-10",
+        "body": [
+          "Need debe conservar contexto y no modelarse exclusivamente como atributo permanente del cliente."
+        ]
+      },
+      "sourceLines": [
+        674,
+        675
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM01-11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM01-11",
+      "fields": {
+        "heading": "CAND-MOTOR-CM01-11",
+        "body": [
+          "Stated, observed, transactional, behavioral, operational y external evidence deben conservar provenance diferenciada."
+        ]
+      },
+      "sourceLines": [
+        676,
+        677
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM01-12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM01-12",
+      "fields": {
+        "heading": "CAND-MOTOR-CM01-12",
+        "body": [
+          "Contradicciones entre evidencia declarada y observada deben activar profundización en vez de resolución automática."
+        ]
+      },
+      "sourceLines": [
+        678,
+        679
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM01-13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM01-13",
+      "fields": {
+        "heading": "CAND-MOTOR-CM01-13",
+        "body": [
+          "Población de investigación debe derivarse de la pregunta y puede incluir no compradores/exclientes."
+        ]
+      },
+      "sourceLines": [
+        680,
+        681
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM01-14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM01-14",
+      "fields": {
+        "heading": "CAND-MOTOR-CM01-14",
+        "body": [
+          "Una conclusión histórica puede expirar o requerir reevaluación mediante triggers sin considerarse originalmente incorrecta."
+        ]
+      },
+      "sourceLines": [
+        682,
+        683
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM01-15",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM01-15",
+      "fields": {
+        "heading": "CAND-MOTOR-CM01-15",
+        "body": [
+          "El nivel de confianza debe poder asociarse a una conclusión específica de cliente/segmento/necesidad y no solo a la investigación global."
+        ]
+      },
+      "sourceLines": [
+        684,
+        685
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-AI-CM01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-CM01-01",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-CM01-01",
+        "body": [
+          "Las personas, segmentos o necesidades generados por IA sin evidencia empírica suficiente deben permanecer como hipótesis/assumptions, no como Customer Understanding validado."
+        ]
+      },
+      "sourceLines": [
+        699,
+        700
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-AI-CM01-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-CM01-02",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-CM01-02",
+        "body": [
+          "La IA puede sintetizar evidencia de cliente, pero la confianza en la síntesis no debe exceder la calidad, cobertura y provenance de la evidencia fuente ni la confiabilidad de la transformación aplicada.",
+          "Esto será importante tanto para Fase 3 como para el producto comercial."
+        ]
+      },
+      "sourceLines": [
+        701,
+        703
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "SRC-CM01-002",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-CM01-002",
+      "fields": {
+        "heading": "SRC-CM01-002 · ISO 20252:2026 · CURRENT",
+        "title": "ISO 20252:2026 · CURRENT",
+        "body": [
+          "y la edición anterior queda como:",
+          "SUPERSEDED / HISTORICAL, no como fuente vigente principal.",
+          "Esto demuestra por qué estamos manteniendo source lifecycle y provenance dentro del Knowledge Master.",
+          "La OECD 2025 continúa aportando contexto actualizado sobre heterogeneidad, competitividad y digitalización SME. OECD"
+        ]
+      },
+      "sourceLines": [
+        708,
+        712
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "FIND-CM01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_FIND",
+      "sourceId": "FIND-CM01-01",
+      "fields": {
+        "heading": "FIND-CM01-01",
+        "body": [
+          "Todo finding CM-01 debe conservar el Customer Understanding Case que justificó la investigación."
+        ]
+      },
+      "sourceLines": [
+        767,
+        768
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "P-CM01-12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM01-12",
+      "fields": {
+        "heading": "P-CM01-12",
+        "body": [
+          "La ausencia de investigación formal no constituye por sí misma una brecha CM-01.",
+          "A la inversa:",
+          "hacer investigación formal tampoco garantiza comprensión útil."
+        ]
+      },
+      "sourceLines": [
+        783,
+        786
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "INT-CM01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-CM01-01",
+      "fields": {
+        "heading": "INT-CM01-01",
+        "body": [
+          "Debe buscarse el nivel mínimo de comprensión del cliente suficientemente confiable para la decisión o acción material aplicable, evitando investigación adicional cuyo valor informacional marginal sea insuficiente.",
+          "Esto protege a Pymapa contra dos extremos:",
+          "“decidir solo por intuición”",
+          "y",
+          "“investigar indefinidamente antes de actuar”."
+        ]
+      },
+      "sourceLines": [
+        818,
+        823
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "VOI-CM01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VOI",
+      "sourceId": "VOI-CM01-01",
+      "fields": {
+        "heading": "VOI-CM01-01",
+        "body": [
+          "La investigación adicional debe priorizar incertidumbres cuya resolución pueda cambiar materialmente una decisión sobre mercado, propuesta, canal, relación o valor."
+        ]
+      },
+      "sourceLines": [
+        837,
+        838
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "INS-CM01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM01-01",
+      "fields": {
+        "heading": "INS-CM01-01 · Customer Understanding Case Card",
+        "title": "Customer Understanding Case Card",
+        "body": [
+          "Instrumento nuclear:",
+          "business use → question → population → uncertainty → evidence → conclusion."
+        ]
+      },
+      "sourceLines": [
+        856,
+        858
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "INS-CM01-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM01-02",
+      "fields": {
+        "heading": "INS-CM01-02 · Customer Actor Map",
+        "title": "Customer Actor Map",
+        "body": [
+          "customer → buyer → user → decision maker → influencer → beneficiary, solo cuando aplica."
+        ]
+      },
+      "sourceLines": [
+        859,
+        860
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "INS-CM01-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM01-03",
+      "fields": {
+        "heading": "INS-CM01-03 · Functional Segment Card",
+        "title": "Functional Segment Card",
+        "body": [
+          "diferencia → evidencia → por qué importa → qué decisión cambia."
+        ]
+      },
+      "sourceLines": [
+        861,
+        862
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "INS-CM01-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM01-04",
+      "fields": {
+        "heading": "INS-CM01-04 · Customer Need Card",
+        "title": "Customer Need Card",
+        "body": [
+          "actor → context → problem/job/outcome → importance → evidence."
+        ]
+      },
+      "sourceLines": [
+        863,
+        864
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "INS-CM01-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM01-05",
+      "fields": {
+        "heading": "INS-CM01-05 · Assumption–Evidence Register",
+        "title": "Assumption–Evidence Register",
+        "body": [
+          "assumption → evidence for/against → confidence → next test.",
+          "Este instrumento será especialmente potente."
+        ]
+      },
+      "sourceLines": [
+        865,
+        867
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "INS-CM01-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM01-06",
+      "fields": {
+        "heading": "INS-CM01-06 · Customer Evidence Map",
+        "title": "Customer Evidence Map",
+        "body": [
+          "fuente → población → tipo de evidencia → cobertura → limitaciones."
+        ]
+      },
+      "sourceLines": [
+        868,
+        869
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "INS-CM01-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM01-07",
+      "fields": {
+        "heading": "INS-CM01-07 · Contradiction Map",
+        "title": "Contradiction Map",
+        "body": [
+          "stated → observed → transactional → possible explanation → next evidence."
+        ]
+      },
+      "sourceLines": [
+        870,
+        871
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "INS-CM01-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM01-08",
+      "fields": {
+        "heading": "INS-CM01-08 · Customer Understanding Refresh Check",
+        "title": "Customer Understanding Refresh Check",
+        "body": [
+          "conclusión → fecha → trigger → evidencia nueva → mantener/revisar."
+        ]
+      },
+      "sourceLines": [
+        872,
+        873
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "INS-CM01-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM01-09",
+      "fields": {
+        "heading": "INS-CM01-09 · Customer Learning-to-Decision Log",
+        "title": "Customer Learning-to-Decision Log",
+        "body": [
+          "aprendizaje → decisión afectada → cambio realizado/no realizado → razón."
+        ]
+      },
+      "sourceLines": [
+        874,
+        875
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CAND-INSTRUMENT-TRANSVERSAL-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-INSTRUMENT-TRANSVERSAL-04",
+      "fields": {
+        "heading": "CAND-INSTRUMENT-TRANSVERSAL-04 · ASSUMPTION-EVIDENCE-REGISTER",
+        "title": "ASSUMPTION-EVIDENCE-REGISTER"
+      },
+      "sourceLines": [
+        885,
+        885
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "DEL-CM01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM01-01",
+      "fields": {
+        "heading": "DEL-CM01-01 · pregunta/uso de cliente suficientemente definidos",
+        "title": "pregunta/uso de cliente suficientemente definidos"
+      },
+      "sourceLines": [
+        889,
+        889
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "DEL-CM01-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM01-02",
+      "fields": {
+        "heading": "DEL-CM01-02 · población y actores relevantes delimitados",
+        "title": "población y actores relevantes delimitados"
+      },
+      "sourceLines": [
+        890,
+        890
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "DEL-CM01-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM01-03",
+      "fields": {
+        "heading": "DEL-CM01-03 · segmentos funcionales evidenciados cuando corresponden",
+        "title": "segmentos funcionales evidenciados cuando corresponden"
+      },
+      "sourceLines": [
+        891,
+        891
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "DEL-CM01-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM01-04",
+      "fields": {
+        "heading": "DEL-CM01-04 · necesidades/contextos suficientemente comprendidos",
+        "title": "necesidades/contextos suficientemente comprendidos"
+      },
+      "sourceLines": [
+        892,
+        892
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "DEL-CM01-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM01-05",
+      "fields": {
+        "heading": "DEL-CM01-05 · comportamientos materiales suficientemente caracterizados",
+        "title": "comportamientos materiales suficientemente caracterizados"
+      },
+      "sourceLines": [
+        893,
+        893
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "DEL-CM01-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM01-06",
+      "fields": {
+        "heading": "DEL-CM01-06 · evidencia proporcional y suficientemente cubierta",
+        "title": "evidencia proporcional y suficientemente cubierta"
+      },
+      "sourceLines": [
+        894,
+        894
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "DEL-CM01-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM01-07",
+      "fields": {
+        "heading": "DEL-CM01-07 · inferencias alineadas con evidencia",
+        "title": "inferencias alineadas con evidencia"
+      },
+      "sourceLines": [
+        895,
+        895
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "DEL-CM01-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM01-08",
+      "fields": {
+        "heading": "DEL-CM01-08 · comprensión suficientemente vigente",
+        "title": "comprensión suficientemente vigente"
+      },
+      "sourceLines": [
+        896,
+        896
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "DEL-CM01-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM01-09",
+      "fields": {
+        "heading": "DEL-CM01-09 · aprendizaje utilizable en la decisión que originó el CUC",
+        "title": "aprendizaje utilizable en la decisión que originó el CUC"
+      },
+      "sourceLines": [
+        897,
+        897
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CRV-CM01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM01-01",
+      "fields": {
+        "heading": "| CRV-CM01-01 | Customer Understanding Cases materiales tienen pregunta y uso explícitos |",
+        "title": "Customer Understanding Cases materiales tienen pregunta y uso explícitos"
+      },
+      "sourceLines": [
+        921,
+        921
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CRV-CM01-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM01-02",
+      "fields": {
+        "heading": "| CRV-CM01-02 | Población/roles relevantes pueden identificarse suficientemente |",
+        "title": "Población/roles relevantes pueden identificarse suficientemente"
+      },
+      "sourceLines": [
+        922,
+        922
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CRV-CM01-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM01-03",
+      "fields": {
+        "heading": "| CRV-CM01-03 | Segmentos utilizados representan diferencias materialmente relevantes para alguna decisión |",
+        "title": "Segmentos utilizados representan diferencias materialmente relevantes para alguna decisión"
+      },
+      "sourceLines": [
+        923,
+        923
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CRV-CM01-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM01-04",
+      "fields": {
+        "heading": "| CRV-CM01-04 | Necesidades materiales cuentan con evidencia contextual suficiente |",
+        "title": "Necesidades materiales cuentan con evidencia contextual suficiente"
+      },
+      "sourceLines": [
+        924,
+        924
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CRV-CM01-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM01-05",
+      "fields": {
+        "heading": "| CRV-CM01-05 | Comportamientos relevantes están sustentados por evidencia proporcional |",
+        "title": "Comportamientos relevantes están sustentados por evidencia proporcional"
+      },
+      "sourceLines": [
+        925,
+        925
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CRV-CM01-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM01-06",
+      "fields": {
+        "heading": "| CRV-CM01-06 | Assumptions materiales están identificadas y diferenciadas de conclusiones evidenciadas |",
+        "title": "Assumptions materiales están identificadas y diferenciadas de conclusiones evidenciadas"
+      },
+      "sourceLines": [
+        926,
+        926
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CRV-CM01-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM01-07",
+      "fields": {
+        "heading": "| CRV-CM01-07 | Contradicciones materiales de evidencia han sido tratadas suficientemente |",
+        "title": "Contradicciones materiales de evidencia han sido tratadas suficientemente"
+      },
+      "sourceLines": [
+        927,
+        927
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CRV-CM01-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM01-08",
+      "fields": {
+        "heading": "| CRV-CM01-08 | Conclusiones utilizadas mantienen vigencia suficiente para el contexto |",
+        "title": "Conclusiones utilizadas mantienen vigencia suficiente para el contexto"
+      },
+      "sourceLines": [
+        928,
+        928
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CRV-CM01-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM01-09",
+      "fields": {
+        "heading": "| CRV-CM01-09 | Comprensión resultante informa de manera verificable una decisión, diseño o acción material |",
+        "title": "Comprensión resultante informa de manera verificable una decisión, diseño o acción material"
+      },
+      "sourceLines": [
+        929,
+        929
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "V0",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V0",
+      "fields": {
+        "heading": "V0 · UNKNOWN",
+        "title": "UNKNOWN",
+        "body": [
+          "No existe comprensión suficiente."
+        ]
+      },
+      "sourceLines": [
+        933,
+        934
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "V1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V1",
+      "fields": {
+        "heading": "V1 · HYPOTHESIS",
+        "title": "HYPOTHESIS",
+        "body": [
+          "Existe una assumption explícita sobre cliente/segmento/necesidad.",
+          "No es todavía conocimiento validado."
+        ]
+      },
+      "sourceLines": [
+        935,
+        937
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "V2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V2",
+      "fields": {
+        "heading": "V2 · EVIDENCED",
+        "title": "EVIDENCED",
+        "body": [
+          "Existe evidencia suficientemente pertinente que respalda o cuestiona la hipótesis."
+        ]
+      },
+      "sourceLines": [
+        938,
+        939
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "V3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V3",
+      "fields": {
+        "heading": "V3 · DECISION-FIT",
+        "title": "DECISION-FIT",
+        "body": [
+          "La comprensión tiene suficiente cobertura, consistencia y confianza para el uso empresarial definido."
+        ]
+      },
+      "sourceLines": [
+        940,
+        941
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "V4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V4",
+      "fields": {
+        "heading": "V4 · SUSTAINED/REFRESHABLE",
+        "title": "SUSTAINED/REFRESHABLE",
+        "body": [
+          "Para usos recurrentes, existe capacidad de detectar cambios y actualizar la comprensión cuando sea necesario.",
+          "No todo CUC requiere V4."
+        ]
+      },
+      "sourceLines": [
+        942,
+        944
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM01-16",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM01-16",
+      "fields": {
+        "heading": "CAND-MOTOR-CM01-16",
+        "body": [
+          "Un estado de hipótesis explícita puede ser adecuado temporalmente; la brecha aparece cuando la confianza representada excede la evidencia disponible o cuando la decisión material requiere mayor confianza.",
+          "Esto es importante para emprendimiento e innovación."
+        ]
+      },
+      "sourceLines": [
+        953,
+        955
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "P-CM01-13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM01-13",
+      "fields": {
+        "heading": "P-CM01-13",
+        "body": [
+          "El resultado comercial puede aportar evidencia sobre una hipótesis de cliente, pero no debe sustituir el análisis de qué aspecto de la comprensión fue o no sustentado."
+        ]
+      },
+      "sourceLines": [
+        982,
+        983
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "REASS-CM01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_REASS",
+      "sourceId": "REASS-CM01-01",
+      "fields": {
+        "heading": "REASS-CM01-01",
+        "body": [
+          "Una comprensión de cliente debe reevaluarse cuando nueva evidencia o cambios contextuales puedan alterar materialmente la decisión que depende de ella."
+        ]
+      },
+      "sourceLines": [
+        1003,
+        1004
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "P-CM01-14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM01-14",
+      "fields": {
+        "heading": "P-CM01-14",
+        "body": [
+          "Conclusiones derivadas de clientes actuales no deben generalizarse automáticamente a no clientes o mercados potenciales sin evidencia suficiente.",
+          "Esto será especialmente importante en crecimiento."
+        ]
+      },
+      "sourceLines": [
+        1038,
+        1040
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "SOURCE-REVIEW-TRIGGER-CM01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SOURCE",
+      "sourceId": "SOURCE-REVIEW-TRIGGER-CM01-01",
+      "fields": {
+        "heading": "SOURCE-REVIEW-TRIGGER-CM01-01 · Revisar grounding metodológico de CM-01 ante nueva edición o cambio material de ISO 20252.",
+        "title": "Revisar grounding metodológico de CM-01 ante nueva edición o cambio material de ISO 20252.",
+        "body": [
+          "La OECD continúa siendo útil como contexto SME y digitalización, pero no como fuente de la taxonomía diagnóstica CM-01. Su D4SME 2025 enfatiza que comprender cómo las pymes obtienen valor de la digitalización y las barreras que enfrentan requiere considerar la heterogeneidad de sus prácticas y contextos. OECD"
+        ]
+      },
+      "sourceLines": [
+        1049,
+        1050
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "K1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Coherencia — PASS",
+        "title": "Coherencia — PASS",
+        "body": [
+          "CM-01 queda delimitada respecto de CM-02–06, DT-04 y DG-01."
+        ]
+      },
+      "sourceLines": [
+        1122,
+        1123
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "K2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Razonamiento — PASS",
+        "title": "Razonamiento — PASS",
+        "body": [
+          "Preserva:",
+          "CUSTOMER ≠ ROLE",
+          "CLASSIFICATION ≠ SEGMENT",
+          "NEED ≠ REQUEST",
+          "BEHAVIOR ≠ CAUSE",
+          "ASSUMPTION ≠ EVIDENCE ≠ INFERENCE"
+        ]
+      },
+      "sourceLines": [
+        1124,
+        1130
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "K3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · Acción — PASS",
+        "title": "Acción — PASS",
+        "body": [
+          "Permite clarificar, segmentar, fusionar segmentos, observar, preguntar, triangular, validar, actualizar o detener research."
+        ]
+      },
+      "sourceLines": [
+        1131,
+        1132
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    },
+    {
+      "key": "K4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · Knowledge — PASS",
+        "title": "Knowledge — PASS",
+        "body": [
+          "Grounding vigente, provenance, source lifecycle, confidence, CRV y governance quedan explícitos."
+        ]
+      },
+      "sourceLines": [
+        1133,
+        1134
+      ],
+      "approvalEvidence": {
+        "text": "CM01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1154,
+          1154
+        ]
+      }
+    }
+  ],
+  "governanceDecisions": {
+    "decisionSetId": "M2-FINAL-MASS-BATCH",
+    "ref": "knowledge/intake/CM-01/governance-decisions.json",
+    "checksum": "sha256:0d1d1c2f69a6b56c0c9f5680a798f356314532987a61d43511263608e1c76183"
+  },
+  "checksum": "sha256:31768fb624dffd14c284f29163e2516ea112ad9859f12c0422f8a99dce09aa35"
+}

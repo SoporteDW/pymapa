@@ -1,0 +1,2819 @@
+{
+  "candidateId": "CAND-DT-03-0.2.0-28b96db48386",
+  "capabilityId": "DT-03",
+  "status": "CANDIDATE",
+  "registration": {
+    "registrationId": "RAW-DT-03-2fb3f526b68a",
+    "textSha256": "28b96db483866ff428d813aa5cf49d21cdb4e30661869006ff5c50107db6d59a"
+  },
+  "producedBy": {
+    "method": "DETERMINISTIC_TOOL",
+    "agent": "pymapa-structural-segmenter@0.2.0 + pymapa-governed-supersession-resolver@0.1.0",
+    "note": "Segmentación literal por headings y líneas planas «ID · título» con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
+  },
+  "baselineId": "DT03-K4-v1.0",
+  "historicalStatus": {
+    "marker": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      1004,
+      1004
+    ]
+  },
+  "provenanceVocabulary": [
+    {
+      "code": "SOURCE-DERIVED",
+      "label": "SOURCE-DERIVED",
+      "meaning": "El grounding externo respalda principalmente:",
+      "sourceLines": [
+        915,
+        916
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "PYMAPA-DESIGNED",
+      "label": "PYMAPA-DESIGNED",
+      "meaning": "Son propios:",
+      "sourceLines": [
+        922,
+        923
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    }
+  ],
+  "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 7,
+      "objectType": "SOURCE_ID_CE",
+      "sourceLines": [
+        989,
+        989
+      ]
+    },
+    {
+      "label": "CRV",
+      "declared": 8,
+      "objectType": "SOURCE_ID_CRV",
+      "sourceLines": [
+        999,
+        999
+      ]
+    },
+    {
+      "label": "NI",
+      "declared": 17,
+      "objectType": "SOURCE_ID_NI",
+      "enumeration": "DECLARED_NOT_ENUMERATED",
+      "sourceLines": [
+        991,
+        991
+      ]
+    },
+    {
+      "label": "VA",
+      "declared": 17,
+      "objectType": "SOURCE_ID_VA",
+      "sourceLines": [
+        990,
+        990
+      ]
+    }
+  ],
+  "verbatimKeys": [
+    "heading",
+    "title",
+    "body"
+  ],
+  "items": [
+    {
+      "key": "P-DT03-CORE-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT03-CORE-01",
+      "fields": {
+        "heading": "P-DT03-CORE-01",
+        "body": [
+          "El mecanismo de integración debe evaluarse por su suficiencia para el flujo material, no por su sofisticación técnica."
+        ]
+      },
+      "sourceLines": [
+        63,
+        64
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "APP-DT03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_APP",
+      "sourceId": "APP-DT03-01",
+      "fields": {
+        "heading": "APP-DT03-01",
+        "body": [
+          "DT-03 se activa cuando un uso o flujo material depende de que información atraviese una frontera entre fuentes, aplicaciones, procesos, personas o actores.",
+          "Si la información:",
+          "nace y se utiliza suficientemente dentro del mismo contexto,",
+          "puede no existir necesidad material de integración."
+        ]
+      },
+      "sourceLines": [
+        95,
+        99
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "P-DT03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT03-01",
+      "fields": {
+        "heading": "P-DT03-01",
+        "body": [
+          "Integración de información habilita integración de procesos, pero no la sustituye."
+        ]
+      },
+      "sourceLines": [
+        141,
+        142
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "BND-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_BND",
+      "sourceId": "BND-01",
+      "fields": {
+        "heading": "BND-01 · APPLICATION",
+        "title": "APPLICATION",
+        "body": [
+          "Aplicación ↔ aplicación."
+        ]
+      },
+      "sourceLines": [
+        177,
+        178
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "BND-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_BND",
+      "sourceId": "BND-02",
+      "fields": {
+        "heading": "BND-02 · DATA",
+        "title": "DATA",
+        "body": [
+          "Fuente/conjunto ↔ otro contexto de datos."
+        ]
+      },
+      "sourceLines": [
+        179,
+        180
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "BND-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_BND",
+      "sourceId": "BND-03",
+      "fields": {
+        "heading": "BND-03 · PROCESS",
+        "title": "PROCESS",
+        "body": [
+          "Etapa ↔ etapa."
+        ]
+      },
+      "sourceLines": [
+        181,
+        182
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "BND-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_BND",
+      "sourceId": "BND-04",
+      "fields": {
+        "heading": "BND-04 · HUMAN-SYSTEM",
+        "title": "HUMAN-SYSTEM",
+        "body": [
+          "Persona ↔ sistema."
+        ]
+      },
+      "sourceLines": [
+        183,
+        184
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "BND-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_BND",
+      "sourceId": "BND-05",
+      "fields": {
+        "heading": "BND-05 · HUMAN-HUMAN",
+        "title": "HUMAN-HUMAN",
+        "body": [
+          "Persona/rol ↔ persona/rol cuando el handoff informacional es material."
+        ]
+      },
+      "sourceLines": [
+        185,
+        186
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "BND-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_BND",
+      "sourceId": "BND-06",
+      "fields": {
+        "heading": "BND-06 · EXTERNAL",
+        "title": "EXTERNAL",
+        "body": [
+          "Organización ↔ cliente/proveedor/plataforma/tercero.",
+          "Esto es importante porque una pyme puede tener una brecha de integración aunque:",
+          "solo utilice una aplicación.",
+          "Por ejemplo:",
+          "ventas anota una instrucción en comentarios y operaciones nunca la ve.",
+          "Es una falla material del flujo de información."
+        ]
+      },
+      "sourceLines": [
+        187,
+        193
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "HR-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_HR",
+      "sourceId": "HR-01",
+      "fields": {
+        "heading": "HR-01 · CONTENT",
+        "title": "CONTENT",
+        "body": [
+          "Transferir lo necesario."
+        ]
+      },
+      "sourceLines": [
+        197,
+        198
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "HR-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_HR",
+      "sourceId": "HR-02",
+      "fields": {
+        "heading": "HR-02 · MAPPING",
+        "title": "MAPPING",
+        "body": [
+          "Mantener correspondencia semántica suficiente."
+        ]
+      },
+      "sourceLines": [
+        199,
+        200
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "HR-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_HR",
+      "sourceId": "HR-03",
+      "fields": {
+        "heading": "HR-03 · TIMING",
+        "title": "TIMING",
+        "body": [
+          "Llegar dentro del horizonte requerido."
+        ]
+      },
+      "sourceLines": [
+        201,
+        202
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "HR-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_HR",
+      "sourceId": "HR-04",
+      "fields": {
+        "heading": "HR-04 · FREQUENCY",
+        "title": "FREQUENCY",
+        "body": [
+          "Actualizar con frecuencia suficiente."
+        ]
+      },
+      "sourceLines": [
+        203,
+        204
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "HR-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_HR",
+      "sourceId": "HR-05",
+      "fields": {
+        "heading": "HR-05 · SEQUENCE",
+        "title": "SEQUENCE",
+        "body": [
+          "Ocurrir en el punto correcto del flujo."
+        ]
+      },
+      "sourceLines": [
+        205,
+        206
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "HR-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_HR",
+      "sourceId": "HR-06",
+      "fields": {
+        "heading": "HR-06 · INTEGRITY",
+        "title": "INTEGRITY",
+        "body": [
+          "No perder/alterar materialmente información."
+        ]
+      },
+      "sourceLines": [
+        207,
+        208
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "HR-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_HR",
+      "sourceId": "HR-07",
+      "fields": {
+        "heading": "HR-07 · CONFIRMATION",
+        "title": "CONFIRMATION",
+        "body": [
+          "Permitir conocer suficientemente si ocurrió cuando esto es material."
+        ]
+      },
+      "sourceLines": [
+        209,
+        210
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "HR-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_HR",
+      "sourceId": "HR-08",
+      "fields": {
+        "heading": "HR-08 · EXCEPTION",
+        "title": "EXCEPTION",
+        "body": [
+          "Tratar fallos/excepciones proporcionalmente.",
+          "No todos aplican a todos los handoffs."
+        ]
+      },
+      "sourceLines": [
+        211,
+        213
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "P-DT03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT03-02",
+      "fields": {
+        "heading": "P-DT03-02",
+        "body": [
+          "La integración debe preservar suficientemente el significado material, no necesariamente la representación original."
+        ]
+      },
+      "sourceLines": [
+        231,
+        232
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "P-DT03-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT03-03",
+      "fields": {
+        "heading": "P-DT03-03",
+        "body": [
+          "La sincronización adecuada es la requerida por el flujo; tiempo real no constituye un objetivo universal."
+        ]
+      },
+      "sourceLines": [
+        246,
+        247
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CE01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Necesidad de integración",
+        "title": "Necesidad de integración"
+      },
+      "sourceLines": [
+        251,
+        251
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "VA01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA01",
+      "fields": {
+        "heading": "VA01 · Handoffs materiales identificados",
+        "title": "Handoffs materiales identificados"
+      },
+      "sourceLines": [
+        252,
+        252
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "VA02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA02",
+      "fields": {
+        "heading": "VA02 · Propósito/uso destino suficientemente definido",
+        "title": "Propósito/uso destino suficientemente definido"
+      },
+      "sourceLines": [
+        253,
+        253
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CE02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Cobertura del intercambio",
+        "title": "Cobertura del intercambio"
+      },
+      "sourceLines": [
+        255,
+        255
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "VA03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA03",
+      "fields": {
+        "heading": "VA03 · Información requerida transferida suficientemente",
+        "title": "Información requerida transferida suficientemente"
+      },
+      "sourceLines": [
+        256,
+        256
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "VA04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "VA04 · Destino correcto alcanzado",
+        "title": "Destino correcto alcanzado"
+      },
+      "sourceLines": [
+        257,
+        257
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CE03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Correspondencia",
+        "title": "Correspondencia"
+      },
+      "sourceLines": [
+        259,
+        259
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "VA05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "VA05 · Mapping/significado preservado",
+        "title": "Mapping/significado preservado"
+      },
+      "sourceLines": [
+        260,
+        260
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "VA06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "VA06 · Transformación suficientemente correcta",
+        "title": "Transformación suficientemente correcta"
+      },
+      "sourceLines": [
+        261,
+        261
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CE04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE04",
+      "fields": {
+        "heading": "CE04 · Temporalidad",
+        "title": "Temporalidad"
+      },
+      "sourceLines": [
+        263,
+        263
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "VA07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "VA07 · Timing suficiente",
+        "title": "Timing suficiente"
+      },
+      "sourceLines": [
+        264,
+        264
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "VA08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "VA08 · Frecuencia/sincronización suficiente",
+        "title": "Frecuencia/sincronización suficiente"
+      },
+      "sourceLines": [
+        265,
+        265
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "VA09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA09",
+      "fields": {
+        "heading": "VA09 · Secuencia dentro del flujo suficiente",
+        "title": "Secuencia dentro del flujo suficiente"
+      },
+      "sourceLines": [
+        266,
+        266
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CE05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE05",
+      "fields": {
+        "heading": "CE05 · Integridad del handoff",
+        "title": "Integridad del handoff"
+      },
+      "sourceLines": [
+        268,
+        268
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "VA10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA10",
+      "fields": {
+        "heading": "VA10 · Transferencia suficientemente completa",
+        "title": "Transferencia suficientemente completa"
+      },
+      "sourceLines": [
+        269,
+        269
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "VA11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA11",
+      "fields": {
+        "heading": "VA11 · Alteración/pérdida material controlada",
+        "title": "Alteración/pérdida material controlada"
+      },
+      "sourceLines": [
+        270,
+        270
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "VA12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA12",
+      "fields": {
+        "heading": "VA12 · Duplicación/repetición material controlada cuando aplica",
+        "title": "Duplicación/repetición material controlada cuando aplica"
+      },
+      "sourceLines": [
+        271,
+        271
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CE06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE06",
+      "fields": {
+        "heading": "CE06 · Funcionamiento operativo",
+        "title": "Funcionamiento operativo"
+      },
+      "sourceLines": [
+        273,
+        273
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "VA13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA13",
+      "fields": {
+        "heading": "VA13 · Handoff suficientemente confiable",
+        "title": "Handoff suficientemente confiable"
+      },
+      "sourceLines": [
+        274,
+        274
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "VA14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA14",
+      "fields": {
+        "heading": "VA14 · Confirmación/visibilidad suficiente cuando material",
+        "title": "Confirmación/visibilidad suficiente cuando material"
+      },
+      "sourceLines": [
+        275,
+        275
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "VA15",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA15",
+      "fields": {
+        "heading": "VA15 · Excepciones suficientemente detectables/tratables",
+        "title": "Excepciones suficientemente detectables/tratables"
+      },
+      "sourceLines": [
+        276,
+        276
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CE07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE07",
+      "fields": {
+        "heading": "CE07 · Proporcionalidad y sostenibilidad",
+        "title": "Proporcionalidad y sostenibilidad"
+      },
+      "sourceLines": [
+        278,
+        278
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "VA16",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA16",
+      "fields": {
+        "heading": "VA16 · Esfuerzo manual/técnico proporcional",
+        "title": "Esfuerzo manual/técnico proporcional"
+      },
+      "sourceLines": [
+        279,
+        279
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "VA17",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA17",
+      "fields": {
+        "heading": "VA17 · Mecanismo suficientemente sostenible para volumen/complejidad previsible",
+        "title": "Mecanismo suficientemente sostenible para volumen/complejidad previsible"
+      },
+      "sourceLines": [
+        280,
+        280
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "NI-DT03-CORE",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI-DT03-CORE",
+      "fields": {
+        "heading": "NI-DT03-CORE",
+        "body": [
+          "¿Qué información debe pasar, desde dónde, hacia dónde y para qué?",
+          "Solo después preguntamos:",
+          "cómo."
+        ]
+      },
+      "sourceLines": [
+        287,
+        290
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "P1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P1",
+      "fields": {
+        "heading": "P1 · Núcleo",
+        "title": "Núcleo",
+        "body": [
+          "Preguntas SME-friendly:",
+          "“¿Dónde tienen que volver a digitar información que ya existe?”",
+          "“¿Qué información suele perderse cuando el trabajo pasa de una persona o sistema a otro?”",
+          "“¿Dónde necesitan copiar, exportar o enviar archivos para continuar un proceso?”",
+          "“¿Qué información llega tarde al siguiente paso?”",
+          "“¿Qué pasa si esa transferencia falla?”",
+          "Estas preguntas descubren handoffs materiales."
+        ]
+      },
+      "sourceLines": [
+        337,
+        344
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "P2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P2",
+      "fields": {
+        "heading": "P2 · Triggers",
+        "title": "Triggers",
+        "body": [
+          "Profundizamos ante:",
+          "- re-digitación;",
+          "- copiar/pegar;",
+          "- conciliación recurrente;",
+          "- archivos enviados manualmente;",
+          "- múltiples versiones;",
+          "- información perdida;",
+          "- retrasos;",
+          "- errores entre sistemas;",
+          "- sincronización tardía;",
+          "- doble registro;",
+          "- export/import;",
+          "- workarounds;",
+          "- integraciones que fallan;",
+          "- dependencia de una persona;",
+          "- crecimiento de volumen;",
+          "- excepciones invisibles.",
+          "Pero:",
+          "copiar/pegar no es automáticamente una brecha.",
+          "Es un trigger."
+        ]
+      },
+      "sourceLines": [
+        346,
+        366
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "P3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P3",
+      "fields": {
+        "heading": "P3 · Discriminación causal",
+        "title": "Discriminación causal",
+        "body": [
+          "Ante:",
+          "“CRM y ERP no cuadran”",
+          "debemos distinguir:",
+          "SOURCE DATA QUALITY → DT-02",
+          "MAPPING ERROR → DT-03",
+          "SYNC DELAY → DT-03",
+          "TRANSFORMATION ERROR → DT-03",
+          "PROCESS TIMING → OP",
+          "MANUAL EXECUTION ERROR → posiblemente OP/PC",
+          "SYSTEM FUNCTION → DT-01",
+          "REPORT TRANSFORMATION → DT-04"
+        ]
+      },
+      "sourceLines": [
+        368,
+        379
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "P4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P4",
+      "fields": {
+        "heading": "P4 · Contradicciones",
+        "title": "Contradicciones"
+      },
+      "sourceLines": [
+        381,
+        381
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CONTR-DT03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-DT03-01",
+      "fields": {
+        "heading": "CONTR-DT03-01",
+        "body": [
+          "SYSTEMS_CONNECTED_vs_MANUAL_RECONCILIATION",
+          "“Todo está integrado”",
+          "pero existe conciliación manual material recurrente.",
+          "No demuestra automáticamente falla, pero exige profundización."
+        ]
+      },
+      "sourceLines": [
+        382,
+        386
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CONTR-DT03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-DT03-02",
+      "fields": {
+        "heading": "CONTR-DT03-02",
+        "body": [
+          "AUTOMATED_TRANSFER_vs_MISSING_EXCEPTIONS",
+          "“Es automático”",
+          "pero nadie sabe cuándo falla."
+        ]
+      },
+      "sourceLines": [
+        387,
+        390
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CONTR-DT03-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-DT03-03",
+      "fields": {
+        "heading": "CONTR-DT03-03",
+        "body": [
+          "REAL_TIME_vs_NOT_NEEDED",
+          "Existe integración compleja en tiempo real para un uso semanal.",
+          "Puede indicar:",
+          "over-integration."
+        ]
+      },
+      "sourceLines": [
+        391,
+        395
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "P5",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P5",
+      "fields": {
+        "heading": "P5 · Validación",
+        "title": "Validación",
+        "body": [
+          "No:",
+          "“¿Sus sistemas están integrados?”",
+          "Mejor:",
+          "“Cuando ventas confirma un pedido, ¿la información que operaciones necesita llega completa y correctamente antes de preparar el pedido, sin volver a digitarla?”",
+          "Ahora podemos observar el handoff real."
+        ]
+      },
+      "sourceLines": [
+        397,
+        402
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "EVID-DT03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_EVID",
+      "sourceId": "EVID-DT03-01",
+      "fields": {
+        "heading": "EVID-DT03-01",
+        "body": [
+          "La profundidad de evidencia debe aumentar con criticidad, volumen, automatización invisible y consecuencia del fallo."
+        ]
+      },
+      "sourceLines": [
+        433,
+        434
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "SUFF-DT03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SUFF",
+      "sourceId": "SUFF-DT03-01",
+      "fields": {
+        "heading": "SUFF-DT03-01",
+        "body": [
+          "DT-03 alcanza suficiencia cuando los handoffs materiales permiten que la información requerida atraviese las fronteras aplicables con correspondencia, oportunidad, integridad y confiabilidad suficientes para los flujos a los que sirven.",
+          "No significa:",
+          "todos los sistemas conectados."
+        ]
+      },
+      "sourceLines": [
+        437,
+        440
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "R-DT03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT03-01",
+      "fields": {
+        "heading": "R-DT03-01 · MATERIAL_INFORMATION_HANDOFF_UNCLEAR",
+        "title": "MATERIAL_INFORMATION_HANDOFF_UNCLEAR"
+      },
+      "sourceLines": [
+        462,
+        462
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "R-DT03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT03-02",
+      "fields": {
+        "heading": "R-DT03-02 · HANDOFF_PURPOSE_UNCLEAR",
+        "title": "HANDOFF_PURPOSE_UNCLEAR"
+      },
+      "sourceLines": [
+        463,
+        463
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "R-DT03-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT03-03",
+      "fields": {
+        "heading": "R-DT03-03 · REQUIRED_INFORMATION_NOT_TRANSFERRED",
+        "title": "REQUIRED_INFORMATION_NOT_TRANSFERRED"
+      },
+      "sourceLines": [
+        464,
+        464
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "R-DT03-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT03-04",
+      "fields": {
+        "heading": "R-DT03-04 · INFORMATION_DESTINATION_MISMATCH",
+        "title": "INFORMATION_DESTINATION_MISMATCH"
+      },
+      "sourceLines": [
+        465,
+        465
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "R-DT03-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT03-05",
+      "fields": {
+        "heading": "R-DT03-05 · SEMANTIC_MAPPING_GAP",
+        "title": "SEMANTIC_MAPPING_GAP"
+      },
+      "sourceLines": [
+        466,
+        466
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "R-DT03-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT03-06",
+      "fields": {
+        "heading": "R-DT03-06 · MATERIAL_TRANSFORMATION_ERROR",
+        "title": "MATERIAL_TRANSFORMATION_ERROR"
+      },
+      "sourceLines": [
+        467,
+        467
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "R-DT03-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT03-07",
+      "fields": {
+        "heading": "R-DT03-07 · INFORMATION_HANDOFF_TOO_LATE",
+        "title": "INFORMATION_HANDOFF_TOO_LATE"
+      },
+      "sourceLines": [
+        468,
+        468
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "R-DT03-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT03-08",
+      "fields": {
+        "heading": "R-DT03-08 · SYNCHRONIZATION_FREQUENCY_GAP",
+        "title": "SYNCHRONIZATION_FREQUENCY_GAP"
+      },
+      "sourceLines": [
+        469,
+        469
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "R-DT03-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT03-09",
+      "fields": {
+        "heading": "R-DT03-09 · INFORMATION_SEQUENCE_GAP",
+        "title": "INFORMATION_SEQUENCE_GAP"
+      },
+      "sourceLines": [
+        470,
+        470
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "R-DT03-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT03-10",
+      "fields": {
+        "heading": "R-DT03-10 · HANDOFF_COMPLETENESS_GAP",
+        "title": "HANDOFF_COMPLETENESS_GAP"
+      },
+      "sourceLines": [
+        471,
+        471
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "R-DT03-11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT03-11",
+      "fields": {
+        "heading": "R-DT03-11 · INFORMATION_INTEGRITY_LOSS",
+        "title": "INFORMATION_INTEGRITY_LOSS"
+      },
+      "sourceLines": [
+        472,
+        472
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "R-DT03-12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT03-12",
+      "fields": {
+        "heading": "R-DT03-12 · MATERIAL_DUPLICATION_HANDOFF_GAP",
+        "title": "MATERIAL_DUPLICATION_HANDOFF_GAP"
+      },
+      "sourceLines": [
+        473,
+        473
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "R-DT03-13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT03-13",
+      "fields": {
+        "heading": "R-DT03-13 · HANDOFF_RELIABILITY_GAP",
+        "title": "HANDOFF_RELIABILITY_GAP"
+      },
+      "sourceLines": [
+        474,
+        474
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "R-DT03-14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT03-14",
+      "fields": {
+        "heading": "R-DT03-14 · MATERIAL_HANDOFF_VISIBILITY_GAP",
+        "title": "MATERIAL_HANDOFF_VISIBILITY_GAP"
+      },
+      "sourceLines": [
+        475,
+        475
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "R-DT03-15",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT03-15",
+      "fields": {
+        "heading": "R-DT03-15 · INTEGRATION_EXCEPTION_CONTROL_GAP",
+        "title": "INTEGRATION_EXCEPTION_CONTROL_GAP"
+      },
+      "sourceLines": [
+        476,
+        476
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "R-DT03-16",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT03-16",
+      "fields": {
+        "heading": "R-DT03-16 · INTEGRATION_EFFORT_DISPROPORTIONATE",
+        "title": "INTEGRATION_EFFORT_DISPROPORTIONATE"
+      },
+      "sourceLines": [
+        477,
+        477
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "R-DT03-17",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT03-17",
+      "fields": {
+        "heading": "R-DT03-17 · INTEGRATION_SCALABILITY_FRAGILITY",
+        "title": "INTEGRATION_SCALABILITY_FRAGILITY"
+      },
+      "sourceLines": [
+        478,
+        478
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DT03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT03-01",
+      "fields": {
+        "heading": "CAND-MOTOR-DT03-01",
+        "body": [
+          "La unidad diagnóstica de integración debe ser el Information Handoff material, no la interfaz tecnológica."
+        ]
+      },
+      "sourceLines": [
+        522,
+        523
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DT03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT03-02",
+      "fields": {
+        "heading": "CAND-MOTOR-DT03-02",
+        "body": [
+          "Connected, transferred, mapped, synchronized, received, usable y confirmed deben permanecer como estados distintos."
+        ]
+      },
+      "sourceLines": [
+        524,
+        525
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DT03-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT03-03",
+      "fields": {
+        "heading": "CAND-MOTOR-DT03-03",
+        "body": [
+          "Los requisitos de integración deben activarse condicionalmente por handoff; tiempo real, confirmación o automatización no son universales."
+        ]
+      },
+      "sourceLines": [
+        526,
+        527
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DT03-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT03-04",
+      "fields": {
+        "heading": "CAND-MOTOR-DT03-04",
+        "body": [
+          "Un mecanismo manual puede ser suficiente y debe juzgarse por materialidad, volumen, esfuerzo, error y sostenibilidad."
+        ]
+      },
+      "sourceLines": [
+        528,
+        529
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DT03-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT03-05",
+      "fields": {
+        "heading": "CAND-MOTOR-DT03-05",
+        "body": [
+          "Una inconsistencia entre origen y destino debe discriminar calidad fuente, mapping, transformación, sincronización y proceso antes de atribuir causalidad."
+        ]
+      },
+      "sourceLines": [
+        530,
+        531
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DT03-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT03-06",
+      "fields": {
+        "heading": "CAND-MOTOR-DT03-06",
+        "body": [
+          "La integración puede presentar UNDER-INTEGRATION u OVER-INTEGRATION."
+        ]
+      },
+      "sourceLines": [
+        532,
+        533
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DT03-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT03-07",
+      "fields": {
+        "heading": "CAND-MOTOR-DT03-07",
+        "body": [
+          "La suficiencia de integración debe asociarse a FLOW + HANDOFF + USE y no simplemente a una pareja de aplicaciones."
+        ]
+      },
+      "sourceLines": [
+        534,
+        535
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DT03-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT03-08",
+      "fields": {
+        "heading": "CAND-MOTOR-DT03-08",
+        "body": [
+          "El crecimiento de volumen/frecuencia puede invalidar un handoff previamente suficiente sin que la evaluación histórica haya sido incorrecta."
+        ]
+      },
+      "sourceLines": [
+        536,
+        537
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "FIND-DT03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_FIND",
+      "sourceId": "FIND-DT03-01",
+      "fields": {
+        "heading": "FIND-DT03-01",
+        "body": [
+          "Todo finding de integración debe conservar el flujo o uso material cuya continuidad informacional está afectada."
+        ]
+      },
+      "sourceLines": [
+        599,
+        600
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CAUS-DT03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAUS",
+      "sourceId": "CAUS-DT03-01",
+      "fields": {
+        "heading": "CAUS-DT03-01",
+        "body": [
+          "La existencia de un mecanismo manual no constituye evidencia suficiente de una brecha de integración."
+        ]
+      },
+      "sourceLines": [
+        614,
+        615
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "INT-DT03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-DT03-01",
+      "fields": {
+        "heading": "INT-DT03-01 · MINIMUM SUFFICIENT HANDOFF",
+        "title": "MINIMUM SUFFICIENT HANDOFF",
+        "body": [
+          "Debe preferirse el mecanismo de transferencia de menor complejidad total que satisfaga suficientemente volumen, frecuencia, oportunidad, integridad, confiabilidad y sostenibilidad requeridos por el flujo material.",
+          "La automatización gana pertinencia cuando aumenta suficientemente:",
+          "frecuencia × volumen × repetitividad × consecuencia del error × costo manual.",
+          "Pero tampoco convertimos esto en fórmula universal."
+        ]
+      },
+      "sourceLines": [
+        650,
+        654
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "P-DT03-18",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT03-18",
+      "fields": {
+        "heading": "P-DT03-18",
+        "body": [
+          "Una necesidad aparente de integración puede desaparecer al simplificar el proceso o eliminar una transferencia innecesaria.",
+          "Por eso OP-04 sigue siendo relevante."
+        ]
+      },
+      "sourceLines": [
+        666,
+        668
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "INS-DT03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT03-01",
+      "fields": {
+        "heading": "INS-DT03-01 · Information Handoff Map",
+        "title": "Information Handoff Map",
+        "body": [
+          "flujo → origen → información → frontera → destino → uso.",
+          "Instrumento nuclear."
+        ]
+      },
+      "sourceLines": [
+        721,
+        723
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "INS-DT03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT03-02",
+      "fields": {
+        "heading": "INS-DT03-02 · Handoff Requirement Card",
+        "title": "Handoff Requirement Card",
+        "body": [
+          "contenido → mapping → timing → frecuencia → integridad → confirmación → excepción.",
+          "Solo activa requisitos aplicables."
+        ]
+      },
+      "sourceLines": [
+        724,
+        726
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "INS-DT03-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT03-03",
+      "fields": {
+        "heading": "INS-DT03-03 · Mapping & Transformation Card",
+        "title": "Mapping & Transformation Card",
+        "body": [
+          "origen → significado → transformación → destino → significado esperado."
+        ]
+      },
+      "sourceLines": [
+        727,
+        728
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "INS-DT03-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT03-04",
+      "fields": {
+        "heading": "INS-DT03-04 · Handoff Friction Map",
+        "title": "Handoff Friction Map",
+        "body": [
+          "handoff → esfuerzo → error → retraso → consecuencia."
+        ]
+      },
+      "sourceLines": [
+        729,
+        730
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "INS-DT03-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT03-05",
+      "fields": {
+        "heading": "INS-DT03-05 · Exception Map",
+        "title": "Exception Map",
+        "body": [
+          "fallo → detección → consecuencia → tratamiento → owner."
+        ]
+      },
+      "sourceLines": [
+        731,
+        732
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "INS-DT03-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT03-06",
+      "fields": {
+        "heading": "INS-DT03-06 · Integration Simplification Map",
+        "title": "Integration Simplification Map",
+        "body": [
+          "integración → necesidad actual → valor → dependencia → complejidad → mantener/simplificar/retirar."
+        ]
+      },
+      "sourceLines": [
+        733,
+        734
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "INS-DT03-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT03-07",
+      "fields": {
+        "heading": "INS-DT03-07 · Minimum Sufficient Handoff Decision",
+        "title": "Minimum Sufficient Handoff Decision",
+        "body": [
+          "alternativas → suficiencia → esfuerzo → complejidad → sostenibilidad."
+        ]
+      },
+      "sourceLines": [
+        735,
+        736
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "DEL-DT03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT03-01",
+      "fields": {
+        "heading": "DEL-DT03-01 · handoffs materiales visibles",
+        "title": "handoffs materiales visibles"
+      },
+      "sourceLines": [
+        750,
+        750
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "DEL-DT03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT03-02",
+      "fields": {
+        "heading": "DEL-DT03-02 · contenido/destino suficientes",
+        "title": "contenido/destino suficientes"
+      },
+      "sourceLines": [
+        751,
+        751
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "DEL-DT03-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT03-03",
+      "fields": {
+        "heading": "DEL-DT03-03 · correspondencia semántica preservada",
+        "title": "correspondencia semántica preservada"
+      },
+      "sourceLines": [
+        752,
+        752
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "DEL-DT03-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT03-04",
+      "fields": {
+        "heading": "DEL-DT03-04 · temporalidad/sincronización suficiente",
+        "title": "temporalidad/sincronización suficiente"
+      },
+      "sourceLines": [
+        753,
+        753
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "DEL-DT03-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT03-05",
+      "fields": {
+        "heading": "DEL-DT03-05 · integridad suficiente",
+        "title": "integridad suficiente"
+      },
+      "sourceLines": [
+        754,
+        754
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "DEL-DT03-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT03-06",
+      "fields": {
+        "heading": "DEL-DT03-06 · fallos/excepciones materialmente controlados",
+        "title": "fallos/excepciones materialmente controlados"
+      },
+      "sourceLines": [
+        755,
+        755
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "DEL-DT03-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT03-07",
+      "fields": {
+        "heading": "DEL-DT03-07 · esfuerzo de integración proporcional",
+        "title": "esfuerzo de integración proporcional"
+      },
+      "sourceLines": [
+        756,
+        756
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "DEL-DT03-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT03-08",
+      "fields": {
+        "heading": "DEL-DT03-08 · mecanismo sostenible frente al horizonte aplicable",
+        "title": "mecanismo sostenible frente al horizonte aplicable"
+      },
+      "sourceLines": [
+        757,
+        757
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CRV-DT03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT03-01",
+      "fields": {
+        "heading": "| CRV-DT03-01 | Handoffs críticos requeridos por flujos materiales están identificados |",
+        "title": "Handoffs críticos requeridos por flujos materiales están identificados"
+      },
+      "sourceLines": [
+        779,
+        779
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CRV-DT03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT03-02",
+      "fields": {
+        "heading": "| CRV-DT03-02 | Información requerida alcanza el destino correcto con cobertura suficiente |",
+        "title": "Información requerida alcanza el destino correcto con cobertura suficiente"
+      },
+      "sourceLines": [
+        780,
+        780
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CRV-DT03-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT03-03",
+      "fields": {
+        "heading": "| CRV-DT03-03 | Significado requerido se conserva después del mapping/transformación |",
+        "title": "Significado requerido se conserva después del mapping/transformación"
+      },
+      "sourceLines": [
+        781,
+        781
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CRV-DT03-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT03-04",
+      "fields": {
+        "heading": "| CRV-DT03-04 | Información llega dentro del timing/frecuencia/secuencia requeridos |",
+        "title": "Información llega dentro del timing/frecuencia/secuencia requeridos"
+      },
+      "sourceLines": [
+        782,
+        782
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CRV-DT03-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT03-05",
+      "fields": {
+        "heading": "| CRV-DT03-05 | Pérdida, alteración o duplicación no superan tolerancia material |",
+        "title": "Pérdida, alteración o duplicación no superan tolerancia material"
+      },
+      "sourceLines": [
+        783,
+        783
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CRV-DT03-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT03-06",
+      "fields": {
+        "heading": "| CRV-DT03-06 | Fallos materiales son suficientemente detectables y tratables |",
+        "title": "Fallos materiales son suficientemente detectables y tratables"
+      },
+      "sourceLines": [
+        784,
+        784
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CRV-DT03-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT03-07",
+      "fields": {
+        "heading": "| CRV-DT03-07 | Esfuerzo recurrente del handoff es proporcional al valor/volumen |",
+        "title": "Esfuerzo recurrente del handoff es proporcional al valor/volumen"
+      },
+      "sourceLines": [
+        785,
+        785
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CRV-DT03-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT03-08",
+      "fields": {
+        "heading": "| CRV-DT03-08 | Mecanismo soporta suficientemente condiciones previsibles |",
+        "title": "Mecanismo soporta suficientemente condiciones previsibles"
+      },
+      "sourceLines": [
+        786,
+        786
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DT03-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT03-09",
+      "fields": {
+        "heading": "CAND-MOTOR-DT03-09",
+        "body": [
+          "Los requisitos y tolerancias de integración deben poder variar por handoff y uso material."
+        ]
+      },
+      "sourceLines": [
+        814,
+        815
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "V0",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V0",
+      "fields": {
+        "heading": "V0 · UNKNOWN",
+        "title": "UNKNOWN",
+        "body": [
+          "Handoff no suficientemente conocido."
+        ]
+      },
+      "sourceLines": [
+        819,
+        820
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "V1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V1",
+      "fields": {
+        "heading": "V1 · MECHANISM-EXISTS",
+        "title": "MECHANISM-EXISTS",
+        "body": [
+          "Existe mecanismo de transferencia."
+        ]
+      },
+      "sourceLines": [
+        821,
+        822
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "V2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V2",
+      "fields": {
+        "heading": "V2 · TRANSFER-EVIDENCED",
+        "title": "TRANSFER-EVIDENCED",
+        "body": [
+          "Existe evidencia de que la información cruza la frontera."
+        ]
+      },
+      "sourceLines": [
+        823,
+        824
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "V3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V3",
+      "fields": {
+        "heading": "V3 · FLOW-FIT",
+        "title": "FLOW-FIT",
+        "body": [
+          "La transferencia satisface suficientemente contenido, significado, temporalidad e integridad en el flujo real."
+        ]
+      },
+      "sourceLines": [
+        825,
+        826
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "V4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V4",
+      "fields": {
+        "heading": "V4 · SUSTAINED",
+        "title": "SUSTAINED",
+        "body": [
+          "Además funciona repetidamente con excepciones y esfuerzo suficientemente gobernados."
+        ]
+      },
+      "sourceLines": [
+        827,
+        828
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "VAL-DT03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VAL",
+      "sourceId": "VAL-DT03-01",
+      "fields": {
+        "heading": "VAL-DT03-01",
+        "body": [
+          "La validación debe asociarse a FLOW + HANDOFF + USE, no al componente de integración aislado."
+        ]
+      },
+      "sourceLines": [
+        833,
+        834
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "REASS-DT03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_REASS",
+      "sourceId": "REASS-DT03-01",
+      "fields": {
+        "heading": "REASS-DT03-01",
+        "body": [
+          "Un handoff previamente suficiente puede dejar de serlo cuando cambian volumen, frecuencia, significado, secuencia, destino o requisito temporal."
+        ]
+      },
+      "sourceLines": [
+        855,
+        856
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-AI-INTEGRATION-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-INTEGRATION-01",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-INTEGRATION-01",
+        "body": [
+          "El uso de IA dentro de un handoff no constituye evidencia de integración suficiente; debe validarse igualmente significado, integridad, temporalidad, confiabilidad y tratamiento de excepciones.",
+          "Además, una transformación probabilística puede requerir controles diferentes a una transformación determinista. Dejamos ese punto como candidato para Fase 3, no lo incorporamos todavía como regla universal."
+        ]
+      },
+      "sourceLines": [
+        910,
+        912
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "K1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Coherencia — PASS",
+        "title": "Coherencia — PASS",
+        "body": [
+          "DT-03 queda diferenciada de DT-01, DT-02, DT-04, DT-05, OP-03 y OP-04."
+        ]
+      },
+      "sourceLines": [
+        977,
+        978
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "K2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Razonamiento — PASS",
+        "title": "Razonamiento — PASS",
+        "body": [
+          "Distingue conexión, transferencia, mapping, transformación, sincronización, recepción, integridad, excepción y sostenibilidad."
+        ]
+      },
+      "sourceLines": [
+        979,
+        980
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "K3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · Acción — PASS",
+        "title": "Acción — PASS",
+        "body": [
+          "Permite intervenir sin presuponer automatización."
+        ]
+      },
+      "sourceLines": [
+        981,
+        982
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    },
+    {
+      "key": "K4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · Knowledge — PASS",
+        "title": "Knowledge — PASS",
+        "body": [
+          "Objetos, grounding, provenance, reglas, validación y governance quedan trazables."
+        ]
+      },
+      "sourceLines": [
+        983,
+        984
+      ],
+      "approvalEvidence": {
+        "text": "DT03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1004,
+          1004
+        ]
+      }
+    }
+  ],
+  "governanceDecisions": {
+    "decisionSetId": "M2-FINAL-MASS-BATCH",
+    "ref": "knowledge/intake/DT-03/governance-decisions.json",
+    "checksum": "sha256:55baf1182b7fdc044103baec8778ed73206c640c0105febbffa9a11aebedbea4"
+  },
+  "checksum": "sha256:356bee57d72be31251c76e82bd20e5eafa3b31c3ddd72f09ab2168af676514a4"
+}

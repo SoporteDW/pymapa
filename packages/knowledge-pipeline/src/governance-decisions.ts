@@ -46,6 +46,11 @@ export const governanceDecisionsSchema = z.object({
           .string()
           .regex(/^[A-Z][A-Z0-9_]*$/)
           .optional(),
+        /**
+         * M2-FINAL-MASS-BATCH · la fuente declara el conteo pero no enumera los
+         * objetos individualmente; se preserva sin inventar IDs.
+         */
+        enumeration: z.literal("DECLARED_NOT_ENUMERATED").optional(),
       }),
     )
     .default([]),

@@ -1,0 +1,932 @@
+{
+  "registrationId": "RAW-DT-02-2fb3f526b68a",
+  "capabilityId": "DT-02",
+  "domainId": "DT",
+  "masterVersion": "1.0",
+  "status": "REGISTERED",
+  "statement": "RAW_EXTRACTION_IS_NOT_CANONICAL_KNOWLEDGE: texto extraído mecánicamente del original para citación y provenance; no constituye conocimiento aprobado.",
+  "original": {
+    "filename": "DT_-_01_A_06_Completo.docx",
+    "ref": "../DT-01/original/DT_-_01_A_06_Completo.docx",
+    "mediaType": "DOCX",
+    "byteLength": 304836,
+    "sha256": "2fb3f526b68a8bb801cf5af953d0aec8f204a7c7ef4d8bf6ef270bee4f413ccd"
+  },
+  "extraction": {
+    "extractorId": "pymapa-docx-text",
+    "extractorVersion": "1.0.0",
+    "externalTool": null,
+    "status": "EXTRACTED",
+    "warnings": [
+      "IMAGES_NOT_TRANSCRIBED: 440 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw."
+    ],
+    "stats": {
+      "paragraphs": 7005,
+      "headings": 1203,
+      "listItems": 1157,
+      "tables": 51,
+      "tableRows": 636,
+      "images": 440,
+      "insertions": 0,
+      "deletions": 0,
+      "footnotes": 0,
+      "endnotes": 0,
+      "textBoxes": 0,
+      "fallbackBlocksSkipped": 0
+    }
+  },
+  "text": {
+    "ref": "text/DT-02.txt",
+    "sha256": "dffc6d933920f0efb819d8c38b1aebc9c0386e0edad84a2690575fe44bf8e5f2",
+    "byteLength": 38806,
+    "lineCount": 1017
+  },
+  "outline": [
+    {
+      "line": 2,
+      "level": 1,
+      "text": "DT-02 · Gestionar datos con calidad y disponibilidad"
+    },
+    {
+      "line": 3,
+      "level": 2,
+      "text": "Dimensionamiento orgánico"
+    },
+    {
+      "line": 9,
+      "level": 1,
+      "text": "1. Dimensionamiento"
+    },
+    {
+      "line": 28,
+      "level": 1,
+      "text": "2. Identidad"
+    },
+    {
+      "line": 29,
+      "level": 2,
+      "text": "Definición V1"
+    },
+    {
+      "line": 31,
+      "level": 2,
+      "text": "Unidad de análisis"
+    },
+    {
+      "line": 41,
+      "level": 1,
+      "text": "3. El objeto no es DATA en abstracto"
+    },
+    {
+      "line": 43,
+      "level": 3,
+      "text": "DATA NEED"
+    },
+    {
+      "line": 45,
+      "level": 3,
+      "text": "DATA ELEMENT"
+    },
+    {
+      "line": 64,
+      "level": 1,
+      "text": "Critical Data Element"
+    },
+    {
+      "line": 66,
+      "level": 3,
+      "text": "CDE-PYM"
+    },
+    {
+      "line": 72,
+      "level": 1,
+      "text": "4. Modelo de estado del dato"
+    },
+    {
+      "line": 91,
+      "level": 1,
+      "text": "5. Quality ≠ perfection"
+    },
+    {
+      "line": 98,
+      "level": 3,
+      "text": "P-DT02-CORE-01"
+    },
+    {
+      "line": 101,
+      "level": 1,
+      "text": "Ejemplo"
+    },
+    {
+      "line": 112,
+      "level": 1,
+      "text": "6. Aplicabilidad y materialidad"
+    },
+    {
+      "line": 114,
+      "level": 3,
+      "text": "APP-DT02-01"
+    },
+    {
+      "line": 129,
+      "level": 1,
+      "text": "7. Fronteras"
+    },
+    {
+      "line": 130,
+      "level": 2,
+      "text": "DT-02 vs DT-03"
+    },
+    {
+      "line": 140,
+      "level": 2,
+      "text": "DT-02 vs DT-04"
+    },
+    {
+      "line": 149,
+      "level": 2,
+      "text": "DT-02 vs DT-05"
+    },
+    {
+      "line": 157,
+      "level": 2,
+      "text": "DT-02 vs DT-01"
+    },
+    {
+      "line": 163,
+      "level": 2,
+      "text": "DT-02 vs OP"
+    },
+    {
+      "line": 178,
+      "level": 1,
+      "text": "8. Modelo de calidad Pymapa"
+    },
+    {
+      "line": 181,
+      "level": 3,
+      "text": "DQ-01 · Completeness"
+    },
+    {
+      "line": 183,
+      "level": 3,
+      "text": "DQ-02 · Accuracy"
+    },
+    {
+      "line": 185,
+      "level": 3,
+      "text": "DQ-03 · Consistency"
+    },
+    {
+      "line": 187,
+      "level": 3,
+      "text": "DQ-04 · Validity"
+    },
+    {
+      "line": 189,
+      "level": 3,
+      "text": "DQ-05 · Currency"
+    },
+    {
+      "line": 191,
+      "level": 3,
+      "text": "DQ-06 · Uniqueness/Identity"
+    },
+    {
+      "line": 193,
+      "level": 3,
+      "text": "DQ-07 · Meaning/Interpretability"
+    },
+    {
+      "line": 199,
+      "level": 1,
+      "text": "Availability"
+    },
+    {
+      "line": 201,
+      "level": 3,
+      "text": "DA-01 · LOCATABLE"
+    },
+    {
+      "line": 203,
+      "level": 3,
+      "text": "DA-02 · ACCESSIBLE"
+    },
+    {
+      "line": 205,
+      "level": 3,
+      "text": "DA-03 · TIMELY"
+    },
+    {
+      "line": 207,
+      "level": 3,
+      "text": "DA-04 · USABLE"
+    },
+    {
+      "line": 212,
+      "level": 1,
+      "text": "Provenance"
+    },
+    {
+      "line": 221,
+      "level": 3,
+      "text": "P-DT02-01"
+    },
+    {
+      "line": 225,
+      "level": 1,
+      "text": "9. Condiciones evaluables"
+    },
+    {
+      "line": 227,
+      "level": 2,
+      "text": "CE01 · Necesidad y propósito"
+    },
+    {
+      "line": 231,
+      "level": 2,
+      "text": "CE02 · Existencia y captura"
+    },
+    {
+      "line": 235,
+      "level": 2,
+      "text": "CE03 · Significado"
+    },
+    {
+      "line": 239,
+      "level": 2,
+      "text": "CE04 · Calidad intrínseca/contextual"
+    },
+    {
+      "line": 247,
+      "level": 2,
+      "text": "CE05 · Disponibilidad para uso"
+    },
+    {
+      "line": 252,
+      "level": 2,
+      "text": "CE06 · Confiabilidad y trazabilidad"
+    },
+    {
+      "line": 256,
+      "level": 2,
+      "text": "CE07 · Mantenimiento"
+    },
+    {
+      "line": 260,
+      "level": 1,
+      "text": "10. Information Needs"
+    },
+    {
+      "line": 263,
+      "level": 3,
+      "text": "NI-DT02-USE"
+    },
+    {
+      "line": 270,
+      "level": 1,
+      "text": "11. Grounding"
+    },
+    {
+      "line": 272,
+      "level": 3,
+      "text": "ISO 8000"
+    },
+    {
+      "line": 275,
+      "level": 3,
+      "text": "DAMA"
+    },
+    {
+      "line": 281,
+      "level": 1,
+      "text": "12. Principios DT-02"
+    },
+    {
+      "line": 323,
+      "level": 1,
+      "text": "13. Captura progresiva"
+    },
+    {
+      "line": 324,
+      "level": 2,
+      "text": "P1 · Núcleo"
+    },
+    {
+      "line": 335,
+      "level": 1,
+      "text": "P2 · Condicional"
+    },
+    {
+      "line": 351,
+      "level": 1,
+      "text": "P3 · Discriminación"
+    },
+    {
+      "line": 364,
+      "level": 1,
+      "text": "P4 · Contradicciones"
+    },
+    {
+      "line": 365,
+      "level": 3,
+      "text": "CONTR-DT02-01"
+    },
+    {
+      "line": 369,
+      "level": 3,
+      "text": "CONTR-DT02-02"
+    },
+    {
+      "line": 372,
+      "level": 3,
+      "text": "CONTR-DT02-03"
+    },
+    {
+      "line": 376,
+      "level": 1,
+      "text": "P5 · Validación"
+    },
+    {
+      "line": 384,
+      "level": 1,
+      "text": "14. Evidencia"
+    },
+    {
+      "line": 407,
+      "level": 1,
+      "text": "Evidencia proporcional"
+    },
+    {
+      "line": 412,
+      "level": 3,
+      "text": "EVID-DT02-01"
+    },
+    {
+      "line": 415,
+      "level": 1,
+      "text": "15. Suficiencia"
+    },
+    {
+      "line": 416,
+      "level": 3,
+      "text": "SUFF-DT02-01"
+    },
+    {
+      "line": 421,
+      "level": 1,
+      "text": "Coverage"
+    },
+    {
+      "line": 428,
+      "level": 1,
+      "text": "16. Confianza"
+    },
+    {
+      "line": 436,
+      "level": 1,
+      "text": "17. Reglas diagnósticas"
+    },
+    {
+      "line": 456,
+      "level": 1,
+      "text": "Estados positivos"
+    },
+    {
+      "line": 458,
+      "level": 3,
+      "text": "MATERIAL_DATA_NEEDS_VISIBLE"
+    },
+    {
+      "line": 459,
+      "level": 3,
+      "text": "MATERIAL_DATA_SUFFICIENTLY_CAPTURED"
+    },
+    {
+      "line": 460,
+      "level": 3,
+      "text": "DATA_MEANING_SUFFICIENTLY_CLEAR"
+    },
+    {
+      "line": 461,
+      "level": 3,
+      "text": "DATA_FIT_FOR_USE"
+    },
+    {
+      "line": 462,
+      "level": 3,
+      "text": "DATA_AVAILABLE_WHEN_NEEDED"
+    },
+    {
+      "line": 463,
+      "level": 3,
+      "text": "MATERIAL_DATA_QUALITY_SUSTAINED"
+    },
+    {
+      "line": 465,
+      "level": 1,
+      "text": "Guardrails"
+    },
+    {
+      "line": 487,
+      "level": 1,
+      "text": "Candidatos para el Motor"
+    },
+    {
+      "line": 488,
+      "level": 3,
+      "text": "CAND-MOTOR-DT02-01"
+    },
+    {
+      "line": 490,
+      "level": 3,
+      "text": "CAND-MOTOR-DT02-02"
+    },
+    {
+      "line": 492,
+      "level": 3,
+      "text": "CAND-MOTOR-DT02-03"
+    },
+    {
+      "line": 494,
+      "level": 3,
+      "text": "CAND-MOTOR-DT02-04"
+    },
+    {
+      "line": 496,
+      "level": 3,
+      "text": "CAND-MOTOR-DT02-05"
+    },
+    {
+      "line": 498,
+      "level": 3,
+      "text": "CAND-MOTOR-DT02-06"
+    },
+    {
+      "line": 500,
+      "level": 3,
+      "text": "CAND-MOTOR-DT02-07"
+    },
+    {
+      "line": 503,
+      "level": 1,
+      "text": "Un candidato adicional especialmente importante para IA"
+    },
+    {
+      "line": 504,
+      "level": 3,
+      "text": "CAND-MOTOR-AI-DATA-01"
+    },
+    {
+      "line": 508,
+      "level": 1,
+      "text": "Source Review Trigger"
+    },
+    {
+      "line": 515,
+      "level": 1,
+      "text": "Control DT-02 · SET A"
+    },
+    {
+      "line": 535,
+      "level": 1,
+      "text": "DT-02 · Gestionar datos con calidad y disponibilidad"
+    },
+    {
+      "line": 536,
+      "level": 2,
+      "text": "SET B · Bloques 9–12"
+    },
+    {
+      "line": 539,
+      "level": 1,
+      "text": "9. Findings y decisiones"
+    },
+    {
+      "line": 551,
+      "level": 2,
+      "text": "El finding debe conservar el uso"
+    },
+    {
+      "line": 559,
+      "level": 3,
+      "text": "FIND-DT02-01"
+    },
+    {
+      "line": 562,
+      "level": 1,
+      "text": "Calidad observada ≠ causa"
+    },
+    {
+      "line": 579,
+      "level": 3,
+      "text": "CAUS-DT02-01"
+    },
+    {
+      "line": 582,
+      "level": 1,
+      "text": "Vocabulario de decisión"
+    },
+    {
+      "line": 584,
+      "level": 3,
+      "text": "DEFINE"
+    },
+    {
+      "line": 586,
+      "level": 3,
+      "text": "CAPTURE"
+    },
+    {
+      "line": 588,
+      "level": 3,
+      "text": "VALIDATE"
+    },
+    {
+      "line": 590,
+      "level": 3,
+      "text": "CORRECT"
+    },
+    {
+      "line": 592,
+      "level": 3,
+      "text": "PREVENT"
+    },
+    {
+      "line": 594,
+      "level": 3,
+      "text": "STANDARDIZE"
+    },
+    {
+      "line": 596,
+      "level": 3,
+      "text": "RECONCILE"
+    },
+    {
+      "line": 598,
+      "level": 3,
+      "text": "ENABLE_ACCESS"
+    },
+    {
+      "line": 600,
+      "level": 3,
+      "text": "REFRESH"
+    },
+    {
+      "line": 602,
+      "level": 3,
+      "text": "TRACE"
+    },
+    {
+      "line": 604,
+      "level": 3,
+      "text": "MONITOR"
+    },
+    {
+      "line": 606,
+      "level": 3,
+      "text": "NO_ACTION"
+    },
+    {
+      "line": 609,
+      "level": 1,
+      "text": "Corrección vs prevención"
+    },
+    {
+      "line": 621,
+      "level": 1,
+      "text": "Principio Source-First"
+    },
+    {
+      "line": 623,
+      "level": 3,
+      "text": "INT-DT02-01 · SOURCE-FIRST CORRECTION"
+    },
+    {
+      "line": 632,
+      "level": 1,
+      "text": "Minimum Sufficient Data Control"
+    },
+    {
+      "line": 634,
+      "level": 3,
+      "text": "INT-DT02-02"
+    },
+    {
+      "line": 649,
+      "level": 1,
+      "text": "10. Intervenciones, actividades e instrumentos"
+    },
+    {
+      "line": 661,
+      "level": 1,
+      "text": "Actividades posibles"
+    },
+    {
+      "line": 685,
+      "level": 1,
+      "text": "Instrumentos"
+    },
+    {
+      "line": 687,
+      "level": 3,
+      "text": "INS-DT02-01 · Data Need Card"
+    },
+    {
+      "line": 691,
+      "level": 3,
+      "text": "INS-DT02-02 · Critical Data Map"
+    },
+    {
+      "line": 695,
+      "level": 3,
+      "text": "INS-DT02-03 · Data Quality Rule Card"
+    },
+    {
+      "line": 700,
+      "level": 3,
+      "text": "INS-DT02-04 · Data Issue/Cause Map"
+    },
+    {
+      "line": 703,
+      "level": 3,
+      "text": "INS-DT02-05 · Data Availability Map"
+    },
+    {
+      "line": 706,
+      "level": 3,
+      "text": "INS-DT02-06 · Provenance Lite"
+    },
+    {
+      "line": 710,
+      "level": 3,
+      "text": "INS-DT02-07 · Data Quality Control Plan"
+    },
+    {
+      "line": 713,
+      "level": 1,
+      "text": "SME-friendly by design"
+    },
+    {
+      "line": 722,
+      "level": 1,
+      "text": "11. Entregables, Done, CRV, validación y seguimiento"
+    },
+    {
+      "line": 733,
+      "level": 1,
+      "text": "Done Criteria"
+    },
+    {
+      "line": 735,
+      "level": 3,
+      "text": "DC-A · Need Done"
+    },
+    {
+      "line": 737,
+      "level": 3,
+      "text": "DC-B · Coverage Done"
+    },
+    {
+      "line": 739,
+      "level": 3,
+      "text": "DC-C · Meaning Done"
+    },
+    {
+      "line": 741,
+      "level": 3,
+      "text": "DC-D · Quality Done"
+    },
+    {
+      "line": 743,
+      "level": 3,
+      "text": "DC-E · Availability Done"
+    },
+    {
+      "line": 745,
+      "level": 3,
+      "text": "DC-F · Traceability Done"
+    },
+    {
+      "line": 747,
+      "level": 3,
+      "text": "DC-G · Sustainability Done"
+    },
+    {
+      "line": 750,
+      "level": 1,
+      "text": "CRV"
+    },
+    {
+      "line": 762,
+      "level": 1,
+      "text": "Tolerancia"
+    },
+    {
+      "line": 764,
+      "level": 3,
+      "text": "DATA QUALITY TOLERANCE"
+    },
+    {
+      "line": 774,
+      "level": 3,
+      "text": "CAND-MOTOR-DT02-08"
+    },
+    {
+      "line": 777,
+      "level": 1,
+      "text": "KPI"
+    },
+    {
+      "line": 795,
+      "level": 1,
+      "text": "Validación"
+    },
+    {
+      "line": 797,
+      "level": 3,
+      "text": "V0 · UNKNOWN"
+    },
+    {
+      "line": 799,
+      "level": 3,
+      "text": "V1 · DEFINED"
+    },
+    {
+      "line": 801,
+      "level": 3,
+      "text": "V2 · QUALITY-EVIDENCED"
+    },
+    {
+      "line": 803,
+      "level": 3,
+      "text": "V3 · FIT-FOR-USE"
+    },
+    {
+      "line": 805,
+      "level": 3,
+      "text": "V4 · SUSTAINED"
+    },
+    {
+      "line": 808,
+      "level": 1,
+      "text": "Validación por uso"
+    },
+    {
+      "line": 815,
+      "level": 3,
+      "text": "VAL-DT02-01"
+    },
+    {
+      "line": 819,
+      "level": 1,
+      "text": "Seguimiento"
+    },
+    {
+      "line": 837,
+      "level": 3,
+      "text": "REASS-DT02-01"
+    },
+    {
+      "line": 840,
+      "level": 1,
+      "text": "12. Contextualización, Knowledge Governance y cierre"
+    },
+    {
+      "line": 841,
+      "level": 2,
+      "text": "Contextualización"
+    },
+    {
+      "line": 848,
+      "level": 1,
+      "text": "Gobierno de datos proporcional"
+    },
+    {
+      "line": 861,
+      "level": 3,
+      "text": "DATA ACCOUNTABILITY"
+    },
+    {
+      "line": 865,
+      "level": 1,
+      "text": "Ownership: precaución semántica"
+    },
+    {
+      "line": 871,
+      "level": 3,
+      "text": "P-DT02-18"
+    },
+    {
+      "line": 874,
+      "level": 1,
+      "text": "AI y datos"
+    },
+    {
+      "line": 887,
+      "level": 1,
+      "text": "Provenance y Knowledge Governance"
+    },
+    {
+      "line": 889,
+      "level": 3,
+      "text": "SOURCE-DERIVED"
+    },
+    {
+      "line": 899,
+      "level": 3,
+      "text": "PYMAPA-DESIGNED"
+    },
+    {
+      "line": 917,
+      "level": 1,
+      "text": "Source triggers"
+    },
+    {
+      "line": 922,
+      "level": 1,
+      "text": "A–V · DT-02"
+    },
+    {
+      "line": 948,
+      "level": 1,
+      "text": "DoD V1"
+    },
+    {
+      "line": 951,
+      "level": 3,
+      "text": "Suficiencia — PASS"
+    },
+    {
+      "line": 956,
+      "level": 3,
+      "text": "Cobertura — PASS"
+    },
+    {
+      "line": 960,
+      "level": 3,
+      "text": "Causalidad — PASS"
+    },
+    {
+      "line": 962,
+      "level": 3,
+      "text": "Resultado — PASS"
+    },
+    {
+      "line": 969,
+      "level": 1,
+      "text": "Quality Gates"
+    },
+    {
+      "line": 970,
+      "level": 3,
+      "text": "K1 · Coherencia — PASS"
+    },
+    {
+      "line": 972,
+      "level": 3,
+      "text": "K2 · Razonamiento — PASS"
+    },
+    {
+      "line": 975,
+      "level": 3,
+      "text": "K3 · Acción — PASS"
+    },
+    {
+      "line": 978,
+      "level": 3,
+      "text": "K4 · Knowledge — PASS"
+    },
+    {
+      "line": 980,
+      "level": 1,
+      "text": "Cierre DT-02"
+    },
+    {
+      "line": 1001,
+      "level": 1,
+      "text": "Estado DT actualizado"
+    }
+  ],
+  "pageStartLines": [],
+  "declaredHistoricalMarker": {
+    "text": "DT02-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "lines": [
+      981,
+      999
+    ]
+  },
+  "registeredAt": "2026-09-24",
+  "segment": {
+    "rule": "K4_CLOSURE_AND_IDENTITY_HEADING_BOUNDARY: el tramo de la capacidad k+1 empieza en el primer heading «<ID k+1> · …» posterior a la última línea que declara literalmente <IDcompacto k>-K4-v<n> · K4-VALIDATED · CLOSED; el tramo k termina en la línea anterior (el cierre y el resumen posterior de k quedan en k; la primera capacidad incluye el preámbulo del dominio; la última extiende hasta el final del texto). No decide contenido ni canonicidad.",
+    "fullTextSha256": "3ef5fc9b2cc96b2dcce1fc8675273961f410ef5bde99332d91a9f2a9132d9b87",
+    "fullTextLineCount": 6471,
+    "fromLine": 906,
+    "toLine": 1922,
+    "boundaryEvidence": {
+      "text": "DT02-K4-v1.0 · K4-VALIDATED · CLOSED",
+      "line": 1904
+    }
+  },
+  "checksum": "sha256:873601fd7c0b1bb040a7d0f1f44bf7d101e929348580c4bd8e69394db69902c1"
+}

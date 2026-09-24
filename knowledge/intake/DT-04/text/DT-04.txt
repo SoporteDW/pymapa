@@ -1,0 +1,1070 @@
+Seguimos con DT-04 · Convertir datos en información útil para decisiones. Aquí cambia nuevamente la unidad de razonamiento: ya no evaluamos si existen datos de calidad ni si circulan correctamente, sino si la organización consigue convertir evidencia disponible en información suficientemente útil para una decisión material concreta.
+# DT-04 · Convertir datos en información útil para decisiones
+## Dimensionamiento orgánico
+La pregunta irreducible será:
+¿Puede la organización transformar datos y evidencia relevantes en información suficientemente pertinente, comprensible, confiable y oportuna para apoyar decisiones materiales?
+La cadena conceptual será:
+Decision Need → Decision Question → Evidence/Data → Transformation → Information → Interpretation → Decision Support → Decision.
+Con una frontera esencial:
+DT-04 termina en capacidad de soporte informacional a la decisión. No pretende demostrar que la decisión tomada fue correcta ni que produjo el resultado esperado.
+
+# 1. Dimensionamiento
+DT-04 requiere mayor profundidad que las tres capacidades anteriores porque debemos distinguir información, métricas, interpretación, incertidumbre, comparabilidad y decisión.
+La dimensionamos en 14 bloques:
+| # | Bloque |
+| 1 | Identidad, alcance y unidad |
+| 2 | Modelo Decision Need → Information |
+| 3 | Aplicabilidad y materialidad |
+| 4 | Fronteras con DT-02/03, DG y otras capacidades |
+| 5 | Tipología de decisiones y necesidades informacionales |
+| 6 | Modelo de transformación y métricas |
+| 7 | Calidad de información para decisión |
+| 8 | Incertidumbre, contexto y comparabilidad |
+| 9 | Condiciones evaluables y variables |
+| 10 | Information Needs, captura, evidencia, suficiencia, confianza y reglas |
+| 11 | Findings y decisiones |
+| 12 | Intervenciones, actividades e instrumentos |
+| 13 | Entregables, Done, CRV, validación y seguimiento |
+| 14 | Contextualización, governance y cierre |
+Agrupamos:
+SET A = bloques 1–10
+SET B = bloques 11–14
+Desarrollamos ahora SET A completo.
+
+# 2. Identidad
+## Definición V1
+DT-04 evalúa la capacidad de la organización para convertir datos y evidencia relevantes en información suficientemente pertinente, interpretable, confiable y oportuna para apoyar decisiones materiales dentro de su contexto.
+## Unidad de análisis
+No será:
+dashboard.
+Ni:
+reporte.
+Ni:
+KPI.
+Será:
+### DECISION INFORMATION NEED — DIN
+Necesidad de información asociada a una decisión material que requiere reducir suficientemente una incertidumbre, comprender una condición o comparar alternativas para poder decidir.
+La relación mínima será:
+DECISION → QUESTION → INFORMATION NEED
+antes de:
+DATA → REPORT → DASHBOARD.
+
+# 3. Data ≠ Information ≠ Decision
+Formalizamos la separación:
+### DATA
+Representaciones de hechos, atributos, eventos o condiciones.
+### METRIC
+Medida derivada o estructurada para representar una condición relevante.
+### INFORMATION
+Datos/evidencia organizados e interpretables dentro de un contexto y propósito.
+### INSIGHT
+Interpretación que identifica una relación, patrón, explicación o implicación potencial.
+### DECISION
+Elección, priorización, aceptación, rechazo, ajuste o acción entre alternativas.
+### RESULT
+Consecuencia posteriormente observada.
+Por tanto:
+DATA ≠ METRIC ≠ INFORMATION ≠ INSIGHT ≠ DECISION ≠ RESULT
+
+# 4. El dashboard no es la unidad
+Una empresa puede tener:
+cero dashboards
+y tomar decisiones bien informadas mediante un reporte semanal sencillo.
+Otra puede tener:
+40 dashboards
+y no saber qué hacer con ellos.
+### P-DT04-CORE-01
+La existencia, cantidad o sofisticación de reportes, dashboards o herramientas BI no constituye evidencia suficiente de capacidad para convertir datos en información útil para decisiones.
+
+# 5. Decision-first
+La arquitectura debe comenzar por la decisión.
+Ejemplo:
+No:
+“Necesitamos analizar ventas.”
+Sino:
+“Debemos decidir si mantener, modificar o retirar una promoción.”
+Entonces aparecen preguntas:
+- ¿incrementó ventas?
+- ¿qué ocurrió con margen?
+- ¿hubo canibalización?
+- ¿qué segmentos respondieron?
+- ¿qué habría ocurrido razonablemente sin promoción?
+Ahora podemos determinar:
+qué información necesitamos.
+### P-DT04-01
+La necesidad informacional debe derivarse de una pregunta o decisión material antes de seleccionar métricas o visualizaciones.
+
+# 6. Aplicabilidad
+DT-04 no exige análisis sofisticado para toda decisión.
+### APP-DT04-01
+La profundidad del soporte informacional debe ser proporcional a la materialidad, incertidumbre, reversibilidad y frecuencia de la decisión.
+Una decisión:
+pequeña + reversible + frecuente
+puede funcionar con evidencia sencilla.
+Una decisión:
+costosa + difícil de revertir + altamente incierta
+puede justificar mayor análisis.
+
+# 7. Materialidad de decisión
+Drivers:
+- impacto económico;
+- impacto operativo;
+- cliente;
+- riesgo;
+- irreversibilidad;
+- duración del efecto;
+- frecuencia;
+- incertidumbre;
+- dependencia de otras decisiones;
+- costo de error;
+- costo de demora;
+- disponibilidad de evidencia.
+No los convertimos en score universal.
+
+# 8. Fronteras
+## DT-04 vs DT-02
+DT-02:
+¿los datos son suficientemente aptos?
+DT-04:
+¿esos datos se convierten en información útil para una decisión?
+Puede existir:
+DT02 positive + DT04 negative
+si los datos son buenos pero:
+se usan métricas equivocadas.
+
+# DT-04 vs DT-03
+DT-03:
+¿la información llega?
+DT-04:
+¿lo que llega responde suficientemente la pregunta?
+
+# DT-04 vs DG-04
+Ésta es una frontera crítica.
+DG-04:
+¿la organización da seguimiento a iniciativas y resultados?
+DT-04:
+¿puede producir información útil para apoyar una decisión?
+DG-04 puede consumir objetos de DT-04.
+Pero DT-04 no gobierna:
+el ciclo completo de seguimiento.
+
+# DT-04 vs DG-02
+DG-02:
+priorización de iniciativas/recursos.
+DT-04:
+soporte informacional que puede alimentar esa priorización.
+No decide:
+qué iniciativa priorizar.
+
+# DT-04 vs CM-06
+Más adelante:
+CM-06 evaluará:
+medir y gestionar creación de valor.
+DT-04 aportará:
+capacidad transversal para convertir datos en información decisional.
+CM-06 será específica del objeto:
+creación de valor.
+
+# DT-04 vs juicio humano
+Pymapa tampoco debe asumir:
+decisión basada en datos = decisión puramente algorítmica.
+Experiencia, conocimiento tácito y juicio pueden ser evidencia legítima.
+### P-DT04-02
+El soporte informacional puede combinar evidencia cuantitativa, cualitativa y conocimiento contextual; “data-driven” no significa excluir juicio humano.
+
+# 9. Tipología de necesidades decisionales
+Proponemos 6 familias funcionales.
+### DIN-01 · STATUS
+¿Qué está ocurriendo?
+### DIN-02 · COMPARISON
+¿Cómo se compara?
+### DIN-03 · EXPLANATION
+¿Por qué podría estar ocurriendo?
+### DIN-04 · FORECAST
+¿Qué puede ocurrir?
+### DIN-05 · OPTION
+¿Qué alternativas existen y cómo difieren?
+### DIN-06 · EVALUATION
+¿Qué ocurrió después de una acción/decisión?
+No representan niveles de madurez.
+Una empresa no necesita “avanzar” obligatoriamente de descriptivo a predictivo.
+
+# 10. Cuidado con “por qué”
+Los datos observacionales pueden mostrar:
+asociación.
+No necesariamente:
+causalidad.
+Por tanto:
+### P-DT04-03
+La fuerza causal de una interpretación no debe exceder la evidencia disponible.
+Esto reutiliza directamente servicios causales del Motor construidos anteriormente.
+
+# 11. Modelo de transformación
+La información puede derivarse mediante:
+- selección;
+- filtrado;
+- agrupación;
+- cálculo;
+- comparación;
+- normalización;
+- segmentación;
+- agregación;
+- tendencia;
+- estimación;
+- modelado;
+- interpretación cualitativa.
+Pero:
+transformación técnicamente correcta ≠ información útil.
+
+# 12. Métricas
+Una métrica debe conectarse con:
+QUESTION + CONSTRUCT + DECISION
+Ejemplo:
+“seguidores en redes sociales”
+puede ser medible.
+Pero si la decisión es:
+aumentar rentabilidad del canal,
+su pertinencia no está demostrada.
+### P-DT04-04
+Measurable ≠ decision-relevant.
+
+# KPI
+También preservamos:
+METRIC ≠ KPI
+Un KPI es una métrica que tiene importancia suficientemente material respecto de un objetivo/resultado.
+Y:
+KPI ≠ CRV
+CRV sigue reservado para:
+resultado verificable de intervención.
+
+# 13. Baseline y comparación
+Muchas preguntas necesitan referencia:
+- período anterior;
+- objetivo;
+- presupuesto;
+- segmento;
+- benchmark;
+- baseline;
+- escenario;
+- control/comparador cuando sea pertinente.
+Sin referencia:
+“vendimos $100.000”
+puede decir muy poco.
+### P-DT04-05
+Una métrica aislada puede ser insuficiente cuando la pregunta decisional requiere comparación.
+
+# 14. Contexto
+La misma cifra puede significar cosas diferentes.
+Ejemplo:
+conversión cayó 10 %.
+Podría deberse a:
+- cambio de tráfico;
+- temporada;
+- precio;
+- mix;
+- promoción;
+- medición;
+- canal.
+Por tanto:
+NUMBER ≠ INTERPRETATION
+### P-DT04-06
+La interpretación debe conservar suficiente contexto para evitar conclusiones materialmente engañosas.
+
+# 15. Incertidumbre
+Una información útil no necesita ser:
+cierta.
+Puede ser:
+suficientemente confiable con incertidumbre explícita.
+Ejemplo:
+“la demanda probablemente estará entre X e Y bajo estos supuestos”.
+Puede ser más útil que:
+“la demanda será exactamente Z”.
+### P-DT04-07
+La incertidumbre relevante debe hacerse visible cuando pueda cambiar materialmente la decisión.
+
+# 16. Timeliness
+Información correcta pero tardía puede no tener valor decisional.
+Definimos:
+### DECISION WINDOW
+período dentro del cual la información todavía puede afectar materialmente la decisión.
+### P-DT04-08
+La oportunidad debe evaluarse contra la ventana decisional, no contra una expectativa universal de tiempo real.
+
+# 17. Actionability
+Debemos tratar este concepto con cuidado.
+“Accionable” no significa:
+toda información debe producir una acción.
+Puede justificar:
+no hacer nada.
+Definimos:
+### DECISION USABILITY
+grado en que la información permite comprender suficientemente la condición relevante para elegir, descartar, diferir, mantener o profundizar una decisión.
+
+# 18. Condiciones evaluables
+DT-04 requiere 8 CE / 18 VA.
+## CE01 · Necesidad decisional
+VA01 · Decisión material identificada
+VA02 · Pregunta decisional suficientemente clara
+
+## CE02 · Necesidad informacional
+VA03 · Información requerida identificada
+VA04 · Datos/evidencia relevantes identificados
+
+## CE03 · Representación
+VA05 · Métricas/indicadores pertinentes
+VA06 · Definiciones/cálculos suficientemente claros
+
+## CE04 · Transformación
+VA07 · Transformaciones suficientemente correctas
+VA08 · Agregación/segmentación adecuada al propósito
+
+## CE05 · Contexto y comparación
+VA09 · Contexto material incorporado
+VA10 · Baseline/comparador suficiente cuando aplica
+
+## CE06 · Interpretación y confianza
+VA11 · Información suficientemente interpretable
+VA12 · Inferencias proporcionales a evidencia
+VA13 · Incertidumbre material suficientemente visible
+
+## CE07 · Oportunidad y acceso
+VA14 · Información disponible dentro de Decision Window
+VA15 · Información accesible/comprensible para decisor aplicable
+
+## CE08 · Utilidad decisional
+VA16 · Información responde suficientemente la pregunta
+VA17 · Alternativas/implicaciones suficientemente distinguibles cuando aplica
+VA18 · Información puede modificar, confirmar, diferir o profundizar razonablemente la decisión
+Esta última VA evita producir información ceremonial.
+
+# 19. Information Needs
+Resultan 18 NI.
+Pero el núcleo mínimo será:
+### NI-DT04-CORE
+¿Qué decisión debe tomarse, qué incertidumbre necesita reducirse y qué información podría cambiar materialmente esa decisión?
+Esta pregunta conecta directamente con el servicio transversal:
+Value of Information.
+
+# 20. Value of Information
+DT-04 es probablemente la capacidad donde VoI resulta más explícito.
+Si obtener información adicional:
+cuesta mucho
+y difícilmente cambiará la decisión,
+Pymapa puede recomendar:
+decidir con evidencia actual.
+### VOI-DT04-01
+Debe profundizarse la adquisición o análisis de información cuando su capacidad razonable de cambiar o mejorar materialmente la decisión justifique el costo, demora y complejidad adicionales.
+Esto evita:
+analysis paralysis.
+
+# 21. Captura progresiva
+## P1 · Núcleo
+Preguntas naturales:
+“¿Qué decisiones importantes les cuesta tomar porque no tienen suficiente información?”
+“¿Qué reportes usan realmente para decidir?”
+“¿Qué información reciben pero no saben cómo interpretar?”
+“¿Qué decisiones terminan tomando demasiado tarde?”
+“¿Dónde distintas personas llegan a conclusiones diferentes usando los mismos datos?”
+
+# P2 · Triggers
+Profundizamos ante:
+- reportes que nadie usa;
+- múltiples versiones del mismo indicador;
+- exceso de métricas;
+- decisiones tardías;
+- decisiones repetitivas sin información;
+- métricas sin objetivo;
+- dashboards extensos;
+- interpretación contradictoria;
+- ausencia de baseline;
+- indicadores atrasados;
+- pronósticos;
+- decisiones de alta incertidumbre;
+- análisis manual recurrente;
+- “sabemos qué pasó pero no por qué”.
+
+# P3 · Discriminación
+Ante:
+“el reporte no sirve”
+debemos distinguir:
+DATA QUALITY → DT-02
+INFORMATION NOT ARRIVING → DT-03
+WRONG METRIC → DT-04
+WRONG TRANSFORMATION → DT-04
+CONTEXT MISSING → DT-04
+DECISION QUESTION UNCLEAR → DT-04 / dominio decisor
+LACK OF COMPETENCE → PC-02
+NO FOLLOW-UP → DG-04
+
+# P4 · Contradicciones
+### CONTR-DT04-01
+MANY_REPORTS_vs_DECISION_INFORMATION_GAP
+Muchos reportes, pero decisiones materiales carecen de información pertinente.
+### CONTR-DT04-02
+DATA_DRIVEN_CLAIM_vs_UNDEFINED_METRICS
+La organización se declara “data-driven”, pero métricas clave carecen de definición consistente.
+### CONTR-DT04-03
+PRECISE_FORECAST_vs_HIGH_UNCERTAINTY
+Predicción muy precisa sin soporte suficiente para ese nivel de certeza.
+### CONTR-DT04-04
+REAL_TIME_DASHBOARD_vs_DECISION_DELAY
+Información en tiempo real pero decisión ocurre demasiado tarde.
+
+# P5 · Validación
+En vez de preguntar:
+“¿Tiene información para tomar decisiones?”
+podemos probar:
+“La última vez que decidieron ajustar precios, ¿qué pregunta necesitaban responder, qué información utilizaron y qué habría cambiado la decisión?”
+Esto valida:
+DECISION + INFORMATION + USE.
+
+# 22. Evidencia
+Puede incluir:
+- decisiones reales;
+- reportes;
+- dashboards;
+- hojas de cálculo;
+- métricas;
+- definiciones;
+- fórmulas;
+- fuentes;
+- comparadores;
+- análisis;
+- reuniones;
+- escenarios;
+- forecasts;
+- timestamps;
+- responsables;
+- interpretaciones;
+- decisiones tomadas;
+- evidencia cualitativa.
+No necesitamos BI para validar DT-04.
+
+# 23. Suficiencia
+### SUFF-DT04-01
+DT-04 alcanza suficiencia cuando las decisiones materiales aplicables disponen, dentro de su ventana decisional, de información suficientemente pertinente, interpretable y confiable para responder las preguntas críticas y manejar explícitamente las incertidumbres capaces de alterar materialmente la decisión.
+No exige:
+eliminar incertidumbre.
+
+# Coverage
+Seguimos:
+material decision → decision question → critical information need
+No:
+todos los reportes → todos los indicadores.
+
+# 24. Confianza
+Reutilizamos C0–C3, pero debemos distinguir:
+### DATA CONFIDENCE
+confianza en los datos.
+### INFORMATION CONFIDENCE
+confianza en transformación/representación.
+### INFERENCE CONFIDENCE
+confianza en interpretación.
+### DECISION SUPPORT CONFIDENCE
+confianza en que la información es suficiente para la decisión.
+No son intercambiables.
+### CAND-MOTOR-DT04-01
+La confianza en datos fuente no debe transferirse automáticamente a métricas, inferencias o soporte decisional derivados.
+
+# 25. Reglas diagnósticas
+Resultan 18 reglas primarias.
+R-DT04-01 · MATERIAL_DECISION_NEED_UNCLEAR
+R-DT04-02 · DECISION_QUESTION_UNCLEAR
+R-DT04-03 · DECISION_INFORMATION_NEED_UNCLEAR
+R-DT04-04 · RELEVANT_EVIDENCE_GAP
+R-DT04-05 · DECISION_METRIC_RELEVANCE_GAP
+R-DT04-06 · METRIC_DEFINITION_GAP
+R-DT04-07 · INFORMATION_TRANSFORMATION_ERROR
+R-DT04-08 · ANALYTICAL_GRANULARITY_MISMATCH
+R-DT04-09 · MATERIAL_DECISION_CONTEXT_GAP
+R-DT04-10 · REQUIRED_COMPARATOR_GAP
+R-DT04-11 · INFORMATION_INTERPRETABILITY_GAP
+R-DT04-12 · INFERENCE_EXCEEDS_EVIDENCE
+R-DT04-13 · MATERIAL_UNCERTAINTY_HIDDEN
+R-DT04-14 · INFORMATION_OUTSIDE_DECISION_WINDOW
+R-DT04-15 · DECISION_INFORMATION_ACCESS_GAP
+R-DT04-16 · INFORMATION_DOES_NOT_ANSWER_DECISION_QUESTION
+R-DT04-17 · DECISION_ALTERNATIVES_NOT_DISTINGUISHABLE
+R-DT04-18 · INFORMATION_DECISION_UTILITY_GAP
+
+# 26. Estados positivos
+Resultan 7:
+### MATERIAL_DECISION_VISIBLE
+### DECISION_QUESTION_CLEAR
+### RELEVANT_INFORMATION_AVAILABLE
+### INFORMATION_MEANINGFUL
+### INFERENCE_EVIDENCE_ALIGNED
+### INFORMATION_TIMELY
+### INFORMATION_DECISION_FIT
+
+# 27. Guardrails
+- No medir capacidad por número de dashboards.
+- No premiar BI por sí mismo.
+- No asumir que más métricas = mejor información.
+- No asumir que más datos = mejor decisión.
+- No exigir tiempo real.
+- No exigir predicción.
+- No tratar analítica descriptiva como inferior.
+- No asumir causalidad desde correlación.
+- No ocultar incertidumbre material.
+- No confundir precisión numérica con certeza.
+- No exigir KPI para toda decisión.
+- No confundir KPI con CRV.
+- No confundir métrica con objetivo.
+- No confundir reporte con información útil.
+- No confundir información con insight.
+- No confundir insight con decisión.
+- No confundir decisión con resultado.
+- No penalizar juicio humano.
+- No asumir que qualitative evidence es inferior.
+- No exigir benchmark cuando no agrega valor.
+- No exigir baseline cuando la pregunta no lo necesita.
+- No profundizar análisis si VoI es insuficiente.
+- No recomendar nueva herramienta antes de identificar la necesidad decisional.
+- No inferir baja capacidad porque una decisión resultó mal.
+- No inferir buena capacidad porque una decisión produjo buen resultado.
+Los últimos dos son críticos.
+
+# Decision quality ≠ outcome quality
+Una organización puede tomar una decisión razonable con la mejor información disponible y obtener:
+mal resultado.
+O tomar una decisión pobre y:
+tener suerte.
+### P-DT04-09
+La calidad del soporte informacional debe evaluarse respecto de la evidencia disponible y las necesidades de decisión en el momento correspondiente, no retrospectivamente por el resultado obtenido.
+Esto conecta directamente con el candidato ya construido en DG-05 sobre decisión bajo incertidumbre.
+
+# 28. Candidatos para el Motor
+Además de CAND-MOTOR-DT04-01:
+### CAND-MOTOR-DT04-02
+La unidad diagnóstica debe asociar Decision Need + Decision Question + Information Need.
+### CAND-MOTOR-DT04-03
+Data, Metric, Information, Insight, Decision y Result deben permanecer como objetos no equivalentes.
+### CAND-MOTOR-DT04-04
+La pertinencia de una métrica debe evaluarse respecto de la pregunta decisional, no por disponibilidad o popularidad.
+### CAND-MOTOR-DT04-05
+El Motor debe poder representar incertidumbre material sin convertir UNKNOWN en valoración negativa automática.
+### CAND-MOTOR-DT04-06
+El nivel de inferencia permitido debe estar limitado por la fuerza de evidencia disponible.
+### CAND-MOTOR-DT04-07
+La oportunidad informacional debe evaluarse respecto de una Decision Window contextual.
+### CAND-MOTOR-DT04-08
+La adquisición/análisis adicional debe poder detenerse cuando el Value of Information marginal sea insuficiente.
+### CAND-MOTOR-DT04-09
+La calidad de soporte decisional no debe inferirse retrospectivamente del resultado de la decisión.
+### CAND-MOTOR-DT04-10
+Información útil puede justificar ACT, HOLD, DEFER, NO_ACTION o ACQUIRE_MORE_INFORMATION.
+
+# IA
+Aquí aparece una frontera muy importante para Fase 3.
+Una IA puede:
+- resumir;
+- clasificar;
+- analizar;
+- pronosticar;
+- generar escenarios;
+- recomendar.
+Pero:
+respuesta generada ≠ información confiable.
+Registramos:
+### CAND-MOTOR-AI-DT04-01
+El uso de IA para producir métricas, análisis, inferencias o recomendaciones no transfiere automáticamente confianza desde los datos fuente al resultado generado; deben evaluarse transformación, evidencia, incertidumbre y fitness para la decisión.
+Y:
+### CAND-MOTOR-AI-DT04-02
+Una recomendación generada por IA debe permanecer distinguible de la decisión humana u organizacional que eventualmente la adopta, modifica, difiere o rechaza.
+Esto será estructural para Pymapa.
+
+# Control DT-04 · SET A
+| Objeto | Resultado |
+| Dimensionamiento | 14 bloques |
+| SET A | 1–10 |
+| CE | 8 |
+| VA | 18 |
+| NI | 18 |
+| Reglas | 18 |
+| Estados positivos | 7 |
+| Guardrails | 25 |
+| Motor candidates | 10 + 2 AI |
+| Unidad nuclear | Decision Information Need |
+La arquitectura queda:
+Decision Need → Decision Question → Information Need → Evidence/Data → Metric/Transformation → Context/Comparison → Information → Interpretation/Uncertainty → Decision Support.
+Y dejamos fijada la frontera:
+DT-04 no evalúa si la empresa “usa datos” ni cuántos dashboards posee. Evalúa si, ante decisiones materiales concretas, puede transformar evidencia disponible en información suficientemente pertinente, comprensible, confiable y oportuna para reducir la incertidumbre que realmente importa, sin presentar inferencias con mayor fuerza que la evidencia disponible.
+DT04-SET-A-v0.1 · BLOCKS 1–10 OF 14 COMPLETE · READY-FOR-SET-B
+El siguiente movimiento es DT-04 · SET B · bloques 11–14: findings y decisiones, intervenciones e instrumentos, CRV y validación por Decision Information Need, seguimiento y cierre completo A–V 22/22 + DoD 27/27 + K1–K4.
+Seguimos
+Seguimos con DT-04 · SET B, bloques 11–14. El objetivo ahora es convertir el modelo Decision Need → Information → Decision Support en intervención verificable, sin convertir Pymapa en una herramienta de BI ni juzgar retrospectivamente una decisión por su resultado.
+# DT-04 · Convertir datos en información útil para decisiones
+## SET B · Bloques 11–14
+Entrada: DT04-SET-A-v0.1 · BLOCKS 1–10 OF 14 COMPLETE
+
+# 11. Findings y decisiones
+Las 18 reglas primarias se consolidan en 8 familias de hallazgo.
+| ID | Familia de hallazgo | Núcleo diagnóstico |
+| HF-DT04-01 | Necesidad decisional insuficientemente definida | No está suficientemente claro qué debe decidirse o qué pregunta debe responderse |
+| HF-DT04-02 | Evidencia/información insuficiente | Faltan elementos materialmente necesarios para responder la pregunta |
+| HF-DT04-03 | Representación o métrica inadecuada | Indicadores, definiciones o granularidad no representan suficientemente lo que la decisión necesita conocer |
+| HF-DT04-04 | Contexto/comparación insuficiente | Información aislada carece de baseline, comparador o contexto material requerido |
+| HF-DT04-05 | Interpretación excede evidencia | Conclusiones, causalidad o certeza son más fuertes que el soporte disponible |
+| HF-DT04-06 | Incertidumbre material insuficientemente visible | Se presenta información con una certeza que oculta incertidumbre capaz de alterar la decisión |
+| HF-DT04-07 | Información insuficientemente oportuna o comprensible | Existe información potencialmente útil pero no llega/utiliza dentro de la Decision Window |
+| HF-DT04-08 | Información con baja utilidad decisional | Análisis/reportes existen, pero no ayudan suficientemente a distinguir opciones, confirmar, diferir o profundizar la decisión |
+
+## El finding debe conservar la decisión
+Evitemos:
+“La empresa no tiene buenos indicadores.”
+Preferimos:
+“La decisión mensual de reposición no dispone de una medida suficientemente confiable de rotación y disponibilidad por referencia, lo que impide distinguir qué productos requieren reposición prioritaria.”
+Tenemos:
+DECISION + INFORMATION GAP + CONSEQUENCE
+### FIND-DT04-01
+Todo finding DT-04 debe preservar la relación con la decisión material que justificó la necesidad informacional.
+
+# Hallazgo ≠ recomendación
+Encontrar:
+REQUIRED_COMPARATOR_GAP
+no significa automáticamente:
+“crear dashboard comparativo”.
+La respuesta mínima podría ser:
+agregar una columna de comparación al archivo que ya utiliza el gerente.
+Otra vez aplicamos:
+Minimum Sufficient Intervention.
+
+# Vocabulario de decisión
+DT-04 necesita 13 direcciones posibles:
+### CLARIFY
+Clarificar decisión o pregunta.
+### DEFINE
+Definir métrica, indicador o concepto.
+### ACQUIRE
+Obtener evidencia adicional.
+### TRANSFORM
+Corregir cálculo/transformación.
+### REFRAME
+Cambiar representación o granularidad.
+### CONTEXTUALIZE
+Agregar contexto material.
+### COMPARE
+Incorporar baseline/comparador.
+### QUALIFY
+Hacer explícita incertidumbre o límites de inferencia.
+### SIMPLIFY
+Eliminar información que dificulta interpretación sin aportar valor suficiente.
+### ACCELERATE
+Mover producción/entrega dentro de la Decision Window.
+### DEEPEN
+Profundizar análisis cuando el VoI lo justifica.
+### STOP_ANALYSIS
+Detener adquisición/análisis adicional cuando su valor marginal es insuficiente.
+### NO_ACTION
+Mantener el soporte actual.
+STOP_ANALYSIS es especialmente importante para impedir que Pymapa convierta rigor en:
+análisis infinito.
+
+# Información adicional ≠ siempre mejor
+Introducimos:
+### INT-DT04-01 · MINIMUM SUFFICIENT DECISION INFORMATION
+Debe buscarse el conjunto de información de menor complejidad suficiente para reducir las incertidumbres materialmente relevantes hasta un nivel compatible con la decisión aplicable.
+Esto significa que una decisión puede cerrarse con:
+3 indicadores suficientemente pertinentes,
+en lugar de:
+40 métricas disponibles.
+
+# VoI como criterio STOP
+El Motor ya dispone conceptualmente de:
+NEXT / STOP.
+DT-04 aporta una aplicación concreta.
+### STOP-DT04-01
+Detener profundización cuando:
+evidencia adicional razonablemente disponible tiene baja probabilidad de cambiar materialmente la decisión o su confianza, respecto de su costo/demora.
+Esto no significa:
+“ya sabemos todo”.
+Significa:
+sabemos suficiente para decidir dentro del contexto actual.
+
+# 12. Intervenciones, actividades e instrumentos
+Resultan 8 patrones de intervención.
+| ID | Patrón | Propósito |
+| IP-DT04-01 | Clarificar Decision Need | Definir decisión, pregunta e incertidumbre relevante |
+| IP-DT04-02 | Completar evidencia crítica | Obtener información adicional con VoI suficiente |
+| IP-DT04-03 | Corregir representación | Mejorar métrica, cálculo, granularidad o definición |
+| IP-DT04-04 | Incorporar contexto/comparación | Dar significado suficiente a la información |
+| IP-DT04-05 | Calibrar inferencia | Alinear conclusión y certeza con evidencia |
+| IP-DT04-06 | Hacer visible incertidumbre | Exponer rangos, supuestos o limitaciones materiales |
+| IP-DT04-07 | Mejorar oportunidad/comprensión | Llevar información adecuada al decisor dentro de su ventana |
+| IP-DT04-08 | Simplificar soporte decisional | Eliminar ruido y concentrar información material |
+
+# Actividades posibles
+Según el caso:
+- reformular pregunta;
+- definir indicador;
+- corregir fórmula;
+- eliminar indicador;
+- agregar baseline;
+- segmentar;
+- cambiar granularidad;
+- separar poblaciones;
+- incorporar contexto;
+- revisar supuestos;
+- mostrar rango;
+- identificar limitación;
+- contrastar fuentes;
+- adelantar reporte;
+- automatizar cálculo;
+- simplificar reporte;
+- eliminar dashboard;
+- crear alerta;
+- realizar análisis puntual;
+- documentar interpretación;
+- detener análisis adicional.
+Una intervención perfectamente válida puede ser:
+eliminar un reporte.
+
+# Instrumentos
+Resultan 8 instrumentos.
+### INS-DT04-01 · Decision Information Need Card
+Instrumento nuclear:
+decisión → pregunta → incertidumbre → información requerida → Decision Window.
+### INS-DT04-02 · Decision Evidence Map
+pregunta → evidencia disponible → evidencia faltante → confianza → VoI.
+### INS-DT04-03 · Metric Definition Card
+métrica → propósito → definición → cálculo → fuente → frecuencia → limitaciones.
+### INS-DT04-04 · Comparison & Context Card
+condición → baseline/comparador → contexto → interpretación.
+### INS-DT04-05 · Inference Ladder
+observación → relación → interpretación → hipótesis → inferencia → nivel de soporte.
+Su función es impedir saltos causales.
+### INS-DT04-06 · Uncertainty Card
+incertidumbre → fuente → impacto potencial → visibilidad → tratamiento.
+### INS-DT04-07 · Decision Information View
+No necesariamente dashboard.
+Es:
+la representación mínima suficiente de información para una decisión.
+Puede ser:
+- tabla;
+- reporte;
+- gráfico;
+- mensaje;
+- alerta;
+- ficha;
+- dashboard.
+### INS-DT04-08 · Value of Information Check
+información adicional → costo/demora → posible cambio de decisión/confianza → NEXT/STOP.
+
+# Un instrumento transversal candidato
+Decision Information Need Card probablemente no será exclusivo de DT-04.
+DG-02, DG-04, DG-05, CM-06 y otras capacidades pueden necesitarlo.
+Registramos:
+CAND-INSTRUMENT-TRANSVERSAL-02 · DECISION-INFORMATION-NEED-CARD
+DT-04 será su capability origin, pero el Motor podría reutilizarlo.
+
+# 13. Entregables, Done, CRV, validación y seguimiento
+Resultan 8 entregables funcionales:
+DEL-DT04-01 · decisiones/preguntas materiales visibles
+DEL-DT04-02 · información crítica suficientemente disponible
+DEL-DT04-03 · métricas/representaciones pertinentes y definidas
+DEL-DT04-04 · contexto/comparadores suficientes
+DEL-DT04-05 · inferencias alineadas con evidencia
+DEL-DT04-06 · incertidumbre material visible
+DEL-DT04-07 · información disponible dentro de Decision Window
+DEL-DT04-08 · soporte informacional suficientemente útil para decidir
+
+# Done Criteria
+DT-04 requiere 7.
+### DC-A · Decision Done
+Decisión y pregunta material están suficientemente definidas.
+### DC-B · Evidence Done
+Evidencia crítica está disponible o su ausencia/incertidumbre está explícitamente reconocida.
+### DC-C · Representation Done
+Métricas, transformaciones y granularidad son suficientes para la pregunta.
+### DC-D · Context Done
+Contexto/comparadores necesarios están incorporados.
+### DC-E · Inference Done
+Interpretación y certeza no exceden evidencia.
+### DC-F · Timing Done
+Información llega dentro de la Decision Window.
+### DC-G · Decision Support Done
+El decisor puede utilizar la información para distinguir razonablemente entre actuar, mantener, diferir, profundizar u otras alternativas aplicables.
+
+# CRV
+Resultan 8 CRV.
+| ID | Criterio de Resultado Verificable |
+| CRV-DT04-01 | Decisiones materiales aplicables tienen preguntas informacionales explícitas |
+| CRV-DT04-02 | Información crítica requerida está disponible o su incertidumbre es explícita |
+| CRV-DT04-03 | Métricas/representaciones responden suficientemente al constructo/pregunta requerida |
+| CRV-DT04-04 | Comparadores/contexto necesarios permiten interpretar suficientemente la condición |
+| CRV-DT04-05 | Inferencias materiales permanecen dentro del soporte de evidencia disponible |
+| CRV-DT04-06 | Incertidumbres capaces de alterar la decisión son visibles |
+| CRV-DT04-07 | Información llega y puede comprenderse dentro de la ventana decisional |
+| CRV-DT04-08 | Información permite distinguir suficientemente las alternativas decisionales aplicables |
+
+# No medimos “acierto de la decisión” como CRV
+Esto merece quedar explícito.
+Supongamos:
+una pyme decide abrir un nuevo canal utilizando información suficientemente sólida.
+Posteriormente ocurre un shock externo imprevisible y el canal fracasa.
+No podemos concluir retrospectivamente:
+DT-04 era insuficiente.
+### CRV-DT04-GUARD-01
+El resultado posterior de la decisión no debe utilizarse aisladamente como criterio de validación del soporte informacional disponible al momento de decidir.
+
+# KPI
+Según la decisión podrían existir:
+- tiempo de preparación;
+- tiempo desde información hasta decisión;
+- uso del reporte;
+- discrepancias entre métricas;
+- frecuencia de actualización;
+- errores de cálculo;
+- decisiones sin información crítica;
+- análisis repetidos;
+- tiempo dedicado a reconciliación;
+- forecast error cuando aplique.
+Pero evitamos indicadores universales como:
+cantidad de dashboards;
+cantidad de KPIs;
+porcentaje de decisiones “data-driven”;
+número de herramientas analíticas.
+
+# Validación
+DT-04 necesita cinco estados.
+### V0 · UNKNOWN
+No conocemos suficientemente el soporte informacional.
+### V1 · INFORMATION-DEFINED
+Decisión, pregunta y necesidad informacional están definidas.
+### V2 · INFORMATION-AVAILABLE
+Existe información/evidencia suficiente para ser evaluada.
+### V3 · DECISION-FIT
+Información es pertinente, interpretable, suficientemente confiable y oportuna para la decisión.
+### V4 · DECISION-SUPPORT-SUSTAINED
+La organización puede reproducir suficientemente ese soporte cuando la decisión es recurrente.
+
+# Decisión recurrente vs decisión única
+No toda decisión necesita V4.
+Ejemplo:
+adquisición extraordinaria de un activo
+puede requerir soporte puntual V3.
+Pero:
+reposición semanal de inventario
+puede justificar V4.
+### VAL-DT04-01
+La necesidad de sostenibilidad del soporte informacional depende de la recurrencia y materialidad de la decisión.
+
+# Seguimiento
+Reevaluamos cuando cambie materialmente:
+- decisión;
+- objetivo;
+- pregunta;
+- fuente;
+- métrica;
+- fórmula;
+- definición;
+- baseline;
+- contexto;
+- población;
+- segmento;
+- Decision Window;
+- incertidumbre;
+- modelo;
+- responsable;
+- entorno.
+### REASS-DT04-01
+Una información previamente adecuada puede dejar de ser decision-fit cuando cambia la decisión, contexto, definición, evidencia o ventana decisional.
+
+# 14. Contextualización, Knowledge Governance y cierre
+## Proporcionalidad SME
+DT-04 debe funcionar para:
+dueño de microempresa mirando una hoja de cálculo semanal
+y para:
+pyme digital con modelos analíticos.
+La profundidad la determina:
+decision materiality + uncertainty + recurrence + cost of error
+no el nivel de sofisticación analítica.
+
+# No creamos una escalera de madurez analítica
+Evitemos:
+descriptivo → diagnóstico → predictivo → prescriptivo
+como escalera normativa.
+Una pyme puede necesitar únicamente información descriptiva excelente.
+### P-DT04-10
+La complejidad analítica requerida depende de la pregunta decisional; análisis predictivo o prescriptivo no constituye por sí mismo un estado superior de capacidad.
+
+# Accountability
+No exigimos:
+- Chief Data Officer;
+- BI Manager;
+- Data Scientist;
+- Analytics Team.
+Sí necesitamos poder determinar:
+quién puede definir o validar la información utilizada para una decisión material.
+Definimos:
+### DECISION INFORMATION ACCOUNTABILITY
+persona/rol con capacidad suficiente para aclarar definición, evidencia, interpretación o limitaciones del soporte informacional aplicable.
+
+# Relación con IA
+DT-04 nos permite fijar una arquitectura particularmente importante para Pymapa:
+AI OUTPUT ≠ EVIDENCE ≠ DECISION
+Una IA puede producir:
+interpretación o recomendación.
+El Motor deberá conservar:
+- fuentes;
+- transformación;
+- incertidumbre;
+- confianza;
+- recomendación;
+- decisión final.
+No fusionarlas.
+Esto refuerza:
+CAND-MOTOR-AI-DT04-01
+La confianza del dato no se hereda automáticamente por el output generado.
+CAND-MOTOR-AI-DT04-02
+Recomendación IA y decisión organizacional son objetos distintos.
+
+# Un nuevo candidato transversal
+### CAND-MOTOR-DT04-11
+El Motor debe poder preservar el information state disponible en el momento de una decisión para evitar evaluar retrospectivamente su calidad utilizando información que solo apareció después.
+Esto será valioso para:
+- trazabilidad;
+- aprendizaje;
+- DG-05;
+- Fase 3;
+- explicabilidad.
+Conceptualmente:
+DECISION-TIME EVIDENCE SNAPSHOT
+No necesitamos implementarlo todavía, pero sí conservar el requerimiento.
+
+# Aprendizaje posterior
+El resultado sí importa.
+Pero para:
+aprender.
+No para reescribir retrospectivamente la evidencia.
+Cadena:
+Decision-time evidence → Decision → Result → Learning
+El resultado puede revelar:
+- supuesto incorrecto;
+- información omitida;
+- métrica débil;
+- modelo insuficiente;
+- cambio contextual;
+- simple incertidumbre.
+Ese aprendizaje puede convertirse en:
+candidate knowledge,
+pero no altera silenciosamente el diagnóstico histórico.
+
+# Provenance
+### SOURCE-DERIVED
+Las fuentes externas fundamentan conceptos generales relativos a:
+- datos e información;
+- medición;
+- analítica;
+- decisión bajo incertidumbre;
+- calidad y uso de información.
+### PYMAPA-DESIGNED
+Permanecen como diseño propio:
+- DIN;
+- Decision Window;
+- Decision Usability;
+- 8 CE / 18 VA;
+- reglas;
+- findings;
+- Decision Information Need Card;
+- Inference Ladder;
+- VoI Check;
+- Minimum Sufficient Decision Information;
+- estados V0–V4;
+- CRV;
+- Decision-time Evidence Snapshot candidate.
+No atribuimos estos objetos a fuentes externas.
+
+# A–V · DT-04
+| Dimensión | Resultado |
+| A · Identidad | PASS |
+| B · Alcance | PASS |
+| C · Aplicabilidad | PASS |
+| D · Unidad de análisis | PASS |
+| E · Condiciones | PASS |
+| F · Variables | PASS |
+| G · Information Needs | PASS |
+| H · Captura | PASS |
+| I · Information Rules | PASS |
+| J · Suficiencia | PASS |
+| K · Confianza | PASS |
+| L · Diagnóstico | PASS |
+| M · Findings | PASS |
+| N · Recomendaciones | PASS |
+| O · Intervención | PASS |
+| P · Ejecución | PASS |
+| Q · Resultado | PASS |
+| R · Validación | PASS |
+| S · Seguimiento | PASS |
+| T · Contextualización | PASS |
+| U · Knowledge | PASS |
+| V · Governance | PASS |
+A–V = 22/22 PASS
+
+# DoD V1
+27/27 PASS.
+Destacamos cinco controles.
+### Observación vs inferencia — PASS
+Un valor observado no se convierte automáticamente en explicación.
+### Causalidad — PASS
+Correlación no se convierte automáticamente en causalidad.
+### Confianza — PASS
+Separamos confianza del dato, información, inferencia y soporte decisional.
+### Value of Information — PASS
+Podemos continuar o detener análisis.
+### Resultado — PASS
+Buena decisión informada y buen resultado posterior no se consideran equivalentes.
+DoD = 27/27 PASS
+
+# Quality Gates
+### K1 · Coherencia — PASS
+DT-04 queda diferenciada de DT-02, DT-03, DG-02, DG-04 y CM-06.
+### K2 · Razonamiento — PASS
+Mantiene:
+DATA ≠ METRIC ≠ INFORMATION ≠ INSIGHT ≠ DECISION ≠ RESULT
+y controla incertidumbre e inferencia.
+### K3 · Acción — PASS
+Permite aclarar, definir, adquirir, transformar, contextualizar, comparar, calificar, simplificar, acelerar, profundizar, detener análisis o no actuar.
+### K4 · Knowledge — PASS
+Objetos, provenance, reglas, intervención, CRV, validación, seguimiento y governance quedan trazables.
+# Cierre DT-04
+DT04-K4-v1.0 · K4-VALIDATED · CLOSED
+| Objeto | Resultado |
+| Bloques | 14/14 |
+| CE | 8 |
+| VA | 18 |
+| NI | 18 |
+| Reglas | 18 |
+| Findings | 8 |
+| Decisiones | 13 |
+| Intervenciones | 8 |
+| Instrumentos | 8 |
+| Entregables | 8 |
+| Done Criteria | 7 |
+| CRV | 8 |
+| Validación | V0–V4 |
+| A–V | 22/22 |
+| DoD | 27/27 |
+| K1–K4 | PASS |
+DT04-K4-v1.0 · K4-VALIDATED · CLOSED
+# Estado DT actualizado
+| Capacidad | Estado |
+| DT-01 · Disponer de una base tecnológica adecuada | 🟢 CLOSED |
+| DT-02 · Gestionar datos con calidad y disponibilidad | 🟢 CLOSED |
+| DT-03 · Integrar datos, aplicaciones y flujos de información | 🟢 CLOSED |
+| DT-04 · Convertir datos en información útil para decisiones | 🟢 CLOSED |
+| DT-05 · Proteger información, sistemas y continuidad | ⚪ NEXT |
+| DT-06 · Evaluar, incorporar y aprovechar tecnologías pertinentes | ⚪ |
+DOMAIN-DT · 4/6 CAPABILITIES K4-VALIDATED
+El acumulado maestro pasa a:
+19/31 capacidades K4-VALIDATED.
+## Arquitectura DT construida
+Ya podemos observar una cadena muy limpia:
+DT-01 · ENABLE — ¿la base tecnológica habilita suficientemente?
+DT-02 · DATA FIT — ¿los datos son suficientemente aptos?
+DT-03 · FLOW — ¿la información cruza suficientemente las fronteras?
+DT-04 · DECISION SUPPORT — ¿se transforma en información suficientemente útil para decidir?
+El siguiente movimiento, DT-05 · Proteger información, sistemas y continuidad, cambia de naturaleza. No conviene convertirlo en un checklist gigantesco de ciberseguridad. Tendremos que construirlo desde activos/servicios materiales → amenazas/exposición → protección proporcional → detección/respuesta → recuperación/continuidad, diferenciando claramente seguridad, privacidad, resiliencia y continuidad, y calibrándolo para una pyme.
+Por su amplitud y criticidad, DT-05 probablemente requerirá más bloques que las capacidades DT anteriores. Lo dimensionaremos por el conocimiento necesario, no intentando hacerlo caber artificialmente en 12 o 14.
+seguimos

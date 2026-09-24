@@ -1,0 +1,51 @@
+{
+  "$schema": "../../schemas/governance-decisions.schema.json",
+  "decisionSetId": "M2-FINAL-MASS-BATCH",
+  "capabilityId": "EC-04",
+  "decidedBy": "PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY",
+  "decidedByIdentity": "ROLE_ONLY · no personal identity recorded or fabricated",
+  "decidedAt": "2026-09-24",
+  "authorizationSource": "M2-FINAL-MASS-BATCH §E/§I · referencias idénticas, alias y progresión de lifecycle son correcciones técnicas deterministas verificadas literalmente",
+  "statement": "Decisiones deterministas verificadas literalmente contra la fuente; no son aceptación canónica ni publicación.",
+  "approvedCounts": [],
+  "governedBacklog": [],
+  "collisionResolutions": [
+    {
+      "sourceIds": [
+        "A2"
+      ],
+      "resolution": "SELECT_OCCURRENCE",
+      "within": {
+        "fromLiteral": "### A1 · RECEIVED",
+        "toLiteral": "### A3 · ADAPTED"
+      },
+      "rationale": "M2-FINAL-MASS-BATCH §I · referencia idéntica: la ocurrencia posterior es un ejemplo que cita el estado; se selecciona la definición",
+      "canonicalLiteral": "UNDERSTOOD"
+    },
+    {
+      "sourceIds": [
+        "A5"
+      ],
+      "resolution": "SELECT_OCCURRENCE",
+      "within": {
+        "fromLiteral": "### A4 · APPLIED",
+        "toLiteral": "### A6 · RETAINED"
+      },
+      "rationale": "M2-FINAL-MASS-BATCH §I · referencia idéntica: la ocurrencia posterior es un ejemplo que cita el estado; se selecciona la definición",
+      "canonicalLiteral": "EMBEDDED"
+    }
+  ],
+  "semanticTypes": [],
+  "provenanceVocabulary": [
+    {
+      "scheme": "PROVENANCE_CLASS",
+      "anchorLiteral": "# Provenance y governance",
+      "windowLines": 10,
+      "codes": [
+        "SOURCE-DERIVED",
+        "PYMAPA-DESIGNED"
+      ]
+    }
+  ],
+  "checksum": "sha256:62dc9ce35f4231d808668419db43d9e1e6bda174235a2744875ab9648bb30186"
+}

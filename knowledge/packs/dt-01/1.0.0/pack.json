@@ -1,0 +1,870 @@
+{
+  "packId": "dt-01",
+  "packVersion": "1.0.0",
+  "status": "draft",
+  "knowledgeMaster": {
+    "identifier": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "status": "BASELINE-APPROVED",
+    "sourceReference": "canonical-baseline.json#DT01-K4-v1.0@sha256:1d11206f896d162dcc5ed69143829f186fdd59af9a4ad19918753377d35390cb · DT01-K4-v1.0 · K4-VALIDATED · CLOSED"
+  },
+  "capability": {
+    "id": "DT-01",
+    "domainId": "DT",
+    "name": "Disponer de una base tecnológica adecuada",
+    "definition": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+    "definitionStatus": "NOT_EXPLICIT"
+  },
+  "conditionsOfExistence": [
+    {
+      "id": "CE01",
+      "statement": "Necesidad tecnológica"
+    },
+    {
+      "id": "CE02",
+      "statement": "Disponibilidad funcional"
+    },
+    {
+      "id": "CE03",
+      "statement": "Adecuación funcional"
+    },
+    {
+      "id": "CE04",
+      "statement": "Confiabilidad operativa"
+    },
+    {
+      "id": "CE05",
+      "statement": "Sostenibilidad técnica"
+    },
+    {
+      "id": "CE06",
+      "statement": "Proporcionalidad"
+    },
+    {
+      "id": "CE07",
+      "statement": "Evolución prevista"
+    }
+  ],
+  "variables": [
+    {
+      "id": "VA01",
+      "name": "Necesidades materiales de habilitación identificadas",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA02",
+      "name": "Relación necesidad tecnológica ↔ actividad/resultado suficientemente clara",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA03",
+      "name": "Recursos tecnológicos requeridos disponibles",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA04",
+      "name": "Acceso efectivo para usuarios/situaciones aplicables",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA05",
+      "name": "Funcionalidad suficiente",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA06",
+      "name": "Desempeño/capacidad suficiente",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA07",
+      "name": "Compatibilidad con condiciones reales de uso",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA08",
+      "name": "Disponibilidad suficientemente consistente",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA09",
+      "name": "Estabilidad suficiente para el uso requerido",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA10",
+      "name": "Tecnología mantenible/soportable",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA11",
+      "name": "Dependencias técnicas materiales conocidas",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA12",
+      "name": "Obsolescencia material controlada",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA13",
+      "name": "Complejidad tecnológica proporcional",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA14",
+      "name": "Costo/esfuerzo de sostenimiento proporcional al valor/necesidad",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA15",
+      "name": "Capacidad suficiente frente a necesidades previsibles",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA16",
+      "name": "Restricciones tecnológicas futuras materialmente visibles",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    }
+  ],
+  "informationNeeds": [
+    {
+      "id": "NI01",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué actividades necesitan habilitación tecnológica",
+      "variableRefs": [
+        "VA01"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI01"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI01→VA01 · cardinalidad 16=16 · sección «8. Information Needs» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        213
+      ]
+    },
+    {
+      "id": "NI02",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué resultado/necesidad debe satisfacer la tecnología",
+      "variableRefs": [
+        "VA02"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI02"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI02→VA02 · cardinalidad 16=16 · sección «8. Information Needs» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        214
+      ]
+    },
+    {
+      "id": "NI03",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué recursos tecnológicos están disponibles",
+      "variableRefs": [
+        "VA03"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI03"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI03→VA03 · cardinalidad 16=16 · sección «8. Information Needs» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        215
+      ]
+    },
+    {
+      "id": "NI04",
+      "idStatus": "SOURCE_ID",
+      "statement": "Quién puede utilizarlos y en qué situaciones",
+      "variableRefs": [
+        "VA04"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI04"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI04→VA04 · cardinalidad 16=16 · sección «8. Information Needs» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        216
+      ]
+    },
+    {
+      "id": "NI05",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si proporcionan la funcionalidad requerida",
+      "variableRefs": [
+        "VA05"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI05"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI05→VA05 · cardinalidad 16=16 · sección «8. Information Needs» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        217
+      ]
+    },
+    {
+      "id": "NI06",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si capacidad/desempeño son suficientes",
+      "variableRefs": [
+        "VA06"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI06"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI06→VA06 · cardinalidad 16=16 · sección «8. Information Needs» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        218
+      ]
+    },
+    {
+      "id": "NI07",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si funcionan bajo condiciones reales de trabajo",
+      "variableRefs": [
+        "VA07"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI07"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI07→VA07 · cardinalidad 16=16 · sección «8. Information Needs» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        219
+      ]
+    },
+    {
+      "id": "NI08",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si están disponibles cuando se necesitan",
+      "variableRefs": [
+        "VA08"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI08"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI08→VA08 · cardinalidad 16=16 · sección «8. Information Needs» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        220
+      ]
+    },
+    {
+      "id": "NI09",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si su funcionamiento es suficientemente estable",
+      "variableRefs": [
+        "VA09"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI09"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI09→VA09 · cardinalidad 16=16 · sección «8. Information Needs» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        221
+      ]
+    },
+    {
+      "id": "NI10",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si pueden mantenerse/soportarse",
+      "variableRefs": [
+        "VA10"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI10"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI10→VA10 · cardinalidad 16=16 · sección «8. Information Needs» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        222
+      ]
+    },
+    {
+      "id": "NI11",
+      "idStatus": "SOURCE_ID",
+      "statement": "De qué dependencias técnicas materiales dependen",
+      "variableRefs": [
+        "VA11"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI11"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI11→VA11 · cardinalidad 16=16 · sección «8. Information Needs» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        223
+      ]
+    },
+    {
+      "id": "NI12",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si existe obsolescencia material",
+      "variableRefs": [
+        "VA12"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI12"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI12→VA12 · cardinalidad 16=16 · sección «8. Information Needs» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        224
+      ]
+    },
+    {
+      "id": "NI13",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si la complejidad está justificada",
+      "variableRefs": [
+        "VA13"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI13"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI13→VA13 · cardinalidad 16=16 · sección «8. Information Needs» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        225
+      ]
+    },
+    {
+      "id": "NI14",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si el costo/esfuerzo tecnológico es proporcional",
+      "variableRefs": [
+        "VA14"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI14"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI14→VA14 · cardinalidad 16=16 · sección «8. Information Needs» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        226
+      ]
+    },
+    {
+      "id": "NI15",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si puede soportar necesidades previsibles",
+      "variableRefs": [
+        "VA15"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI15"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI15→VA15 · cardinalidad 16=16 · sección «8. Information Needs» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        227
+      ]
+    },
+    {
+      "id": "NI16",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué restricciones futuras ya son visibles",
+      "variableRefs": [
+        "VA16"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI16"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI16→VA16 · cardinalidad 16=16 · sección «8. Information Needs» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        228
+      ]
+    }
+  ],
+  "acquisitions": [
+    {
+      "id": "ACQ·NI01",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI01",
+      "variableRefs": [
+        "VA01"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI02",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI02",
+      "variableRefs": [
+        "VA02"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI03",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI03",
+      "variableRefs": [
+        "VA03"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI04",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI04",
+      "variableRefs": [
+        "VA04"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI05",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI05",
+      "variableRefs": [
+        "VA05"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI06",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI06",
+      "variableRefs": [
+        "VA06"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI07",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI07",
+      "variableRefs": [
+        "VA07"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI08",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI08",
+      "variableRefs": [
+        "VA08"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI09",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI09",
+      "variableRefs": [
+        "VA09"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI10",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI10",
+      "variableRefs": [
+        "VA10"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI11",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI11",
+      "variableRefs": [
+        "VA11"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI12",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI12",
+      "variableRefs": [
+        "VA12"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI13",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI13",
+      "variableRefs": [
+        "VA13"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI14",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI14",
+      "variableRefs": [
+        "VA14"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI15",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI15",
+      "variableRefs": [
+        "VA15"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI16",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI16",
+      "variableRefs": [
+        "VA16"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    }
+  ],
+  "acquisitionStages": [
+    {
+      "id": "P1",
+      "level": "P1",
+      "heading": "P1 · Núcleo",
+      "prompts": [
+        "“¿Qué actividades importantes dependen de tecnología para funcionar?”",
+        "“¿Hay algo que hoy no puedan hacer bien por una limitación tecnológica?”",
+        "“¿Qué herramientas o sistemas son realmente críticos?”",
+        "“¿Qué pasa cuando alguno no funciona?”",
+        "“¿Hay algo que pronto vaya a exigir más de la tecnología actual?”",
+        "“¿Cuál es su nivel de madurez de infraestructura?”"
+      ],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        285,
+        293
+      ]
+    },
+    {
+      "id": "P2",
+      "level": "P2",
+      "heading": "P2 · Condicional",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        295,
+        312
+      ]
+    },
+    {
+      "id": "P3",
+      "level": "P3",
+      "heading": "P3 · Discriminación",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        314,
+        328
+      ]
+    }
+  ],
+  "governedStructuralMapping": {
+    "rule": "GOVERNED_STRUCTURAL_MAPPING",
+    "nature": "interpretación estructural gobernada de la fuente; la fuente no declara literalmente el vínculo",
+    "decisionSetId": "M2-FINAL-MASS-BATCH-A",
+    "authority": "PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY",
+    "decidedAt": "2026-09-24",
+    "applied": true,
+    "conditions": {
+      "equalCardinality": true,
+      "alignedOrdinalNumbering": true,
+      "niBlockBelongsToVaArchitecture": true,
+      "orderingPreserved": true,
+      "noExplicitContraryMapping": true
+    },
+    "evidence": {
+      "vaCount": 16,
+      "niCount": 16,
+      "niSection": "8. Information Needs",
+      "niLines": [
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228
+      ]
+    }
+  }
+}

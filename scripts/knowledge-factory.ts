@@ -169,7 +169,12 @@ if (argv[0] === "register-multi") {
     { domainClosures?: { domainId: string; declaredCapabilityCount: number }[] } | undefined;
   const n = vs?.domainClosures?.find((d) => d.domainId === domainId)?.declaredCapabilityCount;
   if (!n) fail(`dominio ${domainId} sin capacidades declaradas`);
-  const ids = Array.from({ length: n }, (_, i) => `${domainId}-${String(i + 1).padStart(2, "0")}`);
+  // --ids: taxonomía oficial explícita (p. ej. EC-02..EC-05; EC-01 no oficial).
+  const ids = opt("--ids")
+    ? opt("--ids")!.split(",").map((x) => x.trim())
+    : Array.from({ length: n }, (_, i) => `${domainId}-${String(i + 1).padStart(2, "0")}`);
+  if (ids.length !== n || ids.some((x) => !x.startsWith(`${domainId}-`)))
+    fail(`--ids debe listar exactamente ${n} capacidades del dominio ${domainId}`);
   const bytes = new Uint8Array(readFileSync(file));
   const filename = basename(file);
   const extraction = extractRawSource({ filename, bytes, pdfRunner });
@@ -259,6 +264,7 @@ if (argv[0] === "extract") {
     supersession: mode,
     governanceDecisions,
     lineIds: flag("--line-ids"),
+    spaceIds: flag("--space-ids"),
   });
   if (report.governance?.errors.length)
     fail(

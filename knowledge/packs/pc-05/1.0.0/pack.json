@@ -1,0 +1,847 @@
+{
+  "packId": "pc-05",
+  "packVersion": "1.0.0",
+  "status": "draft",
+  "knowledgeMaster": {
+    "identifier": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "status": "BASELINE-APPROVED",
+    "sourceReference": "canonical-baseline.json#PC05-K4-v1.0@sha256:09d0c646c2722265e22418a02022ab5a6fcc81b52c1807a4fad0eba08cc768b8 · PC05-K4-v1.0 · K4-VALIDATED · CLOSED"
+  },
+  "capability": {
+    "id": "PC-05",
+    "domainId": "PC",
+    "name": "Facilitar participación y adaptación de las personas al cambio",
+    "definition": "PC-05 evalúa la capacidad de la organización para involucrar proporcionalmente a las personas afectadas por cambios materiales, incorporar información relevante proveniente de ellas y habilitar respuestas o ajustes que faciliten su adaptación efectiva durante la transformación.",
+    "definitionStatus": "EXPLICIT",
+    "definitionSourceLines": [
+      34,
+      34
+    ]
+  },
+  "conditionsOfExistence": [
+    {
+      "id": "CE01",
+      "statement": "Impacto visible"
+    },
+    {
+      "id": "CE02",
+      "statement": "Información para adaptación"
+    },
+    {
+      "id": "CE03",
+      "statement": "Participación pertinente"
+    },
+    {
+      "id": "CE04",
+      "statement": "Voz y feedback"
+    },
+    {
+      "id": "CE05",
+      "statement": "Respuesta organizacional"
+    },
+    {
+      "id": "CE06",
+      "statement": "Soporte y adaptación"
+    }
+  ],
+  "variables": [
+    {
+      "id": "VA01",
+      "name": "Población afectada identificada",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA02",
+      "name": "Impactos materiales suficientemente comprendidos",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA03",
+      "name": "Información relevante disponible",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA04",
+      "name": "Oportunidad de la información",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA05",
+      "name": "Oportunidades de participación proporcionales",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA06",
+      "name": "Inclusión de personas con conocimiento material",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA07",
+      "name": "Momento de participación suficientemente temprano para aportar valor",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA08",
+      "name": "Mecanismo efectivo para aportar feedback",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA09",
+      "name": "Seguridad práctica suficiente para plantear problemas materiales",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA10",
+      "name": "Feedback material considerado",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA11",
+      "name": "Respuesta/decisión suficientemente visible",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA12",
+      "name": "Ajustes realizados cuando la evidencia lo justifica",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA13",
+      "name": "Apoyo proporcional al impacto",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA14",
+      "name": "Barreras emergentes tratadas",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    },
+    {
+      "id": "VA15",
+      "name": "Capacidad funcional durante la transición",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_MAPPING"
+    }
+  ],
+  "informationNeeds": [
+    {
+      "id": "NI01",
+      "idStatus": "SOURCE_ID",
+      "statement": "Quién resulta afectado",
+      "variableRefs": [
+        "VA01"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI01"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI01→VA01 · cardinalidad 15=15 · sección «6. NI, suficiencia y confianza» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        206
+      ]
+    },
+    {
+      "id": "NI02",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué impactos materiales enfrenta",
+      "variableRefs": [
+        "VA02"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI02"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI02→VA02 · cardinalidad 15=15 · sección «6. NI, suficiencia y confianza» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        207
+      ]
+    },
+    {
+      "id": "NI03",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué información necesita",
+      "variableRefs": [
+        "VA03"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI03"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI03→VA03 · cardinalidad 15=15 · sección «6. NI, suficiencia y confianza» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        208
+      ]
+    },
+    {
+      "id": "NI04",
+      "idStatus": "SOURCE_ID",
+      "statement": "Cuándo necesita esa información",
+      "variableRefs": [
+        "VA04"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI04"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI04→VA04 · cardinalidad 15=15 · sección «6. NI, suficiencia y confianza» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        209
+      ]
+    },
+    {
+      "id": "NI05",
+      "idStatus": "SOURCE_ID",
+      "statement": "Dónde aporta valor su participación",
+      "variableRefs": [
+        "VA05"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI05"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI05→VA05 · cardinalidad 15=15 · sección «6. NI, suficiencia y confianza» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        210
+      ]
+    },
+    {
+      "id": "NI06",
+      "idStatus": "SOURCE_ID",
+      "statement": "Quién posee conocimiento relevante",
+      "variableRefs": [
+        "VA06"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI06"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI06→VA06 · cardinalidad 15=15 · sección «6. NI, suficiencia y confianza» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        211
+      ]
+    },
+    {
+      "id": "NI07",
+      "idStatus": "SOURCE_ID",
+      "statement": "Cuándo debe participar para influir útilmente",
+      "variableRefs": [
+        "VA07"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI07"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI07→VA07 · cardinalidad 15=15 · sección «6. NI, suficiencia y confianza» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        212
+      ]
+    },
+    {
+      "id": "NI08",
+      "idStatus": "SOURCE_ID",
+      "statement": "Cómo puede aportar feedback",
+      "variableRefs": [
+        "VA08"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI08"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI08→VA08 · cardinalidad 15=15 · sección «6. NI, suficiencia y confianza» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        213
+      ]
+    },
+    {
+      "id": "NI09",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si problemas/aportes materiales pueden emerger razonablemente",
+      "variableRefs": [
+        "VA09"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI09"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI09→VA09 · cardinalidad 15=15 · sección «6. NI, suficiencia y confianza» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        214
+      ]
+    },
+    {
+      "id": "NI10",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si el feedback relevante es considerado",
+      "variableRefs": [
+        "VA10"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI10"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI10→VA10 · cardinalidad 15=15 · sección «6. NI, suficiencia y confianza» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        215
+      ]
+    },
+    {
+      "id": "NI11",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si existe respuesta visible",
+      "variableRefs": [
+        "VA11"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI11"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI11→VA11 · cardinalidad 15=15 · sección «6. NI, suficiencia y confianza» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        216
+      ]
+    },
+    {
+      "id": "NI12",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si el cambio se ajusta cuando la evidencia lo justifica",
+      "variableRefs": [
+        "VA12"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI12"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI12→VA12 · cardinalidad 15=15 · sección «6. NI, suficiencia y confianza» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        217
+      ]
+    },
+    {
+      "id": "NI13",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué soporte necesita la población",
+      "variableRefs": [
+        "VA13"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI13"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI13→VA13 · cardinalidad 15=15 · sección «6. NI, suficiencia y confianza» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        218
+      ]
+    },
+    {
+      "id": "NI14",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué barreras emergen durante la transición",
+      "variableRefs": [
+        "VA14"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI14"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI14→VA14 · cardinalidad 15=15 · sección «6. NI, suficiencia y confianza» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        219
+      ]
+    },
+    {
+      "id": "NI15",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si puede funcionar suficientemente mientras se adapta",
+      "variableRefs": [
+        "VA15"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI15"
+      ],
+      "mappingStatus": "GOVERNED_STRUCTURAL_MAPPING",
+      "mappingEvidence": "governed ordinal NI15→VA15 · cardinalidad 15=15 · sección «6. NI, suficiencia y confianza» · orden preservado · M2-FINAL-MASS-BATCH-A · PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY · 2026-09-24",
+      "sourceLines": [
+        220
+      ]
+    }
+  ],
+  "acquisitions": [
+    {
+      "id": "ACQ·NI01",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI01",
+      "variableRefs": [
+        "VA01"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI02",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI02",
+      "variableRefs": [
+        "VA02"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI03",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI03",
+      "variableRefs": [
+        "VA03"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI04",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI04",
+      "variableRefs": [
+        "VA04"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI05",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI05",
+      "variableRefs": [
+        "VA05"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI06",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI06",
+      "variableRefs": [
+        "VA06"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI07",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI07",
+      "variableRefs": [
+        "VA07"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI08",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI08",
+      "variableRefs": [
+        "VA08"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI09",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI09",
+      "variableRefs": [
+        "VA09"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI10",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI10",
+      "variableRefs": [
+        "VA10"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI11",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI11",
+      "variableRefs": [
+        "VA11"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI12",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI12",
+      "variableRefs": [
+        "VA12"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI13",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI13",
+      "variableRefs": [
+        "VA13"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI14",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI14",
+      "variableRefs": [
+        "VA14"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI15",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI15",
+      "variableRefs": [
+        "VA15"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    }
+  ],
+  "acquisitionStages": [
+    {
+      "id": "P1",
+      "level": "P1",
+      "heading": "P1 · Núcleo",
+      "prompts": [
+        "“¿A quién afecta realmente este cambio?”",
+        "“¿Qué necesitan saber antes de trabajar de la nueva manera?”",
+        "“¿Cómo pueden avisar si encuentran un problema?”",
+        "“¿Qué han tenido que ajustar después de escuchar a quienes lo están usando?”",
+        "“¿Tiene una estrategia formal de employee engagement?”"
+      ],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        240,
+        247
+      ]
+    },
+    {
+      "id": "P2",
+      "level": "P2",
+      "heading": "P2 · Triggers",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        249,
+        266
+      ]
+    },
+    {
+      "id": "P3",
+      "level": "P3",
+      "heading": "P3 · Discriminación causal",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        268,
+        288
+      ]
+    },
+    {
+      "id": "P4",
+      "level": "P4",
+      "heading": "P4 · Contradicciones",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        290,
+        290
+      ]
+    },
+    {
+      "id": "P5",
+      "level": "P5",
+      "heading": "P5 · Validación",
+      "prompts": [
+        "“Entendemos que el equipo pudo plantear problemas antes del lanzamiento y que dos de ellos generaron ajustes al proceso, mientras que otros tres fueron descartados explicando el motivo. ¿Es correcto?”",
+        "“¿se sintieron escuchados?”"
+      ],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        309,
+        313
+      ]
+    }
+  ],
+  "governedStructuralMapping": {
+    "rule": "GOVERNED_STRUCTURAL_MAPPING",
+    "nature": "interpretación estructural gobernada de la fuente; la fuente no declara literalmente el vínculo",
+    "decisionSetId": "M2-FINAL-MASS-BATCH-A",
+    "authority": "PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY",
+    "decidedAt": "2026-09-24",
+    "applied": true,
+    "conditions": {
+      "equalCardinality": true,
+      "alignedOrdinalNumbering": true,
+      "niBlockBelongsToVaArchitecture": true,
+      "orderingPreserved": true,
+      "noExplicitContraryMapping": true
+    },
+    "evidence": {
+      "vaCount": 15,
+      "niCount": 15,
+      "niSection": "6. NI, suficiencia y confianza",
+      "niLines": [
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220
+      ]
+    }
+  }
+}

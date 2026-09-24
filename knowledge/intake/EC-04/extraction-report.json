@@ -1,0 +1,192 @@
+{
+  "reportType": "STRUCTURAL_EXTRACTION_REPORT",
+  "statement": "Reporte técnico del extractor estructural. No es conocimiento canónico ni aprobación; las referencias cruzadas no son relaciones inferidas.",
+  "capabilityId": "EC-04",
+  "registrationId": "RAW-EC-04-7c22240c1ff2",
+  "textSha256": "1f7e5dd453c19709647d2bb3eb338480904deba5114c876e09987cc44d0c81ea",
+  "extractor": "pymapa-structural-segmenter@0.2.0",
+  "identity": {
+    "declaredName": "Absorber y aprovechar recursos externos",
+    "literalLines": [
+      1,
+      735
+    ],
+    "verified": true
+  },
+  "historicalClosure": {
+    "marker": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "lines": [
+      1106
+    ],
+    "selectedLine": 1106,
+    "requiresHumanConfirmation": false,
+    "statement": "Cierre histórico literal (provenance). No equivale a publicación técnica actual ni a aceptación canónica."
+  },
+  "chronology": [
+    {
+      "line": 1106,
+      "marker": "EC04-K4-v1.0 · K4-VALIDATED · CLOSED"
+    }
+  ],
+  "counts": {
+    "lines": 1135,
+    "headings": 288,
+    "idHeadings": 158,
+    "distinctSourceIds": 156,
+    "singleDefinition": 154,
+    "restatedIdentical": 0,
+    "conflictingDefinitions": 2,
+    "draftMarked": 0,
+    "governedBacklog": 0,
+    "finalApprovedCandidates": 156,
+    "historicalDrafts": 0
+  },
+  "ambiguousSupersessions": [],
+  "crossCapabilityReferences": [
+    {
+      "target": "EC-03",
+      "kind": "CAPABILITY",
+      "line": 133,
+      "heading": "8. Frontera EC-03"
+    },
+    {
+      "target": "PC-01",
+      "kind": "CAPABILITY",
+      "line": 149,
+      "heading": "10. Frontera PC-01/02/04"
+    },
+    {
+      "target": "PC-01",
+      "kind": "CAPABILITY",
+      "line": 151,
+      "heading": "PC-01"
+    },
+    {
+      "target": "PC-02",
+      "kind": "CAPABILITY",
+      "line": 153,
+      "heading": "PC-02"
+    },
+    {
+      "target": "PC-04",
+      "kind": "CAPABILITY",
+      "line": 155,
+      "heading": "PC-04"
+    },
+    {
+      "target": "DT-06",
+      "kind": "CAPABILITY",
+      "line": 161,
+      "heading": "11. Frontera DT-06"
+    },
+    {
+      "target": "OP-05",
+      "kind": "CAPABILITY",
+      "line": 168,
+      "heading": "12. Frontera OP-05"
+    }
+  ],
+  "nonTextElements": {
+    "statement": "Advertencias del registro raw sobre elementos no textuales; su verificación consta en el reporte del lote.",
+    "warnings": [
+      "IMAGES_NOT_TRANSCRIBED: 275 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw."
+    ]
+  },
+  "supersessionResolution": {
+    "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+    "mode": "GOVERNED",
+    "statement": "Resolución de supersesión solo por evidencia explícita de la fuente. La cronología sola y la última aparición sola nunca deciden; toda versión previa se preserva como provenance histórica. No es aceptación canónica.",
+    "baseline": {
+      "extractor": "pymapa-structural-segmenter@0.1.0",
+      "ambiguousIds": 2,
+      "ambiguousIdList": [
+        "A2",
+        "A5"
+      ],
+      "finalApproved": 154,
+      "historicalDrafts": 4
+    },
+    "after": {
+      "ambiguousIds": 0,
+      "finalApproved": 156,
+      "superseded": 2,
+      "historicalDrafts": 0,
+      "governedBacklog": 0,
+      "itemsWithSupersessionEvidence": 0
+    },
+    "resolvedFromBaselineAmbiguous": 2,
+    "resolvedFromBaselineAmbiguousList": [
+      "A2",
+      "A5"
+    ],
+    "byRule": {
+      "EXPLICIT_ELIMINATION": 0,
+      "EXPLICIT_REFORMULATION": 0,
+      "GOVERNED_FREEZE": 0,
+      "FROZEN_HEADING": 0,
+      "VERBATIM_DUPLICATE": 0
+    },
+    "resolvedIds": [],
+    "unresolvedIds": [
+      {
+        "sourceId": "A2",
+        "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
+        "occurrences": [
+          82,
+          771
+        ]
+      },
+      {
+        "sourceId": "A5",
+        "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
+        "occurrences": [
+          88,
+          769
+        ]
+      }
+    ],
+    "singlesReclassified": [],
+    "governingFreezes": []
+  },
+  "governance": {
+    "decisionSetId": "M2-FINAL-MASS-BATCH",
+    "ref": "knowledge/intake/EC-04/governance-decisions.json",
+    "checksum": "sha256:62dc9ce35f4231d808668419db43d9e1e6bda174235a2744875ab9648bb30186",
+    "closureSelection": null,
+    "approvedCounts": [],
+    "backlogAdded": [],
+    "collisionsApplied": [
+      {
+        "sourceId": "A2",
+        "resolution": "SELECT_OCCURRENCE",
+        "selectedLine": 82,
+        "otherLines": [
+          771
+        ]
+      },
+      {
+        "sourceId": "A5",
+        "resolution": "SELECT_OCCURRENCE",
+        "selectedLine": 88,
+        "otherLines": [
+          769
+        ]
+      }
+    ],
+    "semanticTypesApplied": [],
+    "provenanceVocabularyApplied": [
+      {
+        "scheme": "PROVENANCE_CLASS",
+        "code": "SOURCE-DERIVED",
+        "line": 1021
+      },
+      {
+        "scheme": "PROVENANCE_CLASS",
+        "code": "PYMAPA-DESIGNED",
+        "line": 1029
+      }
+    ],
+    "errors": []
+  },
+  "checksum": "sha256:558d110613fb4ed97e1794bbb296c22d280a4fa160e741d4ae9504d8121d13f9"
+}

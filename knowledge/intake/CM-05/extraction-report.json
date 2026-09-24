@@ -1,0 +1,141 @@
+{
+  "reportType": "STRUCTURAL_EXTRACTION_REPORT",
+  "statement": "Reporte técnico del extractor estructural. No es conocimiento canónico ni aprobación; las referencias cruzadas no son relaciones inferidas.",
+  "capabilityId": "CM-05",
+  "registrationId": "RAW-CM-05-4c2767563096",
+  "textSha256": "326b10ded04d3665c9c1442574fa959db4296f14e603c88fadfceea48c9d8d22",
+  "extractor": "pymapa-structural-segmenter@0.2.0",
+  "identity": {
+    "declaredName": "Gestionar experiencia, servicio y continuidad de la relación",
+    "literalLines": [
+      1,
+      8,
+      675,
+      1126
+    ],
+    "verified": true
+  },
+  "historicalClosure": {
+    "marker": "CM05-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "lines": [
+      1101,
+      1119
+    ],
+    "selectedLine": 1119,
+    "requiresHumanConfirmation": true,
+    "statement": "Cierre histórico literal (provenance). No equivale a publicación técnica actual ni a aceptación canónica."
+  },
+  "chronology": [
+    {
+      "line": 1101,
+      "marker": "CM05-K4-v1.0 · K4-VALIDATED · CLOSED"
+    },
+    {
+      "line": 1119,
+      "marker": "CM05-K4-v1.0 · K4-VALIDATED · CLOSED"
+    }
+  ],
+  "counts": {
+    "lines": 1139,
+    "headings": 305,
+    "idHeadings": 154,
+    "distinctSourceIds": 154,
+    "singleDefinition": 154,
+    "restatedIdentical": 0,
+    "conflictingDefinitions": 0,
+    "draftMarked": 0,
+    "governedBacklog": 0,
+    "finalApprovedCandidates": 154,
+    "historicalDrafts": 0
+  },
+  "ambiguousSupersessions": [],
+  "crossCapabilityReferences": [
+    {
+      "target": "CM-03",
+      "kind": "CAPABILITY",
+      "line": 124,
+      "heading": "CM-05 vs CM-03"
+    },
+    {
+      "target": "CM-04",
+      "kind": "CAPABILITY",
+      "line": 131,
+      "heading": "9. CM-05 vs CM-04"
+    },
+    {
+      "target": "CM-06",
+      "kind": "CAPABILITY",
+      "line": 136,
+      "heading": "10. CM-05 vs CM-06"
+    },
+    {
+      "target": "OP",
+      "kind": "DOMAIN",
+      "line": 144,
+      "heading": "11. CM-05 vs OP"
+    }
+  ],
+  "nonTextElements": {
+    "statement": "Advertencias del registro raw sobre elementos no textuales; su verificación consta en el reporte del lote.",
+    "warnings": [
+      "IMAGES_NOT_TRANSCRIBED: 265 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw."
+    ]
+  },
+  "supersessionResolution": {
+    "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+    "mode": "GOVERNED",
+    "statement": "Resolución de supersesión solo por evidencia explícita de la fuente. La cronología sola y la última aparición sola nunca deciden; toda versión previa se preserva como provenance histórica. No es aceptación canónica.",
+    "baseline": {
+      "extractor": "pymapa-structural-segmenter@0.1.0",
+      "ambiguousIds": 0,
+      "ambiguousIdList": [],
+      "finalApproved": 154,
+      "historicalDrafts": 0
+    },
+    "after": {
+      "ambiguousIds": 0,
+      "finalApproved": 154,
+      "superseded": 0,
+      "historicalDrafts": 0,
+      "governedBacklog": 0,
+      "itemsWithSupersessionEvidence": 0
+    },
+    "resolvedFromBaselineAmbiguous": 0,
+    "resolvedFromBaselineAmbiguousList": [],
+    "byRule": {
+      "EXPLICIT_ELIMINATION": 0,
+      "EXPLICIT_REFORMULATION": 0,
+      "GOVERNED_FREEZE": 0,
+      "FROZEN_HEADING": 0,
+      "VERBATIM_DUPLICATE": 0
+    },
+    "resolvedIds": [],
+    "unresolvedIds": [],
+    "singlesReclassified": [],
+    "governingFreezes": []
+  },
+  "governance": {
+    "decisionSetId": "M2-FINAL-MASS-BATCH",
+    "ref": "knowledge/intake/CM-05/governance-decisions.json",
+    "checksum": "sha256:3cfc5cb0233ffdfc8050f6e1c8f91a0c468a0f4eeb1e74c7e23b413eddcaa87d",
+    "closureSelection": null,
+    "approvedCounts": [],
+    "backlogAdded": [],
+    "collisionsApplied": [],
+    "semanticTypesApplied": [],
+    "provenanceVocabularyApplied": [
+      {
+        "scheme": "PROVENANCE_CLASS",
+        "code": "SOURCE-DERIVED",
+        "line": 1023
+      },
+      {
+        "scheme": "PROVENANCE_CLASS",
+        "code": "PYMAPA-DESIGNED",
+        "line": 1031
+      }
+    ],
+    "errors": []
+  },
+  "checksum": "sha256:32e36af84e913a019b95cc39f4d99c110e1eb8a3f174fc09910018b4779d30a2"
+}

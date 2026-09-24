@@ -1,0 +1,905 @@
+Continuamos con el cuarto dominio que abordamos en profundidad:
+# DT · Datos y habilitación tecnológica
+## DT-01 · Disponer de una base tecnológica adecuada
+Aquí cambia la naturaleza del diagnóstico. El principal riesgo sería convertir DT-01 en un checklist de computadores, licencias, servidores, nube o software.
+Pymapa debe responder algo más importante:
+¿La base tecnológica de la pyme es suficientemente adecuada para sostener las capacidades de negocio que realmente necesita, con el nivel de disponibilidad, desempeño, accesibilidad, mantenibilidad y evolución que su contexto exige?
+La fundamentación externa confirma la pertinencia de este enfoque. La OECD señala que la digitalización de las pymes es multidimensional, depende del propósito para el cual se utilizan las tecnologías y está estrechamente relacionada con cómo cada empresa crea valor y con su sector; además, las restricciones de recursos, habilidades y financiación siguen siendo barreras relevantes. OECD La encuesta D4SME 2026 añade que la adopción de IA está creciendo, pero su integración estratégica y segura continúa siendo desigual y que tiempo, mantenimiento y brechas de habilidades siguen obstaculizando la implementación efectiva. OECD
+Esto refuerza un principio que debemos fijar desde el comienzo:
+DT-01 no mide sofisticación tecnológica. Mide adecuación tecnológica.
+
+# 1. Dimensionamiento orgánico
+Por su complejidad, DT-01 requiere 12 bloques, no porque 12 sea una plantilla sino porque aparecen seis problemas conceptuales distintos:
+- qué constituye la “base tecnológica”;
+- para qué necesita tecnología realmente la empresa;
+- qué tan adecuada es la base existente;
+- qué dependencias y restricciones condicionan su funcionamiento;
+- cuándo una limitación tecnológica se vuelve material;
+- cómo intervenir sin sobredimensionar tecnológicamente a la pyme.
+La estructuramos así:
+| # | Bloque |
+| 1 | Identidad, alcance y unidad de análisis |
+| 2 | Aplicabilidad y modelo conceptual |
+| 3 | Fronteras con DT-02–06 y otros dominios |
+| 4 | Condiciones evaluables y variables |
+| 5 | Necesidades de información |
+| 6 | Grounding y principios |
+| 7 | Captura, evidencia, suficiencia y confianza |
+| 8 | Reglas diagnósticas y estados positivos |
+| 9 | Findings y decisiones |
+| 10 | Intervenciones, actividades e instrumentos |
+| 11 | Entregables, Done, CRV, validación y seguimiento |
+| 12 | Contextualización, Knowledge Governance y cierre |
+Agrupación:
+SET A = bloques 1–8
+SET B = bloques 9–12
+Avanzamos ahora con SET A completo.
+
+# 2. Identidad y alcance
+## Definición V1
+DT-01 evalúa la capacidad de la organización para disponer y sostener una base tecnológica suficientemente adecuada para habilitar sus operaciones, decisiones, interacciones e iniciativas materialmente relevantes, de acuerdo con sus necesidades actuales y previsibles de negocio.
+## Unidad de análisis
+No será:
+“la infraestructura tecnológica de la empresa”.
+Eso sería demasiado amplio y empujaría hacia inventario técnico.
+Será:
+la correspondencia entre una necesidad material de habilitación tecnológica y la capacidad efectiva de la base tecnológica disponible para satisfacerla suficientemente.
+Por tanto:
+Business/Operational Need → Technology Enablement Need → Technology Base → Fitness → Constraint → Consequence.
+
+# 3. ¿Qué entendemos por base tecnológica?
+Debemos evitar asociarla exclusivamente con hardware.
+Pymapa utilizará:
+### TECHNOLOGY BASE
+Conjunto material de recursos tecnológicos mediante los cuales la organización habilita sus actividades.
+Puede comprender:
+TB-01 · Connectivity
+Internet, redes y conectividad relevante.
+TB-02 · End-user technology
+Computadores, móviles, terminales u otros dispositivos.
+TB-03 · Compute/Hosting
+Capacidad local, cloud o híbrida.
+TB-04 · Business applications
+Aplicaciones utilizadas para realizar trabajo.
+TB-05 · Platforms/Services
+Servicios digitales externos sobre los que opera la empresa.
+TB-06 · Technical foundations
+Configuraciones, componentes y servicios habilitadores necesarios.
+Pero esta taxonomía:
+no constituye una lista obligatoria de activos.
+Una microempresa puede tener una base tecnológica perfectamente adecuada compuesta casi totalmente por:
+portátil + móvil + conectividad + SaaS.
+
+# 4. Modelo de adecuación
+Aquí necesitamos una separación crítica:
+EXISTS ≠ AVAILABLE ≠ FIT ≠ RELIABLE ≠ SUPPORTABLE ≠ EVOLVABLE
+Una tecnología puede existir y ser insuficiente.
+Ejemplo:
+la empresa tiene computadores.
+Eso no nos dice si permiten ejecutar el trabajo requerido.
+Otra puede funcionar hoy pero resultar frágil:
+un software crítico depende de un equipo que ya no recibe soporte.
+Y otra puede ser técnicamente excelente pero desproporcionada:
+infraestructura enterprise para una pyme de cinco personas.
+
+# Fitness-for-purpose
+Introducimos el concepto:
+### TECHNOLOGY FIT
+grado en que una base tecnológica satisface suficientemente la necesidad material que pretende habilitar dentro del contexto y restricciones de la organización.
+No existe entonces:
+“buena tecnología”
+en abstracto.
+Existe:
+tecnología suficientemente adecuada para una necesidad determinada.
+Esto está alineado con la evidencia OECD de que las tecnologías sirven propósitos diferentes, las trayectorias digitales varían por empresa y sector, y las pymes enfrentan restricciones distintas. OECD
+
+# 5. Aplicabilidad
+DT-01 es transversal, pero no todas sus dimensiones son igualmente materiales para toda pyme.
+### APP-DT01-01
+Una característica tecnológica solo debe evaluarse en profundidad cuando exista una necesidad material de negocio, operación, decisión o transformación que dependa de ella.
+Ejemplo:
+No preguntaremos automáticamente:
+“¿Tiene infraestructura cloud escalable?”
+Preguntaremos primero:
+“¿Qué actividades relevantes dependen de tecnología y qué necesitan de ella?”
+Solo entonces determinamos qué evaluar.
+
+# Materialidad
+La materialidad puede aumentar por:
+- criticidad del proceso habilitado;
+- número/relevancia de usuarios;
+- impacto de indisponibilidad;
+- frecuencia de uso;
+- dependencia tecnológica;
+- restricciones de capacidad;
+- necesidad de crecimiento;
+- cambios previstos;
+- dependencia externa;
+- dificultad de recuperación/sustitución.
+No creamos todavía un score obligatorio.
+
+# 6. Fronteras con DT-02–06
+Esta separación será fundamental para evitar un “dominio TI” amorfo.
+| Capacidad | Pregunta irreducible |
+| DT-01 | ¿Tenemos una base tecnológica adecuada para lo que necesitamos hacer? |
+| DT-02 | ¿Los datos tienen calidad y disponibilidad suficientes? |
+| DT-03 | ¿Datos, aplicaciones y flujos están integrados suficientemente? |
+| DT-04 | ¿Convertimos datos en información útil para decidir? |
+| DT-05 | ¿Protegemos información, sistemas y continuidad suficientemente? |
+| DT-06 | ¿Podemos evaluar, incorporar y aprovechar nuevas tecnologías pertinentes? |
+
+# DT-01 ≠ DT-05
+Una aplicación puede:
+funcionar correctamente,
+pero:
+estar mal protegida.
+DT-01 puede resultar positivo mientras DT-05 encuentra una brecha.
+A la inversa:
+una solución puede estar correctamente protegida pero ser demasiado lenta o incapaz de soportar el trabajo.
+DT-05 positivo no vuelve positivo DT-01.
+NIST dispone precisamente de una adaptación del Cybersecurity Framework 2.0 para pequeñas y medianas empresas con planes de ciberseguridad modestos o inexistentes. Esto refuerza que la protección tecnológica merece tratamiento propio y proporcional en DT-05, en vez de absorberla dentro de DT-01. NIST
+
+# DT-01 ≠ DT-06
+Otra frontera especialmente importante:
+CURRENT FITNESS ≠ TECHNOLOGY INNOVATION CAPABILITY
+DT-01 puede decir:
+“la tecnología actual es adecuada”.
+DT-06 podría decir:
+“la empresa no tiene capacidad para identificar/evaluar tecnologías emergentes”.
+Ambas pueden ser simultáneamente ciertas.
+
+# DT-01 y OP
+OP responde:
+¿cómo debería funcionar el proceso?
+DT-01:
+¿la tecnología que necesita ese proceso lo habilita suficientemente?
+Por tanto:
+mal proceso ≠ mala tecnología.
+No debemos recomendar automatización para corregir un proceso innecesariamente complejo.
+
+# DT-01 y EC
+Una pyme puede depender completamente de:
+Microsoft 365, Google Workspace, Shopify, AWS, un SaaS sectorial o un proveedor TI local.
+DT-01 evalúa:
+si esa configuración tecnológica satisface la necesidad.
+EC evalúa:
+la relación/capacidad externa que sostiene esa dependencia.
+Nuevamente:
+reuse evidence, not conclusions.
+
+# 7. Condiciones evaluables
+La capacidad necesita 7 CE / 16 VA.
+## CE01 · Necesidad tecnológica
+VA01 · Necesidades materiales de habilitación identificadas
+VA02 · Relación necesidad tecnológica ↔ actividad/resultado suficientemente clara
+
+## CE02 · Disponibilidad funcional
+VA03 · Recursos tecnológicos requeridos disponibles
+VA04 · Acceso efectivo para usuarios/situaciones aplicables
+
+## CE03 · Adecuación funcional
+VA05 · Funcionalidad suficiente
+VA06 · Desempeño/capacidad suficiente
+VA07 · Compatibilidad con condiciones reales de uso
+Aquí pueden entrar:
+movilidad, ubicación, dispositivos, conectividad o condiciones operativas
+solo cuando sean materiales.
+
+## CE04 · Confiabilidad operativa
+VA08 · Disponibilidad suficientemente consistente
+VA09 · Estabilidad suficiente para el uso requerido
+No convertimos DT-01 en continuidad formal; preguntamos si la base puede funcionar suficientemente en operación normal.
+
+## CE05 · Sostenibilidad técnica
+VA10 · Tecnología mantenible/soportable
+VA11 · Dependencias técnicas materiales conocidas
+VA12 · Obsolescencia material controlada
+
+## CE06 · Proporcionalidad
+VA13 · Complejidad tecnológica proporcional
+VA14 · Costo/esfuerzo de sostenimiento proporcional al valor/necesidad
+Este CE es especialmente importante para pymes.
+Más tecnología puede ser peor.
+
+## CE07 · Evolución prevista
+VA15 · Capacidad suficiente frente a necesidades previsibles
+VA16 · Restricciones tecnológicas futuras materialmente visibles
+No evaluamos innovación tecnológica —eso será DT-06— sino:
+si una necesidad ya razonablemente previsible romperá la adecuación actual.
+
+# 8. Information Needs
+Resultan 16 NI correspondientes.
+| NI | Necesitamos conocer |
+| NI01 | Qué actividades necesitan habilitación tecnológica |
+| NI02 | Qué resultado/necesidad debe satisfacer la tecnología |
+| NI03 | Qué recursos tecnológicos están disponibles |
+| NI04 | Quién puede utilizarlos y en qué situaciones |
+| NI05 | Si proporcionan la funcionalidad requerida |
+| NI06 | Si capacidad/desempeño son suficientes |
+| NI07 | Si funcionan bajo condiciones reales de trabajo |
+| NI08 | Si están disponibles cuando se necesitan |
+| NI09 | Si su funcionamiento es suficientemente estable |
+| NI10 | Si pueden mantenerse/soportarse |
+| NI11 | De qué dependencias técnicas materiales dependen |
+| NI12 | Si existe obsolescencia material |
+| NI13 | Si la complejidad está justificada |
+| NI14 | Si el costo/esfuerzo tecnológico es proporcional |
+| NI15 | Si puede soportar necesidades previsibles |
+| NI16 | Qué restricciones futuras ya son visibles |
+
+# 9. Grounding
+Utilizamos tres tipos de grounding diferentes.
+### OECD · SME digitalisation
+Es especialmente útil para:
+- proporcionalidad;
+- heterogeneidad de las pymes;
+- infraestructura;
+- cloud;
+- restricciones;
+- adopción;
+- relación tecnología-negocio.
+La OECD señala que las pymes continúan enfrentando barreras como infraestructura digital insuficiente, recursos internos limitados, brechas de habilidades y restricciones financieras. También documenta que cloud permite acceder a capacidad de almacenamiento/procesamiento de manera flexible y puede reducir inversiones iniciales y cargas de mantenimiento. OECD
+### ISO/IEC 20000-1:2018
+Es útil como referencia de gestión de servicios, no como requisito que una pyme deba implementar. La norma aborda planificación, diseño, transición, entrega y mejora de servicios para satisfacer requisitos y entregar valor; la edición 2018 fue confirmada en 2023 y sigue siendo la versión actual. ISO
+### NIST CSF 2.0
+Lo reservamos principalmente para DT-05, aunque ayuda a mantener correctamente separadas:
+adecuación tecnológica
+de
+gestión de riesgo de ciberseguridad.
+NIST mantiene una guía específica de CSF 2.0 para pequeñas y medianas organizaciones. NIST
+
+# Principios DT-01
+### P-DT01-01
+Existencia tecnológica ≠ adecuación tecnológica.
+### P-DT01-02
+Mayor sofisticación ≠ mayor adecuación.
+### P-DT01-03
+Tecnología debe evaluarse respecto de una necesidad material.
+### P-DT01-04
+Tecnología propia ≠ tecnología superior.
+### P-DT01-05
+Cloud ≠ madurez automáticamente.
+### P-DT01-06
+On-premise ≠ atraso automáticamente.
+### P-DT01-07
+Outsourcing tecnológico ≠ incapacidad tecnológica automáticamente.
+### P-DT01-08
+Solución técnicamente avanzada puede ser desproporcionada.
+### P-DT01-09
+Solución simple puede ser plenamente suficiente.
+### P-DT01-10
+Tecnología funcional hoy puede no ser sostenible.
+### P-DT01-11
+Obsolescencia cronológica ≠ obsolescencia material automáticamente.
+### P-DT01-12
+Limitación tecnológica debe conectarse con una consecuencia material.
+### P-DT01-13
+Problema de proceso no debe diagnosticarse automáticamente como problema tecnológico.
+### P-DT01-14
+Problema de adopción no demuestra insuficiencia tecnológica.
+### P-DT01-15
+Adecuación tecnológica puede variar entre casos de uso dentro de la misma organización.
+
+# 10. Captura y evidencia
+La captura debe empezar desde negocio/operación, no desde arquitectura TI.
+## P1 · Núcleo
+Preguntas como:
+“¿Qué actividades importantes dependen de tecnología para funcionar?”
+“¿Hay algo que hoy no puedan hacer bien por una limitación tecnológica?”
+“¿Qué herramientas o sistemas son realmente críticos?”
+“¿Qué pasa cuando alguno no funciona?”
+“¿Hay algo que pronto vaya a exigir más de la tecnología actual?”
+Mucho más útil que:
+“¿Cuál es su nivel de madurez de infraestructura?”
+
+# P2 · Condicional
+Se activa ante:
+- lentitud recurrente;
+- interrupciones;
+- capacidad insuficiente;
+- restricciones de acceso;
+- dispositivos inadecuados;
+- conectividad insuficiente;
+- software fuera de soporte;
+- infraestructura frágil;
+- crecimiento;
+- nuevos canales;
+- nuevas ubicaciones;
+- nuevo volumen;
+- nuevos usuarios;
+- dependencia de equipos antiguos;
+- mantenimiento difícil;
+- costos tecnológicos desproporcionados.
+
+# P3 · Discriminación
+Ante:
+“el sistema no sirve”
+Pymapa debe distinguir:
+TECHNOLOGY FUNCTION GAP
+CAPACITY/PERFORMANCE GAP
+CONNECTIVITY GAP
+DATA QUALITY GAP → DT-02
+INTEGRATION GAP → DT-03
+USER COMPETENCE GAP → PC-02
+ADOPTION GAP → PC-03
+PROCESS DESIGN GAP → OP
+SECURITY/CONTINUITY GAP → DT-05
+EXTERNAL PROVIDER GAP → EC
+Esto es central para el Motor.
+
+# Evidencia
+Puede incluir:
+- sistemas utilizados;
+- casos de uso;
+- usuarios;
+- dispositivos;
+- conectividad;
+- tiempos;
+- capacidad;
+- incidencias;
+- disponibilidad;
+- contratos/licencias;
+- soporte;
+- versiones;
+- costos;
+- dependencia de proveedores;
+- experiencia observada;
+- screenshots/configuración cuando material;
+- pruebas funcionales;
+- evidencia de operación;
+- planes de crecimiento.
+No todo caso requiere evidencia técnica profunda.
+
+# Evidencia proporcional
+Una empresa de cuatro personas puede demostrar:
+“la herramienta funciona suficientemente”
+mediante observación y casos reales.
+No necesitamos exigir:
+SLA + monitoring dashboard + CMDB + capacity management system.
+Esto sería exactamente lo contrario del propósito de Pymapa.
+
+# 11. Suficiencia y confianza
+### SUFF-DT01-01
+La suficiencia se alcanza cuando las necesidades tecnológicas materiales están cubiertas suficientemente y no permanecen restricciones críticas sin caracterizar que puedan cambiar la conclusión.
+No exige inventariar toda la tecnología.
+### SUFF-DT01-02
+Cobertura tecnológica debe seguir materialidad de los casos de uso, no exhaustividad de activos.
+
+# Confianza
+Una declaración:
+“nunca tenemos problemas”
+puede aportar información.
+Pero para una función crítica probablemente necesitamos:
+declaración + evidencia operacional + ausencia razonablemente comprobada de limitaciones materiales.
+Para una función no crítica:
+declaración consistente
+puede ser suficiente.
+
+# 12. Reglas diagnósticas
+Las 16 VA producen 16 reglas primarias.
+R-DT01-01 · MATERIAL_TECHNOLOGY_NEED_UNCLEAR
+Necesidad material insuficientemente identificada.
+R-DT01-02 · TECHNOLOGY_PURPOSE_UNCLEAR
+Relación tecnología-necesidad insuficiente.
+R-DT01-03 · REQUIRED_TECHNOLOGY_UNAVAILABLE
+R-DT01-04 · TECHNOLOGY_ACCESS_GAP
+R-DT01-05 · FUNCTIONAL_FIT_GAP
+R-DT01-06 · TECHNOLOGY_CAPACITY_GAP
+R-DT01-07 · REAL_USE_CONDITION_MISMATCH
+R-DT01-08 · TECHNOLOGY_AVAILABILITY_GAP
+R-DT01-09 · TECHNOLOGY_STABILITY_GAP
+R-DT01-10 · TECHNOLOGY_SUPPORTABILITY_GAP
+R-DT01-11 · MATERIAL_TECHNICAL_DEPENDENCY_BLIND_SPOT
+R-DT01-12 · MATERIAL_TECHNOLOGY_OBSOLESCENCE
+R-DT01-13 · TECHNOLOGY_OVERCOMPLEXITY
+R-DT01-14 · TECHNOLOGY_SUSTAINMENT_DISPROPORTIONATE
+R-DT01-15 · FORESEEABLE_CAPACITY_GAP
+R-DT01-16 · FUTURE_TECHNOLOGY_CONSTRAINT_BLIND_SPOT
+
+# Estados positivos
+Resultan 6:
+### MATERIAL_TECHNOLOGY_NEEDS_VISIBLE
+### TECHNOLOGY_FUNCTIONALLY_FIT
+### TECHNOLOGY_OPERATIONALLY_RELIABLE
+### TECHNOLOGY_SUPPORTABLE
+### TECHNOLOGY_PROPORTIONATE
+### TECHNOLOGY_FIT_FOR_FORESEEABLE_NEEDS
+
+# Guardrails
+- No recomendar tecnología antes de establecer necesidad.
+- No usar cantidad de herramientas como proxy de madurez.
+- No premiar cloud por sí mismo.
+- No penalizar soluciones simples.
+- No penalizar outsourcing por sí mismo.
+- No llamar obsoleta una tecnología solo por edad.
+- No exigir arquitectura enterprise a una pyme.
+- No atribuir un problema de datos a infraestructura sin discriminación.
+- No atribuir un problema de adopción a tecnología automáticamente.
+- No considerar costo bajo como adecuación suficiente.
+- No considerar alto desempeño técnico como evidencia de valor.
+- No exigir escalabilidad ilimitada.
+- No exigir redundancia sin materialidad.
+- No confundir dependencia externa con falla tecnológica.
+- No recomendar reemplazo cuando una corrección menor produce suficiencia.
+
+# Principio de intervención futura
+Ya podemos anticipar el criterio que gobernará SET B:
+Minimum Sufficient Technology
+Lo formalizamos:
+### INT-DT01-01
+La intervención tecnológica debe buscar la solución de menor complejidad total que satisfaga suficientemente la necesidad material y sus condiciones razonablemente previsibles.
+“Complejidad total” incluye:
+adquisición + configuración + integración + operación + soporte + conocimiento requerido + dependencia + cambio organizacional.
+Esto es especialmente importante para Pymapa.
+
+# Nuevos candidatos para el Motor
+### CAND-MOTOR-DT01-01
+Una evaluación tecnológica debe partir de necesidad/caso de uso material antes de evaluar el activo o solución.
+### CAND-MOTOR-DT01-02
+Existencia, disponibilidad, acceso, fitness, confiabilidad y sostenibilidad tecnológica deben conservarse como estados distintos.
+### CAND-MOTOR-DT01-03
+La edad de una tecnología no constituye por sí misma evidencia suficiente de obsolescencia material.
+### CAND-MOTOR-DT01-04
+El Motor debe poder producir tanto UNDER-FIT como OVER-FIT; exceso injustificado de complejidad también puede ser una brecha.
+### CAND-MOTOR-DT01-05
+Una brecha observada en un sistema debe discriminar tecnología, datos, integración, proceso, competencia, adopción, seguridad/continuidad y proveedor antes de atribuir causalidad.
+### CAND-MOTOR-DT01-06
+La adecuación tecnológica debe evaluarse por caso de uso; una misma tecnología puede ser suficiente para una necesidad e insuficiente para otra.
+
+# Control DT-01 · SET A
+| Objeto | Resultado |
+| Dimensionamiento | 12 bloques |
+| SET A | 1–8 |
+| CE | 7 |
+| VA | 16 |
+| NI | 16 |
+| Reglas | 16 |
+| Estados positivos | 6 |
+| Guardrails | 15 |
+| Motor candidates | 6 |
+| Grounding | OECD + ISO/IEC 20000-1 + NIST como frontera DT-05 |
+La arquitectura conceptual queda:
+Necesidad material → necesidad de habilitación → base tecnológica → disponibilidad → acceso → fitness → confiabilidad → sostenibilidad → proporcionalidad → adecuación futura.
+Y fijamos una regla que deberá permanecer en todo el dominio tecnológico:
+Pymapa no preguntará cuánta tecnología tiene una pyme para determinar qué tan digital es. Evaluará si la tecnología que utiliza —propia, contratada, cloud, local, simple o sofisticada— es suficientemente adecuada para habilitar aquello que materialmente necesita hacer.
+DT01-SET-A-v0.1 · BLOCKS 1–8 OF 12 COMPLETE · READY-FOR-SET-B
+El siguiente movimiento es DT-01 · SET B · bloques 9–12: findings, decisiones, intervenciones, instrumentos, entregables, CRV, validación, contextualización y cierre A–V + DoD + K1–K4.
+Después podremos comprobar si DT-01 queda efectivamente cerrada antes de entrar en DT-02 · Gestionar datos con calidad y disponibilidad.
+2/2
+viernes 3:30 p.m.
+seguimos
+Seguimos con DT-01 · SET B, bloques 9–12. Aquí debemos convertir el modelo de adecuación tecnológica del SET A en decisiones e intervenciones accionables, manteniendo el principio de Minimum Sufficient Technology.
+# DT-01 · Disponer de una base tecnológica adecuada
+## SET B · Bloques 9–12
+Entrada: DT01-SET-A-v0.1 · BLOCKS 1–8 OF 12 COMPLETE
+
+# 9. Findings y decisiones
+Las 16 reglas primarias no necesitan producir 16 hallazgos separados. Se consolidan en 8 familias diagnósticas.
+| ID | Familia de hallazgo | Núcleo diagnóstico |
+| HF-DT01-01 | Necesidad tecnológica insuficientemente definida | Se evalúa o mantiene tecnología sin conexión suficientemente clara con una necesidad material |
+| HF-DT01-02 | Disponibilidad o acceso insuficiente | La tecnología requerida existe parcialmente, no está disponible o no puede utilizarse donde corresponde |
+| HF-DT01-03 | Fitness funcional insuficiente | Funcionalidad, capacidad, desempeño o condiciones reales de uso no satisfacen suficientemente la necesidad |
+| HF-DT01-04 | Confiabilidad operativa insuficiente | Interrupciones o inestabilidad afectan materialmente el trabajo |
+| HF-DT01-05 | Sostenibilidad tecnológica frágil | Soporte, mantenimiento, dependencias u obsolescencia comprometen la continuidad de la adecuación |
+| HF-DT01-06 | Complejidad tecnológica desproporcionada | La solución excede justificadamente lo necesario e introduce carga sin valor suficiente |
+| HF-DT01-07 | Esfuerzo/costo de sostenimiento desproporcionado | Mantener la base tecnológica consume recursos incompatibles con el valor que habilita |
+| HF-DT01-08 | Adecuación futura comprometida | Necesidades previsibles superarán la capacidad tecnológica actual |
+Esto permite encontrar tanto:
+UNDER-FIT
+como:
+OVER-FIT
+Ese segundo estado es particularmente importante para pymes.
+
+## No toda limitación tecnológica es una brecha
+Supongamos que una empresa tarda diez minutos en generar un reporte mensual.
+Existe una limitación.
+Pero si:
+- ocurre una vez al mes;
+- no afecta decisiones;
+- no genera riesgo;
+- resolverla cuesta significativamente más que tolerarla;
+Pymapa puede concluir:
+NO_ACTION
+La existencia de una imperfección tecnológica no obliga a intervenir.
+### P-DT01-16
+Una limitación tecnológica se convierte en brecha cuando produce o amenaza suficientemente una consecuencia material dentro del contexto aplicable.
+
+# Vocabulario de decisión
+DT-01 necesita decisiones más amplias que BUY / REPLACE.
+### RETAIN
+Mantener la tecnología actual.
+### CONFIGURE
+Corregir configuración o utilización técnica.
+### ENABLE
+Habilitar acceso, capacidad o recurso ya disponible.
+### OPTIMIZE
+Mejorar desempeño o funcionamiento sin reemplazo.
+### SIMPLIFY
+Reducir complejidad innecesaria.
+### SUPPORT
+Fortalecer mantenimiento o soporte.
+### UPGRADE
+Actualizar componente existente.
+### REPLACE
+Sustituir cuando la solución actual ya no alcanza suficiencia razonable.
+### ADD
+Agregar una capacidad tecnológica inexistente.
+### MIGRATE
+Cambiar plataforma/modelo tecnológico cuando esté justificado.
+### DEFER
+Posponer conscientemente.
+### RETIRE
+Eliminar tecnología que agrega complejidad/costo sin valor suficiente.
+### NO_ACTION
+Mantener estado actual.
+Tenemos, por tanto, 13 direcciones posibles.
+
+# Decisión ≠ producto
+Una recomendación correcta sería:
+“habilitar acceso móvil suficientemente confiable al sistema de pedidos para los vendedores de campo”.
+No necesariamente:
+“comprar producto X”.
+La selección concreta de tecnología puede requerir DT-06 y, si involucra proveedor externo, EC-02.
+### REC-DT01-01
+La especificidad de una recomendación tecnológica no debe exceder la confianza existente sobre la necesidad, la causa de la brecha y las restricciones relevantes.
+
+# 10. Intervenciones, actividades e instrumentos
+Resultan 8 patrones de intervención.
+| ID | Patrón | Objetivo |
+| IP-DT01-01 | Clarificar necesidad de habilitación | Conectar tecnología con actividad/resultado material |
+| IP-DT01-02 | Habilitar disponibilidad/acceso | Asegurar que la tecnología requerida pueda utilizarse |
+| IP-DT01-03 | Corregir fitness funcional | Resolver funcionalidad, capacidad, desempeño o compatibilidad |
+| IP-DT01-04 | Estabilizar funcionamiento | Reducir inestabilidad material |
+| IP-DT01-05 | Fortalecer sostenibilidad técnica | Resolver soporte, mantenimiento, dependencia u obsolescencia |
+| IP-DT01-06 | Simplificar base tecnológica | Retirar complejidad sin valor suficiente |
+| IP-DT01-07 | Reequilibrar costo/esfuerzo | Adecuar carga de sostenimiento al valor habilitado |
+| IP-DT01-08 | Preparar necesidad previsible | Cerrar anticipadamente una restricción futura suficientemente material |
+
+## Minimum Sufficient Technology
+Formalizamos el principio anticipado en SET A:
+INT-DT01-01 · Minimum Sufficient Technology
+La intervención debe buscar la alternativa de menor complejidad total que satisfaga suficientemente la necesidad material actual y las necesidades previsibles que sea razonable considerar.
+Esto significa que Pymapa debe poder recomendar:
+no comprar nada.
+O:
+configurar lo existente.
+O:
+eliminar herramientas.
+O:
+utilizar un servicio externo.
+O:
+reemplazar tecnología.
+No existe una preferencia normativa por adquisición.
+
+# Complejidad total
+Para comparar alternativas debemos mirar más que precio de compra.
+### TC-DT01
+TOTAL TECHNOLOGY COMPLEXITY puede considerar:
+- adquisición;
+- implementación;
+- configuración;
+- integración;
+- operación;
+- soporte;
+- actualización;
+- conocimientos requeridos;
+- dependencia;
+- administración;
+- cambio organizacional;
+- salida/migración futura.
+No lo convertimos automáticamente en fórmula matemática.
+Es una estructura de razonamiento.
+
+# Ejemplo
+Una pyme tiene cinco herramientas diferentes para:
+- prospectos;
+- cotizaciones;
+- clientes;
+- pedidos;
+- seguimiento comercial.
+Podría parecer digitalmente avanzada.
+Pero si:
+dos personas pasan horas conciliando manualmente información
+puede existir:
+HF-DT01-06 · TECHNOLOGY OVERCOMPLEXITY
+aunque también podría existir:
+DT-03 · Integration Gap.
+DT-01 evalúa:
+si la base tecnológica total es proporcional.
+DT-03 evaluará:
+si las aplicaciones/datos/flujos necesitan integración.
+Misma evidencia; conclusiones distintas.
+
+# Actividades
+Dependiendo del caso:
+- identificar casos de uso críticos;
+- revisar restricciones;
+- probar desempeño;
+- configurar;
+- ampliar capacidad;
+- habilitar usuarios;
+- actualizar versiones;
+- racionalizar aplicaciones;
+- eliminar componentes;
+- mejorar soporte;
+- sustituir equipo;
+- migrar servicio;
+- probar alternativa;
+- establecer contingencia temporal;
+- preparar crecimiento.
+No todas requieren especialista TI.
+
+# Instrumentos
+Resultan 7 instrumentos.
+### INS-DT01-01 · Technology Enablement Map
+necesidad → actividad → tecnología habilitadora → criticidad.
+### INS-DT01-02 · Technology Fit Card
+necesidad → funcionalidad → capacidad → condición real → suficiencia.
+### INS-DT01-03 · Constraint Map
+restricción → consecuencia → materialidad → alternativa.
+### INS-DT01-04 · Technology Dependency Map
+componente → dependencia → consecuencia → soporte.
+Este instrumento puede reutilizar evidencia con DG-05 y EC, sin transferir conclusiones.
+### INS-DT01-05 · Supportability & Obsolescence Check
+No pregunta simplemente:
+“¿qué edad tiene?”
+Evalúa:
+soporte + mantenibilidad + compatibilidad + consecuencia.
+### INS-DT01-06 · Technology Simplification Map
+componente → utilidad → dependencia → carga → posibilidad de retiro/consolidación.
+### INS-DT01-07 · Minimum Sufficient Technology Decision
+Compara alternativas por:
+suficiencia + complejidad total + restricciones + horizonte.
+
+# Derivaciones hacia otras capacidades
+DT-01 puede detectar que el problema principal pertenece a otra capacidad.
+### DERIVE → DT-02
+Si la tecnología funciona pero los datos son incompletos, inconsistentes o indisponibles.
+### DERIVE → DT-03
+Si el problema es intercambio entre aplicaciones/datos/flujos.
+### DERIVE → DT-05
+Si la principal preocupación es protección o continuidad.
+### DERIVE → DT-06
+Si debe evaluarse una tecnología nueva.
+### DERIVE → OP
+Si el problema deriva del diseño del trabajo.
+### DERIVE → PC-02
+Si falta capacidad para utilizar la tecnología.
+### DERIVE → PC-03
+Si la tecnología es suficiente pero no se incorpora.
+### DERIVE → EC
+Si la suficiencia depende materialmente de un actor externo.
+
+# 11. Entregables, Done, CRV, validación y seguimiento
+Resultan 8 entregables funcionales:
+DEL-DT01-01 · necesidades materiales de habilitación visibles
+DEL-DT01-02 · disponibilidad/acceso suficientes
+DEL-DT01-03 · fitness funcional suficiente
+DEL-DT01-04 · confiabilidad operativa suficiente
+DEL-DT01-05 · sostenibilidad técnica suficiente
+DEL-DT01-06 · complejidad tecnológica proporcional
+DEL-DT01-07 · esfuerzo/costo de sostenimiento proporcional
+DEL-DT01-08 · restricciones previsibles materialmente gobernadas
+
+# Done Criteria
+DT-01 requiere 6 criterios.
+### DC-A · Need Done
+Las necesidades tecnológicas materiales están suficientemente identificadas.
+### DC-B · Fit Done
+La base satisface suficientemente funcionalidad, capacidad y condiciones reales aplicables.
+### DC-C · Availability Done
+Usuarios/casos relevantes disponen de la tecnología cuando la necesitan.
+### DC-D · Sustainability Done
+No permanecen brechas críticas de soporte, mantenimiento, dependencia u obsolescencia sin tratamiento.
+### DC-E · Proportionality Done
+Complejidad y esfuerzo de sostenimiento son razonablemente proporcionales.
+### DC-F · Foreseeability Done
+Restricciones previsibles capaces de invalidar próximamente la adecuación están tratadas, aceptadas o explícitamente gobernadas.
+
+# CRV
+Resultan 8 CRV.
+| ID | Criterio de Resultado Verificable |
+| CRV-DT01-01 | Necesidades materiales vinculadas a habilitación tecnológica están explícitamente cubiertas |
+| CRV-DT01-02 | Usuarios/casos aplicables acceden a recursos requeridos |
+| CRV-DT01-03 | Tecnología ejecuta suficientemente funciones y cargas requeridas |
+| CRV-DT01-04 | Interrupciones/inestabilidad no generan impacto material fuera del nivel aceptado |
+| CRV-DT01-05 | Componentes materiales son suficientemente soportables/mantenibles |
+| CRV-DT01-06 | No permanece complejidad tecnológica material sin justificación suficiente |
+| CRV-DT01-07 | Esfuerzo/costo de sostenimiento permanece proporcional al valor/necesidad |
+| CRV-DT01-08 | Restricciones futuras previsibles están resueltas, aceptadas o gobernadas |
+
+# KPI
+Dependiendo del caso podrían ser útiles:
+- disponibilidad;
+- latencia;
+- incidentes;
+- tiempo perdido;
+- capacidad utilizada;
+- costo por usuario/transacción;
+- tiempo de soporte;
+- frecuencia de fallos;
+- herramientas redundantes;
+- tiempo dedicado a administración tecnológica.
+Pero ninguno es KPI universal de DT-01.
+Especialmente evitamos:
+número de aplicaciones;
+porcentaje cloud;
+antigüedad promedio de equipos;
+gasto TI como porcentaje de ventas
+como indicadores automáticos de madurez.
+Pueden ser evidencia contextual; no conclusión.
+
+# Validación
+Proponemos cinco niveles.
+### V0 · UNKNOWN
+No existe evidencia suficiente.
+### V1 · AVAILABLE
+La tecnología existe y puede accederse.
+### V2 · FUNCTIONALLY-FIT
+Demuestra capacidad funcional suficiente en condiciones relevantes.
+### V3 · OPERATIONALLY-FIT
+Funciona con confiabilidad suficiente en operación real.
+### V4 · SUSTAINABLY-FIT
+Además puede sostenerse razonablemente y no presenta una restricción previsible material no gobernada.
+La capacidad completa no exige que cada componente alcance V4.
+El nivel necesario depende de:
+criticidad + horizonte + consecuencia.
+
+# Importante: validación por caso de uso
+Un mismo sistema podría estar:
+V4 para facturación
+y:
+V2 para analítica comercial.
+Por tanto:
+### VAL-DT01-01
+La validación de fitness tecnológico debe asociarse al caso de uso material y no exclusivamente al activo tecnológico.
+Esta regla será importante para el diseño del Case State.
+
+# Seguimiento
+Reevaluamos DT-01 cuando cambie materialmente:
+- volumen;
+- usuarios;
+- ubicaciones;
+- canales;
+- procesos;
+- productos;
+- sistema operativo;
+- proveedor;
+- soporte;
+- licencia;
+- regulación técnica relevante;
+- dependencia;
+- arquitectura;
+- carga;
+- tecnología relacionada;
+- necesidad de negocio.
+### REASS-DT01-01
+Un cambio material en necesidad, uso, dependencia o soportabilidad puede invalidar una conclusión previa de adecuación tecnológica.
+
+# 12. Contextualización, Knowledge Governance y cierre
+## Proporcionalidad SME
+Una microempresa no necesita necesariamente:
+inventario formal de activos + CMDB + arquitectura documentada + SLA internos.
+Podría demostrar suficiencia mediante:
+casos de uso críticos + herramientas identificadas + observación funcional + restricciones conocidas.
+Una pyme tecnológicamente intensiva podría requerir mucha más evidencia.
+La profundidad la determina:
+materialidad tecnológica, no tamaño empresarial por sí solo.
+
+# Sector
+DT-01 permanece principalmente transversal.
+Pero determinados contextos pueden modificar materialidad:
+- manufactura;
+- salud;
+- comercio electrónico;
+- logística;
+- servicios profesionales;
+- retail;
+- hospitality;
+- empresas digitales.
+No creamos variantes sectoriales todavía.
+Aplicamos la regla maestra:
+specialize only when material and reusable.
+
+# AI dentro de DT-01
+Aquí debemos evitar un error que probablemente aparecerá muchas veces en Pymapa:
+presencia de IA ≠ mejor base tecnológica.
+Una empresa sin IA puede tener DT-01 excelente.
+Una empresa con múltiples herramientas de IA puede presentar:
+overcomplexity + baja adecuación.
+La pertinencia de adoptar IA será principalmente DT-06.
+Su utilización puede afectar otras capacidades según el caso.
+### CAND-MOTOR-AI-TECH-01
+La presencia o ausencia de IA no debe actuar como indicador positivo o negativo de adecuación tecnológica sin una necesidad material asociada.
+
+# Provenance
+Para DT-01 mantenemos tres capas claras:
+Pymapa/OE1-D aporta la definición de la capacidad dentro de la taxonomía 6×31.
+OECD aporta grounding sobre digitalización SME, heterogeneidad, infraestructura, restricciones y adopción tecnológica.
+ISO/IEC 20000-1 aporta referencia conceptual sobre servicios tecnológicos, requisitos, entrega y valor, sin convertirse en requisito de certificación ni modelo obligatorio para la pyme.
+NIST CSF 2.0 ayuda a establecer la frontera con DT-05; no se utiliza para transformar DT-01 en un assessment de ciberseguridad.
+Los objetos CE/VA/NI, reglas, findings, estados, intervenciones, instrumentos, CRV y validación son:
+PYMAPA-DESIGNED
+y no deben atribuirse a esas fuentes externas.
+
+# A–V · DT-01
+| Dimensión | Resultado |
+| A · Identidad | PASS |
+| B · Alcance | PASS |
+| C · Aplicabilidad | PASS |
+| D · Unidad de análisis | PASS |
+| E · Condiciones | PASS |
+| F · Variables | PASS |
+| G · Information Needs | PASS |
+| H · Captura | PASS |
+| I · Reglas | PASS |
+| J · Suficiencia | PASS |
+| K · Confianza | PASS |
+| L · Diagnóstico | PASS |
+| M · Findings | PASS |
+| N · Recomendaciones | PASS |
+| O · Intervención | PASS |
+| P · Ejecución | PASS |
+| Q · Resultado | PASS |
+| R · Validación | PASS |
+| S · Seguimiento | PASS |
+| T · Contextualización | PASS |
+| U · Knowledge | PASS |
+| V · Governance | PASS |
+A–V = 22/22 PASS
+
+# DoD V1
+Los 27 criterios quedan cubiertos.
+Cuatro controles merecen especial atención:
+Causalidad — PASS
+Una queja sobre “el sistema” no se atribuye automáticamente a tecnología.
+Suficiencia — PASS
+No necesitamos inventariar todo el parque tecnológico.
+Intervención mínima — PASS
+Comprar/reemplazar es solo una alternativa entre muchas.
+CRV — PASS
+Validamos resultado funcional, no adquisición tecnológica.
+DoD = 27/27 PASS
+
+# Quality Gates
+### K1 · Coherencia — PASS
+DT-01 queda delimitada respecto de DT-02–06, OP, PC y EC.
+### K2 · Razonamiento — PASS
+Distingue existencia, disponibilidad, acceso, fitness, confiabilidad, sostenibilidad, proporcionalidad y adecuación futura.
+### K3 · Acción — PASS
+Permite RETAIN, CONFIGURE, ENABLE, OPTIMIZE, SIMPLIFY, SUPPORT, UPGRADE, REPLACE, ADD, MIGRATE, DEFER, RETIRE o NO_ACTION.
+### K4 · Knowledge — PASS
+Objetos, provenance, grounding, validación, trazabilidad y governance quedan suficientemente definidos.
+# Cierre DT-01
+DT01-K4-v1.0 · K4-VALIDATED · CLOSED
+| Objeto | Resultado |
+| Bloques | 12/12 |
+| CE | 7 |
+| VA | 16 |
+| NI | 16 |
+| Reglas | 16 |
+| Findings | 8 |
+| Decisiones | 13 |
+| Intervenciones | 8 |
+| Instrumentos | 7 |
+| Entregables | 8 |
+| Done Criteria | 6 |
+| CRV | 8 |
+| Validación | V0–V4 |
+| A–V | 22/22 |
+| DoD | 27/27 |
+| K1–K4 | PASS |
+DT01-K4-v1.0 · K4-VALIDATED · CLOSED
+
+# Estado DT
+| Capacidad | Estado |
+| DT-01 · Disponer de una base tecnológica adecuada | 🟢 CLOSED |
+| DT-02 · Gestionar datos con calidad y disponibilidad | ⚪ NEXT |
+| DT-03 · Integrar datos, aplicaciones y flujos de información | ⚪ |
+| DT-04 · Convertir datos en información útil para decisiones | ⚪ |
+| DT-05 · Proteger información, sistemas y continuidad | ⚪ |
+| DT-06 · Evaluar, incorporar y aprovechar tecnologías pertinentes | ⚪ |
+DOMAIN-DT · 1/6 CAPABILITIES K4-VALIDATED
+Y el acumulado maestro pasa de 15/31 a 16/31 capacidades K4-VALIDATED.
+El siguiente movimiento es DT-02 · Gestionar datos con calidad y disponibilidad. Esta capacidad requiere un dimensionamiento especialmente cuidadoso porque tendremos que separar al menos dato existente, dato requerido, calidad, fitness-for-use, disponibilidad, accesibilidad, oportunidad, provenance y responsabilidad, sin absorber integración (DT-03), analítica/decisión (DT-04) ni seguridad (DT-05).
+seguimos

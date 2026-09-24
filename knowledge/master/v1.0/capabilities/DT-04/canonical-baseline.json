@@ -1,0 +1,2020 @@
+{
+  "baselineId": "DT04-K4-v1.0",
+  "capabilityId": "DT-04",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "historicalStatus": {
+    "marker": "DT04-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      1050,
+      1050
+    ]
+  },
+  "rawSource": {
+    "ref": "raw/DT-04.txt",
+    "sha256": "5e3fee78f3a4dcd549ce10af4321e7e75f91d1c8bd60ee8fd74c5f7ee26df227",
+    "byteLength": 40756,
+    "lineCount": 1070,
+    "transcription": {
+      "tool": "pymapa-docx-text 1.0.0",
+      "arguments": ""
+    },
+    "originalDocument": {
+      "filename": "DT_-_01_A_06_Completo.docx",
+      "byteLength": 304836,
+      "sha256": "2fb3f526b68a8bb801cf5af953d0aec8f204a7c7ef4d8bf6ef270bee4f413ccd"
+    }
+  },
+  "provenanceVocabulary": [
+    {
+      "code": "SOURCE-DERIVED",
+      "label": "SOURCE-DERIVED",
+      "meaning": "Las fuentes externas fundamentan conceptos generales relativos a:",
+      "sourceLines": [
+        955,
+        956
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "PYMAPA-DESIGNED",
+      "label": "PYMAPA-DESIGNED",
+      "meaning": "Permanecen como diseño propio:",
+      "sourceLines": [
+        962,
+        963
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    }
+  ],
+  "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 8,
+      "objectType": "SOURCE_ID_CE",
+      "sourceLines": [
+        1035,
+        1035
+      ]
+    },
+    {
+      "label": "CRV",
+      "declared": 8,
+      "objectType": "SOURCE_ID_CRV",
+      "role": "PRINCIPAL_RESULT_CRITERION",
+      "sourceLines": [
+        1045,
+        1045
+      ]
+    },
+    {
+      "label": "NI",
+      "declared": 18,
+      "objectType": "SOURCE_ID_NI",
+      "enumeration": "DECLARED_NOT_ENUMERATED",
+      "sourceLines": [
+        1037,
+        1037
+      ]
+    },
+    {
+      "label": "VA",
+      "declared": 18,
+      "objectType": "SOURCE_ID_VA",
+      "sourceLines": [
+        1036,
+        1036
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "key": "P-DT04-CORE-01",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT04-CORE-01",
+      "fields": {
+        "heading": "P-DT04-CORE-01",
+        "body": [
+          "La existencia, cantidad o sofisticación de reportes, dashboards o herramientas BI no constituye evidencia suficiente de capacidad para convertir datos en información útil para decisiones."
+        ]
+      },
+      "sourceLines": [
+        76,
+        77
+      ]
+    },
+    {
+      "key": "P-DT04-01",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT04-01",
+      "fields": {
+        "heading": "P-DT04-01",
+        "body": [
+          "La necesidad informacional debe derivarse de una pregunta o decisión material antes de seleccionar métricas o visualizaciones."
+        ]
+      },
+      "sourceLines": [
+        94,
+        95
+      ]
+    },
+    {
+      "key": "APP-DT04-01",
+      "objectType": "SOURCE_ID_APP",
+      "sourceId": "APP-DT04-01",
+      "fields": {
+        "heading": "APP-DT04-01",
+        "body": [
+          "La profundidad del soporte informacional debe ser proporcional a la materialidad, incertidumbre, reversibilidad y frecuencia de la decisión.",
+          "Una decisión:",
+          "pequeña + reversible + frecuente",
+          "puede funcionar con evidencia sencilla.",
+          "Una decisión:",
+          "costosa + difícil de revertir + altamente incierta",
+          "puede justificar mayor análisis."
+        ]
+      },
+      "sourceLines": [
+        99,
+        106
+      ]
+    },
+    {
+      "key": "P-DT04-02",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT04-02",
+      "fields": {
+        "heading": "P-DT04-02",
+        "body": [
+          "El soporte informacional puede combinar evidencia cuantitativa, cualitativa y conocimiento contextual; “data-driven” no significa excluir juicio humano."
+        ]
+      },
+      "sourceLines": [
+        172,
+        173
+      ]
+    },
+    {
+      "key": "DIN-01",
+      "objectType": "SOURCE_ID_DIN",
+      "sourceId": "DIN-01",
+      "fields": {
+        "heading": "DIN-01 · STATUS",
+        "title": "STATUS",
+        "body": [
+          "¿Qué está ocurriendo?"
+        ]
+      },
+      "sourceLines": [
+        177,
+        178
+      ]
+    },
+    {
+      "key": "DIN-02",
+      "objectType": "SOURCE_ID_DIN",
+      "sourceId": "DIN-02",
+      "fields": {
+        "heading": "DIN-02 · COMPARISON",
+        "title": "COMPARISON",
+        "body": [
+          "¿Cómo se compara?"
+        ]
+      },
+      "sourceLines": [
+        179,
+        180
+      ]
+    },
+    {
+      "key": "DIN-03",
+      "objectType": "SOURCE_ID_DIN",
+      "sourceId": "DIN-03",
+      "fields": {
+        "heading": "DIN-03 · EXPLANATION",
+        "title": "EXPLANATION",
+        "body": [
+          "¿Por qué podría estar ocurriendo?"
+        ]
+      },
+      "sourceLines": [
+        181,
+        182
+      ]
+    },
+    {
+      "key": "DIN-04",
+      "objectType": "SOURCE_ID_DIN",
+      "sourceId": "DIN-04",
+      "fields": {
+        "heading": "DIN-04 · FORECAST",
+        "title": "FORECAST",
+        "body": [
+          "¿Qué puede ocurrir?"
+        ]
+      },
+      "sourceLines": [
+        183,
+        184
+      ]
+    },
+    {
+      "key": "DIN-05",
+      "objectType": "SOURCE_ID_DIN",
+      "sourceId": "DIN-05",
+      "fields": {
+        "heading": "DIN-05 · OPTION",
+        "title": "OPTION",
+        "body": [
+          "¿Qué alternativas existen y cómo difieren?"
+        ]
+      },
+      "sourceLines": [
+        185,
+        186
+      ]
+    },
+    {
+      "key": "DIN-06",
+      "objectType": "SOURCE_ID_DIN",
+      "sourceId": "DIN-06",
+      "fields": {
+        "heading": "DIN-06 · EVALUATION",
+        "title": "EVALUATION",
+        "body": [
+          "¿Qué ocurrió después de una acción/decisión?",
+          "No representan niveles de madurez.",
+          "Una empresa no necesita “avanzar” obligatoriamente de descriptivo a predictivo."
+        ]
+      },
+      "sourceLines": [
+        187,
+        190
+      ]
+    },
+    {
+      "key": "P-DT04-03",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT04-03",
+      "fields": {
+        "heading": "P-DT04-03",
+        "body": [
+          "La fuerza causal de una interpretación no debe exceder la evidencia disponible.",
+          "Esto reutiliza directamente servicios causales del Motor construidos anteriormente."
+        ]
+      },
+      "sourceLines": [
+        198,
+        200
+      ]
+    },
+    {
+      "key": "P-DT04-04",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT04-04",
+      "fields": {
+        "heading": "P-DT04-04",
+        "body": [
+          "Measurable ≠ decision-relevant."
+        ]
+      },
+      "sourceLines": [
+        228,
+        229
+      ]
+    },
+    {
+      "key": "P-DT04-05",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT04-05",
+      "fields": {
+        "heading": "P-DT04-05",
+        "body": [
+          "Una métrica aislada puede ser insuficiente cuando la pregunta decisional requiere comparación."
+        ]
+      },
+      "sourceLines": [
+        253,
+        254
+      ]
+    },
+    {
+      "key": "P-DT04-06",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT04-06",
+      "fields": {
+        "heading": "P-DT04-06",
+        "body": [
+          "La interpretación debe conservar suficiente contexto para evitar conclusiones materialmente engañosas."
+        ]
+      },
+      "sourceLines": [
+        270,
+        271
+      ]
+    },
+    {
+      "key": "P-DT04-07",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT04-07",
+      "fields": {
+        "heading": "P-DT04-07",
+        "body": [
+          "La incertidumbre relevante debe hacerse visible cuando pueda cambiar materialmente la decisión."
+        ]
+      },
+      "sourceLines": [
+        282,
+        283
+      ]
+    },
+    {
+      "key": "P-DT04-08",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT04-08",
+      "fields": {
+        "heading": "P-DT04-08",
+        "body": [
+          "La oportunidad debe evaluarse contra la ventana decisional, no contra una expectativa universal de tiempo real."
+        ]
+      },
+      "sourceLines": [
+        290,
+        291
+      ]
+    },
+    {
+      "key": "CE01",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Necesidad decisional",
+        "title": "Necesidad decisional"
+      },
+      "sourceLines": [
+        305,
+        305
+      ]
+    },
+    {
+      "key": "VA01",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA01",
+      "fields": {
+        "heading": "VA01 · Decisión material identificada",
+        "title": "Decisión material identificada"
+      },
+      "sourceLines": [
+        306,
+        306
+      ]
+    },
+    {
+      "key": "VA02",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA02",
+      "fields": {
+        "heading": "VA02 · Pregunta decisional suficientemente clara",
+        "title": "Pregunta decisional suficientemente clara"
+      },
+      "sourceLines": [
+        307,
+        307
+      ]
+    },
+    {
+      "key": "CE02",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Necesidad informacional",
+        "title": "Necesidad informacional"
+      },
+      "sourceLines": [
+        309,
+        309
+      ]
+    },
+    {
+      "key": "VA03",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA03",
+      "fields": {
+        "heading": "VA03 · Información requerida identificada",
+        "title": "Información requerida identificada"
+      },
+      "sourceLines": [
+        310,
+        310
+      ]
+    },
+    {
+      "key": "VA04",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "VA04 · Datos/evidencia relevantes identificados",
+        "title": "Datos/evidencia relevantes identificados"
+      },
+      "sourceLines": [
+        311,
+        311
+      ]
+    },
+    {
+      "key": "CE03",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Representación",
+        "title": "Representación"
+      },
+      "sourceLines": [
+        313,
+        313
+      ]
+    },
+    {
+      "key": "VA05",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "VA05 · Métricas/indicadores pertinentes",
+        "title": "Métricas/indicadores pertinentes"
+      },
+      "sourceLines": [
+        314,
+        314
+      ]
+    },
+    {
+      "key": "VA06",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "VA06 · Definiciones/cálculos suficientemente claros",
+        "title": "Definiciones/cálculos suficientemente claros"
+      },
+      "sourceLines": [
+        315,
+        315
+      ]
+    },
+    {
+      "key": "CE04",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE04",
+      "fields": {
+        "heading": "CE04 · Transformación",
+        "title": "Transformación"
+      },
+      "sourceLines": [
+        317,
+        317
+      ]
+    },
+    {
+      "key": "VA07",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "VA07 · Transformaciones suficientemente correctas",
+        "title": "Transformaciones suficientemente correctas"
+      },
+      "sourceLines": [
+        318,
+        318
+      ]
+    },
+    {
+      "key": "VA08",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "VA08 · Agregación/segmentación adecuada al propósito",
+        "title": "Agregación/segmentación adecuada al propósito"
+      },
+      "sourceLines": [
+        319,
+        319
+      ]
+    },
+    {
+      "key": "CE05",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE05",
+      "fields": {
+        "heading": "CE05 · Contexto y comparación",
+        "title": "Contexto y comparación"
+      },
+      "sourceLines": [
+        321,
+        321
+      ]
+    },
+    {
+      "key": "VA09",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA09",
+      "fields": {
+        "heading": "VA09 · Contexto material incorporado",
+        "title": "Contexto material incorporado"
+      },
+      "sourceLines": [
+        322,
+        322
+      ]
+    },
+    {
+      "key": "VA10",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA10",
+      "fields": {
+        "heading": "VA10 · Baseline/comparador suficiente cuando aplica",
+        "title": "Baseline/comparador suficiente cuando aplica"
+      },
+      "sourceLines": [
+        323,
+        323
+      ]
+    },
+    {
+      "key": "CE06",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE06",
+      "fields": {
+        "heading": "CE06 · Interpretación y confianza",
+        "title": "Interpretación y confianza"
+      },
+      "sourceLines": [
+        325,
+        325
+      ]
+    },
+    {
+      "key": "VA11",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA11",
+      "fields": {
+        "heading": "VA11 · Información suficientemente interpretable",
+        "title": "Información suficientemente interpretable"
+      },
+      "sourceLines": [
+        326,
+        326
+      ]
+    },
+    {
+      "key": "VA12",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA12",
+      "fields": {
+        "heading": "VA12 · Inferencias proporcionales a evidencia",
+        "title": "Inferencias proporcionales a evidencia"
+      },
+      "sourceLines": [
+        327,
+        327
+      ]
+    },
+    {
+      "key": "VA13",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA13",
+      "fields": {
+        "heading": "VA13 · Incertidumbre material suficientemente visible",
+        "title": "Incertidumbre material suficientemente visible"
+      },
+      "sourceLines": [
+        328,
+        328
+      ]
+    },
+    {
+      "key": "CE07",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE07",
+      "fields": {
+        "heading": "CE07 · Oportunidad y acceso",
+        "title": "Oportunidad y acceso"
+      },
+      "sourceLines": [
+        330,
+        330
+      ]
+    },
+    {
+      "key": "VA14",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA14",
+      "fields": {
+        "heading": "VA14 · Información disponible dentro de Decision Window",
+        "title": "Información disponible dentro de Decision Window"
+      },
+      "sourceLines": [
+        331,
+        331
+      ]
+    },
+    {
+      "key": "VA15",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA15",
+      "fields": {
+        "heading": "VA15 · Información accesible/comprensible para decisor aplicable",
+        "title": "Información accesible/comprensible para decisor aplicable"
+      },
+      "sourceLines": [
+        332,
+        332
+      ]
+    },
+    {
+      "key": "CE08",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE08",
+      "fields": {
+        "heading": "CE08 · Utilidad decisional",
+        "title": "Utilidad decisional"
+      },
+      "sourceLines": [
+        334,
+        334
+      ]
+    },
+    {
+      "key": "VA16",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA16",
+      "fields": {
+        "heading": "VA16 · Información responde suficientemente la pregunta",
+        "title": "Información responde suficientemente la pregunta"
+      },
+      "sourceLines": [
+        335,
+        335
+      ]
+    },
+    {
+      "key": "VA17",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA17",
+      "fields": {
+        "heading": "VA17 · Alternativas/implicaciones suficientemente distinguibles cuando aplica",
+        "title": "Alternativas/implicaciones suficientemente distinguibles cuando aplica"
+      },
+      "sourceLines": [
+        336,
+        336
+      ]
+    },
+    {
+      "key": "VA18",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA18",
+      "fields": {
+        "heading": "VA18 · Información puede modificar, confirmar, diferir o profundizar razonablemente la decisión",
+        "title": "Información puede modificar, confirmar, diferir o profundizar razonablemente la decisión",
+        "body": [
+          "Esta última VA evita producir información ceremonial."
+        ]
+      },
+      "sourceLines": [
+        337,
+        338
+      ]
+    },
+    {
+      "key": "NI-DT04-CORE",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI-DT04-CORE",
+      "fields": {
+        "heading": "NI-DT04-CORE",
+        "body": [
+          "¿Qué decisión debe tomarse, qué incertidumbre necesita reducirse y qué información podría cambiar materialmente esa decisión?",
+          "Esta pregunta conecta directamente con el servicio transversal:",
+          "Value of Information."
+        ]
+      },
+      "sourceLines": [
+        343,
+        346
+      ]
+    },
+    {
+      "key": "VOI-DT04-01",
+      "objectType": "SOURCE_ID_VOI",
+      "sourceId": "VOI-DT04-01",
+      "fields": {
+        "heading": "VOI-DT04-01",
+        "body": [
+          "Debe profundizarse la adquisición o análisis de información cuando su capacidad razonable de cambiar o mejorar materialmente la decisión justifique el costo, demora y complejidad adicionales.",
+          "Esto evita:",
+          "analysis paralysis."
+        ]
+      },
+      "sourceLines": [
+        355,
+        358
+      ]
+    },
+    {
+      "key": "P1",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P1",
+      "fields": {
+        "heading": "P1 · Núcleo",
+        "title": "Núcleo",
+        "body": [
+          "Preguntas naturales:",
+          "“¿Qué decisiones importantes les cuesta tomar porque no tienen suficiente información?”",
+          "“¿Qué reportes usan realmente para decidir?”",
+          "“¿Qué información reciben pero no saben cómo interpretar?”",
+          "“¿Qué decisiones terminan tomando demasiado tarde?”",
+          "“¿Dónde distintas personas llegan a conclusiones diferentes usando los mismos datos?”"
+        ]
+      },
+      "sourceLines": [
+        361,
+        367
+      ]
+    },
+    {
+      "key": "P2",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P2",
+      "fields": {
+        "heading": "P2 · Triggers",
+        "title": "Triggers",
+        "body": [
+          "Profundizamos ante:",
+          "- reportes que nadie usa;",
+          "- múltiples versiones del mismo indicador;",
+          "- exceso de métricas;",
+          "- decisiones tardías;",
+          "- decisiones repetitivas sin información;",
+          "- métricas sin objetivo;",
+          "- dashboards extensos;",
+          "- interpretación contradictoria;",
+          "- ausencia de baseline;",
+          "- indicadores atrasados;",
+          "- pronósticos;",
+          "- decisiones de alta incertidumbre;",
+          "- análisis manual recurrente;",
+          "- “sabemos qué pasó pero no por qué”."
+        ]
+      },
+      "sourceLines": [
+        369,
+        384
+      ]
+    },
+    {
+      "key": "P3",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P3",
+      "fields": {
+        "heading": "P3 · Discriminación",
+        "title": "Discriminación",
+        "body": [
+          "Ante:",
+          "“el reporte no sirve”",
+          "debemos distinguir:",
+          "DATA QUALITY → DT-02",
+          "INFORMATION NOT ARRIVING → DT-03",
+          "WRONG METRIC → DT-04",
+          "WRONG TRANSFORMATION → DT-04",
+          "CONTEXT MISSING → DT-04",
+          "DECISION QUESTION UNCLEAR → DT-04 / dominio decisor",
+          "LACK OF COMPETENCE → PC-02",
+          "NO FOLLOW-UP → DG-04"
+        ]
+      },
+      "sourceLines": [
+        386,
+        397
+      ]
+    },
+    {
+      "key": "P4",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P4",
+      "fields": {
+        "heading": "P4 · Contradicciones",
+        "title": "Contradicciones"
+      },
+      "sourceLines": [
+        399,
+        399
+      ]
+    },
+    {
+      "key": "CONTR-DT04-01",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-DT04-01",
+      "fields": {
+        "heading": "CONTR-DT04-01",
+        "body": [
+          "MANY_REPORTS_vs_DECISION_INFORMATION_GAP",
+          "Muchos reportes, pero decisiones materiales carecen de información pertinente."
+        ]
+      },
+      "sourceLines": [
+        400,
+        402
+      ]
+    },
+    {
+      "key": "CONTR-DT04-02",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-DT04-02",
+      "fields": {
+        "heading": "CONTR-DT04-02",
+        "body": [
+          "DATA_DRIVEN_CLAIM_vs_UNDEFINED_METRICS",
+          "La organización se declara “data-driven”, pero métricas clave carecen de definición consistente."
+        ]
+      },
+      "sourceLines": [
+        403,
+        405
+      ]
+    },
+    {
+      "key": "CONTR-DT04-03",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-DT04-03",
+      "fields": {
+        "heading": "CONTR-DT04-03",
+        "body": [
+          "PRECISE_FORECAST_vs_HIGH_UNCERTAINTY",
+          "Predicción muy precisa sin soporte suficiente para ese nivel de certeza."
+        ]
+      },
+      "sourceLines": [
+        406,
+        408
+      ]
+    },
+    {
+      "key": "CONTR-DT04-04",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-DT04-04",
+      "fields": {
+        "heading": "CONTR-DT04-04",
+        "body": [
+          "REAL_TIME_DASHBOARD_vs_DECISION_DELAY",
+          "Información en tiempo real pero decisión ocurre demasiado tarde."
+        ]
+      },
+      "sourceLines": [
+        409,
+        411
+      ]
+    },
+    {
+      "key": "P5",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P5",
+      "fields": {
+        "heading": "P5 · Validación",
+        "title": "Validación",
+        "body": [
+          "En vez de preguntar:",
+          "“¿Tiene información para tomar decisiones?”",
+          "podemos probar:",
+          "“La última vez que decidieron ajustar precios, ¿qué pregunta necesitaban responder, qué información utilizaron y qué habría cambiado la decisión?”",
+          "Esto valida:",
+          "DECISION + INFORMATION + USE."
+        ]
+      },
+      "sourceLines": [
+        413,
+        419
+      ]
+    },
+    {
+      "key": "SUFF-DT04-01",
+      "objectType": "SOURCE_ID_SUFF",
+      "sourceId": "SUFF-DT04-01",
+      "fields": {
+        "heading": "SUFF-DT04-01",
+        "body": [
+          "DT-04 alcanza suficiencia cuando las decisiones materiales aplicables disponen, dentro de su ventana decisional, de información suficientemente pertinente, interpretable y confiable para responder las preguntas críticas y manejar explícitamente las incertidumbres capaces de alterar materialmente la decisión.",
+          "No exige:",
+          "eliminar incertidumbre."
+        ]
+      },
+      "sourceLines": [
+        444,
+        447
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT04-01",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT04-01",
+      "fields": {
+        "heading": "CAND-MOTOR-DT04-01",
+        "body": [
+          "La confianza en datos fuente no debe transferirse automáticamente a métricas, inferencias o soporte decisional derivados."
+        ]
+      },
+      "sourceLines": [
+        466,
+        467
+      ]
+    },
+    {
+      "key": "R-DT04-01",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT04-01",
+      "fields": {
+        "heading": "R-DT04-01 · MATERIAL_DECISION_NEED_UNCLEAR",
+        "title": "MATERIAL_DECISION_NEED_UNCLEAR"
+      },
+      "sourceLines": [
+        471,
+        471
+      ]
+    },
+    {
+      "key": "R-DT04-02",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT04-02",
+      "fields": {
+        "heading": "R-DT04-02 · DECISION_QUESTION_UNCLEAR",
+        "title": "DECISION_QUESTION_UNCLEAR"
+      },
+      "sourceLines": [
+        472,
+        472
+      ]
+    },
+    {
+      "key": "R-DT04-03",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT04-03",
+      "fields": {
+        "heading": "R-DT04-03 · DECISION_INFORMATION_NEED_UNCLEAR",
+        "title": "DECISION_INFORMATION_NEED_UNCLEAR"
+      },
+      "sourceLines": [
+        473,
+        473
+      ]
+    },
+    {
+      "key": "R-DT04-04",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT04-04",
+      "fields": {
+        "heading": "R-DT04-04 · RELEVANT_EVIDENCE_GAP",
+        "title": "RELEVANT_EVIDENCE_GAP"
+      },
+      "sourceLines": [
+        474,
+        474
+      ]
+    },
+    {
+      "key": "R-DT04-05",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT04-05",
+      "fields": {
+        "heading": "R-DT04-05 · DECISION_METRIC_RELEVANCE_GAP",
+        "title": "DECISION_METRIC_RELEVANCE_GAP"
+      },
+      "sourceLines": [
+        475,
+        475
+      ]
+    },
+    {
+      "key": "R-DT04-06",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT04-06",
+      "fields": {
+        "heading": "R-DT04-06 · METRIC_DEFINITION_GAP",
+        "title": "METRIC_DEFINITION_GAP"
+      },
+      "sourceLines": [
+        476,
+        476
+      ]
+    },
+    {
+      "key": "R-DT04-07",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT04-07",
+      "fields": {
+        "heading": "R-DT04-07 · INFORMATION_TRANSFORMATION_ERROR",
+        "title": "INFORMATION_TRANSFORMATION_ERROR"
+      },
+      "sourceLines": [
+        477,
+        477
+      ]
+    },
+    {
+      "key": "R-DT04-08",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT04-08",
+      "fields": {
+        "heading": "R-DT04-08 · ANALYTICAL_GRANULARITY_MISMATCH",
+        "title": "ANALYTICAL_GRANULARITY_MISMATCH"
+      },
+      "sourceLines": [
+        478,
+        478
+      ]
+    },
+    {
+      "key": "R-DT04-09",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT04-09",
+      "fields": {
+        "heading": "R-DT04-09 · MATERIAL_DECISION_CONTEXT_GAP",
+        "title": "MATERIAL_DECISION_CONTEXT_GAP"
+      },
+      "sourceLines": [
+        479,
+        479
+      ]
+    },
+    {
+      "key": "R-DT04-10",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT04-10",
+      "fields": {
+        "heading": "R-DT04-10 · REQUIRED_COMPARATOR_GAP",
+        "title": "REQUIRED_COMPARATOR_GAP"
+      },
+      "sourceLines": [
+        480,
+        480
+      ]
+    },
+    {
+      "key": "R-DT04-11",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT04-11",
+      "fields": {
+        "heading": "R-DT04-11 · INFORMATION_INTERPRETABILITY_GAP",
+        "title": "INFORMATION_INTERPRETABILITY_GAP"
+      },
+      "sourceLines": [
+        481,
+        481
+      ]
+    },
+    {
+      "key": "R-DT04-12",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT04-12",
+      "fields": {
+        "heading": "R-DT04-12 · INFERENCE_EXCEEDS_EVIDENCE",
+        "title": "INFERENCE_EXCEEDS_EVIDENCE"
+      },
+      "sourceLines": [
+        482,
+        482
+      ]
+    },
+    {
+      "key": "R-DT04-13",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT04-13",
+      "fields": {
+        "heading": "R-DT04-13 · MATERIAL_UNCERTAINTY_HIDDEN",
+        "title": "MATERIAL_UNCERTAINTY_HIDDEN"
+      },
+      "sourceLines": [
+        483,
+        483
+      ]
+    },
+    {
+      "key": "R-DT04-14",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT04-14",
+      "fields": {
+        "heading": "R-DT04-14 · INFORMATION_OUTSIDE_DECISION_WINDOW",
+        "title": "INFORMATION_OUTSIDE_DECISION_WINDOW"
+      },
+      "sourceLines": [
+        484,
+        484
+      ]
+    },
+    {
+      "key": "R-DT04-15",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT04-15",
+      "fields": {
+        "heading": "R-DT04-15 · DECISION_INFORMATION_ACCESS_GAP",
+        "title": "DECISION_INFORMATION_ACCESS_GAP"
+      },
+      "sourceLines": [
+        485,
+        485
+      ]
+    },
+    {
+      "key": "R-DT04-16",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT04-16",
+      "fields": {
+        "heading": "R-DT04-16 · INFORMATION_DOES_NOT_ANSWER_DECISION_QUESTION",
+        "title": "INFORMATION_DOES_NOT_ANSWER_DECISION_QUESTION"
+      },
+      "sourceLines": [
+        486,
+        486
+      ]
+    },
+    {
+      "key": "R-DT04-17",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT04-17",
+      "fields": {
+        "heading": "R-DT04-17 · DECISION_ALTERNATIVES_NOT_DISTINGUISHABLE",
+        "title": "DECISION_ALTERNATIVES_NOT_DISTINGUISHABLE"
+      },
+      "sourceLines": [
+        487,
+        487
+      ]
+    },
+    {
+      "key": "R-DT04-18",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT04-18",
+      "fields": {
+        "heading": "R-DT04-18 · INFORMATION_DECISION_UTILITY_GAP",
+        "title": "INFORMATION_DECISION_UTILITY_GAP"
+      },
+      "sourceLines": [
+        488,
+        488
+      ]
+    },
+    {
+      "key": "P-DT04-09",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT04-09",
+      "fields": {
+        "heading": "P-DT04-09",
+        "body": [
+          "La calidad del soporte informacional debe evaluarse respecto de la evidencia disponible y las necesidades de decisión en el momento correspondiente, no retrospectivamente por el resultado obtenido.",
+          "Esto conecta directamente con el candidato ya construido en DG-05 sobre decisión bajo incertidumbre."
+        ]
+      },
+      "sourceLines": [
+        533,
+        535
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT04-02",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT04-02",
+      "fields": {
+        "heading": "CAND-MOTOR-DT04-02",
+        "body": [
+          "La unidad diagnóstica debe asociar Decision Need + Decision Question + Information Need."
+        ]
+      },
+      "sourceLines": [
+        539,
+        540
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT04-03",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT04-03",
+      "fields": {
+        "heading": "CAND-MOTOR-DT04-03",
+        "body": [
+          "Data, Metric, Information, Insight, Decision y Result deben permanecer como objetos no equivalentes."
+        ]
+      },
+      "sourceLines": [
+        541,
+        542
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT04-04",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT04-04",
+      "fields": {
+        "heading": "CAND-MOTOR-DT04-04",
+        "body": [
+          "La pertinencia de una métrica debe evaluarse respecto de la pregunta decisional, no por disponibilidad o popularidad."
+        ]
+      },
+      "sourceLines": [
+        543,
+        544
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT04-05",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT04-05",
+      "fields": {
+        "heading": "CAND-MOTOR-DT04-05",
+        "body": [
+          "El Motor debe poder representar incertidumbre material sin convertir UNKNOWN en valoración negativa automática."
+        ]
+      },
+      "sourceLines": [
+        545,
+        546
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT04-06",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT04-06",
+      "fields": {
+        "heading": "CAND-MOTOR-DT04-06",
+        "body": [
+          "El nivel de inferencia permitido debe estar limitado por la fuerza de evidencia disponible."
+        ]
+      },
+      "sourceLines": [
+        547,
+        548
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT04-07",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT04-07",
+      "fields": {
+        "heading": "CAND-MOTOR-DT04-07",
+        "body": [
+          "La oportunidad informacional debe evaluarse respecto de una Decision Window contextual."
+        ]
+      },
+      "sourceLines": [
+        549,
+        550
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT04-08",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT04-08",
+      "fields": {
+        "heading": "CAND-MOTOR-DT04-08",
+        "body": [
+          "La adquisición/análisis adicional debe poder detenerse cuando el Value of Information marginal sea insuficiente."
+        ]
+      },
+      "sourceLines": [
+        551,
+        552
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT04-09",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT04-09",
+      "fields": {
+        "heading": "CAND-MOTOR-DT04-09",
+        "body": [
+          "La calidad de soporte decisional no debe inferirse retrospectivamente del resultado de la decisión."
+        ]
+      },
+      "sourceLines": [
+        553,
+        554
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT04-10",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT04-10",
+      "fields": {
+        "heading": "CAND-MOTOR-DT04-10",
+        "body": [
+          "Información útil puede justificar ACT, HOLD, DEFER, NO_ACTION o ACQUIRE_MORE_INFORMATION."
+        ]
+      },
+      "sourceLines": [
+        555,
+        556
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-AI-DT04-01",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-DT04-01",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-DT04-01",
+        "body": [
+          "El uso de IA para producir métricas, análisis, inferencias o recomendaciones no transfiere automáticamente confianza desde los datos fuente al resultado generado; deben evaluarse transformación, evidencia, incertidumbre y fitness para la decisión.",
+          "Y:"
+        ]
+      },
+      "sourceLines": [
+        570,
+        572
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-AI-DT04-02",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-DT04-02",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-DT04-02",
+        "body": [
+          "Una recomendación generada por IA debe permanecer distinguible de la decisión humana u organizacional que eventualmente la adopta, modifica, difiere o rechaza.",
+          "Esto será estructural para Pymapa."
+        ]
+      },
+      "sourceLines": [
+        573,
+        575
+      ]
+    },
+    {
+      "key": "FIND-DT04-01",
+      "objectType": "SOURCE_ID_FIND",
+      "sourceId": "FIND-DT04-01",
+      "fields": {
+        "heading": "FIND-DT04-01",
+        "body": [
+          "Todo finding DT-04 debe preservar la relación con la decisión material que justificó la necesidad informacional."
+        ]
+      },
+      "sourceLines": [
+        620,
+        621
+      ]
+    },
+    {
+      "key": "INT-DT04-01",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-DT04-01",
+      "fields": {
+        "heading": "INT-DT04-01 · MINIMUM SUFFICIENT DECISION INFORMATION",
+        "title": "MINIMUM SUFFICIENT DECISION INFORMATION",
+        "body": [
+          "Debe buscarse el conjunto de información de menor complejidad suficiente para reducir las incertidumbres materialmente relevantes hasta un nivel compatible con la decisión aplicable.",
+          "Esto significa que una decisión puede cerrarse con:",
+          "3 indicadores suficientemente pertinentes,",
+          "en lugar de:",
+          "40 métricas disponibles."
+        ]
+      },
+      "sourceLines": [
+        666,
+        671
+      ]
+    },
+    {
+      "key": "STOP-DT04-01",
+      "objectType": "SOURCE_ID_STOP",
+      "sourceId": "STOP-DT04-01",
+      "fields": {
+        "heading": "STOP-DT04-01",
+        "body": [
+          "Detener profundización cuando:",
+          "evidencia adicional razonablemente disponible tiene baja probabilidad de cambiar materialmente la decisión o su confianza, respecto de su costo/demora.",
+          "Esto no significa:",
+          "“ya sabemos todo”.",
+          "Significa:",
+          "sabemos suficiente para decidir dentro del contexto actual."
+        ]
+      },
+      "sourceLines": [
+        677,
+        683
+      ]
+    },
+    {
+      "key": "INS-DT04-01",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT04-01",
+      "fields": {
+        "heading": "INS-DT04-01 · Decision Information Need Card",
+        "title": "Decision Information Need Card",
+        "body": [
+          "Instrumento nuclear:",
+          "decisión → pregunta → incertidumbre → información requerida → Decision Window."
+        ]
+      },
+      "sourceLines": [
+        725,
+        727
+      ]
+    },
+    {
+      "key": "INS-DT04-02",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT04-02",
+      "fields": {
+        "heading": "INS-DT04-02 · Decision Evidence Map",
+        "title": "Decision Evidence Map",
+        "body": [
+          "pregunta → evidencia disponible → evidencia faltante → confianza → VoI."
+        ]
+      },
+      "sourceLines": [
+        728,
+        729
+      ]
+    },
+    {
+      "key": "INS-DT04-03",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT04-03",
+      "fields": {
+        "heading": "INS-DT04-03 · Metric Definition Card",
+        "title": "Metric Definition Card",
+        "body": [
+          "métrica → propósito → definición → cálculo → fuente → frecuencia → limitaciones."
+        ]
+      },
+      "sourceLines": [
+        730,
+        731
+      ]
+    },
+    {
+      "key": "INS-DT04-04",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT04-04",
+      "fields": {
+        "heading": "INS-DT04-04 · Comparison & Context Card",
+        "title": "Comparison & Context Card",
+        "body": [
+          "condición → baseline/comparador → contexto → interpretación."
+        ]
+      },
+      "sourceLines": [
+        732,
+        733
+      ]
+    },
+    {
+      "key": "INS-DT04-05",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT04-05",
+      "fields": {
+        "heading": "INS-DT04-05 · Inference Ladder",
+        "title": "Inference Ladder",
+        "body": [
+          "observación → relación → interpretación → hipótesis → inferencia → nivel de soporte.",
+          "Su función es impedir saltos causales."
+        ]
+      },
+      "sourceLines": [
+        734,
+        736
+      ]
+    },
+    {
+      "key": "INS-DT04-06",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT04-06",
+      "fields": {
+        "heading": "INS-DT04-06 · Uncertainty Card",
+        "title": "Uncertainty Card",
+        "body": [
+          "incertidumbre → fuente → impacto potencial → visibilidad → tratamiento."
+        ]
+      },
+      "sourceLines": [
+        737,
+        738
+      ]
+    },
+    {
+      "key": "INS-DT04-07",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT04-07",
+      "fields": {
+        "heading": "INS-DT04-07 · Decision Information View",
+        "title": "Decision Information View",
+        "body": [
+          "No necesariamente dashboard.",
+          "Es:",
+          "la representación mínima suficiente de información para una decisión.",
+          "Puede ser:",
+          "- tabla;",
+          "- reporte;",
+          "- gráfico;",
+          "- mensaje;",
+          "- alerta;",
+          "- ficha;",
+          "- dashboard."
+        ]
+      },
+      "sourceLines": [
+        739,
+        750
+      ]
+    },
+    {
+      "key": "INS-DT04-08",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT04-08",
+      "fields": {
+        "heading": "INS-DT04-08 · Value of Information Check",
+        "title": "Value of Information Check",
+        "body": [
+          "información adicional → costo/demora → posible cambio de decisión/confianza → NEXT/STOP."
+        ]
+      },
+      "sourceLines": [
+        751,
+        752
+      ]
+    },
+    {
+      "key": "CAND-INSTRUMENT-TRANSVERSAL-02",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-INSTRUMENT-TRANSVERSAL-02",
+      "fields": {
+        "heading": "CAND-INSTRUMENT-TRANSVERSAL-02 · DECISION-INFORMATION-NEED-CARD",
+        "title": "DECISION-INFORMATION-NEED-CARD",
+        "body": [
+          "DT-04 será su capability origin, pero el Motor podría reutilizarlo."
+        ]
+      },
+      "sourceLines": [
+        758,
+        759
+      ]
+    },
+    {
+      "key": "DEL-DT04-01",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT04-01",
+      "fields": {
+        "heading": "DEL-DT04-01 · decisiones/preguntas materiales visibles",
+        "title": "decisiones/preguntas materiales visibles"
+      },
+      "sourceLines": [
+        763,
+        763
+      ]
+    },
+    {
+      "key": "DEL-DT04-02",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT04-02",
+      "fields": {
+        "heading": "DEL-DT04-02 · información crítica suficientemente disponible",
+        "title": "información crítica suficientemente disponible"
+      },
+      "sourceLines": [
+        764,
+        764
+      ]
+    },
+    {
+      "key": "DEL-DT04-03",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT04-03",
+      "fields": {
+        "heading": "DEL-DT04-03 · métricas/representaciones pertinentes y definidas",
+        "title": "métricas/representaciones pertinentes y definidas"
+      },
+      "sourceLines": [
+        765,
+        765
+      ]
+    },
+    {
+      "key": "DEL-DT04-04",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT04-04",
+      "fields": {
+        "heading": "DEL-DT04-04 · contexto/comparadores suficientes",
+        "title": "contexto/comparadores suficientes"
+      },
+      "sourceLines": [
+        766,
+        766
+      ]
+    },
+    {
+      "key": "DEL-DT04-05",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT04-05",
+      "fields": {
+        "heading": "DEL-DT04-05 · inferencias alineadas con evidencia",
+        "title": "inferencias alineadas con evidencia"
+      },
+      "sourceLines": [
+        767,
+        767
+      ]
+    },
+    {
+      "key": "DEL-DT04-06",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT04-06",
+      "fields": {
+        "heading": "DEL-DT04-06 · incertidumbre material visible",
+        "title": "incertidumbre material visible"
+      },
+      "sourceLines": [
+        768,
+        768
+      ]
+    },
+    {
+      "key": "DEL-DT04-07",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT04-07",
+      "fields": {
+        "heading": "DEL-DT04-07 · información disponible dentro de Decision Window",
+        "title": "información disponible dentro de Decision Window"
+      },
+      "sourceLines": [
+        769,
+        769
+      ]
+    },
+    {
+      "key": "DEL-DT04-08",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT04-08",
+      "fields": {
+        "heading": "DEL-DT04-08 · soporte informacional suficientemente útil para decidir",
+        "title": "soporte informacional suficientemente útil para decidir"
+      },
+      "sourceLines": [
+        770,
+        770
+      ]
+    },
+    {
+      "key": "CRV-DT04-01",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT04-01",
+      "fields": {
+        "heading": "| CRV-DT04-01 | Decisiones materiales aplicables tienen preguntas informacionales explícitas |",
+        "title": "Decisiones materiales aplicables tienen preguntas informacionales explícitas"
+      },
+      "sourceLines": [
+        792,
+        792
+      ],
+      "role": "PRINCIPAL_RESULT_CRITERION"
+    },
+    {
+      "key": "CRV-DT04-02",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT04-02",
+      "fields": {
+        "heading": "| CRV-DT04-02 | Información crítica requerida está disponible o su incertidumbre es explícita |",
+        "title": "Información crítica requerida está disponible o su incertidumbre es explícita"
+      },
+      "sourceLines": [
+        793,
+        793
+      ],
+      "role": "PRINCIPAL_RESULT_CRITERION"
+    },
+    {
+      "key": "CRV-DT04-03",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT04-03",
+      "fields": {
+        "heading": "| CRV-DT04-03 | Métricas/representaciones responden suficientemente al constructo/pregunta requerida |",
+        "title": "Métricas/representaciones responden suficientemente al constructo/pregunta requerida"
+      },
+      "sourceLines": [
+        794,
+        794
+      ],
+      "role": "PRINCIPAL_RESULT_CRITERION"
+    },
+    {
+      "key": "CRV-DT04-04",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT04-04",
+      "fields": {
+        "heading": "| CRV-DT04-04 | Comparadores/contexto necesarios permiten interpretar suficientemente la condición |",
+        "title": "Comparadores/contexto necesarios permiten interpretar suficientemente la condición"
+      },
+      "sourceLines": [
+        795,
+        795
+      ],
+      "role": "PRINCIPAL_RESULT_CRITERION"
+    },
+    {
+      "key": "CRV-DT04-05",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT04-05",
+      "fields": {
+        "heading": "| CRV-DT04-05 | Inferencias materiales permanecen dentro del soporte de evidencia disponible |",
+        "title": "Inferencias materiales permanecen dentro del soporte de evidencia disponible"
+      },
+      "sourceLines": [
+        796,
+        796
+      ],
+      "role": "PRINCIPAL_RESULT_CRITERION"
+    },
+    {
+      "key": "CRV-DT04-06",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT04-06",
+      "fields": {
+        "heading": "| CRV-DT04-06 | Incertidumbres capaces de alterar la decisión son visibles |",
+        "title": "Incertidumbres capaces de alterar la decisión son visibles"
+      },
+      "sourceLines": [
+        797,
+        797
+      ],
+      "role": "PRINCIPAL_RESULT_CRITERION"
+    },
+    {
+      "key": "CRV-DT04-07",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT04-07",
+      "fields": {
+        "heading": "| CRV-DT04-07 | Información llega y puede comprenderse dentro de la ventana decisional |",
+        "title": "Información llega y puede comprenderse dentro de la ventana decisional"
+      },
+      "sourceLines": [
+        798,
+        798
+      ],
+      "role": "PRINCIPAL_RESULT_CRITERION"
+    },
+    {
+      "key": "CRV-DT04-08",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT04-08",
+      "fields": {
+        "heading": "| CRV-DT04-08 | Información permite distinguir suficientemente las alternativas decisionales aplicables |",
+        "title": "Información permite distinguir suficientemente las alternativas decisionales aplicables"
+      },
+      "sourceLines": [
+        799,
+        799
+      ],
+      "role": "PRINCIPAL_RESULT_CRITERION"
+    },
+    {
+      "key": "CRV-DT04-GUARD-01",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT04-GUARD-01",
+      "fields": {
+        "heading": "CRV-DT04-GUARD-01",
+        "body": [
+          "El resultado posterior de la decisión no debe utilizarse aisladamente como criterio de validación del soporte informacional disponible al momento de decidir."
+        ]
+      },
+      "sourceLines": [
+        808,
+        809
+      ]
+    },
+    {
+      "key": "V0",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V0",
+      "fields": {
+        "heading": "V0 · UNKNOWN",
+        "title": "UNKNOWN",
+        "body": [
+          "No conocemos suficientemente el soporte informacional."
+        ]
+      },
+      "sourceLines": [
+        831,
+        832
+      ]
+    },
+    {
+      "key": "V1",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V1",
+      "fields": {
+        "heading": "V1 · INFORMATION-DEFINED",
+        "title": "INFORMATION-DEFINED",
+        "body": [
+          "Decisión, pregunta y necesidad informacional están definidas."
+        ]
+      },
+      "sourceLines": [
+        833,
+        834
+      ]
+    },
+    {
+      "key": "V2",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V2",
+      "fields": {
+        "heading": "V2 · INFORMATION-AVAILABLE",
+        "title": "INFORMATION-AVAILABLE",
+        "body": [
+          "Existe información/evidencia suficiente para ser evaluada."
+        ]
+      },
+      "sourceLines": [
+        835,
+        836
+      ]
+    },
+    {
+      "key": "V3",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V3",
+      "fields": {
+        "heading": "V3 · DECISION-FIT",
+        "title": "DECISION-FIT",
+        "body": [
+          "Información es pertinente, interpretable, suficientemente confiable y oportuna para la decisión."
+        ]
+      },
+      "sourceLines": [
+        837,
+        838
+      ]
+    },
+    {
+      "key": "V4",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V4",
+      "fields": {
+        "heading": "V4 · DECISION-SUPPORT-SUSTAINED",
+        "title": "DECISION-SUPPORT-SUSTAINED",
+        "body": [
+          "La organización puede reproducir suficientemente ese soporte cuando la decisión es recurrente."
+        ]
+      },
+      "sourceLines": [
+        839,
+        840
+      ]
+    },
+    {
+      "key": "VAL-DT04-01",
+      "objectType": "SOURCE_ID_VAL",
+      "sourceId": "VAL-DT04-01",
+      "fields": {
+        "heading": "VAL-DT04-01",
+        "body": [
+          "La necesidad de sostenibilidad del soporte informacional depende de la recurrencia y materialidad de la decisión."
+        ]
+      },
+      "sourceLines": [
+        850,
+        851
+      ]
+    },
+    {
+      "key": "REASS-DT04-01",
+      "objectType": "SOURCE_ID_REASS",
+      "sourceId": "REASS-DT04-01",
+      "fields": {
+        "heading": "REASS-DT04-01",
+        "body": [
+          "Una información previamente adecuada puede dejar de ser decision-fit cuando cambia la decisión, contexto, definición, evidencia o ventana decisional."
+        ]
+      },
+      "sourceLines": [
+        871,
+        872
+      ]
+    },
+    {
+      "key": "P-DT04-10",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT04-10",
+      "fields": {
+        "heading": "P-DT04-10",
+        "body": [
+          "La complejidad analítica requerida depende de la pregunta decisional; análisis predictivo o prescriptivo no constituye por sí mismo un estado superior de capacidad."
+        ]
+      },
+      "sourceLines": [
+        889,
+        890
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT04-11",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT04-11",
+      "fields": {
+        "heading": "CAND-MOTOR-DT04-11",
+        "body": [
+          "El Motor debe poder preservar el information state disponible en el momento de una decisión para evitar evaluar retrospectivamente su calidad utilizando información que solo apareció después.",
+          "Esto será valioso para:",
+          "- trazabilidad;",
+          "- aprendizaje;",
+          "- DG-05;",
+          "- Fase 3;",
+          "- explicabilidad.",
+          "Conceptualmente:",
+          "DECISION-TIME EVIDENCE SNAPSHOT",
+          "No necesitamos implementarlo todavía, pero sí conservar el requerimiento."
+        ]
+      },
+      "sourceLines": [
+        924,
+        934
+      ]
+    },
+    {
+      "key": "K1",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Coherencia — PASS",
+        "title": "Coherencia — PASS",
+        "body": [
+          "DT-04 queda diferenciada de DT-02, DT-03, DG-02, DG-04 y CM-06."
+        ]
+      },
+      "sourceLines": [
+        1021,
+        1022
+      ]
+    },
+    {
+      "key": "K2",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Razonamiento — PASS",
+        "title": "Razonamiento — PASS",
+        "body": [
+          "Mantiene:",
+          "DATA ≠ METRIC ≠ INFORMATION ≠ INSIGHT ≠ DECISION ≠ RESULT",
+          "y controla incertidumbre e inferencia."
+        ]
+      },
+      "sourceLines": [
+        1023,
+        1026
+      ]
+    },
+    {
+      "key": "K3",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · Acción — PASS",
+        "title": "Acción — PASS",
+        "body": [
+          "Permite aclarar, definir, adquirir, transformar, contextualizar, comparar, calificar, simplificar, acelerar, profundizar, detener análisis o no actuar."
+        ]
+      },
+      "sourceLines": [
+        1027,
+        1028
+      ]
+    },
+    {
+      "key": "K4",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · Knowledge — PASS",
+        "title": "Knowledge — PASS",
+        "body": [
+          "Objetos, provenance, reglas, intervención, CRV, validación, seguimiento y governance quedan trazables."
+        ]
+      },
+      "sourceLines": [
+        1029,
+        1030
+      ]
+    }
+  ],
+  "supersessions": [],
+  "executableProjection": {
+    "sourceRef": "source.json",
+    "verbatimKeys": [
+      "heading",
+      "title",
+      "body"
+    ],
+    "projectedObjectTypes": [],
+    "canonicalOnlyGapRefs": []
+  },
+  "gaps": [],
+  "transcriptionCorrections": [],
+  "checksum": "sha256:ca3189d8767fbeb02e20ee6d33f8769ea700b040985d6a077613dfa3d8f89f08"
+}

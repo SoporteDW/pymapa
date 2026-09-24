@@ -204,6 +204,12 @@ export interface StructuralExtractionInput {
    * candidatos extraídos sin la opción.
    */
   lineIds?: boolean;
+  /**
+   * M2-FINAL-MASS-BATCH · opt-in: líneas planas «CEnn|VAnn|NInn <texto>» (sin
+   * separador «·») de la arquitectura del Master. El texto se preserva literal
+   * (raw); solo se normaliza la forma del heading interno.
+   */
+  spaceIds?: boolean;
   governanceDecisions?: { value: GovernanceDecisions; ref: string } | null;
 }
 
@@ -249,6 +255,10 @@ export function extractStructuralCandidate(input: StructuralExtractionInput): {
           );
         if (row)
           headings.push({ line: i + 1, text: `${row[1]} · ${row[2]}`, level: 9, raw: plain });
+        else if (input.spaceIds) {
+          const sp = /^((?:CE|VA|NI)\d+) ([^·\s|][^|]*)$/.exec(plain);
+          if (sp) headings.push({ line: i + 1, text: `${sp[1]} · ${sp[2]}`, level: 9, raw: plain });
+        }
       }
     }
   });
@@ -447,7 +457,12 @@ export function extractStructuralCandidate(input: StructuralExtractionInput): {
       });
     occ.forEach((o) => {
       const key = keyOf(o);
-      const draft = DRAFT_TOKENS.test(o.heading);
+      // En líneas planas «VAnn <texto>» (spaceIds) el texto es wording literal
+      // del objeto, no un marcador de lifecycle: el token de borrador no aplica.
+      const plainArchitectureLine =
+        input.spaceIds === true &&
+        (/^(?:CE|VA|NI)\d+ [^·]/.test(o.heading) || /^\|\s*[A-Z][A-Z0-9-]*\d\s*\|/.test(o.heading));
+      const draft = !plainArchitectureLine && DRAFT_TOKENS.test(o.heading);
       if (draft) draftMarked += 1;
       const res = resolver?.resolutions.get(key);
       let classification: CandidateItem["classification"];
@@ -756,6 +771,11 @@ export function extractStructuralCandidate(input: StructuralExtractionInput): {
   const roleOfLabel = new Map(
     (decisions?.value.approvedCounts ?? []).filter((a) => a.role).map((a) => [a.label, a.role]),
   );
+  const enumerationOfLabel = new Map(
+    (decisions?.value.approvedCounts ?? [])
+      .filter((a) => a.enumeration)
+      .map((a) => [a.label, a.enumeration]),
+  );
   const controlCounts = [...lastCount.entries()]
     .sort(([x], [y]) => (x < y ? -1 : 1))
     .map(([p, v]) => ({
@@ -763,6 +783,7 @@ export function extractStructuralCandidate(input: StructuralExtractionInput): {
       declared: v.declared,
       objectType: `SOURCE_ID_${p}`,
       ...(roleOfLabel.get(p) ? { role: roleOfLabel.get(p) as string } : {}),
+      ...(enumerationOfLabel.get(p) ? { enumeration: "DECLARED_NOT_ENUMERATED" as const } : {}),
       sourceLines: [v.line, v.line] as [number, number],
     }));
 

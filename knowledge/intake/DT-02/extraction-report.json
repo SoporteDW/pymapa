@@ -1,0 +1,199 @@
+{
+  "reportType": "STRUCTURAL_EXTRACTION_REPORT",
+  "statement": "Reporte técnico del extractor estructural. No es conocimiento canónico ni aprobación; las referencias cruzadas no son relaciones inferidas.",
+  "capabilityId": "DT-02",
+  "registrationId": "RAW-DT-02-2fb3f526b68a",
+  "textSha256": "dffc6d933920f0efb819d8c38b1aebc9c0386e0edad84a2690575fe44bf8e5f2",
+  "extractor": "pymapa-structural-segmenter@0.2.0",
+  "identity": {
+    "declaredName": "Gestionar datos con calidad y disponibilidad",
+    "literalLines": [
+      1,
+      2,
+      535,
+      1004
+    ],
+    "verified": true
+  },
+  "historicalClosure": {
+    "marker": "DT02-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "lines": [
+      981,
+      999
+    ],
+    "selectedLine": 999,
+    "requiresHumanConfirmation": true,
+    "statement": "Cierre histórico literal (provenance). No equivale a publicación técnica actual ni a aceptación canónica."
+  },
+  "chronology": [
+    {
+      "line": 981,
+      "marker": "DT02-K4-v1.0 · K4-VALIDATED · CLOSED"
+    },
+    {
+      "line": 999,
+      "marker": "DT02-K4-v1.0 · K4-VALIDATED · CLOSED"
+    }
+  ],
+  "counts": {
+    "lines": 1017,
+    "headings": 234,
+    "idHeadings": 122,
+    "distinctSourceIds": 120,
+    "singleDefinition": 118,
+    "restatedIdentical": 1,
+    "conflictingDefinitions": 1,
+    "draftMarked": 0,
+    "governedBacklog": 0,
+    "finalApprovedCandidates": 120,
+    "historicalDrafts": 1
+  },
+  "ambiguousSupersessions": [],
+  "crossCapabilityReferences": [
+    {
+      "target": "DT-03",
+      "kind": "CAPABILITY",
+      "line": 130,
+      "heading": "DT-02 vs DT-03"
+    },
+    {
+      "target": "DT-04",
+      "kind": "CAPABILITY",
+      "line": 140,
+      "heading": "DT-02 vs DT-04"
+    },
+    {
+      "target": "DT-05",
+      "kind": "CAPABILITY",
+      "line": 149,
+      "heading": "DT-02 vs DT-05"
+    },
+    {
+      "target": "DT-01",
+      "kind": "CAPABILITY",
+      "line": 157,
+      "heading": "DT-02 vs DT-01"
+    },
+    {
+      "target": "OP",
+      "kind": "DOMAIN",
+      "line": 163,
+      "heading": "DT-02 vs OP"
+    }
+  ],
+  "nonTextElements": {
+    "statement": "Advertencias del registro raw sobre elementos no textuales; su verificación consta en el reporte del lote.",
+    "warnings": [
+      "IMAGES_NOT_TRANSCRIBED: 440 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw."
+    ]
+  },
+  "supersessionResolution": {
+    "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+    "mode": "GOVERNED",
+    "statement": "Resolución de supersesión solo por evidencia explícita de la fuente. La cronología sola y la última aparición sola nunca deciden; toda versión previa se preserva como provenance histórica. No es aceptación canónica.",
+    "baseline": {
+      "extractor": "pymapa-structural-segmenter@0.1.0",
+      "ambiguousIds": 2,
+      "ambiguousIdList": [
+        "SOURCE-REVIEW-TRIGGER-DT-DAMA-01",
+        "SOURCE-REVIEW-TRIGGER-DT02-01"
+      ],
+      "finalApproved": 118,
+      "historicalDrafts": 4
+    },
+    "after": {
+      "ambiguousIds": 0,
+      "finalApproved": 120,
+      "superseded": 1,
+      "historicalDrafts": 1,
+      "governedBacklog": 0,
+      "itemsWithSupersessionEvidence": 2
+    },
+    "resolvedFromBaselineAmbiguous": 2,
+    "resolvedFromBaselineAmbiguousList": [
+      "SOURCE-REVIEW-TRIGGER-DT-DAMA-01",
+      "SOURCE-REVIEW-TRIGGER-DT02-01"
+    ],
+    "byRule": {
+      "EXPLICIT_ELIMINATION": 0,
+      "EXPLICIT_REFORMULATION": 0,
+      "GOVERNED_FREEZE": 0,
+      "FROZEN_HEADING": 0,
+      "VERBATIM_DUPLICATE": 2
+    },
+    "resolvedIds": [
+      {
+        "sourceId": "SOURCE-REVIEW-TRIGGER-DT-DAMA-01",
+        "outcome": "CANONICAL_SELECTED",
+        "rules": [
+          "VERBATIM_DUPLICATE"
+        ],
+        "canonicalKey": "SOURCE-REVIEW-TRIGGER-DT-DAMA-01@L513",
+        "occurrences": 2
+      }
+    ],
+    "unresolvedIds": [
+      {
+        "sourceId": "SOURCE-REVIEW-TRIGGER-DT02-01",
+        "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
+        "occurrences": [
+          511,
+          919
+        ]
+      }
+    ],
+    "singlesReclassified": [],
+    "governingFreezes": []
+  },
+  "governance": {
+    "decisionSetId": "M2-FINAL-MASS-BATCH",
+    "ref": "knowledge/intake/DT-02/governance-decisions.json",
+    "checksum": "sha256:2028c13bec02b25f4494d8dcca17220be559efeffeb8bc78afafebd5a357b9e1",
+    "closureSelection": null,
+    "approvedCounts": [
+      {
+        "label": "NI",
+        "declared": 17,
+        "sourceLines": [
+          261,
+          261
+        ],
+        "controlCount": {
+          "declared": 17,
+          "sourceLines": [
+            986,
+            986
+          ]
+        },
+        "finalApprovedMaterialized": 1,
+        "consistent": false
+      }
+    ],
+    "backlogAdded": [],
+    "collisionsApplied": [
+      {
+        "sourceId": "SOURCE-REVIEW-TRIGGER-DT02-01",
+        "resolution": "SELECT_OCCURRENCE",
+        "selectedLine": 511,
+        "otherLines": [
+          919
+        ]
+      }
+    ],
+    "semanticTypesApplied": [],
+    "provenanceVocabularyApplied": [
+      {
+        "scheme": "PROVENANCE_CLASS",
+        "code": "SOURCE-DERIVED",
+        "line": 889
+      },
+      {
+        "scheme": "PROVENANCE_CLASS",
+        "code": "PYMAPA-DESIGNED",
+        "line": 899
+      }
+    ],
+    "errors": []
+  },
+  "checksum": "sha256:2f2d6ceeddd3412ab822efd8448d7b32a36560feb6a62b73b8c967c378a77f25"
+}
