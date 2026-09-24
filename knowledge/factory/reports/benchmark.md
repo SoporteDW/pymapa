@@ -2,21 +2,52 @@
 
 Factory pymapa-knowledge-factory/0.1.0 · engine pymapa-knowledge-engine/0.2.0 · Master PYMAPA-KNOWLEDGE-MASTER 1.0
 
-Registradas 5/31 · slots sin fuente 26 · señal AUTHORITATIVE_SOURCE_REQUIRED
+Registradas 15/31 · slots sin fuente 16 · señal AUTHORITATIVE_SOURCE_REQUIRED
 
-Por resultado: PASS=2 REVIEW_REQUIRED=3 FAIL=0
+Por resultado: PASS=2 REVIEW_REQUIRED=13 FAIL=0
 
 | Capacidad | Estado | Resultado | Bytes original | Líneas raw | Candidatos | Canónicos | Checks auto PASS | Revisión humana | NOT_EXPLICIT | SCNR | Transcripción | Ext. runtime abiertas/cerradas | Fallos test | Bloqueos publicación |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| DG-01 | CANONICAL_REVIEW_REQUIRED | REVIEW_REQUIRED | 205770 | 855 | 55 | — | 2 | 2 | 0 | 0 | 0 | 0/0 | 0 | 0 |
+| DG-02 | CANONICAL_REVIEW_REQUIRED | REVIEW_REQUIRED | 205770 | 632 | 60 | — | 2 | 2 | 0 | 0 | 0 | 0/0 | 0 | 0 |
+| DG-03 | CANONICAL_REVIEW_REQUIRED | REVIEW_REQUIRED | 205770 | 593 | 55 | — | 1 | 3 | 0 | 0 | 0 | 0/0 | 0 | 0 |
+| DG-04 | CANONICAL_REVIEW_REQUIRED | REVIEW_REQUIRED | 205770 | 675 | 62 | — | 2 | 2 | 0 | 0 | 0 | 0/0 | 0 | 0 |
+| DG-05 | CANONICAL_REVIEW_REQUIRED | REVIEW_REQUIRED | 205770 | 657 | 68 | — | 2 | 2 | 0 | 0 | 0 | 0/0 | 0 | 0 |
 | OP-01 | PUBLISHED | PASS | — | — | — | — | 11 | 0 | 0 | 0 | 0 | 0/0 | 0 | 0 |
 | OP-02 | PUBLISHED | PASS | 283468 | 12503 | — | 329 | 12 | 0 | 6 | 0 | 1 | 0/4 | 0 | 0 |
-| OP-03 | CANONICAL_REVIEW_REQUIRED | REVIEW_REQUIRED | 288189 | 6185 | 289 | — | 1 | 15 | 0 | 0 | 0 | 0/0 | 0 | 0 |
-| OP-04 | CANONICAL_REVIEW_REQUIRED | REVIEW_REQUIRED | 335872 | 6015 | 257 | — | 1 | 24 | 0 | 0 | 0 | 0/0 | 0 | 0 |
-| OP-05 | CANONICAL_REVIEW_REQUIRED | REVIEW_REQUIRED | 92912 | 1786 | 136 | — | 1 | 6 | 0 | 0 | 0 | 0/0 | 0 | 0 |
+| OP-03 | CANONICAL_REVIEW_REQUIRED | REVIEW_REQUIRED | 288189 | 6185 | — | 182 | 2 | 1 | 0 | 0 | 0 | 0/0 | 0 | 0 |
+| OP-04 | CANONICAL_REVIEW_REQUIRED | REVIEW_REQUIRED | 335872 | 6015 | — | 188 | 2 | 1 | 0 | 0 | 0 | 0/0 | 0 | 0 |
+| OP-05 | CANONICAL_REVIEW_REQUIRED | REVIEW_REQUIRED | 92912 | 1786 | — | 117 | 2 | 1 | 0 | 0 | 0 | 0/0 | 0 | 0 |
+| PC-01 | CANONICAL_REVIEW_REQUIRED | REVIEW_REQUIRED | 207139 | 684 | 58 | — | 1 | 3 | 0 | 0 | 0 | 0/0 | 0 | 0 |
+| PC-02 | CANONICAL_REVIEW_REQUIRED | REVIEW_REQUIRED | 207139 | 731 | 76 | — | 1 | 3 | 0 | 0 | 0 | 0/0 | 0 | 0 |
+| PC-03 | CANONICAL_REVIEW_REQUIRED | REVIEW_REQUIRED | 207139 | 813 | 77 | — | 2 | 2 | 0 | 0 | 0 | 0/0 | 0 | 0 |
+| PC-04 | CANONICAL_REVIEW_REQUIRED | REVIEW_REQUIRED | 207139 | 826 | 77 | — | 2 | 2 | 0 | 0 | 0 | 0/0 | 0 | 0 |
+| PC-05 | CANONICAL_REVIEW_REQUIRED | REVIEW_REQUIRED | 207139 | 857 | 84 | — | 2 | 2 | 0 | 0 | 0 | 0/0 | 0 | 0 |
 
 Coste en tokens/créditos: no expuesto programáticamente por la plataforma; no se estima.
 
 ## Motivos accionables
+
+### DG-01 · REVIEW_REQUIRED
+- **REVIEW** `SOURCE_TO_CANONICAL/PROVENANCE_VOCABULARY_REQUIRED`: la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce) → en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia
+- **REVIEW** `SOURCE_TO_CANONICAL/CANONICAL_ACCEPTANCE_REQUIRED`: el candidato no tiene aceptación canónica humana → revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente
+
+### DG-02 · REVIEW_REQUIRED
+- **REVIEW** `SOURCE_TO_CANONICAL/PROVENANCE_VOCABULARY_REQUIRED`: la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce) → en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia
+- **REVIEW** `SOURCE_TO_CANONICAL/CANONICAL_ACCEPTANCE_REQUIRED`: el candidato no tiene aceptación canónica humana → revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente
+
+### DG-03 · REVIEW_REQUIRED
+- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [CAND-MOTOR-AI-GOV-01] (líneas 309–310): CAND-MOTOR-AI-GOV-01: 2 definiciones (L309, L489) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
+- **REVIEW** `SOURCE_TO_CANONICAL/PROVENANCE_VOCABULARY_REQUIRED`: la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce) → en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia
+- **REVIEW** `SOURCE_TO_CANONICAL/CANONICAL_ACCEPTANCE_REQUIRED`: el candidato no tiene aceptación canónica humana → revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente
+
+### DG-04 · REVIEW_REQUIRED
+- **REVIEW** `SOURCE_TO_CANONICAL/PROVENANCE_VOCABULARY_REQUIRED`: la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce) → en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia
+- **REVIEW** `SOURCE_TO_CANONICAL/CANONICAL_ACCEPTANCE_REQUIRED`: el candidato no tiene aceptación canónica humana → revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente
+
+### DG-05 · REVIEW_REQUIRED
+- **REVIEW** `SOURCE_TO_CANONICAL/PROVENANCE_VOCABULARY_REQUIRED`: la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce) → en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia
+- **REVIEW** `SOURCE_TO_CANONICAL/CANONICAL_ACCEPTANCE_REQUIRED`: el candidato no tiene aceptación canónica humana → revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente
 
 ### OP-01 · PASS
 - sin motivos pendientes
@@ -25,53 +56,33 @@ Coste en tokens/créditos: no expuesto programáticamente por la plataforma; no 
 - sin motivos pendientes
 
 ### OP-03 · REVIEW_REQUIRED
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [REC-OP03-01] (líneas 379–381): REC-OP03-01: 2 definiciones (L379, L3333) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [P-OP03-02] (líneas 759–759): P-OP03-02: 2 definiciones (L759, L1155) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [REUSE-OP03-01] (líneas 1641–1643): REUSE-OP03-01: 2 definiciones (L1641, L1842) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [P1] (líneas 1845–1846): P1: 4 definiciones (L1845, L1857, L1869, L1878) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [IP01] (líneas 3356–3356): IP01: 4 definiciones (L3356, L3366, L3926, L4530) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [IP02] (líneas 3357–3357): IP02: 5 definiciones (L3357, L3384, L3431, L3960, L4548) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [IP03] (líneas 3358–3358): IP03: 5 definiciones (L3358, L3408, L3433, L3992, L4580) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [IP04] (líneas 3359–3359): IP04: 4 definiciones (L3359, L3440, L4033, L4593) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [IP05] (líneas 3360–3360): IP05: 4 definiciones (L3360, L3454, L4065, L4608) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [IP06] (líneas 3361–3361): IP06: 4 definiciones (L3361, L3478, L4089, L4619) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [IP07] (líneas 3362–3362): IP07: 4 definiciones (L3362, L3503, L4115, L4634) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [IP08] (líneas 3363–3364): IP08: 4 definiciones (L3363, L3527, L4152, L4646) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/CONTROL_COUNT_MISMATCH` (líneas 6089–6089): CRV: la fuente declara 8 y el candidato materializa 10 SOURCE_ID_CRV FINAL_APPROVED; posible omisión o duplicado de transcripción (líneas 6089–6089) → contrastar el conteo de control con los ítems materializados
-- **REVIEW** `SOURCE_TO_CANONICAL/PROVENANCE_VOCABULARY_REQUIRED`: la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce) → en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia
-- **REVIEW** `SOURCE_TO_CANONICAL/CANONICAL_ACCEPTANCE_REQUIRED`: el candidato no tiene aceptación canónica humana → revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente
+- **REVIEW** `CANONICAL_TO_PACK/EXECUTABLE_PROJECTION_MISSING`: baseline canónica aceptada sin proyección ejecutable (source.json) → proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures
 
 ### OP-04 · REVIEW_REQUIRED
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [UA-OP04-v0.4] (líneas 1282–1295): UA-OP04-v0.4: 2 definiciones (L1282, L1663) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [HF01] (líneas 2872–2872): HF01: 2 definiciones (L2872, L5722) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [HF02] (líneas 2886–2886): HF02: 2 definiciones (L2886, L5731) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [HF03] (líneas 2902–2902): HF03: 2 definiciones (L2902, L5740) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [HF04] (líneas 2912–2912): HF04: 2 definiciones (L2912, L5749) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [HF05] (líneas 2930–2930): HF05: 2 definiciones (L2930, L5757) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [HF06] (líneas 2941–2941): HF06: 2 definiciones (L2941, L5764) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [HF07] (líneas 2954–2954): HF07: 2 definiciones (L2954, L5771) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [HF08] (líneas 2965–2965): HF08: 2 definiciones (L2965, L5778) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [IP01] (líneas 3419–3419): IP01: 2 definiciones (L3419, L3951) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [IP02] (líneas 3447–3447): IP02: 2 definiciones (L3447, L3978) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [IP03] (líneas 3479–3479): IP03: 2 definiciones (L3479, L4002) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [IP04] (líneas 3504–3504): IP04: 2 definiciones (L3504, L4030) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [IP05] (líneas 3532–3532): IP05: 2 definiciones (L3532, L4079) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [IP06] (líneas 3552–3552): IP06: 2 definiciones (L3552, L4114) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [IP07] (líneas 3570–3570): IP07: 2 definiciones (L3570, L4141) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [IP08] (líneas 3597–3597): IP08: 2 definiciones (L3597, L4170) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [K1] (líneas 5120–5122): K1: 4 definiciones (L5120, L5442, L5542, L5559) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [K2] (líneas 5123–5125): K2: 4 definiciones (L5123, L5561, L5700, L5715) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [K3] (líneas 5126–5127): K3: 3 definiciones (L5126, L5717, L5829) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [K4] (líneas 5128–5130): K4: 3 definiciones (L5128, L5831, L5935) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/CONTROL_COUNT_MISMATCH` (líneas 5962–5962): CRV: la fuente declara 8 y el candidato materializa 10 SOURCE_ID_CRV FINAL_APPROVED; posible omisión o duplicado de transcripción (líneas 5962–5962) → contrastar el conteo de control con los ítems materializados
+- **REVIEW** `CANONICAL_TO_PACK/EXECUTABLE_PROJECTION_MISSING`: baseline canónica aceptada sin proyección ejecutable (source.json) → proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures
+
+### OP-05 · REVIEW_REQUIRED
+- **REVIEW** `CANONICAL_TO_PACK/EXECUTABLE_PROJECTION_MISSING`: baseline canónica aceptada sin proyección ejecutable (source.json) → proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures
+
+### PC-01 · REVIEW_REQUIRED
+- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [SOURCE-REVIEW-TRIGGER-PC01-01] (líneas 163–166): SOURCE-REVIEW-TRIGGER-PC01-01: 2 definiciones (L163, L607) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
 - **REVIEW** `SOURCE_TO_CANONICAL/PROVENANCE_VOCABULARY_REQUIRED`: la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce) → en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia
 - **REVIEW** `SOURCE_TO_CANONICAL/CANONICAL_ACCEPTANCE_REQUIRED`: el candidato no tiene aceptación canónica humana → revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente
 
-### OP-05 · REVIEW_REQUIRED
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [K1] (líneas 1506–1506): K1: 2 definiciones (L1506, L1529) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [K2] (líneas 1532–1559): K2: 2 definiciones (L1532, L1560) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [K3] (líneas 1563–1575): K3: 2 definiciones (L1563, L1576) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
-- **REVIEW** `CANDIDATE_BOUNDARY/SUPERSESSION_AMBIGUOUS` [K4] (líneas 1579–1594): K4: 2 definiciones (L1579, L1661) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT → corregir el candidato
+### PC-02 · REVIEW_REQUIRED
+- **REVIEW** `CANDIDATE_BOUNDARY/CONTROL_COUNT_MISMATCH` (líneas 715–715): CRV: la fuente declara 8 y el candidato materializa 1 SOURCE_ID_CRV FINAL_APPROVED; posible omisión o duplicado de transcripción (líneas 715–715) → contrastar el conteo de control con los ítems materializados
+- **REVIEW** `SOURCE_TO_CANONICAL/PROVENANCE_VOCABULARY_REQUIRED`: la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce) → en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia
+- **REVIEW** `SOURCE_TO_CANONICAL/CANONICAL_ACCEPTANCE_REQUIRED`: el candidato no tiene aceptación canónica humana → revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente
+
+### PC-03 · REVIEW_REQUIRED
+- **REVIEW** `SOURCE_TO_CANONICAL/PROVENANCE_VOCABULARY_REQUIRED`: la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce) → en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia
+- **REVIEW** `SOURCE_TO_CANONICAL/CANONICAL_ACCEPTANCE_REQUIRED`: el candidato no tiene aceptación canónica humana → revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente
+
+### PC-04 · REVIEW_REQUIRED
+- **REVIEW** `SOURCE_TO_CANONICAL/PROVENANCE_VOCABULARY_REQUIRED`: la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce) → en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia
+- **REVIEW** `SOURCE_TO_CANONICAL/CANONICAL_ACCEPTANCE_REQUIRED`: el candidato no tiene aceptación canónica humana → revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente
+
+### PC-05 · REVIEW_REQUIRED
 - **REVIEW** `SOURCE_TO_CANONICAL/PROVENANCE_VOCABULARY_REQUIRED`: la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce) → en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia
 - **REVIEW** `SOURCE_TO_CANONICAL/CANONICAL_ACCEPTANCE_REQUIRED`: el candidato no tiene aceptación canónica humana → revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente
 
