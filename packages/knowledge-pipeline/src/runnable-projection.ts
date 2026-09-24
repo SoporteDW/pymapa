@@ -188,7 +188,14 @@ export function projectBaselineToRunnableSource(
     conditions: conditions.length,
   };
   if (b.length)
-    return { capabilityId: baseline.capabilityId, ok: false, source: null, blockers: b, stats, checksum: null };
+    return {
+      capabilityId: baseline.capabilityId,
+      ok: false,
+      source: null,
+      blockers: b,
+      stats,
+      checksum: null,
+    };
 
   const body = {
     master: baseline.master,
@@ -208,7 +215,11 @@ export function projectBaselineToRunnableSource(
     },
     targetPack: { packId: baseline.capabilityId.toLowerCase(), packVersion: "1.0.0" },
     sections: {
-      capability: { id: baseline.capabilityId, name: identity!.name, definition: identity!.definition },
+      capability: {
+        id: baseline.capabilityId,
+        name: identity!.name,
+        definition: identity!.definition,
+      },
       conditionsOfExistence: conditions,
       variables,
       informationNeeds,
@@ -256,10 +267,9 @@ export function enrichCapabilityIdentity(input: {
 }): { ok: true; event: IdentityEnrichmentEvent } | { ok: false; reason: string } {
   const literal = `${input.capabilityId} · ${input.name}`;
   const line =
-    input.rawText
-      .split("\n")
-      .findIndex((l) => l.replace(/^#{1,9}\s+/, "").trim() === literal) + 1;
-  if (line === 0) return { ok: false, reason: `identidad «${literal}» no aparece literal en la fuente` };
+    input.rawText.split("\n").findIndex((l) => l.replace(/^#{1,9}\s+/, "").trim() === literal) + 1;
+  if (line === 0)
+    return { ok: false, reason: `identidad «${literal}» no aparece literal en la fuente` };
   const before = substanceHash(input.itemsBefore);
   const after = substanceHash(input.itemsAfter);
   const same = before === after;

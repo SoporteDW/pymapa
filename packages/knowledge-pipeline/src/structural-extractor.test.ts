@@ -310,7 +310,10 @@ describe("frontera de candidatos", () => {
       if (i["sourceId"] === "CAND-MOTOR-AI-GOV-01" && i["classification"] === "SUPERSEDED") {
         i["classification"] = "FINAL_APPROVED";
         i["approvalEvidence"] = candidate.historicalStatus
-          ? { text: candidate.historicalStatus.marker, sourceLines: candidate.historicalStatus.sourceLines }
+          ? {
+              text: candidate.historicalStatus.marker,
+              sourceLines: candidate.historicalStatus.sourceLines,
+            }
           : undefined;
         delete i["supersededBy"];
         delete i["governanceDecision"];

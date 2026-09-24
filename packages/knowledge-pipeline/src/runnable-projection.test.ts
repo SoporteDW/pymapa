@@ -18,7 +18,11 @@ const base = (objects: ProjectableBaseline["objects"]): ProjectableBaseline => (
   capabilityId: "ZZ-01",
   baselineId: "ZZ01-K4-v1.0",
   checksum: "sha256:" + "0".repeat(64),
-  master: { identity: "PYMAPA-KNOWLEDGE-MASTER", version: "1.0", baselineStatus: "BASELINE-APPROVED" },
+  master: {
+    identity: "PYMAPA-KNOWLEDGE-MASTER",
+    version: "1.0",
+    baselineStatus: "BASELINE-APPROVED",
+  },
   objects,
 });
 const complete = base([
@@ -33,7 +37,9 @@ describe("M2-FACTORY-CLOSURE A1 · baseline canónica → pack ejecutable", () =
     const r = projectBaselineToRunnableSource(complete, ident);
     expect(r.ok).toBe(true);
     expect(validateCapabilitySource(r.source).ok).toBe(true);
-    const g = generatePackCandidate(validateCapabilitySource(r.source).ok ? (r.source as never) : (null as never));
+    const g = generatePackCandidate(
+      validateCapabilitySource(r.source).ok ? (r.source as never) : (null as never),
+    );
     expect(g.ok).toBe(true);
     expect(r.stats).toEqual({ variables: 1, informationNeeds: 1, acquisitions: 1, conditions: 1 });
   });
