@@ -811,7 +811,11 @@ function evaluateCapability(
       stage.issues.forEach((i) =>
         ctx.reason(
           check,
-          i.code === "GENERIC_RUNTIME_EXTENSION_REQUIRED" ? "REVIEW" : "FAIL",
+          // Un gap bloqueante declarado es un pack retenido antes de publicar
+          // (silencio de fuente / juicio gobernado), no un pack roto.
+          i.code === "GENERIC_RUNTIME_EXTENSION_REQUIRED" || i.code === "PUBLICATION_BLOCKING_GAP"
+            ? "REVIEW"
+            : "FAIL",
           i.code,
           `${i.path}: ${i.message}`,
           check === "RUNTIME_COMPATIBILITY"
@@ -1122,6 +1126,14 @@ function evaluateCapability(
           b.code,
           b.message,
           "resolver las objeciones de gobierno",
+        );
+      else if (b.code === "PUBLICATION_BLOCKING_GAP")
+        ctx.reason(
+          "PUBLICATION_GATE",
+          "REVIEW",
+          b.code,
+          b.message,
+          "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
         );
       else ctx.reason("PUBLICATION_GATE", "FAIL", b.code, b.message, "resolver el bloqueo técnico");
     }
