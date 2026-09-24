@@ -27,3 +27,11 @@
 - [ ] GRE-CRITICALITY-NOT-EXPLICIT — espera decisión de arquitectura (extensión genérica del Engine)
 - [ ] Captura de definición de capacidad y capa de adquisición (P1–P5 ↔ VA) — próximo ciclo de Factory
 - [ ] Activación en la aplicación — espera orden explícita
+
+## M2-FACTORY-CONTRACT-03
+- [x] Criticidad NOT_EXPLICIT admitida; evidencia mínima NOT_EXPLICIT admitida
+- [x] Extracción genérica de definición (literal, calificador productivo)
+- [x] Adquisición por NI; preguntas literales opcionales; etapas contextuales
+- [x] Vínculo NI→VA por contención estructural
+- [x] 13/13 packs generados; OP-03/04/05 publicados; DG/PC retenidos
+- [ ] DG/PC: vínculo NI↔VA — bloqueado por decisión de gobierno de fuente (correspondencia NI_n↔VA_n no explícita)

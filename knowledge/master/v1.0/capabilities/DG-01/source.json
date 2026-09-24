@@ -1,0 +1,343 @@
+{
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "capability": {
+    "id": "DG-01",
+    "domainId": "DG",
+    "name": "Orientar la transformación a partir del negocio y su entorno",
+    "definition": "DG-01 evalúa la capacidad de la organización para orientar su transformación a partir de una comprensión suficientemente actualizada de su negocio, sus objetivos, su situación y las condiciones relevantes de su entorno, traduciendo esa comprensión en una dirección de transformación coherente y útil para la toma de decisiones.",
+    "definitionStatus": "EXPLICIT",
+    "definitionSourceLines": [
+      314,
+      314
+    ]
+  },
+  "provenance": {
+    "sourceReference": "canonical-baseline.json#DG01-K4-v1.0@sha256:3f6de9b97d68b94e548beb9f9c47026c6bb717b2f799753be5cb1835bf0d809f · DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "extractionStatus": "APPROVED",
+    "derivation": "MASTER_TRANSCRIPTION",
+    "derivationNote": "Proyección genérica determinista (M2-FACTORY-CONTRACT-03) desde baseline canónica aceptada + estructura explícita de la fuente raw sellada.",
+    "approvedBy": "PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY",
+    "approvedAt": "2026-09-24"
+  },
+  "targetPack": {
+    "packId": "dg-01",
+    "packVersion": "1.0.0"
+  },
+  "sections": {
+    "capability": {
+      "id": "DG-01",
+      "domainId": "DG",
+      "name": "Orientar la transformación a partir del negocio y su entorno",
+      "definition": "DG-01 evalúa la capacidad de la organización para orientar su transformación a partir de una comprensión suficientemente actualizada de su negocio, sus objetivos, su situación y las condiciones relevantes de su entorno, traduciendo esa comprensión en una dirección de transformación coherente y útil para la toma de decisiones.",
+      "definitionStatus": "EXPLICIT",
+      "definitionSourceLines": [
+        314,
+        314
+      ]
+    },
+    "conditionsOfExistence": [
+      {
+        "id": "CE01",
+        "statement": "Comprensión actual del negocio"
+      },
+      {
+        "id": "CE02",
+        "statement": "Dirección empresarial"
+      },
+      {
+        "id": "CE03",
+        "statement": "Lectura del entorno relevante"
+      },
+      {
+        "id": "CE04",
+        "statement": "Traducción hacia una dirección de transformación"
+      }
+    ],
+    "variables": [
+      {
+        "id": "VA01",
+        "name": "Modelo y lógica actual de creación de valor",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA02",
+        "name": "Situación, desempeño y restricciones materiales del negocio",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA03",
+        "name": "Objetivos y prioridades relevantes del negocio",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA04",
+        "name": "Horizonte, ambición y cambios esperados",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA05",
+        "name": "Cambios relevantes en clientes y mercado",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA06",
+        "name": "Cambios competitivos, tecnológicos y del ecosistema",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA07",
+        "name": "Restricciones, riesgos y condiciones externas materiales",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA08",
+        "name": "Necesidades y oportunidades de transformación derivadas",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA09",
+        "name": "Coherencia entre dirección empresarial y dirección de transformación",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      }
+    ],
+    "informationNeeds": [
+      {
+        "id": "NI01",
+        "idStatus": "SOURCE_ID",
+        "statement": "Cómo crea valor actualmente la empresa",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          402
+        ]
+      },
+      {
+        "id": "NI02",
+        "idStatus": "SOURCE_ID",
+        "statement": "Cuáles son sus principales restricciones/desafíos materiales",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          403
+        ]
+      },
+      {
+        "id": "NI03",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué objetivos o resultados empresariales busca",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          404
+        ]
+      },
+      {
+        "id": "NI04",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué cambios relevantes espera realizar o enfrentar",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          405
+        ]
+      },
+      {
+        "id": "NI05",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué cambios de clientes/mercado pueden afectar esos objetivos",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          406
+        ]
+      },
+      {
+        "id": "NI06",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué cambios competitivos, tecnológicos o del ecosistema son materiales",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          407
+        ]
+      },
+      {
+        "id": "NI07",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué restricciones/riesgos externos condicionan la dirección",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          408
+        ]
+      },
+      {
+        "id": "NI08",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué necesidades u oportunidades de transformación se derivan de lo anterior",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          409
+        ]
+      },
+      {
+        "id": "NI09",
+        "idStatus": "SOURCE_ID",
+        "statement": "Cómo se conecta la transformación prevista con resultados del negocio",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          410
+        ]
+      }
+    ],
+    "acquisitions": [],
+    "acquisitionStages": [
+      {
+        "id": "P1",
+        "level": "P1",
+        "heading": "P1 · Núcleo",
+        "prompts": [
+          "¿Qué busca conseguir/cambiar el negocio?",
+          "¿Qué está condicionando hoy ese resultado?",
+          "¿Qué cambios externos son realmente relevantes?",
+          "¿Qué se está intentando transformar y por qué?"
+        ],
+        "variableRefsResolution": "CONTEXTUAL",
+        "sourceLines": [
+          426,
+          432
+        ]
+      },
+      {
+        "id": "P2",
+        "level": "P2",
+        "heading": "P2 · Condicional",
+        "prompts": [],
+        "variableRefsResolution": "CONTEXTUAL",
+        "sourceLines": [
+          433,
+          442
+        ]
+      },
+      {
+        "id": "P3",
+        "level": "P3",
+        "heading": "P3 · Discriminación",
+        "prompts": [],
+        "variableRefsResolution": "CONTEXTUAL",
+        "sourceLines": [
+          443,
+          448
+        ]
+      },
+      {
+        "id": "P4",
+        "level": "P4",
+        "heading": "P4 · Contradicción",
+        "prompts": [],
+        "variableRefsResolution": "CONTEXTUAL",
+        "sourceLines": [
+          449,
+          454
+        ]
+      },
+      {
+        "id": "P5",
+        "level": "P5",
+        "heading": "P5 · Validación",
+        "prompts": [
+          "“Entendemos que X es actualmente una prioridad empresarial y que las iniciativas A/B deberían contribuir mediante Y. ¿Es correcta esa relación?”"
+        ],
+        "variableRefsResolution": "CONTEXTUAL",
+        "sourceLines": [
+          457,
+          460
+        ]
+      }
+    ]
+  },
+  "gaps": [
+    {
+      "id": "NE-DG-01-CRITICALITY",
+      "kind": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "statement": "Criticidad no declarada por la fuente para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09; preservada como NOT_EXPLICIT (modo de resolución NOT_EXPLICIT), sin inferir nivel.",
+      "publicationBlocking": false
+    },
+    {
+      "id": "NE-DG-01-VA-ACQUISITION",
+      "kind": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "statement": "Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+      "publicationBlocking": true
+    }
+  ],
+  "checksum": "sha256:49ace4c779d8ab9349da67aee75931b1f009a6842ebba1c4268d54d128018408"
+}

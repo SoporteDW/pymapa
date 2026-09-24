@@ -1,0 +1,462 @@
+{
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "capability": {
+    "id": "PC-03",
+    "domainId": "PC",
+    "name": "Apropiar cambios y nuevas formas de trabajo",
+    "definition": "PC-03 evalúa la capacidad de la organización para lograr que cambios materialmente relevantes en formas de trabajo sean suficientemente comprendidos, habilitados, incorporados y sostenidos por las personas que deben aplicarlos para producir el resultado esperado.",
+    "definitionStatus": "EXPLICIT",
+    "definitionSourceLines": [
+      34,
+      34
+    ]
+  },
+  "provenance": {
+    "sourceReference": "canonical-baseline.json#PC03-K4-v1.0@sha256:d015e54ab97120ed93df6b28948566cc0eb7fc13e2bdff949a346c13247a6f3b · PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "extractionStatus": "APPROVED",
+    "derivation": "MASTER_TRANSCRIPTION",
+    "derivationNote": "Proyección genérica determinista (M2-FACTORY-CONTRACT-03) desde baseline canónica aceptada + estructura explícita de la fuente raw sellada.",
+    "approvedBy": "PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY",
+    "approvedAt": "2026-09-24"
+  },
+  "targetPack": {
+    "packId": "pc-03",
+    "packVersion": "1.0.0"
+  },
+  "sections": {
+    "capability": {
+      "id": "PC-03",
+      "domainId": "PC",
+      "name": "Apropiar cambios y nuevas formas de trabajo",
+      "definition": "PC-03 evalúa la capacidad de la organización para lograr que cambios materialmente relevantes en formas de trabajo sean suficientemente comprendidos, habilitados, incorporados y sostenidos por las personas que deben aplicarlos para producir el resultado esperado.",
+      "definitionStatus": "EXPLICIT",
+      "definitionSourceLines": [
+        34,
+        34
+      ]
+    },
+    "conditionsOfExistence": [
+      {
+        "id": "CE01",
+        "statement": "Cambio suficientemente definido"
+      },
+      {
+        "id": "CE02",
+        "statement": "Población e impacto"
+      },
+      {
+        "id": "CE03",
+        "statement": "Comprensión"
+      },
+      {
+        "id": "CE04",
+        "statement": "Habilitación"
+      },
+      {
+        "id": "CE05",
+        "statement": "Adopción observable"
+      },
+      {
+        "id": "CE06",
+        "statement": "Apropiación y sostenimiento"
+      }
+    ],
+    "variables": [
+      {
+        "id": "VA01",
+        "name": "Forma de trabajo objetivo",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA02",
+        "name": "Diferencia relevante estado actual → estado objetivo",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA03",
+        "name": "Personas/roles realmente afectados",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA04",
+        "name": "Impacto material del cambio sobre su trabajo",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA05",
+        "name": "Comprensión de qué cambia",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA06",
+        "name": "Comprensión suficientemente funcional de por qué/para qué",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA07",
+        "name": "Competencia necesaria disponible",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA08",
+        "name": "Herramientas/accesos/información disponibles",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA09",
+        "name": "Condiciones del trabajo compatibles",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA10",
+        "name": "Uso efectivo de la nueva práctica",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA11",
+        "name": "Cobertura en situaciones donde corresponde",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA12",
+        "name": "Calidad/consistencia suficiente del uso",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA13",
+        "name": "Integración en el trabajo normal",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA14",
+        "name": "Persistencia ante reducción del soporte extraordinario",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      }
+    ],
+    "informationNeeds": [
+      {
+        "id": "NI01",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué forma de trabajo debería existir",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          213
+        ]
+      },
+      {
+        "id": "NI02",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué cambia respecto de la situación actual",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          214
+        ]
+      },
+      {
+        "id": "NI03",
+        "idStatus": "SOURCE_ID",
+        "statement": "Quién debe cambiar",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          215
+        ]
+      },
+      {
+        "id": "NI04",
+        "idStatus": "SOURCE_ID",
+        "statement": "Cuánto cambia realmente su trabajo",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          216
+        ]
+      },
+      {
+        "id": "NI05",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si comprende qué debe hacer diferente",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          217
+        ]
+      },
+      {
+        "id": "NI06",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si comprende suficientemente para qué",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          218
+        ]
+      },
+      {
+        "id": "NI07",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si posee la competencia necesaria",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          219
+        ]
+      },
+      {
+        "id": "NI08",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si dispone de herramientas/accesos/información",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          220
+        ]
+      },
+      {
+        "id": "NI09",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si el contexto laboral permite actuar así",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          221
+        ]
+      },
+      {
+        "id": "NI10",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si utiliza efectivamente la nueva práctica",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          222
+        ]
+      },
+      {
+        "id": "NI11",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si la utiliza cuando corresponde",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          223
+        ]
+      },
+      {
+        "id": "NI12",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si la utiliza con calidad/consistencia suficiente",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          224
+        ]
+      },
+      {
+        "id": "NI13",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si forma parte del trabajo normal",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          225
+        ]
+      },
+      {
+        "id": "NI14",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si se sostiene al reducir soporte extraordinario",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          226
+        ]
+      }
+    ],
+    "acquisitions": [],
+    "acquisitionStages": [
+      {
+        "id": "P1",
+        "level": "P1",
+        "heading": "P1 · Núcleo",
+        "prompts": [
+          "“¿Qué necesitan hacer diferente las personas para que este cambio funcione?”",
+          "“¿Quiénes deben hacerlo?”",
+          "“¿Ya lo están haciendo normalmente?”",
+          "“¿Qué les impide hacerlo cuando no ocurre?”",
+          "“¿Tiene un plan de gestión del cambio?”"
+        ],
+        "variableRefsResolution": "CONTEXTUAL",
+        "sourceLines": [
+          259,
+          266
+        ]
+      },
+      {
+        "id": "P2",
+        "level": "P2",
+        "heading": "P2 · Condicional",
+        "prompts": [],
+        "variableRefsResolution": "CONTEXTUAL",
+        "sourceLines": [
+          268,
+          282
+        ]
+      },
+      {
+        "id": "P3",
+        "level": "P3",
+        "heading": "P3 · Discriminación causal",
+        "prompts": [],
+        "variableRefsResolution": "CONTEXTUAL",
+        "sourceLines": [
+          284,
+          305
+        ]
+      },
+      {
+        "id": "P4",
+        "level": "P4",
+        "heading": "P4 · Contradicción",
+        "prompts": [],
+        "variableRefsResolution": "CONTEXTUAL",
+        "sourceLines": [
+          307,
+          307
+        ]
+      },
+      {
+        "id": "P5",
+        "level": "P5",
+        "heading": "P5 · Validación",
+        "prompts": [
+          "“Entendemos que el equipo sabe utilizar la herramienta, pero en determinados casos continúa trabajando por fuera de ella porque el nuevo flujo agrega pasos que consideran innecesarios. ¿Es correcto?”"
+        ],
+        "variableRefsResolution": "CONTEXTUAL",
+        "sourceLines": [
+          322,
+          325
+        ]
+      }
+    ]
+  },
+  "gaps": [
+    {
+      "id": "NE-PC-03-CRITICALITY",
+      "kind": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "statement": "Criticidad no declarada por la fuente para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14; preservada como NOT_EXPLICIT (modo de resolución NOT_EXPLICIT), sin inferir nivel.",
+      "publicationBlocking": false
+    },
+    {
+      "id": "NE-PC-03-VA-ACQUISITION",
+      "kind": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "statement": "Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+      "publicationBlocking": true
+    }
+  ],
+  "checksum": "sha256:bf8e207a0dc706b4f45d5bd0fb57467657210d7c10e26a095985cdf54956a2c0"
+}

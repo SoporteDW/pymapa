@@ -32,40 +32,65 @@ const complete = base([
 ]);
 const ident = { name: "Nombre", literalLine: 1, definition: "Definición literal." };
 
-describe("M2-FACTORY-CLOSURE A1 · baseline canónica → pack ejecutable", () => {
+const RAW = [
+  "Definición productiva V1:",
+  "ZZ-01 evalúa la capacidad literal.",
+  "# 3. VA01 · Variable",
+  "### Necesidades de Información",
+  "NI-01.1 Qué pasa.",
+  "# Bloque NI",
+  "| NI02 | Sin VA explícita |",
+].join("\n");
+
+describe("M2-FACTORY-CONTRACT-03 · contrato genérico baseline → pack", () => {
   it("proyecta literalmente y genera un pack válido", () => {
-    const r = projectBaselineToRunnableSource(complete, ident);
+    const r = projectBaselineToRunnableSource(complete, ident, RAW);
     expect(r.ok).toBe(true);
-    expect(validateCapabilitySource(r.source).ok).toBe(true);
-    const g = generatePackCandidate(
-      validateCapabilitySource(r.source).ok ? (r.source as never) : (null as never),
-    );
-    expect(g.ok).toBe(true);
-    expect(r.stats).toEqual({ variables: 1, informationNeeds: 1, acquisitions: 1, conditions: 1 });
+    const v = validateCapabilitySource(r.source);
+    expect(v.ok).toBe(true);
+    expect(generatePackCandidate(r.source as never).ok).toBe(true);
+    expect(r.definition?.status).toBe("EXPLICIT");
+    expect(r.definition?.text).toBe("ZZ-01 evalúa la capacidad literal.");
   });
   it("es determinista y reproducible", () => {
-    const a = projectBaselineToRunnableSource(complete, ident);
-    const b = projectBaselineToRunnableSource(structuredClone(complete), ident);
+    const a = projectBaselineToRunnableSource(complete, ident, RAW);
+    const b = projectBaselineToRunnableSource(structuredClone(complete), ident, RAW);
     expect(a.checksum).toBe(b.checksum);
   });
-  it("no inventa criticidad: bloquea con GENERIC_RUNTIME_EXTENSION_REQUIRED", () => {
-    const r = projectBaselineToRunnableSource(
-      base([obj("VA01", "V"), obj("P1-ZZ01-01", "P", ["¿x?", "VA01"])]),
-      ident,
-    );
-    expect(r.ok).toBe(false);
-    expect(r.source).toBeNull();
-    expect(r.blockers.map((b) => b.code)).toContain("GRE-CRITICALITY-NOT-EXPLICIT");
+  it("criticidad no explícita: no inventa nivel, no bloquea generación", () => {
+    const r = projectBaselineToRunnableSource(base([obj("VA01", "V")]), ident, RAW);
+    expect(r.ok).toBe(true);
+    const va = (r.source!["sections"] as any).variables[0];
+    expect(va.criticality).toBe("NOT_EXPLICIT_IN_KNOWLEDGE_MASTER");
+    expect(va.acquisitionResolution).toBe("INFORMATION_NEED");
+    expect(generatePackCandidate(r.source as never).ok).toBe(true);
   });
-  it("no asocia preguntas sin VA literal ni sin definición/nombre", () => {
+  it("NI→VA solo por estructura; NI sin estructura queda UNRESOLVED y VA sin vía bloquea publicación", () => {
     const r = projectBaselineToRunnableSource(
-      base([obj("VA01", "V", ["CRITICAL"]), obj("P1-ZZ01-01", "P", ["¿x?", "VA04–VA06"])]),
-      null,
+      base([obj("VA01", "V"), obj("VA02", "W")]),
+      ident,
+      RAW,
     );
-    const codes = r.blockers.map((b) => b.code);
-    expect(codes).toContain("NO_RUNNABLE_ACQUISITION_IN_CANONICAL");
-    expect(codes).toContain("CAPABILITY_NAME_MISSING");
-    expect(r.blockers.every((b) => b.publicationBlocking)).toBe(true);
+    const s = r.source!["sections"] as any;
+    const ni02 = s.informationNeeds.find((n: any) => n.id === "NI02");
+    expect(ni02.variableRefs).toEqual([]);
+    expect(ni02.mappingStatus).toBe("UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE");
+    expect(s.variables[1].acquisitionResolution).toBe("UNRESOLVED");
+    const gaps = r.source!["gaps"] as any[];
+    expect(gaps.find((g) => g.id === "NE-ZZ-01-VA-ACQUISITION").publicationBlocking).toBe(true);
+  });
+  it("sin definición productiva ⇒ NOT_EXPLICIT (no bloqueante); sin nombre ⇒ bloqueo", () => {
+    const r = projectBaselineToRunnableSource(
+      complete,
+      ident,
+      "Propongo como definición inicial:\nZZ-01 evalúa algo.",
+    );
+    expect(r.definition?.status).toBe("NOT_EXPLICIT");
+    expect(r.definition?.candidates[0]?.qualifier).toBe("NON_FINAL");
+    const g = (r.source!["gaps"] as any[]).find((x) => x.id === "NE-ZZ-01-DEFINITION");
+    expect(g.publicationBlocking).toBe(false);
+    const n = projectBaselineToRunnableSource(complete, null, RAW);
+    expect(n.blockers.map((b) => b.code)).toContain("CAPABILITY_NAME_MISSING");
   });
 });
 

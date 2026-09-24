@@ -1,0 +1,370 @@
+{
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "capability": {
+    "id": "DG-03",
+    "domainId": "DG",
+    "name": "Asignar responsabilidad y capacidad de decisión",
+    "definition": "DG-03 evalúa la capacidad de la organización para asignar responsabilidad efectiva sobre decisiones y resultados relevantes de transformación, otorgando o haciendo accesible la autoridad necesaria para actuar, resolver trade-offs y escalar oportunamente aquello que excede el ámbito de decisión asignado.",
+    "definitionStatus": "EXPLICIT",
+    "definitionSourceLines": [
+      9,
+      9
+    ]
+  },
+  "provenance": {
+    "sourceReference": "canonical-baseline.json#DG03-K4-v1.0@sha256:5de1f497b83e8975ac8fc912edecf92299ac72dead26290ab59254c7fc8651e3 · DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "extractionStatus": "APPROVED",
+    "derivation": "MASTER_TRANSCRIPTION",
+    "derivationNote": "Proyección genérica determinista (M2-FACTORY-CONTRACT-03) desde baseline canónica aceptada + estructura explícita de la fuente raw sellada.",
+    "approvedBy": "PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY",
+    "approvedAt": "2026-09-24"
+  },
+  "targetPack": {
+    "packId": "dg-03",
+    "packVersion": "1.0.0"
+  },
+  "sections": {
+    "capability": {
+      "id": "DG-03",
+      "domainId": "DG",
+      "name": "Asignar responsabilidad y capacidad de decisión",
+      "definition": "DG-03 evalúa la capacidad de la organización para asignar responsabilidad efectiva sobre decisiones y resultados relevantes de transformación, otorgando o haciendo accesible la autoridad necesaria para actuar, resolver trade-offs y escalar oportunamente aquello que excede el ámbito de decisión asignado.",
+      "definitionStatus": "EXPLICIT",
+      "definitionSourceLines": [
+        9,
+        9
+      ]
+    },
+    "conditionsOfExistence": [
+      {
+        "id": "CE01",
+        "statement": "Responsabilidad explícita"
+      },
+      {
+        "id": "CE02",
+        "statement": "Autoridad suficiente"
+      },
+      {
+        "id": "CE03",
+        "statement": "Claridad del mecanismo decisional"
+      },
+      {
+        "id": "CE04",
+        "statement": "Escalamiento y resolución"
+      },
+      {
+        "id": "CE05",
+        "statement": "Continuidad y trazabilidad"
+      }
+    ],
+    "variables": [
+      {
+        "id": "VA01",
+        "name": "Responsabilidad sobre decisiones relevantes",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA02",
+        "name": "Accountability sobre resultados de transformación",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA03",
+        "name": "Autoridad efectiva dentro del ámbito asignado",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA04",
+        "name": "Coherencia responsabilidad–autoridad",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA05",
+        "name": "Claridad sobre qué decisiones corresponden a quién",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA06",
+        "name": "Acceso a información y participación necesarias para decidir",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA07",
+        "name": "Límites/tolerancias de decisión",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA08",
+        "name": "Mecanismo funcional de escalamiento y resolución",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA09",
+        "name": "Oportunidad y trazabilidad de decisiones materiales",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA10",
+        "name": "Continuidad de responsabilidad ante cambios de personas/roles",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      }
+    ],
+    "informationNeeds": [
+      {
+        "id": "NI01",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué decisiones materiales de transformación requieren responsabilidad explícita",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          122
+        ]
+      },
+      {
+        "id": "NI02",
+        "idStatus": "SOURCE_ID",
+        "statement": "Quién responde por sus resultados",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          123
+        ]
+      },
+      {
+        "id": "NI03",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué autoridad posee realmente cada responsable",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          124
+        ]
+      },
+      {
+        "id": "NI04",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si autoridad y responsabilidad guardan correspondencia",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          125
+        ]
+      },
+      {
+        "id": "NI05",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si está suficientemente claro quién decide qué",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          126
+        ]
+      },
+      {
+        "id": "NI06",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si los decisores acceden a información/actores necesarios",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          127
+        ]
+      },
+      {
+        "id": "NI07",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué pueden decidir autónomamente y cuáles son sus límites",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          128
+        ]
+      },
+      {
+        "id": "NI08",
+        "idStatus": "SOURCE_ID",
+        "statement": "Cómo se resuelven decisiones fuera de esos límites",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          129
+        ]
+      },
+      {
+        "id": "NI09",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si las decisiones materiales ocurren oportunamente y dejan trazabilidad proporcional",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          130
+        ]
+      },
+      {
+        "id": "NI10",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué ocurre con la responsabilidad cuando cambia o falta una persona clave",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          131
+        ]
+      }
+    ],
+    "acquisitions": [],
+    "acquisitionStages": [
+      {
+        "id": "P1",
+        "level": "P1",
+        "heading": "P1 · Núcleo",
+        "prompts": [
+          "¿Cuáles son las decisiones relevantes?",
+          "¿Quién responde por ellas/resultados?",
+          "¿Puede realmente decidir lo que necesita decidir?",
+          "¿Qué ocurre cuando no puede?"
+        ],
+        "variableRefsResolution": "CONTEXTUAL",
+        "sourceLines": [
+          166,
+          171
+        ]
+      },
+      {
+        "id": "P2",
+        "level": "P2",
+        "heading": "P2 · Condicional",
+        "prompts": [],
+        "variableRefsResolution": "CONTEXTUAL",
+        "sourceLines": [
+          173,
+          186
+        ]
+      },
+      {
+        "id": "P3",
+        "level": "P3",
+        "heading": "P3 · Discriminación",
+        "prompts": [],
+        "variableRefsResolution": "CONTEXTUAL",
+        "sourceLines": [
+          188,
+          199
+        ]
+      },
+      {
+        "id": "P4",
+        "level": "P4",
+        "heading": "P4 · Contradicción",
+        "prompts": [],
+        "variableRefsResolution": "CONTEXTUAL",
+        "sourceLines": [
+          201,
+          206
+        ]
+      },
+      {
+        "id": "P5",
+        "level": "P5",
+        "heading": "P5 · Validación",
+        "prompts": [
+          "“Entendemos que el líder puede decidir A y B hasta determinado límite, mientras C debe escalarse a gerencia, y que esa escalada se activa por X. ¿Es correcto?”",
+          "“¿Su gobierno es bueno?”"
+        ],
+        "variableRefsResolution": "CONTEXTUAL",
+        "sourceLines": [
+          210,
+          215
+        ]
+      }
+    ]
+  },
+  "gaps": [
+    {
+      "id": "NE-DG-03-CRITICALITY",
+      "kind": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "statement": "Criticidad no declarada por la fuente para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10; preservada como NOT_EXPLICIT (modo de resolución NOT_EXPLICIT), sin inferir nivel.",
+      "publicationBlocking": false
+    },
+    {
+      "id": "NE-DG-03-VA-ACQUISITION",
+      "kind": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "statement": "Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+      "publicationBlocking": true
+    }
+  ],
+  "checksum": "sha256:16c38347298b9de079aff386b74699b352c30857ef1eeddec64bed133674a8e4"
+}

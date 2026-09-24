@@ -1,0 +1,353 @@
+{
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "capability": {
+    "id": "DG-05",
+    "domainId": "DG",
+    "name": "Gobernar riesgos y dependencias de la transformación",
+    "definition": "DG-05 evalúa la capacidad de la organización para reconocer, comprender y gobernar riesgos y dependencias materialmente capaces de afectar la dirección, priorización, ejecución o resultados de su transformación, incorporándolos oportunamente en decisiones y respuestas proporcionales.",
+    "definitionStatus": "EXPLICIT",
+    "definitionSourceLines": [
+      26,
+      26
+    ]
+  },
+  "provenance": {
+    "sourceReference": "canonical-baseline.json#DG05-K4-v1.0@sha256:1a0a0d4b3c4cb7e35973b1980cdfd40fcf6e2aa8ddb1f7565ec6d1e9264db603 · DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "extractionStatus": "APPROVED",
+    "derivation": "MASTER_TRANSCRIPTION",
+    "derivationNote": "Proyección genérica determinista (M2-FACTORY-CONTRACT-03) desde baseline canónica aceptada + estructura explícita de la fuente raw sellada.",
+    "approvedBy": "PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY",
+    "approvedAt": "2026-09-24"
+  },
+  "targetPack": {
+    "packId": "dg-05",
+    "packVersion": "1.0.0"
+  },
+  "sections": {
+    "capability": {
+      "id": "DG-05",
+      "domainId": "DG",
+      "name": "Gobernar riesgos y dependencias de la transformación",
+      "definition": "DG-05 evalúa la capacidad de la organización para reconocer, comprender y gobernar riesgos y dependencias materialmente capaces de afectar la dirección, priorización, ejecución o resultados de su transformación, incorporándolos oportunamente en decisiones y respuestas proporcionales.",
+      "definitionStatus": "EXPLICIT",
+      "definitionSourceLines": [
+        26,
+        26
+      ]
+    },
+    "conditionsOfExistence": [
+      {
+        "id": "CE01",
+        "statement": "Visibilidad de exposición"
+      },
+      {
+        "id": "CE02",
+        "statement": "Comprensión de materialidad"
+      },
+      {
+        "id": "CE03",
+        "statement": "Interacción y concentración"
+      },
+      {
+        "id": "CE04",
+        "statement": "Respuesta y decisión"
+      },
+      {
+        "id": "CE05",
+        "statement": "Ownership y escalamiento"
+      },
+      {
+        "id": "CE06",
+        "statement": "Monitoreo y adaptación"
+      }
+    ],
+    "variables": [
+      {
+        "id": "VA01",
+        "name": "riesgos materiales identificables",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA02",
+        "name": "dependencias materiales identificables",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA03",
+        "name": "consecuencias potenciales sobre objetivos/resultados",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA04",
+        "name": "incertidumbre/probabilidad o plausibilidad suficientemente comprendida",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA05",
+        "name": "interdependencias entre iniciativas/capacidades",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA06",
+        "name": "concentración/acumulación de exposición",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA07",
+        "name": "respuesta proporcional definida",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA08",
+        "name": "integración del riesgo/dependencia en decisiones de transformación",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA09",
+        "name": "responsabilidad sobre exposición/respuesta",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA10",
+        "name": "capacidad de escalamiento/aceptación cuando excede tolerancias",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA11",
+        "name": "señales/triggers de cambio de exposición",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA12",
+        "name": "revisión de respuesta ante nueva información",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      }
+    ],
+    "informationNeeds": [
+      {
+        "id": "NI01",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué incertidumbres materiales pueden afectar transformación",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          171
+        ]
+      },
+      {
+        "id": "NI02",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué dependencias materiales existen",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          172
+        ]
+      },
+      {
+        "id": "NI03",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué objetivos/resultados podrían verse afectados",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          173
+        ]
+      },
+      {
+        "id": "NI04",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué consecuencias plausibles existen",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          174
+        ]
+      },
+      {
+        "id": "NI05",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué tan incierta/plausible es la exposición",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          175
+        ]
+      },
+      {
+        "id": "NI06",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué interacciones pueden amplificar/reducir exposición",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          176
+        ]
+      },
+      {
+        "id": "NI07",
+        "idStatus": "SOURCE_ID",
+        "statement": "Dónde existe concentración de exposición",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          177
+        ]
+      },
+      {
+        "id": "NI08",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué respuesta se ha definido",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          178
+        ]
+      },
+      {
+        "id": "NI09",
+        "idStatus": "SOURCE_ID",
+        "statement": "Cómo modifica decisiones de transformación",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          179
+        ]
+      },
+      {
+        "id": "NI10",
+        "idStatus": "SOURCE_ID",
+        "statement": "Quién responde y quién puede aceptar/escalar",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          180
+        ]
+      },
+      {
+        "id": "NI11",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué señales indican cambio de exposición",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          181
+        ]
+      },
+      {
+        "id": "NI12",
+        "idStatus": "SOURCE_ID",
+        "statement": "Cómo se revisa la respuesta",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          182
+        ]
+      }
+    ],
+    "acquisitions": []
+  },
+  "gaps": [
+    {
+      "id": "NE-DG-05-CRITICALITY",
+      "kind": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "statement": "Criticidad no declarada por la fuente para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12; preservada como NOT_EXPLICIT (modo de resolución NOT_EXPLICIT), sin inferir nivel.",
+      "publicationBlocking": false
+    },
+    {
+      "id": "NE-DG-05-VA-ACQUISITION",
+      "kind": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "statement": "Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+      "publicationBlocking": true
+    }
+  ],
+  "checksum": "sha256:e7d1e8c5371fabceff4cc2f731be12816890f8ea1c96ae1955ac98b44104573c"
+}

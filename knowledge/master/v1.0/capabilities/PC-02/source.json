@@ -1,0 +1,440 @@
+{
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "capability": {
+    "id": "PC-02",
+    "domainId": "PC",
+    "name": "Desarrollar competencias y aprendizaje relevantes",
+    "definition": "PC-02 evalúa la capacidad de la organización para identificar competencias que necesita desarrollar internamente, reconocer brechas relevantes, habilitar experiencias de aprendizaje proporcionales y verificar que el aprendizaje se traduzca suficientemente en capacidad efectiva para desempeñarse en el contexto de trabajo.",
+    "definitionStatus": "EXPLICIT",
+    "definitionSourceLines": [
+      27,
+      27
+    ]
+  },
+  "provenance": {
+    "sourceReference": "canonical-baseline.json#PC02-K4-v1.0@sha256:f13cabb5bfba742431fba8cc4c5da1ba444e6c8ac564c26846def2101fb808c8 · PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "extractionStatus": "APPROVED",
+    "derivation": "MASTER_TRANSCRIPTION",
+    "derivationNote": "Proyección genérica determinista (M2-FACTORY-CONTRACT-03) desde baseline canónica aceptada + estructura explícita de la fuente raw sellada.",
+    "approvedBy": "PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY",
+    "approvedAt": "2026-09-24"
+  },
+  "targetPack": {
+    "packId": "pc-02",
+    "packVersion": "1.0.0"
+  },
+  "sections": {
+    "capability": {
+      "id": "PC-02",
+      "domainId": "PC",
+      "name": "Desarrollar competencias y aprendizaje relevantes",
+      "definition": "PC-02 evalúa la capacidad de la organización para identificar competencias que necesita desarrollar internamente, reconocer brechas relevantes, habilitar experiencias de aprendizaje proporcionales y verificar que el aprendizaje se traduzca suficientemente en capacidad efectiva para desempeñarse en el contexto de trabajo.",
+      "definitionStatus": "EXPLICIT",
+      "definitionSourceLines": [
+        27,
+        27
+      ]
+    },
+    "conditionsOfExistence": [
+      {
+        "id": "CE01",
+        "statement": "Competencia requerida"
+      },
+      {
+        "id": "CE02",
+        "statement": "Brecha real"
+      },
+      {
+        "id": "CE03",
+        "statement": "Pertinencia de desarrollar internamente"
+      },
+      {
+        "id": "CE04",
+        "statement": "Diseño de aprendizaje"
+      },
+      {
+        "id": "CE05",
+        "statement": "Transferencia al contexto de trabajo"
+      },
+      {
+        "id": "CE06",
+        "statement": "Mantenimiento/adaptación"
+      }
+    ],
+    "variables": [
+      {
+        "id": "VA01",
+        "name": "Competencia material suficientemente definida",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA02",
+        "name": "Vinculación competencia–actividad/decisión/resultado",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA03",
+        "name": "Nivel/capacidad actual observable",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA04",
+        "name": "Diferencia relevante frente a capacidad requerida",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA05",
+        "name": "Necesidad de internalización/desarrollo",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA06",
+        "name": "Personas/roles pertinentes para desarrollar",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA07",
+        "name": "Método de aprendizaje adecuado a la competencia",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA08",
+        "name": "Oportunidad/tiempo suficiente para aprender y practicar",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA09",
+        "name": "Acceso a recursos, guía y feedback",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA10",
+        "name": "Aplicación práctica de lo aprendido",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA11",
+        "name": "Capacidad demostrable en contexto relevante",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA12",
+        "name": "Refuerzo o continuidad cuando la competencia lo requiere",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA13",
+        "name": "Actualización frente a cambios materiales",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      }
+    ],
+    "informationNeeds": [
+      {
+        "id": "NI01",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué competencia material se requiere",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          188
+        ]
+      },
+      {
+        "id": "NI02",
+        "idStatus": "SOURCE_ID",
+        "statement": "Para qué resultado/actividad/decisión",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          189
+        ]
+      },
+      {
+        "id": "NI03",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué capacidad existe actualmente",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          190
+        ]
+      },
+      {
+        "id": "NI04",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué brecha material existe",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          191
+        ]
+      },
+      {
+        "id": "NI05",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si conviene desarrollarla internamente",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          192
+        ]
+      },
+      {
+        "id": "NI06",
+        "idStatus": "SOURCE_ID",
+        "statement": "Quién realmente necesita desarrollarla",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          193
+        ]
+      },
+      {
+        "id": "NI07",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué mecanismo de aprendizaje corresponde",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          194
+        ]
+      },
+      {
+        "id": "NI08",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si existe tiempo/oportunidad suficiente",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          195
+        ]
+      },
+      {
+        "id": "NI09",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué recursos, guía y feedback están disponibles",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          196
+        ]
+      },
+      {
+        "id": "NI10",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si lo aprendido puede aplicarse",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          197
+        ]
+      },
+      {
+        "id": "NI11",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si la competencia puede demostrarse en contexto",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          198
+        ]
+      },
+      {
+        "id": "NI12",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si requiere refuerzo/continuidad",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          199
+        ]
+      },
+      {
+        "id": "NI13",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué cambios pueden volverla insuficiente",
+        "variableRefs": [],
+        "acquisitionRefs": [],
+        "mappingStatus": "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+        "mappingEvidence": null,
+        "sourceLines": [
+          200
+        ]
+      }
+    ],
+    "acquisitions": [],
+    "acquisitionStages": [
+      {
+        "id": "P1",
+        "level": "P1",
+        "heading": "P1 · Núcleo",
+        "prompts": [
+          "“Para ejecutar los cambios que priorizaron, ¿qué necesitan aprender a hacer mejor o de una forma nueva?”",
+          "“¿Quién necesita realmente desarrollar esa capacidad?”",
+          "“¿Cómo están aprendiendo?”",
+          "“¿Ya pueden hacerlo suficientemente en situaciones reales?”",
+          "“¿Cuántas horas de capacitación realizan al año?”"
+        ],
+        "variableRefsResolution": "CONTEXTUAL",
+        "sourceLines": [
+          210,
+          217
+        ]
+      },
+      {
+        "id": "P2",
+        "level": "P2",
+        "heading": "P2 · Condicional",
+        "prompts": [],
+        "variableRefsResolution": "CONTEXTUAL",
+        "sourceLines": [
+          219,
+          233
+        ]
+      },
+      {
+        "id": "P3",
+        "level": "P3",
+        "heading": "P3 · Discriminación",
+        "prompts": [],
+        "variableRefsResolution": "CONTEXTUAL",
+        "sourceLines": [
+          235,
+          246
+        ]
+      },
+      {
+        "id": "P4",
+        "level": "P4",
+        "heading": "P4 · Contradicción",
+        "prompts": [],
+        "variableRefsResolution": "CONTEXTUAL",
+        "sourceLines": [
+          248,
+          248
+        ]
+      },
+      {
+        "id": "P5",
+        "level": "P5",
+        "heading": "P5 · Validación",
+        "prompts": [
+          "“Entendemos que el equipo completó la formación, pero todavía requiere apoyo para ejecutar X en situaciones reales. ¿Es correcto?”"
+        ],
+        "variableRefsResolution": "CONTEXTUAL",
+        "sourceLines": [
+          260,
+          262
+        ]
+      }
+    ]
+  },
+  "gaps": [
+    {
+      "id": "NE-PC-02-CRITICALITY",
+      "kind": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "statement": "Criticidad no declarada por la fuente para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13; preservada como NOT_EXPLICIT (modo de resolución NOT_EXPLICIT), sin inferir nivel.",
+      "publicationBlocking": false
+    },
+    {
+      "id": "NE-PC-02-VA-ACQUISITION",
+      "kind": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "statement": "Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+      "publicationBlocking": true
+    }
+  ],
+  "checksum": "sha256:5d97dc0360d4101f67a0e71f32dc14417b95117085b51d5e6fe98588a4c95b0d"
+}

@@ -1,0 +1,122 @@
+{
+  "dossierType": "PRE_PUBLICATION_GOVERNANCE_EVIDENCE",
+  "statement": "Evidencia técnica automatizada para la revisión humana de gobierno. NO constituye aprobación, firma ni publicación; no contiene identidad humana.",
+  "capabilityId": "OP-04",
+  "factoryVersion": "pymapa-knowledge-factory/0.1.0",
+  "readiness": "READY_FOR_HUMAN_PUBLICATION_AUTHORIZATION",
+  "blockers": [],
+  "humanAuthorization": {
+    "present": false,
+    "required": true,
+    "artifact": "knowledge/master/<version>/capabilities/OP-04/governance-review.json",
+    "statement": "Solo una autoridad humana de gobierno puede registrar la decisión; la Factory nunca la genera."
+  },
+  "historicalClosure": {
+    "marker": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      5993,
+      5993
+    ],
+    "statement": "Cierre histórico del conocimiento (provenance). No equivale a publicación técnica actual."
+  },
+  "identity": {
+    "rawOriginal": {
+      "filename": "OP-04_Completo.docx",
+      "sha256": "98e7bf95daf4dbe4e0a0b7da5eeaae8a72e929f0cf0a4d7490cfea2cbaedf299"
+    },
+    "rawText": {
+      "ref": "text/OP-04_Completo.txt",
+      "sha256": "8a749c56e19b133d240e89f7510116d1bde57deec1ec030be5613e857b74db11"
+    },
+    "canonicalBaselineChecksum": "sha256:711b804cf0b7341730ea7159c6f375ba7b0584602b462206cf18f4408c2ffc07",
+    "executableSourceChecksum": "sha256:d89891eeb9e27b991046451206d963350b5ef58c03ea76e41d298a68a08dca16",
+    "packCandidate": {
+      "packId": "op-04",
+      "packVersion": "1.0.0",
+      "checksum": "sha256:ae1252a861a97336318582eda38aa3df6f04e3947b5f11cd8bbe5c2263a42625"
+    }
+  },
+  "transcriptionCorrections": [],
+  "runtimeExtensions": [],
+  "notExplicit": [
+    "NE-OP-04-CRITICALITY"
+  ],
+  "governedBacklog": [],
+  "transversalCandidates": 0,
+  "engine": {
+    "current": "0.2.0",
+    "required": "0.1.0",
+    "semanticChangesCovered": []
+  },
+  "checks": [
+    {
+      "check": "RAW_REGISTRATION",
+      "status": "PASS"
+    },
+    {
+      "check": "CANDIDATE_BOUNDARY",
+      "status": "NOT_RUN"
+    },
+    {
+      "check": "STRUCTURAL",
+      "status": "PASS"
+    },
+    {
+      "check": "REFERENTIAL",
+      "status": "PASS"
+    },
+    {
+      "check": "SOURCE_TO_CANONICAL",
+      "status": "PASS"
+    },
+    {
+      "check": "PROVENANCE",
+      "status": "PASS"
+    },
+    {
+      "check": "CANONICAL_TO_PACK",
+      "status": "PASS"
+    },
+    {
+      "check": "RUNTIME_COMPATIBILITY",
+      "status": "PASS"
+    },
+    {
+      "check": "FIXTURES",
+      "status": "PASS"
+    },
+    {
+      "check": "SOURCE_SILENCE",
+      "status": "PASS"
+    },
+    {
+      "check": "CAPABILITY_BRANCHING",
+      "status": "PASS"
+    },
+    {
+      "check": "GOLDEN_REGRESSION",
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "check": "PUBLICATION_GATE",
+      "status": "REVIEW_REQUIRED"
+    }
+  ],
+  "fixtures": {
+    "count": 2,
+    "pass": 2,
+    "governedJudgment": 0,
+    "fail": 0
+  },
+  "referenceRegression": [
+    {
+      "capabilityId": "OP-01",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "OP-02",
+      "goldenStatus": "PASS"
+    }
+  ],
+  "checksum": "sha256:e5575179b729c02556da5d8405be022de2b9a9d775b4f88f227d3e2accb46051"
+}

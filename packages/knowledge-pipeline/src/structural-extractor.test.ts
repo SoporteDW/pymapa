@@ -180,18 +180,21 @@ describe.each(["OP-03", "OP-04", "OP-05"])("%s · candidato estructural gobernad
     expect(p.ok).toBe(false);
   });
 
-  it("aceptación canónica humana presente; sin revisión de publicación ni pack fabricados", () => {
+  it("aceptación canónica humana preservada; publicación solo tras gates (M2-FACTORY-CONTRACT-03)", () => {
     const acc = readJson(join(x.dir, "canonical-acceptance.json")) as { candidateChecksum: string };
     expect(acc.candidateChecksum).toBe(
       readJson(join(x.dir, "candidate.json")) &&
         (readJson(join(x.dir, "candidate.json")) as { checksum: string }).checksum,
     );
-    expect(
-      existsSync(
-        join(ROOT, "knowledge", "master", "v1.0", "capabilities", cap, "governance-review.json"),
-      ),
-    ).toBe(false);
-    expect(existsSync(join(ROOT, "knowledge", "packs", cap.toLowerCase()))).toBe(false);
+    const review = readJson(
+      join("knowledge", "master", "v1.0", "capabilities", cap, "governance-review.json"),
+    ) as Record<string, any>;
+    expect(review["reviewer"]).toBe("PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY");
+    expect(String(review["authorizationSource"])).toMatch(/M2-FACTORY-CONTRACT-03/);
+    const pub = readJson(
+      join("knowledge", "packs", cap.toLowerCase(), "1.0.0", "published.json"),
+    ) as Record<string, string>;
+    expect(pub["checksum"]).toBe(review["reviewedEvidence"]["packCandidateChecksum"]);
   });
 });
 

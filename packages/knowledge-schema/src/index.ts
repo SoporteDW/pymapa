@@ -38,7 +38,17 @@ const identifiedStatement = z.object({ id: z.string().min(1), statement: z.strin
 export const variableSchema = z.object({
   id: z.string().min(1),
   name: z.string().min(1),
-  criticality: criticalitySchema,
+  /**
+   * M2-FACTORY-CONTRACT-03: criticidad FIXED (enumerada), CONTEXT_DEPENDENT o
+   * NOT_EXPLICIT_IN_KNOWLEDGE_MASTER cuando la fuente guarda silencio. Nunca se
+   * infiere un nivel; el runtime resuelve NOT_EXPLICIT como modo NOT_EXPLICIT.
+   */
+  criticality: z.union([criticalitySchema, z.literal(NOT_EXPLICIT)]),
+  /** Cómo puede obtenerse información de la VA, o por qué sigue sin resolverse. */
+  acquisitionResolution: z
+    .enum(["ACQUISITION_EXPLICIT", "INFORMATION_NEED", "UNRESOLVED"])
+    .optional(),
+  acquisitionNote: z.string().optional(),
   /**
    * Nivel mínimo fijo o, cuando la fuente no fija ninguno (asignación dinámica),
    * la marca NOT_EXPLICIT_IN_KNOWLEDGE_MASTER. En ese caso el requisito debe
@@ -46,6 +56,11 @@ export const variableSchema = z.object({
    */
   minimumEvidence: z.union([evidenceLevelSchema, z.literal(NOT_EXPLICIT)]),
   minimumEvidenceNote: z.string().optional(),
+  /**
+   * M2-FACTORY-CONTRACT-03: silencio explícito de la fuente sobre el nivel
+   * mínimo (ni fijo ni condicional). Se preserva; no se infiere un nivel.
+   */
+  minimumEvidenceResolution: z.literal("NOT_EXPLICIT").optional(),
   /**
    * true cuando el material gobernado expresa el requisito de forma condicional
    * (p. ej. "E1/E2 depending on risk") y NO existe fórmula aprobada.
@@ -59,6 +74,8 @@ export const variableSchema = z.object({
 
 export const informationNeedSchema = z.object({
   id: z.string().min(1),
+  /** Wording literal de la NI cuando la fuente lo declara. */
+  statement: z.string().optional(),
   variableRefs: z.array(z.string()),
   acquisitionRefs: z.array(z.string()),
   mappingStatus: z.string().min(1),
@@ -102,11 +119,19 @@ export const triggerSchema = z.object({
 
 export const acquisitionSchema = z.object({
   id: z.string().min(1),
-  level: acquisitionLevelSchema,
+  /** Opcional: la fuente puede no fijar nivel P1–P5 para una adquisición. */
+  level: acquisitionLevelSchema.optional(),
+  /**
+   * M2-FACTORY-CONTRACT-03: QUESTION (pregunta literal) o INFORMATION_NEED
+   * (canal derivado de una NI explícita, sin pregunta literal). Por defecto QUESTION.
+   */
+  acquisitionMode: z.enum(["QUESTION", "INFORMATION_NEED"]).optional(),
   informationNeedRef: z.string().optional(),
   variableRefs: z.array(z.string().min(1)).min(1),
   purpose: z.string().optional(),
-  question: z.string().min(1),
+  /** Literal cuando la fuente lo define; ausente en adquisición por NI. */
+  question: z.string().min(1).optional(),
+  questionStatus: z.literal(NOT_EXPLICIT).optional(),
   /** Procedencia del enunciado cuando no es transcripción literal. */
   questionSource: z.string().optional(),
   trigger: triggerSchema.optional(),
@@ -364,19 +389,39 @@ export const knowledgePackSchema = z.object({
     id: z.string().min(1),
     domainId: z.string().min(1),
     name: z.string().min(1),
+    /** Literal o NOT_EXPLICIT_IN_KNOWLEDGE_MASTER (definitionStatus). */
     definition: z.string().min(1),
+    definitionStatus: z.enum(["EXPLICIT", "NOT_EXPLICIT"]).optional(),
+    definitionSourceLines: z.array(z.number().int()).optional(),
     centralQuestion: z.string().optional(),
   }),
   conditionsOfExistence: z.array(identifiedStatement).optional(),
   conditionsNote: z.string().optional(),
   variables: z.array(variableSchema).min(1),
   criticalityNote: z.string().optional(),
-  informationNeeds: z.array(informationNeedSchema).min(1),
+  informationNeeds: z.array(informationNeedSchema),
   acquisitionLevels: z
     .array(z.object({ level: acquisitionLevelSchema, purpose: z.string() }))
     .optional(),
-  acquisitions: z.array(acquisitionSchema).min(1),
+  acquisitions: z.array(acquisitionSchema),
   acquisitionsNote: z.string().optional(),
+  /**
+   * Etapas de adquisición reutilizables (P1–P5) con prompts literales cuya
+   * atribución a VA es contextual: el runtime no las sirve ni admite
+   * observaciones por ellas; documentan cómo se adquiere conversacionalmente.
+   */
+  acquisitionStages: z
+    .array(
+      z.object({
+        id: z.string().min(1),
+        level: acquisitionLevelSchema.optional(),
+        heading: z.string().min(1),
+        prompts: z.array(z.string().min(1)),
+        variableRefsResolution: z.enum(["CONTEXTUAL", "UNRESOLVED"]),
+        sourceLines: z.array(z.number().int()).optional(),
+      }),
+    )
+    .optional(),
   evidence: z
     .object({
       levels: z.array(evidenceLevelSchema),
@@ -647,7 +692,11 @@ export function validateKnowledgePack(raw: unknown): KnowledgePackValidation {
         message: "un requisito de evidencia condicional debe declarar sus niveles admisibles",
       });
     }
-    if (variable.minimumEvidence === NOT_EXPLICIT && !variable.minimumEvidenceConditional) {
+    if (
+      variable.minimumEvidence === NOT_EXPLICIT &&
+      !variable.minimumEvidenceConditional &&
+      variable.minimumEvidenceResolution !== "NOT_EXPLICIT"
+    ) {
       issues.push({
         path: `variables.${index}.minimumEvidenceConditional`,
         message:

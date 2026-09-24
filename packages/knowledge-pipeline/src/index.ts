@@ -39,3 +39,4 @@ export * from "./supersession-resolver.ts";
 export * from "./governance-decisions.ts";
 export * from "./cross-capability.ts";
 export * from "./runnable-projection.ts";
+export * from "./source-structure.ts";

@@ -14,6 +14,12 @@
  * y comparación de sustancia por hash; evento NON_SEMANTIC_METADATA_ENRICHMENT.
  */
 import { computeChecksum } from "./checksum.ts";
+import {
+  extractCapabilityDefinition,
+  linkInformationNeeds,
+  NOT_EXPLICIT_MARK,
+  type CapabilityDefinitionResult,
+} from "./source-structure.ts";
 
 export type BlockerClass =
   | "DETERMINISTIC_TECHNICAL_FIX"
@@ -41,6 +47,7 @@ export interface ProjectableBaseline {
   baselineId: string;
   checksum: string;
   master: { identity: string; version: string; baselineStatus: string };
+  historicalStatus?: { marker?: string };
   objects: BaselineObject[];
 }
 
@@ -50,11 +57,45 @@ const bodyOf = (o: BaselineObject) =>
 const byId = (objs: BaselineObject[], re: RegExp) =>
   objs.filter((o) => o.sourceId && re.test(o.sourceId));
 
+/* ------------- M2-FACTORY-CONTRACT-03 · contrato de campos ------------- */
+
+export type FieldRequirement =
+  | "REQUIRED_FOR_RUNTIME"
+  | "OPTIONAL_SOURCE_METADATA"
+  | "NOT_EXPLICIT_ALLOWED"
+  | "CONTEXTUAL"
+  | "DERIVED_FROM_EXPLICIT_STRUCTURE";
+
+/**
+ * Clasificación genérica de cada campo del contrato baseline → pack ejecutable.
+ * La generación solo falla por un campo REQUIRED_FOR_RUNTIME ausente.
+ */
+export const PACK_FIELD_CONTRACT: Readonly<Record<string, FieldRequirement>> = {
+  "capability.id": "REQUIRED_FOR_RUNTIME",
+  "capability.name": "REQUIRED_FOR_RUNTIME",
+  "capability.definition": "NOT_EXPLICIT_ALLOWED",
+  conditionsOfExistence: "OPTIONAL_SOURCE_METADATA",
+  variables: "REQUIRED_FOR_RUNTIME",
+  "variables[].criticality": "NOT_EXPLICIT_ALLOWED",
+  "variables[].minimumEvidence": "NOT_EXPLICIT_ALLOWED",
+  "variables[].minimumEvidenceResolution": "NOT_EXPLICIT_ALLOWED",
+  "variables[].semanticStates": "OPTIONAL_SOURCE_METADATA",
+  "variables[].acquisitionResolution": "REQUIRED_FOR_RUNTIME",
+  informationNeeds: "NOT_EXPLICIT_ALLOWED",
+  "informationNeeds[].variableRefs": "DERIVED_FROM_EXPLICIT_STRUCTURE",
+  acquisitions: "NOT_EXPLICIT_ALLOWED",
+  "acquisitions[].id(INFORMATION_NEED)": "DERIVED_FROM_EXPLICIT_STRUCTURE",
+  "acquisitions[].level": "OPTIONAL_SOURCE_METADATA",
+  "acquisitions[].question": "OPTIONAL_SOURCE_METADATA",
+  "acquisitionStages[].variableRefs": "CONTEXTUAL",
+};
+
 export interface IdentityInput {
   name: string;
   /** Línea raw literal «<ID> · <name>» que verifica la identidad. */
   literalLine: number;
-  definition: string | null;
+  /** Obsoleto (M2-FACTORY-CLOSURE): la definición se extrae de la fuente. */
+  definition?: string | null;
 }
 
 export interface ProjectionResult {
@@ -62,32 +103,62 @@ export interface ProjectionResult {
   ok: boolean;
   source: Record<string, unknown> | null;
   blockers: ProjectionBlocker[];
-  stats: { variables: number; informationNeeds: number; acquisitions: number; conditions: number };
+  stats: {
+    variables: number;
+    informationNeeds: number;
+    linkedInformationNeeds: number;
+    acquisitions: number;
+    questionAcquisitions: number;
+    acquisitionStages: number;
+    conditions: number;
+    variablesWithAcquisitionPath: number;
+    variablesUnresolved: number;
+    criticalityNotExplicit: number;
+  };
+  definition: CapabilityDefinitionResult | null;
   checksum: string | null;
 }
+
+const RESPONSE_MODEL = {
+  kind: "free_statement_or_unknown",
+  preservesUnknown: true,
+  knowledgeStates: ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"],
+  optionSet: null,
+  optionSetStatus: NOT_EXPLICIT_MARK,
+};
 
 export function projectBaselineToRunnableSource(
   baseline: ProjectableBaseline,
   identity: IdentityInput | null,
+  rawText = "",
 ): ProjectionResult {
   const b: ProjectionBlocker[] = [];
+  const gaps: Record<string, unknown>[] = [];
+  const cap = baseline.capabilityId;
   const objs = baseline.objects;
   if (!identity)
     b.push({
       class: "DETERMINISTIC_TECHNICAL_FIX",
       code: "CAPABILITY_NAME_MISSING",
       objectKeys: [],
-      requirement: "capability.name literal",
-      why: "el candidato no registró el nombre literal de la capacidad (A2)",
+      requirement: "capability.name literal (REQUIRED_FOR_RUNTIME)",
+      why: "el candidato no registró el nombre literal de la capacidad",
       publicationBlocking: true,
     });
-  else if (!identity.definition)
-    b.push({
-      class: "DETERMINISTIC_TECHNICAL_FIX",
-      code: "CAPABILITY_DEFINITION_NOT_IN_CANONICAL",
-      objectKeys: [],
-      requirement: "capability.definition literal",
-      why: "la baseline no materializa un objeto con la definición literal de la capacidad; el extractor debe capturarla (no se redacta)",
+
+  const definition = extractCapabilityDefinition(cap, rawText);
+  if (definition.status === "NOT_EXPLICIT")
+    gaps.push({
+      id: `NE-${cap}-DEFINITION`,
+      kind: "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      statement: `Definición final de la capacidad no explícita en la fuente (${definition.why}). Se preserva el silencio; no se redacta.`,
+      publicationBlocking: false,
+    });
+  if (definition.status === "REVIEW_REQUIRED")
+    gaps.push({
+      id: `REV-${cap}-DEFINITION`,
+      kind: "GOVERNED_JUDGMENT",
+      statement: `Varias definiciones productivas distintas sin supersesión explícita (${definition.candidates.map((c) => `L${c.sourceLines[0]}`).join(", ")}).`,
       publicationBlocking: true,
     });
 
@@ -96,144 +167,196 @@ export function projectBaselineToRunnableSource(
     statement: String(o.fields["title"] ?? o.fields["heading"]),
   }));
 
-  const variables: Record<string, unknown>[] = [];
-  const informationNeeds: Record<string, unknown>[] = [];
-  const noCrit: string[] = [];
-  for (const o of byId(objs, /^VA\d+$/)) {
-    const body = bodyOf(o);
-    const crit = CRITICALITY.find((c) => body.some((l) => new RegExp(`\\b${c}\\b`).test(l)));
-    if (!crit) noCrit.push(o.key);
-    const ev = body.map((l) => /\bE[0-3]\b/.exec(l)?.[0]).find(Boolean);
-    variables.push({
-      id: o.sourceId,
-      name: String(o.fields["title"] ?? o.fields["heading"]),
-      criticality: crit ?? null,
-      minimumEvidence: ev ?? "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-      semanticStates: null,
-    });
-    // NI literalmente contenidas en la sección de la VA (estructura, no inferencia).
-    for (const l of body) {
-      const m = /^(NI-[0-9A-Za-z.]+)\s+(\S.*)$/.exec(l.trim());
-      if (m)
-        informationNeeds.push({
-          id: m[1],
-          statement: m[2],
-          variableRefs: [o.sourceId],
-          acquisitionRefs: [],
-          mappingStatus: "STRUCTURAL_CONTAINMENT",
-        });
-    }
-  }
-  if (variables.length === 0)
+  const vaObjs = byId(objs, /^VA\d+$/);
+  const vaIds = vaObjs.map((o) => o.sourceId as string);
+  const vaSet = new Set(vaIds);
+  if (vaObjs.length === 0)
     b.push({
       class: "DETERMINISTIC_TECHNICAL_FIX",
       code: "NO_VARIABLES_IN_CANONICAL",
       objectKeys: [],
-      requirement: "≥1 VA",
+      requirement: "≥1 VA (REQUIRED_FOR_RUNTIME)",
       why: "ninguna VA materializada en la baseline",
       publicationBlocking: true,
     });
-  if (noCrit.length)
-    b.push({
-      class: "GENERIC_RUNTIME_EXTENSION_REQUIRED",
-      code: "GRE-CRITICALITY-NOT-EXPLICIT",
-      objectKeys: noCrit,
-      requirement:
-        "variables[].criticality ∈ {CRITICAL, IMPORTANT, COMPLEMENTARY, CONTEXT_DEPENDENT}",
-      why: "Engine 0.2.0 exige criticidad enumerada por VA; la fuente no la declara para estas VA y asignarla sería inferencia. Requiere que el contrato/engine admita NOT_EXPLICIT_IN_KNOWLEDGE_MASTER en criticality con semántica gobernada (hoy solo lo admite minimumEvidence).",
-      publicationBlocking: true,
-    });
 
-  const vaIds = new Set(variables.map((v) => v["id"] as string));
+  // Adquisiciones con pregunta literal y VA literalmente referidas (modo QUESTION).
   const acquisitions: Record<string, unknown>[] = [];
-  const unmapped: string[] = [];
-  for (const o of byId(objs, /^P[1-5]-/)) {
+  const stages: Record<string, unknown>[] = [];
+  for (const o of byId(objs, /^P[1-5](-|$)/)) {
     const body = bodyOf(o);
-    const question = body.find((l) => /¿[^?]+\?/.test(l));
+    const prompts = body.filter((l) => /¿[^?]+\?/.test(l)).map((l) => l.trim());
     const refs = [
-      ...new Set(body.flatMap((l) => l.match(/\bVA\d+\b/g) ?? []).filter((r) => vaIds.has(r))),
+      ...new Set(body.flatMap((l) => l.match(/\bVA\d+\b/g) ?? []).filter((r) => vaSet.has(r))),
     ];
-    if (!question || refs.length === 0) {
-      unmapped.push(o.key);
+    const level = (o.sourceId as string).slice(0, 2);
+    if (prompts.length && refs.length) {
+      acquisitions.push({
+        id: o.sourceId,
+        level,
+        acquisitionMode: "QUESTION",
+        variableRefs: refs,
+        question: prompts[0],
+        responseModel: RESPONSE_MODEL,
+      });
       continue;
     }
-    acquisitions.push({
+    stages.push({
       id: o.sourceId,
-      level: (o.sourceId as string).slice(0, 2),
-      variableRefs: refs,
-      question: question.trim(),
-      responseModel: {
-        kind: "free_statement_or_unknown",
-        preservesUnknown: true,
-        knowledgeStates: ["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"],
-        optionSet: null,
-        optionSetStatus: "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-      },
+      level,
+      heading: String(o.fields["heading"] ?? o.sourceId),
+      prompts,
+      variableRefsResolution: "CONTEXTUAL",
+      sourceLines: o.sourceLines,
     });
   }
-  if (acquisitions.length === 0)
-    b.push({
-      class: "DETERMINISTIC_TECHNICAL_FIX",
-      code: "NO_RUNNABLE_ACQUISITION_IN_CANONICAL",
-      objectKeys: unmapped,
-      requirement: "≥1 adquisición P1–P5 con pregunta literal «¿…?» y VA literalmente referidas",
-      why: "la baseline no materializa preguntas con referencia literal a VA; no se asocian por proximidad ni por rango",
+
+  // NI y vínculo NI→VA por estructura explícita; canal de adquisición por NI.
+  const needs = linkInformationNeeds(rawText, vaIds);
+  const conflicting = needs.filter((n) => n.mappingStatus.startsWith("REVIEW"));
+  if (conflicting.length)
+    gaps.push({
+      id: `REV-${cap}-NI-OCCURRENCES`,
+      kind: "GOVERNED_JUDGMENT",
+      statement: `NI con ocurrencias en conflicto (vínculo o texto distinto): ${conflicting.map((n) => n.id).join(", ")}.`,
+      publicationBlocking: true,
+    });
+  const informationNeeds = needs.map((n) => {
+    const linked = n.variableRefs.length > 0;
+    const acqId = `ACQ·${n.id}`;
+    if (linked)
+      acquisitions.push({
+        id: acqId,
+        acquisitionMode: "INFORMATION_NEED",
+        informationNeedRef: n.id,
+        variableRefs: n.variableRefs,
+        questionStatus: NOT_EXPLICIT_MARK,
+        responseModel: RESPONSE_MODEL,
+      });
+    return {
+      id: n.id,
+      idStatus: n.idStatus,
+      statement: n.statement,
+      variableRefs: n.variableRefs,
+      acquisitionRefs: linked ? [acqId] : [],
+      mappingStatus: n.mappingStatus,
+      mappingEvidence: n.mappingEvidence,
+      sourceLines: n.sourceLines,
+    };
+  });
+
+  const fed = new Set(acquisitions.flatMap((a) => a["variableRefs"] as string[]));
+  const variables: Record<string, unknown>[] = [];
+  const noCrit: string[] = [];
+  const unresolved: string[] = [];
+  for (const o of vaObjs) {
+    const body = bodyOf(o);
+    const crit = CRITICALITY.find((c) => body.some((l) => new RegExp(`\\b${c}\\b`).test(l)));
+    if (!crit) noCrit.push(o.sourceId as string);
+    const ev = body.map((l) => /\bE[0-3]\b/.exec(l)?.[0]).find(Boolean);
+    const id = o.sourceId as string;
+    const viaQuestion = acquisitions.some(
+      (a) => a["acquisitionMode"] === "QUESTION" && (a["variableRefs"] as string[]).includes(id),
+    );
+    const resolution = viaQuestion
+      ? "ACQUISITION_EXPLICIT"
+      : fed.has(id)
+        ? "INFORMATION_NEED"
+        : "UNRESOLVED";
+    if (resolution === "UNRESOLVED") unresolved.push(id);
+    variables.push({
+      id,
+      name: String(o.fields["title"] ?? o.fields["heading"]),
+      criticality: crit ?? NOT_EXPLICIT_MARK,
+      minimumEvidence: ev ?? NOT_EXPLICIT_MARK,
+      ...(ev ? {} : { minimumEvidenceResolution: "NOT_EXPLICIT" }),
+      semanticStates: null,
+      acquisitionResolution: resolution,
+      ...(resolution === "UNRESOLVED"
+        ? {
+            acquisitionNote:
+              "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud",
+          }
+        : {}),
+    });
+  }
+  if (noCrit.length)
+    gaps.push({
+      id: `NE-${cap}-CRITICALITY`,
+      kind: "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      statement: `Criticidad no declarada por la fuente para ${noCrit.join(", ")}; preservada como NOT_EXPLICIT (modo de resolución NOT_EXPLICIT), sin inferir nivel.`,
+      publicationBlocking: false,
+    });
+  if (unresolved.length)
+    gaps.push({
+      id: `NE-${cap}-VA-ACQUISITION`,
+      kind: "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      statement: `Sin vínculo explícito NI/pregunta → VA para ${unresolved.join(", ")}: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.`,
       publicationBlocking: true,
     });
 
   const stats = {
     variables: variables.length,
     informationNeeds: informationNeeds.length,
+    linkedInformationNeeds: informationNeeds.filter((n) => n.variableRefs.length).length,
     acquisitions: acquisitions.length,
+    questionAcquisitions: acquisitions.filter((a) => a["acquisitionMode"] === "QUESTION").length,
+    acquisitionStages: stages.length,
     conditions: conditions.length,
+    variablesWithAcquisitionPath: variables.length - unresolved.length,
+    variablesUnresolved: unresolved.length,
+    criticalityNotExplicit: noCrit.length,
   };
   if (b.length)
     return {
-      capabilityId: baseline.capabilityId,
+      capabilityId: cap,
       ok: false,
       source: null,
       blockers: b,
       stats,
+      definition,
       checksum: null,
     };
 
+  const capability = {
+    id: cap,
+    domainId: cap.slice(0, 2),
+    name: identity!.name,
+    definition: definition.text ?? NOT_EXPLICIT_MARK,
+    definitionStatus: definition.status === "EXPLICIT" ? "EXPLICIT" : "NOT_EXPLICIT",
+    ...(definition.sourceLines ? { definitionSourceLines: definition.sourceLines } : {}),
+  };
   const body = {
     master: baseline.master,
-    capability: {
-      id: baseline.capabilityId,
-      domainId: baseline.capabilityId.slice(0, 2),
-      name: identity!.name,
-      definition: identity!.definition!,
-    },
+    capability,
     provenance: {
-      sourceReference: `canonical-baseline.json#${baseline.baselineId}@${baseline.checksum}`,
+      sourceReference: `canonical-baseline.json#${baseline.baselineId}@${baseline.checksum}${baseline.historicalStatus?.marker ? ` · ${baseline.historicalStatus.marker}` : ""}`,
       extractionStatus: "APPROVED",
       derivation: "MASTER_TRANSCRIPTION",
-      derivationNote: "Proyección genérica determinista desde baseline canónica aceptada.",
+      derivationNote:
+        "Proyección genérica determinista (M2-FACTORY-CONTRACT-03) desde baseline canónica aceptada + estructura explícita de la fuente raw sellada.",
       approvedBy: "PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY",
       approvedAt: "2026-09-24",
     },
-    targetPack: { packId: baseline.capabilityId.toLowerCase(), packVersion: "1.0.0" },
+    targetPack: { packId: cap.toLowerCase(), packVersion: "1.0.0" },
     sections: {
-      capability: {
-        id: baseline.capabilityId,
-        name: identity!.name,
-        definition: identity!.definition,
-      },
+      capability,
       conditionsOfExistence: conditions,
       variables,
       informationNeeds,
       acquisitions,
+      ...(stages.length ? { acquisitionStages: stages } : {}),
     },
-    gaps: [],
+    gaps,
   };
   const checksum = computeChecksum(body);
   return {
-    capabilityId: baseline.capabilityId,
+    capabilityId: cap,
     ok: true,
     source: { ...body, checksum },
     blockers: [],
     stats,
+    definition,
     checksum,
   };
 }

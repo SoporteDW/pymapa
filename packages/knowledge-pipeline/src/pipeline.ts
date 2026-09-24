@@ -185,14 +185,23 @@ export function runCapabilityPipeline(input: CapabilityPipelineInput): Capabilit
   }
 
   const bloqueosTecnicos = publication.blockers.filter(
-    (b) => b.code !== "GOVERNANCE_REVIEW_PENDING" && b.code !== "GOVERNANCE_REVIEW_REJECTED",
+    (b) =>
+      b.code !== "GOVERNANCE_REVIEW_PENDING" &&
+      b.code !== "GOVERNANCE_REVIEW_REJECTED" &&
+      b.code !== "PUBLICATION_BLOCKING_GAP",
   );
+  // M2-FACTORY-CONTRACT-03: un gap bloqueante declarado retiene el pack antes
+  // de publicar (REVIEW_REQUIRED); no es un fallo técnico del pack.
+  const retenido = publication.blockers.some((b) => b.code === "PUBLICATION_BLOCKING_GAP");
 
   let outcome: CapabilityOutcome;
   let state: CapabilityPipelineState;
   if (bloqueosTecnicos.length > 0 || errors.length > 0) {
     outcome = "FAIL";
     state = "VALIDATION_FAILED";
+  } else if (retenido) {
+    outcome = "REVIEW_REQUIRED";
+    state = "NEEDS_GOVERNANCE_REVIEW";
   } else if (publication.state === "PUBLISHED") {
     outcome = "PASS";
     state = "PUBLISHED";
