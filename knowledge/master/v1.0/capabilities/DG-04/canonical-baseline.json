@@ -1,0 +1,1615 @@
+{
+  "baselineId": "DG04-K4-v1.0",
+  "capabilityId": "DG-04",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "historicalStatus": {
+    "marker": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      636,
+      636
+    ]
+  },
+  "rawSource": {
+    "ref": "raw/DG-04.txt",
+    "sha256": "1223b7cc3debc250a116d36d63e464a608a87d8777ce52b9c62c1ab6dafae94d",
+    "byteLength": 33033,
+    "lineCount": 675,
+    "transcription": {
+      "tool": "pymapa-docx-text 1.0.0",
+      "arguments": ""
+    },
+    "originalDocument": {
+      "filename": "DG_-_01_A_05_Completo.docx",
+      "byteLength": 205770,
+      "sha256": "1862e0e860b8b5a2bd446dbc5d7cb0545841fa9dba013666f5cc1e645490b2c8"
+    }
+  },
+  "provenanceVocabulary": [
+    {
+      "code": "SOURCE-DERIVED",
+      "label": "SOURCE-DERIVED",
+      "meaning": "El grounding externo respalda:",
+      "sourceLines": [
+        562,
+        563
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "PYMAPA-DESIGNED / SYNTHESIZED",
+      "label": "PYMAPA-DESIGNED / SYNTHESIZED",
+      "meaning": "Son propios de Pymapa:",
+      "sourceLines": [
+        573,
+        574
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    }
+  ],
+  "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 5,
+      "objectType": "SOURCE_ID_CE",
+      "sourceLines": [
+        638,
+        638
+      ]
+    },
+    {
+      "label": "CRV",
+      "declared": 7,
+      "objectType": "SOURCE_ID_CRV",
+      "sourceLines": [
+        646,
+        646
+      ]
+    },
+    {
+      "label": "NI",
+      "declared": 10,
+      "objectType": "SOURCE_ID_NI",
+      "sourceLines": [
+        640,
+        640
+      ]
+    },
+    {
+      "label": "STOP",
+      "declared": 3,
+      "objectType": "SOURCE_ID_STOP",
+      "sourceLines": [
+        347,
+        347
+      ]
+    },
+    {
+      "label": "VA",
+      "declared": 10,
+      "objectType": "SOURCE_ID_VA",
+      "sourceLines": [
+        639,
+        639
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "key": "CE01",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Visibilidad del estado de iniciativas",
+        "title": "Visibilidad del estado de iniciativas",
+        "body": [
+          "| VA | Variable |"
+        ]
+      },
+      "sourceLines": [
+        35,
+        36
+      ]
+    },
+    {
+      "key": "VA01",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA01",
+      "fields": {
+        "heading": "| VA01 | Visibilidad del estado real de iniciativas materiales |",
+        "title": "Visibilidad del estado real de iniciativas materiales"
+      },
+      "sourceLines": [
+        37,
+        37
+      ]
+    },
+    {
+      "key": "VA02",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA02",
+      "fields": {
+        "heading": "| VA02 | Oportunidad y confiabilidad de la información de avance |",
+        "title": "Oportunidad y confiabilidad de la información de avance",
+        "body": [
+          "No basta con:",
+          "“70 % completado”.",
+          "Necesitamos saber qué significa ese porcentaje y si representa un estado funcional real.",
+          "Reutilizamos OP-05:",
+          "% de actividades completadas ≠ % de resultado implementado."
+        ]
+      },
+      "sourceLines": [
+        38,
+        43
+      ]
+    },
+    {
+      "key": "CE02",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Claridad de resultados esperados",
+        "title": "Claridad de resultados esperados",
+        "body": [
+          "| VA | Variable |"
+        ]
+      },
+      "sourceLines": [
+        45,
+        46
+      ]
+    },
+    {
+      "key": "VA03",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA03",
+      "fields": {
+        "heading": "| VA03 | Resultados/beneficios esperados suficientemente explícitos |",
+        "title": "Resultados/beneficios esperados suficientemente explícitos"
+      },
+      "sourceLines": [
+        47,
+        47
+      ]
+    },
+    {
+      "key": "VA04",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "| VA04 | Criterios o indicadores capaces de evidenciar esos resultados |",
+        "title": "Criterios o indicadores capaces de evidenciar esos resultados",
+        "body": [
+          "PMI estructura Benefits Realization desde estrategia y entregables hasta medición del éxito y beneficios esperados. Project Management Institute"
+        ]
+      },
+      "sourceLines": [
+        48,
+        49
+      ]
+    },
+    {
+      "key": "CE03",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Observación de resultados",
+        "title": "Observación de resultados",
+        "body": [
+          "| VA | Variable |"
+        ]
+      },
+      "sourceLines": [
+        51,
+        52
+      ]
+    },
+    {
+      "key": "VA05",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "| VA05 | Disponibilidad de evidencia sobre resultados alcanzados |",
+        "title": "Disponibilidad de evidencia sobre resultados alcanzados"
+      },
+      "sourceLines": [
+        53,
+        53
+      ]
+    },
+    {
+      "key": "VA06",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "| VA06 | Comparabilidad contra expectativa, baseline o referencia pertinente |",
+        "title": "Comparabilidad contra expectativa, baseline o referencia pertinente",
+        "body": [
+          "Aquí reutilizamos un principio ya establecido:",
+          "CRV antes que KPI.",
+          "No siempre necesitamos un KPI sofisticado. Sí necesitamos saber qué resultado verificable buscábamos y cómo reconocerlo."
+        ]
+      },
+      "sourceLines": [
+        54,
+        57
+      ]
+    },
+    {
+      "key": "CE04",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE04",
+      "fields": {
+        "heading": "CE04 · Interpretación y respuesta",
+        "title": "Interpretación y respuesta",
+        "body": [
+          "| VA | Variable |"
+        ]
+      },
+      "sourceLines": [
+        59,
+        60
+      ]
+    },
+    {
+      "key": "VA07",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "| VA07 | Identificación de desviaciones materiales |",
+        "title": "Identificación de desviaciones materiales"
+      },
+      "sourceLines": [
+        61,
+        61
+      ]
+    },
+    {
+      "key": "VA08",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "| VA08 | Uso de información para decisiones correctivas/adaptativas |",
+        "title": "Uso de información para decisiones correctivas/adaptativas",
+        "body": [
+          "Un dashboard perfecto que nadie utiliza:",
+          "no demuestra DG-04."
+        ]
+      },
+      "sourceLines": [
+        62,
+        64
+      ]
+    },
+    {
+      "key": "CE05",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE05",
+      "fields": {
+        "heading": "CE05 · Continuidad del seguimiento",
+        "title": "Continuidad del seguimiento",
+        "body": [
+          "| VA | Variable |"
+        ]
+      },
+      "sourceLines": [
+        66,
+        67
+      ]
+    },
+    {
+      "key": "VA09",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA09",
+      "fields": {
+        "heading": "| VA09 | Responsabilidad y cadencia/eventos de seguimiento |",
+        "title": "Responsabilidad y cadencia/eventos de seguimiento"
+      },
+      "sourceLines": [
+        68,
+        68
+      ]
+    },
+    {
+      "key": "VA10",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA10",
+      "fields": {
+        "heading": "| VA10 | Continuidad del seguimiento hasta resultado o resolución gobernada |",
+        "title": "Continuidad del seguimiento hasta resultado o resolución gobernada",
+        "body": [
+          "Esta última VA evita una falla frecuente:",
+          "iniciativa terminada → desaparece del radar → nunca sabemos si produjo valor.",
+          "PMI distingue precisamente la entrega del proyecto de la posterior realización y sostenimiento de beneficios. Project Management Institute"
+        ]
+      },
+      "sourceLines": [
+        69,
+        72
+      ]
+    },
+    {
+      "key": "SRC-DG04-001",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG04-001",
+      "fields": {
+        "heading": "SRC-DG04-001 · Pymapa/OE1-D — identidad conceptual.",
+        "title": "Pymapa/OE1-D — identidad conceptual."
+      },
+      "sourceLines": [
+        76,
+        76
+      ]
+    },
+    {
+      "key": "SRC-DG04-002",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG04-002",
+      "fields": {
+        "heading": "SRC-DG04-002 · ISO 37000:2021 — oversight, desempeño, accountability, información y decisiones. La edición 2021 fue confirmada por ISO en agosto de 2026. ISO",
+        "title": "ISO 37000:2021 — oversight, desempeño, accountability, información y decisiones. La edición 2021 fue confirmada por ISO en agosto de 2026. ISO"
+      },
+      "sourceLines": [
+        77,
+        77
+      ]
+    },
+    {
+      "key": "SRC-DG04-003",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG04-003",
+      "fields": {
+        "heading": "SRC-DG04-003 · ISO 37004:2023 — evaluación de condiciones y madurez de gobierno; útil como apoyo evaluativo sin adoptar automáticamente su escala. ISO",
+        "title": "ISO 37004:2023 — evaluación de condiciones y madurez de gobierno; útil como apoyo evaluativo sin adoptar automáticamente su escala. ISO"
+      },
+      "sourceLines": [
+        78,
+        78
+      ]
+    },
+    {
+      "key": "SRC-DG04-004",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG04-004",
+      "fields": {
+        "heading": "SRC-DG04-004 · PMI Benefits Realization Management — conexión estrategia → entregables → beneficios → medición. Project Management Institute",
+        "title": "PMI Benefits Realization Management — conexión estrategia → entregables → beneficios → medición. Project Management Institute"
+      },
+      "sourceLines": [
+        79,
+        79
+      ]
+    },
+    {
+      "key": "SRC-DG04-005",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG04-005",
+      "fields": {
+        "heading": "SRC-DG04-005 · PMI Portfolio Performance Management — seguimiento de beneficios, medidas, targets, KPIs y comparación de resultados con planes. Project Management Institute",
+        "title": "PMI Portfolio Performance Management — seguimiento de beneficios, medidas, targets, KPIs y comparación de resultados con planes. Project Management Institute",
+        "body": [
+          "No necesitamos más grounding para SET A."
+        ]
+      },
+      "sourceLines": [
+        80,
+        81
+      ]
+    },
+    {
+      "key": "P-DG04-01",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG04-01",
+      "fields": {
+        "heading": "P-DG04-01",
+        "body": [
+          "Actividad realizada ≠ avance funcional."
+        ]
+      },
+      "sourceLines": [
+        84,
+        85
+      ]
+    },
+    {
+      "key": "P-DG04-02",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG04-02",
+      "fields": {
+        "heading": "P-DG04-02",
+        "body": [
+          "Avance ≠ implementación."
+        ]
+      },
+      "sourceLines": [
+        86,
+        87
+      ]
+    },
+    {
+      "key": "P-DG04-03",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG04-03",
+      "fields": {
+        "heading": "P-DG04-03",
+        "body": [
+          "Implementación ≠ resultado."
+        ]
+      },
+      "sourceLines": [
+        88,
+        89
+      ]
+    },
+    {
+      "key": "P-DG04-04",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG04-04",
+      "fields": {
+        "heading": "P-DG04-04",
+        "body": [
+          "Resultado observado ≠ beneficio atribuible."
+        ]
+      },
+      "sourceLines": [
+        90,
+        91
+      ]
+    },
+    {
+      "key": "P-DG04-05",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG04-05",
+      "fields": {
+        "heading": "P-DG04-05",
+        "body": [
+          "Indicador disponible ≠ indicador útil."
+        ]
+      },
+      "sourceLines": [
+        92,
+        93
+      ]
+    },
+    {
+      "key": "P-DG04-06",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG04-06",
+      "fields": {
+        "heading": "P-DG04-06",
+        "body": [
+          "Dashboard ≠ seguimiento efectivo."
+        ]
+      },
+      "sourceLines": [
+        94,
+        95
+      ]
+    },
+    {
+      "key": "P-DG04-07",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG04-07",
+      "fields": {
+        "heading": "P-DG04-07",
+        "body": [
+          "Frecuencia alta ≠ mejor oversight."
+        ]
+      },
+      "sourceLines": [
+        96,
+        97
+      ]
+    },
+    {
+      "key": "P-DG04-08",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG04-08",
+      "fields": {
+        "heading": "P-DG04-08",
+        "body": [
+          "Desviación ≠ fracaso.",
+          "Puede ser información que exige adaptación."
+        ]
+      },
+      "sourceLines": [
+        98,
+        100
+      ]
+    },
+    {
+      "key": "P-DG04-09",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG04-09",
+      "fields": {
+        "heading": "P-DG04-09",
+        "body": [
+          "Cumplir tiempo/costo/alcance ≠ demostrar creación de valor.",
+          "PMI trata explícitamente la realización de beneficios como un ciclo que va más allá de los entregables del proyecto. Project Management Institute"
+        ]
+      },
+      "sourceLines": [
+        101,
+        103
+      ]
+    },
+    {
+      "key": "P-DG04-10",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG04-10",
+      "fields": {
+        "heading": "P-DG04-10",
+        "body": [
+          "Ausencia de resultado inmediato ≠ ausencia definitiva de resultado.",
+          "Debe considerarse el horizonte razonable de realización."
+        ]
+      },
+      "sourceLines": [
+        104,
+        106
+      ]
+    },
+    {
+      "key": "NI01",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI01",
+      "fields": {
+        "heading": "| NI01 | Cuáles iniciativas materiales requieren oversight |",
+        "title": "Cuáles iniciativas materiales requieren oversight"
+      },
+      "sourceLines": [
+        111,
+        111
+      ]
+    },
+    {
+      "key": "NI02",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI02",
+      "fields": {
+        "heading": "| NI02 | Cuál es su estado funcional actual |",
+        "title": "Cuál es su estado funcional actual"
+      },
+      "sourceLines": [
+        112,
+        112
+      ]
+    },
+    {
+      "key": "NI03",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI03",
+      "fields": {
+        "heading": "| NI03 | Qué resultado/beneficio se esperaba de cada una |",
+        "title": "Qué resultado/beneficio se esperaba de cada una"
+      },
+      "sourceLines": [
+        113,
+        113
+      ]
+    },
+    {
+      "key": "NI04",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI04",
+      "fields": {
+        "heading": "| NI04 | Cómo puede verificarse ese resultado |",
+        "title": "Cómo puede verificarse ese resultado"
+      },
+      "sourceLines": [
+        114,
+        114
+      ]
+    },
+    {
+      "key": "NI05",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI05",
+      "fields": {
+        "heading": "| NI05 | Qué evidencia de resultado existe actualmente |",
+        "title": "Qué evidencia de resultado existe actualmente"
+      },
+      "sourceLines": [
+        115,
+        115
+      ]
+    },
+    {
+      "key": "NI06",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI06",
+      "fields": {
+        "heading": "| NI06 | Contra qué expectativa/baseline/referencia se interpreta |",
+        "title": "Contra qué expectativa/baseline/referencia se interpreta"
+      },
+      "sourceLines": [
+        116,
+        116
+      ]
+    },
+    {
+      "key": "NI07",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI07",
+      "fields": {
+        "heading": "| NI07 | Qué desviaciones son materialmente relevantes |",
+        "title": "Qué desviaciones son materialmente relevantes"
+      },
+      "sourceLines": [
+        117,
+        117
+      ]
+    },
+    {
+      "key": "NI08",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI08",
+      "fields": {
+        "heading": "| NI08 | Qué decisiones se toman a partir del seguimiento |",
+        "title": "Qué decisiones se toman a partir del seguimiento"
+      },
+      "sourceLines": [
+        118,
+        118
+      ]
+    },
+    {
+      "key": "NI09",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI09",
+      "fields": {
+        "heading": "| NI09 | Quién realiza/recibe el seguimiento y cuándo |",
+        "title": "Quién realiza/recibe el seguimiento y cuándo"
+      },
+      "sourceLines": [
+        119,
+        119
+      ]
+    },
+    {
+      "key": "NI10",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI10",
+      "fields": {
+        "heading": "| NI10 | Hasta qué punto continúa el seguimiento después de entrega/implementación |",
+        "title": "Hasta qué punto continúa el seguimiento después de entrega/implementación"
+      },
+      "sourceLines": [
+        120,
+        120
+      ]
+    },
+    {
+      "key": "COV-DG04-01",
+      "objectType": "SOURCE_ID_COV",
+      "sourceId": "COV-DG04-01",
+      "fields": {
+        "heading": "COV-DG04-01",
+        "body": [
+          "Una empresa no demuestra DG-04 porque tenga excelente seguimiento de un proyecto si otras iniciativas materiales permanecen invisibles.",
+          "Pero tampoco exigimos un tablero centralizado para cada pequeña mejora."
+        ]
+      },
+      "sourceLines": [
+        126,
+        128
+      ]
+    },
+    {
+      "key": "STOP-DG04-01",
+      "objectType": "SOURCE_ID_STOP",
+      "sourceId": "STOP-DG04-01",
+      "fields": {
+        "heading": "STOP-DG04-01",
+        "body": [
+          "Si el resultado esperado no está suficientemente definido, no inferir desempeño de resultado.",
+          "Primero recuperar DG-01/DG-02/capacidad originadora."
+        ]
+      },
+      "sourceLines": [
+        131,
+        133
+      ]
+    },
+    {
+      "key": "STOP-DG04-02",
+      "objectType": "SOURCE_ID_STOP",
+      "sourceId": "STOP-DG04-02",
+      "fields": {
+        "heading": "STOP-DG04-02",
+        "body": [
+          "Si solo existe información de actividades, no inferir automáticamente estado de implementación o realización de beneficios."
+        ]
+      },
+      "sourceLines": [
+        134,
+        135
+      ]
+    },
+    {
+      "key": "STOP-DG04-03",
+      "objectType": "SOURCE_ID_STOP",
+      "sourceId": "STOP-DG04-03",
+      "fields": {
+        "heading": "STOP-DG04-03",
+        "body": [
+          "Si no existe baseline y el resultado requiere comparación cuantitativa, no inventar mejora.",
+          "Ejemplo:",
+          "“Las ventas aumentaron 15 % después del CRM.”",
+          "No basta para concluir:",
+          "“el CRM generó +15 %”.",
+          "Eso requiere razonamiento de atribución."
+        ]
+      },
+      "sourceLines": [
+        136,
+        142
+      ]
+    },
+    {
+      "key": "P1",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P1",
+      "fields": {
+        "heading": "P1 · Núcleo",
+        "title": "Núcleo",
+        "body": [
+          "Debemos poder responder:",
+          "¿Qué iniciativas importantes están activas o recientemente implementadas?",
+          "¿Sabemos realmente en qué estado están?",
+          "¿Qué resultado buscaba cada una?",
+          "¿Cómo sabemos si ese resultado se está produciendo?",
+          "¿Qué hacen cuando la evidencia no coincide con lo esperado?"
+        ]
+      },
+      "sourceLines": [
+        155,
+        161
+      ]
+    },
+    {
+      "key": "P2",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P2",
+      "fields": {
+        "heading": "P2 · Condicional",
+        "title": "Condicional",
+        "body": [
+          "Profundizamos cuando:",
+          "- existen muchas iniciativas “verdes” pero pocos resultados;",
+          "- todo se reporta por porcentaje;",
+          "- hay entregables pero no outcomes;",
+          "- indicadores no tienen baseline;",
+          "- KPI no tiene owner;",
+          "- resultados se miden solo al cierre;",
+          "- reuniones producen reportes pero no decisiones;",
+          "- iniciativas implementadas dejan de monitorearse;",
+          "- aparecen resultados inesperados;",
+          "- múltiples iniciativas afectan el mismo indicador;",
+          "- resultado esperado tiene horizonte largo."
+        ]
+      },
+      "sourceLines": [
+        163,
+        175
+      ]
+    },
+    {
+      "key": "P3",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P3",
+      "fields": {
+        "heading": "P3 · Discriminación",
+        "title": "Discriminación",
+        "body": [
+          "Ejemplo:",
+          "Una iniciativa no produce el resultado esperado.",
+          "Posibles explicaciones:",
+          "A. no fue realmente implementada — OP-05;",
+          "B. fue implementada pero no adoptada — PC-03;",
+          "C. resultado mal definido — DG-01/02/origen;",
+          "D. medición inadecuada — DG-04;",
+          "E. factores externos cambiaron — DG-01/DG-05;",
+          "F. hipótesis causal incorrecta;",
+          "G. todavía no transcurrió el horizonte razonable.",
+          "Por tanto:",
+          "resultado insuficiente ≠ causa diagnosticada."
+        ]
+      },
+      "sourceLines": [
+        177,
+        189
+      ]
+    },
+    {
+      "key": "P4",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P4",
+      "fields": {
+        "heading": "P4 · Contradicción",
+        "title": "Contradicción",
+        "body": [
+          "Declaración:",
+          "“La iniciativa está terminada y fue exitosa.”",
+          "Evidencia:",
+          "entregable completado, pero el CRV empresarial permanece sin validar.",
+          "Abrimos:"
+        ]
+      },
+      "sourceLines": [
+        191,
+        196
+      ]
+    },
+    {
+      "key": "CONTR-DG04-01",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-DG04-01",
+      "fields": {
+        "heading": "CONTR-DG04-01 · DECLARED_SUCCESS_vs_RESULT_EVIDENCE",
+        "title": "DECLARED_SUCCESS_vs_RESULT_EVIDENCE",
+        "body": [
+          "No declaramos fracaso.",
+          "Separamos:",
+          "delivery status de result status."
+        ]
+      },
+      "sourceLines": [
+        197,
+        200
+      ]
+    },
+    {
+      "key": "P5",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P5",
+      "fields": {
+        "heading": "P5 · Validación",
+        "title": "Validación",
+        "body": [
+          "Ejemplo:",
+          "“Entendemos que el sistema ya está implementado y funcionando, pero el resultado esperado era reducir el tiempo de respuesta y todavía no contamos con evidencia suficiente para verificar esa reducción. ¿Es correcto?”",
+          "Eso es mucho más preciso que:",
+          "“el proyecto no funcionó”."
+        ]
+      },
+      "sourceLines": [
+        202,
+        206
+      ]
+    },
+    {
+      "key": "R-DG04-01",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG04-01",
+      "fields": {
+        "heading": "R-DG04-01 · MATERIAL_INITIATIVE_VISIBILITY_GAP",
+        "title": "MATERIAL_INITIATIVE_VISIBILITY_GAP",
+        "body": [
+          "No existe visibilidad suficiente del estado real de iniciativas materiales."
+        ]
+      },
+      "sourceLines": [
+        231,
+        232
+      ]
+    },
+    {
+      "key": "R-DG04-02",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG04-02",
+      "fields": {
+        "heading": "R-DG04-02 · PROGRESS_INFORMATION_UNRELIABLE",
+        "title": "PROGRESS_INFORMATION_UNRELIABLE",
+        "body": [
+          "La información de avance es insuficientemente oportuna, confiable o interpretable."
+        ]
+      },
+      "sourceLines": [
+        233,
+        234
+      ]
+    },
+    {
+      "key": "R-DG04-03",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG04-03",
+      "fields": {
+        "heading": "R-DG04-03 · EXPECTED_RESULT_UNCLEAR",
+        "title": "EXPECTED_RESULT_UNCLEAR",
+        "body": [
+          "El resultado/beneficio esperado no está suficientemente definido para permitir seguimiento."
+        ]
+      },
+      "sourceLines": [
+        235,
+        236
+      ]
+    },
+    {
+      "key": "R-DG04-04",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG04-04",
+      "fields": {
+        "heading": "R-DG04-04 · RESULT_VERIFICATION_GAP",
+        "title": "RESULT_VERIFICATION_GAP",
+        "body": [
+          "No existe criterio/evidencia suficiente para verificar el resultado esperado."
+        ]
+      },
+      "sourceLines": [
+        237,
+        238
+      ]
+    },
+    {
+      "key": "R-DG04-05",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG04-05",
+      "fields": {
+        "heading": "R-DG04-05 · RESULT_EVIDENCE_MISSING",
+        "title": "RESULT_EVIDENCE_MISSING",
+        "body": [
+          "Una iniciativa suficientemente implementada carece de evidencia proporcional sobre sus resultados cuando ya debería ser observable."
+        ]
+      },
+      "sourceLines": [
+        239,
+        240
+      ]
+    },
+    {
+      "key": "R-DG04-06",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG04-06",
+      "fields": {
+        "heading": "R-DG04-06 · RESULT_REFERENCE_GAP",
+        "title": "RESULT_REFERENCE_GAP",
+        "body": [
+          "La evidencia disponible no puede interpretarse suficientemente contra baseline, expectativa o referencia pertinente."
+        ]
+      },
+      "sourceLines": [
+        241,
+        242
+      ]
+    },
+    {
+      "key": "R-DG04-07",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG04-07",
+      "fields": {
+        "heading": "R-DG04-07 · MATERIAL_DEVIATION_NOT_IDENTIFIED",
+        "title": "MATERIAL_DEVIATION_NOT_IDENTIFIED",
+        "body": [
+          "Desviaciones materialmente relevantes no son detectadas oportunamente."
+        ]
+      },
+      "sourceLines": [
+        243,
+        244
+      ]
+    },
+    {
+      "key": "R-DG04-08",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG04-08",
+      "fields": {
+        "heading": "R-DG04-08 · MONITORING_WITHOUT_DECISION",
+        "title": "MONITORING_WITHOUT_DECISION",
+        "body": [
+          "Existe seguimiento/reporting, pero la información material no se traduce suficientemente en decisiones."
+        ]
+      },
+      "sourceLines": [
+        245,
+        246
+      ]
+    },
+    {
+      "key": "R-DG04-09",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG04-09",
+      "fields": {
+        "heading": "R-DG04-09 · OVERSIGHT_ACCOUNTABILITY_GAP",
+        "title": "OVERSIGHT_ACCOUNTABILITY_GAP",
+        "body": [
+          "No está suficientemente claro quién debe observar, interpretar o elevar información material de seguimiento."
+        ]
+      },
+      "sourceLines": [
+        247,
+        248
+      ]
+    },
+    {
+      "key": "R-DG04-10",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG04-10",
+      "fields": {
+        "heading": "R-DG04-10 · PREMATURE_MONITORING_CLOSURE",
+        "title": "PREMATURE_MONITORING_CLOSURE",
+        "body": [
+          "El seguimiento termina con la entrega/implementación aunque los resultados materiales aún requieren observación."
+        ]
+      },
+      "sourceLines": [
+        249,
+        250
+      ]
+    },
+    {
+      "key": "DER-DG04-01",
+      "objectType": "SOURCE_ID_DER",
+      "sourceId": "DER-DG04-01",
+      "fields": {
+        "heading": "DER-DG04-01 · GREEN_PROJECT_RED_RESULT",
+        "title": "GREEN_PROJECT_RED_RESULT",
+        "body": [
+          "Una iniciativa puede estar:",
+          "tiempo = verde",
+          "presupuesto = verde",
+          "alcance = verde",
+          "y simultáneamente:",
+          "resultado = rojo/no validado.",
+          "No existe contradicción lógica."
+        ]
+      },
+      "sourceLines": [
+        253,
+        260
+      ]
+    },
+    {
+      "key": "DER-DG04-02",
+      "objectType": "SOURCE_ID_DER",
+      "sourceId": "DER-DG04-02",
+      "fields": {
+        "heading": "DER-DG04-02 · IMPLEMENTED_NOT_YET_MEASURABLE",
+        "title": "IMPLEMENTED_NOT_YET_MEASURABLE",
+        "body": [
+          "Si el resultado requiere un horizonte temporal todavía no cumplido:",
+          "no clasificar ausencia de evidencia como fracaso.",
+          "Estado posible:",
+          "RESULT-PENDING-WINDOW."
+        ]
+      },
+      "sourceLines": [
+        261,
+        265
+      ]
+    },
+    {
+      "key": "DER-DG04-03",
+      "objectType": "SOURCE_ID_DER",
+      "sourceId": "DER-DG04-03",
+      "fields": {
+        "heading": "DER-DG04-03 · BENEFIT_WITHOUT_ATTRIBUTION",
+        "title": "BENEFIT_WITHOUT_ATTRIBUTION",
+        "body": [
+          "Puede observarse una mejora después de una iniciativa sin evidencia suficiente para atribuírsela.",
+          "Estado posible:",
+          "RESULT-OBSERVED · ATTRIBUTION-UNRESOLVED."
+        ]
+      },
+      "sourceLines": [
+        266,
+        269
+      ]
+    },
+    {
+      "key": "G-DG04-01",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-DG04-01",
+      "fields": {
+        "heading": "G-DG04-01",
+        "body": [
+          "Más KPI no significa mejor seguimiento."
+        ]
+      },
+      "sourceLines": [
+        270,
+        271
+      ]
+    },
+    {
+      "key": "G-DG04-02",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-DG04-02",
+      "fields": {
+        "heading": "G-DG04-02",
+        "body": [
+          "KPI sin decisión asociada puede aportar información pero no demuestra oversight efectivo."
+        ]
+      },
+      "sourceLines": [
+        272,
+        273
+      ]
+    },
+    {
+      "key": "G-DG04-03",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-DG04-03",
+      "fields": {
+        "heading": "G-DG04-03",
+        "body": [
+          "No exigir cuantificación artificial para resultados legítimamente cualitativos."
+        ]
+      },
+      "sourceLines": [
+        274,
+        275
+      ]
+    },
+    {
+      "key": "G-DG04-04",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-DG04-04",
+      "fields": {
+        "heading": "G-DG04-04",
+        "body": [
+          "No establecer targets numéricos sin baseline o fundamento proporcional."
+        ]
+      },
+      "sourceLines": [
+        276,
+        277
+      ]
+    },
+    {
+      "key": "G-DG04-05",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-DG04-05",
+      "fields": {
+        "heading": "G-DG04-05",
+        "body": [
+          "Una desviación puede justificar continuar, adaptar, escalar, repriorizar o detener; no existe respuesta automática."
+        ]
+      },
+      "sourceLines": [
+        278,
+        279
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DG04-01",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG04-01",
+      "fields": {
+        "heading": "CAND-MOTOR-DG04-01 · El estado de una iniciativa y el estado de su resultado deben representarse como dimensiones independientes.",
+        "title": "El estado de una iniciativa y el estado de su resultado deben representarse como dimensiones independientes.",
+        "body": [
+          "Y:"
+        ]
+      },
+      "sourceLines": [
+        307,
+        308
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DG04-02",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG04-02",
+      "fields": {
+        "heading": "CAND-MOTOR-DG04-02 · La ausencia de resultado observable debe distinguir entre NOT-ACHIEVED, NOT-YET-OBSERVABLE y INSUFFICIENT-EVIDENCE.",
+        "title": "La ausencia de resultado observable debe distinguir entre NOT-ACHIEVED, NOT-YET-OBSERVABLE y INSUFFICIENT-EVIDENCE.",
+        "body": [
+          "Esta distinción será muy importante posteriormente."
+        ]
+      },
+      "sourceLines": [
+        309,
+        310
+      ]
+    },
+    {
+      "key": "DEL-DG04-01",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG04-01",
+      "fields": {
+        "heading": "| DEL-DG04-01 | Estado material suficientemente visible |",
+        "title": "Estado material suficientemente visible"
+      },
+      "sourceLines": [
+        416,
+        416
+      ]
+    },
+    {
+      "key": "DEL-DG04-02",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG04-02",
+      "fields": {
+        "heading": "| DEL-DG04-02 | Avance funcional distinguible de actividad |",
+        "title": "Avance funcional distinguible de actividad"
+      },
+      "sourceLines": [
+        417,
+        417
+      ]
+    },
+    {
+      "key": "DEL-DG04-03",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG04-03",
+      "fields": {
+        "heading": "| DEL-DG04-03 | Resultados esperados verificables |",
+        "title": "Resultados esperados verificables"
+      },
+      "sourceLines": [
+        418,
+        418
+      ]
+    },
+    {
+      "key": "DEL-DG04-04",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG04-04",
+      "fields": {
+        "heading": "| DEL-DG04-04 | Evidencia proporcional disponible |",
+        "title": "Evidencia proporcional disponible"
+      },
+      "sourceLines": [
+        419,
+        419
+      ]
+    },
+    {
+      "key": "DEL-DG04-05",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG04-05",
+      "fields": {
+        "heading": "| DEL-DG04-05 | Resultados suficientemente interpretables |",
+        "title": "Resultados suficientemente interpretables"
+      },
+      "sourceLines": [
+        420,
+        420
+      ]
+    },
+    {
+      "key": "DEL-DG04-06",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG04-06",
+      "fields": {
+        "heading": "| DEL-DG04-06 | Seguimiento conectado con decisiones |",
+        "title": "Seguimiento conectado con decisiones"
+      },
+      "sourceLines": [
+        421,
+        421
+      ]
+    },
+    {
+      "key": "DEL-DG04-07",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG04-07",
+      "fields": {
+        "heading": "| DEL-DG04-07 | Continuidad hasta resolución gobernada |",
+        "title": "Continuidad hasta resolución gobernada"
+      },
+      "sourceLines": [
+        422,
+        422
+      ]
+    },
+    {
+      "key": "CRV-DG04-01",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG04-01",
+      "fields": {
+        "heading": "| CRV-DG04-01 | Estado real de iniciativas materiales disponible y actualizado |",
+        "title": "Estado real de iniciativas materiales disponible y actualizado"
+      },
+      "sourceLines": [
+        433,
+        433
+      ]
+    },
+    {
+      "key": "CRV-DG04-02",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG04-02",
+      "fields": {
+        "heading": "| CRV-DG04-02 | Estado funcional diferenciable de actividad reportada |",
+        "title": "Estado funcional diferenciable de actividad reportada"
+      },
+      "sourceLines": [
+        434,
+        434
+      ]
+    },
+    {
+      "key": "CRV-DG04-03",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG04-03",
+      "fields": {
+        "heading": "| CRV-DG04-03 | Resultado esperado verificable establecido |",
+        "title": "Resultado esperado verificable establecido"
+      },
+      "sourceLines": [
+        435,
+        435
+      ]
+    },
+    {
+      "key": "CRV-DG04-04",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG04-04",
+      "fields": {
+        "heading": "| CRV-DG04-04 | Evidencia proporcional del resultado disponible |",
+        "title": "Evidencia proporcional del resultado disponible"
+      },
+      "sourceLines": [
+        436,
+        436
+      ]
+    },
+    {
+      "key": "CRV-DG04-05",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG04-05",
+      "fields": {
+        "heading": "| CRV-DG04-05 | Resultado interpretable contra referencia pertinente |",
+        "title": "Resultado interpretable contra referencia pertinente"
+      },
+      "sourceLines": [
+        437,
+        437
+      ]
+    },
+    {
+      "key": "CRV-DG04-06",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG04-06",
+      "fields": {
+        "heading": "| CRV-DG04-06 | Desviaciones materiales conectadas con decisiones |",
+        "title": "Desviaciones materiales conectadas con decisiones"
+      },
+      "sourceLines": [
+        438,
+        438
+      ]
+    },
+    {
+      "key": "CRV-DG04-07",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG04-07",
+      "fields": {
+        "heading": "| CRV-DG04-07 | Seguimiento sostenido hasta resolución explícita |",
+        "title": "Seguimiento sostenido hasta resolución explícita",
+        "body": [
+          "Aquí debemos ser muy cuidadosos: estos CRV verifican la capacidad DG-04.",
+          "No sustituyen el CRV específico de la intervención.",
+          "Ejemplo:",
+          "Una automatización pretendía reducir el tiempo de procesamiento.",
+          "El CRV de esa intervención podría ser:",
+          "reducción verificable del tiempo bajo determinadas condiciones.",
+          "El CRV-DG04 correspondiente comprueba que:",
+          "la organización puede observar e interpretar ese resultado y actuar sobre él."
+        ]
+      },
+      "sourceLines": [
+        439,
+        447
+      ]
+    },
+    {
+      "key": "R-DG04-ATTR-01",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG04-ATTR-01",
+      "fields": {
+        "heading": "R-DG04-ATTR-01 · Nivel de certeza causal ≤ evidencia disponible para atribución.",
+        "title": "Nivel de certeza causal ≤ evidencia disponible para atribución.",
+        "body": [
+          "No permitiremos que una comparación antes/después se convierta automáticamente en causalidad."
+        ]
+      },
+      "sourceLines": [
+        479,
+        480
+      ]
+    },
+    {
+      "key": "V0",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V0",
+      "fields": {
+        "heading": "V0 · No validado",
+        "title": "No validado",
+        "body": [
+          "Afirmación sin evidencia suficiente."
+        ]
+      },
+      "sourceLines": [
+        483,
+        484
+      ]
+    },
+    {
+      "key": "V1",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V1",
+      "fields": {
+        "heading": "V1 · Evidencia inicial",
+        "title": "Evidencia inicial",
+        "body": [
+          "Existe indicio razonable."
+        ]
+      },
+      "sourceLines": [
+        485,
+        486
+      ]
+    },
+    {
+      "key": "V2",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V2",
+      "fields": {
+        "heading": "V2 · Resultado funcional suficientemente verificado",
+        "title": "Resultado funcional suficientemente verificado",
+        "body": [
+          "La evidencia satisface proporcionalmente el CRV."
+        ]
+      },
+      "sourceLines": [
+        487,
+        488
+      ]
+    },
+    {
+      "key": "V3",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V3",
+      "fields": {
+        "heading": "V3 · Resultado sostenido/confirmado",
+        "title": "Resultado sostenido/confirmado",
+        "body": [
+          "Existe evidencia posterior suficiente cuando la naturaleza del resultado requiere sostenibilidad.",
+          "No todos los resultados necesitan V3.",
+          "Ejemplo:",
+          "“migración completada correctamente”",
+          "puede quedar suficientemente validado sin meses de seguimiento.",
+          "En cambio:",
+          "“la nueva práctica redujo consistentemente errores”",
+          "puede requerir observación posterior."
+        ]
+      },
+      "sourceLines": [
+        489,
+        497
+      ]
+    },
+    {
+      "key": "REASS-DG04-01",
+      "objectType": "SOURCE_ID_REASS",
+      "sourceId": "REASS-DG04-01",
+      "fields": {
+        "heading": "REASS-DG04-01",
+        "body": [
+          "El seguimiento debe responder a materialidad y velocidad de cambio, no a una frecuencia universal.",
+          "Por eso no incorporaremos:",
+          "“toda pyme debe revisar transformación mensualmente”."
+        ]
+      },
+      "sourceLines": [
+        517,
+        520
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DG04-03",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG04-03",
+      "fields": {
+        "heading": "CAND-MOTOR-DG04-03 · Cierre de ejecución y cierre de seguimiento de resultado son eventos independientes.",
+        "title": "Cierre de ejecución y cierre de seguimiento de resultado son eventos independientes.",
+        "body": [
+          "Muy importante para la arquitectura futura."
+        ]
+      },
+      "sourceLines": [
+        533,
+        534
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DG04-04",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG04-04",
+      "fields": {
+        "heading": "CAND-MOTOR-DG04-04 · Los horizontes observados de realización pueden aprenderse, pero deben mantenerse separados de reglas publicadas hasta superar gobierno de conocimiento.",
+        "title": "Los horizontes observados de realización pueden aprenderse, pero deben mantenerse separados de reglas publicadas hasta superar gobierno de conocimiento."
+      },
+      "sourceLines": [
+        544,
+        544
+      ]
+    },
+    {
+      "key": "K1",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Coherencia — PASS.",
+        "title": "Coherencia — PASS.",
+        "body": [
+          "DG-04 no duplica OP-05 ni las capacidades originadoras del resultado."
+        ]
+      },
+      "sourceLines": [
+        627,
+        628
+      ]
+    },
+    {
+      "key": "K2",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Razonamiento — PASS.",
+        "title": "Razonamiento — PASS.",
+        "body": [
+          "Separamos actividad, avance, implementación, resultado, validación y atribución."
+        ]
+      },
+      "sourceLines": [
+        629,
+        630
+      ]
+    },
+    {
+      "key": "K3",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · Acción — PASS.",
+        "title": "Acción — PASS.",
+        "body": [
+          "Cada hallazgo puede producir una intervención proporcional y verificable."
+        ]
+      },
+      "sourceLines": [
+        631,
+        632
+      ]
+    },
+    {
+      "key": "K4",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · Conocimiento — PASS.",
+        "title": "Conocimiento — PASS.",
+        "body": [
+          "Existe grounding, provenance, versionado y separación explícita entre conocimiento externo y diseño Pymapa."
+        ]
+      },
+      "sourceLines": [
+        633,
+        634
+      ]
+    }
+  ],
+  "supersessions": [],
+  "executableProjection": {
+    "sourceRef": "source.json",
+    "verbatimKeys": [
+      "heading",
+      "title",
+      "body"
+    ],
+    "projectedObjectTypes": [],
+    "canonicalOnlyGapRefs": []
+  },
+  "gaps": [],
+  "transcriptionCorrections": [],
+  "checksum": "sha256:47496abd1e75c71fd9d52e60f14fa9124e34c10d79297b828d78920ea0152a07"
+}

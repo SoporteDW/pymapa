@@ -19,7 +19,28 @@
       660
     ]
   },
-  "provenanceVocabulary": [],
+  "provenanceVocabulary": [
+    {
+      "code": "SOURCE-DERIVED",
+      "label": "SOURCE-DERIVED",
+      "meaning": "ISO 30401:2018 aporta fundamento de gestión sistemática del conocimiento, creación de valor mediante conocimiento, establecimiento/mantenimiento/mejora de un sistema de knowledge management y aplicabilidad general. La edición sigue publicada, aunque ISO/DIS 30401 está en desarrollo para sustituirla. (iso.org)",
+      "sourceLines": [
+        586,
+        587
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "PYMAPA-DESIGNED",
+      "label": "PYMAPA-DESIGNED",
+      "meaning": "Son diseño propio:",
+      "sourceLines": [
+        589,
+        590
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    }
+  ],
   "controlCounts": [
     {
       "label": "CE",
@@ -28,6 +49,24 @@
       "sourceLines": [
         663,
         663
+      ]
+    },
+    {
+      "label": "CRV",
+      "declared": 7,
+      "objectType": "SOURCE_ID_CRV",
+      "sourceLines": [
+        671,
+        671
+      ]
+    },
+    {
+      "label": "NI",
+      "declared": 11,
+      "objectType": "SOURCE_ID_NI",
+      "sourceLines": [
+        665,
+        665
       ]
     },
     {
@@ -409,7 +448,7 @@
     },
     {
       "key": "SOURCE-REVIEW-TRIGGER-PC01-01@L163",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_SOURCE",
       "sourceId": "SOURCE-REVIEW-TRIGGER-PC01-01",
       "fields": {
@@ -424,7 +463,240 @@
       "sourceLines": [
         163,
         166
-      ]
+      ],
+      "governanceDecision": "M2-FACTORY-CLOSURE",
+      "supersededBy": "SOURCE-REVIEW-TRIGGER-PC01-01@L607"
+    },
+    {
+      "key": "NI01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI01",
+      "fields": {
+        "heading": "| NI01 | Qué conocimiento material necesita la organización |",
+        "title": "Qué conocimiento material necesita la organización"
+      },
+      "sourceLines": [
+        197,
+        197
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "NI02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI02",
+      "fields": {
+        "heading": "| NI02 | Para qué decisión/actividad/resultado lo necesita |",
+        "title": "Para qué decisión/actividad/resultado lo necesita"
+      },
+      "sourceLines": [
+        198,
+        198
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "NI03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI03",
+      "fields": {
+        "heading": "| NI03 | Si existe una fuente potencialmente adecuada |",
+        "title": "Si existe una fuente potencialmente adecuada"
+      },
+      "sourceLines": [
+        199,
+        199
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "NI04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI04",
+      "fields": {
+        "heading": "| NI04 | Si sabe localizar esa fuente |",
+        "title": "Si sabe localizar esa fuente"
+      },
+      "sourceLines": [
+        200,
+        200
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "NI05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI05",
+      "fields": {
+        "heading": "| NI05 | Si puede acceder efectivamente |",
+        "title": "Si puede acceder efectivamente"
+      },
+      "sourceLines": [
+        201,
+        201
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "NI06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI06",
+      "fields": {
+        "heading": "| NI06 | Si puede hacerlo dentro del horizonte necesario |",
+        "title": "Si puede hacerlo dentro del horizonte necesario"
+      },
+      "sourceLines": [
+        202,
+        202
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "NI07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI07",
+      "fields": {
+        "heading": "| NI07 | Si el conocimiento es pertinente |",
+        "title": "Si el conocimiento es pertinente"
+      },
+      "sourceLines": [
+        203,
+        203
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "NI08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI08",
+      "fields": {
+        "heading": "| NI08 | Si su confiabilidad es suficiente |",
+        "title": "Si su confiabilidad es suficiente"
+      },
+      "sourceLines": [
+        204,
+        204
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "NI09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI09",
+      "fields": {
+        "heading": "| NI09 | Si puede comprenderse/aplicarse |",
+        "title": "Si puede comprenderse/aplicarse"
+      },
+      "sourceLines": [
+        205,
+        205
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "NI10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI10",
+      "fields": {
+        "heading": "| NI10 | Si la modalidad interna/externa/híbrida es adecuada |",
+        "title": "Si la modalidad interna/externa/híbrida es adecuada"
+      },
+      "sourceLines": [
+        206,
+        206
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "NI11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI11",
+      "fields": {
+        "heading": "| NI11 | Si el acceso es sostenible cuando la necesidad es recurrente |",
+        "title": "Si el acceso es sostenible cuando la necesidad es recurrente"
+      },
+      "sourceLines": [
+        207,
+        207
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
     },
     {
       "key": "COV-PC01-01",
@@ -1038,6 +1310,132 @@
       }
     },
     {
+      "key": "INS-PC01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-PC01-01",
+      "fields": {
+        "heading": "| INS-PC01-01 | Mapa necesidad–conocimiento |",
+        "title": "Mapa necesidad–conocimiento"
+      },
+      "sourceLines": [
+        457,
+        457
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "INS-PC01-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-PC01-02",
+      "fields": {
+        "heading": "| INS-PC01-02 | Mapa de fuentes de conocimiento |",
+        "title": "Mapa de fuentes de conocimiento"
+      },
+      "sourceLines": [
+        458,
+        458
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "INS-PC01-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-PC01-03",
+      "fields": {
+        "heading": "| INS-PC01-03 | Ficha acceso–oportunidad |",
+        "title": "Ficha acceso–oportunidad"
+      },
+      "sourceLines": [
+        459,
+        459
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "INS-PC01-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-PC01-04",
+      "fields": {
+        "heading": "| INS-PC01-04 | Ficha calidad/pertinencia de fuente |",
+        "title": "Ficha calidad/pertinencia de fuente"
+      },
+      "sourceLines": [
+        460,
+        460
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "INS-PC01-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-PC01-05",
+      "fields": {
+        "heading": "| INS-PC01-05 | Mapa de forma utilizable |",
+        "title": "Mapa de forma utilizable"
+      },
+      "sourceLines": [
+        461,
+        461
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "INS-PC01-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-PC01-06",
+      "fields": {
+        "heading": "| INS-PC01-06 | Decisión de modelo de provisión |",
+        "title": "Decisión de modelo de provisión"
+      },
+      "sourceLines": [
+        462,
+        462
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
       "key": "DEL-PC01-01",
       "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_DEL",
@@ -1185,6 +1583,153 @@
       }
     },
     {
+      "key": "CRV-PC01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-PC01-01",
+      "fields": {
+        "heading": "| CRV-PC01-01 | Necesidades materiales de conocimiento identificadas |",
+        "title": "Necesidades materiales de conocimiento identificadas"
+      },
+      "sourceLines": [
+        496,
+        496
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "CRV-PC01-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-PC01-02",
+      "fields": {
+        "heading": "| CRV-PC01-02 | Fuente adecuada disponible/localizable |",
+        "title": "Fuente adecuada disponible/localizable"
+      },
+      "sourceLines": [
+        497,
+        497
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "CRV-PC01-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-PC01-03",
+      "fields": {
+        "heading": "| CRV-PC01-03 | Acceso efectivo dentro del horizonte necesario |",
+        "title": "Acceso efectivo dentro del horizonte necesario"
+      },
+      "sourceLines": [
+        498,
+        498
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "CRV-PC01-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-PC01-04",
+      "fields": {
+        "heading": "| CRV-PC01-04 | Pertinencia y confiabilidad suficientes |",
+        "title": "Pertinencia y confiabilidad suficientes"
+      },
+      "sourceLines": [
+        499,
+        499
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "CRV-PC01-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-PC01-05",
+      "fields": {
+        "heading": "| CRV-PC01-05 | Conocimiento suficientemente utilizable |",
+        "title": "Conocimiento suficientemente utilizable"
+      },
+      "sourceLines": [
+        500,
+        500
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "CRV-PC01-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-PC01-06",
+      "fields": {
+        "heading": "| CRV-PC01-06 | Modalidad de provisión adecuada al contexto |",
+        "title": "Modalidad de provisión adecuada al contexto"
+      },
+      "sourceLines": [
+        501,
+        501
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "CRV-PC01-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-PC01-07",
+      "fields": {
+        "heading": "| CRV-PC01-07 | Acceso recurrente sostenible |",
+        "title": "Acceso recurrente sostenible"
+      },
+      "sourceLines": [
+        502,
+        502
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
       "key": "V1",
       "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_V",
@@ -1310,7 +1855,7 @@
     },
     {
       "key": "SOURCE-REVIEW-TRIGGER-PC01-01@L607",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_SOURCE",
       "sourceId": "SOURCE-REVIEW-TRIGGER-PC01-01",
       "fields": {
@@ -1323,7 +1868,15 @@
       "sourceLines": [
         607,
         608
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "y:",
+        "sourceLines": [
+          606,
+          606
+        ]
+      },
+      "governanceDecision": "M2-FACTORY-CLOSURE"
     },
     {
       "key": "K1",
@@ -1432,5 +1985,10 @@
       }
     }
   ],
-  "checksum": "sha256:5e2f0d7a7e860644a31aa0379a841c08f1899c0523424d4f45bdb413ab37abb8"
+  "governanceDecisions": {
+    "decisionSetId": "M2-FACTORY-CLOSURE",
+    "ref": "knowledge/intake/PC-01/governance-decisions.json",
+    "checksum": "sha256:5daef172ecfa2389853ce391c67303cbb066baf9b9cbfcd420d91ea73f76981f"
+  },
+  "checksum": "sha256:0b7644f84696fc7649f8c3e1ae138321671836c0bcf50ca32cb91843c1368339"
 }

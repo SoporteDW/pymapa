@@ -19,7 +19,28 @@
       832
     ]
   },
-  "provenanceVocabulary": [],
+  "provenanceVocabulary": [
+    {
+      "code": "SOURCE-DERIVED",
+      "label": "SOURCE-DERIVED",
+      "meaning": "SOURCE-DERIVED",
+      "sourceLines": [
+        732,
+        732
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "PYMAPA-DESIGNED / SYNTHESIZED",
+      "label": "PYMAPA-DESIGNED / SYNTHESIZED",
+      "meaning": "PYMAPA-DESIGNED / SYNTHESIZED",
+      "sourceLines": [
+        738,
+        738
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    }
+  ],
   "controlCounts": [
     {
       "label": "CE",
@@ -31,12 +52,39 @@
       ]
     },
     {
+      "label": "CRV",
+      "declared": 6,
+      "objectType": "SOURCE_ID_CRV",
+      "sourceLines": [
+        843,
+        843
+      ]
+    },
+    {
+      "label": "NI",
+      "declared": 9,
+      "objectType": "SOURCE_ID_NI",
+      "sourceLines": [
+        837,
+        837
+      ]
+    },
+    {
       "label": "STOP",
       "declared": 1,
       "objectType": "SOURCE_ID_STOP",
       "sourceLines": [
         552,
         552
+      ]
+    },
+    {
+      "label": "VA",
+      "declared": 9,
+      "objectType": "SOURCE_ID_VA",
+      "sourceLines": [
+        836,
+        836
       ]
     }
   ],
@@ -132,14 +180,56 @@
         "title": "Comprensión actual del negocio",
         "body": [
           "Busca determinar si la transformación parte del negocio que realmente existe, no de una aspiración tecnológica abstracta.",
-          "| VA | Variable |",
-          "| VA01 | Modelo y lógica actual de creación de valor |",
-          "| VA02 | Situación, desempeño y restricciones materiales del negocio |",
-          "No pretendemos reconstruir un Business Model Canvas completo. Necesitamos saber qué hace materialmente que esta empresa funcione y dónde están sus restricciones relevantes."
+          "| VA | Variable |"
         ]
       },
       "sourceLines": [
         340,
+        342
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "VA01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA01",
+      "fields": {
+        "heading": "| VA01 | Modelo y lógica actual de creación de valor |",
+        "title": "Modelo y lógica actual de creación de valor"
+      },
+      "sourceLines": [
+        343,
+        343
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "VA02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA02",
+      "fields": {
+        "heading": "| VA02 | Situación, desempeño y restricciones materiales del negocio |",
+        "title": "Situación, desempeño y restricciones materiales del negocio",
+        "body": [
+          "No pretendemos reconstruir un Business Model Canvas completo. Necesitamos saber qué hace materialmente que esta empresa funcione y dónde están sus restricciones relevantes."
+        ]
+      },
+      "sourceLines": [
+        344,
         345
       ],
       "approvalEvidence": {
@@ -159,15 +249,57 @@
         "heading": "CE02 · Dirección empresarial",
         "title": "Dirección empresarial",
         "body": [
-          "| VA | Variable |",
-          "| VA03 | Objetivos y prioridades relevantes del negocio |",
-          "| VA04 | Horizonte, ambición y cambios esperados |",
+          "| VA | Variable |"
+        ]
+      },
+      "sourceLines": [
+        347,
+        348
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "VA03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA03",
+      "fields": {
+        "heading": "| VA03 | Objetivos y prioridades relevantes del negocio |",
+        "title": "Objetivos y prioridades relevantes del negocio"
+      },
+      "sourceLines": [
+        349,
+        349
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "VA04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "| VA04 | Horizonte, ambición y cambios esperados |",
+        "title": "Horizonte, ambición y cambios esperados",
+        "body": [
           "Una empresa puede no tener “estrategia formal”, pero sí una dirección suficientemente explícita:",
           "crecer determinado canal, reducir dependencia de pocos clientes, mejorar margen, expandirse, estabilizar operación, profesionalizarse, etc."
         ]
       },
       "sourceLines": [
-        347,
+        350,
         352
       ],
       "approvalEvidence": {
@@ -187,17 +319,79 @@
         "heading": "CE03 · Lectura del entorno relevante",
         "title": "Lectura del entorno relevante",
         "body": [
-          "| VA | Variable |",
-          "| VA05 | Cambios relevantes en clientes y mercado |",
-          "| VA06 | Cambios competitivos, tecnológicos y del ecosistema |",
-          "| VA07 | Restricciones, riesgos y condiciones externas materiales |",
+          "| VA | Variable |"
+        ]
+      },
+      "sourceLines": [
+        356,
+        357
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "VA05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "| VA05 | Cambios relevantes en clientes y mercado |",
+        "title": "Cambios relevantes en clientes y mercado"
+      },
+      "sourceLines": [
+        358,
+        358
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "VA06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "| VA06 | Cambios competitivos, tecnológicos y del ecosistema |",
+        "title": "Cambios competitivos, tecnológicos y del ecosistema"
+      },
+      "sourceLines": [
+        359,
+        359
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "VA07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "| VA07 | Restricciones, riesgos y condiciones externas materiales |",
+        "title": "Restricciones, riesgos y condiciones externas materiales",
+        "body": [
           "No pretendemos que una pyme realice análisis PESTEL completos.",
           "Aplicaremos materialidad contextual: solo importa aquello capaz de modificar decisiones relevantes de transformación.",
           "La OECD confirma que las trayectorias de digitalización de las pymes varían según sector, tamaño, recursos, infraestructura, habilidades y otras condiciones. OECD"
         ]
       },
       "sourceLines": [
-        356,
+        360,
         363
       ],
       "approvalEvidence": {
@@ -218,9 +412,51 @@
         "title": "Traducción hacia una dirección de transformación",
         "body": [
           "Esta es la condición integradora.",
-          "| VA | Variable |",
-          "| VA08 | Necesidades y oportunidades de transformación derivadas |",
-          "| VA09 | Coherencia entre dirección empresarial y dirección de transformación |",
+          "| VA | Variable |"
+        ]
+      },
+      "sourceLines": [
+        365,
+        367
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "VA08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "| VA08 | Necesidades y oportunidades de transformación derivadas |",
+        "title": "Necesidades y oportunidades de transformación derivadas"
+      },
+      "sourceLines": [
+        368,
+        368
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "VA09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA09",
+      "fields": {
+        "heading": "| VA09 | Coherencia entre dirección empresarial y dirección de transformación |",
+        "title": "Coherencia entre dirección empresarial y dirección de transformación",
+        "body": [
           "Aquí aparece la diferencia entre:",
           "“queremos implementar IA”",
           "y:",
@@ -230,7 +466,7 @@
         ]
       },
       "sourceLines": [
-        365,
+        369,
         375
       ],
       "approvalEvidence": {
@@ -406,6 +642,195 @@
       "sourceLines": [
         396,
         397
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "NI01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI01",
+      "fields": {
+        "heading": "| NI01 | Cómo crea valor actualmente la empresa |",
+        "title": "Cómo crea valor actualmente la empresa"
+      },
+      "sourceLines": [
+        402,
+        402
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "NI02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI02",
+      "fields": {
+        "heading": "| NI02 | Cuáles son sus principales restricciones/desafíos materiales |",
+        "title": "Cuáles son sus principales restricciones/desafíos materiales"
+      },
+      "sourceLines": [
+        403,
+        403
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "NI03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI03",
+      "fields": {
+        "heading": "| NI03 | Qué objetivos o resultados empresariales busca |",
+        "title": "Qué objetivos o resultados empresariales busca"
+      },
+      "sourceLines": [
+        404,
+        404
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "NI04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI04",
+      "fields": {
+        "heading": "| NI04 | Qué cambios relevantes espera realizar o enfrentar |",
+        "title": "Qué cambios relevantes espera realizar o enfrentar"
+      },
+      "sourceLines": [
+        405,
+        405
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "NI05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI05",
+      "fields": {
+        "heading": "| NI05 | Qué cambios de clientes/mercado pueden afectar esos objetivos |",
+        "title": "Qué cambios de clientes/mercado pueden afectar esos objetivos"
+      },
+      "sourceLines": [
+        406,
+        406
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "NI06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI06",
+      "fields": {
+        "heading": "| NI06 | Qué cambios competitivos, tecnológicos o del ecosistema son materiales |",
+        "title": "Qué cambios competitivos, tecnológicos o del ecosistema son materiales"
+      },
+      "sourceLines": [
+        407,
+        407
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "NI07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI07",
+      "fields": {
+        "heading": "| NI07 | Qué restricciones/riesgos externos condicionan la dirección |",
+        "title": "Qué restricciones/riesgos externos condicionan la dirección"
+      },
+      "sourceLines": [
+        408,
+        408
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "NI08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI08",
+      "fields": {
+        "heading": "| NI08 | Qué necesidades u oportunidades de transformación se derivan de lo anterior |",
+        "title": "Qué necesidades u oportunidades de transformación se derivan de lo anterior"
+      },
+      "sourceLines": [
+        409,
+        409
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "NI09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI09",
+      "fields": {
+        "heading": "| NI09 | Cómo se conecta la transformación prevista con resultados del negocio |",
+        "title": "Cómo se conecta la transformación prevista con resultados del negocio"
+      },
+      "sourceLines": [
+        410,
+        410
       ],
       "approvalEvidence": {
         "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
@@ -1052,6 +1477,261 @@
       }
     },
     {
+      "key": "DEL-DG01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG01-01",
+      "fields": {
+        "heading": "| DEL-DG01-01 | Dirección empresarial relevante suficientemente explícita |",
+        "title": "Dirección empresarial relevante suficientemente explícita"
+      },
+      "sourceLines": [
+        640,
+        640
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "DEL-DG01-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG01-02",
+      "fields": {
+        "heading": "| DEL-DG01-02 | Necesidades/oportunidades de transformación fundamentadas |",
+        "title": "Necesidades/oportunidades de transformación fundamentadas"
+      },
+      "sourceLines": [
+        641,
+        641
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "DEL-DG01-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG01-03",
+      "fields": {
+        "heading": "| DEL-DG01-03 | Contexto material incorporado |",
+        "title": "Contexto material incorporado"
+      },
+      "sourceLines": [
+        642,
+        642
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "DEL-DG01-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG01-04",
+      "fields": {
+        "heading": "| DEL-DG01-04 | Iniciativas solution-first reencuadradas |",
+        "title": "Iniciativas solution-first reencuadradas"
+      },
+      "sourceLines": [
+        643,
+        643
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "DEL-DG01-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG01-05",
+      "fields": {
+        "heading": "| DEL-DG01-05 | Dirección de transformación realineada |",
+        "title": "Dirección de transformación realineada"
+      },
+      "sourceLines": [
+        644,
+        644
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "DEL-DG01-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG01-06",
+      "fields": {
+        "heading": "| DEL-DG01-06 | Lógica negocio–transformación explícita y utilizable |",
+        "title": "Lógica negocio–transformación explícita y utilizable",
+        "body": [
+          "El entregable es un estado funcional alcanzado, no simplemente “documento completado”."
+        ]
+      },
+      "sourceLines": [
+        645,
+        646
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG01-01",
+      "fields": {
+        "heading": "| CRV-DG01-01 | Dirección empresarial suficientemente explicitada |",
+        "title": "Dirección empresarial suficientemente explicitada"
+      },
+      "sourceLines": [
+        665,
+        665
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG01-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG01-02",
+      "fields": {
+        "heading": "| CRV-DG01-02 | Necesidades de transformación trazables a negocio/contexto |",
+        "title": "Necesidades de transformación trazables a negocio/contexto"
+      },
+      "sourceLines": [
+        666,
+        666
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG01-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG01-03",
+      "fields": {
+        "heading": "| CRV-DG01-03 | Factores externos materiales incorporados |",
+        "title": "Factores externos materiales incorporados"
+      },
+      "sourceLines": [
+        667,
+        667
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG01-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG01-04",
+      "fields": {
+        "heading": "| CRV-DG01-04 | Iniciativas relevantes fundamentadas por necesidad/resultado |",
+        "title": "Iniciativas relevantes fundamentadas por necesidad/resultado"
+      },
+      "sourceLines": [
+        668,
+        668
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG01-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG01-05",
+      "fields": {
+        "heading": "| CRV-DG01-05 | Coherencia negocio–transformación verificable |",
+        "title": "Coherencia negocio–transformación verificable"
+      },
+      "sourceLines": [
+        669,
+        669
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG01-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG01-06",
+      "fields": {
+        "heading": "| CRV-DG01-06 | Dirección de transformación utilizable para decisiones posteriores |",
+        "title": "Dirección de transformación utilizable para decisiones posteriores"
+      },
+      "sourceLines": [
+        670,
+        670
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
       "key": "V0",
       "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_V",
@@ -1418,5 +2098,10 @@
       ]
     }
   ],
-  "checksum": "sha256:bdb04f59243d57055f036f9f4ade00f671c870294ec29eb23d804906006f09ee"
+  "governanceDecisions": {
+    "decisionSetId": "M2-FACTORY-CLOSURE",
+    "ref": "knowledge/intake/DG-01/governance-decisions.json",
+    "checksum": "sha256:b9a77ae9e897d0d3ea553f4d4bfa3f19767b779d64c40f4fac90f09fb1fe10a2"
+  },
+  "checksum": "sha256:33c41b83263b5a8d47b457b110e48f1fcd5f1e500acbc07a72130d7b75124bf7"
 }

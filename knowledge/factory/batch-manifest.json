@@ -90,7 +90,7 @@
     {
       "capabilityId": "DG-01",
       "domainId": "DG",
-      "sourcePath": "INTAKE",
+      "sourcePath": "MASTER",
       "rawSource": {
         "availability": "IN_REPOSITORY",
         "ref": "text/DG-01.txt",
@@ -101,15 +101,15 @@
         "registrationId": "RAW-DG-01-1862e0e860b8"
       },
       "extraction": {
-        "status": "CANDIDATE",
-        "candidateId": "CAND-DG-01-0.2.0-cf38d30f1b7c",
-        "producedBy": "DETERMINISTIC_TOOL"
+        "status": "CANONICAL",
+        "candidateId": null,
+        "producedBy": null
       },
       "canonical": {
-        "status": "NONE",
-        "baselineId": null,
-        "checksum": null,
-        "objectCount": null
+        "status": "ACCEPTED",
+        "baselineId": "DG01-K4-v1.0",
+        "checksum": "sha256:3f6de9b97d68b94e548beb9f9c47026c6bb717b2f799753be5cb1835bf0d809f",
+        "objectCount": 83
       },
       "provenance": {
         "sourceReference": null,
@@ -167,7 +167,7 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "PASS",
+          "status": "NOT_RUN",
           "reasons": []
         },
         {
@@ -182,27 +182,8 @@
         },
         {
           "check": "SOURCE_TO_CANONICAL",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "SOURCE_TO_CANONICAL",
-              "code": "PROVENANCE_VOCABULARY_REQUIRED",
-              "severity": "REVIEW",
-              "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
-              "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "SOURCE_TO_CANONICAL",
-              "code": "CANONICAL_ACCEPTANCE_REQUIRED",
-              "severity": "REVIEW",
-              "message": "el candidato no tiene aceptación canónica humana",
-              "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "PROVENANCE",
@@ -211,8 +192,18 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "CANONICAL_TO_PACK",
+              "code": "EXECUTABLE_PROJECTION_MISSING",
+              "severity": "REVIEW",
+              "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
+              "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -261,20 +252,11 @@
           "objectKey": null
         },
         {
-          "check": "SOURCE_TO_CANONICAL",
-          "code": "PROVENANCE_VOCABULARY_REQUIRED",
+          "check": "CANONICAL_TO_PACK",
+          "code": "EXECUTABLE_PROJECTION_MISSING",
           "severity": "REVIEW",
-          "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
-          "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "SOURCE_TO_CANONICAL",
-          "code": "CANONICAL_ACCEPTANCE_REQUIRED",
-          "severity": "REVIEW",
-          "message": "el candidato no tiene aceptación canónica humana",
-          "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+          "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
+          "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
           "sourceLines": null,
           "objectKey": null
         }
@@ -283,11 +265,11 @@
         "rawOriginalBytes": 205770,
         "rawTextBytes": 52075,
         "rawTextLines": 855,
-        "candidateItems": 55,
-        "canonicalObjects": null,
+        "candidateItems": null,
+        "canonicalObjects": 83,
         "executableSections": null,
         "checksAutoPassed": 2,
-        "humanReviewItems": 2,
+        "humanReviewItems": 1,
         "notExplicit": 0,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
@@ -300,7 +282,7 @@
     {
       "capabilityId": "DG-02",
       "domainId": "DG",
-      "sourcePath": "INTAKE",
+      "sourcePath": "MASTER",
       "rawSource": {
         "availability": "IN_REPOSITORY",
         "ref": "text/DG-02.txt",
@@ -311,15 +293,15 @@
         "registrationId": "RAW-DG-02-1862e0e860b8"
       },
       "extraction": {
-        "status": "CANDIDATE",
-        "candidateId": "CAND-DG-02-0.2.0-982f47a8dd64",
-        "producedBy": "DETERMINISTIC_TOOL"
+        "status": "CANONICAL",
+        "candidateId": null,
+        "producedBy": null
       },
       "canonical": {
-        "status": "NONE",
-        "baselineId": null,
-        "checksum": null,
-        "objectCount": null
+        "status": "ACCEPTED",
+        "baselineId": "DG02-K4-v1.0",
+        "checksum": "sha256:492b34cf7c89ef84fea0f5a355248cb22eff73c53b20fffe166b2ea13a62001c",
+        "objectCount": 101
       },
       "provenance": {
         "sourceReference": null,
@@ -377,7 +359,7 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "PASS",
+          "status": "NOT_RUN",
           "reasons": []
         },
         {
@@ -392,27 +374,8 @@
         },
         {
           "check": "SOURCE_TO_CANONICAL",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "SOURCE_TO_CANONICAL",
-              "code": "PROVENANCE_VOCABULARY_REQUIRED",
-              "severity": "REVIEW",
-              "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
-              "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "SOURCE_TO_CANONICAL",
-              "code": "CANONICAL_ACCEPTANCE_REQUIRED",
-              "severity": "REVIEW",
-              "message": "el candidato no tiene aceptación canónica humana",
-              "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "PROVENANCE",
@@ -421,8 +384,18 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "CANONICAL_TO_PACK",
+              "code": "EXECUTABLE_PROJECTION_MISSING",
+              "severity": "REVIEW",
+              "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
+              "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -471,20 +444,11 @@
           "objectKey": null
         },
         {
-          "check": "SOURCE_TO_CANONICAL",
-          "code": "PROVENANCE_VOCABULARY_REQUIRED",
+          "check": "CANONICAL_TO_PACK",
+          "code": "EXECUTABLE_PROJECTION_MISSING",
           "severity": "REVIEW",
-          "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
-          "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "SOURCE_TO_CANONICAL",
-          "code": "CANONICAL_ACCEPTANCE_REQUIRED",
-          "severity": "REVIEW",
-          "message": "el candidato no tiene aceptación canónica humana",
-          "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+          "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
+          "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
           "sourceLines": null,
           "objectKey": null
         }
@@ -493,11 +457,11 @@
         "rawOriginalBytes": 205770,
         "rawTextBytes": 32089,
         "rawTextLines": 632,
-        "candidateItems": 60,
-        "canonicalObjects": null,
+        "candidateItems": null,
+        "canonicalObjects": 101,
         "executableSections": null,
         "checksAutoPassed": 2,
-        "humanReviewItems": 2,
+        "humanReviewItems": 1,
         "notExplicit": 0,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
@@ -510,7 +474,7 @@
     {
       "capabilityId": "DG-03",
       "domainId": "DG",
-      "sourcePath": "INTAKE",
+      "sourcePath": "MASTER",
       "rawSource": {
         "availability": "IN_REPOSITORY",
         "ref": "text/DG-03.txt",
@@ -521,15 +485,15 @@
         "registrationId": "RAW-DG-03-1862e0e860b8"
       },
       "extraction": {
-        "status": "CANDIDATE",
-        "candidateId": "CAND-DG-03-0.2.0-9af887c29057",
-        "producedBy": "DETERMINISTIC_TOOL"
+        "status": "CANONICAL",
+        "candidateId": null,
+        "producedBy": null
       },
       "canonical": {
-        "status": "NONE",
-        "baselineId": null,
-        "checksum": null,
-        "objectCount": null
+        "status": "ACCEPTED",
+        "baselineId": "DG03-K4-v1.0",
+        "checksum": "sha256:5de1f497b83e8975ac8fc912edecf92299ac72dead26290ab59254c7fc8651e3",
+        "objectCount": 95
       },
       "provenance": {
         "sourceReference": null,
@@ -587,21 +551,8 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "CAND-MOTOR-AI-GOV-01: 2 definiciones (L309, L489) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                309,
-                310
-              ],
-              "objectKey": "CAND-MOTOR-AI-GOV-01"
-            }
-          ]
+          "status": "NOT_RUN",
+          "reasons": []
         },
         {
           "check": "STRUCTURAL",
@@ -615,27 +566,8 @@
         },
         {
           "check": "SOURCE_TO_CANONICAL",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "SOURCE_TO_CANONICAL",
-              "code": "PROVENANCE_VOCABULARY_REQUIRED",
-              "severity": "REVIEW",
-              "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
-              "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "SOURCE_TO_CANONICAL",
-              "code": "CANONICAL_ACCEPTANCE_REQUIRED",
-              "severity": "REVIEW",
-              "message": "el candidato no tiene aceptación canónica humana",
-              "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "PROVENANCE",
@@ -644,8 +576,18 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "CANONICAL_TO_PACK",
+              "code": "EXECUTABLE_PROJECTION_MISSING",
+              "severity": "REVIEW",
+              "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
+              "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -694,32 +636,11 @@
           "objectKey": null
         },
         {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
+          "check": "CANONICAL_TO_PACK",
+          "code": "EXECUTABLE_PROJECTION_MISSING",
           "severity": "REVIEW",
-          "message": "CAND-MOTOR-AI-GOV-01: 2 definiciones (L309, L489) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            309,
-            310
-          ],
-          "objectKey": "CAND-MOTOR-AI-GOV-01"
-        },
-        {
-          "check": "SOURCE_TO_CANONICAL",
-          "code": "PROVENANCE_VOCABULARY_REQUIRED",
-          "severity": "REVIEW",
-          "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
-          "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "SOURCE_TO_CANONICAL",
-          "code": "CANONICAL_ACCEPTANCE_REQUIRED",
-          "severity": "REVIEW",
-          "message": "el candidato no tiene aceptación canónica humana",
-          "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+          "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
+          "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
           "sourceLines": null,
           "objectKey": null
         }
@@ -728,11 +649,11 @@
         "rawOriginalBytes": 205770,
         "rawTextBytes": 30009,
         "rawTextLines": 593,
-        "candidateItems": 55,
-        "canonicalObjects": null,
+        "candidateItems": null,
+        "canonicalObjects": 95,
         "executableSections": null,
-        "checksAutoPassed": 1,
-        "humanReviewItems": 3,
+        "checksAutoPassed": 2,
+        "humanReviewItems": 1,
         "notExplicit": 0,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
@@ -745,7 +666,7 @@
     {
       "capabilityId": "DG-04",
       "domainId": "DG",
-      "sourcePath": "INTAKE",
+      "sourcePath": "MASTER",
       "rawSource": {
         "availability": "IN_REPOSITORY",
         "ref": "text/DG-04.txt",
@@ -756,15 +677,15 @@
         "registrationId": "RAW-DG-04-1862e0e860b8"
       },
       "extraction": {
-        "status": "CANDIDATE",
-        "candidateId": "CAND-DG-04-0.2.0-1223b7cc3deb",
-        "producedBy": "DETERMINISTIC_TOOL"
+        "status": "CANONICAL",
+        "candidateId": null,
+        "producedBy": null
       },
       "canonical": {
-        "status": "NONE",
-        "baselineId": null,
-        "checksum": null,
-        "objectCount": null
+        "status": "ACCEPTED",
+        "baselineId": "DG04-K4-v1.0",
+        "checksum": "sha256:47496abd1e75c71fd9d52e60f14fa9124e34c10d79297b828d78920ea0152a07",
+        "objectCount": 96
       },
       "provenance": {
         "sourceReference": null,
@@ -822,7 +743,7 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "PASS",
+          "status": "NOT_RUN",
           "reasons": []
         },
         {
@@ -837,27 +758,8 @@
         },
         {
           "check": "SOURCE_TO_CANONICAL",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "SOURCE_TO_CANONICAL",
-              "code": "PROVENANCE_VOCABULARY_REQUIRED",
-              "severity": "REVIEW",
-              "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
-              "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "SOURCE_TO_CANONICAL",
-              "code": "CANONICAL_ACCEPTANCE_REQUIRED",
-              "severity": "REVIEW",
-              "message": "el candidato no tiene aceptación canónica humana",
-              "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "PROVENANCE",
@@ -866,8 +768,18 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "CANONICAL_TO_PACK",
+              "code": "EXECUTABLE_PROJECTION_MISSING",
+              "severity": "REVIEW",
+              "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
+              "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -916,20 +828,11 @@
           "objectKey": null
         },
         {
-          "check": "SOURCE_TO_CANONICAL",
-          "code": "PROVENANCE_VOCABULARY_REQUIRED",
+          "check": "CANONICAL_TO_PACK",
+          "code": "EXECUTABLE_PROJECTION_MISSING",
           "severity": "REVIEW",
-          "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
-          "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "SOURCE_TO_CANONICAL",
-          "code": "CANONICAL_ACCEPTANCE_REQUIRED",
-          "severity": "REVIEW",
-          "message": "el candidato no tiene aceptación canónica humana",
-          "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+          "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
+          "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
           "sourceLines": null,
           "objectKey": null
         }
@@ -938,11 +841,11 @@
         "rawOriginalBytes": 205770,
         "rawTextBytes": 33033,
         "rawTextLines": 675,
-        "candidateItems": 62,
-        "canonicalObjects": null,
+        "candidateItems": null,
+        "canonicalObjects": 96,
         "executableSections": null,
         "checksAutoPassed": 2,
-        "humanReviewItems": 2,
+        "humanReviewItems": 1,
         "notExplicit": 0,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
@@ -955,7 +858,7 @@
     {
       "capabilityId": "DG-05",
       "domainId": "DG",
-      "sourcePath": "INTAKE",
+      "sourcePath": "MASTER",
       "rawSource": {
         "availability": "IN_REPOSITORY",
         "ref": "text/DG-05.txt",
@@ -966,15 +869,15 @@
         "registrationId": "RAW-DG-05-1862e0e860b8"
       },
       "extraction": {
-        "status": "CANDIDATE",
-        "candidateId": "CAND-DG-05-0.2.0-1d4ea86e3766",
-        "producedBy": "DETERMINISTIC_TOOL"
+        "status": "CANONICAL",
+        "candidateId": null,
+        "producedBy": null
       },
       "canonical": {
-        "status": "NONE",
-        "baselineId": null,
-        "checksum": null,
-        "objectCount": null
+        "status": "ACCEPTED",
+        "baselineId": "DG05-K4-v1.0",
+        "checksum": "sha256:1a0a0d4b3c4cb7e35973b1980cdfd40fcf6e2aa8ddb1f7565ec6d1e9264db603",
+        "objectCount": 95
       },
       "provenance": {
         "sourceReference": null,
@@ -1032,7 +935,7 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "PASS",
+          "status": "NOT_RUN",
           "reasons": []
         },
         {
@@ -1047,27 +950,8 @@
         },
         {
           "check": "SOURCE_TO_CANONICAL",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "SOURCE_TO_CANONICAL",
-              "code": "PROVENANCE_VOCABULARY_REQUIRED",
-              "severity": "REVIEW",
-              "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
-              "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "SOURCE_TO_CANONICAL",
-              "code": "CANONICAL_ACCEPTANCE_REQUIRED",
-              "severity": "REVIEW",
-              "message": "el candidato no tiene aceptación canónica humana",
-              "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "PROVENANCE",
@@ -1076,8 +960,18 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "CANONICAL_TO_PACK",
+              "code": "EXECUTABLE_PROJECTION_MISSING",
+              "severity": "REVIEW",
+              "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
+              "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -1126,20 +1020,11 @@
           "objectKey": null
         },
         {
-          "check": "SOURCE_TO_CANONICAL",
-          "code": "PROVENANCE_VOCABULARY_REQUIRED",
+          "check": "CANONICAL_TO_PACK",
+          "code": "EXECUTABLE_PROJECTION_MISSING",
           "severity": "REVIEW",
-          "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
-          "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "SOURCE_TO_CANONICAL",
-          "code": "CANONICAL_ACCEPTANCE_REQUIRED",
-          "severity": "REVIEW",
-          "message": "el candidato no tiene aceptación canónica humana",
-          "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+          "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
+          "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
           "sourceLines": null,
           "objectKey": null
         }
@@ -1148,11 +1033,11 @@
         "rawOriginalBytes": 205770,
         "rawTextBytes": 31462,
         "rawTextLines": 657,
-        "candidateItems": 68,
-        "canonicalObjects": null,
+        "candidateItems": null,
+        "canonicalObjects": 95,
         "executableSections": null,
         "checksAutoPassed": 2,
-        "humanReviewItems": 2,
+        "humanReviewItems": 1,
         "notExplicit": 0,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
@@ -2176,7 +2061,7 @@
     {
       "capabilityId": "PC-01",
       "domainId": "PC",
-      "sourcePath": "INTAKE",
+      "sourcePath": "MASTER",
       "rawSource": {
         "availability": "IN_REPOSITORY",
         "ref": "text/PC-01.txt",
@@ -2187,15 +2072,15 @@
         "registrationId": "RAW-PC-01-19e8903f1149"
       },
       "extraction": {
-        "status": "CANDIDATE",
-        "candidateId": "CAND-PC-01-0.2.0-7325e0a13eae",
-        "producedBy": "DETERMINISTIC_TOOL"
+        "status": "CANONICAL",
+        "candidateId": null,
+        "producedBy": null
       },
       "canonical": {
-        "status": "NONE",
-        "baselineId": null,
-        "checksum": null,
-        "objectCount": null
+        "status": "ACCEPTED",
+        "baselineId": "PC01-K4-v1.0",
+        "checksum": "sha256:dfd008885aa9d601cfffa23eeeba78161af65ee1da21ec69cf238d867282099f",
+        "objectCount": 81
       },
       "provenance": {
         "sourceReference": null,
@@ -2253,21 +2138,8 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "SOURCE-REVIEW-TRIGGER-PC01-01: 2 definiciones (L163, L607) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                163,
-                166
-              ],
-              "objectKey": "SOURCE-REVIEW-TRIGGER-PC01-01"
-            }
-          ]
+          "status": "NOT_RUN",
+          "reasons": []
         },
         {
           "check": "STRUCTURAL",
@@ -2281,27 +2153,8 @@
         },
         {
           "check": "SOURCE_TO_CANONICAL",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "SOURCE_TO_CANONICAL",
-              "code": "PROVENANCE_VOCABULARY_REQUIRED",
-              "severity": "REVIEW",
-              "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
-              "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "SOURCE_TO_CANONICAL",
-              "code": "CANONICAL_ACCEPTANCE_REQUIRED",
-              "severity": "REVIEW",
-              "message": "el candidato no tiene aceptación canónica humana",
-              "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "PROVENANCE",
@@ -2310,8 +2163,18 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "CANONICAL_TO_PACK",
+              "code": "EXECUTABLE_PROJECTION_MISSING",
+              "severity": "REVIEW",
+              "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
+              "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -2360,32 +2223,11 @@
           "objectKey": null
         },
         {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
+          "check": "CANONICAL_TO_PACK",
+          "code": "EXECUTABLE_PROJECTION_MISSING",
           "severity": "REVIEW",
-          "message": "SOURCE-REVIEW-TRIGGER-PC01-01: 2 definiciones (L163, L607) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            163,
-            166
-          ],
-          "objectKey": "SOURCE-REVIEW-TRIGGER-PC01-01"
-        },
-        {
-          "check": "SOURCE_TO_CANONICAL",
-          "code": "PROVENANCE_VOCABULARY_REQUIRED",
-          "severity": "REVIEW",
-          "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
-          "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "SOURCE_TO_CANONICAL",
-          "code": "CANONICAL_ACCEPTANCE_REQUIRED",
-          "severity": "REVIEW",
-          "message": "el candidato no tiene aceptación canónica humana",
-          "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+          "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
+          "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
           "sourceLines": null,
           "objectKey": null
         }
@@ -2394,11 +2236,11 @@
         "rawOriginalBytes": 207139,
         "rawTextBytes": 31727,
         "rawTextLines": 684,
-        "candidateItems": 58,
-        "canonicalObjects": null,
+        "candidateItems": null,
+        "canonicalObjects": 81,
         "executableSections": null,
-        "checksAutoPassed": 1,
-        "humanReviewItems": 3,
+        "checksAutoPassed": 2,
+        "humanReviewItems": 1,
         "notExplicit": 0,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
@@ -2411,7 +2253,7 @@
     {
       "capabilityId": "PC-02",
       "domainId": "PC",
-      "sourcePath": "INTAKE",
+      "sourcePath": "MASTER",
       "rawSource": {
         "availability": "IN_REPOSITORY",
         "ref": "text/PC-02.txt",
@@ -2422,15 +2264,15 @@
         "registrationId": "RAW-PC-02-19e8903f1149"
       },
       "extraction": {
-        "status": "CANDIDATE",
-        "candidateId": "CAND-PC-02-0.2.0-725f14103dc4",
-        "producedBy": "DETERMINISTIC_TOOL"
+        "status": "CANONICAL",
+        "candidateId": null,
+        "producedBy": null
       },
       "canonical": {
-        "status": "NONE",
-        "baselineId": null,
-        "checksum": null,
-        "objectCount": null
+        "status": "ACCEPTED",
+        "baselineId": "PC02-K4-v1.0",
+        "checksum": "sha256:f13cabb5bfba742431fba8cc4c5da1ba444e6c8ac564c26846def2101fb808c8",
+        "objectCount": 96
       },
       "provenance": {
         "sourceReference": null,
@@ -2488,21 +2330,8 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "CONTROL_COUNT_MISMATCH",
-              "severity": "REVIEW",
-              "message": "CRV: la fuente declara 8 y el candidato materializa 1 SOURCE_ID_CRV FINAL_APPROVED; posible omisión o duplicado de transcripción (líneas 715–715)",
-              "action": "contrastar el conteo de control con los ítems materializados",
-              "sourceLines": [
-                715,
-                715
-              ],
-              "objectKey": null
-            }
-          ]
+          "status": "NOT_RUN",
+          "reasons": []
         },
         {
           "check": "STRUCTURAL",
@@ -2516,27 +2345,8 @@
         },
         {
           "check": "SOURCE_TO_CANONICAL",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "SOURCE_TO_CANONICAL",
-              "code": "PROVENANCE_VOCABULARY_REQUIRED",
-              "severity": "REVIEW",
-              "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
-              "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "SOURCE_TO_CANONICAL",
-              "code": "CANONICAL_ACCEPTANCE_REQUIRED",
-              "severity": "REVIEW",
-              "message": "el candidato no tiene aceptación canónica humana",
-              "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "PROVENANCE",
@@ -2545,8 +2355,18 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "CANONICAL_TO_PACK",
+              "code": "EXECUTABLE_PROJECTION_MISSING",
+              "severity": "REVIEW",
+              "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
+              "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -2595,32 +2415,11 @@
           "objectKey": null
         },
         {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "CONTROL_COUNT_MISMATCH",
+          "check": "CANONICAL_TO_PACK",
+          "code": "EXECUTABLE_PROJECTION_MISSING",
           "severity": "REVIEW",
-          "message": "CRV: la fuente declara 8 y el candidato materializa 1 SOURCE_ID_CRV FINAL_APPROVED; posible omisión o duplicado de transcripción (líneas 715–715)",
-          "action": "contrastar el conteo de control con los ítems materializados",
-          "sourceLines": [
-            715,
-            715
-          ],
-          "objectKey": null
-        },
-        {
-          "check": "SOURCE_TO_CANONICAL",
-          "code": "PROVENANCE_VOCABULARY_REQUIRED",
-          "severity": "REVIEW",
-          "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
-          "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "SOURCE_TO_CANONICAL",
-          "code": "CANONICAL_ACCEPTANCE_REQUIRED",
-          "severity": "REVIEW",
-          "message": "el candidato no tiene aceptación canónica humana",
-          "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+          "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
+          "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
           "sourceLines": null,
           "objectKey": null
         }
@@ -2629,11 +2428,11 @@
         "rawOriginalBytes": 207139,
         "rawTextBytes": 32600,
         "rawTextLines": 731,
-        "candidateItems": 76,
-        "canonicalObjects": null,
+        "candidateItems": null,
+        "canonicalObjects": 96,
         "executableSections": null,
-        "checksAutoPassed": 1,
-        "humanReviewItems": 3,
+        "checksAutoPassed": 2,
+        "humanReviewItems": 1,
         "notExplicit": 0,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
@@ -2646,7 +2445,7 @@
     {
       "capabilityId": "PC-03",
       "domainId": "PC",
-      "sourcePath": "INTAKE",
+      "sourcePath": "MASTER",
       "rawSource": {
         "availability": "IN_REPOSITORY",
         "ref": "text/PC-03.txt",
@@ -2657,15 +2456,15 @@
         "registrationId": "RAW-PC-03-19e8903f1149"
       },
       "extraction": {
-        "status": "CANDIDATE",
-        "candidateId": "CAND-PC-03-0.2.0-b7b66368dbd7",
-        "producedBy": "DETERMINISTIC_TOOL"
+        "status": "CANONICAL",
+        "candidateId": null,
+        "producedBy": null
       },
       "canonical": {
-        "status": "NONE",
-        "baselineId": null,
-        "checksum": null,
-        "objectCount": null
+        "status": "ACCEPTED",
+        "baselineId": "PC03-K4-v1.0",
+        "checksum": "sha256:d015e54ab97120ed93df6b28948566cc0eb7fc13e2bdff949a346c13247a6f3b",
+        "objectCount": 107
       },
       "provenance": {
         "sourceReference": null,
@@ -2723,7 +2522,7 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "PASS",
+          "status": "NOT_RUN",
           "reasons": []
         },
         {
@@ -2738,27 +2537,8 @@
         },
         {
           "check": "SOURCE_TO_CANONICAL",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "SOURCE_TO_CANONICAL",
-              "code": "PROVENANCE_VOCABULARY_REQUIRED",
-              "severity": "REVIEW",
-              "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
-              "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "SOURCE_TO_CANONICAL",
-              "code": "CANONICAL_ACCEPTANCE_REQUIRED",
-              "severity": "REVIEW",
-              "message": "el candidato no tiene aceptación canónica humana",
-              "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "PROVENANCE",
@@ -2767,8 +2547,18 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "CANONICAL_TO_PACK",
+              "code": "EXECUTABLE_PROJECTION_MISSING",
+              "severity": "REVIEW",
+              "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
+              "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -2817,20 +2607,11 @@
           "objectKey": null
         },
         {
-          "check": "SOURCE_TO_CANONICAL",
-          "code": "PROVENANCE_VOCABULARY_REQUIRED",
+          "check": "CANONICAL_TO_PACK",
+          "code": "EXECUTABLE_PROJECTION_MISSING",
           "severity": "REVIEW",
-          "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
-          "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "SOURCE_TO_CANONICAL",
-          "code": "CANONICAL_ACCEPTANCE_REQUIRED",
-          "severity": "REVIEW",
-          "message": "el candidato no tiene aceptación canónica humana",
-          "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+          "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
+          "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
           "sourceLines": null,
           "objectKey": null
         }
@@ -2839,11 +2620,11 @@
         "rawOriginalBytes": 207139,
         "rawTextBytes": 34363,
         "rawTextLines": 813,
-        "candidateItems": 77,
-        "canonicalObjects": null,
+        "candidateItems": null,
+        "canonicalObjects": 107,
         "executableSections": null,
         "checksAutoPassed": 2,
-        "humanReviewItems": 2,
+        "humanReviewItems": 1,
         "notExplicit": 0,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
@@ -2856,7 +2637,7 @@
     {
       "capabilityId": "PC-04",
       "domainId": "PC",
-      "sourcePath": "INTAKE",
+      "sourcePath": "MASTER",
       "rawSource": {
         "availability": "IN_REPOSITORY",
         "ref": "text/PC-04.txt",
@@ -2867,15 +2648,15 @@
         "registrationId": "RAW-PC-04-19e8903f1149"
       },
       "extraction": {
-        "status": "CANDIDATE",
-        "candidateId": "CAND-PC-04-0.2.0-f9e4952d05f6",
-        "producedBy": "DETERMINISTIC_TOOL"
+        "status": "CANONICAL",
+        "candidateId": null,
+        "producedBy": null
       },
       "canonical": {
-        "status": "NONE",
-        "baselineId": null,
-        "checksum": null,
-        "objectCount": null
+        "status": "ACCEPTED",
+        "baselineId": "PC04-K4-v1.0",
+        "checksum": "sha256:979031cd4e5370a026f353143d3107e517bdfc6168c70311bace46745083db4e",
+        "objectCount": 99
       },
       "provenance": {
         "sourceReference": null,
@@ -2933,7 +2714,7 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "PASS",
+          "status": "NOT_RUN",
           "reasons": []
         },
         {
@@ -2948,27 +2729,8 @@
         },
         {
           "check": "SOURCE_TO_CANONICAL",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "SOURCE_TO_CANONICAL",
-              "code": "PROVENANCE_VOCABULARY_REQUIRED",
-              "severity": "REVIEW",
-              "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
-              "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "SOURCE_TO_CANONICAL",
-              "code": "CANONICAL_ACCEPTANCE_REQUIRED",
-              "severity": "REVIEW",
-              "message": "el candidato no tiene aceptación canónica humana",
-              "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "PROVENANCE",
@@ -2977,8 +2739,18 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "CANONICAL_TO_PACK",
+              "code": "EXECUTABLE_PROJECTION_MISSING",
+              "severity": "REVIEW",
+              "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
+              "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -3027,20 +2799,11 @@
           "objectKey": null
         },
         {
-          "check": "SOURCE_TO_CANONICAL",
-          "code": "PROVENANCE_VOCABULARY_REQUIRED",
+          "check": "CANONICAL_TO_PACK",
+          "code": "EXECUTABLE_PROJECTION_MISSING",
           "severity": "REVIEW",
-          "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
-          "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "SOURCE_TO_CANONICAL",
-          "code": "CANONICAL_ACCEPTANCE_REQUIRED",
-          "severity": "REVIEW",
-          "message": "el candidato no tiene aceptación canónica humana",
-          "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+          "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
+          "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
           "sourceLines": null,
           "objectKey": null
         }
@@ -3049,11 +2812,11 @@
         "rawOriginalBytes": 207139,
         "rawTextBytes": 35253,
         "rawTextLines": 826,
-        "candidateItems": 77,
-        "canonicalObjects": null,
+        "candidateItems": null,
+        "canonicalObjects": 99,
         "executableSections": null,
         "checksAutoPassed": 2,
-        "humanReviewItems": 2,
+        "humanReviewItems": 1,
         "notExplicit": 0,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
@@ -3066,7 +2829,7 @@
     {
       "capabilityId": "PC-05",
       "domainId": "PC",
-      "sourcePath": "INTAKE",
+      "sourcePath": "MASTER",
       "rawSource": {
         "availability": "IN_REPOSITORY",
         "ref": "text/PC-05.txt",
@@ -3077,15 +2840,15 @@
         "registrationId": "RAW-PC-05-19e8903f1149"
       },
       "extraction": {
-        "status": "CANDIDATE",
-        "candidateId": "CAND-PC-05-0.2.0-cf558c4af062",
-        "producedBy": "DETERMINISTIC_TOOL"
+        "status": "CANONICAL",
+        "candidateId": null,
+        "producedBy": null
       },
       "canonical": {
-        "status": "NONE",
-        "baselineId": null,
-        "checksum": null,
-        "objectCount": null
+        "status": "ACCEPTED",
+        "baselineId": "PC05-K4-v1.0",
+        "checksum": "sha256:09d0c646c2722265e22418a02022ab5a6fcc81b52c1807a4fad0eba08cc768b8",
+        "objectCount": 106
       },
       "provenance": {
         "sourceReference": null,
@@ -3143,7 +2906,7 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "PASS",
+          "status": "NOT_RUN",
           "reasons": []
         },
         {
@@ -3158,27 +2921,8 @@
         },
         {
           "check": "SOURCE_TO_CANONICAL",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "SOURCE_TO_CANONICAL",
-              "code": "PROVENANCE_VOCABULARY_REQUIRED",
-              "severity": "REVIEW",
-              "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
-              "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "SOURCE_TO_CANONICAL",
-              "code": "CANONICAL_ACCEPTANCE_REQUIRED",
-              "severity": "REVIEW",
-              "message": "el candidato no tiene aceptación canónica humana",
-              "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "PROVENANCE",
@@ -3187,8 +2931,18 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "CANONICAL_TO_PACK",
+              "code": "EXECUTABLE_PROJECTION_MISSING",
+              "severity": "REVIEW",
+              "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
+              "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -3237,20 +2991,11 @@
           "objectKey": null
         },
         {
-          "check": "SOURCE_TO_CANONICAL",
-          "code": "PROVENANCE_VOCABULARY_REQUIRED",
+          "check": "CANONICAL_TO_PACK",
+          "code": "EXECUTABLE_PROJECTION_MISSING",
           "severity": "REVIEW",
-          "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
-          "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "SOURCE_TO_CANONICAL",
-          "code": "CANONICAL_ACCEPTANCE_REQUIRED",
-          "severity": "REVIEW",
-          "message": "el candidato no tiene aceptación canónica humana",
-          "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+          "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
+          "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
           "sourceLines": null,
           "objectKey": null
         }
@@ -3259,11 +3004,11 @@
         "rawOriginalBytes": 207139,
         "rawTextBytes": 35928,
         "rawTextLines": 857,
-        "candidateItems": 84,
-        "canonicalObjects": null,
+        "candidateItems": null,
+        "canonicalObjects": 106,
         "executableSections": null,
         "checksAutoPassed": 2,
-        "humanReviewItems": 2,
+        "humanReviewItems": 1,
         "notExplicit": 0,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
@@ -3274,5 +3019,5 @@
       }
     }
   ],
-  "checksum": "sha256:d07d9fc950317b6050b45f63cbb0df82fd00112387eba1ff648e2eea6a54043f"
+  "checksum": "sha256:8c0faa38590ec146805b294bf658f96f3ec1054c84b25e90f740f490b551de74"
 }

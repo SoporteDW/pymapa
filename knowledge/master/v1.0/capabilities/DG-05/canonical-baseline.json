@@ -1,0 +1,1490 @@
+{
+  "baselineId": "DG05-K4-v1.0",
+  "capabilityId": "DG-05",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "historicalStatus": {
+    "marker": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      615,
+      615
+    ]
+  },
+  "rawSource": {
+    "ref": "raw/DG-05.txt",
+    "sha256": "1d4ea86e3766ab2f7023497236ca0d70f77254eb214e53c5b299468bb1603f66",
+    "byteLength": 31462,
+    "lineCount": 657,
+    "transcription": {
+      "tool": "pymapa-docx-text 1.0.0",
+      "arguments": ""
+    },
+    "originalDocument": {
+      "filename": "DG_-_01_A_05_Completo.docx",
+      "byteLength": 205770,
+      "sha256": "1862e0e860b8b5a2bd446dbc5d7cb0545841fa9dba013666f5cc1e645490b2c8"
+    }
+  },
+  "provenanceVocabulary": [
+    {
+      "code": "SOURCE-DERIVED",
+      "label": "SOURCE-DERIVED",
+      "meaning": "ISO 31000:2018 sustenta:",
+      "sourceLines": [
+        536,
+        537
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "PYMAPA-DESIGNED",
+      "label": "PYMAPA-DESIGNED",
+      "meaning": "Son diseño propio:",
+      "sourceLines": [
+        559,
+        560
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    }
+  ],
+  "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 6,
+      "objectType": "SOURCE_ID_CE",
+      "sourceLines": [
+        618,
+        618
+      ]
+    },
+    {
+      "label": "CRV",
+      "declared": 8,
+      "objectType": "SOURCE_ID_CRV",
+      "sourceLines": [
+        626,
+        626
+      ]
+    },
+    {
+      "label": "NI",
+      "declared": 12,
+      "objectType": "SOURCE_ID_NI",
+      "sourceLines": [
+        620,
+        620
+      ]
+    },
+    {
+      "label": "VA",
+      "declared": 12,
+      "objectType": "SOURCE_ID_VA",
+      "sourceLines": [
+        619,
+        619
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "key": "CE01",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Visibilidad de exposición",
+        "title": "Visibilidad de exposición"
+      },
+      "sourceLines": [
+        92,
+        92
+      ]
+    },
+    {
+      "key": "VA01",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA01",
+      "fields": {
+        "heading": "VA01 · riesgos materiales identificables",
+        "title": "riesgos materiales identificables"
+      },
+      "sourceLines": [
+        93,
+        93
+      ]
+    },
+    {
+      "key": "VA02",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA02",
+      "fields": {
+        "heading": "VA02 · dependencias materiales identificables",
+        "title": "dependencias materiales identificables"
+      },
+      "sourceLines": [
+        94,
+        94
+      ]
+    },
+    {
+      "key": "CE02",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Comprensión de materialidad",
+        "title": "Comprensión de materialidad"
+      },
+      "sourceLines": [
+        95,
+        95
+      ]
+    },
+    {
+      "key": "VA03",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA03",
+      "fields": {
+        "heading": "VA03 · consecuencias potenciales sobre objetivos/resultados",
+        "title": "consecuencias potenciales sobre objetivos/resultados"
+      },
+      "sourceLines": [
+        96,
+        96
+      ]
+    },
+    {
+      "key": "VA04",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "VA04 · incertidumbre/probabilidad o plausibilidad suficientemente comprendida",
+        "title": "incertidumbre/probabilidad o plausibilidad suficientemente comprendida",
+        "body": [
+          "No exigiremos probabilidades numéricas artificiales."
+        ]
+      },
+      "sourceLines": [
+        97,
+        98
+      ]
+    },
+    {
+      "key": "CE03",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Interacción y concentración",
+        "title": "Interacción y concentración"
+      },
+      "sourceLines": [
+        100,
+        100
+      ]
+    },
+    {
+      "key": "VA05",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "VA05 · interdependencias entre iniciativas/capacidades",
+        "title": "interdependencias entre iniciativas/capacidades"
+      },
+      "sourceLines": [
+        101,
+        101
+      ]
+    },
+    {
+      "key": "VA06",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "VA06 · concentración/acumulación de exposición",
+        "title": "concentración/acumulación de exposición",
+        "body": [
+          "Ejemplo:",
+          "Tres iniciativas parecen individualmente razonables.",
+          "Las tres requieren al mismo especialista.",
+          "El riesgo material aparece en la interacción, no necesariamente en cada proyecto.",
+          "Este es precisamente el tipo de efecto agregado que portfolio risk management busca hacer visible. Project Management Institute"
+        ]
+      },
+      "sourceLines": [
+        102,
+        107
+      ]
+    },
+    {
+      "key": "CE04",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE04",
+      "fields": {
+        "heading": "CE04 · Respuesta y decisión",
+        "title": "Respuesta y decisión"
+      },
+      "sourceLines": [
+        109,
+        109
+      ]
+    },
+    {
+      "key": "VA07",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "VA07 · respuesta proporcional definida",
+        "title": "respuesta proporcional definida"
+      },
+      "sourceLines": [
+        110,
+        110
+      ]
+    },
+    {
+      "key": "VA08",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "VA08 · integración del riesgo/dependencia en decisiones de transformación",
+        "title": "integración del riesgo/dependencia en decisiones de transformación",
+        "body": [
+          "Respuestas posibles no se limitarán a “mitigar”.",
+          "Podrían incluir:",
+          "aceptar, evitar, reducir, transferir/compartir, explotar una oportunidad, modificar secuencia, crear contingencia, aumentar observación o reconsiderar una iniciativa.",
+          "La semántica exacta se cerrará en SET B."
+        ]
+      },
+      "sourceLines": [
+        111,
+        115
+      ]
+    },
+    {
+      "key": "CE05",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE05",
+      "fields": {
+        "heading": "CE05 · Ownership y escalamiento",
+        "title": "Ownership y escalamiento"
+      },
+      "sourceLines": [
+        117,
+        117
+      ]
+    },
+    {
+      "key": "VA09",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA09",
+      "fields": {
+        "heading": "VA09 · responsabilidad sobre exposición/respuesta",
+        "title": "responsabilidad sobre exposición/respuesta"
+      },
+      "sourceLines": [
+        118,
+        118
+      ]
+    },
+    {
+      "key": "VA10",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA10",
+      "fields": {
+        "heading": "VA10 · capacidad de escalamiento/aceptación cuando excede tolerancias",
+        "title": "capacidad de escalamiento/aceptación cuando excede tolerancias",
+        "body": [
+          "Aquí DG-05 reutiliza DG-03.",
+          "No vuelve a diagnosticar todo el gobierno decisional."
+        ]
+      },
+      "sourceLines": [
+        119,
+        121
+      ]
+    },
+    {
+      "key": "CE06",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE06",
+      "fields": {
+        "heading": "CE06 · Monitoreo y adaptación",
+        "title": "Monitoreo y adaptación"
+      },
+      "sourceLines": [
+        123,
+        123
+      ]
+    },
+    {
+      "key": "VA11",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA11",
+      "fields": {
+        "heading": "VA11 · señales/triggers de cambio de exposición",
+        "title": "señales/triggers de cambio de exposición"
+      },
+      "sourceLines": [
+        124,
+        124
+      ]
+    },
+    {
+      "key": "VA12",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA12",
+      "fields": {
+        "heading": "VA12 · revisión de respuesta ante nueva información",
+        "title": "revisión de respuesta ante nueva información"
+      },
+      "sourceLines": [
+        125,
+        125
+      ]
+    },
+    {
+      "key": "SRC-DG05-001",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG05-001",
+      "fields": {
+        "heading": "SRC-DG05-001 · Pymapa/OE1-D",
+        "title": "Pymapa/OE1-D",
+        "body": [
+          "Identidad conceptual."
+        ]
+      },
+      "sourceLines": [
+        129,
+        130
+      ]
+    },
+    {
+      "key": "SRC-DG05-002",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG05-002",
+      "fields": {
+        "heading": "SRC-DG05-002 · ISO 31000:2018",
+        "title": "ISO 31000:2018",
+        "body": [
+          "Principios y proceso de gestión de riesgo; integración con gobierno y decisiones. Continúa vigente, pero existe ISO/CD 31000 Edition 3 en desarrollo. ISO"
+        ]
+      },
+      "sourceLines": [
+        131,
+        132
+      ]
+    },
+    {
+      "key": "SRC-DG05-003",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG05-003",
+      "fields": {
+        "heading": "SRC-DG05-003 · PMI Risk Management in Portfolios, Programs and Projects",
+        "title": "PMI Risk Management in Portfolios, Programs and Projects",
+        "body": [
+          "Tratamiento del riesgo sobre objetivos de portafolios/programas/proyectos y amenazas/oportunidades; PMI indica que la publicación fue actualizada en 2024. Project Management Institute"
+        ]
+      },
+      "sourceLines": [
+        133,
+        134
+      ]
+    },
+    {
+      "key": "SRC-DG05-004",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG05-004",
+      "fields": {
+        "heading": "SRC-DG05-004 · PMI Portfolio Risk Management / Standard for Portfolio Management",
+        "title": "PMI Portfolio Risk Management / Standard for Portfolio Management",
+        "body": [
+          "Interdependencias, riesgo estructural y exposición agregada. Project Management Institute"
+        ]
+      },
+      "sourceLines": [
+        135,
+        136
+      ]
+    },
+    {
+      "key": "NI01",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI01",
+      "fields": {
+        "heading": "| NI01 | Qué incertidumbres materiales pueden afectar transformación |",
+        "title": "Qué incertidumbres materiales pueden afectar transformación"
+      },
+      "sourceLines": [
+        171,
+        171
+      ]
+    },
+    {
+      "key": "NI02",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI02",
+      "fields": {
+        "heading": "| NI02 | Qué dependencias materiales existen |",
+        "title": "Qué dependencias materiales existen"
+      },
+      "sourceLines": [
+        172,
+        172
+      ]
+    },
+    {
+      "key": "NI03",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI03",
+      "fields": {
+        "heading": "| NI03 | Qué objetivos/resultados podrían verse afectados |",
+        "title": "Qué objetivos/resultados podrían verse afectados"
+      },
+      "sourceLines": [
+        173,
+        173
+      ]
+    },
+    {
+      "key": "NI04",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI04",
+      "fields": {
+        "heading": "| NI04 | Qué consecuencias plausibles existen |",
+        "title": "Qué consecuencias plausibles existen"
+      },
+      "sourceLines": [
+        174,
+        174
+      ]
+    },
+    {
+      "key": "NI05",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI05",
+      "fields": {
+        "heading": "| NI05 | Qué tan incierta/plausible es la exposición |",
+        "title": "Qué tan incierta/plausible es la exposición"
+      },
+      "sourceLines": [
+        175,
+        175
+      ]
+    },
+    {
+      "key": "NI06",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI06",
+      "fields": {
+        "heading": "| NI06 | Qué interacciones pueden amplificar/reducir exposición |",
+        "title": "Qué interacciones pueden amplificar/reducir exposición"
+      },
+      "sourceLines": [
+        176,
+        176
+      ]
+    },
+    {
+      "key": "NI07",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI07",
+      "fields": {
+        "heading": "| NI07 | Dónde existe concentración de exposición |",
+        "title": "Dónde existe concentración de exposición"
+      },
+      "sourceLines": [
+        177,
+        177
+      ]
+    },
+    {
+      "key": "NI08",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI08",
+      "fields": {
+        "heading": "| NI08 | Qué respuesta se ha definido |",
+        "title": "Qué respuesta se ha definido"
+      },
+      "sourceLines": [
+        178,
+        178
+      ]
+    },
+    {
+      "key": "NI09",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI09",
+      "fields": {
+        "heading": "| NI09 | Cómo modifica decisiones de transformación |",
+        "title": "Cómo modifica decisiones de transformación"
+      },
+      "sourceLines": [
+        179,
+        179
+      ]
+    },
+    {
+      "key": "NI10",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI10",
+      "fields": {
+        "heading": "| NI10 | Quién responde y quién puede aceptar/escalar |",
+        "title": "Quién responde y quién puede aceptar/escalar"
+      },
+      "sourceLines": [
+        180,
+        180
+      ]
+    },
+    {
+      "key": "NI11",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI11",
+      "fields": {
+        "heading": "| NI11 | Qué señales indican cambio de exposición |",
+        "title": "Qué señales indican cambio de exposición"
+      },
+      "sourceLines": [
+        181,
+        181
+      ]
+    },
+    {
+      "key": "NI12",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI12",
+      "fields": {
+        "heading": "| NI12 | Cómo se revisa la respuesta |",
+        "title": "Cómo se revisa la respuesta"
+      },
+      "sourceLines": [
+        182,
+        182
+      ]
+    },
+    {
+      "key": "MAT-DG05-01",
+      "objectType": "SOURCE_ID_MAT",
+      "sourceId": "MAT-DG05-01",
+      "fields": {
+        "heading": "MAT-DG05-01",
+        "body": [
+          "Materialidad de riesgo no depende únicamente de probabilidad × impacto.",
+          "Ese cálculo puede ser útil en determinados contextos, pero Pymapa no lo convertirá en regla universal.",
+          "También pueden importar:",
+          "- irreversibilidad;",
+          "- velocidad de materialización;",
+          "- concentración;",
+          "- capacidad de recuperación;",
+          "- dependencia;",
+          "- detectabilidad;",
+          "- obligaciones externas;",
+          "- efecto sistémico."
+        ]
+      },
+      "sourceLines": [
+        188,
+        199
+      ]
+    },
+    {
+      "key": "STOP-DG05-01",
+      "objectType": "SOURCE_ID_STOP",
+      "sourceId": "STOP-DG05-01",
+      "fields": {
+        "heading": "STOP-DG05-01",
+        "body": [
+          "Si la incertidumbre es demasiado alta para clasificar materialidad:",
+          "no inventar rating; aumentar información si su valor esperado justifica hacerlo.",
+          "Aquí reaparece Value of Information."
+        ]
+      },
+      "sourceLines": [
+        209,
+        212
+      ]
+    },
+    {
+      "key": "R-DG05-01",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG05-01",
+      "fields": {
+        "heading": "R-DG05-01 · MATERIAL_RISK_VISIBILITY_GAP",
+        "title": "MATERIAL_RISK_VISIBILITY_GAP",
+        "body": [
+          "Exposiciones materiales plausibles permanecen insuficientemente visibles."
+        ]
+      },
+      "sourceLines": [
+        270,
+        271
+      ]
+    },
+    {
+      "key": "R-DG05-02",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG05-02",
+      "fields": {
+        "heading": "R-DG05-02 · MATERIAL_DEPENDENCY_VISIBILITY_GAP",
+        "title": "MATERIAL_DEPENDENCY_VISIBILITY_GAP",
+        "body": [
+          "Dependencias capaces de modificar decisiones/resultados no están suficientemente identificadas."
+        ]
+      },
+      "sourceLines": [
+        272,
+        273
+      ]
+    },
+    {
+      "key": "R-DG05-03",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG05-03",
+      "fields": {
+        "heading": "R-DG05-03 · CONSEQUENCE_UNCLEAR",
+        "title": "CONSEQUENCE_UNCLEAR",
+        "body": [
+          "No se comprende suficientemente qué objetivo o resultado podría verse afectado."
+        ]
+      },
+      "sourceLines": [
+        274,
+        275
+      ]
+    },
+    {
+      "key": "R-DG05-04",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG05-04",
+      "fields": {
+        "heading": "R-DG05-04 · UNCERTAINTY_POORLY_CHARACTERIZED",
+        "title": "UNCERTAINTY_POORLY_CHARACTERIZED",
+        "body": [
+          "La incertidumbre se trata con certeza injustificada o sin información suficiente."
+        ]
+      },
+      "sourceLines": [
+        276,
+        277
+      ]
+    },
+    {
+      "key": "R-DG05-05",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG05-05",
+      "fields": {
+        "heading": "R-DG05-05 · INTERDEPENDENCY_BLIND_SPOT",
+        "title": "INTERDEPENDENCY_BLIND_SPOT",
+        "body": [
+          "No se consideran suficientemente interacciones materiales entre iniciativas/condiciones."
+        ]
+      },
+      "sourceLines": [
+        278,
+        279
+      ]
+    },
+    {
+      "key": "R-DG05-06",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG05-06",
+      "fields": {
+        "heading": "R-DG05-06 · EXPOSURE_CONCENTRATION_BLIND_SPOT",
+        "title": "EXPOSURE_CONCENTRATION_BLIND_SPOT",
+        "body": [
+          "La acumulación/concentración de exposición permanece oculta."
+        ]
+      },
+      "sourceLines": [
+        280,
+        281
+      ]
+    },
+    {
+      "key": "R-DG05-07",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG05-07",
+      "fields": {
+        "heading": "R-DG05-07 · RESPONSE_UNDEFINED",
+        "title": "RESPONSE_UNDEFINED",
+        "body": [
+          "Una exposición material que requiere tratamiento carece de respuesta suficientemente definida."
+        ]
+      },
+      "sourceLines": [
+        282,
+        283
+      ]
+    },
+    {
+      "key": "R-DG05-08",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG05-08",
+      "fields": {
+        "heading": "R-DG05-08 · RESPONSE_DISPROPORTIONATE",
+        "title": "RESPONSE_DISPROPORTIONATE",
+        "body": [
+          "La respuesta resulta materialmente insuficiente o excesiva respecto de la exposición y contexto."
+        ]
+      },
+      "sourceLines": [
+        284,
+        285
+      ]
+    },
+    {
+      "key": "R-DG05-09",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG05-09",
+      "fields": {
+        "heading": "R-DG05-09 · RISK_NOT_INTEGRATED_IN_DECISION",
+        "title": "RISK_NOT_INTEGRATED_IN_DECISION",
+        "body": [
+          "Información material de riesgo/dependencia no modifica decisiones cuando razonablemente debería hacerlo."
+        ]
+      },
+      "sourceLines": [
+        286,
+        287
+      ]
+    },
+    {
+      "key": "R-DG05-10",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG05-10",
+      "fields": {
+        "heading": "R-DG05-10 · RISK_OWNERSHIP_GAP",
+        "title": "RISK_OWNERSHIP_GAP",
+        "body": [
+          "No existe responsabilidad suficiente sobre observación/respuesta."
+        ]
+      },
+      "sourceLines": [
+        288,
+        289
+      ]
+    },
+    {
+      "key": "R-DG05-11",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG05-11",
+      "fields": {
+        "heading": "R-DG05-11 · ESCALATION_ACCEPTANCE_GAP",
+        "title": "ESCALATION_ACCEPTANCE_GAP",
+        "body": [
+          "Exposición fuera del ámbito del responsable carece de vía funcional de aceptación/escalamiento."
+        ]
+      },
+      "sourceLines": [
+        290,
+        291
+      ]
+    },
+    {
+      "key": "R-DG05-12",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG05-12",
+      "fields": {
+        "heading": "R-DG05-12 · STATIC_RISK_RESPONSE",
+        "title": "STATIC_RISK_RESPONSE",
+        "body": [
+          "La respuesta permanece sin revisión pese a cambios materiales."
+        ]
+      },
+      "sourceLines": [
+        292,
+        293
+      ]
+    },
+    {
+      "key": "CONTR-DG05-01",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-DG05-01",
+      "fields": {
+        "heading": "CONTR-DG05-01 · DECLARED_RISK_CONTROLLED_vs_OBSERVED_EXPOSURE",
+        "title": "DECLARED_RISK_CONTROLLED_vs_OBSERVED_EXPOSURE",
+        "body": [
+          "Ejemplo:",
+          "“La dependencia del proveedor está controlada.”",
+          "pero:",
+          "no existe alternativa, SLA, contingencia ni conocimiento suficiente del impacto de una interrupción.",
+          "Eso no demuestra automáticamente que el riesgo sea inaceptable.",
+          "Demuestra que la afirmación “controlado” necesita contrastarse."
+        ]
+      },
+      "sourceLines": [
+        296,
+        302
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DG05-01",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG05-01",
+      "fields": {
+        "heading": "CAND-MOTOR-DG05-01 · Riesgo, dependencia, exposición, respuesta, exposición residual e issue deben modelarse como objetos relacionados pero no equivalentes.",
+        "title": "Riesgo, dependencia, exposición, respuesta, exposición residual e issue deben modelarse como objetos relacionados pero no equivalentes.",
+        "body": [
+          "Y otro principio muy importante:"
+        ]
+      },
+      "sourceLines": [
+        329,
+        330
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DG05-02",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG05-02",
+      "fields": {
+        "heading": "CAND-MOTOR-DG05-02 · El riesgo agregado no puede calcularse necesariamente sumando riesgos individuales; las interdependencias pueden crear, amplificar o reducir exposición sistémica.",
+        "title": "El riesgo agregado no puede calcularse necesariamente sumando riesgos individuales; las interdependencias pueden crear, amplificar o reducir exposición sistémica.",
+        "body": [
+          "PMI respalda precisamente que el riesgo del portafolio puede emerger de las interacciones entre componentes y que los riesgos deben considerarse también de manera agregada. Project Management Institute"
+        ]
+      },
+      "sourceLines": [
+        331,
+        332
+      ]
+    },
+    {
+      "key": "R-DG05-TREAT-01",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG05-TREAT-01",
+      "fields": {
+        "heading": "R-DG05-TREAT-01 · Detectar riesgo no obliga automáticamente a reducirlo.",
+        "title": "Detectar riesgo no obliga automáticamente a reducirlo.",
+        "body": [
+          "Puede ser racional aceptar una exposición cuando:",
+          "- el costo de mitigación excede su valor;",
+          "- existe capacidad de recuperación;",
+          "- el riesgo es necesario para capturar valor;",
+          "- la exposición está dentro de tolerancias razonables;",
+          "- intervenir crearía una exposición mayor.",
+          "Por tanto:",
+          "no actuar ≠ no gobernar, siempre que exista una decisión consciente y suficientemente fundamentada."
+        ]
+      },
+      "sourceLines": [
+        393,
+        401
+      ]
+    },
+    {
+      "key": "IP-DG05-01",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP-DG05-01",
+      "fields": {
+        "heading": "| IP-DG05-01 | Hacer visible exposición material |",
+        "title": "Hacer visible exposición material"
+      },
+      "sourceLines": [
+        406,
+        406
+      ]
+    },
+    {
+      "key": "IP-DG05-02",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP-DG05-02",
+      "fields": {
+        "heading": "| IP-DG05-02 | Mapear dependencias materiales |",
+        "title": "Mapear dependencias materiales"
+      },
+      "sourceLines": [
+        407,
+        407
+      ]
+    },
+    {
+      "key": "IP-DG05-03",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP-DG05-03",
+      "fields": {
+        "heading": "| IP-DG05-03 | Caracterizar materialidad proporcionalmente |",
+        "title": "Caracterizar materialidad proporcionalmente"
+      },
+      "sourceLines": [
+        408,
+        408
+      ]
+    },
+    {
+      "key": "IP-DG05-04",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP-DG05-04",
+      "fields": {
+        "heading": "| IP-DG05-04 | Evaluar concentración e interdependencias |",
+        "title": "Evaluar concentración e interdependencias"
+      },
+      "sourceLines": [
+        409,
+        409
+      ]
+    },
+    {
+      "key": "IP-DG05-05",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP-DG05-05",
+      "fields": {
+        "heading": "| IP-DG05-05 | Definir respuesta proporcional |",
+        "title": "Definir respuesta proporcional"
+      },
+      "sourceLines": [
+        410,
+        410
+      ]
+    },
+    {
+      "key": "IP-DG05-06",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP-DG05-06",
+      "fields": {
+        "heading": "| IP-DG05-06 | Integrar exposición en decisiones |",
+        "title": "Integrar exposición en decisiones"
+      },
+      "sourceLines": [
+        411,
+        411
+      ]
+    },
+    {
+      "key": "IP-DG05-07",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP-DG05-07",
+      "fields": {
+        "heading": "| IP-DG05-07 | Establecer ownership/escalamiento |",
+        "title": "Establecer ownership/escalamiento"
+      },
+      "sourceLines": [
+        412,
+        412
+      ]
+    },
+    {
+      "key": "IP-DG05-08",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP-DG05-08",
+      "fields": {
+        "heading": "| IP-DG05-08 | Implementar revisión adaptativa |",
+        "title": "Implementar revisión adaptativa"
+      },
+      "sourceLines": [
+        413,
+        413
+      ]
+    },
+    {
+      "key": "INS-DG05-01",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DG05-01",
+      "fields": {
+        "heading": "INS-DG05-01 · Mapa mínimo de exposición",
+        "title": "Mapa mínimo de exposición"
+      },
+      "sourceLines": [
+        423,
+        423
+      ]
+    },
+    {
+      "key": "INS-DG05-02",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DG05-02",
+      "fields": {
+        "heading": "INS-DG05-02 · Mapa de dependencias",
+        "title": "Mapa de dependencias"
+      },
+      "sourceLines": [
+        424,
+        424
+      ]
+    },
+    {
+      "key": "INS-DG05-03",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DG05-03",
+      "fields": {
+        "heading": "INS-DG05-03 · Ficha de exposición material",
+        "title": "Ficha de exposición material"
+      },
+      "sourceLines": [
+        425,
+        425
+      ]
+    },
+    {
+      "key": "INS-DG05-04",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DG05-04",
+      "fields": {
+        "heading": "INS-DG05-04 · Mapa de concentración/interdependencias",
+        "title": "Mapa de concentración/interdependencias"
+      },
+      "sourceLines": [
+        426,
+        426
+      ]
+    },
+    {
+      "key": "INS-DG05-05",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DG05-05",
+      "fields": {
+        "heading": "INS-DG05-05 · Ficha exposición–respuesta",
+        "title": "Ficha exposición–respuesta"
+      },
+      "sourceLines": [
+        427,
+        427
+      ]
+    },
+    {
+      "key": "INS-DG05-06",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DG05-06",
+      "fields": {
+        "heading": "INS-DG05-06 · Mapa exposición–decisión",
+        "title": "Mapa exposición–decisión"
+      },
+      "sourceLines": [
+        428,
+        428
+      ]
+    },
+    {
+      "key": "INS-DG05-07",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DG05-07",
+      "fields": {
+        "heading": "INS-DG05-07 · Registro de revisión y triggers",
+        "title": "Registro de revisión y triggers",
+        "body": [
+          "PMI reconoce específicamente que interdependencias de resultados, calendario y recursos pueden modificar el riesgo del portafolio, lo que respalda la necesidad de mirar relaciones además de componentes aislados. Project Management Institute"
+        ]
+      },
+      "sourceLines": [
+        429,
+        430
+      ]
+    },
+    {
+      "key": "DEL-DG05-01",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG05-01",
+      "fields": {
+        "heading": "DEL-DG05-01 · exposiciones materiales visibles",
+        "title": "exposiciones materiales visibles"
+      },
+      "sourceLines": [
+        434,
+        434
+      ]
+    },
+    {
+      "key": "DEL-DG05-02",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG05-02",
+      "fields": {
+        "heading": "DEL-DG05-02 · dependencias materiales explícitas",
+        "title": "dependencias materiales explícitas"
+      },
+      "sourceLines": [
+        435,
+        435
+      ]
+    },
+    {
+      "key": "DEL-DG05-03",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG05-03",
+      "fields": {
+        "heading": "DEL-DG05-03 · consecuencias/plausibilidad suficientemente comprendidas",
+        "title": "consecuencias/plausibilidad suficientemente comprendidas"
+      },
+      "sourceLines": [
+        436,
+        436
+      ]
+    },
+    {
+      "key": "DEL-DG05-04",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG05-04",
+      "fields": {
+        "heading": "DEL-DG05-04 · exposición agregada/interdependiente comprendida",
+        "title": "exposición agregada/interdependiente comprendida"
+      },
+      "sourceLines": [
+        437,
+        437
+      ]
+    },
+    {
+      "key": "DEL-DG05-05",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG05-05",
+      "fields": {
+        "heading": "DEL-DG05-05 · respuestas proporcionales definidas",
+        "title": "respuestas proporcionales definidas"
+      },
+      "sourceLines": [
+        438,
+        438
+      ]
+    },
+    {
+      "key": "DEL-DG05-06",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG05-06",
+      "fields": {
+        "heading": "DEL-DG05-06 · decisiones de transformación informadas por exposición",
+        "title": "decisiones de transformación informadas por exposición"
+      },
+      "sourceLines": [
+        439,
+        439
+      ]
+    },
+    {
+      "key": "DEL-DG05-07",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG05-07",
+      "fields": {
+        "heading": "DEL-DG05-07 · ownership y escalamiento funcionales",
+        "title": "ownership y escalamiento funcionales"
+      },
+      "sourceLines": [
+        440,
+        440
+      ]
+    },
+    {
+      "key": "DEL-DG05-08",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG05-08",
+      "fields": {
+        "heading": "DEL-DG05-08 · mecanismo adaptativo de revisión activo",
+        "title": "mecanismo adaptativo de revisión activo"
+      },
+      "sourceLines": [
+        441,
+        441
+      ]
+    },
+    {
+      "key": "CRV-DG05-01",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG05-01",
+      "fields": {
+        "heading": "| CRV-DG05-01 | Exposiciones materiales suficientemente identificadas |",
+        "title": "Exposiciones materiales suficientemente identificadas"
+      },
+      "sourceLines": [
+        459,
+        459
+      ]
+    },
+    {
+      "key": "CRV-DG05-02",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG05-02",
+      "fields": {
+        "heading": "| CRV-DG05-02 | Dependencias materiales suficientemente identificadas |",
+        "title": "Dependencias materiales suficientemente identificadas"
+      },
+      "sourceLines": [
+        460,
+        460
+      ]
+    },
+    {
+      "key": "CRV-DG05-03",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG05-03",
+      "fields": {
+        "heading": "| CRV-DG05-03 | Materialidad suficientemente caracterizada |",
+        "title": "Materialidad suficientemente caracterizada"
+      },
+      "sourceLines": [
+        461,
+        461
+      ]
+    },
+    {
+      "key": "CRV-DG05-04",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG05-04",
+      "fields": {
+        "heading": "| CRV-DG05-04 | Concentraciones/interdependencias relevantes evaluadas |",
+        "title": "Concentraciones/interdependencias relevantes evaluadas"
+      },
+      "sourceLines": [
+        462,
+        462
+      ]
+    },
+    {
+      "key": "CRV-DG05-05",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG05-05",
+      "fields": {
+        "heading": "| CRV-DG05-05 | Respuestas proporcionales explícitamente establecidas |",
+        "title": "Respuestas proporcionales explícitamente establecidas"
+      },
+      "sourceLines": [
+        463,
+        463
+      ]
+    },
+    {
+      "key": "CRV-DG05-06",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG05-06",
+      "fields": {
+        "heading": "| CRV-DG05-06 | Evidencia de incorporación en decisiones materiales |",
+        "title": "Evidencia de incorporación en decisiones materiales"
+      },
+      "sourceLines": [
+        464,
+        464
+      ]
+    },
+    {
+      "key": "CRV-DG05-07",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG05-07",
+      "fields": {
+        "heading": "| CRV-DG05-07 | Ownership/escalamiento funcionalmente establecidos |",
+        "title": "Ownership/escalamiento funcionalmente establecidos"
+      },
+      "sourceLines": [
+        465,
+        465
+      ]
+    },
+    {
+      "key": "CRV-DG05-08",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG05-08",
+      "fields": {
+        "heading": "| CRV-DG05-08 | Respuestas revisadas cuando cambia materialmente la exposición |",
+        "title": "Respuestas revisadas cuando cambia materialmente la exposición"
+      },
+      "sourceLines": [
+        466,
+        466
+      ]
+    },
+    {
+      "key": "V0",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V0",
+      "fields": {
+        "heading": "V0",
+        "body": [
+          "No existe evidencia suficiente de gobierno."
+        ]
+      },
+      "sourceLines": [
+        473,
+        474
+      ]
+    },
+    {
+      "key": "V1",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V1",
+      "fields": {
+        "heading": "V1",
+        "body": [
+          "Exposición/respuesta documentada o declarada."
+        ]
+      },
+      "sourceLines": [
+        475,
+        476
+      ]
+    },
+    {
+      "key": "V2",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V2",
+      "fields": {
+        "heading": "V2",
+        "body": [
+          "Existe evidencia de que exposición, respuesta y decisión están funcionalmente conectadas."
+        ]
+      },
+      "sourceLines": [
+        477,
+        478
+      ]
+    },
+    {
+      "key": "V3",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V3",
+      "fields": {
+        "heading": "V3",
+        "body": [
+          "Existe evidencia longitudinal de revisión/adaptación cuando cambian las condiciones."
+        ]
+      },
+      "sourceLines": [
+        479,
+        480
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DG05-03",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG05-03",
+      "fields": {
+        "heading": "CAND-MOTOR-DG05-03 · La evaluación de calidad de una decisión bajo incertidumbre debe considerar información disponible al momento de decidir y no inferirse únicamente desde el resultado posterior.",
+        "title": "La evaluación de calidad de una decisión bajo incertidumbre debe considerar información disponible al momento de decidir y no inferirse únicamente desde el resultado posterior.",
+        "body": [
+          "Esto es muy importante para Pymapa.",
+          "Evita que el sistema aprenda reglas del tipo:",
+          "“salió bien → fue buena decisión”."
+        ]
+      },
+      "sourceLines": [
+        486,
+        489
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DG05-04",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG05-04",
+      "fields": {
+        "heading": "CAND-MOTOR-DG05-04 · Toda respuesta material puede producir una exposición residual que requiere aceptación, tratamiento adicional o seguimiento.",
+        "title": "Toda respuesta material puede producir una exposición residual que requiere aceptación, tratamiento adicional o seguimiento."
+      },
+      "sourceLines": [
+        502,
+        502
+      ]
+    },
+    {
+      "key": "REASS-DG05-01",
+      "objectType": "SOURCE_ID_REASS",
+      "sourceId": "REASS-DG05-01",
+      "fields": {
+        "heading": "REASS-DG05-01",
+        "body": [
+          "La ausencia de nuevos incidentes no es por sí sola evidencia suficiente para mantener indefinidamente una evaluación previa."
+        ]
+      },
+      "sourceLines": [
+        522,
+        523
+      ]
+    },
+    {
+      "key": "SOURCE-REVIEW-TRIGGER-DG05-01",
+      "objectType": "SOURCE_ID_SOURCE",
+      "sourceId": "SOURCE-REVIEW-TRIGGER-DG05-01",
+      "fields": {
+        "heading": "SOURCE-REVIEW-TRIGGER-DG05-01 · Revisar Knowledge Pack DG-05 cuando ISO 31000 Edition 3 alcance publicación definitiva.",
+        "title": "Revisar Knowledge Pack DG-05 cuando ISO 31000 Edition 3 alcance publicación definitiva.",
+        "body": [
+          "PMI aporta:",
+          "- riesgo en portafolios/programas/proyectos;",
+          "- amenazas y oportunidades;",
+          "- ciclo de gestión;",
+          "- interdependencias;",
+          "- respuestas a nivel agregado;",
+          "- relación entre riesgos y objetivos.",
+          "La guía vigente de PMI fue publicada en septiembre de 2024. Project Management Institute"
+        ]
+      },
+      "sourceLines": [
+        550,
+        558
+      ]
+    },
+    {
+      "key": "K1",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Coherencia — PASS.",
+        "title": "Coherencia — PASS.",
+        "body": [
+          "Riesgo, dependencia, issue y exposición quedan diferenciados. DG-05 no absorbe DT-05, EC-05 ni OP-05."
+        ]
+      },
+      "sourceLines": [
+        606,
+        607
+      ]
+    },
+    {
+      "key": "K2",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Razonamiento — PASS.",
+        "title": "Razonamiento — PASS.",
+        "body": [
+          "No confundimos riesgo con problema, resultado con calidad de decisión, dependencia con falla, ni ausencia de incidente con buen gobierno."
+        ]
+      },
+      "sourceLines": [
+        608,
+        609
+      ]
+    },
+    {
+      "key": "K3",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · Acción — PASS.",
+        "title": "Acción — PASS.",
+        "body": [
+          "Los findings pueden conducir a respuestas proporcionales, incluida explícitamente la decisión válida de observar, aceptar, resecuenciar o no intervenir."
+        ]
+      },
+      "sourceLines": [
+        610,
+        611
+      ]
+    },
+    {
+      "key": "K4",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · Conocimiento — PASS.",
+        "title": "Conocimiento — PASS.",
+        "body": [
+          "Existe grounding externo suficiente, provenance explícito y trigger de actualización de ISO 31000."
+        ]
+      },
+      "sourceLines": [
+        612,
+        613
+      ]
+    }
+  ],
+  "supersessions": [],
+  "executableProjection": {
+    "sourceRef": "source.json",
+    "verbatimKeys": [
+      "heading",
+      "title",
+      "body"
+    ],
+    "projectedObjectTypes": [],
+    "canonicalOnlyGapRefs": []
+  },
+  "gaps": [],
+  "transcriptionCorrections": [],
+  "checksum": "sha256:1a0a0d4b3c4cb7e35973b1980cdfd40fcf6e2aa8ddb1f7565ec6d1e9264db603"
+}

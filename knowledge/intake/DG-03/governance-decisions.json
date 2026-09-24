@@ -1,0 +1,39 @@
+{
+  "$schema": "../../schemas/governance-decisions.schema.json",
+  "decisionSetId": "M2-FACTORY-CLOSURE",
+  "capabilityId": "DG-03",
+  "decidedBy": "PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY",
+  "decidedByIdentity": "ROLE_ONLY · no personal identity recorded or fabricated; the file-based governance mechanism exposes no authenticated project actor identity",
+  "decidedAt": "2026-09-24",
+  "authorizationSource": "M2-FACTORY-CLOSURE · B (governed source decisions) + C (DG/PC governed completion): provenance labels are source assertions verified literally",
+  "statement": "Decisiones humanas de gobierno sobre la fuente registrada. No son aceptación canónica, no aprueban el candidato y no publican; el extractor las aplica solo si se verifican literalmente contra la fuente.",
+  "approvedCounts": [],
+  "governedBacklog": [],
+  "collisionResolutions": [
+    {
+      "sourceIds": [
+        "CAND-MOTOR-AI-GOV-01"
+      ],
+      "resolution": "SELECT_OCCURRENCE",
+      "within": {
+        "fromLiteral": "Para Pymapa conservamos:",
+        "toLiteral": "Esto no significa necesariamente que siempre deba existir “una persona única responsable”; la configuración jurídica y organizacional puede variar. La regla importante es que la accountability no desaparece porque intervenga IA."
+      },
+      "canonicalLiteral": "El uso de IA para apoyar una decisión no elimina la necesidad de accountability organizacional sobre la decisión material.",
+      "rationale": "M2-FACTORY-CLOSURE B1: formulación posterior de gobierno/cierre canónica; la formulación previa más extensa se preserva como provenance histórica."
+    }
+  ],
+  "semanticTypes": [],
+  "provenanceVocabulary": [
+    {
+      "scheme": "PROVENANCE_CLASS",
+      "anchorLiteral": "## Grounding documental",
+      "windowLines": 15,
+      "codes": [
+        "SOURCE-DERIVED",
+        "PYMAPA-DESIGNED / SYNTHESIZED"
+      ]
+    }
+  ],
+  "checksum": "sha256:867b88ada53bd1b53399208d6278d2a9d41075b9eccc9f090f0f3559fc99b6d1"
+}

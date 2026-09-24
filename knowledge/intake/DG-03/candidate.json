@@ -19,7 +19,28 @@
       573
     ]
   },
-  "provenanceVocabulary": [],
+  "provenanceVocabulary": [
+    {
+      "code": "SOURCE-DERIVED",
+      "label": "SOURCE-DERIVED",
+      "meaning": "ISO 37000 soporta directamente:",
+      "sourceLines": [
+        494,
+        495
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "PYMAPA-DESIGNED / SYNTHESIZED",
+      "label": "PYMAPA-DESIGNED / SYNTHESIZED",
+      "meaning": "Son objetos propios:",
+      "sourceLines": [
+        507,
+        508
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    }
+  ],
   "controlCounts": [
     {
       "label": "CE",
@@ -31,12 +52,39 @@
       ]
     },
     {
+      "label": "CRV",
+      "declared": 7,
+      "objectType": "SOURCE_ID_CRV",
+      "sourceLines": [
+        583,
+        583
+      ]
+    },
+    {
+      "label": "NI",
+      "declared": 10,
+      "objectType": "SOURCE_ID_NI",
+      "sourceLines": [
+        577,
+        577
+      ]
+    },
+    {
       "label": "STOP",
       "declared": 2,
       "objectType": "SOURCE_ID_STOP",
       "sourceLines": [
         320,
         320
+      ]
+    },
+    {
+      "label": "VA",
+      "declared": 10,
+      "objectType": "SOURCE_ID_VA",
+      "sourceLines": [
+        576,
+        576
       ]
     }
   ],
@@ -55,16 +103,58 @@
         "heading": "CE01 · Responsabilidad explícita",
         "title": "Responsabilidad explícita",
         "body": [
-          "| VA | Variable |",
-          "| VA01 | Responsabilidad sobre decisiones relevantes |",
-          "| VA02 | Accountability sobre resultados de transformación |",
+          "| VA | Variable |"
+        ]
+      },
+      "sourceLines": [
+        38,
+        39
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "VA01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA01",
+      "fields": {
+        "heading": "| VA01 | Responsabilidad sobre decisiones relevantes |",
+        "title": "Responsabilidad sobre decisiones relevantes"
+      },
+      "sourceLines": [
+        40,
+        40
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "VA02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA02",
+      "fields": {
+        "heading": "| VA02 | Accountability sobre resultados de transformación |",
+        "title": "Accountability sobre resultados de transformación",
+        "body": [
           "Aquí distinguimos:",
           "hacer trabajo ≠ responder por el resultado.",
           "Una persona puede ejecutar múltiples actividades sin ser quien responde por la decisión o resultado."
         ]
       },
       "sourceLines": [
-        38,
+        41,
         44
       ],
       "approvalEvidence": {
@@ -84,9 +174,51 @@
         "heading": "CE02 · Autoridad suficiente",
         "title": "Autoridad suficiente",
         "body": [
-          "| VA | Variable |",
-          "| VA03 | Autoridad efectiva dentro del ámbito asignado |",
-          "| VA04 | Coherencia responsabilidad–autoridad |",
+          "| VA | Variable |"
+        ]
+      },
+      "sourceLines": [
+        46,
+        47
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "VA03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA03",
+      "fields": {
+        "heading": "| VA03 | Autoridad efectiva dentro del ámbito asignado |",
+        "title": "Autoridad efectiva dentro del ámbito asignado"
+      },
+      "sourceLines": [
+        48,
+        48
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "VA04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "| VA04 | Coherencia responsabilidad–autoridad |",
+        "title": "Coherencia responsabilidad–autoridad",
+        "body": [
           "Principio fundamental:",
           "Responsabilidad sin autoridad suficiente = responsabilidad nominal.",
           "Pero tampoco queremos el extremo contrario:",
@@ -94,7 +226,7 @@
         ]
       },
       "sourceLines": [
-        46,
+        49,
         53
       ],
       "approvalEvidence": {
@@ -114,9 +246,51 @@
         "heading": "CE03 · Claridad del mecanismo decisional",
         "title": "Claridad del mecanismo decisional",
         "body": [
-          "| VA | Variable |",
-          "| VA05 | Claridad sobre qué decisiones corresponden a quién |",
-          "| VA06 | Acceso a información y participación necesarias para decidir |",
+          "| VA | Variable |"
+        ]
+      },
+      "sourceLines": [
+        55,
+        56
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "VA05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "| VA05 | Claridad sobre qué decisiones corresponden a quién |",
+        "title": "Claridad sobre qué decisiones corresponden a quién"
+      },
+      "sourceLines": [
+        57,
+        57
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "VA06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "| VA06 | Acceso a información y participación necesarias para decidir |",
+        "title": "Acceso a información y participación necesarias para decidir",
+        "body": [
           "Una persona puede tener autoridad formal y seguir siendo incapaz de decidir si:",
           "- recibe información demasiado tarde;",
           "- depende de múltiples aprobaciones informales;",
@@ -127,7 +301,7 @@
         ]
       },
       "sourceLines": [
-        55,
+        58,
         65
       ],
       "approvalEvidence": {
@@ -147,9 +321,51 @@
         "heading": "CE04 · Escalamiento y resolución",
         "title": "Escalamiento y resolución",
         "body": [
-          "| VA | Variable |",
-          "| VA07 | Límites/tolerancias de decisión |",
-          "| VA08 | Mecanismo funcional de escalamiento y resolución |",
+          "| VA | Variable |"
+        ]
+      },
+      "sourceLines": [
+        67,
+        68
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "VA07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "| VA07 | Límites/tolerancias de decisión |",
+        "title": "Límites/tolerancias de decisión"
+      },
+      "sourceLines": [
+        69,
+        69
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "VA08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "| VA08 | Mecanismo funcional de escalamiento y resolución |",
+        "title": "Mecanismo funcional de escalamiento y resolución",
+        "body": [
           "No toda decisión debe subir al dueño/gerente.",
           "Tampoco toda decisión debe descentralizarse.",
           "La pregunta es:",
@@ -157,7 +373,7 @@
         ]
       },
       "sourceLines": [
-        67,
+        70,
         74
       ],
       "approvalEvidence": {
@@ -177,15 +393,57 @@
         "heading": "CE05 · Continuidad y trazabilidad",
         "title": "Continuidad y trazabilidad",
         "body": [
-          "| VA | Variable |",
-          "| VA09 | Oportunidad y trazabilidad de decisiones materiales |",
-          "| VA10 | Continuidad de responsabilidad ante cambios de personas/roles |",
+          "| VA | Variable |"
+        ]
+      },
+      "sourceLines": [
+        76,
+        77
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "VA09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA09",
+      "fields": {
+        "heading": "| VA09 | Oportunidad y trazabilidad de decisiones materiales |",
+        "title": "Oportunidad y trazabilidad de decisiones materiales"
+      },
+      "sourceLines": [
+        78,
+        78
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "VA10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA10",
+      "fields": {
+        "heading": "| VA10 | Continuidad de responsabilidad ante cambios de personas/roles |",
+        "title": "Continuidad de responsabilidad ante cambios de personas/roles",
+        "body": [
           "Esta última variable es particularmente relevante para pymes.",
           "Si toda decisión depende exclusivamente del fundador y nada puede funcionar cuando no está disponible, existe una posible fragilidad de gobierno aunque las decisiones normalmente sean buenas."
         ]
       },
       "sourceLines": [
-        76,
+        79,
         81
       ],
       "approvalEvidence": {
@@ -510,6 +768,216 @@
       "sourceLines": [
         115,
         117
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "NI01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI01",
+      "fields": {
+        "heading": "| NI01 | Qué decisiones materiales de transformación requieren responsabilidad explícita |",
+        "title": "Qué decisiones materiales de transformación requieren responsabilidad explícita"
+      },
+      "sourceLines": [
+        122,
+        122
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "NI02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI02",
+      "fields": {
+        "heading": "| NI02 | Quién responde por sus resultados |",
+        "title": "Quién responde por sus resultados"
+      },
+      "sourceLines": [
+        123,
+        123
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "NI03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI03",
+      "fields": {
+        "heading": "| NI03 | Qué autoridad posee realmente cada responsable |",
+        "title": "Qué autoridad posee realmente cada responsable"
+      },
+      "sourceLines": [
+        124,
+        124
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "NI04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI04",
+      "fields": {
+        "heading": "| NI04 | Si autoridad y responsabilidad guardan correspondencia |",
+        "title": "Si autoridad y responsabilidad guardan correspondencia"
+      },
+      "sourceLines": [
+        125,
+        125
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "NI05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI05",
+      "fields": {
+        "heading": "| NI05 | Si está suficientemente claro quién decide qué |",
+        "title": "Si está suficientemente claro quién decide qué"
+      },
+      "sourceLines": [
+        126,
+        126
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "NI06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI06",
+      "fields": {
+        "heading": "| NI06 | Si los decisores acceden a información/actores necesarios |",
+        "title": "Si los decisores acceden a información/actores necesarios"
+      },
+      "sourceLines": [
+        127,
+        127
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "NI07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI07",
+      "fields": {
+        "heading": "| NI07 | Qué pueden decidir autónomamente y cuáles son sus límites |",
+        "title": "Qué pueden decidir autónomamente y cuáles son sus límites"
+      },
+      "sourceLines": [
+        128,
+        128
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "NI08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI08",
+      "fields": {
+        "heading": "| NI08 | Cómo se resuelven decisiones fuera de esos límites |",
+        "title": "Cómo se resuelven decisiones fuera de esos límites"
+      },
+      "sourceLines": [
+        129,
+        129
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "NI09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI09",
+      "fields": {
+        "heading": "| NI09 | Si las decisiones materiales ocurren oportunamente y dejan trazabilidad proporcional |",
+        "title": "Si las decisiones materiales ocurren oportunamente y dejan trazabilidad proporcional"
+      },
+      "sourceLines": [
+        130,
+        130
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "NI10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI10",
+      "fields": {
+        "heading": "| NI10 | Qué ocurre con la responsabilidad cuando cambia o falta una persona clave |",
+        "title": "Qué ocurre con la responsabilidad cuando cambia o falta una persona clave"
+      },
+      "sourceLines": [
+        131,
+        131
       ],
       "approvalEvidence": {
         "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
@@ -1197,7 +1665,7 @@
     },
     {
       "key": "CAND-MOTOR-AI-GOV-01@L309",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_CAND",
       "sourceId": "CAND-MOTOR-AI-GOV-01",
       "fields": {
@@ -1210,7 +1678,9 @@
       "sourceLines": [
         309,
         310
-      ]
+      ],
+      "governanceDecision": "M2-FACTORY-CLOSURE",
+      "supersededBy": "CAND-MOTOR-AI-GOV-01@L489"
     },
     {
       "key": "INT-DG03-01",
@@ -1259,6 +1729,454 @@
       "sourceLines": [
         375,
         377
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "INS-DG03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DG03-01",
+      "fields": {
+        "heading": "| INS-DG03-01 | Mapa de accountability |",
+        "title": "Mapa de accountability"
+      },
+      "sourceLines": [
+        383,
+        383
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "INS-DG03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DG03-02",
+      "fields": {
+        "heading": "| INS-DG03-02 | Mapa de decisiones materiales |",
+        "title": "Mapa de decisiones materiales"
+      },
+      "sourceLines": [
+        384,
+        384
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "INS-DG03-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DG03-03",
+      "fields": {
+        "heading": "| INS-DG03-03 | Matriz responsabilidad–autoridad |",
+        "title": "Matriz responsabilidad–autoridad"
+      },
+      "sourceLines": [
+        385,
+        385
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "INS-DG03-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DG03-04",
+      "fields": {
+        "heading": "| INS-DG03-04 | Ficha de derechos y límites de decisión |",
+        "title": "Ficha de derechos y límites de decisión"
+      },
+      "sourceLines": [
+        386,
+        386
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "INS-DG03-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DG03-05",
+      "fields": {
+        "heading": "| INS-DG03-05 | Mapa decisión–información |",
+        "title": "Mapa decisión–información"
+      },
+      "sourceLines": [
+        387,
+        387
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "INS-DG03-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DG03-06",
+      "fields": {
+        "heading": "| INS-DG03-06 | Ruta mínima de escalamiento |",
+        "title": "Ruta mínima de escalamiento"
+      },
+      "sourceLines": [
+        388,
+        388
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "INS-DG03-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DG03-07",
+      "fields": {
+        "heading": "| INS-DG03-07 | Plan de continuidad decisional |",
+        "title": "Plan de continuidad decisional",
+        "body": [
+          "No imponemos RACI, DACI, RAPID u otra metodología.",
+          "Pueden convertirse en implementaciones contextuales de estos instrumentos, no en la arquitectura maestra."
+        ]
+      },
+      "sourceLines": [
+        389,
+        391
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "DEL-DG03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG03-01",
+      "fields": {
+        "heading": "| DEL-DG03-01 | Accountability material suficientemente asignada |",
+        "title": "Accountability material suficientemente asignada"
+      },
+      "sourceLines": [
+        395,
+        395
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "DEL-DG03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG03-02",
+      "fields": {
+        "heading": "| DEL-DG03-02 | Responsabilidades relevantes desambiguadas |",
+        "title": "Responsabilidades relevantes desambiguadas"
+      },
+      "sourceLines": [
+        396,
+        396
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "DEL-DG03-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG03-03",
+      "fields": {
+        "heading": "| DEL-DG03-03 | Autoridad efectiva alineada con responsabilidad |",
+        "title": "Autoridad efectiva alineada con responsabilidad"
+      },
+      "sourceLines": [
+        397,
+        397
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "DEL-DG03-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG03-04",
+      "fields": {
+        "heading": "| DEL-DG03-04 | Derechos/límites de decisión funcionales |",
+        "title": "Derechos/límites de decisión funcionales"
+      },
+      "sourceLines": [
+        398,
+        398
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "DEL-DG03-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG03-05",
+      "fields": {
+        "heading": "| DEL-DG03-05 | Información crítica accesible al decisor |",
+        "title": "Información crítica accesible al decisor"
+      },
+      "sourceLines": [
+        399,
+        399
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "DEL-DG03-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG03-06",
+      "fields": {
+        "heading": "| DEL-DG03-06 | Escalamiento funcional y oportuno |",
+        "title": "Escalamiento funcional y oportuno"
+      },
+      "sourceLines": [
+        400,
+        400
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "DEL-DG03-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG03-07",
+      "fields": {
+        "heading": "| DEL-DG03-07 | Continuidad decisional proporcional |",
+        "title": "Continuidad decisional proporcional",
+        "body": [
+          "Una matriz terminada no constituye por sí misma el entregable."
+        ]
+      },
+      "sourceLines": [
+        401,
+        402
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG03-01",
+      "fields": {
+        "heading": "| CRV-DG03-01 | Accountability material establecida |",
+        "title": "Accountability material establecida"
+      },
+      "sourceLines": [
+        417,
+        417
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG03-02",
+      "fields": {
+        "heading": "| CRV-DG03-02 | Ambigüedad material de responsabilidad resuelta |",
+        "title": "Ambigüedad material de responsabilidad resuelta"
+      },
+      "sourceLines": [
+        418,
+        418
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG03-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG03-03",
+      "fields": {
+        "heading": "| CRV-DG03-03 | Autoridad efectiva disponible |",
+        "title": "Autoridad efectiva disponible"
+      },
+      "sourceLines": [
+        419,
+        419
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG03-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG03-04",
+      "fields": {
+        "heading": "| CRV-DG03-04 | Derechos y límites de decisión operativos |",
+        "title": "Derechos y límites de decisión operativos"
+      },
+      "sourceLines": [
+        420,
+        420
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG03-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG03-05",
+      "fields": {
+        "heading": "| CRV-DG03-05 | Información decisional material accesible |",
+        "title": "Información decisional material accesible"
+      },
+      "sourceLines": [
+        421,
+        421
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG03-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG03-06",
+      "fields": {
+        "heading": "| CRV-DG03-06 | Escalamiento capaz de producir resolución |",
+        "title": "Escalamiento capaz de producir resolución"
+      },
+      "sourceLines": [
+        422,
+        422
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "CRV-DG03-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG03-07",
+      "fields": {
+        "heading": "| CRV-DG03-07 | Continuidad decisional demostrable |",
+        "title": "Continuidad decisional demostrable"
+      },
+      "sourceLines": [
+        423,
+        423
       ],
       "approvalEvidence": {
         "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
@@ -1324,7 +2242,7 @@
     },
     {
       "key": "CAND-MOTOR-AI-GOV-01@L489",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_CAND",
       "sourceId": "CAND-MOTOR-AI-GOV-01",
       "fields": {
@@ -1337,7 +2255,15 @@
       "sourceLines": [
         489,
         490
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "Para Pymapa conservamos:",
+        "sourceLines": [
+          488,
+          488
+        ]
+      },
+      "governanceDecision": "M2-FACTORY-CLOSURE"
     },
     {
       "key": "K1",
@@ -1436,5 +2362,10 @@
       }
     }
   ],
-  "checksum": "sha256:5be07bc3b8dfe93ab6c6d26735f76cecb237b8789aeb222f670ce3f926072f57"
+  "governanceDecisions": {
+    "decisionSetId": "M2-FACTORY-CLOSURE",
+    "ref": "knowledge/intake/DG-03/governance-decisions.json",
+    "checksum": "sha256:867b88ada53bd1b53399208d6278d2a9d41075b9eccc9f090f0f3559fc99b6d1"
+  },
+  "checksum": "sha256:29afb0c71d0671e0cef11bde513b12f21507a7cd212c8e785d1b295f183afa56"
 }
