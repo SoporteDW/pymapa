@@ -187,12 +187,12 @@ describe.each(["OP-03", "OP-04", "OP-05"])("%s · candidato estructural gobernad
         (readJson(join(x.dir, "candidate.json")) as { checksum: string }).checksum,
     );
     const review = readJson(
-      join(ROOT, "knowledge", "master", "v1.0", "capabilities", cap, "governance-review.json"),
+      join("knowledge", "master", "v1.0", "capabilities", cap, "governance-review.json"),
     ) as Record<string, any>;
     expect(review["reviewer"]).toBe("PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY");
     expect(String(review["authorizationSource"])).toMatch(/M2-FACTORY-CONTRACT-03/);
     const pub = readJson(
-      join(ROOT, "knowledge", "packs", cap.toLowerCase(), "1.0.0", "published.json"),
+      join("knowledge", "packs", cap.toLowerCase(), "1.0.0", "published.json"),
     ) as Record<string, string>;
     expect(pub["checksum"]).toBe(review["reviewedEvidence"]["packCandidateChecksum"]);
   });
