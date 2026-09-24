@@ -33,6 +33,8 @@ import {
   RUNTIME_EXTENSIONS_PATH,
   buildFactoryBenchmarkMarkdown,
   buildRawSourceRegistration,
+  buildSegmentRegistration,
+  segmentMultiCapabilityText,
   computeChecksum,
   discoverCapabilityPipelineInputs,
   extractRawSource,
@@ -152,6 +154,71 @@ if (argv[0] === "register") {
   process.exit(0);
 }
 
+/* ------------------------- register-multi ------------------------- */
+/*
+ * Fuente multi-capacidad (p. ej. un documento con DG-01..DG-05): el original
+ * se guarda una sola vez (en la primera capacidad) y cada capacidad registra
+ * su tramo determinista, delimitado por su marcador literal de cierre K4.
+ */
+if (argv[0] === "register-multi") {
+  const domainId = opt("--domain") ?? fail("--domain requerido");
+  const file = opt("--file") ?? fail("--file requerido");
+  const master = validateMasterIndex(loadMasterIndex(ROOT, MASTER_VERSION));
+  if (!master.ok) fail("master.json inválido");
+  const vs = master.value.verticalStatus as
+    { domainClosures?: { domainId: string; declaredCapabilityCount: number }[] } | undefined;
+  const n = vs?.domainClosures?.find((d) => d.domainId === domainId)?.declaredCapabilityCount;
+  if (!n) fail(`dominio ${domainId} sin capacidades declaradas`);
+  const ids = Array.from({ length: n }, (_, i) => `${domainId}-${String(i + 1).padStart(2, "0")}`);
+  const bytes = new Uint8Array(readFileSync(file));
+  const filename = basename(file);
+  const extraction = extractRawSource({ filename, bytes, pdfRunner });
+  if (extraction.text === null) fail("sin texto extraíble");
+  const seg = segmentMultiCapabilityText(extraction.text, ids);
+  if (!seg.ok) fail(seg.reasons.join("; "));
+  const first = ids[0] as string;
+  for (const s of seg.segments) {
+    const dir = join(INTAKE_DIR, s.capabilityId);
+    const regPath = join(dir, "registration.json");
+    const originalRef =
+      s.capabilityId === first
+        ? join("original", filename)
+        : join("..", first, "original", filename);
+    const textRef = join("text", `${s.capabilityId}.txt`);
+    const { registration, text } = buildSegmentRegistration({
+      capabilityId: s.capabilityId,
+      domainId,
+      masterVersion: master.value.version,
+      filename,
+      originalRef,
+      textRef,
+      bytes,
+      extraction,
+      segment: s,
+      registeredAt: opt("--registered-at") ?? new Date().toISOString().slice(0, 10),
+    });
+    if (existsSync(join(ROOT, regPath))) {
+      const prev = rawSourceRegistrationSchema.safeParse(readJson(regPath));
+      if (prev.success && prev.data.checksum === registration.checksum) {
+        console.log(`✓ ${s.capabilityId} ya registrado (${prev.data.registrationId}); sin cambios`);
+        continue;
+      }
+      fail(`${regPath} ya existe con otro contenido: un registro es inmutable`);
+    }
+    mkdirSync(join(ROOT, dir, "text"), { recursive: true });
+    if (s.capabilityId === first) {
+      mkdirSync(join(ROOT, dir, "original"), { recursive: true });
+      copyFileSync(file, join(ROOT, dir, "original", filename));
+    }
+    writeFileSync(join(ROOT, dir, textRef), text);
+    writeJson(regPath, registration);
+    console.log(
+      `✓ ${registration.registrationId}: tramo ${s.fromLine}–${s.toLine} (${registration.text?.lineCount} líneas) · cierre "${s.boundaryEvidence.text}" L${s.boundaryEvidence.line}`,
+    );
+  }
+  process.exit(0);
+}
+
 /* ---------------------------- extract ----------------------------- */
 /*
  * Candidato determinista (herramienta genérica): siempre CANDIDATE. Se niega a
@@ -191,6 +258,7 @@ if (argv[0] === "extract") {
     domainIds: master.value.domains.map((d) => d.id),
     supersession: mode,
     governanceDecisions,
+    lineIds: flag("--line-ids"),
   });
   if (report.governance?.errors.length)
     fail(

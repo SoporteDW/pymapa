@@ -1,0 +1,1594 @@
+{
+  "candidateId": "CAND-DG-04-0.2.0-1223b7cc3deb",
+  "capabilityId": "DG-04",
+  "status": "CANDIDATE",
+  "registration": {
+    "registrationId": "RAW-DG-04-1862e0e860b8",
+    "textSha256": "1223b7cc3debc250a116d36d63e464a608a87d8777ce52b9c62c1ab6dafae94d"
+  },
+  "producedBy": {
+    "method": "DETERMINISTIC_TOOL",
+    "agent": "pymapa-structural-segmenter@0.2.0 + pymapa-governed-supersession-resolver@0.1.0",
+    "note": "Segmentación literal por headings y líneas planas «ID · título» con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
+  },
+  "baselineId": "DG04-K4-v1.0",
+  "historicalStatus": {
+    "marker": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      636,
+      636
+    ]
+  },
+  "provenanceVocabulary": [],
+  "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 5,
+      "objectType": "SOURCE_ID_CE",
+      "sourceLines": [
+        638,
+        638
+      ]
+    },
+    {
+      "label": "STOP",
+      "declared": 3,
+      "objectType": "SOURCE_ID_STOP",
+      "sourceLines": [
+        347,
+        347
+      ]
+    }
+  ],
+  "verbatimKeys": [
+    "heading",
+    "title",
+    "body"
+  ],
+  "items": [
+    {
+      "key": "CE01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Visibilidad del estado de iniciativas",
+        "title": "Visibilidad del estado de iniciativas",
+        "body": [
+          "| VA | Variable |",
+          "| VA01 | Visibilidad del estado real de iniciativas materiales |",
+          "| VA02 | Oportunidad y confiabilidad de la información de avance |",
+          "No basta con:",
+          "“70 % completado”.",
+          "Necesitamos saber qué significa ese porcentaje y si representa un estado funcional real.",
+          "Reutilizamos OP-05:",
+          "% de actividades completadas ≠ % de resultado implementado."
+        ]
+      },
+      "sourceLines": [
+        35,
+        43
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "CE02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Claridad de resultados esperados",
+        "title": "Claridad de resultados esperados",
+        "body": [
+          "| VA | Variable |",
+          "| VA03 | Resultados/beneficios esperados suficientemente explícitos |",
+          "| VA04 | Criterios o indicadores capaces de evidenciar esos resultados |",
+          "PMI estructura Benefits Realization desde estrategia y entregables hasta medición del éxito y beneficios esperados. Project Management Institute"
+        ]
+      },
+      "sourceLines": [
+        45,
+        49
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "CE03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Observación de resultados",
+        "title": "Observación de resultados",
+        "body": [
+          "| VA | Variable |",
+          "| VA05 | Disponibilidad de evidencia sobre resultados alcanzados |",
+          "| VA06 | Comparabilidad contra expectativa, baseline o referencia pertinente |",
+          "Aquí reutilizamos un principio ya establecido:",
+          "CRV antes que KPI.",
+          "No siempre necesitamos un KPI sofisticado. Sí necesitamos saber qué resultado verificable buscábamos y cómo reconocerlo."
+        ]
+      },
+      "sourceLines": [
+        51,
+        57
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "CE04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE04",
+      "fields": {
+        "heading": "CE04 · Interpretación y respuesta",
+        "title": "Interpretación y respuesta",
+        "body": [
+          "| VA | Variable |",
+          "| VA07 | Identificación de desviaciones materiales |",
+          "| VA08 | Uso de información para decisiones correctivas/adaptativas |",
+          "Un dashboard perfecto que nadie utiliza:",
+          "no demuestra DG-04."
+        ]
+      },
+      "sourceLines": [
+        59,
+        64
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "CE05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE05",
+      "fields": {
+        "heading": "CE05 · Continuidad del seguimiento",
+        "title": "Continuidad del seguimiento",
+        "body": [
+          "| VA | Variable |",
+          "| VA09 | Responsabilidad y cadencia/eventos de seguimiento |",
+          "| VA10 | Continuidad del seguimiento hasta resultado o resolución gobernada |",
+          "Esta última VA evita una falla frecuente:",
+          "iniciativa terminada → desaparece del radar → nunca sabemos si produjo valor.",
+          "PMI distingue precisamente la entrega del proyecto de la posterior realización y sostenimiento de beneficios. Project Management Institute"
+        ]
+      },
+      "sourceLines": [
+        66,
+        72
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG04-001",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG04-001",
+      "fields": {
+        "heading": "SRC-DG04-001 · Pymapa/OE1-D — identidad conceptual.",
+        "title": "Pymapa/OE1-D — identidad conceptual."
+      },
+      "sourceLines": [
+        76,
+        76
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG04-002",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG04-002",
+      "fields": {
+        "heading": "SRC-DG04-002 · ISO 37000:2021 — oversight, desempeño, accountability, información y decisiones. La edición 2021 fue confirmada por ISO en agosto de 2026. ISO",
+        "title": "ISO 37000:2021 — oversight, desempeño, accountability, información y decisiones. La edición 2021 fue confirmada por ISO en agosto de 2026. ISO"
+      },
+      "sourceLines": [
+        77,
+        77
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG04-003",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG04-003",
+      "fields": {
+        "heading": "SRC-DG04-003 · ISO 37004:2023 — evaluación de condiciones y madurez de gobierno; útil como apoyo evaluativo sin adoptar automáticamente su escala. ISO",
+        "title": "ISO 37004:2023 — evaluación de condiciones y madurez de gobierno; útil como apoyo evaluativo sin adoptar automáticamente su escala. ISO"
+      },
+      "sourceLines": [
+        78,
+        78
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG04-004",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG04-004",
+      "fields": {
+        "heading": "SRC-DG04-004 · PMI Benefits Realization Management — conexión estrategia → entregables → beneficios → medición. Project Management Institute",
+        "title": "PMI Benefits Realization Management — conexión estrategia → entregables → beneficios → medición. Project Management Institute"
+      },
+      "sourceLines": [
+        79,
+        79
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG04-005",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG04-005",
+      "fields": {
+        "heading": "SRC-DG04-005 · PMI Portfolio Performance Management — seguimiento de beneficios, medidas, targets, KPIs y comparación de resultados con planes. Project Management Institute",
+        "title": "PMI Portfolio Performance Management — seguimiento de beneficios, medidas, targets, KPIs y comparación de resultados con planes. Project Management Institute",
+        "body": [
+          "No necesitamos más grounding para SET A."
+        ]
+      },
+      "sourceLines": [
+        80,
+        81
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "P-DG04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG04-01",
+      "fields": {
+        "heading": "P-DG04-01",
+        "body": [
+          "Actividad realizada ≠ avance funcional."
+        ]
+      },
+      "sourceLines": [
+        84,
+        85
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "P-DG04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG04-02",
+      "fields": {
+        "heading": "P-DG04-02",
+        "body": [
+          "Avance ≠ implementación."
+        ]
+      },
+      "sourceLines": [
+        86,
+        87
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "P-DG04-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG04-03",
+      "fields": {
+        "heading": "P-DG04-03",
+        "body": [
+          "Implementación ≠ resultado."
+        ]
+      },
+      "sourceLines": [
+        88,
+        89
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "P-DG04-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG04-04",
+      "fields": {
+        "heading": "P-DG04-04",
+        "body": [
+          "Resultado observado ≠ beneficio atribuible."
+        ]
+      },
+      "sourceLines": [
+        90,
+        91
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "P-DG04-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG04-05",
+      "fields": {
+        "heading": "P-DG04-05",
+        "body": [
+          "Indicador disponible ≠ indicador útil."
+        ]
+      },
+      "sourceLines": [
+        92,
+        93
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "P-DG04-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG04-06",
+      "fields": {
+        "heading": "P-DG04-06",
+        "body": [
+          "Dashboard ≠ seguimiento efectivo."
+        ]
+      },
+      "sourceLines": [
+        94,
+        95
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "P-DG04-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG04-07",
+      "fields": {
+        "heading": "P-DG04-07",
+        "body": [
+          "Frecuencia alta ≠ mejor oversight."
+        ]
+      },
+      "sourceLines": [
+        96,
+        97
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "P-DG04-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG04-08",
+      "fields": {
+        "heading": "P-DG04-08",
+        "body": [
+          "Desviación ≠ fracaso.",
+          "Puede ser información que exige adaptación."
+        ]
+      },
+      "sourceLines": [
+        98,
+        100
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "P-DG04-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG04-09",
+      "fields": {
+        "heading": "P-DG04-09",
+        "body": [
+          "Cumplir tiempo/costo/alcance ≠ demostrar creación de valor.",
+          "PMI trata explícitamente la realización de beneficios como un ciclo que va más allá de los entregables del proyecto. Project Management Institute"
+        ]
+      },
+      "sourceLines": [
+        101,
+        103
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "P-DG04-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG04-10",
+      "fields": {
+        "heading": "P-DG04-10",
+        "body": [
+          "Ausencia de resultado inmediato ≠ ausencia definitiva de resultado.",
+          "Debe considerarse el horizonte razonable de realización."
+        ]
+      },
+      "sourceLines": [
+        104,
+        106
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "COV-DG04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_COV",
+      "sourceId": "COV-DG04-01",
+      "fields": {
+        "heading": "COV-DG04-01",
+        "body": [
+          "Una empresa no demuestra DG-04 porque tenga excelente seguimiento de un proyecto si otras iniciativas materiales permanecen invisibles.",
+          "Pero tampoco exigimos un tablero centralizado para cada pequeña mejora."
+        ]
+      },
+      "sourceLines": [
+        126,
+        128
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "STOP-DG04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_STOP",
+      "sourceId": "STOP-DG04-01",
+      "fields": {
+        "heading": "STOP-DG04-01",
+        "body": [
+          "Si el resultado esperado no está suficientemente definido, no inferir desempeño de resultado.",
+          "Primero recuperar DG-01/DG-02/capacidad originadora."
+        ]
+      },
+      "sourceLines": [
+        131,
+        133
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "STOP-DG04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_STOP",
+      "sourceId": "STOP-DG04-02",
+      "fields": {
+        "heading": "STOP-DG04-02",
+        "body": [
+          "Si solo existe información de actividades, no inferir automáticamente estado de implementación o realización de beneficios."
+        ]
+      },
+      "sourceLines": [
+        134,
+        135
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "STOP-DG04-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_STOP",
+      "sourceId": "STOP-DG04-03",
+      "fields": {
+        "heading": "STOP-DG04-03",
+        "body": [
+          "Si no existe baseline y el resultado requiere comparación cuantitativa, no inventar mejora.",
+          "Ejemplo:",
+          "“Las ventas aumentaron 15 % después del CRM.”",
+          "No basta para concluir:",
+          "“el CRM generó +15 %”.",
+          "Eso requiere razonamiento de atribución."
+        ]
+      },
+      "sourceLines": [
+        136,
+        142
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "P1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P1",
+      "fields": {
+        "heading": "P1 · Núcleo",
+        "title": "Núcleo",
+        "body": [
+          "Debemos poder responder:",
+          "¿Qué iniciativas importantes están activas o recientemente implementadas?",
+          "¿Sabemos realmente en qué estado están?",
+          "¿Qué resultado buscaba cada una?",
+          "¿Cómo sabemos si ese resultado se está produciendo?",
+          "¿Qué hacen cuando la evidencia no coincide con lo esperado?"
+        ]
+      },
+      "sourceLines": [
+        155,
+        161
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "P2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P2",
+      "fields": {
+        "heading": "P2 · Condicional",
+        "title": "Condicional",
+        "body": [
+          "Profundizamos cuando:",
+          "- existen muchas iniciativas “verdes” pero pocos resultados;",
+          "- todo se reporta por porcentaje;",
+          "- hay entregables pero no outcomes;",
+          "- indicadores no tienen baseline;",
+          "- KPI no tiene owner;",
+          "- resultados se miden solo al cierre;",
+          "- reuniones producen reportes pero no decisiones;",
+          "- iniciativas implementadas dejan de monitorearse;",
+          "- aparecen resultados inesperados;",
+          "- múltiples iniciativas afectan el mismo indicador;",
+          "- resultado esperado tiene horizonte largo."
+        ]
+      },
+      "sourceLines": [
+        163,
+        175
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "P3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P3",
+      "fields": {
+        "heading": "P3 · Discriminación",
+        "title": "Discriminación",
+        "body": [
+          "Ejemplo:",
+          "Una iniciativa no produce el resultado esperado.",
+          "Posibles explicaciones:",
+          "A. no fue realmente implementada — OP-05;",
+          "B. fue implementada pero no adoptada — PC-03;",
+          "C. resultado mal definido — DG-01/02/origen;",
+          "D. medición inadecuada — DG-04;",
+          "E. factores externos cambiaron — DG-01/DG-05;",
+          "F. hipótesis causal incorrecta;",
+          "G. todavía no transcurrió el horizonte razonable.",
+          "Por tanto:",
+          "resultado insuficiente ≠ causa diagnosticada."
+        ]
+      },
+      "sourceLines": [
+        177,
+        189
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "P4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P4",
+      "fields": {
+        "heading": "P4 · Contradicción",
+        "title": "Contradicción",
+        "body": [
+          "Declaración:",
+          "“La iniciativa está terminada y fue exitosa.”",
+          "Evidencia:",
+          "entregable completado, pero el CRV empresarial permanece sin validar.",
+          "Abrimos:"
+        ]
+      },
+      "sourceLines": [
+        191,
+        196
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "CONTR-DG04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-DG04-01",
+      "fields": {
+        "heading": "CONTR-DG04-01 · DECLARED_SUCCESS_vs_RESULT_EVIDENCE",
+        "title": "DECLARED_SUCCESS_vs_RESULT_EVIDENCE",
+        "body": [
+          "No declaramos fracaso.",
+          "Separamos:",
+          "delivery status de result status."
+        ]
+      },
+      "sourceLines": [
+        197,
+        200
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "P5",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P5",
+      "fields": {
+        "heading": "P5 · Validación",
+        "title": "Validación",
+        "body": [
+          "Ejemplo:",
+          "“Entendemos que el sistema ya está implementado y funcionando, pero el resultado esperado era reducir el tiempo de respuesta y todavía no contamos con evidencia suficiente para verificar esa reducción. ¿Es correcto?”",
+          "Eso es mucho más preciso que:",
+          "“el proyecto no funcionó”."
+        ]
+      },
+      "sourceLines": [
+        202,
+        206
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "R-DG04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG04-01",
+      "fields": {
+        "heading": "R-DG04-01 · MATERIAL_INITIATIVE_VISIBILITY_GAP",
+        "title": "MATERIAL_INITIATIVE_VISIBILITY_GAP",
+        "body": [
+          "No existe visibilidad suficiente del estado real de iniciativas materiales."
+        ]
+      },
+      "sourceLines": [
+        231,
+        232
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "R-DG04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG04-02",
+      "fields": {
+        "heading": "R-DG04-02 · PROGRESS_INFORMATION_UNRELIABLE",
+        "title": "PROGRESS_INFORMATION_UNRELIABLE",
+        "body": [
+          "La información de avance es insuficientemente oportuna, confiable o interpretable."
+        ]
+      },
+      "sourceLines": [
+        233,
+        234
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "R-DG04-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG04-03",
+      "fields": {
+        "heading": "R-DG04-03 · EXPECTED_RESULT_UNCLEAR",
+        "title": "EXPECTED_RESULT_UNCLEAR",
+        "body": [
+          "El resultado/beneficio esperado no está suficientemente definido para permitir seguimiento."
+        ]
+      },
+      "sourceLines": [
+        235,
+        236
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "R-DG04-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG04-04",
+      "fields": {
+        "heading": "R-DG04-04 · RESULT_VERIFICATION_GAP",
+        "title": "RESULT_VERIFICATION_GAP",
+        "body": [
+          "No existe criterio/evidencia suficiente para verificar el resultado esperado."
+        ]
+      },
+      "sourceLines": [
+        237,
+        238
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "R-DG04-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG04-05",
+      "fields": {
+        "heading": "R-DG04-05 · RESULT_EVIDENCE_MISSING",
+        "title": "RESULT_EVIDENCE_MISSING",
+        "body": [
+          "Una iniciativa suficientemente implementada carece de evidencia proporcional sobre sus resultados cuando ya debería ser observable."
+        ]
+      },
+      "sourceLines": [
+        239,
+        240
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "R-DG04-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG04-06",
+      "fields": {
+        "heading": "R-DG04-06 · RESULT_REFERENCE_GAP",
+        "title": "RESULT_REFERENCE_GAP",
+        "body": [
+          "La evidencia disponible no puede interpretarse suficientemente contra baseline, expectativa o referencia pertinente."
+        ]
+      },
+      "sourceLines": [
+        241,
+        242
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "R-DG04-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG04-07",
+      "fields": {
+        "heading": "R-DG04-07 · MATERIAL_DEVIATION_NOT_IDENTIFIED",
+        "title": "MATERIAL_DEVIATION_NOT_IDENTIFIED",
+        "body": [
+          "Desviaciones materialmente relevantes no son detectadas oportunamente."
+        ]
+      },
+      "sourceLines": [
+        243,
+        244
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "R-DG04-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG04-08",
+      "fields": {
+        "heading": "R-DG04-08 · MONITORING_WITHOUT_DECISION",
+        "title": "MONITORING_WITHOUT_DECISION",
+        "body": [
+          "Existe seguimiento/reporting, pero la información material no se traduce suficientemente en decisiones."
+        ]
+      },
+      "sourceLines": [
+        245,
+        246
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "R-DG04-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG04-09",
+      "fields": {
+        "heading": "R-DG04-09 · OVERSIGHT_ACCOUNTABILITY_GAP",
+        "title": "OVERSIGHT_ACCOUNTABILITY_GAP",
+        "body": [
+          "No está suficientemente claro quién debe observar, interpretar o elevar información material de seguimiento."
+        ]
+      },
+      "sourceLines": [
+        247,
+        248
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "R-DG04-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG04-10",
+      "fields": {
+        "heading": "R-DG04-10 · PREMATURE_MONITORING_CLOSURE",
+        "title": "PREMATURE_MONITORING_CLOSURE",
+        "body": [
+          "El seguimiento termina con la entrega/implementación aunque los resultados materiales aún requieren observación."
+        ]
+      },
+      "sourceLines": [
+        249,
+        250
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "DER-DG04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DER",
+      "sourceId": "DER-DG04-01",
+      "fields": {
+        "heading": "DER-DG04-01 · GREEN_PROJECT_RED_RESULT",
+        "title": "GREEN_PROJECT_RED_RESULT",
+        "body": [
+          "Una iniciativa puede estar:",
+          "tiempo = verde",
+          "presupuesto = verde",
+          "alcance = verde",
+          "y simultáneamente:",
+          "resultado = rojo/no validado.",
+          "No existe contradicción lógica."
+        ]
+      },
+      "sourceLines": [
+        253,
+        260
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "DER-DG04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DER",
+      "sourceId": "DER-DG04-02",
+      "fields": {
+        "heading": "DER-DG04-02 · IMPLEMENTED_NOT_YET_MEASURABLE",
+        "title": "IMPLEMENTED_NOT_YET_MEASURABLE",
+        "body": [
+          "Si el resultado requiere un horizonte temporal todavía no cumplido:",
+          "no clasificar ausencia de evidencia como fracaso.",
+          "Estado posible:",
+          "RESULT-PENDING-WINDOW."
+        ]
+      },
+      "sourceLines": [
+        261,
+        265
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "DER-DG04-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DER",
+      "sourceId": "DER-DG04-03",
+      "fields": {
+        "heading": "DER-DG04-03 · BENEFIT_WITHOUT_ATTRIBUTION",
+        "title": "BENEFIT_WITHOUT_ATTRIBUTION",
+        "body": [
+          "Puede observarse una mejora después de una iniciativa sin evidencia suficiente para atribuírsela.",
+          "Estado posible:",
+          "RESULT-OBSERVED · ATTRIBUTION-UNRESOLVED."
+        ]
+      },
+      "sourceLines": [
+        266,
+        269
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "G-DG04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-DG04-01",
+      "fields": {
+        "heading": "G-DG04-01",
+        "body": [
+          "Más KPI no significa mejor seguimiento."
+        ]
+      },
+      "sourceLines": [
+        270,
+        271
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "G-DG04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-DG04-02",
+      "fields": {
+        "heading": "G-DG04-02",
+        "body": [
+          "KPI sin decisión asociada puede aportar información pero no demuestra oversight efectivo."
+        ]
+      },
+      "sourceLines": [
+        272,
+        273
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "G-DG04-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-DG04-03",
+      "fields": {
+        "heading": "G-DG04-03",
+        "body": [
+          "No exigir cuantificación artificial para resultados legítimamente cualitativos."
+        ]
+      },
+      "sourceLines": [
+        274,
+        275
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "G-DG04-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-DG04-04",
+      "fields": {
+        "heading": "G-DG04-04",
+        "body": [
+          "No establecer targets numéricos sin baseline o fundamento proporcional."
+        ]
+      },
+      "sourceLines": [
+        276,
+        277
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "G-DG04-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-DG04-05",
+      "fields": {
+        "heading": "G-DG04-05",
+        "body": [
+          "Una desviación puede justificar continuar, adaptar, escalar, repriorizar o detener; no existe respuesta automática."
+        ]
+      },
+      "sourceLines": [
+        278,
+        279
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DG04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG04-01",
+      "fields": {
+        "heading": "CAND-MOTOR-DG04-01 · El estado de una iniciativa y el estado de su resultado deben representarse como dimensiones independientes.",
+        "title": "El estado de una iniciativa y el estado de su resultado deben representarse como dimensiones independientes.",
+        "body": [
+          "Y:"
+        ]
+      },
+      "sourceLines": [
+        307,
+        308
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DG04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG04-02",
+      "fields": {
+        "heading": "CAND-MOTOR-DG04-02 · La ausencia de resultado observable debe distinguir entre NOT-ACHIEVED, NOT-YET-OBSERVABLE y INSUFFICIENT-EVIDENCE.",
+        "title": "La ausencia de resultado observable debe distinguir entre NOT-ACHIEVED, NOT-YET-OBSERVABLE y INSUFFICIENT-EVIDENCE.",
+        "body": [
+          "Esta distinción será muy importante posteriormente."
+        ]
+      },
+      "sourceLines": [
+        309,
+        310
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "R-DG04-ATTR-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG04-ATTR-01",
+      "fields": {
+        "heading": "R-DG04-ATTR-01 · Nivel de certeza causal ≤ evidencia disponible para atribución.",
+        "title": "Nivel de certeza causal ≤ evidencia disponible para atribución.",
+        "body": [
+          "No permitiremos que una comparación antes/después se convierta automáticamente en causalidad."
+        ]
+      },
+      "sourceLines": [
+        479,
+        480
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "V0",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V0",
+      "fields": {
+        "heading": "V0 · No validado",
+        "title": "No validado",
+        "body": [
+          "Afirmación sin evidencia suficiente."
+        ]
+      },
+      "sourceLines": [
+        483,
+        484
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "V1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V1",
+      "fields": {
+        "heading": "V1 · Evidencia inicial",
+        "title": "Evidencia inicial",
+        "body": [
+          "Existe indicio razonable."
+        ]
+      },
+      "sourceLines": [
+        485,
+        486
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "V2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V2",
+      "fields": {
+        "heading": "V2 · Resultado funcional suficientemente verificado",
+        "title": "Resultado funcional suficientemente verificado",
+        "body": [
+          "La evidencia satisface proporcionalmente el CRV."
+        ]
+      },
+      "sourceLines": [
+        487,
+        488
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "V3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V3",
+      "fields": {
+        "heading": "V3 · Resultado sostenido/confirmado",
+        "title": "Resultado sostenido/confirmado",
+        "body": [
+          "Existe evidencia posterior suficiente cuando la naturaleza del resultado requiere sostenibilidad.",
+          "No todos los resultados necesitan V3.",
+          "Ejemplo:",
+          "“migración completada correctamente”",
+          "puede quedar suficientemente validado sin meses de seguimiento.",
+          "En cambio:",
+          "“la nueva práctica redujo consistentemente errores”",
+          "puede requerir observación posterior."
+        ]
+      },
+      "sourceLines": [
+        489,
+        497
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "REASS-DG04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_REASS",
+      "sourceId": "REASS-DG04-01",
+      "fields": {
+        "heading": "REASS-DG04-01",
+        "body": [
+          "El seguimiento debe responder a materialidad y velocidad de cambio, no a una frecuencia universal.",
+          "Por eso no incorporaremos:",
+          "“toda pyme debe revisar transformación mensualmente”."
+        ]
+      },
+      "sourceLines": [
+        517,
+        520
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DG04-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG04-03",
+      "fields": {
+        "heading": "CAND-MOTOR-DG04-03 · Cierre de ejecución y cierre de seguimiento de resultado son eventos independientes.",
+        "title": "Cierre de ejecución y cierre de seguimiento de resultado son eventos independientes.",
+        "body": [
+          "Muy importante para la arquitectura futura."
+        ]
+      },
+      "sourceLines": [
+        533,
+        534
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DG04-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG04-04",
+      "fields": {
+        "heading": "CAND-MOTOR-DG04-04 · Los horizontes observados de realización pueden aprenderse, pero deben mantenerse separados de reglas publicadas hasta superar gobierno de conocimiento.",
+        "title": "Los horizontes observados de realización pueden aprenderse, pero deben mantenerse separados de reglas publicadas hasta superar gobierno de conocimiento."
+      },
+      "sourceLines": [
+        544,
+        544
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "K1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Coherencia — PASS.",
+        "title": "Coherencia — PASS.",
+        "body": [
+          "DG-04 no duplica OP-05 ni las capacidades originadoras del resultado."
+        ]
+      },
+      "sourceLines": [
+        627,
+        628
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "K2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Razonamiento — PASS.",
+        "title": "Razonamiento — PASS.",
+        "body": [
+          "Separamos actividad, avance, implementación, resultado, validación y atribución."
+        ]
+      },
+      "sourceLines": [
+        629,
+        630
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "K3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · Acción — PASS.",
+        "title": "Acción — PASS.",
+        "body": [
+          "Cada hallazgo puede producir una intervención proporcional y verificable."
+        ]
+      },
+      "sourceLines": [
+        631,
+        632
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    },
+    {
+      "key": "K4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · Conocimiento — PASS.",
+        "title": "Conocimiento — PASS.",
+        "body": [
+          "Existe grounding, provenance, versionado y separación explícita entre conocimiento externo y diseño Pymapa."
+        ]
+      },
+      "sourceLines": [
+        633,
+        634
+      ],
+      "approvalEvidence": {
+        "text": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          636,
+          636
+        ]
+      }
+    }
+  ],
+  "checksum": "sha256:273875d8ac519c47d8cdf94d4144fe51cdfac0bafb4f412a46fee666f5f1a01e"
+}

@@ -6,7 +6,10 @@
     {
       "id": "A-OP02-02",
       "kind": "GOVERNED_BACKLOG_RESOLUTION",
-      "capabilities": ["OP-02", "OP-03"],
+      "capabilities": [
+        "OP-02",
+        "OP-03"
+      ],
       "decision": "KEEP_OPEN_PENDING_OP03_CANONICAL_ACCEPTANCE",
       "decidedBy": "PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY",
       "decidedAt": "2026-09-23",
@@ -16,31 +19,46 @@
         {
           "capabilityId": "OP-02",
           "textSha256": "db27a2976db128e87cbcfa9f2df1a40f461ff91cb0eb8b07110181b5c3b34800",
-          "sourceLines": [12432, 12432],
+          "sourceLines": [
+            12432,
+            12432
+          ],
           "text": "A-OP02-02 · Boundary Validation OP-03"
         },
         {
           "capabilityId": "OP-02",
           "textSha256": "db27a2976db128e87cbcfa9f2df1a40f461ff91cb0eb8b07110181b5c3b34800",
-          "sourceLines": [12434, 12434],
+          "sourceLines": [
+            12434,
+            12434
+          ],
           "text": "Revalidar dependencia local vs integración estructural E2E al construir OP-03."
         },
         {
           "capabilityId": "OP-03",
           "textSha256": "26d6a7a9d5d6a2867492f0eafcde1b447242dc1beff2dea13e372e7b833c2157",
-          "sourceLines": [831, 831],
+          "sourceLines": [
+            831,
+            831
+          ],
           "text": "No lo cierro definitivamente hasta K1 de OP-03."
         },
         {
           "capabilityId": "OP-03",
           "textSha256": "26d6a7a9d5d6a2867492f0eafcde1b447242dc1beff2dea13e372e7b833c2157",
-          "sourceLines": [5713, 5713],
+          "sourceLines": [
+            5713,
+            5713
+          ],
           "text": "Con esto queda resuelto A-OP02-02 desde el lado de OP-03."
         },
         {
           "capabilityId": "OP-03",
           "textSha256": "26d6a7a9d5d6a2867492f0eafcde1b447242dc1beff2dea13e372e7b833c2157",
-          "sourceLines": [5715, 5717],
+          "sourceLines": [
+            5715,
+            5717
+          ],
           "text": "local/intraoperacional → OP-02\nversus\narticulación estructural transversal → OP-03."
         }
       ],
@@ -48,7 +66,15 @@
         "type": "CANONICAL_ACCEPTANCE",
         "capabilityId": "OP-03"
       },
-      "resolutionEvent": null,
+      "resolutionEvent": {
+        "recordedAt": "2026-09-24",
+        "canonicalAcceptanceChecksum": "sha256:e04aa3a7dceb596fd5b63027065b865b53c8d38fd0e09a24307c367de4a4d022",
+        "evidenceRefs": [
+          2,
+          3,
+          4
+        ]
+      },
       "publishedPackUnchanged": {
         "packId": "op-02",
         "packVersion": "1.0.0",
@@ -58,23 +84,32 @@
     {
       "id": "BOUND-OP05-02",
       "kind": "CANONICAL_BOUNDARY",
-      "capabilities": ["OP-02", "OP-05"],
-      "decision": "ACCEPTED_CONDITIONAL",
+      "capabilities": [
+        "OP-02",
+        "OP-05"
+      ],
+      "decision": "ACCEPTED",
       "decidedBy": "PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY",
-      "decidedAt": "2026-09-23",
-      "authorizationSource": "M2-BATCH-01R · explicit human project-governance instruction (GOVERNED SUPERSESSION RESOLUTION + CANONICAL ACCEPTANCE)",
-      "statement": "Aceptada como candidata canónica de frontera gobernada por la fuente, condicionada solo a que la revisión determinista de supersesión no encuentre contradicción posterior en la fuente.",
+      "decidedAt": "2026-09-24",
+      "authorizationSource": "M2-BATCH-02 · explicit human project-governance instruction (A6 · Canonical acceptance)",
+      "statement": "Aceptada en el registro gobernado cross-capability (M2-BATCH-02 A6). Se conserva la condición de no contradicción posterior en la fuente, verificada deterministamente; redacción y provenance literales preservadas.",
       "evidence": [
         {
           "capabilityId": "OP-05",
           "textSha256": "09629d4e6ff63c925057ca821e4fc4640c098544ba7f51942fec886336a4b31c",
-          "sourceLines": [59, 59],
+          "sourceLines": [
+            59,
+            59
+          ],
           "text": "BOUND-OP05-02"
         },
         {
           "capabilityId": "OP-05",
           "textSha256": "09629d4e6ff63c925057ca821e4fc4640c098544ba7f51942fec886336a4b31c",
-          "sourceLines": [60, 60],
+          "sourceLines": [
+            60,
+            60
+          ],
           "text": "La coordinación de la operación habitual pertenece principalmente a OP-02; la coordinación temporal necesaria para llevar una iniciativa desde su estado inicial hasta implementación pertenece principalmente a OP-05."
         }
       ],
@@ -86,5 +121,5 @@
       "resolutionEvent": null
     }
   ],
-  "checksum": "sha256:ed807f8b291ab5dd4106ca99c8e4f61b735642238260404a9c9f763507598fb2"
+  "checksum": "sha256:10d64914285f4dcb2f6db01ca357f97713f9eee5e57e83671a8306e249ad468c"
 }

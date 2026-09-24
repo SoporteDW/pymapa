@@ -1,0 +1,1440 @@
+{
+  "candidateId": "CAND-DG-03-0.2.0-9af887c29057",
+  "capabilityId": "DG-03",
+  "status": "CANDIDATE",
+  "registration": {
+    "registrationId": "RAW-DG-03-1862e0e860b8",
+    "textSha256": "9af887c2905718fcc6073d1e5f5d4ca946b249d22aeab2215fb71c5ed4759853"
+  },
+  "producedBy": {
+    "method": "DETERMINISTIC_TOOL",
+    "agent": "pymapa-structural-segmenter@0.2.0 + pymapa-governed-supersession-resolver@0.1.0",
+    "note": "Segmentación literal por headings y líneas planas «ID · título» con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
+  },
+  "baselineId": "DG03-K4-v1.0",
+  "historicalStatus": {
+    "marker": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      573,
+      573
+    ]
+  },
+  "provenanceVocabulary": [],
+  "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 5,
+      "objectType": "SOURCE_ID_CE",
+      "sourceLines": [
+        575,
+        575
+      ]
+    },
+    {
+      "label": "STOP",
+      "declared": 2,
+      "objectType": "SOURCE_ID_STOP",
+      "sourceLines": [
+        320,
+        320
+      ]
+    }
+  ],
+  "verbatimKeys": [
+    "heading",
+    "title",
+    "body"
+  ],
+  "items": [
+    {
+      "key": "CE01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Responsabilidad explícita",
+        "title": "Responsabilidad explícita",
+        "body": [
+          "| VA | Variable |",
+          "| VA01 | Responsabilidad sobre decisiones relevantes |",
+          "| VA02 | Accountability sobre resultados de transformación |",
+          "Aquí distinguimos:",
+          "hacer trabajo ≠ responder por el resultado.",
+          "Una persona puede ejecutar múltiples actividades sin ser quien responde por la decisión o resultado."
+        ]
+      },
+      "sourceLines": [
+        38,
+        44
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "CE02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Autoridad suficiente",
+        "title": "Autoridad suficiente",
+        "body": [
+          "| VA | Variable |",
+          "| VA03 | Autoridad efectiva dentro del ámbito asignado |",
+          "| VA04 | Coherencia responsabilidad–autoridad |",
+          "Principio fundamental:",
+          "Responsabilidad sin autoridad suficiente = responsabilidad nominal.",
+          "Pero tampoco queremos el extremo contrario:",
+          "autoridad sin responsabilidad explícita = decisión sin accountability suficiente."
+        ]
+      },
+      "sourceLines": [
+        46,
+        53
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "CE03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Claridad del mecanismo decisional",
+        "title": "Claridad del mecanismo decisional",
+        "body": [
+          "| VA | Variable |",
+          "| VA05 | Claridad sobre qué decisiones corresponden a quién |",
+          "| VA06 | Acceso a información y participación necesarias para decidir |",
+          "Una persona puede tener autoridad formal y seguir siendo incapaz de decidir si:",
+          "- recibe información demasiado tarde;",
+          "- depende de múltiples aprobaciones informales;",
+          "- desconoce límites;",
+          "- actores críticos quedan fuera;",
+          "- nadie sabe cuándo debe intervenir.",
+          "PMI señala que decision rights y accountability son componentes centrales del gobierno y que la información para decidir debe llegar de manera oportuna y relevante. Project Management Institute"
+        ]
+      },
+      "sourceLines": [
+        55,
+        65
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "CE04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE04",
+      "fields": {
+        "heading": "CE04 · Escalamiento y resolución",
+        "title": "Escalamiento y resolución",
+        "body": [
+          "| VA | Variable |",
+          "| VA07 | Límites/tolerancias de decisión |",
+          "| VA08 | Mecanismo funcional de escalamiento y resolución |",
+          "No toda decisión debe subir al dueño/gerente.",
+          "Tampoco toda decisión debe descentralizarse.",
+          "La pregunta es:",
+          "¿las decisiones llegan al nivel adecuado cuando realmente lo necesitan?"
+        ]
+      },
+      "sourceLines": [
+        67,
+        74
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "CE05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE05",
+      "fields": {
+        "heading": "CE05 · Continuidad y trazabilidad",
+        "title": "Continuidad y trazabilidad",
+        "body": [
+          "| VA | Variable |",
+          "| VA09 | Oportunidad y trazabilidad de decisiones materiales |",
+          "| VA10 | Continuidad de responsabilidad ante cambios de personas/roles |",
+          "Esta última variable es particularmente relevante para pymes.",
+          "Si toda decisión depende exclusivamente del fundador y nada puede funcionar cuando no está disponible, existe una posible fragilidad de gobierno aunque las decisiones normalmente sean buenas."
+        ]
+      },
+      "sourceLines": [
+        76,
+        81
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG03-001",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG03-001",
+      "fields": {
+        "heading": "SRC-DG03-001 · Pymapa/OE1-D — identidad de capacidad.",
+        "title": "Pymapa/OE1-D — identidad de capacidad."
+      },
+      "sourceLines": [
+        85,
+        85
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG03-002",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG03-002",
+      "fields": {
+        "heading": "SRC-DG03-002 · ISO 37000:2021 — responsabilidad, accountability, delegación, roles, oversight y gobierno. ISO confirmó nuevamente la edición 2021 en 2026. ISO",
+        "title": "ISO 37000:2021 — responsabilidad, accountability, delegación, roles, oversight y gobierno. ISO confirmó nuevamente la edición 2021 en 2026. ISO"
+      },
+      "sourceLines": [
+        86,
+        86
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG03-003",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG03-003",
+      "fields": {
+        "heading": "SRC-DG03-003 · PMI · Governance of Portfolios, Programs and Projects — gobierno, roles, responsabilidades y niveles de decisión. Project Management Institute",
+        "title": "PMI · Governance of Portfolios, Programs and Projects — gobierno, roles, responsabilidades y niveles de decisión. Project Management Institute"
+      },
+      "sourceLines": [
+        87,
+        87
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG03-004",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG03-004",
+      "fields": {
+        "heading": "SRC-DG03-004 · PMI · Project Governance / Authority & Accountability literature — correspondencia entre responsabilidad, autoridad, roles y decisión. Project Management Institute",
+        "title": "PMI · Project Governance / Authority & Accountability literature — correspondencia entre responsabilidad, autoridad, roles y decisión. Project Management Institute",
+        "body": [
+          "Además aparece una fuente reciente especialmente útil: la guía PMI/GPM de agosto de 2026 sobre sponsorship enfatiza mandato, tolerancias, decision rights, escalamiento y accountability, y señala expresamente que IA puede apoyar una decisión pero no cambia quién responde por ella. Project Management Institute",
+          "Esto último probablemente tendrá valor transversal futuro para Pymapa."
+        ]
+      },
+      "sourceLines": [
+        88,
+        90
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "P-DG03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG03-01",
+      "fields": {
+        "heading": "P-DG03-01",
+        "body": [
+          "Responsable nombrado ≠ accountability efectiva."
+        ]
+      },
+      "sourceLines": [
+        93,
+        94
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "P-DG03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG03-02",
+      "fields": {
+        "heading": "P-DG03-02",
+        "body": [
+          "Responsabilidad ≠ autoridad.",
+          "Ambas deben observarse separadamente."
+        ]
+      },
+      "sourceLines": [
+        95,
+        97
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "P-DG03-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG03-03",
+      "fields": {
+        "heading": "P-DG03-03",
+        "body": [
+          "Delegar trabajo ≠ delegar decisión."
+        ]
+      },
+      "sourceLines": [
+        98,
+        99
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "P-DG03-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG03-04",
+      "fields": {
+        "heading": "P-DG03-04",
+        "body": [
+          "Delegar decisión ≠ transferir automáticamente accountability última."
+        ]
+      },
+      "sourceLines": [
+        100,
+        101
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "P-DG03-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG03-05",
+      "fields": {
+        "heading": "P-DG03-05",
+        "body": [
+          "Centralización ≠ brecha por definición.",
+          "En una microempresa puede ser totalmente pertinente que determinadas decisiones residan en el dueño."
+        ]
+      },
+      "sourceLines": [
+        102,
+        104
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "P-DG03-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG03-06",
+      "fields": {
+        "heading": "P-DG03-06",
+        "body": [
+          "Descentralización ≠ madurez por definición.",
+          "Delegar decisiones sin información, competencia, límites o accountability puede empeorar el gobierno."
+        ]
+      },
+      "sourceLines": [
+        105,
+        107
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "P-DG03-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG03-07",
+      "fields": {
+        "heading": "P-DG03-07",
+        "body": [
+          "Comité ≠ gobierno efectivo."
+        ]
+      },
+      "sourceLines": [
+        108,
+        109
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "P-DG03-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG03-08",
+      "fields": {
+        "heading": "P-DG03-08",
+        "body": [
+          "Rapidez de decisión ≠ calidad de gobierno.",
+          "Una decisión puede ser rápida e irresponsable."
+        ]
+      },
+      "sourceLines": [
+        110,
+        112
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "P-DG03-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG03-09",
+      "fields": {
+        "heading": "P-DG03-09",
+        "body": [
+          "Más aprobaciones ≠ mayor control."
+        ]
+      },
+      "sourceLines": [
+        113,
+        114
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "P-DG03-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG03-10",
+      "fields": {
+        "heading": "P-DG03-10",
+        "body": [
+          "Escalar ≠ fallar.",
+          "Un escalamiento apropiado puede demostrar que el mecanismo funciona correctamente."
+        ]
+      },
+      "sourceLines": [
+        115,
+        117
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "COV-DG03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_COV",
+      "sourceId": "COV-DG03-01",
+      "fields": {
+        "heading": "COV-DG03-01",
+        "body": [
+          "La evaluación debe cubrir decisiones materialmente distintas y no únicamente una decisión exitosa elegida como ejemplo."
+        ]
+      },
+      "sourceLines": [
+        144,
+        145
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "STOP-DG03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_STOP",
+      "sourceId": "STOP-DG03-01",
+      "fields": {
+        "heading": "STOP-DG03-01",
+        "body": [
+          "Si no podemos distinguir quién ejecuta de quién responde/decide, no inferir accountability."
+        ]
+      },
+      "sourceLines": [
+        148,
+        149
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "STOP-DG03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_STOP",
+      "sourceId": "STOP-DG03-02",
+      "fields": {
+        "heading": "STOP-DG03-02",
+        "body": [
+          "Si conocemos autoridad formal pero no autoridad efectiva, no inferir capacidad de decisión.",
+          "Ejemplo:",
+          "“María puede aprobar compras hasta $10.000.”",
+          "Pero en la práctica toda compra requiere aprobación informal del fundador.",
+          "Formalmente existe autoridad.",
+          "Funcionalmente quizá no."
+        ]
+      },
+      "sourceLines": [
+        150,
+        156
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "P1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P1",
+      "fields": {
+        "heading": "P1 · Núcleo",
+        "title": "Núcleo",
+        "body": [
+          "Debemos resolver inicialmente:",
+          "¿Cuáles son las decisiones relevantes?",
+          "¿Quién responde por ellas/resultados?",
+          "¿Puede realmente decidir lo que necesita decidir?",
+          "¿Qué ocurre cuando no puede?"
+        ]
+      },
+      "sourceLines": [
+        166,
+        171
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "P2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P2",
+      "fields": {
+        "heading": "P2 · Condicional",
+        "title": "Condicional",
+        "body": [
+          "Profundizamos cuando aparece:",
+          "- “todo lo decide el gerente”;",
+          "- múltiples personas creyendo ser responsables;",
+          "- nadie reconociéndose responsable;",
+          "- aprobación informal;",
+          "- decisiones repetidamente demoradas;",
+          "- decisiones reversadas sin explicación;",
+          "- reuniones sin resolución;",
+          "- responsables sin presupuesto;",
+          "- responsables sin acceso a información;",
+          "- proveedor tomando decisiones empresariales;",
+          "- ausencia de sustitución;",
+          "- decisiones críticas concentradas en una persona."
+        ]
+      },
+      "sourceLines": [
+        173,
+        186
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "P3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P3",
+      "fields": {
+        "heading": "P3 · Discriminación",
+        "title": "Discriminación",
+        "body": [
+          "Ejemplo: decisiones lentas.",
+          "Podría ser:",
+          "A. autoridad insuficiente;",
+          "B. información insuficiente;",
+          "C. decisión mal ubicada;",
+          "D. escalamiento ineficiente;",
+          "E. responsable sin competencia — posible PC;",
+          "F. dependencia externa — posible EC;",
+          "G. conflicto entre prioridades — posible DG-02.",
+          "Por tanto:",
+          "demora decisional ≠ causa identificada."
+        ]
+      },
+      "sourceLines": [
+        188,
+        199
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "P4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P4",
+      "fields": {
+        "heading": "P4 · Contradicción",
+        "title": "Contradicción",
+        "body": [
+          "Declaración:",
+          "“El líder de transformación decide.”",
+          "Evidencia:",
+          "las últimas cinco decisiones materiales fueron elevadas al gerente general aunque estaban dentro de su supuesto ámbito.",
+          "Abrimos:"
+        ]
+      },
+      "sourceLines": [
+        201,
+        206
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "CONTR-DG03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-DG03-01",
+      "fields": {
+        "heading": "CONTR-DG03-01 · DECLARED_DECISION_RIGHT_vs_OBSERVED_DECISION",
+        "title": "DECLARED_DECISION_RIGHT_vs_OBSERVED_DECISION",
+        "body": [
+          "y buscamos explicación."
+        ]
+      },
+      "sourceLines": [
+        207,
+        208
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "P5",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P5",
+      "fields": {
+        "heading": "P5 · Validación",
+        "title": "Validación",
+        "body": [
+          "Ejemplo:",
+          "“Entendemos que el líder puede decidir A y B hasta determinado límite, mientras C debe escalarse a gerencia, y que esa escalada se activa por X. ¿Es correcto?”",
+          "Validamos la estructura factual.",
+          "No preguntamos:",
+          "“¿Su gobierno es bueno?”"
+        ]
+      },
+      "sourceLines": [
+        210,
+        215
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "EVID-DG03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_EVID",
+      "sourceId": "EVID-DG03-01",
+      "fields": {
+        "heading": "EVID-DG03-01",
+        "body": [
+          "El comportamiento decisional observado puede ser evidencia más fuerte que la estructura formal declarada.",
+          "No significa ignorar la documentación.",
+          "Significa contrastar:",
+          "designed governance ↔ governance in use."
+        ]
+      },
+      "sourceLines": [
+        235,
+        239
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "R-DG03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG03-01",
+      "fields": {
+        "heading": "R-DG03-01 · MATERIAL_ACCOUNTABILITY_UNASSIGNED",
+        "title": "MATERIAL_ACCOUNTABILITY_UNASSIGNED",
+        "body": [
+          "Decisiones/resultados materiales carecen de accountability suficientemente asignada."
+        ]
+      },
+      "sourceLines": [
+        243,
+        244
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "R-DG03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG03-02",
+      "fields": {
+        "heading": "R-DG03-02 · ACCOUNTABILITY_AMBIGUOUS",
+        "title": "ACCOUNTABILITY_AMBIGUOUS",
+        "body": [
+          "Existen responsabilidades superpuestas, contradictorias o insuficientemente claras."
+        ]
+      },
+      "sourceLines": [
+        245,
+        246
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "R-DG03-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG03-03",
+      "fields": {
+        "heading": "R-DG03-03 · DECISION_AUTHORITY_INSUFFICIENT",
+        "title": "DECISION_AUTHORITY_INSUFFICIENT",
+        "body": [
+          "El responsable carece de autoridad efectiva suficiente para cumplir su ámbito."
+        ]
+      },
+      "sourceLines": [
+        247,
+        248
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "R-DG03-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG03-04",
+      "fields": {
+        "heading": "R-DG03-04 · AUTHORITY_ACCOUNTABILITY_MISMATCH",
+        "title": "AUTHORITY_ACCOUNTABILITY_MISMATCH",
+        "body": [
+          "Autoridad y accountability están materialmente desbalanceadas."
+        ]
+      },
+      "sourceLines": [
+        249,
+        250
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "R-DG03-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG03-05",
+      "fields": {
+        "heading": "R-DG03-05 · DECISION_RIGHTS_UNCLEAR",
+        "title": "DECISION_RIGHTS_UNCLEAR",
+        "body": [
+          "No está suficientemente claro quién puede decidir cuestiones materiales."
+        ]
+      },
+      "sourceLines": [
+        251,
+        252
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "R-DG03-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG03-06",
+      "fields": {
+        "heading": "R-DG03-06 · DECISION_INPUT_ACCESS_GAP",
+        "title": "DECISION_INPUT_ACCESS_GAP",
+        "body": [
+          "El decisor carece de acceso oportuno a información o participación material necesaria."
+        ]
+      },
+      "sourceLines": [
+        253,
+        254
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "R-DG03-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG03-07",
+      "fields": {
+        "heading": "R-DG03-07 · DECISION_BOUNDARIES_UNCLEAR",
+        "title": "DECISION_BOUNDARIES_UNCLEAR",
+        "body": [
+          "Los límites/tolerancias de decisión no son suficientemente comprensibles."
+        ]
+      },
+      "sourceLines": [
+        255,
+        256
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "R-DG03-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG03-08",
+      "fields": {
+        "heading": "R-DG03-08 · ESCALATION_PATH_INEFFECTIVE",
+        "title": "ESCALATION_PATH_INEFFECTIVE",
+        "body": [
+          "Las decisiones que exceden autoridad no encuentran una vía funcional y oportuna de resolución."
+        ]
+      },
+      "sourceLines": [
+        257,
+        258
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "R-DG03-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG03-09",
+      "fields": {
+        "heading": "R-DG03-09 · MATERIAL_DECISION_TRACEABILITY_GAP",
+        "title": "MATERIAL_DECISION_TRACEABILITY_GAP",
+        "body": [
+          "Decisiones relevantes carecen de trazabilidad proporcional suficiente para comprender qué se decidió, por quién y bajo qué fundamento."
+        ]
+      },
+      "sourceLines": [
+        259,
+        260
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "R-DG03-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG03-10",
+      "fields": {
+        "heading": "R-DG03-10 · KEY_PERSON_DECISION_DEPENDENCY",
+        "title": "KEY_PERSON_DECISION_DEPENDENCY",
+        "body": [
+          "La continuidad decisional depende materialmente de una persona sin alternativa funcional suficiente."
+        ]
+      },
+      "sourceLines": [
+        261,
+        262
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "DER-DG03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DER",
+      "sourceId": "DER-DG03-01",
+      "fields": {
+        "heading": "DER-DG03-01 · RESPONSIBILITY_WITHOUT_AUTHORITY",
+        "title": "RESPONSIBILITY_WITHOUT_AUTHORITY",
+        "body": [
+          "Si existe accountability clara pero autoridad materialmente insuficiente:",
+          "no recomendar simplemente “clarificar roles”.",
+          "La intervención debe abordar capacidad efectiva de decisión."
+        ]
+      },
+      "sourceLines": [
+        265,
+        268
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "DER-DG03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DER",
+      "sourceId": "DER-DG03-02",
+      "fields": {
+        "heading": "DER-DG03-02 · AUTHORITY_WITHOUT_ACCOUNTABILITY",
+        "title": "AUTHORITY_WITHOUT_ACCOUNTABILITY",
+        "body": [
+          "Si alguien posee poder efectivo de decisión pero no accountability suficientemente clara:",
+          "abrir riesgo de decisión no gobernada."
+        ]
+      },
+      "sourceLines": [
+        269,
+        271
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "DER-DG03-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DER",
+      "sourceId": "DER-DG03-03",
+      "fields": {
+        "heading": "DER-DG03-03 · CENTRALIZATION_TEST",
+        "title": "CENTRALIZATION_TEST",
+        "body": [
+          "La concentración decisional solo constituye hallazgo cuando produce o expone materialmente:",
+          "bloqueo, fragilidad, falta de oportunidad, sobrecarga, decisiones fuera de contexto o incapacidad de continuidad.",
+          "No por ser centralización en sí misma."
+        ]
+      },
+      "sourceLines": [
+        272,
+        275
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "DER-DG03-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DER",
+      "sourceId": "DER-DG03-04",
+      "fields": {
+        "heading": "DER-DG03-04 · ESCALATION_IS_FUNCTION",
+        "title": "ESCALATION_IS_FUNCTION",
+        "body": [
+          "Escalamientos frecuentes no demuestran automáticamente falla.",
+          "Debemos distinguir:",
+          "escalamiento previsto y pertinente",
+          "de:",
+          "escalamiento utilizado porque la delegación nominal no funciona."
+        ]
+      },
+      "sourceLines": [
+        276,
+        281
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DG03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG03-01",
+      "fields": {
+        "heading": "CAND-MOTOR-DG03-01 · Una condición formalmente definida y una condición efectivamente observada deben poder coexistir como evidencias distintas; la primera no debe sobrescribir automáticamente la segunda.",
+        "title": "Una condición formalmente definida y una condición efectivamente observada deben poder coexistir como evidencias distintas; la primera no debe sobrescribir automáticamente la segunda.",
+        "body": [
+          "Ejemplo:",
+          "authority_declared = YES",
+          "y simultáneamente:",
+          "authority_observed = INSUFFICIENT.",
+          "Esto será muy importante para la futura estructura del Case State.",
+          "Segundo:"
+        ]
+      },
+      "sourceLines": [
+        296,
+        302
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DG03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG03-02",
+      "fields": {
+        "heading": "CAND-MOTOR-DG03-02 · La concentración o descentralización de una práctica no debe evaluarse normativamente por sí misma; su pertinencia depende de materialidad, contexto y efectos observables.",
+        "title": "La concentración o descentralización de una práctica no debe evaluarse normativamente por sí misma; su pertinencia depende de materialidad, contexto y efectos observables.",
+        "body": [
+          "Este principio probablemente podrá reutilizarse después en PC, DT y otros dominios."
+        ]
+      },
+      "sourceLines": [
+        303,
+        304
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-AI-GOV-01@L309",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-GOV-01",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-GOV-01 · AI-assisted decision ≠ AI accountability. El uso de IA para informar, recomendar o apoyar una decisión no elimina la necesidad de identificar responsabilidad humana/organizacional sobre la decisión material.",
+        "title": "AI-assisted decision ≠ AI accountability. El uso de IA para informar, recomendar o apoyar una decisión no elimina la necesidad de identificar responsabilidad humana/organizacional sobre la decisión material.",
+        "body": [
+          "No lo desarrollamos ahora —Fase 3 sigue reservada—, pero sí debemos conservarlo en el backlog del Motor, porque puede convertirse en una regla arquitectónica importante cuando lleguemos a IA y automatización."
+        ]
+      },
+      "sourceLines": [
+        309,
+        310
+      ]
+    },
+    {
+      "key": "INT-DG03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-DG03-01",
+      "fields": {
+        "heading": "INT-DG03-01 · Mínima intervención suficiente",
+        "title": "Mínima intervención suficiente",
+        "body": [
+          "Una pyme con cinco personas puede resolver DG-03 con algo tan sencillo como:",
+          "Decisión → quién propone → quién decide → límite → cuándo escala → quién responde.",
+          "No necesita necesariamente:",
+          "- comité;",
+          "- manual de gobierno;",
+          "- matriz RACI extensa;",
+          "- niveles jerárquicos adicionales;",
+          "- workflows complejos.",
+          "ISO 37000 es aplicable independientemente del tamaño de la organización, y su enfoque de gobierno busca precisamente mecanismos apropiados al contexto. ISO"
+        ]
+      },
+      "sourceLines": [
+        365,
+        374
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "INT-DG03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-DG03-02",
+      "fields": {
+        "heading": "INT-DG03-02",
+        "body": [
+          "No agregar controles cuando el mecanismo actual ya resuelve suficientemente la decisión.",
+          "Esto reutiliza nuestra regla de mínima intervención suficiente."
+        ]
+      },
+      "sourceLines": [
+        375,
+        377
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DG03-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG03-03",
+      "fields": {
+        "heading": "CAND-MOTOR-DG03-03 · Existencia, disponibilidad y funcionamiento observado de un mecanismo son estados evidenciales distintos.",
+        "title": "Existencia, disponibilidad y funcionamiento observado de un mecanismo son estados evidenciales distintos.",
+        "body": [
+          "Es muy probable que reaparezca en PC y DT."
+        ]
+      },
+      "sourceLines": [
+        444,
+        445
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "REASS-DG03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_REASS",
+      "sourceId": "REASS-DG03-01",
+      "fields": {
+        "heading": "REASS-DG03-01",
+        "body": [
+          "Una estructura decisional suficiente puede dejar de serlo cuando aumenta la complejidad organizacional.",
+          "Ejemplo:",
+          "fundador + 4 personas:",
+          "centralización funcional.",
+          "Empresa creciendo a 70 personas:",
+          "el mismo mecanismo puede convertirse en cuello de botella.",
+          "Esto reafirma:",
+          "Pymapa evalúa adecuación contextual, no conformidad con una estructura ideal universal."
+        ]
+      },
+      "sourceLines": [
+        461,
+        469
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-AI-GOV-01@L489",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-GOV-01",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-GOV-01 · El uso de IA para apoyar una decisión no elimina la necesidad de accountability organizacional sobre la decisión material.",
+        "title": "El uso de IA para apoyar una decisión no elimina la necesidad de accountability organizacional sobre la decisión material.",
+        "body": [
+          "Esto no significa necesariamente que siempre deba existir “una persona única responsable”; la configuración jurídica y organizacional puede variar. La regla importante es que la accountability no desaparece porque intervenga IA."
+        ]
+      },
+      "sourceLines": [
+        489,
+        490
+      ]
+    },
+    {
+      "key": "K1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Coherencia — PASS.",
+        "title": "Coherencia — PASS.",
+        "body": [
+          "La frontera DG-03/OP-05 queda protegida y responsabilidad, autoridad, decisión y ejecución no se fusionan."
+        ]
+      },
+      "sourceLines": [
+        564,
+        565
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "K2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Razonamiento — PASS.",
+        "title": "Razonamiento — PASS.",
+        "body": [
+          "No confundimos centralización con brecha, escalamiento con falla, responsabilidad nominal con accountability efectiva ni autoridad formal con autoridad funcional."
+        ]
+      },
+      "sourceLines": [
+        566,
+        567
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "K3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · Acción — PASS.",
+        "title": "Acción — PASS.",
+        "body": [
+          "Cada familia de hallazgo dispone de intervención proporcional, instrumento, entregable, Done y CRV."
+        ]
+      },
+      "sourceLines": [
+        568,
+        569
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    },
+    {
+      "key": "K4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · Conocimiento — PASS.",
+        "title": "Conocimiento — PASS.",
+        "body": [
+          "Grounding suficiente y actualizado, provenance explícito y separación entre conocimiento fuente y diseño Pymapa."
+        ]
+      },
+      "sourceLines": [
+        570,
+        571
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          573,
+          573
+        ]
+      }
+    }
+  ],
+  "checksum": "sha256:5be07bc3b8dfe93ab6c6d26735f76cecb237b8789aeb222f670ce3f926072f57"
+}

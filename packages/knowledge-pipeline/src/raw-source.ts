@@ -638,6 +638,21 @@ export const rawSourceRegistrationSchema = z.object({
     .object({ text: z.string().min(1), lines: z.array(z.number().int().positive()) })
     .nullable(),
   registeredAt: z.string().min(1),
+  /**
+   * Segmento de una fuente multi-capacidad (M2-BATCH-02). El texto registrado
+   * es el tramo [fromLine, toLine] (1-based, inclusivo) del texto completo
+   * extraído del original; la numeración de líneas del texto es la del tramo.
+   */
+  segment: z
+    .object({
+      rule: z.string().min(1),
+      fullTextSha256: sha,
+      fullTextLineCount: z.number().int().positive(),
+      fromLine: z.number().int().positive(),
+      toLine: z.number().int().positive(),
+      boundaryEvidence: z.object({ text: z.string().min(1), line: z.number().int().positive() }),
+    })
+    .optional(),
   checksum: z.string().regex(/^sha256:[0-9a-f]{64}$/),
 });
 export type RawSourceRegistration = z.infer<typeof rawSourceRegistrationSchema>;
@@ -840,8 +855,24 @@ export function verifyRawSourceRegistration(input: {
         bytes: input.originalBytes,
         pdfRunner: input.pdfRunner ?? null,
       });
-      const againHash =
+      const seg = reg.segment;
+      const fullHash =
         again.text === null ? null : sha256Bytes(new TextEncoder().encode(again.text));
+      const againHash =
+        again.text === null
+          ? null
+          : seg
+            ? fullHash === seg.fullTextSha256
+              ? sha256Bytes(
+                  new TextEncoder().encode(
+                    again.text
+                      .split("\n")
+                      .slice(seg.fromLine - 1, seg.toLine)
+                      .join("\n"),
+                  ),
+                )
+              : null
+            : fullHash;
       if (again.extractor.version !== reg.extraction.extractorVersion) {
         issues.push({
           code: "NON_DETERMINISTIC_EXTRACTION",
@@ -897,5 +928,127 @@ export function verifyRawSourceRegistration(input: {
     registration: reg,
     issues,
     reextractionVerified,
+  };
+}
+
+/* ------------------------------------------------------------------ */
+/* Fuentes multi-capacidad (M2-BATCH-02)                               */
+/* ------------------------------------------------------------------ */
+
+export const MULTI_CAPABILITY_SEGMENT_RULE =
+  "K4_CLOSURE_AND_IDENTITY_HEADING_BOUNDARY: el tramo de la capacidad k+1 empieza en el primer heading «<ID k+1> · …» posterior a la última línea que declara literalmente <IDcompacto k>-K4-v<n> · K4-VALIDATED · CLOSED; el tramo k termina en la línea anterior (el cierre y el resumen posterior de k quedan en k; la primera capacidad incluye el preámbulo del dominio; la última extiende hasta el final del texto). No decide contenido ni canonicidad.";
+
+export interface CapabilitySegment {
+  capabilityId: string;
+  fromLine: number;
+  toLine: number;
+  boundaryEvidence: { text: string; line: number };
+}
+
+/**
+ * Segmentación determinista de un texto que contiene varias capacidades,
+ * delimitada solo por los marcadores literales de cierre K4 de cada una.
+ * Falla si falta un marcador o si los marcadores no están ordenados.
+ */
+export function segmentMultiCapabilityText(
+  text: string,
+  capabilityIds: string[],
+): { ok: true; segments: CapabilitySegment[] } | { ok: false; reasons: string[] } {
+  const lines = text.split("\n");
+  const reasons: string[] = [];
+  const ends: { id: string; line: number; text: string }[] = [];
+  for (const id of capabilityIds) {
+    const own = id.replace("-", "");
+    const re = new RegExp(`^${own}-K4-v\\d+(?:\\.\\d+)* · K4-VALIDATED · CLOSED$`);
+    const at = lines.flatMap((l, i) =>
+      re.test(l.replace(/^#{1,9}\s+/, "").trim()) ? [i + 1] : [],
+    );
+    if (!at.length) reasons.push(`${id}: sin marcador literal de cierre K4`);
+    else
+      ends.push({
+        id,
+        line: at[at.length - 1] as number,
+        text: (lines[(at[at.length - 1] as number) - 1] as string).replace(/^#{1,9}\s+/, "").trim(),
+      });
+  }
+  for (let k = 1; k < ends.length; k += 1)
+    if ((ends[k] as { line: number }).line <= (ends[k - 1] as { line: number }).line)
+      reasons.push(
+        `${ends[k]?.id}: marcador de cierre fuera de orden respecto de ${ends[k - 1]?.id}`,
+      );
+  const starts: number[] = [1];
+  for (let k = 1; k < ends.length; k += 1) {
+    const prev = (ends[k - 1] as { line: number }).line;
+    const id = (ends[k] as { id: string }).id;
+    const at = lines.findIndex(
+      (l, i) =>
+        i + 1 > prev && /^#{1,9}\s+/.test(l) && l.replace(/^#{1,9}\s+/, "").startsWith(`${id} · `),
+    );
+    if (at < 0 || at + 1 > (ends[k] as { line: number }).line)
+      reasons.push(
+        `${id}: sin heading de identidad «${id} · …» tras el cierre de ${ends[k - 1]?.id}`,
+      );
+    else starts.push(at + 1);
+  }
+  if (reasons.length) return { ok: false, reasons };
+  return {
+    ok: true,
+    segments: ends.map((e, k) => ({
+      capabilityId: e.id,
+      fromLine: starts[k] as number,
+      toLine: k === ends.length - 1 ? lines.length : (starts[k + 1] as number) - 1,
+      boundaryEvidence: { text: e.text, line: e.line },
+    })),
+  };
+}
+
+/** Registro de un tramo de fuente multi-capacidad (original compartido e inmutable). */
+export function buildSegmentRegistration(input: {
+  capabilityId: string;
+  domainId: string;
+  masterVersion: string;
+  filename: string;
+  originalRef: string;
+  textRef: string;
+  bytes: Uint8Array;
+  extraction: RawExtraction;
+  segment: CapabilitySegment;
+  registeredAt: string;
+}): { registration: RawSourceRegistration; text: string } {
+  const full = input.extraction.text as string;
+  const all = full.split("\n");
+  const seg = input.segment;
+  const text = all.slice(seg.fromLine - 1, seg.toLine).join("\n");
+  const shift = seg.fromLine - 1;
+  const base = buildRawSourceRegistration({
+    ...input,
+    extraction: {
+      ...input.extraction,
+      text,
+      outline: input.extraction.outline
+        .filter((o) => o.line >= seg.fromLine && o.line <= seg.toLine)
+        .map((o) => ({ ...o, line: o.line - shift })),
+      pageStartLines: [],
+    },
+    historicalMarker: seg.boundaryEvidence.text,
+  });
+  const { checksum: _c, ...body } = base;
+  const withSeg = {
+    ...body,
+    segment: {
+      rule: MULTI_CAPABILITY_SEGMENT_RULE,
+      fullTextSha256: sha256Bytes(new TextEncoder().encode(full)),
+      fullTextLineCount: all.length,
+      fromLine: seg.fromLine,
+      toLine: seg.toLine,
+      boundaryEvidence: seg.boundaryEvidence,
+    },
+  };
+  return {
+    registration: {
+      ...withSeg,
+      checksum: computeSelfChecksum(withSeg as Record<string, unknown>),
+    } as RawSourceRegistration,
+    text,
   };
 }

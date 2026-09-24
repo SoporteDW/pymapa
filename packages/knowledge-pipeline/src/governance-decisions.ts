@@ -41,6 +41,11 @@ export const governanceDecisionsSchema = z.object({
         declared: z.number().int().nonnegative(),
         /** Línea literal de la fuente que declara el conteo. */
         sourceLiteral: z.string().min(1),
+        /** Si existe, solo cuentan los FINAL_APPROVED con este rol semántico gobernado. */
+        role: z
+          .string()
+          .regex(/^[A-Z][A-Z0-9_]*$/)
+          .optional(),
       }),
     )
     .default([]),
@@ -52,6 +57,71 @@ export const governanceDecisionsSchema = z.object({
         /** Número de líneas literales de descripción que siguen al título. */
         bodyLineCount: z.number().int().nonnegative(),
         publicationBlocking: z.literal(false),
+      }),
+    )
+    .default([]),
+  /**
+   * M2-BATCH-02 · resolución gobernada de colisiones de identificador. Cada
+   * decisión se verifica literalmente: el rango [fromLiteral, toLiteral] se
+   * delimita por líneas completas únicas de la fuente y debe contener
+   * exactamente una aparición del identificador; canonicalLiteral, si existe,
+   * debe figurar en esa aparición. Ninguna aparición se borra.
+   *  - SELECT_OCCURRENCE: la aparición seleccionada es canónica; las demás
+   *    quedan SUPERSEDED (provenance histórica/de apoyo).
+   *  - GENUINE_COLLISION: colisión real entre conceptos distintos; la
+   *    seleccionada ocupa el identificador canónico, las demás conservan su
+   *    texto como HISTORICAL_DRAFT con el rol semántico declarado.
+   *  - NOT_A_KNOWLEDGE_OBJECT: el identificador designa un estado de Quality
+   *    Gate, etapa o categoría; ninguna aparición es objeto canónico.
+   */
+  collisionResolutions: z
+    .array(
+      z.object({
+        sourceIds: z.array(z.string().min(1)).min(1),
+        resolution: z.enum(["SELECT_OCCURRENCE", "GENUINE_COLLISION", "NOT_A_KNOWLEDGE_OBJECT"]),
+        within: z.object({ fromLiteral: z.string().min(1), toLiteral: z.string().min(1) }).optional(),
+        canonicalLiteral: z.string().min(1).optional(),
+        otherOccurrencesRole: z
+          .string()
+          .regex(/^[A-Z][A-Z0-9_]*$/)
+          .optional(),
+        role: z
+          .string()
+          .regex(/^[A-Z][A-Z0-9_]*$/)
+          .optional(),
+        rationale: z.string().min(1),
+      }),
+    )
+    .default([]),
+  /**
+   * Tipado semántico gobernado sin renombrar identificadores. aliasOf marca una
+   * referencia abreviada (no objeto propio): pasa a HISTORICAL_DRAFT y no cuenta.
+   * bodyLiterals exige que el cuerpo de cada identificador contenga el literal.
+   */
+  semanticTypes: z
+    .array(
+      z.object({
+        sourceIds: z.array(z.string().min(1)).min(1),
+        role: z.string().regex(/^[A-Z][A-Z0-9_]*$/),
+        within: z.object({ fromLiteral: z.string().min(1), toLiteral: z.string().min(1) }).optional(),
+        aliasOf: z.record(z.string(), z.string()).optional(),
+        bodyLiterals: z.record(z.string(), z.string()).optional(),
+        rationale: z.string().min(1),
+      }),
+    )
+    .default([]),
+  /**
+   * Vocabulario de provenance nativo de la fuente (sin normalizar entre
+   * capacidades). anchorLiteral es una línea completa única; cada código debe
+   * aparecer como línea completa dentro de las windowLines siguientes.
+   */
+  provenanceVocabulary: z
+    .array(
+      z.object({
+        scheme: z.string().regex(/^[A-Z][A-Z0-9_]*$/),
+        anchorLiteral: z.string().min(1),
+        windowLines: z.number().int().positive().default(16),
+        codes: z.array(z.string().min(1)).min(1),
       }),
     )
     .default([]),

@@ -4,21 +4,33 @@
   "masterVersion": "1.0",
   "engineVersion": "pymapa-knowledge-engine/0.2.0",
   "expectedCapabilityCount": 31,
-  "registeredCapabilityCount": 5,
-  "unregisteredSlotCount": 26,
+  "registeredCapabilityCount": 15,
+  "unregisteredSlotCount": 16,
   "signal": "AUTHORITATIVE_SOURCE_REQUIRED",
   "domains": [
     {
       "domainId": "DG",
       "declaredCapabilityCount": 5,
-      "registered": [],
-      "unregisteredSlots": 5
+      "registered": [
+        "DG-01",
+        "DG-02",
+        "DG-03",
+        "DG-04",
+        "DG-05"
+      ],
+      "unregisteredSlots": 0
     },
     {
       "domainId": "PC",
       "declaredCapabilityCount": 5,
-      "registered": [],
-      "unregisteredSlots": 5
+      "registered": [
+        "PC-01",
+        "PC-02",
+        "PC-03",
+        "PC-04",
+        "PC-05"
+      ],
+      "unregisteredSlots": 0
     },
     {
       "domainId": "OP",
@@ -56,14 +68,14 @@
       "RAW_SOURCE": 0,
       "REGISTERED": 0,
       "EXTRACTED_CANDIDATE": 0,
-      "CANONICAL_REVIEW_REQUIRED": 3,
+      "CANONICAL_REVIEW_REQUIRED": 13,
       "VALIDATED": 0,
       "READY_FOR_PUBLICATION": 0,
       "PUBLISHED": 2
     },
     "byOutcome": {
       "PASS": 2,
-      "REVIEW_REQUIRED": 3,
+      "REVIEW_REQUIRED": 13,
       "FAIL": 0
     }
   },
@@ -75,6 +87,1081 @@
   },
   "batchIssues": [],
   "entries": [
+    {
+      "capabilityId": "DG-01",
+      "domainId": "DG",
+      "sourcePath": "INTAKE",
+      "rawSource": {
+        "availability": "IN_REPOSITORY",
+        "ref": "text/DG-01.txt",
+        "textSha256": "cf38d30f1b7c764c07de706bfd6360110175d9e235099881044bb664745adb68",
+        "originalFilename": "DG_-_01_A_05_Completo.docx",
+        "originalSha256": "1862e0e860b8b5a2bd446dbc5d7cb0545841fa9dba013666f5cc1e645490b2c8",
+        "extractor": "pymapa-docx-text@1.0.0",
+        "registrationId": "RAW-DG-01-1862e0e860b8"
+      },
+      "extraction": {
+        "status": "CANDIDATE",
+        "candidateId": "CAND-DG-01-0.2.0-cf38d30f1b7c",
+        "producedBy": "DETERMINISTIC_TOOL"
+      },
+      "canonical": {
+        "status": "NONE",
+        "baselineId": null,
+        "checksum": null,
+        "objectCount": null
+      },
+      "provenance": {
+        "sourceReference": null,
+        "derivation": null,
+        "extractionStatus": null,
+        "historicalClosure": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED"
+      },
+      "gaps": {
+        "total": 0,
+        "notExplicit": [],
+        "sourceContentNotRecovered": [],
+        "runtimeExtension": [],
+        "publicationBlocking": []
+      },
+      "transcriptionCorrections": [],
+      "runtimeCompatibility": {
+        "requiredEngineVersion": "0.1.0",
+        "engineVersion": "0.2.0",
+        "compatible": true,
+        "extensions": []
+      },
+      "fixtures": {
+        "count": 0,
+        "pass": 0,
+        "governedJudgment": 0,
+        "fail": 0
+      },
+      "governance": {
+        "reviewStatus": "NOT_REQUESTED",
+        "evidence": "NOT_APPLICABLE"
+      },
+      "publication": {
+        "status": "UNPUBLISHED",
+        "packId": null,
+        "packVersion": null,
+        "packChecksum": null
+      },
+      "state": "CANONICAL_REVIEW_REQUIRED",
+      "outcome": "REVIEW_REQUIRED",
+      "checks": [
+        {
+          "check": "RAW_REGISTRATION",
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "RAW_REGISTRATION",
+              "code": "EXTRACTION_WARNING",
+              "severity": "INFO",
+              "message": "IMAGES_NOT_TRANSCRIBED: 204 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+              "action": "considerar en la extracción de candidatos",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
+          "check": "STRUCTURAL",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "REFERENTIAL",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "SOURCE_TO_CANONICAL",
+              "code": "PROVENANCE_VOCABULARY_REQUIRED",
+              "severity": "REVIEW",
+              "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
+              "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
+              "sourceLines": null,
+              "objectKey": null
+            },
+            {
+              "check": "SOURCE_TO_CANONICAL",
+              "code": "CANONICAL_ACCEPTANCE_REQUIRED",
+              "severity": "REVIEW",
+              "message": "el candidato no tiene aceptación canónica humana",
+              "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "PROVENANCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "CANONICAL_TO_PACK",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "RUNTIME_COMPATIBILITY",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "FIXTURES",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_SILENCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "CAPABILITY_BRANCHING",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "GOLDEN_REGRESSION",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "GOVERNANCE_EVIDENCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        }
+      ],
+      "reasons": [
+        {
+          "check": "RAW_REGISTRATION",
+          "code": "EXTRACTION_WARNING",
+          "severity": "INFO",
+          "message": "IMAGES_NOT_TRANSCRIBED: 204 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+          "action": "considerar en la extracción de candidatos",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "code": "PROVENANCE_VOCABULARY_REQUIRED",
+          "severity": "REVIEW",
+          "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
+          "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "code": "CANONICAL_ACCEPTANCE_REQUIRED",
+          "severity": "REVIEW",
+          "message": "el candidato no tiene aceptación canónica humana",
+          "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+          "sourceLines": null,
+          "objectKey": null
+        }
+      ],
+      "metrics": {
+        "rawOriginalBytes": 205770,
+        "rawTextBytes": 52075,
+        "rawTextLines": 855,
+        "candidateItems": 55,
+        "canonicalObjects": null,
+        "executableSections": null,
+        "checksAutoPassed": 2,
+        "humanReviewItems": 2,
+        "notExplicit": 0,
+        "sourceContentNotRecovered": 0,
+        "transcriptionIssues": 0,
+        "runtimeExtensionsRequired": 0,
+        "runtimeExtensionsClosed": 0,
+        "testFailures": 0,
+        "publicationBlockers": 0
+      }
+    },
+    {
+      "capabilityId": "DG-02",
+      "domainId": "DG",
+      "sourcePath": "INTAKE",
+      "rawSource": {
+        "availability": "IN_REPOSITORY",
+        "ref": "text/DG-02.txt",
+        "textSha256": "982f47a8dd644570de5ab92b4a12322f2727076658d733bfcb5aa6a87292bf0f",
+        "originalFilename": "DG_-_01_A_05_Completo.docx",
+        "originalSha256": "1862e0e860b8b5a2bd446dbc5d7cb0545841fa9dba013666f5cc1e645490b2c8",
+        "extractor": "pymapa-docx-text@1.0.0",
+        "registrationId": "RAW-DG-02-1862e0e860b8"
+      },
+      "extraction": {
+        "status": "CANDIDATE",
+        "candidateId": "CAND-DG-02-0.2.0-982f47a8dd64",
+        "producedBy": "DETERMINISTIC_TOOL"
+      },
+      "canonical": {
+        "status": "NONE",
+        "baselineId": null,
+        "checksum": null,
+        "objectCount": null
+      },
+      "provenance": {
+        "sourceReference": null,
+        "derivation": null,
+        "extractionStatus": null,
+        "historicalClosure": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED"
+      },
+      "gaps": {
+        "total": 0,
+        "notExplicit": [],
+        "sourceContentNotRecovered": [],
+        "runtimeExtension": [],
+        "publicationBlocking": []
+      },
+      "transcriptionCorrections": [],
+      "runtimeCompatibility": {
+        "requiredEngineVersion": "0.1.0",
+        "engineVersion": "0.2.0",
+        "compatible": true,
+        "extensions": []
+      },
+      "fixtures": {
+        "count": 0,
+        "pass": 0,
+        "governedJudgment": 0,
+        "fail": 0
+      },
+      "governance": {
+        "reviewStatus": "NOT_REQUESTED",
+        "evidence": "NOT_APPLICABLE"
+      },
+      "publication": {
+        "status": "UNPUBLISHED",
+        "packId": null,
+        "packVersion": null,
+        "packChecksum": null
+      },
+      "state": "CANONICAL_REVIEW_REQUIRED",
+      "outcome": "REVIEW_REQUIRED",
+      "checks": [
+        {
+          "check": "RAW_REGISTRATION",
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "RAW_REGISTRATION",
+              "code": "EXTRACTION_WARNING",
+              "severity": "INFO",
+              "message": "IMAGES_NOT_TRANSCRIBED: 204 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+              "action": "considerar en la extracción de candidatos",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
+          "check": "STRUCTURAL",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "REFERENTIAL",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "SOURCE_TO_CANONICAL",
+              "code": "PROVENANCE_VOCABULARY_REQUIRED",
+              "severity": "REVIEW",
+              "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
+              "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
+              "sourceLines": null,
+              "objectKey": null
+            },
+            {
+              "check": "SOURCE_TO_CANONICAL",
+              "code": "CANONICAL_ACCEPTANCE_REQUIRED",
+              "severity": "REVIEW",
+              "message": "el candidato no tiene aceptación canónica humana",
+              "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "PROVENANCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "CANONICAL_TO_PACK",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "RUNTIME_COMPATIBILITY",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "FIXTURES",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_SILENCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "CAPABILITY_BRANCHING",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "GOLDEN_REGRESSION",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "GOVERNANCE_EVIDENCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        }
+      ],
+      "reasons": [
+        {
+          "check": "RAW_REGISTRATION",
+          "code": "EXTRACTION_WARNING",
+          "severity": "INFO",
+          "message": "IMAGES_NOT_TRANSCRIBED: 204 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+          "action": "considerar en la extracción de candidatos",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "code": "PROVENANCE_VOCABULARY_REQUIRED",
+          "severity": "REVIEW",
+          "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
+          "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "code": "CANONICAL_ACCEPTANCE_REQUIRED",
+          "severity": "REVIEW",
+          "message": "el candidato no tiene aceptación canónica humana",
+          "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+          "sourceLines": null,
+          "objectKey": null
+        }
+      ],
+      "metrics": {
+        "rawOriginalBytes": 205770,
+        "rawTextBytes": 32089,
+        "rawTextLines": 632,
+        "candidateItems": 60,
+        "canonicalObjects": null,
+        "executableSections": null,
+        "checksAutoPassed": 2,
+        "humanReviewItems": 2,
+        "notExplicit": 0,
+        "sourceContentNotRecovered": 0,
+        "transcriptionIssues": 0,
+        "runtimeExtensionsRequired": 0,
+        "runtimeExtensionsClosed": 0,
+        "testFailures": 0,
+        "publicationBlockers": 0
+      }
+    },
+    {
+      "capabilityId": "DG-03",
+      "domainId": "DG",
+      "sourcePath": "INTAKE",
+      "rawSource": {
+        "availability": "IN_REPOSITORY",
+        "ref": "text/DG-03.txt",
+        "textSha256": "9af887c2905718fcc6073d1e5f5d4ca946b249d22aeab2215fb71c5ed4759853",
+        "originalFilename": "DG_-_01_A_05_Completo.docx",
+        "originalSha256": "1862e0e860b8b5a2bd446dbc5d7cb0545841fa9dba013666f5cc1e645490b2c8",
+        "extractor": "pymapa-docx-text@1.0.0",
+        "registrationId": "RAW-DG-03-1862e0e860b8"
+      },
+      "extraction": {
+        "status": "CANDIDATE",
+        "candidateId": "CAND-DG-03-0.2.0-9af887c29057",
+        "producedBy": "DETERMINISTIC_TOOL"
+      },
+      "canonical": {
+        "status": "NONE",
+        "baselineId": null,
+        "checksum": null,
+        "objectCount": null
+      },
+      "provenance": {
+        "sourceReference": null,
+        "derivation": null,
+        "extractionStatus": null,
+        "historicalClosure": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED"
+      },
+      "gaps": {
+        "total": 0,
+        "notExplicit": [],
+        "sourceContentNotRecovered": [],
+        "runtimeExtension": [],
+        "publicationBlocking": []
+      },
+      "transcriptionCorrections": [],
+      "runtimeCompatibility": {
+        "requiredEngineVersion": "0.1.0",
+        "engineVersion": "0.2.0",
+        "compatible": true,
+        "extensions": []
+      },
+      "fixtures": {
+        "count": 0,
+        "pass": 0,
+        "governedJudgment": 0,
+        "fail": 0
+      },
+      "governance": {
+        "reviewStatus": "NOT_REQUESTED",
+        "evidence": "NOT_APPLICABLE"
+      },
+      "publication": {
+        "status": "UNPUBLISHED",
+        "packId": null,
+        "packVersion": null,
+        "packChecksum": null
+      },
+      "state": "CANONICAL_REVIEW_REQUIRED",
+      "outcome": "REVIEW_REQUIRED",
+      "checks": [
+        {
+          "check": "RAW_REGISTRATION",
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "RAW_REGISTRATION",
+              "code": "EXTRACTION_WARNING",
+              "severity": "INFO",
+              "message": "IMAGES_NOT_TRANSCRIBED: 204 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+              "action": "considerar en la extracción de candidatos",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "SUPERSESSION_AMBIGUOUS",
+              "severity": "REVIEW",
+              "message": "CAND-MOTOR-AI-GOV-01: 2 definiciones (L309, L489) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "action": "corregir el candidato",
+              "sourceLines": [
+                309,
+                310
+              ],
+              "objectKey": "CAND-MOTOR-AI-GOV-01"
+            }
+          ]
+        },
+        {
+          "check": "STRUCTURAL",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "REFERENTIAL",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "SOURCE_TO_CANONICAL",
+              "code": "PROVENANCE_VOCABULARY_REQUIRED",
+              "severity": "REVIEW",
+              "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
+              "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
+              "sourceLines": null,
+              "objectKey": null
+            },
+            {
+              "check": "SOURCE_TO_CANONICAL",
+              "code": "CANONICAL_ACCEPTANCE_REQUIRED",
+              "severity": "REVIEW",
+              "message": "el candidato no tiene aceptación canónica humana",
+              "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "PROVENANCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "CANONICAL_TO_PACK",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "RUNTIME_COMPATIBILITY",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "FIXTURES",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_SILENCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "CAPABILITY_BRANCHING",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "GOLDEN_REGRESSION",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "GOVERNANCE_EVIDENCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        }
+      ],
+      "reasons": [
+        {
+          "check": "RAW_REGISTRATION",
+          "code": "EXTRACTION_WARNING",
+          "severity": "INFO",
+          "message": "IMAGES_NOT_TRANSCRIBED: 204 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+          "action": "considerar en la extracción de candidatos",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "SUPERSESSION_AMBIGUOUS",
+          "severity": "REVIEW",
+          "message": "CAND-MOTOR-AI-GOV-01: 2 definiciones (L309, L489) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "action": "corregir el candidato",
+          "sourceLines": [
+            309,
+            310
+          ],
+          "objectKey": "CAND-MOTOR-AI-GOV-01"
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "code": "PROVENANCE_VOCABULARY_REQUIRED",
+          "severity": "REVIEW",
+          "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
+          "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "code": "CANONICAL_ACCEPTANCE_REQUIRED",
+          "severity": "REVIEW",
+          "message": "el candidato no tiene aceptación canónica humana",
+          "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+          "sourceLines": null,
+          "objectKey": null
+        }
+      ],
+      "metrics": {
+        "rawOriginalBytes": 205770,
+        "rawTextBytes": 30009,
+        "rawTextLines": 593,
+        "candidateItems": 55,
+        "canonicalObjects": null,
+        "executableSections": null,
+        "checksAutoPassed": 1,
+        "humanReviewItems": 3,
+        "notExplicit": 0,
+        "sourceContentNotRecovered": 0,
+        "transcriptionIssues": 0,
+        "runtimeExtensionsRequired": 0,
+        "runtimeExtensionsClosed": 0,
+        "testFailures": 0,
+        "publicationBlockers": 0
+      }
+    },
+    {
+      "capabilityId": "DG-04",
+      "domainId": "DG",
+      "sourcePath": "INTAKE",
+      "rawSource": {
+        "availability": "IN_REPOSITORY",
+        "ref": "text/DG-04.txt",
+        "textSha256": "1223b7cc3debc250a116d36d63e464a608a87d8777ce52b9c62c1ab6dafae94d",
+        "originalFilename": "DG_-_01_A_05_Completo.docx",
+        "originalSha256": "1862e0e860b8b5a2bd446dbc5d7cb0545841fa9dba013666f5cc1e645490b2c8",
+        "extractor": "pymapa-docx-text@1.0.0",
+        "registrationId": "RAW-DG-04-1862e0e860b8"
+      },
+      "extraction": {
+        "status": "CANDIDATE",
+        "candidateId": "CAND-DG-04-0.2.0-1223b7cc3deb",
+        "producedBy": "DETERMINISTIC_TOOL"
+      },
+      "canonical": {
+        "status": "NONE",
+        "baselineId": null,
+        "checksum": null,
+        "objectCount": null
+      },
+      "provenance": {
+        "sourceReference": null,
+        "derivation": null,
+        "extractionStatus": null,
+        "historicalClosure": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED"
+      },
+      "gaps": {
+        "total": 0,
+        "notExplicit": [],
+        "sourceContentNotRecovered": [],
+        "runtimeExtension": [],
+        "publicationBlocking": []
+      },
+      "transcriptionCorrections": [],
+      "runtimeCompatibility": {
+        "requiredEngineVersion": "0.1.0",
+        "engineVersion": "0.2.0",
+        "compatible": true,
+        "extensions": []
+      },
+      "fixtures": {
+        "count": 0,
+        "pass": 0,
+        "governedJudgment": 0,
+        "fail": 0
+      },
+      "governance": {
+        "reviewStatus": "NOT_REQUESTED",
+        "evidence": "NOT_APPLICABLE"
+      },
+      "publication": {
+        "status": "UNPUBLISHED",
+        "packId": null,
+        "packVersion": null,
+        "packChecksum": null
+      },
+      "state": "CANONICAL_REVIEW_REQUIRED",
+      "outcome": "REVIEW_REQUIRED",
+      "checks": [
+        {
+          "check": "RAW_REGISTRATION",
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "RAW_REGISTRATION",
+              "code": "EXTRACTION_WARNING",
+              "severity": "INFO",
+              "message": "IMAGES_NOT_TRANSCRIBED: 204 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+              "action": "considerar en la extracción de candidatos",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
+          "check": "STRUCTURAL",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "REFERENTIAL",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "SOURCE_TO_CANONICAL",
+              "code": "PROVENANCE_VOCABULARY_REQUIRED",
+              "severity": "REVIEW",
+              "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
+              "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
+              "sourceLines": null,
+              "objectKey": null
+            },
+            {
+              "check": "SOURCE_TO_CANONICAL",
+              "code": "CANONICAL_ACCEPTANCE_REQUIRED",
+              "severity": "REVIEW",
+              "message": "el candidato no tiene aceptación canónica humana",
+              "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "PROVENANCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "CANONICAL_TO_PACK",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "RUNTIME_COMPATIBILITY",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "FIXTURES",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_SILENCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "CAPABILITY_BRANCHING",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "GOLDEN_REGRESSION",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "GOVERNANCE_EVIDENCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        }
+      ],
+      "reasons": [
+        {
+          "check": "RAW_REGISTRATION",
+          "code": "EXTRACTION_WARNING",
+          "severity": "INFO",
+          "message": "IMAGES_NOT_TRANSCRIBED: 204 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+          "action": "considerar en la extracción de candidatos",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "code": "PROVENANCE_VOCABULARY_REQUIRED",
+          "severity": "REVIEW",
+          "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
+          "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "code": "CANONICAL_ACCEPTANCE_REQUIRED",
+          "severity": "REVIEW",
+          "message": "el candidato no tiene aceptación canónica humana",
+          "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+          "sourceLines": null,
+          "objectKey": null
+        }
+      ],
+      "metrics": {
+        "rawOriginalBytes": 205770,
+        "rawTextBytes": 33033,
+        "rawTextLines": 675,
+        "candidateItems": 62,
+        "canonicalObjects": null,
+        "executableSections": null,
+        "checksAutoPassed": 2,
+        "humanReviewItems": 2,
+        "notExplicit": 0,
+        "sourceContentNotRecovered": 0,
+        "transcriptionIssues": 0,
+        "runtimeExtensionsRequired": 0,
+        "runtimeExtensionsClosed": 0,
+        "testFailures": 0,
+        "publicationBlockers": 0
+      }
+    },
+    {
+      "capabilityId": "DG-05",
+      "domainId": "DG",
+      "sourcePath": "INTAKE",
+      "rawSource": {
+        "availability": "IN_REPOSITORY",
+        "ref": "text/DG-05.txt",
+        "textSha256": "1d4ea86e3766ab2f7023497236ca0d70f77254eb214e53c5b299468bb1603f66",
+        "originalFilename": "DG_-_01_A_05_Completo.docx",
+        "originalSha256": "1862e0e860b8b5a2bd446dbc5d7cb0545841fa9dba013666f5cc1e645490b2c8",
+        "extractor": "pymapa-docx-text@1.0.0",
+        "registrationId": "RAW-DG-05-1862e0e860b8"
+      },
+      "extraction": {
+        "status": "CANDIDATE",
+        "candidateId": "CAND-DG-05-0.2.0-1d4ea86e3766",
+        "producedBy": "DETERMINISTIC_TOOL"
+      },
+      "canonical": {
+        "status": "NONE",
+        "baselineId": null,
+        "checksum": null,
+        "objectCount": null
+      },
+      "provenance": {
+        "sourceReference": null,
+        "derivation": null,
+        "extractionStatus": null,
+        "historicalClosure": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED"
+      },
+      "gaps": {
+        "total": 0,
+        "notExplicit": [],
+        "sourceContentNotRecovered": [],
+        "runtimeExtension": [],
+        "publicationBlocking": []
+      },
+      "transcriptionCorrections": [],
+      "runtimeCompatibility": {
+        "requiredEngineVersion": "0.1.0",
+        "engineVersion": "0.2.0",
+        "compatible": true,
+        "extensions": []
+      },
+      "fixtures": {
+        "count": 0,
+        "pass": 0,
+        "governedJudgment": 0,
+        "fail": 0
+      },
+      "governance": {
+        "reviewStatus": "NOT_REQUESTED",
+        "evidence": "NOT_APPLICABLE"
+      },
+      "publication": {
+        "status": "UNPUBLISHED",
+        "packId": null,
+        "packVersion": null,
+        "packChecksum": null
+      },
+      "state": "CANONICAL_REVIEW_REQUIRED",
+      "outcome": "REVIEW_REQUIRED",
+      "checks": [
+        {
+          "check": "RAW_REGISTRATION",
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "RAW_REGISTRATION",
+              "code": "EXTRACTION_WARNING",
+              "severity": "INFO",
+              "message": "IMAGES_NOT_TRANSCRIBED: 204 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+              "action": "considerar en la extracción de candidatos",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
+          "check": "STRUCTURAL",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "REFERENTIAL",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "SOURCE_TO_CANONICAL",
+              "code": "PROVENANCE_VOCABULARY_REQUIRED",
+              "severity": "REVIEW",
+              "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
+              "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
+              "sourceLines": null,
+              "objectKey": null
+            },
+            {
+              "check": "SOURCE_TO_CANONICAL",
+              "code": "CANONICAL_ACCEPTANCE_REQUIRED",
+              "severity": "REVIEW",
+              "message": "el candidato no tiene aceptación canónica humana",
+              "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "PROVENANCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "CANONICAL_TO_PACK",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "RUNTIME_COMPATIBILITY",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "FIXTURES",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_SILENCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "CAPABILITY_BRANCHING",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "GOLDEN_REGRESSION",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "GOVERNANCE_EVIDENCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        }
+      ],
+      "reasons": [
+        {
+          "check": "RAW_REGISTRATION",
+          "code": "EXTRACTION_WARNING",
+          "severity": "INFO",
+          "message": "IMAGES_NOT_TRANSCRIBED: 204 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+          "action": "considerar en la extracción de candidatos",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "code": "PROVENANCE_VOCABULARY_REQUIRED",
+          "severity": "REVIEW",
+          "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
+          "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "code": "CANONICAL_ACCEPTANCE_REQUIRED",
+          "severity": "REVIEW",
+          "message": "el candidato no tiene aceptación canónica humana",
+          "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+          "sourceLines": null,
+          "objectKey": null
+        }
+      ],
+      "metrics": {
+        "rawOriginalBytes": 205770,
+        "rawTextBytes": 31462,
+        "rawTextLines": 657,
+        "candidateItems": 68,
+        "canonicalObjects": null,
+        "executableSections": null,
+        "checksAutoPassed": 2,
+        "humanReviewItems": 2,
+        "notExplicit": 0,
+        "sourceContentNotRecovered": 0,
+        "transcriptionIssues": 0,
+        "runtimeExtensionsRequired": 0,
+        "runtimeExtensionsClosed": 0,
+        "testFailures": 0,
+        "publicationBlockers": 0
+      }
+    },
     {
       "capabilityId": "OP-01",
       "domainId": "OP",
@@ -513,7 +1600,7 @@
     {
       "capabilityId": "OP-03",
       "domainId": "OP",
-      "sourcePath": "INTAKE",
+      "sourcePath": "MASTER",
       "rawSource": {
         "availability": "IN_REPOSITORY",
         "ref": "text/OP-03_Completo.txt",
@@ -524,15 +1611,15 @@
         "registrationId": "RAW-OP-03-afe0758fb2b4"
       },
       "extraction": {
-        "status": "CANDIDATE",
-        "candidateId": "CAND-OP-03-0.2.0-26d6a7a9d5d6",
-        "producedBy": "DETERMINISTIC_TOOL"
+        "status": "CANONICAL",
+        "candidateId": null,
+        "producedBy": null
       },
       "canonical": {
-        "status": "NONE",
-        "baselineId": null,
-        "checksum": null,
-        "objectCount": null
+        "status": "ACCEPTED",
+        "baselineId": "OP03-K4-v1.0",
+        "checksum": "sha256:573e1906b898d67065fcc66fccee8710b71436a217d91874284d562d596df034",
+        "objectCount": 182
       },
       "provenance": {
         "sourceReference": null,
@@ -590,165 +1677,8 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "REC-OP03-01: 2 definiciones (L379, L3333) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                379,
-                381
-              ],
-              "objectKey": "REC-OP03-01"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "P-OP03-02: 2 definiciones (L759, L1155) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                759,
-                759
-              ],
-              "objectKey": "P-OP03-02"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "REUSE-OP03-01: 2 definiciones (L1641, L1842) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                1641,
-                1643
-              ],
-              "objectKey": "REUSE-OP03-01"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "P1: 4 definiciones (L1845, L1857, L1869, L1878) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                1845,
-                1846
-              ],
-              "objectKey": "P1"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "IP01: 4 definiciones (L3356, L3366, L3926, L4530) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                3356,
-                3356
-              ],
-              "objectKey": "IP01"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "IP02: 5 definiciones (L3357, L3384, L3431, L3960, L4548) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                3357,
-                3357
-              ],
-              "objectKey": "IP02"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "IP03: 5 definiciones (L3358, L3408, L3433, L3992, L4580) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                3358,
-                3358
-              ],
-              "objectKey": "IP03"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "IP04: 4 definiciones (L3359, L3440, L4033, L4593) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                3359,
-                3359
-              ],
-              "objectKey": "IP04"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "IP05: 4 definiciones (L3360, L3454, L4065, L4608) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                3360,
-                3360
-              ],
-              "objectKey": "IP05"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "IP06: 4 definiciones (L3361, L3478, L4089, L4619) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                3361,
-                3361
-              ],
-              "objectKey": "IP06"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "IP07: 4 definiciones (L3362, L3503, L4115, L4634) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                3362,
-                3362
-              ],
-              "objectKey": "IP07"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "IP08: 4 definiciones (L3363, L3527, L4152, L4646) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                3363,
-                3364
-              ],
-              "objectKey": "IP08"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "CONTROL_COUNT_MISMATCH",
-              "severity": "REVIEW",
-              "message": "CRV: la fuente declara 8 y el candidato materializa 10 SOURCE_ID_CRV FINAL_APPROVED; posible omisión o duplicado de transcripción (líneas 6089–6089)",
-              "action": "contrastar el conteo de control con los ítems materializados",
-              "sourceLines": [
-                6089,
-                6089
-              ],
-              "objectKey": null
-            }
-          ]
+          "status": "NOT_RUN",
+          "reasons": []
         },
         {
           "check": "STRUCTURAL",
@@ -762,27 +1692,8 @@
         },
         {
           "check": "SOURCE_TO_CANONICAL",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "SOURCE_TO_CANONICAL",
-              "code": "PROVENANCE_VOCABULARY_REQUIRED",
-              "severity": "REVIEW",
-              "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
-              "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "SOURCE_TO_CANONICAL",
-              "code": "CANONICAL_ACCEPTANCE_REQUIRED",
-              "severity": "REVIEW",
-              "message": "el candidato no tiene aceptación canónica humana",
-              "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "PROVENANCE",
@@ -791,8 +1702,18 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "CANONICAL_TO_PACK",
+              "code": "EXECUTABLE_PROJECTION_MISSING",
+              "severity": "REVIEW",
+              "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
+              "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -841,176 +1762,11 @@
           "objectKey": null
         },
         {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
+          "check": "CANONICAL_TO_PACK",
+          "code": "EXECUTABLE_PROJECTION_MISSING",
           "severity": "REVIEW",
-          "message": "REC-OP03-01: 2 definiciones (L379, L3333) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            379,
-            381
-          ],
-          "objectKey": "REC-OP03-01"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "P-OP03-02: 2 definiciones (L759, L1155) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            759,
-            759
-          ],
-          "objectKey": "P-OP03-02"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "REUSE-OP03-01: 2 definiciones (L1641, L1842) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            1641,
-            1643
-          ],
-          "objectKey": "REUSE-OP03-01"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "P1: 4 definiciones (L1845, L1857, L1869, L1878) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            1845,
-            1846
-          ],
-          "objectKey": "P1"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "IP01: 4 definiciones (L3356, L3366, L3926, L4530) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            3356,
-            3356
-          ],
-          "objectKey": "IP01"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "IP02: 5 definiciones (L3357, L3384, L3431, L3960, L4548) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            3357,
-            3357
-          ],
-          "objectKey": "IP02"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "IP03: 5 definiciones (L3358, L3408, L3433, L3992, L4580) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            3358,
-            3358
-          ],
-          "objectKey": "IP03"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "IP04: 4 definiciones (L3359, L3440, L4033, L4593) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            3359,
-            3359
-          ],
-          "objectKey": "IP04"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "IP05: 4 definiciones (L3360, L3454, L4065, L4608) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            3360,
-            3360
-          ],
-          "objectKey": "IP05"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "IP06: 4 definiciones (L3361, L3478, L4089, L4619) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            3361,
-            3361
-          ],
-          "objectKey": "IP06"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "IP07: 4 definiciones (L3362, L3503, L4115, L4634) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            3362,
-            3362
-          ],
-          "objectKey": "IP07"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "IP08: 4 definiciones (L3363, L3527, L4152, L4646) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            3363,
-            3364
-          ],
-          "objectKey": "IP08"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "CONTROL_COUNT_MISMATCH",
-          "severity": "REVIEW",
-          "message": "CRV: la fuente declara 8 y el candidato materializa 10 SOURCE_ID_CRV FINAL_APPROVED; posible omisión o duplicado de transcripción (líneas 6089–6089)",
-          "action": "contrastar el conteo de control con los ítems materializados",
-          "sourceLines": [
-            6089,
-            6089
-          ],
-          "objectKey": null
-        },
-        {
-          "check": "SOURCE_TO_CANONICAL",
-          "code": "PROVENANCE_VOCABULARY_REQUIRED",
-          "severity": "REVIEW",
-          "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
-          "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "SOURCE_TO_CANONICAL",
-          "code": "CANONICAL_ACCEPTANCE_REQUIRED",
-          "severity": "REVIEW",
-          "message": "el candidato no tiene aceptación canónica humana",
-          "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+          "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
+          "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
           "sourceLines": null,
           "objectKey": null
         }
@@ -1019,11 +1775,11 @@
         "rawOriginalBytes": 288189,
         "rawTextBytes": 236618,
         "rawTextLines": 6185,
-        "candidateItems": 289,
-        "canonicalObjects": null,
+        "candidateItems": null,
+        "canonicalObjects": 182,
         "executableSections": null,
-        "checksAutoPassed": 1,
-        "humanReviewItems": 15,
+        "checksAutoPassed": 2,
+        "humanReviewItems": 1,
         "notExplicit": 0,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
@@ -1036,7 +1792,7 @@
     {
       "capabilityId": "OP-04",
       "domainId": "OP",
-      "sourcePath": "INTAKE",
+      "sourcePath": "MASTER",
       "rawSource": {
         "availability": "IN_REPOSITORY",
         "ref": "text/OP-04_Completo.txt",
@@ -1047,15 +1803,15 @@
         "registrationId": "RAW-OP-04-98e7bf95daf4"
       },
       "extraction": {
-        "status": "CANDIDATE",
-        "candidateId": "CAND-OP-04-0.2.0-8a749c56e19b",
-        "producedBy": "DETERMINISTIC_TOOL"
+        "status": "CANONICAL",
+        "candidateId": null,
+        "producedBy": null
       },
       "canonical": {
-        "status": "NONE",
-        "baselineId": null,
-        "checksum": null,
-        "objectCount": null
+        "status": "ACCEPTED",
+        "baselineId": "OP04-K4-v1.0",
+        "checksum": "sha256:711b804cf0b7341730ea7159c6f375ba7b0584602b462206cf18f4408c2ffc07",
+        "objectCount": 188
       },
       "provenance": {
         "sourceReference": null,
@@ -1113,273 +1869,8 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "UA-OP04-v0.4: 2 definiciones (L1282, L1663) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                1282,
-                1295
-              ],
-              "objectKey": "UA-OP04-v0.4"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "HF01: 2 definiciones (L2872, L5722) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                2872,
-                2872
-              ],
-              "objectKey": "HF01"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "HF02: 2 definiciones (L2886, L5731) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                2886,
-                2886
-              ],
-              "objectKey": "HF02"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "HF03: 2 definiciones (L2902, L5740) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                2902,
-                2902
-              ],
-              "objectKey": "HF03"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "HF04: 2 definiciones (L2912, L5749) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                2912,
-                2912
-              ],
-              "objectKey": "HF04"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "HF05: 2 definiciones (L2930, L5757) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                2930,
-                2930
-              ],
-              "objectKey": "HF05"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "HF06: 2 definiciones (L2941, L5764) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                2941,
-                2941
-              ],
-              "objectKey": "HF06"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "HF07: 2 definiciones (L2954, L5771) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                2954,
-                2954
-              ],
-              "objectKey": "HF07"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "HF08: 2 definiciones (L2965, L5778) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                2965,
-                2965
-              ],
-              "objectKey": "HF08"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "IP01: 2 definiciones (L3419, L3951) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                3419,
-                3419
-              ],
-              "objectKey": "IP01"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "IP02: 2 definiciones (L3447, L3978) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                3447,
-                3447
-              ],
-              "objectKey": "IP02"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "IP03: 2 definiciones (L3479, L4002) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                3479,
-                3479
-              ],
-              "objectKey": "IP03"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "IP04: 2 definiciones (L3504, L4030) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                3504,
-                3504
-              ],
-              "objectKey": "IP04"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "IP05: 2 definiciones (L3532, L4079) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                3532,
-                3532
-              ],
-              "objectKey": "IP05"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "IP06: 2 definiciones (L3552, L4114) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                3552,
-                3552
-              ],
-              "objectKey": "IP06"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "IP07: 2 definiciones (L3570, L4141) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                3570,
-                3570
-              ],
-              "objectKey": "IP07"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "IP08: 2 definiciones (L3597, L4170) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                3597,
-                3597
-              ],
-              "objectKey": "IP08"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "K1: 4 definiciones (L5120, L5442, L5542, L5559) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                5120,
-                5122
-              ],
-              "objectKey": "K1"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "K2: 4 definiciones (L5123, L5561, L5700, L5715) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                5123,
-                5125
-              ],
-              "objectKey": "K2"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "K3: 3 definiciones (L5126, L5717, L5829) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                5126,
-                5127
-              ],
-              "objectKey": "K3"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "K4: 3 definiciones (L5128, L5831, L5935) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                5128,
-                5130
-              ],
-              "objectKey": "K4"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "CONTROL_COUNT_MISMATCH",
-              "severity": "REVIEW",
-              "message": "CRV: la fuente declara 8 y el candidato materializa 10 SOURCE_ID_CRV FINAL_APPROVED; posible omisión o duplicado de transcripción (líneas 5962–5962)",
-              "action": "contrastar el conteo de control con los ítems materializados",
-              "sourceLines": [
-                5962,
-                5962
-              ],
-              "objectKey": null
-            }
-          ]
+          "status": "NOT_RUN",
+          "reasons": []
         },
         {
           "check": "STRUCTURAL",
@@ -1393,27 +1884,8 @@
         },
         {
           "check": "SOURCE_TO_CANONICAL",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "SOURCE_TO_CANONICAL",
-              "code": "PROVENANCE_VOCABULARY_REQUIRED",
-              "severity": "REVIEW",
-              "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
-              "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "SOURCE_TO_CANONICAL",
-              "code": "CANONICAL_ACCEPTANCE_REQUIRED",
-              "severity": "REVIEW",
-              "message": "el candidato no tiene aceptación canónica humana",
-              "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "PROVENANCE",
@@ -1422,8 +1894,18 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "CANONICAL_TO_PACK",
+              "code": "EXECUTABLE_PROJECTION_MISSING",
+              "severity": "REVIEW",
+              "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
+              "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -1472,284 +1954,11 @@
           "objectKey": null
         },
         {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
+          "check": "CANONICAL_TO_PACK",
+          "code": "EXECUTABLE_PROJECTION_MISSING",
           "severity": "REVIEW",
-          "message": "UA-OP04-v0.4: 2 definiciones (L1282, L1663) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            1282,
-            1295
-          ],
-          "objectKey": "UA-OP04-v0.4"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "HF01: 2 definiciones (L2872, L5722) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            2872,
-            2872
-          ],
-          "objectKey": "HF01"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "HF02: 2 definiciones (L2886, L5731) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            2886,
-            2886
-          ],
-          "objectKey": "HF02"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "HF03: 2 definiciones (L2902, L5740) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            2902,
-            2902
-          ],
-          "objectKey": "HF03"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "HF04: 2 definiciones (L2912, L5749) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            2912,
-            2912
-          ],
-          "objectKey": "HF04"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "HF05: 2 definiciones (L2930, L5757) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            2930,
-            2930
-          ],
-          "objectKey": "HF05"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "HF06: 2 definiciones (L2941, L5764) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            2941,
-            2941
-          ],
-          "objectKey": "HF06"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "HF07: 2 definiciones (L2954, L5771) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            2954,
-            2954
-          ],
-          "objectKey": "HF07"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "HF08: 2 definiciones (L2965, L5778) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            2965,
-            2965
-          ],
-          "objectKey": "HF08"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "IP01: 2 definiciones (L3419, L3951) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            3419,
-            3419
-          ],
-          "objectKey": "IP01"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "IP02: 2 definiciones (L3447, L3978) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            3447,
-            3447
-          ],
-          "objectKey": "IP02"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "IP03: 2 definiciones (L3479, L4002) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            3479,
-            3479
-          ],
-          "objectKey": "IP03"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "IP04: 2 definiciones (L3504, L4030) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            3504,
-            3504
-          ],
-          "objectKey": "IP04"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "IP05: 2 definiciones (L3532, L4079) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            3532,
-            3532
-          ],
-          "objectKey": "IP05"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "IP06: 2 definiciones (L3552, L4114) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            3552,
-            3552
-          ],
-          "objectKey": "IP06"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "IP07: 2 definiciones (L3570, L4141) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            3570,
-            3570
-          ],
-          "objectKey": "IP07"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "IP08: 2 definiciones (L3597, L4170) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            3597,
-            3597
-          ],
-          "objectKey": "IP08"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "K1: 4 definiciones (L5120, L5442, L5542, L5559) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            5120,
-            5122
-          ],
-          "objectKey": "K1"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "K2: 4 definiciones (L5123, L5561, L5700, L5715) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            5123,
-            5125
-          ],
-          "objectKey": "K2"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "K3: 3 definiciones (L5126, L5717, L5829) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            5126,
-            5127
-          ],
-          "objectKey": "K3"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "K4: 3 definiciones (L5128, L5831, L5935) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            5128,
-            5130
-          ],
-          "objectKey": "K4"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "CONTROL_COUNT_MISMATCH",
-          "severity": "REVIEW",
-          "message": "CRV: la fuente declara 8 y el candidato materializa 10 SOURCE_ID_CRV FINAL_APPROVED; posible omisión o duplicado de transcripción (líneas 5962–5962)",
-          "action": "contrastar el conteo de control con los ítems materializados",
-          "sourceLines": [
-            5962,
-            5962
-          ],
-          "objectKey": null
-        },
-        {
-          "check": "SOURCE_TO_CANONICAL",
-          "code": "PROVENANCE_VOCABULARY_REQUIRED",
-          "severity": "REVIEW",
-          "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
-          "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "SOURCE_TO_CANONICAL",
-          "code": "CANONICAL_ACCEPTANCE_REQUIRED",
-          "severity": "REVIEW",
-          "message": "el candidato no tiene aceptación canónica humana",
-          "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+          "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
+          "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
           "sourceLines": null,
           "objectKey": null
         }
@@ -1758,11 +1967,11 @@
         "rawOriginalBytes": 335872,
         "rawTextBytes": 203835,
         "rawTextLines": 6015,
-        "candidateItems": 257,
-        "canonicalObjects": null,
+        "candidateItems": null,
+        "canonicalObjects": 188,
         "executableSections": null,
-        "checksAutoPassed": 1,
-        "humanReviewItems": 24,
+        "checksAutoPassed": 2,
+        "humanReviewItems": 1,
         "notExplicit": 0,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
@@ -1775,7 +1984,7 @@
     {
       "capabilityId": "OP-05",
       "domainId": "OP",
-      "sourcePath": "INTAKE",
+      "sourcePath": "MASTER",
       "rawSource": {
         "availability": "IN_REPOSITORY",
         "ref": "text/OP-05_Completo.txt",
@@ -1786,15 +1995,15 @@
         "registrationId": "RAW-OP-05-16734c65ee57"
       },
       "extraction": {
-        "status": "CANDIDATE",
-        "candidateId": "CAND-OP-05-0.2.0-09629d4e6ff6",
-        "producedBy": "DETERMINISTIC_TOOL"
+        "status": "CANONICAL",
+        "candidateId": null,
+        "producedBy": null
       },
       "canonical": {
-        "status": "NONE",
-        "baselineId": null,
-        "checksum": null,
-        "objectCount": null
+        "status": "ACCEPTED",
+        "baselineId": "OP05-K4-v1.0",
+        "checksum": "sha256:5012dd5e604085ce748fb6eb44a98a5353fc887da5fb948af075b5f392034c40",
+        "objectCount": 117
       },
       "provenance": {
         "sourceReference": null,
@@ -1852,55 +2061,211 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "STRUCTURAL",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "REFERENTIAL",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
+          "check": "PROVENANCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "CANONICAL_TO_PACK",
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "CANONICAL_TO_PACK",
+              "code": "EXECUTABLE_PROJECTION_MISSING",
+              "severity": "REVIEW",
+              "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
+              "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "RUNTIME_COMPATIBILITY",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "FIXTURES",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_SILENCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "CAPABILITY_BRANCHING",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "GOLDEN_REGRESSION",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "GOVERNANCE_EVIDENCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        }
+      ],
+      "reasons": [
+        {
+          "check": "RAW_REGISTRATION",
+          "code": "EXTRACTION_WARNING",
+          "severity": "INFO",
+          "message": "IMAGES_NOT_TRANSCRIBED: 132 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+          "action": "considerar en la extracción de candidatos",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "CANONICAL_TO_PACK",
+          "code": "EXECUTABLE_PROJECTION_MISSING",
+          "severity": "REVIEW",
+          "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
+          "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+          "sourceLines": null,
+          "objectKey": null
+        }
+      ],
+      "metrics": {
+        "rawOriginalBytes": 92912,
+        "rawTextBytes": 65087,
+        "rawTextLines": 1786,
+        "candidateItems": null,
+        "canonicalObjects": 117,
+        "executableSections": null,
+        "checksAutoPassed": 2,
+        "humanReviewItems": 1,
+        "notExplicit": 0,
+        "sourceContentNotRecovered": 0,
+        "transcriptionIssues": 0,
+        "runtimeExtensionsRequired": 0,
+        "runtimeExtensionsClosed": 0,
+        "testFailures": 0,
+        "publicationBlockers": 0
+      }
+    },
+    {
+      "capabilityId": "PC-01",
+      "domainId": "PC",
+      "sourcePath": "INTAKE",
+      "rawSource": {
+        "availability": "IN_REPOSITORY",
+        "ref": "text/PC-01.txt",
+        "textSha256": "7325e0a13eae2edba29574143da19c261ebfd4f5879340e35303783b26887937",
+        "originalFilename": "PC_-_01_A_05_Completo.docx",
+        "originalSha256": "19e8903f1149ada6bee502c2d410c871474a8c699d2b44f772b3e1f0a2a5be8f",
+        "extractor": "pymapa-docx-text@1.0.0",
+        "registrationId": "RAW-PC-01-19e8903f1149"
+      },
+      "extraction": {
+        "status": "CANDIDATE",
+        "candidateId": "CAND-PC-01-0.2.0-7325e0a13eae",
+        "producedBy": "DETERMINISTIC_TOOL"
+      },
+      "canonical": {
+        "status": "NONE",
+        "baselineId": null,
+        "checksum": null,
+        "objectCount": null
+      },
+      "provenance": {
+        "sourceReference": null,
+        "derivation": null,
+        "extractionStatus": null,
+        "historicalClosure": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED"
+      },
+      "gaps": {
+        "total": 0,
+        "notExplicit": [],
+        "sourceContentNotRecovered": [],
+        "runtimeExtension": [],
+        "publicationBlocking": []
+      },
+      "transcriptionCorrections": [],
+      "runtimeCompatibility": {
+        "requiredEngineVersion": "0.1.0",
+        "engineVersion": "0.2.0",
+        "compatible": true,
+        "extensions": []
+      },
+      "fixtures": {
+        "count": 0,
+        "pass": 0,
+        "governedJudgment": 0,
+        "fail": 0
+      },
+      "governance": {
+        "reviewStatus": "NOT_REQUESTED",
+        "evidence": "NOT_APPLICABLE"
+      },
+      "publication": {
+        "status": "UNPUBLISHED",
+        "packId": null,
+        "packVersion": null,
+        "packChecksum": null
+      },
+      "state": "CANONICAL_REVIEW_REQUIRED",
+      "outcome": "REVIEW_REQUIRED",
+      "checks": [
+        {
+          "check": "RAW_REGISTRATION",
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "RAW_REGISTRATION",
+              "code": "EXTRACTION_WARNING",
+              "severity": "INFO",
+              "message": "IMAGES_NOT_TRANSCRIBED: 265 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+              "action": "considerar en la extracción de candidatos",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
           "status": "REVIEW_REQUIRED",
           "reasons": [
             {
               "check": "CANDIDATE_BOUNDARY",
               "code": "SUPERSESSION_AMBIGUOUS",
               "severity": "REVIEW",
-              "message": "K1: 2 definiciones (L1506, L1529) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+              "message": "SOURCE-REVIEW-TRIGGER-PC01-01: 2 definiciones (L163, L607) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
               "action": "corregir el candidato",
               "sourceLines": [
-                1506,
-                1506
+                163,
+                166
               ],
-              "objectKey": "K1"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "K2: 2 definiciones (L1532, L1560) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                1532,
-                1559
-              ],
-              "objectKey": "K2"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "K3: 2 definiciones (L1563, L1576) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                1563,
-                1575
-              ],
-              "objectKey": "K3"
-            },
-            {
-              "check": "CANDIDATE_BOUNDARY",
-              "code": "SUPERSESSION_AMBIGUOUS",
-              "severity": "REVIEW",
-              "message": "K4: 2 definiciones (L1579, L1661) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-              "action": "corregir el candidato",
-              "sourceLines": [
-                1579,
-                1594
-              ],
-              "objectKey": "K4"
+              "objectKey": "SOURCE-REVIEW-TRIGGER-PC01-01"
             }
           ]
         },
@@ -1989,7 +2354,7 @@
           "check": "RAW_REGISTRATION",
           "code": "EXTRACTION_WARNING",
           "severity": "INFO",
-          "message": "IMAGES_NOT_TRANSCRIBED: 132 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+          "message": "IMAGES_NOT_TRANSCRIBED: 265 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
           "action": "considerar en la extracción de candidatos",
           "sourceLines": null,
           "objectKey": null
@@ -1998,49 +2363,13 @@
           "check": "CANDIDATE_BOUNDARY",
           "code": "SUPERSESSION_AMBIGUOUS",
           "severity": "REVIEW",
-          "message": "K1: 2 definiciones (L1506, L1529) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
+          "message": "SOURCE-REVIEW-TRIGGER-PC01-01: 2 definiciones (L163, L607) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
           "action": "corregir el candidato",
           "sourceLines": [
-            1506,
-            1506
+            163,
+            166
           ],
-          "objectKey": "K1"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "K2: 2 definiciones (L1532, L1560) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            1532,
-            1559
-          ],
-          "objectKey": "K2"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "K3: 2 definiciones (L1563, L1576) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            1563,
-            1575
-          ],
-          "objectKey": "K3"
-        },
-        {
-          "check": "CANDIDATE_BOUNDARY",
-          "code": "SUPERSESSION_AMBIGUOUS",
-          "severity": "REVIEW",
-          "message": "K4: 2 definiciones (L1579, L1661) sin selección canónica; la posición cronológica no decide. Marcar una como FINAL_APPROVED con evidencia literal y las demás SUPERSEDED/HISTORICAL_DRAFT",
-          "action": "corregir el candidato",
-          "sourceLines": [
-            1579,
-            1594
-          ],
-          "objectKey": "K4"
+          "objectKey": "SOURCE-REVIEW-TRIGGER-PC01-01"
         },
         {
           "check": "SOURCE_TO_CANONICAL",
@@ -2062,14 +2391,879 @@
         }
       ],
       "metrics": {
-        "rawOriginalBytes": 92912,
-        "rawTextBytes": 65087,
-        "rawTextLines": 1786,
-        "candidateItems": 136,
+        "rawOriginalBytes": 207139,
+        "rawTextBytes": 31727,
+        "rawTextLines": 684,
+        "candidateItems": 58,
         "canonicalObjects": null,
         "executableSections": null,
         "checksAutoPassed": 1,
-        "humanReviewItems": 6,
+        "humanReviewItems": 3,
+        "notExplicit": 0,
+        "sourceContentNotRecovered": 0,
+        "transcriptionIssues": 0,
+        "runtimeExtensionsRequired": 0,
+        "runtimeExtensionsClosed": 0,
+        "testFailures": 0,
+        "publicationBlockers": 0
+      }
+    },
+    {
+      "capabilityId": "PC-02",
+      "domainId": "PC",
+      "sourcePath": "INTAKE",
+      "rawSource": {
+        "availability": "IN_REPOSITORY",
+        "ref": "text/PC-02.txt",
+        "textSha256": "725f14103dc472a4ebd57cd203e46cabf5ceb7a76e51aeb5df64bc8ba72983eb",
+        "originalFilename": "PC_-_01_A_05_Completo.docx",
+        "originalSha256": "19e8903f1149ada6bee502c2d410c871474a8c699d2b44f772b3e1f0a2a5be8f",
+        "extractor": "pymapa-docx-text@1.0.0",
+        "registrationId": "RAW-PC-02-19e8903f1149"
+      },
+      "extraction": {
+        "status": "CANDIDATE",
+        "candidateId": "CAND-PC-02-0.2.0-725f14103dc4",
+        "producedBy": "DETERMINISTIC_TOOL"
+      },
+      "canonical": {
+        "status": "NONE",
+        "baselineId": null,
+        "checksum": null,
+        "objectCount": null
+      },
+      "provenance": {
+        "sourceReference": null,
+        "derivation": null,
+        "extractionStatus": null,
+        "historicalClosure": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED"
+      },
+      "gaps": {
+        "total": 0,
+        "notExplicit": [],
+        "sourceContentNotRecovered": [],
+        "runtimeExtension": [],
+        "publicationBlocking": []
+      },
+      "transcriptionCorrections": [],
+      "runtimeCompatibility": {
+        "requiredEngineVersion": "0.1.0",
+        "engineVersion": "0.2.0",
+        "compatible": true,
+        "extensions": []
+      },
+      "fixtures": {
+        "count": 0,
+        "pass": 0,
+        "governedJudgment": 0,
+        "fail": 0
+      },
+      "governance": {
+        "reviewStatus": "NOT_REQUESTED",
+        "evidence": "NOT_APPLICABLE"
+      },
+      "publication": {
+        "status": "UNPUBLISHED",
+        "packId": null,
+        "packVersion": null,
+        "packChecksum": null
+      },
+      "state": "CANONICAL_REVIEW_REQUIRED",
+      "outcome": "REVIEW_REQUIRED",
+      "checks": [
+        {
+          "check": "RAW_REGISTRATION",
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "RAW_REGISTRATION",
+              "code": "EXTRACTION_WARNING",
+              "severity": "INFO",
+              "message": "IMAGES_NOT_TRANSCRIBED: 265 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+              "action": "considerar en la extracción de candidatos",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "CANDIDATE_BOUNDARY",
+              "code": "CONTROL_COUNT_MISMATCH",
+              "severity": "REVIEW",
+              "message": "CRV: la fuente declara 8 y el candidato materializa 1 SOURCE_ID_CRV FINAL_APPROVED; posible omisión o duplicado de transcripción (líneas 715–715)",
+              "action": "contrastar el conteo de control con los ítems materializados",
+              "sourceLines": [
+                715,
+                715
+              ],
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "STRUCTURAL",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "REFERENTIAL",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "SOURCE_TO_CANONICAL",
+              "code": "PROVENANCE_VOCABULARY_REQUIRED",
+              "severity": "REVIEW",
+              "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
+              "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
+              "sourceLines": null,
+              "objectKey": null
+            },
+            {
+              "check": "SOURCE_TO_CANONICAL",
+              "code": "CANONICAL_ACCEPTANCE_REQUIRED",
+              "severity": "REVIEW",
+              "message": "el candidato no tiene aceptación canónica humana",
+              "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "PROVENANCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "CANONICAL_TO_PACK",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "RUNTIME_COMPATIBILITY",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "FIXTURES",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_SILENCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "CAPABILITY_BRANCHING",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "GOLDEN_REGRESSION",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "GOVERNANCE_EVIDENCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        }
+      ],
+      "reasons": [
+        {
+          "check": "RAW_REGISTRATION",
+          "code": "EXTRACTION_WARNING",
+          "severity": "INFO",
+          "message": "IMAGES_NOT_TRANSCRIBED: 265 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+          "action": "considerar en la extracción de candidatos",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "code": "CONTROL_COUNT_MISMATCH",
+          "severity": "REVIEW",
+          "message": "CRV: la fuente declara 8 y el candidato materializa 1 SOURCE_ID_CRV FINAL_APPROVED; posible omisión o duplicado de transcripción (líneas 715–715)",
+          "action": "contrastar el conteo de control con los ítems materializados",
+          "sourceLines": [
+            715,
+            715
+          ],
+          "objectKey": null
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "code": "PROVENANCE_VOCABULARY_REQUIRED",
+          "severity": "REVIEW",
+          "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
+          "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "code": "CANONICAL_ACCEPTANCE_REQUIRED",
+          "severity": "REVIEW",
+          "message": "el candidato no tiene aceptación canónica humana",
+          "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+          "sourceLines": null,
+          "objectKey": null
+        }
+      ],
+      "metrics": {
+        "rawOriginalBytes": 207139,
+        "rawTextBytes": 32600,
+        "rawTextLines": 731,
+        "candidateItems": 76,
+        "canonicalObjects": null,
+        "executableSections": null,
+        "checksAutoPassed": 1,
+        "humanReviewItems": 3,
+        "notExplicit": 0,
+        "sourceContentNotRecovered": 0,
+        "transcriptionIssues": 0,
+        "runtimeExtensionsRequired": 0,
+        "runtimeExtensionsClosed": 0,
+        "testFailures": 0,
+        "publicationBlockers": 0
+      }
+    },
+    {
+      "capabilityId": "PC-03",
+      "domainId": "PC",
+      "sourcePath": "INTAKE",
+      "rawSource": {
+        "availability": "IN_REPOSITORY",
+        "ref": "text/PC-03.txt",
+        "textSha256": "b7b66368dbd7ee23342575c4e97c908149614da861a92841c91b829df7151bd2",
+        "originalFilename": "PC_-_01_A_05_Completo.docx",
+        "originalSha256": "19e8903f1149ada6bee502c2d410c871474a8c699d2b44f772b3e1f0a2a5be8f",
+        "extractor": "pymapa-docx-text@1.0.0",
+        "registrationId": "RAW-PC-03-19e8903f1149"
+      },
+      "extraction": {
+        "status": "CANDIDATE",
+        "candidateId": "CAND-PC-03-0.2.0-b7b66368dbd7",
+        "producedBy": "DETERMINISTIC_TOOL"
+      },
+      "canonical": {
+        "status": "NONE",
+        "baselineId": null,
+        "checksum": null,
+        "objectCount": null
+      },
+      "provenance": {
+        "sourceReference": null,
+        "derivation": null,
+        "extractionStatus": null,
+        "historicalClosure": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED"
+      },
+      "gaps": {
+        "total": 0,
+        "notExplicit": [],
+        "sourceContentNotRecovered": [],
+        "runtimeExtension": [],
+        "publicationBlocking": []
+      },
+      "transcriptionCorrections": [],
+      "runtimeCompatibility": {
+        "requiredEngineVersion": "0.1.0",
+        "engineVersion": "0.2.0",
+        "compatible": true,
+        "extensions": []
+      },
+      "fixtures": {
+        "count": 0,
+        "pass": 0,
+        "governedJudgment": 0,
+        "fail": 0
+      },
+      "governance": {
+        "reviewStatus": "NOT_REQUESTED",
+        "evidence": "NOT_APPLICABLE"
+      },
+      "publication": {
+        "status": "UNPUBLISHED",
+        "packId": null,
+        "packVersion": null,
+        "packChecksum": null
+      },
+      "state": "CANONICAL_REVIEW_REQUIRED",
+      "outcome": "REVIEW_REQUIRED",
+      "checks": [
+        {
+          "check": "RAW_REGISTRATION",
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "RAW_REGISTRATION",
+              "code": "EXTRACTION_WARNING",
+              "severity": "INFO",
+              "message": "IMAGES_NOT_TRANSCRIBED: 265 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+              "action": "considerar en la extracción de candidatos",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
+          "check": "STRUCTURAL",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "REFERENTIAL",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "SOURCE_TO_CANONICAL",
+              "code": "PROVENANCE_VOCABULARY_REQUIRED",
+              "severity": "REVIEW",
+              "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
+              "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
+              "sourceLines": null,
+              "objectKey": null
+            },
+            {
+              "check": "SOURCE_TO_CANONICAL",
+              "code": "CANONICAL_ACCEPTANCE_REQUIRED",
+              "severity": "REVIEW",
+              "message": "el candidato no tiene aceptación canónica humana",
+              "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "PROVENANCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "CANONICAL_TO_PACK",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "RUNTIME_COMPATIBILITY",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "FIXTURES",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_SILENCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "CAPABILITY_BRANCHING",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "GOLDEN_REGRESSION",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "GOVERNANCE_EVIDENCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        }
+      ],
+      "reasons": [
+        {
+          "check": "RAW_REGISTRATION",
+          "code": "EXTRACTION_WARNING",
+          "severity": "INFO",
+          "message": "IMAGES_NOT_TRANSCRIBED: 265 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+          "action": "considerar en la extracción de candidatos",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "code": "PROVENANCE_VOCABULARY_REQUIRED",
+          "severity": "REVIEW",
+          "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
+          "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "code": "CANONICAL_ACCEPTANCE_REQUIRED",
+          "severity": "REVIEW",
+          "message": "el candidato no tiene aceptación canónica humana",
+          "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+          "sourceLines": null,
+          "objectKey": null
+        }
+      ],
+      "metrics": {
+        "rawOriginalBytes": 207139,
+        "rawTextBytes": 34363,
+        "rawTextLines": 813,
+        "candidateItems": 77,
+        "canonicalObjects": null,
+        "executableSections": null,
+        "checksAutoPassed": 2,
+        "humanReviewItems": 2,
+        "notExplicit": 0,
+        "sourceContentNotRecovered": 0,
+        "transcriptionIssues": 0,
+        "runtimeExtensionsRequired": 0,
+        "runtimeExtensionsClosed": 0,
+        "testFailures": 0,
+        "publicationBlockers": 0
+      }
+    },
+    {
+      "capabilityId": "PC-04",
+      "domainId": "PC",
+      "sourcePath": "INTAKE",
+      "rawSource": {
+        "availability": "IN_REPOSITORY",
+        "ref": "text/PC-04.txt",
+        "textSha256": "f9e4952d05f673604ef88ef994f64203d5fbaf732c9c6d6231b963eebc2359d3",
+        "originalFilename": "PC_-_01_A_05_Completo.docx",
+        "originalSha256": "19e8903f1149ada6bee502c2d410c871474a8c699d2b44f772b3e1f0a2a5be8f",
+        "extractor": "pymapa-docx-text@1.0.0",
+        "registrationId": "RAW-PC-04-19e8903f1149"
+      },
+      "extraction": {
+        "status": "CANDIDATE",
+        "candidateId": "CAND-PC-04-0.2.0-f9e4952d05f6",
+        "producedBy": "DETERMINISTIC_TOOL"
+      },
+      "canonical": {
+        "status": "NONE",
+        "baselineId": null,
+        "checksum": null,
+        "objectCount": null
+      },
+      "provenance": {
+        "sourceReference": null,
+        "derivation": null,
+        "extractionStatus": null,
+        "historicalClosure": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED"
+      },
+      "gaps": {
+        "total": 0,
+        "notExplicit": [],
+        "sourceContentNotRecovered": [],
+        "runtimeExtension": [],
+        "publicationBlocking": []
+      },
+      "transcriptionCorrections": [],
+      "runtimeCompatibility": {
+        "requiredEngineVersion": "0.1.0",
+        "engineVersion": "0.2.0",
+        "compatible": true,
+        "extensions": []
+      },
+      "fixtures": {
+        "count": 0,
+        "pass": 0,
+        "governedJudgment": 0,
+        "fail": 0
+      },
+      "governance": {
+        "reviewStatus": "NOT_REQUESTED",
+        "evidence": "NOT_APPLICABLE"
+      },
+      "publication": {
+        "status": "UNPUBLISHED",
+        "packId": null,
+        "packVersion": null,
+        "packChecksum": null
+      },
+      "state": "CANONICAL_REVIEW_REQUIRED",
+      "outcome": "REVIEW_REQUIRED",
+      "checks": [
+        {
+          "check": "RAW_REGISTRATION",
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "RAW_REGISTRATION",
+              "code": "EXTRACTION_WARNING",
+              "severity": "INFO",
+              "message": "IMAGES_NOT_TRANSCRIBED: 265 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+              "action": "considerar en la extracción de candidatos",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
+          "check": "STRUCTURAL",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "REFERENTIAL",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "SOURCE_TO_CANONICAL",
+              "code": "PROVENANCE_VOCABULARY_REQUIRED",
+              "severity": "REVIEW",
+              "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
+              "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
+              "sourceLines": null,
+              "objectKey": null
+            },
+            {
+              "check": "SOURCE_TO_CANONICAL",
+              "code": "CANONICAL_ACCEPTANCE_REQUIRED",
+              "severity": "REVIEW",
+              "message": "el candidato no tiene aceptación canónica humana",
+              "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "PROVENANCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "CANONICAL_TO_PACK",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "RUNTIME_COMPATIBILITY",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "FIXTURES",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_SILENCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "CAPABILITY_BRANCHING",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "GOLDEN_REGRESSION",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "GOVERNANCE_EVIDENCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        }
+      ],
+      "reasons": [
+        {
+          "check": "RAW_REGISTRATION",
+          "code": "EXTRACTION_WARNING",
+          "severity": "INFO",
+          "message": "IMAGES_NOT_TRANSCRIBED: 265 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+          "action": "considerar en la extracción de candidatos",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "code": "PROVENANCE_VOCABULARY_REQUIRED",
+          "severity": "REVIEW",
+          "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
+          "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "code": "CANONICAL_ACCEPTANCE_REQUIRED",
+          "severity": "REVIEW",
+          "message": "el candidato no tiene aceptación canónica humana",
+          "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+          "sourceLines": null,
+          "objectKey": null
+        }
+      ],
+      "metrics": {
+        "rawOriginalBytes": 207139,
+        "rawTextBytes": 35253,
+        "rawTextLines": 826,
+        "candidateItems": 77,
+        "canonicalObjects": null,
+        "executableSections": null,
+        "checksAutoPassed": 2,
+        "humanReviewItems": 2,
+        "notExplicit": 0,
+        "sourceContentNotRecovered": 0,
+        "transcriptionIssues": 0,
+        "runtimeExtensionsRequired": 0,
+        "runtimeExtensionsClosed": 0,
+        "testFailures": 0,
+        "publicationBlockers": 0
+      }
+    },
+    {
+      "capabilityId": "PC-05",
+      "domainId": "PC",
+      "sourcePath": "INTAKE",
+      "rawSource": {
+        "availability": "IN_REPOSITORY",
+        "ref": "text/PC-05.txt",
+        "textSha256": "cf558c4af06289e5cc3096ec4dd5d500871f3a8b311dd4e72b356a77d6c2d310",
+        "originalFilename": "PC_-_01_A_05_Completo.docx",
+        "originalSha256": "19e8903f1149ada6bee502c2d410c871474a8c699d2b44f772b3e1f0a2a5be8f",
+        "extractor": "pymapa-docx-text@1.0.0",
+        "registrationId": "RAW-PC-05-19e8903f1149"
+      },
+      "extraction": {
+        "status": "CANDIDATE",
+        "candidateId": "CAND-PC-05-0.2.0-cf558c4af062",
+        "producedBy": "DETERMINISTIC_TOOL"
+      },
+      "canonical": {
+        "status": "NONE",
+        "baselineId": null,
+        "checksum": null,
+        "objectCount": null
+      },
+      "provenance": {
+        "sourceReference": null,
+        "derivation": null,
+        "extractionStatus": null,
+        "historicalClosure": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED"
+      },
+      "gaps": {
+        "total": 0,
+        "notExplicit": [],
+        "sourceContentNotRecovered": [],
+        "runtimeExtension": [],
+        "publicationBlocking": []
+      },
+      "transcriptionCorrections": [],
+      "runtimeCompatibility": {
+        "requiredEngineVersion": "0.1.0",
+        "engineVersion": "0.2.0",
+        "compatible": true,
+        "extensions": []
+      },
+      "fixtures": {
+        "count": 0,
+        "pass": 0,
+        "governedJudgment": 0,
+        "fail": 0
+      },
+      "governance": {
+        "reviewStatus": "NOT_REQUESTED",
+        "evidence": "NOT_APPLICABLE"
+      },
+      "publication": {
+        "status": "UNPUBLISHED",
+        "packId": null,
+        "packVersion": null,
+        "packChecksum": null
+      },
+      "state": "CANONICAL_REVIEW_REQUIRED",
+      "outcome": "REVIEW_REQUIRED",
+      "checks": [
+        {
+          "check": "RAW_REGISTRATION",
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "RAW_REGISTRATION",
+              "code": "EXTRACTION_WARNING",
+              "severity": "INFO",
+              "message": "IMAGES_NOT_TRANSCRIBED: 265 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+              "action": "considerar en la extracción de candidatos",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "CANDIDATE_BOUNDARY",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
+          "check": "STRUCTURAL",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "REFERENTIAL",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "SOURCE_TO_CANONICAL",
+              "code": "PROVENANCE_VOCABULARY_REQUIRED",
+              "severity": "REVIEW",
+              "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
+              "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
+              "sourceLines": null,
+              "objectKey": null
+            },
+            {
+              "check": "SOURCE_TO_CANONICAL",
+              "code": "CANONICAL_ACCEPTANCE_REQUIRED",
+              "severity": "REVIEW",
+              "message": "el candidato no tiene aceptación canónica humana",
+              "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
+        },
+        {
+          "check": "PROVENANCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "CANONICAL_TO_PACK",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "RUNTIME_COMPATIBILITY",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "FIXTURES",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "SOURCE_SILENCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "CAPABILITY_BRANCHING",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "GOLDEN_REGRESSION",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "status": "NOT_RUN",
+          "reasons": []
+        },
+        {
+          "check": "GOVERNANCE_EVIDENCE",
+          "status": "NOT_RUN",
+          "reasons": []
+        }
+      ],
+      "reasons": [
+        {
+          "check": "RAW_REGISTRATION",
+          "code": "EXTRACTION_WARNING",
+          "severity": "INFO",
+          "message": "IMAGES_NOT_TRANSCRIBED: 265 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw.",
+          "action": "considerar en la extracción de candidatos",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "code": "PROVENANCE_VOCABULARY_REQUIRED",
+          "severity": "REVIEW",
+          "message": "la baseline canónica exige un vocabulario de provenance declarado por la fuente y el candidato no lo contiene (el extractor estructural no lo produce)",
+          "action": "en la revisión canónica, transcribir literalmente el vocabulario de provenance de la fuente o registrar explícitamente su ausencia",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "SOURCE_TO_CANONICAL",
+          "code": "CANONICAL_ACCEPTANCE_REQUIRED",
+          "severity": "REVIEW",
+          "message": "el candidato no tiene aceptación canónica humana",
+          "action": "revisar los motivos REVIEW del candidato y registrar intake/<id>/canonical-acceptance.json con candidateChecksum vigente",
+          "sourceLines": null,
+          "objectKey": null
+        }
+      ],
+      "metrics": {
+        "rawOriginalBytes": 207139,
+        "rawTextBytes": 35928,
+        "rawTextLines": 857,
+        "candidateItems": 84,
+        "canonicalObjects": null,
+        "executableSections": null,
+        "checksAutoPassed": 2,
+        "humanReviewItems": 2,
         "notExplicit": 0,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
@@ -2080,5 +3274,5 @@
       }
     }
   ],
-  "checksum": "sha256:83dde1800010a09161a57a47346b7ff183d7192db642891ad92d65d24c490156"
+  "checksum": "sha256:d07d9fc950317b6050b45f63cbb0df82fd00112387eba1ff648e2eea6a54043f"
 }

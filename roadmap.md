@@ -24,3 +24,8 @@
 - [ ] canonical-acceptance.json OP-03/04/05 — espera al usuario
 - [ ] Evento de resolución A-OP02-02 tras aceptación canónica de OP-03 — espera al usuario
 - [ ] Activación de OP-02 en la aplicación — espera orden explícita
+
+## M2-BATCH-02 (FACTORY_NOT_READY_FOR_FINAL_MASS_BATCH)
+- [ ] Proyección ejecutable genérica baseline→source.json (bloquea publicación OP-03/04/05) — pendiente de construir
+- [ ] OP-03/04/05: re-extraer con nombre declarado y re-aceptar (identidad no verificada) — requiere decisión humana
+- [ ] DG/PC: decisiones de provenance, conteos, colisiones DG-03/PC-01 y CRV PC-02 — requiere revisión humana

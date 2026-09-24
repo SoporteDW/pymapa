@@ -1,0 +1,1568 @@
+{
+  "candidateId": "CAND-DG-02-0.2.0-982f47a8dd64",
+  "capabilityId": "DG-02",
+  "status": "CANDIDATE",
+  "registration": {
+    "registrationId": "RAW-DG-02-1862e0e860b8",
+    "textSha256": "982f47a8dd644570de5ab92b4a12322f2727076658d733bfcb5aa6a87292bf0f"
+  },
+  "producedBy": {
+    "method": "DETERMINISTIC_TOOL",
+    "agent": "pymapa-structural-segmenter@0.2.0 + pymapa-governed-supersession-resolver@0.1.0",
+    "note": "Segmentación literal por headings y líneas planas «ID · título» con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
+  },
+  "baselineId": "DG02-K4-v1.0",
+  "historicalStatus": {
+    "marker": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      612,
+      612
+    ]
+  },
+  "provenanceVocabulary": [],
+  "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 5,
+      "objectType": "SOURCE_ID_CE",
+      "sourceLines": [
+        614,
+        614
+      ]
+    },
+    {
+      "label": "STOP",
+      "declared": 2,
+      "objectType": "SOURCE_ID_STOP",
+      "sourceLines": [
+        339,
+        339
+      ]
+    }
+  ],
+  "verbatimKeys": [
+    "heading",
+    "title",
+    "body"
+  ],
+  "items": [
+    {
+      "key": "CE01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Visibilidad de la demanda de transformación",
+        "title": "Visibilidad de la demanda de transformación",
+        "body": [
+          "Antes de priorizar hay que conocer suficientemente qué compite por recursos.",
+          "| VA | Variable |",
+          "| VA01 | Visibilidad de iniciativas/necesidades relevantes |",
+          "| VA02 | Comparabilidad mínima de las alternativas |",
+          "“Comparabilidad” no significa business cases exhaustivos.",
+          "Significa información suficiente para distinguir materialmente entre alternativas."
+        ]
+      },
+      "sourceLines": [
+        43,
+        49
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "CE02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Criterios de valor y alineación",
+        "title": "Criterios de valor y alineación",
+        "body": [
+          "| VA | Variable |",
+          "| VA03 | Contribución esperada a prioridades/resultados del negocio |",
+          "| VA04 | Valor/beneficio esperado y materialidad |",
+          "DG-01 aporta aquí una entrada esencial:",
+          "dirección empresarial + necesidades de transformación.",
+          "DG-02 no debe volver a diagnosticarlas salvo que detecte contradicción."
+        ]
+      },
+      "sourceLines": [
+        51,
+        57
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "CE03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Factibilidad y restricciones",
+        "title": "Factibilidad y restricciones",
+        "body": [
+          "| VA | Variable |",
+          "| VA05 | Esfuerzo/costo requerido |",
+          "| VA06 | Capacidad y recursos disponibles |",
+          "| VA07 | Riesgos, dependencias y prerrequisitos materiales |",
+          "Esto introduce una distinción importante:",
+          "valor alto ≠ prioridad ejecutable inmediata.",
+          "Una iniciativa puede ser estratégicamente muy importante y, sin embargo, requerir primero un prerrequisito."
+        ]
+      },
+      "sourceLines": [
+        59,
+        66
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "CE04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE04",
+      "fields": {
+        "heading": "CE04 · Decisión y balance",
+        "title": "Decisión y balance",
+        "body": [
+          "| VA | Variable |",
+          "| VA08 | Decisión explícita de prioridad y secuencia |",
+          "| VA09 | Coherencia entre prioridades declaradas y recursos asignados |",
+          "Esta segunda variable es crucial.",
+          "La organización puede declarar:",
+          "“La experiencia del cliente es nuestra prioridad.”",
+          "pero dedicar casi toda su capacidad disponible a otros proyectos.",
+          "Eso no demuestra automáticamente incoherencia —pueden existir obligaciones o prerrequisitos—, pero sí justifica profundización."
+        ]
+      },
+      "sourceLines": [
+        68,
+        76
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "CE05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE05",
+      "fields": {
+        "heading": "CE05 · Revisión adaptativa",
+        "title": "Revisión adaptativa",
+        "body": [
+          "| VA | Variable |",
+          "| VA10 | Capacidad para revisar prioridades y reasignar recursos ante cambios materiales |",
+          "Priorizar una vez y nunca revisar no es suficiente.",
+          "PMI describe el portfolio como dinámico y sujeto a cambios estratégicos, internos y externos; la optimización debe considerar capacidad, demanda, riesgos, dependencias y cambios de prioridades. Instituto de Gestión de Proyectos"
+        ]
+      },
+      "sourceLines": [
+        78,
+        82
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG02-001",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG02-001",
+      "fields": {
+        "heading": "SRC-DG02-001 · Pymapa/OE1-D",
+        "title": "Pymapa/OE1-D",
+        "body": [
+          "Identidad y propósito de la capacidad."
+        ]
+      },
+      "sourceLines": [
+        87,
+        88
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG02-002",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG02-002",
+      "fields": {
+        "heading": "SRC-DG02-002 · PMI · Standard for Portfolio Management / portfolio strategic management",
+        "title": "PMI · Standard for Portfolio Management / portfolio strategic management",
+        "body": [
+          "Aporta alineación estratégica, asignación de recursos, beneficios, riesgos, restricciones, dependencias y priorización. Instituto de Gestión de Proyectos"
+        ]
+      },
+      "sourceLines": [
+        89,
+        90
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG02-003",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG02-003",
+      "fields": {
+        "heading": "SRC-DG02-003 · PMI · Portfolio prioritization/optimization literature",
+        "title": "PMI · Portfolio prioritization/optimization literature",
+        "body": [
+          "Aporta capacity vs demand, selección, priorización, ajuste del portafolio y decisiones bajo restricciones. Instituto de Gestión de Proyectos"
+        ]
+      },
+      "sourceLines": [
+        91,
+        92
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG02-004",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG02-004",
+      "fields": {
+        "heading": "SRC-DG02-004 · OECD · Digital Transformation of SMEs",
+        "title": "OECD · Digital Transformation of SMEs",
+        "body": [
+          "Fundamenta la proporcionalidad SME y la relevancia de restricciones de recursos, habilidades y financiación. OECD"
+        ]
+      },
+      "sourceLines": [
+        93,
+        94
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG02-005",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG02-005",
+      "fields": {
+        "heading": "SRC-DG02-005 · ISO 56002:2019",
+        "title": "ISO 56002:2019",
+        "body": [
+          "Complementa la perspectiva de gestión sistemática de innovación y resultados esperados; permanece publicada, aunque la segunda edición está en desarrollo. ISO",
+          "No convertiré PMI en una metodología obligatoria para Pymapa. Nos interesa el conocimiento subyacente, no imponer portfolio management formal a una pyme."
+        ]
+      },
+      "sourceLines": [
+        95,
+        97
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "P-DG02-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG02-01",
+      "fields": {
+        "heading": "P-DG02-01",
+        "body": [
+          "Prioridad declarada ≠ prioridad real.",
+          "La asignación efectiva de atención, dinero, tiempo y capacidad aporta evidencia adicional."
+        ]
+      },
+      "sourceLines": [
+        100,
+        102
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "P-DG02-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG02-02",
+      "fields": {
+        "heading": "P-DG02-02",
+        "body": [
+          "Valor esperado ≠ prioridad automática.",
+          "También importan factibilidad, capacidad, riesgo, dependencia, urgencia y secuencia."
+        ]
+      },
+      "sourceLines": [
+        103,
+        105
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "P-DG02-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG02-03",
+      "fields": {
+        "heading": "P-DG02-03",
+        "body": [
+          "Urgencia ≠ importancia.",
+          "Pero una urgencia genuina puede alterar legítimamente la secuencia."
+        ]
+      },
+      "sourceLines": [
+        106,
+        108
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "P-DG02-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG02-04",
+      "fields": {
+        "heading": "P-DG02-04",
+        "body": [
+          "Priorizar ≠ ordenar una lista.",
+          "Implica tomar decisiones bajo restricciones."
+        ]
+      },
+      "sourceLines": [
+        109,
+        111
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "P-DG02-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG02-05",
+      "fields": {
+        "heading": "P-DG02-05",
+        "body": [
+          "Seleccionar algo implica explícita o implícitamente no hacer, posponer o reducir otra cosa."
+        ]
+      },
+      "sourceLines": [
+        112,
+        113
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "P-DG02-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG02-06",
+      "fields": {
+        "heading": "P-DG02-06",
+        "body": [
+          "Recursos asignados ≠ recursos suficientes."
+        ]
+      },
+      "sourceLines": [
+        114,
+        115
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "P-DG02-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG02-07",
+      "fields": {
+        "heading": "P-DG02-07",
+        "body": [
+          "Mayor inversión ≠ mayor prioridad estratégica."
+        ]
+      },
+      "sourceLines": [
+        116,
+        117
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "P-DG02-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG02-08",
+      "fields": {
+        "heading": "P-DG02-08",
+        "body": [
+          "Prioridad válida hoy ≠ prioridad permanente."
+        ]
+      },
+      "sourceLines": [
+        118,
+        119
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "P-DG02-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG02-09",
+      "fields": {
+        "heading": "P-DG02-09",
+        "body": [
+          "Método sofisticado ≠ mejor decisión.",
+          "La proporcionalidad prima sobre la formalidad."
+        ]
+      },
+      "sourceLines": [
+        120,
+        122
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "COV-DG02-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_COV",
+      "sourceId": "COV-DG02-01",
+      "fields": {
+        "heading": "COV-DG02-01 · Cobertura del universo relevante",
+        "title": "Cobertura del universo relevante",
+        "body": [
+          "La capacidad no puede evaluarse solo observando una iniciativa elegida por conveniencia si existen otras demandas importantes compitiendo por los mismos recursos.",
+          "Pero tampoco necesitamos inventariar cada pequeña mejora operacional.",
+          "El universo es:",
+          "iniciativas/necesidades que materialmente compiten por recursos de transformación."
+        ]
+      },
+      "sourceLines": [
+        143,
+        147
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "STOP-DG02-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_STOP",
+      "sourceId": "STOP-DG02-01",
+      "fields": {
+        "heading": "STOP-DG02-01 · Si no existe dirección empresarial suficientemente establecida para comparar contribución estratégica, no inferir calidad de priorización por alineación. Derivar/reutilizar DG-01.",
+        "title": "Si no existe dirección empresarial suficientemente establecida para comparar contribución estratégica, no inferir calidad de priorización por alineación. Derivar/reutilizar DG-01.",
+        "body": [
+          "Y otro:"
+        ]
+      },
+      "sourceLines": [
+        150,
+        151
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "STOP-DG02-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_STOP",
+      "sourceId": "STOP-DG02-02",
+      "fields": {
+        "heading": "STOP-DG02-02 · Si las alternativas carecen de información mínima comparable, no concluir que la selección observada constituye priorización fundamentada.",
+        "title": "Si las alternativas carecen de información mínima comparable, no concluir que la selección observada constituye priorización fundamentada.",
+        "body": [
+          "Primero debemos elevar comparabilidad."
+        ]
+      },
+      "sourceLines": [
+        152,
+        153
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "P1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P1",
+      "fields": {
+        "heading": "P1 · Núcleo",
+        "title": "Núcleo",
+        "body": [
+          "Debemos poder resolver inicialmente:",
+          "¿Qué cambios/iniciativas importantes están compitiendo por recursos?",
+          "¿Cómo deciden cuál va primero?",
+          "¿Qué recursos/capacidad tienen realmente disponibles?",
+          "¿Lo que recibe recursos coincide con lo que dicen que es prioritario?"
+        ]
+      },
+      "sourceLines": [
+        165,
+        170
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "P2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P2",
+      "fields": {
+        "heading": "P2 · Condicional",
+        "title": "Condicional",
+        "body": [
+          "Profundizamos cuando aparecen:",
+          "- demasiadas iniciativas simultáneas;",
+          "- todo declarado “prioritario”;",
+          "- fuerte restricción de caja;",
+          "- misma persona crítica en múltiples iniciativas;",
+          "- iniciativas sin resultado esperado;",
+          "- prioridades determinadas solo por urgencia;",
+          "- dependencia de proveedores;",
+          "- proyecto obligatorio/regulatorio;",
+          "- iniciativa de alto valor pero no ejecutable;",
+          "- diferencias entre presupuesto y prioridades;",
+          "- acumulación de iniciativas iniciadas/no terminadas."
+        ]
+      },
+      "sourceLines": [
+        172,
+        184
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "P3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P3",
+      "fields": {
+        "heading": "P3 · Discriminación",
+        "title": "Discriminación",
+        "body": [
+          "Ejemplo:",
+          "La empresa tiene ocho iniciativas abiertas y poco avance.",
+          "Hipótesis A:",
+          "mala priorización.",
+          "Hipótesis B:",
+          "prioridades correctas, pero deficiencia de ejecución OP-05.",
+          "Hipótesis C:",
+          "insuficiencia estructural de capacidad/recursos.",
+          "Hipótesis D:",
+          "dependencias críticas bloqueando varias iniciativas.",
+          "DG-02 debe obtener información suficiente para no convertir el síntoma “muchas iniciativas retrasadas” en una causa inventada."
+        ]
+      },
+      "sourceLines": [
+        186,
+        197
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "P4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P4",
+      "fields": {
+        "heading": "P4 · Contradicción",
+        "title": "Contradicción",
+        "body": [
+          "Ejemplo:",
+          "Declaración:",
+          "“Implementar CRM es prioridad número uno.”",
+          "Evidencia:",
+          "durante seis meses no recibió presupuesto ni tiempo de los responsables.",
+          "Abrimos:"
+        ]
+      },
+      "sourceLines": [
+        199,
+        205
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "CONTR-DG02-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-DG02-01",
+      "fields": {
+        "heading": "CONTR-DG02-01 · DECLARED_PRIORITY_vs_RESOURCE_COMMITMENT",
+        "title": "DECLARED_PRIORITY_vs_RESOURCE_COMMITMENT",
+        "body": [
+          "No concluimos automáticamente que la prioridad sea falsa.",
+          "Puede existir:",
+          "- prerrequisito;",
+          "- restricción temporal;",
+          "- decisión consciente de espera;",
+          "- cambio reciente;",
+          "- bloqueo externo."
+        ]
+      },
+      "sourceLines": [
+        206,
+        213
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "P5",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P5",
+      "fields": {
+        "heading": "P5 · Validación",
+        "title": "Validación",
+        "body": [
+          "Podemos devolver una interpretación como:",
+          "“Entendemos que A tiene prioridad sobre B porque contribuye a X, pero B debe ejecutarse primero por ser prerrequisito. ¿Es correcta esta interpretación?”",
+          "Esto permite distinguir:",
+          "prioridad de valor",
+          "de:",
+          "prioridad de secuencia.",
+          "Distinción importante que debemos conservar."
+        ]
+      },
+      "sourceLines": [
+        215,
+        222
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "EVID-DG02-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_EVID",
+      "sourceId": "EVID-DG02-01",
+      "fields": {
+        "heading": "EVID-DG02-01",
+        "body": [
+          "Las iniciativas no seleccionadas también son evidencia diagnóstica.",
+          "Si solo observamos lo aprobado, perdemos parte fundamental del mecanismo de priorización."
+        ]
+      },
+      "sourceLines": [
+        240,
+        242
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "R-DG02-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG02-01",
+      "fields": {
+        "heading": "R-DG02-01 · TRANSFORMATION_DEMAND_NOT_VISIBLE",
+        "title": "TRANSFORMATION_DEMAND_NOT_VISIBLE",
+        "body": [
+          "La organización no posee visibilidad suficiente sobre las demandas relevantes que compiten por recursos."
+        ]
+      },
+      "sourceLines": [
+        246,
+        247
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "R-DG02-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG02-02",
+      "fields": {
+        "heading": "R-DG02-02 · INITIATIVES_NOT_COMPARABLE",
+        "title": "INITIATIVES_NOT_COMPARABLE",
+        "body": [
+          "Las alternativas relevantes carecen de información mínima suficientemente comparable para soportar una decisión fundamentada."
+        ]
+      },
+      "sourceLines": [
+        248,
+        249
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "R-DG02-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG02-03",
+      "fields": {
+        "heading": "R-DG02-03 · STRATEGIC_CONTRIBUTION_UNCLEAR",
+        "title": "STRATEGIC_CONTRIBUTION_UNCLEAR",
+        "body": [
+          "La contribución de iniciativas relevantes a prioridades/resultados del negocio no puede establecerse suficientemente."
+        ]
+      },
+      "sourceLines": [
+        250,
+        251
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "R-DG02-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG02-04",
+      "fields": {
+        "heading": "R-DG02-04 · EXPECTED_VALUE_UNGROUNDED",
+        "title": "EXPECTED_VALUE_UNGROUNDED",
+        "body": [
+          "El valor/beneficio esperado utilizado para priorizar carece de fundamento suficiente."
+        ]
+      },
+      "sourceLines": [
+        252,
+        253
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "R-DG02-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG02-05",
+      "fields": {
+        "heading": "R-DG02-05 · EFFORT_COST_BLIND_SPOT",
+        "title": "EFFORT_COST_BLIND_SPOT",
+        "body": [
+          "La decisión no considera suficientemente esfuerzo o costo material."
+        ]
+      },
+      "sourceLines": [
+        254,
+        255
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "R-DG02-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG02-06",
+      "fields": {
+        "heading": "R-DG02-06 · RESOURCE_CAPACITY_MISMATCH",
+        "title": "RESOURCE_CAPACITY_MISMATCH",
+        "body": [
+          "La demanda priorizada excede materialmente la capacidad/recursos disponibles sin resolución explícita del desbalance."
+        ]
+      },
+      "sourceLines": [
+        256,
+        257
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "R-DG02-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG02-07",
+      "fields": {
+        "heading": "R-DG02-07 · MATERIAL_CONSTRAINT_OMITTED",
+        "title": "MATERIAL_CONSTRAINT_OMITTED",
+        "body": [
+          "Riesgos, dependencias o prerrequisitos capaces de modificar la selección/secuencia no han sido suficientemente incorporados."
+        ]
+      },
+      "sourceLines": [
+        258,
+        259
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "R-DG02-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG02-08",
+      "fields": {
+        "heading": "R-DG02-08 · PRIORITY_NOT_EXPLICIT",
+        "title": "PRIORITY_NOT_EXPLICIT",
+        "body": [
+          "No existe una decisión suficientemente clara sobre qué hacer, posponer, secuenciar o descartar."
+        ]
+      },
+      "sourceLines": [
+        260,
+        261
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "R-DG02-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG02-09",
+      "fields": {
+        "heading": "R-DG02-09 · PRIORITY_RESOURCE_MISALIGNMENT",
+        "title": "PRIORITY_RESOURCE_MISALIGNMENT",
+        "body": [
+          "Existe una diferencia material no suficientemente explicada entre prioridades declaradas y asignación efectiva de recursos."
+        ]
+      },
+      "sourceLines": [
+        262,
+        263
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "R-DG02-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG02-10",
+      "fields": {
+        "heading": "R-DG02-10 · STATIC_PRIORITY_SET",
+        "title": "STATIC_PRIORITY_SET",
+        "body": [
+          "Las prioridades permanecen sin revisión pese a cambios materiales que justifican reconsiderarlas."
+        ]
+      },
+      "sourceLines": [
+        264,
+        265
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "DER-DG02-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DER",
+      "sourceId": "DER-DG02-01",
+      "fields": {
+        "heading": "DER-DG02-01 · EVERYTHING_PRIORITY",
+        "title": "EVERYTHING_PRIORITY",
+        "body": [
+          "Si prácticamente todas las iniciativas materiales reciben prioridad equivalente:",
+          "no asumir priorización efectiva.",
+          "Debe existir capacidad de discriminación."
+        ]
+      },
+      "sourceLines": [
+        268,
+        271
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "DER-DG02-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DER",
+      "sourceId": "DER-DG02-02",
+      "fields": {
+        "heading": "DER-DG02-02 · STARTING_EXCEEDS_FINISHING_CAPACITY",
+        "title": "STARTING_EXCEEDS_FINISHING_CAPACITY",
+        "body": [
+          "Si la organización inicia persistentemente más iniciativas de las que su capacidad puede absorber:",
+          "abrir hipótesis de sobreasignación/priorización insuficiente,",
+          "pero contrastar con OP-05 antes de atribuir la causa."
+        ]
+      },
+      "sourceLines": [
+        272,
+        275
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "DER-DG02-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DER",
+      "sourceId": "DER-DG02-03",
+      "fields": {
+        "heading": "DER-DG02-03 · SEQUENCE_VS_VALUE",
+        "title": "SEQUENCE_VS_VALUE",
+        "body": [
+          "Una iniciativa puede ejecutarse antes que otra de mayor valor porque constituye:",
+          "prerrequisito, mitigación necesaria o habilitador.",
+          "Por tanto:",
+          "orden de ejecución ≠ ranking puro de valor."
+        ]
+      },
+      "sourceLines": [
+        276,
+        280
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "G-DG02-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-DG02-01",
+      "fields": {
+        "heading": "G-DG02-01",
+        "body": [
+          "Una matriz de scoring no demuestra buena priorización."
+        ]
+      },
+      "sourceLines": [
+        281,
+        282
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "G-DG02-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-DG02-02",
+      "fields": {
+        "heading": "G-DG02-02",
+        "body": [
+          "Ausencia de matriz de scoring no demuestra mala priorización."
+        ]
+      },
+      "sourceLines": [
+        283,
+        284
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "G-DG02-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-DG02-03",
+      "fields": {
+        "heading": "G-DG02-03",
+        "body": [
+          "ROI no debe convertirse en criterio universal único."
+        ]
+      },
+      "sourceLines": [
+        285,
+        286
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "G-DG02-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-DG02-04",
+      "fields": {
+        "heading": "G-DG02-04",
+        "body": [
+          "Mayor urgencia no implica automáticamente mayor valor."
+        ]
+      },
+      "sourceLines": [
+        287,
+        288
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "G-DG02-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-DG02-05",
+      "fields": {
+        "heading": "G-DG02-05",
+        "body": [
+          "Costo ya incurrido no justifica por sí mismo continuar una iniciativa.",
+          "Este último reutiliza el principio de sunk cost que apareció en OP-05."
+        ]
+      },
+      "sourceLines": [
+        289,
+        291
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "G-DG02-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-DG02-06",
+      "fields": {
+        "heading": "G-DG02-06",
+        "body": [
+          "No ejecutar una iniciativa puede ser una decisión de transformación válida.",
+          "Este guardrail es especialmente importante para Pymapa.",
+          "El sistema no debe estar diseñado para producir siempre:",
+          "“haga más proyectos”.",
+          "Puede concluir:",
+          "no iniciar todavía,",
+          "posponer,",
+          "detener,",
+          "reducir alcance,",
+          "o no intervenir."
+        ]
+      },
+      "sourceLines": [
+        292,
+        302
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DG02-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG02-01",
+      "fields": {
+        "heading": "CAND-MOTOR-DG02-01 · No intervención, postergación, reducción o detención pueden constituir resultados válidos de una decisión de transformación; el Motor no debe presuponer que toda oportunidad diagnosticada debe convertirse en iniciativa.",
+        "title": "No intervención, postergación, reducción o detención pueden constituir resultados válidos de una decisión de transformación; el Motor no debe presuponer que toda oportunidad diagnosticada debe convertirse en iniciativa.",
+        "body": [
+          "También:"
+        ]
+      },
+      "sourceLines": [
+        346,
+        347
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DG02-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG02-02",
+      "fields": {
+        "heading": "CAND-MOTOR-DG02-02 · Prioridad de valor y prioridad de secuencia son conceptos distintos; una dependencia o prerrequisito puede justificar ejecutar primero una iniciativa de menor valor directo.",
+        "title": "Prioridad de valor y prioridad de secuencia son conceptos distintos; una dependencia o prerrequisito puede justificar ejecutar primero una iniciativa de menor valor directo."
+      },
+      "sourceLines": [
+        348,
+        348
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "CAUS-DG02-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAUS",
+      "sourceId": "CAUS-DG02-01",
+      "fields": {
+        "heading": "CAUS-DG02-01 · Muchas iniciativas retrasadas no demuestran por sí mismas mala priorización.",
+        "title": "Muchas iniciativas retrasadas no demuestran por sí mismas mala priorización.",
+        "body": [
+          "Pueden provenir de:",
+          "- OP-05 ejecución deficiente;",
+          "- DG-03 decisiones bloqueadas;",
+          "- DG-05 dependencia/riesgo;",
+          "- PC capacidad humana;",
+          "- EC dependencia externa;",
+          "- estimaciones incorrectas;",
+          "- cambios posteriores.",
+          "DG-02 debe diagnosticar el mecanismo de selección/asignación, no apropiarse de cualquier retraso."
+        ]
+      },
+      "sourceLines": [
+        376,
+        385
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "INT-DG02-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-DG02-01",
+      "fields": {
+        "heading": "INT-DG02-01 · Mínima intervención suficiente",
+        "title": "Mínima intervención suficiente",
+        "body": [
+          "Para una pyme con cuatro iniciativas podría bastar una tabla:",
+          "Iniciativa | resultado | valor | esfuerzo | capacidad | dependencia | prioridad | decisión",
+          "No necesita una PMO.",
+          "Para una pyme con 40 iniciativas, varias áreas y recursos compartidos, el mismo principio puede requerir mecanismos más estructurados.",
+          "La complejidad del mecanismo debe responder a la complejidad decisional, no al deseo de formalización."
+        ]
+      },
+      "sourceLines": [
+        398,
+        403
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "DEC-DG02-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEC",
+      "sourceId": "DEC-DG02-01",
+      "fields": {
+        "heading": "DEC-DG02-01",
+        "body": [
+          "La salida correcta de un proceso de priorización puede ser no ejecutar una iniciativa.",
+          "Esto debe llegar posteriormente al Motor y a la Experience Layer. Pymapa no puede tener un sesgo estructural hacia producir más proyectos."
+        ]
+      },
+      "sourceLines": [
+        439,
+        441
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "REASS-DG02-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_REASS",
+      "sourceId": "REASS-DG02-01",
+      "fields": {
+        "heading": "REASS-DG02-01",
+        "body": [
+          "Repriorizar ante nueva información no significa que la decisión anterior fuera necesariamente incorrecta.",
+          "Este principio converge con DG-01 y fortalece el candidato transversal:",
+          "estado actualizado ≠ corrección retrospectiva automática del diagnóstico."
+        ]
+      },
+      "sourceLines": [
+        513,
+        516
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DG02-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG02-03",
+      "fields": {
+        "heading": "CAND-MOTOR-DG02-03 · El estado de caso debe conservar decisiones negativas y diferidas, no únicamente acciones aprobadas.",
+        "title": "El estado de caso debe conservar decisiones negativas y diferidas, no únicamente acciones aprobadas.",
+        "body": [
+          "Y asociado:"
+        ]
+      },
+      "sourceLines": [
+        571,
+        572
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DG02-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG02-04",
+      "fields": {
+        "heading": "CAND-MOTOR-DG02-04 · Una decisión diferida debe poder incorporar trigger de reconsideración; DEFER no equivale a REJECT.",
+        "title": "Una decisión diferida debe poder incorporar trigger de reconsideración; DEFER no equivale a REJECT.",
+        "body": [
+          "Esto será muy importante cuando lleguemos a la arquitectura técnica."
+        ]
+      },
+      "sourceLines": [
+        573,
+        574
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "K1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Coherencia — PASS. Se preservan fronteras DG-01, DG-03/04/05 y OP-05.",
+        "title": "Coherencia — PASS. Se preservan fronteras DG-01, DG-03/04/05 y OP-05."
+      },
+      "sourceLines": [
+        607,
+        607
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "K2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Razonamiento — PASS. No confundimos retraso con priorización deficiente, valor con secuencia, prioridad declarada con prioridad efectiva ni falta de formalización con falta de capacidad.",
+        "title": "Razonamiento — PASS. No confundimos retraso con priorización deficiente, valor con secuencia, prioridad declarada con prioridad efectiva ni falta de formalización con falta de capacidad."
+      },
+      "sourceLines": [
+        608,
+        608
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "K3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · Acción — PASS. Los findings producen intervenciones proporcionales y permiten explícitamente hacer, secuenciar, reducir, diferir o detener.",
+        "title": "Acción — PASS. Los findings producen intervenciones proporcionales y permiten explícitamente hacer, secuenciar, reducir, diferir o detener."
+      },
+      "sourceLines": [
+        609,
+        609
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    },
+    {
+      "key": "K4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · Conocimiento — PASS. Grounding suficiente, provenance separado y ciclo de revisión de fuentes definido.",
+        "title": "Conocimiento — PASS. Grounding suficiente, provenance separado y ciclo de revisión de fuentes definido."
+      },
+      "sourceLines": [
+        610,
+        610
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          612,
+          612
+        ]
+      }
+    }
+  ],
+  "checksum": "sha256:eedd6bf29a97548a137cf325635dc1b0299a09547ef7d0db086bdee6ccb3a858"
+}

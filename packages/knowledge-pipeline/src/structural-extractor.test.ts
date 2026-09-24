@@ -45,7 +45,12 @@ const NAMES: Record<string, string> = {
 };
 const readJson = (p: string) => JSON.parse(readFileSync(join(ROOT, p), "utf8")) as unknown;
 
-function load(cap: string, mode: SupersessionMode = "GOVERNED", decisionsOverride?: unknown) {
+function load(
+  cap: string,
+  mode: SupersessionMode = "GOVERNED",
+  decisionsOverride?: unknown,
+  name: string | null | undefined = undefined,
+) {
   const dir = join(INTAKE_DIR, cap);
   const registration = rawSourceRegistrationSchema.parse(readJson(join(dir, "registration.json")));
   const rawText = readFileSync(join(ROOT, dir, registration.text!.ref), "utf8");
@@ -55,7 +60,7 @@ function load(cap: string, mode: SupersessionMode = "GOVERNED", decisionsOverrid
   const out = extractStructuralCandidate({
     registration,
     rawText,
-    capabilityName: NAMES[cap] ?? null,
+    capabilityName: name === undefined ? (NAMES[cap] ?? null) : name,
     capabilityIds,
     domainIds: master.domains.map((x) => x.id),
     supersession: mode,
@@ -78,7 +83,8 @@ const finals = (x: ReturnType<typeof load>, prefix: string) =>
   );
 
 const BEFORE: Record<string, number> = { "OP-03": 25, "OP-04": 33, "OP-05": 14 };
-const AFTER: Record<string, number> = { "OP-03": 12, "OP-04": 21, "OP-05": 4 };
+// M2-BATCH-02: las colisiones restantes se cerraron por decisión de gobierno literal.
+const AFTER: Record<string, number> = { "OP-03": 0, "OP-04": 0, "OP-05": 0 };
 
 describe.each(["OP-03", "OP-04", "OP-05"])("%s · candidato estructural gobernado", (cap) => {
   const x = load(cap);
@@ -86,11 +92,14 @@ describe.each(["OP-03", "OP-04", "OP-05"])("%s · candidato estructural gobernad
   it("es CANDIDATE determinista e idéntico al artefacto en intake", () => {
     expect(x.candidate.status).toBe("CANDIDATE");
     expect(x.candidate.producedBy.method).toBe("DETERMINISTIC_TOOL");
+    // El artefacto aceptado se extrajo sin nombre declarado (identidad no
+    // verificada en el candidato sellado); se reproduce con los mismos insumos.
+    const sealed = load(cap, "GOVERNED", undefined, null);
     expect(readJson(join(x.dir, "candidate.json"))).toEqual(
-      JSON.parse(JSON.stringify(x.candidate)),
+      JSON.parse(JSON.stringify(sealed.candidate)),
     );
     expect(readJson(join(x.dir, "extraction-report.json"))).toEqual(
-      JSON.parse(JSON.stringify(x.report)),
+      JSON.parse(JSON.stringify(sealed.report)),
     );
     expect(load(cap).candidate.checksum).toBe(x.candidate.checksum);
   });
@@ -171,8 +180,12 @@ describe.each(["OP-03", "OP-04", "OP-05"])("%s · candidato estructural gobernad
     expect(p.ok).toBe(false);
   });
 
-  it("sin aceptación canónica, revisión de gobierno ni pack fabricados", () => {
-    expect(existsSync(join(ROOT, x.dir, "canonical-acceptance.json"))).toBe(false);
+  it("aceptación canónica humana presente; sin revisión de publicación ni pack fabricados", () => {
+    const acc = readJson(join(x.dir, "canonical-acceptance.json")) as { candidateChecksum: string };
+    expect(acc.candidateChecksum).toBe(
+      readJson(join(x.dir, "candidate.json")) &&
+        (readJson(join(x.dir, "candidate.json")) as { checksum: string }).checksum,
+    );
     expect(
       existsSync(
         join(ROOT, "knowledge", "master", "v1.0", "capabilities", cap, "governance-review.json"),
@@ -285,19 +298,29 @@ describe("resolver genérico: la cronología y la última aparición nunca decid
 
 describe("frontera de candidatos", () => {
   it("SUPERSESSION_AMBIGUOUS bloquea la promoción aun con aceptación humana válida", () => {
-    const x = load("OP-05");
-    const v = validate(x);
+    const dir = join(INTAKE_DIR, "DG-03");
+    const registration = rawSourceRegistrationSchema.parse(
+      readJson(join(dir, "registration.json")),
+    );
+    const rawText = readFileSync(join(ROOT, dir, registration.text!.ref), "utf8");
+    const candidate = readJson(join(dir, "candidate.json")) as ExtractionCandidate;
+    const v = validateExtractionCandidate({
+      candidate,
+      registration,
+      rawText,
+      extensionRegistry: null,
+    });
     expect(v.issues.some((i) => i.code === "SUPERSESSION_AMBIGUOUS")).toBe(true);
     const p = promoteCandidateToCanonicalBaseline({
       validation: v,
       acceptance: {
-        capabilityId: "OP-05",
-        candidateChecksum: (x.candidate as ExtractionCandidate).checksum,
+        capabilityId: "DG-03",
+        candidateChecksum: candidate.checksum,
         decision: "ACCEPTED",
         reviewer: "TEST_ONLY",
         reviewedAt: "2026-01-01",
       },
-      registration: x.registration,
+      registration,
       rawRef: "raw/x.txt",
       sourceRef: "source.json",
     });

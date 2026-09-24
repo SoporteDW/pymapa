@@ -1,0 +1,134 @@
+{
+  "reportType": "STRUCTURAL_EXTRACTION_REPORT",
+  "statement": "Reporte técnico del extractor estructural. No es conocimiento canónico ni aprobación; las referencias cruzadas no son relaciones inferidas.",
+  "capabilityId": "PC-01",
+  "registrationId": "RAW-PC-01-19e8903f1149",
+  "textSha256": "7325e0a13eae2edba29574143da19c261ebfd4f5879340e35303783b26887937",
+  "extractor": "pymapa-structural-segmenter@0.2.0",
+  "identity": {
+    "declaredName": null,
+    "literalLines": [],
+    "verified": false
+  },
+  "historicalClosure": {
+    "marker": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "lines": [
+      660
+    ],
+    "selectedLine": 660,
+    "requiresHumanConfirmation": false,
+    "statement": "Cierre histórico literal (provenance). No equivale a publicación técnica actual ni a aceptación canónica."
+  },
+  "chronology": [
+    {
+      "line": 660,
+      "marker": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED"
+    }
+  ],
+  "counts": {
+    "lines": 684,
+    "headings": 115,
+    "idHeadings": 58,
+    "distinctSourceIds": 57,
+    "singleDefinition": 56,
+    "restatedIdentical": 0,
+    "conflictingDefinitions": 1,
+    "draftMarked": 0,
+    "governedBacklog": 0,
+    "finalApprovedCandidates": 56,
+    "historicalDrafts": 2
+  },
+  "ambiguousSupersessions": [
+    {
+      "sourceId": "SOURCE-REVIEW-TRIGGER-PC01-01",
+      "occurrences": [
+        {
+          "line": 163,
+          "heading": "SOURCE-REVIEW-TRIGGER-PC01-01 · Revisar PC-01 y posteriormente PC-04 cuando ISO 30401 Edition 2 sea publicada."
+        },
+        {
+          "line": 607,
+          "heading": "SOURCE-REVIEW-TRIGGER-PC01-01 · Revisar PC-01 y PC-04 cuando ISO 30401 Edition 2 se publique definitivamente."
+        }
+      ]
+    }
+  ],
+  "crossCapabilityReferences": [
+    {
+      "target": "PC-04",
+      "kind": "CAPABILITY",
+      "line": 163,
+      "heading": "SOURCE-REVIEW-TRIGGER-PC01-01 · Revisar PC-01 y posteriormente PC-04 cuando ISO 30401 Edition 2 sea publicada."
+    },
+    {
+      "target": "PC-02",
+      "kind": "CAPABILITY",
+      "line": 567,
+      "heading": "Relación con PC-02"
+    },
+    {
+      "target": "PC-04",
+      "kind": "CAPABILITY",
+      "line": 577,
+      "heading": "Relación con PC-04"
+    },
+    {
+      "target": "PC-04",
+      "kind": "CAPABILITY",
+      "line": 607,
+      "heading": "SOURCE-REVIEW-TRIGGER-PC01-01 · Revisar PC-01 y PC-04 cuando ISO 30401 Edition 2 se publique definitivamente."
+    }
+  ],
+  "nonTextElements": {
+    "statement": "Advertencias del registro raw sobre elementos no textuales; su verificación consta en el reporte del lote.",
+    "warnings": [
+      "IMAGES_NOT_TRANSCRIBED: 265 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw."
+    ]
+  },
+  "supersessionResolution": {
+    "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+    "mode": "GOVERNED",
+    "statement": "Resolución de supersesión solo por evidencia explícita de la fuente. La cronología sola y la última aparición sola nunca deciden; toda versión previa se preserva como provenance histórica. No es aceptación canónica.",
+    "baseline": {
+      "extractor": "pymapa-structural-segmenter@0.1.0",
+      "ambiguousIds": 1,
+      "ambiguousIdList": [
+        "SOURCE-REVIEW-TRIGGER-PC01-01"
+      ],
+      "finalApproved": 56,
+      "historicalDrafts": 2
+    },
+    "after": {
+      "ambiguousIds": 1,
+      "finalApproved": 56,
+      "superseded": 0,
+      "historicalDrafts": 2,
+      "governedBacklog": 0,
+      "itemsWithSupersessionEvidence": 0
+    },
+    "resolvedFromBaselineAmbiguous": 0,
+    "resolvedFromBaselineAmbiguousList": [],
+    "byRule": {
+      "EXPLICIT_ELIMINATION": 0,
+      "EXPLICIT_REFORMULATION": 0,
+      "GOVERNED_FREEZE": 0,
+      "FROZEN_HEADING": 0,
+      "VERBATIM_DUPLICATE": 0
+    },
+    "resolvedIds": [],
+    "unresolvedIds": [
+      {
+        "sourceId": "SOURCE-REVIEW-TRIGGER-PC01-01",
+        "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
+        "occurrences": [
+          163,
+          607
+        ]
+      }
+    ],
+    "singlesReclassified": [],
+    "governingFreezes": []
+  },
+  "governance": null,
+  "checksum": "sha256:4bc6ceda3a04af581d685307b5540c1e8665280decff8326c826f58154c8e3c9"
+}

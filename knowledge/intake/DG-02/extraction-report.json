@@ -1,0 +1,127 @@
+{
+  "reportType": "STRUCTURAL_EXTRACTION_REPORT",
+  "statement": "Reporte técnico del extractor estructural. No es conocimiento canónico ni aprobación; las referencias cruzadas no son relaciones inferidas.",
+  "capabilityId": "DG-02",
+  "registrationId": "RAW-DG-02-1862e0e860b8",
+  "textSha256": "982f47a8dd644570de5ab92b4a12322f2727076658d733bfcb5aa6a87292bf0f",
+  "extractor": "pymapa-structural-segmenter@0.2.0",
+  "identity": {
+    "declaredName": null,
+    "literalLines": [],
+    "verified": false
+  },
+  "historicalClosure": {
+    "marker": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "lines": [
+      612
+    ],
+    "selectedLine": 612,
+    "requiresHumanConfirmation": false,
+    "statement": "Cierre histórico literal (provenance). No equivale a publicación técnica actual ni a aceptación canónica."
+  },
+  "chronology": [
+    {
+      "line": 612,
+      "marker": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED"
+    }
+  ],
+  "counts": {
+    "lines": 632,
+    "headings": 116,
+    "idHeadings": 60,
+    "distinctSourceIds": 60,
+    "singleDefinition": 60,
+    "restatedIdentical": 0,
+    "conflictingDefinitions": 0,
+    "draftMarked": 0,
+    "governedBacklog": 0,
+    "finalApprovedCandidates": 60,
+    "historicalDrafts": 0
+  },
+  "ambiguousSupersessions": [],
+  "crossCapabilityReferences": [
+    {
+      "target": "DG-01",
+      "kind": "CAPABILITY",
+      "line": 150,
+      "heading": "STOP-DG02-01 · Si no existe dirección empresarial suficientemente establecida para comparar contribución estratégica, no inferir calidad de priorización por alineación. Derivar/reutilizar DG-01."
+    },
+    {
+      "target": "DG-01",
+      "kind": "CAPABILITY",
+      "line": 317,
+      "heading": "Relación DG-01 → DG-02"
+    },
+    {
+      "target": "DG-01",
+      "kind": "CAPABILITY",
+      "line": 319,
+      "heading": "DER-DG01-DG02-01 · La dirección empresarial y las necesidades de transformación suficientemente establecidas en DG-01 constituyen evidencia reutilizable para evaluar alineación en DG-02."
+    },
+    {
+      "target": "OP-05",
+      "kind": "CAPABILITY",
+      "line": 324,
+      "heading": "Relación DG-02 → OP-05"
+    },
+    {
+      "target": "DG-01",
+      "kind": "CAPABILITY",
+      "line": 607,
+      "heading": "K1 · Coherencia — PASS. Se preservan fronteras DG-01, DG-03/04/05 y OP-05."
+    },
+    {
+      "target": "DG-03",
+      "kind": "CAPABILITY",
+      "line": 607,
+      "heading": "K1 · Coherencia — PASS. Se preservan fronteras DG-01, DG-03/04/05 y OP-05."
+    },
+    {
+      "target": "OP-05",
+      "kind": "CAPABILITY",
+      "line": 607,
+      "heading": "K1 · Coherencia — PASS. Se preservan fronteras DG-01, DG-03/04/05 y OP-05."
+    }
+  ],
+  "nonTextElements": {
+    "statement": "Advertencias del registro raw sobre elementos no textuales; su verificación consta en el reporte del lote.",
+    "warnings": [
+      "IMAGES_NOT_TRANSCRIBED: 204 imagen(es)/dibujo(s) sin texto extraíble; su contenido no forma parte del texto raw."
+    ]
+  },
+  "supersessionResolution": {
+    "resolver": "pymapa-governed-supersession-resolver@0.1.0",
+    "mode": "GOVERNED",
+    "statement": "Resolución de supersesión solo por evidencia explícita de la fuente. La cronología sola y la última aparición sola nunca deciden; toda versión previa se preserva como provenance histórica. No es aceptación canónica.",
+    "baseline": {
+      "extractor": "pymapa-structural-segmenter@0.1.0",
+      "ambiguousIds": 0,
+      "ambiguousIdList": [],
+      "finalApproved": 60,
+      "historicalDrafts": 0
+    },
+    "after": {
+      "ambiguousIds": 0,
+      "finalApproved": 60,
+      "superseded": 0,
+      "historicalDrafts": 0,
+      "governedBacklog": 0,
+      "itemsWithSupersessionEvidence": 0
+    },
+    "resolvedFromBaselineAmbiguous": 0,
+    "resolvedFromBaselineAmbiguousList": [],
+    "byRule": {
+      "EXPLICIT_ELIMINATION": 0,
+      "EXPLICIT_REFORMULATION": 0,
+      "GOVERNED_FREEZE": 0,
+      "FROZEN_HEADING": 0,
+      "VERBATIM_DUPLICATE": 0
+    },
+    "resolvedIds": [],
+    "unresolvedIds": [],
+    "singlesReclassified": [],
+    "governingFreezes": []
+  },
+  "governance": null,
+  "checksum": "sha256:70db24357486ac9ad8f81138ac25dbb144d1884f08797f775dfc59dc9f36659b"
+}

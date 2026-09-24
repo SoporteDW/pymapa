@@ -19,7 +19,58 @@
       1673
     ]
   },
-  "provenanceVocabulary": [],
+  "provenanceVocabulary": [
+    {
+      "code": "SOURCE-DERIVED",
+      "label": "SOURCE-DERIVED",
+      "meaning": "SOURCE-DERIVED",
+      "sourceLines": [
+        1443,
+        1443
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "SYNTHESIZED",
+      "label": "SYNTHESIZED",
+      "meaning": "SYNTHESIZED",
+      "sourceLines": [
+        1444,
+        1444
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "Pymapa-DESIGNED",
+      "label": "Pymapa-DESIGNED",
+      "meaning": "Pymapa-DESIGNED",
+      "sourceLines": [
+        1445,
+        1445
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "INTERNAL",
+      "label": "INTERNAL",
+      "meaning": "INTERNAL",
+      "sourceLines": [
+        1446,
+        1446
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "EXPERIENTIAL",
+      "label": "EXPERIENTIAL",
+      "meaning": "EXPERIENTIAL",
+      "sourceLines": [
+        1447,
+        1447
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    }
+  ],
   "controlCounts": [
     {
       "label": "CE",
@@ -3693,7 +3744,9 @@
       "sourceLines": [
         1506,
         1506
-      ]
+      ],
+      "role": "QUALITY_GATE_STATE",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "K1@L1529",
@@ -3709,7 +3762,9 @@
       "sourceLines": [
         1529,
         1530
-      ]
+      ],
+      "role": "QUALITY_GATE_STATE",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "K2@L1532",
@@ -3752,7 +3807,9 @@
       "sourceLines": [
         1532,
         1559
-      ]
+      ],
+      "role": "QUALITY_GATE_STATE",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "K2@L1560",
@@ -3768,7 +3825,9 @@
       "sourceLines": [
         1560,
         1561
-      ]
+      ],
+      "role": "QUALITY_GATE_STATE",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "K3@L1563",
@@ -3796,7 +3855,9 @@
       "sourceLines": [
         1563,
         1575
-      ]
+      ],
+      "role": "QUALITY_GATE_STATE",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "K3@L1576",
@@ -3812,7 +3873,9 @@
       "sourceLines": [
         1576,
         1577
-      ]
+      ],
+      "role": "QUALITY_GATE_STATE",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "K4@L1579",
@@ -3843,7 +3906,9 @@
       "sourceLines": [
         1579,
         1594
-      ]
+      ],
+      "role": "QUALITY_GATE_STATE",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "K4@L1661",
@@ -3870,13 +3935,15 @@
       "sourceLines": [
         1661,
         1672
-      ]
+      ],
+      "role": "QUALITY_GATE_STATE",
+      "governanceDecision": "M2-BATCH-02"
     }
   ],
   "governanceDecisions": {
-    "decisionSetId": "M2-BATCH-01R",
+    "decisionSetId": "M2-BATCH-02",
     "ref": "knowledge/intake/OP-05/governance-decisions.json",
-    "checksum": "sha256:2a8c30eb2ce3c548fb9ad507e93474beb6940b525e1a1b8a853532ebbcb41462"
+    "checksum": "sha256:54c94ad4e5fbffc45733b6000b792c3fcefb60ee03993f3a91e626ef82a1779f"
   },
-  "checksum": "sha256:02810ee2839d26eb2954c9f68a920a042be82f10b5485889e099fc9e39ff5585"
+  "checksum": "sha256:03da2cd45163f7ac46d71251a82068e885824cd68a0bed1bfcb3fccc4a793cd4"
 }

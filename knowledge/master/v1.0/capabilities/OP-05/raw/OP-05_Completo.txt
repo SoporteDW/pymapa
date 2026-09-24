@@ -1,0 +1,1785 @@
+Entendido. Vamos con OP05, pero te voy a pedir algo. y es que si te das cuenta, durante los distintos bloques de cada uno de los OPs anteriores, yo te he puesto muy pocas limitaciones porque creo que están de forma fluida. Así que para no estar haciendo tantas revisiones me parecería más eficiente que hagamos más bloques. Es decir, en este OP05, si son 12 bloques, de pronto hacer únicamente dos sets de aprobaciones, uno del 0 al 6 y el otro del 6 al 12. Si estamos de acuerdo lo hacemos así y comenzamos desde ya.
+De acuerdo. Ese cambio de dinámica tiene sentido y, además, es una buena prueba de que la metodología ya está suficientemente estabilizada.
+Para OP-05 trabajaremos en dos macrosets, manteniendo internamente los 12 bloques y todos sus controles, pero sin detenernos a pedir aprobación después de cada uno:
+SET A — Bloques 1–6: delimitación → CE/VA → fundamentación → NI/suficiencia → adquisición/evidencia → motor diagnóstico.
+SET B — Bloques 7–12: hallazgos → recomendaciones/intervenciones → ejecución → resultados → conocimiento/DoD → K1–K4/cierre.
+Haré una única parada de revisión al terminar el Bloque 6 y otra al terminar el 12. Si durante el desarrollo aparece una contradicción verdaderamente estructural que requiera una decisión tuya, sí la señalaré; de lo contrario, avanzo.
+# OP-05 · Gestionar iniciativas hasta su implementación efectiva
+## SET A — Bloques 1 a 6
+
+# BLOQUE 1 — Recuperación, delimitación y fronteras
+## 1.1 Hipótesis funcional
+Propongo como definición inicial:
+OP-05 evalúa la capacidad de una organización para convertir iniciativas de cambio suficientemente definidas en resultados efectivamente implementados, mediante una gestión proporcional de alcance, responsables, recursos, dependencias, decisiones, avance, riesgos y cierre.
+La unidad conceptual no es:
+“tener gestión de proyectos”.
+Es:
+lograr que una iniciativa llegue desde una intención suficientemente definida hasta una implementación funcional verificable.
+
+## 1.2 Unidad de análisis
+### UA-OP05-v0.1
+Iniciativa material de cambio que requiere coordinación deliberada de actividades, recursos, responsables y/o dependencias para alcanzar un estado objetivo verificable.
+Puede ser:
+- mejora de proceso;
+- automatización;
+- implementación tecnológica;
+- cambio comercial;
+- desarrollo de capacidad;
+- iniciativa organizacional;
+- implantación de herramienta;
+- integración;
+- cambio de política/procedimiento.
+No toda tarea es una iniciativa.
+
+## 1.3 Punto de entrada
+OP-05 puede recibir iniciativas provenientes de:
+OP-01 / OP-02 / OP-03 / OP-04 / otros dominios / dirección empresarial / necesidades externas.
+Ejemplo:
+OP-04 concluye:
+establecer captura única de pedidos.
+OP-05 pregunta:
+¿la empresa puede convertir esa intervención definida en algo efectivamente implementado?
+
+# 2. Frontera fundamental: diseño vs ejecución
+OP-05 no debe apropiarse del diagnóstico que originó la iniciativa.
+### BOUND-OP05-01
+OP-05 evalúa la capacidad para llevar una iniciativa suficientemente definida a implementación; no sustituye la capacidad especializada que determina por qué la iniciativa es necesaria o cuál debe ser su diseño funcional.
+Por tanto:
+OP-04: qué simplificar/automatizar.
+OP-05: cómo lograr que esa intervención llegue a implementarse.
+
+# 3. OP-02 ↔ OP-05
+Esta frontera requiere especial cuidado.
+OP-02:
+planificación, coordinación y ejecución consistente de procesos y recursos recurrentes.
+OP-05:
+gestión de esfuerzos temporales de cambio orientados a un estado objetivo.
+La diferencia central:
+operación recurrente vs cambio deliberado.
+### BOUND-OP05-02
+La coordinación de la operación habitual pertenece principalmente a OP-02; la coordinación temporal necesaria para llevar una iniciativa desde su estado inicial hasta implementación pertenece principalmente a OP-05.
+
+# 4. Proyecto ≠ iniciativa obligatoriamente
+No queremos que Pymapa exija metodología formal de proyectos para una pyme.
+Una iniciativa puede durar:
+tres días.
+Ejemplo:
+eliminar un formulario y cambiar una regla de aprobación.
+No necesita:
+PMO + charter + Gantt + comité.
+### P-OP05-01
+La formalidad de gestión debe ser proporcional a complejidad, riesgo, costo, duración, dependencias e impacto de la iniciativa.
+
+# 5. Agile / Waterfall / Scrum no son la capacidad
+OP-05 no evalúa:
+“¿usa Scrum?”
+Evalúa:
+¿logra gestionar suficientemente la iniciativa?
+Puede hacerlo con:
+- checklist;
+- Kanban;
+- plan simple;
+- proyecto formal;
+- agile;
+- híbrido.
+### P-OP05-02
+Método utilizado ≠ capacidad demostrada.
+
+# 6. Implementar ≠ terminar actividades
+Este será el principio central.
+completar tareas del plan
+no demuestra:
+cambio implementado.
+### P-OP05-03
+Una iniciativa no está efectivamente implementada únicamente porque sus actividades hayan sido completadas, su presupuesto ejecutado o su solución entregada.
+Necesitamos:
+estado objetivo funcional + aceptación/adopción inicial pertinente + evidencia.
+
+# 7. Éxito ≠ solo tiempo/costo/alcance
+Tampoco queremos reducir OP-05 al tradicional:
+on time / on budget / on scope.
+Esos elementos importan.
+Pero una iniciativa puede:
+cumplir cronograma
+y no producir el cambio.
+### P-OP05-04
+Cumplimiento de plan y efectividad de implementación son dimensiones relacionadas pero diferentes.
+
+# 8. Reutilización de OP-01–04
+OP-05 puede reutilizar:
+- intervención definida;
+- alcance;
+- Finding;
+- Recommendation;
+- actividades candidatas;
+- entregable;
+- Done Criteria;
+- CRV;
+- dependencias identificadas.
+### REUSE-OP05-01
+OP-05 debe reutilizar el conocimiento ya producido por la capacidad originadora y no rediagnosticar innecesariamente la necesidad funcional de la iniciativa.
+Esto reducirá muchísimo preguntas.
+
+# BLOQUE 2 — Condiciones Evaluables y Variables Aplicadas
+Después de delimitar la capacidad, propongo 4 CE y 10 VA.
+
+# CE01 · Definición ejecutable de la iniciativa
+Pregunta:
+¿Está suficientemente claro qué se pretende cambiar y qué significa terminar?
+### VA01 · Objetivo y resultado esperado
+¿Existe claridad suficiente sobre:
+qué debe cambiar y para qué?
+### VA02 · Alcance y criterios de terminación
+¿Está suficientemente delimitado:
+- qué entra;
+- qué no;
+- qué estado demuestra implementación?
+
+# CE02 · Preparación y viabilidad de ejecución
+Pregunta:
+¿Existen condiciones suficientes para ejecutar razonablemente la iniciativa?
+### VA03 · Responsabilidad y capacidad de decisión
+¿Está claro:
+- quién responde;
+- quién decide;
+- quién ejecuta;
+- quién desbloquea?
+### VA04 · Recursos y capacidad disponible
+Considera:
+- personas;
+- tiempo;
+- presupuesto cuando aplique;
+- capacidad especializada;
+- disponibilidad.
+### VA05 · Dependencias y prerrequisitos
+Considera:
+- otras iniciativas;
+- datos;
+- proveedores;
+- decisiones;
+- tecnología;
+- aprobaciones;
+- procesos.
+
+# CE03 · Control adaptativo de la ejecución
+Pregunta:
+¿La organización puede saber qué está ocurriendo y actuar cuando la ejecución se desvía?
+### VA06 · Plan y secuencia de ejecución
+No necesariamente Gantt.
+Debe existir:
+siguiente trabajo suficientemente claro + secuencia/dependencias pertinentes.
+### VA07 · Visibilidad de avance y estado real
+¿Se puede saber:
+- qué está hecho;
+- qué falta;
+- qué está bloqueado;
+- qué cambió?
+### VA08 · Gestión de bloqueos, riesgos y cambios
+¿La iniciativa puede:
+detectar → decidir → adaptar.
+No buscamos registro burocrático de riesgos.
+
+# CE04 · Transición a implementación efectiva
+Pregunta:
+¿La iniciativa logra pasar de “solución producida” a “cambio funcionando”?
+### VA09 · Activación, adopción y transición operativa
+¿La solución:
+- fue activada;
+- incorporada al trabajo;
+- entregada a responsables;
+- utilizada suficientemente?
+### VA10 · Verificación y cierre de implementación
+¿Existe evidencia suficiente para determinar:
+que alcanzó el estado objetivo y puede cerrarse o pasar a validación de resultados?
+
+# 9. Por qué 10 VA y no más
+Podríamos crear variables independientes para:
+- comunicación;
+- stakeholders;
+- presupuesto;
+- calidad;
+- procurement;
+- documentación;
+- capacitación;
+- riesgos;
+- governance.
+Pero sería un error.
+Esos elementos son:
+NI, evidencia, instrumentos o contextualización,
+según la iniciativa.
+No son dimensiones universales independientes.
+
+# BLOQUE 3 — Fundamentación externa
+Aquí sí corresponde fundamentación específica.
+La arquitectura OP-05 debe contrastarse principalmente con cuatro familias de conocimiento:
+### 1. Project/program management
+PMI / estándares de gestión de proyectos:
+objetivos, alcance, stakeholders, recursos, riesgo, planificación, monitoreo y entrega.
+### 2. ISO 21502 / project management
+Particularmente útil porque plantea gestión adaptable al contexto y aplicable a diferentes tipos de organización/proyecto.
+### 3. Change / implementation management
+Para evitar que:
+entrega técnica = implementación efectiva.
+### 4. Lean/Agile delivery
+Para sostener:
+adaptación, trabajo incremental, visibilidad y proporcionalidad
+sin convertir Agile en requisito.
+
+# 10. Qué NO tomamos de estas fuentes
+No construiremos OP-05 como certificación de:
+PMI.
+Tampoco:
+Scrum maturity.
+La literatura sirve para fundamentar dimensiones.
+Pymapa sintetiza un modelo:
+proporcional para pymes y orientado a implementación efectiva.
+
+# 11. Resultado del grounding conceptual
+No aparece necesidad de modificar las cuatro CE.
+Sí quedan cuatro guardrails importantes:
+### P-OP05-05
+Planificación suficiente ≠ planificación exhaustiva.
+### P-OP05-06
+Cambio de plan ≠ mala gestión automáticamente.
+### P-OP05-07
+Ausencia de metodología formal ≠ ausencia de capacidad.
+### P-OP05-08
+Entrega técnica ≠ implementación efectiva.
+Por tanto:
+OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN
+
+# BLOQUE 4 — NI y suficiencia
+## VA01 · Objetivo y resultado
+Necesitamos saber:
+- problema/oportunidad;
+- cambio esperado;
+- beneficiario/usuario;
+- resultado observable;
+- vínculo con necesidad originadora.
+Suficiente cuando:
+puede explicarse qué debe cambiar y por qué.
+
+## VA02 · Alcance y terminación
+NI:
+- incluido;
+- excluido;
+- unidades afectadas;
+- entregable;
+- Done Criteria;
+- restricciones.
+Suficiente cuando:
+podemos distinguir terminado de parcialmente ejecutado.
+
+## VA03 · Responsabilidad/decisión
+NI:
+- accountable;
+- responsables;
+- decisiones críticas;
+- autoridad;
+- escalamiento.
+Suficiente cuando:
+las decisiones necesarias tienen dueño razonablemente identificable.
+
+## VA04 · Recursos/capacidad
+NI:
+- personas;
+- dedicación;
+- habilidades;
+- presupuesto si material;
+- capacidad externa;
+- restricciones.
+Suficiente cuando:
+podemos determinar si la iniciativa tiene capacidad razonable de ejecución.
+
+## VA05 · Dependencias
+NI:
+- prerrequisitos;
+- decisiones;
+- terceros;
+- tecnología;
+- datos;
+- otras iniciativas;
+- fechas externas.
+Suficiente cuando:
+dependencias materiales están suficientemente visibles para gestionarse.
+
+## VA06 · Plan/secuencia
+NI:
+- principales frentes;
+- orden;
+- hitos;
+- dependencias;
+- próximo trabajo;
+- criterio de avance.
+Suficiente cuando:
+existe una ruta ejecutable proporcional.
+
+## VA07 · Visibilidad
+NI:
+- estado;
+- avance;
+- pendientes;
+- bloqueos;
+- evidencia;
+- frecuencia de actualización.
+Suficiente cuando:
+actores relevantes pueden distinguir avance real de avance declarado.
+
+## VA08 · Riesgos/bloqueos/cambios
+NI:
+- obstáculos;
+- incertidumbres;
+- impacto;
+- responsable;
+- decisión;
+- cambio de alcance;
+- mecanismo de adaptación.
+Suficiente cuando:
+desviaciones materiales pueden detectarse y gestionarse.
+
+## VA09 · Activación/adopción
+NI:
+- transición;
+- usuarios;
+- capacitación cuando aplique;
+- acceso;
+- soporte;
+- migración;
+- uso real;
+- retirada de forma anterior.
+Suficiente cuando:
+podemos determinar si el cambio entró efectivamente en operación.
+
+## VA10 · Verificación/cierre
+NI:
+- Done Criteria;
+- evidencia;
+- pendientes;
+- aceptación;
+- handoff;
+- estado operacional;
+- siguiente responsable;
+- validación posterior.
+Suficiente cuando:
+existe base para declarar implementación o mantener abierta la iniciativa.
+
+# 12. Suficiencia
+Estados heredados:
+SI-0 No resuelta
+SI-1 Exploratoria
+SI-2 Diagnóstica
+SI-3 Reforzada
+No representan madurez.
+### SUF-OP05-01
+Una VA puede cerrarse cuando sus NI críticas están suficientemente resueltas, no existe contradicción material abierta y nueva información tiene baja probabilidad de cambiar la conclusión.
+
+# 13. Suficiencia de capacidad
+No exigimos que las diez VA estén perfectas.
+### SUF-OP05-02
+OP-05 puede cerrar diagnóstico cuando:
+- variables críticas aplicables están suficientemente resueltas;
+- no existen contradicciones críticas;
+- principales causas de falla están discriminadas;
+- cobertura de iniciativas es suficiente;
+- confianza permite recomendar.
+
+# 14. Cobertura
+No analizaremos:
+todos los proyectos históricos.
+Podemos usar:
+- iniciativa actual;
+- iniciativas recientes;
+- muestra material;
+- patrón recurrente.
+### COV-OP05-01
+La cobertura debe ser suficiente para distinguir una dificultad puntual de un patrón de capacidad organizacional.
+
+# BLOQUE 5 — Adquisición adaptativa, evidencia y colaboración
+Aquí OP-05 tiene una ventaja enorme:
+probablemente ya existan iniciativas derivadas del diagnóstico Pymapa.
+Por tanto, la primera fuente es:
+### REUSE
+El Motor puede recibir:
+Initiative_ID
+Originating_Finding
+Recommendation
+Intervention
+Expected_Result
+Done_Criteria
+CRV
+Dependencies
+Priority_Context
+No pregunta de nuevo:
+“¿qué quiere hacer?”
+si ya lo sabe.
+
+# 15. Tres puertas de entrada
+### A · Iniciativa Pymapa
+Derivada del roadmap.
+### B · Iniciativa existente
+La pyme ya la está ejecutando.
+### C · Patrón histórico
+Queremos evaluar capacidad a partir de iniciativas recientes.
+
+# 16. P1 — núcleo
+Podemos resolver muchísimo con pocas preguntas:
+P1-OP05-01
+¿Qué iniciativas importantes tienen actualmente en ejecución o pendientes de implementar?
+P1-OP05-02
+¿Cuál es el resultado concreto que debería estar funcionando cuando cada una termine?
+P1-OP05-03
+¿Qué está impidiendo hoy que avance o termine?
+P1-OP05-04
+Cuando una iniciativa se termina, ¿cómo determinan que realmente quedó funcionando?
+Pero si la iniciativa nació en Pymapa:
+P1-02 puede estar precontestada.
+
+# 17. Adquisición por evidencia
+Fuentes posibles:
+- plan;
+- tablero;
+- backlog;
+- cronograma;
+- correos;
+- minutas;
+- tickets;
+- presupuesto;
+- entregables;
+- demostración;
+- sistema funcionando;
+- entrevistas;
+- observación.
+### EVD-OP05-01
+Evidencia de planificación no demuestra ejecución, y evidencia de entrega no demuestra implementación efectiva.
+
+# 18. Colaboración
+OP-05 es naturalmente colaborativa.
+Puede necesitar:
+- sponsor/líder;
+- responsable de iniciativa;
+- ejecutor;
+- usuario;
+- tecnología;
+- proveedor.
+Esto encaja perfectamente con la idea ya planteada para Pymapa de delegar partes del diagnóstico.
+### COLLAB-OP05-01
+Solicitar información al actor que posee conocimiento material de la NI concreta, evitando delegar innecesariamente la capacidad completa.
+
+# 19. Contradicciones
+Ejemplo:
+Líder:
+“está 90% terminado”.
+Usuario:
+“nunca lo hemos usado”.
+No promediamos:
+45%.
+Registramos contradicción.
+### CONTRA-OP05-01
+Diferencias materiales entre avance declarado y estado operacional deben resolverse mediante evidencia o conservarse explícitamente como incertidumbre.
+
+# 20. Value of Information
+No preguntaremos:
+cada riesgo, cada tarea, cada stakeholder
+si ya sabemos que:
+la iniciativa no tiene responsable.
+Primero resolvemos la causa discriminante.
+### NEXT-OP05-01
+La siguiente pregunta debe maximizar la capacidad de discriminar por qué la iniciativa no avanza o no alcanza implementación efectiva.
+
+# 21. STOP
+Detenemos adquisición cuando:
+- causa material discriminada;
+- evidencia suficiente;
+- intervención razonablemente identificable;
+- nueva información aporta poco;
+- debe derivarse.
+### STOP-OP05-01
+No profundizar en gestión detallada cuando la iniciativa todavía carece de definición funcional suficiente; derivar primero a la capacidad originadora correspondiente.
+Esto es muy importante.
+OP-05 no debe gestionar eficientemente:
+una iniciativa mal definida.
+
+# BLOQUE 6 — Motor diagnóstico y reglas
+La cadena:
+Evidence → Observation → Rule → Inference → Confidence/Severity → Diagnostic State
+Propongo 10 reglas primarias, alineadas con las 10 VA pero no mecánicamente uno-a-uno.
+
+# R-OP05-01 · Resultado insuficientemente definido
+Si:
+- iniciativa existe;
+- actividades/solución conocidas;
+- pero estado objetivo o resultado esperado no es suficientemente claro;
+entonces:
+UNCLEAR_IMPLEMENTATION_TARGET
+Dirección:
+clarificar antes de escalar ejecución.
+Guardrail:
+lista de tareas ≠ objetivo.
+
+# R-OP05-02 · Alcance o terminación ambiguos
+Si:
+- no se distingue suficientemente qué entra;
+- qué queda fuera;
+- o qué condición significa terminado;
+entonces:
+AMBIGUOUS_SCOPE_OR_DONE
+Consecuencia:
+expansión, cierre prematuro, trabajo indefinido.
+
+# R-OP05-03 · Responsabilidad o autoridad insuficiente
+Si:
+- decisiones no tienen dueño;
+- responsable carece de autoridad;
+- accountability está fragmentada;
+entonces:
+OWNERSHIP_DECISION_GAP
+No significa:
+“necesita PMO”.
+
+# R-OP05-04 · Capacidad de ejecución insuficiente
+Si:
+- trabajo requerido supera materialmente tiempo, recursos o capacidades disponibles;
+entonces:
+EXECUTION_CAPACITY_CONSTRAINT
+Puede derivar:
+- PC;
+- financiero;
+- DT;
+- proveedor;
+- priorización.
+
+# R-OP05-05 · Dependencia crítica no gestionada
+Si:
+- avance depende de condición externa/interna material;
+- no está resuelta ni gestionada;
+entonces:
+CRITICAL_DEPENDENCY_BLOCK
+Importante:
+dependencia ≠ problema.
+El problema es:
+dependencia material no gestionada.
+
+# R-OP05-06 · Ruta de ejecución insuficiente
+Si:
+- objetivo claro;
+- pero trabajo no tiene secuencia/próximos pasos/hitos suficientes;
+entonces:
+EXECUTION_PATH_GAP
+Guardrail:
+ausencia de Gantt ≠ ausencia de plan.
+
+# R-OP05-07 · Avance no suficientemente visible
+Si:
+- no puede distinguirse avance real;
+- pendientes;
+- bloqueos;
+- evidencia;
+entonces:
+EXECUTION_VISIBILITY_GAP
+Puede existir mucho reporte y poca visibilidad real.
+
+# R-OP05-08 · Desviaciones no gestionadas
+Si:
+- riesgos/bloqueos/cambios aparecen;
+- pero no generan decisión/adaptación suficiente;
+entonces:
+ADAPTATION_CONTROL_GAP
+Guardrail:
+cambiar el plan puede demostrar buena gestión.
+
+# R-OP05-09 · Entrega sin implementación
+Si:
+- solución/entregable producido;
+- pero no está activado, adoptado o incorporado al trabajo;
+entonces:
+DELIVERED_NOT_IMPLEMENTED
+Este probablemente será uno de los hallazgos más importantes de OP-05.
+
+# R-OP05-10 · Cierre sin verificación
+Si:
+- iniciativa se declara terminada;
+- pero no existe evidencia suficiente del Done funcional;
+entonces:
+UNVERIFIED_CLOSURE
+Ejemplos:
+“proveedor entregó”.
+“capacitamos”.
+“software instalado”.
+Ninguno demuestra por sí mismo implementación efectiva.
+
+# 22. Regla adicional de abandono
+Necesitamos distinguir iniciativa:
+bloqueada
+de:
+conscientemente cancelada.
+### R-OP05-11 · Iniciativa persistentemente abierta sin decisión
+Si una iniciativa:
+- no avanza materialmente;
+- no está cancelada;
+- no está diferida de forma gobernada;
+- consume atención o permanece en backlog indefinidamente;
+entonces:
+UNRESOLVED_INITIATIVE_STATE
+Direcciones posibles:
+reactivar / redefinir / diferir / cancelar.
+Cancelar puede ser una decisión correcta.
+
+# 23. Guardrail de sunk cost
+### R-OP05-11A
+El esfuerzo o dinero ya invertido no constituye por sí mismo razón suficiente para continuar una iniciativa.
+Muy importante.
+
+# 24. Estados positivos
+Necesitamos evidencia afirmativa para:
+EXECUTABLE_INITIATIVE
+VISIBLE_CONTROLLED_EXECUTION
+EFFECTIVELY_IMPLEMENTED
+GOVERNED_CLOSURE
+No inferimos fortaleza porque:
+“no hubo problemas reportados”.
+
+# 25. Causalidad
+Ejemplo:
+Proyecto lleva seis meses atrasado.
+Eso es:
+observación.
+No sabemos si causa:
+- alcance;
+- recursos;
+- dependencia;
+- decisiones;
+- proveedor;
+- definición;
+- prioridad.
+### CAUS-OP05-01
+Retraso o estancamiento no demuestra por sí mismo su causa.
+
+# 26. Severidad
+Reutilizamos S0–S3.
+Puede considerar:
+- valor bloqueado;
+- costo;
+- dependencia;
+- tiempo;
+- riesgo;
+- impacto en otras iniciativas.
+Pero sin score universal.
+
+# 27. Confianza
+C0–C3.
+Y una regla importante:
+### CONF-OP05-01
+La confianza en el estado de avance no debe superar la calidad de la evidencia que conecta actividades declaradas con estados funcionales realmente alcanzados.
+“90% completo” sin definición de Done:
+confianza limitada.
+
+# 28. Derivaciones
+OP-05 puede detectar que la iniciativa no falla por gestión de implementación.
+Puede derivar:
+OP-01 → trabajo objetivo insuficientemente definido.
+OP-02 → operación incapaz de sostener el cambio.
+OP-03 → dependencia E2E estructural.
+OP-04 → intervención innecesariamente compleja.
+DT → restricción tecnológica.
+PC → capacidad/adopción.
+DG → decisión/gobierno.
+Finanzas → viabilidad/recursos cuando corresponda.
+### DER-OP05-01
+OP-05 conserva el problema de implementación observado, pero no convierte automáticamente la restricción derivada en diagnóstico de la capacidad destino.
+
+# 29. El punto crítico: “90% terminado”
+OP-05 debe evitar porcentajes ficticios.
+Una iniciativa con:
+- 90 de 100 tareas terminadas
+puede estar:
+funcionalmente muy lejos de implementación.
+### PROG-OP05-01
+Porcentaje de actividades completadas ≠ porcentaje de resultado implementado.
+Este principio merece entrar al Motor transversal.
+
+# 30. Modelo de estado de iniciativa
+Propongo:
+INIT-0 · IDENTIFIED
+INIT-1 · DEFINED
+INIT-2 · READY
+INIT-3 · IN_EXECUTION
+INIT-4 · ACTIVATED
+INIT-5 · IMPLEMENTED
+INIT-6 · CLOSED
+Y estados laterales:
+BLOCKED
+DEFERRED
+CANCELLED
+No son madurez.
+Son:
+estado de la iniciativa.
+
+# 31. IMPLEMENTED vs CLOSED
+Muy importante:
+INIT-5 IMPLEMENTED
+significa:
+cambio funcionando suficientemente.
+INIT-6 CLOSED:
+gestión de iniciativa formalmente cerrada y transición completada.
+Puede haber:
+IMPLEMENTED pero todavía no CLOSED.
+Y:
+CLOSED sin IMPLEMENTED
+debería ser posible únicamente si:
+cancelada / cerrada conscientemente sin implementación.
+No como falso éxito.
+
+# 32. Resultado del SET A
+Hemos completado internamente:
+| Bloque | Resultado |
+| 1 Recuperación/delimitación | 🟢 |
+| 2 CE/VA | 🟢 |
+| 3 Fundamentación | 🟢 |
+| 4 NI/suficiencia | 🟢 |
+| 5 Adquisición/evidencia | 🟢 |
+| 6 Motor diagnóstico | 🟢 |
+Baseline provisional:
+4 CE
+10 VA
+11 reglas diagnósticas principales
+adquisición adaptativa
+colaboración
+evidencia
+contradicciones
+suficiencia
+confianza
+severidad
+causalidad
+derivaciones
+estados INIT-0:6
+Estado:
+# OP05-SET-A-v0.1 · BLOCKS-1-6-COMPLETE · READY-FOR-REVIEW
+No encontré hasta aquí ninguna razón para alterar la arquitectura transversal que ya veníamos construyendo. La diferencia más importante de OP-05 frente a OP-01–04 está quedando muy limpia: la unidad ya no es principalmente el proceso o trabajo, sino la iniciativa de cambio y su tránsito verificable hacia implementación efectiva.
+Esta es nuestra primera y única parada intermedia. Si seguimos, ejecuto directamente el SET B completo — Bloques 7 a 12, incluyendo hallazgos, intervenciones, ejecución, CRV, DoD 27/27, auditoría K1–K4 y, si sobrevive al Gate, el cierre formal de OP-05 y del dominio Organización, Procesos y Ejecución.
+
+Perfecto. Vi que estos bloques comparados con los de las anteriores OPs eran mucho más cortos. No significa que por longitud estén bien o mal. solamente que cuando te pido que hagamos varios bloques al tiempo, es para que lo hagamos más eficiente, pero le puedes dar la profundidad que se necesite entendiendo que todo es importante a la hora de construir el conocimiento. Pero entiendo que lo estás haciendo de forma responsable, correcta y completa. Así que sin más, vamos con el bloque 7 al 12.
+Perfecto. Tomo la observación: la eficiencia debe venir de reducir puntos de aprobación, no de comprimir el trabajo de ingeniería del conocimiento. En este segundo set voy a mantener la profundidad necesaria. Además, al llegar a los bloques 11–12 haré la auditoría de consistencia contra todo lo construido en OP-05 y contra OP-01–04.
+# OP-05 · Gestionar iniciativas hasta su implementación efectiva
+## SET B — Bloques 7 a 12
+Estado de entrada:
+OP05-SET-A-v0.1 · BLOCKS-1-6-COMPLETE · READY-FOR-REVIEW
+Baseline recibida:
+- 4 CE.
+- 10 VA.
+- 11 reglas diagnósticas principales.
+- Estados INIT-0:6.
+- suficiencia, confianza, severidad, causalidad, evidencia, contradicciones y derivaciones estructuradas.
+
+# BLOQUE 7 — Hallazgos, consolidación, causalidad y derivaciones
+Tenemos 11 reglas diagnósticas, pero no queremos mostrar a la pyme once problemas técnicos.
+Después de consolidarlas, propongo 8 familias de hallazgo.
+## HF01 · Iniciativa insuficientemente definida
+### OP05-HF01
+La iniciativa no dispone todavía de suficiente claridad sobre el cambio esperado, su alcance o las condiciones que demostrarían que ha sido implementada.
+Consolida principalmente:
+- R-OP05-01;
+- R-OP05-02.
+Variantes:
+HF01-A · Resultado ambiguo
+HF01-B · Alcance ambiguo
+HF01-C · Criterio de terminación ambiguo
+Naturaleza habitual:
+GAP / CONSTRAINT.
+Una iniciativa puede estar llena de actividades y aun así pertenecer a HF01.
+
+# HF02 · Responsabilidad y decisión insuficientes
+### OP05-HF02
+La iniciativa carece de responsabilidad, autoridad o mecanismos de decisión suficientemente claros para sostener su avance.
+Principalmente:
+R-OP05-03.
+Puede manifestarse como:
+- nadie decide;
+- varios creen decidir;
+- responsable sin autoridad;
+- escalamiento inexistente;
+- sponsor nominal pero no funcional.
+Importante:
+esto no equivale automáticamente a “falta de liderazgo”.
+Pymapa describe la condición observable antes de atribuir causas personales.
+
+# HF03 · Capacidad o recursos insuficientes para ejecutar
+### OP05-HF03
+La iniciativa exige recursos, tiempo o capacidades que no están suficientemente disponibles respecto del trabajo requerido.
+R-OP05-04.
+Puede producir:
+- ralentización;
+- dependencia excesiva;
+- trabajo intermitente;
+- abandono;
+- calidad insuficiente.
+Pero:
+“proyecto atrasado” no demuestra HF03.
+Necesitamos evidencia sobre capacidad.
+
+# HF04 · Dependencias o bloqueos no gestionados
+### OP05-HF04
+El avance material de la iniciativa depende de condiciones, decisiones, terceros o prerrequisitos que no están siendo suficientemente resueltos o gobernados.
+R-OP05-05.
+Distinción:
+tener dependencias es normal.
+Hallazgo:
+dependencia material no gestionada.
+
+# HF05 · Ejecución insuficientemente estructurada o visible
+### OP05-HF05
+La iniciativa no dispone de una ruta de ejecución o visibilidad suficiente para coordinar trabajo, distinguir avance real y actuar sobre desviaciones.
+Consolida:
+- R06;
+- R07;
+- R08.
+Variantes:
+HF05-A · Ruta insuficiente
+HF05-B · Visibilidad insuficiente
+HF05-C · Adaptación insuficiente
+No necesitamos tres hallazgos separados cuando representan el mismo mecanismo.
+
+# HF06 · Entrega sin implementación efectiva
+### OP05-HF06
+La iniciativa ha producido uno o más entregables, pero el cambio todavía no se encuentra suficientemente activado, incorporado o utilizado en la operación objetivo.
+R-OP05-09.
+Este será un hallazgo central de Pymapa.
+Ejemplos:
+software comprado pero no usado;
+proceso diseñado pero no aplicado;
+capacitación realizada pero comportamiento no incorporado;
+integración desarrollada pero flujo sigue manual;
+dashboard entregado pero nadie lo utiliza.
+Naturaleza:
+GAP.
+
+# HF07 · Cierre no sustentado
+### OP05-HF07
+La iniciativa se considera terminada sin evidencia suficiente de que las condiciones funcionales de implementación hayan sido alcanzadas o de que la transición haya sido completada.
+R-OP05-10.
+No es exactamente HF06.
+HF06:
+sabemos que no está implementado.
+HF07:
+la organización cerró o pretende cerrar sin evidencia suficiente.
+
+# HF08 · Iniciativa sin resolución gobernada
+### OP05-HF08
+La iniciativa permanece materialmente abierta, detenida o indefinida sin una decisión explícita y gobernada de continuar, redefinir, diferir o cancelar.
+R-OP05-11.
+Este hallazgo captura:
+“proyectos zombies”.
+Una pyme puede tener diez iniciativas “activas” que realmente no tienen movimiento ni decisión.
+
+## Hallazgos positivos
+No crearemos una novena familia solo para positivos.
+Mantendremos estados afirmativos:
+- EXECUTABLE_INITIATIVE
+- VISIBLE_CONTROLLED_EXECUTION
+- EFFECTIVELY_IMPLEMENTED
+- GOVERNED_CLOSURE
+Y aplicamos la regla transversal:
+ausencia de hallazgo negativo ≠ fortaleza demostrada.
+
+# Consolidación
+### CONS-OP05-01
+Hallazgos pueden consolidarse cuando describen manifestaciones del mismo mecanismo material y conducen esencialmente a la misma intervención.
+Ejemplo:
+- no sabemos qué falta;
+- tablero desactualizado;
+- bloqueos aparecen tarde.
+Puede consolidarse como HF05 si existe un mismo déficit de control de ejecución.
+### CONS-OP05-02
+No consolidar cuando las condiciones requieren responsables, causas o intervenciones materialmente diferentes.
+Ejemplo:
+falta presupuesto + proveedor bloqueado
+pueden requerir HF03 + HF04.
+
+# Causalidad
+Un hallazgo debe separar:
+condición observada
+de:
+causa atribuida.
+Ejemplo:
+iniciativa no implementada — C3.
+Causa:
+falta de capacidad — C1.
+Por tanto:
+### FIND-OP05-01
+La confianza en el estado de implementación debe mantenerse separada de la confianza en la explicación causal de ese estado.
+
+# Derivaciones
+OP-05 es probablemente una de las capacidades con mayor número de derivaciones.
+Una iniciativa puede estar detenida porque:
+- su proceso está mal definido → OP-01;
+- la operación no puede sostenerla → OP-02;
+- depende de una ruptura E2E → OP-03;
+- la intervención está sobredimensionada → OP-04;
+- tecnología/datos/arquitectura → DT;
+- competencias/adopción → Personas;
+- decisión/gobierno → Gobierno;
+- recursos económicos → Finanzas.
+### DERIVE-OP05-02
+La causa especializada puede derivarse sin perder el hallazgo de implementación observado en OP-05.
+
+# Objeto Finding OP-05
+Finding_ID
+Capability_ID
+Initiative_ID
+Finding_Family
+Variant
+Nature
+Statement
+Supporting_Observations[]
+Activated_Rules[]
+Evidence[]
+Scope
+Condition
+Causal_Interpretation
+Alternative_Causes[]
+Severity
+Confidence
+Information_Sufficiency
+Derived_To[]
+Recommendation_Eligibility
+Status
+Provenance[]
+Version
+Estado:
+OP05-FINDINGS-v0.1 · 8-FAMILIES · CANDIDATE-FROZEN
+
+# BLOQUE 8 — Recomendaciones y patrones de intervención
+Ahora pasamos de:
+¿por qué no llega?
+a:
+¿qué intervención mínima suficiente aumenta razonablemente la probabilidad de llevarla a implementación?
+Propongo 8 patrones principales.
+
+## IP01 · Definir el resultado ejecutable
+### IP-OP05-01
+Origen:
+HF01.
+Objetivo:
+convertir intención difusa en iniciativa suficientemente ejecutable.
+Debe establecer mínimamente:
+- cambio esperado;
+- alcance;
+- resultado;
+- restricciones;
+- Done Criteria.
+No necesariamente requiere:
+project charter formal.
+
+# IP02 · Establecer ownership y decisiones
+### IP-OP05-02
+Origen:
+HF02.
+Objetivo:
+asegurar responsabilidad y autoridad suficientes para mantener movimiento y resolver decisiones.
+Puede incluir:
+- responsable;
+- sponsor;
+- decision owner;
+- escalamiento;
+- límites de autoridad.
+No necesitamos RACI obligatorio.
+### Guardrail
+matriz de responsabilidades creada ≠ responsabilidad funcionando.
+
+# IP03 · Alinear capacidad y recursos
+### IP-OP05-03
+Origen:
+HF03.
+Opciones:
+- reducir alcance;
+- liberar capacidad;
+- reasignar;
+- secuenciar;
+- adquirir apoyo;
+- contratar;
+- desarrollar capacidad;
+- diferir.
+Importante:
+“agregar personas” no es la recomendación universal.
+
+# IP04 · Resolver o gobernar dependencias
+### IP-OP05-04
+Origen:
+HF04.
+Objetivo:
+hacer explícita la dependencia material y establecer resolución, contingencia, escalamiento o secuencia.
+Puede resultar en:
+esperar conscientemente.
+Eso puede ser correcto.
+
+# IP05 · Establecer control visible y adaptativo
+### IP-OP05-05
+Origen:
+HF05.
+Incluye proporcionalmente:
+- próximos pasos;
+- hitos;
+- responsables;
+- estado;
+- bloqueos;
+- decisiones;
+- cambios.
+No significa:
+implementar Jira.
+El instrumento puede ser una tabla simple.
+
+# IP06 · Completar transición a operación
+### IP-OP05-06
+Origen:
+HF06.
+Objetivo:
+llevar el entregable desde “producido” hasta “funcionando en el contexto objetivo”.
+Puede requerir:
+- activación;
+- migración;
+- acceso;
+- capacitación;
+- comunicación;
+- soporte;
+- retirada de forma anterior;
+- adopción inicial;
+- handoff.
+
+# IP07 · Verificar y gobernar cierre
+### IP-OP05-07
+Origen:
+HF07.
+Objetivo:
+cerrar únicamente cuando exista evidencia suficiente del estado alcanzado y de la transición correspondiente.
+Puede concluir:
+todavía no cerrar.
+
+# IP08 · Resolver iniciativa estancada
+### IP-OP05-08
+Origen:
+HF08.
+Decisiones posibles:
+REACTIVATE
+REDEFINE
+DEFER
+CANCEL
+No forzamos:
+CONTINUE.
+Cancelar puede ser la intervención correcta.
+
+# Principio de mínima gestión suficiente
+### INT-OP05-01
+Aplicar el nivel mínimo de estructura y control que permita ejecutar, decidir, adaptarse y verificar suficientemente la iniciativa dadas su complejidad, riesgo y dependencias.
+Esto evita burocratización.
+
+# Intervenciones combinadas
+Una iniciativa puede necesitar:
+IP01 + IP02 + IP05.
+Pero el Motor debe identificar:
+cuello de botella dominante.
+No generar automáticamente ocho líneas de trabajo.
+### INT-OP05-02
+Una intervención combinada debe priorizar las condiciones que limitan materialmente el avance antes de añadir controles sobre dimensiones que ya funcionan suficientemente.
+
+# Priorización
+No debemos priorizar porque:
+“lleva más tiempo atrasada”.
+La prioridad depende también de:
+- valor;
+- urgencia;
+- dependencia;
+- costo de demora;
+- riesgo;
+- capacidad;
+- estrategia.
+Por tanto:
+OP-05 puede aportar estado de implementación, pero la priorización completa del roadmap puede requerir contexto adicional.
+Estado:
+OP05-INTERVENTIONS-v0.1 · 8-PATTERNS · CANDIDATE-FROZEN
+
+# BLOQUE 9 — Ejecución: actividades, instrumentos, entregables y Done Criteria
+Aquí mantenemos la misma disciplina de OP-04:
+Actividad ≠ Instrumento ≠ Entregable ≠ Done ≠ Resultado.
+
+## INS01 · Ficha de definición ejecutable
+Para IP01.
+Contiene:
+- objetivo;
+- resultado;
+- alcance;
+- fuera de alcance;
+- restricciones;
+- Done.
+### DEL01
+Iniciativa suficientemente definida para ejecución.
+Done:
+actores relevantes pueden distinguir qué se pretende implementar y cuándo se considerará implementado.
+
+# INS02 · Mapa de responsabilidad y decisión
+Para IP02.
+No necesariamente RACI.
+Campos:
+Decisión / Responsable / Autoridad / Escalamiento / Tiempo o condición
+### DEL02
+Mecanismo funcional de responsabilidad y decisión.
+Done:
+decisiones materiales tienen responsable y ruta de resolución operativa.
+
+# INS03 · Plan de capacidad de ejecución
+Para IP03.
+Contiene:
+- trabajo;
+- capacidad requerida;
+- disponibilidad;
+- brecha;
+- respuesta.
+### DEL03
+Capacidad de ejecución razonablemente alineada con el alcance.
+Done:
+los recursos críticos necesarios están disponibles, comprometidos o gestionados mediante alternativa explícita.
+
+# INS04 · Mapa de dependencias y bloqueos
+Para IP04.
+Campos:
+Dependencia | Impacto | Owner | Condición | Respuesta | Estado
+### DEL04
+Dependencias materiales gobernadas.
+Done:
+dependencias críticas tienen resolución, contingencia, escalamiento o decisión explícita.
+
+# INS05 · Tablero mínimo de ejecución
+Para IP05.
+Puede contener únicamente:
+Resultado / Próximo hito / Responsable / Estado / Bloqueo / Próxima decisión
+No necesita 50 columnas.
+### DEL05
+Control visible y actualizado de ejecución.
+Done:
+estado real, trabajo pendiente y bloqueos materiales son suficientemente visibles para decidir.
+
+# INS06 · Checklist de transición operativa
+Para IP06.
+Según contexto:
+- activación;
+- acceso;
+- usuarios;
+- capacitación;
+- soporte;
+- migración;
+- retirada anterior;
+- handoff;
+- primeras ejecuciones.
+### DEL06
+Cambio activado e incorporado inicialmente a la operación.
+Done:
+el entregable funciona dentro del entorno objetivo y actores pertinentes lo utilizan en casos reales.
+
+# INS07 · Evidencia de implementación y cierre
+Para IP07.
+Contiene:
+- Done Criteria;
+- evidencia;
+- pendientes;
+- aceptación;
+- transición;
+- estado final.
+### DEL07
+Cierre sustentado de implementación.
+Done:
+estado declarado coincide suficientemente con evidencia operacional.
+
+# INS08 · Registro de decisión de iniciativa
+Para IP08.
+Contiene:
+- estado;
+- causa;
+- opciones;
+- decisión;
+- razón;
+- responsable;
+- trigger cuando corresponda.
+### DEL08
+Iniciativa reactivada, redefinida, diferida o cancelada de forma gobernada.
+Done:
+deja de permanecer indefinidamente en estado ambiguo.
+
+# Done Criteria transversal
+Reutilizamos tres capas:
+### DC-A · PREPARADO
+Condiciones de gestión configuradas.
+### DC-B · EJECUTADO/ACTIVADO
+Cambio llevado al entorno real.
+### DC-C · IMPLEMENTADO
+Estado funcional mínimo alcanzado y adoptado inicialmente.
+Pero para OP-05 añadimos una precisión:
+### DONE-OP05-01
+La iniciativa alcanza INIT-5 IMPLEMENTED únicamente cuando el cambio objetivo está funcionando suficientemente en el alcance definido y existe evidencia de cumplimiento de sus Done Criteria.
+
+# Cierre
+### DONE-OP05-02
+INIT-6 CLOSED requiere además transición de responsabilidad, tratamiento de pendientes materiales y registro explícito del estado final.
+
+# Cancelación
+Una iniciativa cancelada puede estar:
+correctamente cerrada
+sin estar:
+implementada.
+Necesitamos evitar contaminar métricas.
+Estados finales:
+CLOSED_IMPLEMENTED
+CLOSED_CANCELLED
+CLOSED_DEFERRED — solo si el modelo operativo decide cerrar la iniciativa actual y crear trigger futuro.
+No debemos contar los tres como:
+“proyectos exitosos”.
+
+# Instrumentos y entregables
+Quedan:
+8 familias de instrumentos
+y
+8 familias de entregables.
+Estado:
+OP05-EXECUTION-v0.1 · STRUCTURED · CANDIDATE-FROZEN
+
+# BLOQUE 10 — Resultados, CRV, KPI, validación, atribución y seguimiento
+Aquí debemos tener cuidado:
+OP-05 evalúa:
+implementación efectiva de la iniciativa.
+No necesariamente:
+beneficio empresarial final completo.
+Ejemplo:
+OP-04 propone automatización.
+OP-05 puede demostrar:
+automatización implementada.
+Después:
+OP-04 valida si redujo retrabajo.
+Por tanto tenemos dos niveles.
+### Nivel OP-05
+¿La iniciativa llegó efectivamente al estado de implementación?
+### Capacidad originadora
+¿La intervención produjo el resultado empresarial esperado?
+
+# 8 CRV principales
+## CRV01 · Definición ejecutable lograda
+La iniciativa dispone de resultado, alcance y criterio de terminación suficientemente claros para orientar ejecución y decisiones.
+
+## CRV02 · Responsabilidad decisional funcional
+Las decisiones materiales necesarias para avanzar tienen responsable, autoridad o ruta de escalamiento suficientemente operativa.
+
+## CRV03 · Capacidad de ejecución disponible
+Los recursos y capacidades críticos requeridos están disponibles o gestionados de forma suficiente respecto del alcance comprometido.
+
+## CRV04 · Dependencias gobernadas
+Las dependencias materiales disponen de resolución, contingencia, escalamiento o decisión explícita que permite gestionar su efecto sobre la iniciativa.
+
+## CRV05 · Ejecución visible y adaptable
+El estado real, trabajo pendiente, bloqueos y cambios relevantes son suficientemente visibles y producen decisiones/adaptaciones oportunas.
+
+## CRV06 · Transición operacional lograda
+El cambio producido está activado e incorporado suficientemente al contexto operacional objetivo.
+
+## CRV07 · Implementación verificada
+Existe evidencia suficiente de que los Done Criteria funcionales definidos para la iniciativa han sido alcanzados dentro del alcance establecido.
+
+## CRV08 · Estado final gobernado
+La iniciativa termina en un estado explícito y sustentado —implementada, cancelada, diferida o redefinida— sin permanecer materialmente abierta por ausencia de decisión.
+
+# KPI candidatos
+No congelamos KPI universales.
+Familias:
+### Flujo de iniciativa
+- lead time;
+- tiempo bloqueado;
+- edad de bloqueo.
+### Ejecución
+- hitos cumplidos;
+- trabajo terminado;
+- cambios.
+### Decisión
+- decisiones pendientes;
+- tiempo de resolución.
+### Implementación
+- usuarios activados;
+- casos reales;
+- adopción inicial;
+- pendientes críticos.
+### Portfolio
+- iniciativas activas;
+- estancadas;
+- implementadas;
+- canceladas.
+Pero aplicamos:
+### KPI-OP05-01
+Número de tareas completadas no constituye por sí mismo una medida suficiente de avance hacia implementación.
+Y:
+### KPI-OP05-02
+Número de iniciativas cerradas no constituye por sí mismo evidencia de capacidad de implementación efectiva.
+
+# Baseline
+Puede ser:
+- historial reciente;
+- estado inicial de iniciativa;
+- muestra de iniciativas;
+- evidencia actual.
+No necesitamos medir:
+“madurez de project management” mediante un score artificial.
+
+# Validación
+Estados heredados:
+V0 NOT_VALIDATED
+V1 EARLY_SIGNAL
+V2 VALIDATED
+V3 SUSTAINED
+Para OP-05:
+INIT-5 + V2
+significa:
+tenemos evidencia suficiente de implementación.
+Pero el CRV de negocio de la capacidad originadora puede todavía estar:
+V0/V1.
+Esto es correcto.
+
+# Atribución
+Ejemplo:
+Proyecto se desbloquea después de nombrar responsable.
+No afirmamos automáticamente:
+responsable nuevo causó todo el avance.
+Usamos:
+ATTR-0:3.
+
+# Seguimiento
+Una vez cerrada OP-05, la intervención puede pasar a:
+capacidad originadora.
+Ejemplo:
+OP-04:
+recibe automatización implementada
+y continúa validando:
+reducción de esfuerzo/error.
+### HANDOFF-OP05-01
+El cierre de implementación debe preservar el vínculo con el Finding, Intervention y CRV de la capacidad que originó la iniciativa para permitir validación posterior del resultado empresarial.
+Esto es arquitectónicamente muy importante.
+
+# Reevaluación
+Triggers:
+- implementación deja de utilizarse;
+- reaparecen pendientes;
+- condición objetivo cambia;
+- dependencia reabre;
+- cambio pierde adopción;
+- nueva fase requerida.
+Pero no convertimos OP-05 en seguimiento infinito.
+La iniciativa debe poder cerrarse.
+
+# Resultado del Bloque 10
+8 CRV principales
+Estado:
+OP05-RESULTS-v0.1 · 8-CRV · CANDIDATE-FROZEN
+
+# BLOQUE 11 — Contextualización, conocimiento, fuentes, provenance, gobernanza y DoD
+## Contextualización
+El núcleo OP-05 debe permanecer transversal.
+No creamos:
+- OP-05 tecnología;
+- OP-05 marketing;
+- OP-05 automatización;
+- OP-05 RRHH.
+Lo que cambia es:
+- complejidad;
+- actores;
+- duración;
+- riesgos;
+- regulación;
+- dependencia;
+- instrumentos;
+- formalidad.
+### CTX-OP05-01
+La intensidad de gestión debe adaptarse al contexto de la iniciativa sin modificar innecesariamente las variables maestras de la capacidad.
+
+# Microiniciativa vs iniciativa compleja
+### Caso A
+cambiar formulario interno.
+Puede necesitar:
+- objetivo;
+- responsable;
+- tres acciones;
+- Done.
+### Caso B
+reemplazar ERP.
+Puede necesitar:
+- gobernanza;
+- múltiples frentes;
+- presupuesto;
+- proveedor;
+- migración;
+- riesgos;
+- adopción;
+- fases.
+Mismas CE.
+Distinta profundidad.
+Esto valida la arquitectura adaptativa.
+
+# Conocimiento K1–K4
+### K1 Master
+- CE;
+- VA;
+- NI;
+- reglas;
+- findings;
+- interventions;
+- CRV.
+### K2 Contextual
+- tipos de proyecto;
+- instrumentos;
+- KPI;
+- ejemplos;
+- complejidad;
+- patrones sectoriales.
+### K3 Sources
+- estándares;
+- literatura;
+- metodologías curadas.
+### K4 Candidate
+- aprendizaje de casos.
+
+# Provenance
+Mantenemos:
+SOURCE-DERIVED
+SYNTHESIZED
+Pymapa-DESIGNED
+INTERNAL
+EXPERIENTIAL
+Especialmente importante porque conceptos como:
+DELIVERED_NOT_IMPLEMENTED
+son síntesis Pymapa sustentadas en principios de implementación/cambio, no una etiqueta que pretendamos atribuir literalmente a una norma externa.
+
+# Fundamentación documental
+La búsqueda web puntual que intenté realizar para reforzar esta fase no devolvió resultados utilizables, así que no voy a inventar citas ni presentar esa búsqueda como verificación adicional.
+Para V1 conservamos como marco de fundamentación identificado en el Bloque 3:
+- gestión de proyectos;
+- ISO 21502;
+- gestión del cambio/implementación;
+- Lean/Agile delivery;
+pero antes de una publicación académica o documental final conviene incorporar al registro de fuentes las referencias exactas y versiones que respalden OP-05. Esto es distinto de OP-04, donde sí habíamos realizado una revalidación documental puntual con fuentes recuperadas.
+Por tanto aparece un pendiente que debemos evaluar en K4:
+¿es bloqueante para cerrar conceptualmente OP-05 o es una tarea documental previa a publicación?
+No lo resolveremos escondiéndolo.
+
+# DoD 27/27
+| # | Criterio | Resultado |
+| 1 | Definición/límites | PASS |
+| 2 | Condiciones evaluables | PASS |
+| 3 | Variables | PASS |
+| 4 | NI | PASS |
+| 5 | Captura | PASS |
+| 6 | Evidencia | PASS |
+| 7 | Suficiencia VA | PASS |
+| 8 | Suficiencia capacidad | PASS |
+| 9 | Cobertura | PASS |
+| 10 | Confianza | PASS |
+| 11 | Observación/inferencia | PASS |
+| 12 | Reglas | PASS |
+| 13 | Hallazgos | PASS |
+| 14 | Recomendaciones | PASS |
+| 15 | Intervenciones | PASS |
+| 16 | Actividades | PASS |
+| 17 | Instrumentos | PASS |
+| 18 | Entregables | PASS |
+| 19 | Done Criteria | PASS |
+| 20 | CRV/KPI | PASS |
+| 21 | Validación | PASS |
+| 22 | Seguimiento | PASS |
+| 23 | Reevaluación | PASS |
+| 24 | Contextualización | PASS |
+| 25 | Trazabilidad | PASS |
+| 26 | Provenance/fuentes | PASS WITH DOCUMENTARY ACTION |
+| 27 | Versionado/gobernanza | PASS |
+Esto requiere una precisión:
+DoD estructural = 27/27.
+Pero no quiero declarar todavía:
+K4 documental PASS
+sin resolver la fundamentación exacta.
+
+# A–V
+Las 22 secciones están estructuradas:
+A–V = 22/22 estructuralmente cubiertas.
+
+# BLOQUE 12 — Quality Gates K1–K4 y cierre
+Ahora intentamos romper OP-05.
+
+# K1 · Coherencia
+## OP-02 vs OP-05
+Operación recurrente:
+OP-02.
+Cambio temporal:
+OP-05.
+PASS.
+## OP-04 vs OP-05
+Pertinencia/diseño funcional de simplificación o automatización:
+OP-04.
+Llevarla a implementación:
+OP-05.
+PASS.
+## Capacidad originadora vs OP-05
+La capacidad originadora define:
+resultado de negocio/intervención.
+OP-05 gestiona:
+tránsito a implementación.
+PASS.
+## Proyecto formal
+No exigimos:
+metodología específica.
+PASS.
+### K1
+PASS
+
+# K2 · Razonamiento
+Ataques:
+“atrasado = mala gestión” → bloqueado.
+“sin Gantt = sin planificación” → bloqueado.
+“90% tareas = 90% implementado” → bloqueado.
+“entregado = implementado” → bloqueado.
+“cerrado = exitoso” → bloqueado.
+“cancelado = fracaso necesariamente” → bloqueado.
+“cambio de plan = mala gestión” → bloqueado.
+“dependencia = gap” → bloqueado.
+“falta de avance = falta de recursos” → causalidad separada.
+“más formalidad = mayor capacidad” → bloqueado.
+Cobertura de decisiones:
+- DEFINE;
+- ASSIGN;
+- RESOURCE;
+- UNBLOCK;
+- PLAN;
+- ADAPT;
+- ACTIVATE;
+- VERIFY;
+- REACTIVATE;
+- REDEFINE;
+- DEFER;
+- CANCEL;
+- CLOSE;
+- DERIVE.
+Suficiente.
+### K2
+PASS
+
+# K3 · Acción
+Cadena auditada:
+HF01 → IP01 → INS01 → DEL01 → CRV01.
+HF02 → IP02 → INS02 → DEL02 → CRV02.
+HF03 → IP03 → INS03 → DEL03 → CRV03.
+HF04 → IP04 → INS04 → DEL04 → CRV04.
+HF05 → IP05 → INS05 → DEL05 → CRV05.
+HF06 → IP06 → INS06 → DEL06 → CRV06.
+HF07 → IP07 → INS07 → DEL07 → CRV07.
+HF08 → IP08 → INS08 → DEL08 → CRV08.
+Cobertura:
+8/8.
+Además existe handoff explícito a la capacidad originadora para validar el beneficio posterior.
+### K3
+PASS
+
+# K4 · Conocimiento
+Aquí encontramos un punto real, y prefiero conservarlo en lugar de maquillarlo.
+La ingeniería del conocimiento está:
+- estructurada;
+- trazable;
+- conceptualmente fundamentada;
+- versionable;
+- gobernada.
+Pero nuestra regla para Gate K4 dice:
+“fundamentada, trazada, versionada y aprobada”.
+Y el registro documental OP-05 todavía necesita una verificación externa específica de las fuentes exactas/versiones que sostienen el paquete.
+Por tanto, aplicar correctamente nuestro propio Quality Gate significa:
+K4 no debe declararse PASS todavía.
+No porque falte rediseñar OP-05.
+Falta:
+cerrar la evidencia documental del Knowledge Pack.
+
+# Resultado de auditoría
+| Gate | Resultado |
+| K1 Coherencia | 🟢 PASS |
+| K2 Razonamiento | 🟢 PASS |
+| K3 Acción | 🟢 PASS |
+| K4 Conocimiento | 🟡 DOCUMENTARY VALIDATION REQUIRED |
+Y esto es, de hecho, una buena señal del sistema de gobierno: el Gate está haciendo algo real.
+
+# Inventario final provisional OP-05
+| Objeto | Cantidad |
+| CE | 4 |
+| VA | 10 |
+| Reglas primarias | 11 |
+| Familias de hallazgo | 8 |
+| Patrones de intervención | 8 |
+| Familias de instrumentos | 8 |
+| Familias de entregables | 8 |
+| CRV principales | 8 |
+| A–V | 22/22 estructurado |
+| DoD | 27/27 estructurado |
+| K1–K3 | PASS |
+| K4 | pendiente documental |
+Estado correcto:
+# OP05-K3-v0.9 · STRUCTURALLY-COMPLETE · K4-DOCUMENTARY-PENDING
+No sería coherente con todo lo que hemos construido escribir K4-VALIDATED · CLOSED únicamente porque queremos terminar el bloque 12.
+
+## Qué significa este pendiente
+No necesitamos volver a abrir 12 bloques ni pedirte documentos.
+Necesitamos hacer una revisión bibliográfica puntual de cierre de OP-05, principalmente sobre:
+1. Gestión proporcional/contextual de iniciativas.
+2. Alcance, responsabilidades, recursos, dependencias, riesgos y control de ejecución.
+3. Diferencia entre entrega y transición/implementación efectiva.
+4. Adopción/cambio como parte de llevar una solución a operación.
+5. Verificación/cierre basado en resultados o criterios de aceptación y no solo en tareas completadas.
+Si esa revisión confirma lo construido —que es lo esperable— no repetimos nada: registramos las fuentes, hacemos el Gate K4 y promovemos directamente:
+OP05-K4-v1.0 · K4-VALIDATED · CLOSED
+Y solo entonces considero cerrado formalmente el dominio completo Organización, Procesos y Ejecución.
+Esta pequeña fricción también nos deja un aprendizaje importante para las próximas capacidades: en los macrosets podemos desarrollar varios bloques juntos sin perder profundidad, pero la revisión externa debe ejecutarse y registrarse antes de llegar al Gate K4, para que no vuelva a quedarnos como último pendiente.
+
+
+Sí. Ya hice la revisión documental puntual y ahora sí podemos cerrar K4 de OP-05 con fundamento suficiente.
+La revisión confirma cuatro cosas centrales. Primero, ISO 21502:2020 es muy consistente con nuestra arquitectura porque aplica a cualquier organización y tipo de proyecto, independientemente de tamaño, costo, duración o enfoque de entrega, e incluye enfoques predictivos, incrementales, iterativos, adaptativos e híbridos. Eso respalda directamente nuestro principio de que OP-05 debe ser proporcional al contexto y no dependiente de una metodología formal específica. ISO
+Segundo, la literatura y materiales de PMI respaldan con fuerza nuestra separación entre entregable, resultado y valor. PMI distingue los outputs producidos por los proyectos de los outcomes que preparan a la operación para realizar beneficios, y señala expresamente que completar un proyecto en tiempo, presupuesto y calidad no garantiza por sí mismo la realización de beneficios. Su literatura más reciente también define el éxito de proyectos alrededor del valor obtenido, no únicamente de scope/schedule/cost. Instituto de Gestión de Proyectos
+Tercero, esto respalda de forma bastante directa una de nuestras decisiones más importantes en OP-05: “entregado” no equivale a “implementado” ni a “beneficio realizado”. PMI incluso describe la cadena proyecto → outputs → outcomes → benefits, y sitúa parte de la realización de beneficios después del cierre del proyecto. Esto valida nuestra decisión arquitectónica de que OP-05 puede cerrar una iniciativa como implementada y posteriormente devolver el control a la capacidad originadora —por ejemplo OP-04— para comprobar el CRV empresarial correspondiente. Instituto de Gestión de Proyectos
+Cuarto, la capa de adopción también está suficientemente sustentada. Prosci distingue métricas como velocidad de adopción, utilización y proficiency, y conecta la gestión del cambio con el uso efectivo de nuevos sistemas, procesos o roles. Eso respalda que VA09 no se limite a “solución instalada”, sino que contemple activación, incorporación y uso real cuando las personas formen parte del cambio. Prosci es una fuente metodológica comercial, no una norma, así que la usamos como soporte aplicado, no como autoridad exclusiva. Prosci
+## Cierre documental OP-05
+Con esto, el registro de fuentes V1 puede quedar normalizado al menos así:
+| ID | Fuente | Uso en OP-05 |
+| SRC-OP05-001 | Documento Maestro Pymapa | autoridad arquitectónica |
+| SRC-OP05-002 | Digiway / conocimiento metodológico interno | adaptación Pymapa |
+| SRC-OP05-003 | ISO 21502:2020 | gestión proporcional de proyectos/iniciativas y diversidad de enfoques |
+| SRC-OP05-004 | PMI · Benefits Realization / Value Delivery | outputs, outcomes, beneficios y valor |
+| SRC-OP05-005 | PMI · Project Success / Benefits literature | éxito más allá de triple constraint |
+| SRC-OP05-006 | Prosci · Change Management / adoption | adopción, utilización y proficiency |
+No necesitamos incorporar más bibliografía para cerrar V1. Podemos dejar literatura académica adicional sobre implementación, change adoption o project success como backlog de enriquecimiento, no como dependencia del Gate.
+Hay además una precisión importante de provenance: conceptos como DELIVERED_NOT_IMPLEMENTED, UNVERIFIED_CLOSURE, INIT-0:6, las 4 CE / 10 VA y la arquitectura de 8 hallazgos son síntesis/diseño Pymapa. Las fuentes externas sustentan los principios y dimensiones; no debemos fingir que estas etiquetas aparecen literalmente en ISO, PMI o Prosci.
+## Gate K4
+Ahora sí podemos resolver el único pendiente:
+Fundamentación externa suficiente: PASS.
+Fuentes concretas identificadas: PASS.
+Knowledge Provenance diferenciada de Case Provenance: PASS.
+Síntesis Pymapa explícitamente identificada: PASS.
+Versionado y gobierno: PASS.
+Backlog bibliográfico separado de baseline V1: PASS.
+Por tanto:
+## K4 · CONOCIMIENTO — PASS
+Y la auditoría completa de OP-05 queda:
+| Quality Gate | Estado |
+| K1 · Coherencia | PASS |
+| K2 · Razonamiento | PASS |
+| K3 · Acción | PASS |
+| K4 · Conocimiento | PASS |
+El anterior PASS WITH DOCUMENTARY ACTION del DoD-26 queda cerrado. Así, OP-05 alcanza:
+DoD: 27/27 PASS
+A–V: 22/22 PASS
+K1–K4: 4/4 PASS
+y podemos promover formalmente:
+# OP05-K4-v1.0 · K4-VALIDATED · CLOSED
+Con esto quedan cerradas las cinco capacidades del dominio:
+OP-01 🟢
+OP-02 🟢
+OP-03 🟢
+OP-04 🟢
+OP-05 🟢
+Por tanto, Organización, Procesos y Ejecución queda completo a nivel de capacidades V1.
+El paso que recomiendo ahora, antes de abrir el siguiente dominio, es hacer el cierre transversal del dominio OP que habíamos acordado: consolidar qué reglas son realmente del Motor común de Pymapa y cuáles pertenecen específicamente a los Knowledge Packs OP-01–05. Ese corte debería permitirnos acelerar de forma importante todos los dominios siguientes sin perder profundidad.
+
+De acuerdo, entonces me entregas una consolidación, que supongo que es un documento, y ese documento lo puedo ir guardando ya en mi registro local. Sin embargo, para aclarar, ese documento no es todavía el documento que se entregaría hacia los temas de codificación o desarrollo, ¿correcto?
+Correcto: ese documento de consolidación no sería todavía el documento de codificación o desarrollo.
+Sería el Documento Maestro de Cierre del Dominio OP · Organización, Procesos y Ejecución v1.0, pensado para que lo guardes en tu registro local como baseline gobernada del conocimiento que ya cerramos en OP-01 a OP-05. Ahí consolidaríamos qué quedó definido en cada capacidad, qué reglas son transversales al Motor, qué permanece específico de cada Knowledge Pack, qué fuentes y decisiones de gobierno aplican, y qué backlog queda abierto.
+El documento técnico que llegará después a desarrollo será otro nivel de artefacto. Ese sí deberá traducir esta baseline a algo como especificación machine-readable / contrato de datos / reglas parametrizadas / IDs / dependencias / objetos / estados / schemas / versionado, de forma que Lovable o la arquitectura definitiva pueda consumirlo sin “leer” un documento narrativo.
+La relación sería:
+Documento Maestro del Dominio OP → fuente consolidada y gobernada para humanos
+Knowledge Packs estructurados OP-01…OP-05 → contenido lógico formalizado
+Especificación técnica del Motor → traducción para ingeniería/desarrollo
+Implementación en código/app → ejecución real
+Así que sí: este documento ya vale la pena guardarlo localmente, pero no lo confundiremos con el paquete de implementación técnica.
+Como rechazaste el cambio a Work mode, no te lo voy a generar como archivo descargable en este momento desde aquí. Puedo, sin problema, construir ahora mismo la consolidación completa en el chat, con una estructura ya pensada para que después se convierta casi directamente en Word cuando quieras.
+Perfecto, así no nos llenamos de documentos en local. Solo los que consideres que debemos descargar, mientras tanto todo en el chat. Sigamos
+Perfecto. Adoptamos entonces una regla práctica para esta fase:
+El chat es nuestro espacio de ingeniería y construcción. Solo generaremos un documento descargable cuando constituya una baseline que realmente valga la pena conservar fuera de ChatGPT, o cuando vaya a ser entregado a otra fase/persona/sistema.
+Por ahora, la consolidación transversal del dominio OP puede permanecer aquí. El documento formal lo generaremos cuando tengamos un hito que justifique incorporarlo a tu repositorio local.
+## Cierre transversal · Dominio Organización, Procesos y Ejecución
+Las cinco capacidades quedan formalmente cerradas:
+| Capacidad | Propósito central | Estado |
+| OP-01 | Diseñar y organizar procesos funcionalmente | K4-VALIDATED · CLOSED |
+| OP-02 | Planificar, coordinar y ejecutar procesos y recursos consistentemente | K4-VALIDATED · CLOSED |
+| OP-03 | Integrar procesos de extremo a extremo | K4-VALIDATED · CLOSED |
+| OP-04 | Simplificar y automatizar de manera pertinente | K4-VALIDATED · CLOSED |
+| OP-05 | Gestionar iniciativas hasta su implementación efectiva | K4-VALIDATED · CLOSED |
+Pero el resultado más importante del dominio no son solamente esas cinco capacidades. Después de construirlas podemos separar por primera vez con bastante claridad qué pertenece al Motor de Pymapa y qué pertenece al conocimiento específico de una capacidad.
+### 1. Lo que ya podemos extraer al Motor transversal
+A partir de ahora no deberíamos volver a diseñar capacidad por capacidad los mecanismos de:
+Aplicabilidad → adquisición adaptativa → reutilización de información → evidencia → suficiencia → confianza → contradicciones → Value of Information → STOP → observación → inferencia → causalidad → severidad/materialidad → consolidación → derivaciones → mínima intervención suficiente → Done Criteria → CRV → validación → atribución → seguimiento → reevaluación → aprendizaje → provenance → versionado → gobernanza.
+Eso constituye infraestructura intelectual común de Pymapa.
+Podemos establecer la decisión:
+R2-DEC-OP-DOM-01 · Los mecanismos transversales estabilizados durante OP-01–05 dejan de modelarse como lógica independiente de cada capacidad y pasan a considerarse servicios del Motor de Conocimiento.
+Esto no significa borrarlos de los Knowledge Packs. Estos pueden referenciarlos o parametrizarlos cuando corresponda. Lo que no debemos hacer es duplicar su definición.
+### 2. Qué continúa siendo específico de cada capacidad
+El Knowledge Pack de cada capacidad sí debe conservar aquello que hace posible razonar sobre su fenómeno particular:
+Identidad y alcance → fronteras → unidad de análisis → CE → VA → NI → preguntas/captura específica → evidencia específica → reglas diagnósticas específicas → familias de hallazgo → patrones de intervención → instrumentos → entregables → CRV específicos → derivaciones particulares → fuentes/provenance especializado.
+Por ejemplo, C0–C3 no necesita redefinirse dentro de OP-04.
+Pero:
+R-OP04-10 · Automatización prematura
+sí pertenece al Knowledge Pack OP-04.
+Esta distinción va a reducir considerablemente el trabajo repetitivo.
+### 3. Arquitectura conceptual que emerge
+Ya podemos representar Pymapa de esta manera:
+Motor de Conocimiento
+Ejecuta reglas comunes sobre:
+aplicabilidad, suficiencia, confianza, evidencia, contradicción, VOI, causalidad, consolidación, intervención, validación, aprendizaje y gobierno.
+Knowledge Packs
+Contienen el conocimiento especializado:
+OP-01, OP-02, OP-03, OP-04, OP-05... y posteriormente las restantes capacidades.
+Case State
+Mantiene lo que sabemos de cada pyme:
+hechos, respuestas, evidencias, observaciones, inferencias, pendientes, confianza, contradicciones, hallazgos, intervenciones y resultados.
+Experience Layer
+Es lo que experimenta el usuario:
+conversación → diagnóstico → hallazgos → prioridades → roadmap → instrumentos → ejecución → seguimiento.
+Esta separación es fundamental porque significa que la experiencia visible no tiene que parecerse a la complejidad interna del modelo.
+### 4. Una consecuencia importante para los siguientes dominios
+Ya no deberíamos pensar:
+“Cada capacidad tiene 12 bloques.”
+Más exactamente:
+Cada capacidad debe satisfacer el contenido lógico equivalente a los 12 bloques y superar DoD 27/27 + K1–K4.
+Pero la metodología de construcción puede acelerarse.
+Propongo que desde el siguiente dominio trabajemos normalmente en dos macrosets por capacidad, como acabamos de hacer con OP-05:
+SET A — Ingeniería diagnóstica: delimitación, CE/VA, grounding, NI, adquisición, reglas.
+SET B — Ingeniería de acción y gobierno: findings, intervención, ejecución, CRV, conocimiento, DoD y Quality Gates.
+Si una capacidad es sencilla, incluso podremos completar ambos sets en una sola ronda. Si es especialmente compleja —por ejemplo, por regulación, tecnología, finanzas o gobierno— abriremos más espacio.
+La profundidad la determina la complejidad del conocimiento, no el número de bloques.
+### 5. Investigación externa
+También queda una mejora metodológica derivada de OP-05.
+No esperaremos al Gate K4 para descubrir que falta cerrar una fuente.
+En adelante:
+el grounding inicial identifica las fuentes y el Bloque/Set final verifica si las reglas, hallazgos e intervenciones que aparecieron posteriormente introdujeron nuevas afirmaciones que requieren fundamentación adicional.
+Así K4 debería llegar normalmente:
+READY-TO-VALIDATE
+y no:
+PENDING-RESEARCH.
+### 6. Los documentos propios
+Mantenemos la decisión anterior: no vamos a cargar indiscriminadamente tus libros, documentos universitarios, metodologías Digiway y demás material.
+Cuando aparezca una necesidad concreta, podremos decir algo como:
+“Para esta capacidad encontramos un vacío alrededor de X; aquí sí sería útil revisar tu metodología/documento sobre Y.”
+Así tus documentos propios entran donde realmente agreguen conocimiento diferenciado.
+### 7. Estado del dominio
+Podemos establecer:
+DOMAIN-OP-v1.0 · 5/5 CAPABILITIES K4-VALIDATED · DOMAIN-KNOWLEDGE-COMPLETE
+Y adicionalmente:
+PYMAPA-ENGINE-CANDIDATE-v0.1 · TRANSVERSAL-RULESET-EXTRACTED-FROM-OP
+Uso deliberadamente CANDIDATE para el Motor. Cinco capacidades de un solo dominio son suficientes para detectar patrones transversales, pero todavía no para congelar definitivamente el Motor. Los siguientes dominios seguramente revelarán reglas nuevas o excepciones.
+Esa es una distinción importante: el dominio OP sí está cerrado; el Motor transversal sigue aprendiendo de los dominios que faltan.
+### 8. Qué no hacemos todavía
+No hacemos aún:
+- JSON/schema definitivo;
+- tablas de base de datos;
+- endpoints;
+- prompts de producción;
+- arquitectura de agentes;
+- implementación RAG;
+- código de reglas;
+- estructuras para Lovable;
+- especificación API;
+- modelo físico de datos.
+Eso llegará cuando el conocimiento esté suficientemente estabilizado para traducirlo técnicamente.
+Si lo hacemos demasiado pronto, terminaríamos obligando al conocimiento futuro a adaptarse a una arquitectura técnica prematura.
+
+Con esto considero realizado el cierre transversal de Organización, Procesos y Ejecución y podemos avanzar al siguiente dominio del modelo, aplicando desde el comienzo la metodología acelerada que acabamos de establecer.
+

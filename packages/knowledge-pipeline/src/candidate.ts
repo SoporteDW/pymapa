@@ -132,6 +132,8 @@ export const extractionCandidateSchema = z.object({
       label: z.string().min(1),
       meaning: z.string().min(1),
       sourceLines: lineRange,
+      /** Esquema de provenance nativo de la fuente (p. ej. clases de autoridad, Support_Type). */
+      scheme: z.string().optional(),
     }),
   ),
   controlCounts: z.array(
@@ -537,6 +539,8 @@ export function validateExtractionCandidate(input: {
       continue;
     // Resuelto sin definición canónica: toda aparición tiene evidencia literal.
     if (occ.every((i) => i.supersession)) continue;
+    // Tipado gobernado como no-objeto (Quality Gate, etapa, categoría).
+    if (occ.every((i) => i.governanceDecision && i.role)) continue;
     if (!occ.some((i) => i.classification === "HISTORICAL_DRAFT" && !i.supersession)) continue;
     add(
       "SUPERSESSION_AMBIGUOUS",
@@ -696,7 +700,14 @@ export function previewCanonicalProjection(input: {
       ...(i.annotations !== undefined ? { annotations: i.annotations } : {}),
     }));
   const supersessions = c.items
-    .filter((i) => i.classification === "SUPERSEDED" && i.supersededBy)
+    // Solo relaciones cuyo destino es objeto de la baseline; las cadenas
+    // histórico→histórico permanecen como provenance en el candidato.
+    .filter(
+      (i) =>
+        i.classification === "SUPERSEDED" &&
+        !!i.supersededBy &&
+        OBJECT_CLASSES.includes((byKey.get(i.supersededBy) as CandidateItem).classification),
+    )
     .map((i) => {
       const t = byKey.get(i.supersededBy as string) as CandidateItem;
       return {
