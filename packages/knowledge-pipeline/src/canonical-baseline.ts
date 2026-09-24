@@ -95,6 +95,8 @@ export const canonicalBaselineSchema = z.object({
       declared: z.number().int().nonnegative(),
       objectType: z.string().min(1),
       role: z.string().optional(),
+      /** Conteo declarado sin enumeración individual en la fuente (gobernado). */
+      enumeration: z.literal("DECLARED_NOT_ENUMERATED").optional(),
       sourceLines: lineRange,
     }),
   ),
@@ -325,7 +327,8 @@ export function validateCanonicalBaseline(
     const materializados = b.objects.filter(
       (o) => o.objectType === c.objectType && (c.role === undefined || o.role === c.role),
     ).length;
-    if (materializados !== c.declared) {
+    const noEnumerado = c.enumeration === "DECLARED_NOT_ENUMERATED" && materializados <= c.declared;
+    if (materializados !== c.declared && !noEnumerado) {
       issues.push({
         code: "CONTROL_COUNT_MISMATCH",
         path: `controlCounts.${i}`,

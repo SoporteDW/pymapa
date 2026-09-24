@@ -1,0 +1,2439 @@
+{
+  "baselineId": "DT05-K4-v1.0",
+  "capabilityId": "DT-05",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "historicalStatus": {
+    "marker": "DT05-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      1145,
+      1145
+    ]
+  },
+  "rawSource": {
+    "ref": "raw/DT-05.txt",
+    "sha256": "ab3d040bd31923065456c207592a35e61c4c23bdf8a4be05b1ed85113ccafe62",
+    "byteLength": 47546,
+    "lineCount": 1169,
+    "transcription": {
+      "tool": "pymapa-docx-text 1.0.0",
+      "arguments": ""
+    },
+    "originalDocument": {
+      "filename": "DT_-_01_A_06_Completo.docx",
+      "byteLength": 304836,
+      "sha256": "2fb3f526b68a8bb801cf5af953d0aec8f204a7c7ef4d8bf6ef270bee4f413ccd"
+    }
+  },
+  "provenanceVocabulary": [
+    {
+      "code": "SOURCE-DERIVED",
+      "label": "SOURCE-DERIVED",
+      "meaning": "El grounding externo sustenta principalmente:",
+      "sourceLines": [
+        1013,
+        1014
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "PYMAPA-DESIGNED",
+      "label": "PYMAPA-DESIGNED",
+      "meaning": "Son objetos propios:",
+      "sourceLines": [
+        1022,
+        1023
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    }
+  ],
+  "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 10,
+      "objectType": "SOURCE_ID_CE",
+      "sourceLines": [
+        1130,
+        1130
+      ]
+    },
+    {
+      "label": "CRV",
+      "declared": 9,
+      "objectType": "SOURCE_ID_CRV",
+      "sourceLines": [
+        1140,
+        1140
+      ]
+    },
+    {
+      "label": "VA",
+      "declared": 22,
+      "objectType": "SOURCE_ID_VA",
+      "sourceLines": [
+        1131,
+        1131
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "key": "P-DT05-01",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT05-01",
+      "fields": {
+        "heading": "P-DT05-01",
+        "body": [
+          "La continuidad tecnológica debe considerar eventos materiales de interrupción independientemente de que su origen sea malicioso, accidental, técnico o externo.",
+          "Así DT-05 no queda reducido a cybersecurity."
+        ]
+      },
+      "sourceLines": [
+        88,
+        90
+      ]
+    },
+    {
+      "key": "APP-DT05-01",
+      "objectType": "SOURCE_ID_APP",
+      "sourceId": "APP-DT05-01",
+      "fields": {
+        "heading": "APP-DT05-01",
+        "body": [
+          "La profundidad de evaluación y protección debe aumentar con la consecuencia material potencial, dependencia tecnológica, sensibilidad de la información, dificultad de recuperación y exposición razonablemente relevante.",
+          "Materialidad puede derivar de:",
+          "- interrupción operativa;",
+          "- pérdida financiera;",
+          "- cliente;",
+          "- información sensible;",
+          "- fraude;",
+          "- reputación;",
+          "- obligación contractual;",
+          "- obligación regulatoria aplicable;",
+          "- pérdida irreversible;",
+          "- dependencia de tercero;",
+          "- dificultad de recuperación;",
+          "- concentración;",
+          "- duración tolerable de interrupción.",
+          "No formamos un score universal."
+        ]
+      },
+      "sourceLines": [
+        94,
+        110
+      ]
+    },
+    {
+      "key": "P-DT05-02",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT05-02",
+      "fields": {
+        "heading": "P-DT05-02",
+        "body": [
+          "Criticidad operativa y sensibilidad de información deben evaluarse como dimensiones distintas."
+        ]
+      },
+      "sourceLines": [
+        124,
+        125
+      ]
+    },
+    {
+      "key": "P-DT05-03",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT05-03",
+      "fields": {
+        "heading": "P-DT05-03",
+        "body": [
+          "La evaluación debe priorizar dependencias tecnológicas derivadas de funciones materiales antes que inventarios exhaustivos de activos."
+        ]
+      },
+      "sourceLines": [
+        138,
+        139
+      ]
+    },
+    {
+      "key": "EVT-01",
+      "objectType": "SOURCE_ID_EVT",
+      "sourceId": "EVT-01",
+      "fields": {
+        "heading": "EVT-01 · UNAUTHORIZED ACCESS",
+        "title": "UNAUTHORIZED ACCESS"
+      },
+      "sourceLines": [
+        218,
+        218
+      ]
+    },
+    {
+      "key": "EVT-02",
+      "objectType": "SOURCE_ID_EVT",
+      "sourceId": "EVT-02",
+      "fields": {
+        "heading": "EVT-02 · DATA DISCLOSURE/LOSS",
+        "title": "DATA DISCLOSURE/LOSS"
+      },
+      "sourceLines": [
+        219,
+        219
+      ]
+    },
+    {
+      "key": "EVT-03",
+      "objectType": "SOURCE_ID_EVT",
+      "sourceId": "EVT-03",
+      "fields": {
+        "heading": "EVT-03 · UNAUTHORIZED/ACCIDENTAL CHANGE",
+        "title": "UNAUTHORIZED/ACCIDENTAL CHANGE"
+      },
+      "sourceLines": [
+        220,
+        220
+      ]
+    },
+    {
+      "key": "EVT-04",
+      "objectType": "SOURCE_ID_EVT",
+      "sourceId": "EVT-04",
+      "fields": {
+        "heading": "EVT-04 · MALICIOUS SOFTWARE/COMPROMISE",
+        "title": "MALICIOUS SOFTWARE/COMPROMISE"
+      },
+      "sourceLines": [
+        221,
+        221
+      ]
+    },
+    {
+      "key": "EVT-05",
+      "objectType": "SOURCE_ID_EVT",
+      "sourceId": "EVT-05",
+      "fields": {
+        "heading": "EVT-05 · SERVICE INTERRUPTION",
+        "title": "SERVICE INTERRUPTION"
+      },
+      "sourceLines": [
+        222,
+        222
+      ]
+    },
+    {
+      "key": "EVT-06",
+      "objectType": "SOURCE_ID_EVT",
+      "sourceId": "EVT-06",
+      "fields": {
+        "heading": "EVT-06 · DEVICE/INFRASTRUCTURE FAILURE",
+        "title": "DEVICE/INFRASTRUCTURE FAILURE"
+      },
+      "sourceLines": [
+        223,
+        223
+      ]
+    },
+    {
+      "key": "EVT-07",
+      "objectType": "SOURCE_ID_EVT",
+      "sourceId": "EVT-07",
+      "fields": {
+        "heading": "EVT-07 · HUMAN ERROR",
+        "title": "HUMAN ERROR"
+      },
+      "sourceLines": [
+        224,
+        224
+      ]
+    },
+    {
+      "key": "EVT-08",
+      "objectType": "SOURCE_ID_EVT",
+      "sourceId": "EVT-08",
+      "fields": {
+        "heading": "EVT-08 · THIRD-PARTY FAILURE",
+        "title": "THIRD-PARTY FAILURE"
+      },
+      "sourceLines": [
+        225,
+        225
+      ]
+    },
+    {
+      "key": "EVT-09",
+      "objectType": "SOURCE_ID_EVT",
+      "sourceId": "EVT-09",
+      "fields": {
+        "heading": "EVT-09 · PHYSICAL/ENVIRONMENTAL EVENT",
+        "title": "PHYSICAL/ENVIRONMENTAL EVENT"
+      },
+      "sourceLines": [
+        226,
+        226
+      ]
+    },
+    {
+      "key": "EVT-10",
+      "objectType": "SOURCE_ID_EVT",
+      "sourceId": "EVT-10",
+      "fields": {
+        "heading": "EVT-10 · FRAUD/IDENTITY MISUSE",
+        "title": "FRAUD/IDENTITY MISUSE",
+        "body": [
+          "No implican probabilidad universal.",
+          "Son disparadores para descubrir exposición."
+        ]
+      },
+      "sourceLines": [
+        227,
+        229
+      ]
+    },
+    {
+      "key": "INT-DT05-CORE",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-DT05-CORE",
+      "fields": {
+        "heading": "INT-DT05-CORE · MINIMUM SUFFICIENT PROTECTION",
+        "title": "MINIMUM SUFFICIENT PROTECTION",
+        "body": [
+          "Debe buscarse el conjunto de controles de menor complejidad total que reduzca las exposiciones materiales hasta una condición suficientemente aceptable y recuperable para el contexto aplicable.",
+          "Puede incluir controles:",
+          "- preventivos;",
+          "- detectivos;",
+          "- correctivos;",
+          "- de recuperación;",
+          "- compensatorios."
+        ]
+      },
+      "sourceLines": [
+        233,
+        240
+      ]
+    },
+    {
+      "key": "P-DT05-04",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT05-04",
+      "fields": {
+        "heading": "P-DT05-04",
+        "body": [
+          "La existencia declarada de un control no demuestra que funcione suficientemente para la exposición que pretende tratar."
+        ]
+      },
+      "sourceLines": [
+        254,
+        255
+      ]
+    },
+    {
+      "key": "IA-01",
+      "objectType": "SOURCE_ID_IA",
+      "sourceId": "IA-01",
+      "fields": {
+        "heading": "IA-01 · IDENTITY",
+        "title": "IDENTITY",
+        "body": [
+          "¿Quién/qué accede?"
+        ]
+      },
+      "sourceLines": [
+        261,
+        262
+      ]
+    },
+    {
+      "key": "IA-02",
+      "objectType": "SOURCE_ID_IA",
+      "sourceId": "IA-02",
+      "fields": {
+        "heading": "IA-02 · AUTHENTICATION",
+        "title": "AUTHENTICATION",
+        "body": [
+          "¿Cómo se verifica?"
+        ]
+      },
+      "sourceLines": [
+        263,
+        264
+      ]
+    },
+    {
+      "key": "IA-03",
+      "objectType": "SOURCE_ID_IA",
+      "sourceId": "IA-03",
+      "fields": {
+        "heading": "IA-03 · AUTHORIZATION",
+        "title": "AUTHORIZATION",
+        "body": [
+          "¿A qué puede acceder?"
+        ]
+      },
+      "sourceLines": [
+        265,
+        266
+      ]
+    },
+    {
+      "key": "IA-04",
+      "objectType": "SOURCE_ID_IA",
+      "sourceId": "IA-04",
+      "fields": {
+        "heading": "IA-04 · PRIVILEGE",
+        "title": "PRIVILEGE",
+        "body": [
+          "¿Tiene más capacidad de la necesaria?"
+        ]
+      },
+      "sourceLines": [
+        267,
+        268
+      ]
+    },
+    {
+      "key": "IA-05",
+      "objectType": "SOURCE_ID_IA",
+      "sourceId": "IA-05",
+      "fields": {
+        "heading": "IA-05 · LIFECYCLE",
+        "title": "LIFECYCLE",
+        "body": [
+          "¿Qué ocurre al entrar, cambiar o salir una persona?"
+        ]
+      },
+      "sourceLines": [
+        269,
+        270
+      ]
+    },
+    {
+      "key": "IA-06",
+      "objectType": "SOURCE_ID_IA",
+      "sourceId": "IA-06",
+      "fields": {
+        "heading": "IA-06 · RECOVERY",
+        "title": "RECOVERY",
+        "body": [
+          "¿Cómo se recupera acceso sin crear una vulnerabilidad material?"
+        ]
+      },
+      "sourceLines": [
+        271,
+        272
+      ]
+    },
+    {
+      "key": "P-DT05-05",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT05-05",
+      "fields": {
+        "heading": "P-DT05-05",
+        "body": [
+          "La fortaleza de autenticación debe ser proporcional a la exposición y consecuencia del acceso comprometido.",
+          "En algunos accesos materiales, MFA probablemente será evidencia muy relevante.",
+          "Pero el diagnóstico se origina en:",
+          "exposición,",
+          "no en el checklist."
+        ]
+      },
+      "sourceLines": [
+        278,
+        283
+      ]
+    },
+    {
+      "key": "TRIGGER-DT05-IDENTITY-01",
+      "objectType": "SOURCE_ID_TRIGGER",
+      "sourceId": "TRIGGER-DT05-IDENTITY-01",
+      "fields": {
+        "heading": "TRIGGER-DT05-IDENTITY-01",
+        "body": [
+          "Las credenciales compartidas activan profundización cuando dificultan materialmente control, revocación, atribución o protección del acceso."
+        ]
+      },
+      "sourceLines": [
+        293,
+        294
+      ]
+    },
+    {
+      "key": "P-DT05-06",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT05-06",
+      "fields": {
+        "heading": "P-DT05-06",
+        "body": [
+          "Detection capability ≠ security monitoring platform."
+        ]
+      },
+      "sourceLines": [
+        310,
+        311
+      ]
+    },
+    {
+      "key": "P-DT05-07",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT05-07",
+      "fields": {
+        "heading": "P-DT05-07",
+        "body": [
+          "La capacidad de recuperación debe validarse por restaurabilidad suficiente, no únicamente por existencia de copias."
+        ]
+      },
+      "sourceLines": [
+        332,
+        333
+      ]
+    },
+    {
+      "key": "P-DT05-08",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT05-08",
+      "fields": {
+        "heading": "P-DT05-08",
+        "body": [
+          "No controlar directamente una dependencia no elimina la responsabilidad de comprender y tratar proporcionalmente la exposición que genera."
+        ]
+      },
+      "sourceLines": [
+        382,
+        383
+      ]
+    },
+    {
+      "key": "CE01",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Materialidad",
+        "title": "Materialidad"
+      },
+      "sourceLines": [
+        387,
+        387
+      ]
+    },
+    {
+      "key": "VA01",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA01",
+      "fields": {
+        "heading": "VA01 funciones/servicios tecnológicos materiales identificados",
+        "title": "funciones/servicios tecnológicos materiales identificados"
+      },
+      "sourceLines": [
+        388,
+        388
+      ]
+    },
+    {
+      "key": "VA02",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA02",
+      "fields": {
+        "heading": "VA02 información material/sensible suficientemente identificada",
+        "title": "información material/sensible suficientemente identificada"
+      },
+      "sourceLines": [
+        389,
+        389
+      ]
+    },
+    {
+      "key": "CE02",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Dependencias",
+        "title": "Dependencias"
+      },
+      "sourceLines": [
+        390,
+        390
+      ]
+    },
+    {
+      "key": "VA03",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA03",
+      "fields": {
+        "heading": "VA03 dependencias críticas suficientemente visibles",
+        "title": "dependencias críticas suficientemente visibles"
+      },
+      "sourceLines": [
+        391,
+        391
+      ]
+    },
+    {
+      "key": "VA04",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "VA04 concentración/single points materialmente comprendidos",
+        "title": "concentración/single points materialmente comprendidos"
+      },
+      "sourceLines": [
+        392,
+        392
+      ]
+    },
+    {
+      "key": "CE03",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Exposición",
+        "title": "Exposición"
+      },
+      "sourceLines": [
+        393,
+        393
+      ]
+    },
+    {
+      "key": "VA05",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "VA05 eventos/amenazas materialmente relevantes reconocidos",
+        "title": "eventos/amenazas materialmente relevantes reconocidos"
+      },
+      "sourceLines": [
+        394,
+        394
+      ]
+    },
+    {
+      "key": "VA06",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "VA06 debilidades relevantes reconocidas",
+        "title": "debilidades relevantes reconocidas"
+      },
+      "sourceLines": [
+        395,
+        395
+      ]
+    },
+    {
+      "key": "VA07",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "VA07 consecuencias materiales suficientemente comprendidas",
+        "title": "consecuencias materiales suficientemente comprendidas"
+      },
+      "sourceLines": [
+        396,
+        396
+      ]
+    },
+    {
+      "key": "CE04",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE04",
+      "fields": {
+        "heading": "CE04 · Protección",
+        "title": "Protección"
+      },
+      "sourceLines": [
+        397,
+        397
+      ]
+    },
+    {
+      "key": "VA08",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "VA08 controles preventivos proporcionales",
+        "title": "controles preventivos proporcionales"
+      },
+      "sourceLines": [
+        398,
+        398
+      ]
+    },
+    {
+      "key": "VA09",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA09",
+      "fields": {
+        "heading": "VA09 controles suficientemente efectivos para exposiciones aplicables",
+        "title": "controles suficientemente efectivos para exposiciones aplicables"
+      },
+      "sourceLines": [
+        399,
+        399
+      ]
+    },
+    {
+      "key": "CE05",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE05",
+      "fields": {
+        "heading": "CE05 · Identidad y acceso",
+        "title": "Identidad y acceso"
+      },
+      "sourceLines": [
+        400,
+        400
+      ]
+    },
+    {
+      "key": "VA10",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA10",
+      "fields": {
+        "heading": "VA10 acceso suficientemente restringido",
+        "title": "acceso suficientemente restringido"
+      },
+      "sourceLines": [
+        401,
+        401
+      ]
+    },
+    {
+      "key": "VA11",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA11",
+      "fields": {
+        "heading": "VA11 autenticación suficientemente fuerte",
+        "title": "autenticación suficientemente fuerte"
+      },
+      "sourceLines": [
+        402,
+        402
+      ]
+    },
+    {
+      "key": "VA12",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA12",
+      "fields": {
+        "heading": "VA12 privilegios suficientemente proporcionados",
+        "title": "privilegios suficientemente proporcionados"
+      },
+      "sourceLines": [
+        403,
+        403
+      ]
+    },
+    {
+      "key": "VA13",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA13",
+      "fields": {
+        "heading": "VA13 altas/cambios/bajas suficientemente controlados",
+        "title": "altas/cambios/bajas suficientemente controlados"
+      },
+      "sourceLines": [
+        404,
+        404
+      ]
+    },
+    {
+      "key": "CE06",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE06",
+      "fields": {
+        "heading": "CE06 · Detección",
+        "title": "Detección"
+      },
+      "sourceLines": [
+        405,
+        405
+      ]
+    },
+    {
+      "key": "VA14",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA14",
+      "fields": {
+        "heading": "VA14 eventos materiales suficientemente detectables",
+        "title": "eventos materiales suficientemente detectables"
+      },
+      "sourceLines": [
+        406,
+        406
+      ]
+    },
+    {
+      "key": "VA15",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA15",
+      "fields": {
+        "heading": "VA15 señales/alertas pueden llegar a alguien capaz de actuar",
+        "title": "señales/alertas pueden llegar a alguien capaz de actuar"
+      },
+      "sourceLines": [
+        407,
+        407
+      ]
+    },
+    {
+      "key": "CE07",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE07",
+      "fields": {
+        "heading": "CE07 · Respuesta",
+        "title": "Respuesta"
+      },
+      "sourceLines": [
+        408,
+        408
+      ]
+    },
+    {
+      "key": "VA16",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA16",
+      "fields": {
+        "heading": "VA16 responsabilidades de respuesta suficientemente claras",
+        "title": "responsabilidades de respuesta suficientemente claras"
+      },
+      "sourceLines": [
+        409,
+        409
+      ]
+    },
+    {
+      "key": "VA17",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA17",
+      "fields": {
+        "heading": "VA17 acciones críticas de contención/respuesta suficientemente ejecutables",
+        "title": "acciones críticas de contención/respuesta suficientemente ejecutables"
+      },
+      "sourceLines": [
+        410,
+        410
+      ]
+    },
+    {
+      "key": "CE08",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE08",
+      "fields": {
+        "heading": "CE08 · Recuperación",
+        "title": "Recuperación"
+      },
+      "sourceLines": [
+        411,
+        411
+      ]
+    },
+    {
+      "key": "VA18",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA18",
+      "fields": {
+        "heading": "VA18 información/servicios críticos suficientemente recuperables",
+        "title": "información/servicios críticos suficientemente recuperables"
+      },
+      "sourceLines": [
+        412,
+        412
+      ]
+    },
+    {
+      "key": "VA19",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA19",
+      "fields": {
+        "heading": "VA19 recuperación compatible con tolerancias del negocio",
+        "title": "recuperación compatible con tolerancias del negocio"
+      },
+      "sourceLines": [
+        413,
+        413
+      ]
+    },
+    {
+      "key": "CE09",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE09",
+      "fields": {
+        "heading": "CE09 · Continuidad",
+        "title": "Continuidad"
+      },
+      "sourceLines": [
+        414,
+        414
+      ]
+    },
+    {
+      "key": "VA20",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA20",
+      "fields": {
+        "heading": "VA20 alternativas/degradación/continuidad suficientes cuando material",
+        "title": "alternativas/degradación/continuidad suficientes cuando material"
+      },
+      "sourceLines": [
+        415,
+        415
+      ]
+    },
+    {
+      "key": "CE10",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE10",
+      "fields": {
+        "heading": "CE10 · Aprendizaje y mantenimiento",
+        "title": "Aprendizaje y mantenimiento"
+      },
+      "sourceLines": [
+        416,
+        416
+      ]
+    },
+    {
+      "key": "VA21",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA21",
+      "fields": {
+        "heading": "VA21 incidentes/cambios relevantes generan revisión proporcional",
+        "title": "incidentes/cambios relevantes generan revisión proporcional"
+      },
+      "sourceLines": [
+        417,
+        417
+      ]
+    },
+    {
+      "key": "VA22",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA22",
+      "fields": {
+        "heading": "VA22 controles/exposiciones materiales se revisan cuando cambia el contexto",
+        "title": "controles/exposiciones materiales se revisan cuando cambia el contexto"
+      },
+      "sourceLines": [
+        418,
+        418
+      ]
+    },
+    {
+      "key": "P1",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P1",
+      "fields": {
+        "heading": "P1 · Núcleo",
+        "title": "Núcleo",
+        "body": [
+          "Preguntas SME-friendly:",
+          "“¿Qué sistemas o información, si mañana no estuvieran disponibles, realmente frenarían el negocio?”",
+          "“¿Qué información sería especialmente grave que se perdiera, alterara o viera alguien no autorizado?”",
+          "“¿Qué accesos tendría que poder quitar inmediatamente si alguien sale de la empresa?”",
+          "“Si el sistema principal deja de funcionar, ¿cuánto tiempo podrían operar?”",
+          "“¿Han comprobado que pueden recuperar la información importante?”"
+        ]
+      },
+      "sourceLines": [
+        428,
+        434
+      ]
+    },
+    {
+      "key": "P2",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P2",
+      "fields": {
+        "heading": "P2 · Triggers",
+        "title": "Triggers",
+        "body": [
+          "Profundizamos ante:",
+          "- cuentas compartidas;",
+          "- excolaboradores con acceso;",
+          "- administrador único;",
+          "- sin MFA en acceso crítico;",
+          "- backups desconocidos;",
+          "- backup nunca restaurado;",
+          "- SaaS crítico;",
+          "- dispositivo único;",
+          "- información sensible;",
+          "- accesos externos;",
+          "- proveedor único;",
+          "- incidentes previos;",
+          "- fraude;",
+          "- ransomware/phishing;",
+          "- procesos dependientes de correo;",
+          "- pérdida de equipos;",
+          "- trabajo remoto;",
+          "- datos en equipos personales;",
+          "- integraciones críticas;",
+          "- credenciales no gestionadas;",
+          "- dependencia de una sola persona."
+        ]
+      },
+      "sourceLines": [
+        436,
+        458
+      ]
+    },
+    {
+      "key": "P3",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P3",
+      "fields": {
+        "heading": "P3 · Discriminación causal",
+        "title": "Discriminación causal",
+        "body": [
+          "Ante:",
+          "“no pudimos facturar durante seis horas”",
+          "debemos distinguir:",
+          "TECH FAILURE → DT-01 / DT-05",
+          "INTEGRATION FAILURE → DT-03",
+          "PROVIDER OUTAGE → DT-05 + EC",
+          "ACCESS FAILURE → DT-05",
+          "PROCESS WORKAROUND ABSENT → DT-05/OP",
+          "DATA CORRUPTION → DT-02 + DT-05 según causa/condición"
+        ]
+      },
+      "sourceLines": [
+        460,
+        469
+      ]
+    },
+    {
+      "key": "P4",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P4",
+      "fields": {
+        "heading": "P4 · Contradicciones",
+        "title": "Contradicciones"
+      },
+      "sourceLines": [
+        471,
+        471
+      ]
+    },
+    {
+      "key": "CONTR-DT05-01",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-DT05-01",
+      "fields": {
+        "heading": "CONTR-DT05-01",
+        "body": [
+          "BACKUPS_EXIST_vs_RESTORE_UNKNOWN"
+        ]
+      },
+      "sourceLines": [
+        472,
+        473
+      ]
+    },
+    {
+      "key": "CONTR-DT05-02",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-DT05-02",
+      "fields": {
+        "heading": "CONTR-DT05-02",
+        "body": [
+          "ACCESS_CONTROLLED_vs_FORMER_USERS_ACTIVE"
+        ]
+      },
+      "sourceLines": [
+        474,
+        475
+      ]
+    },
+    {
+      "key": "CONTR-DT05-03",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-DT05-03",
+      "fields": {
+        "heading": "CONTR-DT05-03",
+        "body": [
+          "CRITICAL_SYSTEM_vs_NO_RECOVERY_KNOWLEDGE"
+        ]
+      },
+      "sourceLines": [
+        476,
+        477
+      ]
+    },
+    {
+      "key": "CONTR-DT05-04",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-DT05-04",
+      "fields": {
+        "heading": "CONTR-DT05-04",
+        "body": [
+          "SECURITY_TOOL_PRESENT_vs_ALERTS_UNATTENDED"
+        ]
+      },
+      "sourceLines": [
+        478,
+        479
+      ]
+    },
+    {
+      "key": "CONTR-DT05-05",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-DT05-05",
+      "fields": {
+        "heading": "CONTR-DT05-05",
+        "body": [
+          "LOW_RISK_CLAIM_vs_HIGH_DEPENDENCY_CONCENTRATION",
+          "Estas contradicciones no determinan diagnóstico por sí mismas.",
+          "Activan profundización."
+        ]
+      },
+      "sourceLines": [
+        480,
+        483
+      ]
+    },
+    {
+      "key": "P5",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P5",
+      "fields": {
+        "heading": "P5 · Validación",
+        "title": "Validación",
+        "body": [
+          "No preguntamos solo:",
+          "“¿tienen backups?”",
+          "Probamos:",
+          "“muéstrame cuál es la copia más reciente de este conjunto crítico y cómo sabrían restaurarlo.”",
+          "No preguntamos:",
+          "“¿tienen proceso de baja?”",
+          "Probamos:",
+          "“la última persona que salió de la empresa, ¿qué accesos tenía y cómo fueron retirados?”"
+        ]
+      },
+      "sourceLines": [
+        485,
+        493
+      ]
+    },
+    {
+      "key": "EVID-DT05-01",
+      "objectType": "SOURCE_ID_EVID",
+      "sourceId": "EVID-DT05-01",
+      "fields": {
+        "heading": "EVID-DT05-01",
+        "body": [
+          "La fuerza de evidencia requerida aumenta con consecuencia potencial, sensibilidad, irreversibilidad, concentración y dependencia del control evaluado.",
+          "Una declaración puede bastar para una condición menor.",
+          "Para:",
+          "“podemos recuperar toda la operación en cuatro horas”,",
+          "una prueba real puede ser necesaria para confianza alta."
+        ]
+      },
+      "sourceLines": [
+        525,
+        530
+      ]
+    },
+    {
+      "key": "SUFF-DT05-01",
+      "objectType": "SOURCE_ID_SUFF",
+      "sourceId": "SUFF-DT05-01",
+      "fields": {
+        "heading": "SUFF-DT05-01",
+        "body": [
+          "DT-05 alcanza suficiencia cuando las dependencias tecnológicas e informacionales materialmente relevantes están suficientemente comprendidas, sus exposiciones críticas cuentan con protección proporcional y la organización puede detectar, responder y recuperar o continuar las funciones necesarias dentro de condiciones compatibles con sus tolerancias de negocio.",
+          "No significa:",
+          "riesgo cero."
+        ]
+      },
+      "sourceLines": [
+        533,
+        536
+      ]
+    },
+    {
+      "key": "P-DT05-09",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT05-09",
+      "fields": {
+        "heading": "P-DT05-09",
+        "body": [
+          "Suficiencia de protección no exige eliminar toda exposición; exige que la exposición residual material sea comprendida y tratada o aceptada de forma proporcional."
+        ]
+      },
+      "sourceLines": [
+        544,
+        545
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT05-01",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT05-01",
+      "fields": {
+        "heading": "CAND-MOTOR-DT05-01",
+        "body": [
+          "La existencia de un control no debe transferir automáticamente confianza sobre su efectividad ni sobre la capacidad de recuperación asociada."
+        ]
+      },
+      "sourceLines": [
+        565,
+        566
+      ]
+    },
+    {
+      "key": "R-DT05-01",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT05-01",
+      "fields": {
+        "heading": "R-DT05-01 · MATERIAL_TECH_SERVICE_UNKNOWN",
+        "title": "MATERIAL_TECH_SERVICE_UNKNOWN"
+      },
+      "sourceLines": [
+        570,
+        570
+      ]
+    },
+    {
+      "key": "R-DT05-02",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT05-02",
+      "fields": {
+        "heading": "R-DT05-02 · MATERIAL_INFORMATION_SENSITIVITY_UNKNOWN",
+        "title": "MATERIAL_INFORMATION_SENSITIVITY_UNKNOWN"
+      },
+      "sourceLines": [
+        571,
+        571
+      ]
+    },
+    {
+      "key": "R-DT05-03",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT05-03",
+      "fields": {
+        "heading": "R-DT05-03 · CRITICAL_DEPENDENCY_BLIND_SPOT",
+        "title": "CRITICAL_DEPENDENCY_BLIND_SPOT"
+      },
+      "sourceLines": [
+        572,
+        572
+      ]
+    },
+    {
+      "key": "R-DT05-04",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT05-04",
+      "fields": {
+        "heading": "R-DT05-04 · MATERIAL_DEPENDENCY_CONCENTRATION_GAP",
+        "title": "MATERIAL_DEPENDENCY_CONCENTRATION_GAP"
+      },
+      "sourceLines": [
+        573,
+        573
+      ]
+    },
+    {
+      "key": "R-DT05-05",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT05-05",
+      "fields": {
+        "heading": "R-DT05-05 · MATERIAL_THREAT_EVENT_BLIND_SPOT",
+        "title": "MATERIAL_THREAT_EVENT_BLIND_SPOT"
+      },
+      "sourceLines": [
+        574,
+        574
+      ]
+    },
+    {
+      "key": "R-DT05-06",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT05-06",
+      "fields": {
+        "heading": "R-DT05-06 · MATERIAL_WEAKNESS_UNRECOGNIZED",
+        "title": "MATERIAL_WEAKNESS_UNRECOGNIZED"
+      },
+      "sourceLines": [
+        575,
+        575
+      ]
+    },
+    {
+      "key": "R-DT05-07",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT05-07",
+      "fields": {
+        "heading": "R-DT05-07 · MATERIAL_IMPACT_UNCLEAR",
+        "title": "MATERIAL_IMPACT_UNCLEAR"
+      },
+      "sourceLines": [
+        576,
+        576
+      ]
+    },
+    {
+      "key": "R-DT05-08",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT05-08",
+      "fields": {
+        "heading": "R-DT05-08 · PROTECTION_CONTROL_GAP",
+        "title": "PROTECTION_CONTROL_GAP"
+      },
+      "sourceLines": [
+        577,
+        577
+      ]
+    },
+    {
+      "key": "R-DT05-09",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT05-09",
+      "fields": {
+        "heading": "R-DT05-09 · CONTROL_EFFECTIVENESS_GAP",
+        "title": "CONTROL_EFFECTIVENESS_GAP"
+      },
+      "sourceLines": [
+        578,
+        578
+      ]
+    },
+    {
+      "key": "R-DT05-10",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT05-10",
+      "fields": {
+        "heading": "R-DT05-10 · EXCESSIVE_ACCESS_GAP",
+        "title": "EXCESSIVE_ACCESS_GAP"
+      },
+      "sourceLines": [
+        579,
+        579
+      ]
+    },
+    {
+      "key": "R-DT05-11",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT05-11",
+      "fields": {
+        "heading": "R-DT05-11 · AUTHENTICATION_STRENGTH_GAP",
+        "title": "AUTHENTICATION_STRENGTH_GAP"
+      },
+      "sourceLines": [
+        580,
+        580
+      ]
+    },
+    {
+      "key": "R-DT05-12",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT05-12",
+      "fields": {
+        "heading": "R-DT05-12 · EXCESSIVE_PRIVILEGE_GAP",
+        "title": "EXCESSIVE_PRIVILEGE_GAP"
+      },
+      "sourceLines": [
+        581,
+        581
+      ]
+    },
+    {
+      "key": "R-DT05-13",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT05-13",
+      "fields": {
+        "heading": "R-DT05-13 · ACCESS_LIFECYCLE_CONTROL_GAP",
+        "title": "ACCESS_LIFECYCLE_CONTROL_GAP"
+      },
+      "sourceLines": [
+        582,
+        582
+      ]
+    },
+    {
+      "key": "R-DT05-14",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT05-14",
+      "fields": {
+        "heading": "R-DT05-14 · MATERIAL_EVENT_DETECTION_GAP",
+        "title": "MATERIAL_EVENT_DETECTION_GAP"
+      },
+      "sourceLines": [
+        583,
+        583
+      ]
+    },
+    {
+      "key": "R-DT05-15",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT05-15",
+      "fields": {
+        "heading": "R-DT05-15 · SECURITY_ALERT_RESPONSE_GAP",
+        "title": "SECURITY_ALERT_RESPONSE_GAP"
+      },
+      "sourceLines": [
+        584,
+        584
+      ]
+    },
+    {
+      "key": "R-DT05-16",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT05-16",
+      "fields": {
+        "heading": "R-DT05-16 · INCIDENT_RESPONSIBILITY_GAP",
+        "title": "INCIDENT_RESPONSIBILITY_GAP"
+      },
+      "sourceLines": [
+        585,
+        585
+      ]
+    },
+    {
+      "key": "R-DT05-17",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT05-17",
+      "fields": {
+        "heading": "R-DT05-17 · INCIDENT_RESPONSE_EXECUTION_GAP",
+        "title": "INCIDENT_RESPONSE_EXECUTION_GAP"
+      },
+      "sourceLines": [
+        586,
+        586
+      ]
+    },
+    {
+      "key": "R-DT05-18",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT05-18",
+      "fields": {
+        "heading": "R-DT05-18 · MATERIAL_RECOVERABILITY_GAP",
+        "title": "MATERIAL_RECOVERABILITY_GAP"
+      },
+      "sourceLines": [
+        587,
+        587
+      ]
+    },
+    {
+      "key": "R-DT05-19",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT05-19",
+      "fields": {
+        "heading": "R-DT05-19 · RECOVERY_TOLERANCE_GAP",
+        "title": "RECOVERY_TOLERANCE_GAP"
+      },
+      "sourceLines": [
+        588,
+        588
+      ]
+    },
+    {
+      "key": "R-DT05-20",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT05-20",
+      "fields": {
+        "heading": "R-DT05-20 · MATERIAL_CONTINUITY_GAP",
+        "title": "MATERIAL_CONTINUITY_GAP"
+      },
+      "sourceLines": [
+        589,
+        589
+      ]
+    },
+    {
+      "key": "R-DT05-21",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT05-21",
+      "fields": {
+        "heading": "R-DT05-21 · INCIDENT_LEARNING_GAP",
+        "title": "INCIDENT_LEARNING_GAP"
+      },
+      "sourceLines": [
+        590,
+        590
+      ]
+    },
+    {
+      "key": "R-DT05-22",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DT05-22",
+      "fields": {
+        "heading": "R-DT05-22 · PROTECTION_REASSESSMENT_GAP",
+        "title": "PROTECTION_REASSESSMENT_GAP"
+      },
+      "sourceLines": [
+        591,
+        591
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT05-02",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT05-02",
+      "fields": {
+        "heading": "CAND-MOTOR-DT05-02",
+        "body": [
+          "Threat, weakness, exposure, incident, impact, control y residual exposure deben permanecer como objetos distintos."
+        ]
+      },
+      "sourceLines": [
+        646,
+        647
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT05-03",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT05-03",
+      "fields": {
+        "heading": "CAND-MOTOR-DT05-03",
+        "body": [
+          "La cobertura de seguridad debe partir de funciones/dependencias materiales y no de inventarios exhaustivos de controles."
+        ]
+      },
+      "sourceLines": [
+        648,
+        649
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT05-04",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT05-04",
+      "fields": {
+        "heading": "CAND-MOTOR-DT05-04",
+        "body": [
+          "Criticality y information sensitivity deben poder variar independientemente."
+        ]
+      },
+      "sourceLines": [
+        650,
+        651
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT05-05",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT05-05",
+      "fields": {
+        "heading": "CAND-MOTOR-DT05-05",
+        "body": [
+          "Control existence, control configuration, control effectiveness y recovery effectiveness requieren estados evidenciales distintos."
+        ]
+      },
+      "sourceLines": [
+        652,
+        653
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT05-06",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT05-06",
+      "fields": {
+        "heading": "CAND-MOTOR-DT05-06",
+        "body": [
+          "Backup state y recoverability state deben permanecer separados."
+        ]
+      },
+      "sourceLines": [
+        654,
+        655
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT05-07",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT05-07",
+      "fields": {
+        "heading": "CAND-MOTOR-DT05-07",
+        "body": [
+          "Continuity puede satisfacerse mediante continue, degrade, workaround, recover, reconstruct, wait o stop-safely según tolerancia."
+        ]
+      },
+      "sourceLines": [
+        656,
+        657
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT05-08",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT05-08",
+      "fields": {
+        "heading": "CAND-MOTOR-DT05-08",
+        "body": [
+          "Un tercero puede controlar el mecanismo mientras la pyme conserva la exposición derivada de su dependencia."
+        ]
+      },
+      "sourceLines": [
+        658,
+        659
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT05-09",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT05-09",
+      "fields": {
+        "heading": "CAND-MOTOR-DT05-09",
+        "body": [
+          "Suficiencia puede coexistir con residual exposure explícitamente comprendida y aceptada."
+        ]
+      },
+      "sourceLines": [
+        660,
+        661
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT05-10",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT05-10",
+      "fields": {
+        "heading": "CAND-MOTOR-DT05-10",
+        "body": [
+          "Requisitos de protección y evidencia deben escalar según materialidad, sensibilidad, irreversibilidad, concentración y tolerancia."
+        ]
+      },
+      "sourceLines": [
+        662,
+        663
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT05-11",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT05-11",
+      "fields": {
+        "heading": "CAND-MOTOR-DT05-11",
+        "body": [
+          "Un cambio material en dependencia, acceso, proveedor, información o tolerancia debe poder invalidar una evaluación previa sin convertirla retrospectivamente en error."
+        ]
+      },
+      "sourceLines": [
+        664,
+        665
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-AI-DT05-01",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-DT05-01",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-DT05-01",
+        "body": [
+          "El uso de IA puede crear nuevas dependencias, accesos, flujos y exposiciones de información que deben evaluarse por sus consecuencias materiales, no por la etiqueta “IA”."
+        ]
+      },
+      "sourceLines": [
+        669,
+        670
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-AI-DT05-02",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-DT05-02",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-DT05-02",
+        "body": [
+          "La incorporación de información sensible o material a un servicio de IA externo debe tratarse como un flujo/dependencia potencialmente relevante para protección y terceros, sin inferir automáticamente que el uso sea seguro o inseguro.",
+          "Esto permitirá conectar posteriormente:",
+          "DT-03 + DT-05 + DT-06 + EC."
+        ]
+      },
+      "sourceLines": [
+        671,
+        674
+      ]
+    },
+    {
+      "key": "FIND-DT05-01",
+      "objectType": "SOURCE_ID_FIND",
+      "sourceId": "FIND-DT05-01",
+      "fields": {
+        "heading": "FIND-DT05-01",
+        "body": [
+          "El finding debe expresar la exposición material y su consecuencia, no limitarse a señalar la ausencia de un control específico.",
+          "Esto es fundamental para evitar un checklist disfrazado."
+        ]
+      },
+      "sourceLines": [
+        724,
+        726
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT05-12",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT05-12",
+      "fields": {
+        "heading": "CAND-MOTOR-DT05-12",
+        "body": [
+          "La aceptación de exposición residual debe requerir que la exposición sea suficientemente conocida; UNKNOWN no puede convertirse implícitamente en ACCEPT."
+        ]
+      },
+      "sourceLines": [
+        775,
+        776
+      ]
+    },
+    {
+      "key": "INT-DT05-01",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-DT05-01",
+      "fields": {
+        "heading": "INT-DT05-01 · MINIMUM SUFFICIENT PROTECTION",
+        "title": "MINIMUM SUFFICIENT PROTECTION",
+        "body": [
+          "La intervención debe buscar la combinación de protección, detección, respuesta y recuperación de menor complejidad total que mantenga las exposiciones materiales dentro de condiciones suficientemente tolerables para el negocio.",
+          "No significa:",
+          "control más barato.",
+          "Complejidad total incluye:",
+          "- implementación;",
+          "- administración;",
+          "- dependencia;",
+          "- conocimiento;",
+          "- fricción;",
+          "- mantenimiento;",
+          "- recuperación;",
+          "- cambio organizacional;",
+          "- costo."
+        ]
+      },
+      "sourceLines": [
+        780,
+        793
+      ]
+    },
+    {
+      "key": "P-DT05-10",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT05-10",
+      "fields": {
+        "heading": "P-DT05-10",
+        "body": [
+          "La respuesta óptima a una exposición puede actuar sobre prevención, detección, impacto, recuperación o continuidad; no necesariamente sobre la probabilidad del evento."
+        ]
+      },
+      "sourceLines": [
+        806,
+        807
+      ]
+    },
+    {
+      "key": "INS-DT05-01",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT05-01",
+      "fields": {
+        "heading": "INS-DT05-01 · Protected Business Dependency Map",
+        "title": "Protected Business Dependency Map",
+        "body": [
+          "función → información/servicio → dependencia → criticidad → tolerancia.",
+          "Instrumento nuclear."
+        ]
+      },
+      "sourceLines": [
+        849,
+        851
+      ]
+    },
+    {
+      "key": "INS-DT05-02",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT05-02",
+      "fields": {
+        "heading": "INS-DT05-02 · Exposure Card",
+        "title": "Exposure Card",
+        "body": [
+          "PBD → evento → debilidad → consecuencia → control → residual exposure."
+        ]
+      },
+      "sourceLines": [
+        852,
+        853
+      ]
+    },
+    {
+      "key": "INS-DT05-03",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT05-03",
+      "fields": {
+        "heading": "INS-DT05-03 · Access & Privilege Check",
+        "title": "Access & Privilege Check",
+        "body": [
+          "identidad → acceso → privilegio → necesidad → autenticación → lifecycle."
+        ]
+      },
+      "sourceLines": [
+        854,
+        855
+      ]
+    },
+    {
+      "key": "INS-DT05-04",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT05-04",
+      "fields": {
+        "heading": "INS-DT05-04 · Critical Control Card",
+        "title": "Critical Control Card",
+        "body": [
+          "exposición → control → propósito → evidencia → efectividad → owner."
+        ]
+      },
+      "sourceLines": [
+        856,
+        857
+      ]
+    },
+    {
+      "key": "INS-DT05-05",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT05-05",
+      "fields": {
+        "heading": "INS-DT05-05 · Incident Action Card",
+        "title": "Incident Action Card",
+        "body": [
+          "señal → evaluar → contener → responsable → contacto → recuperar/escalar.",
+          "Para muchas pymes puede ser literalmente una página."
+        ]
+      },
+      "sourceLines": [
+        858,
+        860
+      ]
+    },
+    {
+      "key": "INS-DT05-06",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT05-06",
+      "fields": {
+        "heading": "INS-DT05-06 · Recovery Card",
+        "title": "Recovery Card",
+        "body": [
+          "información/servicio → backup/mecanismo → última copia → restauración → tolerancia → prueba."
+        ]
+      },
+      "sourceLines": [
+        861,
+        862
+      ]
+    },
+    {
+      "key": "INS-DT05-07",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT05-07",
+      "fields": {
+        "heading": "INS-DT05-07 · Continuity Option Card",
+        "title": "Continuity Option Card",
+        "body": [
+          "función → interrupción → tolerancia → continue/degrade/workaround/recover/reconstruct/wait/stop-safely."
+        ]
+      },
+      "sourceLines": [
+        863,
+        864
+      ]
+    },
+    {
+      "key": "INS-DT05-08",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-DT05-08",
+      "fields": {
+        "heading": "INS-DT05-08 · Protection Review Log",
+        "title": "Protection Review Log",
+        "body": [
+          "cambio/incidente → exposición afectada → revisión → decisión → evidencia."
+        ]
+      },
+      "sourceLines": [
+        865,
+        866
+      ]
+    },
+    {
+      "key": "DEL-DT05-01",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT05-01",
+      "fields": {
+        "heading": "DEL-DT05-01 · dependencias materiales visibles",
+        "title": "dependencias materiales visibles"
+      },
+      "sourceLines": [
+        877,
+        877
+      ]
+    },
+    {
+      "key": "DEL-DT05-02",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT05-02",
+      "fields": {
+        "heading": "DEL-DT05-02 · exposiciones críticas comprendidas",
+        "title": "exposiciones críticas comprendidas"
+      },
+      "sourceLines": [
+        878,
+        878
+      ]
+    },
+    {
+      "key": "DEL-DT05-03",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT05-03",
+      "fields": {
+        "heading": "DEL-DT05-03 · protección proporcional implementada",
+        "title": "protección proporcional implementada"
+      },
+      "sourceLines": [
+        879,
+        879
+      ]
+    },
+    {
+      "key": "DEL-DT05-04",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT05-04",
+      "fields": {
+        "heading": "DEL-DT05-04 · accesos materiales suficientemente controlados",
+        "title": "accesos materiales suficientemente controlados"
+      },
+      "sourceLines": [
+        880,
+        880
+      ]
+    },
+    {
+      "key": "DEL-DT05-05",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT05-05",
+      "fields": {
+        "heading": "DEL-DT05-05 · eventos críticos suficientemente detectables",
+        "title": "eventos críticos suficientemente detectables"
+      },
+      "sourceLines": [
+        881,
+        881
+      ]
+    },
+    {
+      "key": "DEL-DT05-06",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT05-06",
+      "fields": {
+        "heading": "DEL-DT05-06 · respuesta crítica ejecutable",
+        "title": "respuesta crítica ejecutable"
+      },
+      "sourceLines": [
+        882,
+        882
+      ]
+    },
+    {
+      "key": "DEL-DT05-07",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT05-07",
+      "fields": {
+        "heading": "DEL-DT05-07 · información/servicios materialmente recuperables",
+        "title": "información/servicios materialmente recuperables"
+      },
+      "sourceLines": [
+        883,
+        883
+      ]
+    },
+    {
+      "key": "DEL-DT05-08",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT05-08",
+      "fields": {
+        "heading": "DEL-DT05-08 · continuidad compatible con tolerancias aplicables",
+        "title": "continuidad compatible con tolerancias aplicables"
+      },
+      "sourceLines": [
+        884,
+        884
+      ]
+    },
+    {
+      "key": "DEL-DT05-09",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DT05-09",
+      "fields": {
+        "heading": "DEL-DT05-09 · mecanismo de revisión/adaptación activo",
+        "title": "mecanismo de revisión/adaptación activo"
+      },
+      "sourceLines": [
+        885,
+        885
+      ]
+    },
+    {
+      "key": "CRV-DT05-01",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT05-01",
+      "fields": {
+        "heading": "| CRV-DT05-01 | Funciones críticas tienen sus dependencias tecnológicas/informacionales materiales identificadas |",
+        "title": "Funciones críticas tienen sus dependencias tecnológicas/informacionales materiales identificadas"
+      },
+      "sourceLines": [
+        909,
+        909
+      ]
+    },
+    {
+      "key": "CRV-DT05-02",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT05-02",
+      "fields": {
+        "heading": "| CRV-DT05-02 | Exposiciones críticas priorizadas tienen consecuencia y condición suficientemente comprendidas |",
+        "title": "Exposiciones críticas priorizadas tienen consecuencia y condición suficientemente comprendidas"
+      },
+      "sourceLines": [
+        910,
+        910
+      ]
+    },
+    {
+      "key": "CRV-DT05-03",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT05-03",
+      "fields": {
+        "heading": "| CRV-DT05-03 | Controles prioritarios muestran funcionamiento suficiente respecto de la exposición tratada |",
+        "title": "Controles prioritarios muestran funcionamiento suficiente respecto de la exposición tratada"
+      },
+      "sourceLines": [
+        911,
+        911
+      ]
+    },
+    {
+      "key": "CRV-DT05-04",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT05-04",
+      "fields": {
+        "heading": "| CRV-DT05-04 | Accesos materiales corresponden suficientemente con necesidad y pueden modificarse/revocarse |",
+        "title": "Accesos materiales corresponden suficientemente con necesidad y pueden modificarse/revocarse"
+      },
+      "sourceLines": [
+        912,
+        912
+      ]
+    },
+    {
+      "key": "CRV-DT05-05",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT05-05",
+      "fields": {
+        "heading": "| CRV-DT05-05 | Eventos materiales seleccionados pueden detectarse dentro del horizonte requerido |",
+        "title": "Eventos materiales seleccionados pueden detectarse dentro del horizonte requerido"
+      },
+      "sourceLines": [
+        913,
+        913
+      ]
+    },
+    {
+      "key": "CRV-DT05-06",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT05-06",
+      "fields": {
+        "heading": "| CRV-DT05-06 | Responsables pueden ejecutar acciones críticas de respuesta ante escenarios aplicables |",
+        "title": "Responsables pueden ejecutar acciones críticas de respuesta ante escenarios aplicables"
+      },
+      "sourceLines": [
+        914,
+        914
+      ]
+    },
+    {
+      "key": "CRV-DT05-07",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT05-07",
+      "fields": {
+        "heading": "| CRV-DT05-07 | Información/servicios seleccionados pueden restaurarse dentro de tolerancias definidas |",
+        "title": "Información/servicios seleccionados pueden restaurarse dentro de tolerancias definidas"
+      },
+      "sourceLines": [
+        915,
+        915
+      ]
+    },
+    {
+      "key": "CRV-DT05-08",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT05-08",
+      "fields": {
+        "heading": "| CRV-DT05-08 | Funciones prioritarias pueden continuar, degradarse o recuperarse sin superar tolerancia material |",
+        "title": "Funciones prioritarias pueden continuar, degradarse o recuperarse sin superar tolerancia material"
+      },
+      "sourceLines": [
+        916,
+        916
+      ]
+    },
+    {
+      "key": "CRV-DT05-09",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DT05-09",
+      "fields": {
+        "heading": "| CRV-DT05-09 | Cambios/incidentes materiales generan revisión demostrable de exposición y controles |",
+        "title": "Cambios/incidentes materiales generan revisión demostrable de exposición y controles"
+      },
+      "sourceLines": [
+        917,
+        917
+      ]
+    },
+    {
+      "key": "VAL-DT05-01",
+      "objectType": "SOURCE_ID_VAL",
+      "sourceId": "VAL-DT05-01",
+      "fields": {
+        "heading": "VAL-DT05-01",
+        "body": [
+          "Cuando la materialidad lo justifique, la validación debe privilegiar evidencia de funcionamiento sobre existencia documental."
+        ]
+      },
+      "sourceLines": [
+        925,
+        926
+      ]
+    },
+    {
+      "key": "V0",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V0",
+      "fields": {
+        "heading": "V0 · UNKNOWN",
+        "title": "UNKNOWN",
+        "body": [
+          "Condición insuficientemente conocida."
+        ]
+      },
+      "sourceLines": [
+        930,
+        931
+      ]
+    },
+    {
+      "key": "V1",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V1",
+      "fields": {
+        "heading": "V1 · IDENTIFIED",
+        "title": "IDENTIFIED",
+        "body": [
+          "Dependencia/exposición/control suficientemente identificado."
+        ]
+      },
+      "sourceLines": [
+        932,
+        933
+      ]
+    },
+    {
+      "key": "V2",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V2",
+      "fields": {
+        "heading": "V2 · CONTROL-EVIDENCED",
+        "title": "CONTROL-EVIDENCED",
+        "body": [
+          "Existe evidencia suficiente de que el mecanismo de protección/respuesta está implementado."
+        ]
+      },
+      "sourceLines": [
+        934,
+        935
+      ]
+    },
+    {
+      "key": "V3",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V3",
+      "fields": {
+        "heading": "V3 · EFFECTIVE",
+        "title": "EFFECTIVE",
+        "body": [
+          "Existe evidencia suficiente de que funciona respecto de la exposición o escenario material."
+        ]
+      },
+      "sourceLines": [
+        936,
+        937
+      ]
+    },
+    {
+      "key": "V4",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V4",
+      "fields": {
+        "heading": "V4 · RESILIENT",
+        "title": "RESILIENT",
+        "body": [
+          "Protección, respuesta y recuperación permanecen suficientemente efectivas bajo condiciones relevantes y cambios aplicables.",
+          "No toda condición necesita V4."
+        ]
+      },
+      "sourceLines": [
+        938,
+        940
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT05-13",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT05-13",
+      "fields": {
+        "heading": "CAND-MOTOR-DT05-13",
+        "body": [
+          "El Motor debe poder asociar una evidencia de prueba a un escenario, alcance y fecha; una prueba exitosa no valida universalmente toda la capacidad de recuperación."
+        ]
+      },
+      "sourceLines": [
+        947,
+        948
+      ]
+    },
+    {
+      "key": "REASS-DT05-01",
+      "objectType": "SOURCE_ID_REASS",
+      "sourceId": "REASS-DT05-01",
+      "fields": {
+        "heading": "REASS-DT05-01",
+        "body": [
+          "Un control previamente suficiente debe reevaluarse cuando cambien materialmente la exposición, dependencia, consecuencia, tolerancia o contexto operativo."
+        ]
+      },
+      "sourceLines": [
+        980,
+        981
+      ]
+    },
+    {
+      "key": "P-DT05-11",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT05-11",
+      "fields": {
+        "heading": "P-DT05-11",
+        "body": [
+          "La ocurrencia de un incidente no invalida retrospectivamente por sí sola una evaluación previa de suficiencia; puede generar nueva evidencia que cambie la evaluación posterior."
+        ]
+      },
+      "sourceLines": [
+        994,
+        995
+      ]
+    },
+    {
+      "key": "GOV-DT05-01",
+      "objectType": "SOURCE_ID_GOV",
+      "sourceId": "GOV-DT05-01",
+      "fields": {
+        "heading": "GOV-DT05-01",
+        "body": [
+          "Pymapa puede detectar necesidades o exposiciones relacionadas con obligaciones aplicables, pero no debe inferir certificación o cumplimiento regulatorio integral a partir del diagnóstico DT-05."
+        ]
+      },
+      "sourceLines": [
+        1009,
+        1010
+      ]
+    },
+    {
+      "key": "SOURCE-REVIEW-TRIGGER-DT05-01",
+      "objectType": "SOURCE_ID_SOURCE",
+      "sourceId": "SOURCE-REVIEW-TRIGGER-DT05-01",
+      "fields": {
+        "heading": "SOURCE-REVIEW-TRIGGER-DT05-01 · Revisar DT-05 ante actualización material de NIST Cybersecurity Framework o referencias estructurales equivalentes utilizadas por Pymapa.",
+        "title": "Revisar DT-05 ante actualización material de NIST Cybersecurity Framework o referencias estructurales equivalentes utilizadas por Pymapa.",
+        "body": [
+          "Y:"
+        ]
+      },
+      "sourceLines": [
+        1045,
+        1046
+      ]
+    },
+    {
+      "key": "SOURCE-REVIEW-TRIGGER-DT05-02",
+      "objectType": "SOURCE_ID_SOURCE",
+      "sourceId": "SOURCE-REVIEW-TRIGGER-DT05-02",
+      "fields": {
+        "heading": "SOURCE-REVIEW-TRIGGER-DT05-02 · Revisar recomendaciones específicas de controles tecnológicos cuando cambios relevantes de amenaza o tecnología puedan modificar materialmente su pertinencia.",
+        "title": "Revisar recomendaciones específicas de controles tecnológicos cuando cambios relevantes de amenaza o tecnología puedan modificar materialmente su pertinencia.",
+        "body": [
+          "Esto permitirá que:",
+          "arquitectura conceptual",
+          "sea relativamente estable,",
+          "mientras:",
+          "recomendaciones específicas",
+          "puedan actualizarse con mayor frecuencia."
+        ]
+      },
+      "sourceLines": [
+        1047,
+        1053
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT05-14",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT05-14",
+      "fields": {
+        "heading": "CAND-MOTOR-DT05-14",
+        "body": [
+          "Control recomendado debe conservar relación explícita con la exposición que pretende tratar."
+        ]
+      },
+      "sourceLines": [
+        1057,
+        1058
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT05-15",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT05-15",
+      "fields": {
+        "heading": "CAND-MOTOR-DT05-15",
+        "body": [
+          "Estado de riesgo/exposición residual debe persistir después de la intervención y no desaparecer porque exista un control."
+        ]
+      },
+      "sourceLines": [
+        1059,
+        1060
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT05-16",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT05-16",
+      "fields": {
+        "heading": "CAND-MOTOR-DT05-16",
+        "body": [
+          "Evidencia de recovery debe registrar escenario, alcance, fecha y resultado."
+        ]
+      },
+      "sourceLines": [
+        1061,
+        1062
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT05-17",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT05-17",
+      "fields": {
+        "heading": "CAND-MOTOR-DT05-17",
+        "body": [
+          "El Motor debe distinguir ACCEPTED, TREATED, TRANSFERRED/PARTIALLY-TRANSFERRED y UNKNOWN residual exposure."
+        ]
+      },
+      "sourceLines": [
+        1063,
+        1064
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DT05-18",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DT05-18",
+      "fields": {
+        "heading": "CAND-MOTOR-DT05-18",
+        "body": [
+          "La recomendación de controles específicos debe admitir actualización independiente de la estructura conceptual de la capacidad.",
+          "Este último será muy útil para gobernar conocimiento que envejece rápido."
+        ]
+      },
+      "sourceLines": [
+        1065,
+        1067
+      ]
+    },
+    {
+      "key": "K1",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Coherencia — PASS",
+        "title": "Coherencia — PASS",
+        "body": [
+          "Quedan diferenciados:",
+          "seguridad, continuidad, calidad de datos, adecuación tecnológica, integración, riesgo de transformación y terceros."
+        ]
+      },
+      "sourceLines": [
+        1115,
+        1117
+      ]
+    },
+    {
+      "key": "K2",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Razonamiento — PASS",
+        "title": "Razonamiento — PASS",
+        "body": [
+          "La cadena conserva:",
+          "Dependency → Event → Weakness → Exposure → Consequence → Control → Residual Exposure → Detection → Response → Recovery/Continuity."
+        ]
+      },
+      "sourceLines": [
+        1118,
+        1120
+      ]
+    },
+    {
+      "key": "K3",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · Acción — PASS",
+        "title": "Acción — PASS",
+        "body": [
+          "Puede recomendar:",
+          "identificar, reducir, restringir, fortalecer, detectar, preparar, respaldar, recuperar, continuar, diversificar, probar, transferir, aceptar o no actuar."
+        ]
+      },
+      "sourceLines": [
+        1121,
+        1123
+      ]
+    },
+    {
+      "key": "K4",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · Knowledge — PASS",
+        "title": "Knowledge — PASS",
+        "body": [
+          "Grounding, provenance, temporalidad, reglas, intervención, CRV, validación y governance quedan explícitos."
+        ]
+      },
+      "sourceLines": [
+        1124,
+        1125
+      ]
+    }
+  ],
+  "supersessions": [],
+  "executableProjection": {
+    "sourceRef": "source.json",
+    "verbatimKeys": [
+      "heading",
+      "title",
+      "body"
+    ],
+    "projectedObjectTypes": [],
+    "canonicalOnlyGapRefs": []
+  },
+  "gaps": [],
+  "transcriptionCorrections": [],
+  "checksum": "sha256:28ee6a8bfe53ad3fc3a5cd42af6887c1393568e93be3ddd304fb0c0596659a7b"
+}

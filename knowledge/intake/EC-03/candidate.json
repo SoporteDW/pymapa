@@ -1,0 +1,3150 @@
+{
+  "candidateId": "CAND-EC-03-0.2.0-b0ee52d3aa8d",
+  "capabilityId": "EC-03",
+  "status": "CANDIDATE",
+  "registration": {
+    "registrationId": "RAW-EC-03-7c22240c1ff2",
+    "textSha256": "b0ee52d3aa8dc022c04a5e33e60dadcde80376fcf7c9d082243acfee99f517e2"
+  },
+  "producedBy": {
+    "method": "DETERMINISTIC_TOOL",
+    "agent": "pymapa-structural-segmenter@0.2.0 + pymapa-governed-supersession-resolver@0.1.0",
+    "note": "Segmentación literal por headings y líneas planas «ID · título» con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
+  },
+  "baselineId": "EC03-K4-v1.0",
+  "historicalStatus": {
+    "marker": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      1023,
+      1023
+    ]
+  },
+  "provenanceVocabulary": [
+    {
+      "code": "SOURCE-DERIVED",
+      "label": "SOURCE-DERIVED",
+      "meaning": "Grounding externo debe sostener conceptos generales de:",
+      "sourceLines": [
+        940,
+        941
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "PYMAPA-DESIGNED",
+      "label": "PYMAPA-DESIGNED",
+      "meaning": "Quedan como arquitectura propia:",
+      "sourceLines": [
+        949,
+        950
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    }
+  ],
+  "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 10,
+      "objectType": "SOURCE_ID_CE",
+      "sourceLines": [
+        1026,
+        1026
+      ]
+    },
+    {
+      "label": "CRV",
+      "declared": 9,
+      "objectType": "SOURCE_ID_CRV",
+      "sourceLines": [
+        1036,
+        1036
+      ]
+    },
+    {
+      "label": "VA",
+      "declared": 23,
+      "objectType": "SOURCE_ID_VA",
+      "sourceLines": [
+        1027,
+        1027
+      ]
+    }
+  ],
+  "verbatimKeys": [
+    "heading",
+    "title",
+    "body"
+  ],
+  "items": [
+    {
+      "key": "P-EC03-CORE-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC03-CORE-01",
+      "fields": {
+        "heading": "P-EC03-CORE-01",
+        "body": [
+          "La existencia o sofisticación de un contrato constituye evidencia contextual, pero no demuestra por sí sola gobernanza efectiva de la relación."
+        ]
+      },
+      "sourceLines": [
+        57,
+        58
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "P-EC03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC03-01",
+      "fields": {
+        "heading": "P-EC03-01",
+        "body": [
+          "La actividad realizada por un tercero no debe sustituir la definición del resultado que justifica la relación."
+        ]
+      },
+      "sourceLines": [
+        80,
+        81
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "P-EC03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC03-02",
+      "fields": {
+        "heading": "P-EC03-02",
+        "body": [
+          "Una relación bien gobernada puede seguir constituyendo una dependencia externa crítica."
+        ]
+      },
+      "sourceLines": [
+        136,
+        137
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "P-EC03-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC03-03",
+      "fields": {
+        "heading": "P-EC03-03",
+        "body": [
+          "La externalización de ejecución no transfiere automáticamente accountability organizacional por el resultado.",
+          "Este principio es transversalmente importante."
+        ]
+      },
+      "sourceLines": [
+        164,
+        166
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC03-01",
+      "fields": {
+        "heading": "CAND-MOTOR-EC03-01",
+        "body": [
+          "External Relationship Interface debe poder reutilizar servicios de handoff/information continuity sin convertirse en una copia de DT-03."
+        ]
+      },
+      "sourceLines": [
+        228,
+        229
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "P-EC03-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC03-04",
+      "fields": {
+        "heading": "P-EC03-04",
+        "body": [
+          "La frecuencia de reuniones no constituye evidencia suficiente de coordinación efectiva."
+        ]
+      },
+      "sourceLines": [
+        235,
+        236
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "P-EC03-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC03-05",
+      "fields": {
+        "heading": "P-EC03-05",
+        "body": [
+          "El cumplimiento de indicadores contractuales o SLA no demuestra por sí mismo que la relación produzca el outcome material esperado."
+        ]
+      },
+      "sourceLines": [
+        265,
+        266
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "P-EC03-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC03-06",
+      "fields": {
+        "heading": "P-EC03-06",
+        "body": [
+          "Escalar oportunamente puede ser evidencia de buena gobernanza, no de fracaso de la relación."
+        ]
+      },
+      "sourceLines": [
+        304,
+        305
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC03-02",
+      "fields": {
+        "heading": "CAND-MOTOR-EC03-02",
+        "body": [
+          "Administrative issue closure y effective issue resolution deben poder permanecer diferenciados."
+        ]
+      },
+      "sourceLines": [
+        316,
+        317
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "P-EC03-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC03-07",
+      "fields": {
+        "heading": "P-EC03-07",
+        "body": [
+          "Relationship Health y Performance deben evaluarse como dimensiones relacionadas pero distintas."
+        ]
+      },
+      "sourceLines": [
+        332,
+        333
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "P-EC03-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC03-08",
+      "fields": {
+        "heading": "P-EC03-08",
+        "body": [
+          "La variación de alcance solo constituye brecha cuando su tratamiento resulta insuficiente para mantener claridad sobre resultado, responsabilidades, economics o riesgo."
+        ]
+      },
+      "sourceLines": [
+        367,
+        368
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CE01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Purpose/outcome",
+        "title": "Purpose/outcome"
+      },
+      "sourceLines": [
+        394,
+        394
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "VA01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA01",
+      "fields": {
+        "heading": "VA01 propósito suficientemente claro",
+        "title": "propósito suficientemente claro"
+      },
+      "sourceLines": [
+        395,
+        395
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "VA02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA02",
+      "fields": {
+        "heading": "VA02 outcome esperado suficientemente definido",
+        "title": "outcome esperado suficientemente definido"
+      },
+      "sourceLines": [
+        396,
+        396
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CE02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Roles/accountability",
+        "title": "Roles/accountability"
+      },
+      "sourceLines": [
+        397,
+        397
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "VA03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA03",
+      "fields": {
+        "heading": "VA03 responsabilidades suficientemente claras",
+        "title": "responsabilidades suficientemente claras"
+      },
+      "sourceLines": [
+        398,
+        398
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "VA04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "VA04 accountability suficientemente clara",
+        "title": "accountability suficientemente clara"
+      },
+      "sourceLines": [
+        399,
+        399
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "VA05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "VA05 decision rights suficientemente claros",
+        "title": "decision rights suficientemente claros"
+      },
+      "sourceLines": [
+        400,
+        400
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CE03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Working model",
+        "title": "Working model"
+      },
+      "sourceLines": [
+        401,
+        401
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "VA06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "VA06 working agreements suficientes",
+        "title": "working agreements suficientes"
+      },
+      "sourceLines": [
+        402,
+        402
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "VA07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "VA07 interfaces materiales suficientemente definidas",
+        "title": "interfaces materiales suficientemente definidas"
+      },
+      "sourceLines": [
+        403,
+        403
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CE04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE04",
+      "fields": {
+        "heading": "CE04 · Coordination",
+        "title": "Coordination"
+      },
+      "sourceLines": [
+        404,
+        404
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "VA08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "VA08 información necesaria fluye suficientemente",
+        "title": "información necesaria fluye suficientemente"
+      },
+      "sourceLines": [
+        405,
+        405
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "VA09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA09",
+      "fields": {
+        "heading": "VA09 acciones/tiempos suficientemente coordinados",
+        "title": "acciones/tiempos suficientemente coordinados"
+      },
+      "sourceLines": [
+        406,
+        406
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CE05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE05",
+      "fields": {
+        "heading": "CE05 · Performance",
+        "title": "Performance"
+      },
+      "sourceLines": [
+        407,
+        407
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "VA10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA10",
+      "fields": {
+        "heading": "VA10 performance material suficientemente visible",
+        "title": "performance material suficientemente visible"
+      },
+      "sourceLines": [
+        408,
+        408
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "VA11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA11",
+      "fields": {
+        "heading": "VA11 outcome de relación suficientemente observable",
+        "title": "outcome de relación suficientemente observable"
+      },
+      "sourceLines": [
+        409,
+        409
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "VA12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA12",
+      "fields": {
+        "heading": "VA12 métricas suficientemente alineadas al propósito",
+        "title": "métricas suficientemente alineadas al propósito"
+      },
+      "sourceLines": [
+        410,
+        410
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CE06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE06",
+      "fields": {
+        "heading": "CE06 · Issues/exceptions",
+        "title": "Issues/exceptions"
+      },
+      "sourceLines": [
+        411,
+        411
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "VA13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA13",
+      "fields": {
+        "heading": "VA13 issues materiales suficientemente detectables",
+        "title": "issues materiales suficientemente detectables"
+      },
+      "sourceLines": [
+        412,
+        412
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "VA14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA14",
+      "fields": {
+        "heading": "VA14 exceptions suficientemente tratables",
+        "title": "exceptions suficientemente tratables"
+      },
+      "sourceLines": [
+        413,
+        413
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CE07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE07",
+      "fields": {
+        "heading": "CE07 · Escalation",
+        "title": "Escalation"
+      },
+      "sourceLines": [
+        414,
+        414
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "VA15",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA15",
+      "fields": {
+        "heading": "VA15 triggers de escalación suficientemente claros",
+        "title": "triggers de escalación suficientemente claros"
+      },
+      "sourceLines": [
+        415,
+        415
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "VA16",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA16",
+      "fields": {
+        "heading": "VA16 escalaciones llegan a capacidad/autoridad suficiente",
+        "title": "escalaciones llegan a capacidad/autoridad suficiente"
+      },
+      "sourceLines": [
+        416,
+        416
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "VA17",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA17",
+      "fields": {
+        "heading": "VA17 closure suficientemente verificable",
+        "title": "closure suficientemente verificable"
+      },
+      "sourceLines": [
+        417,
+        417
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CE08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE08",
+      "fields": {
+        "heading": "CE08 · Relationship health",
+        "title": "Relationship health"
+      },
+      "sourceLines": [
+        418,
+        418
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "VA18",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA18",
+      "fields": {
+        "heading": "VA18 señales de salud/deterioro suficientemente visibles",
+        "title": "señales de salud/deterioro suficientemente visibles"
+      },
+      "sourceLines": [
+        419,
+        419
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "VA19",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA19",
+      "fields": {
+        "heading": "VA19 desalineaciones materiales suficientemente tratables",
+        "title": "desalineaciones materiales suficientemente tratables"
+      },
+      "sourceLines": [
+        420,
+        420
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CE09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE09",
+      "fields": {
+        "heading": "CE09 · Change",
+        "title": "Change"
+      },
+      "sourceLines": [
+        421,
+        421
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "VA20",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA20",
+      "fields": {
+        "heading": "VA20 cambios materiales suficientemente gobernados",
+        "title": "cambios materiales suficientemente gobernados"
+      },
+      "sourceLines": [
+        422,
+        422
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "VA21",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA21",
+      "fields": {
+        "heading": "VA21 condiciones pueden renegociarse/adaptarse cuando corresponde",
+        "title": "condiciones pueden renegociarse/adaptarse cuando corresponde"
+      },
+      "sourceLines": [
+        423,
+        423
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CE10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE10",
+      "fields": {
+        "heading": "CE10 · Learning/governance",
+        "title": "Learning/governance"
+      },
+      "sourceLines": [
+        424,
+        424
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "VA22",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA22",
+      "fields": {
+        "heading": "VA22 evidencia de relación modifica gobernanza cuando corresponde",
+        "title": "evidencia de relación modifica gobernanza cuando corresponde"
+      },
+      "sourceLines": [
+        425,
+        425
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "VA23",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA23",
+      "fields": {
+        "heading": "VA23 revisiones son proporcionales a materialidad/evolución",
+        "title": "revisiones son proporcionales a materialidad/evolución"
+      },
+      "sourceLines": [
+        426,
+        426
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "P2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P2",
+      "fields": {
+        "heading": "P2 · Triggers",
+        "title": "Triggers",
+        "body": [
+          "Profundizamos ante:",
+          "- “eso lo maneja el proveedor”;",
+          "- roles ambiguos;",
+          "- exceso de reuniones;",
+          "- retrabajo;",
+          "- incumplimientos;",
+          "- SLA bueno pero outcome malo;",
+          "- issues repetidos;",
+          "- escalaciones tardías;",
+          "- relación dependiente de una persona;",
+          "- scope creep;",
+          "- cambios no documentados;",
+          "- disputas de facturación;",
+          "- problemas de información;",
+          "- finger-pointing;",
+          "- renovación automática;",
+          "- proveedor crítico sin review;",
+          "- relación cordial con bajo performance;",
+          "- performance alto con conflicto recurrente."
+        ]
+      },
+      "sourceLines": [
+        444,
+        463
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "P3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P3",
+      "fields": {
+        "heading": "P3 · Discriminación",
+        "title": "Discriminación",
+        "body": [
+          "Ante “el proveedor no funciona”:",
+          "WRONG ACTOR → EC-02",
+          "BAD RELATIONSHIP GOVERNANCE → EC-03",
+          "LOW INTERNAL ABSORPTION → EC-04",
+          "CRITICAL DEPENDENCY → EC-05",
+          "INTERNAL PROCESS → OP",
+          "TECHNOLOGY → DT",
+          "CUSTOMER CONSEQUENCE → CM-04/05",
+          "La misma evidencia puede alimentar varias capacidades:",
+          "reuse evidence, not conclusions."
+        ]
+      },
+      "sourceLines": [
+        465,
+        475
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "P4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P4",
+      "fields": {
+        "heading": "P4 · Contradicciones",
+        "title": "Contradicciones",
+        "body": [
+          "CONTR-EC03-01",
+          "CLEAR_CONTRACT_vs_UNCLEAR_WORKING_MODEL",
+          "CONTR-EC03-02",
+          "HIGH_ACTIVITY_vs_LOW_OUTCOME",
+          "CONTR-EC03-03",
+          "SLA_COMPLIANT_vs_BUSINESS_OUTCOME_GAP",
+          "CONTR-EC03-04",
+          "FREQUENT_MEETINGS_vs_COORDINATION_FAILURE",
+          "CONTR-EC03-05",
+          "FRIENDLY_RELATIONSHIP_vs_LOW_PERFORMANCE",
+          "CONTR-EC03-06",
+          "HIGH_PERFORMANCE_vs_RELATIONSHIP_INSTABILITY",
+          "CONTR-EC03-07",
+          "ISSUE_CLOSED_vs_PROBLEM_RECURRING",
+          "CONTR-EC03-08",
+          "OUTSOURCED_EXECUTION_vs_NO_INTERNAL_ACCOUNTABILITY"
+        ]
+      },
+      "sourceLines": [
+        477,
+        493
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "SUFF-EC03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SUFF",
+      "sourceId": "SUFF-EC03-01",
+      "fields": {
+        "heading": "SUFF-EC03-01",
+        "body": [
+          "EC-03 alcanza suficiencia cuando propósito y outcomes materiales de la relación son suficientemente claros, responsabilidades y derechos de decisión permiten operar, las interfaces e información soportan coordinación suficiente, performance e issues son observables y existen mecanismos proporcionales para escalar, adaptar y revisar la relación.",
+          "No exige:",
+          "- SLA;",
+          "- comité;",
+          "- contrato complejo;",
+          "- vendor-management platform."
+        ]
+      },
+      "sourceLines": [
+        518,
+        524
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC03-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC03-03",
+      "fields": {
+        "heading": "CAND-MOTOR-EC03-03",
+        "body": [
+          "Performance confidence no debe transferirse automáticamente a relationship-health confidence ni viceversa."
+        ]
+      },
+      "sourceLines": [
+        538,
+        539
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "R-EC03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC03-01",
+      "fields": {
+        "heading": "R-EC03-01 · EXTERNAL_RELATIONSHIP_PURPOSE_GAP",
+        "title": "EXTERNAL_RELATIONSHIP_PURPOSE_GAP"
+      },
+      "sourceLines": [
+        543,
+        543
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "R-EC03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC03-02",
+      "fields": {
+        "heading": "R-EC03-02 · EXTERNAL_RELATIONSHIP_OUTCOME_GAP",
+        "title": "EXTERNAL_RELATIONSHIP_OUTCOME_GAP"
+      },
+      "sourceLines": [
+        544,
+        544
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "R-EC03-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC03-03",
+      "fields": {
+        "heading": "R-EC03-03 · THIRD_PARTY_RESPONSIBILITY_GAP",
+        "title": "THIRD_PARTY_RESPONSIBILITY_GAP"
+      },
+      "sourceLines": [
+        545,
+        545
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "R-EC03-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC03-04",
+      "fields": {
+        "heading": "R-EC03-04 · THIRD_PARTY_ACCOUNTABILITY_GAP",
+        "title": "THIRD_PARTY_ACCOUNTABILITY_GAP"
+      },
+      "sourceLines": [
+        546,
+        546
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "R-EC03-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC03-05",
+      "fields": {
+        "heading": "R-EC03-05 · EXTERNAL_DECISION_RIGHT_GAP",
+        "title": "EXTERNAL_DECISION_RIGHT_GAP"
+      },
+      "sourceLines": [
+        547,
+        547
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "R-EC03-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC03-06",
+      "fields": {
+        "heading": "R-EC03-06 · EXTERNAL_WORKING_AGREEMENT_GAP",
+        "title": "EXTERNAL_WORKING_AGREEMENT_GAP"
+      },
+      "sourceLines": [
+        548,
+        548
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "R-EC03-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC03-07",
+      "fields": {
+        "heading": "R-EC03-07 · EXTERNAL_INTERFACE_DEFINITION_GAP",
+        "title": "EXTERNAL_INTERFACE_DEFINITION_GAP"
+      },
+      "sourceLines": [
+        549,
+        549
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "R-EC03-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC03-08",
+      "fields": {
+        "heading": "R-EC03-08 · EXTERNAL_INFORMATION_FLOW_GAP",
+        "title": "EXTERNAL_INFORMATION_FLOW_GAP"
+      },
+      "sourceLines": [
+        550,
+        550
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "R-EC03-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC03-09",
+      "fields": {
+        "heading": "R-EC03-09 · EXTERNAL_COORDINATION_GAP",
+        "title": "EXTERNAL_COORDINATION_GAP"
+      },
+      "sourceLines": [
+        551,
+        551
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "R-EC03-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC03-10",
+      "fields": {
+        "heading": "R-EC03-10 · THIRD_PARTY_PERFORMANCE_VISIBILITY_GAP",
+        "title": "THIRD_PARTY_PERFORMANCE_VISIBILITY_GAP"
+      },
+      "sourceLines": [
+        552,
+        552
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "R-EC03-11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC03-11",
+      "fields": {
+        "heading": "R-EC03-11 · EXTERNAL_RELATIONSHIP_OUTCOME_VISIBILITY_GAP",
+        "title": "EXTERNAL_RELATIONSHIP_OUTCOME_VISIBILITY_GAP"
+      },
+      "sourceLines": [
+        553,
+        553
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "R-EC03-12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC03-12",
+      "fields": {
+        "heading": "R-EC03-12 · THIRD_PARTY_METRIC_ALIGNMENT_GAP",
+        "title": "THIRD_PARTY_METRIC_ALIGNMENT_GAP"
+      },
+      "sourceLines": [
+        554,
+        554
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "R-EC03-13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC03-13",
+      "fields": {
+        "heading": "R-EC03-13 · EXTERNAL_ISSUE_DETECTION_GAP",
+        "title": "EXTERNAL_ISSUE_DETECTION_GAP"
+      },
+      "sourceLines": [
+        555,
+        555
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "R-EC03-14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC03-14",
+      "fields": {
+        "heading": "R-EC03-14 · EXTERNAL_EXCEPTION_HANDLING_GAP",
+        "title": "EXTERNAL_EXCEPTION_HANDLING_GAP"
+      },
+      "sourceLines": [
+        556,
+        556
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "R-EC03-15",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC03-15",
+      "fields": {
+        "heading": "R-EC03-15 · EXTERNAL_ESCALATION_TRIGGER_GAP",
+        "title": "EXTERNAL_ESCALATION_TRIGGER_GAP"
+      },
+      "sourceLines": [
+        557,
+        557
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "R-EC03-16",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC03-16",
+      "fields": {
+        "heading": "R-EC03-16 · EXTERNAL_ESCALATION_AUTHORITY_GAP",
+        "title": "EXTERNAL_ESCALATION_AUTHORITY_GAP"
+      },
+      "sourceLines": [
+        558,
+        558
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "R-EC03-17",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC03-17",
+      "fields": {
+        "heading": "R-EC03-17 · EXTERNAL_ISSUE_CLOSURE_GAP",
+        "title": "EXTERNAL_ISSUE_CLOSURE_GAP"
+      },
+      "sourceLines": [
+        559,
+        559
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "R-EC03-18",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC03-18",
+      "fields": {
+        "heading": "R-EC03-18 · EXTERNAL_RELATIONSHIP_HEALTH_VISIBILITY_GAP",
+        "title": "EXTERNAL_RELATIONSHIP_HEALTH_VISIBILITY_GAP"
+      },
+      "sourceLines": [
+        560,
+        560
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "R-EC03-19",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC03-19",
+      "fields": {
+        "heading": "R-EC03-19 · EXTERNAL_RELATIONSHIP_ALIGNMENT_GAP",
+        "title": "EXTERNAL_RELATIONSHIP_ALIGNMENT_GAP"
+      },
+      "sourceLines": [
+        561,
+        561
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "R-EC03-20",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC03-20",
+      "fields": {
+        "heading": "R-EC03-20 · EXTERNAL_CHANGE_GOVERNANCE_GAP",
+        "title": "EXTERNAL_CHANGE_GOVERNANCE_GAP"
+      },
+      "sourceLines": [
+        562,
+        562
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "R-EC03-21",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC03-21",
+      "fields": {
+        "heading": "R-EC03-21 · EXTERNAL_RELATIONSHIP_ADAPTATION_GAP",
+        "title": "EXTERNAL_RELATIONSHIP_ADAPTATION_GAP"
+      },
+      "sourceLines": [
+        563,
+        563
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "R-EC03-22",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC03-22",
+      "fields": {
+        "heading": "R-EC03-22 · EXTERNAL_RELATIONSHIP_LEARNING_GAP",
+        "title": "EXTERNAL_RELATIONSHIP_LEARNING_GAP"
+      },
+      "sourceLines": [
+        564,
+        564
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "R-EC03-23",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC03-23",
+      "fields": {
+        "heading": "R-EC03-23 · EXTERNAL_RELATIONSHIP_REVIEW_GAP",
+        "title": "EXTERNAL_RELATIONSHIP_REVIEW_GAP"
+      },
+      "sourceLines": [
+        565,
+        565
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC03-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC03-04",
+      "fields": {
+        "heading": "CAND-MOTOR-EC03-04",
+        "body": [
+          "External Relationship Case debe preservar actor + purpose + expected outcome + responsibilities + interfaces + performance + governance."
+        ]
+      },
+      "sourceLines": [
+        618,
+        619
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC03-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC03-05",
+      "fields": {
+        "heading": "CAND-MOTOR-EC03-05",
+        "body": [
+          "Responsibility y accountability deben mantenerse separados."
+        ]
+      },
+      "sourceLines": [
+        620,
+        621
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC03-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC03-06",
+      "fields": {
+        "heading": "CAND-MOTOR-EC03-06",
+        "body": [
+          "Decision Rights deben asociarse a decisiones materiales específicas."
+        ]
+      },
+      "sourceLines": [
+        622,
+        623
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC03-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC03-07",
+      "fields": {
+        "heading": "CAND-MOTOR-EC03-07",
+        "body": [
+          "Working Agreement no debe requerir representación contractual."
+        ]
+      },
+      "sourceLines": [
+        624,
+        625
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC03-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC03-08",
+      "fields": {
+        "heading": "CAND-MOTOR-EC03-08",
+        "body": [
+          "Activity Performance, Delivery Performance y Relationship Outcome deben permanecer separados."
+        ]
+      },
+      "sourceLines": [
+        626,
+        627
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC03-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC03-09",
+      "fields": {
+        "heading": "CAND-MOTOR-EC03-09",
+        "body": [
+          "SLA compliance no puede cerrar automáticamente Relationship Outcome."
+        ]
+      },
+      "sourceLines": [
+        628,
+        629
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC03-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC03-10",
+      "fields": {
+        "heading": "CAND-MOTOR-EC03-10",
+        "body": [
+          "Issue debe conservar probable source/cause uncertainty antes de asignar responsabilidad."
+        ]
+      },
+      "sourceLines": [
+        630,
+        631
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC03-11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC03-11",
+      "fields": {
+        "heading": "CAND-MOTOR-EC03-11",
+        "body": [
+          "Escalation debe modelarse como mecanismo de resolución y no como estado negativo universal."
+        ]
+      },
+      "sourceLines": [
+        632,
+        633
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC03-12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC03-12",
+      "fields": {
+        "heading": "CAND-MOTOR-EC03-12",
+        "body": [
+          "Administrative Closure y Effective Resolution deben poder divergir."
+        ]
+      },
+      "sourceLines": [
+        634,
+        635
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC03-13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC03-13",
+      "fields": {
+        "heading": "CAND-MOTOR-EC03-13",
+        "body": [
+          "Performance y Relationship Health deben poder divergir."
+        ]
+      },
+      "sourceLines": [
+        636,
+        637
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC03-14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC03-14",
+      "fields": {
+        "heading": "CAND-MOTOR-EC03-14",
+        "body": [
+          "Material change debe poder activar revisión parcial del ERC sin invalidar automáticamente toda la relación."
+        ]
+      },
+      "sourceLines": [
+        638,
+        639
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC03-15",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC03-15",
+      "fields": {
+        "heading": "CAND-MOTOR-EC03-15",
+        "body": [
+          "Evidence generada en ERC debe poder derivarse a EC-04/05 sin reutilizar conclusiones."
+        ]
+      },
+      "sourceLines": [
+        640,
+        641
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-AI-EC03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-EC03-01",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-EC03-01",
+        "body": [
+          "Un resumen generado por IA de una relación externa no debe sustituir evidencia primaria cuando una decisión material dependa de compromisos, obligaciones o performance específicos."
+        ]
+      },
+      "sourceLines": [
+        652,
+        653
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-AI-EC03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-EC03-02",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-EC03-02",
+        "body": [
+          "La atribución automatizada de culpa por un issue debe tratarse como inferencia hasta disponer de evidencia causal suficiente."
+        ]
+      },
+      "sourceLines": [
+        654,
+        655
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-AI-EC03-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-EC03-03",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-EC03-03",
+        "body": [
+          "Sentiment inferido en comunicaciones no constituye por sí solo evidencia suficiente de Relationship Health."
+        ]
+      },
+      "sourceLines": [
+        656,
+        657
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-AI-EC03-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-EC03-04",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-EC03-04",
+        "body": [
+          "La automatización de coordinación no constituye coordinación efectiva salvo evidencia de que información, decisiones y acciones llegan suficientemente a su destino."
+        ]
+      },
+      "sourceLines": [
+        658,
+        659
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "FIND-EC03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_FIND",
+      "sourceId": "FIND-EC03-01",
+      "fields": {
+        "heading": "FIND-EC03-01",
+        "body": [
+          "Los findings de EC-03 deben describir condiciones de la relación antes de atribuirlas unilateralmente a una de las partes."
+        ]
+      },
+      "sourceLines": [
+        713,
+        714
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "P-EC03-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC03-09",
+      "fields": {
+        "heading": "P-EC03-09",
+        "body": [
+          "La severidad de un issue determina la profundidad de tratamiento necesaria, no por sí sola la continuidad o terminación de la relación."
+        ]
+      },
+      "sourceLines": [
+        754,
+        755
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "INT-EC03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-EC03-01",
+      "fields": {
+        "heading": "INT-EC03-01 · MINIMUM SUFFICIENT RELATIONSHIP GOVERNANCE",
+        "title": "MINIMUM SUFFICIENT RELATIONSHIP GOVERNANCE",
+        "body": [
+          "Utilizar el conjunto mínimo de claridad, coordinación, información, seguimiento y mecanismos de excepción suficiente para gobernar los outcomes materiales de una relación externa.",
+          "Una relación simple puede necesitar:",
+          "owner + resultado + comunicación + revisión.",
+          "Una crítica:",
+          "puede necesitar controles mucho mayores."
+        ]
+      },
+      "sourceLines": [
+        759,
+        764
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "INT-EC03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-EC03-02",
+      "fields": {
+        "heading": "INT-EC03-02",
+        "body": [
+          "La gobernanza debe orientarse al resultado que justifica la relación y no únicamente al cumplimiento de actividades o mecanismos administrativos."
+        ]
+      },
+      "sourceLines": [
+        767,
+        768
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "INS-EC03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC03-01",
+      "fields": {
+        "heading": "INS-EC03-01 · External Relationship Case Card",
+        "title": "External Relationship Case Card",
+        "body": [
+          "actor → purpose → outcome → materiality → governance."
+        ]
+      },
+      "sourceLines": [
+        785,
+        786
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "INS-EC03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC03-02",
+      "fields": {
+        "heading": "INS-EC03-02 · Accountability & Decision Rights Map",
+        "title": "Accountability & Decision Rights Map",
+        "body": [
+          "condition/decision → responsible → accountable → authority."
+        ]
+      },
+      "sourceLines": [
+        787,
+        788
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "INS-EC03-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC03-03",
+      "fields": {
+        "heading": "INS-EC03-03 · Working Agreement Card",
+        "title": "Working Agreement Card",
+        "body": [
+          "expectations → roles → cadence → information → decisions → exceptions."
+        ]
+      },
+      "sourceLines": [
+        789,
+        790
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "INS-EC03-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC03-04",
+      "fields": {
+        "heading": "INS-EC03-04 · External Relationship Interface Map",
+        "title": "External Relationship Interface Map",
+        "body": [
+          "handoff → sender → receiver → information/work → confirmation."
+        ]
+      },
+      "sourceLines": [
+        791,
+        792
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "INS-EC03-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC03-05",
+      "fields": {
+        "heading": "INS-EC03-05 · Relationship Performance Card",
+        "title": "Relationship Performance Card",
+        "body": [
+          "purpose → activity → delivery → outcome → evidence."
+        ]
+      },
+      "sourceLines": [
+        793,
+        794
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "INS-EC03-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC03-06",
+      "fields": {
+        "heading": "INS-EC03-06 · Issue & Exception Log",
+        "title": "Issue & Exception Log",
+        "body": [
+          "issue → consequence → ownership → action → state."
+        ]
+      },
+      "sourceLines": [
+        795,
+        796
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "INS-EC03-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC03-07",
+      "fields": {
+        "heading": "INS-EC03-07 · Escalation & Resolution Card",
+        "title": "Escalation & Resolution Card",
+        "body": [
+          "trigger → level → authority → response → resolution evidence."
+        ]
+      },
+      "sourceLines": [
+        797,
+        798
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "INS-EC03-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC03-08",
+      "fields": {
+        "heading": "INS-EC03-08 · Relationship Health Review",
+        "title": "Relationship Health Review",
+        "body": [
+          "predictability → alignment → commitments → issue handling → material risks."
+        ]
+      },
+      "sourceLines": [
+        799,
+        800
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "INS-EC03-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC03-09",
+      "fields": {
+        "heading": "INS-EC03-09 · Relationship Reset Card",
+        "title": "Relationship Reset Card",
+        "body": [
+          "changed condition → implication → renegotiation → new operating state.",
+          "Registramos:"
+        ]
+      },
+      "sourceLines": [
+        801,
+        803
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CAND-INSTRUMENT-TRANSVERSAL-11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-INSTRUMENT-TRANSVERSAL-11",
+      "fields": {
+        "heading": "CAND-INSTRUMENT-TRANSVERSAL-11 · EXTERNAL-RELATIONSHIP-CASE-CARD",
+        "title": "EXTERNAL-RELATIONSHIP-CASE-CARD",
+        "body": [
+          "y:"
+        ]
+      },
+      "sourceLines": [
+        804,
+        805
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CAND-INSTRUMENT-TRANSVERSAL-12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-INSTRUMENT-TRANSVERSAL-12",
+      "fields": {
+        "heading": "CAND-INSTRUMENT-TRANSVERSAL-12 · ACCOUNTABILITY-DECISION-RIGHTS-MAP",
+        "title": "ACCOUNTABILITY-DECISION-RIGHTS-MAP",
+        "body": [
+          "El segundo puede ser reutilizable fuera de EC."
+        ]
+      },
+      "sourceLines": [
+        806,
+        807
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC03-01",
+      "fields": {
+        "heading": "DEL-EC03-01 · propósito/outcome relacional explícitos",
+        "title": "propósito/outcome relacional explícitos"
+      },
+      "sourceLines": [
+        810,
+        810
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC03-02",
+      "fields": {
+        "heading": "DEL-EC03-02 · accountability y decision rights suficientemente claros",
+        "title": "accountability y decision rights suficientemente claros"
+      },
+      "sourceLines": [
+        811,
+        811
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC03-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC03-03",
+      "fields": {
+        "heading": "DEL-EC03-03 · working model suficientemente definido",
+        "title": "working model suficientemente definido"
+      },
+      "sourceLines": [
+        812,
+        812
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC03-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC03-04",
+      "fields": {
+        "heading": "DEL-EC03-04 · interfaces y coordinación suficientemente operables",
+        "title": "interfaces y coordinación suficientemente operables"
+      },
+      "sourceLines": [
+        813,
+        813
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC03-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC03-05",
+      "fields": {
+        "heading": "DEL-EC03-05 · performance/outcome suficientemente visibles",
+        "title": "performance/outcome suficientemente visibles"
+      },
+      "sourceLines": [
+        814,
+        814
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC03-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC03-06",
+      "fields": {
+        "heading": "DEL-EC03-06 · issues/exceptions gobernables",
+        "title": "issues/exceptions gobernables"
+      },
+      "sourceLines": [
+        815,
+        815
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC03-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC03-07",
+      "fields": {
+        "heading": "DEL-EC03-07 · escalación y resolución operables",
+        "title": "escalación y resolución operables"
+      },
+      "sourceLines": [
+        816,
+        816
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC03-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC03-08",
+      "fields": {
+        "heading": "DEL-EC03-08 · salud/alineación relacional suficientemente visible",
+        "title": "salud/alineación relacional suficientemente visible"
+      },
+      "sourceLines": [
+        817,
+        817
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC03-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC03-09",
+      "fields": {
+        "heading": "DEL-EC03-09 · relación adaptable ante cambios materiales",
+        "title": "relación adaptable ante cambios materiales"
+      },
+      "sourceLines": [
+        818,
+        818
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC03-01",
+      "fields": {
+        "heading": "| CRV-EC03-01 | Relaciones intervenidas tienen propósito/outcome material suficientemente explícitos |",
+        "title": "Relaciones intervenidas tienen propósito/outcome material suficientemente explícitos"
+      },
+      "sourceLines": [
+        842,
+        842
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC03-02",
+      "fields": {
+        "heading": "| CRV-EC03-02 | Decisiones/responsabilidades críticas poseen owner/accountability verificables |",
+        "title": "Decisiones/responsabilidades críticas poseen owner/accountability verificables"
+      },
+      "sourceLines": [
+        843,
+        843
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC03-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC03-03",
+      "fields": {
+        "heading": "| CRV-EC03-03 | Working agreements reducen ambigüedades materiales de operación |",
+        "title": "Working agreements reducen ambigüedades materiales de operación"
+      },
+      "sourceLines": [
+        844,
+        844
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC03-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC03-04",
+      "fields": {
+        "heading": "| CRV-EC03-04 | Interfaces prioritarias transfieren información/trabajo con continuidad suficiente |",
+        "title": "Interfaces prioritarias transfieren información/trabajo con continuidad suficiente"
+      },
+      "sourceLines": [
+        845,
+        845
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC03-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC03-05",
+      "fields": {
+        "heading": "| CRV-EC03-05 | Performance relevante puede distinguir actividad, delivery y outcome |",
+        "title": "Performance relevante puede distinguir actividad, delivery y outcome"
+      },
+      "sourceLines": [
+        846,
+        846
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC03-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC03-06",
+      "fields": {
+        "heading": "| CRV-EC03-06 | Issues materiales pueden detectarse, asignarse y seguirse hasta tratamiento |",
+        "title": "Issues materiales pueden detectarse, asignarse y seguirse hasta tratamiento"
+      },
+      "sourceLines": [
+        847,
+        847
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC03-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC03-07",
+      "fields": {
+        "heading": "| CRV-EC03-07 | Escalaciones alcanzan autoridad suficiente y preservan evidencia de resolución |",
+        "title": "Escalaciones alcanzan autoridad suficiente y preservan evidencia de resolución"
+      },
+      "sourceLines": [
+        848,
+        848
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC03-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC03-08",
+      "fields": {
+        "heading": "| CRV-EC03-08 | Desalineaciones materiales generan acciones verificables de realineación |",
+        "title": "Desalineaciones materiales generan acciones verificables de realineación"
+      },
+      "sourceLines": [
+        849,
+        849
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC03-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC03-09",
+      "fields": {
+        "heading": "| CRV-EC03-09 | Cambios materiales actualizan gobernanza o producen decisión explícita de transición/salida |",
+        "title": "Cambios materiales actualizan gobernanza o producen decisión explícita de transición/salida"
+      },
+      "sourceLines": [
+        850,
+        850
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "V0",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V0",
+      "fields": {
+        "heading": "V0 · UNKNOWN",
+        "title": "UNKNOWN",
+        "body": [
+          "No existe comprensión suficiente de cómo funciona la relación."
+        ]
+      },
+      "sourceLines": [
+        853,
+        854
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "V1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V1",
+      "fields": {
+        "heading": "V1 · RELATIONSHIP-DEFINED",
+        "title": "RELATIONSHIP-DEFINED",
+        "body": [
+          "Propósito, outcomes, roles e interfaces principales están suficientemente definidos."
+        ]
+      },
+      "sourceLines": [
+        855,
+        856
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "V2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V2",
+      "fields": {
+        "heading": "V2 · RELATIONSHIP-EVIDENCED",
+        "title": "RELATIONSHIP-EVIDENCED",
+        "body": [
+          "Existe evidencia suficiente de coordinación, performance e issues reales."
+        ]
+      },
+      "sourceLines": [
+        857,
+        858
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "V3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V3",
+      "fields": {
+        "heading": "V3 · RELATIONSHIP-GOVERNED",
+        "title": "RELATIONSHIP-GOVERNED",
+        "body": [
+          "La relación produce outcomes suficientemente gobernables y sus desviaciones pueden tratarse."
+        ]
+      },
+      "sourceLines": [
+        859,
+        860
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "V4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V4",
+      "fields": {
+        "heading": "V4 · RELATIONSHIP-ADAPTIVE",
+        "title": "RELATIONSHIP-ADAPTIVE",
+        "body": [
+          "La gobernanza puede aprender, realinear y modificar la relación de forma repetible cuando cambian sus condiciones."
+        ]
+      },
+      "sourceLines": [
+        861,
+        862
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC03-16",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC03-16",
+      "fields": {
+        "heading": "CAND-MOTOR-EC03-16",
+        "body": [
+          "Relationship Governance State no debe transferirse automáticamente a External Dependency State.",
+          "Será fundamental para EC-05."
+        ]
+      },
+      "sourceLines": [
+        871,
+        873
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC03-17",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC03-17",
+      "fields": {
+        "heading": "CAND-MOTOR-EC03-17",
+        "body": [
+          "Relationship Health signal debe evaluarse por consecuencia material antes de convertirse en finding de gobernanza."
+        ]
+      },
+      "sourceLines": [
+        879,
+        880
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "REASS-EC03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_REASS",
+      "sourceId": "REASS-EC03-01",
+      "fields": {
+        "heading": "REASS-EC03-01",
+        "body": [
+          "Una relación previamente bien gobernada debe reevaluarse cuando cambien materialmente propósito, outcomes, responsabilidades, interfaces, economics, riesgo o dependencia."
+        ]
+      },
+      "sourceLines": [
+        901,
+        902
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "P-EC03-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC03-10",
+      "fields": {
+        "heading": "P-EC03-10",
+        "body": [
+          "La sofisticación formal de la gobernanza no constituye por sí misma evidencia de capacidad."
+        ]
+      },
+      "sourceLines": [
+        913,
+        914
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "SOURCE-REVIEW-TRIGGER-EC03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SOURCE",
+      "sourceId": "SOURCE-REVIEW-TRIGGER-EC03-01",
+      "fields": {
+        "heading": "SOURCE-REVIEW-TRIGGER-EC03-01 · Revisar grounding externo cuando cambien materialmente estándares o prácticas reconocidas de supplier relationship management, outsourcing governance o third-party governance.",
+        "title": "Revisar grounding externo cuando cambien materialmente estándares o prácticas reconocidas de supplier relationship management, outsourcing governance o third-party governance.",
+        "body": [
+          "Durante la consolidación final 6×31 reconciliamos esta bibliografía con el Source Register maestro."
+        ]
+      },
+      "sourceLines": [
+        963,
+        964
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "K1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Coherencia — PASS",
+        "title": "Coherencia — PASS",
+        "body": [
+          "Fronteras con EC-02/04/05 y OP/DT quedan suficientemente delimitadas."
+        ]
+      },
+      "sourceLines": [
+        1008,
+        1009
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "K2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Razonamiento — PASS",
+        "title": "Razonamiento — PASS",
+        "body": [
+          "Preserva:",
+          "CONTRACT ≠ GOVERNANCE",
+          "RESPONSIBILITY ≠ ACCOUNTABILITY",
+          "COMMUNICATION ≠ COORDINATION",
+          "ACTIVITY ≠ DELIVERY ≠ OUTCOME",
+          "CLOSURE ≠ RESOLUTION",
+          "PERFORMANCE ≠ RELATIONSHIP HEALTH"
+        ]
+      },
+      "sourceLines": [
+        1010,
+        1017
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "K3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · Acción — PASS",
+        "title": "Acción — PASS",
+        "body": [
+          "Los findings conducen a intervenciones ejecutables y resultados verificables."
+        ]
+      },
+      "sourceLines": [
+        1018,
+        1019
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "K4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · Knowledge — PASS",
+        "title": "Knowledge — PASS",
+        "body": [
+          "Objetos, reglas, evidence, confidence, contextualización, provenance, follow-up y governance quedan explícitos."
+        ]
+      },
+      "sourceLines": [
+        1020,
+        1021
+      ],
+      "approvalEvidence": {
+        "text": "EC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1023,
+          1023
+        ]
+      }
+    },
+    {
+      "key": "EC-05",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_EC",
+      "sourceId": "EC-05",
+      "fields": {
+        "heading": "EC-05 · Gestionar dependencias externas críticas",
+        "title": "Gestionar dependencias externas críticas",
+        "body": [
+          "El siguiente movimiento es EC-04, y aquí cambia nuevamente el objeto de análisis. Hasta ahora hemos preguntado a quién seleccionamos y cómo gobernamos la relación. EC-04 preguntará si la pyme realmente logra convertir lo que obtiene del exterior en capacidad útil propia.",
+          "La distinción nuclear será:",
+          "ACCESS ≠ TRANSFER ≠ UNDERSTANDING ≠ ADOPTION ≠ APPLICATION ≠ INTERNALIZATION ≠ VALUE",
+          "porque contratar consultoría, comprar tecnología, recibir capacitación o acceder a conocimiento externo no significa que la organización haya adquirido capacidad.",
+          "seguimos",
+          "Seguimos con la penúltima capacidad de toda la taxonomía."
+        ]
+      },
+      "sourceLines": [
+        1053,
+        1059
+      ]
+    }
+  ],
+  "governanceDecisions": {
+    "decisionSetId": "M2-FINAL-MASS-BATCH",
+    "ref": "knowledge/intake/EC-03/governance-decisions.json",
+    "checksum": "sha256:036d58e2c892cdc305c3a2672325216deb04c85d0c96b7989271074cede07dcc"
+  },
+  "checksum": "sha256:ee7ea2f8f0ed9b8bd3765b8fcbcd4810598740c4964b0145c3a83b246fc6cde1"
+}

@@ -1,0 +1,2317 @@
+{
+  "baselineId": "EC02-K4-v1.0",
+  "capabilityId": "EC-02",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "historicalStatus": {
+    "marker": "EC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      1020,
+      1020
+    ]
+  },
+  "rawSource": {
+    "ref": "raw/EC-02.txt",
+    "sha256": "d75b34372dcf8b2ca0047676ece194b99cdcec7f1d3348776cb44f5214db2cdd",
+    "byteLength": 44799,
+    "lineCount": 1056,
+    "transcription": {
+      "tool": "pymapa-docx-text 1.0.0",
+      "arguments": ""
+    },
+    "originalDocument": {
+      "filename": "EC_-_01_A_05_Completo.docx",
+      "byteLength": 212147,
+      "sha256": "7c22240c1ff21573da95907aa24087d2e5c04e248ab519781601c0d4f2fdf532"
+    }
+  },
+  "provenanceVocabulary": [
+    {
+      "code": "SOURCE-DERIVED",
+      "label": "SOURCE-DERIVED",
+      "meaning": "Conceptos generales de sourcing, supplier evaluation, procurement, third-party assessment y due diligence.",
+      "sourceLines": [
+        946,
+        947
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "PYMAPA-DESIGNED",
+      "label": "PYMAPA-DESIGNED",
+      "meaning": "- External Capability Need;",
+      "sourceLines": [
+        948,
+        949
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    }
+  ],
+  "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 9,
+      "objectType": "SOURCE_ID_CE",
+      "sourceLines": [
+        1023,
+        1023
+      ]
+    },
+    {
+      "label": "CRV",
+      "declared": 9,
+      "objectType": "SOURCE_ID_CRV",
+      "sourceLines": [
+        1033,
+        1033
+      ]
+    },
+    {
+      "label": "VA",
+      "declared": 21,
+      "objectType": "SOURCE_ID_VA",
+      "sourceLines": [
+        1024,
+        1024
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "key": "P-EC02-CORE-01",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC02-CORE-01",
+      "fields": {
+        "heading": "P-EC02-CORE-01",
+        "body": [
+          "La búsqueda de actores externos debe partir de una necesidad/capacidad requerida suficientemente definida y no de una solución, proveedor o tecnología predeterminados."
+        ]
+      },
+      "sourceLines": [
+        78,
+        79
+      ]
+    },
+    {
+      "key": "P-EC02-01",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC02-01",
+      "fields": {
+        "heading": "P-EC02-01",
+        "body": [
+          "La utilización de un actor externo solo debe considerarse adecuada cuando ofrece suficiente correspondencia con la necesidad y sus implicaciones son aceptables frente a alternativas razonables."
+        ]
+      },
+      "sourceLines": [
+        108,
+        109
+      ]
+    },
+    {
+      "key": "APP-EC02-01",
+      "objectType": "SOURCE_ID_APP",
+      "sourceId": "APP-EC02-01",
+      "fields": {
+        "heading": "APP-EC02-01",
+        "body": [
+          "La profundidad de búsqueda, comparación y validación debe ser proporcional a materialidad, incertidumbre, irreversibilidad y dependencia potencial de la selección."
+        ]
+      },
+      "sourceLines": [
+        153,
+        154
+      ]
+    },
+    {
+      "key": "P-EC02-02",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC02-02",
+      "fields": {
+        "heading": "P-EC02-02",
+        "body": [
+          "La relación previa con un actor constituye evidencia relevante, pero no sustituye automáticamente la evaluación de fit para una necesidad nueva o materialmente distinta."
+        ]
+      },
+      "sourceLines": [
+        221,
+        222
+      ]
+    },
+    {
+      "key": "P-EC02-03",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC02-03",
+      "fields": {
+        "heading": "P-EC02-03",
+        "body": [
+          "Referral constituye una fuente de candidato, no evidencia suficiente universal de adecuación."
+        ]
+      },
+      "sourceLines": [
+        230,
+        231
+      ]
+    },
+    {
+      "key": "FIT-01",
+      "objectType": "SOURCE_ID_FIT",
+      "sourceId": "FIT-01",
+      "fields": {
+        "heading": "FIT-01 · CAPABILITY",
+        "title": "CAPABILITY",
+        "body": [
+          "¿Puede hacer lo requerido?"
+        ]
+      },
+      "sourceLines": [
+        244,
+        245
+      ]
+    },
+    {
+      "key": "FIT-02",
+      "objectType": "SOURCE_ID_FIT",
+      "sourceId": "FIT-02",
+      "fields": {
+        "heading": "FIT-02 · EXPERIENCE",
+        "title": "EXPERIENCE",
+        "body": [
+          "¿Tiene experiencia relevante suficiente?"
+        ]
+      },
+      "sourceLines": [
+        246,
+        247
+      ]
+    },
+    {
+      "key": "FIT-03",
+      "objectType": "SOURCE_ID_FIT",
+      "sourceId": "FIT-03",
+      "fields": {
+        "heading": "FIT-03 · CONTEXT",
+        "title": "CONTEXT",
+        "body": [
+          "¿Comprende suficientemente el contexto aplicable?"
+        ]
+      },
+      "sourceLines": [
+        248,
+        249
+      ]
+    },
+    {
+      "key": "FIT-04",
+      "objectType": "SOURCE_ID_FIT",
+      "sourceId": "FIT-04",
+      "fields": {
+        "heading": "FIT-04 · CAPACITY",
+        "title": "CAPACITY",
+        "body": [
+          "¿Tiene disponibilidad/capacidad para atender?"
+        ]
+      },
+      "sourceLines": [
+        250,
+        251
+      ]
+    },
+    {
+      "key": "FIT-05",
+      "objectType": "SOURCE_ID_FIT",
+      "sourceId": "FIT-05",
+      "fields": {
+        "heading": "FIT-05 · DELIVERY",
+        "title": "DELIVERY",
+        "body": [
+          "¿Puede entregar bajo condiciones necesarias?"
+        ]
+      },
+      "sourceLines": [
+        252,
+        253
+      ]
+    },
+    {
+      "key": "FIT-06",
+      "objectType": "SOURCE_ID_FIT",
+      "sourceId": "FIT-06",
+      "fields": {
+        "heading": "FIT-06 · ECONOMIC",
+        "title": "ECONOMIC",
+        "body": [
+          "¿Costo/modelo económico es suficientemente adecuado?"
+        ]
+      },
+      "sourceLines": [
+        254,
+        255
+      ]
+    },
+    {
+      "key": "FIT-07",
+      "objectType": "SOURCE_ID_FIT",
+      "sourceId": "FIT-07",
+      "fields": {
+        "heading": "FIT-07 · COLLABORATION",
+        "title": "COLLABORATION",
+        "body": [
+          "¿Puede trabajar bajo la forma de relación requerida?"
+        ]
+      },
+      "sourceLines": [
+        256,
+        257
+      ]
+    },
+    {
+      "key": "FIT-08",
+      "objectType": "SOURCE_ID_FIT",
+      "sourceId": "FIT-08",
+      "fields": {
+        "heading": "FIT-08 · RISK",
+        "title": "RISK",
+        "body": [
+          "¿Perfil de riesgo es aceptable?"
+        ]
+      },
+      "sourceLines": [
+        258,
+        259
+      ]
+    },
+    {
+      "key": "FIT-09",
+      "objectType": "SOURCE_ID_FIT",
+      "sourceId": "FIT-09",
+      "fields": {
+        "heading": "FIT-09 · CONTINUITY",
+        "title": "CONTINUITY",
+        "body": [
+          "¿Puede sostener razonablemente lo necesario?"
+        ]
+      },
+      "sourceLines": [
+        260,
+        261
+      ]
+    },
+    {
+      "key": "FIT-10",
+      "objectType": "SOURCE_ID_FIT",
+      "sourceId": "FIT-10",
+      "fields": {
+        "heading": "FIT-10 · EXIT",
+        "title": "EXIT",
+        "body": [
+          "¿La relación puede terminar/migrar de forma aceptable?",
+          "No todos aplican siempre."
+        ]
+      },
+      "sourceLines": [
+        262,
+        264
+      ]
+    },
+    {
+      "key": "P-EC02-04",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC02-04",
+      "fields": {
+        "heading": "P-EC02-04",
+        "body": [
+          "El precio debe evaluarse como una dimensión del fit y no como proxy universal de adecuación."
+        ]
+      },
+      "sourceLines": [
+        276,
+        277
+      ]
+    },
+    {
+      "key": "P-EC02-05",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC02-05",
+      "fields": {
+        "heading": "P-EC02-05",
+        "body": [
+          "Tamaño, marca o prestigio del actor no constituyen evidencia suficiente de fit."
+        ]
+      },
+      "sourceLines": [
+        284,
+        285
+      ]
+    },
+    {
+      "key": "P-EC02-06",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC02-06",
+      "fields": {
+        "heading": "P-EC02-06",
+        "body": [
+          "Credenciales y certificaciones deben tratarse como evidencia específica, no como sustituto universal de evaluación."
+        ]
+      },
+      "sourceLines": [
+        294,
+        295
+      ]
+    },
+    {
+      "key": "P-EC02-07",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC02-07",
+      "fields": {
+        "heading": "P-EC02-07",
+        "body": [
+          "Una puntuación agregada no debe ocultar incumplimiento de un criterio crítico o de exclusión.",
+          "Un proveedor puede obtener:",
+          "92/100",
+          "y fallar:",
+          "requisito legal crítico.",
+          "No es seleccionable."
+        ]
+      },
+      "sourceLines": [
+        315,
+        321
+      ]
+    },
+    {
+      "key": "P-EC02-08",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC02-08",
+      "fields": {
+        "heading": "P-EC02-08",
+        "body": [
+          "Self-declared capability constituye evidencia de baja fuerza salvo corroboración suficiente cuando la decisión sea material."
+        ]
+      },
+      "sourceLines": [
+        354,
+        355
+      ]
+    },
+    {
+      "key": "P-EC02-09",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC02-09",
+      "fields": {
+        "heading": "P-EC02-09",
+        "body": [
+          "Una prueba limitada puede ser preferible a mayor análisis documental cuando produce información discriminante a costo y riesgo razonables.",
+          "Esto conecta directamente con VoI."
+        ]
+      },
+      "sourceLines": [
+        361,
+        363
+      ]
+    },
+    {
+      "key": "P-EC02-10",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC02-10",
+      "fields": {
+        "heading": "P-EC02-10",
+        "body": [
+          "Comparabilidad suficiente requiere hacer explícitas diferencias materiales, no necesariamente homogeneizar completamente las alternativas."
+        ]
+      },
+      "sourceLines": [
+        383,
+        384
+      ]
+    },
+    {
+      "key": "P-EC02-11",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC02-11",
+      "fields": {
+        "heading": "P-EC02-11",
+        "body": [
+          "La ausencia de múltiples candidatos no constituye por sí sola una brecha cuando existe justificación suficiente y evidencia proporcional de fit."
+        ]
+      },
+      "sourceLines": [
+        396,
+        397
+      ]
+    },
+    {
+      "key": "STOP-EC02-01",
+      "objectType": "SOURCE_ID_STOP",
+      "sourceId": "STOP-EC02-01",
+      "fields": {
+        "heading": "STOP-EC02-01",
+        "body": [
+          "La búsqueda puede detenerse cuando existe una alternativa suficientemente fit, los criterios críticos están satisfechos y el valor esperado de buscar alternativas adicionales no justifica costo o demora.",
+          "Esta es una aplicación directa de VoI."
+        ]
+      },
+      "sourceLines": [
+        403,
+        405
+      ]
+    },
+    {
+      "key": "CE01",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · External Need",
+        "title": "External Need"
+      },
+      "sourceLines": [
+        409,
+        409
+      ]
+    },
+    {
+      "key": "VA01",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA01",
+      "fields": {
+        "heading": "VA01 necesidad externa material suficientemente clara",
+        "title": "necesidad externa material suficientemente clara"
+      },
+      "sourceLines": [
+        410,
+        410
+      ]
+    },
+    {
+      "key": "VA02",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA02",
+      "fields": {
+        "heading": "VA02 resultado/capacidad requerida suficientemente definida",
+        "title": "resultado/capacidad requerida suficientemente definida"
+      },
+      "sourceLines": [
+        411,
+        411
+      ]
+    },
+    {
+      "key": "CE02",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Sourcing logic",
+        "title": "Sourcing logic"
+      },
+      "sourceLines": [
+        412,
+        412
+      ]
+    },
+    {
+      "key": "VA03",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA03",
+      "fields": {
+        "heading": "VA03 externalización/acceso suficientemente justificados",
+        "title": "externalización/acceso suficientemente justificados"
+      },
+      "sourceLines": [
+        413,
+        413
+      ]
+    },
+    {
+      "key": "VA04",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "VA04 alternativas build/buy/partner/access consideradas cuando materialmente relevantes",
+        "title": "alternativas build/buy/partner/access consideradas cuando materialmente relevantes"
+      },
+      "sourceLines": [
+        414,
+        414
+      ]
+    },
+    {
+      "key": "CE03",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Search",
+        "title": "Search"
+      },
+      "sourceLines": [
+        415,
+        415
+      ]
+    },
+    {
+      "key": "VA05",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "VA05 espacio razonable de actores suficientemente considerado",
+        "title": "espacio razonable de actores suficientemente considerado"
+      },
+      "sourceLines": [
+        416,
+        416
+      ]
+    },
+    {
+      "key": "VA06",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "VA06 candidatos identificados mediante fuentes suficientemente pertinentes",
+        "title": "candidatos identificados mediante fuentes suficientemente pertinentes"
+      },
+      "sourceLines": [
+        417,
+        417
+      ]
+    },
+    {
+      "key": "CE04",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE04",
+      "fields": {
+        "heading": "CE04 · Selection requirements",
+        "title": "Selection requirements"
+      },
+      "sourceLines": [
+        418,
+        418
+      ]
+    },
+    {
+      "key": "VA07",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "VA07 criterios críticos suficientemente definidos",
+        "title": "criterios críticos suficientemente definidos"
+      },
+      "sourceLines": [
+        419,
+        419
+      ]
+    },
+    {
+      "key": "VA08",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "VA08 preferencias/discriminadores suficientemente claros",
+        "title": "preferencias/discriminadores suficientemente claros"
+      },
+      "sourceLines": [
+        420,
+        420
+      ]
+    },
+    {
+      "key": "CE05",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE05",
+      "fields": {
+        "heading": "CE05 · Actor capability fit",
+        "title": "Actor capability fit"
+      },
+      "sourceLines": [
+        421,
+        421
+      ]
+    },
+    {
+      "key": "VA09",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA09",
+      "fields": {
+        "heading": "VA09 capacidad relevante suficientemente evidenciada",
+        "title": "capacidad relevante suficientemente evidenciada"
+      },
+      "sourceLines": [
+        422,
+        422
+      ]
+    },
+    {
+      "key": "VA10",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA10",
+      "fields": {
+        "heading": "VA10 experiencia/context fit suficientes cuando aplican",
+        "title": "experiencia/context fit suficientes cuando aplican"
+      },
+      "sourceLines": [
+        423,
+        423
+      ]
+    },
+    {
+      "key": "VA11",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA11",
+      "fields": {
+        "heading": "VA11 capacidad/disponibilidad suficientemente plausible",
+        "title": "capacidad/disponibilidad suficientemente plausible"
+      },
+      "sourceLines": [
+        424,
+        424
+      ]
+    },
+    {
+      "key": "CE06",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE06",
+      "fields": {
+        "heading": "CE06 · Delivery/economic fit",
+        "title": "Delivery/economic fit"
+      },
+      "sourceLines": [
+        425,
+        425
+      ]
+    },
+    {
+      "key": "VA12",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA12",
+      "fields": {
+        "heading": "VA12 alcance/condiciones de entrega suficientemente compatibles",
+        "title": "alcance/condiciones de entrega suficientemente compatibles"
+      },
+      "sourceLines": [
+        426,
+        426
+      ]
+    },
+    {
+      "key": "VA13",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA13",
+      "fields": {
+        "heading": "VA13 economics suficientemente comprendidos",
+        "title": "economics suficientemente comprendidos"
+      },
+      "sourceLines": [
+        427,
+        427
+      ]
+    },
+    {
+      "key": "CE07",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE07",
+      "fields": {
+        "heading": "CE07 · Risk/dependency fit",
+        "title": "Risk/dependency fit"
+      },
+      "sourceLines": [
+        428,
+        428
+      ]
+    },
+    {
+      "key": "VA14",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA14",
+      "fields": {
+        "heading": "VA14 riesgos materiales de selección suficientemente visibles",
+        "title": "riesgos materiales de selección suficientemente visibles"
+      },
+      "sourceLines": [
+        429,
+        429
+      ]
+    },
+    {
+      "key": "VA15",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA15",
+      "fields": {
+        "heading": "VA15 dependencia/continuidad potencial suficientemente considerada",
+        "title": "dependencia/continuidad potencial suficientemente considerada"
+      },
+      "sourceLines": [
+        430,
+        430
+      ]
+    },
+    {
+      "key": "VA16",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA16",
+      "fields": {
+        "heading": "VA16 exit/migration sufficiently considered cuando aplica",
+        "title": "exit/migration sufficiently considered cuando aplica"
+      },
+      "sourceLines": [
+        431,
+        431
+      ]
+    },
+    {
+      "key": "CE08",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE08",
+      "fields": {
+        "heading": "CE08 · Evidence/comparison",
+        "title": "Evidence/comparison"
+      },
+      "sourceLines": [
+        432,
+        432
+      ]
+    },
+    {
+      "key": "VA17",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA17",
+      "fields": {
+        "heading": "VA17 afirmaciones críticas suficientemente verificadas",
+        "title": "afirmaciones críticas suficientemente verificadas"
+      },
+      "sourceLines": [
+        433,
+        433
+      ]
+    },
+    {
+      "key": "VA18",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA18",
+      "fields": {
+        "heading": "VA18 alternativas suficientemente comparables",
+        "title": "alternativas suficientemente comparables"
+      },
+      "sourceLines": [
+        434,
+        434
+      ]
+    },
+    {
+      "key": "VA19",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA19",
+      "fields": {
+        "heading": "VA19 incertidumbres materiales suficientemente explícitas",
+        "title": "incertidumbres materiales suficientemente explícitas"
+      },
+      "sourceLines": [
+        435,
+        435
+      ]
+    },
+    {
+      "key": "CE09",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE09",
+      "fields": {
+        "heading": "CE09 · Selection decision",
+        "title": "Selection decision"
+      },
+      "sourceLines": [
+        436,
+        436
+      ]
+    },
+    {
+      "key": "VA20",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA20",
+      "fields": {
+        "heading": "VA20 actor seleccionado satisface condiciones críticas",
+        "title": "actor seleccionado satisface condiciones críticas"
+      },
+      "sourceLines": [
+        437,
+        437
+      ]
+    },
+    {
+      "key": "VA21",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA21",
+      "fields": {
+        "heading": "VA21 rationale de selección suficientemente trazable",
+        "title": "rationale de selección suficientemente trazable"
+      },
+      "sourceLines": [
+        438,
+        438
+      ]
+    },
+    {
+      "key": "P2",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P2",
+      "fields": {
+        "heading": "P2 · Triggers",
+        "title": "Triggers",
+        "body": [
+          "Profundizamos ante:",
+          "- selección por precio únicamente;",
+          "- “siempre usamos al mismo”;",
+          "- proveedor recomendado informalmente;",
+          "- único candidato;",
+          "- solución propietaria;",
+          "- contrato largo;",
+          "- alto switching cost;",
+          "- datos sensibles;",
+          "- operación crítica;",
+          "- alta inversión;",
+          "- proveedor pequeño crítico;",
+          "- promesas sin evidencia;",
+          "- ofertas difícilmente comparables;",
+          "- dependencia futura;",
+          "- conocimiento muy especializado;",
+          "- outsourcing de competencia central."
+        ]
+      },
+      "sourceLines": [
+        455,
+        472
+      ]
+    },
+    {
+      "key": "P3",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P3",
+      "fields": {
+        "heading": "P3 · Discriminación",
+        "title": "Discriminación",
+        "body": [
+          "Ante:",
+          "“el proveedor no funcionó”",
+          "distinguimos:",
+          "NEED BADLY DEFINED → EC-02",
+          "ACTOR FIT ERROR → EC-02",
+          "RELATIONSHIP GOVERNANCE → EC-03",
+          "ORGANIZATION COULD NOT ABSORB → EC-04",
+          "DEPENDENCY/LOCK-IN → EC-05",
+          "TECHNOLOGY ITSELF INADEQUATE → DT-06/DT-01",
+          "IMPLEMENTATION EXECUTION → OP-05",
+          "Esto será fundamental para evitar culpar automáticamente al proveedor."
+        ]
+      },
+      "sourceLines": [
+        474,
+        485
+      ]
+    },
+    {
+      "key": "CONTR-EC02-01",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-EC02-01",
+      "fields": {
+        "heading": "CONTR-EC02-01",
+        "body": [
+          "STRATEGIC_NEED_vs_PRICE_ONLY_SELECTION"
+        ]
+      },
+      "sourceLines": [
+        488,
+        489
+      ]
+    },
+    {
+      "key": "CONTR-EC02-02",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-EC02-02",
+      "fields": {
+        "heading": "CONTR-EC02-02",
+        "body": [
+          "EXPERT_CLAIM_vs_NO_RELEVANT_EVIDENCE"
+        ]
+      },
+      "sourceLines": [
+        490,
+        491
+      ]
+    },
+    {
+      "key": "CONTR-EC02-03",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-EC02-03",
+      "fields": {
+        "heading": "CONTR-EC02-03",
+        "body": [
+          "MULTIPLE_QUOTES_vs_NONCOMPARABLE_SCOPE"
+        ]
+      },
+      "sourceLines": [
+        492,
+        493
+      ]
+    },
+    {
+      "key": "CONTR-EC02-04",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-EC02-04",
+      "fields": {
+        "heading": "CONTR-EC02-04",
+        "body": [
+          "PREFERRED_PROVIDER_vs_CHANGED_NEED"
+        ]
+      },
+      "sourceLines": [
+        494,
+        495
+      ]
+    },
+    {
+      "key": "CONTR-EC02-05",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-EC02-05",
+      "fields": {
+        "heading": "CONTR-EC02-05",
+        "body": [
+          "LOW_PRICE_vs_HIGH_SWITCHING_COST"
+        ]
+      },
+      "sourceLines": [
+        496,
+        497
+      ]
+    },
+    {
+      "key": "CONTR-EC02-06",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-EC02-06",
+      "fields": {
+        "heading": "CONTR-EC02-06",
+        "body": [
+          "CRITICAL_PROVIDER_vs_MINIMAL_DUE_DILIGENCE"
+        ]
+      },
+      "sourceLines": [
+        498,
+        499
+      ]
+    },
+    {
+      "key": "CONTR-EC02-07",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-EC02-07",
+      "fields": {
+        "heading": "CONTR-EC02-07",
+        "body": [
+          "EXTERNAL_SOLUTION_vs_INTERNAL_ABSORPTION_GAP",
+          "La última puede derivar hacia EC-04."
+        ]
+      },
+      "sourceLines": [
+        500,
+        502
+      ]
+    },
+    {
+      "key": "EVID-EC02-01",
+      "objectType": "SOURCE_ID_EVID",
+      "sourceId": "EVID-EC02-01",
+      "fields": {
+        "heading": "EVID-EC02-01",
+        "body": [
+          "La fuerza de evidencia exigida debe aumentar con criticidad, duración, irreversibilidad, acceso a activos sensibles y dependencia potencial de la relación.",
+          "Para una tarea de diseño puntual:",
+          "portfolio + referencia",
+          "puede bastar.",
+          "Para operar infraestructura crítica:",
+          "claramente no."
+        ]
+      },
+      "sourceLines": [
+        529,
+        535
+      ]
+    },
+    {
+      "key": "SUFF-EC02-01",
+      "objectType": "SOURCE_ID_SUFF",
+      "sourceId": "SUFF-EC02-01",
+      "fields": {
+        "heading": "SUFF-EC02-01",
+        "body": [
+          "EC-02 alcanza suficiencia cuando la necesidad externa y sus condiciones críticas están suficientemente definidas, se ha considerado un espacio razonable de alternativas proporcional al caso y existe evidencia suficiente para concluir que el actor seleccionado presenta fit aceptable sin incertidumbres críticas no tratadas.",
+          "No exige:",
+          "tres cotizaciones.",
+          "No exige:",
+          "licitación.",
+          "No exige:",
+          "proveedor perfecto."
+        ]
+      },
+      "sourceLines": [
+        538,
+        545
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-EC02-01",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC02-01",
+      "fields": {
+        "heading": "CAND-MOTOR-EC02-01",
+        "body": [
+          "La confianza en reputación o experiencia general de un actor no debe transferirse automáticamente a confianza de fit para la necesidad específica."
+        ]
+      },
+      "sourceLines": [
+        559,
+        560
+      ]
+    },
+    {
+      "key": "R-EC02-01",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC02-01",
+      "fields": {
+        "heading": "R-EC02-01 · EXTERNAL_CAPABILITY_NEED_UNCLEAR",
+        "title": "EXTERNAL_CAPABILITY_NEED_UNCLEAR"
+      },
+      "sourceLines": [
+        564,
+        564
+      ]
+    },
+    {
+      "key": "R-EC02-02",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC02-02",
+      "fields": {
+        "heading": "R-EC02-02 · REQUIRED_EXTERNAL_OUTCOME_UNCLEAR",
+        "title": "REQUIRED_EXTERNAL_OUTCOME_UNCLEAR"
+      },
+      "sourceLines": [
+        565,
+        565
+      ]
+    },
+    {
+      "key": "R-EC02-03",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC02-03",
+      "fields": {
+        "heading": "R-EC02-03 · EXTERNAL_SOURCING_RATIONALE_GAP",
+        "title": "EXTERNAL_SOURCING_RATIONALE_GAP"
+      },
+      "sourceLines": [
+        566,
+        566
+      ]
+    },
+    {
+      "key": "R-EC02-04",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC02-04",
+      "fields": {
+        "heading": "R-EC02-04 · SOURCING_ALTERNATIVE_BLIND_SPOT",
+        "title": "SOURCING_ALTERNATIVE_BLIND_SPOT"
+      },
+      "sourceLines": [
+        567,
+        567
+      ]
+    },
+    {
+      "key": "R-EC02-05",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC02-05",
+      "fields": {
+        "heading": "R-EC02-05 · EXTERNAL_ACTOR_SEARCH_SPACE_GAP",
+        "title": "EXTERNAL_ACTOR_SEARCH_SPACE_GAP"
+      },
+      "sourceLines": [
+        568,
+        568
+      ]
+    },
+    {
+      "key": "R-EC02-06",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC02-06",
+      "fields": {
+        "heading": "R-EC02-06 · CANDIDATE_SOURCE_RELEVANCE_GAP",
+        "title": "CANDIDATE_SOURCE_RELEVANCE_GAP"
+      },
+      "sourceLines": [
+        569,
+        569
+      ]
+    },
+    {
+      "key": "R-EC02-07",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC02-07",
+      "fields": {
+        "heading": "R-EC02-07 · CRITICAL_SELECTION_CRITERIA_GAP",
+        "title": "CRITICAL_SELECTION_CRITERIA_GAP"
+      },
+      "sourceLines": [
+        570,
+        570
+      ]
+    },
+    {
+      "key": "R-EC02-08",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC02-08",
+      "fields": {
+        "heading": "R-EC02-08 · SELECTION_DISCRIMINATOR_GAP",
+        "title": "SELECTION_DISCRIMINATOR_GAP"
+      },
+      "sourceLines": [
+        571,
+        571
+      ]
+    },
+    {
+      "key": "R-EC02-09",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC02-09",
+      "fields": {
+        "heading": "R-EC02-09 · EXTERNAL_ACTOR_CAPABILITY_EVIDENCE_GAP",
+        "title": "EXTERNAL_ACTOR_CAPABILITY_EVIDENCE_GAP"
+      },
+      "sourceLines": [
+        572,
+        572
+      ]
+    },
+    {
+      "key": "R-EC02-10",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC02-10",
+      "fields": {
+        "heading": "R-EC02-10 · EXTERNAL_ACTOR_CONTEXT_FIT_GAP",
+        "title": "EXTERNAL_ACTOR_CONTEXT_FIT_GAP"
+      },
+      "sourceLines": [
+        573,
+        573
+      ]
+    },
+    {
+      "key": "R-EC02-11",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC02-11",
+      "fields": {
+        "heading": "R-EC02-11 · EXTERNAL_ACTOR_CAPACITY_GAP",
+        "title": "EXTERNAL_ACTOR_CAPACITY_GAP"
+      },
+      "sourceLines": [
+        574,
+        574
+      ]
+    },
+    {
+      "key": "R-EC02-12",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC02-12",
+      "fields": {
+        "heading": "R-EC02-12 · EXTERNAL_DELIVERY_FIT_GAP",
+        "title": "EXTERNAL_DELIVERY_FIT_GAP"
+      },
+      "sourceLines": [
+        575,
+        575
+      ]
+    },
+    {
+      "key": "R-EC02-13",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC02-13",
+      "fields": {
+        "heading": "R-EC02-13 · EXTERNAL_ECONOMIC_FIT_GAP",
+        "title": "EXTERNAL_ECONOMIC_FIT_GAP"
+      },
+      "sourceLines": [
+        576,
+        576
+      ]
+    },
+    {
+      "key": "R-EC02-14",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC02-14",
+      "fields": {
+        "heading": "R-EC02-14 · EXTERNAL_ACTOR_RISK_BLIND_SPOT",
+        "title": "EXTERNAL_ACTOR_RISK_BLIND_SPOT"
+      },
+      "sourceLines": [
+        577,
+        577
+      ]
+    },
+    {
+      "key": "R-EC02-15",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC02-15",
+      "fields": {
+        "heading": "R-EC02-15 · POTENTIAL_EXTERNAL_DEPENDENCY_BLIND_SPOT",
+        "title": "POTENTIAL_EXTERNAL_DEPENDENCY_BLIND_SPOT"
+      },
+      "sourceLines": [
+        578,
+        578
+      ]
+    },
+    {
+      "key": "R-EC02-16",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC02-16",
+      "fields": {
+        "heading": "R-EC02-16 · EXTERNAL_EXIT_MIGRATION_BLIND_SPOT",
+        "title": "EXTERNAL_EXIT_MIGRATION_BLIND_SPOT"
+      },
+      "sourceLines": [
+        579,
+        579
+      ]
+    },
+    {
+      "key": "R-EC02-17",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC02-17",
+      "fields": {
+        "heading": "R-EC02-17 · CRITICAL_EXTERNAL_CLAIM_UNVERIFIED",
+        "title": "CRITICAL_EXTERNAL_CLAIM_UNVERIFIED"
+      },
+      "sourceLines": [
+        580,
+        580
+      ]
+    },
+    {
+      "key": "R-EC02-18",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC02-18",
+      "fields": {
+        "heading": "R-EC02-18 · EXTERNAL_ALTERNATIVE_COMPARABILITY_GAP",
+        "title": "EXTERNAL_ALTERNATIVE_COMPARABILITY_GAP"
+      },
+      "sourceLines": [
+        581,
+        581
+      ]
+    },
+    {
+      "key": "R-EC02-19",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC02-19",
+      "fields": {
+        "heading": "R-EC02-19 · MATERIAL_SELECTION_UNCERTAINTY_HIDDEN",
+        "title": "MATERIAL_SELECTION_UNCERTAINTY_HIDDEN"
+      },
+      "sourceLines": [
+        582,
+        582
+      ]
+    },
+    {
+      "key": "R-EC02-20",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC02-20",
+      "fields": {
+        "heading": "R-EC02-20 · SELECTED_ACTOR_CRITICAL_FIT_GAP",
+        "title": "SELECTED_ACTOR_CRITICAL_FIT_GAP"
+      },
+      "sourceLines": [
+        583,
+        583
+      ]
+    },
+    {
+      "key": "R-EC02-21",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC02-21",
+      "fields": {
+        "heading": "R-EC02-21 · EXTERNAL_SELECTION_RATIONALE_GAP",
+        "title": "EXTERNAL_SELECTION_RATIONALE_GAP"
+      },
+      "sourceLines": [
+        584,
+        584
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-EC02-02",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC02-02",
+      "fields": {
+        "heading": "CAND-MOTOR-EC02-02",
+        "body": [
+          "External Capability Need debe preceder External Actor Selection Case."
+        ]
+      },
+      "sourceLines": [
+        634,
+        635
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-EC02-03",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC02-03",
+      "fields": {
+        "heading": "CAND-MOTOR-EC02-03",
+        "body": [
+          "Need, required capability, candidate y selected actor deben ser objetos distintos."
+        ]
+      },
+      "sourceLines": [
+        636,
+        637
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-EC02-04",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC02-04",
+      "fields": {
+        "heading": "CAND-MOTOR-EC02-04",
+        "body": [
+          "Build/Buy/Partner/Access debe modelarse como sourcing alternatives, no niveles de madurez."
+        ]
+      },
+      "sourceLines": [
+        638,
+        639
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-EC02-05",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC02-05",
+      "fields": {
+        "heading": "CAND-MOTOR-EC02-05",
+        "body": [
+          "Actor Fit debe evaluarse respecto de una ECN específica."
+        ]
+      },
+      "sourceLines": [
+        640,
+        641
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-EC02-06",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC02-06",
+      "fields": {
+        "heading": "CAND-MOTOR-EC02-06",
+        "body": [
+          "MUST-HAVE, PREFERENCE, DISCRIMINATOR y EXCLUSION deben conservar semánticas distintas."
+        ]
+      },
+      "sourceLines": [
+        642,
+        643
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-EC02-07",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC02-07",
+      "fields": {
+        "heading": "CAND-MOTOR-EC02-07",
+        "body": [
+          "Un aggregate score no puede compensar automáticamente incumplimiento de un criterio crítico."
+        ]
+      },
+      "sourceLines": [
+        644,
+        645
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-EC02-08",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC02-08",
+      "fields": {
+        "heading": "CAND-MOTOR-EC02-08",
+        "body": [
+          "Single candidate puede ser sufficient cuando existe rationale + evidence proporcional."
+        ]
+      },
+      "sourceLines": [
+        646,
+        647
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-EC02-09",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC02-09",
+      "fields": {
+        "heading": "CAND-MOTOR-EC02-09",
+        "body": [
+          "Search debe admitir STOP por Value of Information."
+        ]
+      },
+      "sourceLines": [
+        648,
+        649
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-EC02-10",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC02-10",
+      "fields": {
+        "heading": "CAND-MOTOR-EC02-10",
+        "body": [
+          "Due diligence depth debe activarse proporcionalmente a materiality/risk/dependency."
+        ]
+      },
+      "sourceLines": [
+        650,
+        651
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-EC02-11",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC02-11",
+      "fields": {
+        "heading": "CAND-MOTOR-EC02-11",
+        "body": [
+          "Potential dependency detectada durante selección debe poder derivar evidencia hacia EC-05 sin emitir aún su diagnóstico."
+        ]
+      },
+      "sourceLines": [
+        652,
+        653
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-EC02-12",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC02-12",
+      "fields": {
+        "heading": "CAND-MOTOR-EC02-12",
+        "body": [
+          "Internal absorption concern detectado durante selección debe poder derivarse hacia EC-04."
+        ]
+      },
+      "sourceLines": [
+        654,
+        655
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-EC02-13",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC02-13",
+      "fields": {
+        "heading": "CAND-MOTOR-EC02-13",
+        "body": [
+          "Actor selection confidence no debe transferirse a future relationship performance."
+        ]
+      },
+      "sourceLines": [
+        656,
+        657
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-AI-EC02-01",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-EC02-01",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-EC02-01",
+        "body": [
+          "Una recomendación de proveedor generada por IA debe tratarse como candidate discovery/inference y no como evidencia suficiente de Actor Fit."
+        ]
+      },
+      "sourceLines": [
+        668,
+        669
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-AI-EC02-02",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-EC02-02",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-EC02-02",
+        "body": [
+          "La comparación automatizada de propuestas debe preservar diferencias materiales de alcance y no asumir comparabilidad por similitud textual."
+        ]
+      },
+      "sourceLines": [
+        670,
+        671
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-AI-EC02-03",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-EC02-03",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-EC02-03",
+        "body": [
+          "La puntuación generada por IA no debe poder compensar un criterio crítico incumplido ni ocultar incertidumbre material."
+        ]
+      },
+      "sourceLines": [
+        672,
+        673
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-AI-EC02-04",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-EC02-04",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-EC02-04",
+        "body": [
+          "Cuando la selección sea material, afirmaciones externas resumidas por IA deben conservar provenance suficiente para poder verificarse en su fuente."
+        ]
+      },
+      "sourceLines": [
+        674,
+        675
+      ]
+    },
+    {
+      "key": "FIND-EC02-01",
+      "objectType": "SOURCE_ID_FIND",
+      "sourceId": "FIND-EC02-01",
+      "fields": {
+        "heading": "FIND-EC02-01",
+        "body": [
+          "La evaluación debe concluir sobre fit respecto de una necesidad específica y no sobre la calidad general del actor."
+        ]
+      },
+      "sourceLines": [
+        729,
+        730
+      ]
+    },
+    {
+      "key": "P-EC02-12",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC02-12",
+      "fields": {
+        "heading": "P-EC02-12",
+        "body": [
+          "Rechazar un candidato significa que no presenta suficiente fit para el caso bajo las condiciones evaluadas; no constituye una evaluación general negativa del actor.",
+          "Esto también permite que:",
+          "el mismo actor sea rechazado para una necesidad y seleccionado para otra."
+        ]
+      },
+      "sourceLines": [
+        766,
+        769
+      ]
+    },
+    {
+      "key": "P-EC02-13",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC02-13",
+      "fields": {
+        "heading": "P-EC02-13",
+        "body": [
+          "La calidad de una selección debe evaluarse respecto de la información razonablemente disponible al momento de decidir y no únicamente mediante desempeño retrospectivo del actor.",
+          "Es consistente con el principio ya adoptado en DG sobre decisiones bajo incertidumbre."
+        ]
+      },
+      "sourceLines": [
+        777,
+        779
+      ]
+    },
+    {
+      "key": "INT-EC02-01",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-EC02-01",
+      "fields": {
+        "heading": "INT-EC02-01 · MINIMUM SUFFICIENT EXTERNAL SELECTION",
+        "title": "MINIMUM SUFFICIENT EXTERNAL SELECTION",
+        "body": [
+          "Utilizar la menor complejidad de búsqueda, comparación y verificación que permita identificar una alternativa suficientemente fit para la necesidad material sin dejar incertidumbres críticas no tratadas.",
+          "Y:"
+        ]
+      },
+      "sourceLines": [
+        783,
+        785
+      ]
+    },
+    {
+      "key": "INT-EC02-02",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-EC02-02",
+      "fields": {
+        "heading": "INT-EC02-02 · NEED-FIRST SOURCING",
+        "title": "NEED-FIRST SOURCING",
+        "body": [
+          "No profundizar búsqueda o evaluación de actores antes de que la necesidad y sus condiciones críticas tengan claridad suficiente para discriminar alternativas."
+        ]
+      },
+      "sourceLines": [
+        786,
+        787
+      ]
+    },
+    {
+      "key": "INS-EC02-01",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC02-01",
+      "fields": {
+        "heading": "INS-EC02-01 · External Capability Need Card",
+        "title": "External Capability Need Card",
+        "body": [
+          "need → required outcome → internal limitation → materiality."
+        ]
+      },
+      "sourceLines": [
+        803,
+        804
+      ]
+    },
+    {
+      "key": "INS-EC02-02",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC02-02",
+      "fields": {
+        "heading": "INS-EC02-02 · Sourcing Options Card",
+        "title": "Sourcing Options Card",
+        "body": [
+          "BUILD / BUY / PARTNER / ACCESS → implications → rationale."
+        ]
+      },
+      "sourceLines": [
+        805,
+        806
+      ]
+    },
+    {
+      "key": "INS-EC02-03",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC02-03",
+      "fields": {
+        "heading": "INS-EC02-03 · Actor Search Map",
+        "title": "Actor Search Map",
+        "body": [
+          "actor type → candidate → source → relevance."
+        ]
+      },
+      "sourceLines": [
+        807,
+        808
+      ]
+    },
+    {
+      "key": "INS-EC02-04",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC02-04",
+      "fields": {
+        "heading": "INS-EC02-04 · Selection Criteria Card",
+        "title": "Selection Criteria Card",
+        "body": [
+          "criterion → MUST/PREFERENCE/DISCRIMINATOR/EXCLUSION → evidence required."
+        ]
+      },
+      "sourceLines": [
+        809,
+        810
+      ]
+    },
+    {
+      "key": "INS-EC02-05",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC02-05",
+      "fields": {
+        "heading": "INS-EC02-05 · Actor Fit Card",
+        "title": "Actor Fit Card",
+        "body": [
+          "candidate → capability/context/capacity/delivery/economic/collaboration fit."
+        ]
+      },
+      "sourceLines": [
+        811,
+        812
+      ]
+    },
+    {
+      "key": "INS-EC02-06",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC02-06",
+      "fields": {
+        "heading": "INS-EC02-06 · Proportional Due Diligence Card",
+        "title": "Proportional Due Diligence Card",
+        "body": [
+          "material claim → evidence → confidence → pending verification."
+        ]
+      },
+      "sourceLines": [
+        813,
+        814
+      ]
+    },
+    {
+      "key": "INS-EC02-07",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC02-07",
+      "fields": {
+        "heading": "INS-EC02-07 · Alternative Comparison Map",
+        "title": "Alternative Comparison Map",
+        "body": [
+          "common need → included/excluded scope → material differences → uncertainty."
+        ]
+      },
+      "sourceLines": [
+        815,
+        816
+      ]
+    },
+    {
+      "key": "INS-EC02-08",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC02-08",
+      "fields": {
+        "heading": "INS-EC02-08 · Dependency & Exit Preview",
+        "title": "Dependency & Exit Preview",
+        "body": [
+          "dependency potential → switching cost → portability → continuity → exit."
+        ]
+      },
+      "sourceLines": [
+        817,
+        818
+      ]
+    },
+    {
+      "key": "INS-EC02-09",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC02-09",
+      "fields": {
+        "heading": "INS-EC02-09 · External Selection Decision Card",
+        "title": "External Selection Decision Card",
+        "body": [
+          "candidate → critical criteria → evidence → confidence → decision → rationale.",
+          "El último instrumento puede reutilizarse posteriormente en EC-03 y EC-05."
+        ]
+      },
+      "sourceLines": [
+        819,
+        821
+      ]
+    },
+    {
+      "key": "CAND-INSTRUMENT-TRANSVERSAL-10",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-INSTRUMENT-TRANSVERSAL-10",
+      "fields": {
+        "heading": "CAND-INSTRUMENT-TRANSVERSAL-10 · EXTERNAL-SELECTION-DECISION-CARD",
+        "title": "EXTERNAL-SELECTION-DECISION-CARD"
+      },
+      "sourceLines": [
+        822,
+        822
+      ]
+    },
+    {
+      "key": "DEL-EC02-01",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC02-01",
+      "fields": {
+        "heading": "DEL-EC02-01 · External Capability Need suficientemente definida",
+        "title": "External Capability Need suficientemente definida"
+      },
+      "sourceLines": [
+        827,
+        827
+      ]
+    },
+    {
+      "key": "DEL-EC02-02",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC02-02",
+      "fields": {
+        "heading": "DEL-EC02-02 · sourcing mode suficientemente justificado",
+        "title": "sourcing mode suficientemente justificado"
+      },
+      "sourceLines": [
+        828,
+        828
+      ]
+    },
+    {
+      "key": "DEL-EC02-03",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC02-03",
+      "fields": {
+        "heading": "DEL-EC02-03 · espacio de búsqueda proporcional",
+        "title": "espacio de búsqueda proporcional"
+      },
+      "sourceLines": [
+        829,
+        829
+      ]
+    },
+    {
+      "key": "DEL-EC02-04",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC02-04",
+      "fields": {
+        "heading": "DEL-EC02-04 · criterios críticos y discriminadores explícitos",
+        "title": "criterios críticos y discriminadores explícitos"
+      },
+      "sourceLines": [
+        830,
+        830
+      ]
+    },
+    {
+      "key": "DEL-EC02-05",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC02-05",
+      "fields": {
+        "heading": "DEL-EC02-05 · Actor Fit suficientemente evidenciado",
+        "title": "Actor Fit suficientemente evidenciado"
+      },
+      "sourceLines": [
+        831,
+        831
+      ]
+    },
+    {
+      "key": "DEL-EC02-06",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC02-06",
+      "fields": {
+        "heading": "DEL-EC02-06 · Delivery/Economic Fit suficientemente comprendido",
+        "title": "Delivery/Economic Fit suficientemente comprendido"
+      },
+      "sourceLines": [
+        832,
+        832
+      ]
+    },
+    {
+      "key": "DEL-EC02-07",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC02-07",
+      "fields": {
+        "heading": "DEL-EC02-07 · riesgo, dependencia y salida anticipados proporcionalmente",
+        "title": "riesgo, dependencia y salida anticipados proporcionalmente"
+      },
+      "sourceLines": [
+        833,
+        833
+      ]
+    },
+    {
+      "key": "DEL-EC02-08",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC02-08",
+      "fields": {
+        "heading": "DEL-EC02-08 · alternativas suficientemente comparables",
+        "title": "alternativas suficientemente comparables"
+      },
+      "sourceLines": [
+        834,
+        834
+      ]
+    },
+    {
+      "key": "DEL-EC02-09",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC02-09",
+      "fields": {
+        "heading": "DEL-EC02-09 · decisión de selección trazable",
+        "title": "decisión de selección trazable"
+      },
+      "sourceLines": [
+        835,
+        835
+      ]
+    },
+    {
+      "key": "CRV-EC02-01",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC02-01",
+      "fields": {
+        "heading": "| CRV-EC02-01 | External Capability Need intervenida queda suficientemente especificada para discriminar alternativas |",
+        "title": "External Capability Need intervenida queda suficientemente especificada para discriminar alternativas"
+      },
+      "sourceLines": [
+        858,
+        858
+      ]
+    },
+    {
+      "key": "CRV-EC02-02",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC02-02",
+      "fields": {
+        "heading": "| CRV-EC02-02 | Sourcing mode seleccionado posee rationale explícito y verificable |",
+        "title": "Sourcing mode seleccionado posee rationale explícito y verificable"
+      },
+      "sourceLines": [
+        859,
+        859
+      ]
+    },
+    {
+      "key": "CRV-EC02-03",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC02-03",
+      "fields": {
+        "heading": "| CRV-EC02-03 | Búsqueda alcanza cobertura suficiente según materialidad/VoI |",
+        "title": "Búsqueda alcanza cobertura suficiente según materialidad/VoI"
+      },
+      "sourceLines": [
+        860,
+        860
+      ]
+    },
+    {
+      "key": "CRV-EC02-04",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC02-04",
+      "fields": {
+        "heading": "| CRV-EC02-04 | Criterios críticos pueden utilizarse consistentemente para aceptar o excluir candidatos |",
+        "title": "Criterios críticos pueden utilizarse consistentemente para aceptar o excluir candidatos"
+      },
+      "sourceLines": [
+        861,
+        861
+      ]
+    },
+    {
+      "key": "CRV-EC02-05",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC02-05",
+      "fields": {
+        "heading": "| CRV-EC02-05 | Claims materiales del actor seleccionado cuentan con evidencia proporcional |",
+        "title": "Claims materiales del actor seleccionado cuentan con evidencia proporcional"
+      },
+      "sourceLines": [
+        862,
+        862
+      ]
+    },
+    {
+      "key": "CRV-EC02-06",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC02-06",
+      "fields": {
+        "heading": "| CRV-EC02-06 | Condiciones de entrega y economics críticos son suficientemente conocidas antes de selección |",
+        "title": "Condiciones de entrega y economics críticos son suficientemente conocidas antes de selección"
+      },
+      "sourceLines": [
+        863,
+        863
+      ]
+    },
+    {
+      "key": "CRV-EC02-07",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC02-07",
+      "fields": {
+        "heading": "| CRV-EC02-07 | Dependencias/switching/exit materiales detectados generan tratamiento o derivación explícita |",
+        "title": "Dependencias/switching/exit materiales detectados generan tratamiento o derivación explícita"
+      },
+      "sourceLines": [
+        864,
+        864
+      ]
+    },
+    {
+      "key": "CRV-EC02-08",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC02-08",
+      "fields": {
+        "heading": "| CRV-EC02-08 | Diferencias materiales entre alternativas permanecen visibles en la comparación |",
+        "title": "Diferencias materiales entre alternativas permanecen visibles en la comparación"
+      },
+      "sourceLines": [
+        865,
+        865
+      ]
+    },
+    {
+      "key": "CRV-EC02-09",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC02-09",
+      "fields": {
+        "heading": "| CRV-EC02-09 | La decisión final puede reconstruirse desde necesidad → criterios → evidencia → selección |",
+        "title": "La decisión final puede reconstruirse desde necesidad → criterios → evidencia → selección"
+      },
+      "sourceLines": [
+        866,
+        866
+      ]
+    },
+    {
+      "key": "V0",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V0",
+      "fields": {
+        "heading": "V0 · UNKNOWN",
+        "title": "UNKNOWN",
+        "body": [
+          "No existe información suficiente sobre necesidad o selección."
+        ]
+      },
+      "sourceLines": [
+        870,
+        871
+      ]
+    },
+    {
+      "key": "V1",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V1",
+      "fields": {
+        "heading": "V1 · NEED-DEFINED",
+        "title": "NEED-DEFINED",
+        "body": [
+          "Necesidad externa y condiciones críticas están suficientemente definidas."
+        ]
+      },
+      "sourceLines": [
+        872,
+        873
+      ]
+    },
+    {
+      "key": "V2",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V2",
+      "fields": {
+        "heading": "V2 · ACTOR-EVIDENCED",
+        "title": "ACTOR-EVIDENCED",
+        "body": [
+          "Existe evidencia proporcional sobre candidatos relevantes."
+        ]
+      },
+      "sourceLines": [
+        874,
+        875
+      ]
+    },
+    {
+      "key": "V3",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V3",
+      "fields": {
+        "heading": "V3 · SELECTION-FIT",
+        "title": "SELECTION-FIT",
+        "body": [
+          "Actor seleccionado satisface suficientemente condiciones críticas con incertidumbre aceptable."
+        ]
+      },
+      "sourceLines": [
+        876,
+        877
+      ]
+    },
+    {
+      "key": "V4",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V4",
+      "fields": {
+        "heading": "V4 · SELECTION-ROBUST",
+        "title": "SELECTION-ROBUST",
+        "body": [
+          "La selección permanece razonablemente defendible tras validación inicial y no aparecen gaps materiales que hubieran debido ser detectados con evidencia disponible al seleccionar.",
+          "V4 requiere cuidado.",
+          "No significa:",
+          "“el proveedor tuvo éxito”.",
+          "Eso corresponderá a otros objetos."
+        ]
+      },
+      "sourceLines": [
+        878,
+        883
+      ]
+    },
+    {
+      "key": "VAL-EC02-01",
+      "objectType": "SOURCE_ID_VAL",
+      "sourceId": "VAL-EC02-01",
+      "fields": {
+        "heading": "VAL-EC02-01",
+        "body": [
+          "La validación de selección no debe convertirse retrospectivamente en una evaluación completa del desempeño de la relación."
+        ]
+      },
+      "sourceLines": [
+        884,
+        885
+      ]
+    },
+    {
+      "key": "REASS-EC02-01",
+      "objectType": "SOURCE_ID_REASS",
+      "sourceId": "REASS-EC02-01",
+      "fields": {
+        "heading": "REASS-EC02-01",
+        "body": [
+          "Un actor previamente adecuado debe reevaluarse cuando cambie materialmente la necesidad o una condición que sustentó su selección."
+        ]
+      },
+      "sourceLines": [
+        903,
+        904
+      ]
+    },
+    {
+      "key": "P-EC02-14",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC02-14",
+      "fields": {
+        "heading": "P-EC02-14",
+        "body": [
+          "El rigor de selección se determina por calidad suficiente de razonamiento y evidencia, no por volumen documental."
+        ]
+      },
+      "sourceLines": [
+        915,
+        916
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-EC02-14",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC02-14",
+      "fields": {
+        "heading": "CAND-MOTOR-EC02-14",
+        "body": [
+          "El Motor debe admitir Emergency Selection como estado contextual sin tratar automáticamente la reducción justificada de profundidad como brecha."
+        ]
+      },
+      "sourceLines": [
+        927,
+        928
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-EC02-15",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC02-15",
+      "fields": {
+        "heading": "CAND-MOTOR-EC02-15",
+        "body": [
+          "Selection State debe poder distinguir TEMPORARY / CONDITIONAL / CONFIRMED.",
+          "Esto será útil para EC-03 y EC-05."
+        ]
+      },
+      "sourceLines": [
+        933,
+        935
+      ]
+    },
+    {
+      "key": "SOURCE-REVIEW-TRIGGER-EC02-01",
+      "objectType": "SOURCE_ID_SOURCE",
+      "sourceId": "SOURCE-REVIEW-TRIGGER-EC02-01",
+      "fields": {
+        "heading": "SOURCE-REVIEW-TRIGGER-EC02-01 · Revisar criterios externos de supplier/third-party selection cuando cambien materialmente estándares de procurement, third-party risk o requisitos regulatorios relevantes.",
+        "title": "Revisar criterios externos de supplier/third-party selection cuando cambien materialmente estándares de procurement, third-party risk o requisitos regulatorios relevantes.",
+        "body": [
+          "La fundamentación detallada se consolidará además en el Source Register global durante el cierre sistémico 6×31 que acabamos de acordar."
+        ]
+      },
+      "sourceLines": [
+        961,
+        962
+      ]
+    },
+    {
+      "key": "K1",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Coherencia — PASS",
+        "title": "Coherencia — PASS",
+        "body": [
+          "EC-02 queda separada de EC-03, EC-04, EC-05, DT-06, PC-01 y OP-05."
+        ]
+      },
+      "sourceLines": [
+        1006,
+        1007
+      ]
+    },
+    {
+      "key": "K2",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Razonamiento — PASS",
+        "title": "Razonamiento — PASS",
+        "body": [
+          "Preserva:",
+          "NEED ≠ SOLUTION",
+          "CANDIDATE ≠ SELECTED ACTOR",
+          "REPUTATION ≠ FIT",
+          "CAPABILITY ≠ AVAILABILITY",
+          "SELECTION ≠ PERFORMANCE"
+        ]
+      },
+      "sourceLines": [
+        1008,
+        1014
+      ]
+    },
+    {
+      "key": "K3",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · Acción — PASS",
+        "title": "Acción — PASS",
+        "body": [
+          "Puede producir decisiones concretas y proporcionales sin obligar contratación."
+        ]
+      },
+      "sourceLines": [
+        1015,
+        1016
+      ]
+    },
+    {
+      "key": "K4",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · Knowledge — PASS",
+        "title": "Knowledge — PASS",
+        "body": [
+          "Objetos, evidencia, confidence, traceability, contextualización, governance y triggers quedan explícitos."
+        ]
+      },
+      "sourceLines": [
+        1017,
+        1018
+      ]
+    }
+  ],
+  "supersessions": [],
+  "executableProjection": {
+    "sourceRef": "source.json",
+    "verbatimKeys": [
+      "heading",
+      "title",
+      "body"
+    ],
+    "projectedObjectTypes": [],
+    "canonicalOnlyGapRefs": []
+  },
+  "gaps": [],
+  "transcriptionCorrections": [],
+  "checksum": "sha256:6c0542e75e2e5c796108449351474b8a0daddf9682bc2806ab520ea1cf824f19"
+}

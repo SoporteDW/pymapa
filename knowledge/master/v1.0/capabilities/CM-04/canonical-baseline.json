@@ -1,0 +1,2044 @@
+{
+  "baselineId": "CM04-K4-v1.0",
+  "capabilityId": "CM-04",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "historicalStatus": {
+    "marker": "CM04-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      1113,
+      1113
+    ]
+  },
+  "rawSource": {
+    "ref": "raw/CM-04.txt",
+    "sha256": "6b8ecf69de12c5f9582fa4d71d8c8f4ab7675c510ff23b32387ac236278aac61",
+    "byteLength": 40942,
+    "lineCount": 1135,
+    "transcription": {
+      "tool": "pymapa-docx-text 1.0.0",
+      "arguments": ""
+    },
+    "originalDocument": {
+      "filename": "CM_-_01_A_05_Completo.docx",
+      "byteLength": 319674,
+      "sha256": "4c27675630962a6344544f3e2b333aec933a3a37beea42c04e011b9b57f7c255"
+    }
+  },
+  "provenanceVocabulary": [
+    {
+      "code": "SOURCE-DERIVED",
+      "label": "SOURCE-DERIVED",
+      "meaning": "La fundamentación externa puede respaldar:",
+      "sourceLines": [
+        1016,
+        1017
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "PYMAPA-DESIGNED",
+      "label": "PYMAPA-DESIGNED",
+      "meaning": "Son diseño propio:",
+      "sourceLines": [
+        1024,
+        1025
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    }
+  ],
+  "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 9,
+      "objectType": "SOURCE_ID_CE",
+      "sourceLines": [
+        1098,
+        1098
+      ]
+    },
+    {
+      "label": "CRV",
+      "declared": 9,
+      "objectType": "SOURCE_ID_CRV",
+      "sourceLines": [
+        1108,
+        1108
+      ]
+    },
+    {
+      "label": "VA",
+      "declared": 21,
+      "objectType": "SOURCE_ID_VA",
+      "sourceLines": [
+        1099,
+        1099
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "key": "P-CM04-CORE-01",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM04-CORE-01",
+      "fields": {
+        "heading": "P-CM04-CORE-01",
+        "body": [
+          "La evaluación debe partir del propósito de la interacción y no del canal disponible."
+        ]
+      },
+      "sourceLines": [
+        75,
+        76
+      ]
+    },
+    {
+      "key": "P-CM04-01",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM04-01",
+      "fields": {
+        "heading": "P-CM04-01",
+        "body": [
+          "La cantidad de canales no constituye evidencia de capacidad de coordinación."
+        ]
+      },
+      "sourceLines": [
+        89,
+        90
+      ]
+    },
+    {
+      "key": "P-CM04-02",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM04-02",
+      "fields": {
+        "heading": "P-CM04-02",
+        "body": [
+          "La continuidad entre canales debe existir únicamente donde el recorrido del cliente materialmente la requiere.",
+          "No necesitamos integrar:",
+          "todo con todo."
+        ]
+      },
+      "sourceLines": [
+        97,
+        100
+      ]
+    },
+    {
+      "key": "P-CM04-03",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM04-03",
+      "fields": {
+        "heading": "P-CM04-03",
+        "body": [
+          "Channel Fit debe evaluarse por interacción, no por reputación general del canal."
+        ]
+      },
+      "sourceLines": [
+        184,
+        185
+      ]
+    },
+    {
+      "key": "P-CM04-04",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM04-04",
+      "fields": {
+        "heading": "P-CM04-04",
+        "body": [
+          "Digitalización del canal no constituye mejora automáticamente; el criterio es fitness para la interacción."
+        ]
+      },
+      "sourceLines": [
+        193,
+        194
+      ]
+    },
+    {
+      "key": "P-CM04-05",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM04-05",
+      "fields": {
+        "heading": "P-CM04-05",
+        "body": [
+          "Repetición solo constituye fricción material cuando genera esfuerzo, error, demora o deterioro suficientemente significativo."
+        ]
+      },
+      "sourceLines": [
+        252,
+        253
+      ]
+    },
+    {
+      "key": "P-CM04-06",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM04-06",
+      "fields": {
+        "heading": "P-CM04-06",
+        "body": [
+          "La continuidad de contexto requiere información suficiente, no acumulación indiscriminada de datos del cliente."
+        ]
+      },
+      "sourceLines": [
+        273,
+        274
+      ]
+    },
+    {
+      "key": "P-CM04-07",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM04-07",
+      "fields": {
+        "heading": "P-CM04-07",
+        "body": [
+          "Los canales pueden diseñarse de manera diferente siempre que las diferencias sean deliberadas y no generen contradicciones materiales."
+        ]
+      },
+      "sourceLines": [
+        288,
+        289
+      ]
+    },
+    {
+      "key": "P-CM04-08",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM04-08",
+      "fields": {
+        "heading": "P-CM04-08",
+        "body": [
+          "El tiempo de respuesta debe evaluarse contra la necesidad del interaction intent y no mediante una expectativa universal de inmediatez."
+        ]
+      },
+      "sourceLines": [
+        319,
+        320
+      ]
+    },
+    {
+      "key": "P-CM04-09",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM04-09",
+      "fields": {
+        "heading": "P-CM04-09",
+        "body": [
+          "El valor de un canal debe evaluarse respecto de su función, no exclusivamente por volumen de uso."
+        ]
+      },
+      "sourceLines": [
+        356,
+        357
+      ]
+    },
+    {
+      "key": "P-CM04-10",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM04-10",
+      "fields": {
+        "heading": "P-CM04-10",
+        "body": [
+          "Automatizar una interacción no demuestra que el cliente pueda completar su intent ni que el handoff funcione adecuadamente."
+        ]
+      },
+      "sourceLines": [
+        374,
+        375
+      ]
+    },
+    {
+      "key": "P-CM04-11",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM04-11",
+      "fields": {
+        "heading": "P-CM04-11",
+        "body": [
+          "Autoservicio debe evaluarse por fitness y resolución, no por reducción de contacto humano en sí misma."
+        ]
+      },
+      "sourceLines": [
+        385,
+        386
+      ]
+    },
+    {
+      "key": "P-CM04-12",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM04-12",
+      "fields": {
+        "heading": "P-CM04-12",
+        "body": [
+          "Response ≠ Resolution."
+        ]
+      },
+      "sourceLines": [
+        400,
+        401
+      ]
+    },
+    {
+      "key": "CE01",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Interaction need",
+        "title": "Interaction need"
+      },
+      "sourceLines": [
+        413,
+        413
+      ]
+    },
+    {
+      "key": "VA01",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA01",
+      "fields": {
+        "heading": "VA01 intents/interacciones materiales suficientemente identificados",
+        "title": "intents/interacciones materiales suficientemente identificados"
+      },
+      "sourceLines": [
+        414,
+        414
+      ]
+    },
+    {
+      "key": "VA02",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA02",
+      "fields": {
+        "heading": "VA02 necesidad de canal/continuidad suficientemente clara",
+        "title": "necesidad de canal/continuidad suficientemente clara"
+      },
+      "sourceLines": [
+        415,
+        415
+      ]
+    },
+    {
+      "key": "CE02",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Channel purpose",
+        "title": "Channel purpose"
+      },
+      "sourceLines": [
+        416,
+        416
+      ]
+    },
+    {
+      "key": "VA03",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA03",
+      "fields": {
+        "heading": "VA03 canales materiales suficientemente identificados",
+        "title": "canales materiales suficientemente identificados"
+      },
+      "sourceLines": [
+        417,
+        417
+      ]
+    },
+    {
+      "key": "VA04",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "VA04 propósito de cada canal suficientemente claro",
+        "title": "propósito de cada canal suficientemente claro"
+      },
+      "sourceLines": [
+        418,
+        418
+      ]
+    },
+    {
+      "key": "CE03",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Channel fit",
+        "title": "Channel fit"
+      },
+      "sourceLines": [
+        419,
+        419
+      ]
+    },
+    {
+      "key": "VA05",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "VA05 canal suficientemente adecuado al intent",
+        "title": "canal suficientemente adecuado al intent"
+      },
+      "sourceLines": [
+        420,
+        420
+      ]
+    },
+    {
+      "key": "VA06",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "VA06 canal suficientemente accesible/utilizable para población aplicable",
+        "title": "canal suficientemente accesible/utilizable para población aplicable"
+      },
+      "sourceLines": [
+        421,
+        421
+      ]
+    },
+    {
+      "key": "CE04",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE04",
+      "fields": {
+        "heading": "CE04 · Interaction visibility",
+        "title": "Interaction visibility"
+      },
+      "sourceLines": [
+        422,
+        422
+      ]
+    },
+    {
+      "key": "VA07",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "VA07 interacción/estado suficientemente visible",
+        "title": "interacción/estado suficientemente visible"
+      },
+      "sourceLines": [
+        423,
+        423
+      ]
+    },
+    {
+      "key": "VA08",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "VA08 accountability suficientemente clara",
+        "title": "accountability suficientemente clara"
+      },
+      "sourceLines": [
+        424,
+        424
+      ]
+    },
+    {
+      "key": "CE05",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE05",
+      "fields": {
+        "heading": "CE05 · Handoff",
+        "title": "Handoff"
+      },
+      "sourceLines": [
+        425,
+        425
+      ]
+    },
+    {
+      "key": "VA09",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA09",
+      "fields": {
+        "heading": "VA09 handoffs materiales suficientemente identificados",
+        "title": "handoffs materiales suficientemente identificados"
+      },
+      "sourceLines": [
+        426,
+        426
+      ]
+    },
+    {
+      "key": "VA10",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA10",
+      "fields": {
+        "heading": "VA10 transferencias suficientemente ejecutables",
+        "title": "transferencias suficientemente ejecutables"
+      },
+      "sourceLines": [
+        427,
+        427
+      ]
+    },
+    {
+      "key": "VA11",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA11",
+      "fields": {
+        "heading": "VA11 siguiente responsable/estado suficientemente claro",
+        "title": "siguiente responsable/estado suficientemente claro"
+      },
+      "sourceLines": [
+        428,
+        428
+      ]
+    },
+    {
+      "key": "CE06",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE06",
+      "fields": {
+        "heading": "CE06 · Context continuity",
+        "title": "Context continuity"
+      },
+      "sourceLines": [
+        429,
+        429
+      ]
+    },
+    {
+      "key": "VA12",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA12",
+      "fields": {
+        "heading": "VA12 contexto material preservado",
+        "title": "contexto material preservado"
+      },
+      "sourceLines": [
+        430,
+        430
+      ]
+    },
+    {
+      "key": "VA13",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA13",
+      "fields": {
+        "heading": "VA13 repetición/reinicio innecesario suficientemente controlado",
+        "title": "repetición/reinicio innecesario suficientemente controlado"
+      },
+      "sourceLines": [
+        431,
+        431
+      ]
+    },
+    {
+      "key": "CE07",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE07",
+      "fields": {
+        "heading": "CE07 · Consistency",
+        "title": "Consistency"
+      },
+      "sourceLines": [
+        432,
+        432
+      ]
+    },
+    {
+      "key": "VA14",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA14",
+      "fields": {
+        "heading": "VA14 información/condiciones suficientemente coherentes entre canales",
+        "title": "información/condiciones suficientemente coherentes entre canales"
+      },
+      "sourceLines": [
+        433,
+        433
+      ]
+    },
+    {
+      "key": "VA15",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA15",
+      "fields": {
+        "heading": "VA15 diferencias de canal deliberadas y comprensibles",
+        "title": "diferencias de canal deliberadas y comprensibles"
+      },
+      "sourceLines": [
+        434,
+        434
+      ]
+    },
+    {
+      "key": "CE08",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE08",
+      "fields": {
+        "heading": "CE08 · Timing/resolution",
+        "title": "Timing/resolution"
+      },
+      "sourceLines": [
+        435,
+        435
+      ]
+    },
+    {
+      "key": "VA16",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA16",
+      "fields": {
+        "heading": "VA16 respuesta suficientemente oportuna",
+        "title": "respuesta suficientemente oportuna"
+      },
+      "sourceLines": [
+        436,
+        436
+      ]
+    },
+    {
+      "key": "VA17",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA17",
+      "fields": {
+        "heading": "VA17 resolución/progresión suficientemente efectiva",
+        "title": "resolución/progresión suficientemente efectiva"
+      },
+      "sourceLines": [
+        437,
+        437
+      ]
+    },
+    {
+      "key": "VA18",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA18",
+      "fields": {
+        "heading": "VA18 escalación suficientemente disponible cuando aplica",
+        "title": "escalación suficientemente disponible cuando aplica"
+      },
+      "sourceLines": [
+        438,
+        438
+      ]
+    },
+    {
+      "key": "CE09",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE09",
+      "fields": {
+        "heading": "CE09 · Proportionality/adaptation",
+        "title": "Proportionality/adaptation"
+      },
+      "sourceLines": [
+        439,
+        439
+      ]
+    },
+    {
+      "key": "VA19",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA19",
+      "fields": {
+        "heading": "VA19 complejidad/costo operativo del canal proporcional",
+        "title": "complejidad/costo operativo del canal proporcional"
+      },
+      "sourceLines": [
+        440,
+        440
+      ]
+    },
+    {
+      "key": "VA20",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA20",
+      "fields": {
+        "heading": "VA20 desempeño de interacciones alimenta ajustes",
+        "title": "desempeño de interacciones alimenta ajustes"
+      },
+      "sourceLines": [
+        441,
+        441
+      ]
+    },
+    {
+      "key": "VA21",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA21",
+      "fields": {
+        "heading": "VA21 canal puede mantenerse, modificarse o retirarse según nueva evidencia",
+        "title": "canal puede mantenerse, modificarse o retirarse según nueva evidencia"
+      },
+      "sourceLines": [
+        442,
+        442
+      ]
+    },
+    {
+      "key": "P2",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P2",
+      "fields": {
+        "heading": "P2 · Triggers",
+        "title": "Triggers",
+        "body": [
+          "Profundizamos ante:",
+          "- demasiados canales;",
+          "- mensajes perdidos;",
+          "- duplicidad;",
+          "- clientes repitiendo información;",
+          "- bot sin escalación;",
+          "- WhatsApp personal;",
+          "- canales sin owner;",
+          "- precios distintos sin intención;",
+          "- promociones inconsistentes;",
+          "- marketplace desconectado;",
+          "- información contradictoria;",
+          "- alta respuesta pero baja resolución;",
+          "- clientes saltando canales;",
+          "- tickets reabiertos;",
+          "- canales nuevos sin propósito claro;",
+          "- herramientas duplicadas."
+        ]
+      },
+      "sourceLines": [
+        458,
+        475
+      ]
+    },
+    {
+      "key": "P3",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P3",
+      "fields": {
+        "heading": "P3 · Discriminación",
+        "title": "Discriminación",
+        "body": [
+          "Ante:",
+          "“los clientes se quejan de WhatsApp”",
+          "distinguimos:",
+          "CHANNEL FIT → CM-04",
+          "RESPONSE DELAY → CM-04/OP",
+          "SERVICE QUALITY → CM-05",
+          "COMMERCIAL FOLLOW-UP → CM-03",
+          "INFORMATION FLOW → DT-03",
+          "TOOL LIMITATION → DT-01",
+          "PEOPLE CAPABILITY → PC-02"
+        ]
+      },
+      "sourceLines": [
+        477,
+        487
+      ]
+    },
+    {
+      "key": "CONTR-CM04-01",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-CM04-01",
+      "fields": {
+        "heading": "CONTR-CM04-01",
+        "body": [
+          "MULTICHANNEL_CLAIM_vs_CONTEXT_LOSS"
+        ]
+      },
+      "sourceLines": [
+        490,
+        491
+      ]
+    },
+    {
+      "key": "CONTR-CM04-02",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-CM04-02",
+      "fields": {
+        "heading": "CONTR-CM04-02",
+        "body": [
+          "FAST_RESPONSE_vs_LOW_RESOLUTION"
+        ]
+      },
+      "sourceLines": [
+        492,
+        493
+      ]
+    },
+    {
+      "key": "CONTR-CM04-03",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-CM04-03",
+      "fields": {
+        "heading": "CONTR-CM04-03",
+        "body": [
+          "CHANNEL_AVAILABLE_vs_NO_OWNER"
+        ]
+      },
+      "sourceLines": [
+        494,
+        495
+      ]
+    },
+    {
+      "key": "CONTR-CM04-04",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-CM04-04",
+      "fields": {
+        "heading": "CONTR-CM04-04",
+        "body": [
+          "CONSISTENT_BRAND_vs_CONTRADICTORY_INFORMATION"
+        ]
+      },
+      "sourceLines": [
+        496,
+        497
+      ]
+    },
+    {
+      "key": "CONTR-CM04-05",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-CM04-05",
+      "fields": {
+        "heading": "CONTR-CM04-05",
+        "body": [
+          "LOW_VOLUME_CHANNEL_vs_HIGH_CRITICALITY"
+        ]
+      },
+      "sourceLines": [
+        498,
+        499
+      ]
+    },
+    {
+      "key": "CONTR-CM04-06",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-CM04-06",
+      "fields": {
+        "heading": "CONTR-CM04-06",
+        "body": [
+          "AUTOMATED_INTERACTION_vs_HUMAN_REWORK"
+        ]
+      },
+      "sourceLines": [
+        500,
+        501
+      ]
+    },
+    {
+      "key": "EVID-CM04-01",
+      "objectType": "SOURCE_ID_EVID",
+      "sourceId": "EVID-CM04-01",
+      "fields": {
+        "heading": "EVID-CM04-01",
+        "body": [
+          "La profundidad de evidencia debe aumentar con criticidad del intent, volumen, número de handoffs y consecuencia de perder contexto."
+        ]
+      },
+      "sourceLines": [
+        532,
+        533
+      ]
+    },
+    {
+      "key": "SUFF-CM04-01",
+      "objectType": "SOURCE_ID_SUFF",
+      "sourceId": "SUFF-CM04-01",
+      "fields": {
+        "heading": "SUFF-CM04-01",
+        "body": [
+          "CM-04 alcanza suficiencia cuando las interacciones materiales cuentan con canales suficientemente adecuados, responsabilidades y handoffs claros, continuidad de contexto suficiente y capacidad de resolución o escalación proporcional, sin complejidad de canal innecesaria que comprometa el funcionamiento.",
+          "No exige:",
+          "omnicanalidad."
+        ]
+      },
+      "sourceLines": [
+        536,
+        539
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM04-01",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM04-01",
+      "fields": {
+        "heading": "CAND-MOTOR-CM04-01",
+        "body": [
+          "La disponibilidad de un canal no debe transferirse automáticamente a confianza sobre su fitness, coordinación o capacidad de resolución."
+        ]
+      },
+      "sourceLines": [
+        548,
+        549
+      ]
+    },
+    {
+      "key": "R-CM04-01",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM04-01",
+      "fields": {
+        "heading": "R-CM04-01 · MATERIAL_CUSTOMER_INTERACTION_UNCLEAR",
+        "title": "MATERIAL_CUSTOMER_INTERACTION_UNCLEAR"
+      },
+      "sourceLines": [
+        553,
+        553
+      ]
+    },
+    {
+      "key": "R-CM04-02",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM04-02",
+      "fields": {
+        "heading": "R-CM04-02 · CHANNEL_CONTINUITY_NEED_UNCLEAR",
+        "title": "CHANNEL_CONTINUITY_NEED_UNCLEAR"
+      },
+      "sourceLines": [
+        554,
+        554
+      ]
+    },
+    {
+      "key": "R-CM04-03",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM04-03",
+      "fields": {
+        "heading": "R-CM04-03 · MATERIAL_CHANNEL_BLIND_SPOT",
+        "title": "MATERIAL_CHANNEL_BLIND_SPOT"
+      },
+      "sourceLines": [
+        555,
+        555
+      ]
+    },
+    {
+      "key": "R-CM04-04",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM04-04",
+      "fields": {
+        "heading": "R-CM04-04 · CHANNEL_PURPOSE_UNCLEAR",
+        "title": "CHANNEL_PURPOSE_UNCLEAR"
+      },
+      "sourceLines": [
+        556,
+        556
+      ]
+    },
+    {
+      "key": "R-CM04-05",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM04-05",
+      "fields": {
+        "heading": "R-CM04-05 · CHANNEL_INTENT_FIT_GAP",
+        "title": "CHANNEL_INTENT_FIT_GAP"
+      },
+      "sourceLines": [
+        557,
+        557
+      ]
+    },
+    {
+      "key": "R-CM04-06",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM04-06",
+      "fields": {
+        "heading": "R-CM04-06 · CHANNEL_ACCESS_USABILITY_GAP",
+        "title": "CHANNEL_ACCESS_USABILITY_GAP"
+      },
+      "sourceLines": [
+        558,
+        558
+      ]
+    },
+    {
+      "key": "R-CM04-07",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM04-07",
+      "fields": {
+        "heading": "R-CM04-07 · CUSTOMER_INTERACTION_STATE_VISIBILITY_GAP",
+        "title": "CUSTOMER_INTERACTION_STATE_VISIBILITY_GAP"
+      },
+      "sourceLines": [
+        559,
+        559
+      ]
+    },
+    {
+      "key": "R-CM04-08",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM04-08",
+      "fields": {
+        "heading": "R-CM04-08 · INTERACTION_ACCOUNTABILITY_GAP",
+        "title": "INTERACTION_ACCOUNTABILITY_GAP"
+      },
+      "sourceLines": [
+        560,
+        560
+      ]
+    },
+    {
+      "key": "R-CM04-09",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM04-09",
+      "fields": {
+        "heading": "R-CM04-09 · MATERIAL_CHANNEL_HANDOFF_BLIND_SPOT",
+        "title": "MATERIAL_CHANNEL_HANDOFF_BLIND_SPOT"
+      },
+      "sourceLines": [
+        561,
+        561
+      ]
+    },
+    {
+      "key": "R-CM04-10",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM04-10",
+      "fields": {
+        "heading": "R-CM04-10 · CHANNEL_HANDOFF_EXECUTION_GAP",
+        "title": "CHANNEL_HANDOFF_EXECUTION_GAP"
+      },
+      "sourceLines": [
+        562,
+        562
+      ]
+    },
+    {
+      "key": "R-CM04-11",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM04-11",
+      "fields": {
+        "heading": "R-CM04-11 · CHANNEL_HANDOFF_NEXT_STATE_GAP",
+        "title": "CHANNEL_HANDOFF_NEXT_STATE_GAP"
+      },
+      "sourceLines": [
+        563,
+        563
+      ]
+    },
+    {
+      "key": "R-CM04-12",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM04-12",
+      "fields": {
+        "heading": "R-CM04-12 · CUSTOMER_CONTEXT_CONTINUITY_GAP",
+        "title": "CUSTOMER_CONTEXT_CONTINUITY_GAP"
+      },
+      "sourceLines": [
+        564,
+        564
+      ]
+    },
+    {
+      "key": "R-CM04-13",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM04-13",
+      "fields": {
+        "heading": "R-CM04-13 · CUSTOMER_REPETITION_FRICTION_GAP",
+        "title": "CUSTOMER_REPETITION_FRICTION_GAP"
+      },
+      "sourceLines": [
+        565,
+        565
+      ]
+    },
+    {
+      "key": "R-CM04-14",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM04-14",
+      "fields": {
+        "heading": "R-CM04-14 · CROSS_CHANNEL_INFORMATION_CONSISTENCY_GAP",
+        "title": "CROSS_CHANNEL_INFORMATION_CONSISTENCY_GAP"
+      },
+      "sourceLines": [
+        566,
+        566
+      ]
+    },
+    {
+      "key": "R-CM04-15",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM04-15",
+      "fields": {
+        "heading": "R-CM04-15 · UNINTENTIONAL_CHANNEL_VARIANCE_GAP",
+        "title": "UNINTENTIONAL_CHANNEL_VARIANCE_GAP"
+      },
+      "sourceLines": [
+        567,
+        567
+      ]
+    },
+    {
+      "key": "R-CM04-16",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM04-16",
+      "fields": {
+        "heading": "R-CM04-16 · CUSTOMER_INTERACTION_RESPONSE_TIMING_GAP",
+        "title": "CUSTOMER_INTERACTION_RESPONSE_TIMING_GAP"
+      },
+      "sourceLines": [
+        568,
+        568
+      ]
+    },
+    {
+      "key": "R-CM04-17",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM04-17",
+      "fields": {
+        "heading": "R-CM04-17 · CUSTOMER_INTERACTION_RESOLUTION_GAP",
+        "title": "CUSTOMER_INTERACTION_RESOLUTION_GAP"
+      },
+      "sourceLines": [
+        569,
+        569
+      ]
+    },
+    {
+      "key": "R-CM04-18",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM04-18",
+      "fields": {
+        "heading": "R-CM04-18 · CUSTOMER_INTERACTION_ESCALATION_GAP",
+        "title": "CUSTOMER_INTERACTION_ESCALATION_GAP"
+      },
+      "sourceLines": [
+        570,
+        570
+      ]
+    },
+    {
+      "key": "R-CM04-19",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM04-19",
+      "fields": {
+        "heading": "R-CM04-19 · CHANNEL_COMPLEXITY_DISPROPORTIONATE",
+        "title": "CHANNEL_COMPLEXITY_DISPROPORTIONATE"
+      },
+      "sourceLines": [
+        571,
+        571
+      ]
+    },
+    {
+      "key": "R-CM04-20",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM04-20",
+      "fields": {
+        "heading": "R-CM04-20 · CHANNEL_LEARNING_GAP",
+        "title": "CHANNEL_LEARNING_GAP"
+      },
+      "sourceLines": [
+        572,
+        572
+      ]
+    },
+    {
+      "key": "R-CM04-21",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM04-21",
+      "fields": {
+        "heading": "R-CM04-21 · CHANNEL_ADAPTATION_GAP",
+        "title": "CHANNEL_ADAPTATION_GAP"
+      },
+      "sourceLines": [
+        573,
+        573
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM04-02",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM04-02",
+      "fields": {
+        "heading": "CAND-MOTOR-CM04-02",
+        "body": [
+          "Customer Interaction Case debe preservar Actor + Intent + Channel + Interaction State + Next State."
+        ]
+      },
+      "sourceLines": [
+        622,
+        623
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM04-03",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM04-03",
+      "fields": {
+        "heading": "CAND-MOTOR-CM04-03",
+        "body": [
+          "Channel y Interaction deben modelarse como objetos distintos."
+        ]
+      },
+      "sourceLines": [
+        624,
+        625
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM04-04",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM04-04",
+      "fields": {
+        "heading": "CAND-MOTOR-CM04-04",
+        "body": [
+          "Channel Fit debe poder variar por intent dentro del mismo canal."
+        ]
+      },
+      "sourceLines": [
+        626,
+        627
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM04-05",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM04-05",
+      "fields": {
+        "heading": "CAND-MOTOR-CM04-05",
+        "body": [
+          "Customer Interaction Handoff debe ser distinto de Information Handoff de DT-03, aunque puedan reutilizar evidencia."
+        ]
+      },
+      "sourceLines": [
+        628,
+        629
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM04-06",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM04-06",
+      "fields": {
+        "heading": "CAND-MOTOR-CM04-06",
+        "body": [
+          "Context Continuity debe evaluar suficiencia de contexto y no copia total de historial."
+        ]
+      },
+      "sourceLines": [
+        630,
+        631
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM04-07",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM04-07",
+      "fields": {
+        "heading": "CAND-MOTOR-CM04-07",
+        "body": [
+          "Response y Resolution deben conservarse como estados diferentes."
+        ]
+      },
+      "sourceLines": [
+        632,
+        633
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM04-08",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM04-08",
+      "fields": {
+        "heading": "CAND-MOTOR-CM04-08",
+        "body": [
+          "Channel switching debe poder clasificarse como intended, neutral o friction-generating según contexto."
+        ]
+      },
+      "sourceLines": [
+        634,
+        635
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM04-09",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM04-09",
+      "fields": {
+        "heading": "CAND-MOTOR-CM04-09",
+        "body": [
+          "Channel complexity debe poder generar findings por exceso, no solo por ausencia."
+        ]
+      },
+      "sourceLines": [
+        636,
+        637
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM04-10",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM04-10",
+      "fields": {
+        "heading": "CAND-MOTOR-CM04-10",
+        "body": [
+          "Los requisitos de timing deben asociarse al intent y no al canal en abstracto."
+        ]
+      },
+      "sourceLines": [
+        638,
+        639
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM04-11",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM04-11",
+      "fields": {
+        "heading": "CAND-MOTOR-CM04-11",
+        "body": [
+          "Una interacción puede continuar entre canales con experiencia suficiente aunque la infraestructura subyacente no sea técnicamente omnicanal."
+        ]
+      },
+      "sourceLines": [
+        640,
+        641
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM04-12",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM04-12",
+      "fields": {
+        "heading": "CAND-MOTOR-CM04-12",
+        "body": [
+          "Channel lifecycle debe admitir OPEN, MAINTAIN, MODIFY, CONSOLIDATE y RETIRE."
+        ]
+      },
+      "sourceLines": [
+        642,
+        643
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-AI-CM04-01",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-CM04-01",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-CM04-01",
+        "body": [
+          "La intervención de IA no debe modificar la definición de resolución: una respuesta automática solo cuenta como exitosa cuando el intent del cliente progresa suficientemente."
+        ]
+      },
+      "sourceLines": [
+        654,
+        655
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-AI-CM04-02",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-CM04-02",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-CM04-02",
+        "body": [
+          "Un handoff IA→humano debe conservar contexto suficiente sin asumir que el resumen generado por IA es necesariamente completo o correcto."
+        ]
+      },
+      "sourceLines": [
+        656,
+        657
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-AI-CM04-03",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-CM04-03",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-CM04-03",
+        "body": [
+          "La automatización de interacciones debe poder evaluarse tanto por eficiencia como por fricción, resolución y necesidad de retrabajo humano."
+        ]
+      },
+      "sourceLines": [
+        658,
+        659
+      ]
+    },
+    {
+      "key": "FIND-CM04-01",
+      "objectType": "SOURCE_ID_FIND",
+      "sourceId": "FIND-CM04-01",
+      "fields": {
+        "heading": "FIND-CM04-01",
+        "body": [
+          "Todo finding CM-04 debe conservar la interacción material y el intent que resultan afectados."
+        ]
+      },
+      "sourceLines": [
+        712,
+        713
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-CM04-13",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM04-13",
+      "fields": {
+        "heading": "CAND-MOTOR-CM04-13",
+        "body": [
+          "Un finding de Channel Fit debe asociarse al Intent × Channel y no convertirse en una valoración global del canal."
+        ]
+      },
+      "sourceLines": [
+        721,
+        722
+      ]
+    },
+    {
+      "key": "P-CM04-13",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM04-13",
+      "fields": {
+        "heading": "P-CM04-13",
+        "body": [
+          "Reducir el número de canales puede aumentar capacidad de coordinación cuando disminuye complejidad sin deteriorar acceso o resolución material."
+        ]
+      },
+      "sourceLines": [
+        760,
+        761
+      ]
+    },
+    {
+      "key": "INT-CM04-01",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-CM04-01",
+      "fields": {
+        "heading": "INT-CM04-01",
+        "body": [
+          "La organización debe mantener el conjunto mínimo de canales y mecanismos de coordinación suficiente para permitir que las interacciones materiales ocurran, continúen y se resuelvan con acceso, contexto y esfuerzo proporcionales.",
+          "Esto constituye la versión CM-04 del principio de mínima complejidad."
+        ]
+      },
+      "sourceLines": [
+        765,
+        767
+      ]
+    },
+    {
+      "key": "INS-CM04-01",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM04-01",
+      "fields": {
+        "heading": "INS-CM04-01 · Customer Interaction Case Card",
+        "title": "Customer Interaction Case Card",
+        "body": [
+          "actor → intent → current channel → interaction state → next state → outcome."
+        ]
+      },
+      "sourceLines": [
+        818,
+        819
+      ]
+    },
+    {
+      "key": "INS-CM04-02",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM04-02",
+      "fields": {
+        "heading": "INS-CM04-02 · Channel Purpose Map",
+        "title": "Channel Purpose Map",
+        "body": [
+          "canal → intents permitidos/prioritarios → población → owner."
+        ]
+      },
+      "sourceLines": [
+        820,
+        821
+      ]
+    },
+    {
+      "key": "INS-CM04-03",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM04-03",
+      "fields": {
+        "heading": "INS-CM04-03 · Channel Fit Card",
+        "title": "Channel Fit Card",
+        "body": [
+          "intent → channel → access → complexity → urgency → suitability."
+        ]
+      },
+      "sourceLines": [
+        822,
+        823
+      ]
+    },
+    {
+      "key": "INS-CM04-04",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM04-04",
+      "fields": {
+        "heading": "INS-CM04-04 · Customer Interaction Handoff Map",
+        "title": "Customer Interaction Handoff Map",
+        "body": [
+          "from → to → trigger → required context → accountability → next state."
+        ]
+      },
+      "sourceLines": [
+        824,
+        825
+      ]
+    },
+    {
+      "key": "INS-CM04-05",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM04-05",
+      "fields": {
+        "heading": "INS-CM04-05 · Context Continuity Card",
+        "title": "Context Continuity Card",
+        "body": [
+          "qué debe preservarse → por qué → quién lo necesita → cuánto tiempo."
+        ]
+      },
+      "sourceLines": [
+        826,
+        827
+      ]
+    },
+    {
+      "key": "INS-CM04-06",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM04-06",
+      "fields": {
+        "heading": "INS-CM04-06 · Cross-Channel Consistency Check",
+        "title": "Cross-Channel Consistency Check",
+        "body": [
+          "información/condición → canal A → canal B → diferencia → intended/not intended."
+        ]
+      },
+      "sourceLines": [
+        828,
+        829
+      ]
+    },
+    {
+      "key": "INS-CM04-07",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM04-07",
+      "fields": {
+        "heading": "INS-CM04-07 · Resolution & Escalation Card",
+        "title": "Resolution & Escalation Card",
+        "body": [
+          "intent → expected resolution → trigger de escalación → destination → owner."
+        ]
+      },
+      "sourceLines": [
+        830,
+        831
+      ]
+    },
+    {
+      "key": "INS-CM04-08",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM04-08",
+      "fields": {
+        "heading": "INS-CM04-08 · Interaction Friction Map",
+        "title": "Interaction Friction Map",
+        "body": [
+          "punto → repetición/demora/confusión/retrabajo → consecuencia → evidencia."
+        ]
+      },
+      "sourceLines": [
+        832,
+        833
+      ]
+    },
+    {
+      "key": "INS-CM04-09",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM04-09",
+      "fields": {
+        "heading": "INS-CM04-09 · Channel Portfolio Review",
+        "title": "Channel Portfolio Review",
+        "body": [
+          "channel → purpose → material use → complexity → value → maintain/modify/consolidate/retire."
+        ]
+      },
+      "sourceLines": [
+        834,
+        835
+      ]
+    },
+    {
+      "key": "CAND-INSTRUMENT-TRANSVERSAL-07",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-INSTRUMENT-TRANSVERSAL-07",
+      "fields": {
+        "heading": "CAND-INSTRUMENT-TRANSVERSAL-07 · CUSTOMER-INTERACTION-HANDOFF-MAP",
+        "title": "CUSTOMER-INTERACTION-HANDOFF-MAP",
+        "body": [
+          "La regla sigue siendo:",
+          "shared evidence, capability-specific inference."
+        ]
+      },
+      "sourceLines": [
+        845,
+        847
+      ]
+    },
+    {
+      "key": "DEL-CM04-01",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM04-01",
+      "fields": {
+        "heading": "DEL-CM04-01 · interacciones e intents materiales visibles",
+        "title": "interacciones e intents materiales visibles"
+      },
+      "sourceLines": [
+        851,
+        851
+      ]
+    },
+    {
+      "key": "DEL-CM04-02",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM04-02",
+      "fields": {
+        "heading": "DEL-CM04-02 · propósito de canales suficientemente definido",
+        "title": "propósito de canales suficientemente definido"
+      },
+      "sourceLines": [
+        852,
+        852
+      ]
+    },
+    {
+      "key": "DEL-CM04-03",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM04-03",
+      "fields": {
+        "heading": "DEL-CM04-03 · Channel Fit suficientemente adecuado",
+        "title": "Channel Fit suficientemente adecuado"
+      },
+      "sourceLines": [
+        853,
+        853
+      ]
+    },
+    {
+      "key": "DEL-CM04-04",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM04-04",
+      "fields": {
+        "heading": "DEL-CM04-04 · estado y accountability de interacción visibles",
+        "title": "estado y accountability de interacción visibles"
+      },
+      "sourceLines": [
+        854,
+        854
+      ]
+    },
+    {
+      "key": "DEL-CM04-05",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM04-05",
+      "fields": {
+        "heading": "DEL-CM04-05 · handoffs coordinados",
+        "title": "handoffs coordinados"
+      },
+      "sourceLines": [
+        855,
+        855
+      ]
+    },
+    {
+      "key": "DEL-CM04-06",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM04-06",
+      "fields": {
+        "heading": "DEL-CM04-06 · continuidad de contexto suficiente",
+        "title": "continuidad de contexto suficiente"
+      },
+      "sourceLines": [
+        856,
+        856
+      ]
+    },
+    {
+      "key": "DEL-CM04-07",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM04-07",
+      "fields": {
+        "heading": "DEL-CM04-07 · consistencia cross-channel suficiente",
+        "title": "consistencia cross-channel suficiente"
+      },
+      "sourceLines": [
+        857,
+        857
+      ]
+    },
+    {
+      "key": "DEL-CM04-08",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM04-08",
+      "fields": {
+        "heading": "DEL-CM04-08 · resolución/escalación funcional",
+        "title": "resolución/escalación funcional"
+      },
+      "sourceLines": [
+        858,
+        858
+      ]
+    },
+    {
+      "key": "DEL-CM04-09",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM04-09",
+      "fields": {
+        "heading": "DEL-CM04-09 · portfolio de canales proporcional y adaptativo",
+        "title": "portfolio de canales proporcional y adaptativo"
+      },
+      "sourceLines": [
+        859,
+        859
+      ]
+    },
+    {
+      "key": "CRV-CM04-01",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM04-01",
+      "fields": {
+        "heading": "| CRV-CM04-01 | Intents materiales cuentan con interacción/canal explícitamente identificables |",
+        "title": "Intents materiales cuentan con interacción/canal explícitamente identificables"
+      },
+      "sourceLines": [
+        883,
+        883
+      ]
+    },
+    {
+      "key": "CRV-CM04-02",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM04-02",
+      "fields": {
+        "heading": "| CRV-CM04-02 | Canales materiales tienen propósito suficientemente comprensible para organización y población aplicable |",
+        "title": "Canales materiales tienen propósito suficientemente comprensible para organización y población aplicable"
+      },
+      "sourceLines": [
+        884,
+        884
+      ]
+    },
+    {
+      "key": "CRV-CM04-03",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM04-03",
+      "fields": {
+        "heading": "| CRV-CM04-03 | Interacciones prioritarias pueden realizarse mediante un canal suficientemente fit |",
+        "title": "Interacciones prioritarias pueden realizarse mediante un canal suficientemente fit"
+      },
+      "sourceLines": [
+        885,
+        885
+      ]
+    },
+    {
+      "key": "CRV-CM04-04",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM04-04",
+      "fields": {
+        "heading": "| CRV-CM04-04 | Interacciones abiertas materiales tienen owner/estado/next state identificable |",
+        "title": "Interacciones abiertas materiales tienen owner/estado/next state identificable"
+      },
+      "sourceLines": [
+        886,
+        886
+      ]
+    },
+    {
+      "key": "CRV-CM04-05",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM04-05",
+      "fields": {
+        "heading": "| CRV-CM04-05 | Handoffs seleccionados permiten continuar sin pérdida material de información |",
+        "title": "Handoffs seleccionados permiten continuar sin pérdida material de información"
+      },
+      "sourceLines": [
+        887,
+        887
+      ]
+    },
+    {
+      "key": "CRV-CM04-06",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM04-06",
+      "fields": {
+        "heading": "| CRV-CM04-06 | Repetición/reinicio innecesario permanece dentro de tolerancia suficiente |",
+        "title": "Repetición/reinicio innecesario permanece dentro de tolerancia suficiente"
+      },
+      "sourceLines": [
+        888,
+        888
+      ]
+    },
+    {
+      "key": "CRV-CM04-07",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM04-07",
+      "fields": {
+        "heading": "| CRV-CM04-07 | Información y condiciones críticas permanecen coherentes entre canales aplicables |",
+        "title": "Información y condiciones críticas permanecen coherentes entre canales aplicables"
+      },
+      "sourceLines": [
+        889,
+        889
+      ]
+    },
+    {
+      "key": "CRV-CM04-08",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM04-08",
+      "fields": {
+        "heading": "| CRV-CM04-08 | Interacciones materiales alcanzan resolución o escalación suficientemente adecuada |",
+        "title": "Interacciones materiales alcanzan resolución o escalación suficientemente adecuada"
+      },
+      "sourceLines": [
+        890,
+        890
+      ]
+    },
+    {
+      "key": "CRV-CM04-09",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM04-09",
+      "fields": {
+        "heading": "| CRV-CM04-09 | Canales sin función/valor suficiente pueden consolidarse, modificarse o retirarse de forma trazable |",
+        "title": "Canales sin función/valor suficiente pueden consolidarse, modificarse o retirarse de forma trazable"
+      },
+      "sourceLines": [
+        891,
+        891
+      ]
+    },
+    {
+      "key": "V0",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V0",
+      "fields": {
+        "heading": "V0 · UNKNOWN",
+        "title": "UNKNOWN",
+        "body": [
+          "La interacción/canal está insuficientemente comprendida."
+        ]
+      },
+      "sourceLines": [
+        914,
+        915
+      ]
+    },
+    {
+      "key": "V1",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V1",
+      "fields": {
+        "heading": "V1 · CHANNEL-DEFINED",
+        "title": "CHANNEL-DEFINED",
+        "body": [
+          "Intent, canal y accountability básicos están definidos."
+        ]
+      },
+      "sourceLines": [
+        916,
+        917
+      ]
+    },
+    {
+      "key": "V2",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V2",
+      "fields": {
+        "heading": "V2 · HANDOFF-EVIDENCED",
+        "title": "HANDOFF-EVIDENCED",
+        "body": [
+          "Existe evidencia de funcionamiento de interacción y handoffs."
+        ]
+      },
+      "sourceLines": [
+        918,
+        919
+      ]
+    },
+    {
+      "key": "V3",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V3",
+      "fields": {
+        "heading": "V3 · INTERACTION-FIT",
+        "title": "INTERACTION-FIT",
+        "body": [
+          "Canal, contexto, timing y resolución son suficientemente adecuados en condiciones reales."
+        ]
+      },
+      "sourceLines": [
+        920,
+        921
+      ]
+    },
+    {
+      "key": "V4",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V4",
+      "fields": {
+        "heading": "V4 · CHANNEL-SYSTEM-ADAPTIVE",
+        "title": "CHANNEL-SYSTEM-ADAPTIVE",
+        "body": [
+          "El sistema detecta fricciones y puede mantener, modificar, consolidar o retirar canales según nueva evidencia."
+        ]
+      },
+      "sourceLines": [
+        922,
+        923
+      ]
+    },
+    {
+      "key": "VAL-CM04-01",
+      "objectType": "SOURCE_ID_VAL",
+      "sourceId": "VAL-CM04-01",
+      "fields": {
+        "heading": "VAL-CM04-01",
+        "body": [
+          "El estado de validación debe asociarse a Intent × Channel/Interaction Context y no al canal en abstracto."
+        ]
+      },
+      "sourceLines": [
+        942,
+        943
+      ]
+    },
+    {
+      "key": "REASS-CM04-01",
+      "objectType": "SOURCE_ID_REASS",
+      "sourceId": "REASS-CM04-01",
+      "fields": {
+        "heading": "REASS-CM04-01",
+        "body": [
+          "Un Channel Fit previamente suficiente debe reevaluarse cuando cambian materialmente intent, población, volumen, contexto, capacidad de resolución o estructura de handoffs."
+        ]
+      },
+      "sourceLines": [
+        963,
+        964
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-AI-CM04-04",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-CM04-04",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-CM04-04",
+        "body": [
+          "Automation containment rate no debe sustituir resolution rate cuando el objetivo de la interacción es resolver o progresar un intent.",
+          "Y:"
+        ]
+      },
+      "sourceLines": [
+        971,
+        973
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-AI-CM04-05",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-CM04-05",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-CM04-05",
+        "body": [
+          "Una interacción automatizada debe conservar capacidad de escalación proporcional cuando existen intents o excepciones materialmente fuera de su alcance."
+        ]
+      },
+      "sourceLines": [
+        974,
+        975
+      ]
+    },
+    {
+      "key": "SOURCE-REVIEW-TRIGGER-CM04-01",
+      "objectType": "SOURCE_ID_SOURCE",
+      "sourceId": "SOURCE-REVIEW-TRIGGER-CM04-01",
+      "fields": {
+        "heading": "SOURCE-REVIEW-TRIGGER-CM04-01 · Revisar recomendaciones y conocimiento específico de canal cuando cambien materialmente capacidades, reglas, comportamiento o relevancia de las plataformas a las que se refieren.",
+        "title": "Revisar recomendaciones y conocimiento específico de canal cuando cambien materialmente capacidades, reglas, comportamiento o relevancia de las plataformas a las que se refieren.",
+        "body": [
+          "La arquitectura CM-04 no debe cambiar cada vez que una plataforma lanza una función nueva."
+        ]
+      },
+      "sourceLines": [
+        1012,
+        1013
+      ]
+    },
+    {
+      "key": "K1",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Coherencia — PASS",
+        "title": "Coherencia — PASS",
+        "body": [
+          "CM-04 queda delimitada respecto de CM-03, CM-05, DT-03, DT-01 y OP."
+        ]
+      },
+      "sourceLines": [
+        1081,
+        1082
+      ]
+    },
+    {
+      "key": "K2",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Razonamiento — PASS",
+        "title": "Razonamiento — PASS",
+        "body": [
+          "Preserva:",
+          "CHANNEL ≠ INTERACTION",
+          "CHANNEL FIT ≠ CHANNEL PRESENCE",
+          "HANDOFF ≠ CONTEXT CONTINUITY",
+          "RESPONSE ≠ RESOLUTION",
+          "COORDINATION ≠ OMNICHANNEL"
+        ]
+      },
+      "sourceLines": [
+        1083,
+        1089
+      ]
+    },
+    {
+      "key": "K3",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · Acción — PASS",
+        "title": "Acción — PASS",
+        "body": [
+          "Permite clarificar, redirigir, consolidar, preservar contexto, resolver, escalar, automatizar o retirar canales."
+        ]
+      },
+      "sourceLines": [
+        1090,
+        1091
+      ]
+    },
+    {
+      "key": "K4",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · Knowledge — PASS",
+        "title": "Knowledge — PASS",
+        "body": [
+          "Objetos, evidencia, confidence, proportionality, lifecycle, source governance y CRV quedan explícitos."
+        ]
+      },
+      "sourceLines": [
+        1092,
+        1093
+      ]
+    }
+  ],
+  "supersessions": [],
+  "executableProjection": {
+    "sourceRef": "source.json",
+    "verbatimKeys": [
+      "heading",
+      "title",
+      "body"
+    ],
+    "projectedObjectTypes": [],
+    "canonicalOnlyGapRefs": []
+  },
+  "gaps": [],
+  "transcriptionCorrections": [],
+  "checksum": "sha256:f56edf6fdbd7778deeba584367970af10565609c5e18a092fc207a952938e5b8"
+}

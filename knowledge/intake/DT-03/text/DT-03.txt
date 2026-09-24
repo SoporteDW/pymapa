@@ -1,0 +1,1029 @@
+Seguimos con DT-03 · Integrar datos, aplicaciones y flujos de información. Esta capacidad tiene una trampa conceptual importante: si medimos integración por número de APIs, automatizaciones o sistemas conectados, premiaríamos complejidad tecnológica en lugar de capacidad empresarial.
+# DT-03 · Integrar datos, aplicaciones y flujos de información
+## Dimensionamiento orgánico
+La pregunta irreducible será:
+¿La información material puede atravesar suficientemente las fronteras entre personas, procesos, datos y aplicaciones que necesita cruzar para que el trabajo funcione de extremo a extremo?
+Por tanto:
+DT-03 no mide conectividad tecnológica. Mide continuidad suficiente de información a través de fronteras relevantes.
+Una integración manual puede ser suficiente. Una API puede ser insuficiente.
+
+# 1. Dimensionamiento
+Por la necesidad de separar flujo, frontera, transformación, sincronización, interoperabilidad, controles y excepciones, DT-03 requiere 13 bloques.
+| # | Bloque |
+| 1 | Identidad, alcance y unidad |
+| 2 | Modelo conceptual de integración |
+| 3 | Aplicabilidad y materialidad |
+| 4 | Fronteras con DT-01/02/04/05 y OP |
+| 5 | Tipología de fronteras y mecanismos |
+| 6 | Condiciones evaluables y variables |
+| 7 | Information Needs |
+| 8 | Grounding y principios |
+| 9 | Captura, evidencia, suficiencia, confianza y reglas |
+| 10 | Findings y decisiones |
+| 11 | Intervenciones, actividades e instrumentos |
+| 12 | Entregables, Done, CRV, validación y seguimiento |
+| 13 | Contextualización, governance y cierre |
+Agrupamos:
+SET A = bloques 1–9
+SET B = bloques 10–13
+Avanzamos ahora con SET A completo.
+
+# 2. Identidad
+## Definición V1
+DT-03 evalúa la capacidad de la organización para lograr que datos e información materialmente necesarios circulen entre aplicaciones, procesos, personas o actores relevantes con suficiente integridad, oportunidad, correspondencia y control para sostener el flujo de trabajo requerido.
+## Unidad de análisis
+No será:
+la integración entre dos sistemas.
+Será:
+el cruce material de información a través de una frontera necesaria para un flujo de trabajo o uso determinado.
+Lo denominamos:
+### INFORMATION HANDOFF
+Transferencia material de información desde un origen hacia un destino que necesita recibirla o utilizarla para continuar correctamente un flujo aplicable.
+Cadena:
+Flow Need → Source → Information → Boundary → Transfer → Transformation → Destination → Use → Confirmation/Exception.
+
+# 3. Integración ≠ API
+Éste será el principio central.
+Un Information Handoff puede producirse mediante:
+### IH-MANUAL
+Una persona transfiere información.
+### IH-FILE
+Archivo, exportación/importación.
+### IH-SHARED
+Fuente compartida.
+### IH-AUTOMATED
+Automatización entre herramientas.
+### IH-API
+Interfaz entre aplicaciones.
+### IH-EVENT
+Evento/mensaje.
+### IH-HYBRID
+Combinación.
+Ninguno es intrínsecamente superior.
+### P-DT03-CORE-01
+El mecanismo de integración debe evaluarse por su suficiencia para el flujo material, no por su sofisticación técnica.
+
+# Ejemplo
+Una empresa procesa:
+cuatro órdenes especiales al mes.
+Una persona exporta un archivo, lo revisa y lo carga al sistema del proveedor.
+Si funciona:
+- oportunamente;
+- sin errores materiales;
+- con esfuerzo proporcional;
+puede ser completamente suficiente.
+Automatizarlo puede destruir valor.
+Pero si existen:
+4.000 órdenes diarias,
+el mismo mecanismo puede ser claramente insuficiente.
+
+# 4. Integración como continuidad de información
+Necesitamos separar:
+CONNECTED ≠ TRANSFERRED ≠ MAPPED ≠ SYNCHRONIZED ≠ RECEIVED ≠ USABLE ≠ CONFIRMED
+Dos sistemas pueden estar técnicamente conectados pero:
+enviar campos equivocados.
+O:
+transferir correctamente una vez al día cuando el proceso necesita tiempo real.
+O:
+transferir información sin saber qué hacer cuando falla.
+Por tanto:
+### INTEGRATION FIT
+grado en que un Information Handoff satisface suficientemente los requisitos del flujo al que sirve.
+
+# 5. Aplicabilidad
+No toda frontera necesita integración.
+### APP-DT03-01
+DT-03 se activa cuando un uso o flujo material depende de que información atraviese una frontera entre fuentes, aplicaciones, procesos, personas o actores.
+Si la información:
+nace y se utiliza suficientemente dentro del mismo contexto,
+puede no existir necesidad material de integración.
+
+# Materialidad
+Aumenta con:
+- volumen;
+- frecuencia;
+- criticidad;
+- sensibilidad temporal;
+- retrabajo;
+- consecuencia del error;
+- número de destinos;
+- dependencia aguas abajo;
+- complejidad de transformación;
+- necesidad de consistencia;
+- dificultad de recuperación;
+- crecimiento previsto.
+Otra vez:
+no forman un score universal.
+
+# 6. Fronteras
+## DT-03 vs DT-02
+DT-02:
+¿el dato es suficientemente apto?
+DT-03:
+¿puede atravesar correctamente las fronteras necesarias?
+Ejemplo:
+CRM tiene dirección correcta.
+ERP tiene dirección antigua.
+Puede existir:
+DT-02 inconsistency.
+Pero la causa puede ser:
+DT-03 synchronization failure.
+
+# DT-03 vs OP-03
+Esta frontera es especialmente importante.
+OP-03:
+¿el proceso funciona integrado de extremo a extremo?
+DT-03:
+¿la información cruza suficientemente las fronteras que ese proceso requiere?
+Un proceso puede estar mal diseñado aunque los sistemas intercambien datos perfectamente.
+Y un proceso bien diseñado puede fallar porque:
+la información no llega.
+### P-DT03-01
+Integración de información habilita integración de procesos, pero no la sustituye.
+
+# DT-03 vs OP-04
+OP-04:
+¿conviene simplificar/automatizar?
+DT-03:
+¿el handoff actual es suficiente?
+Si no lo es, la intervención podría ser:
+mejorar el handoff manual,
+no necesariamente automatizarlo.
+
+# DT-03 vs DT-01
+DT-01:
+aplicaciones adecuadas individualmente.
+DT-03:
+funcionamiento suficiente entre ellas.
+Podemos tener:
+DT01 = positive
+DT03 = negative.
+
+# DT-03 vs DT-04
+Un pipeline puede transportar correctamente información.
+Eso no demuestra que:
+la organización la convierta en información útil para decidir.
+
+# DT-03 vs DT-05
+DT-03 puede evaluar:
+que la transferencia ocurra.
+DT-05 evaluará:
+protección, riesgo y continuidad.
+Un intercambio técnicamente efectivo puede ser:
+inseguro.
+
+# 7. Tipología de fronteras
+Introducimos 6 tipos funcionales, no tecnológicos.
+### BND-01 · APPLICATION
+Aplicación ↔ aplicación.
+### BND-02 · DATA
+Fuente/conjunto ↔ otro contexto de datos.
+### BND-03 · PROCESS
+Etapa ↔ etapa.
+### BND-04 · HUMAN-SYSTEM
+Persona ↔ sistema.
+### BND-05 · HUMAN-HUMAN
+Persona/rol ↔ persona/rol cuando el handoff informacional es material.
+### BND-06 · EXTERNAL
+Organización ↔ cliente/proveedor/plataforma/tercero.
+Esto es importante porque una pyme puede tener una brecha de integración aunque:
+solo utilice una aplicación.
+Por ejemplo:
+ventas anota una instrucción en comentarios y operaciones nunca la ve.
+Es una falla material del flujo de información.
+
+# 8. Requisitos del handoff
+Un Information Handoff puede necesitar:
+### HR-01 · CONTENT
+Transferir lo necesario.
+### HR-02 · MAPPING
+Mantener correspondencia semántica suficiente.
+### HR-03 · TIMING
+Llegar dentro del horizonte requerido.
+### HR-04 · FREQUENCY
+Actualizar con frecuencia suficiente.
+### HR-05 · SEQUENCE
+Ocurrir en el punto correcto del flujo.
+### HR-06 · INTEGRITY
+No perder/alterar materialmente información.
+### HR-07 · CONFIRMATION
+Permitir conocer suficientemente si ocurrió cuando esto es material.
+### HR-08 · EXCEPTION
+Tratar fallos/excepciones proporcionalmente.
+No todos aplican a todos los handoffs.
+
+# 9. Transformación
+Transferencia no siempre significa:
+copiar exactamente.
+Puede requerir:
+- convertir formato;
+- agregar;
+- separar;
+- mapear código;
+- transformar unidad;
+- enriquecer;
+- resumir;
+- filtrar.
+Por tanto:
+TRANSFORMATION ≠ CORRUPTION.
+Una transformación es correcta cuando preserva:
+el significado requerido por el uso destino.
+### P-DT03-02
+La integración debe preservar suficientemente el significado material, no necesariamente la representación original.
+
+# 10. Sincronización
+Otra distinción:
+REAL-TIME ≠ BETTER
+Necesitamos:
+### SYNCHRONIZATION NEED
+frecuencia/horizonte dentro del cual origen y destino deben mantener correspondencia suficiente.
+Puede ser:
+- inmediato;
+- minutos;
+- diario;
+- semanal;
+- bajo demanda.
+### P-DT03-03
+La sincronización adecuada es la requerida por el flujo; tiempo real no constituye un objetivo universal.
+
+# 11. Condiciones evaluables
+DT-03 requiere 7 CE / 17 VA.
+## CE01 · Necesidad de integración
+VA01 · Handoffs materiales identificados
+VA02 · Propósito/uso destino suficientemente definido
+
+## CE02 · Cobertura del intercambio
+VA03 · Información requerida transferida suficientemente
+VA04 · Destino correcto alcanzado
+
+## CE03 · Correspondencia
+VA05 · Mapping/significado preservado
+VA06 · Transformación suficientemente correcta
+
+## CE04 · Temporalidad
+VA07 · Timing suficiente
+VA08 · Frecuencia/sincronización suficiente
+VA09 · Secuencia dentro del flujo suficiente
+
+## CE05 · Integridad del handoff
+VA10 · Transferencia suficientemente completa
+VA11 · Alteración/pérdida material controlada
+VA12 · Duplicación/repetición material controlada cuando aplica
+
+## CE06 · Funcionamiento operativo
+VA13 · Handoff suficientemente confiable
+VA14 · Confirmación/visibilidad suficiente cuando material
+VA15 · Excepciones suficientemente detectables/tratables
+
+## CE07 · Proporcionalidad y sostenibilidad
+VA16 · Esfuerzo manual/técnico proporcional
+VA17 · Mecanismo suficientemente sostenible para volumen/complejidad previsible
+
+# 12. Information Needs
+Resultan 17 NI, correspondientes a las VA.
+Pero la unidad mínima de razonamiento debe preservar:
+SOURCE + INFORMATION + DESTINATION + USE
+Sin esos cuatro elementos no deberíamos diagnosticar fuertemente integración.
+### NI-DT03-CORE
+¿Qué información debe pasar, desde dónde, hacia dónde y para qué?
+Solo después preguntamos:
+cómo.
+
+# 13. Grounding
+Para DT-03 necesitamos fundamentación proporcional sin convertir Pymapa en un framework de arquitectura empresarial.
+La familia ISO 8000 resulta nuevamente relevante porque separa calidad e intercambio de datos y contempla sintaxis, semántica y requisitos para intercambio de master data. La utilizamos como referencia conceptual, no como prescripción de arquitectura.
+DAMA distingue explícitamente Data Integration & Interoperability de Data Quality, Data Security, Metadata y otras áreas de gestión, lo que respalda nuestra separación DT-02/DT-03.
+En el plano técnico, estándares y prácticas de interoperabilidad muestran consistentemente que integración requiere algo más que conectividad: deben conservarse estructuras y significado suficientes para que sistemas o actores receptores puedan utilizar la información.
+Para Pymapa traducimos ese conocimiento a:
+business-relevant information handoffs, no a una evaluación de middleware.
+
+# 14. Principios DT-03
+P-DT03-01
+Integración ≠ API.
+P-DT03-02
+Conectividad ≠ integración efectiva.
+P-DT03-03
+Más automatización ≠ mejor integración automáticamente.
+P-DT03-04
+Tiempo real ≠ mejor por definición.
+P-DT03-05
+Transferencia ≠ recepción correcta.
+P-DT03-06
+Recepción ≠ utilización.
+P-DT03-07
+Consistencia de datos ≠ integración automáticamente.
+P-DT03-08
+Transformación de datos ≠ pérdida de integridad automáticamente.
+P-DT03-09
+Integración técnica ≠ integración de proceso.
+P-DT03-10
+Una transferencia manual puede ser suficiente.
+P-DT03-11
+Un handoff manual puede volverse insuficiente por crecimiento.
+P-DT03-12
+No todo handoff necesita confirmación formal.
+P-DT03-13
+No toda excepción necesita automatización.
+P-DT03-14
+La profundidad del control aumenta con materialidad.
+P-DT03-15
+Una integración existente puede ser innecesaria.
+P-DT03-16
+Duplicar información no constituye por sí solo una brecha.
+P-DT03-17
+La integración debe diseñarse alrededor del flujo requerido, no alrededor de las herramientas disponibles.
+
+# 15. Captura progresiva
+## P1 · Núcleo
+Preguntas SME-friendly:
+“¿Dónde tienen que volver a digitar información que ya existe?”
+“¿Qué información suele perderse cuando el trabajo pasa de una persona o sistema a otro?”
+“¿Dónde necesitan copiar, exportar o enviar archivos para continuar un proceso?”
+“¿Qué información llega tarde al siguiente paso?”
+“¿Qué pasa si esa transferencia falla?”
+Estas preguntas descubren handoffs materiales.
+
+# P2 · Triggers
+Profundizamos ante:
+- re-digitación;
+- copiar/pegar;
+- conciliación recurrente;
+- archivos enviados manualmente;
+- múltiples versiones;
+- información perdida;
+- retrasos;
+- errores entre sistemas;
+- sincronización tardía;
+- doble registro;
+- export/import;
+- workarounds;
+- integraciones que fallan;
+- dependencia de una persona;
+- crecimiento de volumen;
+- excepciones invisibles.
+Pero:
+copiar/pegar no es automáticamente una brecha.
+Es un trigger.
+
+# P3 · Discriminación causal
+Ante:
+“CRM y ERP no cuadran”
+debemos distinguir:
+SOURCE DATA QUALITY → DT-02
+MAPPING ERROR → DT-03
+SYNC DELAY → DT-03
+TRANSFORMATION ERROR → DT-03
+PROCESS TIMING → OP
+MANUAL EXECUTION ERROR → posiblemente OP/PC
+SYSTEM FUNCTION → DT-01
+REPORT TRANSFORMATION → DT-04
+
+# P4 · Contradicciones
+### CONTR-DT03-01
+SYSTEMS_CONNECTED_vs_MANUAL_RECONCILIATION
+“Todo está integrado”
+pero existe conciliación manual material recurrente.
+No demuestra automáticamente falla, pero exige profundización.
+### CONTR-DT03-02
+AUTOMATED_TRANSFER_vs_MISSING_EXCEPTIONS
+“Es automático”
+pero nadie sabe cuándo falla.
+### CONTR-DT03-03
+REAL_TIME_vs_NOT_NEEDED
+Existe integración compleja en tiempo real para un uso semanal.
+Puede indicar:
+over-integration.
+
+# P5 · Validación
+No:
+“¿Sus sistemas están integrados?”
+Mejor:
+“Cuando ventas confirma un pedido, ¿la información que operaciones necesita llega completa y correctamente antes de preparar el pedido, sin volver a digitarla?”
+Ahora podemos observar el handoff real.
+
+# 16. Evidencia
+Puede incluir:
+- proceso;
+- origen;
+- destino;
+- archivos;
+- campos;
+- interfaces;
+- automatizaciones;
+- logs;
+- timestamps;
+- errores;
+- reconciliaciones;
+- excepciones;
+- screenshots;
+- muestras;
+- transferencias observadas;
+- tiempo manual;
+- volúmenes;
+- re-digitación;
+- transformaciones;
+- responsables.
+No necesitamos diagramas técnicos completos por defecto.
+
+# Evidencia proporcional
+Un handoff crítico y automatizado puede requerir:
+logs + muestras + excepciones.
+Uno manual de bajo volumen puede validarse mediante:
+observación + ejemplo real.
+### EVID-DT03-01
+La profundidad de evidencia debe aumentar con criticidad, volumen, automatización invisible y consecuencia del fallo.
+
+# 17. Suficiencia
+### SUFF-DT03-01
+DT-03 alcanza suficiencia cuando los handoffs materiales permiten que la información requerida atraviese las fronteras aplicables con correspondencia, oportunidad, integridad y confiabilidad suficientes para los flujos a los que sirven.
+No significa:
+todos los sistemas conectados.
+
+# Coverage
+La cobertura sigue:
+material flow → critical handoff → applicable requirements.
+No:
+aplicación → todas sus interfaces.
+Esto mantiene viable el diagnóstico.
+
+# 18. Confianza
+Reutilizamos C0–C3.
+Para un handoff crítico:
+C1 declaración
+C2 evidencia de transferencia
+C3 funcionamiento repetido + excepciones suficientemente observables
+La existencia de una API solo aporta:
+evidencia de mecanismo.
+No necesariamente:
+evidencia de integración efectiva.
+
+# 19. Reglas diagnósticas
+Resultan 17 reglas primarias.
+R-DT03-01 · MATERIAL_INFORMATION_HANDOFF_UNCLEAR
+R-DT03-02 · HANDOFF_PURPOSE_UNCLEAR
+R-DT03-03 · REQUIRED_INFORMATION_NOT_TRANSFERRED
+R-DT03-04 · INFORMATION_DESTINATION_MISMATCH
+R-DT03-05 · SEMANTIC_MAPPING_GAP
+R-DT03-06 · MATERIAL_TRANSFORMATION_ERROR
+R-DT03-07 · INFORMATION_HANDOFF_TOO_LATE
+R-DT03-08 · SYNCHRONIZATION_FREQUENCY_GAP
+R-DT03-09 · INFORMATION_SEQUENCE_GAP
+R-DT03-10 · HANDOFF_COMPLETENESS_GAP
+R-DT03-11 · INFORMATION_INTEGRITY_LOSS
+R-DT03-12 · MATERIAL_DUPLICATION_HANDOFF_GAP
+R-DT03-13 · HANDOFF_RELIABILITY_GAP
+R-DT03-14 · MATERIAL_HANDOFF_VISIBILITY_GAP
+R-DT03-15 · INTEGRATION_EXCEPTION_CONTROL_GAP
+R-DT03-16 · INTEGRATION_EFFORT_DISPROPORTIONATE
+R-DT03-17 · INTEGRATION_SCALABILITY_FRAGILITY
+
+# Estados positivos
+Resultan 6:
+### MATERIAL_HANDOFFS_VISIBLE
+### REQUIRED_INFORMATION_FLOWS
+### INFORMATION_MEANING_PRESERVED
+### INFORMATION_TIMELY_SYNCHRONIZED
+### HANDOFFS_OPERATIONALLY_RELIABLE
+### INTEGRATION_PROPORTIONATE_AND_SUSTAINABLE
+
+# Guardrails
+- No preguntar primero por APIs.
+- No asumir que manual = inmaduro.
+- No asumir que automático = adecuado.
+- No exigir tiempo real.
+- No exigir integración total.
+- No premiar número de integraciones.
+- No penalizar export/import sin materialidad.
+- No confundir integración con calidad del dato.
+- No confundir integración con proceso end-to-end.
+- No confundir integración con analítica.
+- No confundir conectividad con integración.
+- No exigir middleware.
+- No exigir ESB/iPaaS.
+- No exigir confirmación donde no agrega valor.
+- No automatizar excepciones raras sin justificación.
+- No atribuir inconsistencia automáticamente a integración.
+- No asumir que duplicación implica error.
+- No exigir sincronización idéntica para todos los datos.
+- No ignorar handoffs persona-persona.
+- No ignorar integraciones externas.
+- No mantener integraciones innecesarias solo porque ya existen.
+
+# Un concepto nuevo: Integration Debt
+Debemos manejarlo cuidadosamente.
+No será:
+“cantidad de integraciones viejas”.
+Lo definimos como candidato:
+### INTEGRATION FRICTION
+esfuerzo, fragilidad o complejidad recurrente generada por handoffs que ya no son suficientemente adecuados para el flujo que deben soportar.
+Preferimos Integration Friction a “technical debt” porque es más observable y menos interpretativo.
+
+# Candidatos para el Motor
+### CAND-MOTOR-DT03-01
+La unidad diagnóstica de integración debe ser el Information Handoff material, no la interfaz tecnológica.
+### CAND-MOTOR-DT03-02
+Connected, transferred, mapped, synchronized, received, usable y confirmed deben permanecer como estados distintos.
+### CAND-MOTOR-DT03-03
+Los requisitos de integración deben activarse condicionalmente por handoff; tiempo real, confirmación o automatización no son universales.
+### CAND-MOTOR-DT03-04
+Un mecanismo manual puede ser suficiente y debe juzgarse por materialidad, volumen, esfuerzo, error y sostenibilidad.
+### CAND-MOTOR-DT03-05
+Una inconsistencia entre origen y destino debe discriminar calidad fuente, mapping, transformación, sincronización y proceso antes de atribuir causalidad.
+### CAND-MOTOR-DT03-06
+La integración puede presentar UNDER-INTEGRATION u OVER-INTEGRATION.
+### CAND-MOTOR-DT03-07
+La suficiencia de integración debe asociarse a FLOW + HANDOFF + USE y no simplemente a una pareja de aplicaciones.
+### CAND-MOTOR-DT03-08
+El crecimiento de volumen/frecuencia puede invalidar un handoff previamente suficiente sin que la evaluación histórica haya sido incorrecta.
+
+# Relación con el Motor transversal
+Aquí aparece algo potente.
+Tenemos ya tres objetos tecnológicos diferentes:
+DT-01
+USE → TECHNOLOGY ENABLEMENT.
+DT-02
+USE → DATA NEED.
+DT-03
+FLOW → INFORMATION HANDOFF.
+Esto permite que Pymapa no razone sobre:
+“sistemas”
+como una caja negra.
+Puede distinguir:
+¿falla la herramienta? ¿falla el dato? ¿o falla el movimiento de información entre contextos?
+Esa separación será fundamental para recomendaciones útiles.
+
+# Control DT-03 · SET A
+| Objeto | Resultado |
+| Dimensionamiento | 13 bloques |
+| SET A | 1–9 |
+| CE | 7 |
+| VA | 17 |
+| NI | 17 |
+| Reglas | 17 |
+| Estados positivos | 6 |
+| Guardrails | 21 |
+| Motor candidates | 8 |
+| Unidad | Information Handoff |
+La arquitectura queda:
+Flow Need → Source → Information → Boundary → Transfer → Mapping/Transformation → Timing/Sync → Destination → Use → Confirmation/Exception.
+Y queda fijada la regla central:
+Pymapa no considerará una pyme más integrada porque tenga más APIs, automatizaciones o aplicaciones conectadas. Evaluará si la información que materialmente necesita cruzar una frontera llega al destino correcto, con significado, integridad y oportunidad suficientes y mediante un mecanismo proporcional al volumen, criticidad y complejidad del flujo.
+DT03-SET-A-v0.1 · BLOCKS 1–9 OF 13 COMPLETE · READY-FOR-SET-B
+El siguiente movimiento es DT-03 · SET B · bloques 10–13: consolidaremos findings y decisiones, construiremos intervenciones e instrumentos —incluyendo cuándo no integrar o desintegrar—, definiremos CRV y validación por handoff, y ejecutaremos A–V 22/22 + DoD 27/27 + K1–K4 antes de pasar a DT-04 · Convertir datos en información útil para decisiones.
+Seguimos
+Seguimos con DT-03 · SET B, bloques 10–13. Aquí convertimos el concepto de Information Handoff en diagnóstico e intervención, manteniendo una regla decisiva: integrar más no siempre es mejor; en algunos casos la solución correcta puede ser simplificar, consolidar o eliminar una integración.
+# DT-03 · Integrar datos, aplicaciones y flujos de información
+## SET B · Bloques 10–13
+Entrada: DT03-SET-A-v0.1 · BLOCKS 1–9 OF 13 COMPLETE
+
+# 10. Findings y decisiones
+Las 17 reglas primarias se consolidan en 8 familias de hallazgo.
+| ID | Familia | Núcleo diagnóstico |
+| HF-DT03-01 | Handoff material insuficientemente definido | No está suficientemente claro qué información debe pasar, entre qué contextos o para qué |
+| HF-DT03-02 | Cobertura de transferencia insuficiente | Información requerida no llega completa o al destino correcto |
+| HF-DT03-03 | Correspondencia semántica insuficiente | Mapping o transformación altera materialmente el significado requerido |
+| HF-DT03-04 | Temporalidad/sincronización insuficiente | Información llega tarde, con frecuencia inadecuada o fuera de secuencia |
+| HF-DT03-05 | Integridad de transferencia insuficiente | Información se pierde, altera o duplica materialmente durante el handoff |
+| HF-DT03-06 | Handoff operacionalmente frágil | Transferencia falla o sus fallos permanecen insuficientemente visibles/tratables |
+| HF-DT03-07 | Esfuerzo de integración desproporcionado | El mecanismo funciona, pero exige retrabajo o carga material injustificada |
+| HF-DT03-08 | Mecanismo de integración no sostenible | Volumen, frecuencia o complejidad previsible superarán razonablemente el mecanismo actual |
+
+## El finding debe preservar el flujo
+Evitemos:
+“CRM y ERP no están integrados.”
+Ese finding habla de aplicaciones, no del problema empresarial.
+Preferimos:
+“La información de condiciones comerciales confirmadas en CRM no llega suficientemente completa y oportuna a facturación, generando validación manual recurrente antes de emitir la factura.”
+Ahora tenemos:
+FLOW + HANDOFF + CONDITION + CONSEQUENCE
+### FIND-DT03-01
+Todo finding de integración debe conservar el flujo o uso material cuya continuidad informacional está afectada.
+
+# El mecanismo manual no es el finding
+Supongamos:
+pedidos se transfieren mediante CSV.
+Eso es una observación.
+No una brecha.
+Solo se convierte en finding si produce, por ejemplo:
+- retraso material;
+- errores;
+- carga desproporcionada;
+- falta de control;
+- fragilidad;
+- incapacidad frente al volumen.
+### CAUS-DT03-01
+La existencia de un mecanismo manual no constituye evidencia suficiente de una brecha de integración.
+
+# Vocabulario de decisión
+DT-03 necesita 13 direcciones posibles.
+### CLARIFY
+Definir el handoff requerido.
+### ENABLE
+Crear transferencia inexistente.
+### COMPLETE
+Incorporar información material faltante.
+### REMAP
+Corregir correspondencias.
+### TRANSFORM
+Modificar transformación necesaria.
+### RESCHEDULE
+Ajustar timing, frecuencia o secuencia.
+### STABILIZE
+Mejorar confiabilidad del handoff.
+### CONTROL
+Hacer visibles/tratables fallos y excepciones.
+### SIMPLIFY
+Reducir pasos, transformaciones o intermediarios.
+### AUTOMATE
+Automatizar cuando esté materialmente justificado.
+### CONSOLIDATE
+Reducir handoffs mediante consolidación de herramientas/fuentes.
+### RETIRE
+Eliminar integración innecesaria.
+### NO_ACTION
+Mantener mecanismo actual.
+Esto es deliberadamente más amplio que:
+CONNECT / AUTOMATE.
+
+# ¿Cuándo automatizar?
+Introducimos:
+### INT-DT03-01 · MINIMUM SUFFICIENT HANDOFF
+Debe preferirse el mecanismo de transferencia de menor complejidad total que satisfaga suficientemente volumen, frecuencia, oportunidad, integridad, confiabilidad y sostenibilidad requeridos por el flujo material.
+La automatización gana pertinencia cuando aumenta suficientemente:
+frecuencia × volumen × repetitividad × consecuencia del error × costo manual.
+Pero tampoco convertimos esto en fórmula universal.
+
+# ¿Cuándo NO integrar?
+Puede ser correcto no crear una integración cuando:
+- el uso no es material;
+- frecuencia es baja;
+- transferencia manual es suficiente;
+- costo supera valor;
+- información no debería compartirse;
+- sistema será retirado pronto;
+- flujo debería eliminarse;
+- necesidad todavía es incierta.
+### P-DT03-18
+Una necesidad aparente de integración puede desaparecer al simplificar el proceso o eliminar una transferencia innecesaria.
+Por eso OP-04 sigue siendo relevante.
+
+# Over-integration
+También puede existir:
+OVER-INTEGRATION
+Ejemplo:
+Una pyme mantiene siete automatizaciones entre tres herramientas porque históricamente fue agregando soluciones.
+Ahora:
+- nadie comprende todas las dependencias;
+- pequeños cambios rompen flujos;
+- mantenerlas consume horas;
+- dos herramientas podrían consolidarse.
+No necesitamos “mejorar” las siete integraciones.
+Podemos:
+retirar cinco.
+
+# 11. Intervenciones, actividades e instrumentos
+Resultan 8 patrones de intervención.
+| ID | Patrón | Propósito |
+| IP-DT03-01 | Clarificar handoff material | Definir origen, información, destino y uso |
+| IP-DT03-02 | Completar transferencia | Asegurar contenido/destino requeridos |
+| IP-DT03-03 | Corregir correspondencia | Resolver mapping/transformación |
+| IP-DT03-04 | Ajustar temporalidad | Corregir timing, frecuencia o secuencia |
+| IP-DT03-05 | Proteger integridad del handoff | Reducir pérdidas, alteraciones o duplicaciones materiales |
+| IP-DT03-06 | Estabilizar y controlar | Mejorar confiabilidad y tratamiento de excepciones |
+| IP-DT03-07 | Simplificar/automatizar proporcionalmente | Reducir esfuerzo sin introducir complejidad injustificada |
+| IP-DT03-08 | Preparar sostenibilidad | Adecuar mecanismo a volumen/complejidad previsible |
+
+# Actividades posibles
+Dependiendo del caso:
+- eliminar doble digitación;
+- ajustar exportación/importación;
+- definir mapping;
+- cambiar frecuencia;
+- modificar secuencia;
+- validar transferencia;
+- establecer confirmación;
+- crear alerta;
+- diseñar manejo de excepción;
+- automatizar;
+- configurar API;
+- consolidar sistemas;
+- eliminar integración;
+- reducir campos;
+- eliminar transformación;
+- modificar proceso;
+- establecer control manual;
+- probar volumen;
+- revisar dependencia externa.
+La tecnología concreta sigue siendo secundaria respecto del handoff.
+
+# Instrumentos
+Resultan 7 instrumentos.
+### INS-DT03-01 · Information Handoff Map
+flujo → origen → información → frontera → destino → uso.
+Instrumento nuclear.
+### INS-DT03-02 · Handoff Requirement Card
+contenido → mapping → timing → frecuencia → integridad → confirmación → excepción.
+Solo activa requisitos aplicables.
+### INS-DT03-03 · Mapping & Transformation Card
+origen → significado → transformación → destino → significado esperado.
+### INS-DT03-04 · Handoff Friction Map
+handoff → esfuerzo → error → retraso → consecuencia.
+### INS-DT03-05 · Exception Map
+fallo → detección → consecuencia → tratamiento → owner.
+### INS-DT03-06 · Integration Simplification Map
+integración → necesidad actual → valor → dependencia → complejidad → mantener/simplificar/retirar.
+### INS-DT03-07 · Minimum Sufficient Handoff Decision
+alternativas → suficiencia → esfuerzo → complejidad → sostenibilidad.
+
+# Relación con OP-03
+El Information Handoff Map puede reutilizar evidencia del flujo end-to-end de OP-03.
+Pero mantenemos:
+reuse evidence, not conclusions.
+OP-03 puede concluir:
+proceso fragmentado.
+DT-03 puede concluir:
+handoffs informacionales suficientes.
+O al contrario.
+
+# 12. Entregables, Done, CRV, validación y seguimiento
+Resultan 8 entregables funcionales.
+DEL-DT03-01 · handoffs materiales visibles
+DEL-DT03-02 · contenido/destino suficientes
+DEL-DT03-03 · correspondencia semántica preservada
+DEL-DT03-04 · temporalidad/sincronización suficiente
+DEL-DT03-05 · integridad suficiente
+DEL-DT03-06 · fallos/excepciones materialmente controlados
+DEL-DT03-07 · esfuerzo de integración proporcional
+DEL-DT03-08 · mecanismo sostenible frente al horizonte aplicable
+
+# Done Criteria
+DT-03 requiere 7.
+### DC-A · Handoff Done
+Handoffs materiales están suficientemente identificados.
+### DC-B · Content Done
+Información requerida alcanza el destino correcto.
+### DC-C · Meaning Done
+Mapping/transformación preservan significado suficiente.
+### DC-D · Timing Done
+Timing, frecuencia y secuencia satisfacen el flujo.
+### DC-E · Integrity Done
+Pérdida, alteración o duplicación material están suficientemente controladas.
+### DC-F · Reliability Done
+El handoff funciona suficientemente y sus excepciones materiales pueden detectarse/tratarse.
+### DC-G · Sustainability Done
+Esfuerzo y complejidad permanecen proporcionales al volumen y necesidad previsible.
+
+# CRV
+Resultan 8 CRV.
+| ID | Criterio de Resultado Verificable |
+| CRV-DT03-01 | Handoffs críticos requeridos por flujos materiales están identificados |
+| CRV-DT03-02 | Información requerida alcanza el destino correcto con cobertura suficiente |
+| CRV-DT03-03 | Significado requerido se conserva después del mapping/transformación |
+| CRV-DT03-04 | Información llega dentro del timing/frecuencia/secuencia requeridos |
+| CRV-DT03-05 | Pérdida, alteración o duplicación no superan tolerancia material |
+| CRV-DT03-06 | Fallos materiales son suficientemente detectables y tratables |
+| CRV-DT03-07 | Esfuerzo recurrente del handoff es proporcional al valor/volumen |
+| CRV-DT03-08 | Mecanismo soporta suficientemente condiciones previsibles |
+
+# KPI
+Según el handoff pueden ser útiles:
+- transferencias fallidas;
+- latencia;
+- tiempo manual;
+- registros rechazados;
+- reconciliaciones;
+- errores de mapping;
+- duplicados;
+- excepciones;
+- reintentos;
+- tiempo de resolución;
+- porcentaje automatizado.
+Pero el último merece advertencia:
+% automatizado no es KPI universal de madurez de integración.
+Una empresa con:
+40 % automatizado
+puede estar mejor integrada que otra con:
+95 %,
+si automatizó exactamente los handoffs que materialmente lo justificaban.
+
+# Tolerancia por handoff
+Reutilizamos el patrón introducido en DT-02.
+Un handoff puede tolerar:
+determinado retraso, error o excepción
+sin dejar de ser suficiente.
+### CAND-MOTOR-DT03-09
+Los requisitos y tolerancias de integración deben poder variar por handoff y uso material.
+
+# Validación
+DT-03 necesita cinco estados.
+### V0 · UNKNOWN
+Handoff no suficientemente conocido.
+### V1 · MECHANISM-EXISTS
+Existe mecanismo de transferencia.
+### V2 · TRANSFER-EVIDENCED
+Existe evidencia de que la información cruza la frontera.
+### V3 · FLOW-FIT
+La transferencia satisface suficientemente contenido, significado, temporalidad e integridad en el flujo real.
+### V4 · SUSTAINED
+Además funciona repetidamente con excepciones y esfuerzo suficientemente gobernados.
+
+# Importante
+API existente = como máximo evidencia de mecanismo.
+No equivale automáticamente a V3/V4.
+### VAL-DT03-01
+La validación debe asociarse a FLOW + HANDOFF + USE, no al componente de integración aislado.
+
+# Seguimiento
+DT-03 debe reevaluarse cuando cambie materialmente:
+- proceso;
+- aplicación;
+- fuente;
+- destino;
+- mapping;
+- formato;
+- volumen;
+- frecuencia;
+- timing requerido;
+- integración;
+- proveedor;
+- interfaz;
+- dato crítico;
+- excepción;
+- automatización;
+- canal;
+- actor externo.
+### REASS-DT03-01
+Un handoff previamente suficiente puede dejar de serlo cuando cambian volumen, frecuencia, significado, secuencia, destino o requisito temporal.
+
+# 13. Contextualización y Governance
+## Proporcionalidad SME
+DT-03 no exigirá automáticamente:
+- API management;
+- middleware;
+- ESB;
+- iPaaS;
+- event bus;
+- arquitectura de integración;
+- observability platform;
+- integration center of excellence.
+Una pyme puede alcanzar suficiencia mediante:
+formulario + archivo + revisión humana.
+Otra puede necesitar:
+APIs + eventos + monitoreo.
+El modelo permanece igual.
+
+# Ownership
+No necesitamos un:
+Integration Architect
+formal.
+Pero un handoff material sí debe tener suficiente capacidad de tratamiento.
+Definimos:
+### HANDOFF ACCOUNTABILITY
+persona/rol capaz de coordinar la resolución cuando un handoff material deja de funcionar suficientemente.
+Puede ser:
+- dueño del proceso;
+- persona de tecnología;
+- administrador;
+- proveedor;
+- combinación.
+
+# Integraciones externas
+Si un marketplace, operador logístico o proveedor recibe/envía información:
+DT-03 evalúa:
+funcionamiento del handoff.
+EC evalúa:
+relación y dependencia externa.
+DT-05:
+protección/continuidad cuando corresponda.
+Esto será muy relevante para pymes vinculadas al comercio electrónico.
+
+# IA
+También debemos evitar:
+“use IA para integrar sistemas”.
+IA podría participar en:
+- mapping;
+- clasificación;
+- transformación;
+- extracción;
+- manejo de excepciones.
+Pero:
+### CAND-MOTOR-AI-INTEGRATION-01
+El uso de IA dentro de un handoff no constituye evidencia de integración suficiente; debe validarse igualmente significado, integridad, temporalidad, confiabilidad y tratamiento de excepciones.
+Además, una transformación probabilística puede requerir controles diferentes a una transformación determinista. Dejamos ese punto como candidato para Fase 3, no lo incorporamos todavía como regla universal.
+
+# Provenance
+### SOURCE-DERIVED
+El grounding externo respalda principalmente:
+- integración/interoperabilidad como objeto separado;
+- sintaxis/semántica;
+- intercambio;
+- correspondencia;
+- gestión diferenciada de integración y calidad.
+### PYMAPA-DESIGNED
+Son propios:
+- Information Handoff;
+- tipología BND;
+- requisitos HR;
+- 7 CE / 17 VA;
+- reglas;
+- findings;
+- decisiones;
+- Minimum Sufficient Handoff;
+- Integration Friction;
+- instrumentos;
+- CRV;
+- V0–V4.
+
+# A–V · DT-03
+| Dimensión | Resultado |
+| A Identidad | PASS |
+| B Alcance | PASS |
+| C Aplicabilidad | PASS |
+| D Unidad de análisis | PASS |
+| E Condiciones | PASS |
+| F Variables | PASS |
+| G Information Needs | PASS |
+| H Captura | PASS |
+| I Reglas | PASS |
+| J Suficiencia | PASS |
+| K Confianza | PASS |
+| L Diagnóstico | PASS |
+| M Findings | PASS |
+| N Recomendaciones | PASS |
+| O Intervención | PASS |
+| P Ejecución | PASS |
+| Q Resultado | PASS |
+| R Validación | PASS |
+| S Seguimiento | PASS |
+| T Contextualización | PASS |
+| U Knowledge | PASS |
+| V Governance | PASS |
+A–V = 22/22 PASS
+
+# DoD V1
+27/27 PASS.
+Especialmente:
+Observación/inferencia — PASS
+Manual, API, CSV o copy/paste son mecanismos observados, no diagnósticos.
+Causalidad — PASS
+Diferencia entre sistemas no se atribuye automáticamente a integración.
+Intervención mínima — PASS
+Podemos mejorar, automatizar, simplificar, consolidar, retirar o no actuar.
+CRV — PASS
+Validamos funcionamiento del handoff, no instalación de tecnología.
+DoD = 27/27 PASS
+
+# Quality Gates
+### K1 · Coherencia — PASS
+DT-03 queda diferenciada de DT-01, DT-02, DT-04, DT-05, OP-03 y OP-04.
+### K2 · Razonamiento — PASS
+Distingue conexión, transferencia, mapping, transformación, sincronización, recepción, integridad, excepción y sostenibilidad.
+### K3 · Acción — PASS
+Permite intervenir sin presuponer automatización.
+### K4 · Knowledge — PASS
+Objetos, grounding, provenance, reglas, validación y governance quedan trazables.
+# Cierre DT-03
+DT03-K4-v1.0 · K4-VALIDATED · CLOSED
+| Objeto | Resultado |
+| Bloques | 13/13 |
+| CE | 7 |
+| VA | 17 |
+| NI | 17 |
+| Reglas | 17 |
+| Findings | 8 |
+| Decisiones | 13 |
+| Intervenciones | 8 |
+| Instrumentos | 7 |
+| Entregables | 8 |
+| Done Criteria | 7 |
+| CRV | 8 |
+| Validación | V0–V4 |
+| A–V | 22/22 |
+| DoD | 27/27 |
+| K1–K4 | PASS |
+DT03-K4-v1.0 · K4-VALIDATED · CLOSED
+
+# Estado DT actualizado
+| Capacidad | Estado |
+| DT-01 · Disponer de una base tecnológica adecuada | 🟢 CLOSED |
+| DT-02 · Gestionar datos con calidad y disponibilidad | 🟢 CLOSED |
+| DT-03 · Integrar datos, aplicaciones y flujos de información | 🟢 CLOSED |
+| DT-04 · Convertir datos en información útil para decisiones | ⚪ NEXT |
+| DT-05 · Proteger información, sistemas y continuidad | ⚪ |
+| DT-06 · Evaluar, incorporar y aprovechar tecnologías pertinentes | ⚪ |
+DOMAIN-DT · 3/6 CAPABILITIES K4-VALIDATED
+El acumulado maestro pasa a:
+18/31 capacidades K4-VALIDATED.
+## La arquitectura DT construida hasta ahora
+Ya tenemos tres unidades de razonamiento claramente diferentes:
+DT-01 · USE → TECHNOLOGY ENABLEMENT
+¿La tecnología habilita suficientemente?
+DT-02 · USE → DATA NEED → CDE
+¿El dato es suficientemente apto?
+DT-03 · FLOW → INFORMATION HANDOFF
+¿La información cruza suficientemente las fronteras?
+Esto prepara muy bien DT-04 · Convertir datos en información útil para decisiones, pero allí tendremos que hacer otra separación crucial:
+DATA ≠ METRIC ≠ INFORMATION ≠ INSIGHT ≠ DECISION ≠ RESULT.
+DT-04 no deberá medir cuántos dashboards tiene la pyme ni si utiliza BI. Tendrá que evaluar si una necesidad real de decisión puede transformarse en información suficientemente pertinente, comprensible, oportuna y accionable, sin confundir disponer de información con tomar una buena decisión ni con lograr el resultado esperado.
+Ese será el punto de partida para dimensionar orgánicamente DT-04.
+seguimos

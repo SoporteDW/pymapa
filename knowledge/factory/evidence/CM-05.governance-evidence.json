@@ -1,0 +1,182 @@
+{
+  "dossierType": "PRE_PUBLICATION_GOVERNANCE_EVIDENCE",
+  "statement": "Evidencia técnica automatizada para la revisión humana de gobierno. NO constituye aprobación, firma ni publicación; no contiene identidad humana.",
+  "capabilityId": "CM-05",
+  "factoryVersion": "pymapa-knowledge-factory/0.1.0",
+  "readiness": "NOT_READY",
+  "blockers": [
+    "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-CM-05-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+    "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-CM-05-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+  ],
+  "humanAuthorization": {
+    "present": false,
+    "required": true,
+    "artifact": "knowledge/master/<version>/capabilities/CM-05/governance-review.json",
+    "statement": "Solo una autoridad humana de gobierno puede registrar la decisión; la Factory nunca la genera."
+  },
+  "historicalClosure": {
+    "marker": "CM05-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      1119,
+      1119
+    ],
+    "statement": "Cierre histórico del conocimiento (provenance). No equivale a publicación técnica actual."
+  },
+  "identity": {
+    "rawOriginal": {
+      "filename": "CM_-_01_A_05_Completo.docx",
+      "sha256": "4c27675630962a6344544f3e2b333aec933a3a37beea42c04e011b9b57f7c255"
+    },
+    "rawText": {
+      "ref": "text/CM-05.txt",
+      "sha256": "326b10ded04d3665c9c1442574fa959db4296f14e603c88fadfceea48c9d8d22"
+    },
+    "canonicalBaselineChecksum": "sha256:83201f8411b88981209c322dcb9d26cdd26dbfa95abe6f8aef409966ae2684ab",
+    "executableSourceChecksum": "sha256:ab69d9b4f572e0cd3f8e9cbb911ffc4fff28b6fdd829377d8faf5335d1dc07fe",
+    "packCandidate": {
+      "packId": "cm-05",
+      "packVersion": "1.0.0",
+      "checksum": "sha256:0971698ad7f36b943920a6f2491106efc00c9612b7b48ee3273817503a85c1d4"
+    }
+  },
+  "transcriptionCorrections": [],
+  "runtimeExtensions": [],
+  "notExplicit": [
+    "NE-CM-05-CRITICALITY",
+    "NE-CM-05-VA-ACQUISITION"
+  ],
+  "governedBacklog": [],
+  "transversalCandidates": 0,
+  "engine": {
+    "current": "0.2.0",
+    "required": "0.1.0",
+    "semanticChangesCovered": []
+  },
+  "checks": [
+    {
+      "check": "RAW_REGISTRATION",
+      "status": "PASS"
+    },
+    {
+      "check": "CANDIDATE_BOUNDARY",
+      "status": "NOT_RUN"
+    },
+    {
+      "check": "STRUCTURAL",
+      "status": "PASS"
+    },
+    {
+      "check": "REFERENTIAL",
+      "status": "PASS"
+    },
+    {
+      "check": "SOURCE_TO_CANONICAL",
+      "status": "PASS"
+    },
+    {
+      "check": "PROVENANCE",
+      "status": "PASS"
+    },
+    {
+      "check": "CANONICAL_TO_PACK",
+      "status": "REVIEW_REQUIRED"
+    },
+    {
+      "check": "RUNTIME_COMPATIBILITY",
+      "status": "PASS"
+    },
+    {
+      "check": "FIXTURES",
+      "status": "PASS"
+    },
+    {
+      "check": "SOURCE_SILENCE",
+      "status": "PASS"
+    },
+    {
+      "check": "CAPABILITY_BRANCHING",
+      "status": "PASS"
+    },
+    {
+      "check": "GOLDEN_REGRESSION",
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "check": "PUBLICATION_GATE",
+      "status": "REVIEW_REQUIRED"
+    }
+  ],
+  "fixtures": {
+    "count": 1,
+    "pass": 1,
+    "governedJudgment": 0,
+    "fail": 0
+  },
+  "referenceRegression": [
+    {
+      "capabilityId": "DG-01",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "DG-02",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "DG-03",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "DG-04",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "DG-05",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "DT-01",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "OP-01",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "OP-02",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "OP-03",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "OP-04",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "OP-05",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "PC-01",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "PC-02",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "PC-03",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "PC-04",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "PC-05",
+      "goldenStatus": "PASS"
+    }
+  ],
+  "checksum": "sha256:c70075e4b621c1ac74aedfe1ab16832f421fb4e09d787facadfe6bd364199758"
+}

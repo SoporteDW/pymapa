@@ -1,0 +1,1169 @@
+Seguimos con DT-05 · Proteger información, sistemas y continuidad. Esta capacidad necesita un tratamiento más amplio que DT-01–04 porque reúne protección, exposición, incidentes, recuperación y continuidad, pero debemos impedir que se convierta en una auditoría de ciberseguridad diseñada para grandes empresas.
+# DT-05 · Proteger información, sistemas y continuidad
+## Dimensionamiento orgánico
+La pregunta irreducible será:
+¿Puede la organización proteger suficientemente la información y los servicios tecnológicos materialmente relevantes y sostener o recuperar su funcionamiento ante eventos capaces de comprometerlos?
+La lógica central será:
+Business Need → Critical Service/Information → Dependency → Threat/Event → Exposure → Protection → Detection → Response → Recovery → Continuity → Learning
+Con un principio rector:
+DT-05 no mide cuántos controles de seguridad tiene una pyme. Mide si sus exposiciones materiales están suficientemente gobernadas y si puede mantener o recuperar aquello que el negocio realmente necesita.
+
+# 1. Dimensionamiento
+DT-05 necesita 16 bloques.
+| # | Bloque |
+| 1 | Identidad, alcance y unidad |
+| 2 | Modelo conceptual de protección y continuidad |
+| 3 | Aplicabilidad y materialidad |
+| 4 | Activos, información, servicios y dependencias |
+| 5 | Fronteras con DG-05, DT-01/02/03 y EC |
+| 6 | Modelo Threat–Vulnerability–Exposure–Impact |
+| 7 | Protección proporcional |
+| 8 | Identidad, acceso y privilegios |
+| 9 | Detección, incidentes y respuesta |
+| 10 | Backup, recuperación y continuidad |
+| 11 | Condiciones evaluables y variables |
+| 12 | Information Needs, captura, evidencia, suficiencia, confianza y reglas |
+| 13 | Findings y decisiones |
+| 14 | Intervenciones, actividades e instrumentos |
+| 15 | Entregables, Done, CRV, validación y seguimiento |
+| 16 | Contextualización, Knowledge Governance y cierre |
+Agrupamos:
+SET A = bloques 1–12
+SET B = bloques 13–16
+Desarrollamos ahora el SET A completo.
+
+# 2. Identidad
+## Definición V1
+DT-05 evalúa la capacidad de la organización para identificar y proteger proporcionalmente información, sistemas y servicios tecnológicos materialmente relevantes, detectar y responder ante eventos adversos y recuperar o sostener las funciones necesarias dentro de condiciones compatibles con las necesidades del negocio.
+## Unidad de análisis
+No será:
+dispositivo.
+Ni:
+antivirus.
+Ni:
+control de seguridad.
+La unidad será:
+### PROTECTED BUSINESS DEPENDENCY — PBD
+Dependencia material del negocio respecto de información, sistema, servicio tecnológico o combinación de ellos cuya pérdida de confidencialidad, integridad, disponibilidad o continuidad puede generar una consecuencia material.
+Esto mantiene DT-05 conectada al negocio.
+
+# 3. Cadena de razonamiento
+La arquitectura será:
+Business Function → PBD → Required Condition → Threat/Event → Vulnerability/Weakness → Exposure → Consequence → Existing Control → Residual Exposure → Detection → Response → Recovery/Continuity
+No todos los casos necesitan recorrer la cadena completa.
+Pero evita el razonamiento superficial:
+“no tiene MFA → mala ciberseguridad”.
+Primero necesitamos saber:
+¿qué protege?, ¿qué exposición existe?, ¿qué consecuencia material puede producirse?, ¿qué controles compensatorios existen?
+
+# 4. Cuatro condiciones que no debemos fusionar
+### CONFIDENTIALITY
+Información accesible únicamente de manera suficientemente autorizada.
+### INTEGRITY
+Información/sistemas permanecen suficientemente correctos y no alterados indebidamente.
+### AVAILABILITY
+Información/servicio está disponible cuando el uso lo requiere.
+### CONTINUITY/RECOVERABILITY
+La organización puede mantener o restaurar suficientemente funciones materiales después de una interrupción.
+Por tanto:
+CONFIDENTIALITY ≠ INTEGRITY ≠ AVAILABILITY ≠ CONTINUITY
+Un sistema puede estar:
+disponible pero comprometido.
+O:
+seguro pero irrecuperable después de una falla.
+
+# 5. Seguridad ≠ continuidad
+Ésta será una frontera fundamental.
+Un ataque puede causar interrupción.
+Pero también:
+- falla de proveedor;
+- error humano;
+- daño físico;
+- configuración;
+- pérdida de conectividad;
+- corrupción de datos;
+- corte eléctrico;
+- indisponibilidad SaaS;
+- eliminación accidental.
+### P-DT05-01
+La continuidad tecnológica debe considerar eventos materiales de interrupción independientemente de que su origen sea malicioso, accidental, técnico o externo.
+Así DT-05 no queda reducido a cybersecurity.
+
+# 6. Aplicabilidad y materialidad
+Todos los negocios digitales tienen alguna exposición, pero no todos necesitan la misma profundidad.
+### APP-DT05-01
+La profundidad de evaluación y protección debe aumentar con la consecuencia material potencial, dependencia tecnológica, sensibilidad de la información, dificultad de recuperación y exposición razonablemente relevante.
+Materialidad puede derivar de:
+- interrupción operativa;
+- pérdida financiera;
+- cliente;
+- información sensible;
+- fraude;
+- reputación;
+- obligación contractual;
+- obligación regulatoria aplicable;
+- pérdida irreversible;
+- dependencia de tercero;
+- dificultad de recuperación;
+- concentración;
+- duración tolerable de interrupción.
+No formamos un score universal.
+
+# 7. Criticality ≠ sensitivity
+Un objeto puede ser:
+altamente crítico operacionalmente
+pero:
+poco sensible.
+Ejemplo:
+sistema de turnos de producción.
+Otro puede ser:
+altamente sensible
+pero no necesitar disponibilidad inmediata.
+Ejemplo:
+archivo histórico de empleados.
+### P-DT05-02
+Criticidad operativa y sensibilidad de información deben evaluarse como dimensiones distintas.
+
+# 8. Activo vs servicio
+Evitemos inventariar todos los activos tecnológicos.
+Pymapa debe partir de:
+servicios/funciones materiales.
+Ejemplo:
+No comenzar:
+laptop 1, laptop 2, router, impresora...
+Comenzar:
+“procesar pedidos”.
+Y luego:
+¿de qué información, aplicaciones, credenciales, conectividad y terceros depende?
+### P-DT05-03
+La evaluación debe priorizar dependencias tecnológicas derivadas de funciones materiales antes que inventarios exhaustivos de activos.
+
+# 9. Dependencias
+Una PBD puede depender de:
+### DEP-TECH
+Aplicación/infraestructura.
+### DEP-DATA
+Información/datos.
+### DEP-IDENTITY
+Cuenta, credencial o identidad.
+### DEP-CONNECTIVITY
+Internet/red/comunicación.
+### DEP-PERSON
+Persona con conocimiento/acceso.
+### DEP-DEVICE
+Equipo.
+### DEP-EXTERNAL
+Proveedor/plataforma.
+### DEP-LOCATION
+Ubicación física cuando sea material.
+Pueden coexistir.
+
+# 10. Frontera DT-05 vs DG-05
+DG-05:
+gobierna riesgos y dependencias de transformación.
+DT-05:
+evalúa protección y continuidad de información/sistemas/servicios tecnológicos.
+Una dependencia SaaS puede alimentar ambas capacidades.
+Pero:
+reutilizamos evidencia, no conclusiones.
+
+# DT-05 vs DT-01
+DT-01:
+¿tecnología suficientemente adecuada y sostenible?
+DT-05:
+¿suficientemente protegida/recuperable?
+Un sistema puede ser:
+funcionalmente excelente y materialmente inseguro.
+
+# DT-05 vs DT-02
+DT-02:
+calidad/disponibilidad del dato para uso.
+DT-05:
+protección de confidencialidad, integridad y disponibilidad frente a eventos adversos.
+
+# DT-05 vs DT-03
+DT-03:
+información cruza correctamente una frontera.
+DT-05:
+transferencia suficientemente protegida/recuperable cuando corresponde.
+
+# DT-05 vs EC
+EC abordará:
+selección, gobierno y dependencia de terceros.
+DT-05 puede detectar:
+dependencia crítica de proveedor sin continuidad suficiente.
+Pero no evaluará toda la relación contractual/proveedor.
+
+# 11. Threat ≠ Vulnerability ≠ Exposure ≠ Incident
+Formalizamos:
+### THREAT/EVENT
+Condición/evento capaz de causar daño.
+### VULNERABILITY/WEAKNESS
+Condición que puede permitir o amplificar consecuencia.
+### EXPOSURE
+Situación resultante en la que una PBD está materialmente expuesta a una consecuencia.
+### INCIDENT
+Evento ocurrido que compromete o amenaza suficientemente una condición requerida.
+### IMPACT
+Consecuencia observada o potencial.
+### CONTROL
+Mecanismo destinado a reducir probabilidad, exposición, impacto o tiempo de recuperación.
+### RESIDUAL EXPOSURE
+Exposición que permanece después de considerar controles/respuestas.
+Threat ≠ weakness ≠ exposure ≠ incident ≠ impact.
+
+# 12. No hacemos threat hunting empresarial
+Para Pymapa no necesitamos enumerar cientos de amenazas.
+Usaremos familias funcionales:
+### EVT-01 · UNAUTHORIZED ACCESS
+### EVT-02 · DATA DISCLOSURE/LOSS
+### EVT-03 · UNAUTHORIZED/ACCIDENTAL CHANGE
+### EVT-04 · MALICIOUS SOFTWARE/COMPROMISE
+### EVT-05 · SERVICE INTERRUPTION
+### EVT-06 · DEVICE/INFRASTRUCTURE FAILURE
+### EVT-07 · HUMAN ERROR
+### EVT-08 · THIRD-PARTY FAILURE
+### EVT-09 · PHYSICAL/ENVIRONMENTAL EVENT
+### EVT-10 · FRAUD/IDENTITY MISUSE
+No implican probabilidad universal.
+Son disparadores para descubrir exposición.
+
+# 13. Protección proporcional
+Una pyme no necesita todos los controles posibles.
+### INT-DT05-CORE · MINIMUM SUFFICIENT PROTECTION
+Debe buscarse el conjunto de controles de menor complejidad total que reduzca las exposiciones materiales hasta una condición suficientemente aceptable y recuperable para el contexto aplicable.
+Puede incluir controles:
+- preventivos;
+- detectivos;
+- correctivos;
+- de recuperación;
+- compensatorios.
+
+# Control existence ≠ control effectiveness
+Ejemplo:
+“tenemos backups”.
+No sabemos todavía:
+- qué respaldan;
+- frecuencia;
+- retención;
+- aislamiento;
+- acceso;
+- restaurabilidad;
+- última prueba;
+- tiempo de recuperación.
+### P-DT05-04
+La existencia declarada de un control no demuestra que funcione suficientemente para la exposición que pretende tratar.
+
+# 14. Identidad y acceso
+Para pymes, este objeto merece tratamiento propio porque una gran cantidad de servicios dependen de:
+cuentas y credenciales.
+Necesitamos evaluar funcionalmente:
+### IA-01 · IDENTITY
+¿Quién/qué accede?
+### IA-02 · AUTHENTICATION
+¿Cómo se verifica?
+### IA-03 · AUTHORIZATION
+¿A qué puede acceder?
+### IA-04 · PRIVILEGE
+¿Tiene más capacidad de la necesaria?
+### IA-05 · LIFECYCLE
+¿Qué ocurre al entrar, cambiar o salir una persona?
+### IA-06 · RECOVERY
+¿Cómo se recupera acceso sin crear una vulnerabilidad material?
+
+# MFA
+MFA es importante, pero Pymapa no debe formular:
+MFA everywhere = maturity.
+Mejor:
+### P-DT05-05
+La fortaleza de autenticación debe ser proporcional a la exposición y consecuencia del acceso comprometido.
+En algunos accesos materiales, MFA probablemente será evidencia muy relevante.
+Pero el diagnóstico se origina en:
+exposición,
+no en el checklist.
+
+# Shared accounts
+Cuenta compartida tampoco será automáticamente negativa.
+Pero activa:
+- accountability;
+- revocación;
+- trazabilidad;
+- exposición;
+- recuperación.
+### TRIGGER-DT05-IDENTITY-01
+Las credenciales compartidas activan profundización cuando dificultan materialmente control, revocación, atribución o protección del acceso.
+
+# 15. Detección
+Prevención perfecta no existe.
+Necesitamos:
+### DETECTION NEED
+capacidad proporcional para reconocer suficientemente un evento o condición adversa antes de que su consecuencia se vuelva inaceptable.
+No toda pyme necesita:
+SIEM/SOC.
+Puede bastar:
+- alerta SaaS;
+- notificación bancaria;
+- revisión;
+- log;
+- aviso del proveedor;
+- control operativo.
+### P-DT05-06
+Detection capability ≠ security monitoring platform.
+
+# 16. Incidente y respuesta
+La pregunta no es:
+“¿tienen un Incident Response Plan de 40 páginas?”
+Sino:
+“si mañana alguien toma control del correo principal, ¿saben quién debe actuar, cómo contenerlo y cómo recuperar el acceso?”
+Necesitamos como mínimo:
+DETECT → ASSESS → CONTAIN → RESPOND → RECOVER → LEARN
+La formalidad escala con materialidad.
+
+# 17. Backup ≠ Recovery
+Ésta debe ser regla estructural.
+BACKUP ≠ RECOVERABILITY
+Un backup puede:
+- estar corrupto;
+- ser inaccesible;
+- estar demasiado viejo;
+- depender de las mismas credenciales;
+- no contener todo lo necesario;
+- tardar demasiado en restaurarse.
+### P-DT05-07
+La capacidad de recuperación debe validarse por restaurabilidad suficiente, no únicamente por existencia de copias.
+
+# 18. Recovery Need
+Introducimos dos conceptos funcionales sin exigir lenguaje técnico al usuario.
+### MAXIMUM TOLERABLE INTERRUPTION — MTI-PYM
+duración aproximada después de la cual la interrupción de una función material comienza a generar consecuencias inaceptables para la organización.
+### MAXIMUM TOLERABLE DATA LOSS — MTDL-PYM
+cantidad/antigüedad aproximada de información cuya pérdida puede tolerarse sin consecuencia inaceptable.
+Estos conceptos permiten posteriormente mapear, cuando sea necesario, a mecanismos como RTO/RPO sin obligar a la pyme a conocer esa terminología.
+
+# Ejemplo
+Pregunta Pymapa:
+“Si hoy perdieras los pedidos registrados desde esta mañana, ¿podrías reconstruirlos?”
+Mucho mejor que comenzar:
+“¿Cuál es tu RPO?”
+
+# 19. Continuidad
+Continuidad no siempre significa:
+sistema principal disponible.
+Puede existir:
+### CONTINUE
+seguir operando.
+### DEGRADE
+operar parcialmente.
+### WORKAROUND
+usar mecanismo alternativo.
+### RECOVER
+restaurar.
+### RECONSTRUCT
+reconstruir información.
+### WAIT
+esperar si el tiempo tolerable lo permite.
+### STOP-SAFELY
+detener de forma controlada.
+Por tanto:
+“tener redundancia” tampoco es objetivo universal.
+
+# 20. Dependencia de terceros
+Ejemplo:
+tienda depende completamente de marketplace.
+La pyme quizá no puede controlar:
+disponibilidad del marketplace.
+Pero sí puede:
+- conocer dependencia;
+- disponer de contactos;
+- conservar información crítica;
+- tener procedimiento alternativo;
+- entender qué ocurre durante interrupción;
+- decidir si la exposición residual es aceptable.
+### P-DT05-08
+No controlar directamente una dependencia no elimina la responsabilidad de comprender y tratar proporcionalmente la exposición que genera.
+
+# 21. Condiciones evaluables
+DT-05 requiere 10 CE / 22 VA.
+## CE01 · Materialidad
+VA01 funciones/servicios tecnológicos materiales identificados
+VA02 información material/sensible suficientemente identificada
+## CE02 · Dependencias
+VA03 dependencias críticas suficientemente visibles
+VA04 concentración/single points materialmente comprendidos
+## CE03 · Exposición
+VA05 eventos/amenazas materialmente relevantes reconocidos
+VA06 debilidades relevantes reconocidas
+VA07 consecuencias materiales suficientemente comprendidas
+## CE04 · Protección
+VA08 controles preventivos proporcionales
+VA09 controles suficientemente efectivos para exposiciones aplicables
+## CE05 · Identidad y acceso
+VA10 acceso suficientemente restringido
+VA11 autenticación suficientemente fuerte
+VA12 privilegios suficientemente proporcionados
+VA13 altas/cambios/bajas suficientemente controlados
+## CE06 · Detección
+VA14 eventos materiales suficientemente detectables
+VA15 señales/alertas pueden llegar a alguien capaz de actuar
+## CE07 · Respuesta
+VA16 responsabilidades de respuesta suficientemente claras
+VA17 acciones críticas de contención/respuesta suficientemente ejecutables
+## CE08 · Recuperación
+VA18 información/servicios críticos suficientemente recuperables
+VA19 recuperación compatible con tolerancias del negocio
+## CE09 · Continuidad
+VA20 alternativas/degradación/continuidad suficientes cuando material
+## CE10 · Aprendizaje y mantenimiento
+VA21 incidentes/cambios relevantes generan revisión proporcional
+VA22 controles/exposiciones materiales se revisan cuando cambia el contexto
+
+# 22. Information Needs
+Resultan 22 NI.
+Pero la secuencia mínima será:
+¿Qué función no puede perderse? → ¿de qué depende? → ¿qué puede comprometerla? → ¿qué consecuencia tendría? → ¿qué la protege? → ¿cómo sabríamos que falló? → ¿cómo continuaríamos o recuperaríamos?
+Esto es mucho más útil para una pyme que:
+“¿cumples con X control?”
+
+# 23. Captura progresiva
+## P1 · Núcleo
+Preguntas SME-friendly:
+“¿Qué sistemas o información, si mañana no estuvieran disponibles, realmente frenarían el negocio?”
+“¿Qué información sería especialmente grave que se perdiera, alterara o viera alguien no autorizado?”
+“¿Qué accesos tendría que poder quitar inmediatamente si alguien sale de la empresa?”
+“Si el sistema principal deja de funcionar, ¿cuánto tiempo podrían operar?”
+“¿Han comprobado que pueden recuperar la información importante?”
+
+# P2 · Triggers
+Profundizamos ante:
+- cuentas compartidas;
+- excolaboradores con acceso;
+- administrador único;
+- sin MFA en acceso crítico;
+- backups desconocidos;
+- backup nunca restaurado;
+- SaaS crítico;
+- dispositivo único;
+- información sensible;
+- accesos externos;
+- proveedor único;
+- incidentes previos;
+- fraude;
+- ransomware/phishing;
+- procesos dependientes de correo;
+- pérdida de equipos;
+- trabajo remoto;
+- datos en equipos personales;
+- integraciones críticas;
+- credenciales no gestionadas;
+- dependencia de una sola persona.
+
+# P3 · Discriminación causal
+Ante:
+“no pudimos facturar durante seis horas”
+debemos distinguir:
+TECH FAILURE → DT-01 / DT-05
+INTEGRATION FAILURE → DT-03
+PROVIDER OUTAGE → DT-05 + EC
+ACCESS FAILURE → DT-05
+PROCESS WORKAROUND ABSENT → DT-05/OP
+DATA CORRUPTION → DT-02 + DT-05 según causa/condición
+
+# P4 · Contradicciones
+### CONTR-DT05-01
+BACKUPS_EXIST_vs_RESTORE_UNKNOWN
+### CONTR-DT05-02
+ACCESS_CONTROLLED_vs_FORMER_USERS_ACTIVE
+### CONTR-DT05-03
+CRITICAL_SYSTEM_vs_NO_RECOVERY_KNOWLEDGE
+### CONTR-DT05-04
+SECURITY_TOOL_PRESENT_vs_ALERTS_UNATTENDED
+### CONTR-DT05-05
+LOW_RISK_CLAIM_vs_HIGH_DEPENDENCY_CONCENTRATION
+Estas contradicciones no determinan diagnóstico por sí mismas.
+Activan profundización.
+
+# P5 · Validación
+No preguntamos solo:
+“¿tienen backups?”
+Probamos:
+“muéstrame cuál es la copia más reciente de este conjunto crítico y cómo sabrían restaurarlo.”
+No preguntamos:
+“¿tienen proceso de baja?”
+Probamos:
+“la última persona que salió de la empresa, ¿qué accesos tenía y cómo fueron retirados?”
+
+# 24. Evidencia
+Puede incluir:
+- lista de servicios críticos;
+- cuentas;
+- roles;
+- configuraciones;
+- MFA;
+- backups;
+- restauraciones;
+- logs;
+- alertas;
+- incidentes;
+- proveedores;
+- contratos;
+- procedimientos;
+- contactos;
+- pruebas;
+- dispositivos;
+- accesos;
+- bajas;
+- screenshots;
+- configuraciones SaaS;
+- muestras;
+- tiempos de interrupción;
+- recuperación observada.
+No pedimos:
+pentest
+por defecto.
+
+# Evidencia proporcional
+### EVID-DT05-01
+La fuerza de evidencia requerida aumenta con consecuencia potencial, sensibilidad, irreversibilidad, concentración y dependencia del control evaluado.
+Una declaración puede bastar para una condición menor.
+Para:
+“podemos recuperar toda la operación en cuatro horas”,
+una prueba real puede ser necesaria para confianza alta.
+
+# 25. Suficiencia
+### SUFF-DT05-01
+DT-05 alcanza suficiencia cuando las dependencias tecnológicas e informacionales materialmente relevantes están suficientemente comprendidas, sus exposiciones críticas cuentan con protección proporcional y la organización puede detectar, responder y recuperar o continuar las funciones necesarias dentro de condiciones compatibles con sus tolerancias de negocio.
+No significa:
+riesgo cero.
+
+# Residual exposure
+Reutilizamos el objeto de DG-05:
+RESIDUAL EXPOSURE
+Una pyme puede saber:
+“si Shopify falla, no podemos vender durante dos horas y aceptamos esa exposición.”
+Eso puede ser una decisión válida.
+### P-DT05-09
+Suficiencia de protección no exige eliminar toda exposición; exige que la exposición residual material sea comprendida y tratada o aceptada de forma proporcional.
+
+# 26. Coverage
+La cobertura seguirá:
+material business function → PBD → material exposure → applicable protection/recovery requirement
+No:
+todos los activos × todas las amenazas × todos los controles.
+Esto es crucial para mantener Pymapa usable.
+
+# 27. Confianza
+Reutilizamos C0–C3.
+Pero DT-05 requiere distinguir:
+### CONTROL CONFIDENCE
+¿existe y parece correctamente configurado?
+### EFFECTIVENESS CONFIDENCE
+¿hay evidencia de funcionamiento?
+### RECOVERY CONFIDENCE
+¿hay evidencia de recuperación?
+### CONTINUITY CONFIDENCE
+¿hay evidencia de que la función puede sostenerse dentro de tolerancia?
+### CAND-MOTOR-DT05-01
+La existencia de un control no debe transferir automáticamente confianza sobre su efectividad ni sobre la capacidad de recuperación asociada.
+
+# 28. Reglas diagnósticas
+Resultan 22 reglas primarias.
+R-DT05-01 · MATERIAL_TECH_SERVICE_UNKNOWN
+R-DT05-02 · MATERIAL_INFORMATION_SENSITIVITY_UNKNOWN
+R-DT05-03 · CRITICAL_DEPENDENCY_BLIND_SPOT
+R-DT05-04 · MATERIAL_DEPENDENCY_CONCENTRATION_GAP
+R-DT05-05 · MATERIAL_THREAT_EVENT_BLIND_SPOT
+R-DT05-06 · MATERIAL_WEAKNESS_UNRECOGNIZED
+R-DT05-07 · MATERIAL_IMPACT_UNCLEAR
+R-DT05-08 · PROTECTION_CONTROL_GAP
+R-DT05-09 · CONTROL_EFFECTIVENESS_GAP
+R-DT05-10 · EXCESSIVE_ACCESS_GAP
+R-DT05-11 · AUTHENTICATION_STRENGTH_GAP
+R-DT05-12 · EXCESSIVE_PRIVILEGE_GAP
+R-DT05-13 · ACCESS_LIFECYCLE_CONTROL_GAP
+R-DT05-14 · MATERIAL_EVENT_DETECTION_GAP
+R-DT05-15 · SECURITY_ALERT_RESPONSE_GAP
+R-DT05-16 · INCIDENT_RESPONSIBILITY_GAP
+R-DT05-17 · INCIDENT_RESPONSE_EXECUTION_GAP
+R-DT05-18 · MATERIAL_RECOVERABILITY_GAP
+R-DT05-19 · RECOVERY_TOLERANCE_GAP
+R-DT05-20 · MATERIAL_CONTINUITY_GAP
+R-DT05-21 · INCIDENT_LEARNING_GAP
+R-DT05-22 · PROTECTION_REASSESSMENT_GAP
+
+# 29. Estados positivos
+Resultan 8:
+### MATERIAL_DEPENDENCIES_VISIBLE
+### MATERIAL_EXPOSURES_UNDERSTOOD
+### PROTECTION_PROPORTIONATE
+### ACCESS_SUFFICIENTLY_CONTROLLED
+### MATERIAL_EVENTS_DETECTABLE
+### RESPONSE_EXECUTABLE
+### CRITICAL_SERVICES_RECOVERABLE
+### PROTECTION_ADAPTIVE
+
+# 30. Guardrails
+- No medir seguridad por número de herramientas.
+- No exigir enterprise security stack.
+- No exigir inventario exhaustivo antes de identificar criticidad.
+- No asumir MFA ausente = diagnóstico total.
+- No asumir MFA presente = acceso seguro.
+- No asumir antivirus = protección suficiente.
+- No asumir backup = recovery.
+- No asumir cloud = backup.
+- No asumir cloud = continuidad.
+- No asumir SaaS = responsabilidad transferida.
+- No asumir ausencia de incidentes = seguridad suficiente.
+- No asumir incidente previo = capacidad insuficiente actual.
+- No exigir riesgo cero.
+- No confundir amenaza con vulnerabilidad.
+- No confundir vulnerabilidad con incidente.
+- No confundir exposición con impacto observado.
+- No confundir disponibilidad con continuidad.
+- No confundir criticidad con sensibilidad.
+- No exigir redundancia universal.
+- No exigir SOC/SIEM.
+- No exigir pentest por defecto.
+- No exigir políticas extensas si mecanismos simples son suficientes.
+- No penalizar workaround manual suficientemente probado.
+- No asumir cuenta compartida = falla sin evaluar materialidad.
+- No ignorar dependencia humana.
+- No ignorar dependencia externa.
+- No confiar en control solo porque está documentado.
+- No exigir mismo nivel de protección a todos los activos.
+- No ignorar residual exposure.
+- No convertir cumplimiento normativo específico en requisito universal de Pymapa.
+
+# 31. Grounding conceptual
+Para DT-05, el grounding principal debe alinearse con marcos que permitan una visión basada en riesgo y resultados, no simplemente checklists de controles. La referencia conceptual adecuada incluye la lógica de Govern–Identify–Protect–Detect–Respond–Recover de NIST CSF 2.0, complementada por principios de gestión de riesgos y continuidad.
+Pero Pymapa hace una traducción deliberada para pyme:
+no evalúa “cumplimiento NIST”.
+Utiliza ese conocimiento para asegurar que no omitamos dimensiones esenciales.
+También debemos mantener separados:
+seguridad de información, continuidad, gestión general del riesgo y dependencia de terceros.
+
+# 32. Candidatos para el Motor
+Además de CAND-MOTOR-DT05-01:
+### CAND-MOTOR-DT05-02
+Threat, weakness, exposure, incident, impact, control y residual exposure deben permanecer como objetos distintos.
+### CAND-MOTOR-DT05-03
+La cobertura de seguridad debe partir de funciones/dependencias materiales y no de inventarios exhaustivos de controles.
+### CAND-MOTOR-DT05-04
+Criticality y information sensitivity deben poder variar independientemente.
+### CAND-MOTOR-DT05-05
+Control existence, control configuration, control effectiveness y recovery effectiveness requieren estados evidenciales distintos.
+### CAND-MOTOR-DT05-06
+Backup state y recoverability state deben permanecer separados.
+### CAND-MOTOR-DT05-07
+Continuity puede satisfacerse mediante continue, degrade, workaround, recover, reconstruct, wait o stop-safely según tolerancia.
+### CAND-MOTOR-DT05-08
+Un tercero puede controlar el mecanismo mientras la pyme conserva la exposición derivada de su dependencia.
+### CAND-MOTOR-DT05-09
+Suficiencia puede coexistir con residual exposure explícitamente comprendida y aceptada.
+### CAND-MOTOR-DT05-10
+Requisitos de protección y evidencia deben escalar según materialidad, sensibilidad, irreversibilidad, concentración y tolerancia.
+### CAND-MOTOR-DT05-11
+Un cambio material en dependencia, acceso, proveedor, información o tolerancia debe poder invalidar una evaluación previa sin convertirla retrospectivamente en error.
+
+# IA y DT-05
+La IA introduce al menos dos objetos que reservamos para Fase 3:
+### CAND-MOTOR-AI-DT05-01
+El uso de IA puede crear nuevas dependencias, accesos, flujos y exposiciones de información que deben evaluarse por sus consecuencias materiales, no por la etiqueta “IA”.
+### CAND-MOTOR-AI-DT05-02
+La incorporación de información sensible o material a un servicio de IA externo debe tratarse como un flujo/dependencia potencialmente relevante para protección y terceros, sin inferir automáticamente que el uso sea seguro o inseguro.
+Esto permitirá conectar posteriormente:
+DT-03 + DT-05 + DT-06 + EC.
+
+# Control DT-05 · SET A
+| Objeto | Resultado |
+| Dimensionamiento | 16 bloques |
+| SET A | 1–12 |
+| CE | 10 |
+| VA | 22 |
+| NI | 22 |
+| Reglas | 22 |
+| Estados positivos | 8 |
+| Guardrails | 30 |
+| Motor candidates | 11 + 2 AI |
+| Unidad nuclear | Protected Business Dependency |
+La arquitectura queda:
+Business Function → PBD → Required Condition → Threat/Event → Weakness → Exposure → Consequence → Control → Residual Exposure → Detection → Response → Recovery/Continuity → Learning.
+Y quedan fijadas cuatro separaciones especialmente importantes:
+SECURITY ≠ CONTINUITY
+BACKUP ≠ RECOVERABILITY
+CONTROL EXISTENCE ≠ CONTROL EFFECTIVENESS
+RISK REDUCTION ≠ RISK ELIMINATION
+Con esto evitamos tanto el extremo de una evaluación superficial (“¿tienes antivirus?”) como el opuesto de convertir Pymapa en una auditoría ISO/NIST completa.
+DT05-SET-A-v0.1 · BLOCKS 1–12 OF 16 COMPLETE · READY-FOR-SET-B
+El siguiente movimiento es DT-05 · SET B · bloques 13–16: consolidaremos findings y decisiones; diseñaremos intervenciones e instrumentos SME-friendly —incluyendo protección mínima suficiente, recuperación y continuidad—; construiremos entregables, Done Criteria, CRV y validación; y cerraremos A–V 22/22 + DoD 27/27 + K1–K4 antes de entrar en DT-06.
+SEguimos
+Seguimos con DT-05 · SET B, bloques 13–16. Ahora convertimos el modelo de exposición, protección y continuidad en findings e intervenciones verificables, sin premiar controles por existir ni exigir eliminar todo riesgo.
+# DT-05 · Proteger información, sistemas y continuidad
+## SET B · Bloques 13–16
+Entrada: DT05-SET-A-v0.1 · BLOCKS 1–12 OF 16 COMPLETE
+
+# 13. Findings y decisiones
+Las 22 reglas primarias se consolidan en 9 familias de hallazgo.
+| ID | Familia | Núcleo diagnóstico |
+| HF-DT05-01 | Dependencia material insuficientemente visible | Funciones, información o dependencias críticas no están suficientemente identificadas |
+| HF-DT05-02 | Exposición material insuficientemente comprendida | Amenaza/evento, debilidad o consecuencia relevante permanece desconocida |
+| HF-DT05-03 | Protección insuficiente | Controles preventivos no reducen suficientemente una exposición material |
+| HF-DT05-04 | Acceso/privilegio insuficientemente controlado | Identidad, autenticación, autorización o ciclo de acceso generan exposición material |
+| HF-DT05-05 | Detección insuficiente | Evento material puede ocurrir sin ser reconocido dentro del horizonte necesario |
+| HF-DT05-06 | Respuesta insuficientemente ejecutable | Responsabilidades o acciones críticas no permiten contener/tratar suficientemente un incidente |
+| HF-DT05-07 | Recuperabilidad insuficiente | Copias/mecanismos existentes no demuestran restauración compatible con necesidad |
+| HF-DT05-08 | Continuidad insuficiente | Función material no puede continuar, degradarse o recuperarse dentro de tolerancia |
+| HF-DT05-09 | Protección no adaptativa | Incidentes o cambios materiales no provocan revisión suficiente de exposición/controles |
+
+## Finding basado en consecuencia
+Evitemos:
+“La empresa no tiene MFA.”
+Preferimos:
+“La cuenta administrativa del sistema de facturación depende únicamente de una credencial reutilizable y su compromiso permitiría modificar información y bloquear la operación, sin control compensatorio suficiente.”
+La estructura correcta es:
+PBD + EXPOSURE + CONDITION + MATERIAL CONSEQUENCE
+### FIND-DT05-01
+El finding debe expresar la exposición material y su consecuencia, no limitarse a señalar la ausencia de un control específico.
+Esto es fundamental para evitar un checklist disfrazado.
+
+# Control faltante ≠ solución predeterminada
+Si detectamos:
+AUTHENTICATION_STRENGTH_GAP
+MFA puede ser una respuesta apropiada.
+Pero el Motor debe razonar:
+exposición → alternativas → suficiencia → proporcionalidad.
+No:
+regla incumplida → producto/control obligatorio.
+
+# 14 direcciones de decisión
+DT-05 requiere un vocabulario suficientemente rico:
+### IDENTIFY
+Hacer visible función, información o dependencia crítica.
+### REDUCE
+Reducir exposición.
+### RESTRICT
+Limitar acceso/privilegio.
+### STRENGTHEN
+Fortalecer control existente.
+### DETECT
+Introducir capacidad de detección.
+### PREPARE
+Preparar respuesta.
+### BACKUP
+Crear/mejorar copia cuando sea pertinente.
+### RECOVER
+Mejorar restaurabilidad.
+### CONTINUE
+Crear alternativa de continuidad.
+### DIVERSIFY
+Reducir concentración/dependencia cuando esté justificado.
+### TEST
+Validar efectividad/recuperabilidad.
+### TRANSFER
+Transferir contractualmente/asegurar parte de consecuencia cuando sea aplicable, sin asumir eliminación de exposición.
+### ACCEPT
+Aceptar exposición residual explícitamente.
+### NO_ACTION
+Mantener condición actual cuando ya sea suficiente.
+
+# ACCEPT es importante
+Pymapa debe permitir concluir:
+“Existe esta exposición, la comprendemos y no justifica intervención adicional.”
+Eso es distinto de:
+no haber detectado la exposición.
+Por tanto:
+UNKNOWN EXPOSURE ≠ ACCEPTED RESIDUAL EXPOSURE
+### CAND-MOTOR-DT05-12
+La aceptación de exposición residual debe requerir que la exposición sea suficientemente conocida; UNKNOWN no puede convertirse implícitamente en ACCEPT.
+
+# Principio de intervención
+Formalizamos:
+### INT-DT05-01 · MINIMUM SUFFICIENT PROTECTION
+La intervención debe buscar la combinación de protección, detección, respuesta y recuperación de menor complejidad total que mantenga las exposiciones materiales dentro de condiciones suficientemente tolerables para el negocio.
+No significa:
+control más barato.
+Complejidad total incluye:
+- implementación;
+- administración;
+- dependencia;
+- conocimiento;
+- fricción;
+- mantenimiento;
+- recuperación;
+- cambio organizacional;
+- costo.
+
+# Prevención vs resiliencia
+Una exposición puede ser:
+difícil de prevenir
+pero:
+fácil de recuperar.
+Ejemplo:
+fallo ocasional de un equipo.
+Tal vez sea mejor:
+procedimiento de reemplazo rápido
+que:
+infraestructura redundante.
+### P-DT05-10
+La respuesta óptima a una exposición puede actuar sobre prevención, detección, impacto, recuperación o continuidad; no necesariamente sobre la probabilidad del evento.
+
+# 14. Intervenciones, actividades e instrumentos
+Resultan 9 patrones de intervención.
+| ID | Patrón | Propósito |
+| IP-DT05-01 | Hacer visible criticidad/dependencia | Identificar lo que realmente necesita protección |
+| IP-DT05-02 | Comprender exposición | Relacionar evento, debilidad y consecuencia |
+| IP-DT05-03 | Fortalecer protección proporcional | Reducir exposición mediante controles suficientes |
+| IP-DT05-04 | Controlar identidad y acceso | Reducir exposición asociada a cuentas/privilegios |
+| IP-DT05-05 | Habilitar detección | Reconocer eventos dentro del horizonte necesario |
+| IP-DT05-06 | Preparar respuesta | Hacer ejecutables contención y tratamiento |
+| IP-DT05-07 | Asegurar recuperación | Restaurar información/servicios dentro de tolerancia |
+| IP-DT05-08 | Habilitar continuidad | Mantener/degradar/reconstruir/alternar cuando corresponda |
+| IP-DT05-09 | Adaptar protección | Aprender de incidentes y cambios materiales |
+
+# Actividades posibles
+Dependiendo del caso:
+- habilitar MFA;
+- eliminar cuentas;
+- reducir privilegios;
+- separar credenciales;
+- establecer recuperación de cuenta;
+- cifrar información cuando sea pertinente;
+- configurar alertas;
+- mejorar backup;
+- cambiar frecuencia de backup;
+- aislar copias;
+- probar restauración;
+- crear procedimiento alternativo;
+- documentar contactos críticos;
+- revisar accesos de terceros;
+- retirar accesos al salir una persona;
+- configurar actualización;
+- reducir single point of failure;
+- mantener copia exportable de información crítica;
+- preparar equipo alternativo;
+- revisar incidente;
+- aceptar explícitamente exposición residual.
+Ninguna es universal.
+
+# Instrumentos
+Resultan 8 instrumentos.
+### INS-DT05-01 · Protected Business Dependency Map
+función → información/servicio → dependencia → criticidad → tolerancia.
+Instrumento nuclear.
+### INS-DT05-02 · Exposure Card
+PBD → evento → debilidad → consecuencia → control → residual exposure.
+### INS-DT05-03 · Access & Privilege Check
+identidad → acceso → privilegio → necesidad → autenticación → lifecycle.
+### INS-DT05-04 · Critical Control Card
+exposición → control → propósito → evidencia → efectividad → owner.
+### INS-DT05-05 · Incident Action Card
+señal → evaluar → contener → responsable → contacto → recuperar/escalar.
+Para muchas pymes puede ser literalmente una página.
+### INS-DT05-06 · Recovery Card
+información/servicio → backup/mecanismo → última copia → restauración → tolerancia → prueba.
+### INS-DT05-07 · Continuity Option Card
+función → interrupción → tolerancia → continue/degrade/workaround/recover/reconstruct/wait/stop-safely.
+### INS-DT05-08 · Protection Review Log
+cambio/incidente → exposición afectada → revisión → decisión → evidencia.
+
+# Diseño SME-friendly
+Una microempresa no debería terminar con:
+“implementar programa corporativo de continuidad”.
+Podría terminar con:
+“guardar una exportación diaria recuperable de pedidos, verificar mensualmente su restauración y mantener una ficha de operación manual para las primeras cuatro horas de indisponibilidad.”
+Eso es mucho más ejecutable.
+
+# 15. Entregables, Done, CRV, validación y seguimiento
+Resultan 9 entregables funcionales:
+DEL-DT05-01 · dependencias materiales visibles
+DEL-DT05-02 · exposiciones críticas comprendidas
+DEL-DT05-03 · protección proporcional implementada
+DEL-DT05-04 · accesos materiales suficientemente controlados
+DEL-DT05-05 · eventos críticos suficientemente detectables
+DEL-DT05-06 · respuesta crítica ejecutable
+DEL-DT05-07 · información/servicios materialmente recuperables
+DEL-DT05-08 · continuidad compatible con tolerancias aplicables
+DEL-DT05-09 · mecanismo de revisión/adaptación activo
+
+# Done Criteria
+DT-05 requiere 8.
+### DC-A · Dependency Done
+Funciones, información y dependencias materiales suficientemente identificadas.
+### DC-B · Exposure Done
+Exposiciones y consecuencias críticas suficientemente comprendidas.
+### DC-C · Protection Done
+Controles proporcionales reducen exposición suficientemente.
+### DC-D · Access Done
+Acceso, autenticación, privilegio y lifecycle son suficientes para exposiciones aplicables.
+### DC-E · Detection/Response Done
+Eventos materiales pueden detectarse y tratarse dentro del horizonte necesario.
+### DC-F · Recovery Done
+Servicios/información críticos pueden restaurarse suficientemente.
+### DC-G · Continuity Done
+Interrupciones materiales pueden mantenerse dentro de tolerancias mediante continuidad, degradación, workaround o recuperación.
+### DC-H · Adaptation Done
+Cambios/incidentes materiales activan reevaluación proporcional.
+
+# CRV
+Resultan 9 CRV.
+| ID | Criterio de Resultado Verificable |
+| CRV-DT05-01 | Funciones críticas tienen sus dependencias tecnológicas/informacionales materiales identificadas |
+| CRV-DT05-02 | Exposiciones críticas priorizadas tienen consecuencia y condición suficientemente comprendidas |
+| CRV-DT05-03 | Controles prioritarios muestran funcionamiento suficiente respecto de la exposición tratada |
+| CRV-DT05-04 | Accesos materiales corresponden suficientemente con necesidad y pueden modificarse/revocarse |
+| CRV-DT05-05 | Eventos materiales seleccionados pueden detectarse dentro del horizonte requerido |
+| CRV-DT05-06 | Responsables pueden ejecutar acciones críticas de respuesta ante escenarios aplicables |
+| CRV-DT05-07 | Información/servicios seleccionados pueden restaurarse dentro de tolerancias definidas |
+| CRV-DT05-08 | Funciones prioritarias pueden continuar, degradarse o recuperarse sin superar tolerancia material |
+| CRV-DT05-09 | Cambios/incidentes materiales generan revisión demostrable de exposición y controles |
+
+# Prueba ≠ documento
+Para DT-05, la validación debe favorecer evidencia funcional.
+No basta:
+“tenemos un procedimiento de recuperación”.
+La pregunta es:
+¿puede ejecutarse?
+### VAL-DT05-01
+Cuando la materialidad lo justifique, la validación debe privilegiar evidencia de funcionamiento sobre existencia documental.
+
+# Validation states
+Necesitamos V0–V4.
+### V0 · UNKNOWN
+Condición insuficientemente conocida.
+### V1 · IDENTIFIED
+Dependencia/exposición/control suficientemente identificado.
+### V2 · CONTROL-EVIDENCED
+Existe evidencia suficiente de que el mecanismo de protección/respuesta está implementado.
+### V3 · EFFECTIVE
+Existe evidencia suficiente de que funciona respecto de la exposición o escenario material.
+### V4 · RESILIENT
+Protección, respuesta y recuperación permanecen suficientemente efectivas bajo condiciones relevantes y cambios aplicables.
+No toda condición necesita V4.
+
+# Validación de recovery
+Aquí debemos ser especialmente estrictos:
+backup creado → V2 como máximo.
+restauración exitosa → puede sustentar V3.
+restauraciones periódicamente probadas y dentro de tolerancia → puede sustentar V4.
+### CAND-MOTOR-DT05-13
+El Motor debe poder asociar una evidencia de prueba a un escenario, alcance y fecha; una prueba exitosa no valida universalmente toda la capacidad de recuperación.
+
+# Tolerancia
+Los objetos MTI-PYM y MTDL-PYM permiten CRV verificables sin exigir sofisticación técnica.
+Ejemplo:
+“La empresa puede reconstruir pedidos perdidos de hasta cuatro horas.”
+puede ser suficiente.
+No necesita decir:
+RPO = 4h
+aunque internamente podamos mapearlo.
+
+# Seguimiento y reevaluación
+Triggers materiales:
+- nueva aplicación;
+- nuevo proveedor;
+- nuevo canal;
+- nuevo tipo de información;
+- migración;
+- integración;
+- salida/entrada de personal clave;
+- cambio de privilegios;
+- incidente;
+- intento de fraude;
+- pérdida de dispositivo;
+- fallo de backup;
+- restauración fallida;
+- aumento de volumen;
+- cambio contractual;
+- dependencia nueva;
+- cambio de sensibilidad;
+- cambio de tolerancia;
+- uso material de IA.
+### REASS-DT05-01
+Un control previamente suficiente debe reevaluarse cuando cambien materialmente la exposición, dependencia, consecuencia, tolerancia o contexto operativo.
+
+# Incidentes y aprendizaje
+Un incidente no demuestra automáticamente:
+control deficiente.
+Puede ocurrir pese a controles proporcionales.
+La evaluación posterior debe preguntar:
+- ¿qué se conocía?
+- ¿qué protección existía?
+- ¿funcionó?
+- ¿qué exposición permanecía?
+- ¿qué aprendimos?
+- ¿cambia la suficiencia futura?
+### P-DT05-11
+La ocurrencia de un incidente no invalida retrospectivamente por sí sola una evaluación previa de suficiencia; puede generar nueva evidencia que cambie la evaluación posterior.
+
+# 16. Contextualización, Knowledge Governance y cierre
+## Proporcionalidad
+La profundidad de DT-05 debe responder principalmente a:
+criticality × exposure × sensitivity × recovery difficulty × dependency concentration
+No a:
+tamaño empresarial.
+Una empresa de cinco personas que procesa información altamente sensible puede necesitar mayor profundidad que otra de cien con exposición tecnológica limitada.
+
+# Compliance
+DT-05 no debe afirmar automáticamente:
+“cumple GDPR”, “cumple HIPAA”, “cumple ISO 27001”, etc.
+Eso requeriría evaluación específica.
+### GOV-DT05-01
+Pymapa puede detectar necesidades o exposiciones relacionadas con obligaciones aplicables, pero no debe inferir certificación o cumplimiento regulatorio integral a partir del diagnóstico DT-05.
+
+# Fuente externa vs diseño Pymapa
+### SOURCE-DERIVED
+El grounding externo sustenta principalmente:
+- enfoque basado en riesgo;
+- identificación/protección/detección/respuesta/recuperación;
+- confidencialidad/integridad/disponibilidad;
+- continuidad;
+- gestión de accesos;
+- recuperación;
+- tratamiento proporcional del riesgo.
+### PYMAPA-DESIGNED
+Son objetos propios:
+- Protected Business Dependency;
+- MTI-PYM;
+- MTDL-PYM;
+- Minimum Sufficient Protection;
+- 10 CE / 22 VA;
+- findings;
+- instrumentos SME-friendly;
+- estados V0–V4;
+- CRV;
+- lógica de residual exposure;
+- traducción funcional para pyme.
+
+# Knowledge governance
+Un control puede cambiar rápidamente por:
+- amenaza;
+- tecnología;
+- proveedor;
+- regulación;
+- práctica recomendada.
+Por tanto, DT-05 necesita mayor sensibilidad temporal que varias capacidades anteriores.
+Registramos:
+SOURCE-REVIEW-TRIGGER-DT05-01 · Revisar DT-05 ante actualización material de NIST Cybersecurity Framework o referencias estructurales equivalentes utilizadas por Pymapa.
+Y:
+SOURCE-REVIEW-TRIGGER-DT05-02 · Revisar recomendaciones específicas de controles tecnológicos cuando cambios relevantes de amenaza o tecnología puedan modificar materialmente su pertinencia.
+Esto permitirá que:
+arquitectura conceptual
+sea relativamente estable,
+mientras:
+recomendaciones específicas
+puedan actualizarse con mayor frecuencia.
+
+# Motor candidates finales DT-05
+Añadimos:
+### CAND-MOTOR-DT05-14
+Control recomendado debe conservar relación explícita con la exposición que pretende tratar.
+### CAND-MOTOR-DT05-15
+Estado de riesgo/exposición residual debe persistir después de la intervención y no desaparecer porque exista un control.
+### CAND-MOTOR-DT05-16
+Evidencia de recovery debe registrar escenario, alcance, fecha y resultado.
+### CAND-MOTOR-DT05-17
+El Motor debe distinguir ACCEPTED, TREATED, TRANSFERRED/PARTIALLY-TRANSFERRED y UNKNOWN residual exposure.
+### CAND-MOTOR-DT05-18
+La recomendación de controles específicos debe admitir actualización independiente de la estructura conceptual de la capacidad.
+Este último será muy útil para gobernar conocimiento que envejece rápido.
+
+# A–V · DT-05
+| Dimensión | Resultado |
+| A Identidad | PASS |
+| B Alcance | PASS |
+| C Aplicabilidad | PASS |
+| D Unidad de análisis | PASS |
+| E Condiciones | PASS |
+| F Variables | PASS |
+| G Information Needs | PASS |
+| H Captura | PASS |
+| I Information Rules | PASS |
+| J Suficiencia | PASS |
+| K Confianza | PASS |
+| L Diagnóstico | PASS |
+| M Findings | PASS |
+| N Recomendaciones | PASS |
+| O Intervención | PASS |
+| P Ejecución | PASS |
+| Q Resultado | PASS |
+| R Validación | PASS |
+| S Seguimiento | PASS |
+| T Contextualización | PASS |
+| U Knowledge | PASS |
+| V Governance | PASS |
+A–V = 22/22 PASS
+
+# DoD V1
+Los 27/27 criterios quedan cubiertos.
+Especial atención a:
+Applicability — PASS
+No todos los controles aplican a todas las dependencias.
+Evidence — PASS
+Existencia documental no sustituye funcionamiento cuando éste es material.
+Causality — PASS
+Incidente, vulnerabilidad, exposición y control permanecen diferenciados.
+Intervention — PASS
+No presuponemos un producto/control específico.
+CRV — PASS
+Verificamos reducción/protección/recuperación funcional, no mera instalación.
+Reassessment — PASS
+La suficiencia cambia cuando cambia la exposición.
+Governance — PASS
+Recomendaciones de seguridad susceptibles a obsolescencia pueden actualizarse sin reconstruir toda la capacidad.
+DoD = 27/27 PASS
+
+# Quality Gates
+### K1 · Coherencia — PASS
+Quedan diferenciados:
+seguridad, continuidad, calidad de datos, adecuación tecnológica, integración, riesgo de transformación y terceros.
+### K2 · Razonamiento — PASS
+La cadena conserva:
+Dependency → Event → Weakness → Exposure → Consequence → Control → Residual Exposure → Detection → Response → Recovery/Continuity.
+### K3 · Acción — PASS
+Puede recomendar:
+identificar, reducir, restringir, fortalecer, detectar, preparar, respaldar, recuperar, continuar, diversificar, probar, transferir, aceptar o no actuar.
+### K4 · Knowledge — PASS
+Grounding, provenance, temporalidad, reglas, intervención, CRV, validación y governance quedan explícitos.
+# Cierre DT-05
+DT05-K4-v1.0 · K4-VALIDATED · CLOSED
+| Objeto | Resultado |
+| Bloques | 16/16 |
+| CE | 10 |
+| VA | 22 |
+| NI | 22 |
+| Reglas | 22 |
+| Findings | 9 |
+| Decisiones | 14 |
+| Intervenciones | 9 |
+| Instrumentos | 8 |
+| Entregables | 9 |
+| Done Criteria | 8 |
+| CRV | 9 |
+| Validación | V0–V4 |
+| A–V | 22/22 |
+| DoD | 27/27 |
+| K1–K4 | PASS |
+DT05-K4-v1.0 · K4-VALIDATED · CLOSED
+# Estado DT actualizado
+| Capacidad | Estado |
+| DT-01 · Disponer de una base tecnológica adecuada | 🟢 CLOSED |
+| DT-02 · Gestionar datos con calidad y disponibilidad | 🟢 CLOSED |
+| DT-03 · Integrar datos, aplicaciones y flujos de información | 🟢 CLOSED |
+| DT-04 · Convertir datos en información útil para decisiones | 🟢 CLOSED |
+| DT-05 · Proteger información, sistemas y continuidad | 🟢 CLOSED |
+| DT-06 · Evaluar, incorporar y aprovechar tecnologías pertinentes | ⚪ NEXT |
+DOMAIN-DT · 5/6 CAPABILITIES K4-VALIDATED
+El acumulado maestro pasa a:
+20/31 capacidades K4-VALIDATED.
+## DT-06 será especialmente importante para Pymapa
+La última capacidad del dominio será DT-06 · Evaluar, incorporar y aprovechar tecnologías pertinentes.
+Aquí debemos evitar dos errores opuestos:
+“adoptar tecnología nueva = transformación”
+y
+“esperar hasta tener certeza total antes de experimentar”.
+DT-06 deberá razonar sobre una cadena diferente:
+Need/Opportunity → Technology Candidate → Relevance → Evidence → Experiment → Fit → Adoption Decision → Incorporation → Effective Use → Value/Learning.
+Y allí habrá que separar con mucha precisión:
+AWARENESS ≠ EXPERIMENTATION ≠ ADOPTION ≠ IMPLEMENTATION ≠ USE ≠ VALUE
+además de incorporar explícitamente IA como una familia tecnológica posible, sin convertir DT-06 en una capacidad de IA.
+El siguiente paso será dimensionar orgánicamente DT-06 y desarrollar su primer macroset.
+seguimos

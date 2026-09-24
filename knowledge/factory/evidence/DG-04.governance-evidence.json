@@ -3,11 +3,8 @@
   "statement": "Evidencia técnica automatizada para la revisión humana de gobierno. NO constituye aprobación, firma ni publicación; no contiene identidad humana.",
   "capabilityId": "DG-04",
   "factoryVersion": "pymapa-knowledge-factory/0.1.0",
-  "readiness": "NOT_READY",
-  "blockers": [
-    "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-DG-04-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-    "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-DG-04-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
-  ],
+  "readiness": "READY_FOR_HUMAN_PUBLICATION_AUTHORIZATION",
+  "blockers": [],
   "humanAuthorization": {
     "present": false,
     "required": true,
@@ -32,18 +29,17 @@
       "sha256": "1223b7cc3debc250a116d36d63e464a608a87d8777ce52b9c62c1ab6dafae94d"
     },
     "canonicalBaselineChecksum": "sha256:47496abd1e75c71fd9d52e60f14fa9124e34c10d79297b828d78920ea0152a07",
-    "executableSourceChecksum": "sha256:de938b8684cdc94c8779926fc65f2926fdcba49dd8ed094c43bbfb44f0bbd3e5",
+    "executableSourceChecksum": "sha256:8d40a606cd3dfde8f925fabdf3611182ff4aa03f23530f25341e2abafebb8eda",
     "packCandidate": {
       "packId": "dg-04",
       "packVersion": "1.0.0",
-      "checksum": "sha256:88f270c903674bf55eee4f8c16a3cef751594202ee6f0a8850dd76ca1f59e6b4"
+      "checksum": "sha256:898197fb4eef260b2b468fc484ae3129af93d771c351b266cf2cdb12e191fef7"
     }
   },
   "transcriptionCorrections": [],
   "runtimeExtensions": [],
   "notExplicit": [
-    "NE-DG-04-CRITICALITY",
-    "NE-DG-04-VA-ACQUISITION"
+    "NE-DG-04-CRITICALITY"
   ],
   "governedBacklog": [],
   "transversalCandidates": 0,
@@ -79,7 +75,7 @@
     },
     {
       "check": "CANONICAL_TO_PACK",
-      "status": "REVIEW_REQUIRED"
+      "status": "PASS"
     },
     {
       "check": "RUNTIME_COMPATIBILITY",
@@ -107,8 +103,8 @@
     }
   ],
   "fixtures": {
-    "count": 1,
-    "pass": 1,
+    "count": 2,
+    "pass": 2,
     "governedJudgment": 0,
     "fail": 0
   },
@@ -134,5 +130,5 @@
       "goldenStatus": "PASS"
     }
   ],
-  "checksum": "sha256:f1092be0b7b1c1a51a4e5b1d50e45d158fdc375935418e8c38bdca7bae466e6d"
+  "checksum": "sha256:83c8c55d798e21a8735316a08d3891e861a51715f3f5c355694853de070de5a8"
 }

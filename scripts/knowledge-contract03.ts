@@ -24,16 +24,22 @@ for (const c of TARGETS) {
   const name = prev.find((p) => p.c === c)!.name;
   const literal = `${c} · ${name}`;
   const line = raw.split("\n").findIndex((l) => l.replace(/^#{1,9}\s+/, "").trim() === literal) + 1;
+  const decisionPath = join(ROOT, "knowledge/intake", c, "ni-va-mapping-decision.json");
+  const governedOrdinalMapping = existsSync(decisionPath)
+    ? JSON.parse(readFileSync(decisionPath, "utf8"))
+    : undefined;
   const r = projectBaselineToRunnableSource(
     baseline,
     line ? { name, literalLine: line } : null,
     raw,
+    governedOrdinalMapping ? { governedOrdinalMapping } : {},
   );
   report.push({
     c,
     name,
     ok: r.ok,
     stats: r.stats,
+    ordinalMapping: r.ordinalMapping ?? null,
     definition: r.definition && {
       status: r.definition.status,
       sourceLines: r.definition.sourceLines,
@@ -118,5 +124,6 @@ for (const c of TARGETS) {
 }
 const out = join(ROOT, "knowledge/factory/reports/contract03-projection.json");
 if (write) writeFileSync(out, json(report));
+if (!write) writeFileSync("/tmp/contract03-dry.json", json(report));
 console.log(JSON.stringify(report, null, 1).slice(0, 6000));
 if (!existsSync(out) && write) process.exit(1);

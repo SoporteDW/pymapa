@@ -1,0 +1,3801 @@
+{
+  "candidateId": "CAND-CM-06-0.2.0-39a9ad4c7165",
+  "capabilityId": "CM-06",
+  "status": "CANDIDATE",
+  "registration": {
+    "registrationId": "RAW-CM-06-4c2767563096",
+    "textSha256": "39a9ad4c71656112346a0d0ee8570a3ffacf5f837d01c2f9627c1970c5469b4d"
+  },
+  "producedBy": {
+    "method": "DETERMINISTIC_TOOL",
+    "agent": "pymapa-structural-segmenter@0.2.0 + pymapa-governed-supersession-resolver@0.1.0",
+    "note": "Segmentación literal por headings y líneas planas «ID · título» con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
+  },
+  "baselineId": "CM06-K4-v1.0",
+  "historicalStatus": {
+    "marker": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      1209,
+      1209
+    ]
+  },
+  "provenanceVocabulary": [
+    {
+      "code": "SOURCE-DERIVED",
+      "label": "SOURCE-DERIVED",
+      "meaning": "Grounding externo sostiene conceptos generales relativos a:",
+      "sourceLines": [
+        1106,
+        1107
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "PYMAPA-DESIGNED",
+      "label": "PYMAPA-DESIGNED",
+      "meaning": "Son propios:",
+      "sourceLines": [
+        1115,
+        1116
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    }
+  ],
+  "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 10,
+      "objectType": "SOURCE_ID_CE",
+      "sourceLines": [
+        1194,
+        1194
+      ]
+    },
+    {
+      "label": "CRV",
+      "declared": 10,
+      "objectType": "SOURCE_ID_CRV",
+      "sourceLines": [
+        1204,
+        1204
+      ]
+    },
+    {
+      "label": "VA",
+      "declared": 24,
+      "objectType": "SOURCE_ID_VA",
+      "sourceLines": [
+        1195,
+        1195
+      ]
+    }
+  ],
+  "verbatimKeys": [
+    "heading",
+    "title",
+    "body"
+  ],
+  "items": [
+    {
+      "key": "P-CM06-CORE-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-CORE-01",
+      "fields": {
+        "heading": "P-CM06-CORE-01",
+        "body": [
+          "Ingreso es una medida económica relevante, pero no constituye por sí solo evidencia suficiente de creación de valor."
+        ]
+      },
+      "sourceLines": [
+        68,
+        69
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "P-CM06-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-01",
+      "fields": {
+        "heading": "P-CM06-01",
+        "body": [
+          "Una variación positiva en una métrica no constituye creación de valor hasta establecer su relación con un resultado material para algún receptor relevante."
+        ]
+      },
+      "sourceLines": [
+        80,
+        81
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "P-CM06-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-02",
+      "fields": {
+        "heading": "P-CM06-02",
+        "body": [
+          "Todo resultado de valor debe poder asociarse suficientemente con un receptor relevante."
+        ]
+      },
+      "sourceLines": [
+        166,
+        167
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "P-CM06-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-03",
+      "fields": {
+        "heading": "P-CM06-03",
+        "body": [
+          "La creación sostenible de valor requiere mantener visibles los resultados para cliente y negocio sin asumir que necesariamente se mueven en la misma dirección."
+        ]
+      },
+      "sourceLines": [
+        211,
+        212
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM06-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-01",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-01",
+        "body": [
+          "El Motor debe poder representar value created, neutral value y value destroyed, no únicamente resultados positivos."
+        ]
+      },
+      "sourceLines": [
+        247,
+        248
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "P-CM06-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-04",
+      "fields": {
+        "heading": "P-CM06-04",
+        "body": [
+          "El nivel de resultado utilizado debe corresponder con la decisión y la fuerza de evidencia disponible."
+        ]
+      },
+      "sourceLines": [
+        262,
+        263
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "P-CM06-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-05",
+      "fields": {
+        "heading": "P-CM06-05",
+        "body": [
+          "Sin referencia suficiente puede ser posible describir un resultado, pero no necesariamente determinar cuánto valor adicional se creó."
+        ]
+      },
+      "sourceLines": [
+        303,
+        304
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "P-CM06-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-06",
+      "fields": {
+        "heading": "P-CM06-06",
+        "body": [
+          "Medir una variable no demuestra que la variable represente valor."
+        ]
+      },
+      "sourceLines": [
+        319,
+        320
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "P-CM06-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-07",
+      "fields": {
+        "heading": "P-CM06-07",
+        "body": [
+          "Las métricas económicas deben activarse cuando sean materiales para comprender captura y sostenibilidad del valor, no como plantilla universal."
+        ]
+      },
+      "sourceLines": [
+        355,
+        356
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "P-CM06-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-08",
+      "fields": {
+        "heading": "P-CM06-08",
+        "body": [
+          "El crecimiento debe evaluarse junto con los economics materiales suficientes para evitar confundir expansión de volumen con creación sostenible de valor."
+        ]
+      },
+      "sourceLines": [
+        359,
+        360
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "ATTR-0",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_ATTR",
+      "sourceId": "ATTR-0",
+      "fields": {
+        "heading": "ATTR-0",
+        "body": [
+          "Asociación desconocida."
+        ]
+      },
+      "sourceLines": [
+        366,
+        367
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "ATTR-1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_ATTR",
+      "sourceId": "ATTR-1",
+      "fields": {
+        "heading": "ATTR-1",
+        "body": [
+          "Asociación plausible."
+        ]
+      },
+      "sourceLines": [
+        368,
+        369
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "ATTR-2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_ATTR",
+      "sourceId": "ATTR-2",
+      "fields": {
+        "heading": "ATTR-2",
+        "body": [
+          "Contribución razonablemente sustentada."
+        ]
+      },
+      "sourceLines": [
+        370,
+        371
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "ATTR-3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_ATTR",
+      "sourceId": "ATTR-3",
+      "fields": {
+        "heading": "ATTR-3",
+        "body": [
+          "Atribución fuerte dentro de condiciones definidas.",
+          "No toda decisión exige ATTR-3."
+        ]
+      },
+      "sourceLines": [
+        372,
+        374
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "P-CM06-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-09",
+      "fields": {
+        "heading": "P-CM06-09",
+        "body": [
+          "Cuando múltiples factores intervienen, Pymapa debe preferir lenguaje de contribución salvo que exista evidencia suficiente para atribución causal más fuerte."
+        ]
+      },
+      "sourceLines": [
+        379,
+        380
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "P-CM06-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-10",
+      "fields": {
+        "heading": "P-CM06-10",
+        "body": [
+          "La evaluación de valor debe utilizar un horizonte compatible con el mecanismo mediante el cual se espera que el resultado ocurra."
+        ]
+      },
+      "sourceLines": [
+        403,
+        404
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "P-CM06-11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-11",
+      "fields": {
+        "heading": "P-CM06-11",
+        "body": [
+          "La optimización de una métrica local no debe tratarse como creación de valor global sin observar consecuencias materiales relacionadas."
+        ]
+      },
+      "sourceLines": [
+        424,
+        425
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CE01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Value Intent",
+        "title": "Value Intent"
+      },
+      "sourceLines": [
+        461,
+        461
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "VA01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA01",
+      "fields": {
+        "heading": "VA01 receptor de valor suficientemente identificado",
+        "title": "receptor de valor suficientemente identificado"
+      },
+      "sourceLines": [
+        462,
+        462
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "VA02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA02",
+      "fields": {
+        "heading": "VA02 resultado de valor esperado suficientemente definido",
+        "title": "resultado de valor esperado suficientemente definido"
+      },
+      "sourceLines": [
+        463,
+        463
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CE02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Outcome structure",
+        "title": "Outcome structure"
+      },
+      "sourceLines": [
+        464,
+        464
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "VA03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA03",
+      "fields": {
+        "heading": "VA03 output/outcome/impact suficientemente diferenciados",
+        "title": "output/outcome/impact suficientemente diferenciados"
+      },
+      "sourceLines": [
+        465,
+        465
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "VA04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "VA04 horizonte del resultado suficientemente claro",
+        "title": "horizonte del resultado suficientemente claro"
+      },
+      "sourceLines": [
+        466,
+        466
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CE03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Customer Value",
+        "title": "Customer Value"
+      },
+      "sourceLines": [
+        467,
+        467
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "VA05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "VA05 resultado material para cliente suficientemente definido",
+        "title": "resultado material para cliente suficientemente definido"
+      },
+      "sourceLines": [
+        468,
+        468
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "VA06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "VA06 evidencia de customer value suficientemente disponible",
+        "title": "evidencia de customer value suficientemente disponible"
+      },
+      "sourceLines": [
+        469,
+        469
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CE04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE04",
+      "fields": {
+        "heading": "CE04 · Business Value",
+        "title": "Business Value"
+      },
+      "sourceLines": [
+        470,
+        470
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "VA07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "VA07 resultado material para negocio suficientemente definido",
+        "title": "resultado material para negocio suficientemente definido"
+      },
+      "sourceLines": [
+        471,
+        471
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "VA08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "VA08 evidencia económica/estratégica suficientemente disponible",
+        "title": "evidencia económica/estratégica suficientemente disponible"
+      },
+      "sourceLines": [
+        472,
+        472
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CE05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE05",
+      "fields": {
+        "heading": "CE05 · Measurement",
+        "title": "Measurement"
+      },
+      "sourceLines": [
+        473,
+        473
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "VA09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA09",
+      "fields": {
+        "heading": "VA09 métricas suficientemente relevantes",
+        "title": "métricas suficientemente relevantes"
+      },
+      "sourceLines": [
+        474,
+        474
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "VA10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA10",
+      "fields": {
+        "heading": "VA10 baseline/comparador suficiente cuando aplica",
+        "title": "baseline/comparador suficiente cuando aplica"
+      },
+      "sourceLines": [
+        475,
+        475
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "VA11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA11",
+      "fields": {
+        "heading": "VA11 calidad/oportunidad de información suficiente",
+        "title": "calidad/oportunidad de información suficiente"
+      },
+      "sourceLines": [
+        476,
+        476
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CE06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE06",
+      "fields": {
+        "heading": "CE06 · Attribution",
+        "title": "Attribution"
+      },
+      "sourceLines": [
+        477,
+        477
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "VA12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA12",
+      "fields": {
+        "heading": "VA12 factores contribuyentes suficientemente visibles",
+        "title": "factores contribuyentes suficientemente visibles"
+      },
+      "sourceLines": [
+        478,
+        478
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "VA13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA13",
+      "fields": {
+        "heading": "VA13 nivel de atribución proporcional a evidencia",
+        "title": "nivel de atribución proporcional a evidencia"
+      },
+      "sourceLines": [
+        479,
+        479
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "VA14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA14",
+      "fields": {
+        "heading": "VA14 incertidumbre material suficientemente explícita",
+        "title": "incertidumbre material suficientemente explícita"
+      },
+      "sourceLines": [
+        480,
+        480
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CE07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE07",
+      "fields": {
+        "heading": "CE07 · Value Capture",
+        "title": "Value Capture"
+      },
+      "sourceLines": [
+        481,
+        481
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "VA15",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA15",
+      "fields": {
+        "heading": "VA15 mecanismo de captura suficientemente claro",
+        "title": "mecanismo de captura suficientemente claro"
+      },
+      "sourceLines": [
+        482,
+        482
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "VA16",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA16",
+      "fields": {
+        "heading": "VA16 economics materiales suficientemente conocidos cuando aplican",
+        "title": "economics materiales suficientemente conocidos cuando aplican"
+      },
+      "sourceLines": [
+        483,
+        483
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CE08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE08",
+      "fields": {
+        "heading": "CE08 · Trade-offs",
+        "title": "Trade-offs"
+      },
+      "sourceLines": [
+        484,
+        484
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "VA17",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA17",
+      "fields": {
+        "heading": "VA17 trade-offs materiales suficientemente identificados",
+        "title": "trade-offs materiales suficientemente identificados"
+      },
+      "sourceLines": [
+        485,
+        485
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "VA18",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA18",
+      "fields": {
+        "heading": "VA18 value leakage suficientemente visible",
+        "title": "value leakage suficientemente visible"
+      },
+      "sourceLines": [
+        486,
+        486
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "VA19",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA19",
+      "fields": {
+        "heading": "VA19 destrucción de valor suficientemente detectable",
+        "title": "destrucción de valor suficientemente detectable"
+      },
+      "sourceLines": [
+        487,
+        487
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CE09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE09",
+      "fields": {
+        "heading": "CE09 · Management",
+        "title": "Management"
+      },
+      "sourceLines": [
+        488,
+        488
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "VA20",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA20",
+      "fields": {
+        "heading": "VA20 decisiones pueden modificarse desde evidencia de valor",
+        "title": "decisiones pueden modificarse desde evidencia de valor"
+      },
+      "sourceLines": [
+        489,
+        489
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "VA21",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA21",
+      "fields": {
+        "heading": "VA21 inversión/esfuerzo puede redistribuirse según valor observado",
+        "title": "inversión/esfuerzo puede redistribuirse según valor observado"
+      },
+      "sourceLines": [
+        490,
+        490
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "VA22",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA22",
+      "fields": {
+        "heading": "VA22 iniciativas/ofertas pueden mantenerse, ajustarse o detenerse",
+        "title": "iniciativas/ofertas pueden mantenerse, ajustarse o detenerse"
+      },
+      "sourceLines": [
+        491,
+        491
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CE10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE10",
+      "fields": {
+        "heading": "CE10 · Sustainability/Learning",
+        "title": "Sustainability/Learning"
+      },
+      "sourceLines": [
+        492,
+        492
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "VA23",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA23",
+      "fields": {
+        "heading": "VA23 valor suficientemente sostenible dentro del horizonte aplicable",
+        "title": "valor suficientemente sostenible dentro del horizonte aplicable"
+      },
+      "sourceLines": [
+        493,
+        493
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "VA24",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA24",
+      "fields": {
+        "heading": "VA24 nueva evidencia puede actualizar hipótesis y métricas de valor",
+        "title": "nueva evidencia puede actualizar hipótesis y métricas de valor"
+      },
+      "sourceLines": [
+        494,
+        494
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "P2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P2",
+      "fields": {
+        "heading": "P2 · Triggers",
+        "title": "Triggers",
+        "body": [
+          "Profundizamos ante:",
+          "- revenue alto pero margen bajo;",
+          "- crecimiento sin cash;",
+          "- conversión alta y churn alto;",
+          "- satisfacción alta pero economics pobres;",
+          "- muchos outputs sin outcomes;",
+          "- iniciativa “exitosa” solo por ejecución;",
+          "- métricas vanity;",
+          "- ausencia de baseline;",
+          "- value claims sin evidence;",
+          "- costo-to-serve creciente;",
+          "- descuentos;",
+          "- clientes no rentables;",
+          "- automatización sin resultado;",
+          "- proyecto digital sin benefit realization;",
+          "- beneficios no observados;",
+          "- trade-offs ocultos."
+        ]
+      },
+      "sourceLines": [
+        507,
+        524
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "P3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P3",
+      "fields": {
+        "heading": "P3 · Discriminación",
+        "title": "Discriminación",
+        "body": [
+          "Ante:",
+          "“esta iniciativa genera valor”",
+          "debemos distinguir:",
+          "OUTPUT ONLY",
+          "CUSTOMER OUTCOME",
+          "BUSINESS OUTCOME",
+          "VALUE CAPTURE",
+          "CORRELATION",
+          "CONTRIBUTION",
+          "ATTRIBUTION",
+          "TEMPORARY RESULT",
+          "SUSTAINABLE RESULT"
+        ]
+      },
+      "sourceLines": [
+        525,
+        537
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CONTR-CM06-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-CM06-01",
+      "fields": {
+        "heading": "CONTR-CM06-01",
+        "body": [
+          "REVENUE_GROWTH_vs_MARGIN_DETERIORATION"
+        ]
+      },
+      "sourceLines": [
+        539,
+        540
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CONTR-CM06-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-CM06-02",
+      "fields": {
+        "heading": "CONTR-CM06-02",
+        "body": [
+          "HIGH_CUSTOMER_VALUE_vs_UNSUSTAINABLE_COST_TO_SERVE"
+        ]
+      },
+      "sourceLines": [
+        541,
+        542
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CONTR-CM06-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-CM06-03",
+      "fields": {
+        "heading": "CONTR-CM06-03",
+        "body": [
+          "PROJECT_SUCCESS_vs_NO_OUTCOME"
+        ]
+      },
+      "sourceLines": [
+        543,
+        544
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CONTR-CM06-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-CM06-04",
+      "fields": {
+        "heading": "CONTR-CM06-04",
+        "body": [
+          "METRIC_IMPROVEMENT_vs_NO_VALUE_LINK"
+        ]
+      },
+      "sourceLines": [
+        545,
+        546
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CONTR-CM06-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-CM06-05",
+      "fields": {
+        "heading": "CONTR-CM06-05",
+        "body": [
+          "HIGH_RETENTION_vs_NEGATIVE_RELATIONSHIP_ECONOMICS"
+        ]
+      },
+      "sourceLines": [
+        547,
+        548
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CONTR-CM06-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-CM06-06",
+      "fields": {
+        "heading": "CONTR-CM06-06",
+        "body": [
+          "VALUE_CLAIM_vs_ATTRIBUTION_UNKNOWN"
+        ]
+      },
+      "sourceLines": [
+        549,
+        550
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CONTR-CM06-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-CM06-07",
+      "fields": {
+        "heading": "CONTR-CM06-07",
+        "body": [
+          "CUSTOMER_OUTCOME_vs_BUSINESS_CAPTURE_GAP"
+        ]
+      },
+      "sourceLines": [
+        551,
+        552
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "EVID-CM06-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_EVID",
+      "sourceId": "EVID-CM06-01",
+      "fields": {
+        "heading": "EVID-CM06-01",
+        "body": [
+          "La fuerza de evidencia requerida aumenta con magnitud de inversión, irreversibilidad, incertidumbre y consecuencia de una conclusión equivocada sobre valor."
+        ]
+      },
+      "sourceLines": [
+        580,
+        581
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "SUFF-CM06-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SUFF",
+      "sourceId": "SUFF-CM06-01",
+      "fields": {
+        "heading": "SUFF-CM06-01",
+        "body": [
+          "CM-06 alcanza suficiencia cuando los casos materiales de valor tienen receptores y resultados suficientemente definidos, evidencia proporcional sobre outcomes, medición y atribución compatibles con la decisión, y capacidad de ajustar o detener inversiones, ofertas o relaciones cuando el valor creado o capturado resulta insuficiente.",
+          "No exige:",
+          "conocer exactamente toda causalidad."
+        ]
+      },
+      "sourceLines": [
+        583,
+        586
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM06-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-02",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-02",
+        "body": [
+          "La confianza en un outcome observado no debe transferirse automáticamente a confianza en valor, atribución o sostenibilidad."
+        ]
+      },
+      "sourceLines": [
+        601,
+        602
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "R-CM06-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-01",
+      "fields": {
+        "heading": "R-CM06-01 · VALUE_RECIPIENT_UNCLEAR",
+        "title": "VALUE_RECIPIENT_UNCLEAR"
+      },
+      "sourceLines": [
+        605,
+        605
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "R-CM06-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-02",
+      "fields": {
+        "heading": "R-CM06-02 · VALUE_OUTCOME_UNCLEAR",
+        "title": "VALUE_OUTCOME_UNCLEAR"
+      },
+      "sourceLines": [
+        606,
+        606
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "R-CM06-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-03",
+      "fields": {
+        "heading": "R-CM06-03 · OUTPUT_OUTCOME_IMPACT_CONFUSION",
+        "title": "OUTPUT_OUTCOME_IMPACT_CONFUSION"
+      },
+      "sourceLines": [
+        607,
+        607
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "R-CM06-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-04",
+      "fields": {
+        "heading": "R-CM06-04 · VALUE_HORIZON_UNCLEAR",
+        "title": "VALUE_HORIZON_UNCLEAR"
+      },
+      "sourceLines": [
+        608,
+        608
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "R-CM06-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-05",
+      "fields": {
+        "heading": "R-CM06-05 · CUSTOMER_VALUE_OUTCOME_GAP",
+        "title": "CUSTOMER_VALUE_OUTCOME_GAP"
+      },
+      "sourceLines": [
+        609,
+        609
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "R-CM06-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-06",
+      "fields": {
+        "heading": "R-CM06-06 · CUSTOMER_VALUE_EVIDENCE_GAP",
+        "title": "CUSTOMER_VALUE_EVIDENCE_GAP"
+      },
+      "sourceLines": [
+        610,
+        610
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "R-CM06-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-07",
+      "fields": {
+        "heading": "R-CM06-07 · BUSINESS_VALUE_OUTCOME_GAP",
+        "title": "BUSINESS_VALUE_OUTCOME_GAP"
+      },
+      "sourceLines": [
+        611,
+        611
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "R-CM06-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-08",
+      "fields": {
+        "heading": "R-CM06-08 · BUSINESS_VALUE_EVIDENCE_GAP",
+        "title": "BUSINESS_VALUE_EVIDENCE_GAP"
+      },
+      "sourceLines": [
+        612,
+        612
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "R-CM06-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-09",
+      "fields": {
+        "heading": "R-CM06-09 · VALUE_METRIC_RELEVANCE_GAP",
+        "title": "VALUE_METRIC_RELEVANCE_GAP"
+      },
+      "sourceLines": [
+        613,
+        613
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "R-CM06-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-10",
+      "fields": {
+        "heading": "R-CM06-10 · VALUE_BASELINE_COMPARATOR_GAP",
+        "title": "VALUE_BASELINE_COMPARATOR_GAP"
+      },
+      "sourceLines": [
+        614,
+        614
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "R-CM06-11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-11",
+      "fields": {
+        "heading": "R-CM06-11 · VALUE_INFORMATION_QUALITY_GAP",
+        "title": "VALUE_INFORMATION_QUALITY_GAP"
+      },
+      "sourceLines": [
+        615,
+        615
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "R-CM06-12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-12",
+      "fields": {
+        "heading": "R-CM06-12 · VALUE_CONTRIBUTOR_BLIND_SPOT",
+        "title": "VALUE_CONTRIBUTOR_BLIND_SPOT"
+      },
+      "sourceLines": [
+        616,
+        616
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "R-CM06-13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-13",
+      "fields": {
+        "heading": "R-CM06-13 · VALUE_ATTRIBUTION_OVERREACH",
+        "title": "VALUE_ATTRIBUTION_OVERREACH"
+      },
+      "sourceLines": [
+        617,
+        617
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "R-CM06-14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-14",
+      "fields": {
+        "heading": "R-CM06-14 · VALUE_UNCERTAINTY_HIDDEN",
+        "title": "VALUE_UNCERTAINTY_HIDDEN"
+      },
+      "sourceLines": [
+        618,
+        618
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "R-CM06-15",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-15",
+      "fields": {
+        "heading": "R-CM06-15 · VALUE_CAPTURE_MECHANISM_GAP",
+        "title": "VALUE_CAPTURE_MECHANISM_GAP"
+      },
+      "sourceLines": [
+        619,
+        619
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "R-CM06-16",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-16",
+      "fields": {
+        "heading": "R-CM06-16 · VALUE_ECONOMICS_VISIBILITY_GAP",
+        "title": "VALUE_ECONOMICS_VISIBILITY_GAP"
+      },
+      "sourceLines": [
+        620,
+        620
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "R-CM06-17",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-17",
+      "fields": {
+        "heading": "R-CM06-17 · MATERIAL_VALUE_TRADEOFF_BLIND_SPOT",
+        "title": "MATERIAL_VALUE_TRADEOFF_BLIND_SPOT"
+      },
+      "sourceLines": [
+        621,
+        621
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "R-CM06-18",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-18",
+      "fields": {
+        "heading": "R-CM06-18 · VALUE_LEAKAGE_GAP",
+        "title": "VALUE_LEAKAGE_GAP"
+      },
+      "sourceLines": [
+        622,
+        622
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "R-CM06-19",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-19",
+      "fields": {
+        "heading": "R-CM06-19 · VALUE_DESTRUCTION_BLIND_SPOT",
+        "title": "VALUE_DESTRUCTION_BLIND_SPOT"
+      },
+      "sourceLines": [
+        623,
+        623
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "R-CM06-20",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-20",
+      "fields": {
+        "heading": "R-CM06-20 · VALUE_EVIDENCE_DECISION_GAP",
+        "title": "VALUE_EVIDENCE_DECISION_GAP"
+      },
+      "sourceLines": [
+        624,
+        624
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "R-CM06-21",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-21",
+      "fields": {
+        "heading": "R-CM06-21 · VALUE_RESOURCE_REALLOCATION_GAP",
+        "title": "VALUE_RESOURCE_REALLOCATION_GAP"
+      },
+      "sourceLines": [
+        625,
+        625
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "R-CM06-22",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-22",
+      "fields": {
+        "heading": "R-CM06-22 · VALUE_STOP_ADJUST_GAP",
+        "title": "VALUE_STOP_ADJUST_GAP"
+      },
+      "sourceLines": [
+        626,
+        626
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "R-CM06-23",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-23",
+      "fields": {
+        "heading": "R-CM06-23 · VALUE_SUSTAINABILITY_GAP",
+        "title": "VALUE_SUSTAINABILITY_GAP"
+      },
+      "sourceLines": [
+        627,
+        627
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "R-CM06-24",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-CM06-24",
+      "fields": {
+        "heading": "R-CM06-24 · VALUE_LEARNING_ADAPTATION_GAP",
+        "title": "VALUE_LEARNING_ADAPTATION_GAP"
+      },
+      "sourceLines": [
+        628,
+        628
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM06-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-03",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-03",
+        "body": [
+          "Value Creation Case debe preservar Value Recipient + Value Intent + Expected Outcome + Evidence + Observed Outcome + Attribution."
+        ]
+      },
+      "sourceLines": [
+        679,
+        680
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM06-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-04",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-04",
+        "body": [
+          "Output, Outcome e Impact deben permanecer como objetos distintos."
+        ]
+      },
+      "sourceLines": [
+        681,
+        682
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM06-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-05",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-05",
+        "body": [
+          "Customer Value, Business Value y Value Captured deben poder coexistir y divergir."
+        ]
+      },
+      "sourceLines": [
+        683,
+        684
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM06-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-06",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-06",
+        "body": [
+          "Delivered, Realized y Captured Value deben conservarse como estados diferentes."
+        ]
+      },
+      "sourceLines": [
+        685,
+        686
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM06-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-07",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-07",
+        "body": [
+          "Value metric debe mantener vínculo explícito con value recipient y outcome."
+        ]
+      },
+      "sourceLines": [
+        687,
+        688
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM06-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-08",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-08",
+        "body": [
+          "Value Horizon debe formar parte del caso antes de declarar ausencia o realización de valor."
+        ]
+      },
+      "sourceLines": [
+        689,
+        690
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM06-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-09",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-09",
+        "body": [
+          "Attribution debe reutilizar ATTR-0:3 y preservar uncertainty."
+        ]
+      },
+      "sourceLines": [
+        691,
+        692
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM06-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-10",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-10",
+        "body": [
+          "Value trade-offs deben poder vincular resultados positivos y negativos dentro del mismo caso."
+        ]
+      },
+      "sourceLines": [
+        693,
+        694
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM06-11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-11",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-11",
+        "body": [
+          "Value leakage y value destruction deben existir como objetos explícitos, no únicamente como ausencia de value creation."
+        ]
+      },
+      "sourceLines": [
+        695,
+        696
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM06-12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-12",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-12",
+        "body": [
+          "El Motor debe permitir continuar, expandir, adjust, reduce o stop una iniciativa/oferta según evidence of value."
+        ]
+      },
+      "sourceLines": [
+        697,
+        698
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM06-13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-13",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-13",
+        "body": [
+          "Un resultado histórico puede haber creado valor en un periodo y dejar de hacerlo posteriormente sin invalidar la conclusión histórica."
+        ]
+      },
+      "sourceLines": [
+        699,
+        700
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM06-14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-14",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-14",
+        "body": [
+          "Value Created y Value Captured deben poder agregarse solo preservando población, periodo, unidad y metodología suficiente."
+        ]
+      },
+      "sourceLines": [
+        701,
+        702
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-AI-CM06-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-CM06-01",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-CM06-01",
+        "body": [
+          "La adopción o uso de IA no constituye valor; debe existir evidencia suficiente de un outcome material para un receptor relevante."
+        ]
+      },
+      "sourceLines": [
+        705,
+        706
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-AI-CM06-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-CM06-02",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-CM06-02",
+        "body": [
+          "Productivity gain generado por IA debe considerar efectos de revisión, error, control, integración y retrabajo antes de declararse valor neto."
+        ]
+      },
+      "sourceLines": [
+        707,
+        708
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-AI-CM06-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-CM06-03",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-CM06-03",
+        "body": [
+          "Una estimación de valor producida por IA debe conservarse como inferencia y no sustituir evidencia observada del outcome cuando ésta sea necesaria."
+        ]
+      },
+      "sourceLines": [
+        709,
+        710
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-AI-CM06-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-CM06-04",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-CM06-04",
+        "body": [
+          "AI ROI debe separar inversión, costos recurrentes, habilitación organizacional, riesgos y beneficios suficientemente atribuibles antes de presentarse como valor capturado."
+        ]
+      },
+      "sourceLines": [
+        711,
+        712
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "SRC-CM06-ISO9001-2026",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-CM06-ISO9001-2026",
+      "fields": {
+        "heading": "SRC-CM06-ISO9001-2026 · CURRENT",
+        "title": "CURRENT",
+        "body": [
+          "y:",
+          "ISO 9001:2015 · SUPERSEDED/HISTORICAL",
+          "También mantenemos:"
+        ]
+      },
+      "sourceLines": [
+        716,
+        719
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "SRC-CM06-ISO10014-2021",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-CM06-ISO10014-2021",
+      "fields": {
+        "heading": "SRC-CM06-ISO10014-2021 · CURRENT / UNDER REVIEW",
+        "title": "CURRENT / UNDER REVIEW",
+        "body": [
+          "porque ISO 10014:2021 continúa publicada, aunque se encuentra en etapa de revisión. ISO",
+          "Por tanto:"
+        ]
+      },
+      "sourceLines": [
+        720,
+        722
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "SOURCE-REVIEW-TRIGGER-CM06-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SOURCE",
+      "sourceId": "SOURCE-REVIEW-TRIGGER-CM06-01",
+      "fields": {
+        "heading": "SOURCE-REVIEW-TRIGGER-CM06-01 · Revisar grounding de beneficios financieros/económicos cuando ISO 10014:2021 sea confirmada, revisada o sustituida.",
+        "title": "Revisar grounding de beneficios financieros/económicos cuando ISO 10014:2021 sea confirmada, revisada o sustituida.",
+        "body": [
+          "Y:"
+        ]
+      },
+      "sourceLines": [
+        723,
+        724
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "SOURCE-REVIEW-TRIGGER-CM06-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SOURCE",
+      "sourceId": "SOURCE-REVIEW-TRIGGER-CM06-02",
+      "fields": {
+        "heading": "SOURCE-REVIEW-TRIGGER-CM06-02 · Revisar referencias de quality/value management asociadas a ISO 9001 tras estabilizarse la adopción documental de ISO 9001:2026.",
+        "title": "Revisar referencias de quality/value management asociadas a ISO 9001 tras estabilizarse la adopción documental de ISO 9001:2026."
+      },
+      "sourceLines": [
+        725,
+        725
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "FIND-CM06-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_FIND",
+      "sourceId": "FIND-CM06-01",
+      "fields": {
+        "heading": "FIND-CM06-01",
+        "body": [
+          "Todo finding CM-06 debe conservar receptor, resultado esperado, evidencia observada, horizonte y nivel de atribución suficiente para interpretar la conclusión."
+        ]
+      },
+      "sourceLines": [
+        778,
+        779
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM06-15",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-15",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-15",
+        "body": [
+          "El Motor debe poder representar múltiples outcomes positivos y negativos dentro del mismo Value Creation Case antes de emitir una conclusión agregada."
+        ]
+      },
+      "sourceLines": [
+        787,
+        788
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "P-CM06-12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-12",
+      "fields": {
+        "heading": "P-CM06-12",
+        "body": [
+          "La evidencia de valor en un alcance limitado no debe generalizarse automáticamente a una escala mayor."
+        ]
+      },
+      "sourceLines": [
+        832,
+        833
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "P-CM06-13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-13",
+      "fields": {
+        "heading": "P-CM06-13",
+        "body": [
+          "La decisión de detener una iniciativa por evidencia suficiente de bajo valor puede constituir una manifestación positiva de CM-06."
+        ]
+      },
+      "sourceLines": [
+        841,
+        842
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "P-CM06-14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-14",
+      "fields": {
+        "heading": "P-CM06-14",
+        "body": [
+          "Value creation total y marginal value deben poder divergir; una iniciativa valiosa puede haber alcanzado un punto donde expandirla deja de ser conveniente."
+        ]
+      },
+      "sourceLines": [
+        851,
+        852
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "INT-CM06-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-CM06-01",
+      "fields": {
+        "heading": "INT-CM06-01",
+        "body": [
+          "Debe utilizarse el conjunto mínimo de resultados, métricas, comparadores y evidencia capaz de soportar suficientemente la decisión material sobre creación y captura de valor.",
+          "No buscamos:",
+          "tableros gigantes.",
+          "Buscamos:",
+          "decisión informada."
+        ]
+      },
+      "sourceLines": [
+        856,
+        861
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "INT-CM06-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-CM06-02",
+      "fields": {
+        "heading": "INT-CM06-02",
+        "body": [
+          "La fuerza de atribución requerida debe limitarse al nivel mínimo suficiente para la decisión; no debe exigirse demostración causal más sofisticada cuando una estimación de contribución suficientemente robusta permite decidir responsablemente.",
+          "Esto mantiene CM-06 usable para pyme."
+        ]
+      },
+      "sourceLines": [
+        864,
+        866
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "INS-CM06-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM06-01",
+      "fields": {
+        "heading": "INS-CM06-01 · Value Creation Case Card",
+        "title": "Value Creation Case Card",
+        "body": [
+          "Instrumento nuclear:",
+          "recipient → value intent → outcome → horizon → evidence → attribution → decision."
+        ]
+      },
+      "sourceLines": [
+        884,
+        886
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "INS-CM06-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM06-02",
+      "fields": {
+        "heading": "INS-CM06-02 · Output–Outcome–Impact Map",
+        "title": "Output–Outcome–Impact Map",
+        "body": [
+          "activity → output → outcome → impact → evidence strength."
+        ]
+      },
+      "sourceLines": [
+        887,
+        888
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "INS-CM06-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM06-03",
+      "fields": {
+        "heading": "INS-CM06-03 · Customer Value Evidence Card",
+        "title": "Customer Value Evidence Card",
+        "body": [
+          "expected customer outcome → observed outcome → baseline → confidence."
+        ]
+      },
+      "sourceLines": [
+        889,
+        890
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "INS-CM06-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM06-04",
+      "fields": {
+        "heading": "INS-CM06-04 · Business Value Evidence Card",
+        "title": "Business Value Evidence Card",
+        "body": [
+          "expected business outcome → observed result → economics → confidence."
+        ]
+      },
+      "sourceLines": [
+        891,
+        892
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "INS-CM06-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM06-05",
+      "fields": {
+        "heading": "INS-CM06-05 · Value Metric Card",
+        "title": "Value Metric Card",
+        "body": [
+          "metric → recipient → outcome → definition → source → limitation."
+        ]
+      },
+      "sourceLines": [
+        893,
+        894
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "INS-CM06-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM06-06",
+      "fields": {
+        "heading": "INS-CM06-06 · Attribution Card",
+        "title": "Attribution Card",
+        "body": [
+          "outcome → potential contributors → evidence → ATTR level → uncertainty."
+        ]
+      },
+      "sourceLines": [
+        895,
+        896
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "INS-CM06-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM06-07",
+      "fields": {
+        "heading": "INS-CM06-07 · Value Capture Map",
+        "title": "Value Capture Map",
+        "body": [
+          "value created → mechanism of capture → revenue/cost/capability → leakage."
+        ]
+      },
+      "sourceLines": [
+        897,
+        898
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "INS-CM06-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM06-08",
+      "fields": {
+        "heading": "INS-CM06-08 · Value Trade-off Map",
+        "title": "Value Trade-off Map",
+        "body": [
+          "positive outcome → affected outcome/actor → negative consequence → materiality."
+        ]
+      },
+      "sourceLines": [
+        899,
+        900
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "INS-CM06-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM06-09",
+      "fields": {
+        "heading": "INS-CM06-09 · Value Decision Card",
+        "title": "Value Decision Card",
+        "body": [
+          "evidence → maintain/expand/adjust/reduce/stop → rationale → next review."
+        ]
+      },
+      "sourceLines": [
+        901,
+        902
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "INS-CM06-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-CM06-10",
+      "fields": {
+        "heading": "INS-CM06-10 · Value Learning Log",
+        "title": "Value Learning Log",
+        "body": [
+          "original hypothesis → evidence → result → learning → model/decision change."
+        ]
+      },
+      "sourceLines": [
+        903,
+        904
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CAND-INSTRUMENT-TRANSVERSAL-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-INSTRUMENT-TRANSVERSAL-09",
+      "fields": {
+        "heading": "CAND-INSTRUMENT-TRANSVERSAL-09 · VALUE-CREATION-CASE-CARD",
+        "title": "VALUE-CREATION-CASE-CARD"
+      },
+      "sourceLines": [
+        916,
+        916
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "DEL-CM06-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM06-01",
+      "fields": {
+        "heading": "DEL-CM06-01 · Value Intents materiales definidos",
+        "title": "Value Intents materiales definidos"
+      },
+      "sourceLines": [
+        920,
+        920
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "DEL-CM06-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM06-02",
+      "fields": {
+        "heading": "DEL-CM06-02 · outcomes/horizontes suficientemente especificados",
+        "title": "outcomes/horizontes suficientemente especificados"
+      },
+      "sourceLines": [
+        921,
+        921
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "DEL-CM06-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM06-03",
+      "fields": {
+        "heading": "DEL-CM06-03 · Customer Value suficientemente evidenciado",
+        "title": "Customer Value suficientemente evidenciado"
+      },
+      "sourceLines": [
+        922,
+        922
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "DEL-CM06-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM06-04",
+      "fields": {
+        "heading": "DEL-CM06-04 · Business Value suficientemente evidenciado",
+        "title": "Business Value suficientemente evidenciado"
+      },
+      "sourceLines": [
+        923,
+        923
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "DEL-CM06-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM06-05",
+      "fields": {
+        "heading": "DEL-CM06-05 · medición/comparación suficientemente aptas",
+        "title": "medición/comparación suficientemente aptas"
+      },
+      "sourceLines": [
+        924,
+        924
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "DEL-CM06-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM06-06",
+      "fields": {
+        "heading": "DEL-CM06-06 · attribution calibrada",
+        "title": "attribution calibrada"
+      },
+      "sourceLines": [
+        925,
+        925
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "DEL-CM06-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM06-07",
+      "fields": {
+        "heading": "DEL-CM06-07 · Value Capture suficientemente visible",
+        "title": "Value Capture suficientemente visible"
+      },
+      "sourceLines": [
+        926,
+        926
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "DEL-CM06-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM06-08",
+      "fields": {
+        "heading": "DEL-CM06-08 · trade-offs/leakage/destruction visibles y tratados",
+        "title": "trade-offs/leakage/destruction visibles y tratados"
+      },
+      "sourceLines": [
+        927,
+        927
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "DEL-CM06-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM06-09",
+      "fields": {
+        "heading": "DEL-CM06-09 · asignación/continuidad conectadas con evidencia de valor",
+        "title": "asignación/continuidad conectadas con evidencia de valor"
+      },
+      "sourceLines": [
+        928,
+        928
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "DEL-CM06-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-CM06-10",
+      "fields": {
+        "heading": "DEL-CM06-10 · hipótesis y decisiones actualizables desde aprendizaje",
+        "title": "hipótesis y decisiones actualizables desde aprendizaje"
+      },
+      "sourceLines": [
+        929,
+        929
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CRV-CM06-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM06-01",
+      "fields": {
+        "heading": "| CRV-CM06-01 | VCC materiales tienen receptor, resultado esperado y horizonte explícitos |",
+        "title": "VCC materiales tienen receptor, resultado esperado y horizonte explícitos"
+      },
+      "sourceLines": [
+        955,
+        955
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CRV-CM06-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM06-02",
+      "fields": {
+        "heading": "| CRV-CM06-02 | Outputs y outcomes utilizados en decisiones están suficientemente diferenciados |",
+        "title": "Outputs y outcomes utilizados en decisiones están suficientemente diferenciados"
+      },
+      "sourceLines": [
+        956,
+        956
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CRV-CM06-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM06-03",
+      "fields": {
+        "heading": "| CRV-CM06-03 | Customer Value prioritario cuenta con evidencia proporcional |",
+        "title": "Customer Value prioritario cuenta con evidencia proporcional"
+      },
+      "sourceLines": [
+        957,
+        957
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CRV-CM06-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM06-04",
+      "fields": {
+        "heading": "| CRV-CM06-04 | Business Value prioritario cuenta con evidencia proporcional |",
+        "title": "Business Value prioritario cuenta con evidencia proporcional"
+      },
+      "sourceLines": [
+        958,
+        958
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CRV-CM06-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM06-05",
+      "fields": {
+        "heading": "| CRV-CM06-05 | Métricas utilizadas mantienen vínculo explícito con outcome y receptor |",
+        "title": "Métricas utilizadas mantienen vínculo explícito con outcome y receptor"
+      },
+      "sourceLines": [
+        959,
+        959
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CRV-CM06-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM06-06",
+      "fields": {
+        "heading": "| CRV-CM06-06 | Atribuciones materiales declaran un nivel compatible con evidencia disponible |",
+        "title": "Atribuciones materiales declaran un nivel compatible con evidencia disponible"
+      },
+      "sourceLines": [
+        960,
+        960
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CRV-CM06-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM06-07",
+      "fields": {
+        "heading": "| CRV-CM06-07 | Mecanismo y magnitud material de Value Capture son suficientemente visibles |",
+        "title": "Mecanismo y magnitud material de Value Capture son suficientemente visibles"
+      },
+      "sourceLines": [
+        961,
+        961
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CRV-CM06-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM06-08",
+      "fields": {
+        "heading": "| CRV-CM06-08 | Trade-offs, leakage o destruction materiales pueden detectarse y tratarse |",
+        "title": "Trade-offs, leakage o destruction materiales pueden detectarse y tratarse"
+      },
+      "sourceLines": [
+        962,
+        962
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CRV-CM06-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM06-09",
+      "fields": {
+        "heading": "| CRV-CM06-09 | Evidencia de valor cambia de forma verificable decisiones de mantener, expandir, ajustar, reducir o detener |",
+        "title": "Evidencia de valor cambia de forma verificable decisiones de mantener, expandir, ajustar, reducir o detener"
+      },
+      "sourceLines": [
+        963,
+        963
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CRV-CM06-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-CM06-10",
+      "fields": {
+        "heading": "| CRV-CM06-10 | Resultados de valor pueden reevaluarse cuando cambian horizonte, contexto o economics |",
+        "title": "Resultados de valor pueden reevaluarse cuando cambian horizonte, contexto o economics"
+      },
+      "sourceLines": [
+        964,
+        964
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "V0",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V0",
+      "fields": {
+        "heading": "V0 · UNKNOWN",
+        "title": "UNKNOWN",
+        "body": [
+          "Value Case insuficientemente definido."
+        ]
+      },
+      "sourceLines": [
+        987,
+        988
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "V1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V1",
+      "fields": {
+        "heading": "V1 · VALUE-DEFINED",
+        "title": "VALUE-DEFINED",
+        "body": [
+          "Receptor, intent, outcome y horizonte están definidos."
+        ]
+      },
+      "sourceLines": [
+        989,
+        990
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "V2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V2",
+      "fields": {
+        "heading": "V2 · VALUE-EVIDENCED",
+        "title": "VALUE-EVIDENCED",
+        "body": [
+          "Existe evidencia suficiente de que algún outcome material ocurrió."
+        ]
+      },
+      "sourceLines": [
+        991,
+        992
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "V3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V3",
+      "fields": {
+        "heading": "V3 · VALUE-MANAGEMENT-FIT",
+        "title": "VALUE-MANAGEMENT-FIT",
+        "body": [
+          "Customer/business value, captura y atribución son suficientemente entendidos para decidir."
+        ]
+      },
+      "sourceLines": [
+        993,
+        994
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "V4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V4",
+      "fields": {
+        "heading": "V4 · VALUE-SUSTAINED/ADAPTIVE",
+        "title": "VALUE-SUSTAINED/ADAPTIVE",
+        "body": [
+          "La organización puede reevaluar, reasignar y adaptar decisiones de forma repetible según evidencia de valor."
+        ]
+      },
+      "sourceLines": [
+        995,
+        996
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM06-16",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-16",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-16",
+        "body": [
+          "Validation state de outcome y attribution confidence deben permanecer desacoplados.",
+          "Eso permite conclusiones como:",
+          "Outcome V3 / ATTR-1",
+          "sin contradicción."
+        ]
+      },
+      "sourceLines": [
+        1006,
+        1010
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM06-17",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-17",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-17",
+        "body": [
+          "El Motor debe conservar explícitamente Value Decision State y la evidencia que lo justifica."
+        ]
+      },
+      "sourceLines": [
+        1023,
+        1024
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "REASS-CM06-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_REASS",
+      "sourceId": "REASS-CM06-01",
+      "fields": {
+        "heading": "REASS-CM06-01",
+        "body": [
+          "Una conclusión de creación de valor debe reevaluarse cuando cambien materialmente outcomes, economics, horizonte, contexto, trade-offs o evidencia de atribución."
+        ]
+      },
+      "sourceLines": [
+        1045,
+        1046
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CM06-18",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CM06-18",
+      "fields": {
+        "heading": "CAND-MOTOR-CM06-18",
+        "body": [
+          "Los VCC deben poder alimentar priorización de portafolio sin perder outcome, confidence, horizon y attribution individuales."
+        ]
+      },
+      "sourceLines": [
+        1065,
+        1066
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "P-CM06-15",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-CM06-15",
+      "fields": {
+        "heading": "P-CM06-15",
+        "body": [
+          "Resultados de naturaleza distinta no deben agregarse en un índice único salvo que exista una regla de agregación explícita, justificable y suficientemente interpretable.",
+          "Esto será especialmente importante para el scoring futuro de Pymapa."
+        ]
+      },
+      "sourceLines": [
+        1072,
+        1074
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CROSS-VAL-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CROSS-VAL-01",
+      "fields": {
+        "heading": "CAND-MOTOR-CROSS-VAL-01",
+        "body": [
+          "El Motor no debe convertir directamente el nivel de una capacidad en una estimación de valor creado; capability state y value outcome deben permanecer como dimensiones distintas.",
+          "Este candidato es crítico para la arquitectura final del diagnóstico."
+        ]
+      },
+      "sourceLines": [
+        1084,
+        1086
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-AI-CM06-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-CM06-05",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-CM06-05",
+        "body": [
+          "Los beneficios atribuidos a IA deben compararse, cuando sea material, con un baseline o alternativa suficientemente relevante y considerar costos adicionales de revisión, control y mantenimiento."
+        ]
+      },
+      "sourceLines": [
+        1090,
+        1091
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-AI-CM06-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-CM06-06",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-CM06-06",
+        "body": [
+          "El volumen de contenido, predicciones, automatizaciones o interacciones generadas por IA constituye output, no value outcome, salvo evidencia adicional suficiente."
+        ]
+      },
+      "sourceLines": [
+        1092,
+        1093
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "K1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Coherencia — PASS",
+        "title": "Coherencia — PASS",
+        "body": [
+          "CM-06 queda diferenciada de CM-02, CM-03, CM-05, DT-04 y DG-04."
+        ]
+      },
+      "sourceLines": [
+        1177,
+        1178
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "K2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Razonamiento — PASS",
+        "title": "Razonamiento — PASS",
+        "body": [
+          "Preserva:",
+          "ACTIVITY ≠ OUTPUT ≠ OUTCOME ≠ IMPACT",
+          "CUSTOMER VALUE ≠ BUSINESS VALUE",
+          "VALUE CREATED ≠ VALUE CAPTURED",
+          "MEASUREMENT ≠ ATTRIBUTION",
+          "TOTAL VALUE ≠ MARGINAL VALUE"
+        ]
+      },
+      "sourceLines": [
+        1179,
+        1185
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "K3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · Acción — PASS",
+        "title": "Acción — PASS",
+        "body": [
+          "Permite definir, medir, evidenciar, recalibrar, capturar, reducir leakage, gestionar trade-offs, ampliar, reducir o detener."
+        ]
+      },
+      "sourceLines": [
+        1186,
+        1187
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "K4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · Knowledge — PASS",
+        "title": "Knowledge — PASS",
+        "body": [
+          "Grounding, provenance, métricas, confidence, attribution, horizon, lifecycle y governance quedan suficientemente explícitos."
+        ]
+      },
+      "sourceLines": [
+        1188,
+        1189
+      ],
+      "approvalEvidence": {
+        "text": "CM06-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1209,
+          1209
+        ]
+      }
+    },
+    {
+      "key": "DOMAIN-CM-v1.0",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_DOMAIN",
+      "sourceId": "DOMAIN-CM-v1.0",
+      "fields": {
+        "heading": "DOMAIN-CM-v1.0 · 6/6 CAPABILITIES K4-VALIDATED · DOMAIN-KNOWLEDGE-COMPLETE",
+        "title": "6/6 CAPABILITIES K4-VALIDATED · DOMAIN-KNOWLEDGE-COMPLETE",
+        "body": [
+          "El acumulado maestro queda en:",
+          "27/31 capacidades K4-VALIDATED",
+          "y 5 de 6 dominios completos:",
+          "| Dominio | Estado |",
+          "| DG · Dirección y gobierno | 5/5 · CLOSED |",
+          "| PC · Personas, cultura y conocimiento | 5/5 · CLOSED |",
+          "| OP · Organización, procesos y ejecución | 5/5 · CLOSED |",
+          "| DT · Datos y habilitación tecnológica | 6/6 · CLOSED |",
+          "| CM · Cliente, mercado y creación de valor | 6/6 · CLOSED |",
+          "| EC · Ecosistema y capacidades externas | 0/4 · NEXT |",
+          "| TOTAL | 27/31 |"
+        ]
+      },
+      "sourceLines": [
+        1219,
+        1230
+      ]
+    },
+    {
+      "key": "EC-05",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_EC",
+      "sourceId": "EC-05",
+      "fields": {
+        "heading": "EC-05 · Gestionar dependencias externas críticas",
+        "title": "Gestionar dependencias externas críticas",
+        "body": [
+          "La ausencia de EC-01 sigue siendo deliberada y se conserva por trazabilidad.",
+          "El próximo paso será dimensionar orgánicamente EC-02 y desarrollar su primer macroset. Una separación crítica desde el inicio será:",
+          "EXTERNAL NEED ≠ SUPPLIER SEARCH ≠ ACTOR FIT ≠ SELECTION ≠ CONTRACTING ≠ RELATIONSHIP PERFORMANCE",
+          "porque Pymapa no debe evaluar capacidad de ecosistema por cantidad de proveedores, alianzas o partners, sino por la capacidad de acceder a capacidades externas apropiadas cuando realmente las necesita.",
+          "Hagamos un review. Ya terminamos los dominios y sus capacidades, correcto? ",
+          "Una vez esto se termina la base de conocimiento o qué seguiría para tener claro la profundidad de este chat?",
+          "No todavía: estamos muy cerca, pero no hemos terminado las 31 capacidades.",
+          "El estado real es este:",
+          "| Dominio | Capacidades | Estado |",
+          "| DG · Dirección y gobierno | 5/5 | ✅ Cerrado |",
+          "| PC · Personas, cultura y conocimiento | 5/5 | ✅ Cerrado |",
+          "| OP · Organización, procesos y ejecución | 5/5 | ✅ Cerrado |",
+          "| DT · Datos y habilitación tecnológica | 6/6 | ✅ Cerrado |",
+          "| CM · Cliente, mercado y creación de valor | 6/6 | ✅ Cerrado |",
+          "| EC · Ecosistema y capacidades externas | 0/4 | ⏳ Pendiente |",
+          "| Total | 27/31 | 87 % de las capacidades cerradas |",
+          "Nos faltan únicamente EC-02, EC-03, EC-04 y EC-05. Recuerda que EC-01 no existe deliberadamente por trazabilidad.",
+          "Ahora bien, lo importante de tu segunda pregunta: cuando terminemos EC-02–EC-05 no significa que simplemente cerremos este chat y digamos “la base de conocimiento está lista”. En ese momento habremos terminado la ingeniería vertical de las 31 capacidades, que es la parte más extensa y profunda que estamos haciendo ahora.",
+          "Después viene una capa distinta y bastante más corta: integrar todo lo construido como un único sistema de conocimiento Pymapa.",
+          "Yo separaría el cierre de este chat en estas etapas:",
+          "- Completar EC y llegar a 31/31 K4-VALIDATED. Terminamos las cuatro capacidades exactamente con el estándar que venimos usando.",
+          "- Revisión transversal 6×31. Aquí ya no volvemos a desarrollar capacidad por capacidad. Revisamos el conjunto buscando solapamientos, contradicciones y conexiones entre DG, PC, OP, DT, CM y EC. Por ejemplo, que Information Handoff de DT-03 y Customer Interaction Handoff de CM-04 compartan evidencia sin haberse fusionado accidentalmente; o que reglas de causalidad, confianza, VoI, ATTR-0:3, UNKNOWN, etc. sean realmente comunes.",
+          "- Consolidación del Motor de Conocimiento. Todo lo que hoy está distribuido dentro de las 31 capacidades —CE, VA, NI, reglas, findings, contradicciones, decisiones, intervenciones, instrumentos, CRV, estados de validación, candidatos del Motor y guardrails— se transforma en un catálogo maestro coherente. Esta es la fase donde pasamos de “31 excelentes especificaciones” a “un solo cerebro de Pymapa”.",
+          "- Gobierno, provenance y versionado final. Consolidamos fuentes, objetos PYMAPA-DESIGNED, triggers de revisión, vigencia de conocimiento, reglas de actualización y trazabilidad. Esto es especialmente importante para que algo que cambie rápido —IA, seguridad, plataformas, benchmarks— pueda actualizarse sin reconstruir todo Pymapa.",
+          "- Quality Gate global de la Base de Conocimiento. Hasta ahora hemos hecho K1–K4 capacidad por capacidad. Al final necesitamos un K1–K4 global, comprobando que las 31 funcionan juntas y que no existen huecos críticos entre diagnóstico → finding → recomendación → intervención → resultado → seguimiento.",
+          "- Paquete de conocimiento implementable. Este es el punto que conecta con la pregunta que hiciste varias veces sobre “¿cómo llega todo esto al código?”. Lo que tenemos ahora es conocimiento semántico. Después de la consolidación hay que traducirlo a una especificación estructurada para implementación: IDs definitivos, objetos, relaciones, estados, reglas ejecutables, esquemas de datos, lógica de inferencia, dependencias y contratos para el Motor. Ese paquete sí es el que posteriormente consume la arquitectura técnica/desarrollo.",
+          "Por eso, conceptualmente, la profundidad de este chat sería:",
+          "Taxonomía 6×31 → ingeniería profunda de las 31 capacidades → integración transversal → Motor de Conocimiento maestro → gobierno/provenance → Quality Gate global → paquete implementable.",
+          "Y ahí sí yo consideraría que Fase 2 · Ingeniería del Modelo de Conocimiento está formalmente terminada.",
+          "Lo que no necesitamos hacer es abrir otra ronda de 12–16 bloques por capacidad después de EC. La profundidad vertical ya la estamos construyendo ahora. Después cambia el tipo de trabajo: de profundizar a reconciliar, normalizar, consolidar y empaquetar.",
+          "Por tanto, estamos en un punto bastante avanzado: 27/31 capacidades y 5/6 dominios completos. Terminado EC, pasamos al cierre sistémico de la Base de Conocimiento, que debería ser considerablemente más corto que todo lo que llevamos construido.",
+          "Mi recomendación es que sigamos ahora con EC-02, completemos las cuatro capacidades, y antes de dar por terminada Fase 2 hagamos expresamente ese cierre global 6×31. Esa última parte es la que nos garantizará que todo este enorme trabajo no se quede como conocimiento fragmentado dentro del chat, sino como el verdadero Knowledge Master de Pymapa.",
+          "Seguimos"
+        ]
+      },
+      "sourceLines": [
+        1257,
+        1290
+      ]
+    }
+  ],
+  "governanceDecisions": {
+    "decisionSetId": "M2-FINAL-MASS-BATCH",
+    "ref": "knowledge/intake/CM-06/governance-decisions.json",
+    "checksum": "sha256:a0b9409583c37e06581e2f80bbd6a1b56b6198f30cc884496dc193d889d75352"
+  },
+  "checksum": "sha256:36616738878ebd94ba37572c621dbc8583178bb998eaf0e754c9dd95cece2299"
+}

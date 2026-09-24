@@ -1,0 +1,1017 @@
+Seguimos con DT-02 · Gestionar datos con calidad y disponibilidad. Esta capacidad merece especial cuidado porque “tener datos” no equivale a poder utilizarlos, y porque sería muy fácil absorber aquí integración, analítica, seguridad o gobierno de datos completo.
+# DT-02 · Gestionar datos con calidad y disponibilidad
+## Dimensionamiento orgánico
+La pregunta irreducible será:
+¿Dispone la organización de los datos materialmente necesarios, con calidad, significado, oportunidad y disponibilidad suficientes para los usos que deben soportar?
+La familia ISO 8000 proporciona una base particularmente apropiada: ISO 8000-1:2022 establece principios de calidad de información y datos y continúa vigente tras su confirmación en 2024; ISO 8000-8 aborda conceptos y medición de calidad, e ISO/TS 8000-82:2022 trata la formulación de reglas de datos para preservar su integridad y confiabilidad. ISO
+DAMA aporta una segunda referencia relevante porque distingue explícitamente calidad, integración/interoperabilidad, seguridad, metadata y governance como áreas relacionadas pero diferentes. Esa separación es muy útil para mantener limpias las fronteras DT-02/03/05. Además, su revisión reciente incorporó currency como dimensión reconocida de calidad y explicitó los Critical Data Elements. DAMA International®
+
+# 1. Dimensionamiento
+DT-02 necesita 12 bloques, agrupados en dos macrosets:
+| # | Bloque |
+| 1 | Identidad, alcance y unidad |
+| 2 | Modelo dato-necesidad-uso |
+| 3 | Aplicabilidad y materialidad |
+| 4 | Fronteras DT-01/03/04/05 y OP |
+| 5 | Modelo de calidad y disponibilidad |
+| 6 | Condiciones evaluables y variables |
+| 7 | Information Needs |
+| 8 | Captura, evidencia, suficiencia, confianza y reglas |
+| 9 | Findings y decisiones |
+| 10 | Intervenciones, actividades e instrumentos |
+| 11 | Entregables, Done, CRV, validación y seguimiento |
+| 12 | Contextualización, governance y cierre |
+SET A = 1–8
+SET B = 9–12
+Avanzamos con SET A completo.
+
+# 2. Identidad
+## Definición V1
+DT-02 evalúa la capacidad de la organización para identificar los datos materialmente necesarios y mantenerlos con calidad, significado, disponibilidad y oportunidad suficientes para los usos de negocio, operación, control o decisión a los que deben servir.
+## Unidad de análisis
+No será:
+“la base de datos”.
+Tampoco:
+“el sistema donde están los datos”.
+Será:
+la correspondencia entre una necesidad material de datos, el conjunto de datos que pretende satisfacerla y su aptitud efectiva para el uso requerido.
+Cadena:
+Uso material → necesidad de datos → dato requerido → significado → captura/origen → calidad → disponibilidad → oportunidad → uso posible.
+
+# 3. El objeto no es DATA en abstracto
+Introducimos:
+### DATA NEED
+Dato requerido para satisfacer un uso material determinado.
+### DATA ELEMENT
+Unidad de información suficientemente distinguible para evaluar su condición.
+Puede ser:
+- cliente;
+- producto;
+- precio;
+- inventario;
+- pedido;
+- fecha;
+- vendedor;
+- costo;
+- pago;
+- dirección;
+- estado;
+- cantidad;
+- evento;
+- indicador base.
+No significa que Pymapa deba construir un catálogo empresarial completo.
+
+# Critical Data Element
+Adoptamos conceptualmente:
+### CDE-PYM
+Elemento de dato cuya ausencia, error, ambigüedad, desactualización o indisponibilidad puede producir una consecuencia material en un uso aplicable.
+Esto permite aplicar el principio:
+gestionar con mayor profundidad los datos que más importan.
+No todos los campos de una pyme necesitan el mismo gobierno.
+
+# 4. Modelo de estado del dato
+Necesitamos distinguir:
+EXISTS ≠ CAPTURED ≠ DEFINED ≠ VALID ≠ CURRENT ≠ AVAILABLE ≠ FIT-FOR-USE
+Ejemplo:
+La empresa tiene la dirección del cliente.
+EXISTS: sí.
+Pero:
+corresponde a una dirección antigua.
+Entonces puede ser:
+CAPTURED = YES
+AVAILABLE = YES
+CURRENT = NO
+FIT-FOR-USE = NO
+Otro ejemplo:
+El dato existe correctamente en el ERP, pero quien prepara una entrega no puede obtenerlo a tiempo.
+Entonces:
+QUALITY = SUFFICIENT
+AVAILABILITY FOR USE = INSUFFICIENT
+
+# 5. Quality ≠ perfection
+Éste será uno de los principios centrales.
+Un dato no necesita ser:
+absolutamente perfecto
+para ser útil.
+Necesita ser:
+suficientemente bueno para el uso material correspondiente.
+### P-DT02-CORE-01
+La calidad de un dato debe evaluarse respecto de los requisitos del uso al que sirve, no mediante una expectativa universal de perfección.
+
+# Ejemplo
+Edad del cliente:
+“entre 35 y 44 años”
+puede ser suficiente para:
+segmentación de marketing.
+Pero insuficiente para:
+verificar un requisito legal basado en fecha exacta de nacimiento.
+Mismo dato conceptual.
+Distinto uso.
+Distinta suficiencia.
+
+# 6. Aplicabilidad y materialidad
+DT-02 no exige evaluar todos los datos.
+### APP-DT02-01
+La profundidad de evaluación debe seguir la materialidad del uso y de las consecuencias asociadas a una condición insuficiente del dato.
+Factores de materialidad:
+- criticidad del proceso;
+- relevancia para decisiones;
+- impacto financiero;
+- impacto sobre cliente;
+- frecuencia;
+- volumen;
+- dependencia aguas abajo;
+- riesgo;
+- dificultad de corrección;
+- uso regulatorio cuando aplique.
+No forman todavía un score universal.
+
+# 7. Fronteras
+## DT-02 vs DT-03
+Supongamos:
+nombre del cliente correcto en CRM, pero distinto en facturación.
+DT-02 puede detectar:
+inconsistencia del dato.
+DT-03 puede encontrar:
+falla de integración/sincronización entre aplicaciones.
+La observación puede reutilizarse.
+La conclusión causal no.
+
+## DT-02 vs DT-04
+DT-02:
+¿los datos necesarios son suficientemente utilizables?
+DT-04:
+¿se convierten en información que permite tomar una decisión?
+Datos excelentes no garantizan:
+buena información o buena decisión.
+Y una decisión puede en ocasiones funcionar con datos imperfectos pero suficientes.
+
+## DT-02 vs DT-05
+DT-02 pregunta:
+¿el dato está disponible para quien legítimamente necesita utilizarlo?
+DT-05 preguntará:
+¿está adecuadamente protegido y puede preservarse/recuperarse frente a amenazas o interrupciones?
+Por tanto:
+AVAILABILITY-FOR-USE ≠ SECURITY ≠ RESILIENCE.
+
+## DT-02 vs DT-01
+Un sistema puede funcionar perfectamente:
+DT-01 positivo,
+mientras contiene datos deficientes:
+DT-02 negativo.
+
+## DT-02 vs OP
+Una persona introduce repetidamente un código equivocado.
+Antes de concluir:
+“problema de calidad de datos” como causa raíz,
+debemos poder distinguir:
+- diseño del formulario;
+- proceso;
+- definición ambigua;
+- falta de validación;
+- competencia;
+- integración;
+- dato fuente.
+DT-02 identifica la condición del dato.
+La causalidad puede cruzar capacidades.
+
+# 8. Modelo de calidad Pymapa
+No necesitamos imponer una lista universal de dimensiones sobre cada dato.
+Proponemos 7 características potenciales.
+### DQ-01 · Completeness
+¿Está presente lo necesario?
+### DQ-02 · Accuracy
+¿Representa suficientemente la realidad/referencia que pretende representar?
+### DQ-03 · Consistency
+¿Mantiene compatibilidad suficiente entre representaciones relevantes?
+### DQ-04 · Validity
+¿Cumple las reglas/formato/dominio aplicables?
+### DQ-05 · Currency
+¿Está suficientemente actualizado para el uso?
+### DQ-06 · Uniqueness/Identity
+¿Podemos distinguir suficientemente entidades/registros cuando el uso lo requiere?
+### DQ-07 · Meaning/Interpretability
+¿Se entiende suficientemente qué representa el dato y cómo debe interpretarse?
+Pero:
+no todo CDE necesita ser evaluado contra las siete características.
+El uso determina cuáles son materiales.
+
+# Availability
+La disponibilidad necesita su propia descomposición:
+### DA-01 · LOCATABLE
+Sabemos dónde está.
+### DA-02 · ACCESSIBLE
+El usuario/caso legítimo puede obtenerlo.
+### DA-03 · TIMELY
+Puede obtenerlo dentro del horizonte requerido.
+### DA-04 · USABLE
+Se presenta en una forma suficientemente utilizable.
+Esto genera otra separación:
+LOCATABLE ≠ ACCESSIBLE ≠ TIMELY ≠ USABLE.
+
+# Provenance
+La procedencia puede importar cuando es necesaria para establecer:
+- confiabilidad;
+- significado;
+- actualidad;
+- autoridad;
+- transformación;
+- trazabilidad.
+Pero no exigiremos lineage enterprise para todos los datos.
+### P-DT02-01
+La profundidad de provenance requerida debe ser proporcional a la materialidad del dato y a cuánto depende de ella la confianza en su uso.
+ISO 8000-110, por ejemplo, señala que aspectos como exactitud y provenance deben tratarse como parte de una estrategia global de calidad de datos, aunque esa norma específica se centre en intercambio de master data. ISO
+
+# 9. Condiciones evaluables
+El modelo requiere 7 CE / 17 VA.
+## CE01 · Necesidad y propósito
+VA01 · Datos materiales requeridos identificados
+VA02 · Uso/requisito suficientemente definido
+
+## CE02 · Existencia y captura
+VA03 · Dato requerido capturado/disponible en origen
+VA04 · Cobertura/completitud suficiente
+
+## CE03 · Significado
+VA05 · Definición suficientemente clara
+VA06 · Interpretación suficientemente consistente
+
+## CE04 · Calidad intrínseca/contextual
+VA07 · Exactitud suficiente
+VA08 · Validez suficiente
+VA09 · Consistencia suficiente
+VA10 · Actualidad/currency suficiente
+VA11 · Identidad/unicidad suficiente cuando aplica
+No todas estas VA serán materiales para todos los datos.
+
+## CE05 · Disponibilidad para uso
+VA12 · Localización suficiente
+VA13 · Acceso legítimo suficiente
+VA14 · Oportunidad suficiente
+
+## CE06 · Confiabilidad y trazabilidad
+VA15 · Fuente/provenance suficientemente conocida cuando material
+VA16 · Transformaciones/correcciones relevantes suficientemente trazables cuando material
+
+## CE07 · Mantenimiento
+VA17 · Existe mecanismo proporcional para detectar/corregir deterioro material del dato
+Esta última variable evita evaluar calidad como fotografía estática.
+
+# 10. Information Needs
+Resultan 17 NI correspondientes a las VA.
+No obstante, una NI merece explicitación especial:
+### NI-DT02-USE
+Antes de preguntar:
+“¿qué tan buena es la calidad de sus datos?”
+debemos saber:
+¿para qué dato y para qué uso?
+Sin esa información, Pymapa no debe emitir un diagnóstico fuerte de calidad.
+
+# 11. Grounding
+La arquitectura externa queda especialmente sólida.
+### ISO 8000
+ISO 8000-1:2022 proporciona los principios generales y la ruta hacia calidad de datos; fue confirmada en 2024. ISO 8000-8:2015 cubre conceptos fundamentales y prerrequisitos de medición, mientras ISO/TS 8000-82:2022 aborda reglas de datos y profiling. ISO
+La familia continúa evolucionando: ISO tiene actualmente en desarrollo ISO/AWI 8000-3, concebida para cubrir procesos que generan, obtienen, validan, transforman, conservan, recuperan, distribuyen y eliminan datos, además de planificación, control, aseguramiento y mejora de calidad. Esto justifica crear un trigger de revisión, no anticipar su contenido como norma vigente. ISO
+### DAMA
+DAMA distingue Data Quality de Data Integration & Interoperability, Data Security, Metadata y Data Governance. Su revisión también incorpora explícitamente currency y Critical Data Elements. DAMA International®
+No convertiremos DAMA-DMBOK en requisito para la pyme.
+Lo utilizamos como:
+fuente profesional de contraste conceptual.
+
+# 12. Principios DT-02
+P-DT02-01
+Dato existente ≠ dato utilizable.
+P-DT02-02
+Calidad ≠ perfección.
+P-DT02-03
+Calidad depende del uso.
+P-DT02-04
+No todas las dimensiones de calidad aplican materialmente a todo dato.
+P-DT02-05
+Dato incompleto no es automáticamente inútil.
+P-DT02-06
+Dato disponible no es necesariamente oportuno.
+P-DT02-07
+Dato accesible no es necesariamente comprensible.
+P-DT02-08
+Consistencia ≠ exactitud.
+Dos sistemas pueden contener:
+el mismo dato equivocado.
+P-DT02-09
+Validez ≠ exactitud.
+Un código postal puede tener:
+formato válido
+pero:
+ser el código incorrecto.
+P-DT02-10
+Actualidad requerida depende del uso.
+P-DT02-11
+Duplicación solo es brecha cuando afecta suficientemente identidad/uso.
+P-DT02-12
+Mayor volumen de datos ≠ mejor capacidad de datos.
+P-DT02-13
+Más campos obligatorios ≠ mejor calidad automáticamente.
+P-DT02-14
+La corrección manual puede ser suficiente cuando su costo/riesgo es proporcional.
+P-DT02-15
+Automatización no garantiza calidad.
+P-DT02-16
+Fuente única no garantiza verdad.
+P-DT02-17
+Ausencia de incidentes conocidos no demuestra calidad suficiente.
+
+# 13. Captura progresiva
+## P1 · Núcleo
+No preguntaremos:
+“¿cuál es su nivel de data governance?”
+Preguntaremos:
+“¿Qué información necesita para operar o decidir y suele faltar?”
+“¿Qué datos generan errores o retrabajo?”
+“¿Hay datos que distintas personas interpretan de manera diferente?”
+“¿Qué información suele llegar demasiado tarde?”
+“¿Qué dato equivocado tendría consecuencias importantes?”
+Estas preguntas permiten descubrir CDE candidatos.
+
+# P2 · Condicional
+Se activa ante:
+- retrabajo;
+- correcciones frecuentes;
+- datos faltantes;
+- duplicados;
+- diferencias entre reportes;
+- información desactualizada;
+- búsqueda manual recurrente;
+- múltiples archivos;
+- definiciones distintas;
+- decisiones retrasadas;
+- errores de cliente/producto/inventario;
+- conciliaciones frecuentes;
+- dependencia de una persona para interpretar datos.
+
+# P3 · Discriminación
+Ante:
+“los datos no cuadran”
+debemos distinguir:
+CAPTURE QUALITY
+DEFINITION/SEMANTIC GAP
+DATA QUALITY
+INTEGRATION/SYNCHRONIZATION → DT-03
+TRANSFORMATION/ANALYTICS → DT-04
+PROCESS EXECUTION → OP
+COMPETENCE → PC-02
+TECHNOLOGY → DT-01
+
+# P4 · Contradicciones
+### CONTR-DT02-01
+DECLARED_DATA_QUALITY_vs_RECURRING_CORRECTIONS
+“Nuestros datos están bien”
+pero existe corrección manual recurrente material.
+### CONTR-DT02-02
+SINGLE_SOURCE_vs_MULTIPLE_MEANINGS
+Existe “fuente única”, pero distintos usuarios interpretan el campo de manera diferente.
+### CONTR-DT02-03
+AVAILABLE_DATA_vs_LATE_FOR_USE
+El dato existe, pero llega después de la decisión.
+
+# P5 · Validación
+En lugar de:
+“¿sus datos son confiables?”
+podemos validar:
+“Para confirmar inventario antes de vender, ¿este dato refleja suficientemente la disponibilidad real en el momento en que el vendedor toma la decisión?”
+Ahora tenemos:
+DATA + USE + TIME + SUFFICIENCY.
+
+# 14. Evidencia
+Puede incluir:
+- registros;
+- formularios;
+- archivos;
+- reportes;
+- sistemas;
+- campos;
+- reglas;
+- definiciones;
+- muestras;
+- conciliaciones;
+- correcciones;
+- duplicados;
+- excepciones;
+- timestamps;
+- responsables;
+- fuentes;
+- transformaciones;
+- usuarios;
+- errores/retrabajos.
+No necesitamos pedir bases de datos completas por defecto.
+
+# Evidencia proporcional
+Un CDE crítico podría requerir:
+muestra + regla + comparación + uso observado.
+Un dato de baja materialidad puede requerir:
+declaración consistente.
+### EVID-DT02-01
+La exigencia de evidencia aumenta con la consecuencia material de utilizar un dato insuficiente.
+
+# 15. Suficiencia
+### SUFF-DT02-01
+La capacidad alcanza suficiencia cuando los datos materialmente necesarios para los usos aplicables satisfacen sus requisitos críticos de calidad y disponibilidad, sin incertidumbres pendientes capaces de cambiar materialmente la conclusión.
+No significa:
+todos los datos perfectos.
+
+# Coverage
+La cobertura debe seguir:
+material uses → critical data → applicable quality requirements.
+No:
+todos los campos → todas las dimensiones.
+Este cambio reduce muchísimo la carga diagnóstica.
+
+# 16. Confianza
+Para un dato crítico, la confianza puede progresar:
+C0 · desconocido
+C1 · declarado
+C2 · evidencia/muestra consistente
+C3 · condición observada/repetida suficientemente
+No creamos una escala nueva: reutilizamos el servicio genérico C0–C3 del Motor.
+
+# 17. Reglas diagnósticas
+Las 17 VA generan 17 reglas primarias.
+R-DT02-01 · MATERIAL_DATA_NEED_UNCLEAR
+R-DT02-02 · DATA_USE_REQUIREMENT_UNCLEAR
+R-DT02-03 · REQUIRED_DATA_NOT_CAPTURED
+R-DT02-04 · MATERIAL_DATA_COMPLETENESS_GAP
+R-DT02-05 · DATA_DEFINITION_GAP
+R-DT02-06 · DATA_INTERPRETATION_INCONSISTENCY
+R-DT02-07 · MATERIAL_DATA_ACCURACY_GAP
+R-DT02-08 · MATERIAL_DATA_VALIDITY_GAP
+R-DT02-09 · MATERIAL_DATA_CONSISTENCY_GAP
+R-DT02-10 · MATERIAL_DATA_CURRENCY_GAP
+R-DT02-11 · MATERIAL_ENTITY_IDENTITY_GAP
+R-DT02-12 · MATERIAL_DATA_NOT_LOCATABLE
+R-DT02-13 · LEGITIMATE_DATA_ACCESS_GAP
+R-DT02-14 · DATA_NOT_TIMELY_FOR_USE
+R-DT02-15 · MATERIAL_DATA_PROVENANCE_GAP
+R-DT02-16 · MATERIAL_DATA_TRANSFORMATION_TRACE_GAP
+R-DT02-17 · DATA_QUALITY_MAINTENANCE_GAP
+
+# Estados positivos
+Resultan 6:
+### MATERIAL_DATA_NEEDS_VISIBLE
+### MATERIAL_DATA_SUFFICIENTLY_CAPTURED
+### DATA_MEANING_SUFFICIENTLY_CLEAR
+### DATA_FIT_FOR_USE
+### DATA_AVAILABLE_WHEN_NEEDED
+### MATERIAL_DATA_QUALITY_SUSTAINED
+
+# Guardrails
+- No evaluar calidad sin conocer el uso.
+- No exigir perfección.
+- No evaluar todos los datos con todas las dimensiones.
+- No asumir que duplicado = error.
+- No asumir que dato faltante = brecha material.
+- No confundir consistencia con exactitud.
+- No confundir formato válido con dato correcto.
+- No confundir existencia con disponibilidad.
+- No confundir disponibilidad con oportunidad.
+- No confundir calidad con integración.
+- No confundir calidad con analítica.
+- No confundir acceso legítimo con seguridad.
+- No exigir catálogo de datos enterprise.
+- No exigir data steward formal por defecto.
+- No exigir herramienta de Data Quality.
+- No penalizar controles manuales cuando son suficientes.
+- No premiar automatización por sí misma.
+- No exigir lineage completo cuando provenance mínima es suficiente.
+- No utilizar volumen de datos como proxy de madurez.
+- No declarar “dato confiable” únicamente porque proviene del sistema oficial.
+
+# Candidatos para el Motor
+### CAND-MOTOR-DT02-01
+La calidad del dato debe evaluarse respecto de un uso material y sus requisitos, no en abstracto.
+### CAND-MOTOR-DT02-02
+Existencia, captura, definición, validez, actualidad, disponibilidad y fitness-for-use deben mantenerse como estados diferentes.
+### CAND-MOTOR-DT02-03
+Las dimensiones de calidad aplicables deben activarse condicionalmente por Data Need/CDE y uso.
+### CAND-MOTOR-DT02-04
+Un mismo dato puede ser suficientemente bueno para un uso e insuficiente para otro.
+### CAND-MOTOR-DT02-05
+Una inconsistencia observada entre fuentes no debe atribuirse automáticamente a calidad intrínseca; puede derivar hacia integración, transformación o proceso.
+### CAND-MOTOR-DT02-06
+La profundidad de provenance y trazabilidad requerida debe aumentar con materialidad y dependencia de esas propiedades para establecer confianza.
+### CAND-MOTOR-DT02-07
+El Motor debe priorizar Critical Data Elements derivados de usos materiales en vez de evaluar exhaustivamente todos los datos disponibles.
+
+# Un candidato adicional especialmente importante para IA
+### CAND-MOTOR-AI-DATA-01
+La disponibilidad de grandes volúmenes de datos no constituye evidencia de aptitud para IA; cualquier uso de IA debe heredar las evaluaciones pertinentes de calidad, significado, provenance, actualidad y suficiencia respecto del caso de uso.
+Esto nos será útil en DT-06 y posteriormente en Fase 3.
+
+# Source Review Trigger
+Como ISO está desarrollando ISO/AWI 8000-3 con alcance organizacional amplio sobre gestión y calidad de datos, debemos vigilarlo en lugar de incorporar prematuramente requisitos de un documento todavía en desarrollo. ISO
+Registramos:
+SOURCE-REVIEW-TRIGGER-DT02-01 · Revisar DT-02 cuando ISO 8000-3 alcance publicación definitiva o cambie materialmente su alcance/estado.
+DAMA también tiene en marcha su iniciativa DMBOK 3.0, iniciada en 2025 como proceso de actualización continua; por ello su evolución es otra dependencia documental a vigilar, no una razón para detener la ingeniería actual. DAMA International®
+SOURCE-REVIEW-TRIGGER-DT-DAMA-01 · Revisar DT-02/03/04 y objetos de data governance ante una publicación material de DAMA-DMBOK 3.0.
+
+# Control DT-02 · SET A
+| Objeto | Resultado |
+| Dimensionamiento | 12 bloques |
+| SET A | 1–8 |
+| CE | 7 |
+| VA | 17 |
+| NI | 17 |
+| Reglas | 17 |
+| Estados positivos | 6 |
+| Guardrails | 20 |
+| Motor candidates | 7 + 1 AI |
+| Grounding | ISO 8000 + DAMA |
+La arquitectura queda:
+Uso material → Data Need → CDE → significado → captura → calidad aplicable → disponibilidad → oportunidad → provenance proporcional → fitness-for-use → mantenimiento.
+Y dejamos fijado el principio que gobernará toda DT-02:
+Pymapa no debe preguntar si una pyme “tiene datos de calidad” en abstracto. Debe determinar qué datos necesita para usos materiales concretos y si esos datos son suficientemente completos, correctos, válidos, consistentes, actuales, comprensibles y disponibles —solo en las dimensiones que realmente importan para ese uso.
+DT02-SET-A-v0.1 · BLOCKS 1–8 OF 12 COMPLETE · READY-FOR-SET-B
+El siguiente movimiento es DT-02 · SET B · bloques 9–12. Allí convertiremos esta arquitectura en findings, decisiones, intervenciones e instrumentos —incluyendo cómo corregir calidad en la fuente cuando sea posible en lugar de crear limpieza manual perpetua— y cerraremos A–V 22/22 + DoD 27/27 + K1–K4.
+Seguimos
+Seguimos con DT-02 · SET B, bloques 9–12. Aquí la clave es pasar de “encontramos datos malos” a corregir el mecanismo que produce o mantiene la condición, sin caer en limpieza perpetua, proyectos enterprise de gobierno de datos o herramientas innecesarias.
+# DT-02 · Gestionar datos con calidad y disponibilidad
+## SET B · Bloques 9–12
+Entrada: DT02-SET-A-v0.1 · BLOCKS 1–8 OF 12 COMPLETE
+
+# 9. Findings y decisiones
+Las 17 reglas se consolidan en 8 familias de hallazgo.
+| ID | Familia | Núcleo diagnóstico |
+| HF-DT02-01 | Necesidad de datos insuficientemente definida | No está suficientemente claro qué dato se necesita, para qué uso o con qué requisito |
+| HF-DT02-02 | Captura/cobertura insuficiente | Datos materialmente requeridos no existen o presentan faltantes relevantes |
+| HF-DT02-03 | Significado insuficientemente definido | Definiciones o interpretaciones incompatibles comprometen el uso |
+| HF-DT02-04 | Calidad insuficiente para el uso | Accuracy, validity, consistency, currency o identity no satisfacen requisitos materiales |
+| HF-DT02-05 | Disponibilidad insuficiente | El dato no puede localizarse, accederse o recibirse dentro del horizonte requerido |
+| HF-DT02-06 | Provenance/trazabilidad insuficiente | No puede establecerse suficientemente origen o transformación cuando ello es material |
+| HF-DT02-07 | Calidad sostenida de forma frágil | Correcciones recurrentes mantienen artificialmente el resultado sin resolver suficientemente la generación del problema |
+| HF-DT02-08 | Deterioro no gobernado | La organización carece de un mecanismo proporcional para detectar/corregir degradaciones materiales |
+
+## El finding debe conservar el uso
+No deberíamos generar:
+“El dato de inventario tiene baja calidad.”
+Mejor:
+“La disponibilidad de inventario utilizada para confirmar pedidos presenta diferencias suficientemente frecuentes/materiales respecto de existencias reales para comprometer la confirmación comercial.”
+La segunda formulación contiene:
+DATA + USE + CONDITION + CONSEQUENCE
+y permite intervenir mejor.
+### FIND-DT02-01
+Un finding de calidad de datos debe preservar la relación con el uso material que justificó su evaluación.
+
+# Calidad observada ≠ causa
+Supongamos:
+18 % de las direcciones de entrega contienen errores.
+Esto es una observación.
+Las causas posibles incluyen:
+- captura manual;
+- definición;
+- formulario;
+- validación;
+- dato fuente;
+- integración;
+- actualización;
+- proceso;
+- usuario;
+- transformación.
+Pymapa no debe saltar directamente a:
+“capacitar a quien captura”.
+### CAUS-DT02-01
+La condición insuficiente del dato y la causa que la produce deben permanecer como objetos distintos hasta existir evidencia causal suficiente.
+
+# Vocabulario de decisión
+DT-02 necesita 12 direcciones posibles.
+### DEFINE
+Definir dato/significado/requisito.
+### CAPTURE
+Comenzar a obtener un dato material faltante.
+### VALIDATE
+Introducir una validación proporcional.
+### CORRECT
+Corregir datos existentes cuando sea necesario.
+### PREVENT
+Modificar el mecanismo que genera errores.
+### STANDARDIZE
+Resolver diferencias materiales de definición/formato/dominio.
+### RECONCILE
+Resolver discrepancias entre representaciones cuando corresponda.
+### ENABLE_ACCESS
+Habilitar localización/acceso oportuno.
+### REFRESH
+Actualizar datos cuya vigencia sea insuficiente.
+### TRACE
+Fortalecer provenance/trazabilidad cuando material.
+### MONITOR
+Detectar deterioro material.
+### NO_ACTION
+Aceptar la condición cuando sigue siendo suficientemente apta para el uso.
+
+# Corrección vs prevención
+Ésta debe ser una distinción explícita.
+CORRECTIVE DATA ACTION ≠ PREVENTIVE DATA ACTION
+Ejemplo:
+CORRECTIVE
+limpiar 500 registros de clientes.
+PREVENTIVE
+modificar el mecanismo que genera duplicados.
+Una intervención puede necesitar ambas.
+Pero si hacemos solo la primera:
+el problema puede reaparecer.
+
+# Principio Source-First
+Introducimos:
+### INT-DT02-01 · SOURCE-FIRST CORRECTION
+Cuando sea razonable y causalmente sustentado, debe preferirse corregir el mecanismo que genera o deteriora un dato material antes que depender indefinidamente de correcciones posteriores.
+Pero tampoco será dogma.
+Si el problema ocurre:
+tres veces al año
+y corregir manualmente cuesta:
+dos minutos,
+una corrección manual puede ser perfectamente suficiente.
+
+# Minimum Sufficient Data Control
+Segundo principio:
+### INT-DT02-02
+La intervención debe utilizar el mecanismo de control menos complejo que mantenga el dato suficientemente apto para su uso material.
+Puede ser:
+- regla verbal clara;
+- campo obligatorio;
+- lista desplegable;
+- validación;
+- revisión humana;
+- conciliación;
+- automatización;
+- master data;
+- control técnico.
+La solución depende de:
+materialidad + frecuencia + volumen + consecuencia + costo de control.
+
+# 10. Intervenciones, actividades e instrumentos
+Resultan 8 patrones de intervención.
+| ID | Patrón | Propósito |
+| IP-DT02-01 | Clarificar Data Need | Definir dato, uso y requisito |
+| IP-DT02-02 | Completar captura material | Obtener datos faltantes necesarios |
+| IP-DT02-03 | Clarificar significado | Resolver definición/interpretación |
+| IP-DT02-04 | Corregir calidad material | Resolver condiciones actuales insuficientes |
+| IP-DT02-05 | Prevenir recurrencia | Tratar mecanismo causal |
+| IP-DT02-06 | Habilitar disponibilidad | Mejorar localización, acceso u oportunidad |
+| IP-DT02-07 | Fortalecer provenance proporcional | Aumentar trazabilidad donde agrega confianza necesaria |
+| IP-DT02-08 | Sostener calidad | Detectar y tratar deterioro futuro |
+
+# Actividades posibles
+Dependiendo del caso:
+- definir un campo;
+- acordar significado;
+- eliminar un campo innecesario;
+- completar registros críticos;
+- validar formatos;
+- validar dominios;
+- deduplicar;
+- corregir referencias;
+- actualizar información;
+- reconciliar fuentes;
+- identificar fuente preferente;
+- cambiar captura;
+- agregar controles;
+- reducir captura manual;
+- cambiar proceso;
+- establecer revisión periódica;
+- monitorear excepciones;
+- definir owner funcional;
+- documentar transformación material.
+Otra vez:
+ninguna actividad es obligatoria universalmente.
+
+# Instrumentos
+Resultan 7 instrumentos.
+### INS-DT02-01 · Data Need Card
+uso → dato requerido → requisito → consecuencia.
+Éste probablemente será el instrumento nuclear de DT-02.
+
+### INS-DT02-02 · Critical Data Map
+CDE → uso → materialidad → dimensión aplicable → responsable/fuente.
+No pretende ser un data catalog empresarial.
+
+### INS-DT02-03 · Data Quality Rule Card
+dato → condición esperada → tolerancia → evidencia → acción.
+Ejemplo:
+fecha de entrega ≥ fecha de pedido.
+
+### INS-DT02-04 · Data Issue/Cause Map
+problema observado → uso afectado → consecuencia → hipótesis causal → evidencia.
+
+### INS-DT02-05 · Data Availability Map
+dato → ubicación → usuario/caso → acceso → horizonte requerido.
+
+### INS-DT02-06 · Provenance Lite
+dato → fuente → transformación material → destino/uso.
+Solo cuando sea necesario.
+
+### INS-DT02-07 · Data Quality Control Plan
+CDE → regla → detección → tratamiento → owner → frecuencia proporcional.
+
+# SME-friendly by design
+Una empresa pequeña podría implementar DT-02 con:
+una hoja de cálculo de 15 filas.
+No necesita:
+plataforma MDM + catálogo enterprise + data observability stack.
+Pero si la pyme es intensiva en datos:
+la misma arquitectura puede escalar.
+Eso es exactamente lo que necesitamos del modelo.
+
+# 11. Entregables, Done, CRV, validación y seguimiento
+Resultan 8 entregables funcionales.
+DEL-DT02-01 · usos y datos materiales identificados
+DEL-DT02-02 · captura/cobertura suficiente
+DEL-DT02-03 · significado suficientemente definido
+DEL-DT02-04 · calidad suficiente para usos materiales
+DEL-DT02-05 · disponibilidad y oportunidad suficientes
+DEL-DT02-06 · provenance suficiente donde material
+DEL-DT02-07 · causas recurrentes materialmente tratadas
+DEL-DT02-08 · mecanismo proporcional de mantenimiento activo
+
+# Done Criteria
+DT-02 requiere 7 criterios.
+### DC-A · Need Done
+Usos materiales y datos requeridos suficientemente identificados.
+### DC-B · Coverage Done
+Datos críticos están suficientemente capturados.
+### DC-C · Meaning Done
+Significado e interpretación son suficientemente claros.
+### DC-D · Quality Done
+Las dimensiones materiales satisfacen requisitos del uso.
+### DC-E · Availability Done
+El dato puede localizarse, accederse y utilizarse oportunamente.
+### DC-F · Traceability Done
+Provenance/transformación son suficientes cuando afectan materialmente confianza.
+### DC-G · Sustainability Done
+Existe mecanismo proporcional para prevenir, detectar o corregir deterioro material.
+
+# CRV
+Resultan 8 CRV.
+| ID | Criterio de Resultado Verificable |
+| CRV-DT02-01 | CDE requeridos para usos materiales están identificados |
+| CRV-DT02-02 | Datos requeridos alcanzan cobertura suficiente |
+| CRV-DT02-03 | Usuarios relevantes interpretan suficientemente los CDE de manera compatible |
+| CRV-DT02-04 | CDE satisfacen dimensiones de calidad aplicables dentro de tolerancias suficientes |
+| CRV-DT02-05 | Datos pueden obtenerse dentro del horizonte requerido por el uso |
+| CRV-DT02-06 | Origen/transformaciones materiales pueden establecerse cuando es necesario |
+| CRV-DT02-07 | Causas recurrentes priorizadas muestran reducción/control verificable |
+| CRV-DT02-08 | Deterioro material puede detectarse y tratarse suficientemente |
+
+# Tolerancia
+Aquí aparece un objeto importante:
+### DATA QUALITY TOLERANCE
+No siempre queremos:
+error = 0.
+Podemos necesitar:
+error ≤ nivel que no compromete materialmente el uso.
+Ejemplo sencillo:
+Para marketing exploratorio puede tolerarse cierto porcentaje de datos incompletos.
+Para:
+número de cuenta utilizado para realizar pagos,
+la tolerancia puede ser muchísimo menor.
+### CAND-MOTOR-DT02-08
+Las reglas de calidad deben poder incorporar tolerancias dependientes del uso y materialidad, en lugar de asumir perfección binaria.
+
+# KPI
+Podrían utilizarse:
+- % completitud;
+- tasa de error;
+- duplicados;
+- edad del dato;
+- discrepancias;
+- tiempo de actualización;
+- tiempo de disponibilidad;
+- correcciones;
+- recurrencia de issues;
+- costo de retrabajo.
+Pero ningún KPI es universal.
+Incluso:
+98 % de accuracy
+no tiene significado suficiente sin saber:
+cuál 2 % está equivocado y para qué se usa.
+
+# Validación
+DT-02 necesita cinco estados.
+### V0 · UNKNOWN
+Condición desconocida.
+### V1 · DEFINED
+Dato, uso y requisitos suficientemente definidos.
+### V2 · QUALITY-EVIDENCED
+Muestra/evidencia demuestra calidad suficiente.
+### V3 · FIT-FOR-USE
+El dato funciona suficientemente dentro del uso real.
+### V4 · SUSTAINED
+La suficiencia se mantiene mediante controles proporcionales durante el horizonte relevante.
+
+# Validación por uso
+Igual que DT-01, no validamos simplemente:
+“Customer Data = V3”.
+Podemos tener:
+Customer Email → campañas → V3
+pero:
+Customer Address → entregas → V1.
+### VAL-DT02-01
+El estado de validación debe asociarse a DATA ELEMENT + USE, no únicamente al dato en abstracto.
+Esto tiene consecuencias importantes para el futuro modelo de conocimiento.
+
+# Seguimiento
+Reevaluamos cuando cambie:
+- uso;
+- proceso de captura;
+- fuente;
+- integración;
+- sistema;
+- definición;
+- responsable;
+- transformación;
+- volumen;
+- frecuencia;
+- regulación aplicable;
+- producto;
+- canal;
+- cliente;
+- decisión dependiente;
+- tecnología.
+### REASS-DT02-01
+Una conclusión de fitness-for-use debe reevaluarse cuando cambien materialmente el uso, requisito, fuente, transformación o mecanismo de mantenimiento del dato.
+
+# 12. Contextualización, Knowledge Governance y cierre
+## Contextualización
+DT-02 debe escalar con:
+data materiality × operational complexity
+y no simplemente con número de empleados.
+Una empresa de ocho personas que opere una plataforma digital puede necesitar controles de datos sofisticados.
+Una empresa de ochenta personas con procesos simples puede requerir menos.
+
+# Gobierno de datos proporcional
+Pymapa no exigirá automáticamente:
+- Chief Data Officer;
+- Data Governance Council;
+- Data Steward formal;
+- catálogo corporativo;
+- MDM;
+- Data Lake;
+- data mesh;
+- observability platform.
+Pero sí debe poder establecer:
+quién puede resolver una condición material del dato.
+Podemos representar esto simplemente como:
+### DATA ACCOUNTABILITY
+persona/rol con capacidad suficiente para decidir o coordinar tratamiento del dato aplicable.
+La formalidad depende del contexto.
+
+# Ownership: precaución semántica
+“Data owner” puede significar cosas distintas entre organizaciones.
+Por eso Pymapa debe preguntar funcionalmente:
+“¿Quién puede decidir qué significa este dato o cómo debe corregirse?”
+antes de preguntar:
+“¿Quién es el Data Owner?”
+### P-DT02-18
+La existencia de accountability funcional importa más que la existencia del título formal de Data Owner.
+
+# AI y datos
+La relación con IA merece un control explícito.
+Un dataset puede ser:
+suficientemente bueno para reporting
+pero:
+insuficiente para entrenar, evaluar o alimentar un sistema de IA.
+Esto sigue nuestra regla:
+fitness depends on use.
+Por tanto, en DT-06/Fase 3 podremos reutilizar:
+DATA + USE + QUALITY EVIDENCE
+pero no heredar automáticamente:
+“datos aptos”.
+
+# Provenance y Knowledge Governance
+Mantenemos separados:
+### SOURCE-DERIVED
+De ISO 8000 y DAMA obtenemos grounding sobre:
+- data quality;
+- medición;
+- reglas;
+- significado;
+- provenance;
+- currency;
+- Critical Data Elements;
+- separación entre disciplinas de datos.
+### PYMAPA-DESIGNED
+Son objetos propios:
+- CDE-PYM;
+- modelo DATA + USE;
+- 7 CE / 17 VA;
+- NI;
+- reglas;
+- findings;
+- decisiones;
+- intervenciones;
+- instrumentos;
+- tolerancias contextuales;
+- estados V0–V4;
+- CRV;
+- lógica Source-First;
+- Minimum Sufficient Data Control.
+No atribuimos estas estructuras a las fuentes externas.
+
+# Source triggers
+Permanecen activos:
+SOURCE-REVIEW-TRIGGER-DT02-01 · Revisar DT-02 cuando ISO 8000-3 alcance publicación definitiva o cambie materialmente su alcance/estado.
+SOURCE-REVIEW-TRIGGER-DT-DAMA-01 · Revisar DT-02/03/04 y objetos de data governance ante una publicación material de DAMA-DMBOK 3.0.
+
+# A–V · DT-02
+| Dimensión | Resultado |
+| A Identidad | PASS |
+| B Alcance | PASS |
+| C Aplicabilidad | PASS |
+| D Unidad de análisis | PASS |
+| E Condiciones | PASS |
+| F Variables | PASS |
+| G Information Needs | PASS |
+| H Captura | PASS |
+| I Reglas | PASS |
+| J Suficiencia | PASS |
+| K Confianza | PASS |
+| L Diagnóstico | PASS |
+| M Findings | PASS |
+| N Recomendaciones | PASS |
+| O Intervención | PASS |
+| P Ejecución | PASS |
+| Q Resultado | PASS |
+| R Validación | PASS |
+| S Seguimiento | PASS |
+| T Contextualización | PASS |
+| U Knowledge | PASS |
+| V Governance | PASS |
+A–V = 22/22 PASS
+
+# DoD V1
+Los 27/27 criterios quedan cubiertos.
+Cuatro son especialmente relevantes aquí.
+### Suficiencia — PASS
+No confundimos:
+calidad suficiente
+con:
+perfección.
+### Cobertura — PASS
+Evaluamos:
+usos materiales → CDE → dimensiones aplicables.
+No todo el universo de datos.
+### Causalidad — PASS
+Una anomalía del dato no determina automáticamente su causa.
+### Resultado — PASS
+El resultado no es:
+“se limpiaron 10.000 registros”.
+Es:
+el dato funciona suficientemente para su uso y, cuando corresponde, el deterioro recurrente está controlado.
+DoD = 27/27 PASS
+
+# Quality Gates
+### K1 · Coherencia — PASS
+DT-02 queda separada de infraestructura, integración, analítica, seguridad y proceso.
+### K2 · Razonamiento — PASS
+Distingue:
+existencia → captura → significado → dimensiones de calidad → disponibilidad → provenance → fitness → mantenimiento.
+### K3 · Acción — PASS
+Puede:
+definir, capturar, validar, corregir, prevenir, estandarizar, reconciliar, habilitar acceso, actualizar, trazar, monitorear o no actuar.
+### K4 · Knowledge — PASS
+Grounding, provenance, objetos, triggers, reglas, CRV, validación y gobierno están suficientemente definidos.
+# Cierre DT-02
+DT02-K4-v1.0 · K4-VALIDATED · CLOSED
+| Objeto | Resultado |
+| Bloques | 12/12 |
+| CE | 7 |
+| VA | 17 |
+| NI | 17 |
+| Reglas | 17 |
+| Findings | 8 |
+| Decisiones | 12 |
+| Intervenciones | 8 |
+| Instrumentos | 7 |
+| Entregables | 8 |
+| Done Criteria | 7 |
+| CRV | 8 |
+| Validación | V0–V4 |
+| A–V | 22/22 |
+| DoD | 27/27 |
+| K1–K4 | PASS |
+DT02-K4-v1.0 · K4-VALIDATED · CLOSED
+
+# Estado DT actualizado
+| Capacidad | Estado |
+| DT-01 · Disponer de una base tecnológica adecuada | 🟢 CLOSED |
+| DT-02 · Gestionar datos con calidad y disponibilidad | 🟢 CLOSED |
+| DT-03 · Integrar datos, aplicaciones y flujos de información | ⚪ NEXT |
+| DT-04 · Convertir datos en información útil para decisiones | ⚪ |
+| DT-05 · Proteger información, sistemas y continuidad | ⚪ |
+| DT-06 · Evaluar, incorporar y aprovechar tecnologías pertinentes | ⚪ |
+DOMAIN-DT · 2/6 CAPABILITIES K4-VALIDATED
+El acumulado maestro queda en:
+17/31 capacidades K4-VALIDATED.
+El siguiente movimiento es DT-03 · Integrar datos, aplicaciones y flujos de información.
+Allí hay una distinción que debemos preservar desde el comienzo:
+integración no significa “tener todo conectado”.
+DT-03 deberá evaluar si la información cruza suficientemente las fronteras donde el negocio necesita que lo haga, con el nivel apropiado de sincronización, interoperabilidad y automatización. Una transferencia manual puede ser perfectamente suficiente en ciertos casos; una integración API sofisticada puede ser completamente injustificada en otros.
+Esa será la base para dimensionar orgánicamente DT-03 en el siguiente paso.
+Seguimos

@@ -15,6 +15,7 @@
       "variablesUnresolved": 0,
       "criticalityNotExplicit": 8
     },
+    "ordinalMapping": null,
     "definition": {
       "status": "NOT_EXPLICIT",
       "sourceLines": null,
@@ -44,6 +45,7 @@
       "variablesUnresolved": 0,
       "criticalityNotExplicit": 9
     },
+    "ordinalMapping": null,
     "definition": {
       "status": "EXPLICIT",
       "sourceLines": [
@@ -85,6 +87,7 @@
       "variablesUnresolved": 0,
       "criticalityNotExplicit": 10
     },
+    "ordinalMapping": null,
     "definition": {
       "status": "NOT_EXPLICIT",
       "sourceLines": null,
@@ -115,14 +118,40 @@
     "stats": {
       "variables": 9,
       "informationNeeds": 9,
-      "linkedInformationNeeds": 0,
-      "acquisitions": 0,
+      "linkedInformationNeeds": 9,
+      "acquisitions": 9,
       "questionAcquisitions": 0,
       "acquisitionStages": 5,
       "conditions": 4,
-      "variablesWithAcquisitionPath": 0,
-      "variablesUnresolved": 9,
+      "variablesWithAcquisitionPath": 9,
+      "variablesUnresolved": 0,
       "criticalityNotExplicit": 9
+    },
+    "ordinalMapping": {
+      "applied": true,
+      "conditions": {
+        "equalCardinality": true,
+        "alignedOrdinalNumbering": true,
+        "niBlockBelongsToVaArchitecture": true,
+        "orderingPreserved": true,
+        "noExplicitContraryMapping": true
+      },
+      "evidence": {
+        "vaCount": 9,
+        "niCount": 9,
+        "niSection": "Bloque 4 · Necesidades de información y suficiencia",
+        "niLines": [
+          402,
+          403,
+          404,
+          405,
+          406,
+          407,
+          408,
+          409,
+          410
+        ]
+      }
     },
     "definition": {
       "status": "EXPLICIT",
@@ -144,11 +173,10 @@
       ]
     },
     "gaps": [
-      "NE-DG-01-CRITICALITY",
-      "NE-DG-01-VA-ACQUISITION [BLOCKING]"
+      "NE-DG-01-CRITICALITY"
     ],
     "blockers": [],
-    "checksum": "sha256:49ace4c779d8ab9349da67aee75931b1f009a6842ebba1c4268d54d128018408"
+    "checksum": "sha256:0610d6b9ddf1c561300bcefd9d994ca42ddb288c6425f184303a881f30861633"
   },
   {
     "c": "DG-02",
@@ -157,14 +185,41 @@
     "stats": {
       "variables": 10,
       "informationNeeds": 10,
-      "linkedInformationNeeds": 0,
-      "acquisitions": 0,
+      "linkedInformationNeeds": 10,
+      "acquisitions": 10,
       "questionAcquisitions": 0,
       "acquisitionStages": 5,
       "conditions": 5,
-      "variablesWithAcquisitionPath": 0,
-      "variablesUnresolved": 10,
+      "variablesWithAcquisitionPath": 10,
+      "variablesUnresolved": 0,
       "criticalityNotExplicit": 10
+    },
+    "ordinalMapping": {
+      "applied": true,
+      "conditions": {
+        "equalCardinality": true,
+        "alignedOrdinalNumbering": true,
+        "niBlockBelongsToVaArchitecture": true,
+        "orderingPreserved": true,
+        "noExplicitContraryMapping": true
+      },
+      "evidence": {
+        "vaCount": 10,
+        "niCount": 10,
+        "niSection": "Bloque 4 · Necesidades de información y suficiencia",
+        "niLines": [
+          127,
+          128,
+          129,
+          130,
+          131,
+          132,
+          133,
+          134,
+          135,
+          136
+        ]
+      }
     },
     "definition": {
       "status": "EXPLICIT",
@@ -186,11 +241,10 @@
       ]
     },
     "gaps": [
-      "NE-DG-02-CRITICALITY",
-      "NE-DG-02-VA-ACQUISITION [BLOCKING]"
+      "NE-DG-02-CRITICALITY"
     ],
     "blockers": [],
-    "checksum": "sha256:d400b43f7c7e3263218792ff3078c0352f4e8836a5c5dad7adf17e7198b2d5da"
+    "checksum": "sha256:9a8b48c6c3090119b0c4315408a199adeccab9dc142bafaea2004b1cf24681a5"
   },
   {
     "c": "DG-03",
@@ -199,14 +253,41 @@
     "stats": {
       "variables": 10,
       "informationNeeds": 10,
-      "linkedInformationNeeds": 0,
-      "acquisitions": 0,
+      "linkedInformationNeeds": 10,
+      "acquisitions": 10,
       "questionAcquisitions": 0,
       "acquisitionStages": 5,
       "conditions": 5,
-      "variablesWithAcquisitionPath": 0,
-      "variablesUnresolved": 10,
+      "variablesWithAcquisitionPath": 10,
+      "variablesUnresolved": 0,
       "criticalityNotExplicit": 10
+    },
+    "ordinalMapping": {
+      "applied": true,
+      "conditions": {
+        "equalCardinality": true,
+        "alignedOrdinalNumbering": true,
+        "niBlockBelongsToVaArchitecture": true,
+        "orderingPreserved": true,
+        "noExplicitContraryMapping": true
+      },
+      "evidence": {
+        "vaCount": 10,
+        "niCount": 10,
+        "niSection": "Bloque 4 · Necesidades de información y suficiencia",
+        "niLines": [
+          122,
+          123,
+          124,
+          125,
+          126,
+          127,
+          128,
+          129,
+          130,
+          131
+        ]
+      }
     },
     "definition": {
       "status": "EXPLICIT",
@@ -228,11 +309,10 @@
       ]
     },
     "gaps": [
-      "NE-DG-03-CRITICALITY",
-      "NE-DG-03-VA-ACQUISITION [BLOCKING]"
+      "NE-DG-03-CRITICALITY"
     ],
     "blockers": [],
-    "checksum": "sha256:16c38347298b9de079aff386b74699b352c30857ef1eeddec64bed133674a8e4"
+    "checksum": "sha256:c41367ef56b966f84621cc704be297d603285d410070580343eb4d0ff05467a6"
   },
   {
     "c": "DG-04",
@@ -241,14 +321,41 @@
     "stats": {
       "variables": 10,
       "informationNeeds": 10,
-      "linkedInformationNeeds": 0,
-      "acquisitions": 0,
+      "linkedInformationNeeds": 10,
+      "acquisitions": 10,
       "questionAcquisitions": 0,
       "acquisitionStages": 5,
       "conditions": 5,
-      "variablesWithAcquisitionPath": 0,
-      "variablesUnresolved": 10,
+      "variablesWithAcquisitionPath": 10,
+      "variablesUnresolved": 0,
       "criticalityNotExplicit": 10
+    },
+    "ordinalMapping": {
+      "applied": true,
+      "conditions": {
+        "equalCardinality": true,
+        "alignedOrdinalNumbering": true,
+        "niBlockBelongsToVaArchitecture": true,
+        "orderingPreserved": true,
+        "noExplicitContraryMapping": true
+      },
+      "evidence": {
+        "vaCount": 10,
+        "niCount": 10,
+        "niSection": "Bloque 4 · Necesidades de información y suficiencia",
+        "niLines": [
+          111,
+          112,
+          113,
+          114,
+          115,
+          116,
+          117,
+          118,
+          119,
+          120
+        ]
+      }
     },
     "definition": {
       "status": "EXPLICIT",
@@ -270,11 +377,10 @@
       ]
     },
     "gaps": [
-      "NE-DG-04-CRITICALITY",
-      "NE-DG-04-VA-ACQUISITION [BLOCKING]"
+      "NE-DG-04-CRITICALITY"
     ],
     "blockers": [],
-    "checksum": "sha256:de938b8684cdc94c8779926fc65f2926fdcba49dd8ed094c43bbfb44f0bbd3e5"
+    "checksum": "sha256:8d40a606cd3dfde8f925fabdf3611182ff4aa03f23530f25341e2abafebb8eda"
   },
   {
     "c": "DG-05",
@@ -283,14 +389,43 @@
     "stats": {
       "variables": 12,
       "informationNeeds": 12,
-      "linkedInformationNeeds": 0,
-      "acquisitions": 0,
+      "linkedInformationNeeds": 12,
+      "acquisitions": 12,
       "questionAcquisitions": 0,
       "acquisitionStages": 0,
       "conditions": 6,
-      "variablesWithAcquisitionPath": 0,
-      "variablesUnresolved": 12,
+      "variablesWithAcquisitionPath": 12,
+      "variablesUnresolved": 0,
       "criticalityNotExplicit": 12
+    },
+    "ordinalMapping": {
+      "applied": true,
+      "conditions": {
+        "equalCardinality": true,
+        "alignedOrdinalNumbering": true,
+        "niBlockBelongsToVaArchitecture": true,
+        "orderingPreserved": true,
+        "noExplicitContraryMapping": true
+      },
+      "evidence": {
+        "vaCount": 12,
+        "niCount": 12,
+        "niSection": "5. Necesidades de información, materialidad y suficiencia",
+        "niLines": [
+          171,
+          172,
+          173,
+          174,
+          175,
+          176,
+          177,
+          178,
+          179,
+          180,
+          181,
+          182
+        ]
+      }
     },
     "definition": {
       "status": "EXPLICIT",
@@ -312,11 +447,10 @@
       ]
     },
     "gaps": [
-      "NE-DG-05-CRITICALITY",
-      "NE-DG-05-VA-ACQUISITION [BLOCKING]"
+      "NE-DG-05-CRITICALITY"
     ],
     "blockers": [],
-    "checksum": "sha256:e7d1e8c5371fabceff4cc2f731be12816890f8ea1c96ae1955ac98b44104573c"
+    "checksum": "sha256:0af244b1dc07a8270267a62bcd7d79cd731e04d438e03f43bf62b288f056f656"
   },
   {
     "c": "PC-01",
@@ -325,14 +459,42 @@
     "stats": {
       "variables": 11,
       "informationNeeds": 11,
-      "linkedInformationNeeds": 0,
-      "acquisitions": 0,
+      "linkedInformationNeeds": 11,
+      "acquisitions": 11,
       "questionAcquisitions": 0,
       "acquisitionStages": 5,
       "conditions": 5,
-      "variablesWithAcquisitionPath": 0,
-      "variablesUnresolved": 11,
+      "variablesWithAcquisitionPath": 11,
+      "variablesUnresolved": 0,
       "criticalityNotExplicit": 11
+    },
+    "ordinalMapping": {
+      "applied": true,
+      "conditions": {
+        "equalCardinality": true,
+        "alignedOrdinalNumbering": true,
+        "niBlockBelongsToVaArchitecture": true,
+        "orderingPreserved": true,
+        "noExplicitContraryMapping": true
+      },
+      "evidence": {
+        "vaCount": 11,
+        "niCount": 11,
+        "niSection": "5. NI, suficiencia y adquisición",
+        "niLines": [
+          197,
+          198,
+          199,
+          200,
+          201,
+          202,
+          203,
+          204,
+          205,
+          206,
+          207
+        ]
+      }
     },
     "definition": {
       "status": "EXPLICIT",
@@ -354,11 +516,10 @@
       ]
     },
     "gaps": [
-      "NE-PC-01-CRITICALITY",
-      "NE-PC-01-VA-ACQUISITION [BLOCKING]"
+      "NE-PC-01-CRITICALITY"
     ],
     "blockers": [],
-    "checksum": "sha256:bd45bf275ea574b338e8804d04a850fe06bbc93168a5b23aa93973afb034ff7d"
+    "checksum": "sha256:0bfdd1a6acf8c30b22511ed940d2fd967dd4ee764f1c3b9589a315f524ce92ee"
   },
   {
     "c": "PC-02",
@@ -367,14 +528,44 @@
     "stats": {
       "variables": 13,
       "informationNeeds": 13,
-      "linkedInformationNeeds": 0,
-      "acquisitions": 0,
+      "linkedInformationNeeds": 13,
+      "acquisitions": 13,
       "questionAcquisitions": 0,
       "acquisitionStages": 5,
       "conditions": 6,
-      "variablesWithAcquisitionPath": 0,
-      "variablesUnresolved": 13,
+      "variablesWithAcquisitionPath": 13,
+      "variablesUnresolved": 0,
       "criticalityNotExplicit": 13
+    },
+    "ordinalMapping": {
+      "applied": true,
+      "conditions": {
+        "equalCardinality": true,
+        "alignedOrdinalNumbering": true,
+        "niBlockBelongsToVaArchitecture": true,
+        "orderingPreserved": true,
+        "noExplicitContraryMapping": true
+      },
+      "evidence": {
+        "vaCount": 13,
+        "niCount": 13,
+        "niSection": "5. Necesidades de información y suficiencia",
+        "niLines": [
+          188,
+          189,
+          190,
+          191,
+          192,
+          193,
+          194,
+          195,
+          196,
+          197,
+          198,
+          199,
+          200
+        ]
+      }
     },
     "definition": {
       "status": "EXPLICIT",
@@ -396,11 +587,10 @@
       ]
     },
     "gaps": [
-      "NE-PC-02-CRITICALITY",
-      "NE-PC-02-VA-ACQUISITION [BLOCKING]"
+      "NE-PC-02-CRITICALITY"
     ],
     "blockers": [],
-    "checksum": "sha256:5d97dc0360d4101f67a0e71f32dc14417b95117085b51d5e6fe98588a4c95b0d"
+    "checksum": "sha256:64b08797e6292f3c9cea42b9dd13578f3ee148bf339c9cd06312f6f6e1e44370"
   },
   {
     "c": "PC-03",
@@ -409,14 +599,45 @@
     "stats": {
       "variables": 14,
       "informationNeeds": 14,
-      "linkedInformationNeeds": 0,
-      "acquisitions": 0,
+      "linkedInformationNeeds": 14,
+      "acquisitions": 14,
       "questionAcquisitions": 0,
       "acquisitionStages": 5,
       "conditions": 6,
-      "variablesWithAcquisitionPath": 0,
-      "variablesUnresolved": 14,
+      "variablesWithAcquisitionPath": 14,
+      "variablesUnresolved": 0,
       "criticalityNotExplicit": 14
+    },
+    "ordinalMapping": {
+      "applied": true,
+      "conditions": {
+        "equalCardinality": true,
+        "alignedOrdinalNumbering": true,
+        "niBlockBelongsToVaArchitecture": true,
+        "orderingPreserved": true,
+        "noExplicitContraryMapping": true
+      },
+      "evidence": {
+        "vaCount": 14,
+        "niCount": 14,
+        "niSection": "6. NI, suficiencia y confianza",
+        "niLines": [
+          213,
+          214,
+          215,
+          216,
+          217,
+          218,
+          219,
+          220,
+          221,
+          222,
+          223,
+          224,
+          225,
+          226
+        ]
+      }
     },
     "definition": {
       "status": "EXPLICIT",
@@ -438,11 +659,10 @@
       ]
     },
     "gaps": [
-      "NE-PC-03-CRITICALITY",
-      "NE-PC-03-VA-ACQUISITION [BLOCKING]"
+      "NE-PC-03-CRITICALITY"
     ],
     "blockers": [],
-    "checksum": "sha256:bf8e207a0dc706b4f45d5bd0fb57467657210d7c10e26a095985cdf54956a2c0"
+    "checksum": "sha256:e04b916079e20ea56bcd1798adbd1628719fc17f45dce51e5a1de82750481f19"
   },
   {
     "c": "PC-04",
@@ -451,14 +671,45 @@
     "stats": {
       "variables": 14,
       "informationNeeds": 14,
-      "linkedInformationNeeds": 0,
-      "acquisitions": 0,
+      "linkedInformationNeeds": 14,
+      "acquisitions": 14,
       "questionAcquisitions": 0,
       "acquisitionStages": 5,
       "conditions": 6,
-      "variablesWithAcquisitionPath": 0,
-      "variablesUnresolved": 14,
+      "variablesWithAcquisitionPath": 14,
+      "variablesUnresolved": 0,
       "criticalityNotExplicit": 14
+    },
+    "ordinalMapping": {
+      "applied": true,
+      "conditions": {
+        "equalCardinality": true,
+        "alignedOrdinalNumbering": true,
+        "niBlockBelongsToVaArchitecture": true,
+        "orderingPreserved": true,
+        "noExplicitContraryMapping": true
+      },
+      "evidence": {
+        "vaCount": 14,
+        "niCount": 14,
+        "niSection": "6. NI, suficiencia y confianza",
+        "niLines": [
+          204,
+          205,
+          206,
+          207,
+          208,
+          209,
+          210,
+          211,
+          212,
+          213,
+          214,
+          215,
+          216,
+          217
+        ]
+      }
     },
     "definition": {
       "status": "EXPLICIT",
@@ -480,11 +731,10 @@
       ]
     },
     "gaps": [
-      "NE-PC-04-CRITICALITY",
-      "NE-PC-04-VA-ACQUISITION [BLOCKING]"
+      "NE-PC-04-CRITICALITY"
     ],
     "blockers": [],
-    "checksum": "sha256:5d9b5029076c1d8b3b4200aa7f48030fc8d8dc673bd5eb2aa8e44f40d6d0c36e"
+    "checksum": "sha256:37ff663e25bec8c95c902746378a9353e5900f0159177e91d8b76f7d93edbd90"
   },
   {
     "c": "PC-05",
@@ -493,14 +743,46 @@
     "stats": {
       "variables": 15,
       "informationNeeds": 15,
-      "linkedInformationNeeds": 0,
-      "acquisitions": 0,
+      "linkedInformationNeeds": 15,
+      "acquisitions": 15,
       "questionAcquisitions": 0,
       "acquisitionStages": 5,
       "conditions": 6,
-      "variablesWithAcquisitionPath": 0,
-      "variablesUnresolved": 15,
+      "variablesWithAcquisitionPath": 15,
+      "variablesUnresolved": 0,
       "criticalityNotExplicit": 15
+    },
+    "ordinalMapping": {
+      "applied": true,
+      "conditions": {
+        "equalCardinality": true,
+        "alignedOrdinalNumbering": true,
+        "niBlockBelongsToVaArchitecture": true,
+        "orderingPreserved": true,
+        "noExplicitContraryMapping": true
+      },
+      "evidence": {
+        "vaCount": 15,
+        "niCount": 15,
+        "niSection": "6. NI, suficiencia y confianza",
+        "niLines": [
+          206,
+          207,
+          208,
+          209,
+          210,
+          211,
+          212,
+          213,
+          214,
+          215,
+          216,
+          217,
+          218,
+          219,
+          220
+        ]
+      }
     },
     "definition": {
       "status": "EXPLICIT",
@@ -522,10 +804,716 @@
       ]
     },
     "gaps": [
-      "NE-PC-05-CRITICALITY",
-      "NE-PC-05-VA-ACQUISITION [BLOCKING]"
+      "NE-PC-05-CRITICALITY"
     ],
     "blockers": [],
-    "checksum": "sha256:6d7ae79cd98850d89fc1f55201e989d324de9bf5ebf5690b619c9f29d06f93c1"
+    "checksum": "sha256:ab3603debea09267ee84923a4efd4e7a22e852071340a6b1f0f4702976f602a8"
+  },
+  {
+    "c": "DT-01",
+    "name": "Disponer de una base tecnológica adecuada",
+    "ok": true,
+    "stats": {
+      "variables": 16,
+      "informationNeeds": 16,
+      "linkedInformationNeeds": 16,
+      "acquisitions": 16,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 3,
+      "conditions": 7,
+      "variablesWithAcquisitionPath": 16,
+      "variablesUnresolved": 0,
+      "criticalityNotExplicit": 16
+    },
+    "ordinalMapping": {
+      "applied": true,
+      "conditions": {
+        "equalCardinality": true,
+        "alignedOrdinalNumbering": true,
+        "niBlockBelongsToVaArchitecture": true,
+        "orderingPreserved": true,
+        "noExplicitContraryMapping": true
+      },
+      "evidence": {
+        "vaCount": 16,
+        "niCount": 16,
+        "niSection": "8. Information Needs",
+        "niLines": [
+          213,
+          214,
+          215,
+          216,
+          217,
+          218,
+          219,
+          220,
+          221,
+          222,
+          223,
+          224,
+          225,
+          226,
+          227,
+          228
+        ]
+      }
+    },
+    "definition": {
+      "status": "NOT_EXPLICIT",
+      "sourceLines": null,
+      "marker": null,
+      "candidates": [
+        {
+          "lines": [
+            40,
+            40
+          ],
+          "marker": "Definición V1",
+          "qualifier": "UNQUALIFIED",
+          "disposition": "NOT_SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-DT-01-DEFINITION",
+      "NE-DT-01-CRITICALITY"
+    ],
+    "blockers": [],
+    "checksum": "sha256:05f6be7ee713dcd48bc778019488df02917c6e083dce1b00b523955e8bfa9698"
+  },
+  {
+    "c": "DT-02",
+    "name": "Gestionar datos con calidad y disponibilidad",
+    "ok": true,
+    "stats": {
+      "variables": 17,
+      "informationNeeds": 0,
+      "linkedInformationNeeds": 0,
+      "acquisitions": 0,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 5,
+      "conditions": 7,
+      "variablesWithAcquisitionPath": 0,
+      "variablesUnresolved": 17,
+      "criticalityNotExplicit": 17
+    },
+    "ordinalMapping": null,
+    "definition": {
+      "status": "NOT_EXPLICIT",
+      "sourceLines": null,
+      "marker": null,
+      "candidates": [
+        {
+          "lines": [
+            30,
+            30
+          ],
+          "marker": "Definición V1",
+          "qualifier": "UNQUALIFIED",
+          "disposition": "NOT_SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-DT-02-DEFINITION",
+      "NE-DT-02-CRITICALITY",
+      "NE-DT-02-VA-ACQUISITION [BLOCKING]"
+    ],
+    "blockers": [],
+    "checksum": "sha256:5a97e9bd913fe780b7521f8e6fb3d9666dfeb5de11e946b9799086cabd34e66f"
+  },
+  {
+    "c": "DT-03",
+    "name": "Integrar datos, aplicaciones y flujos de información",
+    "ok": true,
+    "stats": {
+      "variables": 17,
+      "informationNeeds": 0,
+      "linkedInformationNeeds": 0,
+      "acquisitions": 0,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 5,
+      "conditions": 7,
+      "variablesWithAcquisitionPath": 0,
+      "variablesUnresolved": 17,
+      "criticalityNotExplicit": 17
+    },
+    "ordinalMapping": null,
+    "definition": {
+      "status": "NOT_EXPLICIT",
+      "sourceLines": null,
+      "marker": null,
+      "candidates": [
+        {
+          "lines": [
+            33,
+            33
+          ],
+          "marker": "Definición V1",
+          "qualifier": "UNQUALIFIED",
+          "disposition": "NOT_SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-DT-03-DEFINITION",
+      "NE-DT-03-CRITICALITY",
+      "NE-DT-03-VA-ACQUISITION [BLOCKING]"
+    ],
+    "blockers": [],
+    "checksum": "sha256:c2e66b8985aca01ebce36fa846760c9db9eccba41062acd3888850514125b76c"
+  },
+  {
+    "c": "DT-04",
+    "name": "Convertir datos en información útil para decisiones",
+    "ok": true,
+    "stats": {
+      "variables": 18,
+      "informationNeeds": 0,
+      "linkedInformationNeeds": 0,
+      "acquisitions": 0,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 5,
+      "conditions": 8,
+      "variablesWithAcquisitionPath": 0,
+      "variablesUnresolved": 18,
+      "criticalityNotExplicit": 18
+    },
+    "ordinalMapping": null,
+    "definition": {
+      "status": "NOT_EXPLICIT",
+      "sourceLines": null,
+      "marker": null,
+      "candidates": [
+        {
+          "lines": [
+            36,
+            36
+          ],
+          "marker": "Definición V1",
+          "qualifier": "UNQUALIFIED",
+          "disposition": "NOT_SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-DT-04-DEFINITION",
+      "NE-DT-04-CRITICALITY",
+      "NE-DT-04-VA-ACQUISITION [BLOCKING]"
+    ],
+    "blockers": [],
+    "checksum": "sha256:8a37cf14a8b480e1b9b2ccca9a095e77eaf983f4d7f57bfa2468da18efd988ab"
+  },
+  {
+    "c": "DT-05",
+    "name": "Proteger información, sistemas y continuidad",
+    "ok": true,
+    "stats": {
+      "variables": 22,
+      "informationNeeds": 0,
+      "linkedInformationNeeds": 0,
+      "acquisitions": 0,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 5,
+      "conditions": 10,
+      "variablesWithAcquisitionPath": 0,
+      "variablesUnresolved": 22,
+      "criticalityNotExplicit": 22
+    },
+    "ordinalMapping": null,
+    "definition": {
+      "status": "NOT_EXPLICIT",
+      "sourceLines": null,
+      "marker": null,
+      "candidates": [
+        {
+          "lines": [
+            37,
+            37
+          ],
+          "marker": "Definición V1",
+          "qualifier": "UNQUALIFIED",
+          "disposition": "NOT_SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-DT-05-DEFINITION",
+      "NE-DT-05-CRITICALITY",
+      "NE-DT-05-VA-ACQUISITION [BLOCKING]"
+    ],
+    "blockers": [],
+    "checksum": "sha256:753f58f8f5a8fd38521d81f38935a31519daf90d63ed1d00b2cd12155ebf181c"
+  },
+  {
+    "c": "DT-06",
+    "name": "Evaluar, incorporar y aprovechar tecnologías pertinentes",
+    "ok": true,
+    "stats": {
+      "variables": 23,
+      "informationNeeds": 0,
+      "linkedInformationNeeds": 0,
+      "acquisitions": 0,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 5,
+      "conditions": 10,
+      "variablesWithAcquisitionPath": 0,
+      "variablesUnresolved": 23,
+      "criticalityNotExplicit": 23
+    },
+    "ordinalMapping": null,
+    "definition": {
+      "status": "NOT_EXPLICIT",
+      "sourceLines": null,
+      "marker": null,
+      "candidates": [
+        {
+          "lines": [
+            37,
+            37
+          ],
+          "marker": "Definición V1",
+          "qualifier": "UNQUALIFIED",
+          "disposition": "NOT_SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-DT-06-DEFINITION",
+      "NE-DT-06-CRITICALITY",
+      "NE-DT-06-VA-ACQUISITION [BLOCKING]"
+    ],
+    "blockers": [],
+    "checksum": "sha256:b5ab5a815b78b273ff4150660de69a19206880b73653bc18aba50cd6a001f56d"
+  },
+  {
+    "c": "CM-01",
+    "name": "Comprender clientes, segmentos y necesidades",
+    "ok": true,
+    "stats": {
+      "variables": 21,
+      "informationNeeds": 0,
+      "linkedInformationNeeds": 0,
+      "acquisitions": 0,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 4,
+      "conditions": 9,
+      "variablesWithAcquisitionPath": 0,
+      "variablesUnresolved": 21,
+      "criticalityNotExplicit": 21
+    },
+    "ordinalMapping": null,
+    "definition": {
+      "status": "EXPLICIT",
+      "sourceLines": [
+        44,
+        44
+      ],
+      "marker": "Definición productiva V1",
+      "candidates": [
+        {
+          "lines": [
+            44,
+            44
+          ],
+          "marker": "Definición productiva V1",
+          "qualifier": "PRODUCTIVE",
+          "disposition": "SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-CM-01-CRITICALITY",
+      "NE-CM-01-VA-ACQUISITION [BLOCKING]"
+    ],
+    "blockers": [],
+    "checksum": "sha256:709fd72aca946b31f73d793fae291a8c76a2964512164b331f01c9bf5c7f024c"
+  },
+  {
+    "c": "CM-02",
+    "name": "Diseñar y ajustar propuestas de valor",
+    "ok": true,
+    "stats": {
+      "variables": 22,
+      "informationNeeds": 0,
+      "linkedInformationNeeds": 0,
+      "acquisitions": 0,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 2,
+      "conditions": 9,
+      "variablesWithAcquisitionPath": 0,
+      "variablesUnresolved": 22,
+      "criticalityNotExplicit": 22
+    },
+    "ordinalMapping": null,
+    "definition": {
+      "status": "EXPLICIT",
+      "sourceLines": [
+        32,
+        32
+      ],
+      "marker": "Definición productiva V1",
+      "candidates": [
+        {
+          "lines": [
+            32,
+            32
+          ],
+          "marker": "Definición productiva V1",
+          "qualifier": "PRODUCTIVE",
+          "disposition": "SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-CM-02-CRITICALITY",
+      "NE-CM-02-VA-ACQUISITION [BLOCKING]"
+    ],
+    "blockers": [],
+    "checksum": "sha256:0d2bc3668d7c7bf9dda4b0fabc0777a5e9379f15ae869d402a92f32c89e22a19"
+  },
+  {
+    "c": "CM-03",
+    "name": "Gestionar adquisición, conversión y relación comercial",
+    "ok": true,
+    "stats": {
+      "variables": 23,
+      "informationNeeds": 0,
+      "linkedInformationNeeds": 0,
+      "acquisitions": 0,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 2,
+      "conditions": 10,
+      "variablesWithAcquisitionPath": 0,
+      "variablesUnresolved": 23,
+      "criticalityNotExplicit": 23
+    },
+    "ordinalMapping": null,
+    "definition": {
+      "status": "EXPLICIT",
+      "sourceLines": [
+        36,
+        36
+      ],
+      "marker": "Definición productiva V1",
+      "candidates": [
+        {
+          "lines": [
+            36,
+            36
+          ],
+          "marker": "Definición productiva V1",
+          "qualifier": "PRODUCTIVE",
+          "disposition": "SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-CM-03-CRITICALITY",
+      "NE-CM-03-VA-ACQUISITION [BLOCKING]"
+    ],
+    "blockers": [],
+    "checksum": "sha256:8e49c957a0c76f726d6bbb9925049f05d50a486a1b7e70877611ea5768ae0e0c"
+  },
+  {
+    "c": "CM-04",
+    "name": "Coordinar canales e interacciones con clientes",
+    "ok": true,
+    "stats": {
+      "variables": 21,
+      "informationNeeds": 0,
+      "linkedInformationNeeds": 0,
+      "acquisitions": 0,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 2,
+      "conditions": 9,
+      "variablesWithAcquisitionPath": 0,
+      "variablesUnresolved": 21,
+      "criticalityNotExplicit": 21
+    },
+    "ordinalMapping": null,
+    "definition": {
+      "status": "EXPLICIT",
+      "sourceLines": [
+        33,
+        33
+      ],
+      "marker": "Definición productiva V1",
+      "candidates": [
+        {
+          "lines": [
+            33,
+            33
+          ],
+          "marker": "Definición productiva V1",
+          "qualifier": "PRODUCTIVE",
+          "disposition": "SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-CM-04-CRITICALITY",
+      "NE-CM-04-VA-ACQUISITION [BLOCKING]"
+    ],
+    "blockers": [],
+    "checksum": "sha256:181967e6e1cd28803b5669d852e2c1febd205ca7d91e6b56b9d6f59f7a07b774"
+  },
+  {
+    "c": "CM-05",
+    "name": "Gestionar experiencia, servicio y continuidad de la relación",
+    "ok": true,
+    "stats": {
+      "variables": 23,
+      "informationNeeds": 0,
+      "linkedInformationNeeds": 0,
+      "acquisitions": 0,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 2,
+      "conditions": 10,
+      "variablesWithAcquisitionPath": 0,
+      "variablesUnresolved": 23,
+      "criticalityNotExplicit": 23
+    },
+    "ordinalMapping": null,
+    "definition": {
+      "status": "EXPLICIT",
+      "sourceLines": [
+        33,
+        33
+      ],
+      "marker": "Definición productiva V1",
+      "candidates": [
+        {
+          "lines": [
+            33,
+            33
+          ],
+          "marker": "Definición productiva V1",
+          "qualifier": "PRODUCTIVE",
+          "disposition": "SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-CM-05-CRITICALITY",
+      "NE-CM-05-VA-ACQUISITION [BLOCKING]"
+    ],
+    "blockers": [],
+    "checksum": "sha256:ab69d9b4f572e0cd3f8e9cbb911ffc4fff28b6fdd829377d8faf5335d1dc07fe"
+  },
+  {
+    "c": "CM-06",
+    "name": "Medir y gestionar creación de valor",
+    "ok": true,
+    "stats": {
+      "variables": 24,
+      "informationNeeds": 0,
+      "linkedInformationNeeds": 0,
+      "acquisitions": 0,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 2,
+      "conditions": 10,
+      "variablesWithAcquisitionPath": 0,
+      "variablesUnresolved": 24,
+      "criticalityNotExplicit": 24
+    },
+    "ordinalMapping": null,
+    "definition": {
+      "status": "EXPLICIT",
+      "sourceLines": [
+        39,
+        39
+      ],
+      "marker": "Definición productiva V1",
+      "candidates": [
+        {
+          "lines": [
+            39,
+            39
+          ],
+          "marker": "Definición productiva V1",
+          "qualifier": "PRODUCTIVE",
+          "disposition": "SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-CM-06-CRITICALITY",
+      "NE-CM-06-VA-ACQUISITION [BLOCKING]"
+    ],
+    "blockers": [],
+    "checksum": "sha256:8a8cd38644eb6940cee13285ca4e502ceeb44991e603713c9826dcb6375b15fd"
+  },
+  {
+    "c": "EC-02",
+    "name": "Buscar y seleccionar actores externos adecuados",
+    "ok": true,
+    "stats": {
+      "variables": 21,
+      "informationNeeds": 0,
+      "linkedInformationNeeds": 0,
+      "acquisitions": 0,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 2,
+      "conditions": 9,
+      "variablesWithAcquisitionPath": 0,
+      "variablesUnresolved": 21,
+      "criticalityNotExplicit": 21
+    },
+    "ordinalMapping": null,
+    "definition": {
+      "status": "EXPLICIT",
+      "sourceLines": [
+        49,
+        49
+      ],
+      "marker": "Definición productiva V1",
+      "candidates": [
+        {
+          "lines": [
+            49,
+            49
+          ],
+          "marker": "Definición productiva V1",
+          "qualifier": "PRODUCTIVE",
+          "disposition": "SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-EC-02-CRITICALITY",
+      "NE-EC-02-VA-ACQUISITION [BLOCKING]"
+    ],
+    "blockers": [],
+    "checksum": "sha256:60525f6613c65cd0e88dac17e453ca9b49dee9f718274a4b5fa29a3f8a69be30"
+  },
+  {
+    "c": "EC-03",
+    "name": "Coordinar y gobernar relaciones con terceros",
+    "ok": true,
+    "stats": {
+      "variables": 23,
+      "informationNeeds": 0,
+      "linkedInformationNeeds": 0,
+      "acquisitions": 0,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 3,
+      "conditions": 10,
+      "variablesWithAcquisitionPath": 0,
+      "variablesUnresolved": 23,
+      "criticalityNotExplicit": 23
+    },
+    "ordinalMapping": null,
+    "definition": {
+      "status": "EXPLICIT",
+      "sourceLines": [
+        35,
+        35
+      ],
+      "marker": "Definición productiva V1",
+      "candidates": [
+        {
+          "lines": [
+            35,
+            35
+          ],
+          "marker": "Definición productiva V1",
+          "qualifier": "PRODUCTIVE",
+          "disposition": "SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-EC-03-CRITICALITY",
+      "NE-EC-03-VA-ACQUISITION [BLOCKING]"
+    ],
+    "blockers": [],
+    "checksum": "sha256:86dc74743f3d154b6397888e4a60a985afa157cee9dfb5bfddaccaa79b07be98"
+  },
+  {
+    "c": "EC-04",
+    "name": "Absorber y aprovechar recursos externos",
+    "ok": true,
+    "stats": {
+      "variables": 24,
+      "informationNeeds": 0,
+      "linkedInformationNeeds": 0,
+      "acquisitions": 0,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 2,
+      "conditions": 10,
+      "variablesWithAcquisitionPath": 0,
+      "variablesUnresolved": 24,
+      "criticalityNotExplicit": 24
+    },
+    "ordinalMapping": null,
+    "definition": {
+      "status": "EXPLICIT",
+      "sourceLines": [
+        39,
+        39
+      ],
+      "marker": "1. Definición productiva V1",
+      "candidates": [
+        {
+          "lines": [
+            39,
+            39
+          ],
+          "marker": "1. Definición productiva V1",
+          "qualifier": "PRODUCTIVE",
+          "disposition": "SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-EC-04-CRITICALITY",
+      "NE-EC-04-VA-ACQUISITION [BLOCKING]"
+    ],
+    "blockers": [],
+    "checksum": "sha256:522a3b290dbd73d0d60f39c8fb0b78b8a6af47c56fac55eedce368b979e7e8e6"
+  },
+  {
+    "c": "EC-05",
+    "name": "Gestionar dependencias externas críticas",
+    "ok": true,
+    "stats": {
+      "variables": 26,
+      "informationNeeds": 0,
+      "linkedInformationNeeds": 0,
+      "acquisitions": 0,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 2,
+      "conditions": 11,
+      "variablesWithAcquisitionPath": 0,
+      "variablesUnresolved": 26,
+      "criticalityNotExplicit": 26
+    },
+    "ordinalMapping": null,
+    "definition": {
+      "status": "EXPLICIT",
+      "sourceLines": [
+        62,
+        62
+      ],
+      "marker": "1. Definición productiva V1",
+      "candidates": [
+        {
+          "lines": [
+            62,
+            62
+          ],
+          "marker": "1. Definición productiva V1",
+          "qualifier": "PRODUCTIVE",
+          "disposition": "SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-EC-05-CRITICALITY",
+      "NE-EC-05-VA-ACQUISITION [BLOCKING]"
+    ],
+    "blockers": [],
+    "checksum": "sha256:d3966d3f527e4fdf57ab39bd7db58519179d0d7de7993f6572051103066a189d"
   }
 ]

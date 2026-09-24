@@ -34,6 +34,7 @@ export const PACK_SECTION_KEYS = [
   "acquisitions",
   "acquisitionsNote",
   "acquisitionStages",
+  "governedStructuralMapping",
   "evidence",
   "sufficiency",
   "confidence",

@@ -46,7 +46,7 @@ export const variableSchema = z.object({
   criticality: z.union([criticalitySchema, z.literal(NOT_EXPLICIT)]),
   /** Cómo puede obtenerse información de la VA, o por qué sigue sin resolverse. */
   acquisitionResolution: z
-    .enum(["ACQUISITION_EXPLICIT", "INFORMATION_NEED", "UNRESOLVED"])
+    .enum(["ACQUISITION_EXPLICIT", "INFORMATION_NEED", "GOVERNED_STRUCTURAL_MAPPING", "UNRESOLVED"])
     .optional(),
   acquisitionNote: z.string().optional(),
   /**
@@ -404,6 +404,24 @@ export const knowledgePackSchema = z.object({
     .array(z.object({ level: acquisitionLevelSchema, purpose: z.string() }))
     .optional(),
   acquisitions: z.array(acquisitionSchema),
+  /** Interpretación estructural gobernada NI→VA (no afirmación literal de la fuente). */
+  governedStructuralMapping: z
+    .object({
+      rule: z.literal("GOVERNED_STRUCTURAL_MAPPING"),
+      nature: z.string().min(1),
+      decisionSetId: z.string().min(1),
+      authority: z.string().min(1),
+      decidedAt: z.string().min(1),
+      applied: z.literal(true),
+      conditions: z.record(z.string(), z.boolean()),
+      evidence: z.object({
+        vaCount: z.number().int(),
+        niCount: z.number().int(),
+        niSection: z.string().nullable(),
+        niLines: z.array(z.number().int()),
+      }),
+    })
+    .optional(),
   acquisitionsNote: z.string().optional(),
   /**
    * Etapas de adquisición reutilizables (P1–P5) con prompts literales cuya

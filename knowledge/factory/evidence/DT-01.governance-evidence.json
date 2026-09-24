@@ -1,0 +1,175 @@
+{
+  "dossierType": "PRE_PUBLICATION_GOVERNANCE_EVIDENCE",
+  "statement": "Evidencia técnica automatizada para la revisión humana de gobierno. NO constituye aprobación, firma ni publicación; no contiene identidad humana.",
+  "capabilityId": "DT-01",
+  "factoryVersion": "pymapa-knowledge-factory/0.1.0",
+  "readiness": "READY_FOR_HUMAN_PUBLICATION_AUTHORIZATION",
+  "blockers": [],
+  "humanAuthorization": {
+    "present": false,
+    "required": true,
+    "artifact": "knowledge/master/<version>/capabilities/DT-01/governance-review.json",
+    "statement": "Solo una autoridad humana de gobierno puede registrar la decisión; la Factory nunca la genera."
+  },
+  "historicalClosure": {
+    "marker": "DT01-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      892,
+      892
+    ],
+    "statement": "Cierre histórico del conocimiento (provenance). No equivale a publicación técnica actual."
+  },
+  "identity": {
+    "rawOriginal": {
+      "filename": "DT_-_01_A_06_Completo.docx",
+      "sha256": "2fb3f526b68a8bb801cf5af953d0aec8f204a7c7ef4d8bf6ef270bee4f413ccd"
+    },
+    "rawText": {
+      "ref": "text/DT-01.txt",
+      "sha256": "995603f0154d77d0ec30b3593ec0f9b5f534e29c338d181ff32474d91ca42c65"
+    },
+    "canonicalBaselineChecksum": "sha256:1d11206f896d162dcc5ed69143829f186fdd59af9a4ad19918753377d35390cb",
+    "executableSourceChecksum": "sha256:05f6be7ee713dcd48bc778019488df02917c6e083dce1b00b523955e8bfa9698",
+    "packCandidate": {
+      "packId": "dt-01",
+      "packVersion": "1.0.0",
+      "checksum": "sha256:2f365ee40fa0f693235aeaaf945c47b9bb12a8780b2c3f84b3a3addad2bf9583"
+    }
+  },
+  "transcriptionCorrections": [],
+  "runtimeExtensions": [],
+  "notExplicit": [
+    "NE-DT-01-DEFINITION",
+    "NE-DT-01-CRITICALITY"
+  ],
+  "governedBacklog": [],
+  "transversalCandidates": 0,
+  "engine": {
+    "current": "0.2.0",
+    "required": "0.1.0",
+    "semanticChangesCovered": []
+  },
+  "checks": [
+    {
+      "check": "RAW_REGISTRATION",
+      "status": "PASS"
+    },
+    {
+      "check": "CANDIDATE_BOUNDARY",
+      "status": "NOT_RUN"
+    },
+    {
+      "check": "STRUCTURAL",
+      "status": "PASS"
+    },
+    {
+      "check": "REFERENTIAL",
+      "status": "PASS"
+    },
+    {
+      "check": "SOURCE_TO_CANONICAL",
+      "status": "PASS"
+    },
+    {
+      "check": "PROVENANCE",
+      "status": "PASS"
+    },
+    {
+      "check": "CANONICAL_TO_PACK",
+      "status": "PASS"
+    },
+    {
+      "check": "RUNTIME_COMPATIBILITY",
+      "status": "PASS"
+    },
+    {
+      "check": "FIXTURES",
+      "status": "PASS"
+    },
+    {
+      "check": "SOURCE_SILENCE",
+      "status": "PASS"
+    },
+    {
+      "check": "CAPABILITY_BRANCHING",
+      "status": "PASS"
+    },
+    {
+      "check": "GOLDEN_REGRESSION",
+      "status": "NOT_APPLICABLE"
+    },
+    {
+      "check": "PUBLICATION_GATE",
+      "status": "REVIEW_REQUIRED"
+    }
+  ],
+  "fixtures": {
+    "count": 2,
+    "pass": 2,
+    "governedJudgment": 0,
+    "fail": 0
+  },
+  "referenceRegression": [
+    {
+      "capabilityId": "DG-01",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "DG-02",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "DG-03",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "DG-04",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "DG-05",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "OP-01",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "OP-02",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "OP-03",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "OP-04",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "OP-05",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "PC-01",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "PC-02",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "PC-03",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "PC-04",
+      "goldenStatus": "PASS"
+    },
+    {
+      "capabilityId": "PC-05",
+      "goldenStatus": "PASS"
+    }
+  ],
+  "checksum": "sha256:e2b660c34f54f2a1d3ab1cbcc301a1571b43e1ce0fe17cf98bc189229a0a6cc1"
+}

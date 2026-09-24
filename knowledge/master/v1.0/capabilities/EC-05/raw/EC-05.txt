@@ -1,0 +1,1180 @@
+# EC-05 · Gestionar dependencias externas críticas
+Esta última capacidad tiene una función especialmente importante porque cerrará el dominio EC y también conecta muchos elementos construidos anteriormente.
+Su pregunta nuclear será:
+¿Puede la organización reconocer de qué actores, recursos o servicios externos depende materialmente, comprender qué ocurriría si dejaran de estar disponibles y gestionar esa exposición hasta un nivel aceptable?
+Aquí debemos evitar un error fundamental:
+DEPENDENCY ≠ PROBLEM
+Toda pyme depende de terceros.
+La cuestión será:
+DEPENDENCY → CRITICALITY → EXPOSURE → SUBSTITUTABILITY → CONTINUITY → TREATMENT
+Y tendremos que distinguir con mucho cuidado:
+DEPENDENCE ≠ VULNERABILITY
+CONCENTRATION ≠ CRITICALITY
+SINGLE SOURCE ≠ UNACCEPTABLE RISK
+LOCK-IN ≠ DEPENDENCY
+REDUNDANCY ≠ RESILIENCE
+BACKUP ≠ RECOVERABILITY
+EXIT PLAN ≠ EXIT READINESS
+Al terminar EC-05 llegaremos por primera vez a:
+31/31 CAPABILITIES K4-VALIDATED
+6/6 DOMAINS KNOWLEDGE-COMPLETE
+Pero no declararemos todavía cerrada Fase 2. Tal como acordamos en el review, inmediatamente después cambiaremos de trabajo vertical a cierre sistémico 6×31: reconciliación transversal → consolidación del Motor → governance/provenance global → Quality Gate global → Knowledge Master implementable.
+Ok seguimos
+Perfecto. Entramos en la última capacidad de la taxonomía 6×31.
+# EC-05 · Gestionar dependencias externas críticas
+EC-02 respondió a quién seleccionar; EC-03, cómo gobernar la relación; EC-04, cómo absorber lo recibido. EC-05 responde ahora:
+¿Puede la organización reconocer de qué actores, recursos o servicios externos depende materialmente, comprender las consecuencias de su interrupción o pérdida y gestionar esa exposición hasta un nivel aceptable?
+La cadena nuclear será:
+DEPENDENCY → CRITICALITY → EXPOSURE → SUBSTITUTABILITY → CONTINUITY → RECOVERY → TREATMENT → MONITORING
+Y establecemos desde el inicio:
+DEPENDENCY ≠ PROBLEM
+DEPENDENCY ≠ VULNERABILITY
+CONCENTRATION ≠ CRITICALITY
+SINGLE SOURCE ≠ UNACCEPTABLE RISK
+LOCK-IN ≠ DEPENDENCY
+ALTERNATIVE EXISTS ≠ SUBSTITUTE READY
+REDUNDANCY ≠ RESILIENCE
+BACKUP ≠ RECOVERABILITY
+EXIT PLAN ≠ EXIT READINESS
+# Dimensionamiento orgánico
+Por ser la capacidad que cierra EC y conecta riesgo, continuidad, terceros y capacidad interna, requiere 16 bloques.
+| # | Bloque |
+| 1 | Identidad, alcance y unidad |
+| 2 | External Dependency |
+| 3 | Applicability/materiality |
+| 4 | Fronteras EC-02/03/04 y otros dominios |
+| 5 | Dependency mapping |
+| 6 | Criticality |
+| 7 | Concentration y single points |
+| 8 | Substitutability y switching |
+| 9 | Lock-in |
+| 10 | Disruption/consequence |
+| 11 | Continuity/recovery |
+| 12 | Dependency treatment |
+| 13 | Monitoring/change |
+| 14 | CE/VA + NI/rules/confidence |
+| 15 | Findings, decisiones e intervención |
+| 16 | Instrumentos, CRV, validación, governance y cierre |
+SET A = bloques 1–14
+SET B = bloques 15–16
+Desarrollamos SET A.
+# 1. Definición productiva V1
+EC-05 evalúa la capacidad de la organización para identificar dependencias externas materiales, determinar su criticidad y exposición, comprender las posibilidades y costos de sustitución o recuperación y establecer tratamientos proporcionales que permitan mantener, restaurar, sustituir, reducir o aceptar conscientemente dicha dependencia.
+La finalidad no es:
+eliminar dependencias.
+Una pyme sin dependencias externas:
+prácticamente no existe.
+La finalidad es:
+hacerlas suficientemente visibles y gobernables.
+
+# 2. Unidad de análisis
+Definimos:
+### EXTERNAL DEPENDENCY CASE — EDC
+Caso en el que la capacidad de la organización para mantener un resultado material depende de la disponibilidad, desempeño o acceso continuado a un actor, recurso, servicio o condición externa.
+Estructura:
+DEPENDENCY SOURCE + DEPENDENT OUTCOME + CRITICALITY + EXPOSURE + SUBSTITUTABILITY + CONTINUITY + TREATMENT
+El objeto no es solamente:
+proveedor.
+Puede ser:
+- plataforma;
+- marketplace;
+- cloud;
+- payment gateway;
+- logística;
+- especialista;
+- partner;
+- datos;
+- API;
+- licencia;
+- infraestructura;
+- canal;
+- proveedor;
+- conocimiento;
+- certificación;
+- acceso comercial.
+
+# 3. External Dependency
+### EXTERNAL DEPENDENCY
+Condición en la que un resultado material requiere suficientemente de un actor, recurso o condición externa cuya disponibilidad o comportamiento no está completamente bajo control de la organización.
+Esto es neutral.
+Dependencia:
+no significa problema.
+
+# 4. Dependency Source
+Una dependencia puede residir en:
+### ACTOR DEPENDENCY
+Una organización/persona externa.
+### RESOURCE DEPENDENCY
+Tecnología, conocimiento, datos o activo.
+### SERVICE DEPENDENCY
+Servicio continuado.
+### ACCESS DEPENDENCY
+Canal, marketplace, licencia, autorización.
+### ECOSYSTEM DEPENDENCY
+Infraestructura o conjunto de actores.
+Esta tipología no es exclusiva.
+Un EDC puede combinar varias.
+
+# 5. Dependent Outcome
+No evaluamos dependencia en abstracto.
+Preguntamos:
+¿qué resultado deja de producirse suficientemente si la dependencia falla?
+### P-EC05-01
+La materialidad de una dependencia debe evaluarse respecto del resultado que habilita o sostiene, no únicamente respecto del tercero del cual proviene.
+
+# 6. Applicability
+EC-05 se activa cuando existe:
+dependencia externa potencialmente material.
+No necesitamos analizar profundamente:
+cada proveedor de oficina.
+Profundidad proporcional a:
+- criticidad;
+- concentración;
+- sustitución;
+- tiempo de recuperación;
+- impacto;
+- uncertainty.
+
+# 7. Frontera EC-02
+EC-02 puede anticipar:
+potential dependency.
+EC-05 evalúa:
+dependencia existente o suficientemente probable/material.
+Una selección puede ser correcta aun creando:
+dependencia alta.
+Eso no significa que EC-02 haya fallado.
+
+# 8. Frontera EC-03
+EC-03:
+gobernanza de la relación.
+EC-05:
+exposición creada por necesitar esa relación/recurso.
+Podemos tener:
+GOOD RELATIONSHIP GOVERNANCE + CRITICAL DEPENDENCY
+
+# 9. Frontera EC-04
+EC-04 puede reducir dependencia mediante:
+absorción.
+Pero no toda dependencia debe reducirse.
+Puede ser económicamente racional:
+mantener expertise externo.
+EC-05 decide:
+si la exposición requiere tratamiento.
+
+# 10. Frontera DT-05
+Ésta es crítica.
+DT-05:
+proteger información, sistemas y continuidad.
+EC-05:
+dependencia respecto de actores/recursos externos.
+Ejemplo:
+cloud outage.
+DT-05 puede evaluar:
+continuidad tecnológica.
+EC-05:
+dependencia del proveedor/plataforma y sustitución.
+Misma evidencia.
+Distintas conclusiones.
+
+# 11. Frontera DG-05
+DG-05 gobierna:
+riesgos y dependencias de la transformación.
+EC-05 profundiza específicamente:
+dependencias externas operativas/capacitivas del ecosistema.
+DG-05 puede consumir findings EC-05 para priorización y oversight.
+
+# 12. Dependency Mapping
+Definimos:
+### EXTERNAL DEPENDENCY MAP
+Representación suficiente de las dependencias externas que sostienen resultados materiales.
+Cadena:
+OUTCOME → INTERNAL CAPABILITY/PROCESS → EXTERNAL RESOURCE/ACTOR
+Ejemplo:
+venta ecommerce → checkout → payment gateway → external provider.
+No basta inventario de proveedores.
+### P-EC05-02
+Supplier inventory no constituye por sí solo Dependency Map porque no muestra qué resultado depende de cada elemento.
+
+# 13. Hidden dependency
+Puede existir dependencia:
+no reconocida formalmente.
+Ejemplos:
+- API embebida;
+- empleado usa cuenta personal;
+- freelancer único;
+- plugin;
+- marketplace;
+- hoja de cálculo mantenida por tercero.
+Definimos:
+### HIDDEN EXTERNAL DEPENDENCY
+dependencia material que no es suficientemente visible en la representación organizacional de procesos, sistemas, relaciones o riesgos.
+
+# 14. Nested dependency
+Proveedor A puede depender de:
+B.
+La pyme quizá no tenga relación con B.
+### NTH-PARTY DEPENDENCY
+dependencia indirecta material transmitida a través de un tercero.
+No exigiremos mapear toda la cadena global.
+### P-EC05-03
+Las dependencias indirectas deben investigarse hasta la profundidad proporcional a su posible consecuencia y a la información razonablemente disponible.
+
+# 15. Criticality
+### DEPENDENCY CRITICALITY
+Importancia del resultado afectado y severidad potencial de perder suficientemente la dependencia durante el horizonte relevante.
+Criticality ≠ probability.
+Algo puede ser:
+improbable pero crítico.
+
+# 16. Exposure
+### EXTERNAL DEPENDENCY EXPOSURE
+Grado en que la organización queda expuesta a consecuencias materiales dadas la dependencia, su probabilidad/uncertainty, duración, sustituibilidad y capacidad de respuesta.
+No construiremos un score universal obligatorio.
+
+# 17. Dependency ≠ vulnerability
+Definimos:
+### DEPENDENCY VULNERABILITY
+Condición en la que una dependencia material presenta capacidad insuficiente de prevención, sustitución, continuidad o recuperación frente a escenarios relevantes.
+Por tanto:
+dependency puede ser alta.
+Pero vulnerability:
+baja.
+Ejemplo:
+servicio crítico con sustitución rápida y probado recovery.
+
+# 18. Concentration
+### DEPENDENCY CONCENTRATION
+Grado en que uno o pocos actores/recursos sostienen una proporción material de un resultado o conjunto de resultados.
+Concentración:
+es señal.
+No conclusión.
+
+# 19. Single Source
+Single source puede ser:
+- inevitable;
+- deliberado;
+- eficiente;
+- temporal;
+- riesgoso.
+### P-EC05-04
+La existencia de una única fuente no debe convertirse automáticamente en finding negativo; su consecuencia depende de criticidad, sustituibilidad, continuidad y treatment.
+
+# 20. Redundancy
+Agregar segundo proveedor:
+no siempre reduce riesgo.
+Puede aumentar:
+- costo;
+- complejidad;
+- inconsistencias;
+- coordinación.
+### P-EC05-05
+Redundancy debe justificarse por reducción material de exposición y no por el número de proveedores.
+
+# 21. Substitutability
+### SUBSTITUTABILITY
+Capacidad práctica de reemplazar suficientemente una dependencia por otra alternativa dentro de condiciones aceptables de tiempo, costo, calidad y riesgo.
+Alternative exists:
+no significa substitutable.
+
+# 22. Substitute readiness
+Definimos:
+### SUBSTITUTE READINESS
+Grado en que una alternativa potencial puede realmente asumir la función requerida dentro del tiempo y condiciones necesarias.
+Puede existir:
+proveedor alternativo.
+Pero requerir:
+seis meses de migración.
+
+# 23. Switching Cost
+No es solo dinero.
+Puede incluir:
+- tiempo;
+- migración;
+- datos;
+- conocimiento;
+- integración;
+- retraining;
+- downtime;
+- contratos;
+- customer impact;
+- regulatory requirements.
+### TOTAL SWITCHING BURDEN
+conjunto material de costos, esfuerzos, tiempos y riesgos asociados con sustituir la dependencia.
+
+# 24. Lock-in
+### LOCK-IN
+Condición en la que restricciones técnicas, contractuales, económicas, informacionales, operativas o de conocimiento reducen materialmente la capacidad práctica de cambiar de alternativa.
+Lock-in:
+no equivale a dependencia.
+Puede existir dependencia sin lock-in.
+
+# 25. Tipos de lock-in
+- CONTRACTUAL
+- TECHNOLOGICAL
+- DATA
+- KNOWLEDGE
+- PROCESS
+- ECONOMIC
+- ECOSYSTEM
+No necesitamos activar todos.
+
+# 26. Portability
+Especialmente relevante para tecnología/datos.
+### PORTABILITY
+Capacidad de trasladar suficientemente activos, datos, configuraciones, conocimiento o procesos necesarios hacia otra configuración.
+Portability ≠ migration readiness.
+
+# 27. Exit Plan ≠ Exit Readiness
+Un PDF puede decir:
+“migrar a otro proveedor”.
+Pero nadie ha probado:
+- datos;
+- credenciales;
+- tiempos;
+- costos;
+- alternativa.
+### EXIT READINESS
+Capacidad suficientemente demostrable de ejecutar una salida o transición cuando resulte necesaria.
+
+# 28. Disruption
+### DEPENDENCY DISRUPTION
+Pérdida o degradación material de disponibilidad, desempeño o acceso a una dependencia externa.
+Puede ser:
+- total;
+- parcial;
+- temporal;
+- prolongada.
+
+# 29. Consequence
+No preguntamos solamente:
+“¿qué probabilidad tiene?”
+Preguntamos:
+“¿qué pasa si ocurre?”
+Consecuencias:
+- operación;
+- clientes;
+- ingresos;
+- datos;
+- cumplimiento;
+- reputación;
+- continuidad;
+- conocimiento.
+
+# 30. Tolerance
+Definimos:
+### DEPENDENCY TOLERANCE
+Nivel y duración de degradación o interrupción que puede soportarse antes de que el resultado dependiente sufra consecuencia material inaceptable.
+Puede derivarse hacia DT-05.
+
+# 31. Continuity
+### EXTERNAL DEPENDENCY CONTINUITY
+Capacidad de mantener suficientemente el resultado dependiente durante una alteración de la dependencia externa.
+No necesariamente:
+mantener al proveedor.
+Puede ser:
+workaround temporal.
+
+# 32. Backup ≠ continuity
+Tener backup:
+es recurso.
+No demuestra:
+continuidad.
+### P-EC05-06
+La existencia de backup o alternativa no constituye evidencia suficiente de continuidad sin evidencia proporcional de que puede utilizarse dentro de la tolerancia requerida.
+
+# 33. Recovery
+### DEPENDENCY RECOVERY
+Capacidad de restaurar suficientemente el resultado dependiente después de una disrupción.
+Puede ocurrir mediante:
+- restauración del tercero;
+- workaround;
+- sustitución;
+- internalización temporal;
+- migración.
+
+# 34. Recoverability
+La existencia de un mecanismo de recovery debe distinguirse de evidencia de que ese mecanismo funciona.
+Esto conecta con DT-05.
+
+# 35. Dependency Treatment
+No toda dependencia se reduce.
+Definimos tratamientos:
+### ACCEPT
+Aceptar conscientemente.
+### MONITOR
+Observar cambios relevantes.
+### REDUCE
+Disminuir exposición.
+### DIVERSIFY
+Distribuir dependencia.
+### SUBSTITUTE
+Cambiar dependencia.
+### INTERNALIZE
+Absorber parte de capacidad.
+### BUFFER
+Crear reserva/capacidad temporal.
+### CONTINGENCY
+Preparar respuesta.
+### TRANSFER
+Trasladar parte del riesgo cuando sea posible.
+### EXIT
+Eliminar relación/dependencia.
+No son maturity levels.
+
+# 36. Acceptance
+Aceptar dependencia puede ser:
+buena decisión.
+### P-EC05-07
+Una dependencia crítica puede aceptarse cuando la exposición residual es comprendida, el tratamiento adicional no resulta proporcional y la decisión posee accountability suficiente.
+
+# 37. Treatment proportionality
+### INT-EC05-01 · MINIMUM SUFFICIENT DEPENDENCY TREATMENT
+Aplicar el tratamiento mínimo suficiente para mantener la exposición residual dentro de condiciones aceptables respecto del resultado dependiente.
+No buscamos:
+zero risk.
+
+# 38. Residual Exposure
+### RESIDUAL DEPENDENCY EXPOSURE
+exposición restante después de tratamientos aplicados.
+Es importante porque:
+tratamiento ≠ eliminación.
+
+# 39. Monitoring
+Dependencias cambian.
+Triggers:
+- deterioro proveedor;
+- cambio de precio;
+- acquisition;
+- tecnología obsoleta;
+- nueva regulación;
+- cambios contractuales;
+- reducción de alternativas;
+- aumento de switching cost;
+- crecimiento de volumen;
+- nueva criticidad.
+### P-EC05-08
+Dependency State debe considerarse dinámico y reevaluarse cuando cambien condiciones que afectan criticidad, exposición o sustituibilidad.
+
+# 40. Early-warning indicators
+No siempre KPI.
+Pueden ser señales:
+- incidents;
+- delays;
+- support deterioration;
+- price changes;
+- roadmap changes;
+- staff turnover;
+- financial concerns;
+- API changes;
+- contract changes.
+Se requiere:
+señal proporcional.
+
+# 41. Condiciones evaluables
+EC-05 requiere 11 CE / 26 VA.
+## CE01 · Dependency identity
+VA01 fuente de dependencia identificada
+VA02 outcome dependiente identificado
+## CE02 · Dependency mapping
+VA03 relación dependencia→resultado suficientemente visible
+VA04 dependencias indirectas materiales consideradas cuando aplica
+## CE03 · Criticality
+VA05 consecuencia suficientemente comprendida
+VA06 tolerancia suficientemente comprendida
+## CE04 · Concentration
+VA07 concentración material visible
+VA08 single points suficientemente identificados
+## CE05 · Substitutability
+VA09 alternativas plausibles suficientemente conocidas
+VA10 substitute readiness suficientemente comprendida
+VA11 switching burden suficientemente comprendido
+## CE06 · Lock-in/portability
+VA12 lock-in material visible
+VA13 portability suficientemente comprendida
+VA14 exit readiness proporcionalmente evaluada
+## CE07 · Continuity
+VA15 escenarios materiales de disrupción considerados
+VA16 mecanismos de continuidad suficientes
+VA17 continuidad proporcionalmente evidenciada
+## CE08 · Recovery
+VA18 recovery path suficientemente definido
+VA19 recoverability proporcionalmente evidenciada
+## CE09 · Treatment
+VA20 tratamiento explícito
+VA21 tratamiento proporcional a exposición
+VA22 residual exposure suficientemente comprendida
+## CE10 · Accountability
+VA23 ownership de dependencia suficientemente claro
+VA24 aceptación de exposición material posee autoridad suficiente
+## CE11 · Monitoring/adaptation
+VA25 señales de cambio material suficientemente observables
+VA26 tratamiento puede revisarse cuando cambia la exposición
+
+# 42. Information Needs
+Resultan 26 NI.
+Pregunta nuclear:
+¿De qué actor, recurso o servicio externo depende un resultado material, qué ocurriría si se degrada o desaparece, cuánto podemos tolerarlo, qué tan viable es sustituirlo o recuperarnos y qué tratamiento resulta proporcional?
+
+# 43. Captura P1
+Preguntas naturales:
+“¿Qué proveedores, plataformas o personas externas serían realmente difíciles de perder mañana?”
+“¿Qué dejaría de funcionar?”
+“¿Durante cuánto tiempo podrían operar sin ellos?”
+“¿Existe una alternativa real?”
+“¿Cuánto tardaría cambiar?”
+“¿Qué información o conocimiento necesitarían para hacerlo?”
+“¿Han probado alguna vez esa alternativa?”
+“¿Quién decide cuánto riesgo están dispuestos a aceptar?”
+
+# 44. P2 · Triggers
+Profundizamos ante:
+- único proveedor;
+- marketplace dominante;
+- freelancer crítico;
+- plataforma propietaria;
+- datos no exportables;
+- API crítica;
+- contrato largo;
+- auto-renewal;
+- costos altos de migración;
+- ausencia de documentación;
+- conocimiento externo concentrado;
+- infraestructura crítica;
+- payment provider único;
+- proveedor financieramente débil;
+- alta dependencia geográfica;
+- alternativa nunca probada;
+- backup no probado;
+- continuidad asumida;
+- credenciales controladas externamente;
+- licencia crítica;
+- soporte discontinuable.
+
+# 45. P3 · Discriminación
+SELECTION PROBLEM → EC-02
+RELATIONSHIP GOVERNANCE → EC-03
+ABSORPTION/KNOWLEDGE → EC-04
+DEPENDENCY EXPOSURE → EC-05
+CYBER/TECH CONTINUITY → DT-05
+TECH FIT → DT-01/06
+TRANSFORMATION RISK GOVERNANCE → DG-05
+INTERNAL KNOWLEDGE CONCENTRATION → PC-04
+
+# 46. Contradicciones
+CONTR-EC05-01
+CRITICAL_DEPENDENCY_vs_NO_CONTINUITY_PLAN
+CONTR-EC05-02
+ALTERNATIVE_EXISTS_vs_HIGH_SWITCHING_BURDEN
+CONTR-EC05-03
+BACKUP_EXISTS_vs_NEVER_TESTED
+CONTR-EC05-04
+EXIT_PLAN_EXISTS_vs_LOW_EXIT_READINESS
+CONTR-EC05-05
+LOW_PROVIDER_COUNT_vs_LOW_ACTUAL_CONCENTRATION
+CONTR-EC05-06
+MULTIPLE_PROVIDERS_vs_SHARED_UPSTREAM_DEPENDENCY
+CONTR-EC05-07
+HIGH_DEPENDENCY_vs_HIGH_RECOVERABILITY
+CONTR-EC05-08
+DEPENDENCY_ACCEPTED_vs_NO_ACCOUNTABLE_DECISION
+CONTR-EC05-09
+PORTABILITY_CLAIM_vs_UNTESTED_EXPORT_MIGRATION
+
+# 47. Evidencia
+Puede incluir:
+- supplier/service inventory;
+- architecture maps;
+- contracts;
+- dependency maps;
+- invoices;
+- integrations;
+- API documentation;
+- data exports;
+- continuity plans;
+- migration tests;
+- recovery tests;
+- alternate providers;
+- credentials;
+- incident history;
+- SLA;
+- switching estimates;
+- portability evidence;
+- knowledge maps;
+- financial/operational evidence.
+Nuevamente:
+documento ≠ capability.
+
+# 48. Evidencia de sustituibilidad
+Definimos una escalera útil:
+### SUB-0 · ASSUMED
+“Seguro existe otro proveedor.”
+### SUB-1 · IDENTIFIED
+Alternativa identificada.
+### SUB-2 · ASSESSED
+Fit y switching evaluados.
+### SUB-3 · PREPARED
+Condiciones principales preparadas.
+### SUB-4 · TESTED
+Transición/sustitución parcial o completamente probada.
+No toda dependencia necesita SUB-4.
+### CAND-MOTOR-EC05-01
+Substitute Readiness y existencia de alternativa deben permanecer separados.
+
+# 49. Continuity evidence
+Similarmente:
+### CONT-0 · ASSUMED
+### CONT-1 · DOCUMENTED
+### CONT-2 · FEASIBLE
+### CONT-3 · TESTED
+### CONT-4 · DEMONSTRATED
+No lo tratamos como maturity score.
+Es:
+evidence strength.
+
+# 50. Suficiencia
+### SUFF-EC05-01
+EC-05 alcanza suficiencia cuando las dependencias externas capaces de afectar resultados materiales están suficientemente identificadas, su criticidad y exposición pueden razonarse con evidencia proporcional, sustituibilidad/continuidad/recovery son comprendidos hasta la profundidad necesaria y existe tratamiento explícito con accountability suficiente para la exposición residual.
+
+# 51. Confidence
+Distinguimos:
+### DEPENDENCY CONFIDENCE
+¿Sabemos de qué dependemos?
+### CRITICALITY CONFIDENCE
+¿Entendemos consecuencias?
+### SUBSTITUTABILITY CONFIDENCE
+¿Sabemos si realmente podemos cambiar?
+### CONTINUITY CONFIDENCE
+¿Sabemos si podemos continuar?
+### RECOVERY CONFIDENCE
+¿Sabemos si podemos restaurar?
+### RESIDUAL EXPOSURE CONFIDENCE
+¿Entendemos qué riesgo permanece?
+### CAND-MOTOR-EC05-02
+Documented contingency no debe transferir automáticamente confidence a tested continuity/recovery.
+
+# 52. Reglas diagnósticas
+Resultan 26 reglas primarias:
+R-EC05-01 · EXTERNAL_DEPENDENCY_IDENTITY_GAP
+R-EC05-02 · DEPENDENT_OUTCOME_GAP
+R-EC05-03 · EXTERNAL_DEPENDENCY_MAP_GAP
+R-EC05-04 · MATERIAL_NTH_PARTY_DEPENDENCY_GAP
+R-EC05-05 · EXTERNAL_DEPENDENCY_CONSEQUENCE_GAP
+R-EC05-06 · EXTERNAL_DEPENDENCY_TOLERANCE_GAP
+R-EC05-07 · EXTERNAL_DEPENDENCY_CONCENTRATION_GAP
+R-EC05-08 · EXTERNAL_SINGLE_POINT_GAP
+R-EC05-09 · EXTERNAL_SUBSTITUTE_VISIBILITY_GAP
+R-EC05-10 · EXTERNAL_SUBSTITUTE_READINESS_GAP
+R-EC05-11 · EXTERNAL_SWITCHING_BURDEN_GAP
+R-EC05-12 · EXTERNAL_LOCK_IN_VISIBILITY_GAP
+R-EC05-13 · EXTERNAL_PORTABILITY_GAP
+R-EC05-14 · EXTERNAL_EXIT_READINESS_GAP
+R-EC05-15 · EXTERNAL_DISRUPTION_SCENARIO_GAP
+R-EC05-16 · EXTERNAL_CONTINUITY_MECHANISM_GAP
+R-EC05-17 · EXTERNAL_CONTINUITY_EVIDENCE_GAP
+R-EC05-18 · EXTERNAL_RECOVERY_PATH_GAP
+R-EC05-19 · EXTERNAL_RECOVERABILITY_EVIDENCE_GAP
+R-EC05-20 · EXTERNAL_DEPENDENCY_TREATMENT_GAP
+R-EC05-21 · EXTERNAL_DEPENDENCY_TREATMENT_PROPORTIONALITY_GAP
+R-EC05-22 · RESIDUAL_DEPENDENCY_EXPOSURE_GAP
+R-EC05-23 · EXTERNAL_DEPENDENCY_OWNER_GAP
+R-EC05-24 · EXTERNAL_DEPENDENCY_ACCEPTANCE_AUTHORITY_GAP
+R-EC05-25 · EXTERNAL_DEPENDENCY_MONITORING_GAP
+R-EC05-26 · EXTERNAL_DEPENDENCY_ADAPTATION_GAP
+
+# 53. Estados positivos
+Resultan 9:
+### DEPENDENCY_VISIBLE
+### DEPENDENT_OUTCOME_CLEAR
+### CRITICALITY_UNDERSTOOD
+### CONCENTRATION_VISIBLE
+### SUBSTITUTABILITY_UNDERSTOOD
+### CONTINUITY_PREPARED
+### RECOVERY_PREPARED
+### DEPENDENCY_TREATED
+### RESIDUAL_EXPOSURE_ACCEPTED
+La última requiere:
+autoridad suficiente.
+
+# 54. Guardrails
+- No tratar toda dependencia como problema.
+- No buscar independencia total.
+- No tratar single source como fallo automático.
+- No contar proveedores como resiliencia.
+- No asumir diversificación = menor riesgo.
+- No asumir alternativa = substitute ready.
+- No asumir backup = continuity.
+- No asumir plan = readiness.
+- No asumir documentación = recoverability.
+- No asumir redundancia = resilience.
+- No exigir dual sourcing universal.
+- No exigir exit plan formal para toda dependencia.
+- No confundir criticality con probability.
+- No confundir dependency con vulnerability.
+- No confundir concentration con criticality.
+- No confundir lock-in con dependency.
+- No confundir portability con migration readiness.
+- No ignorar switching time.
+- No ignorar switching cost.
+- No ignorar knowledge switching burden.
+- No ignorar indirect dependencies cuando sean materiales.
+- No intentar mapear infinitamente Nth parties.
+- No asumir proveedor grande = seguro.
+- No asumir proveedor pequeño = riesgoso.
+- No atribuir riesgo solo al tercero.
+- No exigir eliminación de residual exposure.
+- No penalizar aceptación consciente.
+- No aceptar exposición material sin accountability.
+- No confundir incident history baja con bajo riesgo.
+- No confundir SLA con continuity.
+- No duplicar DT-05.
+- No duplicar DG-05.
+- No recomendar internalización automáticamente.
+- No recomendar diversificación sin valorar complejidad.
+- No imponer arquitectura enterprise a pyme.
+- No cerrar finding solo porque existe una política.
+- No asumir recovery sin evidencia proporcional.
+- No tratar dependencia histórica como estado actual permanente.
+
+# 55. IA y nuevas dependencias
+EC-05 adquiere especial importancia con IA.
+Una pyme puede depender de:
+- modelo;
+- proveedor;
+- API;
+- embeddings;
+- agent platform;
+- proprietary workflow;
+- prompts/configuration;
+- external knowledge source.
+### CAND-MOTOR-AI-EC05-01
+El uso material de IA debe poder generar External Dependency Cases cuando continuidad del resultado dependa de servicios, modelos o infraestructura externos.
+### CAND-MOTOR-AI-EC05-02
+Model substitutability no debe inferirse únicamente porque exista otro modelo técnicamente disponible; debe considerar comportamiento, integración, datos, configuración, costo y revalidación.
+### CAND-MOTOR-AI-EC05-03
+La portabilidad de prompts o workflows no demuestra por sí sola portabilidad funcional entre modelos/proveedores.
+### CAND-MOTOR-AI-EC05-04
+Una capacidad aumentada por IA puede ser internamente gobernable y simultáneamente crear una dependencia externa crítica.
+Esto conecta directamente con los candidatos surgidos en EC-04.
+
+# Control EC-05 · SET A
+| Objeto | Resultado |
+| Dimensionamiento | 16 bloques |
+| SET A | 1–14 |
+| CE | 11 |
+| VA | 26 |
+| NI | 26 |
+| Reglas | 26 |
+| Estados positivos | 9 |
+| Guardrails | 38 |
+| Unidad nuclear | External Dependency Case |
+| Substitute evidence | SUB-0:4 |
+| Continuity evidence | CONT-0:4 |
+La arquitectura queda:
+External Dependency → Dependent Outcome → Criticality → Concentration → Substitutability → Switching Burden → Lock-in/Portability → Disruption → Tolerance → Continuity → Recovery → Treatment → Residual Exposure → Monitoring
+Y queda establecida una distinción especialmente importante para todo Pymapa:
+La existencia de una dependencia externa no constituye por sí misma debilidad empresarial. La debilidad aparece cuando una dependencia material no es suficientemente comprendida o su exposición excede lo que la organización puede aceptar, sustituir, continuar o recuperar de manera razonable.
+EC05-SET-A-v0.1 · BLOCKS 1–14 OF 16 COMPLETE · READY-FOR-SET-B
+El próximo paso es ya el último SET de ingeniería vertical de las 31 capacidades: EC-05 · SET B · bloques 15–16. Allí cerraremos findings, decisiones, intervenciones, instrumentos, entregables, Done Criteria, CRV, V0–V4, follow-up y governance; ejecutaremos A–V + DoD + K1–K4 y, si supera los gates, alcanzaremos formalmente 31/31 capacidades y 6/6 dominios Knowledge-Complete. Después pasamos directamente al cierre sistémico transversal 6×31.
+SEguimos
+Seguimos con EC-05 · SET B, bloques 15–16. Este es el último SET de ingeniería vertical de la taxonomía 6×31.
+Antes del cierre hice además la comprobación externa proporcional que habíamos acordado. El diseño de EC-05 es consistente con tres referencias relevantes: NIST SP 800-161 Rev.1 Update 1 aborda identificación, evaluación y mitigación del riesgo de cadena de suministro; ISO 22301:2019 mantiene como núcleo continuidad y recuperación frente a disrupciones —aunque ya está en proceso formal de revisión—; e ISO 44001:2017 continúa vigente para gestión de relaciones colaborativas, también con una segunda edición en desarrollo. Esto respalda especialmente la separación que Pymapa hace entre gestión de la relación, dependencia, continuidad y recuperación. NIST
+# EC-05 · Gestionar dependencias externas críticas
+## SET B · Bloques 15–16
+Entrada: EC05-SET-A-v0.1 · BLOCKS 1–14 OF 16 COMPLETE
+# 15. Findings, decisiones e intervención
+Las 26 reglas se consolidan en 10 familias de hallazgo.
+| ID | Familia | Núcleo diagnóstico |
+| HF-EC05-01 | Dependencia insuficientemente visible | Un resultado material depende externamente sin representación suficiente |
+| HF-EC05-02 | Criticality/tolerance insuficientemente comprendidas | No se conoce suficientemente qué ocurriría ni cuánto puede tolerarse |
+| HF-EC05-03 | Concentración/single point insuficientemente comprendidos | Existe concentración material sin suficiente comprensión de sus consecuencias |
+| HF-EC05-04 | Sustituibilidad sobreestimada | Se presume que existen alternativas sin suficiente evidencia de capacidad real de sustitución |
+| HF-EC05-05 | Switching burden insuficientemente comprendido | Tiempo, costo, conocimiento, migración u otras barreras están subestimados |
+| HF-EC05-06 | Lock-in/portability/exit insuficientemente gobernados | Restricciones de salida reducen materialmente opciones futuras |
+| HF-EC05-07 | Continuidad insuficiente | No existe capacidad suficientemente evidenciada para mantener el resultado durante disrupción |
+| HF-EC05-08 | Recoverability insuficiente | Restauración o sustitución no puede ejecutarse con confianza suficiente |
+| HF-EC05-09 | Treatment/residual exposure insuficientes | Dependencia material carece de tratamiento proporcional o aceptación accountable |
+| HF-EC05-10 | Dependencia insuficientemente adaptativa | Cambios relevantes no actualizan exposición o tratamiento |
+## Finding estructurado
+No:
+“Dependemos demasiado de Shopify.”
+Sí:
+“El canal ecommerce concentra una proporción material de ventas en una plataforma externa; existe capacidad de exportación de datos, pero no se ha evaluado el tiempo ni las condiciones necesarias para restablecer checkout, catálogo e integraciones en una alternativa, por lo que la sustituibilidad permanece incierta.”
+Estructura:
+DEPENDENCY + DEPENDENT OUTCOME + OBSERVED CONDITION + EXPOSURE + UNCERTAINTY/CONSEQUENCE
+### FIND-EC05-01
+Los findings deben expresar por qué una dependencia crea exposición material; la existencia de dependencia por sí sola no constituye finding negativo.
+
+# Dependency State
+Necesitamos un objeto sintético sin convertirlo en score.
+Definimos:
+### MANAGED
+Exposición suficientemente comprendida y tratada.
+### ACCEPTED
+Exposición comprendida y conscientemente aceptada.
+### TREATMENT-REQUIRED
+Exposición supera condiciones aceptables o presenta brechas materiales.
+### MORE-EVIDENCE-REQUIRED
+No existe confianza suficiente para decidir.
+### TRANSITION
+Existe decisión de cambiar configuración/dependencia.
+### EXIT
+Existe decisión de eliminarla.
+### CAND-MOTOR-EC05-03
+Dependency State debe expresar estado decisional y no un maturity score.
+
+# Decision vocabulary
+Resultan 17 direcciones:
+MAP
+Hacer visible dependencia.
+ASSESS_CRITICALITY
+Comprender consecuencia/tolerancia.
+INVESTIGATE
+Obtener evidencia adicional.
+MONITOR
+Observar señales materiales.
+ACCEPT
+Aceptar exposición conscientemente.
+REDUCE
+Reducir exposición.
+DIVERSIFY
+Distribuir dependencia cuando aporte resiliencia.
+PREPARE_SUBSTITUTE
+Aumentar Substitute Readiness.
+REDUCE_SWITCHING_BURDEN
+Disminuir barreras de cambio.
+IMPROVE_PORTABILITY
+Aumentar capacidad de traslado.
+REDUCE_LOCK_IN
+Disminuir restricciones evitables.
+BUFFER
+Crear capacidad temporal.
+PREPARE_CONTINUITY
+Preparar continuidad.
+TEST_RECOVERY
+Validar recovery.
+INTERNALIZE
+Absorber selectivamente capacidad.
+TRANSITION
+Cambiar configuración.
+EXIT
+Eliminar dependencia.
+Y mantenemos NO_ACTION como estado transversal cuando no existe intervención material requerida.
+
+# Diversify ≠ default
+No convertimos:
+“tener dos proveedores”
+en receta.
+### P-EC05-09
+Diversificación solo debe recomendarse cuando reduzca materialmente la exposición neta después de considerar costo, complejidad, coordinación y dependencias compartidas.
+
+# Internalize ≠ default
+Tampoco:
+“hagámoslo nosotros”.
+Internalizar puede aumentar:
+- costo;
+- complejidad;
+- riesgo;
+- skill gap.
+### P-EC05-10
+Internalización constituye una opción de tratamiento y no un estado inherentemente superior a dependencia externa bien gobernada.
+
+# Patrones de intervención
+Resultan 10.
+| ID | Patrón | Propósito |
+| IP-EC05-01 | Map Critical Dependencies | Hacer visibles dependencias materiales |
+| IP-EC05-02 | Assess Criticality & Tolerance | Comprender consecuencia y tolerancia |
+| IP-EC05-03 | Assess Concentration | Identificar concentración/single points |
+| IP-EC05-04 | Validate Substitutability | Diferenciar alternativa teórica de sustitución practicable |
+| IP-EC05-05 | Reduce Switching Burden | Reducir barreras materiales de cambio |
+| IP-EC05-06 | Improve Portability & Exit Readiness | Facilitar transición futura |
+| IP-EC05-07 | Strengthen Dependency Continuity | Mantener outcome durante disrupción |
+| IP-EC05-08 | Validate Recovery | Comprobar restauración/sustitución |
+| IP-EC05-09 | Treat Residual Exposure | Reducir, aceptar, transferir o reconfigurar exposición |
+| IP-EC05-10 | Monitor Dependency Change | Detectar variaciones que alteran exposición |
+
+# 16. Instrumentos, resultados y cierre
+## Instrumentos
+Resultan 10.
+### INS-EC05-01 · External Dependency Case Card
+dependency → dependent outcome → criticality → exposure → treatment.
+### INS-EC05-02 · External Dependency Map
+outcome → internal capability/process → external dependency.
+### INS-EC05-03 · Dependency Criticality & Tolerance Card
+disruption → consequence → tolerance → materiality.
+### INS-EC05-04 · Concentration & Single-Point Map
+outcome → sources → concentration → common dependencies.
+### INS-EC05-05 · Substitutability Assessment
+alternative → fit → readiness → time → constraints.
+### INS-EC05-06 · Switching Burden Card
+cost → time → data → technology → knowledge → operations → customer impact.
+### INS-EC05-07 · Lock-in, Portability & Exit Card
+restriction → portable asset → migration condition → exit readiness.
+### INS-EC05-08 · Dependency Continuity Scenario
+disruption → tolerance → workaround → capacity → evidence.
+### INS-EC05-09 · Recovery Validation Card
+recovery path → assumptions → test → result → confidence.
+### INS-EC05-10 · Dependency Treatment Record
+exposure → treatment → owner → residual exposure → acceptance → review trigger.
+Registramos:
+CAND-INSTRUMENT-TRANSVERSAL-15 · EXTERNAL-DEPENDENCY-CASE-CARD
+y:
+CAND-INSTRUMENT-TRANSVERSAL-16 · DEPENDENCY-TREATMENT-RECORD
+
+# Entregables
+DEL-EC05-01 · mapa de dependencias materiales
+DEL-EC05-02 · dependent outcomes identificados
+DEL-EC05-03 · criticality/tolerance suficientemente comprendidas
+DEL-EC05-04 · concentración y single points visibles
+DEL-EC05-05 · sustituibilidad y switching burden evaluados
+DEL-EC05-06 · lock-in/portability/exit suficientemente comprendidos
+DEL-EC05-07 · mecanismos de continuidad proporcionales
+DEL-EC05-08 · recovery suficientemente preparado/evidenciado
+DEL-EC05-09 · tratamiento y residual exposure explícitos
+DEL-EC05-10 · ownership, acceptance y monitoring establecidos
+
+# Done Criteria
+EC-05 requiere 9.
+### DC-A · Visibility Done
+Dependencias capaces de afectar outcomes materiales están suficientemente visibles.
+### DC-B · Criticality Done
+Consecuencia y tolerancia están suficientemente comprendidas.
+### DC-C · Concentration Done
+Concentraciones/single points materiales están identificados.
+### DC-D · Substitutability Done
+Alternativas y capacidad práctica de sustitución están suficientemente comprendidas.
+### DC-E · Switching Done
+Barreras materiales de cambio/portabilidad/salida están suficientemente visibles.
+### DC-F · Continuity Done
+Existe tratamiento proporcional para mantener outcomes durante escenarios relevantes.
+### DC-G · Recovery Done
+Recovery path posee evidencia proporcional a criticidad.
+### DC-H · Treatment Done
+Existe tratamiento explícito y residual exposure suficientemente comprendida.
+### DC-I · Accountability Done
+Dependencia posee owner y aceptación material cuenta con autoridad suficiente.
+
+# CRV
+Resultan 10 Criterios de Resultado Verificable.
+| ID | Resultado verificable |
+| CRV-EC05-01 | Dependencias materiales intervenidas están vinculadas a outcomes concretos |
+| CRV-EC05-02 | Escenarios críticos poseen consecuencia y tolerancia suficientemente explícitas |
+| CRV-EC05-03 | Concentraciones y single points materiales pueden identificarse desde el Dependency Map |
+| CRV-EC05-04 | Alternativas consideradas tienen evidencia suficiente de sustituibilidad respecto del caso |
+| CRV-EC05-05 | Switching burden material puede reconstruirse y actualizarse |
+| CRV-EC05-06 | Activos/condiciones críticas de portabilidad y salida están suficientemente disponibles |
+| CRV-EC05-07 | Mecanismos de continuidad pueden operar dentro de tolerancias definidas cuando sean requeridos |
+| CRV-EC05-08 | Recovery crítico ha sido evidenciado con profundidad proporcional |
+| CRV-EC05-09 | Cada exposición material posee tratamiento explícito o aceptación accountable |
+| CRV-EC05-10 | Cambios materiales de dependencia activan revisión de exposición/tratamiento |
+
+# Validación V0–V4
+### V0 · UNKNOWN
+No existe evidencia suficiente sobre dependencia/exposición.
+### V1 · DEPENDENCY-DEFINED
+Dependencia, dependent outcome y criticality están suficientemente identificados.
+### V2 · EXPOSURE-EVIDENCED
+Existe evidencia proporcional sobre concentración, sustituibilidad, switching, continuidad y/o recovery relevantes.
+### V3 · DEPENDENCY-MANAGED
+Existe tratamiento proporcional y residual exposure suficientemente comprendida y accountable.
+### V4 · DEPENDENCY-RESILIENT/ADAPTIVE
+Tratamientos críticos han sido suficientemente validados y la organización puede detectar cambios, adaptar su respuesta y mantener/restaurar outcomes dentro de condiciones aceptables.
+
+# V4 ≠ zero dependency
+Fundamental:
+V4 no significa independencia.
+Puede existir:
+alta dependencia + alta criticidad + excelente tratamiento + V4.
+### CAND-MOTOR-EC05-04
+Dependency Validation State no debe disminuir automáticamente por intensidad de dependencia si la exposición está suficientemente tratada.
+
+# Follow-up y reassessment
+Triggers:
+- cambio de actor;
+- adquisición/fusión;
+- deterioro financiero;
+- nuevo contrato;
+- cambio de precio;
+- cambio de SLA;
+- cambio de API;
+- nueva tecnología;
+- nueva regulación;
+- cambio de volumen;
+- incremento de outcome criticality;
+- salida de conocimiento clave;
+- nuevo lock-in;
+- reducción de alternativas;
+- incidente;
+- recovery failure;
+- nueva dependencia upstream;
+- renovación;
+- cambio en datos/portabilidad.
+### REASS-EC05-01
+Todo cambio material que afecte dependent outcome, criticality, substitutability, switching burden, continuity o recovery debe poder activar reevaluación parcial del EDC.
+
+# Dependency contagion
+Introducimos un candidato transversal importante.
+Una dependencia puede afectar:
+múltiples capacidades y outcomes.
+No debemos duplicarla como si fueran dependencias distintas cuando el source es común.
+### CAND-MOTOR-CROSS-DEP-01 · DEPENDENCY-PROPAGATION
+El Motor debe poder representar una misma External Dependency como upstream de múltiples outcomes/capacidades y propagar evidencia de cambio sin propagar automáticamente conclusiones diagnósticas.
+Esto puede ser muy potente para el futuro Knowledge Graph.
+
+# Common-cause dependency
+Dos proveedores pueden depender:
+del mismo cloud.
+Por tanto:
+2 suppliers ≠ 2 independent sources.
+### CAND-MOTOR-CROSS-DEP-02 · COMMON-CAUSE-DEPENDENCY
+La evaluación de diversificación debe poder considerar dependencias upstream compartidas cuando sean materialmente conocidas.
+
+# Contextualización SME
+Para una pyme, gestionar dependencia crítica no significa construir:
+enterprise vendor-risk management.
+Puede bastar con:
+saber cuáles son sus 5 dependencias críticas, qué dejan de funcionar, quién responde, qué alternativa existe y qué harían si fallan.
+Profundidad:
+proporcional.
+Formalidad:
+opcional.
+
+# External grounding y provenance
+El grounding externo refuerza tres partes de la arquitectura.
+Primero, NIST SP 800-161 Rev.1 Update 1, actualizado en noviembre de 2024, estructura la gestión de riesgo de supply chain alrededor de identificación, evaluación y mitigación y enfatiza problemas derivados de visibilidad insuficiente sobre productos, servicios y cadena externa. Esto respalda especialmente Dependency Visibility → Assessment → Treatment, aunque Pymapa lo extiende más allá del dominio específico de ciberseguridad/ICT de NIST. NIST
+Segundo, ISO 22301:2019 sigue publicada como estándar de sistemas de gestión de continuidad y cubre preparación, respuesta y recuperación frente a disrupciones. Es relevante para nuestras distinciones Continuity ≠ Recovery y para la necesidad de validar capacidad de recuperación. Sin embargo, ISO ya marca la edición 2019 como “to be revised” y una tercera edición está actualmente en desarrollo, por lo que no debemos congelar EC-05 sobre detalles de esa edición. ISO
+Tercero, ISO 44001:2017 sigue siendo la edición publicada vigente para gestión de relaciones colaborativas y explícitamente contempla organizaciones pequeñas; una segunda edición está en desarrollo. Su mayor relevancia está en EC-03, pero ayuda a mantener la frontera: gestionar bien una relación externa y gestionar la dependencia que esa relación produce son problemas relacionados pero distintos. ISO
+Registramos:
+SOURCE-REVIEW-TRIGGER-EC05-01 · ISO-22301-NEXT-EDITION
+SOURCE-REVIEW-TRIGGER-EC05-02 · ISO-44001-NEXT-EDITION
+SOURCE-REVIEW-TRIGGER-EC05-03 · NIST-C-SCRM-MATERIAL-UPDATE
+
+# A–V · EC-05
+| Dimensión | Resultado |
+| A · Identidad | PASS |
+| B · Alcance | PASS |
+| C · Aplicabilidad | PASS |
+| D · Unidad de análisis | PASS |
+| E · Condiciones | PASS |
+| F · Variables | PASS |
+| G · Information Needs | PASS |
+| H · Captura | PASS |
+| I · Information Rules | PASS |
+| J · Suficiencia | PASS |
+| K · Confianza | PASS |
+| L · Diagnóstico | PASS |
+| M · Findings | PASS |
+| N · Recomendaciones | PASS |
+| O · Intervención | PASS |
+| P · Ejecución | PASS |
+| Q · Resultado | PASS |
+| R · Validación | PASS |
+| S · Seguimiento | PASS |
+| T · Contextualización | PASS |
+| U · Knowledge | PASS |
+| V · Governance | PASS |
+A–V = 22/22 PASS
+# DoD V1
+27/27 PASS
+Especialmente:
+Applicability — PASS
+No toda relación externa se convierte en dependencia crítica.
+Sufficiency — PASS
+No exigimos eliminar dependencia.
+Confidence — PASS
+Plan/documentación y capacidad probada permanecen separados.
+Observation vs inference — PASS
+Single source, concentración, lock-in y dependencia no producen automáticamente diagnóstico negativo.
+Causality — PASS
+Se preservan dependent outcomes y common causes.
+Intervention — PASS
+ACCEPT es una intervención/decisión válida.
+Validation — PASS
+Continuity y recovery pueden exigir evidencia más fuerte según criticidad.
+Governance — PASS
+Residual exposure requiere accountability proporcional.
+
+# Quality Gates
+### K1 · Coherencia — PASS
+Las fronteras EC-02/03/04/05, DG-05 y DT-05 quedan preservadas.
+### K2 · Razonamiento — PASS
+Mantiene:
+DEPENDENCY ≠ VULNERABILITY
+CONCENTRATION ≠ CRITICALITY
+ALTERNATIVE ≠ SUBSTITUTE READY
+BACKUP ≠ CONTINUITY
+PLAN ≠ READINESS
+CONTINUITY ≠ RECOVERY
+TREATMENT ≠ ELIMINATION
+### K3 · Acción — PASS
+Puede decidir proporcionalmente entre:
+aceptar, observar, reducir, diversificar, preparar sustitución, reducir switching burden, mejorar portabilidad, crear continuidad, probar recovery, internalizar, transicionar o salir.
+### K4 · Knowledge — PASS
+Objeto, evidence strength, rules, confidence, treatment, residual exposure, follow-up, provenance y governance quedan explícitos.
+# Cierre EC-05
+EC05-K4-v1.0 · K4-VALIDATED · CLOSED
+| Objeto | Resultado |
+| Bloques | 16/16 |
+| CE | 11 |
+| VA | 26 |
+| NI | 26 |
+| Reglas | 26 |
+| Findings | 10 |
+| Decisiones | 17 + NO_ACTION |
+| Intervenciones | 10 |
+| Instrumentos | 10 |
+| Entregables | 10 |
+| Done Criteria | 9 |
+| CRV | 10 |
+| Substitute evidence | SUB-0:4 |
+| Continuity evidence | CONT-0:4 |
+| Validación | V0–V4 |
+| A–V | 22/22 PASS |
+| DoD | 27/27 PASS |
+| K1–K4 | PASS |
+# Cierre del dominio EC
+Las cuatro capacidades están cerradas:
+EC02-K4-v1.0 · K4-VALIDATED · CLOSED
+EC03-K4-v1.0 · K4-VALIDATED · CLOSED
+EC04-K4-v1.0 · K4-VALIDATED · CLOSED
+EC05-K4-v1.0 · K4-VALIDATED · CLOSED
+Por tanto:
+DOMAIN-EC-v1.0 · 4/4 CAPABILITIES K4-VALIDATED · DOMAIN-KNOWLEDGE-COMPLETE
+La arquitectura final del dominio queda especialmente limpia:
+NEED → SELECT → GOVERN → ABSORB → DEPENDENCY
+con:
+EC-02 = SELECT
+EC-03 = GOVERN
+EC-04 = ABSORB
+EC-05 = DEPENDENCY
+# Hito 6×31 alcanzado
+Por primera vez tenemos:
+| Dominio | Capacidades | Estado |
+| DG · Dirección y gobierno | 5/5 | KNOWLEDGE-COMPLETE |
+| PC · Personas, cultura y conocimiento | 5/5 | KNOWLEDGE-COMPLETE |
+| OP · Organización, procesos y ejecución | 5/5 | KNOWLEDGE-COMPLETE |
+| DT · Datos y habilitación tecnológica | 6/6 | KNOWLEDGE-COMPLETE |
+| CM · Cliente, mercado y creación de valor | 6/6 | KNOWLEDGE-COMPLETE |
+| EC · Ecosistema y capacidades externas | 4/4 | KNOWLEDGE-COMPLETE |
+| TOTAL | 31/31 | K4-VALIDATED |
+Formalizamos el hito:
+PYMAPA-6x31-VERTICAL-KNOWLEDGE-v1.0 · 31/31 CAPABILITIES K4-VALIDATED · 6/6 DOMAINS KNOWLEDGE-COMPLETE
+Esto es un hito muy importante, pero no equivale todavía a FASE-2-CLOSED.
+Hasta aquí construimos y validamos las 31 piezas verticales. Ahora debemos demostrar que juntas forman un único sistema de conocimiento coherente y ejecutable.
+# Cambio de etapa
+A partir del siguiente movimiento ya no desarrollamos otra capacidad ni hacemos una segunda vuelta de 15 bloques sobre las 31.
+Entramos en:
+FASE 2 · CIERRE SISTÉMICO 6×31
+Propongo estructurarlo en cinco macrotrabajos:
+| Etapa | Trabajo | Resultado |
+| S1 | Reconciliación transversal 6×31 | solapamientos, fronteras, derivaciones y contradicciones |
+| S2 | Consolidación del Motor de Conocimiento | servicios genéricos y catálogos maestros |
+| S3 | Modelo maestro de objetos y relaciones | ontología operativa / Knowledge Graph lógico |
+| S4 | Governance, provenance y versionado global | conocimiento gobernable y mantenible |
+| S5 | Quality Gate global + paquete implementable | especificación lista para Fase 3/arquitectura técnica |
+El siguiente paso será por tanto S1 · Reconciliación transversal 6×31.
+Ahí ya no preguntaremos “¿está bien DG-01?” o “¿está bien EC-05?”. La pregunta cambia a:
+¿Las 31 capacidades pueden razonar juntas sobre una misma pyme sin duplicar diagnósticos, contradecirse, perder evidencia, transferir confianza indebidamente o generar recomendaciones incompatibles?
+Ese es el punto en el que comenzamos a transformar las 31 capacidades completas en el Motor de Conocimiento maestro de Pymapa.
+De acuerdo. Además para saber en dónde necesita más capacidades y que tenga la posibilidad de recomendar la salida a un especialista cuando realmente es algo que no se logra resolver
+Seguimos
+

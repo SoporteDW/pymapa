@@ -1,0 +1,358 @@
+{
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "capability": {
+    "id": "CM-05",
+    "domainId": "CM",
+    "name": "Gestionar experiencia, servicio y continuidad de la relación",
+    "definition": "CM-05 evalúa la capacidad de la organización para gestionar experiencias y servicios materialmente relevantes a lo largo de la relación con el cliente, mantener suficiente coherencia entre expectativas y entrega, tratar fricciones o fallas de forma proporcional y preservar o cerrar la relación de manera adecuada según el valor y contexto aplicables.",
+    "definitionStatus": "EXPLICIT",
+    "definitionSourceLines": [
+      33,
+      33
+    ]
+  },
+  "provenance": {
+    "sourceReference": "canonical-baseline.json#CM05-K4-v1.0@sha256:83201f8411b88981209c322dcb9d26cdd26dbfa95abe6f8aef409966ae2684ab · CM05-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "extractionStatus": "APPROVED",
+    "derivation": "MASTER_TRANSCRIPTION",
+    "derivationNote": "Proyección genérica determinista (M2-FACTORY-CONTRACT-03) desde baseline canónica aceptada + estructura explícita de la fuente raw sellada.",
+    "approvedBy": "PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY",
+    "approvedAt": "2026-09-24"
+  },
+  "targetPack": {
+    "packId": "cm-05",
+    "packVersion": "1.0.0"
+  },
+  "sections": {
+    "capability": {
+      "id": "CM-05",
+      "domainId": "CM",
+      "name": "Gestionar experiencia, servicio y continuidad de la relación",
+      "definition": "CM-05 evalúa la capacidad de la organización para gestionar experiencias y servicios materialmente relevantes a lo largo de la relación con el cliente, mantener suficiente coherencia entre expectativas y entrega, tratar fricciones o fallas de forma proporcional y preservar o cerrar la relación de manera adecuada según el valor y contexto aplicables.",
+      "definitionStatus": "EXPLICIT",
+      "definitionSourceLines": [
+        33,
+        33
+      ]
+    },
+    "conditionsOfExistence": [
+      {
+        "id": "CE01",
+        "statement": "Expectation"
+      },
+      {
+        "id": "CE02",
+        "statement": "Material experience moments"
+      },
+      {
+        "id": "CE03",
+        "statement": "Service delivery"
+      },
+      {
+        "id": "CE04",
+        "statement": "Experience perception"
+      },
+      {
+        "id": "CE05",
+        "statement": "Failure visibility"
+      },
+      {
+        "id": "CE06",
+        "statement": "Recovery"
+      },
+      {
+        "id": "CE07",
+        "statement": "Recurrence"
+      },
+      {
+        "id": "CE08",
+        "statement": "Trust/relationship health"
+      },
+      {
+        "id": "CE09",
+        "statement": "Continuity"
+      },
+      {
+        "id": "CE10",
+        "statement": "Adaptation"
+      }
+    ],
+    "variables": [
+      {
+        "id": "VA01",
+        "name": "expectativas materiales suficientemente conocidas",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA02",
+        "name": "fuente/legitimidad de expectativa suficientemente comprendida",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA03",
+        "name": "episodios/momentos materiales identificados",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA04",
+        "name": "importancia/consecuencia suficientemente entendida",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA05",
+        "name": "requisitos/promesas materiales suficientemente claros",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA06",
+        "name": "entrega suficientemente consistente",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA07",
+        "name": "customer effort suficientemente proporcional",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA08",
+        "name": "percepción material suficientemente visible",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA09",
+        "name": "gaps expectation–delivery/perception suficientemente identificados",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA10",
+        "name": "fallas materiales suficientemente detectables",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA11",
+        "name": "severidad suficientemente caracterizada",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA12",
+        "name": "respuesta a falla suficientemente oportuna",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA13",
+        "name": "recuperación suficientemente adecuada",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA14",
+        "name": "cierre/confirmación suficientemente claro",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA15",
+        "name": "fallas recurrentes suficientemente identificadas",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA16",
+        "name": "aprendizaje derivado hacia prevención/corrección cuando aplica",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA17",
+        "name": "señales materiales de confianza/deterioro suficientemente visibles",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA18",
+        "name": "riesgo relacional suficientemente tratable",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA19",
+        "name": "continuidad/renovación suficientemente gestionable",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA20",
+        "name": "salida/cancelación suficientemente tratable",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA21",
+        "name": "retención condicionada a fit/value suficientemente comprendido",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA22",
+        "name": "evidencia de experiencia modifica servicio cuando corresponde",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      },
+      {
+        "id": "VA23",
+        "name": "comprensión de relación puede actualizarse ante nueva evidencia",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "UNRESOLVED",
+        "acquisitionNote": "la fuente no vincula explícitamente ninguna NI ni pregunta a esta VA (sin contención estructural, fila de tabla ni relación de ID); no se asocia por ordinal ni similitud"
+      }
+    ],
+    "informationNeeds": [],
+    "acquisitions": [],
+    "acquisitionStages": [
+      {
+        "id": "P2",
+        "level": "P2",
+        "heading": "P2 · Triggers",
+        "prompts": [],
+        "variableRefsResolution": "CONTEXTUAL",
+        "sourceLines": [
+          452,
+          469
+        ]
+      },
+      {
+        "id": "P3",
+        "level": "P3",
+        "heading": "P3 · Discriminación causal",
+        "prompts": [],
+        "variableRefsResolution": "CONTEXTUAL",
+        "sourceLines": [
+          470,
+          481
+        ]
+      }
+    ]
+  },
+  "gaps": [
+    {
+      "id": "NE-CM-05-CRITICALITY",
+      "kind": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "statement": "Criticidad no declarada por la fuente para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23; preservada como NOT_EXPLICIT (modo de resolución NOT_EXPLICIT), sin inferir nivel.",
+      "publicationBlocking": false
+    },
+    {
+      "id": "NE-CM-05-VA-ACQUISITION",
+      "kind": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "statement": "Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+      "publicationBlocking": true
+    }
+  ],
+  "checksum": "sha256:ab69d9b4f572e0cd3f8e9cbb911ffc4fff28b6fdd829377d8faf5335d1dc07fe"
+}

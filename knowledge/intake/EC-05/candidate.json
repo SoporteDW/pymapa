@@ -1,0 +1,3407 @@
+{
+  "candidateId": "CAND-EC-05-0.2.0-67a844351999",
+  "capabilityId": "EC-05",
+  "status": "CANDIDATE",
+  "registration": {
+    "registrationId": "RAW-EC-05-7c22240c1ff2",
+    "textSha256": "67a844351999ca11ecd16f0d1e9a3454374139a060cf22d13d7f91ee0daeb6cc"
+  },
+  "producedBy": {
+    "method": "DETERMINISTIC_TOOL",
+    "agent": "pymapa-structural-segmenter@0.2.0 + pymapa-governed-supersession-resolver@0.1.0",
+    "note": "Segmentación literal por headings y líneas planas «ID · título» con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
+  },
+  "baselineId": "EC05-K4-v1.0",
+  "historicalStatus": {
+    "marker": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      1139,
+      1139
+    ]
+  },
+  "provenanceVocabulary": [
+    {
+      "code": "SOURCE-REVIEW-TRIGGER-EC05-01 · ISO-22301-NEXT-EDITION",
+      "label": "SOURCE-REVIEW-TRIGGER-EC05-01 · ISO-22301-NEXT-EDITION",
+      "meaning": "SOURCE-REVIEW-TRIGGER-EC05-01 · ISO-22301-NEXT-EDITION",
+      "sourceLines": [
+        1047,
+        1047
+      ],
+      "scheme": "SOURCE_REVIEW_TRIGGER"
+    },
+    {
+      "code": "SOURCE-REVIEW-TRIGGER-EC05-02 · ISO-44001-NEXT-EDITION",
+      "label": "SOURCE-REVIEW-TRIGGER-EC05-02 · ISO-44001-NEXT-EDITION",
+      "meaning": "SOURCE-REVIEW-TRIGGER-EC05-02 · ISO-44001-NEXT-EDITION",
+      "sourceLines": [
+        1048,
+        1048
+      ],
+      "scheme": "SOURCE_REVIEW_TRIGGER"
+    },
+    {
+      "code": "SOURCE-REVIEW-TRIGGER-EC05-03 · NIST-C-SCRM-MATERIAL-UPDATE",
+      "label": "SOURCE-REVIEW-TRIGGER-EC05-03 · NIST-C-SCRM-MATERIAL-UPDATE",
+      "meaning": "SOURCE-REVIEW-TRIGGER-EC05-03 · NIST-C-SCRM-MATERIAL-UPDATE",
+      "sourceLines": [
+        1049,
+        1049
+      ],
+      "scheme": "SOURCE_REVIEW_TRIGGER"
+    }
+  ],
+  "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 11,
+      "objectType": "SOURCE_ID_CE",
+      "sourceLines": [
+        1117,
+        1117
+      ]
+    },
+    {
+      "label": "CRV",
+      "declared": 10,
+      "objectType": "SOURCE_ID_CRV",
+      "sourceLines": [
+        1127,
+        1127
+      ]
+    },
+    {
+      "label": "VA",
+      "declared": 26,
+      "objectType": "SOURCE_ID_VA",
+      "sourceLines": [
+        1118,
+        1118
+      ]
+    }
+  ],
+  "verbatimKeys": [
+    "heading",
+    "title",
+    "body"
+  ],
+  "items": [
+    {
+      "key": "EC-05@L1",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_EC",
+      "sourceId": "EC-05",
+      "fields": {
+        "heading": "EC-05 · Gestionar dependencias externas críticas",
+        "title": "Gestionar dependencias externas críticas",
+        "body": [
+          "Esta última capacidad tiene una función especialmente importante porque cerrará el dominio EC y también conecta muchos elementos construidos anteriormente.",
+          "Su pregunta nuclear será:",
+          "¿Puede la organización reconocer de qué actores, recursos o servicios externos depende materialmente, comprender qué ocurriría si dejaran de estar disponibles y gestionar esa exposición hasta un nivel aceptable?",
+          "Aquí debemos evitar un error fundamental:",
+          "DEPENDENCY ≠ PROBLEM",
+          "Toda pyme depende de terceros.",
+          "La cuestión será:",
+          "DEPENDENCY → CRITICALITY → EXPOSURE → SUBSTITUTABILITY → CONTINUITY → TREATMENT",
+          "Y tendremos que distinguir con mucho cuidado:",
+          "DEPENDENCE ≠ VULNERABILITY",
+          "CONCENTRATION ≠ CRITICALITY",
+          "SINGLE SOURCE ≠ UNACCEPTABLE RISK",
+          "LOCK-IN ≠ DEPENDENCY",
+          "REDUNDANCY ≠ RESILIENCE",
+          "BACKUP ≠ RECOVERABILITY",
+          "EXIT PLAN ≠ EXIT READINESS",
+          "Al terminar EC-05 llegaremos por primera vez a:",
+          "31/31 CAPABILITIES K4-VALIDATED",
+          "6/6 DOMAINS KNOWLEDGE-COMPLETE",
+          "Pero no declararemos todavía cerrada Fase 2. Tal como acordamos en el review, inmediatamente después cambiaremos de trabajo vertical a cierre sistémico 6×31: reconciliación transversal → consolidación del Motor → governance/provenance global → Quality Gate global → Knowledge Master implementable.",
+          "Ok seguimos",
+          "Perfecto. Entramos en la última capacidad de la taxonomía 6×31."
+        ]
+      },
+      "sourceLines": [
+        1,
+        23
+      ],
+      "role": "CAPABILITY_IDENTITY_HEADING_REPEATED_PER_SESSION",
+      "governanceDecision": "M2-FINAL-MASS-BATCH"
+    },
+    {
+      "key": "EC-05@L24",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_EC",
+      "sourceId": "EC-05",
+      "fields": {
+        "heading": "EC-05 · Gestionar dependencias externas críticas",
+        "title": "Gestionar dependencias externas críticas",
+        "body": [
+          "EC-02 respondió a quién seleccionar; EC-03, cómo gobernar la relación; EC-04, cómo absorber lo recibido. EC-05 responde ahora:",
+          "¿Puede la organización reconocer de qué actores, recursos o servicios externos depende materialmente, comprender las consecuencias de su interrupción o pérdida y gestionar esa exposición hasta un nivel aceptable?",
+          "La cadena nuclear será:",
+          "DEPENDENCY → CRITICALITY → EXPOSURE → SUBSTITUTABILITY → CONTINUITY → RECOVERY → TREATMENT → MONITORING",
+          "Y establecemos desde el inicio:",
+          "DEPENDENCY ≠ PROBLEM",
+          "DEPENDENCY ≠ VULNERABILITY",
+          "CONCENTRATION ≠ CRITICALITY",
+          "SINGLE SOURCE ≠ UNACCEPTABLE RISK",
+          "LOCK-IN ≠ DEPENDENCY",
+          "ALTERNATIVE EXISTS ≠ SUBSTITUTE READY",
+          "REDUNDANCY ≠ RESILIENCE",
+          "BACKUP ≠ RECOVERABILITY",
+          "EXIT PLAN ≠ EXIT READINESS"
+        ]
+      },
+      "sourceLines": [
+        24,
+        38
+      ],
+      "role": "CAPABILITY_IDENTITY_HEADING_REPEATED_PER_SESSION",
+      "governanceDecision": "M2-FINAL-MASS-BATCH"
+    },
+    {
+      "key": "P-EC05-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC05-01",
+      "fields": {
+        "heading": "P-EC05-01",
+        "body": [
+          "La materialidad de una dependencia debe evaluarse respecto del resultado que habilita o sostiene, no únicamente respecto del tercero del cual proviene."
+        ]
+      },
+      "sourceLines": [
+        122,
+        123
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "P-EC05-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC05-02",
+      "fields": {
+        "heading": "P-EC05-02",
+        "body": [
+          "Supplier inventory no constituye por sí solo Dependency Map porque no muestra qué resultado depende de cada elemento."
+        ]
+      },
+      "sourceLines": [
+        195,
+        196
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "P-EC05-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC05-03",
+      "fields": {
+        "heading": "P-EC05-03",
+        "body": [
+          "Las dependencias indirectas deben investigarse hasta la profundidad proporcional a su posible consecuencia y a la información razonablemente disponible."
+        ]
+      },
+      "sourceLines": [
+        219,
+        220
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "P-EC05-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC05-04",
+      "fields": {
+        "heading": "P-EC05-04",
+        "body": [
+          "La existencia de una única fuente no debe convertirse automáticamente en finding negativo; su consecuencia depende de criticidad, sustituibilidad, continuidad y treatment."
+        ]
+      },
+      "sourceLines": [
+        259,
+        260
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "P-EC05-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC05-05",
+      "fields": {
+        "heading": "P-EC05-05",
+        "body": [
+          "Redundancy debe justificarse por reducción material de exposición y no por el número de proveedores."
+        ]
+      },
+      "sourceLines": [
+        270,
+        271
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "P-EC05-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC05-06",
+      "fields": {
+        "heading": "P-EC05-06",
+        "body": [
+          "La existencia de backup o alternativa no constituye evidencia suficiente de continuidad sin evidencia proporcional de que puede utilizarse dentro de la tolerancia requerida."
+        ]
+      },
+      "sourceLines": [
+        382,
+        383
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "P-EC05-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC05-07",
+      "fields": {
+        "heading": "P-EC05-07",
+        "body": [
+          "Una dependencia crítica puede aceptarse cuando la exposición residual es comprendida, el tratamiento adicional no resulta proporcional y la decisión posee accountability suficiente."
+        ]
+      },
+      "sourceLines": [
+        427,
+        428
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "INT-EC05-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-EC05-01",
+      "fields": {
+        "heading": "INT-EC05-01 · MINIMUM SUFFICIENT DEPENDENCY TREATMENT",
+        "title": "MINIMUM SUFFICIENT DEPENDENCY TREATMENT",
+        "body": [
+          "Aplicar el tratamiento mínimo suficiente para mantener la exposición residual dentro de condiciones aceptables respecto del resultado dependiente.",
+          "No buscamos:",
+          "zero risk."
+        ]
+      },
+      "sourceLines": [
+        431,
+        434
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "P-EC05-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC05-08",
+      "fields": {
+        "heading": "P-EC05-08",
+        "body": [
+          "Dependency State debe considerarse dinámico y reevaluarse cuando cambien condiciones que afectan criticidad, exposición o sustituibilidad."
+        ]
+      },
+      "sourceLines": [
+        455,
+        456
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CE01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Dependency identity",
+        "title": "Dependency identity"
+      },
+      "sourceLines": [
+        475,
+        475
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "VA01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA01",
+      "fields": {
+        "heading": "VA01 fuente de dependencia identificada",
+        "title": "fuente de dependencia identificada"
+      },
+      "sourceLines": [
+        476,
+        476
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "VA02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA02",
+      "fields": {
+        "heading": "VA02 outcome dependiente identificado",
+        "title": "outcome dependiente identificado"
+      },
+      "sourceLines": [
+        477,
+        477
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CE02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Dependency mapping",
+        "title": "Dependency mapping"
+      },
+      "sourceLines": [
+        478,
+        478
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "VA03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA03",
+      "fields": {
+        "heading": "VA03 relación dependencia→resultado suficientemente visible",
+        "title": "relación dependencia→resultado suficientemente visible"
+      },
+      "sourceLines": [
+        479,
+        479
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "VA04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "VA04 dependencias indirectas materiales consideradas cuando aplica",
+        "title": "dependencias indirectas materiales consideradas cuando aplica"
+      },
+      "sourceLines": [
+        480,
+        480
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CE03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Criticality",
+        "title": "Criticality"
+      },
+      "sourceLines": [
+        481,
+        481
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "VA05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "VA05 consecuencia suficientemente comprendida",
+        "title": "consecuencia suficientemente comprendida"
+      },
+      "sourceLines": [
+        482,
+        482
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "VA06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "VA06 tolerancia suficientemente comprendida",
+        "title": "tolerancia suficientemente comprendida"
+      },
+      "sourceLines": [
+        483,
+        483
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CE04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE04",
+      "fields": {
+        "heading": "CE04 · Concentration",
+        "title": "Concentration"
+      },
+      "sourceLines": [
+        484,
+        484
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "VA07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "VA07 concentración material visible",
+        "title": "concentración material visible"
+      },
+      "sourceLines": [
+        485,
+        485
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "VA08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "VA08 single points suficientemente identificados",
+        "title": "single points suficientemente identificados"
+      },
+      "sourceLines": [
+        486,
+        486
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CE05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE05",
+      "fields": {
+        "heading": "CE05 · Substitutability",
+        "title": "Substitutability"
+      },
+      "sourceLines": [
+        487,
+        487
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "VA09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA09",
+      "fields": {
+        "heading": "VA09 alternativas plausibles suficientemente conocidas",
+        "title": "alternativas plausibles suficientemente conocidas"
+      },
+      "sourceLines": [
+        488,
+        488
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "VA10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA10",
+      "fields": {
+        "heading": "VA10 substitute readiness suficientemente comprendida",
+        "title": "substitute readiness suficientemente comprendida"
+      },
+      "sourceLines": [
+        489,
+        489
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "VA11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA11",
+      "fields": {
+        "heading": "VA11 switching burden suficientemente comprendido",
+        "title": "switching burden suficientemente comprendido"
+      },
+      "sourceLines": [
+        490,
+        490
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CE06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE06",
+      "fields": {
+        "heading": "CE06 · Lock-in/portability",
+        "title": "Lock-in/portability"
+      },
+      "sourceLines": [
+        491,
+        491
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "VA12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA12",
+      "fields": {
+        "heading": "VA12 lock-in material visible",
+        "title": "lock-in material visible"
+      },
+      "sourceLines": [
+        492,
+        492
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "VA13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA13",
+      "fields": {
+        "heading": "VA13 portability suficientemente comprendida",
+        "title": "portability suficientemente comprendida"
+      },
+      "sourceLines": [
+        493,
+        493
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "VA14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA14",
+      "fields": {
+        "heading": "VA14 exit readiness proporcionalmente evaluada",
+        "title": "exit readiness proporcionalmente evaluada"
+      },
+      "sourceLines": [
+        494,
+        494
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CE07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE07",
+      "fields": {
+        "heading": "CE07 · Continuity",
+        "title": "Continuity"
+      },
+      "sourceLines": [
+        495,
+        495
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "VA15",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA15",
+      "fields": {
+        "heading": "VA15 escenarios materiales de disrupción considerados",
+        "title": "escenarios materiales de disrupción considerados"
+      },
+      "sourceLines": [
+        496,
+        496
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "VA16",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA16",
+      "fields": {
+        "heading": "VA16 mecanismos de continuidad suficientes",
+        "title": "mecanismos de continuidad suficientes"
+      },
+      "sourceLines": [
+        497,
+        497
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "VA17",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA17",
+      "fields": {
+        "heading": "VA17 continuidad proporcionalmente evidenciada",
+        "title": "continuidad proporcionalmente evidenciada"
+      },
+      "sourceLines": [
+        498,
+        498
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CE08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE08",
+      "fields": {
+        "heading": "CE08 · Recovery",
+        "title": "Recovery"
+      },
+      "sourceLines": [
+        499,
+        499
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "VA18",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA18",
+      "fields": {
+        "heading": "VA18 recovery path suficientemente definido",
+        "title": "recovery path suficientemente definido"
+      },
+      "sourceLines": [
+        500,
+        500
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "VA19",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA19",
+      "fields": {
+        "heading": "VA19 recoverability proporcionalmente evidenciada",
+        "title": "recoverability proporcionalmente evidenciada"
+      },
+      "sourceLines": [
+        501,
+        501
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CE09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE09",
+      "fields": {
+        "heading": "CE09 · Treatment",
+        "title": "Treatment"
+      },
+      "sourceLines": [
+        502,
+        502
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "VA20",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA20",
+      "fields": {
+        "heading": "VA20 tratamiento explícito",
+        "title": "tratamiento explícito"
+      },
+      "sourceLines": [
+        503,
+        503
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "VA21",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA21",
+      "fields": {
+        "heading": "VA21 tratamiento proporcional a exposición",
+        "title": "tratamiento proporcional a exposición"
+      },
+      "sourceLines": [
+        504,
+        504
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "VA22",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA22",
+      "fields": {
+        "heading": "VA22 residual exposure suficientemente comprendida",
+        "title": "residual exposure suficientemente comprendida"
+      },
+      "sourceLines": [
+        505,
+        505
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CE10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE10",
+      "fields": {
+        "heading": "CE10 · Accountability",
+        "title": "Accountability"
+      },
+      "sourceLines": [
+        506,
+        506
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "VA23",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA23",
+      "fields": {
+        "heading": "VA23 ownership de dependencia suficientemente claro",
+        "title": "ownership de dependencia suficientemente claro"
+      },
+      "sourceLines": [
+        507,
+        507
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "VA24",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA24",
+      "fields": {
+        "heading": "VA24 aceptación de exposición material posee autoridad suficiente",
+        "title": "aceptación de exposición material posee autoridad suficiente"
+      },
+      "sourceLines": [
+        508,
+        508
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CE11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE11",
+      "fields": {
+        "heading": "CE11 · Monitoring/adaptation",
+        "title": "Monitoring/adaptation"
+      },
+      "sourceLines": [
+        509,
+        509
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "VA25",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA25",
+      "fields": {
+        "heading": "VA25 señales de cambio material suficientemente observables",
+        "title": "señales de cambio material suficientemente observables"
+      },
+      "sourceLines": [
+        510,
+        510
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "VA26",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA26",
+      "fields": {
+        "heading": "VA26 tratamiento puede revisarse cuando cambia la exposición",
+        "title": "tratamiento puede revisarse cuando cambia la exposición"
+      },
+      "sourceLines": [
+        511,
+        511
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "P2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P2",
+      "fields": {
+        "heading": "P2 · Triggers",
+        "title": "Triggers",
+        "body": [
+          "Profundizamos ante:",
+          "- único proveedor;",
+          "- marketplace dominante;",
+          "- freelancer crítico;",
+          "- plataforma propietaria;",
+          "- datos no exportables;",
+          "- API crítica;",
+          "- contrato largo;",
+          "- auto-renewal;",
+          "- costos altos de migración;",
+          "- ausencia de documentación;",
+          "- conocimiento externo concentrado;",
+          "- infraestructura crítica;",
+          "- payment provider único;",
+          "- proveedor financieramente débil;",
+          "- alta dependencia geográfica;",
+          "- alternativa nunca probada;",
+          "- backup no probado;",
+          "- continuidad asumida;",
+          "- credenciales controladas externamente;",
+          "- licencia crítica;",
+          "- soporte discontinuable."
+        ]
+      },
+      "sourceLines": [
+        529,
+        551
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "P3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P3",
+      "fields": {
+        "heading": "P3 · Discriminación",
+        "title": "Discriminación",
+        "body": [
+          "SELECTION PROBLEM → EC-02",
+          "RELATIONSHIP GOVERNANCE → EC-03",
+          "ABSORPTION/KNOWLEDGE → EC-04",
+          "DEPENDENCY EXPOSURE → EC-05",
+          "CYBER/TECH CONTINUITY → DT-05",
+          "TECH FIT → DT-01/06",
+          "TRANSFORMATION RISK GOVERNANCE → DG-05",
+          "INTERNAL KNOWLEDGE CONCENTRATION → PC-04"
+        ]
+      },
+      "sourceLines": [
+        553,
+        561
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "SUB-0",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SUB",
+      "sourceId": "SUB-0",
+      "fields": {
+        "heading": "SUB-0 · ASSUMED",
+        "title": "ASSUMED",
+        "body": [
+          "“Seguro existe otro proveedor.”"
+        ]
+      },
+      "sourceLines": [
+        609,
+        610
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "SUB-1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SUB",
+      "sourceId": "SUB-1",
+      "fields": {
+        "heading": "SUB-1 · IDENTIFIED",
+        "title": "IDENTIFIED",
+        "body": [
+          "Alternativa identificada."
+        ]
+      },
+      "sourceLines": [
+        611,
+        612
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "SUB-2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SUB",
+      "sourceId": "SUB-2",
+      "fields": {
+        "heading": "SUB-2 · ASSESSED",
+        "title": "ASSESSED",
+        "body": [
+          "Fit y switching evaluados."
+        ]
+      },
+      "sourceLines": [
+        613,
+        614
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "SUB-3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SUB",
+      "sourceId": "SUB-3",
+      "fields": {
+        "heading": "SUB-3 · PREPARED",
+        "title": "PREPARED",
+        "body": [
+          "Condiciones principales preparadas."
+        ]
+      },
+      "sourceLines": [
+        615,
+        616
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "SUB-4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SUB",
+      "sourceId": "SUB-4",
+      "fields": {
+        "heading": "SUB-4 · TESTED",
+        "title": "TESTED",
+        "body": [
+          "Transición/sustitución parcial o completamente probada.",
+          "No toda dependencia necesita SUB-4."
+        ]
+      },
+      "sourceLines": [
+        617,
+        619
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC05-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC05-01",
+      "fields": {
+        "heading": "CAND-MOTOR-EC05-01",
+        "body": [
+          "Substitute Readiness y existencia de alternativa deben permanecer separados."
+        ]
+      },
+      "sourceLines": [
+        620,
+        621
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CONT-0",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONT",
+      "sourceId": "CONT-0",
+      "fields": {
+        "heading": "CONT-0 · ASSUMED",
+        "title": "ASSUMED"
+      },
+      "sourceLines": [
+        625,
+        625
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CONT-1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONT",
+      "sourceId": "CONT-1",
+      "fields": {
+        "heading": "CONT-1 · DOCUMENTED",
+        "title": "DOCUMENTED"
+      },
+      "sourceLines": [
+        626,
+        626
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CONT-2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONT",
+      "sourceId": "CONT-2",
+      "fields": {
+        "heading": "CONT-2 · FEASIBLE",
+        "title": "FEASIBLE"
+      },
+      "sourceLines": [
+        627,
+        627
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CONT-3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONT",
+      "sourceId": "CONT-3",
+      "fields": {
+        "heading": "CONT-3 · TESTED",
+        "title": "TESTED"
+      },
+      "sourceLines": [
+        628,
+        628
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CONT-4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONT",
+      "sourceId": "CONT-4",
+      "fields": {
+        "heading": "CONT-4 · DEMONSTRATED",
+        "title": "DEMONSTRATED",
+        "body": [
+          "No lo tratamos como maturity score.",
+          "Es:",
+          "evidence strength."
+        ]
+      },
+      "sourceLines": [
+        629,
+        632
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "SUFF-EC05-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SUFF",
+      "sourceId": "SUFF-EC05-01",
+      "fields": {
+        "heading": "SUFF-EC05-01",
+        "body": [
+          "EC-05 alcanza suficiencia cuando las dependencias externas capaces de afectar resultados materiales están suficientemente identificadas, su criticidad y exposición pueden razonarse con evidencia proporcional, sustituibilidad/continuidad/recovery son comprendidos hasta la profundidad necesaria y existe tratamiento explícito con accountability suficiente para la exposición residual."
+        ]
+      },
+      "sourceLines": [
+        635,
+        636
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC05-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC05-02",
+      "fields": {
+        "heading": "CAND-MOTOR-EC05-02",
+        "body": [
+          "Documented contingency no debe transferir automáticamente confidence a tested continuity/recovery."
+        ]
+      },
+      "sourceLines": [
+        652,
+        653
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "R-EC05-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC05-01",
+      "fields": {
+        "heading": "R-EC05-01 · EXTERNAL_DEPENDENCY_IDENTITY_GAP",
+        "title": "EXTERNAL_DEPENDENCY_IDENTITY_GAP"
+      },
+      "sourceLines": [
+        657,
+        657
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "R-EC05-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC05-02",
+      "fields": {
+        "heading": "R-EC05-02 · DEPENDENT_OUTCOME_GAP",
+        "title": "DEPENDENT_OUTCOME_GAP"
+      },
+      "sourceLines": [
+        658,
+        658
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "R-EC05-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC05-03",
+      "fields": {
+        "heading": "R-EC05-03 · EXTERNAL_DEPENDENCY_MAP_GAP",
+        "title": "EXTERNAL_DEPENDENCY_MAP_GAP"
+      },
+      "sourceLines": [
+        659,
+        659
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "R-EC05-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC05-04",
+      "fields": {
+        "heading": "R-EC05-04 · MATERIAL_NTH_PARTY_DEPENDENCY_GAP",
+        "title": "MATERIAL_NTH_PARTY_DEPENDENCY_GAP"
+      },
+      "sourceLines": [
+        660,
+        660
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "R-EC05-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC05-05",
+      "fields": {
+        "heading": "R-EC05-05 · EXTERNAL_DEPENDENCY_CONSEQUENCE_GAP",
+        "title": "EXTERNAL_DEPENDENCY_CONSEQUENCE_GAP"
+      },
+      "sourceLines": [
+        661,
+        661
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "R-EC05-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC05-06",
+      "fields": {
+        "heading": "R-EC05-06 · EXTERNAL_DEPENDENCY_TOLERANCE_GAP",
+        "title": "EXTERNAL_DEPENDENCY_TOLERANCE_GAP"
+      },
+      "sourceLines": [
+        662,
+        662
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "R-EC05-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC05-07",
+      "fields": {
+        "heading": "R-EC05-07 · EXTERNAL_DEPENDENCY_CONCENTRATION_GAP",
+        "title": "EXTERNAL_DEPENDENCY_CONCENTRATION_GAP"
+      },
+      "sourceLines": [
+        663,
+        663
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "R-EC05-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC05-08",
+      "fields": {
+        "heading": "R-EC05-08 · EXTERNAL_SINGLE_POINT_GAP",
+        "title": "EXTERNAL_SINGLE_POINT_GAP"
+      },
+      "sourceLines": [
+        664,
+        664
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "R-EC05-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC05-09",
+      "fields": {
+        "heading": "R-EC05-09 · EXTERNAL_SUBSTITUTE_VISIBILITY_GAP",
+        "title": "EXTERNAL_SUBSTITUTE_VISIBILITY_GAP"
+      },
+      "sourceLines": [
+        665,
+        665
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "R-EC05-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC05-10",
+      "fields": {
+        "heading": "R-EC05-10 · EXTERNAL_SUBSTITUTE_READINESS_GAP",
+        "title": "EXTERNAL_SUBSTITUTE_READINESS_GAP"
+      },
+      "sourceLines": [
+        666,
+        666
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "R-EC05-11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC05-11",
+      "fields": {
+        "heading": "R-EC05-11 · EXTERNAL_SWITCHING_BURDEN_GAP",
+        "title": "EXTERNAL_SWITCHING_BURDEN_GAP"
+      },
+      "sourceLines": [
+        667,
+        667
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "R-EC05-12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC05-12",
+      "fields": {
+        "heading": "R-EC05-12 · EXTERNAL_LOCK_IN_VISIBILITY_GAP",
+        "title": "EXTERNAL_LOCK_IN_VISIBILITY_GAP"
+      },
+      "sourceLines": [
+        668,
+        668
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "R-EC05-13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC05-13",
+      "fields": {
+        "heading": "R-EC05-13 · EXTERNAL_PORTABILITY_GAP",
+        "title": "EXTERNAL_PORTABILITY_GAP"
+      },
+      "sourceLines": [
+        669,
+        669
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "R-EC05-14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC05-14",
+      "fields": {
+        "heading": "R-EC05-14 · EXTERNAL_EXIT_READINESS_GAP",
+        "title": "EXTERNAL_EXIT_READINESS_GAP"
+      },
+      "sourceLines": [
+        670,
+        670
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "R-EC05-15",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC05-15",
+      "fields": {
+        "heading": "R-EC05-15 · EXTERNAL_DISRUPTION_SCENARIO_GAP",
+        "title": "EXTERNAL_DISRUPTION_SCENARIO_GAP"
+      },
+      "sourceLines": [
+        671,
+        671
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "R-EC05-16",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC05-16",
+      "fields": {
+        "heading": "R-EC05-16 · EXTERNAL_CONTINUITY_MECHANISM_GAP",
+        "title": "EXTERNAL_CONTINUITY_MECHANISM_GAP"
+      },
+      "sourceLines": [
+        672,
+        672
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "R-EC05-17",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC05-17",
+      "fields": {
+        "heading": "R-EC05-17 · EXTERNAL_CONTINUITY_EVIDENCE_GAP",
+        "title": "EXTERNAL_CONTINUITY_EVIDENCE_GAP"
+      },
+      "sourceLines": [
+        673,
+        673
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "R-EC05-18",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC05-18",
+      "fields": {
+        "heading": "R-EC05-18 · EXTERNAL_RECOVERY_PATH_GAP",
+        "title": "EXTERNAL_RECOVERY_PATH_GAP"
+      },
+      "sourceLines": [
+        674,
+        674
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "R-EC05-19",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC05-19",
+      "fields": {
+        "heading": "R-EC05-19 · EXTERNAL_RECOVERABILITY_EVIDENCE_GAP",
+        "title": "EXTERNAL_RECOVERABILITY_EVIDENCE_GAP"
+      },
+      "sourceLines": [
+        675,
+        675
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "R-EC05-20",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC05-20",
+      "fields": {
+        "heading": "R-EC05-20 · EXTERNAL_DEPENDENCY_TREATMENT_GAP",
+        "title": "EXTERNAL_DEPENDENCY_TREATMENT_GAP"
+      },
+      "sourceLines": [
+        676,
+        676
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "R-EC05-21",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC05-21",
+      "fields": {
+        "heading": "R-EC05-21 · EXTERNAL_DEPENDENCY_TREATMENT_PROPORTIONALITY_GAP",
+        "title": "EXTERNAL_DEPENDENCY_TREATMENT_PROPORTIONALITY_GAP"
+      },
+      "sourceLines": [
+        677,
+        677
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "R-EC05-22",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC05-22",
+      "fields": {
+        "heading": "R-EC05-22 · RESIDUAL_DEPENDENCY_EXPOSURE_GAP",
+        "title": "RESIDUAL_DEPENDENCY_EXPOSURE_GAP"
+      },
+      "sourceLines": [
+        678,
+        678
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "R-EC05-23",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC05-23",
+      "fields": {
+        "heading": "R-EC05-23 · EXTERNAL_DEPENDENCY_OWNER_GAP",
+        "title": "EXTERNAL_DEPENDENCY_OWNER_GAP"
+      },
+      "sourceLines": [
+        679,
+        679
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "R-EC05-24",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC05-24",
+      "fields": {
+        "heading": "R-EC05-24 · EXTERNAL_DEPENDENCY_ACCEPTANCE_AUTHORITY_GAP",
+        "title": "EXTERNAL_DEPENDENCY_ACCEPTANCE_AUTHORITY_GAP"
+      },
+      "sourceLines": [
+        680,
+        680
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "R-EC05-25",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC05-25",
+      "fields": {
+        "heading": "R-EC05-25 · EXTERNAL_DEPENDENCY_MONITORING_GAP",
+        "title": "EXTERNAL_DEPENDENCY_MONITORING_GAP"
+      },
+      "sourceLines": [
+        681,
+        681
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "R-EC05-26",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-EC05-26",
+      "fields": {
+        "heading": "R-EC05-26 · EXTERNAL_DEPENDENCY_ADAPTATION_GAP",
+        "title": "EXTERNAL_DEPENDENCY_ADAPTATION_GAP"
+      },
+      "sourceLines": [
+        682,
+        682
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-AI-EC05-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-EC05-01",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-EC05-01",
+        "body": [
+          "El uso material de IA debe poder generar External Dependency Cases cuando continuidad del resultado dependa de servicios, modelos o infraestructura externos."
+        ]
+      },
+      "sourceLines": [
+        749,
+        750
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-AI-EC05-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-EC05-02",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-EC05-02",
+        "body": [
+          "Model substitutability no debe inferirse únicamente porque exista otro modelo técnicamente disponible; debe considerar comportamiento, integración, datos, configuración, costo y revalidación."
+        ]
+      },
+      "sourceLines": [
+        751,
+        752
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-AI-EC05-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-EC05-03",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-EC05-03",
+        "body": [
+          "La portabilidad de prompts o workflows no demuestra por sí sola portabilidad funcional entre modelos/proveedores."
+        ]
+      },
+      "sourceLines": [
+        753,
+        754
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-AI-EC05-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-EC05-04",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-EC05-04",
+        "body": [
+          "Una capacidad aumentada por IA puede ser internamente gobernable y simultáneamente crear una dependencia externa crítica.",
+          "Esto conecta directamente con los candidatos surgidos en EC-04."
+        ]
+      },
+      "sourceLines": [
+        755,
+        757
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "EC-05@L781",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_EC",
+      "sourceId": "EC-05",
+      "fields": {
+        "heading": "EC-05 · Gestionar dependencias externas críticas",
+        "title": "Gestionar dependencias externas críticas"
+      },
+      "sourceLines": [
+        781,
+        781
+      ],
+      "role": "CAPABILITY_IDENTITY_HEADING_REPEATED_PER_SESSION",
+      "governanceDecision": "M2-FINAL-MASS-BATCH"
+    },
+    {
+      "key": "FIND-EC05-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_FIND",
+      "sourceId": "FIND-EC05-01",
+      "fields": {
+        "heading": "FIND-EC05-01",
+        "body": [
+          "Los findings deben expresar por qué una dependencia crea exposición material; la existencia de dependencia por sí sola no constituye finding negativo."
+        ]
+      },
+      "sourceLines": [
+        804,
+        805
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC05-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC05-03",
+      "fields": {
+        "heading": "CAND-MOTOR-EC05-03",
+        "body": [
+          "Dependency State debe expresar estado decisional y no un maturity score."
+        ]
+      },
+      "sourceLines": [
+        822,
+        823
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "P-EC05-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC05-09",
+      "fields": {
+        "heading": "P-EC05-09",
+        "body": [
+          "Diversificación solo debe recomendarse cuando reduzca materialmente la exposición neta después de considerar costo, complejidad, coordinación y dependencias compartidas."
+        ]
+      },
+      "sourceLines": [
+        867,
+        868
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "P-EC05-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-EC05-10",
+      "fields": {
+        "heading": "P-EC05-10",
+        "body": [
+          "Internalización constituye una opción de tratamiento y no un estado inherentemente superior a dependencia externa bien gobernada."
+        ]
+      },
+      "sourceLines": [
+        878,
+        879
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "INS-EC05-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC05-01",
+      "fields": {
+        "heading": "INS-EC05-01 · External Dependency Case Card",
+        "title": "External Dependency Case Card",
+        "body": [
+          "dependency → dependent outcome → criticality → exposure → treatment."
+        ]
+      },
+      "sourceLines": [
+        898,
+        899
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "INS-EC05-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC05-02",
+      "fields": {
+        "heading": "INS-EC05-02 · External Dependency Map",
+        "title": "External Dependency Map",
+        "body": [
+          "outcome → internal capability/process → external dependency."
+        ]
+      },
+      "sourceLines": [
+        900,
+        901
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "INS-EC05-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC05-03",
+      "fields": {
+        "heading": "INS-EC05-03 · Dependency Criticality & Tolerance Card",
+        "title": "Dependency Criticality & Tolerance Card",
+        "body": [
+          "disruption → consequence → tolerance → materiality."
+        ]
+      },
+      "sourceLines": [
+        902,
+        903
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "INS-EC05-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC05-04",
+      "fields": {
+        "heading": "INS-EC05-04 · Concentration & Single-Point Map",
+        "title": "Concentration & Single-Point Map",
+        "body": [
+          "outcome → sources → concentration → common dependencies."
+        ]
+      },
+      "sourceLines": [
+        904,
+        905
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "INS-EC05-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC05-05",
+      "fields": {
+        "heading": "INS-EC05-05 · Substitutability Assessment",
+        "title": "Substitutability Assessment",
+        "body": [
+          "alternative → fit → readiness → time → constraints."
+        ]
+      },
+      "sourceLines": [
+        906,
+        907
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "INS-EC05-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC05-06",
+      "fields": {
+        "heading": "INS-EC05-06 · Switching Burden Card",
+        "title": "Switching Burden Card",
+        "body": [
+          "cost → time → data → technology → knowledge → operations → customer impact."
+        ]
+      },
+      "sourceLines": [
+        908,
+        909
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "INS-EC05-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC05-07",
+      "fields": {
+        "heading": "INS-EC05-07 · Lock-in, Portability & Exit Card",
+        "title": "Lock-in, Portability & Exit Card",
+        "body": [
+          "restriction → portable asset → migration condition → exit readiness."
+        ]
+      },
+      "sourceLines": [
+        910,
+        911
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "INS-EC05-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC05-08",
+      "fields": {
+        "heading": "INS-EC05-08 · Dependency Continuity Scenario",
+        "title": "Dependency Continuity Scenario",
+        "body": [
+          "disruption → tolerance → workaround → capacity → evidence."
+        ]
+      },
+      "sourceLines": [
+        912,
+        913
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "INS-EC05-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC05-09",
+      "fields": {
+        "heading": "INS-EC05-09 · Recovery Validation Card",
+        "title": "Recovery Validation Card",
+        "body": [
+          "recovery path → assumptions → test → result → confidence."
+        ]
+      },
+      "sourceLines": [
+        914,
+        915
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "INS-EC05-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-EC05-10",
+      "fields": {
+        "heading": "INS-EC05-10 · Dependency Treatment Record",
+        "title": "Dependency Treatment Record",
+        "body": [
+          "exposure → treatment → owner → residual exposure → acceptance → review trigger.",
+          "Registramos:"
+        ]
+      },
+      "sourceLines": [
+        916,
+        918
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CAND-INSTRUMENT-TRANSVERSAL-15",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-INSTRUMENT-TRANSVERSAL-15",
+      "fields": {
+        "heading": "CAND-INSTRUMENT-TRANSVERSAL-15 · EXTERNAL-DEPENDENCY-CASE-CARD",
+        "title": "EXTERNAL-DEPENDENCY-CASE-CARD",
+        "body": [
+          "y:"
+        ]
+      },
+      "sourceLines": [
+        919,
+        920
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CAND-INSTRUMENT-TRANSVERSAL-16",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-INSTRUMENT-TRANSVERSAL-16",
+      "fields": {
+        "heading": "CAND-INSTRUMENT-TRANSVERSAL-16 · DEPENDENCY-TREATMENT-RECORD",
+        "title": "DEPENDENCY-TREATMENT-RECORD"
+      },
+      "sourceLines": [
+        921,
+        921
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC05-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC05-01",
+      "fields": {
+        "heading": "DEL-EC05-01 · mapa de dependencias materiales",
+        "title": "mapa de dependencias materiales"
+      },
+      "sourceLines": [
+        924,
+        924
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC05-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC05-02",
+      "fields": {
+        "heading": "DEL-EC05-02 · dependent outcomes identificados",
+        "title": "dependent outcomes identificados"
+      },
+      "sourceLines": [
+        925,
+        925
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC05-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC05-03",
+      "fields": {
+        "heading": "DEL-EC05-03 · criticality/tolerance suficientemente comprendidas",
+        "title": "criticality/tolerance suficientemente comprendidas"
+      },
+      "sourceLines": [
+        926,
+        926
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC05-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC05-04",
+      "fields": {
+        "heading": "DEL-EC05-04 · concentración y single points visibles",
+        "title": "concentración y single points visibles"
+      },
+      "sourceLines": [
+        927,
+        927
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC05-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC05-05",
+      "fields": {
+        "heading": "DEL-EC05-05 · sustituibilidad y switching burden evaluados",
+        "title": "sustituibilidad y switching burden evaluados"
+      },
+      "sourceLines": [
+        928,
+        928
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC05-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC05-06",
+      "fields": {
+        "heading": "DEL-EC05-06 · lock-in/portability/exit suficientemente comprendidos",
+        "title": "lock-in/portability/exit suficientemente comprendidos"
+      },
+      "sourceLines": [
+        929,
+        929
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC05-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC05-07",
+      "fields": {
+        "heading": "DEL-EC05-07 · mecanismos de continuidad proporcionales",
+        "title": "mecanismos de continuidad proporcionales"
+      },
+      "sourceLines": [
+        930,
+        930
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC05-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC05-08",
+      "fields": {
+        "heading": "DEL-EC05-08 · recovery suficientemente preparado/evidenciado",
+        "title": "recovery suficientemente preparado/evidenciado"
+      },
+      "sourceLines": [
+        931,
+        931
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC05-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC05-09",
+      "fields": {
+        "heading": "DEL-EC05-09 · tratamiento y residual exposure explícitos",
+        "title": "tratamiento y residual exposure explícitos"
+      },
+      "sourceLines": [
+        932,
+        932
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "DEL-EC05-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-EC05-10",
+      "fields": {
+        "heading": "DEL-EC05-10 · ownership, acceptance y monitoring establecidos",
+        "title": "ownership, acceptance y monitoring establecidos"
+      },
+      "sourceLines": [
+        933,
+        933
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC05-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC05-01",
+      "fields": {
+        "heading": "| CRV-EC05-01 | Dependencias materiales intervenidas están vinculadas a outcomes concretos |",
+        "title": "Dependencias materiales intervenidas están vinculadas a outcomes concretos"
+      },
+      "sourceLines": [
+        959,
+        959
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC05-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC05-02",
+      "fields": {
+        "heading": "| CRV-EC05-02 | Escenarios críticos poseen consecuencia y tolerancia suficientemente explícitas |",
+        "title": "Escenarios críticos poseen consecuencia y tolerancia suficientemente explícitas"
+      },
+      "sourceLines": [
+        960,
+        960
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC05-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC05-03",
+      "fields": {
+        "heading": "| CRV-EC05-03 | Concentraciones y single points materiales pueden identificarse desde el Dependency Map |",
+        "title": "Concentraciones y single points materiales pueden identificarse desde el Dependency Map"
+      },
+      "sourceLines": [
+        961,
+        961
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC05-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC05-04",
+      "fields": {
+        "heading": "| CRV-EC05-04 | Alternativas consideradas tienen evidencia suficiente de sustituibilidad respecto del caso |",
+        "title": "Alternativas consideradas tienen evidencia suficiente de sustituibilidad respecto del caso"
+      },
+      "sourceLines": [
+        962,
+        962
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC05-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC05-05",
+      "fields": {
+        "heading": "| CRV-EC05-05 | Switching burden material puede reconstruirse y actualizarse |",
+        "title": "Switching burden material puede reconstruirse y actualizarse"
+      },
+      "sourceLines": [
+        963,
+        963
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC05-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC05-06",
+      "fields": {
+        "heading": "| CRV-EC05-06 | Activos/condiciones críticas de portabilidad y salida están suficientemente disponibles |",
+        "title": "Activos/condiciones críticas de portabilidad y salida están suficientemente disponibles"
+      },
+      "sourceLines": [
+        964,
+        964
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC05-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC05-07",
+      "fields": {
+        "heading": "| CRV-EC05-07 | Mecanismos de continuidad pueden operar dentro de tolerancias definidas cuando sean requeridos |",
+        "title": "Mecanismos de continuidad pueden operar dentro de tolerancias definidas cuando sean requeridos"
+      },
+      "sourceLines": [
+        965,
+        965
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC05-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC05-08",
+      "fields": {
+        "heading": "| CRV-EC05-08 | Recovery crítico ha sido evidenciado con profundidad proporcional |",
+        "title": "Recovery crítico ha sido evidenciado con profundidad proporcional"
+      },
+      "sourceLines": [
+        966,
+        966
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC05-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC05-09",
+      "fields": {
+        "heading": "| CRV-EC05-09 | Cada exposición material posee tratamiento explícito o aceptación accountable |",
+        "title": "Cada exposición material posee tratamiento explícito o aceptación accountable"
+      },
+      "sourceLines": [
+        967,
+        967
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CRV-EC05-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-EC05-10",
+      "fields": {
+        "heading": "| CRV-EC05-10 | Cambios materiales de dependencia activan revisión de exposición/tratamiento |",
+        "title": "Cambios materiales de dependencia activan revisión de exposición/tratamiento"
+      },
+      "sourceLines": [
+        968,
+        968
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "V0",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V0",
+      "fields": {
+        "heading": "V0 · UNKNOWN",
+        "title": "UNKNOWN",
+        "body": [
+          "No existe evidencia suficiente sobre dependencia/exposición."
+        ]
+      },
+      "sourceLines": [
+        971,
+        972
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "V1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V1",
+      "fields": {
+        "heading": "V1 · DEPENDENCY-DEFINED",
+        "title": "DEPENDENCY-DEFINED",
+        "body": [
+          "Dependencia, dependent outcome y criticality están suficientemente identificados."
+        ]
+      },
+      "sourceLines": [
+        973,
+        974
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "V2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V2",
+      "fields": {
+        "heading": "V2 · EXPOSURE-EVIDENCED",
+        "title": "EXPOSURE-EVIDENCED",
+        "body": [
+          "Existe evidencia proporcional sobre concentración, sustituibilidad, switching, continuidad y/o recovery relevantes."
+        ]
+      },
+      "sourceLines": [
+        975,
+        976
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "V3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V3",
+      "fields": {
+        "heading": "V3 · DEPENDENCY-MANAGED",
+        "title": "DEPENDENCY-MANAGED",
+        "body": [
+          "Existe tratamiento proporcional y residual exposure suficientemente comprendida y accountable."
+        ]
+      },
+      "sourceLines": [
+        977,
+        978
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "V4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V4",
+      "fields": {
+        "heading": "V4 · DEPENDENCY-RESILIENT/ADAPTIVE",
+        "title": "DEPENDENCY-RESILIENT/ADAPTIVE",
+        "body": [
+          "Tratamientos críticos han sido suficientemente validados y la organización puede detectar cambios, adaptar su respuesta y mantener/restaurar outcomes dentro de condiciones aceptables."
+        ]
+      },
+      "sourceLines": [
+        979,
+        980
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-EC05-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-EC05-04",
+      "fields": {
+        "heading": "CAND-MOTOR-EC05-04",
+        "body": [
+          "Dependency Validation State no debe disminuir automáticamente por intensidad de dependencia si la exposición está suficientemente tratada."
+        ]
+      },
+      "sourceLines": [
+        987,
+        988
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "REASS-EC05-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_REASS",
+      "sourceId": "REASS-EC05-01",
+      "fields": {
+        "heading": "REASS-EC05-01",
+        "body": [
+          "Todo cambio material que afecte dependent outcome, criticality, substitutability, switching burden, continuity o recovery debe poder activar reevaluación parcial del EDC."
+        ]
+      },
+      "sourceLines": [
+        1011,
+        1012
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CROSS-DEP-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CROSS-DEP-01",
+      "fields": {
+        "heading": "CAND-MOTOR-CROSS-DEP-01 · DEPENDENCY-PROPAGATION",
+        "title": "DEPENDENCY-PROPAGATION",
+        "body": [
+          "El Motor debe poder representar una misma External Dependency como upstream de múltiples outcomes/capacidades y propagar evidencia de cambio sin propagar automáticamente conclusiones diagnósticas.",
+          "Esto puede ser muy potente para el futuro Knowledge Graph."
+        ]
+      },
+      "sourceLines": [
+        1019,
+        1021
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-CROSS-DEP-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-CROSS-DEP-02",
+      "fields": {
+        "heading": "CAND-MOTOR-CROSS-DEP-02 · COMMON-CAUSE-DEPENDENCY",
+        "title": "COMMON-CAUSE-DEPENDENCY",
+        "body": [
+          "La evaluación de diversificación debe poder considerar dependencias upstream compartidas cuando sean materialmente conocidas."
+        ]
+      },
+      "sourceLines": [
+        1028,
+        1029
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "SOURCE-REVIEW-TRIGGER-EC05-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SOURCE",
+      "sourceId": "SOURCE-REVIEW-TRIGGER-EC05-01",
+      "fields": {
+        "heading": "SOURCE-REVIEW-TRIGGER-EC05-01 · ISO-22301-NEXT-EDITION",
+        "title": "ISO-22301-NEXT-EDITION"
+      },
+      "sourceLines": [
+        1047,
+        1047
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "SOURCE-REVIEW-TRIGGER-EC05-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SOURCE",
+      "sourceId": "SOURCE-REVIEW-TRIGGER-EC05-02",
+      "fields": {
+        "heading": "SOURCE-REVIEW-TRIGGER-EC05-02 · ISO-44001-NEXT-EDITION",
+        "title": "ISO-44001-NEXT-EDITION"
+      },
+      "sourceLines": [
+        1048,
+        1048
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "SOURCE-REVIEW-TRIGGER-EC05-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SOURCE",
+      "sourceId": "SOURCE-REVIEW-TRIGGER-EC05-03",
+      "fields": {
+        "heading": "SOURCE-REVIEW-TRIGGER-EC05-03 · NIST-C-SCRM-MATERIAL-UPDATE",
+        "title": "NIST-C-SCRM-MATERIAL-UPDATE"
+      },
+      "sourceLines": [
+        1049,
+        1049
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "K1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Coherencia — PASS",
+        "title": "Coherencia — PASS",
+        "body": [
+          "Las fronteras EC-02/03/04/05, DG-05 y DT-05 quedan preservadas."
+        ]
+      },
+      "sourceLines": [
+        1097,
+        1098
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "K2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Razonamiento — PASS",
+        "title": "Razonamiento — PASS",
+        "body": [
+          "Mantiene:",
+          "DEPENDENCY ≠ VULNERABILITY",
+          "CONCENTRATION ≠ CRITICALITY",
+          "ALTERNATIVE ≠ SUBSTITUTE READY",
+          "BACKUP ≠ CONTINUITY",
+          "PLAN ≠ READINESS",
+          "CONTINUITY ≠ RECOVERY",
+          "TREATMENT ≠ ELIMINATION"
+        ]
+      },
+      "sourceLines": [
+        1099,
+        1107
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "K3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · Acción — PASS",
+        "title": "Acción — PASS",
+        "body": [
+          "Puede decidir proporcionalmente entre:",
+          "aceptar, observar, reducir, diversificar, preparar sustitución, reducir switching burden, mejorar portabilidad, crear continuidad, probar recovery, internalizar, transicionar o salir."
+        ]
+      },
+      "sourceLines": [
+        1108,
+        1110
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "K4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · Knowledge — PASS",
+        "title": "Knowledge — PASS",
+        "body": [
+          "Objeto, evidence strength, rules, confidence, treatment, residual exposure, follow-up, provenance y governance quedan explícitos."
+        ]
+      },
+      "sourceLines": [
+        1111,
+        1112
+      ],
+      "approvalEvidence": {
+        "text": "EC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          1139,
+          1139
+        ]
+      }
+    },
+    {
+      "key": "DOMAIN-EC-v1.0",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_DOMAIN",
+      "sourceId": "DOMAIN-EC-v1.0",
+      "fields": {
+        "heading": "DOMAIN-EC-v1.0 · 4/4 CAPABILITIES K4-VALIDATED · DOMAIN-KNOWLEDGE-COMPLETE",
+        "title": "4/4 CAPABILITIES K4-VALIDATED · DOMAIN-KNOWLEDGE-COMPLETE",
+        "body": [
+          "La arquitectura final del dominio queda especialmente limpia:",
+          "NEED → SELECT → GOVERN → ABSORB → DEPENDENCY",
+          "con:",
+          "EC-02 = SELECT",
+          "EC-03 = GOVERN",
+          "EC-04 = ABSORB",
+          "EC-05 = DEPENDENCY"
+        ]
+      },
+      "sourceLines": [
+        1141,
+        1148
+      ]
+    },
+    {
+      "key": "PYMAPA-6x31-VERTICAL-KNOWLEDGE-v1.0",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_PYMAPA",
+      "sourceId": "PYMAPA-6x31-VERTICAL-KNOWLEDGE-v1.0",
+      "fields": {
+        "heading": "PYMAPA-6x31-VERTICAL-KNOWLEDGE-v1.0 · 31/31 CAPABILITIES K4-VALIDATED · 6/6 DOMAINS KNOWLEDGE-COMPLETE",
+        "title": "31/31 CAPABILITIES K4-VALIDATED · 6/6 DOMAINS KNOWLEDGE-COMPLETE",
+        "body": [
+          "Esto es un hito muy importante, pero no equivale todavía a FASE-2-CLOSED.",
+          "Hasta aquí construimos y validamos las 31 piezas verticales. Ahora debemos demostrar que juntas forman un único sistema de conocimiento coherente y ejecutable."
+        ]
+      },
+      "sourceLines": [
+        1160,
+        1162
+      ]
+    }
+  ],
+  "governanceDecisions": {
+    "decisionSetId": "M2-FINAL-MASS-BATCH",
+    "ref": "knowledge/intake/EC-05/governance-decisions.json",
+    "checksum": "sha256:c8627411397cdf02c95ff0060e78adcc495e4fc8b9d4614446caca65ec0e35e3"
+  },
+  "checksum": "sha256:d6521c05740bc4cc9c32af18961cf1bc1d0ca591f16533404389ef6748cfb29b"
+}

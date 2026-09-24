@@ -120,7 +120,8 @@ export function extractCapabilityDefinition(
 export type NiMappingStatus =
   | "STRUCTURAL_CONTAINMENT"
   | "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE"
-  | "REVIEW_REQUIRED_CONFLICTING_OCCURRENCES";
+  | "REVIEW_REQUIRED_CONFLICTING_OCCURRENCES"
+  | "GOVERNED_STRUCTURAL_MAPPING";
 
 export interface LinkedInformationNeed {
   id: string;
@@ -225,4 +226,102 @@ export function linkInformationNeeds(
     void key;
   }
   return out;
+}
+
+/* --------------- 3 · GOVERNED_STRUCTURAL_MAPPING (ordinal) --------------- */
+
+export interface GovernedOrdinalMappingDecision {
+  rule: "GOVERNED_STRUCTURAL_MAPPING";
+  decisionSetId: string;
+  authority: string;
+  decidedAt: string;
+}
+
+export interface OrdinalMappingCheck {
+  applied: boolean;
+  conditions: {
+    equalCardinality: boolean;
+    alignedOrdinalNumbering: boolean;
+    niBlockBelongsToVaArchitecture: boolean;
+    orderingPreserved: boolean;
+    noExplicitContraryMapping: boolean;
+  };
+  evidence: {
+    vaCount: number;
+    niCount: number;
+    niSection: string | null;
+    niLines: number[];
+  };
+}
+
+const NI_SECTION_HEADING = /necesidades de informaci[oó]n|information needs|\bNI\b/i;
+const ordinal = (id: string, prefix: string) => {
+  const m = new RegExp(`^${prefix}(\\d+)$`).exec(id);
+  return m ? Number(m[1]) : null;
+};
+
+/**
+ * Regla gobernada (M2-FINAL-MASS-BATCH · A): NIn → VAn solo si se cumplen las
+ * cinco condiciones estructurales. Se verifica contra la fuente; no reescribe
+ * la fuente ni afirma que la fuente declare el vínculo literalmente.
+ */
+export function applyGovernedOrdinalMapping(
+  needs: LinkedInformationNeed[],
+  vaIds: readonly string[],
+  rawText: string,
+  decision: GovernedOrdinalMappingDecision,
+): { needs: LinkedInformationNeed[]; check: OrdinalMappingCheck } {
+  const lines = rawText.split("\n");
+  const sectionOf = (line: number) => {
+    for (let k = line - 1; k >= 0; k--) {
+      const h = /^(#{1,9})\s+(.*)$/.exec(lines[k]!.trim());
+      if (h) return h[2]!;
+    }
+    return null;
+  };
+  const niOrd = needs.map((n) => ordinal(n.id, "NI"));
+  const vaOrd = vaIds.map((v) => ordinal(v, "VA"));
+  const firstLines = needs.map((n) => n.sourceLines[0] ?? 0);
+  const sections = [...new Set(firstLines.map(sectionOf))];
+  const conditions = {
+    equalCardinality: needs.length > 0 && needs.length === vaIds.length,
+    alignedOrdinalNumbering:
+      niOrd.every((x) => x !== null) &&
+      vaOrd.every((x) => x !== null) &&
+      JSON.stringify([...niOrd].sort((a, b) => a! - b!)) ===
+        JSON.stringify([...vaOrd].sort((a, b) => a! - b!)),
+    niBlockBelongsToVaArchitecture:
+      sections.length === 1 && sections[0] !== null && NI_SECTION_HEADING.test(sections[0]!),
+    orderingPreserved:
+      firstLines.every((l, i) => i === 0 || l > firstLines[i - 1]!) &&
+      niOrd.every((o, i) => i === 0 || o! > niOrd[i - 1]!),
+    noExplicitContraryMapping: needs.every(
+      (n) => n.mappingStatus === "UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE",
+    ),
+  };
+  const applied = Object.values(conditions).every(Boolean);
+  const check: OrdinalMappingCheck = {
+    applied,
+    conditions,
+    evidence: {
+      vaCount: vaIds.length,
+      niCount: needs.length,
+      niSection: sections.length === 1 ? sections[0]! : null,
+      niLines: firstLines,
+    },
+  };
+  if (!applied) return { needs, check };
+  const byOrd = new Map(vaIds.map((v) => [ordinal(v, "VA"), v]));
+  return {
+    check,
+    needs: needs.map((n) => {
+      const va = byOrd.get(ordinal(n.id, "NI"))!;
+      return {
+        ...n,
+        variableRefs: [va],
+        mappingStatus: "GOVERNED_STRUCTURAL_MAPPING" as NiMappingStatus,
+        mappingEvidence: `governed ordinal ${n.id}→${va} · cardinalidad ${needs.length}=${vaIds.length} · sección «${check.evidence.niSection}» · orden preservado · ${decision.decisionSetId} · ${decision.authority} · ${decision.decidedAt}`,
+      };
+    }),
+  };
 }

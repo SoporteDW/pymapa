@@ -142,6 +142,8 @@ export const extractionCandidateSchema = z.object({
       declared: z.number().int().nonnegative(),
       objectType: z.string().min(1),
       role: z.string().optional(),
+      /** Conteo declarado por la fuente cuyos objetos no se enumeran individualmente. */
+      enumeration: z.literal("DECLARED_NOT_ENUMERATED").optional(),
       sourceLines: lineRange,
     }),
   ),
@@ -560,6 +562,9 @@ export function validateExtractionCandidate(input: {
         i.objectType === cc.objectType &&
         (cc.role === undefined || i.role === cc.role),
     ).length;
+    // Gobernado: la fuente declara el número pero no enumera los objetos; se
+    // preserva el silencio (no se inventan IDs) si no hay exceso materializado.
+    if (cc.enumeration === "DECLARED_NOT_ENUMERATED" && n <= cc.declared) continue;
     if (n !== cc.declared)
       add(
         "CONTROL_COUNT_MISMATCH",

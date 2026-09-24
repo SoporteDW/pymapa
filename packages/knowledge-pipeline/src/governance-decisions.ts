@@ -46,6 +46,11 @@ export const governanceDecisionsSchema = z.object({
           .string()
           .regex(/^[A-Z][A-Z0-9_]*$/)
           .optional(),
+        /**
+         * M2-FINAL-MASS-BATCH · la fuente declara el conteo pero no enumera los
+         * objetos individualmente; se preserva sin inventar IDs.
+         */
+        enumeration: z.literal("DECLARED_NOT_ENUMERATED").optional(),
       }),
     )
     .default([]),
@@ -79,7 +84,9 @@ export const governanceDecisionsSchema = z.object({
       z.object({
         sourceIds: z.array(z.string().min(1)).min(1),
         resolution: z.enum(["SELECT_OCCURRENCE", "GENUINE_COLLISION", "NOT_A_KNOWLEDGE_OBJECT"]),
-        within: z.object({ fromLiteral: z.string().min(1), toLiteral: z.string().min(1) }).optional(),
+        within: z
+          .object({ fromLiteral: z.string().min(1), toLiteral: z.string().min(1) })
+          .optional(),
         canonicalLiteral: z.string().min(1).optional(),
         otherOccurrencesRole: z
           .string()
@@ -103,7 +110,9 @@ export const governanceDecisionsSchema = z.object({
       z.object({
         sourceIds: z.array(z.string().min(1)).min(1),
         role: z.string().regex(/^[A-Z][A-Z0-9_]*$/),
-        within: z.object({ fromLiteral: z.string().min(1), toLiteral: z.string().min(1) }).optional(),
+        within: z
+          .object({ fromLiteral: z.string().min(1), toLiteral: z.string().min(1) })
+          .optional(),
         aliasOf: z.record(z.string(), z.string()).optional(),
         bodyLiterals: z.record(z.string(), z.string()).optional(),
         rationale: z.string().min(1),

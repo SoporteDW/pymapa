@@ -17,6 +17,9 @@ import { computeChecksum } from "./checksum.ts";
 import {
   extractCapabilityDefinition,
   linkInformationNeeds,
+  applyGovernedOrdinalMapping,
+  type GovernedOrdinalMappingDecision,
+  type OrdinalMappingCheck,
   NOT_EXPLICIT_MARK,
   type CapabilityDefinitionResult,
 } from "./source-structure.ts";
@@ -116,6 +119,7 @@ export interface ProjectionResult {
     criticalityNotExplicit: number;
   };
   definition: CapabilityDefinitionResult | null;
+  ordinalMapping?: OrdinalMappingCheck | null;
   checksum: string | null;
 }
 
@@ -131,6 +135,7 @@ export function projectBaselineToRunnableSource(
   baseline: ProjectableBaseline,
   identity: IdentityInput | null,
   rawText = "",
+  options: { governedOrdinalMapping?: GovernedOrdinalMappingDecision } = {},
 ): ProjectionResult {
   const b: ProjectionBlocker[] = [];
   const gaps: Record<string, unknown>[] = [];
@@ -212,7 +217,13 @@ export function projectBaselineToRunnableSource(
   }
 
   // NI y vínculo NI→VA por estructura explícita; canal de adquisición por NI.
-  const needs = linkInformationNeeds(rawText, vaIds);
+  let needs = linkInformationNeeds(rawText, vaIds);
+  let ordinalCheck: OrdinalMappingCheck | null = null;
+  if (options.governedOrdinalMapping) {
+    const r = applyGovernedOrdinalMapping(needs, vaIds, rawText, options.governedOrdinalMapping);
+    needs = r.needs;
+    ordinalCheck = r.check;
+  }
   const conflicting = needs.filter((n) => n.mappingStatus.startsWith("REVIEW"));
   if (conflicting.length)
     gaps.push({
@@ -261,7 +272,11 @@ export function projectBaselineToRunnableSource(
     const resolution = viaQuestion
       ? "ACQUISITION_EXPLICIT"
       : fed.has(id)
-        ? "INFORMATION_NEED"
+        ? informationNeeds.some(
+            (n) => n.mappingStatus === "GOVERNED_STRUCTURAL_MAPPING" && n.variableRefs.includes(id),
+          )
+          ? "GOVERNED_STRUCTURAL_MAPPING"
+          : "INFORMATION_NEED"
         : "UNRESOLVED";
     if (resolution === "UNRESOLVED") unresolved.push(id);
     variables.push({
@@ -344,6 +359,20 @@ export function projectBaselineToRunnableSource(
       conditionsOfExistence: conditions,
       variables,
       informationNeeds,
+      ...(ordinalCheck?.applied && options.governedOrdinalMapping
+        ? {
+            governedStructuralMapping: (() => {
+              const { rule, ...decisionRest } = options.governedOrdinalMapping;
+              return {
+                rule,
+                nature:
+                  "interpretación estructural gobernada de la fuente; la fuente no declara literalmente el vínculo",
+                ...decisionRest,
+                ...ordinalCheck,
+              };
+            })(),
+          }
+        : {}),
       acquisitions,
       ...(stages.length ? { acquisitionStages: stages } : {}),
     },
@@ -357,6 +386,7 @@ export function projectBaselineToRunnableSource(
     blockers: [],
     stats,
     definition,
+    ordinalMapping: ordinalCheck,
     checksum,
   };
 }
