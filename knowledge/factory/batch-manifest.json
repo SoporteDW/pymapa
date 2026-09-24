@@ -68,15 +68,15 @@
       "RAW_SOURCE": 0,
       "REGISTERED": 0,
       "EXTRACTED_CANDIDATE": 0,
-      "CANONICAL_REVIEW_REQUIRED": 13,
+      "CANONICAL_REVIEW_REQUIRED": 10,
       "VALIDATED": 0,
-      "READY_FOR_PUBLICATION": 0,
+      "READY_FOR_PUBLICATION": 3,
       "PUBLISHED": 2
     },
     "byOutcome": {
       "PASS": 2,
-      "REVIEW_REQUIRED": 13,
-      "FAIL": 0
+      "REVIEW_REQUIRED": 3,
+      "FAIL": 10
     }
   },
   "extensionRegistry": {
@@ -112,17 +112,22 @@
         "objectCount": 83
       },
       "provenance": {
-        "sourceReference": null,
-        "derivation": null,
-        "extractionStatus": null,
+        "sourceReference": "canonical-baseline.json#DG01-K4-v1.0@sha256:3f6de9b97d68b94e548beb9f9c47026c6bb717b2f799753be5cb1835bf0d809f · DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "derivation": "MASTER_TRANSCRIPTION",
+        "extractionStatus": "APPROVED",
         "historicalClosure": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED"
       },
       "gaps": {
-        "total": 0,
-        "notExplicit": [],
+        "total": 2,
+        "notExplicit": [
+          "NE-DG-01-CRITICALITY",
+          "NE-DG-01-VA-ACQUISITION"
+        ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
-        "publicationBlocking": []
+        "publicationBlocking": [
+          "NE-DG-01-VA-ACQUISITION"
+        ]
       },
       "transcriptionCorrections": [],
       "runtimeCompatibility": {
@@ -132,8 +137,8 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 0,
-        "pass": 0,
+        "count": 1,
+        "pass": 1,
         "governedJudgment": 0,
         "fail": 0
       },
@@ -143,12 +148,12 @@
       },
       "publication": {
         "status": "UNPUBLISHED",
-        "packId": null,
-        "packVersion": null,
-        "packChecksum": null
+        "packId": "dg-01",
+        "packVersion": "1.0.0",
+        "packChecksum": "sha256:b80f123af58ca80fd2de3ed3edd40f95aee5758709542cbe77ecfd5bdbe135b7"
       },
       "state": "CANONICAL_REVIEW_REQUIRED",
-      "outcome": "REVIEW_REQUIRED",
+      "outcome": "FAIL",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -167,17 +172,17 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
           "check": "STRUCTURAL",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "REFERENTIAL",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
@@ -187,19 +192,29 @@
         },
         {
           "check": "PROVENANCE",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "PROVENANCE",
+              "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+              "severity": "INFO",
+              "message": "cierre histórico DG01-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+              "action": "ninguna",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
+          "status": "FAIL",
           "reasons": [
             {
               "check": "CANONICAL_TO_PACK",
-              "code": "EXECUTABLE_PROJECTION_MISSING",
-              "severity": "REVIEW",
-              "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
-              "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+              "code": "PUBLICATION_BLOCKING_GAP",
+              "severity": "FAIL",
+              "message": "gaps.NE-DG-01-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+              "action": "corregir la proyección ejecutable",
               "sourceLines": null,
               "objectKey": null
             }
@@ -207,33 +222,43 @@
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "FIXTURES",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "SOURCE_SILENCE",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "CAPABILITY_BRANCHING",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "FAIL",
+          "reasons": [
+            {
+              "check": "PUBLICATION_GATE",
+              "code": "PUBLICATION_BLOCKING_GAP",
+              "severity": "FAIL",
+              "message": "NE-DG-01-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+              "action": "resolver el bloqueo técnico",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
@@ -252,11 +277,29 @@
           "objectKey": null
         },
         {
+          "check": "PROVENANCE",
+          "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+          "severity": "INFO",
+          "message": "cierre histórico DG01-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+          "action": "ninguna",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
           "check": "CANONICAL_TO_PACK",
-          "code": "EXECUTABLE_PROJECTION_MISSING",
-          "severity": "REVIEW",
-          "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
-          "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+          "code": "PUBLICATION_BLOCKING_GAP",
+          "severity": "FAIL",
+          "message": "gaps.NE-DG-01-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+          "action": "corregir la proyección ejecutable",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "code": "PUBLICATION_BLOCKING_GAP",
+          "severity": "FAIL",
+          "message": "NE-DG-01-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+          "action": "resolver el bloqueo técnico",
           "sourceLines": null,
           "objectKey": null
         }
@@ -267,16 +310,16 @@
         "rawTextLines": 855,
         "candidateItems": null,
         "canonicalObjects": 83,
-        "executableSections": null,
-        "checksAutoPassed": 2,
-        "humanReviewItems": 1,
-        "notExplicit": 0,
+        "executableSections": 6,
+        "checksAutoPassed": 9,
+        "humanReviewItems": 0,
+        "notExplicit": 2,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 0
+        "publicationBlockers": 1
       }
     },
     {
@@ -304,17 +347,22 @@
         "objectCount": 101
       },
       "provenance": {
-        "sourceReference": null,
-        "derivation": null,
-        "extractionStatus": null,
+        "sourceReference": "canonical-baseline.json#DG02-K4-v1.0@sha256:492b34cf7c89ef84fea0f5a355248cb22eff73c53b20fffe166b2ea13a62001c · DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "derivation": "MASTER_TRANSCRIPTION",
+        "extractionStatus": "APPROVED",
         "historicalClosure": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED"
       },
       "gaps": {
-        "total": 0,
-        "notExplicit": [],
+        "total": 2,
+        "notExplicit": [
+          "NE-DG-02-CRITICALITY",
+          "NE-DG-02-VA-ACQUISITION"
+        ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
-        "publicationBlocking": []
+        "publicationBlocking": [
+          "NE-DG-02-VA-ACQUISITION"
+        ]
       },
       "transcriptionCorrections": [],
       "runtimeCompatibility": {
@@ -324,8 +372,8 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 0,
-        "pass": 0,
+        "count": 1,
+        "pass": 1,
         "governedJudgment": 0,
         "fail": 0
       },
@@ -335,12 +383,12 @@
       },
       "publication": {
         "status": "UNPUBLISHED",
-        "packId": null,
-        "packVersion": null,
-        "packChecksum": null
+        "packId": "dg-02",
+        "packVersion": "1.0.0",
+        "packChecksum": "sha256:c2ba9e2111a219d30b6b5b08b7c018df99ebadac22108741ca1e8e6e715bc455"
       },
       "state": "CANONICAL_REVIEW_REQUIRED",
-      "outcome": "REVIEW_REQUIRED",
+      "outcome": "FAIL",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -359,17 +407,17 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
           "check": "STRUCTURAL",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "REFERENTIAL",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
@@ -379,19 +427,29 @@
         },
         {
           "check": "PROVENANCE",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "PROVENANCE",
+              "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+              "severity": "INFO",
+              "message": "cierre histórico DG02-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+              "action": "ninguna",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
+          "status": "FAIL",
           "reasons": [
             {
               "check": "CANONICAL_TO_PACK",
-              "code": "EXECUTABLE_PROJECTION_MISSING",
-              "severity": "REVIEW",
-              "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
-              "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+              "code": "PUBLICATION_BLOCKING_GAP",
+              "severity": "FAIL",
+              "message": "gaps.NE-DG-02-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+              "action": "corregir la proyección ejecutable",
               "sourceLines": null,
               "objectKey": null
             }
@@ -399,33 +457,43 @@
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "FIXTURES",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "SOURCE_SILENCE",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "CAPABILITY_BRANCHING",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "FAIL",
+          "reasons": [
+            {
+              "check": "PUBLICATION_GATE",
+              "code": "PUBLICATION_BLOCKING_GAP",
+              "severity": "FAIL",
+              "message": "NE-DG-02-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+              "action": "resolver el bloqueo técnico",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
@@ -444,11 +512,29 @@
           "objectKey": null
         },
         {
+          "check": "PROVENANCE",
+          "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+          "severity": "INFO",
+          "message": "cierre histórico DG02-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+          "action": "ninguna",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
           "check": "CANONICAL_TO_PACK",
-          "code": "EXECUTABLE_PROJECTION_MISSING",
-          "severity": "REVIEW",
-          "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
-          "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+          "code": "PUBLICATION_BLOCKING_GAP",
+          "severity": "FAIL",
+          "message": "gaps.NE-DG-02-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+          "action": "corregir la proyección ejecutable",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "code": "PUBLICATION_BLOCKING_GAP",
+          "severity": "FAIL",
+          "message": "NE-DG-02-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+          "action": "resolver el bloqueo técnico",
           "sourceLines": null,
           "objectKey": null
         }
@@ -459,16 +545,16 @@
         "rawTextLines": 632,
         "candidateItems": null,
         "canonicalObjects": 101,
-        "executableSections": null,
-        "checksAutoPassed": 2,
-        "humanReviewItems": 1,
-        "notExplicit": 0,
+        "executableSections": 6,
+        "checksAutoPassed": 9,
+        "humanReviewItems": 0,
+        "notExplicit": 2,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 0
+        "publicationBlockers": 1
       }
     },
     {
@@ -496,17 +582,22 @@
         "objectCount": 95
       },
       "provenance": {
-        "sourceReference": null,
-        "derivation": null,
-        "extractionStatus": null,
+        "sourceReference": "canonical-baseline.json#DG03-K4-v1.0@sha256:5de1f497b83e8975ac8fc912edecf92299ac72dead26290ab59254c7fc8651e3 · DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "derivation": "MASTER_TRANSCRIPTION",
+        "extractionStatus": "APPROVED",
         "historicalClosure": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED"
       },
       "gaps": {
-        "total": 0,
-        "notExplicit": [],
+        "total": 2,
+        "notExplicit": [
+          "NE-DG-03-CRITICALITY",
+          "NE-DG-03-VA-ACQUISITION"
+        ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
-        "publicationBlocking": []
+        "publicationBlocking": [
+          "NE-DG-03-VA-ACQUISITION"
+        ]
       },
       "transcriptionCorrections": [],
       "runtimeCompatibility": {
@@ -516,8 +607,8 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 0,
-        "pass": 0,
+        "count": 1,
+        "pass": 1,
         "governedJudgment": 0,
         "fail": 0
       },
@@ -527,12 +618,12 @@
       },
       "publication": {
         "status": "UNPUBLISHED",
-        "packId": null,
-        "packVersion": null,
-        "packChecksum": null
+        "packId": "dg-03",
+        "packVersion": "1.0.0",
+        "packChecksum": "sha256:a41db4b91add260cc2eabe30a2758aa2e06d93433f19a058531ed3ed716ae15b"
       },
       "state": "CANONICAL_REVIEW_REQUIRED",
-      "outcome": "REVIEW_REQUIRED",
+      "outcome": "FAIL",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -551,17 +642,17 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
           "check": "STRUCTURAL",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "REFERENTIAL",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
@@ -571,19 +662,29 @@
         },
         {
           "check": "PROVENANCE",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "PROVENANCE",
+              "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+              "severity": "INFO",
+              "message": "cierre histórico DG03-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+              "action": "ninguna",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
+          "status": "FAIL",
           "reasons": [
             {
               "check": "CANONICAL_TO_PACK",
-              "code": "EXECUTABLE_PROJECTION_MISSING",
-              "severity": "REVIEW",
-              "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
-              "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+              "code": "PUBLICATION_BLOCKING_GAP",
+              "severity": "FAIL",
+              "message": "gaps.NE-DG-03-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+              "action": "corregir la proyección ejecutable",
               "sourceLines": null,
               "objectKey": null
             }
@@ -591,33 +692,43 @@
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "FIXTURES",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "SOURCE_SILENCE",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "CAPABILITY_BRANCHING",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "FAIL",
+          "reasons": [
+            {
+              "check": "PUBLICATION_GATE",
+              "code": "PUBLICATION_BLOCKING_GAP",
+              "severity": "FAIL",
+              "message": "NE-DG-03-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+              "action": "resolver el bloqueo técnico",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
@@ -636,11 +747,29 @@
           "objectKey": null
         },
         {
+          "check": "PROVENANCE",
+          "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+          "severity": "INFO",
+          "message": "cierre histórico DG03-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+          "action": "ninguna",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
           "check": "CANONICAL_TO_PACK",
-          "code": "EXECUTABLE_PROJECTION_MISSING",
-          "severity": "REVIEW",
-          "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
-          "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+          "code": "PUBLICATION_BLOCKING_GAP",
+          "severity": "FAIL",
+          "message": "gaps.NE-DG-03-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+          "action": "corregir la proyección ejecutable",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "code": "PUBLICATION_BLOCKING_GAP",
+          "severity": "FAIL",
+          "message": "NE-DG-03-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+          "action": "resolver el bloqueo técnico",
           "sourceLines": null,
           "objectKey": null
         }
@@ -651,16 +780,16 @@
         "rawTextLines": 593,
         "candidateItems": null,
         "canonicalObjects": 95,
-        "executableSections": null,
-        "checksAutoPassed": 2,
-        "humanReviewItems": 1,
-        "notExplicit": 0,
+        "executableSections": 6,
+        "checksAutoPassed": 9,
+        "humanReviewItems": 0,
+        "notExplicit": 2,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 0
+        "publicationBlockers": 1
       }
     },
     {
@@ -688,17 +817,22 @@
         "objectCount": 96
       },
       "provenance": {
-        "sourceReference": null,
-        "derivation": null,
-        "extractionStatus": null,
+        "sourceReference": "canonical-baseline.json#DG04-K4-v1.0@sha256:47496abd1e75c71fd9d52e60f14fa9124e34c10d79297b828d78920ea0152a07 · DG04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "derivation": "MASTER_TRANSCRIPTION",
+        "extractionStatus": "APPROVED",
         "historicalClosure": "DG04-K4-v1.0 · K4-VALIDATED · CLOSED"
       },
       "gaps": {
-        "total": 0,
-        "notExplicit": [],
+        "total": 2,
+        "notExplicit": [
+          "NE-DG-04-CRITICALITY",
+          "NE-DG-04-VA-ACQUISITION"
+        ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
-        "publicationBlocking": []
+        "publicationBlocking": [
+          "NE-DG-04-VA-ACQUISITION"
+        ]
       },
       "transcriptionCorrections": [],
       "runtimeCompatibility": {
@@ -708,8 +842,8 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 0,
-        "pass": 0,
+        "count": 1,
+        "pass": 1,
         "governedJudgment": 0,
         "fail": 0
       },
@@ -719,12 +853,12 @@
       },
       "publication": {
         "status": "UNPUBLISHED",
-        "packId": null,
-        "packVersion": null,
-        "packChecksum": null
+        "packId": "dg-04",
+        "packVersion": "1.0.0",
+        "packChecksum": "sha256:88f270c903674bf55eee4f8c16a3cef751594202ee6f0a8850dd76ca1f59e6b4"
       },
       "state": "CANONICAL_REVIEW_REQUIRED",
-      "outcome": "REVIEW_REQUIRED",
+      "outcome": "FAIL",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -743,17 +877,17 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
           "check": "STRUCTURAL",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "REFERENTIAL",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
@@ -763,19 +897,29 @@
         },
         {
           "check": "PROVENANCE",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "PROVENANCE",
+              "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+              "severity": "INFO",
+              "message": "cierre histórico DG04-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+              "action": "ninguna",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
+          "status": "FAIL",
           "reasons": [
             {
               "check": "CANONICAL_TO_PACK",
-              "code": "EXECUTABLE_PROJECTION_MISSING",
-              "severity": "REVIEW",
-              "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
-              "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+              "code": "PUBLICATION_BLOCKING_GAP",
+              "severity": "FAIL",
+              "message": "gaps.NE-DG-04-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+              "action": "corregir la proyección ejecutable",
               "sourceLines": null,
               "objectKey": null
             }
@@ -783,33 +927,43 @@
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "FIXTURES",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "SOURCE_SILENCE",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "CAPABILITY_BRANCHING",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "FAIL",
+          "reasons": [
+            {
+              "check": "PUBLICATION_GATE",
+              "code": "PUBLICATION_BLOCKING_GAP",
+              "severity": "FAIL",
+              "message": "NE-DG-04-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+              "action": "resolver el bloqueo técnico",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
@@ -828,11 +982,29 @@
           "objectKey": null
         },
         {
+          "check": "PROVENANCE",
+          "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+          "severity": "INFO",
+          "message": "cierre histórico DG04-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+          "action": "ninguna",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
           "check": "CANONICAL_TO_PACK",
-          "code": "EXECUTABLE_PROJECTION_MISSING",
-          "severity": "REVIEW",
-          "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
-          "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+          "code": "PUBLICATION_BLOCKING_GAP",
+          "severity": "FAIL",
+          "message": "gaps.NE-DG-04-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+          "action": "corregir la proyección ejecutable",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "code": "PUBLICATION_BLOCKING_GAP",
+          "severity": "FAIL",
+          "message": "NE-DG-04-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+          "action": "resolver el bloqueo técnico",
           "sourceLines": null,
           "objectKey": null
         }
@@ -843,16 +1015,16 @@
         "rawTextLines": 675,
         "candidateItems": null,
         "canonicalObjects": 96,
-        "executableSections": null,
-        "checksAutoPassed": 2,
-        "humanReviewItems": 1,
-        "notExplicit": 0,
+        "executableSections": 6,
+        "checksAutoPassed": 9,
+        "humanReviewItems": 0,
+        "notExplicit": 2,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 0
+        "publicationBlockers": 1
       }
     },
     {
@@ -880,17 +1052,22 @@
         "objectCount": 95
       },
       "provenance": {
-        "sourceReference": null,
-        "derivation": null,
-        "extractionStatus": null,
+        "sourceReference": "canonical-baseline.json#DG05-K4-v1.0@sha256:1a0a0d4b3c4cb7e35973b1980cdfd40fcf6e2aa8ddb1f7565ec6d1e9264db603 · DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "derivation": "MASTER_TRANSCRIPTION",
+        "extractionStatus": "APPROVED",
         "historicalClosure": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED"
       },
       "gaps": {
-        "total": 0,
-        "notExplicit": [],
+        "total": 2,
+        "notExplicit": [
+          "NE-DG-05-CRITICALITY",
+          "NE-DG-05-VA-ACQUISITION"
+        ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
-        "publicationBlocking": []
+        "publicationBlocking": [
+          "NE-DG-05-VA-ACQUISITION"
+        ]
       },
       "transcriptionCorrections": [],
       "runtimeCompatibility": {
@@ -900,8 +1077,8 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 0,
-        "pass": 0,
+        "count": 1,
+        "pass": 1,
         "governedJudgment": 0,
         "fail": 0
       },
@@ -911,12 +1088,12 @@
       },
       "publication": {
         "status": "UNPUBLISHED",
-        "packId": null,
-        "packVersion": null,
-        "packChecksum": null
+        "packId": "dg-05",
+        "packVersion": "1.0.0",
+        "packChecksum": "sha256:243776e720936324e8205c85a0bdf951c3df487d9dcd5683d2ba26ccee3aa8bf"
       },
       "state": "CANONICAL_REVIEW_REQUIRED",
-      "outcome": "REVIEW_REQUIRED",
+      "outcome": "FAIL",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -935,17 +1112,17 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
           "check": "STRUCTURAL",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "REFERENTIAL",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
@@ -955,19 +1132,29 @@
         },
         {
           "check": "PROVENANCE",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "PROVENANCE",
+              "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+              "severity": "INFO",
+              "message": "cierre histórico DG05-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+              "action": "ninguna",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
+          "status": "FAIL",
           "reasons": [
             {
               "check": "CANONICAL_TO_PACK",
-              "code": "EXECUTABLE_PROJECTION_MISSING",
-              "severity": "REVIEW",
-              "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
-              "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+              "code": "PUBLICATION_BLOCKING_GAP",
+              "severity": "FAIL",
+              "message": "gaps.NE-DG-05-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+              "action": "corregir la proyección ejecutable",
               "sourceLines": null,
               "objectKey": null
             }
@@ -975,33 +1162,43 @@
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "FIXTURES",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "SOURCE_SILENCE",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "CAPABILITY_BRANCHING",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "FAIL",
+          "reasons": [
+            {
+              "check": "PUBLICATION_GATE",
+              "code": "PUBLICATION_BLOCKING_GAP",
+              "severity": "FAIL",
+              "message": "NE-DG-05-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+              "action": "resolver el bloqueo técnico",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
@@ -1020,11 +1217,29 @@
           "objectKey": null
         },
         {
+          "check": "PROVENANCE",
+          "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+          "severity": "INFO",
+          "message": "cierre histórico DG05-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+          "action": "ninguna",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
           "check": "CANONICAL_TO_PACK",
-          "code": "EXECUTABLE_PROJECTION_MISSING",
-          "severity": "REVIEW",
-          "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
-          "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+          "code": "PUBLICATION_BLOCKING_GAP",
+          "severity": "FAIL",
+          "message": "gaps.NE-DG-05-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+          "action": "corregir la proyección ejecutable",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "code": "PUBLICATION_BLOCKING_GAP",
+          "severity": "FAIL",
+          "message": "NE-DG-05-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+          "action": "resolver el bloqueo técnico",
           "sourceLines": null,
           "objectKey": null
         }
@@ -1035,16 +1250,16 @@
         "rawTextLines": 657,
         "candidateItems": null,
         "canonicalObjects": 95,
-        "executableSections": null,
-        "checksAutoPassed": 2,
-        "humanReviewItems": 1,
-        "notExplicit": 0,
+        "executableSections": 5,
+        "checksAutoPassed": 9,
+        "humanReviewItems": 0,
+        "notExplicit": 2,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 0
+        "publicationBlockers": 1
       }
     },
     {
@@ -1507,14 +1722,17 @@
         "objectCount": 182
       },
       "provenance": {
-        "sourceReference": null,
-        "derivation": null,
-        "extractionStatus": null,
+        "sourceReference": "canonical-baseline.json#OP03-K4-v1.0@sha256:573e1906b898d67065fcc66fccee8710b71436a217d91874284d562d596df034 · OP03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "derivation": "MASTER_TRANSCRIPTION",
+        "extractionStatus": "APPROVED",
         "historicalClosure": "OP03-K4-v1.0 · K4-VALIDATED · CLOSED"
       },
       "gaps": {
-        "total": 0,
-        "notExplicit": [],
+        "total": 2,
+        "notExplicit": [
+          "NE-OP-03-DEFINITION",
+          "NE-OP-03-CRITICALITY"
+        ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
         "publicationBlocking": []
@@ -1527,22 +1745,22 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 0,
-        "pass": 0,
+        "count": 2,
+        "pass": 2,
         "governedJudgment": 0,
         "fail": 0
       },
       "governance": {
         "reviewStatus": "NOT_REQUESTED",
-        "evidence": "NOT_APPLICABLE"
+        "evidence": "CURRENT"
       },
       "publication": {
         "status": "UNPUBLISHED",
-        "packId": null,
-        "packVersion": null,
-        "packChecksum": null
+        "packId": "op-03",
+        "packVersion": "1.0.0",
+        "packChecksum": "sha256:01192851ea4ed1afff1943b648ecaae3d7b10fd891c7a8cdced196f60dbe0321"
       },
-      "state": "CANONICAL_REVIEW_REQUIRED",
+      "state": "READY_FOR_PUBLICATION",
       "outcome": "REVIEW_REQUIRED",
       "checks": [
         {
@@ -1562,17 +1780,17 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
           "check": "STRUCTURAL",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "REFERENTIAL",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
@@ -1582,57 +1800,67 @@
         },
         {
           "check": "PROVENANCE",
-          "status": "NOT_RUN",
-          "reasons": []
-        },
-        {
-          "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reasons": [
             {
-              "check": "CANONICAL_TO_PACK",
-              "code": "EXECUTABLE_PROJECTION_MISSING",
-              "severity": "REVIEW",
-              "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
-              "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+              "check": "PROVENANCE",
+              "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+              "severity": "INFO",
+              "message": "cierre histórico OP03-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+              "action": "ninguna",
               "sourceLines": null,
               "objectKey": null
             }
           ]
         },
         {
+          "check": "CANONICAL_TO_PACK",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
           "check": "RUNTIME_COMPATIBILITY",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "FIXTURES",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "SOURCE_SILENCE",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "CAPABILITY_BRANCHING",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "PUBLICATION_GATE",
+              "code": "HUMAN_PUBLICATION_AUTHORIZATION_REQUIRED",
+              "severity": "REVIEW",
+              "message": "falta autorización humana de publicación",
+              "action": "la autoridad de gobierno registra governance-review.json (decision, reviewer, reviewedAt) tras revisar el dossier de evidencia",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         }
       ],
@@ -1647,11 +1875,20 @@
           "objectKey": null
         },
         {
-          "check": "CANONICAL_TO_PACK",
-          "code": "EXECUTABLE_PROJECTION_MISSING",
+          "check": "PROVENANCE",
+          "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+          "severity": "INFO",
+          "message": "cierre histórico OP03-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+          "action": "ninguna",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "code": "HUMAN_PUBLICATION_AUTHORIZATION_REQUIRED",
           "severity": "REVIEW",
-          "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
-          "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+          "message": "falta autorización humana de publicación",
+          "action": "la autoridad de gobierno registra governance-review.json (decision, reviewer, reviewedAt) tras revisar el dossier de evidencia",
           "sourceLines": null,
           "objectKey": null
         }
@@ -1662,16 +1899,16 @@
         "rawTextLines": 6185,
         "candidateItems": null,
         "canonicalObjects": 182,
-        "executableSections": null,
-        "checksAutoPassed": 2,
+        "executableSections": 6,
+        "checksAutoPassed": 11,
         "humanReviewItems": 1,
-        "notExplicit": 0,
+        "notExplicit": 2,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 0
+        "publicationBlockers": 1
       }
     },
     {
@@ -1699,14 +1936,16 @@
         "objectCount": 188
       },
       "provenance": {
-        "sourceReference": null,
-        "derivation": null,
-        "extractionStatus": null,
+        "sourceReference": "canonical-baseline.json#OP04-K4-v1.0@sha256:711b804cf0b7341730ea7159c6f375ba7b0584602b462206cf18f4408c2ffc07 · OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "derivation": "MASTER_TRANSCRIPTION",
+        "extractionStatus": "APPROVED",
         "historicalClosure": "OP04-K4-v1.0 · K4-VALIDATED · CLOSED"
       },
       "gaps": {
-        "total": 0,
-        "notExplicit": [],
+        "total": 1,
+        "notExplicit": [
+          "NE-OP-04-CRITICALITY"
+        ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
         "publicationBlocking": []
@@ -1719,22 +1958,22 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 0,
-        "pass": 0,
+        "count": 2,
+        "pass": 2,
         "governedJudgment": 0,
         "fail": 0
       },
       "governance": {
         "reviewStatus": "NOT_REQUESTED",
-        "evidence": "NOT_APPLICABLE"
+        "evidence": "CURRENT"
       },
       "publication": {
         "status": "UNPUBLISHED",
-        "packId": null,
-        "packVersion": null,
-        "packChecksum": null
+        "packId": "op-04",
+        "packVersion": "1.0.0",
+        "packChecksum": "sha256:ae1252a861a97336318582eda38aa3df6f04e3947b5f11cd8bbe5c2263a42625"
       },
-      "state": "CANONICAL_REVIEW_REQUIRED",
+      "state": "READY_FOR_PUBLICATION",
       "outcome": "REVIEW_REQUIRED",
       "checks": [
         {
@@ -1754,17 +1993,17 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
           "check": "STRUCTURAL",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "REFERENTIAL",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
@@ -1774,57 +2013,67 @@
         },
         {
           "check": "PROVENANCE",
-          "status": "NOT_RUN",
-          "reasons": []
-        },
-        {
-          "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reasons": [
             {
-              "check": "CANONICAL_TO_PACK",
-              "code": "EXECUTABLE_PROJECTION_MISSING",
-              "severity": "REVIEW",
-              "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
-              "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+              "check": "PROVENANCE",
+              "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+              "severity": "INFO",
+              "message": "cierre histórico OP04-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+              "action": "ninguna",
               "sourceLines": null,
               "objectKey": null
             }
           ]
         },
         {
+          "check": "CANONICAL_TO_PACK",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
           "check": "RUNTIME_COMPATIBILITY",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "FIXTURES",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "SOURCE_SILENCE",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "CAPABILITY_BRANCHING",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "PUBLICATION_GATE",
+              "code": "HUMAN_PUBLICATION_AUTHORIZATION_REQUIRED",
+              "severity": "REVIEW",
+              "message": "falta autorización humana de publicación",
+              "action": "la autoridad de gobierno registra governance-review.json (decision, reviewer, reviewedAt) tras revisar el dossier de evidencia",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         }
       ],
@@ -1839,11 +2088,20 @@
           "objectKey": null
         },
         {
-          "check": "CANONICAL_TO_PACK",
-          "code": "EXECUTABLE_PROJECTION_MISSING",
+          "check": "PROVENANCE",
+          "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+          "severity": "INFO",
+          "message": "cierre histórico OP04-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+          "action": "ninguna",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "code": "HUMAN_PUBLICATION_AUTHORIZATION_REQUIRED",
           "severity": "REVIEW",
-          "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
-          "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+          "message": "falta autorización humana de publicación",
+          "action": "la autoridad de gobierno registra governance-review.json (decision, reviewer, reviewedAt) tras revisar el dossier de evidencia",
           "sourceLines": null,
           "objectKey": null
         }
@@ -1854,16 +2112,16 @@
         "rawTextLines": 6015,
         "candidateItems": null,
         "canonicalObjects": 188,
-        "executableSections": null,
-        "checksAutoPassed": 2,
+        "executableSections": 6,
+        "checksAutoPassed": 11,
         "humanReviewItems": 1,
-        "notExplicit": 0,
+        "notExplicit": 1,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 0
+        "publicationBlockers": 1
       }
     },
     {
@@ -1891,14 +2149,17 @@
         "objectCount": 117
       },
       "provenance": {
-        "sourceReference": null,
-        "derivation": null,
-        "extractionStatus": null,
+        "sourceReference": "canonical-baseline.json#OP05-K4-v1.0@sha256:5012dd5e604085ce748fb6eb44a98a5353fc887da5fb948af075b5f392034c40 · OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "derivation": "MASTER_TRANSCRIPTION",
+        "extractionStatus": "APPROVED",
         "historicalClosure": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED"
       },
       "gaps": {
-        "total": 0,
-        "notExplicit": [],
+        "total": 2,
+        "notExplicit": [
+          "NE-OP-05-DEFINITION",
+          "NE-OP-05-CRITICALITY"
+        ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
         "publicationBlocking": []
@@ -1911,22 +2172,22 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 0,
-        "pass": 0,
+        "count": 2,
+        "pass": 2,
         "governedJudgment": 0,
         "fail": 0
       },
       "governance": {
         "reviewStatus": "NOT_REQUESTED",
-        "evidence": "NOT_APPLICABLE"
+        "evidence": "CURRENT"
       },
       "publication": {
         "status": "UNPUBLISHED",
-        "packId": null,
-        "packVersion": null,
-        "packChecksum": null
+        "packId": "op-05",
+        "packVersion": "1.0.0",
+        "packChecksum": "sha256:796084c31e7726b96b823972c73d14f2c61d0cf37307d086418dfdaccba35114"
       },
-      "state": "CANONICAL_REVIEW_REQUIRED",
+      "state": "READY_FOR_PUBLICATION",
       "outcome": "REVIEW_REQUIRED",
       "checks": [
         {
@@ -1946,17 +2207,17 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
           "check": "STRUCTURAL",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "REFERENTIAL",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
@@ -1966,57 +2227,67 @@
         },
         {
           "check": "PROVENANCE",
-          "status": "NOT_RUN",
-          "reasons": []
-        },
-        {
-          "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
+          "status": "PASS",
           "reasons": [
             {
-              "check": "CANONICAL_TO_PACK",
-              "code": "EXECUTABLE_PROJECTION_MISSING",
-              "severity": "REVIEW",
-              "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
-              "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+              "check": "PROVENANCE",
+              "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+              "severity": "INFO",
+              "message": "cierre histórico OP05-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+              "action": "ninguna",
               "sourceLines": null,
               "objectKey": null
             }
           ]
         },
         {
+          "check": "CANONICAL_TO_PACK",
+          "status": "PASS",
+          "reasons": []
+        },
+        {
           "check": "RUNTIME_COMPATIBILITY",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "FIXTURES",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "SOURCE_SILENCE",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "CAPABILITY_BRANCHING",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "REVIEW_REQUIRED",
+          "reasons": [
+            {
+              "check": "PUBLICATION_GATE",
+              "code": "HUMAN_PUBLICATION_AUTHORIZATION_REQUIRED",
+              "severity": "REVIEW",
+              "message": "falta autorización humana de publicación",
+              "action": "la autoridad de gobierno registra governance-review.json (decision, reviewer, reviewedAt) tras revisar el dossier de evidencia",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         }
       ],
@@ -2031,11 +2302,20 @@
           "objectKey": null
         },
         {
-          "check": "CANONICAL_TO_PACK",
-          "code": "EXECUTABLE_PROJECTION_MISSING",
+          "check": "PROVENANCE",
+          "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+          "severity": "INFO",
+          "message": "cierre histórico OP05-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+          "action": "ninguna",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "code": "HUMAN_PUBLICATION_AUTHORIZATION_REQUIRED",
           "severity": "REVIEW",
-          "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
-          "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+          "message": "falta autorización humana de publicación",
+          "action": "la autoridad de gobierno registra governance-review.json (decision, reviewer, reviewedAt) tras revisar el dossier de evidencia",
           "sourceLines": null,
           "objectKey": null
         }
@@ -2046,16 +2326,16 @@
         "rawTextLines": 1786,
         "candidateItems": null,
         "canonicalObjects": 117,
-        "executableSections": null,
-        "checksAutoPassed": 2,
+        "executableSections": 5,
+        "checksAutoPassed": 11,
         "humanReviewItems": 1,
-        "notExplicit": 0,
+        "notExplicit": 2,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 0
+        "publicationBlockers": 1
       }
     },
     {
@@ -2083,17 +2363,22 @@
         "objectCount": 81
       },
       "provenance": {
-        "sourceReference": null,
-        "derivation": null,
-        "extractionStatus": null,
+        "sourceReference": "canonical-baseline.json#PC01-K4-v1.0@sha256:dfd008885aa9d601cfffa23eeeba78161af65ee1da21ec69cf238d867282099f · PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "derivation": "MASTER_TRANSCRIPTION",
+        "extractionStatus": "APPROVED",
         "historicalClosure": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED"
       },
       "gaps": {
-        "total": 0,
-        "notExplicit": [],
+        "total": 2,
+        "notExplicit": [
+          "NE-PC-01-CRITICALITY",
+          "NE-PC-01-VA-ACQUISITION"
+        ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
-        "publicationBlocking": []
+        "publicationBlocking": [
+          "NE-PC-01-VA-ACQUISITION"
+        ]
       },
       "transcriptionCorrections": [],
       "runtimeCompatibility": {
@@ -2103,8 +2388,8 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 0,
-        "pass": 0,
+        "count": 1,
+        "pass": 1,
         "governedJudgment": 0,
         "fail": 0
       },
@@ -2114,12 +2399,12 @@
       },
       "publication": {
         "status": "UNPUBLISHED",
-        "packId": null,
-        "packVersion": null,
-        "packChecksum": null
+        "packId": "pc-01",
+        "packVersion": "1.0.0",
+        "packChecksum": "sha256:414782586c1c40bb43572e4ac10b038aadfe6126fe0fb435be9b9947be460d2c"
       },
       "state": "CANONICAL_REVIEW_REQUIRED",
-      "outcome": "REVIEW_REQUIRED",
+      "outcome": "FAIL",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -2138,17 +2423,17 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
           "check": "STRUCTURAL",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "REFERENTIAL",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
@@ -2158,19 +2443,29 @@
         },
         {
           "check": "PROVENANCE",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "PROVENANCE",
+              "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+              "severity": "INFO",
+              "message": "cierre histórico PC01-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+              "action": "ninguna",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
+          "status": "FAIL",
           "reasons": [
             {
               "check": "CANONICAL_TO_PACK",
-              "code": "EXECUTABLE_PROJECTION_MISSING",
-              "severity": "REVIEW",
-              "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
-              "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+              "code": "PUBLICATION_BLOCKING_GAP",
+              "severity": "FAIL",
+              "message": "gaps.NE-PC-01-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+              "action": "corregir la proyección ejecutable",
               "sourceLines": null,
               "objectKey": null
             }
@@ -2178,33 +2473,43 @@
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "FIXTURES",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "SOURCE_SILENCE",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "CAPABILITY_BRANCHING",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "FAIL",
+          "reasons": [
+            {
+              "check": "PUBLICATION_GATE",
+              "code": "PUBLICATION_BLOCKING_GAP",
+              "severity": "FAIL",
+              "message": "NE-PC-01-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+              "action": "resolver el bloqueo técnico",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
@@ -2223,11 +2528,29 @@
           "objectKey": null
         },
         {
+          "check": "PROVENANCE",
+          "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+          "severity": "INFO",
+          "message": "cierre histórico PC01-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+          "action": "ninguna",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
           "check": "CANONICAL_TO_PACK",
-          "code": "EXECUTABLE_PROJECTION_MISSING",
-          "severity": "REVIEW",
-          "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
-          "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+          "code": "PUBLICATION_BLOCKING_GAP",
+          "severity": "FAIL",
+          "message": "gaps.NE-PC-01-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+          "action": "corregir la proyección ejecutable",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "code": "PUBLICATION_BLOCKING_GAP",
+          "severity": "FAIL",
+          "message": "NE-PC-01-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+          "action": "resolver el bloqueo técnico",
           "sourceLines": null,
           "objectKey": null
         }
@@ -2238,16 +2561,16 @@
         "rawTextLines": 684,
         "candidateItems": null,
         "canonicalObjects": 81,
-        "executableSections": null,
-        "checksAutoPassed": 2,
-        "humanReviewItems": 1,
-        "notExplicit": 0,
+        "executableSections": 6,
+        "checksAutoPassed": 9,
+        "humanReviewItems": 0,
+        "notExplicit": 2,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 0
+        "publicationBlockers": 1
       }
     },
     {
@@ -2275,17 +2598,22 @@
         "objectCount": 96
       },
       "provenance": {
-        "sourceReference": null,
-        "derivation": null,
-        "extractionStatus": null,
+        "sourceReference": "canonical-baseline.json#PC02-K4-v1.0@sha256:f13cabb5bfba742431fba8cc4c5da1ba444e6c8ac564c26846def2101fb808c8 · PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "derivation": "MASTER_TRANSCRIPTION",
+        "extractionStatus": "APPROVED",
         "historicalClosure": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED"
       },
       "gaps": {
-        "total": 0,
-        "notExplicit": [],
+        "total": 2,
+        "notExplicit": [
+          "NE-PC-02-CRITICALITY",
+          "NE-PC-02-VA-ACQUISITION"
+        ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
-        "publicationBlocking": []
+        "publicationBlocking": [
+          "NE-PC-02-VA-ACQUISITION"
+        ]
       },
       "transcriptionCorrections": [],
       "runtimeCompatibility": {
@@ -2295,8 +2623,8 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 0,
-        "pass": 0,
+        "count": 1,
+        "pass": 1,
         "governedJudgment": 0,
         "fail": 0
       },
@@ -2306,12 +2634,12 @@
       },
       "publication": {
         "status": "UNPUBLISHED",
-        "packId": null,
-        "packVersion": null,
-        "packChecksum": null
+        "packId": "pc-02",
+        "packVersion": "1.0.0",
+        "packChecksum": "sha256:f3c703d9c76b70ec5f076c09a1ea0f44dbd6c0a37179613db8f5e82754887248"
       },
       "state": "CANONICAL_REVIEW_REQUIRED",
-      "outcome": "REVIEW_REQUIRED",
+      "outcome": "FAIL",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -2330,17 +2658,17 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
           "check": "STRUCTURAL",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "REFERENTIAL",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
@@ -2350,19 +2678,29 @@
         },
         {
           "check": "PROVENANCE",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "PROVENANCE",
+              "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+              "severity": "INFO",
+              "message": "cierre histórico PC02-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+              "action": "ninguna",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
+          "status": "FAIL",
           "reasons": [
             {
               "check": "CANONICAL_TO_PACK",
-              "code": "EXECUTABLE_PROJECTION_MISSING",
-              "severity": "REVIEW",
-              "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
-              "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+              "code": "PUBLICATION_BLOCKING_GAP",
+              "severity": "FAIL",
+              "message": "gaps.NE-PC-02-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+              "action": "corregir la proyección ejecutable",
               "sourceLines": null,
               "objectKey": null
             }
@@ -2370,33 +2708,43 @@
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "FIXTURES",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "SOURCE_SILENCE",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "CAPABILITY_BRANCHING",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "FAIL",
+          "reasons": [
+            {
+              "check": "PUBLICATION_GATE",
+              "code": "PUBLICATION_BLOCKING_GAP",
+              "severity": "FAIL",
+              "message": "NE-PC-02-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+              "action": "resolver el bloqueo técnico",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
@@ -2415,11 +2763,29 @@
           "objectKey": null
         },
         {
+          "check": "PROVENANCE",
+          "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+          "severity": "INFO",
+          "message": "cierre histórico PC02-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+          "action": "ninguna",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
           "check": "CANONICAL_TO_PACK",
-          "code": "EXECUTABLE_PROJECTION_MISSING",
-          "severity": "REVIEW",
-          "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
-          "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+          "code": "PUBLICATION_BLOCKING_GAP",
+          "severity": "FAIL",
+          "message": "gaps.NE-PC-02-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+          "action": "corregir la proyección ejecutable",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "code": "PUBLICATION_BLOCKING_GAP",
+          "severity": "FAIL",
+          "message": "NE-PC-02-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+          "action": "resolver el bloqueo técnico",
           "sourceLines": null,
           "objectKey": null
         }
@@ -2430,16 +2796,16 @@
         "rawTextLines": 731,
         "candidateItems": null,
         "canonicalObjects": 96,
-        "executableSections": null,
-        "checksAutoPassed": 2,
-        "humanReviewItems": 1,
-        "notExplicit": 0,
+        "executableSections": 6,
+        "checksAutoPassed": 9,
+        "humanReviewItems": 0,
+        "notExplicit": 2,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 0
+        "publicationBlockers": 1
       }
     },
     {
@@ -2467,17 +2833,22 @@
         "objectCount": 107
       },
       "provenance": {
-        "sourceReference": null,
-        "derivation": null,
-        "extractionStatus": null,
+        "sourceReference": "canonical-baseline.json#PC03-K4-v1.0@sha256:d015e54ab97120ed93df6b28948566cc0eb7fc13e2bdff949a346c13247a6f3b · PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "derivation": "MASTER_TRANSCRIPTION",
+        "extractionStatus": "APPROVED",
         "historicalClosure": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED"
       },
       "gaps": {
-        "total": 0,
-        "notExplicit": [],
+        "total": 2,
+        "notExplicit": [
+          "NE-PC-03-CRITICALITY",
+          "NE-PC-03-VA-ACQUISITION"
+        ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
-        "publicationBlocking": []
+        "publicationBlocking": [
+          "NE-PC-03-VA-ACQUISITION"
+        ]
       },
       "transcriptionCorrections": [],
       "runtimeCompatibility": {
@@ -2487,8 +2858,8 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 0,
-        "pass": 0,
+        "count": 1,
+        "pass": 1,
         "governedJudgment": 0,
         "fail": 0
       },
@@ -2498,12 +2869,12 @@
       },
       "publication": {
         "status": "UNPUBLISHED",
-        "packId": null,
-        "packVersion": null,
-        "packChecksum": null
+        "packId": "pc-03",
+        "packVersion": "1.0.0",
+        "packChecksum": "sha256:209ecbdccafedaf2551a30822a98e3272b400843764411e5e005d0fdff39837b"
       },
       "state": "CANONICAL_REVIEW_REQUIRED",
-      "outcome": "REVIEW_REQUIRED",
+      "outcome": "FAIL",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -2522,17 +2893,17 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
           "check": "STRUCTURAL",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "REFERENTIAL",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
@@ -2542,19 +2913,29 @@
         },
         {
           "check": "PROVENANCE",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "PROVENANCE",
+              "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+              "severity": "INFO",
+              "message": "cierre histórico PC03-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+              "action": "ninguna",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
+          "status": "FAIL",
           "reasons": [
             {
               "check": "CANONICAL_TO_PACK",
-              "code": "EXECUTABLE_PROJECTION_MISSING",
-              "severity": "REVIEW",
-              "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
-              "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+              "code": "PUBLICATION_BLOCKING_GAP",
+              "severity": "FAIL",
+              "message": "gaps.NE-PC-03-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+              "action": "corregir la proyección ejecutable",
               "sourceLines": null,
               "objectKey": null
             }
@@ -2562,33 +2943,43 @@
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "FIXTURES",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "SOURCE_SILENCE",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "CAPABILITY_BRANCHING",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "FAIL",
+          "reasons": [
+            {
+              "check": "PUBLICATION_GATE",
+              "code": "PUBLICATION_BLOCKING_GAP",
+              "severity": "FAIL",
+              "message": "NE-PC-03-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+              "action": "resolver el bloqueo técnico",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
@@ -2607,11 +2998,29 @@
           "objectKey": null
         },
         {
+          "check": "PROVENANCE",
+          "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+          "severity": "INFO",
+          "message": "cierre histórico PC03-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+          "action": "ninguna",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
           "check": "CANONICAL_TO_PACK",
-          "code": "EXECUTABLE_PROJECTION_MISSING",
-          "severity": "REVIEW",
-          "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
-          "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+          "code": "PUBLICATION_BLOCKING_GAP",
+          "severity": "FAIL",
+          "message": "gaps.NE-PC-03-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+          "action": "corregir la proyección ejecutable",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "code": "PUBLICATION_BLOCKING_GAP",
+          "severity": "FAIL",
+          "message": "NE-PC-03-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+          "action": "resolver el bloqueo técnico",
           "sourceLines": null,
           "objectKey": null
         }
@@ -2622,16 +3031,16 @@
         "rawTextLines": 813,
         "candidateItems": null,
         "canonicalObjects": 107,
-        "executableSections": null,
-        "checksAutoPassed": 2,
-        "humanReviewItems": 1,
-        "notExplicit": 0,
+        "executableSections": 6,
+        "checksAutoPassed": 9,
+        "humanReviewItems": 0,
+        "notExplicit": 2,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 0
+        "publicationBlockers": 1
       }
     },
     {
@@ -2659,17 +3068,22 @@
         "objectCount": 99
       },
       "provenance": {
-        "sourceReference": null,
-        "derivation": null,
-        "extractionStatus": null,
+        "sourceReference": "canonical-baseline.json#PC04-K4-v1.0@sha256:979031cd4e5370a026f353143d3107e517bdfc6168c70311bace46745083db4e · PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "derivation": "MASTER_TRANSCRIPTION",
+        "extractionStatus": "APPROVED",
         "historicalClosure": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED"
       },
       "gaps": {
-        "total": 0,
-        "notExplicit": [],
+        "total": 2,
+        "notExplicit": [
+          "NE-PC-04-CRITICALITY",
+          "NE-PC-04-VA-ACQUISITION"
+        ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
-        "publicationBlocking": []
+        "publicationBlocking": [
+          "NE-PC-04-VA-ACQUISITION"
+        ]
       },
       "transcriptionCorrections": [],
       "runtimeCompatibility": {
@@ -2679,8 +3093,8 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 0,
-        "pass": 0,
+        "count": 1,
+        "pass": 1,
         "governedJudgment": 0,
         "fail": 0
       },
@@ -2690,12 +3104,12 @@
       },
       "publication": {
         "status": "UNPUBLISHED",
-        "packId": null,
-        "packVersion": null,
-        "packChecksum": null
+        "packId": "pc-04",
+        "packVersion": "1.0.0",
+        "packChecksum": "sha256:6f9177dd4126ac30a59a4060f304ed46f6eab17cf6c19131ba72cdf3cd1e81ed"
       },
       "state": "CANONICAL_REVIEW_REQUIRED",
-      "outcome": "REVIEW_REQUIRED",
+      "outcome": "FAIL",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -2714,17 +3128,17 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
           "check": "STRUCTURAL",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "REFERENTIAL",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
@@ -2734,19 +3148,29 @@
         },
         {
           "check": "PROVENANCE",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "PROVENANCE",
+              "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+              "severity": "INFO",
+              "message": "cierre histórico PC04-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+              "action": "ninguna",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
+          "status": "FAIL",
           "reasons": [
             {
               "check": "CANONICAL_TO_PACK",
-              "code": "EXECUTABLE_PROJECTION_MISSING",
-              "severity": "REVIEW",
-              "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
-              "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+              "code": "PUBLICATION_BLOCKING_GAP",
+              "severity": "FAIL",
+              "message": "gaps.NE-PC-04-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+              "action": "corregir la proyección ejecutable",
               "sourceLines": null,
               "objectKey": null
             }
@@ -2754,33 +3178,43 @@
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "FIXTURES",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "SOURCE_SILENCE",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "CAPABILITY_BRANCHING",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "FAIL",
+          "reasons": [
+            {
+              "check": "PUBLICATION_GATE",
+              "code": "PUBLICATION_BLOCKING_GAP",
+              "severity": "FAIL",
+              "message": "NE-PC-04-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+              "action": "resolver el bloqueo técnico",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
@@ -2799,11 +3233,29 @@
           "objectKey": null
         },
         {
+          "check": "PROVENANCE",
+          "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+          "severity": "INFO",
+          "message": "cierre histórico PC04-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+          "action": "ninguna",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
           "check": "CANONICAL_TO_PACK",
-          "code": "EXECUTABLE_PROJECTION_MISSING",
-          "severity": "REVIEW",
-          "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
-          "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+          "code": "PUBLICATION_BLOCKING_GAP",
+          "severity": "FAIL",
+          "message": "gaps.NE-PC-04-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+          "action": "corregir la proyección ejecutable",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "code": "PUBLICATION_BLOCKING_GAP",
+          "severity": "FAIL",
+          "message": "NE-PC-04-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+          "action": "resolver el bloqueo técnico",
           "sourceLines": null,
           "objectKey": null
         }
@@ -2814,16 +3266,16 @@
         "rawTextLines": 826,
         "candidateItems": null,
         "canonicalObjects": 99,
-        "executableSections": null,
-        "checksAutoPassed": 2,
-        "humanReviewItems": 1,
-        "notExplicit": 0,
+        "executableSections": 6,
+        "checksAutoPassed": 9,
+        "humanReviewItems": 0,
+        "notExplicit": 2,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 0
+        "publicationBlockers": 1
       }
     },
     {
@@ -2851,17 +3303,22 @@
         "objectCount": 106
       },
       "provenance": {
-        "sourceReference": null,
-        "derivation": null,
-        "extractionStatus": null,
+        "sourceReference": "canonical-baseline.json#PC05-K4-v1.0@sha256:09d0c646c2722265e22418a02022ab5a6fcc81b52c1807a4fad0eba08cc768b8 · PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "derivation": "MASTER_TRANSCRIPTION",
+        "extractionStatus": "APPROVED",
         "historicalClosure": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED"
       },
       "gaps": {
-        "total": 0,
-        "notExplicit": [],
+        "total": 2,
+        "notExplicit": [
+          "NE-PC-05-CRITICALITY",
+          "NE-PC-05-VA-ACQUISITION"
+        ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
-        "publicationBlocking": []
+        "publicationBlocking": [
+          "NE-PC-05-VA-ACQUISITION"
+        ]
       },
       "transcriptionCorrections": [],
       "runtimeCompatibility": {
@@ -2871,8 +3328,8 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 0,
-        "pass": 0,
+        "count": 1,
+        "pass": 1,
         "governedJudgment": 0,
         "fail": 0
       },
@@ -2882,12 +3339,12 @@
       },
       "publication": {
         "status": "UNPUBLISHED",
-        "packId": null,
-        "packVersion": null,
-        "packChecksum": null
+        "packId": "pc-05",
+        "packVersion": "1.0.0",
+        "packChecksum": "sha256:f9bc89fd412c105a9c152aff40d7ed468b668717178fa2fc1651be36ba369077"
       },
       "state": "CANONICAL_REVIEW_REQUIRED",
-      "outcome": "REVIEW_REQUIRED",
+      "outcome": "FAIL",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -2906,17 +3363,17 @@
         },
         {
           "check": "CANDIDATE_BOUNDARY",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
           "check": "STRUCTURAL",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "REFERENTIAL",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
@@ -2926,19 +3383,29 @@
         },
         {
           "check": "PROVENANCE",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "PASS",
+          "reasons": [
+            {
+              "check": "PROVENANCE",
+              "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+              "severity": "INFO",
+              "message": "cierre histórico PC05-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+              "action": "ninguna",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
+          "status": "FAIL",
           "reasons": [
             {
               "check": "CANONICAL_TO_PACK",
-              "code": "EXECUTABLE_PROJECTION_MISSING",
-              "severity": "REVIEW",
-              "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
-              "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+              "code": "PUBLICATION_BLOCKING_GAP",
+              "severity": "FAIL",
+              "message": "gaps.NE-PC-05-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+              "action": "corregir la proyección ejecutable",
               "sourceLines": null,
               "objectKey": null
             }
@@ -2946,33 +3413,43 @@
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "FIXTURES",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "SOURCE_SILENCE",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "CAPABILITY_BRANCHING",
-          "status": "NOT_RUN",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_RUN",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "NOT_RUN",
-          "reasons": []
+          "status": "FAIL",
+          "reasons": [
+            {
+              "check": "PUBLICATION_GATE",
+              "code": "PUBLICATION_BLOCKING_GAP",
+              "severity": "FAIL",
+              "message": "NE-PC-05-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+              "action": "resolver el bloqueo técnico",
+              "sourceLines": null,
+              "objectKey": null
+            }
+          ]
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
@@ -2991,11 +3468,29 @@
           "objectKey": null
         },
         {
+          "check": "PROVENANCE",
+          "code": "HISTORICAL_CLOSURE_IS_NOT_PUBLICATION",
+          "severity": "INFO",
+          "message": "cierre histórico PC05-K4-v1.0 · K4-VALIDATED · CLOSED: provenance del conocimiento, no publicación técnica",
+          "action": "ninguna",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
           "check": "CANONICAL_TO_PACK",
-          "code": "EXECUTABLE_PROJECTION_MISSING",
-          "severity": "REVIEW",
-          "message": "baseline canónica aceptada sin proyección ejecutable (source.json)",
-          "action": "proyectar literalmente la baseline a source.json (claves verbatim) y añadir fixtures",
+          "code": "PUBLICATION_BLOCKING_GAP",
+          "severity": "FAIL",
+          "message": "gaps.NE-PC-05-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
+          "action": "corregir la proyección ejecutable",
+          "sourceLines": null,
+          "objectKey": null
+        },
+        {
+          "check": "PUBLICATION_GATE",
+          "code": "PUBLICATION_BLOCKING_GAP",
+          "severity": "FAIL",
+          "message": "NE-PC-05-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+          "action": "resolver el bloqueo técnico",
           "sourceLines": null,
           "objectKey": null
         }
@@ -3006,18 +3501,18 @@
         "rawTextLines": 857,
         "candidateItems": null,
         "canonicalObjects": 106,
-        "executableSections": null,
-        "checksAutoPassed": 2,
-        "humanReviewItems": 1,
-        "notExplicit": 0,
+        "executableSections": 6,
+        "checksAutoPassed": 9,
+        "humanReviewItems": 0,
+        "notExplicit": 2,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 0
+        "publicationBlockers": 1
       }
     }
   ],
-  "checksum": "sha256:8c0faa38590ec146805b294bf658f96f3ec1054c84b25e90f740f490b551de74"
+  "checksum": "sha256:c1d29f846a806a88498cbca5f9402d30e53b72eeb5b6219305be3f37a252b6d8"
 }

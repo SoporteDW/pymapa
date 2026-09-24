@@ -1,0 +1,2326 @@
+{
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "capability": {
+    "id": "OP-04",
+    "domainId": "OP",
+    "name": "Simplificar y automatizar de manera pertinente",
+    "definition": "OP-04 evalúa:\nla capacidad para identificar y reducir complejidad, fricción, redundancia y trabajo evitable, y aplicar automatización cuando resulte funcionalmente pertinente, viable y proporcional al problema y contexto.",
+    "definitionStatus": "EXPLICIT",
+    "definitionSourceLines": [
+      5446,
+      5447
+    ]
+  },
+  "provenance": {
+    "sourceReference": "canonical-baseline.json#OP04-K4-v1.0@sha256:711b804cf0b7341730ea7159c6f375ba7b0584602b462206cf18f4408c2ffc07 · OP04-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "extractionStatus": "APPROVED",
+    "derivation": "MASTER_TRANSCRIPTION",
+    "derivationNote": "Proyección genérica determinista (M2-FACTORY-CONTRACT-03) desde baseline canónica aceptada + estructura explícita de la fuente raw sellada.",
+    "approvedBy": "PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY",
+    "approvedAt": "2026-09-24"
+  },
+  "targetPack": {
+    "packId": "op-04",
+    "packVersion": "1.0.0"
+  },
+  "sections": {
+    "capability": {
+      "id": "OP-04",
+      "domainId": "OP",
+      "name": "Simplificar y automatizar de manera pertinente",
+      "definition": "OP-04 evalúa:\nla capacidad para identificar y reducir complejidad, fricción, redundancia y trabajo evitable, y aplicar automatización cuando resulte funcionalmente pertinente, viable y proporcional al problema y contexto.",
+      "definitionStatus": "EXPLICIT",
+      "definitionSourceLines": [
+        5446,
+        5447
+      ]
+    },
+    "conditionsOfExistence": [
+      {
+        "id": "CE01",
+        "statement": "Necesidad y simplicidad funcional"
+      },
+      {
+        "id": "CE02",
+        "statement": "Aptitud funcional para automatización"
+      },
+      {
+        "id": "CE03",
+        "statement": "Pertinencia y proporcionalidad de intervención"
+      }
+    ],
+    "variables": [
+      {
+        "id": "VA01",
+        "name": "Necesidad funcional del trabajo",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "ACQUISITION_EXPLICIT"
+      },
+      {
+        "id": "VA02",
+        "name": "Redundancia y retrabajo evitable",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "ACQUISITION_EXPLICIT"
+      },
+      {
+        "id": "VA03",
+        "name": "Complejidad operativa evitable",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "ACQUISITION_EXPLICIT"
+      },
+      {
+        "id": "VA04",
+        "name": "Recurrencia y apalancamiento potencial",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "ACQUISITION_EXPLICIT"
+      },
+      {
+        "id": "VA05",
+        "name": "Determinabilidad del trabajo",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "ACQUISITION_EXPLICIT"
+      },
+      {
+        "id": "VA06",
+        "name": "Variabilidad, excepciones y juicio",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "ACQUISITION_EXPLICIT"
+      },
+      {
+        "id": "VA07",
+        "name": "Materialidad y valor esperado",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "ACQUISITION_EXPLICIT"
+      },
+      {
+        "id": "VA08",
+        "name": "Esfuerzo y sostenibilidad de la solución",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "ACQUISITION_EXPLICIT"
+      },
+      {
+        "id": "VA09",
+        "name": "Riesgo y gobernabilidad",
+        "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "minimumEvidenceResolution": "NOT_EXPLICIT",
+        "semanticStates": null,
+        "acquisitionResolution": "ACQUISITION_EXPLICIT"
+      }
+    ],
+    "informationNeeds": [
+      {
+        "id": "NI-01.1",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué propósito cumple la actividad.",
+        "variableRefs": [
+          "VA01"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-01.1"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «3. VA01 · Necesidad funcional del trabajo»",
+        "sourceLines": [
+          1299
+        ]
+      },
+      {
+        "id": "NI-01.2",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué resultado, control, requisito o riesgo protege.",
+        "variableRefs": [
+          "VA01"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-01.2"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «3. VA01 · Necesidad funcional del trabajo»",
+        "sourceLines": [
+          1300
+        ]
+      },
+      {
+        "id": "NI-01.3",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué ocurriría si dejara de hacerse.",
+        "variableRefs": [
+          "VA01"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-01.3"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «3. VA01 · Necesidad funcional del trabajo»",
+        "sourceLines": [
+          1301
+        ]
+      },
+      {
+        "id": "NI-01.4",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si la razón original sigue vigente.",
+        "variableRefs": [
+          "VA01"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-01.4"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «3. VA01 · Necesidad funcional del trabajo»",
+        "sourceLines": [
+          1302
+        ]
+      },
+      {
+        "id": "NI-01.5",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si existe otra actividad que ya cubre la misma necesidad.",
+        "variableRefs": [
+          "VA01"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-01.5"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «3. VA01 · Necesidad funcional del trabajo»",
+        "sourceLines": [
+          1303
+        ]
+      },
+      {
+        "id": "NI-02.1",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué trabajo se repite.",
+        "variableRefs": [
+          "VA02"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-02.1"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «4. VA02 · Redundancia y retrabajo evitable»",
+        "sourceLines": [
+          1316
+        ]
+      },
+      {
+        "id": "NI-02.2",
+        "idStatus": "SOURCE_ID",
+        "statement": "Por qué se repite.",
+        "variableRefs": [
+          "VA02"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-02.2"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «4. VA02 · Redundancia y retrabajo evitable»",
+        "sourceLines": [
+          1317
+        ]
+      },
+      {
+        "id": "NI-02.3",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si la repetición cumple un control material válido.",
+        "variableRefs": [
+          "VA02"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-02.3"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «4. VA02 · Redundancia y retrabajo evitable»",
+        "sourceLines": [
+          1318
+        ]
+      },
+      {
+        "id": "NI-02.4",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si el retrabajo se origina en error, inconsistencia, mala información o decisión previa.",
+        "variableRefs": [
+          "VA02"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-02.4"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «4. VA02 · Redundancia y retrabajo evitable»",
+        "sourceLines": [
+          1319
+        ]
+      },
+      {
+        "id": "NI-02.5",
+        "idStatus": "SOURCE_ID",
+        "statement": "Frecuencia e impacto.",
+        "variableRefs": [
+          "VA02"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-02.5"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «4. VA02 · Redundancia y retrabajo evitable»",
+        "sourceLines": [
+          1320
+        ]
+      },
+      {
+        "id": "NI-03.1",
+        "idStatus": "SOURCE_ID",
+        "statement": "Número y tipo de pasos relevantes.",
+        "variableRefs": [
+          "VA03"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-03.1"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «5. VA03 · Complejidad operativa evitable»",
+        "sourceLines": [
+          1330
+        ]
+      },
+      {
+        "id": "NI-03.2",
+        "idStatus": "SOURCE_ID",
+        "statement": "Transferencias y aprobaciones.",
+        "variableRefs": [
+          "VA03"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-03.2"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «5. VA03 · Complejidad operativa evitable»",
+        "sourceLines": [
+          1331
+        ]
+      },
+      {
+        "id": "NI-03.3",
+        "idStatus": "SOURCE_ID",
+        "statement": "Esperas estructurales.",
+        "variableRefs": [
+          "VA03"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-03.3"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «5. VA03 · Complejidad operativa evitable»",
+        "sourceLines": [
+          1332
+        ]
+      },
+      {
+        "id": "NI-03.4",
+        "idStatus": "SOURCE_ID",
+        "statement": "Variantes/excepciones.",
+        "variableRefs": [
+          "VA03"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-03.4"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «5. VA03 · Complejidad operativa evitable»",
+        "sourceLines": [
+          1333
+        ]
+      },
+      {
+        "id": "NI-03.5",
+        "idStatus": "SOURCE_ID",
+        "statement": "Secuencias que podrían combinarse, reorganizarse o simplificarse.",
+        "variableRefs": [
+          "VA03"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-03.5"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «5. VA03 · Complejidad operativa evitable»",
+        "sourceLines": [
+          1334
+        ]
+      },
+      {
+        "id": "NI-03.6",
+        "idStatus": "SOURCE_ID",
+        "statement": "Restricciones legítimas que justifican complejidad.",
+        "variableRefs": [
+          "VA03"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-03.6"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «5. VA03 · Complejidad operativa evitable»",
+        "sourceLines": [
+          1335
+        ]
+      },
+      {
+        "id": "NI-04.1",
+        "idStatus": "SOURCE_ID",
+        "statement": "Con qué frecuencia ocurre.",
+        "variableRefs": [
+          "VA04"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-04.1"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «7. VA04 · Recurrencia y apalancamiento potencial»",
+        "sourceLines": [
+          1360
+        ]
+      },
+      {
+        "id": "NI-04.2",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué volumen maneja.",
+        "variableRefs": [
+          "VA04"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-04.2"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «7. VA04 · Recurrencia y apalancamiento potencial»",
+        "sourceLines": [
+          1361
+        ]
+      },
+      {
+        "id": "NI-04.3",
+        "idStatus": "SOURCE_ID",
+        "statement": "Cuánto esfuerzo acumulado consume.",
+        "variableRefs": [
+          "VA04"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-04.3"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «7. VA04 · Recurrencia y apalancamiento potencial»",
+        "sourceLines": [
+          1362
+        ]
+      },
+      {
+        "id": "NI-04.4",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si la misma lógica puede reutilizarse en múltiples casos.",
+        "variableRefs": [
+          "VA04"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-04.4"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «7. VA04 · Recurrencia y apalancamiento potencial»",
+        "sourceLines": [
+          1363
+        ]
+      },
+      {
+        "id": "NI-04.5",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si existe crecimiento esperado que aumente el apalancamiento.",
+        "variableRefs": [
+          "VA04"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-04.5"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «7. VA04 · Recurrencia y apalancamiento potencial»",
+        "sourceLines": [
+          1364
+        ]
+      },
+      {
+        "id": "NI-05.1",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué inputs necesita.",
+        "variableRefs": [
+          "VA05"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-05.1"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «8. VA05 · Determinabilidad del trabajo»",
+        "sourceLines": [
+          1372
+        ]
+      },
+      {
+        "id": "NI-05.2",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué output/resultados se esperan.",
+        "variableRefs": [
+          "VA05"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-05.2"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «8. VA05 · Determinabilidad del trabajo»",
+        "sourceLines": [
+          1373
+        ]
+      },
+      {
+        "id": "NI-05.3",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué reglas o patrones gobiernan la acción.",
+        "variableRefs": [
+          "VA05"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-05.3"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «8. VA05 · Determinabilidad del trabajo»",
+        "sourceLines": [
+          1374
+        ]
+      },
+      {
+        "id": "NI-05.4",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si existen criterios para determinar un resultado aceptable.",
+        "variableRefs": [
+          "VA05"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-05.4"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «8. VA05 · Determinabilidad del trabajo»",
+        "sourceLines": [
+          1375
+        ]
+      },
+      {
+        "id": "NI-05.5",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si la información necesaria está disponible.",
+        "variableRefs": [
+          "VA05"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-05.5"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «8. VA05 · Determinabilidad del trabajo»",
+        "sourceLines": [
+          1376
+        ]
+      },
+      {
+        "id": "NI-05.6",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué parte es explícita y qué parte depende de interpretación contextual.",
+        "variableRefs": [
+          "VA05"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-05.6"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «8. VA05 · Determinabilidad del trabajo»",
+        "sourceLines": [
+          1377
+        ]
+      },
+      {
+        "id": "NI-06.1",
+        "idStatus": "SOURCE_ID",
+        "statement": "Frecuencia de excepciones.",
+        "variableRefs": [
+          "VA06"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-06.1"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «9. VA06 · Variabilidad, excepciones y juicio»",
+        "sourceLines": [
+          1390
+        ]
+      },
+      {
+        "id": "NI-06.2",
+        "idStatus": "SOURCE_ID",
+        "statement": "Tipos de excepción.",
+        "variableRefs": [
+          "VA06"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-06.2"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «9. VA06 · Variabilidad, excepciones y juicio»",
+        "sourceLines": [
+          1391
+        ]
+      },
+      {
+        "id": "NI-06.3",
+        "idStatus": "SOURCE_ID",
+        "statement": "Cuánto cambia el proceso entre casos.",
+        "variableRefs": [
+          "VA06"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-06.3"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «9. VA06 · Variabilidad, excepciones y juicio»",
+        "sourceLines": [
+          1392
+        ]
+      },
+      {
+        "id": "NI-06.4",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué decisiones requieren juicio.",
+        "variableRefs": [
+          "VA06"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-06.4"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «9. VA06 · Variabilidad, excepciones y juicio»",
+        "sourceLines": [
+          1393
+        ]
+      },
+      {
+        "id": "NI-06.5",
+        "idStatus": "SOURCE_ID",
+        "statement": "Consecuencia de manejar mal una excepción.",
+        "variableRefs": [
+          "VA06"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-06.5"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «9. VA06 · Variabilidad, excepciones y juicio»",
+        "sourceLines": [
+          1394
+        ]
+      },
+      {
+        "id": "NI-06.6",
+        "idStatus": "SOURCE_ID",
+        "statement": "Si puede existir escalamiento humano.",
+        "variableRefs": [
+          "VA06"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-06.6"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «9. VA06 · Variabilidad, excepciones y juicio»",
+        "sourceLines": [
+          1395
+        ]
+      },
+      {
+        "id": "NI-07.1",
+        "idStatus": "SOURCE_ID",
+        "statement": "Tiempo/esfuerzo actual.",
+        "variableRefs": [
+          "VA07"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-07.1"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «11. VA07 · Materialidad y valor esperado»",
+        "sourceLines": [
+          1417
+        ]
+      },
+      {
+        "id": "NI-07.2",
+        "idStatus": "SOURCE_ID",
+        "statement": "Costo relevante.",
+        "variableRefs": [
+          "VA07"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-07.2"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «11. VA07 · Materialidad y valor esperado»",
+        "sourceLines": [
+          1418
+        ]
+      },
+      {
+        "id": "NI-07.3",
+        "idStatus": "SOURCE_ID",
+        "statement": "Errores/retrabajo.",
+        "variableRefs": [
+          "VA07"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-07.3"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «11. VA07 · Materialidad y valor esperado»",
+        "sourceLines": [
+          1419
+        ]
+      },
+      {
+        "id": "NI-07.4",
+        "idStatus": "SOURCE_ID",
+        "statement": "Impacto en capacidad.",
+        "variableRefs": [
+          "VA07"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-07.4"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «11. VA07 · Materialidad y valor esperado»",
+        "sourceLines": [
+          1420
+        ]
+      },
+      {
+        "id": "NI-07.5",
+        "idStatus": "SOURCE_ID",
+        "statement": "Impacto en velocidad/calidad/experiencia.",
+        "variableRefs": [
+          "VA07"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-07.5"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «11. VA07 · Materialidad y valor esperado»",
+        "sourceLines": [
+          1421
+        ]
+      },
+      {
+        "id": "NI-07.6",
+        "idStatus": "SOURCE_ID",
+        "statement": "Riesgo reducido o valor habilitado.",
+        "variableRefs": [
+          "VA07"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-07.6"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «11. VA07 · Materialidad y valor esperado»",
+        "sourceLines": [
+          1422
+        ]
+      },
+      {
+        "id": "NI-07.7",
+        "idStatus": "SOURCE_ID",
+        "statement": "Crecimiento futuro potencial.",
+        "variableRefs": [
+          "VA07"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-07.7"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «11. VA07 · Materialidad y valor esperado»",
+        "sourceLines": [
+          1423
+        ]
+      },
+      {
+        "id": "NI-08.1",
+        "idStatus": "SOURCE_ID",
+        "statement": "Esfuerzo de implementación.",
+        "variableRefs": [
+          "VA08"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-08.1"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «12. VA08 · Esfuerzo y sostenibilidad de la solución»",
+        "sourceLines": [
+          1430
+        ]
+      },
+      {
+        "id": "NI-08.2",
+        "idStatus": "SOURCE_ID",
+        "statement": "Capacidades requeridas.",
+        "variableRefs": [
+          "VA08"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-08.2"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «12. VA08 · Esfuerzo y sostenibilidad de la solución»",
+        "sourceLines": [
+          1431
+        ]
+      },
+      {
+        "id": "NI-08.3",
+        "idStatus": "SOURCE_ID",
+        "statement": "Integraciones/dependencias.",
+        "variableRefs": [
+          "VA08"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-08.3"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «12. VA08 · Esfuerzo y sostenibilidad de la solución»",
+        "sourceLines": [
+          1432
+        ]
+      },
+      {
+        "id": "NI-08.4",
+        "idStatus": "SOURCE_ID",
+        "statement": "Licencias/proveedor/costo operativo.",
+        "variableRefs": [
+          "VA08"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-08.4"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «12. VA08 · Esfuerzo y sostenibilidad de la solución»",
+        "sourceLines": [
+          1433
+        ]
+      },
+      {
+        "id": "NI-08.5",
+        "idStatus": "SOURCE_ID",
+        "statement": "Mantenimiento.",
+        "variableRefs": [
+          "VA08"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-08.5"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «12. VA08 · Esfuerzo y sostenibilidad de la solución»",
+        "sourceLines": [
+          1434
+        ]
+      },
+      {
+        "id": "NI-08.6",
+        "idStatus": "SOURCE_ID",
+        "statement": "Frecuencia esperada de cambios.",
+        "variableRefs": [
+          "VA08"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-08.6"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «12. VA08 · Esfuerzo y sostenibilidad de la solución»",
+        "sourceLines": [
+          1435
+        ]
+      },
+      {
+        "id": "NI-08.7",
+        "idStatus": "SOURCE_ID",
+        "statement": "Capacidad interna de soportarla.",
+        "variableRefs": [
+          "VA08"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-08.7"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «12. VA08 · Esfuerzo y sostenibilidad de la solución»",
+        "sourceLines": [
+          1436
+        ]
+      },
+      {
+        "id": "NI-09.1",
+        "idStatus": "SOURCE_ID",
+        "statement": "Qué sucede si la automatización se equivoca.",
+        "variableRefs": [
+          "VA09"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-09.1"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «13. VA09 · Riesgo y gobernabilidad»",
+        "sourceLines": [
+          1443
+        ]
+      },
+      {
+        "id": "NI-09.2",
+        "idStatus": "SOURCE_ID",
+        "statement": "Reversibilidad.",
+        "variableRefs": [
+          "VA09"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-09.2"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «13. VA09 · Riesgo y gobernabilidad»",
+        "sourceLines": [
+          1444
+        ]
+      },
+      {
+        "id": "NI-09.3",
+        "idStatus": "SOURCE_ID",
+        "statement": "Posibilidad de detectar error.",
+        "variableRefs": [
+          "VA09"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-09.3"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «13. VA09 · Riesgo y gobernabilidad»",
+        "sourceLines": [
+          1445
+        ]
+      },
+      {
+        "id": "NI-09.4",
+        "idStatus": "SOURCE_ID",
+        "statement": "Supervisión necesaria.",
+        "variableRefs": [
+          "VA09"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-09.4"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «13. VA09 · Riesgo y gobernabilidad»",
+        "sourceLines": [
+          1446
+        ]
+      },
+      {
+        "id": "NI-09.5",
+        "idStatus": "SOURCE_ID",
+        "statement": "Trazabilidad requerida.",
+        "variableRefs": [
+          "VA09"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-09.5"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «13. VA09 · Riesgo y gobernabilidad»",
+        "sourceLines": [
+          1447
+        ]
+      },
+      {
+        "id": "NI-09.6",
+        "idStatus": "SOURCE_ID",
+        "statement": "Sensibilidad de información.",
+        "variableRefs": [
+          "VA09"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-09.6"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «13. VA09 · Riesgo y gobernabilidad»",
+        "sourceLines": [
+          1448
+        ]
+      },
+      {
+        "id": "NI-09.7",
+        "idStatus": "SOURCE_ID",
+        "statement": "Impactos legales/regulatorios/seguridad cuando apliquen.",
+        "variableRefs": [
+          "VA09"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-09.7"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «13. VA09 · Riesgo y gobernabilidad»",
+        "sourceLines": [
+          1449
+        ]
+      },
+      {
+        "id": "NI-09.8",
+        "idStatus": "SOURCE_ID",
+        "statement": "Posibilidad de intervención humana.",
+        "variableRefs": [
+          "VA09"
+        ],
+        "acquisitionRefs": [
+          "ACQ·NI-09.8"
+        ],
+        "mappingStatus": "STRUCTURAL_CONTAINMENT",
+        "mappingEvidence": "heading «13. VA09 · Riesgo y gobernabilidad»",
+        "sourceLines": [
+          1450
+        ]
+      }
+    ],
+    "acquisitions": [
+      {
+        "id": "P1-OP04-01",
+        "level": "P1",
+        "acquisitionMode": "QUESTION",
+        "variableRefs": [
+          "VA02",
+          "VA03",
+          "VA04",
+          "VA07"
+        ],
+        "question": "¿Qué tareas o actividades les consumen tiempo de forma recurrente y sienten que podrían hacerse de una manera más sencilla?",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "P1-OP04-02",
+        "level": "P1",
+        "acquisitionMode": "QUESTION",
+        "variableRefs": [
+          "VA01",
+          "VA02",
+          "VA04",
+          "VA05",
+          "VA07"
+        ],
+        "question": "¿Hay información o trabajo que tengan que volver a registrar, copiar, revisar, conciliar o reconstruir varias veces?",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "P1-OP04-03",
+        "level": "P1",
+        "acquisitionMode": "QUESTION",
+        "variableRefs": [
+          "VA01",
+          "VA03",
+          "VA07"
+        ],
+        "question": "¿Hay alguna actividad que requiera más pasos, aprobaciones, movimientos o coordinación de lo que consideran razonable?",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "P1-OP04-04",
+        "level": "P1",
+        "acquisitionMode": "QUESTION",
+        "variableRefs": [
+          "VA04",
+          "VA09"
+        ],
+        "question": "¿Hay tareas que hoy hacen manualmente y que hayan pensado que una herramienta podría hacer total o parcialmente?",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "P2",
+        "level": "P2",
+        "acquisitionMode": "QUESTION",
+        "variableRefs": [
+          "VA01",
+          "VA02",
+          "VA03",
+          "VA04",
+          "VA05",
+          "VA06",
+          "VA07",
+          "VA08",
+          "VA09"
+        ],
+        "question": "| VA01 | ¿Por qué existe? ¿Qué protege? |",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-01.1",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-01.1",
+        "variableRefs": [
+          "VA01"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-01.2",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-01.2",
+        "variableRefs": [
+          "VA01"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-01.3",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-01.3",
+        "variableRefs": [
+          "VA01"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-01.4",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-01.4",
+        "variableRefs": [
+          "VA01"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-01.5",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-01.5",
+        "variableRefs": [
+          "VA01"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-02.1",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-02.1",
+        "variableRefs": [
+          "VA02"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-02.2",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-02.2",
+        "variableRefs": [
+          "VA02"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-02.3",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-02.3",
+        "variableRefs": [
+          "VA02"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-02.4",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-02.4",
+        "variableRefs": [
+          "VA02"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-02.5",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-02.5",
+        "variableRefs": [
+          "VA02"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-03.1",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-03.1",
+        "variableRefs": [
+          "VA03"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-03.2",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-03.2",
+        "variableRefs": [
+          "VA03"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-03.3",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-03.3",
+        "variableRefs": [
+          "VA03"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-03.4",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-03.4",
+        "variableRefs": [
+          "VA03"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-03.5",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-03.5",
+        "variableRefs": [
+          "VA03"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-03.6",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-03.6",
+        "variableRefs": [
+          "VA03"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-04.1",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-04.1",
+        "variableRefs": [
+          "VA04"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-04.2",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-04.2",
+        "variableRefs": [
+          "VA04"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-04.3",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-04.3",
+        "variableRefs": [
+          "VA04"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-04.4",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-04.4",
+        "variableRefs": [
+          "VA04"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-04.5",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-04.5",
+        "variableRefs": [
+          "VA04"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-05.1",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-05.1",
+        "variableRefs": [
+          "VA05"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-05.2",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-05.2",
+        "variableRefs": [
+          "VA05"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-05.3",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-05.3",
+        "variableRefs": [
+          "VA05"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-05.4",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-05.4",
+        "variableRefs": [
+          "VA05"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-05.5",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-05.5",
+        "variableRefs": [
+          "VA05"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-05.6",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-05.6",
+        "variableRefs": [
+          "VA05"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-06.1",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-06.1",
+        "variableRefs": [
+          "VA06"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-06.2",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-06.2",
+        "variableRefs": [
+          "VA06"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-06.3",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-06.3",
+        "variableRefs": [
+          "VA06"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-06.4",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-06.4",
+        "variableRefs": [
+          "VA06"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-06.5",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-06.5",
+        "variableRefs": [
+          "VA06"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-06.6",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-06.6",
+        "variableRefs": [
+          "VA06"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-07.1",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-07.1",
+        "variableRefs": [
+          "VA07"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-07.2",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-07.2",
+        "variableRefs": [
+          "VA07"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-07.3",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-07.3",
+        "variableRefs": [
+          "VA07"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-07.4",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-07.4",
+        "variableRefs": [
+          "VA07"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-07.5",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-07.5",
+        "variableRefs": [
+          "VA07"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-07.6",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-07.6",
+        "variableRefs": [
+          "VA07"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-07.7",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-07.7",
+        "variableRefs": [
+          "VA07"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-08.1",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-08.1",
+        "variableRefs": [
+          "VA08"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-08.2",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-08.2",
+        "variableRefs": [
+          "VA08"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-08.3",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-08.3",
+        "variableRefs": [
+          "VA08"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-08.4",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-08.4",
+        "variableRefs": [
+          "VA08"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-08.5",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-08.5",
+        "variableRefs": [
+          "VA08"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-08.6",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-08.6",
+        "variableRefs": [
+          "VA08"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-08.7",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-08.7",
+        "variableRefs": [
+          "VA08"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-09.1",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-09.1",
+        "variableRefs": [
+          "VA09"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-09.2",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-09.2",
+        "variableRefs": [
+          "VA09"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-09.3",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-09.3",
+        "variableRefs": [
+          "VA09"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-09.4",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-09.4",
+        "variableRefs": [
+          "VA09"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-09.5",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-09.5",
+        "variableRefs": [
+          "VA09"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-09.6",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-09.6",
+        "variableRefs": [
+          "VA09"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-09.7",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-09.7",
+        "variableRefs": [
+          "VA09"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      },
+      {
+        "id": "ACQ·NI-09.8",
+        "acquisitionMode": "INFORMATION_NEED",
+        "informationNeedRef": "NI-09.8",
+        "variableRefs": [
+          "VA09"
+        ],
+        "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+        "responseModel": {
+          "kind": "free_statement_or_unknown",
+          "preservesUnknown": true,
+          "knowledgeStates": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE",
+            "CONTRADICTORY"
+          ],
+          "optionSet": null,
+          "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+        }
+      }
+    ],
+    "acquisitionStages": [
+      {
+        "id": "P3",
+        "level": "P3",
+        "heading": "P3 · Preguntas discriminantes",
+        "prompts": [
+          "“Cuando aparece un caso distinto, ¿la persona sabe qué hacer siguiendo una regla o necesita analizar la situación y decidir?”"
+        ],
+        "variableRefsResolution": "CONTEXTUAL",
+        "sourceLines": [
+          1881,
+          1895
+        ]
+      }
+    ]
+  },
+  "gaps": [
+    {
+      "id": "NE-OP-04-CRITICALITY",
+      "kind": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "statement": "Criticidad no declarada por la fuente para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09; preservada como NOT_EXPLICIT (modo de resolución NOT_EXPLICIT), sin inferir nivel.",
+      "publicationBlocking": false
+    }
+  ],
+  "checksum": "sha256:d89891eeb9e27b991046451206d963350b5ef58c03ea76e41d298a68a08dca16"
+}

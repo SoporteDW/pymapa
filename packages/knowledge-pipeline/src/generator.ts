@@ -33,6 +33,7 @@ export const PACK_SECTION_KEYS = [
   "acquisitionLevels",
   "acquisitions",
   "acquisitionsNote",
+  "acquisitionStages",
   "evidence",
   "sufficiency",
   "confidence",

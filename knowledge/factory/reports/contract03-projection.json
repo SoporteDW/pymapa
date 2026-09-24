@@ -1,0 +1,531 @@
+[
+  {
+    "c": "OP-03",
+    "name": "Integrar procesos de extremo a extremo",
+    "ok": true,
+    "stats": {
+      "variables": 8,
+      "informationNeeds": 37,
+      "linkedInformationNeeds": 37,
+      "acquisitions": 42,
+      "questionAcquisitions": 5,
+      "acquisitionStages": 3,
+      "conditions": 4,
+      "variablesWithAcquisitionPath": 8,
+      "variablesUnresolved": 0,
+      "criticalityNotExplicit": 8
+    },
+    "definition": {
+      "status": "NOT_EXPLICIT",
+      "sourceLines": null,
+      "marker": null,
+      "candidates": []
+    },
+    "gaps": [
+      "NE-OP-03-DEFINITION",
+      "NE-OP-03-CRITICALITY"
+    ],
+    "blockers": [],
+    "checksum": "sha256:e997d7b76dcd0f57add32b5a911b167c3da4169f8f493a24ea52ebd8df0e4e1e"
+  },
+  {
+    "c": "OP-04",
+    "name": "Simplificar y automatizar de manera pertinente",
+    "ok": true,
+    "stats": {
+      "variables": 9,
+      "informationNeeds": 55,
+      "linkedInformationNeeds": 55,
+      "acquisitions": 60,
+      "questionAcquisitions": 5,
+      "acquisitionStages": 1,
+      "conditions": 3,
+      "variablesWithAcquisitionPath": 9,
+      "variablesUnresolved": 0,
+      "criticalityNotExplicit": 9
+    },
+    "definition": {
+      "status": "EXPLICIT",
+      "sourceLines": [
+        5446,
+        5447
+      ],
+      "marker": "1.1 Definición auditada",
+      "candidates": [
+        {
+          "lines": [
+            5446,
+            5447
+          ],
+          "marker": "1.1 Definición auditada",
+          "qualifier": "PRODUCTIVE",
+          "disposition": "SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-OP-04-CRITICALITY"
+    ],
+    "blockers": [],
+    "checksum": "sha256:d89891eeb9e27b991046451206d963350b5ef58c03ea76e41d298a68a08dca16"
+  },
+  {
+    "c": "OP-05",
+    "name": "Gestionar iniciativas hasta su implementación efectiva",
+    "ok": true,
+    "stats": {
+      "variables": 10,
+      "informationNeeds": 64,
+      "linkedInformationNeeds": 64,
+      "acquisitions": 64,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 0,
+      "conditions": 4,
+      "variablesWithAcquisitionPath": 10,
+      "variablesUnresolved": 0,
+      "criticalityNotExplicit": 10
+    },
+    "definition": {
+      "status": "NOT_EXPLICIT",
+      "sourceLines": null,
+      "marker": null,
+      "candidates": [
+        {
+          "lines": [
+            13,
+            13
+          ],
+          "marker": "Propongo como definición inicial:",
+          "qualifier": "NON_FINAL",
+          "disposition": "NOT_SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-OP-05-DEFINITION",
+      "NE-OP-05-CRITICALITY"
+    ],
+    "blockers": [],
+    "checksum": "sha256:a9404cc0484ca0c43dbb7ef28b43e9e8f5037ca21a9e85d33dcf22d75fcd3727"
+  },
+  {
+    "c": "DG-01",
+    "name": "Orientar la transformación a partir del negocio y su entorno",
+    "ok": true,
+    "stats": {
+      "variables": 9,
+      "informationNeeds": 9,
+      "linkedInformationNeeds": 0,
+      "acquisitions": 0,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 5,
+      "conditions": 4,
+      "variablesWithAcquisitionPath": 0,
+      "variablesUnresolved": 9,
+      "criticalityNotExplicit": 9
+    },
+    "definition": {
+      "status": "EXPLICIT",
+      "sourceLines": [
+        314,
+        314
+      ],
+      "marker": "Propongo como definición productiva V1:",
+      "candidates": [
+        {
+          "lines": [
+            314,
+            314
+          ],
+          "marker": "Propongo como definición productiva V1:",
+          "qualifier": "PRODUCTIVE",
+          "disposition": "SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-DG-01-CRITICALITY",
+      "NE-DG-01-VA-ACQUISITION [BLOCKING]"
+    ],
+    "blockers": [],
+    "checksum": "sha256:49ace4c779d8ab9349da67aee75931b1f009a6842ebba1c4268d54d128018408"
+  },
+  {
+    "c": "DG-02",
+    "name": "Priorizar iniciativas y recursos de transformación",
+    "ok": true,
+    "stats": {
+      "variables": 10,
+      "informationNeeds": 10,
+      "linkedInformationNeeds": 0,
+      "acquisitions": 0,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 5,
+      "conditions": 5,
+      "variablesWithAcquisitionPath": 0,
+      "variablesUnresolved": 10,
+      "criticalityNotExplicit": 10
+    },
+    "definition": {
+      "status": "EXPLICIT",
+      "sourceLines": [
+        9,
+        9
+      ],
+      "marker": "Propongo como definición productiva V1:",
+      "candidates": [
+        {
+          "lines": [
+            9,
+            9
+          ],
+          "marker": "Propongo como definición productiva V1:",
+          "qualifier": "PRODUCTIVE",
+          "disposition": "SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-DG-02-CRITICALITY",
+      "NE-DG-02-VA-ACQUISITION [BLOCKING]"
+    ],
+    "blockers": [],
+    "checksum": "sha256:d400b43f7c7e3263218792ff3078c0352f4e8836a5c5dad7adf17e7198b2d5da"
+  },
+  {
+    "c": "DG-03",
+    "name": "Asignar responsabilidad y capacidad de decisión",
+    "ok": true,
+    "stats": {
+      "variables": 10,
+      "informationNeeds": 10,
+      "linkedInformationNeeds": 0,
+      "acquisitions": 0,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 5,
+      "conditions": 5,
+      "variablesWithAcquisitionPath": 0,
+      "variablesUnresolved": 10,
+      "criticalityNotExplicit": 10
+    },
+    "definition": {
+      "status": "EXPLICIT",
+      "sourceLines": [
+        9,
+        9
+      ],
+      "marker": "Propongo como definición productiva V1:",
+      "candidates": [
+        {
+          "lines": [
+            9,
+            9
+          ],
+          "marker": "Propongo como definición productiva V1:",
+          "qualifier": "PRODUCTIVE",
+          "disposition": "SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-DG-03-CRITICALITY",
+      "NE-DG-03-VA-ACQUISITION [BLOCKING]"
+    ],
+    "blockers": [],
+    "checksum": "sha256:16c38347298b9de079aff386b74699b352c30857ef1eeddec64bed133674a8e4"
+  },
+  {
+    "c": "DG-04",
+    "name": "Dar seguimiento a iniciativas y resultados",
+    "ok": true,
+    "stats": {
+      "variables": 10,
+      "informationNeeds": 10,
+      "linkedInformationNeeds": 0,
+      "acquisitions": 0,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 5,
+      "conditions": 5,
+      "variablesWithAcquisitionPath": 0,
+      "variablesUnresolved": 10,
+      "criticalityNotExplicit": 10
+    },
+    "definition": {
+      "status": "EXPLICIT",
+      "sourceLines": [
+        10,
+        10
+      ],
+      "marker": "Propongo como definición productiva V1:",
+      "candidates": [
+        {
+          "lines": [
+            10,
+            10
+          ],
+          "marker": "Propongo como definición productiva V1:",
+          "qualifier": "PRODUCTIVE",
+          "disposition": "SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-DG-04-CRITICALITY",
+      "NE-DG-04-VA-ACQUISITION [BLOCKING]"
+    ],
+    "blockers": [],
+    "checksum": "sha256:de938b8684cdc94c8779926fc65f2926fdcba49dd8ed094c43bbfb44f0bbd3e5"
+  },
+  {
+    "c": "DG-05",
+    "name": "Gobernar riesgos y dependencias de la transformación",
+    "ok": true,
+    "stats": {
+      "variables": 12,
+      "informationNeeds": 12,
+      "linkedInformationNeeds": 0,
+      "acquisitions": 0,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 0,
+      "conditions": 6,
+      "variablesWithAcquisitionPath": 0,
+      "variablesUnresolved": 12,
+      "criticalityNotExplicit": 12
+    },
+    "definition": {
+      "status": "EXPLICIT",
+      "sourceLines": [
+        26,
+        26
+      ],
+      "marker": "Definición productiva V1:",
+      "candidates": [
+        {
+          "lines": [
+            26,
+            26
+          ],
+          "marker": "Definición productiva V1:",
+          "qualifier": "PRODUCTIVE",
+          "disposition": "SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-DG-05-CRITICALITY",
+      "NE-DG-05-VA-ACQUISITION [BLOCKING]"
+    ],
+    "blockers": [],
+    "checksum": "sha256:e7d1e8c5371fabceff4cc2f731be12816890f8ea1c96ae1955ac98b44104573c"
+  },
+  {
+    "c": "PC-01",
+    "name": "Disponer o acceder al conocimiento necesario",
+    "ok": true,
+    "stats": {
+      "variables": 11,
+      "informationNeeds": 11,
+      "linkedInformationNeeds": 0,
+      "acquisitions": 0,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 5,
+      "conditions": 5,
+      "variablesWithAcquisitionPath": 0,
+      "variablesUnresolved": 11,
+      "criticalityNotExplicit": 11
+    },
+    "definition": {
+      "status": "EXPLICIT",
+      "sourceLines": [
+        60,
+        60
+      ],
+      "marker": "Definición productiva V1:",
+      "candidates": [
+        {
+          "lines": [
+            60,
+            60
+          ],
+          "marker": "Definición productiva V1:",
+          "qualifier": "PRODUCTIVE",
+          "disposition": "SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-PC-01-CRITICALITY",
+      "NE-PC-01-VA-ACQUISITION [BLOCKING]"
+    ],
+    "blockers": [],
+    "checksum": "sha256:bd45bf275ea574b338e8804d04a850fe06bbc93168a5b23aa93973afb034ff7d"
+  },
+  {
+    "c": "PC-02",
+    "name": "Desarrollar competencias y aprendizaje relevantes",
+    "ok": true,
+    "stats": {
+      "variables": 13,
+      "informationNeeds": 13,
+      "linkedInformationNeeds": 0,
+      "acquisitions": 0,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 5,
+      "conditions": 6,
+      "variablesWithAcquisitionPath": 0,
+      "variablesUnresolved": 13,
+      "criticalityNotExplicit": 13
+    },
+    "definition": {
+      "status": "EXPLICIT",
+      "sourceLines": [
+        27,
+        27
+      ],
+      "marker": "Definición productiva V1:",
+      "candidates": [
+        {
+          "lines": [
+            27,
+            27
+          ],
+          "marker": "Definición productiva V1:",
+          "qualifier": "PRODUCTIVE",
+          "disposition": "SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-PC-02-CRITICALITY",
+      "NE-PC-02-VA-ACQUISITION [BLOCKING]"
+    ],
+    "blockers": [],
+    "checksum": "sha256:5d97dc0360d4101f67a0e71f32dc14417b95117085b51d5e6fe98588a4c95b0d"
+  },
+  {
+    "c": "PC-03",
+    "name": "Apropiar cambios y nuevas formas de trabajo",
+    "ok": true,
+    "stats": {
+      "variables": 14,
+      "informationNeeds": 14,
+      "linkedInformationNeeds": 0,
+      "acquisitions": 0,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 5,
+      "conditions": 6,
+      "variablesWithAcquisitionPath": 0,
+      "variablesUnresolved": 14,
+      "criticalityNotExplicit": 14
+    },
+    "definition": {
+      "status": "EXPLICIT",
+      "sourceLines": [
+        34,
+        34
+      ],
+      "marker": "Definición productiva V1:",
+      "candidates": [
+        {
+          "lines": [
+            34,
+            34
+          ],
+          "marker": "Definición productiva V1:",
+          "qualifier": "PRODUCTIVE",
+          "disposition": "SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-PC-03-CRITICALITY",
+      "NE-PC-03-VA-ACQUISITION [BLOCKING]"
+    ],
+    "blockers": [],
+    "checksum": "sha256:bf8e207a0dc706b4f45d5bd0fb57467657210d7c10e26a095985cdf54956a2c0"
+  },
+  {
+    "c": "PC-04",
+    "name": "Compartir y conservar conocimiento organizacional",
+    "ok": true,
+    "stats": {
+      "variables": 14,
+      "informationNeeds": 14,
+      "linkedInformationNeeds": 0,
+      "acquisitions": 0,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 5,
+      "conditions": 6,
+      "variablesWithAcquisitionPath": 0,
+      "variablesUnresolved": 14,
+      "criticalityNotExplicit": 14
+    },
+    "definition": {
+      "status": "EXPLICIT",
+      "sourceLines": [
+        28,
+        28
+      ],
+      "marker": "Definición productiva V1:",
+      "candidates": [
+        {
+          "lines": [
+            28,
+            28
+          ],
+          "marker": "Definición productiva V1:",
+          "qualifier": "PRODUCTIVE",
+          "disposition": "SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-PC-04-CRITICALITY",
+      "NE-PC-04-VA-ACQUISITION [BLOCKING]"
+    ],
+    "blockers": [],
+    "checksum": "sha256:5d9b5029076c1d8b3b4200aa7f48030fc8d8dc673bd5eb2aa8e44f40d6d0c36e"
+  },
+  {
+    "c": "PC-05",
+    "name": "Facilitar participación y adaptación de las personas al cambio",
+    "ok": true,
+    "stats": {
+      "variables": 15,
+      "informationNeeds": 15,
+      "linkedInformationNeeds": 0,
+      "acquisitions": 0,
+      "questionAcquisitions": 0,
+      "acquisitionStages": 5,
+      "conditions": 6,
+      "variablesWithAcquisitionPath": 0,
+      "variablesUnresolved": 15,
+      "criticalityNotExplicit": 15
+    },
+    "definition": {
+      "status": "EXPLICIT",
+      "sourceLines": [
+        34,
+        34
+      ],
+      "marker": "Definición productiva V1:",
+      "candidates": [
+        {
+          "lines": [
+            34,
+            34
+          ],
+          "marker": "Definición productiva V1:",
+          "qualifier": "PRODUCTIVE",
+          "disposition": "SELECTED"
+        }
+      ]
+    },
+    "gaps": [
+      "NE-PC-05-CRITICALITY",
+      "NE-PC-05-VA-ACQUISITION [BLOCKING]"
+    ],
+    "blockers": [],
+    "checksum": "sha256:6d7ae79cd98850d89fc1f55201e989d324de9bf5ebf5690b619c9f29d06f93c1"
+  }
+]

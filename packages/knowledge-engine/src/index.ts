@@ -390,6 +390,8 @@ const NO_EVIDENCE_FORMULA =
   "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: requisito condicional sin fórmula aprobada; queda para revisión gobernada.";
 
 const LEVEL_ORDER = ["P1", "P2", "P3", "P4", "P5"];
+/** Marca de silencio de la fuente para nivel/pregunta no declarados. */
+const NOT_EXPLICIT_LEVEL = "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER";
 
 /** Nivel declarado por el pack para adquisiciones de aclaración. */
 const CLARIFICATION_LEVEL = "P4";
@@ -849,10 +851,10 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
     return {
       acquisitionId: acq.id,
       capabilityId: pack.capability.id,
-      level: acq.level,
+      level: acq.level ?? NOT_EXPLICIT_LEVEL,
       informationNeedRef: acq.informationNeedRef ?? null,
       variableRefs: acq.variableRefs.slice(),
-      question: acq.question,
+      question: acq.question ?? NOT_EXPLICIT_LEVEL,
       purpose: acq.purpose ?? null,
       allowedKnowledgeStates: acq.responseModel.knowledgeStates.slice(),
       allowedSemanticValues: semanticValuesFor(acq),
@@ -864,9 +866,11 @@ export function createKnowledgeEngine(rawPack: unknown): KnowledgeEngine {
   function elegibles(evaluation: EvaluationResult): KnowledgePackAcquisition[] {
     const estados = estadosPorVariable(evaluation);
     const respondidas = new Set(evaluation.answeredAcquisitionRefs);
+    // Solo se sirven adquisiciones con pregunta literal; los canales por NI
+    // (acquisitionMode INFORMATION_NEED) admiten observaciones pero no se preguntan.
     return pack.acquisitions
-      .slice()
-      .sort((a, b) => LEVEL_ORDER.indexOf(a.level) - LEVEL_ORDER.indexOf(b.level))
+      .filter((acq) => typeof acq.question === "string")
+      .sort((a, b) => LEVEL_ORDER.indexOf(a.level ?? "") - LEVEL_ORDER.indexOf(b.level ?? ""))
       .filter((acq) => !respondidas.has(acq.id))
       .filter((acq) => triggerSatisfecho(acq, estados));
   }
