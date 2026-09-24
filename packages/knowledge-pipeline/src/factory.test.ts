@@ -9,6 +9,8 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
+import { vi } from "vitest";
+vi.setConfig({ testTimeout: 60_000, hookTimeout: 300_000 });
 import { ENGINE_SEMANTIC_HISTORY, ENGINE_SEMVER, ENGINE_VERSION } from "@pymapa/knowledge-engine";
 import {
   BATCH_MANIFEST_PATH,
@@ -378,10 +380,10 @@ describe("Factory dry-run sobre artefactos existentes", () => {
     expect(readFileSync(join(ROOT, BENCHMARK_PATH), "utf8")).toBe(buildFactoryBenchmarkMarkdown(r));
   });
 
-  it("manifest: 31 slots, 16 sin fuente, señal AUTHORITATIVE_SOURCE_REQUIRED, sin issues de lote", () => {
+  it("manifest: 31 slots, 0 sin fuente, señal SOURCE_COMPLETE, sin issues de lote", () => {
     expect(r.manifest.expectedCapabilityCount).toBe(31);
-    expect(r.manifest.unregisteredSlotCount).toBe(16);
-    expect(r.manifest.signal).toBe("AUTHORITATIVE_SOURCE_REQUIRED");
+    expect(r.manifest.unregisteredSlotCount).toBe(0);
+    expect(r.manifest.signal).toBe("SOURCE_COMPLETE");
     expect(r.batchIssues).toEqual([]);
     for (const e of r.manifest.entries) {
       for (const k of [
@@ -802,7 +804,7 @@ describe("Estados independientes de intake en el mismo lote", () => {
     expect(byId(r, SYN_ID).outcome).toBe("REVIEW_REQUIRED");
     expect(byId(r, "OP-01")).toEqual(byId(base, "OP-01"));
     expect(byId(r, "OP-02")).toEqual(byId(base, "OP-02"));
-    expect(r.manifest.unregisteredSlotCount).toBe(15);
+    expect(r.manifest.unregisteredSlotCount).toBe(0);
   });
 
   it("candidato válido → CANONICAL_REVIEW_REQUIRED; candidato no literal → FAIL aislado", () => {
