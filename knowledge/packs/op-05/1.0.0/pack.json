@@ -1,0 +1,2500 @@
+{
+  "packId": "op-05",
+  "packVersion": "1.0.0",
+  "status": "draft",
+  "knowledgeMaster": {
+    "identifier": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "status": "BASELINE-APPROVED",
+    "sourceReference": "canonical-baseline.json#OP05-K4-v1.0@sha256:5012dd5e604085ce748fb6eb44a98a5353fc887da5fb948af075b5f392034c40 · OP05-K4-v1.0 · K4-VALIDATED · CLOSED"
+  },
+  "capability": {
+    "id": "OP-05",
+    "domainId": "OP",
+    "name": "Gestionar iniciativas hasta su implementación efectiva",
+    "definition": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+    "definitionStatus": "NOT_EXPLICIT"
+  },
+  "conditionsOfExistence": [
+    {
+      "id": "CE01",
+      "statement": "Definición ejecutable de la iniciativa"
+    },
+    {
+      "id": "CE02",
+      "statement": "Preparación y viabilidad de ejecución"
+    },
+    {
+      "id": "CE03",
+      "statement": "Control adaptativo de la ejecución"
+    },
+    {
+      "id": "CE04",
+      "statement": "Transición a implementación efectiva"
+    }
+  ],
+  "variables": [
+    {
+      "id": "VA01",
+      "name": "Objetivo y resultado",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "INFORMATION_NEED"
+    },
+    {
+      "id": "VA02",
+      "name": "Alcance y terminación",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "INFORMATION_NEED"
+    },
+    {
+      "id": "VA03",
+      "name": "Responsabilidad/decisión",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "INFORMATION_NEED"
+    },
+    {
+      "id": "VA04",
+      "name": "Recursos/capacidad",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "INFORMATION_NEED"
+    },
+    {
+      "id": "VA05",
+      "name": "Dependencias",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "INFORMATION_NEED"
+    },
+    {
+      "id": "VA06",
+      "name": "Plan/secuencia",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "INFORMATION_NEED"
+    },
+    {
+      "id": "VA07",
+      "name": "Visibilidad",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "INFORMATION_NEED"
+    },
+    {
+      "id": "VA08",
+      "name": "Riesgos/bloqueos/cambios",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "INFORMATION_NEED"
+    },
+    {
+      "id": "VA09",
+      "name": "Activación/adopción",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "INFORMATION_NEED"
+    },
+    {
+      "id": "VA10",
+      "name": "Verificación/cierre",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "INFORMATION_NEED"
+    }
+  ],
+  "informationNeeds": [
+    {
+      "id": "VA01#NI@L254",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "problema/oportunidad;",
+      "variableRefs": [
+        "VA01"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA01#NI@L254"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA01 · Objetivo y resultado»",
+      "sourceLines": [
+        254
+      ]
+    },
+    {
+      "id": "VA01#NI@L255",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "cambio esperado;",
+      "variableRefs": [
+        "VA01"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA01#NI@L255"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA01 · Objetivo y resultado»",
+      "sourceLines": [
+        255
+      ]
+    },
+    {
+      "id": "VA01#NI@L256",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "beneficiario/usuario;",
+      "variableRefs": [
+        "VA01"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA01#NI@L256"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA01 · Objetivo y resultado»",
+      "sourceLines": [
+        256
+      ]
+    },
+    {
+      "id": "VA01#NI@L257",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "resultado observable;",
+      "variableRefs": [
+        "VA01"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA01#NI@L257"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA01 · Objetivo y resultado»",
+      "sourceLines": [
+        257
+      ]
+    },
+    {
+      "id": "VA01#NI@L258",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "vínculo con necesidad originadora.",
+      "variableRefs": [
+        "VA01"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA01#NI@L258"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA01 · Objetivo y resultado»",
+      "sourceLines": [
+        258
+      ]
+    },
+    {
+      "id": "VA02#NI@L264",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "incluido;",
+      "variableRefs": [
+        "VA02"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA02#NI@L264"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA02 · Alcance y terminación»",
+      "sourceLines": [
+        264
+      ]
+    },
+    {
+      "id": "VA02#NI@L265",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "excluido;",
+      "variableRefs": [
+        "VA02"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA02#NI@L265"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA02 · Alcance y terminación»",
+      "sourceLines": [
+        265
+      ]
+    },
+    {
+      "id": "VA02#NI@L266",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "unidades afectadas;",
+      "variableRefs": [
+        "VA02"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA02#NI@L266"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA02 · Alcance y terminación»",
+      "sourceLines": [
+        266
+      ]
+    },
+    {
+      "id": "VA02#NI@L267",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "entregable;",
+      "variableRefs": [
+        "VA02"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA02#NI@L267"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA02 · Alcance y terminación»",
+      "sourceLines": [
+        267
+      ]
+    },
+    {
+      "id": "VA02#NI@L268",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "Done Criteria;",
+      "variableRefs": [
+        "VA02"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA02#NI@L268"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA02 · Alcance y terminación»",
+      "sourceLines": [
+        268
+      ]
+    },
+    {
+      "id": "VA02#NI@L269",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "restricciones.",
+      "variableRefs": [
+        "VA02"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA02#NI@L269"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA02 · Alcance y terminación»",
+      "sourceLines": [
+        269
+      ]
+    },
+    {
+      "id": "VA03#NI@L275",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "accountable;",
+      "variableRefs": [
+        "VA03"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA03#NI@L275"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA03 · Responsabilidad/decisión»",
+      "sourceLines": [
+        275
+      ]
+    },
+    {
+      "id": "VA03#NI@L276",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "responsables;",
+      "variableRefs": [
+        "VA03"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA03#NI@L276"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA03 · Responsabilidad/decisión»",
+      "sourceLines": [
+        276
+      ]
+    },
+    {
+      "id": "VA03#NI@L277",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "decisiones críticas;",
+      "variableRefs": [
+        "VA03"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA03#NI@L277"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA03 · Responsabilidad/decisión»",
+      "sourceLines": [
+        277
+      ]
+    },
+    {
+      "id": "VA03#NI@L278",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "autoridad;",
+      "variableRefs": [
+        "VA03"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA03#NI@L278"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA03 · Responsabilidad/decisión»",
+      "sourceLines": [
+        278
+      ]
+    },
+    {
+      "id": "VA03#NI@L279",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "escalamiento.",
+      "variableRefs": [
+        "VA03"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA03#NI@L279"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA03 · Responsabilidad/decisión»",
+      "sourceLines": [
+        279
+      ]
+    },
+    {
+      "id": "VA04#NI@L285",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "personas;",
+      "variableRefs": [
+        "VA04"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA04#NI@L285"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA04 · Recursos/capacidad»",
+      "sourceLines": [
+        285
+      ]
+    },
+    {
+      "id": "VA04#NI@L286",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "dedicación;",
+      "variableRefs": [
+        "VA04"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA04#NI@L286"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA04 · Recursos/capacidad»",
+      "sourceLines": [
+        286
+      ]
+    },
+    {
+      "id": "VA04#NI@L287",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "habilidades;",
+      "variableRefs": [
+        "VA04"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA04#NI@L287"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA04 · Recursos/capacidad»",
+      "sourceLines": [
+        287
+      ]
+    },
+    {
+      "id": "VA04#NI@L288",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "presupuesto si material;",
+      "variableRefs": [
+        "VA04"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA04#NI@L288"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA04 · Recursos/capacidad»",
+      "sourceLines": [
+        288
+      ]
+    },
+    {
+      "id": "VA04#NI@L289",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "capacidad externa;",
+      "variableRefs": [
+        "VA04"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA04#NI@L289"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA04 · Recursos/capacidad»",
+      "sourceLines": [
+        289
+      ]
+    },
+    {
+      "id": "VA04#NI@L290",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "restricciones.",
+      "variableRefs": [
+        "VA04"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA04#NI@L290"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA04 · Recursos/capacidad»",
+      "sourceLines": [
+        290
+      ]
+    },
+    {
+      "id": "VA05#NI@L296",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "prerrequisitos;",
+      "variableRefs": [
+        "VA05"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA05#NI@L296"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA05 · Dependencias»",
+      "sourceLines": [
+        296
+      ]
+    },
+    {
+      "id": "VA05#NI@L297",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "decisiones;",
+      "variableRefs": [
+        "VA05"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA05#NI@L297"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA05 · Dependencias»",
+      "sourceLines": [
+        297
+      ]
+    },
+    {
+      "id": "VA05#NI@L298",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "terceros;",
+      "variableRefs": [
+        "VA05"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA05#NI@L298"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA05 · Dependencias»",
+      "sourceLines": [
+        298
+      ]
+    },
+    {
+      "id": "VA05#NI@L299",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "tecnología;",
+      "variableRefs": [
+        "VA05"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA05#NI@L299"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA05 · Dependencias»",
+      "sourceLines": [
+        299
+      ]
+    },
+    {
+      "id": "VA05#NI@L300",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "datos;",
+      "variableRefs": [
+        "VA05"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA05#NI@L300"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA05 · Dependencias»",
+      "sourceLines": [
+        300
+      ]
+    },
+    {
+      "id": "VA05#NI@L301",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "otras iniciativas;",
+      "variableRefs": [
+        "VA05"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA05#NI@L301"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA05 · Dependencias»",
+      "sourceLines": [
+        301
+      ]
+    },
+    {
+      "id": "VA05#NI@L302",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "fechas externas.",
+      "variableRefs": [
+        "VA05"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA05#NI@L302"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA05 · Dependencias»",
+      "sourceLines": [
+        302
+      ]
+    },
+    {
+      "id": "VA06#NI@L308",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "principales frentes;",
+      "variableRefs": [
+        "VA06"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA06#NI@L308"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA06 · Plan/secuencia»",
+      "sourceLines": [
+        308
+      ]
+    },
+    {
+      "id": "VA06#NI@L309",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "orden;",
+      "variableRefs": [
+        "VA06"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA06#NI@L309"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA06 · Plan/secuencia»",
+      "sourceLines": [
+        309
+      ]
+    },
+    {
+      "id": "VA06#NI@L310",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "hitos;",
+      "variableRefs": [
+        "VA06"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA06#NI@L310"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA06 · Plan/secuencia»",
+      "sourceLines": [
+        310
+      ]
+    },
+    {
+      "id": "VA06#NI@L311",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "dependencias;",
+      "variableRefs": [
+        "VA06"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA06#NI@L311"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA06 · Plan/secuencia»",
+      "sourceLines": [
+        311
+      ]
+    },
+    {
+      "id": "VA06#NI@L312",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "próximo trabajo;",
+      "variableRefs": [
+        "VA06"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA06#NI@L312"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA06 · Plan/secuencia»",
+      "sourceLines": [
+        312
+      ]
+    },
+    {
+      "id": "VA06#NI@L313",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "criterio de avance.",
+      "variableRefs": [
+        "VA06"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA06#NI@L313"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA06 · Plan/secuencia»",
+      "sourceLines": [
+        313
+      ]
+    },
+    {
+      "id": "VA07#NI@L319",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "estado;",
+      "variableRefs": [
+        "VA07"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA07#NI@L319"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA07 · Visibilidad»",
+      "sourceLines": [
+        319
+      ]
+    },
+    {
+      "id": "VA07#NI@L320",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "avance;",
+      "variableRefs": [
+        "VA07"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA07#NI@L320"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA07 · Visibilidad»",
+      "sourceLines": [
+        320
+      ]
+    },
+    {
+      "id": "VA07#NI@L321",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "pendientes;",
+      "variableRefs": [
+        "VA07"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA07#NI@L321"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA07 · Visibilidad»",
+      "sourceLines": [
+        321
+      ]
+    },
+    {
+      "id": "VA07#NI@L322",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "bloqueos;",
+      "variableRefs": [
+        "VA07"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA07#NI@L322"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA07 · Visibilidad»",
+      "sourceLines": [
+        322
+      ]
+    },
+    {
+      "id": "VA07#NI@L323",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "evidencia;",
+      "variableRefs": [
+        "VA07"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA07#NI@L323"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA07 · Visibilidad»",
+      "sourceLines": [
+        323
+      ]
+    },
+    {
+      "id": "VA07#NI@L324",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "frecuencia de actualización.",
+      "variableRefs": [
+        "VA07"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA07#NI@L324"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA07 · Visibilidad»",
+      "sourceLines": [
+        324
+      ]
+    },
+    {
+      "id": "VA08#NI@L330",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "obstáculos;",
+      "variableRefs": [
+        "VA08"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA08#NI@L330"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA08 · Riesgos/bloqueos/cambios»",
+      "sourceLines": [
+        330
+      ]
+    },
+    {
+      "id": "VA08#NI@L331",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "incertidumbres;",
+      "variableRefs": [
+        "VA08"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA08#NI@L331"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA08 · Riesgos/bloqueos/cambios»",
+      "sourceLines": [
+        331
+      ]
+    },
+    {
+      "id": "VA08#NI@L332",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "impacto;",
+      "variableRefs": [
+        "VA08"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA08#NI@L332"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA08 · Riesgos/bloqueos/cambios»",
+      "sourceLines": [
+        332
+      ]
+    },
+    {
+      "id": "VA08#NI@L333",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "responsable;",
+      "variableRefs": [
+        "VA08"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA08#NI@L333"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA08 · Riesgos/bloqueos/cambios»",
+      "sourceLines": [
+        333
+      ]
+    },
+    {
+      "id": "VA08#NI@L334",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "decisión;",
+      "variableRefs": [
+        "VA08"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA08#NI@L334"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA08 · Riesgos/bloqueos/cambios»",
+      "sourceLines": [
+        334
+      ]
+    },
+    {
+      "id": "VA08#NI@L335",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "cambio de alcance;",
+      "variableRefs": [
+        "VA08"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA08#NI@L335"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA08 · Riesgos/bloqueos/cambios»",
+      "sourceLines": [
+        335
+      ]
+    },
+    {
+      "id": "VA08#NI@L336",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "mecanismo de adaptación.",
+      "variableRefs": [
+        "VA08"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA08#NI@L336"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA08 · Riesgos/bloqueos/cambios»",
+      "sourceLines": [
+        336
+      ]
+    },
+    {
+      "id": "VA09#NI@L342",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "transición;",
+      "variableRefs": [
+        "VA09"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA09#NI@L342"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA09 · Activación/adopción»",
+      "sourceLines": [
+        342
+      ]
+    },
+    {
+      "id": "VA09#NI@L343",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "usuarios;",
+      "variableRefs": [
+        "VA09"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA09#NI@L343"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA09 · Activación/adopción»",
+      "sourceLines": [
+        343
+      ]
+    },
+    {
+      "id": "VA09#NI@L344",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "capacitación cuando aplique;",
+      "variableRefs": [
+        "VA09"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA09#NI@L344"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA09 · Activación/adopción»",
+      "sourceLines": [
+        344
+      ]
+    },
+    {
+      "id": "VA09#NI@L345",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "acceso;",
+      "variableRefs": [
+        "VA09"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA09#NI@L345"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA09 · Activación/adopción»",
+      "sourceLines": [
+        345
+      ]
+    },
+    {
+      "id": "VA09#NI@L346",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "soporte;",
+      "variableRefs": [
+        "VA09"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA09#NI@L346"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA09 · Activación/adopción»",
+      "sourceLines": [
+        346
+      ]
+    },
+    {
+      "id": "VA09#NI@L347",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "migración;",
+      "variableRefs": [
+        "VA09"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA09#NI@L347"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA09 · Activación/adopción»",
+      "sourceLines": [
+        347
+      ]
+    },
+    {
+      "id": "VA09#NI@L348",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "uso real;",
+      "variableRefs": [
+        "VA09"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA09#NI@L348"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA09 · Activación/adopción»",
+      "sourceLines": [
+        348
+      ]
+    },
+    {
+      "id": "VA09#NI@L349",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "retirada de forma anterior.",
+      "variableRefs": [
+        "VA09"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA09#NI@L349"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA09 · Activación/adopción»",
+      "sourceLines": [
+        349
+      ]
+    },
+    {
+      "id": "VA10#NI@L355",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "Done Criteria;",
+      "variableRefs": [
+        "VA10"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA10#NI@L355"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA10 · Verificación/cierre»",
+      "sourceLines": [
+        355
+      ]
+    },
+    {
+      "id": "VA10#NI@L356",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "evidencia;",
+      "variableRefs": [
+        "VA10"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA10#NI@L356"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA10 · Verificación/cierre»",
+      "sourceLines": [
+        356
+      ]
+    },
+    {
+      "id": "VA10#NI@L357",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "pendientes;",
+      "variableRefs": [
+        "VA10"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA10#NI@L357"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA10 · Verificación/cierre»",
+      "sourceLines": [
+        357
+      ]
+    },
+    {
+      "id": "VA10#NI@L358",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "aceptación;",
+      "variableRefs": [
+        "VA10"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA10#NI@L358"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA10 · Verificación/cierre»",
+      "sourceLines": [
+        358
+      ]
+    },
+    {
+      "id": "VA10#NI@L359",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "handoff;",
+      "variableRefs": [
+        "VA10"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA10#NI@L359"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA10 · Verificación/cierre»",
+      "sourceLines": [
+        359
+      ]
+    },
+    {
+      "id": "VA10#NI@L360",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "estado operacional;",
+      "variableRefs": [
+        "VA10"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA10#NI@L360"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA10 · Verificación/cierre»",
+      "sourceLines": [
+        360
+      ]
+    },
+    {
+      "id": "VA10#NI@L361",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "siguiente responsable;",
+      "variableRefs": [
+        "VA10"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA10#NI@L361"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA10 · Verificación/cierre»",
+      "sourceLines": [
+        361
+      ]
+    },
+    {
+      "id": "VA10#NI@L362",
+      "idStatus": "DERIVED_LOCATOR",
+      "statement": "validación posterior.",
+      "variableRefs": [
+        "VA10"
+      ],
+      "acquisitionRefs": [
+        "ACQ·VA10#NI@L362"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «VA10 · Verificación/cierre»",
+      "sourceLines": [
+        362
+      ]
+    }
+  ],
+  "acquisitions": [
+    {
+      "id": "ACQ·VA01#NI@L254",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA01#NI@L254",
+      "variableRefs": [
+        "VA01"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA01#NI@L255",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA01#NI@L255",
+      "variableRefs": [
+        "VA01"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA01#NI@L256",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA01#NI@L256",
+      "variableRefs": [
+        "VA01"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA01#NI@L257",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA01#NI@L257",
+      "variableRefs": [
+        "VA01"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA01#NI@L258",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA01#NI@L258",
+      "variableRefs": [
+        "VA01"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA02#NI@L264",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA02#NI@L264",
+      "variableRefs": [
+        "VA02"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA02#NI@L265",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA02#NI@L265",
+      "variableRefs": [
+        "VA02"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA02#NI@L266",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA02#NI@L266",
+      "variableRefs": [
+        "VA02"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA02#NI@L267",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA02#NI@L267",
+      "variableRefs": [
+        "VA02"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA02#NI@L268",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA02#NI@L268",
+      "variableRefs": [
+        "VA02"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA02#NI@L269",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA02#NI@L269",
+      "variableRefs": [
+        "VA02"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA03#NI@L275",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA03#NI@L275",
+      "variableRefs": [
+        "VA03"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA03#NI@L276",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA03#NI@L276",
+      "variableRefs": [
+        "VA03"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA03#NI@L277",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA03#NI@L277",
+      "variableRefs": [
+        "VA03"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA03#NI@L278",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA03#NI@L278",
+      "variableRefs": [
+        "VA03"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA03#NI@L279",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA03#NI@L279",
+      "variableRefs": [
+        "VA03"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA04#NI@L285",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA04#NI@L285",
+      "variableRefs": [
+        "VA04"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA04#NI@L286",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA04#NI@L286",
+      "variableRefs": [
+        "VA04"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA04#NI@L287",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA04#NI@L287",
+      "variableRefs": [
+        "VA04"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA04#NI@L288",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA04#NI@L288",
+      "variableRefs": [
+        "VA04"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA04#NI@L289",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA04#NI@L289",
+      "variableRefs": [
+        "VA04"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA04#NI@L290",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA04#NI@L290",
+      "variableRefs": [
+        "VA04"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA05#NI@L296",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA05#NI@L296",
+      "variableRefs": [
+        "VA05"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA05#NI@L297",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA05#NI@L297",
+      "variableRefs": [
+        "VA05"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA05#NI@L298",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA05#NI@L298",
+      "variableRefs": [
+        "VA05"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA05#NI@L299",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA05#NI@L299",
+      "variableRefs": [
+        "VA05"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA05#NI@L300",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA05#NI@L300",
+      "variableRefs": [
+        "VA05"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA05#NI@L301",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA05#NI@L301",
+      "variableRefs": [
+        "VA05"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA05#NI@L302",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA05#NI@L302",
+      "variableRefs": [
+        "VA05"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA06#NI@L308",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA06#NI@L308",
+      "variableRefs": [
+        "VA06"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA06#NI@L309",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA06#NI@L309",
+      "variableRefs": [
+        "VA06"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA06#NI@L310",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA06#NI@L310",
+      "variableRefs": [
+        "VA06"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA06#NI@L311",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA06#NI@L311",
+      "variableRefs": [
+        "VA06"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA06#NI@L312",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA06#NI@L312",
+      "variableRefs": [
+        "VA06"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA06#NI@L313",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA06#NI@L313",
+      "variableRefs": [
+        "VA06"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA07#NI@L319",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA07#NI@L319",
+      "variableRefs": [
+        "VA07"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA07#NI@L320",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA07#NI@L320",
+      "variableRefs": [
+        "VA07"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA07#NI@L321",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA07#NI@L321",
+      "variableRefs": [
+        "VA07"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA07#NI@L322",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA07#NI@L322",
+      "variableRefs": [
+        "VA07"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA07#NI@L323",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA07#NI@L323",
+      "variableRefs": [
+        "VA07"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA07#NI@L324",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA07#NI@L324",
+      "variableRefs": [
+        "VA07"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA08#NI@L330",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA08#NI@L330",
+      "variableRefs": [
+        "VA08"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA08#NI@L331",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA08#NI@L331",
+      "variableRefs": [
+        "VA08"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA08#NI@L332",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA08#NI@L332",
+      "variableRefs": [
+        "VA08"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA08#NI@L333",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA08#NI@L333",
+      "variableRefs": [
+        "VA08"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA08#NI@L334",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA08#NI@L334",
+      "variableRefs": [
+        "VA08"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA08#NI@L335",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA08#NI@L335",
+      "variableRefs": [
+        "VA08"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA08#NI@L336",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA08#NI@L336",
+      "variableRefs": [
+        "VA08"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA09#NI@L342",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA09#NI@L342",
+      "variableRefs": [
+        "VA09"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA09#NI@L343",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA09#NI@L343",
+      "variableRefs": [
+        "VA09"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA09#NI@L344",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA09#NI@L344",
+      "variableRefs": [
+        "VA09"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA09#NI@L345",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA09#NI@L345",
+      "variableRefs": [
+        "VA09"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA09#NI@L346",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA09#NI@L346",
+      "variableRefs": [
+        "VA09"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA09#NI@L347",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA09#NI@L347",
+      "variableRefs": [
+        "VA09"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA09#NI@L348",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA09#NI@L348",
+      "variableRefs": [
+        "VA09"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA09#NI@L349",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA09#NI@L349",
+      "variableRefs": [
+        "VA09"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA10#NI@L355",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA10#NI@L355",
+      "variableRefs": [
+        "VA10"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA10#NI@L356",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA10#NI@L356",
+      "variableRefs": [
+        "VA10"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA10#NI@L357",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA10#NI@L357",
+      "variableRefs": [
+        "VA10"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA10#NI@L358",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA10#NI@L358",
+      "variableRefs": [
+        "VA10"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA10#NI@L359",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA10#NI@L359",
+      "variableRefs": [
+        "VA10"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA10#NI@L360",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA10#NI@L360",
+      "variableRefs": [
+        "VA10"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA10#NI@L361",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA10#NI@L361",
+      "variableRefs": [
+        "VA10"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·VA10#NI@L362",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "VA10#NI@L362",
+      "variableRefs": [
+        "VA10"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    }
+  ]
+}

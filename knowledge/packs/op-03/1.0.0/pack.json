@@ -1,0 +1,1645 @@
+{
+  "packId": "op-03",
+  "packVersion": "1.0.0",
+  "status": "draft",
+  "knowledgeMaster": {
+    "identifier": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "status": "BASELINE-APPROVED",
+    "sourceReference": "canonical-baseline.json#OP03-K4-v1.0@sha256:573e1906b898d67065fcc66fccee8710b71436a217d91874284d562d596df034 · OP03-K4-v1.0 · K4-VALIDATED · CLOSED"
+  },
+  "capability": {
+    "id": "OP-03",
+    "domainId": "OP",
+    "name": "Integrar procesos de extremo a extremo",
+    "definition": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+    "definitionStatus": "NOT_EXPLICIT"
+  },
+  "conditionsOfExistence": [
+    {
+      "id": "CE01",
+      "statement": "Articulación del flujo E2E"
+    },
+    {
+      "id": "CE02",
+      "statement": "Continuidad de información E2E"
+    },
+    {
+      "id": "CE03",
+      "statement": "Gobernanza operacional del resultado E2E"
+    },
+    {
+      "id": "CE04",
+      "statement": "Visibilidad y retroalimentación E2E"
+    }
+  ],
+  "variables": [
+    {
+      "id": "VA01",
+      "name": "Articulación funcional del flujo E2E",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "ACQUISITION_EXPLICIT"
+    },
+    {
+      "id": "VA02",
+      "name": "Efectividad de traspasos críticos",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "ACQUISITION_EXPLICIT"
+    },
+    {
+      "id": "VA03",
+      "name": "Continuidad y preservación de información relevante",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "ACQUISITION_EXPLICIT"
+    },
+    {
+      "id": "VA04",
+      "name": "Responsabilidad funcional sobre el resultado E2E",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "ACQUISITION_EXPLICIT"
+    },
+    {
+      "id": "VA05",
+      "name": "Coherencia de decisiones interdependientes",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "ACQUISITION_EXPLICIT"
+    },
+    {
+      "id": "VA06",
+      "name": "Alineación entre objetivos locales y resultado E2E",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "ACQUISITION_EXPLICIT"
+    },
+    {
+      "id": "VA07",
+      "name": "Visibilidad del estado E2E",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "ACQUISITION_EXPLICIT"
+    },
+    {
+      "id": "VA08",
+      "name": "Retroalimentación operacional entre fronteras",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "ACQUISITION_EXPLICIT"
+    }
+  ],
+  "informationNeeds": [
+    {
+      "id": "NI-01.1",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué procesos/funciones/actores son necesarios para producir el resultado.",
+      "variableRefs": [
+        "VA01"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-01.1"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «3. VA01 · Articulación funcional del flujo E2E»",
+      "sourceLines": [
+        1378
+      ]
+    },
+    {
+      "id": "NI-01.2",
+      "idStatus": "SOURCE_ID",
+      "statement": "Cómo se conectan entre sí.",
+      "variableRefs": [
+        "VA01"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-01.2"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «3. VA01 · Articulación funcional del flujo E2E»",
+      "sourceLines": [
+        1379
+      ]
+    },
+    {
+      "id": "NI-01.3",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si existen vacíos o saltos donde el trabajo queda sin continuidad funcional.",
+      "variableRefs": [
+        "VA01"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-01.3"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «3. VA01 · Articulación funcional del flujo E2E»",
+      "sourceLines": [
+        1380
+      ]
+    },
+    {
+      "id": "NI-01.4",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si algún componente relevante opera de forma aislada respecto del resultado completo.",
+      "variableRefs": [
+        "VA01"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-01.4"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «3. VA01 · Articulación funcional del flujo E2E»",
+      "sourceLines": [
+        1381
+      ]
+    },
+    {
+      "id": "NI-02.1",
+      "idStatus": "SOURCE_ID",
+      "statement": "Cuáles son los handoffs críticos.",
+      "variableRefs": [
+        "VA02"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-02.1"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «4. VA02 · Efectividad de traspasos críticos»",
+      "sourceLines": [
+        1399
+      ]
+    },
+    {
+      "id": "NI-02.2",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué se transfiere.",
+      "variableRefs": [
+        "VA02"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-02.2"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «4. VA02 · Efectividad de traspasos críticos»",
+      "sourceLines": [
+        1400
+      ]
+    },
+    {
+      "id": "NI-02.3",
+      "idStatus": "SOURCE_ID",
+      "statement": "Quién entrega y quién recibe.",
+      "variableRefs": [
+        "VA02"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-02.3"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «4. VA02 · Efectividad de traspasos críticos»",
+      "sourceLines": [
+        1401
+      ]
+    },
+    {
+      "id": "NI-02.4",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué condición mínima debe cumplirse para aceptar el traspaso.",
+      "variableRefs": [
+        "VA02"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-02.4"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «4. VA02 · Efectividad de traspasos críticos»",
+      "sourceLines": [
+        1402
+      ]
+    },
+    {
+      "id": "NI-02.5",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué fallas aparecen: demora, pérdida, devolución, ambigüedad, incompletitud.",
+      "variableRefs": [
+        "VA02"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-02.5"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «4. VA02 · Efectividad de traspasos críticos»",
+      "sourceLines": [
+        1403
+      ]
+    },
+    {
+      "id": "NI-02.6",
+      "idStatus": "SOURCE_ID",
+      "statement": "Frecuencia e impacto.",
+      "variableRefs": [
+        "VA02"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-02.6"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «4. VA02 · Efectividad de traspasos críticos»",
+      "sourceLines": [
+        1404
+      ]
+    },
+    {
+      "id": "NI-03.1",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué información necesita cada parte del flujo.",
+      "variableRefs": [
+        "VA03"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-03.1"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «5. VA03 · Continuidad y preservación de información relevante»",
+      "sourceLines": [
+        1422
+      ]
+    },
+    {
+      "id": "NI-03.2",
+      "idStatus": "SOURCE_ID",
+      "statement": "Dónde se origina.",
+      "variableRefs": [
+        "VA03"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-03.2"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «5. VA03 · Continuidad y preservación de información relevante»",
+      "sourceLines": [
+        1423
+      ]
+    },
+    {
+      "id": "NI-03.3",
+      "idStatus": "SOURCE_ID",
+      "statement": "Cómo se transfiere.",
+      "variableRefs": [
+        "VA03"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-03.3"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «5. VA03 · Continuidad y preservación de información relevante»",
+      "sourceLines": [
+        1424
+      ]
+    },
+    {
+      "id": "NI-03.4",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si llega completa, oportuna y comprensible.",
+      "variableRefs": [
+        "VA03"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-03.4"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «5. VA03 · Continuidad y preservación de información relevante»",
+      "sourceLines": [
+        1425
+      ]
+    },
+    {
+      "id": "NI-03.5",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si conserva significado/contexto suficiente.",
+      "variableRefs": [
+        "VA03"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-03.5"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «5. VA03 · Continuidad y preservación de información relevante»",
+      "sourceLines": [
+        1426
+      ]
+    },
+    {
+      "id": "NI-03.6",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué ocurre cuando se pierde o transforma incorrectamente.",
+      "variableRefs": [
+        "VA03"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-03.6"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «5. VA03 · Continuidad y preservación de información relevante»",
+      "sourceLines": [
+        1427
+      ]
+    },
+    {
+      "id": "NI-04.1",
+      "idStatus": "SOURCE_ID",
+      "statement": "Quién responde cuando el resultado completo falla.",
+      "variableRefs": [
+        "VA04"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-04.1"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «6. VA04 · Responsabilidad funcional sobre el resultado E2E»",
+      "sourceLines": [
+        1446
+      ]
+    },
+    {
+      "id": "NI-04.2",
+      "idStatus": "SOURCE_ID",
+      "statement": "Quién puede intervenir ante un problema entre fronteras.",
+      "variableRefs": [
+        "VA04"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-04.2"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «6. VA04 · Responsabilidad funcional sobre el resultado E2E»",
+      "sourceLines": [
+        1447
+      ]
+    },
+    {
+      "id": "NI-04.3",
+      "idStatus": "SOURCE_ID",
+      "statement": "Cómo se resuelven situaciones “entre áreas”.",
+      "variableRefs": [
+        "VA04"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-04.3"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «6. VA04 · Responsabilidad funcional sobre el resultado E2E»",
+      "sourceLines": [
+        1448
+      ]
+    },
+    {
+      "id": "NI-04.4",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si existe un vacío de accountability sobre el resultado completo.",
+      "variableRefs": [
+        "VA04"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-04.4"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «6. VA04 · Responsabilidad funcional sobre el resultado E2E»",
+      "sourceLines": [
+        1449
+      ]
+    },
+    {
+      "id": "NI-05.1",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué decisiones upstream afectan materialmente downstream.",
+      "variableRefs": [
+        "VA05"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-05.1"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «7. VA05 · Coherencia de decisiones interdependientes»",
+      "sourceLines": [
+        1465
+      ]
+    },
+    {
+      "id": "NI-05.2",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué información considera quien decide.",
+      "variableRefs": [
+        "VA05"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-05.2"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «7. VA05 · Coherencia de decisiones interdependientes»",
+      "sourceLines": [
+        1466
+      ]
+    },
+    {
+      "id": "NI-05.3",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si conoce restricciones/consecuencias relevantes.",
+      "variableRefs": [
+        "VA05"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-05.3"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «7. VA05 · Coherencia de decisiones interdependientes»",
+      "sourceLines": [
+        1467
+      ]
+    },
+    {
+      "id": "NI-05.4",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si decisiones locales generan impacto adverso recurrente en el resultado E2E.",
+      "variableRefs": [
+        "VA05"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-05.4"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «7. VA05 · Coherencia de decisiones interdependientes»",
+      "sourceLines": [
+        1468
+      ]
+    },
+    {
+      "id": "NI-06.1",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué objetivos/prioridades gobiernan a las partes relevantes.",
+      "variableRefs": [
+        "VA06"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-06.1"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «8. VA06 · Alineación entre objetivos locales y resultado E2E»",
+      "sourceLines": [
+        1484
+      ]
+    },
+    {
+      "id": "NI-06.2",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si existen incentivos o metas en conflicto.",
+      "variableRefs": [
+        "VA06"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-06.2"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «8. VA06 · Alineación entre objetivos locales y resultado E2E»",
+      "sourceLines": [
+        1485
+      ]
+    },
+    {
+      "id": "NI-06.3",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si una mejora local empeora recurrentemente el resultado global.",
+      "variableRefs": [
+        "VA06"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-06.3"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «8. VA06 · Alineación entre objetivos locales y resultado E2E»",
+      "sourceLines": [
+        1486
+      ]
+    },
+    {
+      "id": "NI-06.4",
+      "idStatus": "SOURCE_ID",
+      "statement": "Cómo se resuelven conflictos entre objetivos locales y E2E.",
+      "variableRefs": [
+        "VA06"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-06.4"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «8. VA06 · Alineación entre objetivos locales y resultado E2E»",
+      "sourceLines": [
+        1487
+      ]
+    },
+    {
+      "id": "NI-07.1",
+      "idStatus": "SOURCE_ID",
+      "statement": "Cómo se sabe dónde está el trabajo o resultado a través de las fronteras.",
+      "variableRefs": [
+        "VA07"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-07.1"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «9. VA07 · Visibilidad del estado E2E»",
+      "sourceLines": [
+        1505
+      ]
+    },
+    {
+      "id": "NI-07.2",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si cada área solo conoce su parte o existe visión transversal.",
+      "variableRefs": [
+        "VA07"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-07.2"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «9. VA07 · Visibilidad del estado E2E»",
+      "sourceLines": [
+        1506
+      ]
+    },
+    {
+      "id": "NI-07.3",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué información de estado se pierde al cambiar de proceso/sistema.",
+      "variableRefs": [
+        "VA07"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-07.3"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «9. VA07 · Visibilidad del estado E2E»",
+      "sourceLines": [
+        1507
+      ]
+    },
+    {
+      "id": "NI-07.4",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si el estado puede reconstruirse cuando existe una excepción.",
+      "variableRefs": [
+        "VA07"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-07.4"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «9. VA07 · Visibilidad del estado E2E»",
+      "sourceLines": [
+        1508
+      ]
+    },
+    {
+      "id": "NI-08.1",
+      "idStatus": "SOURCE_ID",
+      "statement": "Qué señales downstream necesitan regresar upstream.",
+      "variableRefs": [
+        "VA08"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-08.1"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «10. VA08 · Retroalimentación operacional entre fronteras»",
+      "sourceLines": [
+        1525
+      ]
+    },
+    {
+      "id": "NI-08.2",
+      "idStatus": "SOURCE_ID",
+      "statement": "A quién deben llegar.",
+      "variableRefs": [
+        "VA08"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-08.2"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «10. VA08 · Retroalimentación operacional entre fronteras»",
+      "sourceLines": [
+        1526
+      ]
+    },
+    {
+      "id": "NI-08.3",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si llegan con oportunidad suficiente.",
+      "variableRefs": [
+        "VA08"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-08.3"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «10. VA08 · Retroalimentación operacional entre fronteras»",
+      "sourceLines": [
+        1527
+      ]
+    },
+    {
+      "id": "NI-08.4",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si la parte receptora puede actuar sobre ellas.",
+      "variableRefs": [
+        "VA08"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-08.4"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «10. VA08 · Retroalimentación operacional entre fronteras»",
+      "sourceLines": [
+        1528
+      ]
+    },
+    {
+      "id": "NI-08.5",
+      "idStatus": "SOURCE_ID",
+      "statement": "Si los mismos problemas reaparecen porque la información no regresa o no llega al punto correcto.",
+      "variableRefs": [
+        "VA08"
+      ],
+      "acquisitionRefs": [
+        "ACQ·NI-08.5"
+      ],
+      "mappingStatus": "STRUCTURAL_CONTAINMENT",
+      "mappingEvidence": "heading «10. VA08 · Retroalimentación operacional entre fronteras»",
+      "sourceLines": [
+        1529
+      ]
+    }
+  ],
+  "acquisitions": [
+    {
+      "id": "P1-OP03-02",
+      "level": "P1",
+      "acquisitionMode": "QUESTION",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA07",
+        "VA04",
+        "VA06"
+      ],
+      "question": "Pensemos en un caso reciente real. Desde que comenzó hasta que terminó, ¿por qué personas, áreas, procesos o sistemas fue pasando?",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "P1-OP03-03",
+      "level": "P1",
+      "acquisitionMode": "QUESTION",
+      "variableRefs": [
+        "VA03"
+      ],
+      "question": "¿Qué información no puede perderse o cambiar de significado durante ese recorrido para que el resultado salga bien?",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "P1-OP03-04",
+      "level": "P1",
+      "acquisitionMode": "QUESTION",
+      "variableRefs": [
+        "VA04",
+        "VA05",
+        "VA07",
+        "VA08"
+      ],
+      "question": "Cuando aparece una excepción que cruza varias partes del proceso —por ejemplo un cambio del cliente, información incompleta o un problema en la entrega—, ¿quién se hace cargo del resultado y cómo se coordina la solución?",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "P2",
+      "level": "P2",
+      "acquisitionMode": "QUESTION",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08"
+      ],
+      "question": "| VA01 articulación | “¿Hay algún punto donde el resultado queda entre dos partes sin que esté claro cómo continúa?” |",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "P3",
+      "level": "P3",
+      "acquisitionMode": "QUESTION",
+      "variableRefs": [
+        "VA02"
+      ],
+      "question": "“Cuando ocurre esa devolución, ¿qué falta normalmente: información, una decisión pendiente, una condición no cumplida o algo diferente?”",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-01.1",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-01.1",
+      "variableRefs": [
+        "VA01"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-01.2",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-01.2",
+      "variableRefs": [
+        "VA01"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-01.3",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-01.3",
+      "variableRefs": [
+        "VA01"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-01.4",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-01.4",
+      "variableRefs": [
+        "VA01"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-02.1",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-02.1",
+      "variableRefs": [
+        "VA02"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-02.2",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-02.2",
+      "variableRefs": [
+        "VA02"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-02.3",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-02.3",
+      "variableRefs": [
+        "VA02"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-02.4",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-02.4",
+      "variableRefs": [
+        "VA02"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-02.5",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-02.5",
+      "variableRefs": [
+        "VA02"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-02.6",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-02.6",
+      "variableRefs": [
+        "VA02"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-03.1",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-03.1",
+      "variableRefs": [
+        "VA03"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-03.2",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-03.2",
+      "variableRefs": [
+        "VA03"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-03.3",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-03.3",
+      "variableRefs": [
+        "VA03"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-03.4",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-03.4",
+      "variableRefs": [
+        "VA03"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-03.5",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-03.5",
+      "variableRefs": [
+        "VA03"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-03.6",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-03.6",
+      "variableRefs": [
+        "VA03"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-04.1",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-04.1",
+      "variableRefs": [
+        "VA04"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-04.2",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-04.2",
+      "variableRefs": [
+        "VA04"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-04.3",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-04.3",
+      "variableRefs": [
+        "VA04"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-04.4",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-04.4",
+      "variableRefs": [
+        "VA04"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-05.1",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-05.1",
+      "variableRefs": [
+        "VA05"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-05.2",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-05.2",
+      "variableRefs": [
+        "VA05"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-05.3",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-05.3",
+      "variableRefs": [
+        "VA05"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-05.4",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-05.4",
+      "variableRefs": [
+        "VA05"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-06.1",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-06.1",
+      "variableRefs": [
+        "VA06"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-06.2",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-06.2",
+      "variableRefs": [
+        "VA06"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-06.3",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-06.3",
+      "variableRefs": [
+        "VA06"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-06.4",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-06.4",
+      "variableRefs": [
+        "VA06"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-07.1",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-07.1",
+      "variableRefs": [
+        "VA07"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-07.2",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-07.2",
+      "variableRefs": [
+        "VA07"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-07.3",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-07.3",
+      "variableRefs": [
+        "VA07"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-07.4",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-07.4",
+      "variableRefs": [
+        "VA07"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-08.1",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-08.1",
+      "variableRefs": [
+        "VA08"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-08.2",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-08.2",
+      "variableRefs": [
+        "VA08"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-08.3",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-08.3",
+      "variableRefs": [
+        "VA08"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-08.4",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-08.4",
+      "variableRefs": [
+        "VA08"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-08.5",
+      "acquisitionMode": "INFORMATION_NEED",
+      "informationNeedRef": "NI-08.5",
+      "variableRefs": [
+        "VA08"
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    }
+  ],
+  "acquisitionStages": [
+    {
+      "id": "P1-OP03-01",
+      "level": "P1",
+      "heading": "P1-OP03-01 · Resultado E2E",
+      "prompts": [
+        "Tomemos un resultado concreto que la empresa necesite completar de principio a fin. ¿Qué inicia ese recorrido y qué tendría que haber ocurrido para decir que terminó correctamente?",
+        "“¿Cuál es su value stream?”"
+      ],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        1847,
+        1855
+      ]
+    },
+    {
+      "id": "P4",
+      "level": "P4",
+      "heading": "P4 · Contradicciones entre fronteras",
+      "prompts": [
+        "“Me aparecen dos descripciones diferentes del mismo traspaso. Revisemos un caso reciente: ¿qué se envió exactamente y qué necesitaba recibir la siguiente parte?”"
+      ],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        1923,
+        1931
+      ]
+    },
+    {
+      "id": "P5",
+      "level": "P5",
+      "heading": "P5 · Validación de interpretación",
+      "prompts": [
+        "“Por lo que revisamos, el pedido sí pasa de ventas a operaciones, pero parte de la información acordada con el cliente no viaja de forma consistente y eso genera aclaraciones/retrabajo. ¿Representa correctamente lo que ocurre?”"
+      ],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        1944,
+        1950
+      ]
+    }
+  ]
+}
