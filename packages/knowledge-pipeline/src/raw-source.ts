@@ -936,7 +936,7 @@ export function verifyRawSourceRegistration(input: {
 /* ------------------------------------------------------------------ */
 
 export const MULTI_CAPABILITY_SEGMENT_RULE =
-  "LAST_OWN_K4_CLOSURE_BOUNDARY: el tramo de la capacidad k termina en la última línea que declara literalmente <IDcompacto>-K4-v<n> · K4-VALIDATED · CLOSED y empieza en la línea siguiente al fin del tramo k-1 (la primera capacidad incluye el preámbulo del dominio; la última extiende hasta el final del texto). No decide contenido ni canonicidad.";
+  "K4_CLOSURE_AND_IDENTITY_HEADING_BOUNDARY: el tramo de la capacidad k+1 empieza en el primer heading «<ID k+1> · …» posterior a la última línea que declara literalmente <IDcompacto k>-K4-v<n> · K4-VALIDATED · CLOSED; el tramo k termina en la línea anterior (el cierre y el resumen posterior de k quedan en k; la primera capacidad incluye el preámbulo del dominio; la última extiende hasta el final del texto). No decide contenido ni canonicidad.";
 
 export interface CapabilitySegment {
   capabilityId: string;
@@ -972,13 +972,24 @@ export function segmentMultiCapabilityText(
   for (let k = 1; k < ends.length; k += 1)
     if ((ends[k] as { line: number }).line <= (ends[k - 1] as { line: number }).line)
       reasons.push(`${ends[k]?.id}: marcador de cierre fuera de orden respecto de ${ends[k - 1]?.id}`);
+  const starts: number[] = [1];
+  for (let k = 1; k < ends.length; k += 1) {
+    const prev = (ends[k - 1] as { line: number }).line;
+    const id = (ends[k] as { id: string }).id;
+    const at = lines.findIndex(
+      (l, i) => i + 1 > prev && /^#{1,9}\s+/.test(l) && l.replace(/^#{1,9}\s+/, "").startsWith(`${id} · `),
+    );
+    if (at < 0 || at + 1 > (ends[k] as { line: number }).line)
+      reasons.push(`${id}: sin heading de identidad «${id} · …» tras el cierre de ${ends[k - 1]?.id}`);
+    else starts.push(at + 1);
+  }
   if (reasons.length) return { ok: false, reasons };
   return {
     ok: true,
     segments: ends.map((e, k) => ({
       capabilityId: e.id,
-      fromLine: k === 0 ? 1 : (ends[k - 1] as { line: number }).line + 1,
-      toLine: k === ends.length - 1 ? lines.length : e.line,
+      fromLine: starts[k] as number,
+      toLine: k === ends.length - 1 ? lines.length : (starts[k + 1] as number) - 1,
       boundaryEvidence: { text: e.text, line: e.line },
     })),
   };

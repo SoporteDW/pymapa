@@ -37,9 +37,9 @@
   },
   "text": {
     "ref": "text/DG-01.txt",
-    "sha256": "966d4ebc78c1217ba03331adf5093b780e4df2005767b80d1c3842064f4733a1",
-    "byteLength": 51144,
-    "lineCount": 832
+    "sha256": "cf38d30f1b7c764c07de706bfd6360110175d9e235099881044bb664745adb68",
+    "byteLength": 52075,
+    "lineCount": 855
   },
   "outline": [
     {
@@ -617,15 +617,15 @@
   },
   "registeredAt": "2026-09-24",
   "segment": {
-    "rule": "LAST_OWN_K4_CLOSURE_BOUNDARY: el tramo de la capacidad k termina en la última línea que declara literalmente <IDcompacto>-K4-v<n> · K4-VALIDATED · CLOSED y empieza en la línea siguiente al fin del tramo k-1 (la primera capacidad incluye el preámbulo del dominio; la última extiende hasta el final del texto). No decide contenido ni canonicidad.",
+    "rule": "K4_CLOSURE_AND_IDENTITY_HEADING_BOUNDARY: el tramo de la capacidad k+1 empieza en el primer heading «<ID k+1> · …» posterior a la última línea que declara literalmente <IDcompacto k>-K4-v<n> · K4-VALIDATED · CLOSED; el tramo k termina en la línea anterior (el cierre y el resumen posterior de k quedan en k; la primera capacidad incluye el preámbulo del dominio; la última extiende hasta el final del texto). No decide contenido ni canonicidad.",
     "fullTextSha256": "60de2926e159cb7ddfc8adbebec9cb306aecd15183c862f6050623311abc377b",
     "fullTextLineCount": 3412,
     "fromLine": 1,
-    "toLine": 832,
+    "toLine": 855,
     "boundaryEvidence": {
       "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
       "line": 832
     }
   },
-  "checksum": "sha256:eb2cd0cb1dc634433756503b4bbcd79be564016e8e5fe8bc197c517d6e9d5efc"
+  "checksum": "sha256:17a4d52f4284343a75d34ae9c9a3e49c1c87f895f2ca8923b617cab70654820b"
 }

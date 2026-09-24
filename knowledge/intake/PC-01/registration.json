@@ -37,9 +37,9 @@
   },
   "text": {
     "ref": "text/PC-01.txt",
-    "sha256": "d8c205044d73f2e393f0ddf87445fd91ca5c2cb42935328c6c09329cead6cb61",
-    "byteLength": 30900,
-    "lineCount": 660
+    "sha256": "7325e0a13eae2edba29574143da19c261ebfd4f5879340e35303783b26887937",
+    "byteLength": 31727,
+    "lineCount": 684
   },
   "outline": [
     {
@@ -416,6 +416,11 @@
       "line": 659,
       "level": 1,
       "text": "Cierre PC-01"
+    },
+    {
+      "line": 675,
+      "level": 2,
+      "text": "Estado PC"
     }
   ],
   "pageStartLines": [],
@@ -427,15 +432,15 @@
   },
   "registeredAt": "2026-09-24",
   "segment": {
-    "rule": "LAST_OWN_K4_CLOSURE_BOUNDARY: el tramo de la capacidad k termina en la última línea que declara literalmente <IDcompacto>-K4-v<n> · K4-VALIDATED · CLOSED y empieza en la línea siguiente al fin del tramo k-1 (la primera capacidad incluye el preámbulo del dominio; la última extiende hasta el final del texto). No decide contenido ni canonicidad.",
+    "rule": "K4_CLOSURE_AND_IDENTITY_HEADING_BOUNDARY: el tramo de la capacidad k+1 empieza en el primer heading «<ID k+1> · …» posterior a la última línea que declara literalmente <IDcompacto k>-K4-v<n> · K4-VALIDATED · CLOSED; el tramo k termina en la línea anterior (el cierre y el resumen posterior de k quedan en k; la primera capacidad incluye el preámbulo del dominio; la última extiende hasta el final del texto). No decide contenido ni canonicidad.",
     "fullTextSha256": "a063f63d848ee30d958f3ca252624b7b2173fc1a2fdbe7fbfd52f1420c2b6c8e",
     "fullTextLineCount": 3911,
     "fromLine": 1,
-    "toLine": 660,
+    "toLine": 684,
     "boundaryEvidence": {
       "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
       "line": 660
     }
   },
-  "checksum": "sha256:af49d1dbc6fd1efd6813d74d18efded43899f441532efeb0945f9ade4a5feaae"
+  "checksum": "sha256:3e9515d29e259f314b1e58de94e5ab395457cae90231b1e8313f0b35db7a4e32"
 }

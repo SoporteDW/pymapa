@@ -1,10 +1,10 @@
 {
-  "candidateId": "CAND-DG-01-0.2.0-966d4ebc78c1",
+  "candidateId": "CAND-DG-01-0.2.0-cf38d30f1b7c",
   "capabilityId": "DG-01",
   "status": "CANDIDATE",
   "registration": {
     "registrationId": "RAW-DG-01-1862e0e860b8",
-    "textSha256": "966d4ebc78c1217ba03331adf5093b780e4df2005767b80d1c3842064f4733a1"
+    "textSha256": "cf38d30f1b7c764c07de706bfd6360110175d9e235099881044bb664745adb68"
   },
   "producedBy": {
     "method": "DETERMINISTIC_TOOL",
@@ -21,6 +21,15 @@
   },
   "provenanceVocabulary": [],
   "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 4,
+      "objectType": "SOURCE_ID_CE",
+      "sourceLines": [
+        835,
+        835
+      ]
+    },
     {
       "label": "STOP",
       "declared": 1,
@@ -1371,7 +1380,43 @@
           832
         ]
       }
+    },
+    {
+      "key": "CAND-MOTOR-DG01-01",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG01-01",
+      "fields": {
+        "heading": "CAND-MOTOR-DG01-01 · Reutilizar evidencia entre capacidades no implica transferir diagnósticos entre capacidades.",
+        "title": "Reutilizar evidencia entre capacidades no implica transferir diagnósticos entre capacidades.",
+        "body": [
+          "Además aparece otra candidata:"
+        ]
+      },
+      "sourceLines": [
+        848,
+        849
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-DG01-02",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG01-02",
+      "fields": {
+        "heading": "CAND-MOTOR-DG01-02 · Un cambio posterior del contexto no convierte retrospectivamente un diagnóstico válido en un diagnóstico erróneo; debe distinguirse cambio de estado de error diagnóstico.",
+        "title": "Un cambio posterior del contexto no convierte retrospectivamente un diagnóstico válido en un diagnóstico erróneo; debe distinguirse cambio de estado de error diagnóstico.",
+        "body": [
+          "Con esto tenemos DG 1/5.",
+          "El siguiente movimiento, manteniendo el ritmo aprobado, es DG-02 · Priorizar iniciativas y recursos de transformación — SET A (Bloques 1–6).",
+          "Perfecto. Entramos en la segunda capacidad del dominio."
+        ]
+      },
+      "sourceLines": [
+        850,
+        855
+      ]
     }
   ],
-  "checksum": "sha256:26bf08bdb0eb6e81ff398790bc1a111f952a4b3cd5eeb6c7b2a69f385825f7d6"
+  "checksum": "sha256:bdb04f59243d57055f036f9f4ade00f671c870294ec29eb23d804906006f09ee"
 }

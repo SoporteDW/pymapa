@@ -1,36 +1,3 @@
-| Objeto | Resultado |
-| Bloques | 11/11 |
-| CE | 6 |
-| VA | 14 |
-| NI | 14 |
-| Reglas | 14 |
-| Findings | 8 |
-| Decisiones | 9 |
-| Intervenciones | 8 |
-| Instrumentos | 7 |
-| Entregables | 8 |
-| CRV | 8 |
-| Validación | V0–V4 |
-| A–V | 22/22 |
-| DoD | 27/27 |
-| K1–K4 | PASS |
-## Estado del dominio PC
-| Capacidad | Estado |
-| PC-01 · Disponer o acceder al conocimiento necesario | 🟢 CLOSED |
-| PC-02 · Desarrollar competencias y aprendizaje relevantes | 🟢 CLOSED |
-| PC-03 · Apropiar cambios y nuevas formas de trabajo | 🟢 CLOSED |
-| PC-04 · Compartir y conservar conocimiento organizacional | ⚪ |
-| PC-05 · Facilitar participación y adaptación de las personas al cambio | ⚪ |
-DOMAIN-PC · 3/5 CAPABILITIES K4-VALIDATED
-Además queda una cadena transversal bastante poderosa:
-KNOW → CAN DO → DO → EMBED → SUSTAIN → RESULT
-PC-01 asegura KNOW/ACCESS.
-PC-02 trabaja CAN DO.
-PC-03 trabaja DO → EMBED → SUSTAIN.
-El capability owner + DG-04 verifican RESULT.
-El siguiente movimiento es PC-04 · Compartir y conservar conocimiento organizacional. Allí el problema cambia sustancialmente: tendremos que distinguir compartir, hacer recuperable, preservar, actualizar y evitar dependencia de conocimiento crítico, sin convertir Pymapa en un sistema documental. Por ello, nuevamente, dimensionaremos PC-04 antes de definir sus macrosets.
-Seguimos
-Seguimos con PC-04, dimensionándola antes de construirla. Aquí hay un riesgo conceptual importante: confundir gestión del conocimiento con documentar todo. Pymapa debe evaluar si el conocimiento organizacional relevante puede circular, recuperarse, conservarse y mantenerse útil, independientemente de que el mecanismo sea documental, humano, tecnológico o híbrido.
 # PC-04 · Compartir y conservar conocimiento organizacional
 ## Dimensionamiento previo
 La pregunta central será:
@@ -828,3 +795,32 @@ K3 · Acción — PASS. La intervención puede ser humana, documental, tecnológ
 K4 · Conocimiento — PASS. Grounding, provenance, reutilización de fuentes, versionado y triggers quedan gobernados.
 # Cierre PC-04
 PC04-K4-v1.0 · K4-VALIDATED · CLOSED
+| Objeto | Resultado |
+| Bloques | 10/10 |
+| CE | 6 |
+| VA | 14 |
+| NI | 14 |
+| Reglas | 14 |
+| Findings | 8 |
+| Patrones de intervención | 8 |
+| Instrumentos | 7 |
+| Entregables | 8 |
+| CRV | 8 |
+| Validación | V0–V4 |
+| A–V | 22/22 PASS |
+| DoD | 27/27 PASS |
+| K1–K4 | 4/4 PASS |
+## Estado del dominio PC
+| Capacidad | Estado |
+| PC-01 · Disponer o acceder al conocimiento necesario | 🟢 CLOSED |
+| PC-02 · Desarrollar competencias y aprendizaje relevantes | 🟢 CLOSED |
+| PC-03 · Apropiar cambios y nuevas formas de trabajo | 🟢 CLOSED |
+| PC-04 · Compartir y conservar conocimiento organizacional | 🟢 CLOSED |
+| PC-05 · Facilitar participación y adaptación de las personas al cambio | ⚪ NEXT |
+DOMAIN-PC · 4/5 CAPABILITIES K4-VALIDATED
+Y ya podemos ver con mayor precisión la arquitectura completa del dominio:
+PC-01 ACCESS → PC-02 DEVELOP → PC-03 APPROPRIATE → PC-04 SHARE/PRESERVE → PC-05 PARTICIPATE/ADAPT
+El siguiente movimiento es PC-05, última capacidad del dominio. Aquí tendremos que ser especialmente cuidadosos para no duplicar PC-03: PC-03 observa si una nueva forma de trabajo termina incorporándose; PC-05 debe evaluar las condiciones mediante las cuales las personas pueden participar, aportar información, procesar el impacto del cambio y adaptarse a medida que la transformación evoluciona. Primero dimensionaremos su complejidad real y luego construiremos sus macrosets.
+viernes 7:04 a.m.
+Seguimos
+Seguimos con PC-05, última capacidad del dominio PC. Aquí la frontera con PC-03 es crítica: no queremos crear dos capacidades distintas que terminen midiendo “gestión del cambio”.

@@ -3,7 +3,7 @@
   "statement": "Reporte técnico del extractor estructural. No es conocimiento canónico ni aprobación; las referencias cruzadas no son relaciones inferidas.",
   "capabilityId": "PC-02",
   "registrationId": "RAW-PC-02-19e8903f1149",
-  "textSha256": "db1aed15b80c1d3d2cb8c84b5572a4675fbfbe9ae06ff7ba0f32a42793262608",
+  "textSha256": "725f14103dc472a4ebd57cd203e46cabf5ceb7a76e51aeb5df64bc8ba72983eb",
   "extractor": "pymapa-structural-segmenter@0.2.0",
   "identity": {
     "declaredName": null,
@@ -13,21 +13,21 @@
   "historicalClosure": {
     "marker": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
     "lines": [
-      728
+      704
     ],
-    "selectedLine": 728,
+    "selectedLine": 704,
     "requiresHumanConfirmation": false,
     "statement": "Cierre histórico literal (provenance). No equivale a publicación técnica actual ni a aceptación canónica."
   },
   "chronology": [
     {
-      "line": 728,
+      "line": 704,
       "marker": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED"
     }
   ],
   "counts": {
-    "lines": 728,
-    "headings": 149,
+    "lines": 731,
+    "headings": 154,
     "idHeadings": 76,
     "distinctSourceIds": 76,
     "singleDefinition": 76,
@@ -43,14 +43,38 @@
     {
       "target": "PC-01",
       "kind": "CAPABILITY",
-      "line": 374,
+      "line": 350,
       "heading": "Conexión PC-01 → PC-02"
     },
     {
       "target": "PC-03",
       "kind": "CAPABILITY",
-      "line": 589,
+      "line": 565,
       "heading": "Transferencia y PC-03"
+    },
+    {
+      "target": "PC-01",
+      "kind": "CAPABILITY",
+      "line": 720,
+      "heading": "PC-01 · Disponer o acceder al conocimiento necesario 🟢"
+    },
+    {
+      "target": "PC-03",
+      "kind": "CAPABILITY",
+      "line": 722,
+      "heading": "PC-03 · Apropiar cambios y nuevas formas de trabajo ⚪"
+    },
+    {
+      "target": "PC-04",
+      "kind": "CAPABILITY",
+      "line": 723,
+      "heading": "PC-04 · Compartir y conservar conocimiento organizacional ⚪"
+    },
+    {
+      "target": "PC-05",
+      "kind": "CAPABILITY",
+      "line": 724,
+      "heading": "PC-05 · Facilitar participación y adaptación de las personas al cambio ⚪"
     }
   ],
   "nonTextElements": {
@@ -93,5 +117,5 @@
     "governingFreezes": []
   },
   "governance": null,
-  "checksum": "sha256:002e3437e8192f7136e8a62e93a0c5819d67fd8c738414fea39d3add3f3c54b1"
+  "checksum": "sha256:21b6a4304e2572116ccb1af55a6234011cab6ee34893f14299824f6f6a153fc6"
 }
