@@ -32,16 +32,16 @@
   ],
   "counts": {
     "lines": 886,
-    "headings": 111,
-    "idHeadings": 24,
-    "distinctSourceIds": 24,
-    "singleDefinition": 24,
+    "headings": 174,
+    "idHeadings": 84,
+    "distinctSourceIds": 84,
+    "singleDefinition": 84,
     "restatedIdentical": 0,
     "conflictingDefinitions": 0,
     "draftMarked": 0,
     "governedBacklog": 0,
-    "finalApprovedCandidates": 24,
-    "historicalDrafts": 0
+    "finalApprovedCandidates": 83,
+    "historicalDrafts": 1
   },
   "ambiguousSupersessions": [],
   "crossCapabilityReferences": [
@@ -68,6 +68,24 @@
       "kind": "CAPABILITY",
       "line": 710,
       "heading": "PC-03"
+    },
+    {
+      "target": "DG-03",
+      "kind": "CAPABILITY",
+      "line": 804,
+      "heading": "K1 · Coherencia — PASS. PC-05 queda suficientemente separada de PC-03, PC-02 y DG-03."
+    },
+    {
+      "target": "PC-02",
+      "kind": "CAPABILITY",
+      "line": 804,
+      "heading": "K1 · Coherencia — PASS. PC-05 queda suficientemente separada de PC-03, PC-02 y DG-03."
+    },
+    {
+      "target": "PC-03",
+      "kind": "CAPABILITY",
+      "line": 804,
+      "heading": "K1 · Coherencia — PASS. PC-05 queda suficientemente separada de PC-03, PC-02 y DG-03."
     }
   ],
   "nonTextElements": {
@@ -84,14 +102,14 @@
       "extractor": "pymapa-structural-segmenter@0.1.0",
       "ambiguousIds": 0,
       "ambiguousIdList": [],
-      "finalApproved": 24,
-      "historicalDrafts": 0
+      "finalApproved": 83,
+      "historicalDrafts": 1
     },
     "after": {
       "ambiguousIds": 0,
-      "finalApproved": 24,
+      "finalApproved": 83,
       "superseded": 0,
-      "historicalDrafts": 0,
+      "historicalDrafts": 1,
       "governedBacklog": 0,
       "itemsWithSupersessionEvidence": 0
     },
@@ -110,5 +128,5 @@
     "governingFreezes": []
   },
   "governance": null,
-  "checksum": "sha256:629613836cdd326836e68734c5d51592f97be353a4a4b78cb304a41a1ef6f98c"
+  "checksum": "sha256:7723368d114e62ffcac576fef0cfe559dd7f6baf7d2120fc28c2a56672b6dce2"
 }

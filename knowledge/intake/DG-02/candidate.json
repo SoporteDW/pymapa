@@ -9,7 +9,7 @@
   "producedBy": {
     "method": "DETERMINISTIC_TOOL",
     "agent": "pymapa-structural-segmenter@0.2.0 + pymapa-governed-supersession-resolver@0.1.0",
-    "note": "Segmentación literal por headings con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
+    "note": "Segmentación literal por headings y líneas planas «ID · título» con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
   },
   "baselineId": "DG02-K4-v1.0",
   "historicalStatus": {
@@ -28,6 +28,15 @@
       "sourceLines": [
         357,
         357
+      ]
+    },
+    {
+      "label": "STOP",
+      "declared": 2,
+      "objectType": "SOURCE_ID_STOP",
+      "sourceLines": [
+        362,
+        362
       ]
     }
   ],
@@ -174,6 +183,127 @@
       "sourceLines": [
         101,
         105
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          635,
+          635
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG02-001",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG02-001",
+      "fields": {
+        "heading": "SRC-DG02-001 · Pymapa/OE1-D",
+        "title": "Pymapa/OE1-D",
+        "body": [
+          "Identidad y propósito de la capacidad."
+        ]
+      },
+      "sourceLines": [
+        110,
+        111
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          635,
+          635
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG02-002",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG02-002",
+      "fields": {
+        "heading": "SRC-DG02-002 · PMI · Standard for Portfolio Management / portfolio strategic management",
+        "title": "PMI · Standard for Portfolio Management / portfolio strategic management",
+        "body": [
+          "Aporta alineación estratégica, asignación de recursos, beneficios, riesgos, restricciones, dependencias y priorización. Instituto de Gestión de Proyectos"
+        ]
+      },
+      "sourceLines": [
+        112,
+        113
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          635,
+          635
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG02-003",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG02-003",
+      "fields": {
+        "heading": "SRC-DG02-003 · PMI · Portfolio prioritization/optimization literature",
+        "title": "PMI · Portfolio prioritization/optimization literature",
+        "body": [
+          "Aporta capacity vs demand, selección, priorización, ajuste del portafolio y decisiones bajo restricciones. Instituto de Gestión de Proyectos"
+        ]
+      },
+      "sourceLines": [
+        114,
+        115
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          635,
+          635
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG02-004",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG02-004",
+      "fields": {
+        "heading": "SRC-DG02-004 · OECD · Digital Transformation of SMEs",
+        "title": "OECD · Digital Transformation of SMEs",
+        "body": [
+          "Fundamenta la proporcionalidad SME y la relevancia de restricciones de recursos, habilidades y financiación. OECD"
+        ]
+      },
+      "sourceLines": [
+        116,
+        117
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          635,
+          635
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG02-005",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG02-005",
+      "fields": {
+        "heading": "SRC-DG02-005 · ISO 56002:2019",
+        "title": "ISO 56002:2019",
+        "body": [
+          "Complementa la perspectiva de gestión sistemática de innovación y resultados esperados; permanece publicada, aunque la segunda edición está en desarrollo. ISO",
+          "No convertiré PMI en una metodología obligatoria para Pymapa. Nos interesa el conocimiento subyacente, no imponer portfolio management formal a una pyme."
+        ]
+      },
+      "sourceLines": [
+        118,
+        120
       ],
       "approvalEvidence": {
         "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
@@ -423,6 +553,54 @@
       }
     },
     {
+      "key": "STOP-DG02-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_STOP",
+      "sourceId": "STOP-DG02-01",
+      "fields": {
+        "heading": "STOP-DG02-01 · Si no existe dirección empresarial suficientemente establecida para comparar contribución estratégica, no inferir calidad de priorización por alineación. Derivar/reutilizar DG-01.",
+        "title": "Si no existe dirección empresarial suficientemente establecida para comparar contribución estratégica, no inferir calidad de priorización por alineación. Derivar/reutilizar DG-01.",
+        "body": [
+          "Y otro:"
+        ]
+      },
+      "sourceLines": [
+        173,
+        174
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          635,
+          635
+        ]
+      }
+    },
+    {
+      "key": "STOP-DG02-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_STOP",
+      "sourceId": "STOP-DG02-02",
+      "fields": {
+        "heading": "STOP-DG02-02 · Si las alternativas carecen de información mínima comparable, no concluir que la selección observada constituye priorización fundamentada.",
+        "title": "Si las alternativas carecen de información mínima comparable, no concluir que la selección observada constituye priorización fundamentada.",
+        "body": [
+          "Primero debemos elevar comparabilidad."
+        ]
+      },
+      "sourceLines": [
+        175,
+        176
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          635,
+          635
+        ]
+      }
+    },
+    {
       "key": "P1",
       "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_P",
@@ -533,8 +711,30 @@
           "“Implementar CRM es prioridad número uno.”",
           "Evidencia:",
           "durante seis meses no recibió presupuesto ni tiempo de los responsables.",
-          "Abrimos:",
-          "CONTR-DG02-01 · DECLARED_PRIORITY_vs_RESOURCE_COMMITMENT",
+          "Abrimos:"
+        ]
+      },
+      "sourceLines": [
+        222,
+        228
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          635,
+          635
+        ]
+      }
+    },
+    {
+      "key": "CONTR-DG02-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-DG02-01",
+      "fields": {
+        "heading": "CONTR-DG02-01 · DECLARED_PRIORITY_vs_RESOURCE_COMMITMENT",
+        "title": "DECLARED_PRIORITY_vs_RESOURCE_COMMITMENT",
+        "body": [
           "No concluimos automáticamente que la prioridad sea falsa.",
           "Puede existir:",
           "- prerrequisito;",
@@ -545,7 +745,7 @@
         ]
       },
       "sourceLines": [
-        222,
+        229,
         236
       ],
       "approvalEvidence": {
@@ -1078,6 +1278,83 @@
       }
     },
     {
+      "key": "CAND-MOTOR-DG02-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG02-01",
+      "fields": {
+        "heading": "CAND-MOTOR-DG02-01 · No intervención, postergación, reducción o detención pueden constituir resultados válidos de una decisión de transformación; el Motor no debe presuponer que toda oportunidad diagnosticada debe convertirse en iniciativa.",
+        "title": "No intervención, postergación, reducción o detención pueden constituir resultados válidos de una decisión de transformación; el Motor no debe presuponer que toda oportunidad diagnosticada debe convertirse en iniciativa.",
+        "body": [
+          "También:"
+        ]
+      },
+      "sourceLines": [
+        369,
+        370
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          635,
+          635
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DG02-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG02-02",
+      "fields": {
+        "heading": "CAND-MOTOR-DG02-02 · Prioridad de valor y prioridad de secuencia son conceptos distintos; una dependencia o prerrequisito puede justificar ejecutar primero una iniciativa de menor valor directo.",
+        "title": "Prioridad de valor y prioridad de secuencia son conceptos distintos; una dependencia o prerrequisito puede justificar ejecutar primero una iniciativa de menor valor directo."
+      },
+      "sourceLines": [
+        371,
+        371
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          635,
+          635
+        ]
+      }
+    },
+    {
+      "key": "CAUS-DG02-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAUS",
+      "sourceId": "CAUS-DG02-01",
+      "fields": {
+        "heading": "CAUS-DG02-01 · Muchas iniciativas retrasadas no demuestran por sí mismas mala priorización.",
+        "title": "Muchas iniciativas retrasadas no demuestran por sí mismas mala priorización.",
+        "body": [
+          "Pueden provenir de:",
+          "- OP-05 ejecución deficiente;",
+          "- DG-03 decisiones bloqueadas;",
+          "- DG-05 dependencia/riesgo;",
+          "- PC capacidad humana;",
+          "- EC dependencia externa;",
+          "- estimaciones incorrectas;",
+          "- cambios posteriores.",
+          "DG-02 debe diagnosticar el mecanismo de selección/asignación, no apropiarse de cualquier retraso."
+        ]
+      },
+      "sourceLines": [
+        399,
+        408
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          635,
+          635
+        ]
+      }
+    },
+    {
       "key": "INT-DG02-01",
       "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_INT",
@@ -1153,7 +1430,139 @@
           635
         ]
       }
+    },
+    {
+      "key": "CAND-MOTOR-DG02-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG02-03",
+      "fields": {
+        "heading": "CAND-MOTOR-DG02-03 · El estado de caso debe conservar decisiones negativas y diferidas, no únicamente acciones aprobadas.",
+        "title": "El estado de caso debe conservar decisiones negativas y diferidas, no únicamente acciones aprobadas.",
+        "body": [
+          "Y asociado:"
+        ]
+      },
+      "sourceLines": [
+        594,
+        595
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          635,
+          635
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DG02-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG02-04",
+      "fields": {
+        "heading": "CAND-MOTOR-DG02-04 · Una decisión diferida debe poder incorporar trigger de reconsideración; DEFER no equivale a REJECT.",
+        "title": "Una decisión diferida debe poder incorporar trigger de reconsideración; DEFER no equivale a REJECT.",
+        "body": [
+          "Esto será muy importante cuando lleguemos a la arquitectura técnica."
+        ]
+      },
+      "sourceLines": [
+        596,
+        597
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          635,
+          635
+        ]
+      }
+    },
+    {
+      "key": "K1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Coherencia — PASS. Se preservan fronteras DG-01, DG-03/04/05 y OP-05.",
+        "title": "Coherencia — PASS. Se preservan fronteras DG-01, DG-03/04/05 y OP-05."
+      },
+      "sourceLines": [
+        630,
+        630
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          635,
+          635
+        ]
+      }
+    },
+    {
+      "key": "K2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Razonamiento — PASS. No confundimos retraso con priorización deficiente, valor con secuencia, prioridad declarada con prioridad efectiva ni falta de formalización con falta de capacidad.",
+        "title": "Razonamiento — PASS. No confundimos retraso con priorización deficiente, valor con secuencia, prioridad declarada con prioridad efectiva ni falta de formalización con falta de capacidad."
+      },
+      "sourceLines": [
+        631,
+        631
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          635,
+          635
+        ]
+      }
+    },
+    {
+      "key": "K3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · Acción — PASS. Los findings producen intervenciones proporcionales y permiten explícitamente hacer, secuenciar, reducir, diferir o detener.",
+        "title": "Acción — PASS. Los findings producen intervenciones proporcionales y permiten explícitamente hacer, secuenciar, reducir, diferir o detener."
+      },
+      "sourceLines": [
+        632,
+        632
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          635,
+          635
+        ]
+      }
+    },
+    {
+      "key": "K4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · Conocimiento — PASS. Grounding suficiente, provenance separado y ciclo de revisión de fuentes definido.",
+        "title": "Conocimiento — PASS. Grounding suficiente, provenance separado y ciclo de revisión de fuentes definido."
+      },
+      "sourceLines": [
+        633,
+        633
+      ],
+      "approvalEvidence": {
+        "text": "DG02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          635,
+          635
+        ]
+      }
     }
   ],
-  "checksum": "sha256:cff13fa3ca1676c2a45c8998ef77fe5f8778aab19a25adefa8759130bcdf92d4"
+  "checksum": "sha256:132f7b289ab169363b2f894b85d0c8dbf6a680849686b3d6787087b3f1ab1194"
 }

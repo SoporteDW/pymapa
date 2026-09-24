@@ -27,19 +27,39 @@
   ],
   "counts": {
     "lines": 660,
-    "headings": 75,
-    "idHeadings": 21,
-    "distinctSourceIds": 21,
-    "singleDefinition": 21,
+    "headings": 114,
+    "idHeadings": 58,
+    "distinctSourceIds": 57,
+    "singleDefinition": 56,
     "restatedIdentical": 0,
-    "conflictingDefinitions": 0,
+    "conflictingDefinitions": 1,
     "draftMarked": 0,
     "governedBacklog": 0,
-    "finalApprovedCandidates": 21,
-    "historicalDrafts": 0
+    "finalApprovedCandidates": 56,
+    "historicalDrafts": 2
   },
-  "ambiguousSupersessions": [],
+  "ambiguousSupersessions": [
+    {
+      "sourceId": "SOURCE-REVIEW-TRIGGER-PC01-01",
+      "occurrences": [
+        {
+          "line": 163,
+          "heading": "SOURCE-REVIEW-TRIGGER-PC01-01 · Revisar PC-01 y posteriormente PC-04 cuando ISO 30401 Edition 2 sea publicada."
+        },
+        {
+          "line": 607,
+          "heading": "SOURCE-REVIEW-TRIGGER-PC01-01 · Revisar PC-01 y PC-04 cuando ISO 30401 Edition 2 se publique definitivamente."
+        }
+      ]
+    }
+  ],
   "crossCapabilityReferences": [
+    {
+      "target": "PC-04",
+      "kind": "CAPABILITY",
+      "line": 163,
+      "heading": "SOURCE-REVIEW-TRIGGER-PC01-01 · Revisar PC-01 y posteriormente PC-04 cuando ISO 30401 Edition 2 sea publicada."
+    },
     {
       "target": "PC-02",
       "kind": "CAPABILITY",
@@ -51,6 +71,12 @@
       "kind": "CAPABILITY",
       "line": 577,
       "heading": "Relación con PC-04"
+    },
+    {
+      "target": "PC-04",
+      "kind": "CAPABILITY",
+      "line": 607,
+      "heading": "SOURCE-REVIEW-TRIGGER-PC01-01 · Revisar PC-01 y PC-04 cuando ISO 30401 Edition 2 se publique definitivamente."
     }
   ],
   "nonTextElements": {
@@ -65,16 +91,18 @@
     "statement": "Resolución de supersesión solo por evidencia explícita de la fuente. La cronología sola y la última aparición sola nunca deciden; toda versión previa se preserva como provenance histórica. No es aceptación canónica.",
     "baseline": {
       "extractor": "pymapa-structural-segmenter@0.1.0",
-      "ambiguousIds": 0,
-      "ambiguousIdList": [],
-      "finalApproved": 21,
-      "historicalDrafts": 0
+      "ambiguousIds": 1,
+      "ambiguousIdList": [
+        "SOURCE-REVIEW-TRIGGER-PC01-01"
+      ],
+      "finalApproved": 56,
+      "historicalDrafts": 2
     },
     "after": {
-      "ambiguousIds": 0,
-      "finalApproved": 21,
+      "ambiguousIds": 1,
+      "finalApproved": 56,
       "superseded": 0,
-      "historicalDrafts": 0,
+      "historicalDrafts": 2,
       "governedBacklog": 0,
       "itemsWithSupersessionEvidence": 0
     },
@@ -88,10 +116,19 @@
       "VERBATIM_DUPLICATE": 0
     },
     "resolvedIds": [],
-    "unresolvedIds": [],
+    "unresolvedIds": [
+      {
+        "sourceId": "SOURCE-REVIEW-TRIGGER-PC01-01",
+        "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
+        "occurrences": [
+          163,
+          607
+        ]
+      }
+    ],
     "singlesReclassified": [],
     "governingFreezes": []
   },
   "governance": null,
-  "checksum": "sha256:72f22c9dd7d3583ad718826ffa07e9363cd25f86d89ea40a56a9886928ed043f"
+  "checksum": "sha256:3c614c36c38e6667ac021d1fc4f99b9c3b84e677d3a0aa11bcc65994bbd3e29c"
 }

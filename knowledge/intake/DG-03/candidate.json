@@ -9,7 +9,7 @@
   "producedBy": {
     "method": "DETERMINISTIC_TOOL",
     "agent": "pymapa-structural-segmenter@0.2.0 + pymapa-governed-supersession-resolver@0.1.0",
-    "note": "Segmentación literal por headings con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
+    "note": "Segmentación literal por headings y líneas planas «ID · título» con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
   },
   "baselineId": "DG03-K4-v1.0",
   "historicalStatus": {
@@ -187,6 +187,94 @@
       "sourceLines": [
         96,
         101
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          593,
+          593
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG03-001",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG03-001",
+      "fields": {
+        "heading": "SRC-DG03-001 · Pymapa/OE1-D — identidad de capacidad.",
+        "title": "Pymapa/OE1-D — identidad de capacidad."
+      },
+      "sourceLines": [
+        105,
+        105
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          593,
+          593
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG03-002",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG03-002",
+      "fields": {
+        "heading": "SRC-DG03-002 · ISO 37000:2021 — responsabilidad, accountability, delegación, roles, oversight y gobierno. ISO confirmó nuevamente la edición 2021 en 2026. ISO",
+        "title": "ISO 37000:2021 — responsabilidad, accountability, delegación, roles, oversight y gobierno. ISO confirmó nuevamente la edición 2021 en 2026. ISO"
+      },
+      "sourceLines": [
+        106,
+        106
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          593,
+          593
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG03-003",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG03-003",
+      "fields": {
+        "heading": "SRC-DG03-003 · PMI · Governance of Portfolios, Programs and Projects — gobierno, roles, responsabilidades y niveles de decisión. Project Management Institute",
+        "title": "PMI · Governance of Portfolios, Programs and Projects — gobierno, roles, responsabilidades y niveles de decisión. Project Management Institute"
+      },
+      "sourceLines": [
+        107,
+        107
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          593,
+          593
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG03-004",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG03-004",
+      "fields": {
+        "heading": "SRC-DG03-004 · PMI · Project Governance / Authority & Accountability literature — correspondencia entre responsabilidad, autoridad, roles y decisión. Project Management Institute",
+        "title": "PMI · Project Governance / Authority & Accountability literature — correspondencia entre responsabilidad, autoridad, roles y decisión. Project Management Institute",
+        "body": [
+          "Además aparece una fuente reciente especialmente útil: la guía PMI/GPM de agosto de 2026 sobre sponsorship enfatiza mandato, tolerancias, decision rights, escalamiento y accountability, y señala expresamente que IA puede apoyar una decisión pero no cambia quién responde por ella. Project Management Institute",
+          "Esto último probablemente tendrá valor transversal futuro para Pymapa."
+        ]
+      },
+      "sourceLines": [
+        108,
+        110
       ],
       "approvalEvidence": {
         "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
@@ -616,13 +704,35 @@
           "“El líder de transformación decide.”",
           "Evidencia:",
           "las últimas cinco decisiones materiales fueron elevadas al gerente general aunque estaban dentro de su supuesto ámbito.",
-          "Abrimos:",
-          "CONTR-DG03-01 · DECLARED_DECISION_RIGHT_vs_OBSERVED_DECISION",
-          "y buscamos explicación."
+          "Abrimos:"
         ]
       },
       "sourceLines": [
         221,
+        226
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          593,
+          593
+        ]
+      }
+    },
+    {
+      "key": "CONTR-DG03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-DG03-01",
+      "fields": {
+        "heading": "CONTR-DG03-01 · DECLARED_DECISION_RIGHT_vs_OBSERVED_DECISION",
+        "title": "DECLARED_DECISION_RIGHT_vs_OBSERVED_DECISION",
+        "body": [
+          "y buscamos explicación."
+        ]
+      },
+      "sourceLines": [
+        227,
         228
       ],
       "approvalEvidence": {
@@ -1033,6 +1143,76 @@
       }
     },
     {
+      "key": "CAND-MOTOR-DG03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG03-01",
+      "fields": {
+        "heading": "CAND-MOTOR-DG03-01 · Una condición formalmente definida y una condición efectivamente observada deben poder coexistir como evidencias distintas; la primera no debe sobrescribir automáticamente la segunda.",
+        "title": "Una condición formalmente definida y una condición efectivamente observada deben poder coexistir como evidencias distintas; la primera no debe sobrescribir automáticamente la segunda.",
+        "body": [
+          "Ejemplo:",
+          "authority_declared = YES",
+          "y simultáneamente:",
+          "authority_observed = INSUFFICIENT.",
+          "Esto será muy importante para la futura estructura del Case State.",
+          "Segundo:"
+        ]
+      },
+      "sourceLines": [
+        316,
+        322
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          593,
+          593
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-DG03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG03-02",
+      "fields": {
+        "heading": "CAND-MOTOR-DG03-02 · La concentración o descentralización de una práctica no debe evaluarse normativamente por sí misma; su pertinencia depende de materialidad, contexto y efectos observables.",
+        "title": "La concentración o descentralización de una práctica no debe evaluarse normativamente por sí misma; su pertinencia depende de materialidad, contexto y efectos observables.",
+        "body": [
+          "Este principio probablemente podrá reutilizarse después en PC, DT y otros dominios."
+        ]
+      },
+      "sourceLines": [
+        323,
+        324
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          593,
+          593
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-AI-GOV-01@L329",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-GOV-01",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-GOV-01 · AI-assisted decision ≠ AI accountability. El uso de IA para informar, recomendar o apoyar una decisión no elimina la necesidad de identificar responsabilidad humana/organizacional sobre la decisión material.",
+        "title": "AI-assisted decision ≠ AI accountability. El uso de IA para informar, recomendar o apoyar una decisión no elimina la necesidad de identificar responsabilidad humana/organizacional sobre la decisión material.",
+        "body": [
+          "No lo desarrollamos ahora —Fase 3 sigue reservada—, pero sí debemos conservarlo en el backlog del Motor, porque puede convertirse en una regla arquitectónica importante cuando lleguemos a IA y automatización."
+        ]
+      },
+      "sourceLines": [
+        329,
+        330
+      ]
+    },
+    {
       "key": "INT-DG03-01",
       "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_INT",
@@ -1089,6 +1269,30 @@
       }
     },
     {
+      "key": "CAND-MOTOR-DG03-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-DG03-03",
+      "fields": {
+        "heading": "CAND-MOTOR-DG03-03 · Existencia, disponibilidad y funcionamiento observado de un mecanismo son estados evidenciales distintos.",
+        "title": "Existencia, disponibilidad y funcionamiento observado de un mecanismo son estados evidenciales distintos.",
+        "body": [
+          "Es muy probable que reaparezca en PC y DT."
+        ]
+      },
+      "sourceLines": [
+        464,
+        465
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          593,
+          593
+        ]
+      }
+    },
+    {
       "key": "REASS-DG03-01",
       "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_REASS",
@@ -1117,7 +1321,120 @@
           593
         ]
       }
+    },
+    {
+      "key": "CAND-MOTOR-AI-GOV-01@L509",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-GOV-01",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-GOV-01 · El uso de IA para apoyar una decisión no elimina la necesidad de accountability organizacional sobre la decisión material.",
+        "title": "El uso de IA para apoyar una decisión no elimina la necesidad de accountability organizacional sobre la decisión material.",
+        "body": [
+          "Esto no significa necesariamente que siempre deba existir “una persona única responsable”; la configuración jurídica y organizacional puede variar. La regla importante es que la accountability no desaparece porque intervenga IA."
+        ]
+      },
+      "sourceLines": [
+        509,
+        510
+      ]
+    },
+    {
+      "key": "K1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Coherencia — PASS.",
+        "title": "Coherencia — PASS.",
+        "body": [
+          "La frontera DG-03/OP-05 queda protegida y responsabilidad, autoridad, decisión y ejecución no se fusionan."
+        ]
+      },
+      "sourceLines": [
+        584,
+        585
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          593,
+          593
+        ]
+      }
+    },
+    {
+      "key": "K2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Razonamiento — PASS.",
+        "title": "Razonamiento — PASS.",
+        "body": [
+          "No confundimos centralización con brecha, escalamiento con falla, responsabilidad nominal con accountability efectiva ni autoridad formal con autoridad funcional."
+        ]
+      },
+      "sourceLines": [
+        586,
+        587
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          593,
+          593
+        ]
+      }
+    },
+    {
+      "key": "K3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · Acción — PASS.",
+        "title": "Acción — PASS.",
+        "body": [
+          "Cada familia de hallazgo dispone de intervención proporcional, instrumento, entregable, Done y CRV."
+        ]
+      },
+      "sourceLines": [
+        588,
+        589
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          593,
+          593
+        ]
+      }
+    },
+    {
+      "key": "K4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · Conocimiento — PASS.",
+        "title": "Conocimiento — PASS.",
+        "body": [
+          "Grounding suficiente y actualizado, provenance explícito y separación entre conocimiento fuente y diseño Pymapa."
+        ]
+      },
+      "sourceLines": [
+        590,
+        591
+      ],
+      "approvalEvidence": {
+        "text": "DG03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          593,
+          593
+        ]
+      }
     }
   ],
-  "checksum": "sha256:fd05b229f2b08dbf65eadb576a794c8d70402b6ce0483e9e64fdb2ec4a2bf4ac"
+  "checksum": "sha256:fe4211eb956775aee281a0af3ffc50ff35d879159a782ea196c078cc76ff21e2"
 }

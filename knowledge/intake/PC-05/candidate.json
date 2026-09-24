@@ -9,7 +9,7 @@
   "producedBy": {
     "method": "DETERMINISTIC_TOOL",
     "agent": "pymapa-structural-segmenter@0.2.0 + pymapa-governed-supersession-resolver@0.1.0",
-    "note": "Segmentación literal por headings con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
+    "note": "Segmentación literal por headings y líneas planas «ID · título» con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
   },
   "baselineId": "PC05-K4-v1.0",
   "historicalStatus": {
@@ -28,6 +28,15 @@
       "sourceLines": [
         812,
         812
+      ]
+    },
+    {
+      "label": "VA",
+      "declared": 15,
+      "objectType": "SOURCE_ID_VA",
+      "sourceLines": [
+        813,
+        813
       ]
     }
   ],
@@ -86,20 +95,181 @@
       }
     },
     {
+      "key": "IMPACT-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_IMPACT",
+      "sourceId": "IMPACT-01",
+      "fields": {
+        "heading": "IMPACT-01 · Workload",
+        "title": "Workload",
+        "body": [
+          "Cambio en carga/esfuerzo."
+        ]
+      },
+      "sourceLines": [
+        142,
+        143
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "IMPACT-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_IMPACT",
+      "sourceId": "IMPACT-02",
+      "fields": {
+        "heading": "IMPACT-02 · Role/Responsibility",
+        "title": "Role/Responsibility",
+        "body": [
+          "Cambio en responsabilidades o autonomía."
+        ]
+      },
+      "sourceLines": [
+        144,
+        145
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "IMPACT-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_IMPACT",
+      "sourceId": "IMPACT-03",
+      "fields": {
+        "heading": "IMPACT-03 · Skill/Capability",
+        "title": "Skill/Capability",
+        "body": [
+          "Nuevas capacidades requeridas."
+        ]
+      },
+      "sourceLines": [
+        146,
+        147
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "IMPACT-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_IMPACT",
+      "sourceId": "IMPACT-04",
+      "fields": {
+        "heading": "IMPACT-04 · Workflow/Interaction",
+        "title": "Workflow/Interaction",
+        "body": [
+          "Cambios en coordinación, proceso o relaciones."
+        ]
+      },
+      "sourceLines": [
+        148,
+        149
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "IMPACT-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_IMPACT",
+      "sourceId": "IMPACT-05",
+      "fields": {
+        "heading": "IMPACT-05 · Consequence/Exposure",
+        "title": "Consequence/Exposure",
+        "body": [
+          "Consecuencias materiales para la persona o su trabajo si el cambio falla.",
+          "No forman un score obligatorio.",
+          "Sirven para decidir:",
+          "cuánta participación/apoyo necesitamos."
+        ]
+      },
+      "sourceLines": [
+        150,
+        154
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
       "key": "CE01",
       "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_CE",
       "sourceId": "CE01",
       "fields": {
         "heading": "CE01 · Impacto visible",
-        "title": "Impacto visible",
-        "body": [
-          "VA01 · Población afectada identificada",
-          "VA02 · Impactos materiales suficientemente comprendidos"
-        ]
+        "title": "Impacto visible"
       },
       "sourceLines": [
         158,
+        158
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "VA01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA01",
+      "fields": {
+        "heading": "VA01 · Población afectada identificada",
+        "title": "Población afectada identificada"
+      },
+      "sourceLines": [
+        159,
+        159
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "VA02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA02",
+      "fields": {
+        "heading": "VA02 · Impactos materiales suficientemente comprendidos",
+        "title": "Impactos materiales suficientemente comprendidos"
+      },
+      "sourceLines": [
+        160,
         160
       ],
       "approvalEvidence": {
@@ -117,15 +287,55 @@
       "sourceId": "CE02",
       "fields": {
         "heading": "CE02 · Información para adaptación",
-        "title": "Información para adaptación",
+        "title": "Información para adaptación"
+      },
+      "sourceLines": [
+        162,
+        162
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "VA03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA03",
+      "fields": {
+        "heading": "VA03 · Información relevante disponible",
+        "title": "Información relevante disponible"
+      },
+      "sourceLines": [
+        163,
+        163
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "VA04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "VA04 · Oportunidad de la información",
+        "title": "Oportunidad de la información",
         "body": [
-          "VA03 · Información relevante disponible",
-          "VA04 · Oportunidad de la información",
           "No basta comunicar después de que la persona necesita actuar."
         ]
       },
       "sourceLines": [
-        162,
+        164,
         165
       ],
       "approvalEvidence": {
@@ -143,18 +353,78 @@
       "sourceId": "CE03",
       "fields": {
         "heading": "CE03 · Participación pertinente",
-        "title": "Participación pertinente",
+        "title": "Participación pertinente"
+      },
+      "sourceLines": [
+        167,
+        167
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "VA05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "VA05 · Oportunidades de participación proporcionales",
+        "title": "Oportunidades de participación proporcionales"
+      },
+      "sourceLines": [
+        168,
+        168
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "VA06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "VA06 · Inclusión de personas con conocimiento material",
+        "title": "Inclusión de personas con conocimiento material"
+      },
+      "sourceLines": [
+        169,
+        169
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "VA07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "VA07 · Momento de participación suficientemente temprano para aportar valor",
+        "title": "Momento de participación suficientemente temprano para aportar valor",
         "body": [
-          "VA05 · Oportunidades de participación proporcionales",
-          "VA06 · Inclusión de personas con conocimiento material",
-          "VA07 · Momento de participación suficientemente temprano para aportar valor",
           "Preguntar:",
           "“¿qué opinan?”",
           "cuando todo es irreversible puede ser participación nominal."
         ]
       },
       "sourceLines": [
-        167,
+        170,
         173
       ],
       "approvalEvidence": {
@@ -172,17 +442,57 @@
       "sourceId": "CE04",
       "fields": {
         "heading": "CE04 · Voz y feedback",
-        "title": "Voz y feedback",
+        "title": "Voz y feedback"
+      },
+      "sourceLines": [
+        175,
+        175
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "VA08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "VA08 · Mecanismo efectivo para aportar feedback",
+        "title": "Mecanismo efectivo para aportar feedback"
+      },
+      "sourceLines": [
+        176,
+        176
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "VA09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA09",
+      "fields": {
+        "heading": "VA09 · Seguridad práctica suficiente para plantear problemas materiales",
+        "title": "Seguridad práctica suficiente para plantear problemas materiales",
         "body": [
-          "VA08 · Mecanismo efectivo para aportar feedback",
-          "VA09 · Seguridad práctica suficiente para plantear problemas materiales",
           "No estamos diagnosticando psicológicamente a las personas.",
           "Evaluamos:",
           "si el mecanismo permite razonablemente que información relevante emerja."
         ]
       },
       "sourceLines": [
-        175,
+        177,
         180
       ],
       "approvalEvidence": {
@@ -200,15 +510,73 @@
       "sourceId": "CE05",
       "fields": {
         "heading": "CE05 · Respuesta organizacional",
-        "title": "Respuesta organizacional",
-        "body": [
-          "VA10 · Feedback material considerado",
-          "VA11 · Respuesta/decisión suficientemente visible",
-          "VA12 · Ajustes realizados cuando la evidencia lo justifica"
-        ]
+        "title": "Respuesta organizacional"
       },
       "sourceLines": [
         182,
+        182
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "VA10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA10",
+      "fields": {
+        "heading": "VA10 · Feedback material considerado",
+        "title": "Feedback material considerado"
+      },
+      "sourceLines": [
+        183,
+        183
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "VA11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA11",
+      "fields": {
+        "heading": "VA11 · Respuesta/decisión suficientemente visible",
+        "title": "Respuesta/decisión suficientemente visible"
+      },
+      "sourceLines": [
+        184,
+        184
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "VA12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA12",
+      "fields": {
+        "heading": "VA12 · Ajustes realizados cuando la evidencia lo justifica",
+        "title": "Ajustes realizados cuando la evidencia lo justifica"
+      },
+      "sourceLines": [
+        185,
         185
       ],
       "approvalEvidence": {
@@ -226,18 +594,78 @@
       "sourceId": "CE06",
       "fields": {
         "heading": "CE06 · Soporte y adaptación",
-        "title": "Soporte y adaptación",
+        "title": "Soporte y adaptación"
+      },
+      "sourceLines": [
+        187,
+        187
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "VA13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA13",
+      "fields": {
+        "heading": "VA13 · Apoyo proporcional al impacto",
+        "title": "Apoyo proporcional al impacto"
+      },
+      "sourceLines": [
+        188,
+        188
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "VA14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA14",
+      "fields": {
+        "heading": "VA14 · Barreras emergentes tratadas",
+        "title": "Barreras emergentes tratadas"
+      },
+      "sourceLines": [
+        189,
+        189
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "VA15",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA15",
+      "fields": {
+        "heading": "VA15 · Capacidad funcional durante la transición",
+        "title": "Capacidad funcional durante la transición",
         "body": [
-          "VA13 · Apoyo proporcional al impacto",
-          "VA14 · Barreras emergentes tratadas",
-          "VA15 · Capacidad funcional durante la transición",
           "Esta última variable distingue PC-05 de PC-03:",
           "PC-03 pregunta si llegamos a incorporar la nueva práctica.",
           "PC-05 puede evaluar si las personas consiguen atravesar la transición suficientemente."
         ]
       },
       "sourceLines": [
-        187,
+        190,
         193
       ],
       "approvalEvidence": {
@@ -513,6 +941,450 @@
       }
     },
     {
+      "key": "R-PC05-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC05-01",
+      "fields": {
+        "heading": "R-PC05-01 · AFFECTED_POPULATION_BLIND_SPOT",
+        "title": "AFFECTED_POPULATION_BLIND_SPOT",
+        "body": [
+          "Población materialmente afectada insuficientemente identificada."
+        ]
+      },
+      "sourceLines": [
+        368,
+        369
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "R-PC05-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC05-02",
+      "fields": {
+        "heading": "R-PC05-02 · CHANGE_IMPACT_BLIND_SPOT",
+        "title": "CHANGE_IMPACT_BLIND_SPOT",
+        "body": [
+          "Impactos relevantes insuficientemente comprendidos."
+        ]
+      },
+      "sourceLines": [
+        370,
+        371
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "R-PC05-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC05-03",
+      "fields": {
+        "heading": "R-PC05-03 · CHANGE_INFORMATION_GAP",
+        "title": "CHANGE_INFORMATION_GAP",
+        "body": [
+          "Información necesaria insuficiente."
+        ]
+      },
+      "sourceLines": [
+        372,
+        373
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "R-PC05-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC05-04",
+      "fields": {
+        "heading": "R-PC05-04 · CHANGE_INFORMATION_TOO_LATE",
+        "title": "CHANGE_INFORMATION_TOO_LATE",
+        "body": [
+          "Información llega demasiado tarde para adaptación efectiva."
+        ]
+      },
+      "sourceLines": [
+        374,
+        375
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "R-PC05-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC05-05",
+      "fields": {
+        "heading": "R-PC05-05 · PARTICIPATION_OPPORTUNITY_GAP",
+        "title": "PARTICIPATION_OPPORTUNITY_GAP",
+        "body": [
+          "Participación insuficiente donde podría aportar valor."
+        ]
+      },
+      "sourceLines": [
+        376,
+        377
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "R-PC05-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC05-06",
+      "fields": {
+        "heading": "R-PC05-06 · MATERIAL_VOICE_EXCLUDED",
+        "title": "MATERIAL_VOICE_EXCLUDED",
+        "body": [
+          "Personas con conocimiento material quedan fuera."
+        ]
+      },
+      "sourceLines": [
+        378,
+        379
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "R-PC05-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC05-07",
+      "fields": {
+        "heading": "R-PC05-07 · PARTICIPATION_TOO_LATE",
+        "title": "PARTICIPATION_TOO_LATE",
+        "body": [
+          "Participación ocurre cuando ya no puede influir útilmente."
+        ]
+      },
+      "sourceLines": [
+        380,
+        381
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "R-PC05-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC05-08",
+      "fields": {
+        "heading": "R-PC05-08 · FEEDBACK_CHANNEL_GAP",
+        "title": "FEEDBACK_CHANNEL_GAP",
+        "body": [
+          "No existe mecanismo efectivo para aportar información."
+        ]
+      },
+      "sourceLines": [
+        382,
+        383
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "R-PC05-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC05-09",
+      "fields": {
+        "heading": "R-PC05-09 · MATERIAL_ISSUES_NOT_SURFACING",
+        "title": "MATERIAL_ISSUES_NOT_SURFACING",
+        "body": [
+          "Las condiciones existentes impiden que problemas relevantes emerjan suficientemente."
+        ]
+      },
+      "sourceLines": [
+        384,
+        385
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "R-PC05-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC05-10",
+      "fields": {
+        "heading": "R-PC05-10 · FEEDBACK_NOT_CONSIDERED",
+        "title": "FEEDBACK_NOT_CONSIDERED",
+        "body": [
+          "Feedback material no recibe consideración suficiente."
+        ]
+      },
+      "sourceLines": [
+        386,
+        387
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "R-PC05-11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC05-11",
+      "fields": {
+        "heading": "R-PC05-11 · RESPONSE_VISIBILITY_GAP",
+        "title": "RESPONSE_VISIBILITY_GAP",
+        "body": [
+          "No existe respuesta/decisión suficientemente visible."
+        ]
+      },
+      "sourceLines": [
+        388,
+        389
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "R-PC05-12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC05-12",
+      "fields": {
+        "heading": "R-PC05-12 · EVIDENCE_NOT_INCORPORATED",
+        "title": "EVIDENCE_NOT_INCORPORATED",
+        "body": [
+          "El cambio no se ajusta pese a evidencia material suficiente."
+        ]
+      },
+      "sourceLines": [
+        390,
+        391
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "R-PC05-13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC05-13",
+      "fields": {
+        "heading": "R-PC05-13 · CHANGE_SUPPORT_GAP",
+        "title": "CHANGE_SUPPORT_GAP",
+        "body": [
+          "Apoyo insuficiente frente al impacto."
+        ]
+      },
+      "sourceLines": [
+        392,
+        393
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "R-PC05-14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC05-14",
+      "fields": {
+        "heading": "R-PC05-14 · EMERGING_BARRIER_UNADDRESSED",
+        "title": "EMERGING_BARRIER_UNADDRESSED",
+        "body": [
+          "Barreras materiales emergentes permanecen sin tratamiento."
+        ]
+      },
+      "sourceLines": [
+        394,
+        395
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "R-PC05-15",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC05-15",
+      "fields": {
+        "heading": "R-PC05-15 · TRANSITION_ADAPTATION_GAP",
+        "title": "TRANSITION_ADAPTATION_GAP",
+        "body": [
+          "La población no puede funcionar suficientemente durante la transición."
+        ]
+      },
+      "sourceLines": [
+        396,
+        397
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-PC05-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-PC05-01",
+      "fields": {
+        "heading": "CAND-MOTOR-PC05-01 · Participación debe evaluarse por cobertura de perspectivas materiales y utilidad de la información, no por porcentaje bruto de personas consultadas.",
+        "title": "Participación debe evaluarse por cobertura de perspectivas materiales y utilidad de la información, no por porcentaje bruto de personas consultadas."
+      },
+      "sourceLines": [
+        427,
+        427
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-PC05-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-PC05-02",
+      "fields": {
+        "heading": "CAND-MOTOR-PC05-02 · Feedback recibido, feedback considerado y feedback aceptado deben mantenerse como estados diferentes.",
+        "title": "Feedback recibido, feedback considerado y feedback aceptado deben mantenerse como estados diferentes."
+      },
+      "sourceLines": [
+        428,
+        428
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-PC05-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-PC05-03",
+      "fields": {
+        "heading": "CAND-MOTOR-PC05-03 · Desacuerdo, crítica, baja adopción y resistencia no son objetos equivalentes y no deben inferirse unos de otros automáticamente.",
+        "title": "Desacuerdo, crítica, baja adopción y resistencia no son objetos equivalentes y no deben inferirse unos de otros automáticamente."
+      },
+      "sourceLines": [
+        429,
+        429
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-PC05-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-PC05-04",
+      "fields": {
+        "heading": "CAND-MOTOR-PC05-04 · El Motor debe permitir que evidencia proveniente de las personas modifique la intervención o incluso el diseño del cambio, en lugar de asumir que el cambio objetivo siempre es correcto.",
+        "title": "El Motor debe permitir que evidencia proveniente de las personas modifique la intervención o incluso el diseño del cambio, en lugar de asumir que el cambio objetivo siempre es correcto."
+      },
+      "sourceLines": [
+        430,
+        430
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
       "key": "DEC-PC05-01",
       "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_DEC",
@@ -532,6 +1404,362 @@
       "sourceLines": [
         512,
         519
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "INS-PC05-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-PC05-01",
+      "fields": {
+        "heading": "INS-PC05-01 · Mapa de afectados e impacto",
+        "title": "Mapa de afectados e impacto",
+        "body": [
+          "quién → qué cambia → magnitud/naturaleza → cuándo."
+        ]
+      },
+      "sourceLines": [
+        558,
+        559
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "INS-PC05-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-PC05-02",
+      "fields": {
+        "heading": "INS-PC05-02 · Mapa de información necesaria",
+        "title": "Mapa de información necesaria",
+        "body": [
+          "quién necesita saber qué → cuándo → para qué."
+        ]
+      },
+      "sourceLines": [
+        560,
+        561
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "INS-PC05-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-PC05-03",
+      "fields": {
+        "heading": "INS-PC05-03 · Diseño mínimo de participación",
+        "title": "Diseño mínimo de participación",
+        "body": [
+          "perspectiva → aporte esperado → momento → mecanismo."
+        ]
+      },
+      "sourceLines": [
+        562,
+        563
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "INS-PC05-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-PC05-04",
+      "fields": {
+        "heading": "INS-PC05-04 · Registro de feedback material",
+        "title": "Registro de feedback material",
+        "body": [
+          "No un buzón infinito de sugerencias.",
+          "Solo:",
+          "asunto → evidencia → materialidad → owner."
+        ]
+      },
+      "sourceLines": [
+        564,
+        567
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "INS-PC05-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-PC05-05",
+      "fields": {
+        "heading": "INS-PC05-05 · Decision/Response Log",
+        "title": "Decision/Response Log",
+        "body": [
+          "feedback → considerado → decisión → razón → respuesta."
+        ]
+      },
+      "sourceLines": [
+        568,
+        569
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "INS-PC05-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-PC05-06",
+      "fields": {
+        "heading": "INS-PC05-06 · Mapa de soporte de transición",
+        "title": "Mapa de soporte de transición"
+      },
+      "sourceLines": [
+        570,
+        570
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "INS-PC05-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-PC05-07",
+      "fields": {
+        "heading": "INS-PC05-07 · Registro de barreras y adaptación",
+        "title": "Registro de barreras y adaptación"
+      },
+      "sourceLines": [
+        571,
+        571
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "CAND-INSTRUMENT-TRANSVERSAL-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-INSTRUMENT-TRANSVERSAL-01",
+      "fields": {
+        "heading": "CAND-INSTRUMENT-TRANSVERSAL-01 · DECISION-RESPONSE-LOG",
+        "title": "DECISION-RESPONSE-LOG",
+        "body": [
+          "para consolidación posterior del Motor."
+        ]
+      },
+      "sourceLines": [
+        583,
+        584
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "DEL-PC05-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC05-01",
+      "fields": {
+        "heading": "DEL-PC05-01 · población e impactos materiales visibles",
+        "title": "población e impactos materiales visibles"
+      },
+      "sourceLines": [
+        588,
+        588
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "DEL-PC05-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC05-02",
+      "fields": {
+        "heading": "DEL-PC05-02 · información de transición disponible oportunamente",
+        "title": "información de transición disponible oportunamente"
+      },
+      "sourceLines": [
+        589,
+        589
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "DEL-PC05-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC05-03",
+      "fields": {
+        "heading": "DEL-PC05-03 · participación proporcional habilitada",
+        "title": "participación proporcional habilitada"
+      },
+      "sourceLines": [
+        590,
+        590
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "DEL-PC05-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC05-04",
+      "fields": {
+        "heading": "DEL-PC05-04 · voz material capturable",
+        "title": "voz material capturable"
+      },
+      "sourceLines": [
+        591,
+        591
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "DEL-PC05-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC05-05",
+      "fields": {
+        "heading": "DEL-PC05-05 · feedback material procesado y respondido",
+        "title": "feedback material procesado y respondido"
+      },
+      "sourceLines": [
+        592,
+        592
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "DEL-PC05-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC05-06",
+      "fields": {
+        "heading": "DEL-PC05-06 · ajustes pertinentes realizados cuando corresponde",
+        "title": "ajustes pertinentes realizados cuando corresponde"
+      },
+      "sourceLines": [
+        593,
+        593
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "DEL-PC05-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC05-07",
+      "fields": {
+        "heading": "DEL-PC05-07 · soporte de transición disponible",
+        "title": "soporte de transición disponible"
+      },
+      "sourceLines": [
+        594,
+        594
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "DEL-PC05-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC05-08",
+      "fields": {
+        "heading": "DEL-PC05-08 · barreras materiales de adaptación tratadas",
+        "title": "barreras materiales de adaptación tratadas"
+      },
+      "sourceLines": [
+        595,
+        595
       ],
       "approvalEvidence": {
         "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
@@ -685,7 +1913,105 @@
           826
         ]
       }
+    },
+    {
+      "key": "K1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Coherencia — PASS. PC-05 queda suficientemente separada de PC-03, PC-02 y DG-03.",
+        "title": "Coherencia — PASS. PC-05 queda suficientemente separada de PC-03, PC-02 y DG-03."
+      },
+      "sourceLines": [
+        804,
+        804
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "K2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Razonamiento — PASS. Información, participación, feedback, consideración, aceptación, respuesta y adaptación permanecen diferenciados.",
+        "title": "Razonamiento — PASS. Información, participación, feedback, consideración, aceptación, respuesta y adaptación permanecen diferenciados."
+      },
+      "sourceLines": [
+        805,
+        805
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "K3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · Acción — PASS. Las intervenciones pueden modificar comunicación, participación, soporte o incluso el propio cambio.",
+        "title": "Acción — PASS. Las intervenciones pueden modificar comunicación, participación, soporte o incluso el propio cambio."
+      },
+      "sourceLines": [
+        806,
+        806
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "K4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · Conocimiento — PASS. Grounding, provenance, source trigger, trazabilidad y gobierno quedan explícitos.",
+        "title": "Conocimiento — PASS. Grounding, provenance, source trigger, trazabilidad y gobierno quedan explícitos."
+      },
+      "sourceLines": [
+        807,
+        807
+      ],
+      "approvalEvidence": {
+        "text": "PC05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          826,
+          826
+        ]
+      }
+    },
+    {
+      "key": "DOMAIN-PC-v1.0",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_DOMAIN",
+      "sourceId": "DOMAIN-PC-v1.0",
+      "fields": {
+        "heading": "DOMAIN-PC-v1.0 · 5/5 CAPABILITIES K4-VALIDATED · DOMAIN-KNOWLEDGE-COMPLETE",
+        "title": "5/5 CAPABILITIES K4-VALIDATED · DOMAIN-KNOWLEDGE-COMPLETE"
+      },
+      "sourceLines": [
+        836,
+        836
+      ]
     }
   ],
-  "checksum": "sha256:3f64929beffcd3de6cc2e211c1914807909c32acba1c76f1ed8d2e040ca93411"
+  "checksum": "sha256:0e839b72e8cd3e7a6495c5b146232b612cc25f758a783401458c9e954937d724"
 }

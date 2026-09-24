@@ -9,7 +9,7 @@
   "producedBy": {
     "method": "DETERMINISTIC_TOOL",
     "agent": "pymapa-structural-segmenter@0.2.0 + pymapa-governed-supersession-resolver@0.1.0",
-    "note": "Segmentación literal por headings con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
+    "note": "Segmentación literal por headings y líneas planas «ID · título» con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
   },
   "baselineId": "PC01-K4-v1.0",
   "historicalStatus": {
@@ -29,6 +29,15 @@
         372,
         372
       ]
+    },
+    {
+      "label": "VA",
+      "declared": 11,
+      "objectType": "SOURCE_ID_VA",
+      "sourceLines": [
+        373,
+        373
+      ]
     }
   ],
   "verbatimKeys": [
@@ -44,17 +53,57 @@
       "sourceId": "CE01",
       "fields": {
         "heading": "CE01 · Identificación de necesidades de conocimiento",
-        "title": "Identificación de necesidades de conocimiento",
+        "title": "Identificación de necesidades de conocimiento"
+      },
+      "sourceLines": [
+        123,
+        123
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "VA01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA01",
+      "fields": {
+        "heading": "VA01 · Necesidades de conocimiento material reconocidas",
+        "title": "Necesidades de conocimiento material reconocidas"
+      },
+      "sourceLines": [
+        124,
+        124
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "VA02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA02",
+      "fields": {
+        "heading": "VA02 · Relación necesidad–decisión/actividad/resultado",
+        "title": "Relación necesidad–decisión/actividad/resultado",
         "body": [
-          "VA01 · Necesidades de conocimiento material reconocidas",
-          "VA02 · Relación necesidad–decisión/actividad/resultado",
           "No queremos inventarios abstractos de conocimiento.",
           "Queremos saber:",
           "¿para qué necesita saber esto la organización?"
         ]
       },
       "sourceLines": [
-        123,
+        125,
         128
       ],
       "approvalEvidence": {
@@ -72,10 +121,50 @@
       "sourceId": "CE02",
       "fields": {
         "heading": "CE02 · Disponibilidad y localización",
-        "title": "Disponibilidad y localización",
+        "title": "Disponibilidad y localización"
+      },
+      "sourceLines": [
+        130,
+        130
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "VA03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA03",
+      "fields": {
+        "heading": "VA03 · Existencia de fuente potencialmente adecuada",
+        "title": "Existencia de fuente potencialmente adecuada"
+      },
+      "sourceLines": [
+        131,
+        131
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "VA04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "VA04 · Localización/identificabilidad de la fuente",
+        "title": "Localización/identificabilidad de la fuente",
         "body": [
-          "VA03 · Existencia de fuente potencialmente adecuada",
-          "VA04 · Localización/identificabilidad de la fuente",
           "Una organización puede poseer conocimiento que no sabe que posee.",
           "Ejemplo:",
           "una persona aprendió a resolver determinado problema hace dos años, pero nadie sabe que ella tiene ese conocimiento.",
@@ -83,7 +172,7 @@
         ]
       },
       "sourceLines": [
-        130,
+        132,
         136
       ],
       "approvalEvidence": {
@@ -101,15 +190,55 @@
       "sourceId": "CE03",
       "fields": {
         "heading": "CE03 · Acceso oportuno",
-        "title": "Acceso oportuno",
+        "title": "Acceso oportuno"
+      },
+      "sourceLines": [
+        138,
+        138
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "VA05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "VA05 · Accesibilidad efectiva",
+        "title": "Accesibilidad efectiva"
+      },
+      "sourceLines": [
+        139,
+        139
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "VA06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "VA06 · Oportunidad respecto de la necesidad",
+        "title": "Oportunidad respecto de la necesidad",
         "body": [
-          "VA05 · Accesibilidad efectiva",
-          "VA06 · Oportunidad respecto de la necesidad",
           "Una respuesta correcta que llega después de la decisión puede no tener valor operativo."
         ]
       },
       "sourceLines": [
-        138,
+        140,
         141
       ],
       "approvalEvidence": {
@@ -127,17 +256,77 @@
       "sourceId": "CE04",
       "fields": {
         "heading": "CE04 · Calidad y utilidad",
-        "title": "Calidad y utilidad",
+        "title": "Calidad y utilidad"
+      },
+      "sourceLines": [
+        143,
+        143
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "VA07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "VA07 · Pertinencia para la necesidad",
+        "title": "Pertinencia para la necesidad"
+      },
+      "sourceLines": [
+        144,
+        144
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "VA08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "VA08 · Confiabilidad suficiente",
+        "title": "Confiabilidad suficiente"
+      },
+      "sourceLines": [
+        145,
+        145
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "VA09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA09",
+      "fields": {
+        "heading": "VA09 · Utilizabilidad/comprensibilidad",
+        "title": "Utilizabilidad/comprensibilidad",
         "body": [
-          "VA07 · Pertinencia para la necesidad",
-          "VA08 · Confiabilidad suficiente",
-          "VA09 · Utilizabilidad/comprensibilidad",
           "Aquí debemos evitar una trampa:",
           "conocimiento disponible ≠ conocimiento utilizable."
         ]
       },
       "sourceLines": [
-        143,
+        146,
         148
       ],
       "approvalEvidence": {
@@ -155,10 +344,50 @@
       "sourceId": "CE05",
       "fields": {
         "heading": "CE05 · Adecuación del mecanismo de provisión",
-        "title": "Adecuación del mecanismo de provisión",
+        "title": "Adecuación del mecanismo de provisión"
+      },
+      "sourceLines": [
+        150,
+        150
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "VA10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA10",
+      "fields": {
+        "heading": "VA10 · Adecuación internalizar vs acceder externamente",
+        "title": "Adecuación internalizar vs acceder externamente"
+      },
+      "sourceLines": [
+        151,
+        151
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "VA11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA11",
+      "fields": {
+        "heading": "VA11 · Sostenibilidad del acceso cuando la necesidad es recurrente/material",
+        "title": "Sostenibilidad del acceso cuando la necesidad es recurrente/material",
         "body": [
-          "VA10 · Adecuación internalizar vs acceder externamente",
-          "VA11 · Sostenibilidad del acceso cuando la necesidad es recurrente/material",
           "Esta CE será particularmente útil para pymes.",
           "No preguntaremos:",
           "“¿Tiene un experto en plantilla?”",
@@ -167,7 +396,7 @@
         ]
       },
       "sourceLines": [
-        150,
+        152,
         157
       ],
       "approvalEvidence": {
@@ -177,6 +406,25 @@
           660
         ]
       }
+    },
+    {
+      "key": "SOURCE-REVIEW-TRIGGER-PC01-01@L163",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_SOURCE",
+      "sourceId": "SOURCE-REVIEW-TRIGGER-PC01-01",
+      "fields": {
+        "heading": "SOURCE-REVIEW-TRIGGER-PC01-01 · Revisar PC-01 y posteriormente PC-04 cuando ISO 30401 Edition 2 sea publicada.",
+        "title": "Revisar PC-01 y posteriormente PC-04 cuando ISO 30401 Edition 2 sea publicada.",
+        "body": [
+          "PC-04 probablemente utilizará ISO 30401 todavía con mayor profundidad que PC-01.",
+          "También mantenemos OECD como grounding específico pyme: las brechas de skills, el acceso y retención de talento y los cambios tecnológicos afectan de forma particularmente relevante a las pymes. La OECD identifica las carencias de habilidades como una barrera persistente para la digitalización y señala la necesidad de upskilling/reskilling continuo. OECD",
+          "ISO 56002 permanece como fuente complementaria para aprendizaje/conocimiento vinculado a innovación; la edición 2019 continúa publicada pero también tiene una segunda edición en desarrollo. ISO"
+        ]
+      },
+      "sourceLines": [
+        163,
+        166
+      ]
     },
     {
       "key": "COV-PC01-01",
@@ -306,9 +554,29 @@
       "sourceId": "P4",
       "fields": {
         "heading": "P4 · Contradicción",
-        "title": "Contradicción",
+        "title": "Contradicción"
+      },
+      "sourceLines": [
+        252,
+        252
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "CONTR-PC01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-PC01-01",
+      "fields": {
+        "heading": "CONTR-PC01-01 · DECLARED_KNOWLEDGE_AVAILABLE_vs_OBSERVED_ACCESS",
+        "title": "DECLARED_KNOWLEDGE_AVAILABLE_vs_OBSERVED_ACCESS",
         "body": [
-          "CONTR-PC01-01 · DECLARED_KNOWLEDGE_AVAILABLE_vs_OBSERVED_ACCESS",
           "Declaración:",
           "“Sí tenemos conocimiento técnico.”",
           "Evidencia:",
@@ -319,7 +587,7 @@
         ]
       },
       "sourceLines": [
-        252,
+        253,
         260
       ],
       "approvalEvidence": {
@@ -348,6 +616,368 @@
       "sourceLines": [
         262,
         266
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "R-PC01-APP-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC01-APP-01",
+      "fields": {
+        "heading": "R-PC01-APP-01 · Ausencia de conocimiento solo puede convertirse en brecha después de establecer una necesidad material aplicable.",
+        "title": "Ausencia de conocimiento solo puede convertirse en brecha después de establecer una necesidad material aplicable.",
+        "body": [
+          "Aquí reaparece con fuerza nuestro principio:",
+          "aplicabilidad antes que madurez."
+        ]
+      },
+      "sourceLines": [
+        294,
+        296
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "R-PC01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC01-01",
+      "fields": {
+        "heading": "R-PC01-01 · MATERIAL_KNOWLEDGE_NEED_UNRECOGNIZED",
+        "title": "MATERIAL_KNOWLEDGE_NEED_UNRECOGNIZED",
+        "body": [
+          "Una necesidad material de conocimiento no está suficientemente reconocida."
+        ]
+      },
+      "sourceLines": [
+        300,
+        301
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "R-PC01-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC01-02",
+      "fields": {
+        "heading": "R-PC01-02 · KNOWLEDGE_NEED_PURPOSE_UNCLEAR",
+        "title": "KNOWLEDGE_NEED_PURPOSE_UNCLEAR",
+        "body": [
+          "La organización busca/adquiere conocimiento sin conexión suficientemente clara con una necesidad relevante."
+        ]
+      },
+      "sourceLines": [
+        302,
+        303
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "R-PC01-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC01-03",
+      "fields": {
+        "heading": "R-PC01-03 · ADEQUATE_KNOWLEDGE_SOURCE_MISSING",
+        "title": "ADEQUATE_KNOWLEDGE_SOURCE_MISSING",
+        "body": [
+          "No existe o no se ha identificado una fuente suficientemente adecuada."
+        ]
+      },
+      "sourceLines": [
+        304,
+        305
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "R-PC01-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC01-04",
+      "fields": {
+        "heading": "R-PC01-04 · KNOWLEDGE_NOT_LOCATABLE",
+        "title": "KNOWLEDGE_NOT_LOCATABLE",
+        "body": [
+          "El conocimiento puede existir, pero la organización no sabe suficientemente dónde/quién lo posee."
+        ]
+      },
+      "sourceLines": [
+        306,
+        307
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "R-PC01-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC01-05",
+      "fields": {
+        "heading": "R-PC01-05 · KNOWLEDGE_ACCESS_GAP",
+        "title": "KNOWLEDGE_ACCESS_GAP",
+        "body": [
+          "Existe fuente, pero no puede accederse funcionalmente."
+        ]
+      },
+      "sourceLines": [
+        308,
+        309
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "R-PC01-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC01-06",
+      "fields": {
+        "heading": "R-PC01-06 · KNOWLEDGE_ACCESS_TOO_LATE",
+        "title": "KNOWLEDGE_ACCESS_TOO_LATE",
+        "body": [
+          "El acceso ocurre fuera del horizonte en que genera valor."
+        ]
+      },
+      "sourceLines": [
+        310,
+        311
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "R-PC01-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC01-07",
+      "fields": {
+        "heading": "R-PC01-07 · KNOWLEDGE_RELEVANCE_GAP",
+        "title": "KNOWLEDGE_RELEVANCE_GAP",
+        "body": [
+          "El conocimiento disponible no responde suficientemente a la necesidad."
+        ]
+      },
+      "sourceLines": [
+        312,
+        313
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "R-PC01-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC01-08",
+      "fields": {
+        "heading": "R-PC01-08 · KNOWLEDGE_RELIABILITY_GAP",
+        "title": "KNOWLEDGE_RELIABILITY_GAP",
+        "body": [
+          "La confiabilidad/provenance es insuficiente para la materialidad de la decisión."
+        ]
+      },
+      "sourceLines": [
+        314,
+        315
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "R-PC01-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC01-09",
+      "fields": {
+        "heading": "R-PC01-09 · KNOWLEDGE_USABILITY_GAP",
+        "title": "KNOWLEDGE_USABILITY_GAP",
+        "body": [
+          "El conocimiento existe y es accesible pero no puede utilizarse suficientemente en su forma actual."
+        ]
+      },
+      "sourceLines": [
+        316,
+        317
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "R-PC01-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC01-10",
+      "fields": {
+        "heading": "R-PC01-10 · KNOWLEDGE_PROVISION_MODEL_MISMATCH",
+        "title": "KNOWLEDGE_PROVISION_MODEL_MISMATCH",
+        "body": [
+          "El mecanismo interno/externo/híbrido no es adecuado a la naturaleza de la necesidad."
+        ]
+      },
+      "sourceLines": [
+        318,
+        319
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "R-PC01-11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC01-11",
+      "fields": {
+        "heading": "R-PC01-11 · RECURRENT_KNOWLEDGE_ACCESS_FRAGILITY",
+        "title": "RECURRENT_KNOWLEDGE_ACCESS_FRAGILITY",
+        "body": [
+          "Una necesidad recurrente/material depende de un mecanismo de acceso insuficientemente sostenible."
+        ]
+      },
+      "sourceLines": [
+        320,
+        321
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-PC01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-PC01-01",
+      "fields": {
+        "heading": "CAND-MOTOR-PC01-01 · Una carencia de conocimiento no puede diagnosticarse independientemente de una necesidad aplicable y material.",
+        "title": "Una carencia de conocimiento no puede diagnosticarse independientemente de una necesidad aplicable y material.",
+        "body": [
+          "Y aparece otro candidato potente:"
+        ]
+      },
+      "sourceLines": [
+        352,
+        353
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-PC01-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-PC01-02",
+      "fields": {
+        "heading": "CAND-MOTOR-PC01-02 · El Motor debe poder distinguir conocimiento inexistente, desconocido/no localizable, inaccesible, tardío, no confiable, no pertinente y no utilizable; todos pueden producir síntomas similares pero requieren intervenciones diferentes.",
+        "title": "El Motor debe poder distinguir conocimiento inexistente, desconocido/no localizable, inaccesible, tardío, no confiable, no pertinente y no utilizable; todos pueden producir síntomas similares pero requieren intervenciones diferentes.",
+        "body": [
+          "Esto mejora mucho el diagnóstico frente a la típica conclusión genérica:",
+          "“la empresa necesita capacitación”."
+        ]
+      },
+      "sourceLines": [
+        354,
+        356
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-AI-KNOW-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-KNOW-01",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-KNOW-01 · El uso de IA puede constituir un mecanismo de acceso/generación de conocimiento, pero no elimina la evaluación de pertinencia, confiabilidad, provenance y suficiencia.",
+        "title": "El uso de IA puede constituir un mecanismo de acceso/generación de conocimiento, pero no elimina la evaluación de pertinencia, confiabilidad, provenance y suficiencia.",
+        "body": [
+          "No desarrollamos más por ahora."
+        ]
+      },
+      "sourceLines": [
+        365,
+        366
       ],
       "approvalEvidence": {
         "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
@@ -398,6 +1028,153 @@
       "sourceLines": [
         447,
         452
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "DEL-PC01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC01-01",
+      "fields": {
+        "heading": "DEL-PC01-01 · necesidades materiales visibles",
+        "title": "necesidades materiales visibles"
+      },
+      "sourceLines": [
+        472,
+        472
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "DEL-PC01-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC01-02",
+      "fields": {
+        "heading": "DEL-PC01-02 · fuentes adecuadas identificadas",
+        "title": "fuentes adecuadas identificadas"
+      },
+      "sourceLines": [
+        473,
+        473
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "DEL-PC01-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC01-03",
+      "fields": {
+        "heading": "DEL-PC01-03 · acceso oportuno habilitado",
+        "title": "acceso oportuno habilitado"
+      },
+      "sourceLines": [
+        474,
+        474
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "DEL-PC01-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC01-04",
+      "fields": {
+        "heading": "DEL-PC01-04 · conocimiento suficientemente confiable y pertinente",
+        "title": "conocimiento suficientemente confiable y pertinente"
+      },
+      "sourceLines": [
+        475,
+        475
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "DEL-PC01-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC01-05",
+      "fields": {
+        "heading": "DEL-PC01-05 · conocimiento utilizable para la necesidad",
+        "title": "conocimiento utilizable para la necesidad"
+      },
+      "sourceLines": [
+        476,
+        476
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "DEL-PC01-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC01-06",
+      "fields": {
+        "heading": "DEL-PC01-06 · modelo de provisión adecuado",
+        "title": "modelo de provisión adecuado"
+      },
+      "sourceLines": [
+        477,
+        477
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "DEL-PC01-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC01-07",
+      "fields": {
+        "heading": "DEL-PC01-07 · acceso recurrente suficientemente sostenible",
+        "title": "acceso recurrente suficientemente sostenible"
+      },
+      "sourceLines": [
+        478,
+        478
       ],
       "approvalEvidence": {
         "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
@@ -508,6 +1285,47 @@
       }
     },
     {
+      "key": "SRC-PC01-002",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-PC01-002",
+      "fields": {
+        "heading": "SRC-PC01-002 · ISO 30401:2018",
+        "title": "ISO 30401:2018",
+        "body": [
+          "y:"
+        ]
+      },
+      "sourceLines": [
+        605,
+        606
+      ],
+      "approvalEvidence": {
+        "text": "PC01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          660,
+          660
+        ]
+      }
+    },
+    {
+      "key": "SOURCE-REVIEW-TRIGGER-PC01-01@L607",
+      "classification": "HISTORICAL_DRAFT",
+      "objectType": "SOURCE_ID_SOURCE",
+      "sourceId": "SOURCE-REVIEW-TRIGGER-PC01-01",
+      "fields": {
+        "heading": "SOURCE-REVIEW-TRIGGER-PC01-01 · Revisar PC-01 y PC-04 cuando ISO 30401 Edition 2 se publique definitivamente.",
+        "title": "Revisar PC-01 y PC-04 cuando ISO 30401 Edition 2 se publique definitivamente.",
+        "body": [
+          "Esto es importante porque ISO muestra actualmente el proyecto de segunda edición en desarrollo. (iso.org)"
+        ]
+      },
+      "sourceLines": [
+        607,
+        608
+      ]
+    },
+    {
       "key": "K1",
       "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_K",
@@ -614,5 +1432,5 @@
       }
     }
   ],
-  "checksum": "sha256:c1655213118c27328587559c593a5739891f99223790619f8e595ac6a177e9b0"
+  "checksum": "sha256:3d4bb7abf4fe26d70c0aaea25a5e5b7993c349adafff09fcbaf8e6e8e230a459"
 }

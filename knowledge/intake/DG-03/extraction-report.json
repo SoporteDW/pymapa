@@ -27,18 +27,32 @@
   ],
   "counts": {
     "lines": 593,
-    "headings": 97,
-    "idHeadings": 41,
-    "distinctSourceIds": 41,
-    "singleDefinition": 41,
+    "headings": 113,
+    "idHeadings": 55,
+    "distinctSourceIds": 54,
+    "singleDefinition": 53,
     "restatedIdentical": 0,
-    "conflictingDefinitions": 0,
+    "conflictingDefinitions": 1,
     "draftMarked": 0,
     "governedBacklog": 0,
-    "finalApprovedCandidates": 41,
-    "historicalDrafts": 0
+    "finalApprovedCandidates": 53,
+    "historicalDrafts": 2
   },
-  "ambiguousSupersessions": [],
+  "ambiguousSupersessions": [
+    {
+      "sourceId": "CAND-MOTOR-AI-GOV-01",
+      "occurrences": [
+        {
+          "line": 329,
+          "heading": "CAND-MOTOR-AI-GOV-01 · AI-assisted decision ≠ AI accountability. El uso de IA para informar, recomendar o apoyar una decisión no elimina la necesidad de identificar responsabilidad humana/organizacional sobre la decisión material."
+        },
+        {
+          "line": 509,
+          "heading": "CAND-MOTOR-AI-GOV-01 · El uso de IA para apoyar una decisión no elimina la necesidad de accountability organizacional sobre la decisión material."
+        }
+      ]
+    }
+  ],
   "crossCapabilityReferences": [],
   "nonTextElements": {
     "statement": "Advertencias del registro raw sobre elementos no textuales; su verificación consta en el reporte del lote.",
@@ -52,16 +66,18 @@
     "statement": "Resolución de supersesión solo por evidencia explícita de la fuente. La cronología sola y la última aparición sola nunca deciden; toda versión previa se preserva como provenance histórica. No es aceptación canónica.",
     "baseline": {
       "extractor": "pymapa-structural-segmenter@0.1.0",
-      "ambiguousIds": 0,
-      "ambiguousIdList": [],
-      "finalApproved": 41,
-      "historicalDrafts": 0
+      "ambiguousIds": 1,
+      "ambiguousIdList": [
+        "CAND-MOTOR-AI-GOV-01"
+      ],
+      "finalApproved": 53,
+      "historicalDrafts": 2
     },
     "after": {
-      "ambiguousIds": 0,
-      "finalApproved": 41,
+      "ambiguousIds": 1,
+      "finalApproved": 53,
       "superseded": 0,
-      "historicalDrafts": 0,
+      "historicalDrafts": 2,
       "governedBacklog": 0,
       "itemsWithSupersessionEvidence": 0
     },
@@ -75,10 +91,19 @@
       "VERBATIM_DUPLICATE": 0
     },
     "resolvedIds": [],
-    "unresolvedIds": [],
+    "unresolvedIds": [
+      {
+        "sourceId": "CAND-MOTOR-AI-GOV-01",
+        "reason": "sin evidencia explícita de supersesión en la fuente (la cronología no decide)",
+        "occurrences": [
+          329,
+          509
+        ]
+      }
+    ],
     "singlesReclassified": [],
     "governingFreezes": []
   },
   "governance": null,
-  "checksum": "sha256:c2fee689f71ee17019396bc1dc3a7ff1bb0c54571d1213abd2f5e6fc70ccf98a"
+  "checksum": "sha256:bec02b42c75e8a4cc414c01e4ed4958f5abbc9ba6678396c39570340882d5415"
 }

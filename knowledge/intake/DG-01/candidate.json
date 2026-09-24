@@ -9,7 +9,7 @@
   "producedBy": {
     "method": "DETERMINISTIC_TOOL",
     "agent": "pymapa-structural-segmenter@0.2.0 + pymapa-governed-supersession-resolver@0.1.0",
-    "note": "Segmentación literal por headings con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
+    "note": "Segmentación literal por headings y líneas planas «ID · título» con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
   },
   "baselineId": "DG01-K4-v1.0",
   "historicalStatus": {
@@ -20,7 +20,17 @@
     ]
   },
   "provenanceVocabulary": [],
-  "controlCounts": [],
+  "controlCounts": [
+    {
+      "label": "STOP",
+      "declared": 1,
+      "objectType": "SOURCE_ID_STOP",
+      "sourceLines": [
+        552,
+        552
+      ]
+    }
+  ],
   "verbatimKeys": [
     "heading",
     "title",
@@ -55,6 +65,45 @@
       "sourceLines": [
         168,
         182
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "PYMAPA-TAXONOMY-OE1D-6x31",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_PYMAPA",
+      "sourceId": "PYMAPA-TAXONOMY-OE1D-6x31",
+      "fields": {
+        "heading": "PYMAPA-TAXONOMY-OE1D-6x31 · RECOVERED · AUTHORITATIVE-CONCEPTUAL-REFERENCE",
+        "title": "RECOVERED · AUTHORITATIVE-CONCEPTUAL-REFERENCE",
+        "body": [
+          "con la nota obligatoria:",
+          "Origen: OE1-D de la tesis doctoral; adoptada en Fase 2 como referencia conceptual 6/31 para la Matriz Taxonómica Oficial de Pymapa. No confundir con legado aplicado 9/45.",
+          "Y:",
+          "DOMAIN-DT · 6 CAPABILITIES · READY-FOR-KNOWLEDGE-ENGINEERING",
+          "Con esto ya no necesitamos ninguna otra preparación taxonómica. El siguiente movimiento es DT-01 · SET A — Bloques 1–6, y lo desarrollaremos con la profundidad completa que requiera la capacidad, manteniendo una sola parada al terminar el set.",
+          "Antes de arrancar, qué pasa con los dominios DG y PC que están en la taxonomía ants de OP(que ya se hizo) y DT (que es el que te dispones a hacer)?",
+          "Muy buena observación. No debemos saltar a DT todavía. El orden que veníamos siguiendo quedó desalineado porque empezamos la ingeniería detallada por OP antes de recuperar formalmente la taxonomía 6/31.",
+          "La situación real es esta:",
+          "| Orden | Dominio | Capacidades | Estado en nuestra Fase 2 |",
+          "| 1 | DG · Dirección y gobierno | 5 | 🔴 Pendiente de ingeniería |",
+          "| 2 | PC · Personas, cultura y conocimiento | 5 | 🔴 Pendiente de ingeniería |",
+          "| 3 | OP · Organización, procesos y ejecución | 5 | 🟢 5/5 cerradas K4 |",
+          "| 4 | DT · Datos y habilitación tecnológica | 6 | ⚪ Aún no iniciado |",
+          "| 5 | CM · Cliente, mercado y creación de valor | 6 | ⚪ Pendiente |",
+          "| 6 | EC · Ecosistema y capacidades externas | 4 | ⚪ Pendiente |",
+          "Por tanto, mi frase anterior de que “el siguiente movimiento es DT-01” no es la secuencia correcta para completar sistemáticamente la taxonomía."
+        ]
+      },
+      "sourceLines": [
+        246,
+        262
       ],
       "approvalEvidence": {
         "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
@@ -184,6 +233,201 @@
       }
     },
     {
+      "key": "P-DG01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG01-01",
+      "fields": {
+        "heading": "P-DG01-01 · Transformación ≠ tecnología.",
+        "title": "Transformación ≠ tecnología.",
+        "body": [
+          "La dirección de transformación puede involucrar procesos, personas, datos, cliente, gobierno, tecnología o ecosistema."
+        ]
+      },
+      "sourceLines": [
+        388,
+        389
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "P-DG01-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG01-02",
+      "fields": {
+        "heading": "P-DG01-02 · Tecnología deseada ≠ necesidad empresarial demostrada.",
+        "title": "Tecnología deseada ≠ necesidad empresarial demostrada."
+      },
+      "sourceLines": [
+        390,
+        390
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "P-DG01-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG01-03",
+      "fields": {
+        "heading": "P-DG01-03 · Documento estratégico ≠ orientación efectiva.",
+        "title": "Documento estratégico ≠ orientación efectiva."
+      },
+      "sourceLines": [
+        391,
+        391
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "P-DG01-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG01-04",
+      "fields": {
+        "heading": "P-DG01-04 · Ausencia de documento ≠ ausencia de orientación.",
+        "title": "Ausencia de documento ≠ ausencia de orientación."
+      },
+      "sourceLines": [
+        392,
+        392
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "P-DG01-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG01-05",
+      "fields": {
+        "heading": "P-DG01-05 · Contexto relevante ≠ análisis exhaustivo del entorno.",
+        "title": "Contexto relevante ≠ análisis exhaustivo del entorno."
+      },
+      "sourceLines": [
+        393,
+        393
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "P-DG01-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG01-06",
+      "fields": {
+        "heading": "P-DG01-06 · Oportunidad externa ≠ prioridad automática.",
+        "title": "Oportunidad externa ≠ prioridad automática."
+      },
+      "sourceLines": [
+        394,
+        394
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "P-DG01-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG01-07",
+      "fields": {
+        "heading": "P-DG01-07 · Tendencia ≠ necesidad.",
+        "title": "Tendencia ≠ necesidad."
+      },
+      "sourceLines": [
+        395,
+        395
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "P-DG01-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG01-08",
+      "fields": {
+        "heading": "P-DG01-08 · Orientación ≠ priorización.",
+        "title": "Orientación ≠ priorización.",
+        "body": [
+          "DG-01 establece dirección; DG-02 decide entre alternativas y recursos."
+        ]
+      },
+      "sourceLines": [
+        396,
+        397
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "STOP-DG01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_STOP",
+      "sourceId": "STOP-DG01-01",
+      "fields": {
+        "heading": "STOP-DG01-01 · Si no existe información suficiente para establecer una dirección empresarial mínima, no inferir alineación de transformación. Profundizar primero en negocio/dirección.",
+        "title": "Si no existe información suficiente para establecer una dirección empresarial mínima, no inferir alineación de transformación. Profundizar primero en negocio/dirección."
+      },
+      "sourceLines": [
+        421,
+        421
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
       "key": "P1",
       "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_P",
@@ -285,13 +529,35 @@
           "Gerencia:",
           "“Nuestra prioridad es rentabilidad.”",
           "pero las iniciativas observadas persiguen crecimiento de volumen sin hipótesis sobre margen.",
-          "No concluimos inmediatamente incoherencia. Abrimos contradicción:",
-          "CONTR-DG01-01 · Declared business direction vs observed transformation direction",
-          "y adquirimos información adicional."
+          "No concluimos inmediatamente incoherencia. Abrimos contradicción:"
         ]
       },
       "sourceLines": [
         449,
+        454
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "CONTR-DG01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-DG01-01",
+      "fields": {
+        "heading": "CONTR-DG01-01 · Declared business direction vs observed transformation direction",
+        "title": "Declared business direction vs observed transformation direction",
+        "body": [
+          "y adquirimos información adicional."
+        ]
+      },
+      "sourceLines": [
+        455,
         456
       ],
       "approvalEvidence": {
@@ -683,6 +949,37 @@
       }
     },
     {
+      "key": "DER-DG01-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DER",
+      "sourceId": "DER-DG01-01",
+      "fields": {
+        "heading": "DER-DG01-01 · Detectar un condicionante perteneciente a otra capacidad no autoriza a diagnosticar esa capacidad desde DG-01.",
+        "title": "Detectar un condicionante perteneciente a otra capacidad no autoriza a diagnosticar esa capacidad desde DG-01.",
+        "body": [
+          "Ejemplo:",
+          "“Nos faltan personas con conocimientos de analítica.”",
+          "DG-01 puede registrar que esto condiciona la dirección.",
+          "Pero no puede concluir:",
+          "PC-02 = brecha.",
+          "Debe reutilizar la observación como evidencia candidata y permitir que PC-02 haga su propio razonamiento.",
+          "Esto confirma algo que ya emergió en OP:",
+          "reutilizamos evidencia; no transferimos automáticamente conclusiones."
+        ]
+      },
+      "sourceLines": [
+        535,
+        543
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
       "key": "INT-DG01-01",
       "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_INT",
@@ -746,6 +1043,98 @@
       }
     },
     {
+      "key": "V0",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V0",
+      "fields": {
+        "heading": "V0 · no validado",
+        "title": "no validado"
+      },
+      "sourceLines": [
+        679,
+        679
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "V1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V1",
+      "fields": {
+        "heading": "V1 · evidencia inicial",
+        "title": "evidencia inicial"
+      },
+      "sourceLines": [
+        680,
+        680
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "V2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V2",
+      "fields": {
+        "heading": "V2 · evidencia suficiente del resultado funcional",
+        "title": "evidencia suficiente del resultado funcional"
+      },
+      "sourceLines": [
+        681,
+        681
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "V3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V3",
+      "fields": {
+        "heading": "V3 · resultado sostenido/confirmado cuando corresponda",
+        "title": "resultado sostenido/confirmado cuando corresponda",
+        "body": [
+          "Ejemplo:",
+          "Crear la narrativa de transformación:",
+          "no demuestra CRV-DG01-06.",
+          "Que esa narrativa sea utilizada posteriormente para filtrar/priorizar decisiones proporciona evidencia más fuerte.",
+          "Por eso:",
+          "artefacto creado ≠ capacidad modificada."
+        ]
+      },
+      "sourceLines": [
+        682,
+        688
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
       "key": "REASS-DG01-01",
       "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_REASS",
@@ -761,6 +1150,117 @@
       "sourceLines": [
         704,
         707
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG01-001",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG01-001",
+      "fields": {
+        "heading": "SRC-DG01-001 · Pymapa/OE1-D — fuente conceptual interna.",
+        "title": "Pymapa/OE1-D — fuente conceptual interna."
+      },
+      "sourceLines": [
+        754,
+        754
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG01-002",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG01-002",
+      "fields": {
+        "heading": "SRC-DG01-002 · ISO 37000:2021 — Governance of organizations.",
+        "title": "ISO 37000:2021 — Governance of organizations."
+      },
+      "sourceLines": [
+        755,
+        755
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG01-003",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG01-003",
+      "fields": {
+        "heading": "SRC-DG01-003 · ISO 56002:2019 — Innovation management system guidance.",
+        "title": "ISO 56002:2019 — Innovation management system guidance."
+      },
+      "sourceLines": [
+        756,
+        756
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG01-004",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG01-004",
+      "fields": {
+        "heading": "SRC-DG01-004 · OECD (2021) — The Digital Transformation of SMEs.",
+        "title": "OECD (2021) — The Digital Transformation of SMEs."
+      },
+      "sourceLines": [
+        757,
+        757
+      ],
+      "approvalEvidence": {
+        "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          832,
+          832
+        ]
+      }
+    },
+    {
+      "key": "SRC-DG01-005",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG01-005",
+      "fields": {
+        "heading": "SRC-DG01-005 · OECD (2021) — SMEs Going Digital.",
+        "title": "OECD (2021) — SMEs Going Digital.",
+        "body": [
+          "Dos decisiones de mantenimiento:",
+          "SRC-DG01-002: ISO 37000:2021 fue confirmada en 2026 y permanece vigente. ISO",
+          "SRC-DG01-003: activar SOURCE-REVIEW cuando sea publicada ISO 56002 Edition 2; actualmente existe como Committee Draft y reemplazará la edición 2019. ISO",
+          "Esto es exactamente el tipo de comportamiento que necesitaremos posteriormente en K3: las fuentes también tienen ciclo de vida."
+        ]
+      },
+      "sourceLines": [
+        758,
+        762
       ],
       "approvalEvidence": {
         "text": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
@@ -873,5 +1373,5 @@
       }
     }
   ],
-  "checksum": "sha256:85ac9e26296250899904839b8e2488d11d7826ce421e3176b5035debbf04078b"
+  "checksum": "sha256:26bf08bdb0eb6e81ff398790bc1a111f952a4b3cd5eeb6c7b2a69f385825f7d6"
 }

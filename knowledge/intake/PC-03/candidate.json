@@ -9,7 +9,7 @@
   "producedBy": {
     "method": "DETERMINISTIC_TOOL",
     "agent": "pymapa-structural-segmenter@0.2.0 + pymapa-governed-supersession-resolver@0.1.0",
-    "note": "Segmentación literal por headings con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
+    "note": "Segmentación literal por headings y líneas planas «ID · título» con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
   },
   "baselineId": "PC03-K4-v1.0",
   "historicalStatus": {
@@ -28,6 +28,15 @@
       "sourceLines": [
         463,
         463
+      ]
+    },
+    {
+      "label": "VA",
+      "declared": 14,
+      "objectType": "SOURCE_ID_VA",
+      "sourceLines": [
+        464,
+        464
       ]
     }
   ],
@@ -91,15 +100,55 @@
       "sourceId": "CE01",
       "fields": {
         "heading": "CE01 · Cambio suficientemente definido",
-        "title": "Cambio suficientemente definido",
+        "title": "Cambio suficientemente definido"
+      },
+      "sourceLines": [
+        165,
+        165
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "VA01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA01",
+      "fields": {
+        "heading": "VA01 · Forma de trabajo objetivo",
+        "title": "Forma de trabajo objetivo"
+      },
+      "sourceLines": [
+        166,
+        166
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "VA02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA02",
+      "fields": {
+        "heading": "VA02 · Diferencia relevante estado actual → estado objetivo",
+        "title": "Diferencia relevante estado actual → estado objetivo",
         "body": [
-          "VA01 · Forma de trabajo objetivo",
-          "VA02 · Diferencia relevante estado actual → estado objetivo",
           "Sin esto, “adopción” resulta imposible de evaluar."
         ]
       },
       "sourceLines": [
-        165,
+        167,
         168
       ],
       "approvalEvidence": {
@@ -117,15 +166,55 @@
       "sourceId": "CE02",
       "fields": {
         "heading": "CE02 · Población e impacto",
-        "title": "Población e impacto",
+        "title": "Población e impacto"
+      },
+      "sourceLines": [
+        170,
+        170
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "VA03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA03",
+      "fields": {
+        "heading": "VA03 · Personas/roles realmente afectados",
+        "title": "Personas/roles realmente afectados"
+      },
+      "sourceLines": [
+        171,
+        171
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "VA04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "VA04 · Impacto material del cambio sobre su trabajo",
+        "title": "Impacto material del cambio sobre su trabajo",
         "body": [
-          "VA03 · Personas/roles realmente afectados",
-          "VA04 · Impacto material del cambio sobre su trabajo",
           "No todos los cambios exigen el mismo esfuerzo de apropiación."
         ]
       },
       "sourceLines": [
-        170,
+        172,
         173
       ],
       "approvalEvidence": {
@@ -143,16 +232,56 @@
       "sourceId": "CE03",
       "fields": {
         "heading": "CE03 · Comprensión",
-        "title": "Comprensión",
+        "title": "Comprensión"
+      },
+      "sourceLines": [
+        175,
+        175
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "VA05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "VA05 · Comprensión de qué cambia",
+        "title": "Comprensión de qué cambia"
+      },
+      "sourceLines": [
+        176,
+        176
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "VA06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "VA06 · Comprensión suficientemente funcional de por qué/para qué",
+        "title": "Comprensión suficientemente funcional de por qué/para qué",
         "body": [
-          "VA05 · Comprensión de qué cambia",
-          "VA06 · Comprensión suficientemente funcional de por qué/para qué",
           "No exigimos adhesión ideológica.",
           "Buscamos comprensión suficiente para actuar."
         ]
       },
       "sourceLines": [
-        175,
+        177,
         179
       ],
       "approvalEvidence": {
@@ -170,17 +299,77 @@
       "sourceId": "CE04",
       "fields": {
         "heading": "CE04 · Habilitación",
-        "title": "Habilitación",
+        "title": "Habilitación"
+      },
+      "sourceLines": [
+        181,
+        181
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "VA07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "VA07 · Competencia necesaria disponible",
+        "title": "Competencia necesaria disponible"
+      },
+      "sourceLines": [
+        182,
+        182
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "VA08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "VA08 · Herramientas/accesos/información disponibles",
+        "title": "Herramientas/accesos/información disponibles"
+      },
+      "sourceLines": [
+        183,
+        183
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "VA09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA09",
+      "fields": {
+        "heading": "VA09 · Condiciones del trabajo compatibles",
+        "title": "Condiciones del trabajo compatibles",
         "body": [
-          "VA07 · Competencia necesaria disponible",
-          "VA08 · Herramientas/accesos/información disponibles",
-          "VA09 · Condiciones del trabajo compatibles",
           "PC-02 puede alimentar VA07.",
           "Pero PC-03 debe comprobar que las condiciones para usar la competencia existen."
         ]
       },
       "sourceLines": [
-        181,
+        184,
         186
       ],
       "approvalEvidence": {
@@ -198,16 +387,76 @@
       "sourceId": "CE05",
       "fields": {
         "heading": "CE05 · Adopción observable",
-        "title": "Adopción observable",
+        "title": "Adopción observable"
+      },
+      "sourceLines": [
+        188,
+        188
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "VA10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA10",
+      "fields": {
+        "heading": "VA10 · Uso efectivo de la nueva práctica",
+        "title": "Uso efectivo de la nueva práctica"
+      },
+      "sourceLines": [
+        189,
+        189
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "VA11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA11",
+      "fields": {
+        "heading": "VA11 · Cobertura en situaciones donde corresponde",
+        "title": "Cobertura en situaciones donde corresponde"
+      },
+      "sourceLines": [
+        190,
+        190
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "VA12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA12",
+      "fields": {
+        "heading": "VA12 · Calidad/consistencia suficiente del uso",
+        "title": "Calidad/consistencia suficiente del uso",
         "body": [
-          "VA10 · Uso efectivo de la nueva práctica",
-          "VA11 · Cobertura en situaciones donde corresponde",
-          "VA12 · Calidad/consistencia suficiente del uso",
           "Una persona que abre el CRM una vez no necesariamente lo adoptó."
         ]
       },
       "sourceLines": [
-        188,
+        191,
         192
       ],
       "approvalEvidence": {
@@ -225,16 +474,56 @@
       "sourceId": "CE06",
       "fields": {
         "heading": "CE06 · Apropiación y sostenimiento",
-        "title": "Apropiación y sostenimiento",
+        "title": "Apropiación y sostenimiento"
+      },
+      "sourceLines": [
+        194,
+        194
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "VA13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA13",
+      "fields": {
+        "heading": "VA13 · Integración en el trabajo normal",
+        "title": "Integración en el trabajo normal"
+      },
+      "sourceLines": [
+        195,
+        195
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "VA14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA14",
+      "fields": {
+        "heading": "VA14 · Persistencia ante reducción del soporte extraordinario",
+        "title": "Persistencia ante reducción del soporte extraordinario",
         "body": [
-          "VA13 · Integración en el trabajo normal",
-          "VA14 · Persistencia ante reducción del soporte extraordinario",
           "Esta última variable ayuda a distinguir:",
           "implementación asistida de apropiación sostenible."
         ]
       },
       "sourceLines": [
-        194,
+        196,
         198
       ],
       "approvalEvidence": {
@@ -483,6 +772,435 @@
       }
     },
     {
+      "key": "R-PC03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC03-01",
+      "fields": {
+        "heading": "R-PC03-01 · TARGET_WAY_OF_WORKING_UNCLEAR",
+        "title": "TARGET_WAY_OF_WORKING_UNCLEAR",
+        "body": [
+          "La nueva forma de trabajo no está suficientemente definida."
+        ]
+      },
+      "sourceLines": [
+        375,
+        376
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "R-PC03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC03-02",
+      "fields": {
+        "heading": "R-PC03-02 · CHANGE_DELTA_UNCLEAR",
+        "title": "CHANGE_DELTA_UNCLEAR",
+        "body": [
+          "No se comprende suficientemente qué debe cambiar respecto de la práctica actual."
+        ]
+      },
+      "sourceLines": [
+        377,
+        378
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "R-PC03-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC03-03",
+      "fields": {
+        "heading": "R-PC03-03 · CHANGE_POPULATION_UNCLEAR",
+        "title": "CHANGE_POPULATION_UNCLEAR",
+        "body": [
+          "No está suficientemente identificado quién necesita cambiar."
+        ]
+      },
+      "sourceLines": [
+        379,
+        380
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "R-PC03-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC03-04",
+      "fields": {
+        "heading": "R-PC03-04 · CHANGE_IMPACT_UNDERSTATED",
+        "title": "CHANGE_IMPACT_UNDERSTATED",
+        "body": [
+          "El impacto real sobre el trabajo de la población está insuficientemente comprendido."
+        ]
+      },
+      "sourceLines": [
+        381,
+        382
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "R-PC03-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC03-05",
+      "fields": {
+        "heading": "R-PC03-05 · CHANGE_UNDERSTANDING_GAP",
+        "title": "CHANGE_UNDERSTANDING_GAP",
+        "body": [
+          "Las personas afectadas no comprenden suficientemente qué cambia."
+        ]
+      },
+      "sourceLines": [
+        383,
+        384
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "R-PC03-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC03-06",
+      "fields": {
+        "heading": "R-PC03-06 · CHANGE_PURPOSE_GAP",
+        "title": "CHANGE_PURPOSE_GAP",
+        "body": [
+          "No existe comprensión funcional suficiente del propósito/relevancia."
+        ]
+      },
+      "sourceLines": [
+        385,
+        386
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "R-PC03-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC03-07",
+      "fields": {
+        "heading": "R-PC03-07 · ADOPTION_COMPETENCE_GAP",
+        "title": "ADOPTION_COMPETENCE_GAP",
+        "body": [
+          "La adopción está limitada por competencia insuficiente."
+        ]
+      },
+      "sourceLines": [
+        387,
+        388
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "R-PC03-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC03-08",
+      "fields": {
+        "heading": "R-PC03-08 · ADOPTION_ENABLEMENT_GAP",
+        "title": "ADOPTION_ENABLEMENT_GAP",
+        "body": [
+          "Faltan herramientas, accesos, información u otras condiciones habilitantes."
+        ]
+      },
+      "sourceLines": [
+        389,
+        390
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "R-PC03-09",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC03-09",
+      "fields": {
+        "heading": "R-PC03-09 · WORK_CONTEXT_ADOPTION_BARRIER",
+        "title": "WORK_CONTEXT_ADOPTION_BARRIER",
+        "body": [
+          "El sistema de trabajo dificulta materialmente la nueva práctica."
+        ]
+      },
+      "sourceLines": [
+        391,
+        392
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "R-PC03-10",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC03-10",
+      "fields": {
+        "heading": "R-PC03-10 · TARGET_BEHAVIOR_NOT_OBSERVED",
+        "title": "TARGET_BEHAVIOR_NOT_OBSERVED",
+        "body": [
+          "La nueva práctica no se observa suficientemente."
+        ]
+      },
+      "sourceLines": [
+        393,
+        394
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "R-PC03-11",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC03-11",
+      "fields": {
+        "heading": "R-PC03-11 · ADOPTION_COVERAGE_GAP",
+        "title": "ADOPTION_COVERAGE_GAP",
+        "body": [
+          "Se utiliza solo en parte de los casos/población donde corresponde."
+        ]
+      },
+      "sourceLines": [
+        395,
+        396
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "R-PC03-12",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC03-12",
+      "fields": {
+        "heading": "R-PC03-12 · ADOPTION_CONSISTENCY_GAP",
+        "title": "ADOPTION_CONSISTENCY_GAP",
+        "body": [
+          "El uso existe pero es insuficientemente consistente o correcto."
+        ]
+      },
+      "sourceLines": [
+        397,
+        398
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "R-PC03-13",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC03-13",
+      "fields": {
+        "heading": "R-PC03-13 · CHANGE_NOT_EMBEDDED",
+        "title": "CHANGE_NOT_EMBEDDED",
+        "body": [
+          "La nueva práctica todavía depende excesivamente de mecanismos extraordinarios."
+        ]
+      },
+      "sourceLines": [
+        399,
+        400
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "R-PC03-14",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC03-14",
+      "fields": {
+        "heading": "R-PC03-14 · ADOPTION_NOT_SUSTAINED",
+        "title": "ADOPTION_NOT_SUSTAINED",
+        "body": [
+          "La práctica retrocede cuando disminuye acompañamiento/control."
+        ]
+      },
+      "sourceLines": [
+        401,
+        402
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-PC03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-PC03-01",
+      "fields": {
+        "heading": "CAND-MOTOR-PC03-01 · La adopción no debe evaluarse sobre una iniciativa abstracta sino sobre unidades de cambio observables que definan estado/práctica origen, estado/práctica objetivo y población aplicable.",
+        "title": "La adopción no debe evaluarse sobre una iniciativa abstracta sino sobre unidades de cambio observables que definan estado/práctica origen, estado/práctica objetivo y población aplicable.",
+        "body": [
+          "Segundo:"
+        ]
+      },
+      "sourceLines": [
+        434,
+        435
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-PC03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-PC03-02",
+      "fields": {
+        "heading": "CAND-MOTOR-PC03-02 · Ausencia de comportamiento objetivo no puede inferirse automáticamente como resistencia; el Motor debe discriminar competencia, habilitación, diseño del trabajo, pertinencia y apropiación.",
+        "title": "Ausencia de comportamiento objetivo no puede inferirse automáticamente como resistencia; el Motor debe discriminar competencia, habilitación, diseño del trabajo, pertinencia y apropiación.",
+        "body": [
+          "Tercero:"
+        ]
+      },
+      "sourceLines": [
+        436,
+        437
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-PC03-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-PC03-03",
+      "fields": {
+        "heading": "CAND-MOTOR-PC03-03 · Implementación, adopción y apropiación deben mantenerse como estados diferentes.",
+        "title": "Implementación, adopción y apropiación deben mantenerse como estados diferentes.",
+        "body": [
+          "Y cuarto:"
+        ]
+      },
+      "sourceLines": [
+        438,
+        439
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "CAND-MOTOR-PC03-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-PC03-04",
+      "fields": {
+        "heading": "CAND-MOTOR-PC03-04 · Una práctica inicialmente adoptada puede requerir evidencia temporal antes de clasificarse como apropiada/sostenida.",
+        "title": "Una práctica inicialmente adoptada puede requerir evidencia temporal antes de clasificarse como apropiada/sostenida."
+      },
+      "sourceLines": [
+        440,
+        440
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
       "key": "CAUS-PC03-01",
       "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_CAUS",
@@ -537,6 +1255,327 @@
       "sourceLines": [
         541,
         549
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "INS-PC03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-PC03-01",
+      "fields": {
+        "heading": "INS-PC03-01 · Change Unit Canvas",
+        "title": "Change Unit Canvas",
+        "body": [
+          "FROM → TO → población → comportamiento esperado → resultado relacionado."
+        ]
+      },
+      "sourceLines": [
+        585,
+        586
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "INS-PC03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-PC03-02",
+      "fields": {
+        "heading": "INS-PC03-02 · Mapa población–impacto",
+        "title": "Mapa población–impacto"
+      },
+      "sourceLines": [
+        587,
+        587
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "INS-PC03-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-PC03-03",
+      "fields": {
+        "heading": "INS-PC03-03 · Checklist de habilitación",
+        "title": "Checklist de habilitación",
+        "body": [
+          "competencia / acceso / herramienta / información / autoridad / condiciones."
+        ]
+      },
+      "sourceLines": [
+        588,
+        589
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "INS-PC03-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-PC03-04",
+      "fields": {
+        "heading": "INS-PC03-04 · Mapa de barreras de adopción",
+        "title": "Mapa de barreras de adopción"
+      },
+      "sourceLines": [
+        590,
+        590
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "INS-PC03-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-PC03-05",
+      "fields": {
+        "heading": "INS-PC03-05 · Evidencia de comportamiento objetivo",
+        "title": "Evidencia de comportamiento objetivo"
+      },
+      "sourceLines": [
+        591,
+        591
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "INS-PC03-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-PC03-06",
+      "fields": {
+        "heading": "INS-PC03-06 · Seguimiento de adopción y excepciones",
+        "title": "Seguimiento de adopción y excepciones"
+      },
+      "sourceLines": [
+        592,
+        592
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "INS-PC03-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-PC03-07",
+      "fields": {
+        "heading": "INS-PC03-07 · Test de sostenimiento",
+        "title": "Test de sostenimiento"
+      },
+      "sourceLines": [
+        593,
+        593
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "DEL-PC03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC03-01",
+      "fields": {
+        "heading": "DEL-PC03-01 · unidad de cambio explícita",
+        "title": "unidad de cambio explícita"
+      },
+      "sourceLines": [
+        605,
+        605
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "DEL-PC03-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC03-02",
+      "fields": {
+        "heading": "DEL-PC03-02 · población e impacto delimitados",
+        "title": "población e impacto delimitados"
+      },
+      "sourceLines": [
+        606,
+        606
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "DEL-PC03-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC03-03",
+      "fields": {
+        "heading": "DEL-PC03-03 · comprensión funcional suficiente",
+        "title": "comprensión funcional suficiente"
+      },
+      "sourceLines": [
+        607,
+        607
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "DEL-PC03-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC03-04",
+      "fields": {
+        "heading": "DEL-PC03-04 · condiciones habilitantes resueltas",
+        "title": "condiciones habilitantes resueltas"
+      },
+      "sourceLines": [
+        608,
+        608
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "DEL-PC03-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC03-05",
+      "fields": {
+        "heading": "DEL-PC03-05 · comportamiento objetivo observable",
+        "title": "comportamiento objetivo observable"
+      },
+      "sourceLines": [
+        609,
+        609
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "DEL-PC03-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC03-06",
+      "fields": {
+        "heading": "DEL-PC03-06 · cobertura/consistencia suficientes",
+        "title": "cobertura/consistencia suficientes"
+      },
+      "sourceLines": [
+        610,
+        610
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "DEL-PC03-07",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC03-07",
+      "fields": {
+        "heading": "DEL-PC03-07 · práctica incorporada a operación normal",
+        "title": "práctica incorporada a operación normal"
+      },
+      "sourceLines": [
+        611,
+        611
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "DEL-PC03-08",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC03-08",
+      "fields": {
+        "heading": "DEL-PC03-08 · apropiación suficientemente sostenida",
+        "title": "apropiación suficientemente sostenida"
+      },
+      "sourceLines": [
+        612,
+        612
       ],
       "approvalEvidence": {
         "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
@@ -691,7 +1730,149 @@
           807
         ]
       }
+    },
+    {
+      "key": "CAND-MOTOR-PC03-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-PC03-05",
+      "fields": {
+        "heading": "CAND-MOTOR-PC03-05 · Una intervención puede alcanzar apropiación sostenible y aun así no producir el resultado de negocio esperado.",
+        "title": "Una intervención puede alcanzar apropiación sostenible y aun así no producir el resultado de negocio esperado.",
+        "body": [
+          "Esto protege al Motor contra:",
+          "“la gente lo usa → entonces funciona”."
+        ]
+      },
+      "sourceLines": [
+        690,
+        692
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "SOURCE-REVIEW-TRIGGER-PC03-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SOURCE",
+      "sourceId": "SOURCE-REVIEW-TRIGGER-PC03-01",
+      "fields": {
+        "heading": "SOURCE-REVIEW-TRIGGER-PC03-01 · Revisar PC-03 y PC-05 ante nueva edición, confirmación o cambio de estado material de ISO 10018. ISO",
+        "title": "Revisar PC-03 y PC-05 ante nueva edición, confirmación o cambio de estado material de ISO 10018. ISO"
+      },
+      "sourceLines": [
+        755,
+        755
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "K1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Coherencia — PASS.",
+        "title": "Coherencia — PASS.",
+        "body": [
+          "PC-03 queda separada de PC-02, PC-05, OP-05 y del resultado de negocio."
+        ]
+      },
+      "sourceLines": [
+        798,
+        799
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "K2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Razonamiento — PASS.",
+        "title": "Razonamiento — PASS.",
+        "body": [
+          "No confundimos comunicación, competencia, uso, adopción, apropiación o resultado; tampoco inferimos resistencia desde ausencia de uso."
+        ]
+      },
+      "sourceLines": [
+        800,
+        801
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "K3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · Acción — PASS.",
+        "title": "Acción — PASS.",
+        "body": [
+          "Una baja adopción puede generar intervención sobre personas, proceso, tecnología, condiciones de trabajo o incluso el diseño del propio cambio."
+        ]
+      },
+      "sourceLines": [
+        802,
+        803
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
+    },
+    {
+      "key": "K4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · Conocimiento — PASS.",
+        "title": "Conocimiento — PASS.",
+        "body": [
+          "Grounding externo, provenance, trazabilidad y trigger documental quedan explícitos."
+        ]
+      },
+      "sourceLines": [
+        804,
+        805
+      ],
+      "approvalEvidence": {
+        "text": "PC03-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          807,
+          807
+        ]
+      }
     }
   ],
-  "checksum": "sha256:abeafd5a9e17970e3327144a3d3710cb7caa3bd786a698967e1d10442db450ca"
+  "checksum": "sha256:be7d7551ac7e652af1026e686488650b5c2ae34150c37ca025fd036dba4df0a9"
 }
