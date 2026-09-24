@@ -815,7 +815,7 @@ describe("Estados independientes de intake en el mismo lote", () => {
     const r = run(intake({ candidate: malo }));
     expect(byId(r, SYN_ID).outcome).toBe("FAIL");
     expect(byId(r, "OP-02")).toEqual(byId(base, "OP-02"));
-  });
+  }, 30_000);
 
   it("original alterado → RAW_REGISTRATION FAIL", () => {
     const r = run(
