@@ -33,33 +33,26 @@ describe("registro cross-capability", () => {
     expect(v.ok).toBe(true);
   });
 
-  it("A-OP02-02 permanece abierto mientras OP-03 no tenga aceptación canónica", () => {
+  it("A-OP02-02 resuelto por evento registrado tras la aceptación canónica de OP-03", () => {
     const v = validateCrossCapabilityRegistry({ registry, ...ctx });
     const e = registry.entries.find((x) => x.id === "A-OP02-02")!;
     expect(e.decision).toBe("KEEP_OPEN_PENDING_OP03_CANONICAL_ACCEPTANCE");
-    expect(e.resolutionEvent).toBeNull();
-    expect(status(v, "A-OP02-02")).toBe("OPEN_PENDING_CANONICAL_ACCEPTANCE");
+    expect(e.resolutionEvent).not.toBeNull();
+    expect(status(v, "A-OP02-02")).toBe("RESOLVED");
   });
 
-  it("con aceptación vigente de OP-03 pasa a elegible, nunca a resuelto por sí mismo", () => {
+  it("sin aceptación vigente de OP-03 el evento de resolución → FAIL", () => {
     const acceptances = new Map(ctx.acceptances);
-    acceptances.set("OP-03", {
-      decision: "ACCEPTED",
-      candidateChecksum: ctx.candidates.get("OP-03")!.checksum,
-    });
+    acceptances.delete("OP-03");
     const v = validateCrossCapabilityRegistry({ registry, ...ctx, acceptances });
-    expect(status(v, "A-OP02-02")).toBe("RESOLUTION_EVENT_ELIGIBLE");
+    expect(v.ok).toBe(false);
   });
 
-  it("un evento de resolución sin aceptación canónica vigente → FAIL", () => {
+  it("sin evento registrado, la aceptación vigente solo la vuelve elegible", () => {
     const r = clone();
-    r.entries[0]!.resolutionEvent = {
-      recordedAt: "2026-09-23",
-      canonicalAcceptanceChecksum: ctx.candidates.get("OP-03")!.checksum,
-      evidenceRefs: [3],
-    };
+    r.entries.find((x) => x.id === "A-OP02-02")!.resolutionEvent = null;
     const v = validateCrossCapabilityRegistry({ registry: reseal(r), ...ctx });
-    expect(v.ok).toBe(false);
+    expect(status(v, "A-OP02-02")).toBe("RESOLUTION_EVENT_ELIGIBLE");
   });
 
   it("el pack publicado op-02@1.0.0 citado debe seguir intacto", () => {

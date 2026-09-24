@@ -371,9 +371,9 @@ describe("Factory dry-run sobre artefactos existentes", () => {
     expect(readFileSync(join(ROOT, BENCHMARK_PATH), "utf8")).toBe(buildFactoryBenchmarkMarkdown(r));
   });
 
-  it("manifest: 31 slots, 26 sin fuente, señal AUTHORITATIVE_SOURCE_REQUIRED, sin issues de lote", () => {
+  it("manifest: 31 slots, 16 sin fuente, señal AUTHORITATIVE_SOURCE_REQUIRED, sin issues de lote", () => {
     expect(r.manifest.expectedCapabilityCount).toBe(31);
-    expect(r.manifest.unregisteredSlotCount).toBe(26);
+    expect(r.manifest.unregisteredSlotCount).toBe(16);
     expect(r.manifest.signal).toBe("AUTHORITATIVE_SOURCE_REQUIRED");
     expect(r.batchIssues).toEqual([]);
     for (const e of r.manifest.entries) {
