@@ -80,7 +80,11 @@ describe("M2-FACTORY-CONTRACT-03 · contrato genérico baseline → pack", () =>
     expect(gaps.find((g) => g.id === "NE-ZZ-01-VA-ACQUISITION").publicationBlocking).toBe(true);
   });
   it("sin definición productiva ⇒ NOT_EXPLICIT (no bloqueante); sin nombre ⇒ bloqueo", () => {
-    const r = projectBaselineToRunnableSource(complete, ident, "Propongo como definición inicial:\nZZ-01 evalúa algo.");
+    const r = projectBaselineToRunnableSource(
+      complete,
+      ident,
+      "Propongo como definición inicial:\nZZ-01 evalúa algo.",
+    );
     expect(r.definition?.status).toBe("NOT_EXPLICIT");
     expect(r.definition?.candidates[0]?.qualifier).toBe("NON_FINAL");
     const g = (r.source!["gaps"] as any[]).find((x) => x.id === "NE-ZZ-01-DEFINITION");
@@ -89,7 +93,6 @@ describe("M2-FACTORY-CONTRACT-03 · contrato genérico baseline → pack", () =>
     expect(n.blockers.map((b) => b.code)).toContain("CAPABILITY_NAME_MISSING");
   });
 });
-
 
 describe("M2-FACTORY-CLOSURE A2 · enriquecimiento de identidad", () => {
   const raw = "# ZZ-01 · Nombre literal\ntexto";

@@ -308,7 +308,15 @@ export function projectBaselineToRunnableSource(
     criticalityNotExplicit: noCrit.length,
   };
   if (b.length)
-    return { capabilityId: cap, ok: false, source: null, blockers: b, stats, definition, checksum: null };
+    return {
+      capabilityId: cap,
+      ok: false,
+      source: null,
+      blockers: b,
+      stats,
+      definition,
+      checksum: null,
+    };
 
   const capability = {
     id: cap,

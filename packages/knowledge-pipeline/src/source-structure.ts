@@ -87,8 +87,7 @@ export function extractCapabilityDefinition(
   const out = candidates.map((c) => ({
     ...c,
     disposition: (selected && c === selected ? "SELECTED" : "NOT_SELECTED") as
-      | "SELECTED"
-      | "NOT_SELECTED",
+      "SELECTED" | "NOT_SELECTED",
   }));
   if (selected)
     return {
@@ -171,7 +170,8 @@ export function linkInformationNeeds(
       const level = h[1]!.length;
       while (stack.length && stack[stack.length - 1]!.level >= level) stack.pop();
       const vas = [...new Set(h[2]!.match(/\bVA\d+\b/g) ?? [])];
-      const va = vas.length === 1 && known.has(vas[0]!) && !/[–-]\s*VA\d/.test(h[2]!) ? vas[0]! : null;
+      const va =
+        vas.length === 1 && known.has(vas[0]!) && !/[–-]\s*VA\d/.test(h[2]!) ? vas[0]! : null;
       stack.push({ level, va, text: h[2]! });
       bulletBlock = NI_BLOCK_MARKER.test(h[2]!);
       return;

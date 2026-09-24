@@ -23,8 +23,7 @@ for (const c of TARGETS) {
   const raw = readFileSync(join(dir, baseline.rawSource.ref), "utf8");
   const name = prev.find((p) => p.c === c)!.name;
   const literal = `${c} · ${name}`;
-  const line =
-    raw.split("\n").findIndex((l) => l.replace(/^#{1,9}\s+/, "").trim() === literal) + 1;
+  const line = raw.split("\n").findIndex((l) => l.replace(/^#{1,9}\s+/, "").trim() === literal) + 1;
   const r = projectBaselineToRunnableSource(
     baseline,
     line ? { name, literalLine: line } : null,
@@ -105,7 +104,11 @@ for (const c of TARGETS) {
         observations: obs,
         expected: {
           outcome: "PASS",
-          variableStates: vars.map((v) => ({ variableRef: v, state: "UNKNOWN", semanticValue: null })),
+          variableStates: vars.map((v) => ({
+            variableRef: v,
+            state: "UNKNOWN",
+            semanticValue: null,
+          })),
           contradictionVariableRefs: [],
           noConfirmedFindings: true,
         },
