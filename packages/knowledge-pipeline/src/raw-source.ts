@@ -960,7 +960,9 @@ export function segmentMultiCapabilityText(
   for (const id of capabilityIds) {
     const own = id.replace("-", "");
     const re = new RegExp(`^${own}-K4-v\\d+(?:\\.\\d+)* · K4-VALIDATED · CLOSED$`);
-    const at = lines.flatMap((l, i) => (re.test(l.replace(/^#{1,9}\s+/, "").trim()) ? [i + 1] : []));
+    const at = lines.flatMap((l, i) =>
+      re.test(l.replace(/^#{1,9}\s+/, "").trim()) ? [i + 1] : [],
+    );
     if (!at.length) reasons.push(`${id}: sin marcador literal de cierre K4`);
     else
       ends.push({
@@ -971,16 +973,21 @@ export function segmentMultiCapabilityText(
   }
   for (let k = 1; k < ends.length; k += 1)
     if ((ends[k] as { line: number }).line <= (ends[k - 1] as { line: number }).line)
-      reasons.push(`${ends[k]?.id}: marcador de cierre fuera de orden respecto de ${ends[k - 1]?.id}`);
+      reasons.push(
+        `${ends[k]?.id}: marcador de cierre fuera de orden respecto de ${ends[k - 1]?.id}`,
+      );
   const starts: number[] = [1];
   for (let k = 1; k < ends.length; k += 1) {
     const prev = (ends[k - 1] as { line: number }).line;
     const id = (ends[k] as { id: string }).id;
     const at = lines.findIndex(
-      (l, i) => i + 1 > prev && /^#{1,9}\s+/.test(l) && l.replace(/^#{1,9}\s+/, "").startsWith(`${id} · `),
+      (l, i) =>
+        i + 1 > prev && /^#{1,9}\s+/.test(l) && l.replace(/^#{1,9}\s+/, "").startsWith(`${id} · `),
     );
     if (at < 0 || at + 1 > (ends[k] as { line: number }).line)
-      reasons.push(`${id}: sin heading de identidad «${id} · …» tras el cierre de ${ends[k - 1]?.id}`);
+      reasons.push(
+        `${id}: sin heading de identidad «${id} · …» tras el cierre de ${ends[k - 1]?.id}`,
+      );
     else starts.push(at + 1);
   }
   if (reasons.length) return { ok: false, reasons };

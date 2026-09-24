@@ -182,7 +182,10 @@ describe.each(["OP-03", "OP-04", "OP-05"])("%s · candidato estructural gobernad
 
   it("aceptación canónica humana presente; sin revisión de publicación ni pack fabricados", () => {
     const acc = readJson(join(x.dir, "canonical-acceptance.json")) as { candidateChecksum: string };
-    expect(acc.candidateChecksum).toBe(readJson(join(x.dir, "candidate.json")) && (readJson(join(x.dir, "candidate.json")) as { checksum: string }).checksum);
+    expect(acc.candidateChecksum).toBe(
+      readJson(join(x.dir, "candidate.json")) &&
+        (readJson(join(x.dir, "candidate.json")) as { checksum: string }).checksum,
+    );
     expect(
       existsSync(
         join(ROOT, "knowledge", "master", "v1.0", "capabilities", cap, "governance-review.json"),
