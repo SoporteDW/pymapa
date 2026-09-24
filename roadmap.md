@@ -35,3 +35,12 @@
 - [x] Vínculo NI→VA por contención estructural
 - [x] 13/13 packs generados; OP-03/04/05 publicados; DG/PC retenidos
 - [ ] DG/PC: vínculo NI↔VA — bloqueado por decisión de gobierno de fuente (correspondencia NI_n↔VA_n no explícita)
+
+## M2-FINAL-MASS-BATCH (M2_KNOWLEDGE_INDUSTRIALIZATION_INCOMPLETE)
+- [x] DG-01..05 y PC-01..05 publicados (GOVERNED_STRUCTURAL_MAPPING)
+- [x] DT-01..06, CM-01..06, EC-02..05 registrados, extraídos, aceptados y con baseline canónica (16/16)
+- [x] Vocabulario de provenance nativo (EC-05: SOURCE_REVIEW_TRIGGER, sin clases declaradas)
+- [x] Conteos declarados sin enumeración (DECLARED_NOT_ENUMERATED) · DT-04 CRV tipados
+- [x] DT-01 publicado (tabla NI01–NI16 bajo «Information Needs»)
+- [ ] DT-02..06, CM-01..06, EC-02..05 (15): la fuente declara «Resultan N NI» sin enumerarlas → sin camino de adquisición por VA; espera decisión humana/fuente
+- [ ] Activación en la aplicación — espera orden explícita

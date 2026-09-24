@@ -47,10 +47,7 @@
     },
     "historicalClosure": {
       "type": "object",
-      "required": [
-        "marker",
-        "otherOccurrences"
-      ],
+      "required": ["marker", "otherOccurrences"],
       "properties": {
         "marker": {
           "type": "string",
@@ -87,11 +84,7 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": [
-          "label",
-          "declared",
-          "sourceLiteral"
-        ],
+        "required": ["label", "declared", "sourceLiteral"],
         "properties": {
           "label": {
             "type": "string",
@@ -119,12 +112,7 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": [
-          "sourceId",
-          "title",
-          "bodyLineCount",
-          "publicationBlocking"
-        ],
+        "required": ["sourceId", "title", "bodyLineCount", "publicationBlocking"],
         "properties": {
           "sourceId": {
             "type": "string",
