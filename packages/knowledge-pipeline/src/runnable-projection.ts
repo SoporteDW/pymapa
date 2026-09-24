@@ -144,7 +144,7 @@ export function projectBaselineToRunnableSource(
       publicationBlocking: true,
     });
 
-  const vaIds = new Set(variables.map((v) => v.id as string));
+  const vaIds = new Set(variables.map((v) => v["id"] as string));
   const acquisitions: Record<string, unknown>[] = [];
   const unmapped: string[] = [];
   for (const o of byId(objs, /^P[1-5]-/)) {
