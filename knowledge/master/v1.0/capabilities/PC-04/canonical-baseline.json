@@ -1,0 +1,1601 @@
+{
+  "baselineId": "PC04-K4-v1.0",
+  "capabilityId": "PC-04",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "historicalStatus": {
+    "marker": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      797,
+      797
+    ]
+  },
+  "rawSource": {
+    "ref": "raw/PC-04.txt",
+    "sha256": "f9e4952d05f673604ef88ef994f64203d5fbaf732c9c6d6231b963eebc2359d3",
+    "byteLength": 35253,
+    "lineCount": 826,
+    "transcription": {
+      "tool": "pymapa-docx-text 1.0.0",
+      "arguments": ""
+    },
+    "originalDocument": {
+      "filename": "PC_-_01_A_05_Completo.docx",
+      "byteLength": 207139,
+      "sha256": "19e8903f1149ada6bee502c2d410c871474a8c699d2b44f772b3e1f0a2a5be8f"
+    }
+  },
+  "provenanceVocabulary": [
+    {
+      "code": "SOURCE-DERIVED",
+      "label": "SOURCE-DERIVED",
+      "meaning": "El grounding externo sustenta principalmente:",
+      "sourceLines": [
+        708,
+        709
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "PYMAPA-DESIGNED",
+      "label": "PYMAPA-DESIGNED",
+      "meaning": "Son objetos propios:",
+      "sourceLines": [
+        716,
+        717
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    }
+  ],
+  "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 6,
+      "objectType": "SOURCE_ID_CE",
+      "sourceLines": [
+        800,
+        800
+      ]
+    },
+    {
+      "label": "CRV",
+      "declared": 8,
+      "objectType": "SOURCE_ID_CRV",
+      "sourceLines": [
+        808,
+        808
+      ]
+    },
+    {
+      "label": "NI",
+      "declared": 14,
+      "objectType": "SOURCE_ID_NI",
+      "sourceLines": [
+        802,
+        802
+      ]
+    },
+    {
+      "label": "VA",
+      "declared": 14,
+      "objectType": "SOURCE_ID_VA",
+      "sourceLines": [
+        801,
+        801
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "key": "KMAT-01",
+      "objectType": "SOURCE_ID_KMAT",
+      "sourceId": "KMAT-01",
+      "fields": {
+        "heading": "KMAT-01 · Criticality",
+        "title": "Criticality",
+        "body": [
+          "Su ausencia puede afectar significativamente una operación, decisión o resultado."
+        ]
+      },
+      "sourceLines": [
+        93,
+        94
+      ]
+    },
+    {
+      "key": "KMAT-02",
+      "objectType": "SOURCE_ID_KMAT",
+      "sourceId": "KMAT-02",
+      "fields": {
+        "heading": "KMAT-02 · Recurrence",
+        "title": "Recurrence",
+        "body": [
+          "Se necesita repetidamente."
+        ]
+      },
+      "sourceLines": [
+        95,
+        96
+      ]
+    },
+    {
+      "key": "KMAT-03",
+      "objectType": "SOURCE_ID_KMAT",
+      "sourceId": "KMAT-03",
+      "fields": {
+        "heading": "KMAT-03 · Concentration",
+        "title": "Concentration",
+        "body": [
+          "Está excesivamente concentrado."
+        ]
+      },
+      "sourceLines": [
+        97,
+        98
+      ]
+    },
+    {
+      "key": "KMAT-04",
+      "objectType": "SOURCE_ID_KMAT",
+      "sourceId": "KMAT-04",
+      "fields": {
+        "heading": "KMAT-04 · Replacement difficulty",
+        "title": "Replacement difficulty",
+        "body": [
+          "Es difícil/costoso/lento reconstruirlo."
+        ]
+      },
+      "sourceLines": [
+        99,
+        100
+      ]
+    },
+    {
+      "key": "KMAT-05",
+      "objectType": "SOURCE_ID_KMAT",
+      "sourceId": "KMAT-05",
+      "fields": {
+        "heading": "KMAT-05 · Change exposure",
+        "title": "Change exposure",
+        "body": [
+          "Puede perderse por rotación, cambio de proveedor, tecnología, proceso o contexto.",
+          "No son un score obligatorio.",
+          "Son dimensiones para establecer materialidad."
+        ]
+      },
+      "sourceLines": [
+        101,
+        104
+      ]
+    },
+    {
+      "key": "APP-PC04-01",
+      "objectType": "SOURCE_ID_APP",
+      "sourceId": "APP-PC04-01",
+      "fields": {
+        "heading": "APP-PC04-01",
+        "body": [
+          "El conocimiento concentrado solo activa una brecha PC-04 cuando su pérdida, inaccesibilidad o aislamiento tiene consecuencias materiales suficientes."
+        ]
+      },
+      "sourceLines": [
+        118,
+        119
+      ]
+    },
+    {
+      "key": "CE01",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Conocimiento material",
+        "title": "Conocimiento material"
+      },
+      "sourceLines": [
+        134,
+        134
+      ]
+    },
+    {
+      "key": "VA01",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA01",
+      "fields": {
+        "heading": "VA01 · Unidades de conocimiento material identificables",
+        "title": "Unidades de conocimiento material identificables"
+      },
+      "sourceLines": [
+        135,
+        135
+      ]
+    },
+    {
+      "key": "VA02",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA02",
+      "fields": {
+        "heading": "VA02 · Razón de materialidad suficientemente establecida",
+        "title": "Razón de materialidad suficientemente establecida"
+      },
+      "sourceLines": [
+        136,
+        136
+      ]
+    },
+    {
+      "key": "CE02",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Distribución/concentración",
+        "title": "Distribución/concentración"
+      },
+      "sourceLines": [
+        138,
+        138
+      ]
+    },
+    {
+      "key": "VA03",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA03",
+      "fields": {
+        "heading": "VA03 · Poseedores/fuentes conocidos",
+        "title": "Poseedores/fuentes conocidos"
+      },
+      "sourceLines": [
+        139,
+        139
+      ]
+    },
+    {
+      "key": "VA04",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "VA04 · Concentración relevante identificada",
+        "title": "Concentración relevante identificada",
+        "body": [
+          "No penalizamos automáticamente la concentración."
+        ]
+      },
+      "sourceLines": [
+        140,
+        141
+      ]
+    },
+    {
+      "key": "CE03",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Transferencia",
+        "title": "Transferencia"
+      },
+      "sourceLines": [
+        143,
+        143
+      ]
+    },
+    {
+      "key": "VA05",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "VA05 · Destinatarios pertinentes identificados",
+        "title": "Destinatarios pertinentes identificados"
+      },
+      "sourceLines": [
+        144,
+        144
+      ]
+    },
+    {
+      "key": "VA06",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "VA06 · Mecanismo de transferencia adecuado",
+        "title": "Mecanismo de transferencia adecuado"
+      },
+      "sourceLines": [
+        145,
+        145
+      ]
+    },
+    {
+      "key": "VA07",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "VA07 · Transferencia suficientemente efectiva",
+        "title": "Transferencia suficientemente efectiva",
+        "body": [
+          "Enviar un archivo no demuestra transferencia."
+        ]
+      },
+      "sourceLines": [
+        146,
+        147
+      ]
+    },
+    {
+      "key": "CE04",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE04",
+      "fields": {
+        "heading": "CE04 · Recuperabilidad",
+        "title": "Recuperabilidad"
+      },
+      "sourceLines": [
+        149,
+        149
+      ]
+    },
+    {
+      "key": "VA08",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "VA08 · Conocimiento localizable",
+        "title": "Conocimiento localizable"
+      },
+      "sourceLines": [
+        150,
+        150
+      ]
+    },
+    {
+      "key": "VA09",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA09",
+      "fields": {
+        "heading": "VA09 · Conocimiento accesible por quien corresponde",
+        "title": "Conocimiento accesible por quien corresponde"
+      },
+      "sourceLines": [
+        151,
+        151
+      ]
+    },
+    {
+      "key": "VA10",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA10",
+      "fields": {
+        "heading": "VA10 · Recuperación suficientemente oportuna",
+        "title": "Recuperación suficientemente oportuna",
+        "body": [
+          "Aquí existe una relación con PC-01, pero PC-04 analiza el mecanismo organizacional que mantiene el conocimiento disponible."
+        ]
+      },
+      "sourceLines": [
+        152,
+        153
+      ]
+    },
+    {
+      "key": "CE05",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE05",
+      "fields": {
+        "heading": "CE05 · Conservación",
+        "title": "Conservación"
+      },
+      "sourceLines": [
+        155,
+        155
+      ]
+    },
+    {
+      "key": "VA11",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA11",
+      "fields": {
+        "heading": "VA11 · Mecanismo de preservación adecuado a la naturaleza del conocimiento",
+        "title": "Mecanismo de preservación adecuado a la naturaleza del conocimiento"
+      },
+      "sourceLines": [
+        156,
+        156
+      ]
+    },
+    {
+      "key": "VA12",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA12",
+      "fields": {
+        "heading": "VA12 · Resiliencia ante pérdida/cambio de fuente",
+        "title": "Resiliencia ante pérdida/cambio de fuente"
+      },
+      "sourceLines": [
+        157,
+        157
+      ]
+    },
+    {
+      "key": "CE06",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE06",
+      "fields": {
+        "heading": "CE06 · Vigencia y reutilización",
+        "title": "Vigencia y reutilización"
+      },
+      "sourceLines": [
+        159,
+        159
+      ]
+    },
+    {
+      "key": "VA13",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA13",
+      "fields": {
+        "heading": "VA13 · Vigencia suficientemente controlada",
+        "title": "Vigencia suficientemente controlada"
+      },
+      "sourceLines": [
+        160,
+        160
+      ]
+    },
+    {
+      "key": "VA14",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA14",
+      "fields": {
+        "heading": "VA14 · Reutilización efectiva cuando reaparece la necesidad",
+        "title": "Reutilización efectiva cuando reaparece la necesidad",
+        "body": [
+          "Esto completa el ciclo.",
+          "No basta guardar.",
+          "El conocimiento conservado debe seguir siendo utilizable."
+        ]
+      },
+      "sourceLines": [
+        161,
+        164
+      ]
+    },
+    {
+      "key": "NI01",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI01",
+      "fields": {
+        "heading": "| NI01 | Qué conocimiento es material |",
+        "title": "Qué conocimiento es material"
+      },
+      "sourceLines": [
+        204,
+        204
+      ]
+    },
+    {
+      "key": "NI02",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI02",
+      "fields": {
+        "heading": "| NI02 | Por qué es material |",
+        "title": "Por qué es material"
+      },
+      "sourceLines": [
+        205,
+        205
+      ]
+    },
+    {
+      "key": "NI03",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI03",
+      "fields": {
+        "heading": "| NI03 | Quién/dónde lo posee |",
+        "title": "Quién/dónde lo posee"
+      },
+      "sourceLines": [
+        206,
+        206
+      ]
+    },
+    {
+      "key": "NI04",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI04",
+      "fields": {
+        "heading": "| NI04 | Cuánto está concentrado |",
+        "title": "Cuánto está concentrado"
+      },
+      "sourceLines": [
+        207,
+        207
+      ]
+    },
+    {
+      "key": "NI05",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI05",
+      "fields": {
+        "heading": "| NI05 | Quién necesita recibirlo |",
+        "title": "Quién necesita recibirlo"
+      },
+      "sourceLines": [
+        208,
+        208
+      ]
+    },
+    {
+      "key": "NI06",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI06",
+      "fields": {
+        "heading": "| NI06 | Cómo puede transferirse adecuadamente |",
+        "title": "Cómo puede transferirse adecuadamente"
+      },
+      "sourceLines": [
+        209,
+        209
+      ]
+    },
+    {
+      "key": "NI07",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI07",
+      "fields": {
+        "heading": "| NI07 | Si la transferencia funciona |",
+        "title": "Si la transferencia funciona"
+      },
+      "sourceLines": [
+        210,
+        210
+      ]
+    },
+    {
+      "key": "NI08",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI08",
+      "fields": {
+        "heading": "| NI08 | Si puede localizarse |",
+        "title": "Si puede localizarse"
+      },
+      "sourceLines": [
+        211,
+        211
+      ]
+    },
+    {
+      "key": "NI09",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI09",
+      "fields": {
+        "heading": "| NI09 | Si quienes corresponden pueden acceder |",
+        "title": "Si quienes corresponden pueden acceder"
+      },
+      "sourceLines": [
+        212,
+        212
+      ]
+    },
+    {
+      "key": "NI10",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI10",
+      "fields": {
+        "heading": "| NI10 | Si puede recuperarse oportunamente |",
+        "title": "Si puede recuperarse oportunamente"
+      },
+      "sourceLines": [
+        213,
+        213
+      ]
+    },
+    {
+      "key": "NI11",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI11",
+      "fields": {
+        "heading": "| NI11 | Cómo se preserva |",
+        "title": "Cómo se preserva"
+      },
+      "sourceLines": [
+        214,
+        214
+      ]
+    },
+    {
+      "key": "NI12",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI12",
+      "fields": {
+        "heading": "| NI12 | Qué ocurre si desaparece/cambia la fuente |",
+        "title": "Qué ocurre si desaparece/cambia la fuente"
+      },
+      "sourceLines": [
+        215,
+        215
+      ]
+    },
+    {
+      "key": "NI13",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI13",
+      "fields": {
+        "heading": "| NI13 | Cómo se mantiene vigente |",
+        "title": "Cómo se mantiene vigente"
+      },
+      "sourceLines": [
+        216,
+        216
+      ]
+    },
+    {
+      "key": "NI14",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI14",
+      "fields": {
+        "heading": "| NI14 | Si puede reutilizarse efectivamente |",
+        "title": "Si puede reutilizarse efectivamente"
+      },
+      "sourceLines": [
+        217,
+        217
+      ]
+    },
+    {
+      "key": "SUFF-PC04-01",
+      "objectType": "SOURCE_ID_SUFF",
+      "sourceId": "SUFF-PC04-01",
+      "fields": {
+        "heading": "SUFF-PC04-01",
+        "body": [
+          "La suficiencia de cobertura se determina por materialidad, no por porcentaje del conocimiento organizacional inventariado.",
+          "Esto evita un absurdo:",
+          "“tenemos documentado 85 % del conocimiento”.",
+          "No existe una base razonable para calcular ese porcentaje en una pyme típica."
+        ]
+      },
+      "sourceLines": [
+        223,
+        227
+      ]
+    },
+    {
+      "key": "C1",
+      "objectType": "SOURCE_ID_C",
+      "sourceId": "C1",
+      "fields": {
+        "heading": "C1",
+        "body": [
+          "Declaración:",
+          "“María sabe hacerlo y le enseñó a Pedro.”"
+        ]
+      },
+      "sourceLines": [
+        231,
+        233
+      ]
+    },
+    {
+      "key": "C2",
+      "objectType": "SOURCE_ID_C",
+      "sourceId": "C2",
+      "fields": {
+        "heading": "C2",
+        "body": [
+          "Existe mecanismo observable:",
+          "Pedro participó en casos reales y existe material de apoyo."
+        ]
+      },
+      "sourceLines": [
+        234,
+        236
+      ]
+    },
+    {
+      "key": "C3",
+      "objectType": "SOURCE_ID_C",
+      "sourceId": "C3",
+      "fields": {
+        "heading": "C3",
+        "body": [
+          "Prueba funcional:",
+          "María no está disponible y Pedro puede resolver suficientemente el caso.",
+          "Ese último tipo de evidencia es mucho más fuerte para conservación funcional."
+        ]
+      },
+      "sourceLines": [
+        237,
+        240
+      ]
+    },
+    {
+      "key": "P1",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P1",
+      "fields": {
+        "heading": "P1 · Núcleo",
+        "title": "Núcleo",
+        "body": [
+          "Preguntas SME simples:",
+          "“¿Hay cosas importantes que solo una persona sabe hacer o explicar?”",
+          "“Si esa persona no estuviera disponible mañana, ¿qué se detendría o sería difícil reconstruir?”",
+          "“¿Cómo aprende otra persona a hacerlo?”",
+          "“Cuando necesitan recuperar algo importante que ya aprendieron antes, ¿lo encuentran fácilmente?”",
+          "Estas preguntas pueden descubrir mucho sin utilizar el término:",
+          "“knowledge management”."
+        ]
+      },
+      "sourceLines": [
+        243,
+        250
+      ]
+    },
+    {
+      "key": "P2",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P2",
+      "fields": {
+        "heading": "P2 · Triggers",
+        "title": "Triggers",
+        "body": [
+          "Profundizamos cuando aparece:",
+          "- “solo Juan sabe”;",
+          "- salida próxima de persona;",
+          "- dependencia de fundador;",
+          "- dependencia de consultor/proveedor;",
+          "- mismo problema resuelto repetidamente desde cero;",
+          "- archivos personales;",
+          "- múltiples versiones;",
+          "- procedimientos desactualizados;",
+          "- onboarding lento;",
+          "- conocimiento transmitido únicamente oralmente;",
+          "- decisiones históricas imposibles de reconstruir;",
+          "- pérdida después de rotación;",
+          "- información crítica difícil de encontrar;",
+          "- repositorio enorme que nadie utiliza;",
+          "- automatización cuyo funcionamiento nadie comprende suficientemente."
+        ]
+      },
+      "sourceLines": [
+        252,
+        268
+      ]
+    },
+    {
+      "key": "P3",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P3",
+      "fields": {
+        "heading": "P3 · Discriminación",
+        "title": "Discriminación",
+        "body": [
+          "Caso:",
+          "“Solo Ana sabe generar el reporte.”",
+          "Puede significar:",
+          "PC-04: conocimiento material concentrado y no preservado.",
+          "PC-02: otros necesitan desarrollar competencia.",
+          "PC-01: el conocimiento no está accesible.",
+          "DG-05: dependencia crítica de persona.",
+          "OP: el proceso está innecesariamente diseñado alrededor de una persona.",
+          "DT: debería automatizarse o existe una limitación tecnológica.",
+          "Una vez más:",
+          "misma evidencia ≠ misma conclusión."
+        ]
+      },
+      "sourceLines": [
+        270,
+        281
+      ]
+    },
+    {
+      "key": "P4",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P4",
+      "fields": {
+        "heading": "P4 · Contradicciones",
+        "title": "Contradicciones"
+      },
+      "sourceLines": [
+        283,
+        283
+      ]
+    },
+    {
+      "key": "CONTR-PC04-01",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-PC04-01",
+      "fields": {
+        "heading": "CONTR-PC04-01",
+        "body": [
+          "DECLARED_DOCUMENTED_vs_OBSERVED_RECOVERABILITY",
+          "“Todo está documentado.”",
+          "pero:",
+          "nadie puede localizar la versión vigente."
+        ]
+      },
+      "sourceLines": [
+        284,
+        288
+      ]
+    },
+    {
+      "key": "CONTR-PC04-02",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-PC04-02",
+      "fields": {
+        "heading": "CONTR-PC04-02",
+        "body": [
+          "DECLARED_SHARED_vs_OBSERVED_DEPENDENCY",
+          "“Todos saben hacerlo.”",
+          "pero:",
+          "ante ausencia de una persona el proceso se detiene."
+        ]
+      },
+      "sourceLines": [
+        290,
+        294
+      ]
+    },
+    {
+      "key": "CONTR-PC04-03",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-PC04-03",
+      "fields": {
+        "heading": "CONTR-PC04-03",
+        "body": [
+          "PRESERVED_vs_OBSOLETE",
+          "existe procedimiento perfectamente conservado, pero describe una versión anterior del proceso.",
+          "Estas contradicciones necesitan permanecer distintas."
+        ]
+      },
+      "sourceLines": [
+        296,
+        299
+      ]
+    },
+    {
+      "key": "P5",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P5",
+      "fields": {
+        "heading": "P5 · Validación",
+        "title": "Validación",
+        "body": [
+          "Ejemplo:",
+          "“Entendemos que existe documentación del proceso, pero cuando necesitan utilizarla el equipo consulta a Laura porque no puede determinar cuál versión está vigente. ¿Es correcto?”",
+          "Observación antes que diagnóstico."
+        ]
+      },
+      "sourceLines": [
+        301,
+        304
+      ]
+    },
+    {
+      "key": "R-PC04-01",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC04-01",
+      "fields": {
+        "heading": "R-PC04-01 · MATERIAL_KNOWLEDGE_NOT_IDENTIFIED",
+        "title": "MATERIAL_KNOWLEDGE_NOT_IDENTIFIED",
+        "body": [
+          "Conocimiento material insuficientemente visible."
+        ]
+      },
+      "sourceLines": [
+        332,
+        333
+      ]
+    },
+    {
+      "key": "R-PC04-02",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC04-02",
+      "fields": {
+        "heading": "R-PC04-02 · KNOWLEDGE_MATERIALITY_UNCLEAR",
+        "title": "KNOWLEDGE_MATERIALITY_UNCLEAR",
+        "body": [
+          "No está suficientemente establecido por qué debe preservarse/compartirse."
+        ]
+      },
+      "sourceLines": [
+        334,
+        335
+      ]
+    },
+    {
+      "key": "R-PC04-03",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC04-03",
+      "fields": {
+        "heading": "R-PC04-03 · KNOWLEDGE_SOURCE_UNCLEAR",
+        "title": "KNOWLEDGE_SOURCE_UNCLEAR",
+        "body": [
+          "No se conoce suficientemente dónde reside."
+        ]
+      },
+      "sourceLines": [
+        336,
+        337
+      ]
+    },
+    {
+      "key": "R-PC04-04",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC04-04",
+      "fields": {
+        "heading": "R-PC04-04 · MATERIAL_KNOWLEDGE_CONCENTRATION",
+        "title": "MATERIAL_KNOWLEDGE_CONCENTRATION",
+        "body": [
+          "Existe concentración material con continuidad insuficiente."
+        ]
+      },
+      "sourceLines": [
+        338,
+        339
+      ]
+    },
+    {
+      "key": "R-PC04-05",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC04-05",
+      "fields": {
+        "heading": "R-PC04-05 · KNOWLEDGE_RECIPIENT_UNCLEAR",
+        "title": "KNOWLEDGE_RECIPIENT_UNCLEAR",
+        "body": [
+          "No está suficientemente identificado quién necesita recibirlo."
+        ]
+      },
+      "sourceLines": [
+        340,
+        341
+      ]
+    },
+    {
+      "key": "R-PC04-06",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC04-06",
+      "fields": {
+        "heading": "R-PC04-06 · TRANSFER_MECHANISM_MISMATCH",
+        "title": "TRANSFER_MECHANISM_MISMATCH",
+        "body": [
+          "El mecanismo de transferencia no corresponde al conocimiento."
+        ]
+      },
+      "sourceLines": [
+        342,
+        343
+      ]
+    },
+    {
+      "key": "R-PC04-07",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC04-07",
+      "fields": {
+        "heading": "R-PC04-07 · KNOWLEDGE_TRANSFER_GAP",
+        "title": "KNOWLEDGE_TRANSFER_GAP",
+        "body": [
+          "La transferencia no produce disponibilidad/capacidad suficiente."
+        ]
+      },
+      "sourceLines": [
+        344,
+        345
+      ]
+    },
+    {
+      "key": "R-PC04-08",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC04-08",
+      "fields": {
+        "heading": "R-PC04-08 · KNOWLEDGE_NOT_LOCATABLE",
+        "title": "KNOWLEDGE_NOT_LOCATABLE",
+        "body": [
+          "El conocimiento existe pero no puede localizarse suficientemente."
+        ]
+      },
+      "sourceLines": [
+        346,
+        347
+      ]
+    },
+    {
+      "key": "R-PC04-09",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC04-09",
+      "fields": {
+        "heading": "R-PC04-09 · KNOWLEDGE_ACCESS_RESTRICTION_GAP",
+        "title": "KNOWLEDGE_ACCESS_RESTRICTION_GAP",
+        "body": [
+          "Quien legítimamente lo necesita no puede acceder suficientemente."
+        ]
+      },
+      "sourceLines": [
+        348,
+        349
+      ]
+    },
+    {
+      "key": "R-PC04-10",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC04-10",
+      "fields": {
+        "heading": "R-PC04-10 · KNOWLEDGE_RECOVERY_TOO_SLOW",
+        "title": "KNOWLEDGE_RECOVERY_TOO_SLOW",
+        "body": [
+          "Puede recuperarse, pero no dentro del horizonte requerido."
+        ]
+      },
+      "sourceLines": [
+        350,
+        351
+      ]
+    },
+    {
+      "key": "R-PC04-11",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC04-11",
+      "fields": {
+        "heading": "R-PC04-11 · PRESERVATION_MECHANISM_GAP",
+        "title": "PRESERVATION_MECHANISM_GAP",
+        "body": [
+          "El mecanismo de conservación es insuficiente."
+        ]
+      },
+      "sourceLines": [
+        352,
+        353
+      ]
+    },
+    {
+      "key": "R-PC04-12",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC04-12",
+      "fields": {
+        "heading": "R-PC04-12 · KNOWLEDGE_CONTINUITY_FRAGILITY",
+        "title": "KNOWLEDGE_CONTINUITY_FRAGILITY",
+        "body": [
+          "Cambios/pérdida de la fuente pueden eliminar disponibilidad material."
+        ]
+      },
+      "sourceLines": [
+        354,
+        355
+      ]
+    },
+    {
+      "key": "R-PC04-13",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC04-13",
+      "fields": {
+        "heading": "R-PC04-13 · KNOWLEDGE_CURRENCY_GAP",
+        "title": "KNOWLEDGE_CURRENCY_GAP",
+        "body": [
+          "No existe control suficiente de vigencia o el conocimiento está obsoleto."
+        ]
+      },
+      "sourceLines": [
+        356,
+        357
+      ]
+    },
+    {
+      "key": "R-PC04-14",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-PC04-14",
+      "fields": {
+        "heading": "R-PC04-14 · KNOWLEDGE_REUSE_GAP",
+        "title": "KNOWLEDGE_REUSE_GAP",
+        "body": [
+          "Conocimiento disponible no se reutiliza suficientemente cuando reaparece la necesidad."
+        ]
+      },
+      "sourceLines": [
+        358,
+        359
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-PC04-01",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-PC04-01",
+      "fields": {
+        "heading": "CAND-MOTOR-PC04-01 · El Motor debe mantener separados existencia, transferencia, recuperabilidad, preservación, vigencia y reutilización del conocimiento.",
+        "title": "El Motor debe mantener separados existencia, transferencia, recuperabilidad, preservación, vigencia y reutilización del conocimiento.",
+        "body": [
+          "Segundo:"
+        ]
+      },
+      "sourceLines": [
+        389,
+        390
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-PC04-02",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-PC04-02",
+      "fields": {
+        "heading": "CAND-MOTOR-PC04-02 · La concentración de conocimiento solo debe convertirse en finding negativo cuando exista materialidad y fragilidad de continuidad suficientes.",
+        "title": "La concentración de conocimiento solo debe convertirse en finding negativo cuando exista materialidad y fragilidad de continuidad suficientes.",
+        "body": [
+          "Tercero:"
+        ]
+      },
+      "sourceLines": [
+        391,
+        392
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-PC04-03",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-PC04-03",
+      "fields": {
+        "heading": "CAND-MOTOR-PC04-03 · El mecanismo de conservación debe ser neutral respecto del soporte: persona, documento, sistema, automatización o combinación pueden ser válidos si producen continuidad utilizable suficiente.",
+        "title": "El mecanismo de conservación debe ser neutral respecto del soporte: persona, documento, sistema, automatización o combinación pueden ser válidos si producen continuidad utilizable suficiente.",
+        "body": [
+          "Y cuarto:"
+        ]
+      },
+      "sourceLines": [
+        393,
+        394
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-PC04-04",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-PC04-04",
+      "fields": {
+        "heading": "CAND-MOTOR-PC04-04 · La vigencia del conocimiento debe tratarse como estado independiente de su existencia o preservación.",
+        "title": "La vigencia del conocimiento debe tratarse como estado independiente de su existencia o preservación.",
+        "body": [
+          "Esto último es importante porque el Motor podrá distinguir:",
+          "MISSING",
+          "NOT-RECOVERABLE",
+          "FRAGILE",
+          "OBSOLETE",
+          "aunque para el usuario todos puedan manifestarse como:",
+          "“no tenemos el conocimiento que necesitamos”."
+        ]
+      },
+      "sourceLines": [
+        395,
+        402
+      ]
+    },
+    {
+      "key": "INT-PC04-01",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-PC04-01",
+      "fields": {
+        "heading": "INT-PC04-01",
+        "body": [
+          "La organización debe conservar conocimiento material con el mecanismo de menor complejidad que produzca continuidad, recuperabilidad, vigencia y reutilización suficientes para el riesgo y uso previstos.",
+          "Esto evita dos extremos:",
+          "“todo vive en la cabeza del fundador”",
+          "y",
+          "“documentemos todo lo que sabemos”."
+        ]
+      },
+      "sourceLines": [
+        504,
+        509
+      ]
+    },
+    {
+      "key": "DEL-PC04-01",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC04-01",
+      "fields": {
+        "heading": "DEL-PC04-01 · conocimiento material identificado",
+        "title": "conocimiento material identificado"
+      },
+      "sourceLines": [
+        562,
+        562
+      ]
+    },
+    {
+      "key": "DEL-PC04-02",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC04-02",
+      "fields": {
+        "heading": "DEL-PC04-02 · concentraciones materiales evaluadas",
+        "title": "concentraciones materiales evaluadas"
+      },
+      "sourceLines": [
+        563,
+        563
+      ]
+    },
+    {
+      "key": "DEL-PC04-03",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC04-03",
+      "fields": {
+        "heading": "DEL-PC04-03 · transferencia pertinente habilitada",
+        "title": "transferencia pertinente habilitada"
+      },
+      "sourceLines": [
+        564,
+        564
+      ]
+    },
+    {
+      "key": "DEL-PC04-04",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC04-04",
+      "fields": {
+        "heading": "DEL-PC04-04 · conocimiento material recuperable",
+        "title": "conocimiento material recuperable"
+      },
+      "sourceLines": [
+        565,
+        565
+      ]
+    },
+    {
+      "key": "DEL-PC04-05",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC04-05",
+      "fields": {
+        "heading": "DEL-PC04-05 · continuidad suficientemente protegida",
+        "title": "continuidad suficientemente protegida"
+      },
+      "sourceLines": [
+        566,
+        566
+      ]
+    },
+    {
+      "key": "DEL-PC04-06",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC04-06",
+      "fields": {
+        "heading": "DEL-PC04-06 · mecanismo de preservación adecuado",
+        "title": "mecanismo de preservación adecuado"
+      },
+      "sourceLines": [
+        567,
+        567
+      ]
+    },
+    {
+      "key": "DEL-PC04-07",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC04-07",
+      "fields": {
+        "heading": "DEL-PC04-07 · conocimiento vigente/controlado",
+        "title": "conocimiento vigente/controlado"
+      },
+      "sourceLines": [
+        568,
+        568
+      ]
+    },
+    {
+      "key": "DEL-PC04-08",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-PC04-08",
+      "fields": {
+        "heading": "DEL-PC04-08 · conocimiento reutilizable en necesidad real",
+        "title": "conocimiento reutilizable en necesidad real"
+      },
+      "sourceLines": [
+        569,
+        569
+      ]
+    },
+    {
+      "key": "CRV-PC04-01",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-PC04-01",
+      "fields": {
+        "heading": "| CRV-PC04-01 | Conocimiento material suficientemente identificado |",
+        "title": "Conocimiento material suficientemente identificado"
+      },
+      "sourceLines": [
+        589,
+        589
+      ]
+    },
+    {
+      "key": "CRV-PC04-02",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-PC04-02",
+      "fields": {
+        "heading": "| CRV-PC04-02 | Concentraciones materiales con continuidad suficiente |",
+        "title": "Concentraciones materiales con continuidad suficiente"
+      },
+      "sourceLines": [
+        590,
+        590
+      ]
+    },
+    {
+      "key": "CRV-PC04-03",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-PC04-03",
+      "fields": {
+        "heading": "| CRV-PC04-03 | Destinatarios pertinentes pueden recibir/utilizar el conocimiento requerido |",
+        "title": "Destinatarios pertinentes pueden recibir/utilizar el conocimiento requerido"
+      },
+      "sourceLines": [
+        591,
+        591
+      ]
+    },
+    {
+      "key": "CRV-PC04-04",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-PC04-04",
+      "fields": {
+        "heading": "| CRV-PC04-04 | Conocimiento material localizable y accesible oportunamente |",
+        "title": "Conocimiento material localizable y accesible oportunamente"
+      },
+      "sourceLines": [
+        592,
+        592
+      ]
+    },
+    {
+      "key": "CRV-PC04-05",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-PC04-05",
+      "fields": {
+        "heading": "| CRV-PC04-05 | Conocimiento crítico sobrevive suficientemente a pérdida/cambio de fuente |",
+        "title": "Conocimiento crítico sobrevive suficientemente a pérdida/cambio de fuente"
+      },
+      "sourceLines": [
+        593,
+        593
+      ]
+    },
+    {
+      "key": "CRV-PC04-06",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-PC04-06",
+      "fields": {
+        "heading": "| CRV-PC04-06 | Mecanismo de preservación funciona según la naturaleza del conocimiento |",
+        "title": "Mecanismo de preservación funciona según la naturaleza del conocimiento"
+      },
+      "sourceLines": [
+        594,
+        594
+      ]
+    },
+    {
+      "key": "CRV-PC04-07",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-PC04-07",
+      "fields": {
+        "heading": "| CRV-PC04-07 | Conocimiento preservado mantiene vigencia suficiente |",
+        "title": "Conocimiento preservado mantiene vigencia suficiente"
+      },
+      "sourceLines": [
+        595,
+        595
+      ]
+    },
+    {
+      "key": "CRV-PC04-08",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-PC04-08",
+      "fields": {
+        "heading": "| CRV-PC04-08 | Conocimiento puede reutilizarse satisfactoriamente en un caso representativo |",
+        "title": "Conocimiento puede reutilizarse satisfactoriamente en un caso representativo"
+      },
+      "sourceLines": [
+        596,
+        596
+      ]
+    },
+    {
+      "key": "V0",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V0",
+      "fields": {
+        "heading": "V0 · UNKNOWN",
+        "title": "UNKNOWN",
+        "body": [
+          "No existe evidencia suficiente."
+        ]
+      },
+      "sourceLines": [
+        615,
+        616
+      ]
+    },
+    {
+      "key": "V1",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V1",
+      "fields": {
+        "heading": "V1 · MECHANISM-EXISTS",
+        "title": "MECHANISM-EXISTS",
+        "body": [
+          "Existe mecanismo de transferencia/preservación.",
+          "Ejemplo:",
+          "repositorio creado.",
+          "Todavía no demuestra capacidad."
+        ]
+      },
+      "sourceLines": [
+        617,
+        621
+      ]
+    },
+    {
+      "key": "V2",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V2",
+      "fields": {
+        "heading": "V2 · RECOVERABLE",
+        "title": "RECOVERABLE",
+        "body": [
+          "Una persona pertinente puede encontrar y acceder al conocimiento."
+        ]
+      },
+      "sourceLines": [
+        622,
+        623
+      ]
+    },
+    {
+      "key": "V3",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V3",
+      "fields": {
+        "heading": "V3 · USABLE",
+        "title": "USABLE",
+        "body": [
+          "Puede utilizarlo satisfactoriamente en una necesidad representativa."
+        ]
+      },
+      "sourceLines": [
+        624,
+        625
+      ]
+    },
+    {
+      "key": "V4",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V4",
+      "fields": {
+        "heading": "V4 · CONTINUITY-VALIDATED",
+        "title": "CONTINUITY-VALIDATED",
+        "body": [
+          "La disponibilidad se sostiene ante una condición relevante de continuidad:",
+          "- ausencia de persona;",
+          "- cambio de rol;",
+          "- paso del tiempo;",
+          "- recurrencia;",
+          "- actualización.",
+          "De nuevo, no toda situación necesita V4."
+        ]
+      },
+      "sourceLines": [
+        626,
+        633
+      ]
+    },
+    {
+      "key": "REASS-PC04-01",
+      "objectType": "SOURCE_ID_REASS",
+      "sourceId": "REASS-PC04-01",
+      "fields": {
+        "heading": "REASS-PC04-01",
+        "body": [
+          "La continuidad de conocimiento debe reevaluarse cuando cambien materialmente la fuente, el uso, la criticidad o el mecanismo mediante el cual se preserva."
+        ]
+      },
+      "sourceLines": [
+        676,
+        677
+      ]
+    },
+    {
+      "key": "CAND-MOTOR-AI-KNOW-02",
+      "objectType": "SOURCE_ID_CAND",
+      "sourceId": "CAND-MOTOR-AI-KNOW-02",
+      "fields": {
+        "heading": "CAND-MOTOR-AI-KNOW-02 · El conocimiento embebido en automatización o IA puede constituir un mecanismo de preservación, pero debe evaluarse su recuperabilidad, provenance, vigencia y capacidad de actualización cuando sean materiales.",
+        "title": "El conocimiento embebido en automatización o IA puede constituir un mecanismo de preservación, pero debe evaluarse su recuperabilidad, provenance, vigencia y capacidad de actualización cuando sean materiales.",
+        "body": [
+          "No desarrollamos todavía la gobernanza específica de IA."
+        ]
+      },
+      "sourceLines": [
+        692,
+        693
+      ]
+    },
+    {
+      "key": "SOURCE-REVIEW-TRIGGER-PC04-01",
+      "objectType": "SOURCE_ID_SOURCE",
+      "sourceId": "SOURCE-REVIEW-TRIGGER-PC04-01",
+      "fields": {
+        "heading": "SOURCE-REVIEW-TRIGGER-PC04-01 · Revisar PC-01 y PC-04 cuando se publique la siguiente edición definitiva de ISO 30401.",
+        "title": "Revisar PC-01 y PC-04 cuando se publique la siguiente edición definitiva de ISO 30401.",
+        "body": [
+          "No necesitamos duplicar la fuente; ambos Knowledge Packs pueden referenciar el mismo Source Object.",
+          "Esto es precisamente lo que deberá hacer K3:",
+          "una fuente → múltiples objetos derivados → provenance independiente."
+        ]
+      },
+      "sourceLines": [
+        736,
+        739
+      ]
+    },
+    {
+      "key": "K1",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Coherencia — PASS. PC-04 queda diferenciada de PC-01, PC-02 y DG-05. No se convierte en gestión documental.",
+        "title": "Coherencia — PASS. PC-04 queda diferenciada de PC-01, PC-02 y DG-05. No se convierte en gestión documental."
+      },
+      "sourceLines": [
+        792,
+        792
+      ]
+    },
+    {
+      "key": "K2",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Razonamiento — PASS. Existencia, transferencia, recuperación, preservación, vigencia y reutilización son estados independientes. Concentración tampoco equivale automáticamente a brecha.",
+        "title": "Razonamiento — PASS. Existencia, transferencia, recuperación, preservación, vigencia y reutilización son estados independientes. Concentración tampoco equivale automáticamente a brecha."
+      },
+      "sourceLines": [
+        793,
+        793
+      ]
+    },
+    {
+      "key": "K3",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · Acción — PASS. La intervención puede ser humana, documental, tecnológica, organizacional o híbrida y se selecciona según causalidad y materialidad.",
+        "title": "Acción — PASS. La intervención puede ser humana, documental, tecnológica, organizacional o híbrida y se selecciona según causalidad y materialidad."
+      },
+      "sourceLines": [
+        794,
+        794
+      ]
+    },
+    {
+      "key": "K4",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · Conocimiento — PASS. Grounding, provenance, reutilización de fuentes, versionado y triggers quedan gobernados.",
+        "title": "Conocimiento — PASS. Grounding, provenance, reutilización de fuentes, versionado y triggers quedan gobernados."
+      },
+      "sourceLines": [
+        795,
+        795
+      ]
+    }
+  ],
+  "supersessions": [],
+  "executableProjection": {
+    "sourceRef": "source.json",
+    "verbatimKeys": [
+      "heading",
+      "title",
+      "body"
+    ],
+    "projectedObjectTypes": [],
+    "canonicalOnlyGapRefs": []
+  },
+  "gaps": [],
+  "transcriptionCorrections": [],
+  "checksum": "sha256:979031cd4e5370a026f353143d3107e517bdfc6168c70311bace46745083db4e"
+}

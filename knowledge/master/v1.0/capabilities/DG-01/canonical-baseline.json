@@ -1,0 +1,1419 @@
+{
+  "baselineId": "DG01-K4-v1.0",
+  "capabilityId": "DG-01",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "historicalStatus": {
+    "marker": "DG01-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      832,
+      832
+    ]
+  },
+  "rawSource": {
+    "ref": "raw/DG-01.txt",
+    "sha256": "cf38d30f1b7c764c07de706bfd6360110175d9e235099881044bb664745adb68",
+    "byteLength": 52075,
+    "lineCount": 855,
+    "transcription": {
+      "tool": "pymapa-docx-text 1.0.0",
+      "arguments": ""
+    },
+    "originalDocument": {
+      "filename": "DG_-_01_A_05_Completo.docx",
+      "byteLength": 205770,
+      "sha256": "1862e0e860b8b5a2bd446dbc5d7cb0545841fa9dba013666f5cc1e645490b2c8"
+    }
+  },
+  "provenanceVocabulary": [
+    {
+      "code": "SOURCE-DERIVED",
+      "label": "SOURCE-DERIVED",
+      "meaning": "SOURCE-DERIVED",
+      "sourceLines": [
+        732,
+        732
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "PYMAPA-DESIGNED / SYNTHESIZED",
+      "label": "PYMAPA-DESIGNED / SYNTHESIZED",
+      "meaning": "PYMAPA-DESIGNED / SYNTHESIZED",
+      "sourceLines": [
+        738,
+        738
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    }
+  ],
+  "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 4,
+      "objectType": "SOURCE_ID_CE",
+      "sourceLines": [
+        835,
+        835
+      ]
+    },
+    {
+      "label": "CRV",
+      "declared": 6,
+      "objectType": "SOURCE_ID_CRV",
+      "sourceLines": [
+        843,
+        843
+      ]
+    },
+    {
+      "label": "NI",
+      "declared": 9,
+      "objectType": "SOURCE_ID_NI",
+      "sourceLines": [
+        837,
+        837
+      ]
+    },
+    {
+      "label": "STOP",
+      "declared": 1,
+      "objectType": "SOURCE_ID_STOP",
+      "sourceLines": [
+        552,
+        552
+      ]
+    },
+    {
+      "label": "VA",
+      "declared": 9,
+      "objectType": "SOURCE_ID_VA",
+      "sourceLines": [
+        836,
+        836
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "key": "P-DT-01",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DT-01",
+      "fields": {
+        "heading": "P-DT-01 · Presencia tecnológica ≠ capacidad tecnológica",
+        "title": "Presencia tecnológica ≠ capacidad tecnológica",
+        "body": [
+          "Tener:",
+          "- ERP;",
+          "- CRM;",
+          "- nube;",
+          "- BI;",
+          "- APIs;",
+          "- IA;",
+          "- cybersecurity tools;",
+          "no demuestra por sí mismo ninguna de las seis capacidades.",
+          "Del mismo modo:",
+          "no tener una tecnología sofisticada tampoco demuestra una brecha.",
+          "La pregunta siempre será:",
+          "¿es suficiente y pertinente respecto de las necesidades materiales de esa pyme?",
+          "Esto será particularmente importante porque Pymapa está diseñado para pymes."
+        ]
+      },
+      "sourceLines": [
+        168,
+        182
+      ]
+    },
+    {
+      "key": "PYMAPA-TAXONOMY-OE1D-6x31",
+      "objectType": "SOURCE_ID_PYMAPA",
+      "sourceId": "PYMAPA-TAXONOMY-OE1D-6x31",
+      "fields": {
+        "heading": "PYMAPA-TAXONOMY-OE1D-6x31 · RECOVERED · AUTHORITATIVE-CONCEPTUAL-REFERENCE",
+        "title": "RECOVERED · AUTHORITATIVE-CONCEPTUAL-REFERENCE",
+        "body": [
+          "con la nota obligatoria:",
+          "Origen: OE1-D de la tesis doctoral; adoptada en Fase 2 como referencia conceptual 6/31 para la Matriz Taxonómica Oficial de Pymapa. No confundir con legado aplicado 9/45.",
+          "Y:",
+          "DOMAIN-DT · 6 CAPABILITIES · READY-FOR-KNOWLEDGE-ENGINEERING",
+          "Con esto ya no necesitamos ninguna otra preparación taxonómica. El siguiente movimiento es DT-01 · SET A — Bloques 1–6, y lo desarrollaremos con la profundidad completa que requiera la capacidad, manteniendo una sola parada al terminar el set.",
+          "Antes de arrancar, qué pasa con los dominios DG y PC que están en la taxonomía ants de OP(que ya se hizo) y DT (que es el que te dispones a hacer)?",
+          "Muy buena observación. No debemos saltar a DT todavía. El orden que veníamos siguiendo quedó desalineado porque empezamos la ingeniería detallada por OP antes de recuperar formalmente la taxonomía 6/31.",
+          "La situación real es esta:",
+          "| Orden | Dominio | Capacidades | Estado en nuestra Fase 2 |",
+          "| 1 | DG · Dirección y gobierno | 5 | 🔴 Pendiente de ingeniería |",
+          "| 2 | PC · Personas, cultura y conocimiento | 5 | 🔴 Pendiente de ingeniería |",
+          "| 3 | OP · Organización, procesos y ejecución | 5 | 🟢 5/5 cerradas K4 |",
+          "| 4 | DT · Datos y habilitación tecnológica | 6 | ⚪ Aún no iniciado |",
+          "| 5 | CM · Cliente, mercado y creación de valor | 6 | ⚪ Pendiente |",
+          "| 6 | EC · Ecosistema y capacidades externas | 4 | ⚪ Pendiente |",
+          "Por tanto, mi frase anterior de que “el siguiente movimiento es DT-01” no es la secuencia correcta para completar sistemáticamente la taxonomía."
+        ]
+      },
+      "sourceLines": [
+        246,
+        262
+      ]
+    },
+    {
+      "key": "CE01",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Comprensión actual del negocio",
+        "title": "Comprensión actual del negocio",
+        "body": [
+          "Busca determinar si la transformación parte del negocio que realmente existe, no de una aspiración tecnológica abstracta.",
+          "| VA | Variable |"
+        ]
+      },
+      "sourceLines": [
+        340,
+        342
+      ]
+    },
+    {
+      "key": "VA01",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA01",
+      "fields": {
+        "heading": "| VA01 | Modelo y lógica actual de creación de valor |",
+        "title": "Modelo y lógica actual de creación de valor"
+      },
+      "sourceLines": [
+        343,
+        343
+      ]
+    },
+    {
+      "key": "VA02",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA02",
+      "fields": {
+        "heading": "| VA02 | Situación, desempeño y restricciones materiales del negocio |",
+        "title": "Situación, desempeño y restricciones materiales del negocio",
+        "body": [
+          "No pretendemos reconstruir un Business Model Canvas completo. Necesitamos saber qué hace materialmente que esta empresa funcione y dónde están sus restricciones relevantes."
+        ]
+      },
+      "sourceLines": [
+        344,
+        345
+      ]
+    },
+    {
+      "key": "CE02",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Dirección empresarial",
+        "title": "Dirección empresarial",
+        "body": [
+          "| VA | Variable |"
+        ]
+      },
+      "sourceLines": [
+        347,
+        348
+      ]
+    },
+    {
+      "key": "VA03",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA03",
+      "fields": {
+        "heading": "| VA03 | Objetivos y prioridades relevantes del negocio |",
+        "title": "Objetivos y prioridades relevantes del negocio"
+      },
+      "sourceLines": [
+        349,
+        349
+      ]
+    },
+    {
+      "key": "VA04",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "| VA04 | Horizonte, ambición y cambios esperados |",
+        "title": "Horizonte, ambición y cambios esperados",
+        "body": [
+          "Una empresa puede no tener “estrategia formal”, pero sí una dirección suficientemente explícita:",
+          "crecer determinado canal, reducir dependencia de pocos clientes, mejorar margen, expandirse, estabilizar operación, profesionalizarse, etc."
+        ]
+      },
+      "sourceLines": [
+        350,
+        352
+      ]
+    },
+    {
+      "key": "CE03",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Lectura del entorno relevante",
+        "title": "Lectura del entorno relevante",
+        "body": [
+          "| VA | Variable |"
+        ]
+      },
+      "sourceLines": [
+        356,
+        357
+      ]
+    },
+    {
+      "key": "VA05",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "| VA05 | Cambios relevantes en clientes y mercado |",
+        "title": "Cambios relevantes en clientes y mercado"
+      },
+      "sourceLines": [
+        358,
+        358
+      ]
+    },
+    {
+      "key": "VA06",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "| VA06 | Cambios competitivos, tecnológicos y del ecosistema |",
+        "title": "Cambios competitivos, tecnológicos y del ecosistema"
+      },
+      "sourceLines": [
+        359,
+        359
+      ]
+    },
+    {
+      "key": "VA07",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "| VA07 | Restricciones, riesgos y condiciones externas materiales |",
+        "title": "Restricciones, riesgos y condiciones externas materiales",
+        "body": [
+          "No pretendemos que una pyme realice análisis PESTEL completos.",
+          "Aplicaremos materialidad contextual: solo importa aquello capaz de modificar decisiones relevantes de transformación.",
+          "La OECD confirma que las trayectorias de digitalización de las pymes varían según sector, tamaño, recursos, infraestructura, habilidades y otras condiciones. OECD"
+        ]
+      },
+      "sourceLines": [
+        360,
+        363
+      ]
+    },
+    {
+      "key": "CE04",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE04",
+      "fields": {
+        "heading": "CE04 · Traducción hacia una dirección de transformación",
+        "title": "Traducción hacia una dirección de transformación",
+        "body": [
+          "Esta es la condición integradora.",
+          "| VA | Variable |"
+        ]
+      },
+      "sourceLines": [
+        365,
+        367
+      ]
+    },
+    {
+      "key": "VA08",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "| VA08 | Necesidades y oportunidades de transformación derivadas |",
+        "title": "Necesidades y oportunidades de transformación derivadas"
+      },
+      "sourceLines": [
+        368,
+        368
+      ]
+    },
+    {
+      "key": "VA09",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA09",
+      "fields": {
+        "heading": "| VA09 | Coherencia entre dirección empresarial y dirección de transformación |",
+        "title": "Coherencia entre dirección empresarial y dirección de transformación",
+        "body": [
+          "Aquí aparece la diferencia entre:",
+          "“queremos implementar IA”",
+          "y:",
+          "“necesitamos reducir el tiempo y costo de atención manteniendo calidad mientras duplicamos volumen; estamos evaluando IA como una posible respuesta”.",
+          "La segunda formulación conecta transformación con negocio. La primera todavía no.",
+          "ISO 56002 resulta complementaria aquí: vincula dirección estratégica, objetivos compartidos, recursos, priorización y evaluación de resultados, sin prescribir una herramienta o método particular. ISO"
+        ]
+      },
+      "sourceLines": [
+        369,
+        375
+      ]
+    },
+    {
+      "key": "P-DG01-01",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG01-01",
+      "fields": {
+        "heading": "P-DG01-01 · Transformación ≠ tecnología.",
+        "title": "Transformación ≠ tecnología.",
+        "body": [
+          "La dirección de transformación puede involucrar procesos, personas, datos, cliente, gobierno, tecnología o ecosistema."
+        ]
+      },
+      "sourceLines": [
+        388,
+        389
+      ]
+    },
+    {
+      "key": "P-DG01-02",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG01-02",
+      "fields": {
+        "heading": "P-DG01-02 · Tecnología deseada ≠ necesidad empresarial demostrada.",
+        "title": "Tecnología deseada ≠ necesidad empresarial demostrada."
+      },
+      "sourceLines": [
+        390,
+        390
+      ]
+    },
+    {
+      "key": "P-DG01-03",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG01-03",
+      "fields": {
+        "heading": "P-DG01-03 · Documento estratégico ≠ orientación efectiva.",
+        "title": "Documento estratégico ≠ orientación efectiva."
+      },
+      "sourceLines": [
+        391,
+        391
+      ]
+    },
+    {
+      "key": "P-DG01-04",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG01-04",
+      "fields": {
+        "heading": "P-DG01-04 · Ausencia de documento ≠ ausencia de orientación.",
+        "title": "Ausencia de documento ≠ ausencia de orientación."
+      },
+      "sourceLines": [
+        392,
+        392
+      ]
+    },
+    {
+      "key": "P-DG01-05",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG01-05",
+      "fields": {
+        "heading": "P-DG01-05 · Contexto relevante ≠ análisis exhaustivo del entorno.",
+        "title": "Contexto relevante ≠ análisis exhaustivo del entorno."
+      },
+      "sourceLines": [
+        393,
+        393
+      ]
+    },
+    {
+      "key": "P-DG01-06",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG01-06",
+      "fields": {
+        "heading": "P-DG01-06 · Oportunidad externa ≠ prioridad automática.",
+        "title": "Oportunidad externa ≠ prioridad automática."
+      },
+      "sourceLines": [
+        394,
+        394
+      ]
+    },
+    {
+      "key": "P-DG01-07",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG01-07",
+      "fields": {
+        "heading": "P-DG01-07 · Tendencia ≠ necesidad.",
+        "title": "Tendencia ≠ necesidad."
+      },
+      "sourceLines": [
+        395,
+        395
+      ]
+    },
+    {
+      "key": "P-DG01-08",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-DG01-08",
+      "fields": {
+        "heading": "P-DG01-08 · Orientación ≠ priorización.",
+        "title": "Orientación ≠ priorización.",
+        "body": [
+          "DG-01 establece dirección; DG-02 decide entre alternativas y recursos."
+        ]
+      },
+      "sourceLines": [
+        396,
+        397
+      ]
+    },
+    {
+      "key": "NI01",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI01",
+      "fields": {
+        "heading": "| NI01 | Cómo crea valor actualmente la empresa |",
+        "title": "Cómo crea valor actualmente la empresa"
+      },
+      "sourceLines": [
+        402,
+        402
+      ]
+    },
+    {
+      "key": "NI02",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI02",
+      "fields": {
+        "heading": "| NI02 | Cuáles son sus principales restricciones/desafíos materiales |",
+        "title": "Cuáles son sus principales restricciones/desafíos materiales"
+      },
+      "sourceLines": [
+        403,
+        403
+      ]
+    },
+    {
+      "key": "NI03",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI03",
+      "fields": {
+        "heading": "| NI03 | Qué objetivos o resultados empresariales busca |",
+        "title": "Qué objetivos o resultados empresariales busca"
+      },
+      "sourceLines": [
+        404,
+        404
+      ]
+    },
+    {
+      "key": "NI04",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI04",
+      "fields": {
+        "heading": "| NI04 | Qué cambios relevantes espera realizar o enfrentar |",
+        "title": "Qué cambios relevantes espera realizar o enfrentar"
+      },
+      "sourceLines": [
+        405,
+        405
+      ]
+    },
+    {
+      "key": "NI05",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI05",
+      "fields": {
+        "heading": "| NI05 | Qué cambios de clientes/mercado pueden afectar esos objetivos |",
+        "title": "Qué cambios de clientes/mercado pueden afectar esos objetivos"
+      },
+      "sourceLines": [
+        406,
+        406
+      ]
+    },
+    {
+      "key": "NI06",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI06",
+      "fields": {
+        "heading": "| NI06 | Qué cambios competitivos, tecnológicos o del ecosistema son materiales |",
+        "title": "Qué cambios competitivos, tecnológicos o del ecosistema son materiales"
+      },
+      "sourceLines": [
+        407,
+        407
+      ]
+    },
+    {
+      "key": "NI07",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI07",
+      "fields": {
+        "heading": "| NI07 | Qué restricciones/riesgos externos condicionan la dirección |",
+        "title": "Qué restricciones/riesgos externos condicionan la dirección"
+      },
+      "sourceLines": [
+        408,
+        408
+      ]
+    },
+    {
+      "key": "NI08",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI08",
+      "fields": {
+        "heading": "| NI08 | Qué necesidades u oportunidades de transformación se derivan de lo anterior |",
+        "title": "Qué necesidades u oportunidades de transformación se derivan de lo anterior"
+      },
+      "sourceLines": [
+        409,
+        409
+      ]
+    },
+    {
+      "key": "NI09",
+      "objectType": "SOURCE_ID_NI",
+      "sourceId": "NI09",
+      "fields": {
+        "heading": "| NI09 | Cómo se conecta la transformación prevista con resultados del negocio |",
+        "title": "Cómo se conecta la transformación prevista con resultados del negocio"
+      },
+      "sourceLines": [
+        410,
+        410
+      ]
+    },
+    {
+      "key": "STOP-DG01-01",
+      "objectType": "SOURCE_ID_STOP",
+      "sourceId": "STOP-DG01-01",
+      "fields": {
+        "heading": "STOP-DG01-01 · Si no existe información suficiente para establecer una dirección empresarial mínima, no inferir alineación de transformación. Profundizar primero en negocio/dirección.",
+        "title": "Si no existe información suficiente para establecer una dirección empresarial mínima, no inferir alineación de transformación. Profundizar primero en negocio/dirección."
+      },
+      "sourceLines": [
+        421,
+        421
+      ]
+    },
+    {
+      "key": "P1",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P1",
+      "fields": {
+        "heading": "P1 · Núcleo",
+        "title": "Núcleo",
+        "body": [
+          "Inicialmente necesitamos resolver cuatro cosas:",
+          "¿Qué busca conseguir/cambiar el negocio?",
+          "¿Qué está condicionando hoy ese resultado?",
+          "¿Qué cambios externos son realmente relevantes?",
+          "¿Qué se está intentando transformar y por qué?",
+          "No necesariamente se presentan literalmente como cuatro preguntas; el Experience Layer podrá adquirirlas conversacionalmente."
+        ]
+      },
+      "sourceLines": [
+        426,
+        432
+      ]
+    },
+    {
+      "key": "P2",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P2",
+      "fields": {
+        "heading": "P2 · Condicional",
+        "title": "Condicional",
+        "body": [
+          "Solo profundizamos si aparece, por ejemplo:",
+          "- múltiples objetivos contradictorios;",
+          "- objetivo excesivamente genérico;",
+          "- transformación definida solo como compra tecnológica;",
+          "- fuerte cambio de mercado;",
+          "- dependencia regulatoria;",
+          "- crecimiento acelerado;",
+          "- crisis/reorientación;",
+          "- diferencia entre visión del dueño y acciones observadas."
+        ]
+      },
+      "sourceLines": [
+        433,
+        442
+      ]
+    },
+    {
+      "key": "P3",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P3",
+      "fields": {
+        "heading": "P3 · Discriminación",
+        "title": "Discriminación",
+        "body": [
+          "Se utiliza cuando necesitamos distinguir entre hipótesis como:",
+          "falta de dirección empresarial",
+          "vs.",
+          "dirección existente pero transformación desconectada.",
+          "Esa distinción es diagnósticamente muy importante porque la intervención no sería la misma."
+        ]
+      },
+      "sourceLines": [
+        443,
+        448
+      ]
+    },
+    {
+      "key": "P4",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P4",
+      "fields": {
+        "heading": "P4 · Contradicción",
+        "title": "Contradicción",
+        "body": [
+          "Ejemplo:",
+          "Gerencia:",
+          "“Nuestra prioridad es rentabilidad.”",
+          "pero las iniciativas observadas persiguen crecimiento de volumen sin hipótesis sobre margen.",
+          "No concluimos inmediatamente incoherencia. Abrimos contradicción:"
+        ]
+      },
+      "sourceLines": [
+        449,
+        454
+      ]
+    },
+    {
+      "key": "CONTR-DG01-01",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-DG01-01",
+      "fields": {
+        "heading": "CONTR-DG01-01 · Declared business direction vs observed transformation direction",
+        "title": "Declared business direction vs observed transformation direction",
+        "body": [
+          "y adquirimos información adicional."
+        ]
+      },
+      "sourceLines": [
+        455,
+        456
+      ]
+    },
+    {
+      "key": "P5",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P5",
+      "fields": {
+        "heading": "P5 · Validación",
+        "title": "Validación",
+        "body": [
+          "Antes de consolidar un hallazgo material:",
+          "“Entendemos que X es actualmente una prioridad empresarial y que las iniciativas A/B deberían contribuir mediante Y. ¿Es correcta esa relación?”",
+          "No pedimos al usuario que valide nuestra conclusión causal; validamos la interpretación factual."
+        ]
+      },
+      "sourceLines": [
+        457,
+        460
+      ]
+    },
+    {
+      "key": "R-DG01-01",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG01-01",
+      "fields": {
+        "heading": "R-DG01-01 · BUSINESS_LOGIC_UNCLEAR",
+        "title": "BUSINESS_LOGIC_UNCLEAR",
+        "body": [
+          "No existe comprensión suficiente de cómo funciona/crea valor materialmente el negocio para orientar la transformación."
+        ]
+      },
+      "sourceLines": [
+        487,
+        488
+      ]
+    },
+    {
+      "key": "R-DG01-02",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG01-02",
+      "fields": {
+        "heading": "R-DG01-02 · MATERIAL_BUSINESS_CONSTRAINTS_UNCLEAR",
+        "title": "MATERIAL_BUSINESS_CONSTRAINTS_UNCLEAR",
+        "body": [
+          "La organización impulsa transformación sin comprensión suficiente de restricciones o problemas empresariales materiales."
+        ]
+      },
+      "sourceLines": [
+        489,
+        490
+      ]
+    },
+    {
+      "key": "R-DG01-03",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG01-03",
+      "fields": {
+        "heading": "R-DG01-03 · BUSINESS_DIRECTION_UNCLEAR",
+        "title": "BUSINESS_DIRECTION_UNCLEAR",
+        "body": [
+          "Los objetivos/prioridades empresariales son insuficientemente claros para orientar decisiones de transformación."
+        ]
+      },
+      "sourceLines": [
+        491,
+        492
+      ]
+    },
+    {
+      "key": "R-DG01-04",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG01-04",
+      "fields": {
+        "heading": "R-DG01-04 · TRANSFORMATION_HORIZON_DISCONNECTED",
+        "title": "TRANSFORMATION_HORIZON_DISCONNECTED",
+        "body": [
+          "La ambición o horizonte de transformación no guarda relación suficientemente explicable con el horizonte/cambio esperado del negocio."
+        ]
+      },
+      "sourceLines": [
+        493,
+        494
+      ]
+    },
+    {
+      "key": "R-DG01-05",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG01-05",
+      "fields": {
+        "heading": "R-DG01-05 · MARKET_CONTEXT_BLIND_SPOT",
+        "title": "MARKET_CONTEXT_BLIND_SPOT",
+        "body": [
+          "Cambios materiales en clientes o mercado no están siendo considerados en la dirección de transformación."
+        ]
+      },
+      "sourceLines": [
+        495,
+        496
+      ]
+    },
+    {
+      "key": "R-DG01-06",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG01-06",
+      "fields": {
+        "heading": "R-DG01-06 · EXTERNAL_CHANGE_BLIND_SPOT",
+        "title": "EXTERNAL_CHANGE_BLIND_SPOT",
+        "body": [
+          "Cambios competitivos, tecnológicos o del ecosistema materialmente relevantes no están siendo considerados."
+        ]
+      },
+      "sourceLines": [
+        497,
+        498
+      ]
+    },
+    {
+      "key": "R-DG01-07",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG01-07",
+      "fields": {
+        "heading": "R-DG01-07 · MATERIAL_EXTERNAL_CONSTRAINT_OMITTED",
+        "title": "MATERIAL_EXTERNAL_CONSTRAINT_OMITTED",
+        "body": [
+          "Una condición externa material capaz de condicionar la transformación está siendo ignorada."
+        ]
+      },
+      "sourceLines": [
+        499,
+        500
+      ]
+    },
+    {
+      "key": "R-DG01-08",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG01-08",
+      "fields": {
+        "heading": "R-DG01-08 · TRANSFORMATION_NEED_UNGROUNDED",
+        "title": "TRANSFORMATION_NEED_UNGROUNDED",
+        "body": [
+          "Una necesidad/oportunidad de transformación declarada no puede vincularse suficientemente con evidencia del negocio o su entorno."
+        ]
+      },
+      "sourceLines": [
+        501,
+        502
+      ]
+    },
+    {
+      "key": "R-DG01-09",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-DG01-09",
+      "fields": {
+        "heading": "R-DG01-09 · BUSINESS_TRANSFORMATION_MISALIGNMENT",
+        "title": "BUSINESS_TRANSFORMATION_MISALIGNMENT",
+        "body": [
+          "La dirección observable de transformación no es coherente con las prioridades/resultados empresariales suficientemente establecidos."
+        ]
+      },
+      "sourceLines": [
+        503,
+        504
+      ]
+    },
+    {
+      "key": "G-DG01-01",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-DG01-01",
+      "fields": {
+        "heading": "G-DG01-01",
+        "body": [
+          "Tener “estrategia digital” no demuestra alineación."
+        ]
+      },
+      "sourceLines": [
+        507,
+        508
+      ]
+    },
+    {
+      "key": "G-DG01-02",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-DG01-02",
+      "fields": {
+        "heading": "G-DG01-02",
+        "body": [
+          "No tener “estrategia digital” no demuestra brecha."
+        ]
+      },
+      "sourceLines": [
+        509,
+        510
+      ]
+    },
+    {
+      "key": "G-DG01-03",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-DG01-03",
+      "fields": {
+        "heading": "G-DG01-03",
+        "body": [
+          "Adoptar una tecnología popular no constituye por sí mismo evidencia de orientación."
+        ]
+      },
+      "sourceLines": [
+        511,
+        512
+      ]
+    },
+    {
+      "key": "G-DG01-04",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-DG01-04",
+      "fields": {
+        "heading": "G-DG01-04",
+        "body": [
+          "Un cambio del entorno solo entra al diagnóstico si tiene materialidad plausible para la organización."
+        ]
+      },
+      "sourceLines": [
+        513,
+        514
+      ]
+    },
+    {
+      "key": "G-DG01-05",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-DG01-05",
+      "fields": {
+        "heading": "G-DG01-05",
+        "body": [
+          "Una inconsistencia declarada no se convierte automáticamente en causalidad."
+        ]
+      },
+      "sourceLines": [
+        515,
+        516
+      ]
+    },
+    {
+      "key": "G-DG01-06",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-DG01-06",
+      "fields": {
+        "heading": "G-DG01-06",
+        "body": [
+          "DG-01 no determina qué iniciativa debe ganar prioridad; deriva esa evaluación a DG-02."
+        ]
+      },
+      "sourceLines": [
+        517,
+        518
+      ]
+    },
+    {
+      "key": "DER-DG01-01",
+      "objectType": "SOURCE_ID_DER",
+      "sourceId": "DER-DG01-01",
+      "fields": {
+        "heading": "DER-DG01-01 · Detectar un condicionante perteneciente a otra capacidad no autoriza a diagnosticar esa capacidad desde DG-01.",
+        "title": "Detectar un condicionante perteneciente a otra capacidad no autoriza a diagnosticar esa capacidad desde DG-01.",
+        "body": [
+          "Ejemplo:",
+          "“Nos faltan personas con conocimientos de analítica.”",
+          "DG-01 puede registrar que esto condiciona la dirección.",
+          "Pero no puede concluir:",
+          "PC-02 = brecha.",
+          "Debe reutilizar la observación como evidencia candidata y permitir que PC-02 haga su propio razonamiento.",
+          "Esto confirma algo que ya emergió en OP:",
+          "reutilizamos evidencia; no transferimos automáticamente conclusiones."
+        ]
+      },
+      "sourceLines": [
+        535,
+        543
+      ]
+    },
+    {
+      "key": "INT-DG01-01",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-DG01-01",
+      "fields": {
+        "heading": "INT-DG01-01 · Mínima intervención suficiente",
+        "title": "Mínima intervención suficiente",
+        "body": [
+          "Una pyme no necesita necesariamente:",
+          "- plan estratégico completo;",
+          "- estrategia digital de 50 páginas;",
+          "- PESTEL;",
+          "- SWOT;",
+          "- comité de transformación;",
+          "- consultoría estratégica extensa.",
+          "Puede bastar con una representación pequeña y verificable de:",
+          "Dónde estamos → qué buscamos → qué está cambiando → qué necesitamos transformar → qué resultado esperamos.",
+          "Esto es coherente con el enfoque proporcional que venimos construyendo y con que ISO 37000 declara aplicabilidad independientemente del tamaño de la organización. ISO"
+        ]
+      },
+      "sourceLines": [
+        597,
+        607
+      ]
+    },
+    {
+      "key": "INT-DG01-02",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-DG01-02",
+      "fields": {
+        "heading": "INT-DG01-02 · Especificidad limitada por confianza",
+        "title": "Especificidad limitada por confianza",
+        "body": [
+          "Si tenemos confianza alta sobre:",
+          "“las iniciativas no están conectadas con prioridades”",
+          "pero baja confianza sobre:",
+          "“cuál debería ser exactamente la nueva dirección”,",
+          "Pymapa puede recomendar realinear, pero no inventar la dirección estratégica.",
+          "Se reutiliza así el principio del Motor:",
+          "especificidad de recomendación ≤ confianza causal/contextual disponible."
+        ]
+      },
+      "sourceLines": [
+        608,
+        615
+      ]
+    },
+    {
+      "key": "DEL-DG01-01",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG01-01",
+      "fields": {
+        "heading": "| DEL-DG01-01 | Dirección empresarial relevante suficientemente explícita |",
+        "title": "Dirección empresarial relevante suficientemente explícita"
+      },
+      "sourceLines": [
+        640,
+        640
+      ]
+    },
+    {
+      "key": "DEL-DG01-02",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG01-02",
+      "fields": {
+        "heading": "| DEL-DG01-02 | Necesidades/oportunidades de transformación fundamentadas |",
+        "title": "Necesidades/oportunidades de transformación fundamentadas"
+      },
+      "sourceLines": [
+        641,
+        641
+      ]
+    },
+    {
+      "key": "DEL-DG01-03",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG01-03",
+      "fields": {
+        "heading": "| DEL-DG01-03 | Contexto material incorporado |",
+        "title": "Contexto material incorporado"
+      },
+      "sourceLines": [
+        642,
+        642
+      ]
+    },
+    {
+      "key": "DEL-DG01-04",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG01-04",
+      "fields": {
+        "heading": "| DEL-DG01-04 | Iniciativas solution-first reencuadradas |",
+        "title": "Iniciativas solution-first reencuadradas"
+      },
+      "sourceLines": [
+        643,
+        643
+      ]
+    },
+    {
+      "key": "DEL-DG01-05",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG01-05",
+      "fields": {
+        "heading": "| DEL-DG01-05 | Dirección de transformación realineada |",
+        "title": "Dirección de transformación realineada"
+      },
+      "sourceLines": [
+        644,
+        644
+      ]
+    },
+    {
+      "key": "DEL-DG01-06",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-DG01-06",
+      "fields": {
+        "heading": "| DEL-DG01-06 | Lógica negocio–transformación explícita y utilizable |",
+        "title": "Lógica negocio–transformación explícita y utilizable",
+        "body": [
+          "El entregable es un estado funcional alcanzado, no simplemente “documento completado”."
+        ]
+      },
+      "sourceLines": [
+        645,
+        646
+      ]
+    },
+    {
+      "key": "CRV-DG01-01",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG01-01",
+      "fields": {
+        "heading": "| CRV-DG01-01 | Dirección empresarial suficientemente explicitada |",
+        "title": "Dirección empresarial suficientemente explicitada"
+      },
+      "sourceLines": [
+        665,
+        665
+      ]
+    },
+    {
+      "key": "CRV-DG01-02",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG01-02",
+      "fields": {
+        "heading": "| CRV-DG01-02 | Necesidades de transformación trazables a negocio/contexto |",
+        "title": "Necesidades de transformación trazables a negocio/contexto"
+      },
+      "sourceLines": [
+        666,
+        666
+      ]
+    },
+    {
+      "key": "CRV-DG01-03",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG01-03",
+      "fields": {
+        "heading": "| CRV-DG01-03 | Factores externos materiales incorporados |",
+        "title": "Factores externos materiales incorporados"
+      },
+      "sourceLines": [
+        667,
+        667
+      ]
+    },
+    {
+      "key": "CRV-DG01-04",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG01-04",
+      "fields": {
+        "heading": "| CRV-DG01-04 | Iniciativas relevantes fundamentadas por necesidad/resultado |",
+        "title": "Iniciativas relevantes fundamentadas por necesidad/resultado"
+      },
+      "sourceLines": [
+        668,
+        668
+      ]
+    },
+    {
+      "key": "CRV-DG01-05",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG01-05",
+      "fields": {
+        "heading": "| CRV-DG01-05 | Coherencia negocio–transformación verificable |",
+        "title": "Coherencia negocio–transformación verificable"
+      },
+      "sourceLines": [
+        669,
+        669
+      ]
+    },
+    {
+      "key": "CRV-DG01-06",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-DG01-06",
+      "fields": {
+        "heading": "| CRV-DG01-06 | Dirección de transformación utilizable para decisiones posteriores |",
+        "title": "Dirección de transformación utilizable para decisiones posteriores"
+      },
+      "sourceLines": [
+        670,
+        670
+      ]
+    },
+    {
+      "key": "V0",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V0",
+      "fields": {
+        "heading": "V0 · no validado",
+        "title": "no validado"
+      },
+      "sourceLines": [
+        679,
+        679
+      ]
+    },
+    {
+      "key": "V1",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V1",
+      "fields": {
+        "heading": "V1 · evidencia inicial",
+        "title": "evidencia inicial"
+      },
+      "sourceLines": [
+        680,
+        680
+      ]
+    },
+    {
+      "key": "V2",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V2",
+      "fields": {
+        "heading": "V2 · evidencia suficiente del resultado funcional",
+        "title": "evidencia suficiente del resultado funcional"
+      },
+      "sourceLines": [
+        681,
+        681
+      ]
+    },
+    {
+      "key": "V3",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V3",
+      "fields": {
+        "heading": "V3 · resultado sostenido/confirmado cuando corresponda",
+        "title": "resultado sostenido/confirmado cuando corresponda",
+        "body": [
+          "Ejemplo:",
+          "Crear la narrativa de transformación:",
+          "no demuestra CRV-DG01-06.",
+          "Que esa narrativa sea utilizada posteriormente para filtrar/priorizar decisiones proporciona evidencia más fuerte.",
+          "Por eso:",
+          "artefacto creado ≠ capacidad modificada."
+        ]
+      },
+      "sourceLines": [
+        682,
+        688
+      ]
+    },
+    {
+      "key": "REASS-DG01-01",
+      "objectType": "SOURCE_ID_REASS",
+      "sourceId": "REASS-DG01-01",
+      "fields": {
+        "heading": "REASS-DG01-01",
+        "body": [
+          "Un cambio material de contexto puede invalidar una orientación previamente suficiente sin implicar que el diagnóstico anterior estuviera equivocado.",
+          "Esto es importante para el aprendizaje del Motor.",
+          "Cambio del mundo ≠ error del diagnóstico."
+        ]
+      },
+      "sourceLines": [
+        704,
+        707
+      ]
+    },
+    {
+      "key": "SRC-DG01-001",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG01-001",
+      "fields": {
+        "heading": "SRC-DG01-001 · Pymapa/OE1-D — fuente conceptual interna.",
+        "title": "Pymapa/OE1-D — fuente conceptual interna."
+      },
+      "sourceLines": [
+        754,
+        754
+      ]
+    },
+    {
+      "key": "SRC-DG01-002",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG01-002",
+      "fields": {
+        "heading": "SRC-DG01-002 · ISO 37000:2021 — Governance of organizations.",
+        "title": "ISO 37000:2021 — Governance of organizations."
+      },
+      "sourceLines": [
+        755,
+        755
+      ]
+    },
+    {
+      "key": "SRC-DG01-003",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG01-003",
+      "fields": {
+        "heading": "SRC-DG01-003 · ISO 56002:2019 — Innovation management system guidance.",
+        "title": "ISO 56002:2019 — Innovation management system guidance."
+      },
+      "sourceLines": [
+        756,
+        756
+      ]
+    },
+    {
+      "key": "SRC-DG01-004",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG01-004",
+      "fields": {
+        "heading": "SRC-DG01-004 · OECD (2021) — The Digital Transformation of SMEs.",
+        "title": "OECD (2021) — The Digital Transformation of SMEs."
+      },
+      "sourceLines": [
+        757,
+        757
+      ]
+    },
+    {
+      "key": "SRC-DG01-005",
+      "objectType": "SOURCE_ID_SRC",
+      "sourceId": "SRC-DG01-005",
+      "fields": {
+        "heading": "SRC-DG01-005 · OECD (2021) — SMEs Going Digital.",
+        "title": "OECD (2021) — SMEs Going Digital.",
+        "body": [
+          "Dos decisiones de mantenimiento:",
+          "SRC-DG01-002: ISO 37000:2021 fue confirmada en 2026 y permanece vigente. ISO",
+          "SRC-DG01-003: activar SOURCE-REVIEW cuando sea publicada ISO 56002 Edition 2; actualmente existe como Committee Draft y reemplazará la edición 2019. ISO",
+          "Esto es exactamente el tipo de comportamiento que necesitaremos posteriormente en K3: las fuentes también tienen ciclo de vida."
+        ]
+      },
+      "sourceLines": [
+        758,
+        762
+      ]
+    },
+    {
+      "key": "K1",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · Coherencia — PASS",
+        "title": "Coherencia — PASS",
+        "body": [
+          "DG-01 tiene unidad clara y fronteras suficientemente protegidas frente a DG-02–05, OP, PC, DT y CM."
+        ]
+      },
+      "sourceLines": [
+        815,
+        816
+      ]
+    },
+    {
+      "key": "K2",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · Razonamiento — PASS",
+        "title": "Razonamiento — PASS",
+        "body": [
+          "Las reglas distinguen:",
+          "falta de dirección",
+          "falta de información",
+          "contexto omitido",
+          "transformación no fundamentada",
+          "desalineación demostrable.",
+          "No convertimos automáticamente correlaciones en causas."
+        ]
+      },
+      "sourceLines": [
+        817,
+        824
+      ]
+    },
+    {
+      "key": "K3",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · Acción — PASS",
+        "title": "Acción — PASS",
+        "body": [
+          "Cada finding puede conducir a intervención proporcional, con instrumentos, entregables, Done y CRV."
+        ]
+      },
+      "sourceLines": [
+        825,
+        826
+      ]
+    },
+    {
+      "key": "K4",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · Conocimiento — PASS",
+        "title": "Conocimiento — PASS",
+        "body": [
+          "Existe grounding externo suficiente, provenance explícito, separación entre conocimiento fuente y diseño Pymapa, versionado y trigger de revisión documental."
+        ]
+      },
+      "sourceLines": [
+        827,
+        828
+      ]
+    }
+  ],
+  "supersessions": [],
+  "executableProjection": {
+    "sourceRef": "source.json",
+    "verbatimKeys": [
+      "heading",
+      "title",
+      "body"
+    ],
+    "projectedObjectTypes": [],
+    "canonicalOnlyGapRefs": []
+  },
+  "gaps": [],
+  "transcriptionCorrections": [],
+  "checksum": "sha256:3f6de9b97d68b94e548beb9f9c47026c6bb717b2f799753be5cb1835bf0d809f"
+}
