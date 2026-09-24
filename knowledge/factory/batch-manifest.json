@@ -70,12 +70,12 @@
       "EXTRACTED_CANDIDATE": 0,
       "CANONICAL_REVIEW_REQUIRED": 0,
       "VALIDATED": 10,
-      "READY_FOR_PUBLICATION": 3,
-      "PUBLISHED": 2
+      "READY_FOR_PUBLICATION": 0,
+      "PUBLISHED": 5
     },
     "byOutcome": {
-      "PASS": 2,
-      "REVIEW_REQUIRED": 13,
+      "PASS": 5,
+      "REVIEW_REQUIRED": 10,
       "FAIL": 0
     }
   },
@@ -1936,17 +1936,17 @@
         "fail": 0
       },
       "governance": {
-        "reviewStatus": "NOT_REQUESTED",
-        "evidence": "CURRENT"
+        "reviewStatus": "APPROVED",
+        "evidence": "NOT_APPLICABLE"
       },
       "publication": {
-        "status": "UNPUBLISHED",
+        "status": "PUBLISHED",
         "packId": "op-03",
         "packVersion": "1.0.0",
         "packChecksum": "sha256:01192851ea4ed1afff1943b648ecaae3d7b10fd891c7a8cdced196f60dbe0321"
       },
-      "state": "READY_FOR_PUBLICATION",
-      "outcome": "REVIEW_REQUIRED",
+      "state": "PUBLISHED",
+      "outcome": "PASS",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -2025,27 +2025,17 @@
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_APPLICABLE",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "PUBLICATION_GATE",
-              "code": "HUMAN_PUBLICATION_AUTHORIZATION_REQUIRED",
-              "severity": "REVIEW",
-              "message": "falta autorización humana de publicación",
-              "action": "la autoridad de gobierno registra governance-review.json (decision, reviewer, reviewedAt) tras revisar el dossier de evidencia",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
-          "status": "PASS",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         }
       ],
@@ -2067,15 +2057,6 @@
           "action": "ninguna",
           "sourceLines": null,
           "objectKey": null
-        },
-        {
-          "check": "PUBLICATION_GATE",
-          "code": "HUMAN_PUBLICATION_AUTHORIZATION_REQUIRED",
-          "severity": "REVIEW",
-          "message": "falta autorización humana de publicación",
-          "action": "la autoridad de gobierno registra governance-review.json (decision, reviewer, reviewedAt) tras revisar el dossier de evidencia",
-          "sourceLines": null,
-          "objectKey": null
         }
       ],
       "metrics": {
@@ -2085,15 +2066,15 @@
         "candidateItems": null,
         "canonicalObjects": 182,
         "executableSections": 6,
-        "checksAutoPassed": 11,
-        "humanReviewItems": 1,
+        "checksAutoPassed": 12,
+        "humanReviewItems": 0,
         "notExplicit": 2,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 1
+        "publicationBlockers": 0
       }
     },
     {
@@ -2149,17 +2130,17 @@
         "fail": 0
       },
       "governance": {
-        "reviewStatus": "NOT_REQUESTED",
-        "evidence": "CURRENT"
+        "reviewStatus": "APPROVED",
+        "evidence": "NOT_APPLICABLE"
       },
       "publication": {
-        "status": "UNPUBLISHED",
+        "status": "PUBLISHED",
         "packId": "op-04",
         "packVersion": "1.0.0",
         "packChecksum": "sha256:ae1252a861a97336318582eda38aa3df6f04e3947b5f11cd8bbe5c2263a42625"
       },
-      "state": "READY_FOR_PUBLICATION",
-      "outcome": "REVIEW_REQUIRED",
+      "state": "PUBLISHED",
+      "outcome": "PASS",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -2238,27 +2219,17 @@
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_APPLICABLE",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "PUBLICATION_GATE",
-              "code": "HUMAN_PUBLICATION_AUTHORIZATION_REQUIRED",
-              "severity": "REVIEW",
-              "message": "falta autorización humana de publicación",
-              "action": "la autoridad de gobierno registra governance-review.json (decision, reviewer, reviewedAt) tras revisar el dossier de evidencia",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
-          "status": "PASS",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         }
       ],
@@ -2280,15 +2251,6 @@
           "action": "ninguna",
           "sourceLines": null,
           "objectKey": null
-        },
-        {
-          "check": "PUBLICATION_GATE",
-          "code": "HUMAN_PUBLICATION_AUTHORIZATION_REQUIRED",
-          "severity": "REVIEW",
-          "message": "falta autorización humana de publicación",
-          "action": "la autoridad de gobierno registra governance-review.json (decision, reviewer, reviewedAt) tras revisar el dossier de evidencia",
-          "sourceLines": null,
-          "objectKey": null
         }
       ],
       "metrics": {
@@ -2298,15 +2260,15 @@
         "candidateItems": null,
         "canonicalObjects": 188,
         "executableSections": 6,
-        "checksAutoPassed": 11,
-        "humanReviewItems": 1,
+        "checksAutoPassed": 12,
+        "humanReviewItems": 0,
         "notExplicit": 1,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 1
+        "publicationBlockers": 0
       }
     },
     {
@@ -2363,17 +2325,17 @@
         "fail": 0
       },
       "governance": {
-        "reviewStatus": "NOT_REQUESTED",
-        "evidence": "CURRENT"
+        "reviewStatus": "APPROVED",
+        "evidence": "NOT_APPLICABLE"
       },
       "publication": {
-        "status": "UNPUBLISHED",
+        "status": "PUBLISHED",
         "packId": "op-05",
         "packVersion": "1.0.0",
         "packChecksum": "sha256:796084c31e7726b96b823972c73d14f2c61d0cf37307d086418dfdaccba35114"
       },
-      "state": "READY_FOR_PUBLICATION",
-      "outcome": "REVIEW_REQUIRED",
+      "state": "PUBLISHED",
+      "outcome": "PASS",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -2452,27 +2414,17 @@
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_APPLICABLE",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "PUBLICATION_GATE",
-              "code": "HUMAN_PUBLICATION_AUTHORIZATION_REQUIRED",
-              "severity": "REVIEW",
-              "message": "falta autorización humana de publicación",
-              "action": "la autoridad de gobierno registra governance-review.json (decision, reviewer, reviewedAt) tras revisar el dossier de evidencia",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
-          "status": "PASS",
+          "status": "NOT_APPLICABLE",
           "reasons": []
         }
       ],
@@ -2494,15 +2446,6 @@
           "action": "ninguna",
           "sourceLines": null,
           "objectKey": null
-        },
-        {
-          "check": "PUBLICATION_GATE",
-          "code": "HUMAN_PUBLICATION_AUTHORIZATION_REQUIRED",
-          "severity": "REVIEW",
-          "message": "falta autorización humana de publicación",
-          "action": "la autoridad de gobierno registra governance-review.json (decision, reviewer, reviewedAt) tras revisar el dossier de evidencia",
-          "sourceLines": null,
-          "objectKey": null
         }
       ],
       "metrics": {
@@ -2512,15 +2455,15 @@
         "candidateItems": null,
         "canonicalObjects": 117,
         "executableSections": 5,
-        "checksAutoPassed": 11,
-        "humanReviewItems": 1,
+        "checksAutoPassed": 12,
+        "humanReviewItems": 0,
         "notExplicit": 2,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 1
+        "publicationBlockers": 0
       }
     },
     {
@@ -3884,5 +3827,5 @@
       }
     }
   ],
-  "checksum": "sha256:574031c4bd1a2ea998a484108bd407319b6a211d3fdc59265378d26a5308d594"
+  "checksum": "sha256:7684c76fc159d682387397125f3d3ce4aa2d8cab24870394030dd350d4063b08"
 }
