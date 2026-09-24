@@ -1,0 +1,39 @@
+{
+  "$schema": "../../schemas/governance-decisions.schema.json",
+  "decisionSetId": "M2-FACTORY-CLOSURE",
+  "capabilityId": "PC-01",
+  "decidedBy": "PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY",
+  "decidedByIdentity": "ROLE_ONLY · no personal identity recorded or fabricated; the file-based governance mechanism exposes no authenticated project actor identity",
+  "decidedAt": "2026-09-24",
+  "authorizationSource": "M2-FACTORY-CLOSURE · B (governed source decisions) + C (DG/PC governed completion): provenance labels are source assertions verified literally",
+  "statement": "Decisiones humanas de gobierno sobre la fuente registrada. No son aceptación canónica, no aprueban el candidato y no publican; el extractor las aplica solo si se verifican literalmente contra la fuente.",
+  "approvedCounts": [],
+  "governedBacklog": [],
+  "collisionResolutions": [
+    {
+      "sourceIds": [
+        "SOURCE-REVIEW-TRIGGER-PC01-01"
+      ],
+      "resolution": "SELECT_OCCURRENCE",
+      "within": {
+        "fromLiteral": "y:",
+        "toLiteral": "Esto es importante porque ISO muestra actualmente el proyecto de segunda edición en desarrollo. (iso.org)"
+      },
+      "canonicalLiteral": "Revisar PC-01 y PC-04 cuando ISO 30401 Edition 2 se publique definitivamente.",
+      "rationale": "M2-FACTORY-CLOSURE B2: evolución del mismo trigger; formulación de cierre final canónica; la previa se preserva como provenance histórica."
+    }
+  ],
+  "semanticTypes": [],
+  "provenanceVocabulary": [
+    {
+      "scheme": "PROVENANCE_CLASS",
+      "anchorLiteral": "# Provenance",
+      "windowLines": 5,
+      "codes": [
+        "SOURCE-DERIVED",
+        "PYMAPA-DESIGNED"
+      ]
+    }
+  ],
+  "checksum": "sha256:5daef172ecfa2389853ce391c67303cbb066baf9b9cbfcd420d91ea73f76981f"
+}
