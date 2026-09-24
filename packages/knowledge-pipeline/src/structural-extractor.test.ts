@@ -304,6 +304,17 @@ describe("frontera de candidatos", () => {
     );
     const rawText = readFileSync(join(ROOT, dir, registration.text!.ref), "utf8");
     const candidate = readJson(join(dir, "candidate.json")) as ExtractionCandidate;
+    // DG-03 quedó resuelto por decisión gobernada (M2-FACTORY-CLOSURE B1); se
+    // deshace la selección para reproducir las dos definiciones sin selección.
+    for (const i of candidate.items as unknown as Record<string, unknown>[])
+      if (i["sourceId"] === "CAND-MOTOR-AI-GOV-01" && i["classification"] === "SUPERSEDED") {
+        i["classification"] = "FINAL_APPROVED";
+        i["approvalEvidence"] = candidate.historicalStatus
+          ? { text: candidate.historicalStatus.marker, sourceLines: candidate.historicalStatus.sourceLines }
+          : undefined;
+        delete i["supersededBy"];
+        delete i["governanceDecision"];
+      }
     const v = validateExtractionCandidate({
       candidate,
       registration,
