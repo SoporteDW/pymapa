@@ -198,6 +198,12 @@ export interface StructuralExtractionInput {
   agent?: string;
   /** Por defecto GOVERNED. */
   supersession?: SupersessionMode;
+  /**
+   * M2-BATCH-02 · captura también líneas planas "<ID> · <título>" (sin heading)
+   * como ocurrencias de nivel más profundo. Opt-in por capacidad: no altera
+   * candidatos extraídos sin la opción.
+   */
+  lineIds?: boolean;
   governanceDecisions?: { value: GovernanceDecisions; ref: string } | null;
 }
 
@@ -229,6 +235,11 @@ export function extractStructuralCandidate(input: StructuralExtractionInput): {
     const t = headingText(l);
     if (t !== null)
       headings.push({ line: i + 1, text: t, level: (/^#+/.exec(l)?.[0] ?? "").length });
+    else if (input.lineIds) {
+      const plain = l.trim();
+      const m = /^([A-Z][A-Z0-9]*(?:-[A-Za-z0-9.]+)*\d[A-Za-z0-9.]*) · \S.*$/.exec(plain);
+      if (m && !plain.startsWith("-")) headings.push({ line: i + 1, text: plain, level: 9 });
+    }
   });
   const headingAt = new Map(headings.map((h) => [h.line, h]));
   const sectionEndOf = (line: number, level: number) =>
@@ -789,7 +800,7 @@ export function extractStructuralCandidate(input: StructuralExtractionInput): {
         ? `${agent} + ${SUPERSESSION_RESOLVER.id}@${SUPERSESSION_RESOLVER.version}`
         : agent,
       note: governed
-        ? "Segmentación literal por headings con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
+        ? `Segmentación literal por headings${input.lineIds ? " y líneas planas «ID · título»" : ""} con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico.`
         : "Segmentación literal por headings con identificador; clasificación solo por evidencia literal. No decide supersesión ni tipo semántico.",
     },
     baselineId: marker ? (marker.split(" · ")[0] as string) : null,

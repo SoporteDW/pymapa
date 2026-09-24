@@ -258,6 +258,7 @@ if (argv[0] === "extract") {
     domainIds: master.value.domains.map((d) => d.id),
     supersession: mode,
     governanceDecisions,
+    lineIds: flag("--line-ids"),
   });
   if (report.governance?.errors.length)
     fail(
