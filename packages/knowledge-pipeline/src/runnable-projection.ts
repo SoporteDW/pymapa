@@ -361,13 +361,16 @@ export function projectBaselineToRunnableSource(
       informationNeeds,
       ...(ordinalCheck?.applied && options.governedOrdinalMapping
         ? {
-            governedStructuralMapping: {
-              rule: "GOVERNED_STRUCTURAL_MAPPING",
-              nature:
-                "interpretación estructural gobernada de la fuente; la fuente no declara literalmente el vínculo",
-              ...options.governedOrdinalMapping,
-              ...ordinalCheck,
-            },
+            governedStructuralMapping: (() => {
+              const { rule, ...decisionRest } = options.governedOrdinalMapping;
+              return {
+                rule,
+                nature:
+                  "interpretación estructural gobernada de la fuente; la fuente no declara literalmente el vínculo",
+                ...decisionRest,
+                ...ordinalCheck,
+              };
+            })(),
           }
         : {}),
       acquisitions,
