@@ -1,0 +1,695 @@
+| Objeto | Resultado |
+| CE | 5 |
+| VA | 10 |
+| NI | 10 |
+| Reglas primarias | 10 |
+| Familias de hallazgo | 7 |
+| Patrones de intervención | 7 |
+| Instrumentos | 7 |
+| Entregables | 7 |
+| CRV | 7 |
+| A–V | 22/22 PASS |
+| DoD | 27/27 PASS |
+| K1–K4 | 4/4 PASS |
+## Estado del dominio DG
+DG-01 🟢 CLOSED
+DG-02 🟢 CLOSED
+DG-03 🟢 CLOSED
+DG-04 🟢 CLOSED
+DG-05 ⚪ pendiente
+DG = 4/5 capacidades K4-VALIDATED.
+Nos queda una sola capacidad para cerrar el primer dominio completo: DG-05 · Gobernar riesgos y dependencias de la transformación. Esta será especialmente importante porque deberá establecer una frontera limpia entre gobernar exposición material de la transformación y absorber indebidamente riesgos especializados que pertenecen a DT-05, EC-05, OP-05 u otras capacidades.
+El siguiente movimiento es DG-05 · SET A — Bloques 1–6.
+Te hago una pregunta de control, porque en algún momento decidimos que íbamos a hacer sets grandes y el punto de referencia era que justamente en ese dominio, con esa capacidad, teníamos 12 bloques. Pero ahora estoy viendo que todo el dominio de G y en cada una de sus capacidades estamos haciendo 12 bloques. No necesariamente tienen que ser 12. Pueden ser 10, pueden ser 8, pueden ser 12. En una me puedes decir que necesitas 14 y entonces lo divides en 7 y 7. Lo que no quiero es cerrar el nivel de profundidad de análisis. Lo que quise fue dar una metodología más rápida y eficiente para que no nos demoremos tanto.
+Sí. Y la observación es correcta: convertimos accidentalmente los 12 bloques en una plantilla rígida, cuando la decisión metodológica era otra.
+Los 12 bloques eran una referencia de cobertura, no una obligación de estructura para cada capacidad. El objetivo de pasar a sets grandes era reducir las pausas y aprobaciones intermedias, nunca reducir profundidad ni hacer que todas las capacidades tuvieran exactamente la misma anatomía.
+A partir de DG-05 corregimos esto.
+La regla será:
+La complejidad del conocimiento determina el número de bloques; el número de bloques no determina la profundidad del conocimiento.
+Por tanto, antes de desarrollar cada capacidad haré internamente un dimensionamiento según sus necesidades reales. Una capacidad puede requerir 8 bloques, otra 10, otra 12 y otra 14 o más. Si requiere 14, por ejemplo, podemos entregarla como SET A 1–7 y SET B 8–14. Si requiere 9, podríamos hacer 1–5 y 6–9. No vamos a forzar simetría.
+Lo que sí permanece fijo como criterio de cierre es la cobertura de conocimiento. Independientemente de si usamos 8, 11 o 15 bloques, una capacidad no se cierra hasta comprobar A–V 22/22, DoD 27/27 y K1–K4. Es decir, no desaparecen delimitación, variables, suficiencia, evidencia, reglas, findings, intervención, ejecución, CRV, validación, contextualización, fuentes, provenance, gobierno, etc.; simplemente pueden agruparse o expandirse según la complejidad real.
+También ajustaría algo más: tampoco debemos forzar cantidades internas. No necesitamos que todas tengan 10 VA, 10 reglas, 7 findings, 7 intervenciones y 7 CRV. Si DG-05 necesita 13 reglas y 9 findings, los tendrá. Si PC-04 queda correctamente modelada con 7 reglas, no inventaremos tres adicionales para completar diez.
+Así que la metodología corregida queda:
+Primero dimensionamos la capacidad → determinamos los bloques necesarios → los agrupamos en pocos macrosets de ejecución → desarrollamos con profundidad completa → validamos A–V + DoD + K1–K4 → cerramos.
+Y esto no invalida DG-01 a DG-04. Allí utilizamos los 12 bloques como estructura y la cobertura quedó completa. Simplemente no repetiremos mecánicamente ese molde en las 27 capacidades restantes.
+De hecho, este ajuste nos devuelve exactamente a la intención original: más velocidad por menos interrupciones, no más velocidad por menos ingeniería.
+Para DG-05, entonces, el siguiente paso ya no será asumir “Bloques 1–6”. Primero la dimensionaré por su complejidad —incluyendo las fronteras con DT-05, EC-05, OP-05 y el tratamiento transversal de riesgos/dependencias— y arrancaré con el SET A que resulte de ese dimensionamiento.
+Seguimos
+
+Seguimos con DG-05, pero ya aplicando la corrección metodológica: primero dimensionamos la capacidad y después definimos los sets. No parto de “tiene que tener 12 bloques”.
+# DG-05 · Gobernar riesgos y dependencias de la transformación
+## Dimensionamiento de la capacidad
+DG-05 tiene una complejidad mayor que DG-01–04 porque debe trabajar simultáneamente con incertidumbre, exposición, interdependencias y decisiones de gobierno, sin apropiarse de la gestión especializada de riesgos de otras capacidades.
+La revisión externa refuerza esa necesidad. ISO 31000 plantea identificar, analizar, evaluar, tratar, monitorear y comunicar riesgo e integrarlo con gobierno, estrategia y toma de decisiones; además, su enfoque puede adaptarse al contexto de cualquier organización. La edición vigente sigue siendo ISO 31000:2018, confirmada en 2023, aunque la tercera edición está actualmente en desarrollo, por lo que dejaremos un trigger de revisión documental. ISO PMI, por su parte, señala que los riesgos de portafolio no son simplemente la suma de riesgos individuales: las interdependencias entre iniciativas pueden amplificar o modificar la exposición agregada. Project Management Institute
+### Dimensionamiento resultante
+DG-05 requiere 10 bloques sustantivos, no 12:
+| # | Bloque |
+| 1 | Identidad, alcance y fronteras |
+| 2 | Modelo de riesgo, dependencia y exposición |
+| 3 | Condiciones evaluables y variables |
+| 4 | Fundamentación externa y principios |
+| 5 | Necesidades de información, materialidad y suficiencia |
+| 6 | Adquisición, evidencia, contradicción y reglas diagnósticas |
+| 7 | Findings y decisiones de tratamiento/gobierno |
+| 8 | Intervenciones, instrumentos, entregables y Done |
+| 9 | CRV, validación, seguimiento, reassessment y contextualización |
+| 10 | Knowledge Governance + A–V + DoD + K1–K4 |
+Los ejecutaremos como:
+SET A = bloques 1–6
+SET B = bloques 7–10
+No hemos reducido profundidad. Hemos eliminado separación artificial.
+
+# SET A · Ingeniería diagnóstica
+## 1. Identidad, alcance y fronteras
+Definición productiva V1:
+DG-05 evalúa la capacidad de la organización para reconocer, comprender y gobernar riesgos y dependencias materialmente capaces de afectar la dirección, priorización, ejecución o resultados de su transformación, incorporándolos oportunamente en decisiones y respuestas proporcionales.
+La unidad de análisis es:
+el mecanismo mediante el cual incertidumbres y dependencias materiales se convierten en información y decisiones de gobierno.
+No evaluamos si la pyme tiene:
+matriz de riesgos, mapa de calor, comité o registro formal.
+Evaluamos si puede:
+reconocer exposición → comprender materialidad → decidir respuesta → asignar seguimiento → adaptar decisiones.
+ISO 31000 respalda precisamente la integración del riesgo en gobierno, estrategia, planificación y decisiones, y no limita riesgo exclusivamente a amenazas: la incertidumbre también puede presentar oportunidades. ISO
+
+## Fronteras críticas
+| Situación | Capacidad primaria |
+| Riesgo para el conjunto de transformación | DG-05 |
+| Riesgo operativo de ejecutar una iniciativa | OP-05 |
+| Ciberseguridad, información, sistemas y continuidad tecnológica | DT-05 |
+| Dependencia externa crítica | EC-05 |
+| Riesgo derivado de falta de capacidades humanas | PC correspondiente |
+| Cambio de mercado/contexto | DG-01 / CM según naturaleza |
+| Prioridad modificada por exposición | DG-02 |
+| Quién puede aceptar/escalar riesgo | DG-03 |
+| Seguimiento de la exposición/resultado | DG-04 |
+La regla será:
+DG-05 gobierna la exposición transversal; no reemplaza al dueño especializado del riesgo.
+Ejemplo:
+Dependencia crítica de una plataforma tecnológica externa.
+EC-05 puede diagnosticar la dependencia externa.
+DT-05 puede diagnosticar implicaciones de continuidad tecnológica.
+DG-05 evalúa si esa exposición está siendo reconocida e incorporada en las decisiones de transformación.
+
+# 2. Modelo de riesgo, dependencia y exposición
+Aquí necesitamos más precisión que una simple lista de “riesgos”.
+Propongo distinguir cuatro objetos.
+### RISK
+incertidumbre capaz de afectar objetivos/resultados de transformación.
+Puede representar amenaza u oportunidad.
+### DEPENDENCY
+condición, recurso, actor, resultado o evento del cual depende materialmente otra decisión/iniciativa/resultado.
+Una dependencia no es necesariamente un riesgo.
+Ejemplo:
+“Proyecto B requiere que A termine primero.”
+Eso es una dependencia.
+Se convierte en fuente de exposición cuando la incertidumbre sobre A puede afectar materialmente B.
+### ISSUE
+condición material que ya ocurrió o existe.
+No debe seguir tratándose simplemente como riesgo futuro.
+### EXPOSURE
+combinación contextual de una fuente de incertidumbre/dependencia y sus posibles consecuencias sobre objetivos o decisiones.
+Esto genera una distinción fundamental:
+RISK ≠ DEPENDENCY ≠ ISSUE ≠ EXPOSURE.
+
+## Dependencias
+PMI identifica explícitamente interdependencias de resultados, calendario y recursos, y advierte que interacciones entre componentes pueden generar riesgo agregado que no aparece mirando iniciativas aisladamente. Project Management Institute
+Para Pymapa propongo inicialmente:
+DEP-OUTCOME · resultado depende de otro resultado.
+DEP-SEQUENCE · algo debe ocurrir antes/después.
+DEP-RESOURCE · iniciativas compiten por capacidad/recurso.
+DEP-TECH · dependencia tecnológica.
+DEP-DATA · dependencia de datos/información.
+DEP-PERSON · persona/capacidad crítica.
+DEP-EXTERNAL · tercero/plataforma/proveedor/ecosistema.
+DEP-DECISION · dependencia de aprobación/decisión.
+DEP-FINANCIAL · disponibilidad de financiación/caja.
+DEP-CONTEXT · condición externa necesaria.
+Esta taxonomía queda inicialmente como Pymapa-designed, no como taxonomía atribuida a PMI.
+
+# 3. Condiciones evaluables y variables
+El conocimiento nos lleva a 6 CE / 12 VA.
+## CE01 · Visibilidad de exposición
+VA01 · riesgos materiales identificables
+VA02 · dependencias materiales identificables
+## CE02 · Comprensión de materialidad
+VA03 · consecuencias potenciales sobre objetivos/resultados
+VA04 · incertidumbre/probabilidad o plausibilidad suficientemente comprendida
+No exigiremos probabilidades numéricas artificiales.
+
+## CE03 · Interacción y concentración
+VA05 · interdependencias entre iniciativas/capacidades
+VA06 · concentración/acumulación de exposición
+Ejemplo:
+Tres iniciativas parecen individualmente razonables.
+Las tres requieren al mismo especialista.
+El riesgo material aparece en la interacción, no necesariamente en cada proyecto.
+Este es precisamente el tipo de efecto agregado que portfolio risk management busca hacer visible. Project Management Institute
+
+## CE04 · Respuesta y decisión
+VA07 · respuesta proporcional definida
+VA08 · integración del riesgo/dependencia en decisiones de transformación
+Respuestas posibles no se limitarán a “mitigar”.
+Podrían incluir:
+aceptar, evitar, reducir, transferir/compartir, explotar una oportunidad, modificar secuencia, crear contingencia, aumentar observación o reconsiderar una iniciativa.
+La semántica exacta se cerrará en SET B.
+
+## CE05 · Ownership y escalamiento
+VA09 · responsabilidad sobre exposición/respuesta
+VA10 · capacidad de escalamiento/aceptación cuando excede tolerancias
+Aquí DG-05 reutiliza DG-03.
+No vuelve a diagnosticar todo el gobierno decisional.
+
+## CE06 · Monitoreo y adaptación
+VA11 · señales/triggers de cambio de exposición
+VA12 · revisión de respuesta ante nueva información
+
+# 4. Fundamentación y principios
+Núcleo documental:
+SRC-DG05-001 · Pymapa/OE1-D
+Identidad conceptual.
+SRC-DG05-002 · ISO 31000:2018
+Principios y proceso de gestión de riesgo; integración con gobierno y decisiones. Continúa vigente, pero existe ISO/CD 31000 Edition 3 en desarrollo. ISO
+SRC-DG05-003 · PMI Risk Management in Portfolios, Programs and Projects
+Tratamiento del riesgo sobre objetivos de portafolios/programas/proyectos y amenazas/oportunidades; PMI indica que la publicación fue actualizada en 2024. Project Management Institute
+SRC-DG05-004 · PMI Portfolio Risk Management / Standard for Portfolio Management
+Interdependencias, riesgo estructural y exposición agregada. Project Management Institute
+
+## Principios
+P-DG05-01 
+Riesgo identificado ≠ riesgo gobernado.
+P-DG05-02 
+Dependencia ≠ problema.
+P-DG05-03 
+Dependencia ≠ riesgo automáticamente.
+P-DG05-04 
+Riesgo ≠ issue.
+P-DG05-05 
+Riesgo individual bajo ≠ exposición agregada baja.
+P-DG05-06 
+Probabilidad baja ≠ irrelevancia.
+Una consecuencia extrema puede justificar atención.
+P-DG05-07 
+Incertidumbre alta ≠ detener automáticamente.
+P-DG05-08 
+Riesgo alto ≠ iniciativa incorrecta.
+Puede ser una iniciativa necesaria que requiere tratamiento.
+P-DG05-09 
+Mitigar todo ≠ buena gestión de riesgo.
+El tratamiento debe ser proporcional al valor, exposición y costo de respuesta.
+P-DG05-10 
+Registro de riesgos ≠ gobierno de riesgo.
+P-DG05-11 
+No intervención también puede ser una respuesta deliberada.
+P-DG05-12 
+Riesgo puede representar amenaza u oportunidad.
+Esto está alineado con ISO 31000 y PMI. ISO
+
+# 5. Necesidades de información, materialidad y suficiencia
+Aquí resultan 12 NI principales:
+| NI | Necesitamos conocer |
+| NI01 | Qué incertidumbres materiales pueden afectar transformación |
+| NI02 | Qué dependencias materiales existen |
+| NI03 | Qué objetivos/resultados podrían verse afectados |
+| NI04 | Qué consecuencias plausibles existen |
+| NI05 | Qué tan incierta/plausible es la exposición |
+| NI06 | Qué interacciones pueden amplificar/reducir exposición |
+| NI07 | Dónde existe concentración de exposición |
+| NI08 | Qué respuesta se ha definido |
+| NI09 | Cómo modifica decisiones de transformación |
+| NI10 | Quién responde y quién puede aceptar/escalar |
+| NI11 | Qué señales indican cambio de exposición |
+| NI12 | Cómo se revisa la respuesta |
+
+## Materialidad
+No construiremos un registro exhaustivo de cualquier cosa que “pueda salir mal”.
+Una exposición entra al núcleo DG-05 cuando plausiblemente puede modificar de manera relevante:
+dirección, prioridad, recursos, secuencia, viabilidad, continuidad, resultado o decisión.
+### MAT-DG05-01
+Materialidad de riesgo no depende únicamente de probabilidad × impacto.
+Ese cálculo puede ser útil en determinados contextos, pero Pymapa no lo convertirá en regla universal.
+También pueden importar:
+- irreversibilidad;
+- velocidad de materialización;
+- concentración;
+- capacidad de recuperación;
+- dependencia;
+- detectabilidad;
+- obligaciones externas;
+- efecto sistémico.
+
+## Suficiencia
+Pymapa necesita información suficiente para distinguir, por ejemplo:
+exposición tolerable
+exposición que requiere observación
+exposición que requiere tratamiento
+exposición que modifica una decisión
+exposición cuya información todavía es insuficiente.
+No necesita falsa precisión.
+### STOP-DG05-01
+Si la incertidumbre es demasiado alta para clasificar materialidad:
+no inventar rating; aumentar información si su valor esperado justifica hacerlo.
+Aquí reaparece Value of Information.
+
+# 6. Adquisición, evidencia y reglas diagnósticas
+## Adquisición P1
+Inicialmente necesitamos resolver:
+¿Qué podría cambiar materialmente el resultado de la transformación?
+¿De qué personas, sistemas, decisiones, proveedores o resultados depende?
+¿Qué ocurriría si esas condiciones cambian o fallan?
+¿Qué están haciendo al respecto?
+
+## P2 condicional
+Profundizamos cuando aparecen:
+- persona única crítica;
+- proveedor/plataforma única;
+- iniciativas altamente conectadas;
+- mismo recurso crítico compartido;
+- cambio regulatorio;
+- dependencia financiera;
+- ciber/continuidad;
+- iniciativa irreversible;
+- fuerte incertidumbre tecnológica;
+- múltiples iniciativas dependientes de una sola;
+- contingencia inexistente;
+- riesgo conocido pero no incorporado a decisiones.
+
+## P3 discriminación
+Ejemplo: proveedor crítico.
+Podría representar:
+A. dependencia tolerable y gobernada;
+B. exposición externa crítica → EC-05;
+C. continuidad tecnológica → DT-05;
+D. bloqueo de una iniciativa → OP-05;
+E. exposición transversal del roadmap → DG-05.
+Pueden coexistir.
+Pero:
+una evidencia puede alimentar varias capacidades sin que una capacidad herede automáticamente el diagnóstico de otra.
+
+## Evidencia
+Puede incluir:
+- riesgos conocidos;
+- dependencias;
+- contratos;
+- arquitectura;
+- roadmaps;
+- presupuestos;
+- capacidad;
+- incidentes;
+- continuidad;
+- proveedores;
+- decisiones;
+- contingencias;
+- restricciones regulatorias;
+- datos históricos;
+- concentración de clientes/proveedores/personas;
+- Case State de otras capacidades.
+
+# Reglas diagnósticas
+El conocimiento exige 12 reglas primarias, no diez.
+R-DG05-01 · MATERIAL_RISK_VISIBILITY_GAP
+Exposiciones materiales plausibles permanecen insuficientemente visibles.
+R-DG05-02 · MATERIAL_DEPENDENCY_VISIBILITY_GAP
+Dependencias capaces de modificar decisiones/resultados no están suficientemente identificadas.
+R-DG05-03 · CONSEQUENCE_UNCLEAR
+No se comprende suficientemente qué objetivo o resultado podría verse afectado.
+R-DG05-04 · UNCERTAINTY_POORLY_CHARACTERIZED
+La incertidumbre se trata con certeza injustificada o sin información suficiente.
+R-DG05-05 · INTERDEPENDENCY_BLIND_SPOT
+No se consideran suficientemente interacciones materiales entre iniciativas/condiciones.
+R-DG05-06 · EXPOSURE_CONCENTRATION_BLIND_SPOT
+La acumulación/concentración de exposición permanece oculta.
+R-DG05-07 · RESPONSE_UNDEFINED
+Una exposición material que requiere tratamiento carece de respuesta suficientemente definida.
+R-DG05-08 · RESPONSE_DISPROPORTIONATE
+La respuesta resulta materialmente insuficiente o excesiva respecto de la exposición y contexto.
+R-DG05-09 · RISK_NOT_INTEGRATED_IN_DECISION
+Información material de riesgo/dependencia no modifica decisiones cuando razonablemente debería hacerlo.
+R-DG05-10 · RISK_OWNERSHIP_GAP
+No existe responsabilidad suficiente sobre observación/respuesta.
+R-DG05-11 · ESCALATION_ACCEPTANCE_GAP
+Exposición fuera del ámbito del responsable carece de vía funcional de aceptación/escalamiento.
+R-DG05-12 · STATIC_RISK_RESPONSE
+La respuesta permanece sin revisión pese a cambios materiales.
+
+## Contradicción específica
+CONTR-DG05-01 · DECLARED_RISK_CONTROLLED_vs_OBSERVED_EXPOSURE
+Ejemplo:
+“La dependencia del proveedor está controlada.”
+pero:
+no existe alternativa, SLA, contingencia ni conocimiento suficiente del impacto de una interrupción.
+Eso no demuestra automáticamente que el riesgo sea inaceptable.
+Demuestra que la afirmación “controlado” necesita contrastarse.
+
+# Estados positivos
+No forzamos diez. Resultan 5 estados útiles:
+MATERIAL_EXPOSURE_VISIBLE
+MATERIAL_DEPENDENCIES_UNDERSTOOD
+PROPORTIONATE_RISK_RESPONSE
+RISK_INFORMED_TRANSFORMATION_DECISIONS
+ADAPTIVE_EXPOSURE_GOVERNANCE
+
+# Una aportación transversal muy importante
+DG-05 revela que el Motor no debería almacenar simplemente:
+risk = HIGH.
+Necesita distinguir al menos:
+SOURCE/UNCERTAINTY
+qué genera incertidumbre.
+DEPENDENCY
+de qué depende algo.
+EXPOSURE
+qué objetivo puede afectarse y cómo.
+RESPONSE
+qué se decidió hacer.
+RESIDUAL EXPOSURE
+qué queda después de la respuesta.
+ISSUE
+qué ya se materializó.
+Esto produce:
+CAND-MOTOR-DG05-01 · Riesgo, dependencia, exposición, respuesta, exposición residual e issue deben modelarse como objetos relacionados pero no equivalentes.
+Y otro principio muy importante:
+CAND-MOTOR-DG05-02 · El riesgo agregado no puede calcularse necesariamente sumando riesgos individuales; las interdependencias pueden crear, amplificar o reducir exposición sistémica.
+PMI respalda precisamente que el riesgo del portafolio puede emerger de las interacciones entre componentes y que los riesgos deben considerarse también de manera agregada. Project Management Institute
+
+# Control SET A
+| Objeto | Resultado |
+| Bloques dimensionados totales | 10 |
+| Bloques SET A | 1–6 |
+| CE | 6 |
+| VA | 12 |
+| NI | 12 |
+| Reglas primarias | 12 |
+| Estados positivos | 5 |
+| Grounding | Pymapa + ISO 31000 + PMI |
+| Fronteras críticas | OP-05 / DT-05 / EC-05 / DG01-04 |
+La arquitectura queda:
+Incertidumbre + dependencia → exposición → materialidad/interacción → respuesta → decisión → ownership/escalamiento → monitoreo → adaptación.
+Y aquí vemos por qué fue importante hacer el ajuste metodológico: DG-05 necesitaba 10 bloques, 6 CE, 12 VA y 12 reglas. No había ninguna razón epistemológica para obligarla a parecerse numéricamente a DG-01–04.
+DG05-SET-A-v0.1 · BLOCKS 1–6 OF 10 COMPLETE · READY-FOR-SET-B
+El próximo SET será DG-05 · Bloques 7–10: findings y decisiones de tratamiento; intervención/instrumentos/Done; CRV/validación/seguimiento; y finalmente Knowledge Governance + A–V + DoD + K1–K4. Si pasa los cuatro gates, con ese SET quedará cerrado también todo el dominio DG (5/5).
+Seguimos
+Seguimos con DG-05 · SET B, bloques 7–10. Aquí cerramos la capacidad y, si supera los controles, también el primer dominio completo de Pymapa: DG.
+# DG-05 · Gobernar riesgos y dependencias de la transformación
+## SET B · Bloques 7–10
+Entrada: DG05-SET-A-v0.1 · BLOCKS 1–6 OF 10 COMPLETE
+
+# 7. Findings y decisiones de gobierno
+Las 12 reglas diagnósticas no requieren 12 findings. Al consolidarlas causalmente resultan 8 familias.
+| ID | Familia de hallazgo | Núcleo |
+| HF-DG05-01 | Exposición material insuficientemente visible | Riesgos relevantes no están siendo reconocidos |
+| HF-DG05-02 | Dependencias materiales insuficientemente comprendidas | La transformación depende de condiciones que no están suficientemente gobernadas |
+| HF-DG05-03 | Materialidad insuficientemente caracterizada | Se reconoce la incertidumbre pero no sus consecuencias/plausibilidad |
+| HF-DG05-04 | Exposición agregada/interdependiente subestimada | Evaluaciones individuales ocultan concentración o interacción |
+| HF-DG05-05 | Respuesta inexistente o desproporcionada | La exposición requiere tratamiento diferente al observado |
+| HF-DG05-06 | Riesgo desconectado de decisiones | Se conoce la exposición pero no modifica prioridad, secuencia, recursos u otra decisión cuando corresponde |
+| HF-DG05-07 | Ownership/escalamiento insuficiente | No está claro quién gobierna o acepta la exposición |
+| HF-DG05-08 | Gobierno estático de exposición | Cambia el contexto pero no cambia la lectura/respuesta |
+## Una distinción importante
+Debemos evitar un finding genérico:
+“gestión de riesgos deficiente”.
+Es demasiado amplio para producir una intervención precisa.
+Pymapa debería poder decir, por ejemplo:
+“Existe una dependencia material de una única persona para tres iniciativas prioritarias. La dependencia es conocida individualmente, pero su concentración transversal no está incorporada en la secuenciación ni en la asignación de capacidad.”
+Eso conecta:
+evidencia → exposición → efecto → decisión afectada.
+
+## Decisiones de tratamiento
+Aquí no quiero convertir Pymapa en un manual rígido de risk management.
+Necesitamos un vocabulario funcional de decisiones:
+ACCEPT — mantener conscientemente la exposición.
+REDUCE — disminuir probabilidad/plausibilidad o consecuencia.
+AVOID — modificar la decisión para eliminar determinada exposición.
+TRANSFER/SHARE — trasladar o compartir parte de la exposición cuando sea viable.
+EXPLOIT/ENABLE — actuar para capturar una oportunidad.
+CONTINGENCY — preparar respuesta si ocurre determinada condición.
+OBSERVE — aumentar monitoreo cuando intervenir todavía no está justificado.
+INFORM — obtener información adicional porque puede cambiar materialmente la decisión.
+RESEQUENCE — modificar dependencias/secuencia.
+RECONSIDER — volver sobre prioridad, alcance, inversión o incluso continuidad de la iniciativa.
+ISO 31000 establece un proceso que comprende identificación, análisis, evaluación, tratamiento, monitoreo y comunicación del riesgo; PMI contempla tanto oportunidades como amenazas. ISO
+La taxonomía concreta anterior es Pymapa-designed.
+
+## Guardrail decisional
+R-DG05-TREAT-01 · Detectar riesgo no obliga automáticamente a reducirlo.
+Puede ser racional aceptar una exposición cuando:
+- el costo de mitigación excede su valor;
+- existe capacidad de recuperación;
+- el riesgo es necesario para capturar valor;
+- la exposición está dentro de tolerancias razonables;
+- intervenir crearía una exposición mayor.
+Por tanto:
+no actuar ≠ no gobernar, siempre que exista una decisión consciente y suficientemente fundamentada.
+
+# 8. Intervención, instrumentos, entregables y Done
+Resultan 8 patrones de intervención.
+| ID | Patrón |
+| IP-DG05-01 | Hacer visible exposición material |
+| IP-DG05-02 | Mapear dependencias materiales |
+| IP-DG05-03 | Caracterizar materialidad proporcionalmente |
+| IP-DG05-04 | Evaluar concentración e interdependencias |
+| IP-DG05-05 | Definir respuesta proporcional |
+| IP-DG05-06 | Integrar exposición en decisiones |
+| IP-DG05-07 | Establecer ownership/escalamiento |
+| IP-DG05-08 | Implementar revisión adaptativa |
+
+## Mínima intervención suficiente
+Para una pyme pequeña, un instrumento perfectamente válido podría contener solo:
+| Qué puede ocurrir/condición | De qué depende | Qué afecta | Qué haremos | Quién responde | Señal para revisar |
+Eso puede ser superior a una matriz corporativa de 60 riesgos que nadie utiliza.
+La propia ISO 31000 establece que su aplicación debe adaptarse al contexto de la organización y puede utilizarse independientemente de tamaño o sector. ISO
+
+## Instrumentos
+No necesitamos exactamente ocho. Resultan 7 familias reutilizables:
+INS-DG05-01 · Mapa mínimo de exposición
+INS-DG05-02 · Mapa de dependencias
+INS-DG05-03 · Ficha de exposición material
+INS-DG05-04 · Mapa de concentración/interdependencias
+INS-DG05-05 · Ficha exposición–respuesta
+INS-DG05-06 · Mapa exposición–decisión
+INS-DG05-07 · Registro de revisión y triggers
+PMI reconoce específicamente que interdependencias de resultados, calendario y recursos pueden modificar el riesgo del portafolio, lo que respalda la necesidad de mirar relaciones además de componentes aislados. Project Management Institute
+
+## Entregables
+Resultan 8 entregables funcionales:
+DEL-DG05-01 · exposiciones materiales visibles
+DEL-DG05-02 · dependencias materiales explícitas
+DEL-DG05-03 · consecuencias/plausibilidad suficientemente comprendidas
+DEL-DG05-04 · exposición agregada/interdependiente comprendida
+DEL-DG05-05 · respuestas proporcionales definidas
+DEL-DG05-06 · decisiones de transformación informadas por exposición
+DEL-DG05-07 · ownership y escalamiento funcionales
+DEL-DG05-08 · mecanismo adaptativo de revisión activo
+
+## Done Criteria
+Propongo cinco:
+DC-A · Visibility Done
+Las exposiciones y dependencias materiales relevantes están suficientemente visibles.
+DC-B · Understanding Done
+Puede explicarse qué podría ocurrir, qué afectaría y por qué es material.
+DC-C · Response Done
+Existe una respuesta explícita y proporcional cuando corresponde.
+DC-D · Governance Done
+La exposición está conectada con responsabilidad, escalamiento y decisiones.
+DC-E · Adaptation Done
+Existen condiciones capaces de activar revisión cuando cambia la exposición.
+
+# 9. CRV, validación, seguimiento y contextualización
+Aquí resultan 8 CRV.
+| ID | Criterio de Resultado Verificable |
+| CRV-DG05-01 | Exposiciones materiales suficientemente identificadas |
+| CRV-DG05-02 | Dependencias materiales suficientemente identificadas |
+| CRV-DG05-03 | Materialidad suficientemente caracterizada |
+| CRV-DG05-04 | Concentraciones/interdependencias relevantes evaluadas |
+| CRV-DG05-05 | Respuestas proporcionales explícitamente establecidas |
+| CRV-DG05-06 | Evidencia de incorporación en decisiones materiales |
+| CRV-DG05-07 | Ownership/escalamiento funcionalmente establecidos |
+| CRV-DG05-08 | Respuestas revisadas cuando cambia materialmente la exposición |
+## ¿Cómo validamos?
+Aquí aparece una particularidad importante:
+que el riesgo nunca ocurra no demuestra que fue bien gobernado.
+Y:
+que el riesgo ocurra tampoco demuestra automáticamente que fue mal gobernado.
+Por eso la validación de DG-05 debe observar principalmente la calidad funcional del gobierno bajo incertidumbre, no juzgar retrospectivamente únicamente el resultado.
+### V0
+No existe evidencia suficiente de gobierno.
+### V1
+Exposición/respuesta documentada o declarada.
+### V2
+Existe evidencia de que exposición, respuesta y decisión están funcionalmente conectadas.
+### V3
+Existe evidencia longitudinal de revisión/adaptación cuando cambian las condiciones.
+
+# Evitar el sesgo retrospectivo
+Una decisión puede haber sido razonable con la información disponible y terminar mal.
+También puede haber sido irresponsable y terminar bien por azar.
+Por tanto:
+CAND-MOTOR-DG05-03 · La evaluación de calidad de una decisión bajo incertidumbre debe considerar información disponible al momento de decidir y no inferirse únicamente desde el resultado posterior.
+Esto es muy importante para Pymapa.
+Evita que el sistema aprenda reglas del tipo:
+“salió bien → fue buena decisión”.
+
+# Exposición residual
+Después de una respuesta no necesariamente desaparece el riesgo.
+Necesitamos:
+EXPOSURE INITIAL
+↓
+RESPONSE
+↓
+EXPOSURE RESIDUAL
+↓
+ACCEPT / FURTHER RESPONSE / ESCALATE / MONITOR
+Esto genera:
+CAND-MOTOR-DG05-04 · Toda respuesta material puede producir una exposición residual que requiere aceptación, tratamiento adicional o seguimiento.
+
+# Triggers de reassessment
+No necesitamos revisar todo constantemente.
+Reevaluamos cuando aparece, por ejemplo:
+- nueva dependencia;
+- proveedor crítico;
+- cambio regulatorio;
+- incidente;
+- cambio tecnológico;
+- pérdida de persona crítica;
+- restricción financiera;
+- retraso de iniciativa precedente;
+- cambio de prioridad;
+- cambio material de contexto;
+- nueva información;
+- exposición materializada;
+- respuesta inefectiva;
+- concentración creciente;
+- oportunidad emergente.
+### REASS-DG05-01
+La ausencia de nuevos incidentes no es por sí sola evidencia suficiente para mantener indefinidamente una evaluación previa.
+
+# Contextualización SME
+Aquí debemos evitar especialmente la sobregestión.
+Una microempresa no necesita necesariamente:
+Chief Risk Officer + comité + heatmap + política ERM.
+Puede necesitar algo mucho más sencillo:
+“Dependemos totalmente de esta persona. Si se va, estas tres iniciativas se detienen. Durante los próximos 60 días documentaremos X, capacitaremos a Y y revisaremos cuando Z esté listo.”
+Eso puede representar mejor gobierno efectivo que una arquitectura formal que no modifica ninguna decisión.
+ISO 31000 permite precisamente adaptar la gestión de riesgo al contexto de la organización. ISO
+
+# 10. Knowledge Governance y cierre
+## Provenance
+### SOURCE-DERIVED
+ISO 31000:2018 sustenta:
+- gestión integrada del riesgo;
+- identificación;
+- análisis;
+- evaluación;
+- tratamiento;
+- monitoreo;
+- comunicación;
+- adaptación al contexto;
+- amenazas y oportunidades;
+- relación con objetivos y decisiones.
+La edición 2018 sigue siendo la versión publicada vigente y fue confirmada en 2023. ISO ya tiene en desarrollo ISO/CD 31000 Edition 3, destinada a reemplazarla. ISO
+Por tanto registramos:
+SOURCE-REVIEW-TRIGGER-DG05-01 · Revisar Knowledge Pack DG-05 cuando ISO 31000 Edition 3 alcance publicación definitiva.
+PMI aporta:
+- riesgo en portafolios/programas/proyectos;
+- amenazas y oportunidades;
+- ciclo de gestión;
+- interdependencias;
+- respuestas a nivel agregado;
+- relación entre riesgos y objetivos.
+La guía vigente de PMI fue publicada en septiembre de 2024. Project Management Institute
+### PYMAPA-DESIGNED
+Son diseño propio:
+- 6 CE;
+- 12 VA;
+- 12 NI;
+- 12 reglas diagnósticas;
+- 8 findings;
+- 8 patrones de intervención;
+- 7 instrumentos;
+- 8 entregables;
+- 8 CRV;
+- 5 estados positivos;
+- taxonomía extendida de dependencias;
+- estados de exposición;
+- candidatos del Motor.
+
+# A–V
+| Dimensión | Estado |
+| A Identidad | PASS |
+| B Alcance | PASS |
+| C Aplicabilidad | PASS |
+| D Unidad de análisis | PASS |
+| E Condiciones | PASS |
+| F Variables | PASS |
+| G Information Needs | PASS |
+| H Captura | PASS |
+| I Reglas de información | PASS |
+| J Suficiencia | PASS |
+| K Confianza | PASS |
+| L Diagnóstico | PASS |
+| M Findings | PASS |
+| N Recomendaciones | PASS |
+| O Intervención | PASS |
+| P Ejecución | PASS |
+| Q Resultado | PASS |
+| R Validación | PASS |
+| S Seguimiento | PASS |
+| T Contextualización | PASS |
+| U Knowledge | PASS |
+| V Governance | PASS |
+A–V = 22/22 PASS
+
+# DoD V1
+Los 27 criterios quedan cubiertos: definición y límites; CE/VA; NI y captura; evidencia; suficiencia de variable/capacidad/cobertura; confianza; observación frente a inferencia; reglas; findings explicables; recomendaciones; intervención; actividades/instrumentos/entregables; Done; CRV/KPI; validación; seguimiento; reassessment; contextualización; trazabilidad; provenance; fuentes; estado/versionado/gobierno.
+DoD = 27/27 PASS
+
+# Quality Gates
+K1 · Coherencia — PASS.
+Riesgo, dependencia, issue y exposición quedan diferenciados. DG-05 no absorbe DT-05, EC-05 ni OP-05.
+K2 · Razonamiento — PASS.
+No confundimos riesgo con problema, resultado con calidad de decisión, dependencia con falla, ni ausencia de incidente con buen gobierno.
+K3 · Acción — PASS.
+Los findings pueden conducir a respuestas proporcionales, incluida explícitamente la decisión válida de observar, aceptar, resecuenciar o no intervenir.
+K4 · Conocimiento — PASS.
+Existe grounding externo suficiente, provenance explícito y trigger de actualización de ISO 31000.
+# Cierre DG-05
+DG05-K4-v1.0 · K4-VALIDATED · CLOSED
+| Objeto | Resultado |
+| Bloques | 10/10 |
+| CE | 6 |
+| VA | 12 |
+| NI | 12 |
+| Reglas primarias | 12 |
+| Findings | 8 |
+| Intervenciones | 8 |
+| Instrumentos | 7 |
+| Entregables | 8 |
+| CRV | 8 |
+| A–V | 22/22 PASS |
+| DoD | 27/27 PASS |
+| K1–K4 | 4/4 PASS |
+# CIERRE DEL DOMINIO DG
+Con esto tenemos:
+| Capacidad | Estado |
+| DG-01 · Orientar la transformación a partir del negocio y su entorno | 🟢 K4 |
+| DG-02 · Priorizar iniciativas y recursos de transformación | 🟢 K4 |
+| DG-03 · Asignar responsabilidad y capacidad de decisión | 🟢 K4 |
+| DG-04 · Dar seguimiento a iniciativas y resultados | 🟢 K4 |
+| DG-05 · Gobernar riesgos y dependencias de la transformación | 🟢 K4 |
+DOMAIN-DG-v1.0 · 5/5 CAPABILITIES K4-VALIDATED · DOMAIN-KNOWLEDGE-COMPLETE
+Y el dominio completo forma ahora un ciclo coherente:
+DG-01 ORIENTAR
+↓
+DG-02 ELEGIR Y ASIGNAR
+↓
+DG-03 RESPONSABILIZAR Y HABILITAR DECISIÓN
+↓
+DG-04 OBSERVAR RESULTADOS Y ADAPTAR
+↓
+DG-05 GOBERNAR INCERTIDUMBRE Y DEPENDENCIAS
+con retroalimentación permanente hacia DG-01 y DG-02.
+Hay además un resultado metodológico importante: la nueva regla de dimensionamiento funcionó correctamente en DG-05. La capacidad necesitó 10 bloques, pero resultó más extensa conceptualmente en algunas dimensiones que capacidades anteriores de 12 bloques. Por tanto queda confirmado que bloques y profundidad son variables independientes.
+El siguiente dominio según nuestra secuencia maestra es PC · Personas, cultura y conocimiento, empezando por PC-01 · Disponer o acceder al conocimiento necesario. Antes de desarrollarla dimensionaremos su complejidad real y, con base en eso, definiremos cuántos bloques necesita y cómo agruparlos en macrosets.
+jueves 11:10 p.m.
+Muy bien .Arrancamos PC
+
+
+

@@ -1,0 +1,807 @@
+| Objeto | Resultado |
+| Bloques | 10/10 |
+| CE | 6 |
+| VA | 13 |
+| NI | 13 |
+| Reglas | 13 |
+| Findings | 8 |
+| Intervenciones | 8 |
+| Instrumentos | 7 |
+| Entregables | 8 |
+| CRV | 8 |
+| A–V | 22/22 PASS |
+| DoD | 27/27 PASS |
+| K1–K4 | 4/4 PASS |
+## Estado del dominio PC
+PC-01 · Disponer o acceder al conocimiento necesario 🟢
+PC-02 · Desarrollar competencias y aprendizaje relevantes 🟢
+PC-03 · Apropiar cambios y nuevas formas de trabajo ⚪
+PC-04 · Compartir y conservar conocimiento organizacional ⚪
+PC-05 · Facilitar participación y adaptación de las personas al cambio ⚪
+DOMAIN-PC · 2/5 CAPABILITIES K4-VALIDATED
+La cadena empieza a quedar especialmente limpia:
+PC-01: podemos acceder al conocimiento → PC-02: podemos desarrollar la capacidad → PC-03: esa capacidad/cambio se incorpora al trabajo real → PC-04: el conocimiento puede circular y sobrevivir → PC-05: las personas pueden participar y adaptarse al proceso de cambio.
+El siguiente movimiento es PC-03 · Apropiar cambios y nuevas formas de trabajo. Aquí volveré a dimensionar primero la capacidad, porque adopción, apropiación, comportamiento, uso sostenido y change management requieren probablemente una estructura diferente de PC-01 y PC-02.
+Seguimos
+
+Perfecto. Seguimos con PC-03, pero primero la dimensionamos. Esta capacidad es especialmente importante porque aquí Pymapa debe distinguir entre implementar un cambio y conseguir que una nueva forma de trabajo se vuelva realmente parte de la operación.
+# PC-03 · Apropiar cambios y nuevas formas de trabajo
+## Dimensionamiento previo
+La pregunta central no es:
+“¿La empresa gestiona bien el cambio?”
+Ni tampoco:
+“¿Las personas aceptan el cambio?”
+La pregunta diagnóstica es más concreta:
+Cuando una transformación requiere modificar la forma de trabajar, ¿las personas involucradas comprenden suficientemente el cambio, pueden incorporarlo a su trabajo y llegan a utilizar la nueva práctica de manera suficientemente efectiva y sostenida?
+ISO 10018:2020 aporta una base útil porque relaciona explícitamente engagement, cultura, liderazgo, conocimiento, competencia, comportamiento y mejora, y señala la importancia de involucrar a las personas cuando cambian las condiciones organizacionales. studylib.net
+PC-03, sin embargo, necesita una arquitectura propia de Pymapa.
+
+# Dimensionamiento resultante
+La capacidad requiere 11 bloques sustantivos.
+| # | Bloque |
+| 1 | Identidad, aplicabilidad y fronteras |
+| 2 | Modelo cambio–adopción–apropiación |
+| 3 | Unidad de cambio y población afectada |
+| 4 | Condiciones evaluables y variables |
+| 5 | Grounding y principios |
+| 6 | NI, suficiencia y confianza |
+| 7 | Adquisición, evidencia y reglas |
+| 8 | Findings y decisiones de apropiación |
+| 9 | Intervenciones, actividades e instrumentos |
+| 10 | Entregables, Done, CRV, validación y seguimiento |
+| 11 | Contextualización, Knowledge Governance y cierre |
+Los agruparemos:
+SET A = bloques 1–7
+SET B = bloques 8–11
+La existencia de un bloque específico sobre unidad de cambio y población afectada es deliberada. PC-03 necesita saber exactamente qué comportamiento/práctica debe cambiar y quién debe cambiarlo antes de evaluar apropiación.
+
+# PC-03 · SET A
+## 1. Identidad, aplicabilidad y fronteras
+Definición productiva V1:
+PC-03 evalúa la capacidad de la organización para lograr que cambios materialmente relevantes en formas de trabajo sean suficientemente comprendidos, habilitados, incorporados y sostenidos por las personas que deben aplicarlos para producir el resultado esperado.
+Unidad de análisis:
+la incorporación efectiva de una nueva o modificada forma de trabajo por la población a la que aplica.
+Cadena conceptual:
+Cambio requerido → población afectada → comprensión → capacidad/condiciones → uso → incorporación → sostenimiento.
+
+# Aplicabilidad
+PC-03 no se activa plenamente simplemente porque exista una iniciativa.
+Se activa cuando el resultado requiere un cambio humano observable en la forma de trabajar.
+Por ejemplo:
+- utilizar un nuevo CRM;
+- seguir un proceso diferente;
+- tomar decisiones con datos;
+- registrar determinada información;
+- utilizar IA para una actividad;
+- modificar una rutina comercial;
+- asumir una responsabilidad nueva;
+- colaborar de otra manera;
+- utilizar un nuevo canal;
+- aplicar un nuevo control.
+Pero una actualización técnica de infraestructura que no cambia materialmente el comportamiento de ninguna persona podría tener:
+PC03 = NOT-MATERIAL
+### APP-PC03-01
+La existencia de una transformación no implica automáticamente una necesidad material de apropiación humana.
+
+# Fronteras críticas
+| Pregunta | Capacidad primaria |
+| ¿Tenemos acceso al conocimiento necesario? | PC-01 |
+| ¿Las personas pueden desarrollar la competencia? | PC-02 |
+| ¿La nueva forma de trabajo se incorporó realmente? | PC-03 |
+| ¿El conocimiento se comparte/conserva? | PC-04 |
+| ¿Las personas pueden participar y adaptarse al cambio? | PC-05 |
+| ¿La iniciativa fue implementada? | OP-05 |
+| ¿El proceso está correctamente diseñado? | OP-01/02 |
+| ¿La tecnología es adecuada? | DT correspondiente |
+Una distinción crítica:
+OP-05 puede concluir que una solución fue implementada mientras PC-03 concluye que todavía no fue apropiada suficientemente por sus usuarios.
+No hay contradicción.
+
+# 2. Modelo cambio–adopción–apropiación
+Necesitamos evitar utilizar indistintamente:
+comunicación, aceptación, adopción, uso, apropiación.
+Propongo los siguientes objetos Pymapa.
+### CHANGE-AWARE
+La persona sabe que el cambio existe.
+### CHANGE-UNDERSTOOD
+Comprende suficientemente:
+qué cambia, por qué y qué significa para su trabajo.
+### CHANGE-ENABLED
+Dispone de:
+competencia, herramientas, acceso, información, autoridad y condiciones mínimas para actuar de la nueva forma.
+### CHANGE-TRIED
+Ha utilizado/practicado la nueva forma.
+### CHANGE-ADOPTED
+La utiliza suficientemente cuando corresponde.
+### CHANGE-APPROPRIATED
+La nueva forma está suficientemente integrada al trabajo normal y puede sostenerse sin depender continuamente del mecanismo extraordinario de implementación.
+Esto produce:
+AWARENESS ≠ UNDERSTANDING ≠ ENABLEMENT ≠ USE ≠ ADOPTION ≠ APPROPRIATION.
+No significa que la experiencia SME vaya a mostrar seis etapas.
+Son estados internos de razonamiento.
+
+# Apropiación ≠ obediencia
+Esta distinción es especialmente importante.
+Una persona puede utilizar un proceso porque:
+“el jefe está mirando”.
+Eso demuestra comportamiento observado.
+No necesariamente demuestra apropiación sostenible.
+Pero tampoco exigiremos:
+entusiasmo emocional.
+### P-PC03-CORE-01
+La apropiación se evalúa por incorporación funcional y sostenible de la nueva forma de trabajo, no por entusiasmo declarado.
+Una persona puede no estar encantada con el cambio y aplicarlo correctamente de manera estable.
+
+# 3. Unidad de cambio y población afectada
+Antes de preguntar si hubo apropiación necesitamos responder:
+¿qué exactamente debería haber cambiado?
+Por eso introducimos:
+### CHANGE UNIT
+Objeto que expresa:
+FROM → TO
+Ejemplo:
+No:
+“implementar CRM”.
+Sí:
+FROM: vendedores registran oportunidades en archivos individuales.
+TO: oportunidades relevantes se registran y actualizan en CRM bajo criterios definidos.
+Ahora podemos evaluar comportamiento.
+
+## CHANGE POPULATION
+Debemos saber:
+quién necesita cambiar qué.
+No todas las personas de una empresa tienen que adoptar toda transformación.
+Ejemplo:
+Un ERP puede afectar:
+- finanzas profundamente;
+- operaciones parcialmente;
+- comercial solo en una interacción;
+- otros roles prácticamente nada.
+Por tanto:
+adopción organizacional ≠ porcentaje bruto de empleados usando algo.
+
+# 4. Condiciones evaluables y variables
+El dimensionamiento produce 6 CE / 14 VA.
+## CE01 · Cambio suficientemente definido
+VA01 · Forma de trabajo objetivo
+VA02 · Diferencia relevante estado actual → estado objetivo
+Sin esto, “adopción” resulta imposible de evaluar.
+
+## CE02 · Población e impacto
+VA03 · Personas/roles realmente afectados
+VA04 · Impacto material del cambio sobre su trabajo
+No todos los cambios exigen el mismo esfuerzo de apropiación.
+
+## CE03 · Comprensión
+VA05 · Comprensión de qué cambia
+VA06 · Comprensión suficientemente funcional de por qué/para qué
+No exigimos adhesión ideológica.
+Buscamos comprensión suficiente para actuar.
+
+## CE04 · Habilitación
+VA07 · Competencia necesaria disponible
+VA08 · Herramientas/accesos/información disponibles
+VA09 · Condiciones del trabajo compatibles
+PC-02 puede alimentar VA07.
+Pero PC-03 debe comprobar que las condiciones para usar la competencia existen.
+
+## CE05 · Adopción observable
+VA10 · Uso efectivo de la nueva práctica
+VA11 · Cobertura en situaciones donde corresponde
+VA12 · Calidad/consistencia suficiente del uso
+Una persona que abre el CRM una vez no necesariamente lo adoptó.
+
+## CE06 · Apropiación y sostenimiento
+VA13 · Integración en el trabajo normal
+VA14 · Persistencia ante reducción del soporte extraordinario
+Esta última variable ayuda a distinguir:
+implementación asistida de apropiación sostenible.
+
+# 5. Grounding y principios
+ISO 10018:2020 resulta particularmente útil aquí. La norma trata engagement dentro del contexto organizacional y relaciona cultura, liderazgo, estrategia, conocimiento, competencia e involucramiento de las personas; también señala que los líderes deben facilitar recursos y remover barreras, y que las personas deben comprender sus roles respecto de los objetivos. studylib.net
+La misma fuente diferencia formación y desarrollo de competencia, reforzando nuestra decisión de no reducir apropiación a capacitación. studylib.net
+Para Pymapa, este grounding se utiliza como fundamento, no como taxonomía diagnóstica.
+
+# Principios PC-03
+P-PC03-01
+Comunicación del cambio ≠ comprensión.
+P-PC03-02
+Comprensión ≠ capacidad.
+P-PC03-03
+Capacidad ≠ utilización.
+P-PC03-04
+Utilización puntual ≠ adopción.
+P-PC03-05
+Adopción inicial ≠ apropiación sostenible.
+P-PC03-06
+Resistencia declarada ≠ fracaso de adopción automáticamente.
+P-PC03-07
+Cumplimiento observado ≠ apropiación automáticamente.
+P-PC03-08
+Baja adopción ≠ resistencia humana automáticamente.
+Puede existir una barrera de sistema.
+P-PC03-09
+Implementación técnica ≠ apropiación humana.
+P-PC03-10
+Mayor comunicación ≠ necesariamente mayor adopción.
+P-PC03-11
+Mayor capacitación ≠ necesariamente mayor adopción.
+P-PC03-12
+No todas las personas deben adoptar todos los cambios.
+P-PC03-13
+La apropiación debe evaluarse respecto de una conducta/práctica suficientemente definida.
+P-PC03-14
+Una nueva práctica puede requerir adaptación después de observar su uso real.
+Esto último evita asumir que el diseño original siempre es correcto.
+
+# 6. NI, suficiencia y confianza
+Resultan 14 NI correspondientes a las variables:
+| NI | Necesitamos conocer |
+| NI01 | Qué forma de trabajo debería existir |
+| NI02 | Qué cambia respecto de la situación actual |
+| NI03 | Quién debe cambiar |
+| NI04 | Cuánto cambia realmente su trabajo |
+| NI05 | Si comprende qué debe hacer diferente |
+| NI06 | Si comprende suficientemente para qué |
+| NI07 | Si posee la competencia necesaria |
+| NI08 | Si dispone de herramientas/accesos/información |
+| NI09 | Si el contexto laboral permite actuar así |
+| NI10 | Si utiliza efectivamente la nueva práctica |
+| NI11 | Si la utiliza cuando corresponde |
+| NI12 | Si la utiliza con calidad/consistencia suficiente |
+| NI13 | Si forma parte del trabajo normal |
+| NI14 | Si se sostiene al reducir soporte extraordinario |
+
+# Suficiencia
+Aquí no basta preguntar:
+“¿ya están usando el sistema?”
+Necesitamos suficiente cobertura para discriminar:
+uso excepcional
+vs
+uso asistido
+vs
+adopción funcional
+vs
+apropiación sostenible.
+### SUFF-PC03-01
+Para declarar apropiación positiva debe existir evidencia positiva de comportamiento en contexto suficientemente representativo.
+Esto aplica directamente el principio maestro:
+los estados positivos necesitan evidencia positiva.
+
+# Confianza
+Una encuesta:
+“Sí, ya usamos el sistema”
+puede ser evidencia P1/P2.
+Para una conclusión fuerte necesitamos preferentemente:
+- comportamiento observable;
+- registros;
+- outputs;
+- casos reales;
+- consistencia temporal;
+- triangulación con usuarios/responsables.
+No necesitamos vigilancia exhaustiva.
+La evidencia debe ser proporcional a la materialidad.
+
+# 7. Adquisición, evidencia y reglas
+## P1 · Núcleo
+La conversación SME puede empezar:
+“¿Qué necesitan hacer diferente las personas para que este cambio funcione?”
+“¿Quiénes deben hacerlo?”
+“¿Ya lo están haciendo normalmente?”
+“¿Qué les impide hacerlo cuando no ocurre?”
+Son preguntas mucho más útiles que:
+“¿Tiene un plan de gestión del cambio?”
+
+## P2 · Condicional
+Profundizamos cuando aparece:
+- sistema implementado pero poco utilizado;
+- doble operación sistema nuevo/viejo;
+- Excel paralelo;
+- personas capacitadas pero sin uso;
+- workaround;
+- uso solo cuando supervisan;
+- uso inconsistente;
+- tareas omitidas;
+- quejas recurrentes;
+- retorno al método anterior;
+- roles diferentes adoptando a velocidades distintas;
+- soporte permanente;
+- cambio técnicamente correcto pero operativamente incómodo.
+
+# P3 · Discriminación causal
+Ejemplo:
+“Los vendedores no actualizan el CRM.”
+Pymapa debe discriminar:
+COMPETENCE
+No saben hacerlo → PC-02.
+ACCESS
+No pueden entrar → DT/condición habilitante.
+PROCESS
+El flujo está mal diseñado → OP.
+WORKLOAD
+La práctica agrega carga desproporcionada → OP/PC03.
+DECISION RIGHTS
+No saben quién es responsable → DG-03.
+RELEVANCE
+No entienden para qué sirve → PC-03.
+ADOPTION
+Pueden, comprenden y tienen condiciones, pero la práctica todavía no se incorpora → PC-03.
+DESIGN FAILURE
+La nueva práctica puede ser peor que la anterior.
+Este último resultado es crítico.
+El Motor no debe asumir que toda resistencia demuestra un problema en las personas.
+
+# P4 · Contradicción
+### CONTR-PC03-01
+DECLARED_ADOPTION_vs_OBSERVED_BEHAVIOR
+“Todo el equipo ya usa el CRM.”
+pero evidencia:
+40 % de las oportunidades relevantes siguen fuera del sistema.
+La contradicción activa profundización.
+
+### CONTR-PC03-02
+DECLARED_RESISTANCE_vs_SYSTEM_BARRIER
+“La gente se resiste.”
+pero evidencia:
+el sistema tarda cuatro veces más que el procedimiento anterior y exige duplicar información.
+No debemos diagnosticar resistencia sin discriminar la barrera.
+
+# P5 · Validación
+“Entendemos que el equipo sabe utilizar la herramienta, pero en determinados casos continúa trabajando por fuera de ella porque el nuevo flujo agrega pasos que consideran innecesarios. ¿Es correcto?”
+Eso preserva:
+observación → explicación declarada → inferencia posterior.
+
+# Evidencia
+Puede incluir:
+- comportamiento observado;
+- registros de uso;
+- transacciones;
+- outputs;
+- cumplimiento del nuevo proceso;
+- workarounds;
+- errores;
+- retrabajos;
+- soporte requerido;
+- excepciones;
+- entrevistas;
+- feedback;
+- registros tecnológicos;
+- resultados de PC-02;
+- diseño OP;
+- Case State de implementación OP-05.
+
+# Reglas diagnósticas
+La complejidad produce 14 reglas primarias.
+R-PC03-01 · TARGET_WAY_OF_WORKING_UNCLEAR
+La nueva forma de trabajo no está suficientemente definida.
+R-PC03-02 · CHANGE_DELTA_UNCLEAR
+No se comprende suficientemente qué debe cambiar respecto de la práctica actual.
+R-PC03-03 · CHANGE_POPULATION_UNCLEAR
+No está suficientemente identificado quién necesita cambiar.
+R-PC03-04 · CHANGE_IMPACT_UNDERSTATED
+El impacto real sobre el trabajo de la población está insuficientemente comprendido.
+R-PC03-05 · CHANGE_UNDERSTANDING_GAP
+Las personas afectadas no comprenden suficientemente qué cambia.
+R-PC03-06 · CHANGE_PURPOSE_GAP
+No existe comprensión funcional suficiente del propósito/relevancia.
+R-PC03-07 · ADOPTION_COMPETENCE_GAP
+La adopción está limitada por competencia insuficiente.
+R-PC03-08 · ADOPTION_ENABLEMENT_GAP
+Faltan herramientas, accesos, información u otras condiciones habilitantes.
+R-PC03-09 · WORK_CONTEXT_ADOPTION_BARRIER
+El sistema de trabajo dificulta materialmente la nueva práctica.
+R-PC03-10 · TARGET_BEHAVIOR_NOT_OBSERVED
+La nueva práctica no se observa suficientemente.
+R-PC03-11 · ADOPTION_COVERAGE_GAP
+Se utiliza solo en parte de los casos/población donde corresponde.
+R-PC03-12 · ADOPTION_CONSISTENCY_GAP
+El uso existe pero es insuficientemente consistente o correcto.
+R-PC03-13 · CHANGE_NOT_EMBEDDED
+La nueva práctica todavía depende excesivamente de mecanismos extraordinarios.
+R-PC03-14 · ADOPTION_NOT_SUSTAINED
+La práctica retrocede cuando disminuye acompañamiento/control.
+
+# Guardrails
+G-PC03-01
+No diagnosticar resistencia únicamente desde falta de uso.
+G-PC03-02
+No recomendar comunicación automáticamente ante baja adopción.
+G-PC03-03
+No recomendar capacitación automáticamente ante baja adopción.
+G-PC03-04
+No medir adopción únicamente mediante logins.
+G-PC03-05
+No exigir uso universal cuando la práctica no aplica universalmente.
+G-PC03-06
+No atribuir una falla de diseño a las personas.
+G-PC03-07
+No confundir coerción temporal con apropiación sostenible.
+G-PC03-08
+No considerar el método objetivo inmutable cuando la evidencia de uso revela problemas legítimos.
+
+# Estados positivos
+Aquí resultan 5:
+CHANGE_UNIT_CLEAR
+AFFECTED_POPULATION_READY
+TARGET_BEHAVIOR_ADOPTED
+NEW_WAY_OF_WORKING_EMBEDDED
+CHANGE_APPROPRIATION_SUSTAINED
+
+# Aportaciones al Motor
+PC-03 introduce un objeto transversal muy importante:
+CHANGE_UNIT = FROM_STATE → TO_STATE + AFFECTED_POPULATION + EXPECTED_BEHAVIOR
+Por tanto:
+CAND-MOTOR-PC03-01 · La adopción no debe evaluarse sobre una iniciativa abstracta sino sobre unidades de cambio observables que definan estado/práctica origen, estado/práctica objetivo y población aplicable.
+Segundo:
+CAND-MOTOR-PC03-02 · Ausencia de comportamiento objetivo no puede inferirse automáticamente como resistencia; el Motor debe discriminar competencia, habilitación, diseño del trabajo, pertinencia y apropiación.
+Tercero:
+CAND-MOTOR-PC03-03 · Implementación, adopción y apropiación deben mantenerse como estados diferentes.
+Y cuarto:
+CAND-MOTOR-PC03-04 · Una práctica inicialmente adoptada puede requerir evidencia temporal antes de clasificarse como apropiada/sostenida.
+
+# Una conexión especialmente potente
+Ahora podemos modelar una cadena que Pymapa no tenía tan explícita:
+OP-05
+¿La solución/cambio fue implementado?
+↓
+PC-02
+¿Las personas pueden hacer lo nuevo?
+↓
+PC-03
+¿Realmente lo hacen?
+↓
+DG-04 / capability owner
+¿Está produciendo el resultado esperado?
+Esto evita una de las equivocaciones más frecuentes en transformación:
+“lo instalamos” → “se implementó” → “se adoptó” → “generó valor”.
+Son cuatro afirmaciones diferentes.
+
+# Control PC-03 · SET A
+| Objeto | Resultado |
+| Bloques dimensionados | 11 |
+| SET A | 1–7 |
+| CE | 6 |
+| VA | 14 |
+| NI | 14 |
+| Reglas primarias | 14 |
+| Guardrails | 8 |
+| Estados positivos | 5 |
+| Grounding inicial | Pymapa + ISO 10018 |
+La arquitectura diagnóstica queda:
+Cambio requerido → unidad FROM/TO → población afectada → comprensión → habilitación → comportamiento observable → cobertura/consistencia → incorporación al trabajo → sostenimiento.
+Y queda fijado el principio central de PC-03:
+La apropiación no se demuestra porque el cambio fue comunicado, porque las personas fueron capacitadas o porque la solución fue implementada. Se demuestra cuando la nueva forma de trabajo aplicable se incorpora suficientemente al comportamiento operativo y puede sostenerse.
+PC03-SET-A-v0.1 · BLOCKS 1–7 OF 11 COMPLETE · READY-FOR-SET-B
+El siguiente movimiento es PC-03 · SET B · bloques 8–11: consolidaremos findings, decisiones de apropiación, intervenciones, instrumentos, entregables, CRV y validación temporal, y finalmente ejecutaremos A–V + DoD + K1–K4.
+Seguimos
+Seguimos con PC-03 · SET B, bloques 8–11. El cierre debe preservar una distinción central: implementación, uso, adopción, apropiación y resultado son estados diferentes.
+# PC-03 · Apropiar cambios y nuevas formas de trabajo
+## SET B · Bloques 8–11
+Entrada: PC03-SET-A-v0.1 · BLOCKS 1–7 OF 11 COMPLETE
+Antes de cerrar, confirmo el grounding: ISO 10018:2020 continúa publicada, aunque se encuentra en proceso de revisión sistemática; por tanto corresponde mantener un trigger de revisión documental. La OECD sigue mostrando, además, que para las pymes la adopción digital está condicionada por skills, recursos internos y cambios organizacionales complementarios; su evidencia más reciente también muestra que integrar tecnologías como IA en la operación sigue siendo desigual y está limitada, entre otros factores, por tiempo, costos y skills. ISO
+
+# 8. Findings y decisiones de apropiación
+Las 14 reglas se consolidan en 8 familias de hallazgo.
+| ID | Familia | Núcleo |
+| HF-PC03-01 | Cambio operativo insuficientemente definido | No está claro qué práctica debe cambiar |
+| HF-PC03-02 | Población/impacto insuficientemente delimitados | No está claro quién debe cambiar o cuánto afecta su trabajo |
+| HF-PC03-03 | Comprensión insuficiente del cambio | Las personas no comprenden suficientemente qué cambia o para qué |
+| HF-PC03-04 | Habilitación insuficiente | Competencia, herramientas, información o condiciones impiden actuar |
+| HF-PC03-05 | Adopción observable insuficiente | El comportamiento objetivo todavía no ocurre suficientemente |
+| HF-PC03-06 | Adopción parcial o inconsistente | Existe uso, pero cobertura/calidad/consistencia son insuficientes |
+| HF-PC03-07 | Cambio todavía no incorporado | La práctica depende excesivamente de soporte extraordinario |
+| HF-PC03-08 | Apropiación no sostenida | El comportamiento retrocede al disminuir soporte/control |
+Esta estructura evita el hallazgo genérico:
+“Existe resistencia al cambio.”
+Ese diagnóstico es demasiado interpretativo y causalmente débil.
+Pymapa debe preferir:
+“La nueva práctica se utiliza en 6 de 10 casos aplicables y los usuarios reportan que los cuatro restantes requieren duplicar información en dos sistemas.”
+Después investigamos la causa.
+
+## No crearemos RESISTANT_EMPLOYEE
+Esto merece una regla explícita:
+### CAUS-PC03-01
+La resistencia es una hipótesis explicativa posible, no una observación primaria.
+Una persona que no utiliza una nueva herramienta puede estar:
+- sin competencia;
+- sin acceso;
+- bajo presión operativa;
+- siguiendo instrucciones contradictorias;
+- usando un proceso mejor;
+- evitando duplicidad;
+- sin comprender el cambio;
+- percibiendo un riesgo legítimo;
+- o efectivamente rechazándolo.
+El Motor debe discriminar antes de atribuir causa.
+
+# Decisiones de apropiación
+Resultan 9 direcciones posibles:
+CLARIFY_CHANGE
+Aclarar qué práctica debe cambiar.
+RESEGMENT
+Redefinir quién necesita adoptar qué.
+ENABLE
+Eliminar barreras de competencia/acceso/condiciones.
+REDESIGN_WORK
+Modificar la nueva forma de trabajo porque su diseño genera fricción material.
+SUPPORT_ADOPTION
+Acompañar la incorporación inicial.
+REINFORCE
+Reforzar una práctica adoptada parcialmente.
+NORMALIZE
+Integrarla a mecanismos normales de operación.
+SUSTAIN
+Consolidar permanencia y reducir dependencia del soporte extraordinario.
+RECONSIDER_CHANGE
+Revisar el propio cambio cuando la evidencia indique que la práctica objetivo no es suficientemente adecuada.
+La última opción es esencial.
+Pymapa no debe estar diseñado para conseguir obediencia a una transformación incorrecta.
+
+# Recomendación proporcional
+### REC-PC03-01
+La intervención debe dirigirse a la barrera causal con mayor evidencia y no automáticamente a las personas.
+Por tanto:
+competencia insuficiente → PC-02
+proceso mal diseñado → OP
+tecnología inadecuada → DT
+autoridad ambigua → DG-03
+comprensión/adopción/apropiación → PC-03
+participación/adaptación más amplia → PC-05
+
+# 9. Intervenciones, actividades e instrumentos
+Resultan 8 patrones de intervención.
+| ID | Patrón |
+| IP-PC03-01 | Clarificar unidad de cambio |
+| IP-PC03-02 | Delimitar población e impacto |
+| IP-PC03-03 | Construir comprensión funcional |
+| IP-PC03-04 | Resolver condiciones de habilitación |
+| IP-PC03-05 | Habilitar adopción inicial |
+| IP-PC03-06 | Corregir cobertura/consistencia |
+| IP-PC03-07 | Incorporar práctica al trabajo normal |
+| IP-PC03-08 | Consolidar sostenimiento |
+
+## Actividades
+Según el caso pueden incluir:
+- explicar el cambio;
+- mostrar casos;
+- práctica acompañada;
+- remover pasos duplicados;
+- ajustar roles;
+- modificar accesos;
+- rediseñar flujo;
+- feedback;
+- soporte inicial;
+- coaching;
+- champions;
+- revisar excepciones;
+- eliminar mecanismo anterior;
+- incorporar controles;
+- observar comportamiento;
+- ajustar la propia solución.
+No existe obligación de aplicar todas.
+
+# Instrumentos
+Resultan 7 familias.
+INS-PC03-01 · Change Unit Canvas
+FROM → TO → población → comportamiento esperado → resultado relacionado.
+INS-PC03-02 · Mapa población–impacto
+INS-PC03-03 · Checklist de habilitación
+competencia / acceso / herramienta / información / autoridad / condiciones.
+INS-PC03-04 · Mapa de barreras de adopción
+INS-PC03-05 · Evidencia de comportamiento objetivo
+INS-PC03-06 · Seguimiento de adopción y excepciones
+INS-PC03-07 · Test de sostenimiento
+
+# Mínima intervención suficiente
+Ejemplo sencillo:
+Una empresa quiere que cinco vendedores registren oportunidades en CRM.
+No necesita necesariamente un programa corporativo de change management.
+Podría bastar:
+definir qué registrar → explicar por qué → configurar correctamente → practicar cinco casos → acompañar primera semana → revisar excepciones → eliminar Excel paralelo cuando el flujo funcione → comprobar uso normal después.
+Esto es especialmente pertinente para pymes, donde OECD documenta restricciones de recursos, skills y capacidad para implementar cambios organizacionales complementarios a la tecnología. OECD
+
+# 10. Entregables, Done, CRV y validación
+Resultan 8 entregables funcionales:
+DEL-PC03-01 · unidad de cambio explícita
+DEL-PC03-02 · población e impacto delimitados
+DEL-PC03-03 · comprensión funcional suficiente
+DEL-PC03-04 · condiciones habilitantes resueltas
+DEL-PC03-05 · comportamiento objetivo observable
+DEL-PC03-06 · cobertura/consistencia suficientes
+DEL-PC03-07 · práctica incorporada a operación normal
+DEL-PC03-08 · apropiación suficientemente sostenida
+
+# Done Criteria
+Aquí necesitamos 6.
+### DC-A · Change Definition Done
+Está suficientemente definido qué debe cambiar y para quién.
+### DC-B · Understanding Done
+La población aplicable comprende suficientemente la nueva práctica.
+### DC-C · Enablement Done
+Existen condiciones suficientes para actuar de la forma objetivo.
+### DC-D · Adoption Done
+El comportamiento objetivo ocurre con cobertura y calidad suficientes.
+### DC-E · Embedding Done
+La práctica forma parte suficientemente del trabajo normal.
+### DC-F · Sustainability Done
+Cuando la materialidad lo requiere, existe evidencia de mantenimiento al disminuir soporte extraordinario.
+
+# Un punto delicado: retirar el sistema anterior
+No debemos crear una regla:
+“para demostrar adopción hay que eliminar siempre el proceso anterior”.
+Puede existir:
+- contingencia legítima;
+- transición temporal;
+- obligación regulatoria;
+- coexistencia necesaria;
+- rollback controlado.
+Pero cuando el método anterior permanece sin una razón funcional y permite evitar permanentemente el nuevo:
+puede constituir evidencia de incorporación insuficiente.
+
+# CRV
+Resultan 8.
+| ID | Criterio de Resultado Verificable |
+| CRV-PC03-01 | Unidad de cambio suficientemente definida |
+| CRV-PC03-02 | Población aplicable correctamente delimitada |
+| CRV-PC03-03 | Comprensión funcional suficiente |
+| CRV-PC03-04 | Condiciones habilitantes disponibles |
+| CRV-PC03-05 | Comportamiento objetivo observable |
+| CRV-PC03-06 | Cobertura y consistencia suficientes |
+| CRV-PC03-07 | Nueva práctica integrada al trabajo normal |
+| CRV-PC03-08 | Práctica sostenida durante horizonte proporcional |
+
+# Validación de apropiación
+Aquí necesitamos una progresión distinta a PC-02.
+### V0 · NOT OBSERVED
+No existe evidencia suficiente de comportamiento.
+### V1 · TRIED
+Existe uso inicial/práctica.
+### V2 · ADOPTED
+El comportamiento ocurre suficientemente en situaciones aplicables.
+### V3 · EMBEDDED
+Forma parte de la operación normal.
+### V4 · SUSTAINED
+Se mantiene durante un horizonte suficiente y sin dependencia desproporcionada del soporte extraordinario.
+Esta capacidad justifica V0–V4, en vez de obligarla al V0–V3 usado en otras capacidades.
+Otra confirmación de nuestra nueva metodología:
+la estructura la determina el conocimiento.
+
+# Tiempo
+No definiremos:
+“90 días = apropiación”.
+Sería artificial.
+El horizonte depende de:
+- frecuencia de la conducta;
+- criticidad;
+- complejidad;
+- oportunidad de uso;
+- estacionalidad;
+- riesgo.
+Una práctica diaria puede producir evidencia rápidamente.
+Una práctica trimestral necesita otro horizonte.
+### VAL-PC03-01
+El horizonte de validación debe guardar relación con la frecuencia natural de oportunidad del comportamiento.
+
+# Adopción ≠ resultado
+Incluso con V4 SUSTAINED todavía debemos preguntar:
+¿la nueva práctica genera el resultado que justificó el cambio?
+Eso pertenece al capability owner/DG-04.
+Por tanto:
+CAND-MOTOR-PC03-05 · Una intervención puede alcanzar apropiación sostenible y aun así no producir el resultado de negocio esperado.
+Esto protege al Motor contra:
+“la gente lo usa → entonces funciona”.
+
+# Reassessment
+Triggers:
+- caída de uso;
+- reaparición del método anterior;
+- nuevo workaround;
+- cambio tecnológico;
+- cambio de proceso;
+- cambio de población;
+- incorporación de personas nuevas;
+- modificación de roles;
+- deterioro de calidad;
+- cambio en resultados;
+- reducción de soporte;
+- feedback material;
+- evidencia de que la práctica objetivo necesita rediseño.
+
+# 11. Contextualización, Knowledge Governance y cierre
+## Contextualización SME
+La formalidad cambia, no la lógica.
+Una microempresa puede gestionar apropiación mediante:
+conversación directa + práctica real + observación + corrección.
+Una empresa mediana puede requerir:
+segmentación de usuarios + champions + soporte + métricas + seguimiento estructurado.
+Ambas pueden alcanzar exactamente el mismo estado lógico:
+CHANGE_APPROPRIATION_SUSTAINED
+
+# Una contextualización especialmente importante: IA
+La evidencia OECD 2026 muestra un crecimiento rápido del uso de IA entre pymes, pero también que la integración estratégica, dirigida y segura en las operaciones sigue siendo desigual, con restricciones persistentes de tiempo, mantenimiento y skills. OECD
+Esto refuerza una distinción que necesitaremos posteriormente:
+usar ChatGPT ocasionalmente ≠ haber apropiado IA como nueva forma de trabajo.
+Una futura Change Unit podría ser:
+FROM: redacción completamente manual de determinada pieza.
+TO: generación asistida por IA + revisión humana bajo criterios definidos.
+PC-03 evaluaría la incorporación de la práctica.
+DT-06 evaluaría la pertinencia tecnológica.
+PC-02 evaluaría competencia.
+Fase 3 posteriormente gobernaría aspectos específicos de IA.
+No desarrollamos esos objetos todavía.
+
+# Provenance
+## SOURCE-DERIVED
+ISO 10018:2020 sustenta el papel del involucramiento y competencia de las personas en sistemas organizacionales y es aplicable independientemente del tamaño de la organización. Sigue publicada, aunque actualmente figura bajo revisión. ISO
+OECD 2021–2026 sustenta el contexto SME: barreras de skills, recursos y cambios organizacionales; brechas de adopción más amplias en tecnologías sofisticadas; y, más recientemente, integración operativa desigual de IA. OECD
+## PYMAPA-DESIGNED
+Son diseño Pymapa:
+- Change Unit;
+- FROM/TO;
+- estados AWARE/UNDERSTOOD/ENABLED/TRIED/ADOPTED/APPROPRIATED;
+- 6 CE;
+- 14 VA;
+- 14 NI;
+- 14 reglas;
+- 8 findings;
+- 9 decisiones;
+- 8 intervenciones;
+- 7 instrumentos;
+- 8 CRV;
+- V0–V4.
+
+# Source Review Trigger
+Como ISO indica que ISO 10018:2020 está actualmente bajo revisión sistemática, registramos:
+SOURCE-REVIEW-TRIGGER-PC03-01 · Revisar PC-03 y PC-05 ante nueva edición, confirmación o cambio de estado material de ISO 10018. ISO
+
+# A–V
+| Dimensión | Estado |
+| A Identidad | PASS |
+| B Alcance | PASS |
+| C Aplicabilidad | PASS |
+| D Unidad de análisis | PASS |
+| E Condiciones | PASS |
+| F Variables | PASS |
+| G Information Needs | PASS |
+| H Captura | PASS |
+| I Reglas de información | PASS |
+| J Suficiencia | PASS |
+| K Confianza | PASS |
+| L Diagnóstico | PASS |
+| M Findings | PASS |
+| N Recomendaciones | PASS |
+| O Intervención | PASS |
+| P Ejecución | PASS |
+| Q Resultado | PASS |
+| R Validación | PASS |
+| S Seguimiento | PASS |
+| T Contextualización | PASS |
+| U Knowledge | PASS |
+| V Governance | PASS |
+A–V = 22/22 PASS
+
+# DoD V1
+La revisión cubre los 27/27 criterios, incluyendo explícitamente los que podían resultar delicados en esta capacidad:
+- aplicabilidad;
+- evidencia positiva para apropiación;
+- observación vs inferencia;
+- causalidad;
+- intervención mínima;
+- Done Criteria;
+- CRV;
+- validación temporal;
+- reassessment;
+- provenance y gobierno.
+DoD = 27/27 PASS
+
+# Quality Gates
+K1 · Coherencia — PASS.
+PC-03 queda separada de PC-02, PC-05, OP-05 y del resultado de negocio.
+K2 · Razonamiento — PASS.
+No confundimos comunicación, competencia, uso, adopción, apropiación o resultado; tampoco inferimos resistencia desde ausencia de uso.
+K3 · Acción — PASS.
+Una baja adopción puede generar intervención sobre personas, proceso, tecnología, condiciones de trabajo o incluso el diseño del propio cambio.
+K4 · Conocimiento — PASS.
+Grounding externo, provenance, trazabilidad y trigger documental quedan explícitos.
+# Cierre PC-03
+PC03-K4-v1.0 · K4-VALIDATED · CLOSED

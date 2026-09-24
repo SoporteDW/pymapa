@@ -1,0 +1,715 @@
+{
+  "candidateId": "CAND-PC-02-0.2.0-db1aed15b80c",
+  "capabilityId": "PC-02",
+  "status": "CANDIDATE",
+  "registration": {
+    "registrationId": "RAW-PC-02-19e8903f1149",
+    "textSha256": "db1aed15b80c1d3d2cb8c84b5572a4675fbfbe9ae06ff7ba0f32a42793262608"
+  },
+  "producedBy": {
+    "method": "DETERMINISTIC_TOOL",
+    "agent": "pymapa-structural-segmenter@0.2.0 + pymapa-governed-supersession-resolver@0.1.0",
+    "note": "Segmentación literal por headings con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
+  },
+  "baselineId": "PC02-K4-v1.0",
+  "historicalStatus": {
+    "marker": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      728,
+      728
+    ]
+  },
+  "provenanceVocabulary": [],
+  "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 6,
+      "objectType": "SOURCE_ID_CE",
+      "sourceLines": [
+        395,
+        395
+      ]
+    }
+  ],
+  "verbatimKeys": [
+    "heading",
+    "title",
+    "body"
+  ],
+  "items": [
+    {
+      "key": "APP-PC02-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_APP",
+      "sourceId": "APP-PC02-01",
+      "fields": {
+        "heading": "APP-PC02-01",
+        "body": [
+          "PC-02 se activa plenamente cuando existe fundamento suficiente para que determinada competencia:",
+          "- sea necesaria internamente;",
+          "- tenga recurrencia/materialidad suficiente;",
+          "- contribuya a una actividad, decisión o resultado relevante;",
+          "- o sea necesaria para apropiarse de un cambio.",
+          "Si acceder externamente resuelve suficientemente la necesidad, PC-02 puede resultar:",
+          "NOT-MATERIAL / NO-DEVELOPMENT-REQUIRED",
+          "sin representar una brecha."
+        ]
+      },
+      "sourceLines": [
+        66,
+        74
+      ],
+      "approvalEvidence": {
+        "text": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          728,
+          728
+        ]
+      }
+    },
+    {
+      "key": "CE01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Competencia requerida",
+        "title": "Competencia requerida",
+        "body": [
+          "VA01 · Competencia material suficientemente definida",
+          "VA02 · Vinculación competencia–actividad/decisión/resultado",
+          "No:",
+          "“necesitamos ser mejores digitalmente”.",
+          "Sí:",
+          "“el equipo comercial necesita interpretar el funnel y utilizar sus datos para decidir dónde intervenir”."
+        ]
+      },
+      "sourceLines": [
+        140,
+        146
+      ],
+      "approvalEvidence": {
+        "text": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          728,
+          728
+        ]
+      }
+    },
+    {
+      "key": "CE02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Brecha real",
+        "title": "Brecha real",
+        "body": [
+          "VA03 · Nivel/capacidad actual observable",
+          "VA04 · Diferencia relevante frente a capacidad requerida",
+          "La brecha es relacional:",
+          "requerido – actual, contextualizado.",
+          "No existe una “brecha absoluta” sin referencia."
+        ]
+      },
+      "sourceLines": [
+        148,
+        153
+      ],
+      "approvalEvidence": {
+        "text": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          728,
+          728
+        ]
+      }
+    },
+    {
+      "key": "CE03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Pertinencia de desarrollar internamente",
+        "title": "Pertinencia de desarrollar internamente",
+        "body": [
+          "VA05 · Necesidad de internalización/desarrollo",
+          "VA06 · Personas/roles pertinentes para desarrollar",
+          "No todos necesitan dominar lo mismo."
+        ]
+      },
+      "sourceLines": [
+        155,
+        158
+      ],
+      "approvalEvidence": {
+        "text": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          728,
+          728
+        ]
+      }
+    },
+    {
+      "key": "CE04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE04",
+      "fields": {
+        "heading": "CE04 · Diseño de aprendizaje",
+        "title": "Diseño de aprendizaje",
+        "body": [
+          "VA07 · Método de aprendizaje adecuado a la competencia",
+          "VA08 · Oportunidad/tiempo suficiente para aprender y practicar",
+          "VA09 · Acceso a recursos, guía y feedback",
+          "Aquí aparece un punto particularmente SME:",
+          "pagar un curso sin disponer de tiempo para practicar puede producir actividad formativa sin desarrollo real."
+        ]
+      },
+      "sourceLines": [
+        160,
+        165
+      ],
+      "approvalEvidence": {
+        "text": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          728,
+          728
+        ]
+      }
+    },
+    {
+      "key": "CE05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE05",
+      "fields": {
+        "heading": "CE05 · Transferencia al contexto de trabajo",
+        "title": "Transferencia al contexto de trabajo",
+        "body": [
+          "VA10 · Aplicación práctica de lo aprendido",
+          "VA11 · Capacidad demostrable en contexto relevante",
+          "Éste será uno de los núcleos de PC-02."
+        ]
+      },
+      "sourceLines": [
+        167,
+        170
+      ],
+      "approvalEvidence": {
+        "text": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          728,
+          728
+        ]
+      }
+    },
+    {
+      "key": "CE06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE06",
+      "fields": {
+        "heading": "CE06 · Mantenimiento/adaptación",
+        "title": "Mantenimiento/adaptación",
+        "body": [
+          "VA12 · Refuerzo o continuidad cuando la competencia lo requiere",
+          "VA13 · Actualización frente a cambios materiales",
+          "Una competencia digital válida hoy puede deteriorarse rápidamente si cambia tecnología, proceso o contexto."
+        ]
+      },
+      "sourceLines": [
+        172,
+        175
+      ],
+      "approvalEvidence": {
+        "text": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          728,
+          728
+        ]
+      }
+    },
+    {
+      "key": "COV-PC02-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_COV",
+      "sourceId": "COV-PC02-01",
+      "fields": {
+        "heading": "COV-PC02-01",
+        "body": [
+          "Una competencia desarrollada exitosamente no permite inferir que la organización posee capacidad general para desarrollar cualquier otra competencia."
+        ]
+      },
+      "sourceLines": [
+        230,
+        231
+      ],
+      "approvalEvidence": {
+        "text": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          728,
+          728
+        ]
+      }
+    },
+    {
+      "key": "P1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P1",
+      "fields": {
+        "heading": "P1 · Núcleo",
+        "title": "Núcleo",
+        "body": [
+          "La experiencia puede comenzar de forma sencilla:",
+          "“Para ejecutar los cambios que priorizaron, ¿qué necesitan aprender a hacer mejor o de una forma nueva?”",
+          "“¿Quién necesita realmente desarrollar esa capacidad?”",
+          "“¿Cómo están aprendiendo?”",
+          "“¿Ya pueden hacerlo suficientemente en situaciones reales?”",
+          "Mucho mejor que:",
+          "“¿Cuántas horas de capacitación realizan al año?”"
+        ]
+      },
+      "sourceLines": [
+        234,
+        241
+      ],
+      "approvalEvidence": {
+        "text": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          728,
+          728
+        ]
+      }
+    },
+    {
+      "key": "P2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P2",
+      "fields": {
+        "heading": "P2 · Condicional",
+        "title": "Condicional",
+        "body": [
+          "Profundizamos cuando encontramos:",
+          "- tecnología nueva;",
+          "- errores recurrentes;",
+          "- capacitación repetida;",
+          "- certificados sin uso;",
+          "- dependencia permanente de una persona;",
+          "- equipo que evita determinada tarea;",
+          "- formación sin práctica;",
+          "- aprendizaje exclusivamente teórico;",
+          "- conocimiento adquirido pero no aplicado;",
+          "- competencias rápidamente obsoletas;",
+          "- todos reciben el mismo curso;",
+          "- gerente capacitado pero equipo no;",
+          "- equipo capacitado pero manager incapaz de acompañarlo."
+        ]
+      },
+      "sourceLines": [
+        243,
+        257
+      ],
+      "approvalEvidence": {
+        "text": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          728,
+          728
+        ]
+      }
+    },
+    {
+      "key": "P3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P3",
+      "fields": {
+        "heading": "P3 · Discriminación",
+        "title": "Discriminación",
+        "body": [
+          "Caso:",
+          "“El equipo no usa correctamente el CRM.”",
+          "Posibles causas:",
+          "A. PC-02: no sabe usarlo suficientemente.",
+          "B. PC-03: sabe usarlo, pero no lo incorporó a su práctica.",
+          "C. OP-01/02: proceso mal diseñado.",
+          "D. DT: herramienta/configuración inadecuada.",
+          "E. DG-03: responsabilidades no claras.",
+          "F. PC-05: participación/adaptación insuficiente.",
+          "Por tanto:",
+          "mal uso ≠ necesidad automática de capacitación."
+        ]
+      },
+      "sourceLines": [
+        259,
+        270
+      ],
+      "approvalEvidence": {
+        "text": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          728,
+          728
+        ]
+      }
+    },
+    {
+      "key": "P4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P4",
+      "fields": {
+        "heading": "P4 · Contradicción",
+        "title": "Contradicción",
+        "body": [
+          "CONTR-PC02-01 · DECLARED_TRAINED_vs_DEMONSTRATED_COMPETENCE",
+          "Declaración:",
+          "“Todo el equipo ya está capacitado.”",
+          "Evidencia:",
+          "ante un caso real, las personas no pueden ejecutar las tareas críticas sin asistencia.",
+          "La contradicción es:",
+          "formación declarada vs competencia observada.",
+          "No:",
+          "“las personas no aprendieron”.",
+          "Todavía debemos entender por qué."
+        ]
+      },
+      "sourceLines": [
+        272,
+        282
+      ],
+      "approvalEvidence": {
+        "text": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          728,
+          728
+        ]
+      }
+    },
+    {
+      "key": "P5",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P5",
+      "fields": {
+        "heading": "P5 · Validación",
+        "title": "Validación",
+        "body": [
+          "“Entendemos que el equipo completó la formación, pero todavía requiere apoyo para ejecutar X en situaciones reales. ¿Es correcto?”",
+          "Esto mantiene observación separada de inferencia."
+        ]
+      },
+      "sourceLines": [
+        284,
+        286
+      ],
+      "approvalEvidence": {
+        "text": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          728,
+          728
+        ]
+      }
+    },
+    {
+      "key": "G-PC02-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-PC02-01",
+      "fields": {
+        "heading": "G-PC02-01",
+        "body": [
+          "No recomendar formación antes de discriminar si el problema realmente es competencia."
+        ]
+      },
+      "sourceLines": [
+        340,
+        341
+      ],
+      "approvalEvidence": {
+        "text": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          728,
+          728
+        ]
+      }
+    },
+    {
+      "key": "G-PC02-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-PC02-02",
+      "fields": {
+        "heading": "G-PC02-02",
+        "body": [
+          "No usar horas de capacitación como proxy automático de capacidad."
+        ]
+      },
+      "sourceLines": [
+        342,
+        343
+      ],
+      "approvalEvidence": {
+        "text": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          728,
+          728
+        ]
+      }
+    },
+    {
+      "key": "G-PC02-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-PC02-03",
+      "fields": {
+        "heading": "G-PC02-03",
+        "body": [
+          "No exigir certificación salvo que exista razón material, profesional, regulatoria o contextual."
+        ]
+      },
+      "sourceLines": [
+        344,
+        345
+      ],
+      "approvalEvidence": {
+        "text": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          728,
+          728
+        ]
+      }
+    },
+    {
+      "key": "G-PC02-04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-PC02-04",
+      "fields": {
+        "heading": "G-PC02-04",
+        "body": [
+          "No exigir el mismo nivel de competencia a todos."
+        ]
+      },
+      "sourceLines": [
+        346,
+        347
+      ],
+      "approvalEvidence": {
+        "text": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          728,
+          728
+        ]
+      }
+    },
+    {
+      "key": "G-PC02-05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-PC02-05",
+      "fields": {
+        "heading": "G-PC02-05",
+        "body": [
+          "No asumir que un curso falló porque todavía falta desempeño si no existió oportunidad razonable de práctica."
+        ]
+      },
+      "sourceLines": [
+        348,
+        349
+      ],
+      "approvalEvidence": {
+        "text": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          728,
+          728
+        ]
+      }
+    },
+    {
+      "key": "G-PC02-06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_G",
+      "sourceId": "G-PC02-06",
+      "fields": {
+        "heading": "G-PC02-06",
+        "body": [
+          "No atribuir bajo desempeño a la persona antes de descartar condiciones del sistema de trabajo.",
+          "Este último guardrail será importante en todo el dominio PC."
+        ]
+      },
+      "sourceLines": [
+        350,
+        352
+      ],
+      "approvalEvidence": {
+        "text": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          728,
+          728
+        ]
+      }
+    },
+    {
+      "key": "REC-PC02-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_REC",
+      "sourceId": "REC-PC02-01",
+      "fields": {
+        "heading": "REC-PC02-01",
+        "body": [
+          "La especificidad de la recomendación de aprendizaje no puede superar la confianza existente sobre la causa de la brecha de desempeño.",
+          "Si sabemos:",
+          "“el equipo no está registrando correctamente oportunidades en CRM”,",
+          "pero todavía no sabemos por qué, no corresponde recomendar inmediatamente:",
+          "“curso de CRM de ocho horas”.",
+          "Primero discriminamos competencia frente a:",
+          "- proceso;",
+          "- herramienta;",
+          "- acceso;",
+          "- autoridad;",
+          "- incentivos;",
+          "- adopción;",
+          "- carga operativa;",
+          "- información.",
+          "Esto operacionaliza CAND-MOTOR-PC02-02."
+        ]
+      },
+      "sourceLines": [
+        455,
+        470
+      ],
+      "approvalEvidence": {
+        "text": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          728,
+          728
+        ]
+      }
+    },
+    {
+      "key": "V0",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V0",
+      "fields": {
+        "heading": "V0 · No evaluada",
+        "title": "No evaluada",
+        "body": [
+          "No sabemos si la competencia existe."
+        ]
+      },
+      "sourceLines": [
+        571,
+        572
+      ],
+      "approvalEvidence": {
+        "text": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          728,
+          728
+        ]
+      }
+    },
+    {
+      "key": "V1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V1",
+      "fields": {
+        "heading": "V1 · Learning evidence",
+        "title": "Learning evidence",
+        "body": [
+          "Existe evidencia de actividad/aprendizaje:",
+          "curso, mentoría, práctica, ejercicio, etc.",
+          "Pero todavía no afirmamos competencia."
+        ]
+      },
+      "sourceLines": [
+        573,
+        576
+      ],
+      "approvalEvidence": {
+        "text": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          728,
+          728
+        ]
+      }
+    },
+    {
+      "key": "V2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V2",
+      "fields": {
+        "heading": "V2 · Competence demonstrated",
+        "title": "Competence demonstrated",
+        "body": [
+          "La persona demuestra suficientemente la capacidad en una situación representativa."
+        ]
+      },
+      "sourceLines": [
+        577,
+        578
+      ],
+      "approvalEvidence": {
+        "text": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          728,
+          728
+        ]
+      }
+    },
+    {
+      "key": "V3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V3",
+      "fields": {
+        "heading": "V3 · Competence sustained",
+        "title": "Competence sustained",
+        "body": [
+          "La competencia continúa siendo demostrable cuando su naturaleza requiere recurrencia o sostenibilidad.",
+          "No toda competencia requiere V3."
+        ]
+      },
+      "sourceLines": [
+        579,
+        581
+      ],
+      "approvalEvidence": {
+        "text": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          728,
+          728
+        ]
+      }
+    },
+    {
+      "key": "REASS-PC02-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_REASS",
+      "sourceId": "REASS-PC02-01",
+      "fields": {
+        "heading": "REASS-PC02-01",
+        "body": [
+          "Una competencia validada no debe considerarse permanentemente vigente si cambia materialmente el contexto en que se utiliza."
+        ]
+      },
+      "sourceLines": [
+        621,
+        622
+      ],
+      "approvalEvidence": {
+        "text": "PC02-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          728,
+          728
+        ]
+      }
+    }
+  ],
+  "checksum": "sha256:0fab787391cca61f90390bc9ece651ac7a33c3f1f943d41b3d9c84d027a35415"
+}

@@ -1,0 +1,885 @@
+| Objeto | Resultado |
+| Bloques | 10/10 |
+| CE | 6 |
+| VA | 14 |
+| NI | 14 |
+| Reglas | 14 |
+| Findings | 8 |
+| Patrones de intervención | 8 |
+| Instrumentos | 7 |
+| Entregables | 8 |
+| CRV | 8 |
+| Validación | V0–V4 |
+| A–V | 22/22 PASS |
+| DoD | 27/27 PASS |
+| K1–K4 | 4/4 PASS |
+## Estado del dominio PC
+| Capacidad | Estado |
+| PC-01 · Disponer o acceder al conocimiento necesario | 🟢 CLOSED |
+| PC-02 · Desarrollar competencias y aprendizaje relevantes | 🟢 CLOSED |
+| PC-03 · Apropiar cambios y nuevas formas de trabajo | 🟢 CLOSED |
+| PC-04 · Compartir y conservar conocimiento organizacional | 🟢 CLOSED |
+| PC-05 · Facilitar participación y adaptación de las personas al cambio | ⚪ NEXT |
+DOMAIN-PC · 4/5 CAPABILITIES K4-VALIDATED
+Y ya podemos ver con mayor precisión la arquitectura completa del dominio:
+PC-01 ACCESS → PC-02 DEVELOP → PC-03 APPROPRIATE → PC-04 SHARE/PRESERVE → PC-05 PARTICIPATE/ADAPT
+El siguiente movimiento es PC-05, última capacidad del dominio. Aquí tendremos que ser especialmente cuidadosos para no duplicar PC-03: PC-03 observa si una nueva forma de trabajo termina incorporándose; PC-05 debe evaluar las condiciones mediante las cuales las personas pueden participar, aportar información, procesar el impacto del cambio y adaptarse a medida que la transformación evoluciona. Primero dimensionaremos su complejidad real y luego construiremos sus macrosets.
+viernes 7:04 a.m.
+Seguimos
+Seguimos con PC-05, última capacidad del dominio PC. Aquí la frontera con PC-03 es crítica: no queremos crear dos capacidades distintas que terminen midiendo “gestión del cambio”.
+# PC-05 · Facilitar participación y adaptación de las personas al cambio
+## Dimensionamiento previo
+La pregunta central será:
+¿Puede la organización involucrar de manera pertinente a las personas afectadas por una transformación, captar y utilizar información proveniente de ellas, gestionar impactos relevantes y ajustar las condiciones del cambio para facilitar una adaptación efectiva?
+Esto significa que PC-05 no mide felicidad, entusiasmo ni ausencia de resistencia.
+PC-03 pregunta:
+¿La nueva forma de trabajo terminó incorporándose?
+PC-05 pregunta:
+¿La organización permite que las personas afectadas comprendan su impacto, participen donde aporta valor, expresen información relevante y reciban respuestas/adaptaciones suficientes durante el proceso de cambio?
+ISO 10018:2020 sigue publicada y específicamente proporciona orientación sobre engagement e involucramiento de las personas; ISO la declara aplicable a organizaciones de cualquier tamaño. Actualmente figura en etapa 90.60 tras su revisión sistemática, por lo que mantenemos el trigger documental ya creado. ISO
+La OECD, por su parte, documenta que las transformaciones digital y verde modifican tareas y competencias requeridas en las pymes y destaca competencias transversales como comunicación, colaboración, resolución de problemas y adaptación como componentes relevantes de esas transiciones. OECD
+
+# Dimensionamiento
+PC-05 requiere 11 bloques:
+| # | Bloque |
+| 1 | Identidad, aplicabilidad y fronteras |
+| 2 | Modelo participación–impacto–adaptación |
+| 3 | Población afectada y materialidad |
+| 4 | Condiciones evaluables y variables |
+| 5 | Grounding y principios |
+| 6 | NI, suficiencia y confianza |
+| 7 | Adquisición, evidencia y reglas |
+| 8 | Findings y decisiones |
+| 9 | Intervenciones, actividades e instrumentos |
+| 10 | Entregables, Done, CRV, validación y seguimiento |
+| 11 | Contextualización, Governance y cierre |
+Agrupación:
+SET A = bloques 1–7
+SET B = bloques 8–11
+
+# PC-05 · SET A
+## 1. Identidad, aplicabilidad y fronteras
+Definición productiva V1:
+PC-05 evalúa la capacidad de la organización para involucrar proporcionalmente a las personas afectadas por cambios materiales, incorporar información relevante proveniente de ellas y habilitar respuestas o ajustes que faciliten su adaptación efectiva durante la transformación.
+Unidad de análisis:
+la interacción entre un cambio material, las personas afectadas y los mecanismos organizacionales de participación, feedback, respuesta y adaptación.
+Cadena:
+Cambio → población afectada → impacto → participación → voz/feedback → respuesta → ajuste/apoyo → adaptación.
+
+# Aplicabilidad
+No todo cambio requiere un proceso participativo amplio.
+Ejemplo:
+cambiar una herramienta administrativa menor utilizada ocasionalmente por una persona.
+Podría no justificar mecanismos adicionales.
+Pero:
+rediseñar el proceso comercial completo de 20 vendedores
+probablemente sí requiere conocer suficientemente:
+- cómo los afecta;
+- qué saben ellos que el diseñador desconoce;
+- qué barreras aparecen;
+- qué feedback material emerge.
+### APP-PC05-01
+La profundidad de participación debe ser proporcional al impacto, incertidumbre, irreversibilidad y conocimiento distribuido relevante para el cambio.
+Esto evita convertir participación en burocracia.
+
+# Participación ≠ derecho de veto
+Otro límite importante.
+Que las personas participen no significa que:
+todas deban aprobar cada decisión.
+Puede existir una decisión legítimamente tomada por dirección.
+Lo que evaluamos es si:
+cuando la participación aporta información material o facilita adaptación, existe un mecanismo suficiente para producirla y procesarla.
+### P-PC05-CORE-01
+Participación no implica transferencia automática de autoridad decisoria.
+DG-03 continúa gobernando quién decide.
+
+# 2. Modelo participación–impacto–adaptación
+Necesitamos distinguir varios estados.
+### CHANGE-INFORMED
+La persona recibe información relevante sobre el cambio.
+### CHANGE-HEARD
+Existe mecanismo para expresar información, preguntas, problemas o aportes pertinentes.
+### CHANGE-CONSIDERED
+Los aportes relevantes son efectivamente considerados.
+No significa aceptados.
+### CHANGE-RESPONDED
+Existe respuesta, decisión o explicación suficientemente visible respecto de asuntos materiales.
+### CHANGE-SUPPORTED
+Las personas disponen de apoyos/ajustes necesarios para gestionar impactos materiales.
+### CHANGE-ADAPTING
+La población afectada puede funcionar suficientemente mientras atraviesa el cambio.
+Por tanto:
+INFORMED ≠ HEARD ≠ CONSIDERED ≠ ACCEPTED ≠ RESPONDED ≠ ADAPTED.
+Esto será muy importante para evitar encuestas vacías de “engagement”.
+
+# Feedback ≠ decisión aceptada
+Ejemplo:
+Un vendedor propone:
+mantener una excepción manual determinada.
+La organización analiza la propuesta y decide no hacerlo porque rompe un control crítico.
+Puede existir:
+CHANGE-CONSIDERED + CHANGE-RESPONDED
+aunque:
+la propuesta no fue aceptada.
+PC-05 puede ser positiva.
+La participación efectiva no se mide por:
+porcentaje de sugerencias aprobadas.
+
+# 3. Población afectada y materialidad
+Necesitamos distinguir:
+### DIRECTLY-AFFECTED
+Debe cambiar comportamiento, responsabilidad o herramienta.
+### INDIRECTLY-AFFECTED
+Su trabajo cambia por efectos aguas arriba/abajo.
+### CHANGE-CONTRIBUTOR
+Posee conocimiento relevante para diseñar o ajustar el cambio.
+### CHANGE-DECISION-MAKER
+Tiene autoridad decisoria.
+Una persona puede ocupar más de una categoría.
+
+# Materialidad del impacto
+Proponemos cinco dimensiones:
+IMPACT-01 · Workload
+Cambio en carga/esfuerzo.
+IMPACT-02 · Role/Responsibility
+Cambio en responsabilidades o autonomía.
+IMPACT-03 · Skill/Capability
+Nuevas capacidades requeridas.
+IMPACT-04 · Workflow/Interaction
+Cambios en coordinación, proceso o relaciones.
+IMPACT-05 · Consequence/Exposure
+Consecuencias materiales para la persona o su trabajo si el cambio falla.
+No forman un score obligatorio.
+Sirven para decidir:
+cuánta participación/apoyo necesitamos.
+
+# 4. Condiciones evaluables y variables
+El conocimiento requiere 6 CE / 15 VA.
+## CE01 · Impacto visible
+VA01 · Población afectada identificada
+VA02 · Impactos materiales suficientemente comprendidos
+
+## CE02 · Información para adaptación
+VA03 · Información relevante disponible
+VA04 · Oportunidad de la información
+No basta comunicar después de que la persona necesita actuar.
+
+## CE03 · Participación pertinente
+VA05 · Oportunidades de participación proporcionales
+VA06 · Inclusión de personas con conocimiento material
+VA07 · Momento de participación suficientemente temprano para aportar valor
+Preguntar:
+“¿qué opinan?”
+cuando todo es irreversible puede ser participación nominal.
+
+## CE04 · Voz y feedback
+VA08 · Mecanismo efectivo para aportar feedback
+VA09 · Seguridad práctica suficiente para plantear problemas materiales
+No estamos diagnosticando psicológicamente a las personas.
+Evaluamos:
+si el mecanismo permite razonablemente que información relevante emerja.
+
+## CE05 · Respuesta organizacional
+VA10 · Feedback material considerado
+VA11 · Respuesta/decisión suficientemente visible
+VA12 · Ajustes realizados cuando la evidencia lo justifica
+
+## CE06 · Soporte y adaptación
+VA13 · Apoyo proporcional al impacto
+VA14 · Barreras emergentes tratadas
+VA15 · Capacidad funcional durante la transición
+Esta última variable distingue PC-05 de PC-03:
+PC-03 pregunta si llegamos a incorporar la nueva práctica.
+PC-05 puede evaluar si las personas consiguen atravesar la transición suficientemente.
+
+# 5. Grounding y principios
+ISO 10018:2020 proporciona orientación para mejorar el engagement, involucramiento y competencia de las personas y es aplicable independientemente del tamaño, tipo o actividad de la organización. ISO también explica que la participación supone una contribución activa y destaca flujos de información no solo descendentes, sino también ascendentes y laterales. ISO
+Esto encaja especialmente bien con PC-05, pero no adoptamos el estándar como taxonomía Pymapa.
+La OECD aporta contexto adicional: la transformación de las pymes exige combinaciones de capacidades digitales, gerenciales y transversales, incluyendo comunicación, colaboración, resolución de problemas y adaptación frente a cambios en tareas y requerimientos. OECD
+
+# Principios PC-05
+P-PC05-01
+Informar ≠ involucrar.
+P-PC05-02
+Involucrar ≠ transferir autoridad decisoria.
+P-PC05-03
+Escuchar ≠ aceptar toda propuesta.
+P-PC05-04
+Recoger feedback ≠ utilizarlo.
+P-PC05-05
+Participación tardía puede tener poco valor aunque formalmente exista.
+P-PC05-06
+Más participación ≠ mejor transformación automáticamente.
+P-PC05-07
+No todas las personas requieren el mismo nivel de participación.
+P-PC05-08
+Desacuerdo ≠ resistencia automáticamente.
+P-PC05-09
+Feedback crítico ≠ falta de compromiso.
+P-PC05-10
+Ausencia de quejas ≠ adaptación positiva.
+P-PC05-11
+Aceptación declarada ≠ adaptación funcional.
+P-PC05-12
+Participación sin capacidad organizacional de respuesta puede deteriorar credibilidad.
+P-PC05-13
+Adaptación no exige entusiasmo con el cambio.
+P-PC05-14
+La organización también puede necesitar adaptar el cambio a evidencia proveniente de las personas.
+P-PC05-15
+La participación debe ser proporcional a materialidad y utilidad esperada de la información.
+
+# 6. NI, suficiencia y confianza
+Resultan 15 NI.
+| NI | Necesitamos conocer |
+| NI01 | Quién resulta afectado |
+| NI02 | Qué impactos materiales enfrenta |
+| NI03 | Qué información necesita |
+| NI04 | Cuándo necesita esa información |
+| NI05 | Dónde aporta valor su participación |
+| NI06 | Quién posee conocimiento relevante |
+| NI07 | Cuándo debe participar para influir útilmente |
+| NI08 | Cómo puede aportar feedback |
+| NI09 | Si problemas/aportes materiales pueden emerger razonablemente |
+| NI10 | Si el feedback relevante es considerado |
+| NI11 | Si existe respuesta visible |
+| NI12 | Si el cambio se ajusta cuando la evidencia lo justifica |
+| NI13 | Qué soporte necesita la población |
+| NI14 | Qué barreras emergen durante la transición |
+| NI15 | Si puede funcionar suficientemente mientras se adapta |
+
+# Suficiencia
+No necesitamos entrevistar a todos los empleados.
+Necesitamos cubrir suficientemente:
+poblaciones materialmente afectadas + perspectivas materialmente diferentes + conocimiento relevante para el cambio.
+### SUFF-PC05-01
+La suficiencia de participación depende de cobertura de perspectivas materiales, no de porcentaje bruto de empleados consultados.
+Un 90 % de respuestas puede ser insuficiente si falta precisamente:
+el grupo que realiza el proceso crítico afectado.
+
+# Confianza
+Una encuesta puede aportar evidencia.
+Pero:
+“85 % siente que fue escuchado”
+no demuestra por sí sola que el feedback material haya influido correctamente.
+La confianza aumenta con triangulación:
+declaración + mecanismo + ejemplos + decisiones + ajustes + comportamiento durante transición.
+
+# 7. Adquisición, evidencia y reglas
+## P1 · Núcleo
+Preguntas simples:
+“¿A quién afecta realmente este cambio?”
+“¿Qué necesitan saber antes de trabajar de la nueva manera?”
+“¿Cómo pueden avisar si encuentran un problema?”
+“¿Qué han tenido que ajustar después de escuchar a quienes lo están usando?”
+Esto puede producir mucha información sin preguntar:
+“¿Tiene una estrategia formal de employee engagement?”
+
+# P2 · Triggers
+Profundizamos cuando aparece:
+- sorpresa ante cambios;
+- rumores;
+- información tardía;
+- grupos afectados omitidos;
+- decisiones diseñadas sin usuarios;
+- feedback repetido sin respuesta;
+- reuniones participativas sin cambios ni explicación;
+- problemas conocidos que no escalan;
+- personas que dejan de reportar;
+- impactos de carga inesperados;
+- roles afectados materialmente;
+- rechazo creciente;
+- workarounds;
+- rotación alrededor de un cambio;
+- múltiples iteraciones correctivas;
+- soporte insuficiente durante transición.
+
+# P3 · Discriminación causal
+Caso:
+“El equipo está resistiendo el nuevo proceso.”
+Pymapa debe distinguir:
+INFORMATION GAP
+No comprende suficientemente qué ocurre.
+PARTICIPATION GAP
+Conocimiento relevante del equipo no fue incorporado.
+COMPETENCE GAP
+PC-02.
+ADOPTION GAP
+PC-03.
+PROCESS DESIGN GAP
+OP.
+DECISION RIGHTS ISSUE
+DG-03.
+LEGITIMATE IMPACT
+El cambio crea una consecuencia material que necesita tratamiento.
+ACTUAL DISAGREEMENT
+Comprenden perfectamente y no están de acuerdo.
+El último caso tampoco demuestra automáticamente una brecha.
+
+# P4 · Contradicciones
+### CONTR-PC05-01
+DECLARED_PARTICIPATION_vs_NO_DECISION_TRACE
+“Los involucramos desde el principio.”
+pero:
+no puede identificarse qué información se recibió ni cómo fue considerada.
+
+### CONTR-PC05-02
+NO_COMPLAINTS_vs_HIDDEN_BARRIERS
+“Nadie se está quejando.”
+pero:
+aparecen workarounds, retrasos o abandono de prácticas.
+
+### CONTR-PC05-03
+DECLARED_SUPPORT_vs_TRANSITION_FAILURE
+“Tienen todo el apoyo.”
+pero:
+barreras conocidas permanecen sin tratamiento y afectan materialmente el trabajo.
+
+# P5 · Validación
+Ejemplo:
+“Entendemos que el equipo pudo plantear problemas antes del lanzamiento y que dos de ellos generaron ajustes al proceso, mientras que otros tres fueron descartados explicando el motivo. ¿Es correcto?”
+Esto produce evidencia mucho más útil que:
+“¿se sintieron escuchados?”
+
+# Evidencia
+Puede incluir:
+- mapa de afectados;
+- comunicaciones;
+- sesiones;
+- feedback;
+- decisiones;
+- issues;
+- ajustes;
+- pilotos;
+- prototipos;
+- registros de soporte;
+- workarounds;
+- preguntas recurrentes;
+- tiempos de respuesta;
+- escalaciones;
+- observación;
+- entrevistas;
+- Case State de PC-02/03;
+- diseño OP;
+- decisiones DG.
+
+# Reglas diagnósticas
+Resultan 15 reglas primarias.
+R-PC05-01 · AFFECTED_POPULATION_BLIND_SPOT
+Población materialmente afectada insuficientemente identificada.
+R-PC05-02 · CHANGE_IMPACT_BLIND_SPOT
+Impactos relevantes insuficientemente comprendidos.
+R-PC05-03 · CHANGE_INFORMATION_GAP
+Información necesaria insuficiente.
+R-PC05-04 · CHANGE_INFORMATION_TOO_LATE
+Información llega demasiado tarde para adaptación efectiva.
+R-PC05-05 · PARTICIPATION_OPPORTUNITY_GAP
+Participación insuficiente donde podría aportar valor.
+R-PC05-06 · MATERIAL_VOICE_EXCLUDED
+Personas con conocimiento material quedan fuera.
+R-PC05-07 · PARTICIPATION_TOO_LATE
+Participación ocurre cuando ya no puede influir útilmente.
+R-PC05-08 · FEEDBACK_CHANNEL_GAP
+No existe mecanismo efectivo para aportar información.
+R-PC05-09 · MATERIAL_ISSUES_NOT_SURFACING
+Las condiciones existentes impiden que problemas relevantes emerjan suficientemente.
+R-PC05-10 · FEEDBACK_NOT_CONSIDERED
+Feedback material no recibe consideración suficiente.
+R-PC05-11 · RESPONSE_VISIBILITY_GAP
+No existe respuesta/decisión suficientemente visible.
+R-PC05-12 · EVIDENCE_NOT_INCORPORATED
+El cambio no se ajusta pese a evidencia material suficiente.
+R-PC05-13 · CHANGE_SUPPORT_GAP
+Apoyo insuficiente frente al impacto.
+R-PC05-14 · EMERGING_BARRIER_UNADDRESSED
+Barreras materiales emergentes permanecen sin tratamiento.
+R-PC05-15 · TRANSITION_ADAPTATION_GAP
+La población no puede funcionar suficientemente durante la transición.
+
+# Guardrails
+G-PC05-01
+No diagnosticar resistencia desde desacuerdo.
+G-PC05-02
+No medir participación solo por asistencia.
+G-PC05-03
+No exigir consulta universal.
+G-PC05-04
+No asumir que toda sugerencia debe implementarse.
+G-PC05-05
+No usar ausencia de quejas como evidencia positiva suficiente.
+G-PC05-06
+No inferir estado psicológico individual.
+G-PC05-07
+No convertir participación en sustituto de responsabilidad decisoria.
+G-PC05-08
+No pedir feedback si materialmente no existe capacidad/intención de procesarlo sin explicitar los límites.
+
+# Estados positivos
+Resultan 5:
+CHANGE_IMPACT_VISIBLE
+AFFECTED_PEOPLE_APPROPRIATELY_INFORMED
+MATERIAL_VOICE_ENABLED
+FEEDBACK_RESPONDED_AND_USED
+TRANSITION_ADAPTATION_SUPPORTED
+
+# Nuevos candidatos del Motor
+PC-05 introduce cuatro reglas transversales importantes:
+CAND-MOTOR-PC05-01 · Participación debe evaluarse por cobertura de perspectivas materiales y utilidad de la información, no por porcentaje bruto de personas consultadas.
+CAND-MOTOR-PC05-02 · Feedback recibido, feedback considerado y feedback aceptado deben mantenerse como estados diferentes.
+CAND-MOTOR-PC05-03 · Desacuerdo, crítica, baja adopción y resistencia no son objetos equivalentes y no deben inferirse unos de otros automáticamente.
+CAND-MOTOR-PC05-04 · El Motor debe permitir que evidencia proveniente de las personas modifique la intervención o incluso el diseño del cambio, en lugar de asumir que el cambio objetivo siempre es correcto.
+
+# La frontera PC-03 / PC-05 queda cerrada
+Podemos expresarla con un ejemplo.
+La empresa cambia su proceso de pedidos.
+PC-05 observa:
+¿identificaron a quienes afectaba?
+¿pudieron aportar información?
+¿emergieron problemas?
+¿la organización respondió?
+¿ajustó lo necesario?
+¿pudieron atravesar la transición?
+PC-03 observa:
+¿el nuevo proceso finalmente se utiliza con cobertura y consistencia suficientes?
+¿se incorporó al trabajo normal?
+¿se sostiene?
+Por tanto:
+PC-05 = capacidad de adaptación durante el cambio.
+PC-03 = apropiación de la nueva forma de trabajo resultante.
+Se relacionan fuertemente, pero no son duplicadas.
+
+# Control PC-05 · SET A
+| Objeto | Resultado |
+| Bloques dimensionados | 11 |
+| SET A | 1–7 |
+| CE | 6 |
+| VA | 15 |
+| NI | 15 |
+| Reglas | 15 |
+| Guardrails | 8 |
+| Estados positivos | 5 |
+| Grounding | Pymapa + ISO 10018 + OECD SME |
+La arquitectura queda:
+Cambio → afectados → impacto → información → participación → voz → consideración → respuesta → ajuste/apoyo → adaptación durante transición.
+Y fijamos el principio central:
+PC-05 no evalúa si las personas “están de acuerdo” con la transformación. Evalúa si la organización puede involucrar proporcionalmente a quienes son materialmente afectados, aprovechar el conocimiento que poseen y responder a impactos y evidencia emergente de forma que las personas puedan adaptarse funcionalmente al cambio.
+PC05-SET-A-v0.1 · BLOCKS 1–7 OF 11 COMPLETE · READY-FOR-SET-B
+El siguiente movimiento es PC-05 · SET B · bloques 8–11. Al cerrarlo ejecutaremos A–V 22/22 + DoD 27/27 + K1–K4 y, si pasa, no solo cerraremos PC-05: quedará listo para validación el dominio completo PC · Personas, cultura y conocimiento (5/5).
+Seguimos
+Seguimos con PC-05 · SET B, bloques 8–11. Con este cierre debemos validar además la coherencia integral del dominio PC, porque PC-05 completa sus cinco capacidades.
+# PC-05 · Facilitar participación y adaptación de las personas al cambio
+## SET B · Bloques 8–11
+Entrada: PC05-SET-A-v0.1 · BLOCKS 1–7 OF 11 COMPLETE
+
+# 8. Findings y decisiones
+Las 15 reglas primarias se consolidan en 8 familias de hallazgo. No necesitamos convertir cada regla en un finding independiente.
+| ID | Familia de hallazgo | Núcleo diagnóstico |
+| HF-PC05-01 | Impacto humano insuficientemente comprendido | Afectados o consecuencias materiales del cambio permanecen parcialmente invisibles |
+| HF-PC05-02 | Información insuficiente o tardía | Las personas no reciben oportunamente lo necesario para atravesar el cambio |
+| HF-PC05-03 | Participación insuficiente o mal focalizada | Perspectivas materialmente útiles quedan fuera o intervienen demasiado tarde |
+| HF-PC05-04 | Voz material insuficientemente habilitada | Problemas, conocimiento o feedback relevantes no pueden emerger adecuadamente |
+| HF-PC05-05 | Feedback sin consideración/respuesta suficiente | Se escucha, pero no existe procesamiento o respuesta trazable |
+| HF-PC05-06 | Evidencia emergente no incorporada | El cambio permanece inalterado pese a evidencia suficiente para revisarlo |
+| HF-PC05-07 | Soporte de transición insuficiente | Las personas carecen de apoyo proporcional al impacto |
+| HF-PC05-08 | Adaptación funcional comprometida | Barreras acumuladas dificultan continuar funcionando suficientemente durante la transición |
+Una precisión crítica:
+HF-PC05-08 no significa que “las personas no quieren cambiar”.
+Describe una condición funcional observable.
+La explicación causal viene después.
+
+## Decisiones posibles
+PC-05 necesita un vocabulario que permita actuar sin convertir toda situación en “hacer más comunicación”.
+### INFORM
+Proporcionar información necesaria.
+### CLARIFY
+Resolver incertidumbre material sobre el cambio.
+### INVOLVE
+Incorporar personas/perspectivas pertinentes.
+### LISTEN
+Habilitar captura de información material.
+### RESPOND
+Cerrar el ciclo con decisión, explicación o respuesta.
+### ADJUST
+Modificar el cambio a partir de evidencia válida.
+### SUPPORT
+Proporcionar apoyo durante la transición.
+### ESCALATE
+Llevar un impacto/barrera fuera del alcance local al owner pertinente.
+### NO_ACTION
+Los mecanismos actuales son suficientemente proporcionales.
+
+# Un principio especialmente importante
+### DEC-PC05-01
+Participación efectiva no significa maximizar participación; significa involucrar suficientemente a las perspectivas que pueden aportar información material en momentos donde todavía pueda generar valor.
+Esto evita dos extremos:
+Extremo A
+“la dirección decide todo y después comunica”.
+Extremo B
+“todos deben participar en todas las decisiones”.
+Pymapa no prescribe ninguno.
+
+# 9. Intervenciones, actividades e instrumentos
+Resultan 8 patrones de intervención.
+| ID | Patrón | Propósito |
+| IP-PC05-01 | Visibilizar afectados e impactos | Comprender quién vive qué consecuencia |
+| IP-PC05-02 | Habilitar información para adaptación | Entregar información suficiente y oportuna |
+| IP-PC05-03 | Diseñar participación proporcional | Involucrar perspectivas pertinentes |
+| IP-PC05-04 | Habilitar voz/feedback material | Permitir que información relevante emerja |
+| IP-PC05-05 | Cerrar ciclo de respuesta | Considerar y responder feedback |
+| IP-PC05-06 | Ajustar cambio desde evidencia | Modificar diseño/implementación cuando corresponde |
+| IP-PC05-07 | Habilitar soporte de transición | Resolver necesidades temporales de adaptación |
+| IP-PC05-08 | Tratar barreras emergentes | Evitar acumulación de fricción material |
+
+## Actividades posibles
+Dependiendo del caso:
+- sesiones de trabajo;
+- entrevistas;
+- piloto;
+- prueba con usuarios;
+- walkthrough;
+- comunicación segmentada;
+- Q&A;
+- canal de feedback;
+- office hours;
+- observación;
+- revisión de incidencias;
+- espacios con líderes;
+- acompañamiento;
+- ajuste de carga;
+- modificación de proceso;
+- respuesta a propuestas;
+- escalación.
+Ninguna es obligatoria por sí misma.
+Una empresa de seis personas puede resolver PC-05 adecuadamente mediante:
+conversación directa + prueba real + decisiones visibles.
+
+# Instrumentos
+Resultan 7 familias.
+INS-PC05-01 · Mapa de afectados e impacto
+quién → qué cambia → magnitud/naturaleza → cuándo.
+INS-PC05-02 · Mapa de información necesaria
+quién necesita saber qué → cuándo → para qué.
+INS-PC05-03 · Diseño mínimo de participación
+perspectiva → aporte esperado → momento → mecanismo.
+INS-PC05-04 · Registro de feedback material
+No un buzón infinito de sugerencias.
+Solo:
+asunto → evidencia → materialidad → owner.
+INS-PC05-05 · Decision/Response Log
+feedback → considerado → decisión → razón → respuesta.
+INS-PC05-06 · Mapa de soporte de transición
+INS-PC05-07 · Registro de barreras y adaptación
+
+# El Decision/Response Log tiene valor transversal
+Aquí aparece un instrumento que potencialmente puede reutilizarse en varias capacidades.
+Pero aplicamos:
+reuse instrument pattern, not diagnostic conclusion.
+En PC-05 registra:
+feedback proveniente de personas afectadas.
+En DG podría registrar:
+decisión de gobierno.
+No debemos crear copias conceptualmente incompatibles.
+Registramos:
+CAND-INSTRUMENT-TRANSVERSAL-01 · DECISION-RESPONSE-LOG
+para consolidación posterior del Motor.
+
+# 10. Entregables, Done, CRV, validación y seguimiento
+Resultan 8 entregables funcionales.
+DEL-PC05-01 · población e impactos materiales visibles
+DEL-PC05-02 · información de transición disponible oportunamente
+DEL-PC05-03 · participación proporcional habilitada
+DEL-PC05-04 · voz material capturable
+DEL-PC05-05 · feedback material procesado y respondido
+DEL-PC05-06 · ajustes pertinentes realizados cuando corresponde
+DEL-PC05-07 · soporte de transición disponible
+DEL-PC05-08 · barreras materiales de adaptación tratadas
+
+# Done Criteria
+Aquí resultan 6.
+### DC-A · Impact Done
+Poblaciones e impactos materiales están suficientemente comprendidos.
+### DC-B · Information Done
+Las personas afectadas reciben información suficiente dentro del horizonte en que la necesitan.
+### DC-C · Participation Done
+Perspectivas materiales tienen oportunidad proporcional de aportar cuando su aporte puede generar valor.
+### DC-D · Feedback Loop Done
+Feedback material puede emerger, es considerado y recibe respuesta suficiente.
+### DC-E · Adaptation Response Done
+La organización ajusta cambio o soporte cuando la evidencia lo justifica.
+### DC-F · Transition Done
+Las personas pueden funcionar suficientemente durante la transición o las barreras materiales pendientes están explícitamente gobernadas.
+
+# CRV
+Resultan 8 CRV.
+| ID | Criterio de Resultado Verificable |
+| CRV-PC05-01 | Poblaciones materialmente afectadas correctamente identificadas |
+| CRV-PC05-02 | Impactos relevantes suficientemente caracterizados |
+| CRV-PC05-03 | Información necesaria recibida oportunamente |
+| CRV-PC05-04 | Perspectivas materiales pueden participar en momentos útiles |
+| CRV-PC05-05 | Feedback material puede emerger y ser trazado |
+| CRV-PC05-06 | Feedback relevante recibe consideración y respuesta verificable |
+| CRV-PC05-07 | Evidencia material genera ajustes/apoyo cuando corresponde |
+| CRV-PC05-08 | Población mantiene capacidad funcional suficiente durante la transición |
+
+# KPI
+Nuevamente:
+CRV antes que KPI.
+Algunos KPI pueden resultar útiles en determinados cambios:
+- tiempo de respuesta a issues;
+- barreras materiales abiertas/cerradas;
+- incidencias durante transición;
+- tiempo de resolución;
+- volumen de workarounds;
+- retrabajo;
+- interrupciones;
+- uso de soporte.
+Pero no convertimos en KPI universal:
+“employee engagement score”.
+Puede ser una señal complementaria, no la definición de PC-05.
+
+# Validación
+PC-05 necesita distinguir la existencia del mecanismo de su funcionamiento.
+### V0 · UNKNOWN
+No existe evidencia suficiente.
+### V1 · MECHANISM AVAILABLE
+Existen comunicación, participación, feedback o soporte.
+No demuestra funcionamiento.
+### V2 · PARTICIPATION FUNCTIONING
+Información relevante efectivamente circula en ambas direcciones.
+### V3 · ORGANIZATIONAL RESPONSE
+Existe evidencia de consideración, respuesta y tratamiento de asuntos materiales.
+### V4 · ADAPTATION FUNCTIONING
+Las barreras materiales son tratadas y la población puede funcionar suficientemente durante la transición.
+No todos los cambios necesitan llegar a V4 para cada variable.
+
+# Evidencia positiva
+Un cambio sin quejas no puede cerrarse positivamente solo por:
+ausencia de incidentes.
+Para declarar, por ejemplo:
+MATERIAL_VOICE_ENABLED
+necesitamos alguna evidencia positiva de que el mecanismo puede funcionar.
+Puede ser:
+un issue real planteado y tratado;
+o, proporcionalmente:
+una prueba explícita de que las personas conocen y pueden utilizar el canal.
+Esto mantiene nuestra regla maestra:
+ausencia de evidencia negativa ≠ evidencia positiva.
+
+# Seguimiento y reassessment
+PC-05 debe reabrirse cuando aparezca:
+- nueva población afectada;
+- impacto no previsto;
+- cambio sustancial de alcance;
+- nueva barrera;
+- workarounds;
+- aumento de incidencias;
+- deterioro operativo;
+- feedback recurrente;
+- cambio de liderazgo;
+- nueva fase de despliegue;
+- nueva tecnología;
+- reducción del soporte;
+- evidencia de que una decisión previa debe reconsiderarse.
+### REASS-PC05-01
+La suficiencia de participación y soporte debe reevaluarse cuando cambie materialmente el impacto, la población o la incertidumbre del cambio.
+
+# Un caso completo
+Una pyme implanta un nuevo sistema para preparar pedidos.
+Dirección afirma:
+“el personal de bodega se resiste”.
+Pymapa encuentra:
+- participaron en una demostración;
+- no participaron en el diseño;
+- el nuevo proceso exige escanear cada artículo;
+- en determinada zona la conectividad falla;
+- los trabajadores lo reportaron;
+- el issue no tiene owner;
+- cuando falla utilizan papel;
+- luego alguien debe volver a digitar.
+### PC-05
+No concluiría inicialmente:
+resistencia.
+Encontraría:
+HF-PC05-05 / HF-PC05-07 / HF-PC05-08, dependiendo de evidencia.
+### DT
+Puede encontrar:
+problema tecnológico/conectividad.
+### OP
+Puede encontrar:
+duplicación/retrabajo.
+### PC-03
+Puede observar:
+adopción inconsistente.
+La intervención correcta puede ser:
+mejorar conectividad + ajustar proceso + responder el feedback.
+No:
+taller motivacional.
+Este tipo de razonamiento causal es exactamente lo que debe diferenciar Pymapa de un diagnóstico convencional.
+
+# 11. Contextualización, Knowledge Governance y cierre
+## Contextualización SME
+No exigiremos:
+- comité formal;
+- encuesta;
+- change manager;
+- plataforma de engagement;
+- programa corporativo.
+En una microempresa:
+conversación de 20 minutos con las cuatro personas afectadas puede ser suficiente.
+En una transformación compleja:
+pilotos + segmentación + canales + owners + ciclos estructurados pueden ser necesarios.
+La arquitectura permanece:
+impacto → participación → voz → respuesta → adaptación.
+
+# Grounding y provenance
+Mantenemos como fuente externa principal ISO 10018:2020, que proporciona orientación sobre involucramiento y competencia de las personas y continúa publicada, aunque ha pasado por revisión sistemática. 
+La evidencia OECD complementa el contexto pyme respecto de transformación, capacidades y adaptación ante cambios tecnológicos y organizacionales. 
+### SOURCE-DERIVED
+El grounding sustenta principalmente:
+- involucramiento;
+- contribución de personas;
+- flujos de información;
+- competencia;
+- contexto organizacional;
+- adaptación y skills en transformación SME.
+### PYMAPA-DESIGNED
+Son propios:
+- estados INFORMED/HEARD/CONSIDERED/RESPONDED/SUPPORTED/ADAPTING;
+- taxonomía de población;
+- cinco dimensiones de impacto;
+- 6 CE;
+- 15 VA;
+- 15 NI;
+- 15 reglas;
+- 8 findings;
+- 9 decisiones;
+- 8 intervenciones;
+- 7 instrumentos;
+- 8 CRV;
+- V0–V4.
+
+# Source Review Trigger
+PC-03 ya estableció:
+SOURCE-REVIEW-TRIGGER-PC03-01
+Consolidamos:
+SOURCE-REVIEW-TRIGGER-PC03/05-01 · Revisar PC-03 y PC-05 ante una nueva edición o cambio material de ISO 10018.
+No creamos dos mecanismos de vigilancia para una misma dependencia documental.
+
+# A–V · PC-05
+| Dimensión | Resultado |
+| A Identidad | PASS |
+| B Alcance | PASS |
+| C Aplicabilidad | PASS |
+| D Unidad de análisis | PASS |
+| E Condiciones | PASS |
+| F Variables | PASS |
+| G Information Needs | PASS |
+| H Captura | PASS |
+| I Reglas de información | PASS |
+| J Suficiencia | PASS |
+| K Confianza | PASS |
+| L Diagnóstico | PASS |
+| M Findings | PASS |
+| N Recomendaciones | PASS |
+| O Intervención | PASS |
+| P Ejecución | PASS |
+| Q Resultado | PASS |
+| R Validación | PASS |
+| S Seguimiento | PASS |
+| T Contextualización | PASS |
+| U Knowledge | PASS |
+| V Governance | PASS |
+A–V = 22/22 PASS
+
+# DoD V1
+Los 27/27 criterios quedan cubiertos.
+Destaco cuatro particularmente importantes en PC-05:
+Observación ≠ inferencia: no convertimos desacuerdo en resistencia.
+Causalidad: problemas de adaptación pueden provenir de personas, proceso, tecnología, información, autoridad o del propio diseño del cambio.
+Intervención mínima: participación proporcional, no burocracia.
+Validación positiva: no confundimos ausencia de quejas con adaptación.
+DoD = 27/27 PASS
+
+# Quality Gates PC-05
+K1 · Coherencia — PASS. PC-05 queda suficientemente separada de PC-03, PC-02 y DG-03.
+K2 · Razonamiento — PASS. Información, participación, feedback, consideración, aceptación, respuesta y adaptación permanecen diferenciados.
+K3 · Acción — PASS. Las intervenciones pueden modificar comunicación, participación, soporte o incluso el propio cambio.
+K4 · Conocimiento — PASS. Grounding, provenance, source trigger, trazabilidad y gobierno quedan explícitos.
+# Cierre PC-05
+PC05-K4-v1.0 · K4-VALIDATED · CLOSED
+| Objeto | Resultado |
+| Bloques | 11/11 |
+| CE | 6 |
+| VA | 15 |
+| NI | 15 |
+| Reglas | 15 |
+| Findings | 8 |
+| Decisiones | 9 |
+| Intervenciones | 8 |
+| Instrumentos | 7 |
+| Entregables | 8 |
+| CRV | 8 |
+| Validación | V0–V4 |
+| A–V | 22/22 |
+| DoD | 27/27 |
+| K1–K4 | PASS |
+PC05-K4-v1.0 · K4-VALIDATED · CLOSED
+
+# Cierre del dominio PC
+Ahora sí tenemos:
+| Capacidad | Estado |
+| PC-01 · Disponer o acceder al conocimiento necesario | 🟢 K4 |
+| PC-02 · Desarrollar competencias y aprendizaje relevantes | 🟢 K4 |
+| PC-03 · Apropiar cambios y nuevas formas de trabajo | 🟢 K4 |
+| PC-04 · Compartir y conservar conocimiento organizacional | 🟢 K4 |
+| PC-05 · Facilitar participación y adaptación de las personas al cambio | 🟢 K4 |
+DOMAIN-PC-v1.0 · 5/5 CAPABILITIES K4-VALIDATED · DOMAIN-KNOWLEDGE-COMPLETE
+## Prueba de no solapamiento del dominio
+| Capacidad | Pregunta irreducible |
+| PC-01 | ¿Podemos disponer/acceder al conocimiento necesario? |
+| PC-02 | ¿Podemos desarrollar la competencia necesaria? |
+| PC-03 | ¿La nueva forma de trabajo se incorpora y sostiene? |
+| PC-04 | ¿El conocimiento material puede circular y sobrevivir? |
+| PC-05 | ¿Las personas pueden participar y adaptarse durante el cambio? |
+No son cinco formas de medir cultura.
+Son cinco mecanismos diferentes.
+
+# Arquitectura integral PC
+El dominio puede expresarse ahora como:
+ACCESS → DEVELOP → APPROPRIATE → PRESERVE → ADAPT
+Pero no debemos interpretarlo como una secuencia obligatoria.
+Una transformación concreta puede activar:
+PC-02 + PC-03 + PC-05
+mientras otra puede activar:
+PC-01 + PC-04
+y otra:
+ninguna capacidad PC de forma material.
+
+# Aportación transversal del dominio al Motor
+El trabajo de PC deja varias separaciones que deben sobrevivir cuando construyamos el Motor:
+KNOWLEDGE ACCESS ≠ COMPETENCE ≠ BEHAVIOR ≠ KNOWLEDGE CONTINUITY ≠ CHANGE ADAPTATION
+Y varias reglas especialmente relevantes:
+Training ≠ competence.
+Competence ≠ adoption.
+Adoption ≠ business result.
+Documentation ≠ knowledge continuity.
+Disagreement ≠ resistance.
+Feedback ≠ acceptance.
+Participation ≠ decision authority.
+Implementation ≠ appropriation.
+Estas distinciones son parte del valor intelectual acumulado del modelo, no simples detalles de cuestionario.
+
+# Estado maestro actualizado
+Ya quedan tres dominios completos en la ingeniería vigente:
+OP · Organización, procesos y ejecución → 5/5 CLOSED
+DG · Dirección y gobierno → 5/5 CLOSED
+PC · Personas, cultura y conocimiento → 5/5 CLOSED
+Por tanto:
+15 de las 31 capacidades de la taxonomía maestra 6×31 están K4-VALIDATED.
+Quedan 16 capacidades:
+DT · Datos y habilitación tecnológica → 6
+CM · Cliente, mercado y creación de valor → 6
+EC · Ecosistema y capacidades externas → 4
+Siguiendo el orden maestro DG → PC → OP → DT → CM → EC —con OP ya cerrado previamente— el siguiente movimiento lógico es DT-01 · Disponer de una base tecnológica adecuada. Ahí cambia sustancialmente la naturaleza del conocimiento: debemos evaluar fitness-for-purpose tecnológico, disponibilidad, sostenibilidad y adecuación al negocio, evitando convertir Pymapa en un inventario de hardware/software o en un assessment técnico pensado para grandes empresas. Primero dimensionaremos DT-01 y luego construiremos sus macrosets.
+Seguimos
+

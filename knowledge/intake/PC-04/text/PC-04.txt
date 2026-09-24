@@ -1,0 +1,830 @@
+| Objeto | Resultado |
+| Bloques | 11/11 |
+| CE | 6 |
+| VA | 14 |
+| NI | 14 |
+| Reglas | 14 |
+| Findings | 8 |
+| Decisiones | 9 |
+| Intervenciones | 8 |
+| Instrumentos | 7 |
+| Entregables | 8 |
+| CRV | 8 |
+| Validación | V0–V4 |
+| A–V | 22/22 |
+| DoD | 27/27 |
+| K1–K4 | PASS |
+## Estado del dominio PC
+| Capacidad | Estado |
+| PC-01 · Disponer o acceder al conocimiento necesario | 🟢 CLOSED |
+| PC-02 · Desarrollar competencias y aprendizaje relevantes | 🟢 CLOSED |
+| PC-03 · Apropiar cambios y nuevas formas de trabajo | 🟢 CLOSED |
+| PC-04 · Compartir y conservar conocimiento organizacional | ⚪ |
+| PC-05 · Facilitar participación y adaptación de las personas al cambio | ⚪ |
+DOMAIN-PC · 3/5 CAPABILITIES K4-VALIDATED
+Además queda una cadena transversal bastante poderosa:
+KNOW → CAN DO → DO → EMBED → SUSTAIN → RESULT
+PC-01 asegura KNOW/ACCESS.
+PC-02 trabaja CAN DO.
+PC-03 trabaja DO → EMBED → SUSTAIN.
+El capability owner + DG-04 verifican RESULT.
+El siguiente movimiento es PC-04 · Compartir y conservar conocimiento organizacional. Allí el problema cambia sustancialmente: tendremos que distinguir compartir, hacer recuperable, preservar, actualizar y evitar dependencia de conocimiento crítico, sin convertir Pymapa en un sistema documental. Por ello, nuevamente, dimensionaremos PC-04 antes de definir sus macrosets.
+Seguimos
+Seguimos con PC-04, dimensionándola antes de construirla. Aquí hay un riesgo conceptual importante: confundir gestión del conocimiento con documentar todo. Pymapa debe evaluar si el conocimiento organizacional relevante puede circular, recuperarse, conservarse y mantenerse útil, independientemente de que el mecanismo sea documental, humano, tecnológico o híbrido.
+# PC-04 · Compartir y conservar conocimiento organizacional
+## Dimensionamiento previo
+La pregunta central será:
+¿Puede la organización hacer que el conocimiento materialmente necesario trascienda a quien lo posee originalmente, llegue a quienes lo necesitan y permanezca suficientemente accesible y vigente cuando vuelva a requerirse?
+Esto la separa inmediatamente de PC-01:
+PC-01: ¿podemos disponer/acceder al conocimiento necesario?
+PC-04: ¿puede el conocimiento organizacional circular y permanecer disponible más allá de su fuente inmediata?
+También debemos separar retención del conocimiento de retención de personas. Perder una persona puede ser crítico, pero la capacidad PC-04 no evalúa políticas de retención de talento; evalúa qué ocurre con el conocimiento material cuando personas, roles, procesos o proveedores cambian.
+## Dimensionamiento resultante
+PC-04 requiere 10 bloques, agrupados orgánicamente en dos macrosets:
+| # | Bloque |
+| 1 | Identidad, aplicabilidad y fronteras |
+| 2 | Modelo conocimiento–transferencia–conservación |
+| 3 | Materialidad y riesgo de conocimiento |
+| 4 | Condiciones evaluables y variables |
+| 5 | Grounding y principios |
+| 6 | NI, suficiencia y confianza |
+| 7 | Adquisición, evidencia y reglas |
+| 8 | Findings, decisiones e intervenciones |
+| 9 | Instrumentos, entregables, Done, CRV, validación y seguimiento |
+| 10 | Contextualización, Knowledge Governance y cierre |
+SET A = bloques 1–7
+SET B = bloques 8–10
+
+# PC-04 · SET A
+## 1. Identidad, aplicabilidad y fronteras
+Definición productiva V1:
+PC-04 evalúa la capacidad de la organización para compartir, hacer recuperable, conservar y mantener suficientemente vigente el conocimiento organizacional material que debe estar disponible más allá de una persona, momento o situación específica.
+Unidad de análisis:
+la continuidad utilizable de una unidad de conocimiento material a través de personas, tiempo y contexto organizacional.
+Cadena:
+Conocimiento material → poseedor/fuente → destinatario → transferencia → recuperación → conservación → actualización → reutilización.
+No evaluamos cuánto contenido almacena la empresa.
+Evaluamos:
+si el conocimiento que no debería perderse o permanecer aislado puede llegar a quien lo necesita y seguir siendo utilizable cuando vuelva a necesitarse.
+
+# 2. Modelo conocimiento–transferencia–conservación
+PC-04 necesita distinguir cinco estados.
+### KNOW-HELD
+El conocimiento existe en una persona, grupo, artefacto o sistema.
+### KNOW-SHARED
+Ha sido transmitido a otra persona/población pertinente.
+### KNOW-RECOVERABLE
+Puede encontrarse y recuperarse cuando se necesita.
+### KNOW-PRESERVED
+Puede sobrevivir suficientemente a cambios de persona, tiempo o situación.
+### KNOW-CURRENT
+Continúa suficientemente vigente para el uso pretendido.
+Por tanto:
+HELD ≠ SHARED ≠ RECOVERABLE ≠ PRESERVED ≠ CURRENT.
+Un manual de hace cuatro años puede estar perfectamente preservado y ser completamente obsoleto.
+
+## Compartir ≠ documentar
+Éste será uno de los principios estructurales.
+El conocimiento puede preservarse mediante:
+- procedimiento;
+- checklist;
+- plantilla;
+- sistema;
+- base de conocimiento;
+- video;
+- ejemplo;
+- mentoría;
+- aprendizaje cruzado;
+- código;
+- configuración;
+- automatización;
+- comunidad;
+- sucesión;
+- redundancia de personas;
+- proveedor;
+- combinación de mecanismos.
+Por tanto:
+DOCUMENTED ≠ KNOWLEDGE-PRESERVED automáticamente.
+Y:
+NOT-DOCUMENTED ≠ KNOWLEDGE-GAP automáticamente.
+
+# Conocimiento explícito y conocimiento difícil de codificar
+No todo conocimiento relevante puede convertirse adecuadamente en texto.
+Ejemplo:
+cómo negociar una situación comercial excepcional.
+Parte puede documentarse.
+Otra parte puede necesitar:
+observación + práctica + acompañamiento + experiencia.
+Pymapa debe permitir mecanismos distintos según la naturaleza del conocimiento.
+Esto conecta PC-04 con PC-02, pero no las fusiona.
+
+# 3. Materialidad y riesgo de conocimiento
+No queremos inventariar todo lo que sabe una empresa.
+PC-04 necesita primero establecer:
+¿qué conocimiento merece ser compartido o preservado?
+Proponemos cinco drivers de materialidad:
+KMAT-01 · Criticality
+Su ausencia puede afectar significativamente una operación, decisión o resultado.
+KMAT-02 · Recurrence
+Se necesita repetidamente.
+KMAT-03 · Concentration
+Está excesivamente concentrado.
+KMAT-04 · Replacement difficulty
+Es difícil/costoso/lento reconstruirlo.
+KMAT-05 · Change exposure
+Puede perderse por rotación, cambio de proveedor, tecnología, proceso o contexto.
+No son un score obligatorio.
+Son dimensiones para establecer materialidad.
+
+## Ejemplo
+El fundador sabe:
+dónde compra el café de la oficina.
+Conocimiento concentrado.
+Pero probablemente:
+NOT-MATERIAL.
+También sabe:
+cómo calcula precios de proyectos complejos que representan 70 % de los ingresos.
+Concentración + criticidad + recurrencia + dificultad de reemplazo.
+Probablemente:
+MATERIAL KNOWLEDGE.
+La concentración por sí sola no constituye brecha.
+### APP-PC04-01
+El conocimiento concentrado solo activa una brecha PC-04 cuando su pérdida, inaccesibilidad o aislamiento tiene consecuencias materiales suficientes.
+
+# Relación con DG-05
+Aquí aparece una frontera muy importante.
+Si una sola persona conoce cómo operar un proceso crítico:
+PC-04 pregunta:
+¿ese conocimiento puede compartirse/conservarse?
+DG-05 pregunta:
+¿qué exposición genera depender de esa persona y cómo se gobierna?
+Misma evidencia.
+Dos inferencias distintas.
+Reuse evidence, not conclusions.
+
+# 4. Condiciones evaluables y variables
+El conocimiento exige 6 CE / 14 VA.
+## CE01 · Conocimiento material
+VA01 · Unidades de conocimiento material identificables
+VA02 · Razón de materialidad suficientemente establecida
+
+## CE02 · Distribución/concentración
+VA03 · Poseedores/fuentes conocidos
+VA04 · Concentración relevante identificada
+No penalizamos automáticamente la concentración.
+
+## CE03 · Transferencia
+VA05 · Destinatarios pertinentes identificados
+VA06 · Mecanismo de transferencia adecuado
+VA07 · Transferencia suficientemente efectiva
+Enviar un archivo no demuestra transferencia.
+
+## CE04 · Recuperabilidad
+VA08 · Conocimiento localizable
+VA09 · Conocimiento accesible por quien corresponde
+VA10 · Recuperación suficientemente oportuna
+Aquí existe una relación con PC-01, pero PC-04 analiza el mecanismo organizacional que mantiene el conocimiento disponible.
+
+## CE05 · Conservación
+VA11 · Mecanismo de preservación adecuado a la naturaleza del conocimiento
+VA12 · Resiliencia ante pérdida/cambio de fuente
+
+## CE06 · Vigencia y reutilización
+VA13 · Vigencia suficientemente controlada
+VA14 · Reutilización efectiva cuando reaparece la necesidad
+Esto completa el ciclo.
+No basta guardar.
+El conocimiento conservado debe seguir siendo utilizable.
+
+# 5. Grounding y principios
+ISO 30401:2018 es directamente relevante porque establece requisitos para sistemas de gestión del conocimiento y enfatiza creación, utilización, intercambio y gestión efectiva del conocimiento organizacional. La norma continúa publicada y es aplicable a organizaciones independientemente de su tamaño o sector; ISO tiene actualmente una segunda edición en desarrollo. 
+Para Pymapa no interpretaremos “sistema de gestión” como obligación de instalar software. La arquitectura puede satisfacerse mediante mecanismos humanos, organizativos y tecnológicos proporcionales.
+La OECD también ha identificado para las pymes restricciones específicas relacionadas con acceso a skills, conocimiento, redes y capacidades internas durante la transformación digital, lo que hace especialmente relevante evitar modelos de knowledge management diseñados exclusivamente para grandes organizaciones. 
+
+# Principios PC-04
+P-PC04-01
+Conocimiento existente ≠ conocimiento compartido.
+P-PC04-02
+Conocimiento compartido ≠ conocimiento comprendido.
+P-PC04-03
+Conocimiento documentado ≠ conocimiento recuperable.
+P-PC04-04
+Conocimiento recuperable ≠ conocimiento vigente.
+P-PC04-05
+Conocimiento preservado ≠ conocimiento utilizable automáticamente.
+P-PC04-06
+No todo conocimiento debe documentarse.
+P-PC04-07
+No todo conocimiento debe compartirse con todos.
+P-PC04-08
+Concentración de conocimiento ≠ brecha automáticamente.
+P-PC04-09
+Más documentación ≠ mayor capacidad organizacional.
+P-PC04-10
+El mecanismo de preservación debe corresponder a la naturaleza del conocimiento.
+P-PC04-11
+Preservar conocimiento obsoleto puede aumentar riesgo en lugar de reducirlo.
+P-PC04-12
+La salida de una persona no debería utilizarse como única prueba de pérdida de conocimiento; debe evaluarse qué conocimiento material dejó de estar suficientemente disponible.
+P-PC04-13
+Compartir conocimiento puede requerir controles de acceso, confidencialidad y seguridad.
+P-PC04-14
+El objetivo es continuidad utilizable, no acumulación de información.
+
+# 6. NI, suficiencia y confianza
+Resultan 14 NI.
+| NI | Necesitamos conocer |
+| NI01 | Qué conocimiento es material |
+| NI02 | Por qué es material |
+| NI03 | Quién/dónde lo posee |
+| NI04 | Cuánto está concentrado |
+| NI05 | Quién necesita recibirlo |
+| NI06 | Cómo puede transferirse adecuadamente |
+| NI07 | Si la transferencia funciona |
+| NI08 | Si puede localizarse |
+| NI09 | Si quienes corresponden pueden acceder |
+| NI10 | Si puede recuperarse oportunamente |
+| NI11 | Cómo se preserva |
+| NI12 | Qué ocurre si desaparece/cambia la fuente |
+| NI13 | Cómo se mantiene vigente |
+| NI14 | Si puede reutilizarse efectivamente |
+
+# Suficiencia
+PC-04 no necesita mapear todo el conocimiento empresarial.
+La cobertura suficiente será:
+conocimiento material razonablemente capaz de producir una consecuencia relevante si queda aislado, inaccesible, perdido u obsoleto.
+### SUFF-PC04-01
+La suficiencia de cobertura se determina por materialidad, no por porcentaje del conocimiento organizacional inventariado.
+Esto evita un absurdo:
+“tenemos documentado 85 % del conocimiento”.
+No existe una base razonable para calcular ese porcentaje en una pyme típica.
+
+# Confianza
+Podemos construir evidencia progresivamente.
+### C1
+Declaración:
+“María sabe hacerlo y le enseñó a Pedro.”
+### C2
+Existe mecanismo observable:
+Pedro participó en casos reales y existe material de apoyo.
+### C3
+Prueba funcional:
+María no está disponible y Pedro puede resolver suficientemente el caso.
+Ese último tipo de evidencia es mucho más fuerte para conservación funcional.
+
+# 7. Adquisición, evidencia y reglas
+## P1 · Núcleo
+Preguntas SME simples:
+“¿Hay cosas importantes que solo una persona sabe hacer o explicar?”
+“Si esa persona no estuviera disponible mañana, ¿qué se detendría o sería difícil reconstruir?”
+“¿Cómo aprende otra persona a hacerlo?”
+“Cuando necesitan recuperar algo importante que ya aprendieron antes, ¿lo encuentran fácilmente?”
+Estas preguntas pueden descubrir mucho sin utilizar el término:
+“knowledge management”.
+
+# P2 · Triggers
+Profundizamos cuando aparece:
+- “solo Juan sabe”;
+- salida próxima de persona;
+- dependencia de fundador;
+- dependencia de consultor/proveedor;
+- mismo problema resuelto repetidamente desde cero;
+- archivos personales;
+- múltiples versiones;
+- procedimientos desactualizados;
+- onboarding lento;
+- conocimiento transmitido únicamente oralmente;
+- decisiones históricas imposibles de reconstruir;
+- pérdida después de rotación;
+- información crítica difícil de encontrar;
+- repositorio enorme que nadie utiliza;
+- automatización cuyo funcionamiento nadie comprende suficientemente.
+
+# P3 · Discriminación
+Caso:
+“Solo Ana sabe generar el reporte.”
+Puede significar:
+PC-04: conocimiento material concentrado y no preservado.
+PC-02: otros necesitan desarrollar competencia.
+PC-01: el conocimiento no está accesible.
+DG-05: dependencia crítica de persona.
+OP: el proceso está innecesariamente diseñado alrededor de una persona.
+DT: debería automatizarse o existe una limitación tecnológica.
+Una vez más:
+misma evidencia ≠ misma conclusión.
+
+# P4 · Contradicciones
+### CONTR-PC04-01
+DECLARED_DOCUMENTED_vs_OBSERVED_RECOVERABILITY
+“Todo está documentado.”
+pero:
+nadie puede localizar la versión vigente.
+
+### CONTR-PC04-02
+DECLARED_SHARED_vs_OBSERVED_DEPENDENCY
+“Todos saben hacerlo.”
+pero:
+ante ausencia de una persona el proceso se detiene.
+
+### CONTR-PC04-03
+PRESERVED_vs_OBSOLETE
+existe procedimiento perfectamente conservado, pero describe una versión anterior del proceso.
+Estas contradicciones necesitan permanecer distintas.
+
+# P5 · Validación
+Ejemplo:
+“Entendemos que existe documentación del proceso, pero cuando necesitan utilizarla el equipo consulta a Laura porque no puede determinar cuál versión está vigente. ¿Es correcto?”
+Observación antes que diagnóstico.
+
+# Evidencia
+Puede incluir:
+- documentos;
+- procedimientos;
+- repositorios;
+- historial/versiones;
+- ejemplos;
+- plantillas;
+- configuraciones;
+- código;
+- grabaciones;
+- mentoría;
+- shadowing;
+- cross-training;
+- sucesión;
+- resultados de onboarding;
+- pruebas de recuperación;
+- casos reales;
+- tiempos de búsqueda;
+- consultas repetitivas;
+- errores por versiones;
+- dependencia observada;
+- Case State de PC-01/02/DG-05.
+
+# Reglas diagnósticas
+Resultan 14 reglas primarias.
+R-PC04-01 · MATERIAL_KNOWLEDGE_NOT_IDENTIFIED
+Conocimiento material insuficientemente visible.
+R-PC04-02 · KNOWLEDGE_MATERIALITY_UNCLEAR
+No está suficientemente establecido por qué debe preservarse/compartirse.
+R-PC04-03 · KNOWLEDGE_SOURCE_UNCLEAR
+No se conoce suficientemente dónde reside.
+R-PC04-04 · MATERIAL_KNOWLEDGE_CONCENTRATION
+Existe concentración material con continuidad insuficiente.
+R-PC04-05 · KNOWLEDGE_RECIPIENT_UNCLEAR
+No está suficientemente identificado quién necesita recibirlo.
+R-PC04-06 · TRANSFER_MECHANISM_MISMATCH
+El mecanismo de transferencia no corresponde al conocimiento.
+R-PC04-07 · KNOWLEDGE_TRANSFER_GAP
+La transferencia no produce disponibilidad/capacidad suficiente.
+R-PC04-08 · KNOWLEDGE_NOT_LOCATABLE
+El conocimiento existe pero no puede localizarse suficientemente.
+R-PC04-09 · KNOWLEDGE_ACCESS_RESTRICTION_GAP
+Quien legítimamente lo necesita no puede acceder suficientemente.
+R-PC04-10 · KNOWLEDGE_RECOVERY_TOO_SLOW
+Puede recuperarse, pero no dentro del horizonte requerido.
+R-PC04-11 · PRESERVATION_MECHANISM_GAP
+El mecanismo de conservación es insuficiente.
+R-PC04-12 · KNOWLEDGE_CONTINUITY_FRAGILITY
+Cambios/pérdida de la fuente pueden eliminar disponibilidad material.
+R-PC04-13 · KNOWLEDGE_CURRENCY_GAP
+No existe control suficiente de vigencia o el conocimiento está obsoleto.
+R-PC04-14 · KNOWLEDGE_REUSE_GAP
+Conocimiento disponible no se reutiliza suficientemente cuando reaparece la necesidad.
+
+# Guardrails
+G-PC04-01
+No recomendar documentación automáticamente.
+G-PC04-02
+No exigir repositorio formal automáticamente.
+G-PC04-03
+No tratar toda concentración como riesgo material.
+G-PC04-04
+No confundir transferencia de información con transferencia efectiva de conocimiento.
+G-PC04-05
+No exigir acceso universal.
+G-PC04-06
+No preservar indiscriminadamente conocimiento obsoleto.
+G-PC04-07
+No recomendar duplicación de expertise si otro mecanismo de continuidad es suficiente.
+G-PC04-08
+No asumir que conocimiento tácito puede codificarse completamente.
+
+# Estados positivos
+Resultan 5:
+MATERIAL_KNOWLEDGE_VISIBLE
+KNOWLEDGE_TRANSFER_EFFECTIVE
+MATERIAL_KNOWLEDGE_RECOVERABLE
+KNOWLEDGE_CONTINUITY_RESILIENT
+PRESERVED_KNOWLEDGE_CURRENT_AND_REUSABLE
+
+# Nuevos candidatos para el Motor
+PC-04 introduce una distinción importante:
+CAND-MOTOR-PC04-01 · El Motor debe mantener separados existencia, transferencia, recuperabilidad, preservación, vigencia y reutilización del conocimiento.
+Segundo:
+CAND-MOTOR-PC04-02 · La concentración de conocimiento solo debe convertirse en finding negativo cuando exista materialidad y fragilidad de continuidad suficientes.
+Tercero:
+CAND-MOTOR-PC04-03 · El mecanismo de conservación debe ser neutral respecto del soporte: persona, documento, sistema, automatización o combinación pueden ser válidos si producen continuidad utilizable suficiente.
+Y cuarto:
+CAND-MOTOR-PC04-04 · La vigencia del conocimiento debe tratarse como estado independiente de su existencia o preservación.
+Esto último es importante porque el Motor podrá distinguir:
+MISSING
+NOT-RECOVERABLE
+FRAGILE
+OBSOLETE
+aunque para el usuario todos puedan manifestarse como:
+“no tenemos el conocimiento que necesitamos”.
+
+# Conexión PC-01 → PC-04
+Ya podemos hacer explícita otra relación:
+PC-01
+¿Puedo acceder hoy al conocimiento?
+PC-04
+¿Existe un mecanismo organizacional suficiente para que ese conocimiento siga accesible y utilizable cuando vuelva a necesitarse?
+Por ejemplo:
+“llamo a Carlos y él sabe”.
+Puede ser PC-01 positivo.
+Pero si Carlos es la única fuente de un conocimiento crítico y no existe alternativa:
+PC-04 puede detectar fragilidad,
+y DG-05 puede detectar exposición.
+Tres diagnósticos distintos a partir de evidencia compartida.
+
+# Control PC-04 · SET A
+| Objeto | Resultado |
+| Bloques dimensionados | 10 |
+| SET A | 1–7 |
+| CE | 6 |
+| VA | 14 |
+| NI | 14 |
+| Reglas primarias | 14 |
+| Guardrails | 8 |
+| Estados positivos | 5 |
+| Grounding | Pymapa + ISO 30401 + contexto SME OECD |
+La arquitectura queda:
+Conocimiento material → fuente → concentración → destinatario → transferencia → localización/acceso → recuperación → preservación → vigencia → reutilización.
+Y queda fijado el principio central:
+PC-04 no mide cuánto documenta una pyme. Evalúa si el conocimiento que materialmente no debería quedar aislado, perderse u obsoletarse puede circular y permanecer suficientemente utilizable a través del tiempo y de los cambios organizacionales.
+PC04-SET-A-v0.1 · BLOCKS 1–7 OF 10 COMPLETE · READY-FOR-SET-B
+El siguiente movimiento es PC-04 · SET B · bloques 8–10, donde cerraremos findings, decisiones, intervenciones, instrumentos, entregables, Done Criteria, CRV, validación y seguimiento; después ejecutaremos A–V 22/22 + DoD 27/27 + K1–K4 para determinar el cierre de PC-04.
+2/2
+Seguimos
+Seguimos con PC-04 · SET B, bloques 8–10. Aquí cerramos la capacidad y, sobre todo, evitamos que Pymapa convierta la gestión del conocimiento en un proyecto documental.
+# PC-04 · Compartir y conservar conocimiento organizacional
+## SET B · Bloques 8–10
+Entrada: PC04-SET-A-v0.1 · BLOCKS 1–7 OF 10 COMPLETE
+
+# 8. Findings, decisiones e intervenciones
+Las 14 reglas primarias se consolidan en 8 familias de hallazgo.
+| ID | Familia de hallazgo | Núcleo diagnóstico |
+| HF-PC04-01 | Conocimiento material insuficientemente visible | No se reconoce qué conocimiento merece continuidad |
+| HF-PC04-02 | Concentración material frágil | Conocimiento relevante depende excesivamente de una fuente sin continuidad suficiente |
+| HF-PC04-03 | Transferencia insuficiente | El conocimiento no llega efectivamente a quienes deben disponer de él |
+| HF-PC04-04 | Recuperabilidad insuficiente | Existe conocimiento, pero localizarlo/accederlo oportunamente es difícil |
+| HF-PC04-05 | Preservación insuficiente | El conocimiento puede perderse ante cambios de persona, fuente o contexto |
+| HF-PC04-06 | Conocimiento preservado pero no vigente | Existe continuidad del contenido, pero su validez/utilidad se ha deteriorado |
+| HF-PC04-07 | Reutilización insuficiente | La organización vuelve a resolver desde cero problemas para los que ya generó conocimiento |
+| HF-PC04-08 | Mecanismo de continuidad inadecuado | El mecanismo elegido no corresponde a la naturaleza/materialidad del conocimiento |
+## Una distinción causal importante
+Supongamos:
+“Cuando Laura está de vacaciones nadie sabe preparar la propuesta compleja.”
+Esto todavía no significa:
+“hay que escribir un manual”.
+Primero debemos determinar:
+¿Qué conocimiento es material?
+¿Puede codificarse?
+¿Requiere práctica?
+¿Con qué frecuencia se necesita?
+¿Cuánto cuesta perderlo?
+¿Qué mecanismo alternativo sería suficiente?
+La intervención podría ser:
+- plantilla + ejemplos;
+- cross-training;
+- shadowing;
+- segundo especialista;
+- checklist;
+- automatización;
+- documentación parcial + práctica;
+- proveedor externo de contingencia.
+Por eso:
+finding → causa → mecanismo adecuado, no finding → documento.
+
+# Decisiones de continuidad
+PC-04 necesita un vocabulario propio.
+### SHARE
+Transferir conocimiento a destinatarios pertinentes.
+### CODIFY
+Representar explícitamente una parte que puede conservarse eficazmente.
+### EMBED
+Incorporar conocimiento en proceso, plantilla, sistema, regla, configuración o automatización.
+### CROSS-ENABLE
+Desarrollar capacidad suficiente en otra persona/rol.
+### REDUNDANCY
+Crear una segunda fuente cuando la criticidad lo justifica.
+### EXTERNALIZE
+Asegurar continuidad mediante una fuente externa suficientemente confiable.
+### UPDATE
+Actualizar conocimiento preservado.
+### RETIRE
+Retirar conocimiento obsoleto o sustituido.
+### NO_ACTION
+El mecanismo actual es proporcionalmente suficiente.
+Estas decisiones pueden combinarse.
+Ejemplo:
+CODIFY + CROSS-ENABLE
+puede ser superior a cualquiera de las dos por separado.
+
+# Minimum Sufficient Preservation
+Formalizamos:
+### INT-PC04-01
+La organización debe conservar conocimiento material con el mecanismo de menor complejidad que produzca continuidad, recuperabilidad, vigencia y reutilización suficientes para el riesgo y uso previstos.
+Esto evita dos extremos:
+“todo vive en la cabeza del fundador”
+y
+“documentemos todo lo que sabemos”.
+
+# Patrones de intervención
+Resultan 8.
+| ID | Patrón | Propósito |
+| IP-PC04-01 | Visibilizar conocimiento material | Determinar qué merece continuidad |
+| IP-PC04-02 | Reducir concentración frágil | Disminuir dependencia material |
+| IP-PC04-03 | Habilitar transferencia efectiva | Llevar conocimiento a quien corresponde |
+| IP-PC04-04 | Mejorar recuperabilidad | Facilitar localización/acceso oportunos |
+| IP-PC04-05 | Diseñar preservación adecuada | Crear mecanismo de continuidad |
+| IP-PC04-06 | Gobernar vigencia | Actualizar, sustituir o retirar conocimiento |
+| IP-PC04-07 | Habilitar reutilización | Evitar reconstrucción innecesaria |
+| IP-PC04-08 | Rediseñar mecanismo de continuidad | Corregir mecanismo desproporcionado/inadecuado |
+
+# Derivaciones hacia otras capacidades
+PC-04 puede generar un finding y no resolverlo completamente dentro de PC-04.
+Por ejemplo:
+| Situación | Derivación |
+| Otra persona necesita aprender a ejecutar | PC-02 |
+| Fuente externa debe seleccionarse | EC-02 |
+| Dependencia crítica necesita tratamiento | DG-05 |
+| Proceso debería simplificarse/automatizarse | OP-04 |
+| Repositorio/integración tecnológica es problema | DT |
+| Acceso inmediato al conocimiento es insuficiente | PC-01 |
+Esto preserva la especialización del Knowledge Pack.
+
+# 9. Instrumentos, entregables, Done, CRV, validación y seguimiento
+No necesitamos un inventario corporativo exhaustivo. Resultan 7 instrumentos.
+| ID | Instrumento | Versión mínima SME |
+| INS-PC04-01 | Mapa de conocimiento material | Qué / para qué / quién lo tiene |
+| INS-PC04-02 | Mapa de concentración y continuidad | Qué pasa si la fuente desaparece |
+| INS-PC04-03 | Diseño de transferencia | Quién necesita aprender/recibir qué |
+| INS-PC04-04 | Mapa de recuperabilidad | Dónde está / quién accede / cuánto tarda |
+| INS-PC04-05 | Diseño de preservación | Persona/documento/sistema/híbrido |
+| INS-PC04-06 | Control de vigencia | Owner / versión / trigger de revisión |
+| INS-PC04-07 | Prueba de recuperación/reutilización | ¿Puede otro encontrarlo y usarlo? |
+
+# El instrumento más potente puede ser una prueba
+Supongamos que la empresa afirma:
+“El proceso está perfectamente documentado.”
+En lugar de solicitar otros veinte documentos:
+pedir a una persona pertinente que no creó el material que encuentre la versión vigente y resuelva un caso representativo.
+Eso puede producir evidencia sobre:
+- localización;
+- acceso;
+- comprensibilidad;
+- vigencia;
+- reutilización.
+Una sola prueba puede alimentar múltiples VA.
+Valor de Información > cantidad de preguntas.
+
+# Entregables
+Resultan 8 entregables funcionales:
+DEL-PC04-01 · conocimiento material identificado
+DEL-PC04-02 · concentraciones materiales evaluadas
+DEL-PC04-03 · transferencia pertinente habilitada
+DEL-PC04-04 · conocimiento material recuperable
+DEL-PC04-05 · continuidad suficientemente protegida
+DEL-PC04-06 · mecanismo de preservación adecuado
+DEL-PC04-07 · conocimiento vigente/controlado
+DEL-PC04-08 · conocimiento reutilizable en necesidad real
+
+# Done Criteria
+Aquí resultan 6.
+### DC-A · Materiality Done
+Está suficientemente establecido qué conocimiento requiere continuidad y por qué.
+### DC-B · Transfer Done
+Cuando se necesita distribución, destinatarios pertinentes pueden disponer suficientemente del conocimiento.
+### DC-C · Recovery Done
+El conocimiento puede localizarse y recuperarse dentro del horizonte requerido.
+### DC-D · Continuity Done
+Su disponibilidad no depende de forma desproporcionadamente frágil de una única fuente.
+### DC-E · Currency Done
+Existe evidencia suficiente de vigencia o mecanismo proporcional para controlarla.
+### DC-F · Reuse Done
+Cuando reaparece una necesidad representativa, el conocimiento puede utilizarse suficientemente sin reconstrucción innecesaria.
+
+# CRV
+Resultan 8.
+| ID | Criterio de Resultado Verificable |
+| CRV-PC04-01 | Conocimiento material suficientemente identificado |
+| CRV-PC04-02 | Concentraciones materiales con continuidad suficiente |
+| CRV-PC04-03 | Destinatarios pertinentes pueden recibir/utilizar el conocimiento requerido |
+| CRV-PC04-04 | Conocimiento material localizable y accesible oportunamente |
+| CRV-PC04-05 | Conocimiento crítico sobrevive suficientemente a pérdida/cambio de fuente |
+| CRV-PC04-06 | Mecanismo de preservación funciona según la naturaleza del conocimiento |
+| CRV-PC04-07 | Conocimiento preservado mantiene vigencia suficiente |
+| CRV-PC04-08 | Conocimiento puede reutilizarse satisfactoriamente en un caso representativo |
+
+# KPI
+PC-04 permite algunos KPI, pero no son universales.
+Dependiendo del caso:
+- tiempo para localizar conocimiento;
+- tiempo de onboarding;
+- consultas repetidas a persona crítica;
+- incidencias por versión incorrecta;
+- porcentaje de casos que requieren fuente única;
+- tiempo de recuperación;
+- repetición de trabajo ya resuelto.
+Pero mantenemos:
+CRV primero; KPI cuando aporte valor.
+No inventaremos métricas como:
+“porcentaje de conocimiento documentado”.
+
+# Validación
+PC-04 necesita una progresión funcional.
+### V0 · UNKNOWN
+No existe evidencia suficiente.
+### V1 · MECHANISM-EXISTS
+Existe mecanismo de transferencia/preservación.
+Ejemplo:
+repositorio creado.
+Todavía no demuestra capacidad.
+### V2 · RECOVERABLE
+Una persona pertinente puede encontrar y acceder al conocimiento.
+### V3 · USABLE
+Puede utilizarlo satisfactoriamente en una necesidad representativa.
+### V4 · CONTINUITY-VALIDATED
+La disponibilidad se sostiene ante una condición relevante de continuidad:
+- ausencia de persona;
+- cambio de rol;
+- paso del tiempo;
+- recurrencia;
+- actualización.
+De nuevo, no toda situación necesita V4.
+
+# Un caso ilustrativo
+Empresa de 20 personas.
+Solo el fundador sabe construir determinadas propuestas comerciales complejas.
+Diagnóstico inicial:
+MATERIAL_KNOWLEDGE_CONCENTRATION
+Pero investigamos.
+Encontramos que:
+- ocurre 25 veces al año;
+- representa ingresos importantes;
+- dos personas conocen partes del proceso;
+- existen propuestas anteriores;
+- no existe método para reutilizarlas;
+- el fundador corrige todas las propuestas.
+Intervención mínima posible:
+extraer criterios recurrentes + biblioteca de casos + plantilla de decisión + acompañar a segunda persona en casos reales.
+No necesitamos:
+“implementar plataforma corporativa de knowledge management”.
+Resultado verificable:
+segunda persona resuelve casos representativos con autonomía suficiente y puede localizar antecedentes pertinentes.
+Eso puede mejorar simultáneamente:
+- PC-04;
+- PC-02;
+- DG-05.
+Pero cada capability valida su propio resultado.
+
+# Seguimiento y reassessment
+Triggers principales:
+- salida de persona clave;
+- cambio de proveedor;
+- nueva tecnología;
+- cambio de proceso;
+- regulación;
+- errores por versiones;
+- onboarding lento;
+- conocimiento difícil de localizar;
+- consultas repetitivas;
+- nuevo workaround;
+- crecimiento del equipo;
+- cambio de responsabilidades;
+- conocimiento no utilizado durante largo periodo;
+- automatización de conocimiento antes humano.
+### REASS-PC04-01
+La continuidad de conocimiento debe reevaluarse cuando cambien materialmente la fuente, el uso, la criticidad o el mecanismo mediante el cual se preserva.
+
+# Conocimiento incorporado en IA o automatización
+Aquí aparece un candidato importante para etapas posteriores.
+Supongamos que conocimiento que antes poseía una persona queda incorporado en:
+- reglas de software;
+- workflow;
+- prompt;
+- agente;
+- modelo;
+- automatización.
+Eso puede reducir una dependencia humana.
+Pero puede crear otra:
+nadie comprende suficientemente qué conocimiento está embebido, de dónde proviene o cómo actualizarlo.
+Por eso registramos:
+CAND-MOTOR-AI-KNOW-02 · El conocimiento embebido en automatización o IA puede constituir un mecanismo de preservación, pero debe evaluarse su recuperabilidad, provenance, vigencia y capacidad de actualización cuando sean materiales.
+No desarrollamos todavía la gobernanza específica de IA.
+
+# 10. Contextualización, Knowledge Governance y cierre
+## Proporcionalidad SME
+PC-04 no exige una “función de gestión del conocimiento”.
+Una microempresa puede resolver una necesidad crítica con:
+dos personas capaces + plantilla + carpeta clara + ejemplos + revisión periódica.
+Una pyme más estructurada puede requerir:
+owners + repositorio + taxonomía + permisos + versionado + comunidades + automatización.
+El estándar diagnóstico sigue siendo:
+continuidad utilizable suficiente.
+
+# Grounding y provenance
+Mantenemos ISO 30401:2018 como fuente externa principal para PC-04. ISO la describe como un estándar aplicable a cualquier organización que busque establecer, mantener y mejorar un sistema eficaz de gestión del conocimiento; la edición 2018 continúa vigente mientras una nueva edición está en desarrollo. 
+La OECD aporta contexto complementario sobre las restricciones de capacidades, skills y recursos que condicionan la transformación de las pymes. 
+### SOURCE-DERIVED
+El grounding externo sustenta principalmente:
+- gestión deliberada del conocimiento;
+- intercambio y utilización;
+- mantenimiento/mejora;
+- importancia del contexto;
+- necesidad de mecanismos organizacionales;
+- proporcionalidad SME como contexto.
+### PYMAPA-DESIGNED
+Son objetos propios:
+- KNOW-HELD / SHARED / RECOVERABLE / PRESERVED / CURRENT;
+- KMAT-01–05;
+- 6 CE;
+- 14 VA;
+- 14 NI;
+- 14 reglas;
+- 8 findings;
+- decisiones SHARE/CODIFY/EMBED/etc.;
+- 8 patrones;
+- 7 instrumentos;
+- 8 CRV;
+- V0–V4;
+- Minimum Sufficient Preservation.
+
+# Source Review Trigger
+PC-01 ya había abierto:
+SOURCE-REVIEW-TRIGGER-PC01-01
+Lo extendemos formalmente:
+SOURCE-REVIEW-TRIGGER-PC04-01 · Revisar PC-01 y PC-04 cuando se publique la siguiente edición definitiva de ISO 30401.
+No necesitamos duplicar la fuente; ambos Knowledge Packs pueden referenciar el mismo Source Object.
+Esto es precisamente lo que deberá hacer K3:
+una fuente → múltiples objetos derivados → provenance independiente.
+
+# A–V
+| Dimensión | Resultado |
+| A · Identidad | PASS |
+| B · Alcance | PASS |
+| C · Aplicabilidad | PASS |
+| D · Unidad de análisis | PASS |
+| E · Condiciones | PASS |
+| F · Variables | PASS |
+| G · Information Needs | PASS |
+| H · Captura | PASS |
+| I · Reglas de información | PASS |
+| J · Suficiencia | PASS |
+| K · Confianza | PASS |
+| L · Diagnóstico | PASS |
+| M · Findings | PASS |
+| N · Recomendaciones | PASS |
+| O · Intervención | PASS |
+| P · Ejecución | PASS |
+| Q · Resultado | PASS |
+| R · Validación | PASS |
+| S · Seguimiento | PASS |
+| T · Contextualización | PASS |
+| U · Knowledge | PASS |
+| V · Governance | PASS |
+A–V = 22/22 PASS
+
+# DoD V1
+La revisión confirma 27/27.
+En particular quedan cubiertos los puntos de mayor riesgo:
+- aplicabilidad antes de diagnosticar;
+- materialidad antes de preservar;
+- evidencia proporcional;
+- suficiencia de cobertura;
+- confianza;
+- observación/inferencia;
+- causalidad;
+- findings explicables;
+- intervención mínima;
+- instrumentos ≠ actividades;
+- entregables ≠ resultados;
+- Done Criteria;
+- CRV antes que KPI;
+- validación funcional;
+- seguimiento;
+- reassessment;
+- contextualización;
+- provenance;
+- gobierno/versionado.
+DoD = 27/27 PASS
+
+# Quality Gates
+K1 · Coherencia — PASS. PC-04 queda diferenciada de PC-01, PC-02 y DG-05. No se convierte en gestión documental.
+K2 · Razonamiento — PASS. Existencia, transferencia, recuperación, preservación, vigencia y reutilización son estados independientes. Concentración tampoco equivale automáticamente a brecha.
+K3 · Acción — PASS. La intervención puede ser humana, documental, tecnológica, organizacional o híbrida y se selecciona según causalidad y materialidad.
+K4 · Conocimiento — PASS. Grounding, provenance, reutilización de fuentes, versionado y triggers quedan gobernados.
+# Cierre PC-04
+PC04-K4-v1.0 · K4-VALIDATED · CLOSED

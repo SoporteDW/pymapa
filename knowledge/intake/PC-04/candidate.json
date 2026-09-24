@@ -1,0 +1,728 @@
+{
+  "candidateId": "CAND-PC-04-0.2.0-448b115814ea",
+  "capabilityId": "PC-04",
+  "status": "CANDIDATE",
+  "registration": {
+    "registrationId": "RAW-PC-04-19e8903f1149",
+    "textSha256": "448b115814eaeec2016bedf57c790d87e7cff107e932d98405302aeab3191b16"
+  },
+  "producedBy": {
+    "method": "DETERMINISTIC_TOOL",
+    "agent": "pymapa-structural-segmenter@0.2.0 + pymapa-governed-supersession-resolver@0.1.0",
+    "note": "Segmentación literal por headings con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
+  },
+  "baselineId": "PC04-K4-v1.0",
+  "historicalStatus": {
+    "marker": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      830,
+      830
+    ]
+  },
+  "provenanceVocabulary": [],
+  "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 6,
+      "objectType": "SOURCE_ID_CE",
+      "sourceLines": [
+        455,
+        455
+      ]
+    }
+  ],
+  "verbatimKeys": [
+    "heading",
+    "title",
+    "body"
+  ],
+  "items": [
+    {
+      "key": "APP-PC04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_APP",
+      "sourceId": "APP-PC04-01",
+      "fields": {
+        "heading": "APP-PC04-01",
+        "body": [
+          "El conocimiento concentrado solo activa una brecha PC-04 cuando su pérdida, inaccesibilidad o aislamiento tiene consecuencias materiales suficientes."
+        ]
+      },
+      "sourceLines": [
+        151,
+        152
+      ],
+      "approvalEvidence": {
+        "text": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          830,
+          830
+        ]
+      }
+    },
+    {
+      "key": "CE01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Conocimiento material",
+        "title": "Conocimiento material",
+        "body": [
+          "VA01 · Unidades de conocimiento material identificables",
+          "VA02 · Razón de materialidad suficientemente establecida"
+        ]
+      },
+      "sourceLines": [
+        167,
+        169
+      ],
+      "approvalEvidence": {
+        "text": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          830,
+          830
+        ]
+      }
+    },
+    {
+      "key": "CE02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Distribución/concentración",
+        "title": "Distribución/concentración",
+        "body": [
+          "VA03 · Poseedores/fuentes conocidos",
+          "VA04 · Concentración relevante identificada",
+          "No penalizamos automáticamente la concentración."
+        ]
+      },
+      "sourceLines": [
+        171,
+        174
+      ],
+      "approvalEvidence": {
+        "text": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          830,
+          830
+        ]
+      }
+    },
+    {
+      "key": "CE03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Transferencia",
+        "title": "Transferencia",
+        "body": [
+          "VA05 · Destinatarios pertinentes identificados",
+          "VA06 · Mecanismo de transferencia adecuado",
+          "VA07 · Transferencia suficientemente efectiva",
+          "Enviar un archivo no demuestra transferencia."
+        ]
+      },
+      "sourceLines": [
+        176,
+        180
+      ],
+      "approvalEvidence": {
+        "text": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          830,
+          830
+        ]
+      }
+    },
+    {
+      "key": "CE04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE04",
+      "fields": {
+        "heading": "CE04 · Recuperabilidad",
+        "title": "Recuperabilidad",
+        "body": [
+          "VA08 · Conocimiento localizable",
+          "VA09 · Conocimiento accesible por quien corresponde",
+          "VA10 · Recuperación suficientemente oportuna",
+          "Aquí existe una relación con PC-01, pero PC-04 analiza el mecanismo organizacional que mantiene el conocimiento disponible."
+        ]
+      },
+      "sourceLines": [
+        182,
+        186
+      ],
+      "approvalEvidence": {
+        "text": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          830,
+          830
+        ]
+      }
+    },
+    {
+      "key": "CE05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE05",
+      "fields": {
+        "heading": "CE05 · Conservación",
+        "title": "Conservación",
+        "body": [
+          "VA11 · Mecanismo de preservación adecuado a la naturaleza del conocimiento",
+          "VA12 · Resiliencia ante pérdida/cambio de fuente"
+        ]
+      },
+      "sourceLines": [
+        188,
+        190
+      ],
+      "approvalEvidence": {
+        "text": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          830,
+          830
+        ]
+      }
+    },
+    {
+      "key": "CE06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE06",
+      "fields": {
+        "heading": "CE06 · Vigencia y reutilización",
+        "title": "Vigencia y reutilización",
+        "body": [
+          "VA13 · Vigencia suficientemente controlada",
+          "VA14 · Reutilización efectiva cuando reaparece la necesidad",
+          "Esto completa el ciclo.",
+          "No basta guardar.",
+          "El conocimiento conservado debe seguir siendo utilizable."
+        ]
+      },
+      "sourceLines": [
+        192,
+        197
+      ],
+      "approvalEvidence": {
+        "text": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          830,
+          830
+        ]
+      }
+    },
+    {
+      "key": "SUFF-PC04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_SUFF",
+      "sourceId": "SUFF-PC04-01",
+      "fields": {
+        "heading": "SUFF-PC04-01",
+        "body": [
+          "La suficiencia de cobertura se determina por materialidad, no por porcentaje del conocimiento organizacional inventariado.",
+          "Esto evita un absurdo:",
+          "“tenemos documentado 85 % del conocimiento”.",
+          "No existe una base razonable para calcular ese porcentaje en una pyme típica."
+        ]
+      },
+      "sourceLines": [
+        256,
+        260
+      ],
+      "approvalEvidence": {
+        "text": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          830,
+          830
+        ]
+      }
+    },
+    {
+      "key": "C1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_C",
+      "sourceId": "C1",
+      "fields": {
+        "heading": "C1",
+        "body": [
+          "Declaración:",
+          "“María sabe hacerlo y le enseñó a Pedro.”"
+        ]
+      },
+      "sourceLines": [
+        264,
+        266
+      ],
+      "approvalEvidence": {
+        "text": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          830,
+          830
+        ]
+      }
+    },
+    {
+      "key": "C2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_C",
+      "sourceId": "C2",
+      "fields": {
+        "heading": "C2",
+        "body": [
+          "Existe mecanismo observable:",
+          "Pedro participó en casos reales y existe material de apoyo."
+        ]
+      },
+      "sourceLines": [
+        267,
+        269
+      ],
+      "approvalEvidence": {
+        "text": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          830,
+          830
+        ]
+      }
+    },
+    {
+      "key": "C3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_C",
+      "sourceId": "C3",
+      "fields": {
+        "heading": "C3",
+        "body": [
+          "Prueba funcional:",
+          "María no está disponible y Pedro puede resolver suficientemente el caso.",
+          "Ese último tipo de evidencia es mucho más fuerte para conservación funcional."
+        ]
+      },
+      "sourceLines": [
+        270,
+        273
+      ],
+      "approvalEvidence": {
+        "text": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          830,
+          830
+        ]
+      }
+    },
+    {
+      "key": "P1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P1",
+      "fields": {
+        "heading": "P1 · Núcleo",
+        "title": "Núcleo",
+        "body": [
+          "Preguntas SME simples:",
+          "“¿Hay cosas importantes que solo una persona sabe hacer o explicar?”",
+          "“Si esa persona no estuviera disponible mañana, ¿qué se detendría o sería difícil reconstruir?”",
+          "“¿Cómo aprende otra persona a hacerlo?”",
+          "“Cuando necesitan recuperar algo importante que ya aprendieron antes, ¿lo encuentran fácilmente?”",
+          "Estas preguntas pueden descubrir mucho sin utilizar el término:",
+          "“knowledge management”."
+        ]
+      },
+      "sourceLines": [
+        276,
+        283
+      ],
+      "approvalEvidence": {
+        "text": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          830,
+          830
+        ]
+      }
+    },
+    {
+      "key": "P2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P2",
+      "fields": {
+        "heading": "P2 · Triggers",
+        "title": "Triggers",
+        "body": [
+          "Profundizamos cuando aparece:",
+          "- “solo Juan sabe”;",
+          "- salida próxima de persona;",
+          "- dependencia de fundador;",
+          "- dependencia de consultor/proveedor;",
+          "- mismo problema resuelto repetidamente desde cero;",
+          "- archivos personales;",
+          "- múltiples versiones;",
+          "- procedimientos desactualizados;",
+          "- onboarding lento;",
+          "- conocimiento transmitido únicamente oralmente;",
+          "- decisiones históricas imposibles de reconstruir;",
+          "- pérdida después de rotación;",
+          "- información crítica difícil de encontrar;",
+          "- repositorio enorme que nadie utiliza;",
+          "- automatización cuyo funcionamiento nadie comprende suficientemente."
+        ]
+      },
+      "sourceLines": [
+        285,
+        301
+      ],
+      "approvalEvidence": {
+        "text": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          830,
+          830
+        ]
+      }
+    },
+    {
+      "key": "P3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P3",
+      "fields": {
+        "heading": "P3 · Discriminación",
+        "title": "Discriminación",
+        "body": [
+          "Caso:",
+          "“Solo Ana sabe generar el reporte.”",
+          "Puede significar:",
+          "PC-04: conocimiento material concentrado y no preservado.",
+          "PC-02: otros necesitan desarrollar competencia.",
+          "PC-01: el conocimiento no está accesible.",
+          "DG-05: dependencia crítica de persona.",
+          "OP: el proceso está innecesariamente diseñado alrededor de una persona.",
+          "DT: debería automatizarse o existe una limitación tecnológica.",
+          "Una vez más:",
+          "misma evidencia ≠ misma conclusión."
+        ]
+      },
+      "sourceLines": [
+        303,
+        314
+      ],
+      "approvalEvidence": {
+        "text": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          830,
+          830
+        ]
+      }
+    },
+    {
+      "key": "P4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P4",
+      "fields": {
+        "heading": "P4 · Contradicciones",
+        "title": "Contradicciones"
+      },
+      "sourceLines": [
+        316,
+        316
+      ],
+      "approvalEvidence": {
+        "text": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          830,
+          830
+        ]
+      }
+    },
+    {
+      "key": "CONTR-PC04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-PC04-01",
+      "fields": {
+        "heading": "CONTR-PC04-01",
+        "body": [
+          "DECLARED_DOCUMENTED_vs_OBSERVED_RECOVERABILITY",
+          "“Todo está documentado.”",
+          "pero:",
+          "nadie puede localizar la versión vigente."
+        ]
+      },
+      "sourceLines": [
+        317,
+        321
+      ],
+      "approvalEvidence": {
+        "text": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          830,
+          830
+        ]
+      }
+    },
+    {
+      "key": "CONTR-PC04-02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-PC04-02",
+      "fields": {
+        "heading": "CONTR-PC04-02",
+        "body": [
+          "DECLARED_SHARED_vs_OBSERVED_DEPENDENCY",
+          "“Todos saben hacerlo.”",
+          "pero:",
+          "ante ausencia de una persona el proceso se detiene."
+        ]
+      },
+      "sourceLines": [
+        323,
+        327
+      ],
+      "approvalEvidence": {
+        "text": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          830,
+          830
+        ]
+      }
+    },
+    {
+      "key": "CONTR-PC04-03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CONTR",
+      "sourceId": "CONTR-PC04-03",
+      "fields": {
+        "heading": "CONTR-PC04-03",
+        "body": [
+          "PRESERVED_vs_OBSOLETE",
+          "existe procedimiento perfectamente conservado, pero describe una versión anterior del proceso.",
+          "Estas contradicciones necesitan permanecer distintas."
+        ]
+      },
+      "sourceLines": [
+        329,
+        332
+      ],
+      "approvalEvidence": {
+        "text": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          830,
+          830
+        ]
+      }
+    },
+    {
+      "key": "P5",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P5",
+      "fields": {
+        "heading": "P5 · Validación",
+        "title": "Validación",
+        "body": [
+          "Ejemplo:",
+          "“Entendemos que existe documentación del proceso, pero cuando necesitan utilizarla el equipo consulta a Laura porque no puede determinar cuál versión está vigente. ¿Es correcto?”",
+          "Observación antes que diagnóstico."
+        ]
+      },
+      "sourceLines": [
+        334,
+        337
+      ],
+      "approvalEvidence": {
+        "text": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          830,
+          830
+        ]
+      }
+    },
+    {
+      "key": "INT-PC04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-PC04-01",
+      "fields": {
+        "heading": "INT-PC04-01",
+        "body": [
+          "La organización debe conservar conocimiento material con el mecanismo de menor complejidad que produzca continuidad, recuperabilidad, vigencia y reutilización suficientes para el riesgo y uso previstos.",
+          "Esto evita dos extremos:",
+          "“todo vive en la cabeza del fundador”",
+          "y",
+          "“documentemos todo lo que sabemos”."
+        ]
+      },
+      "sourceLines": [
+        537,
+        542
+      ],
+      "approvalEvidence": {
+        "text": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          830,
+          830
+        ]
+      }
+    },
+    {
+      "key": "V0",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V0",
+      "fields": {
+        "heading": "V0 · UNKNOWN",
+        "title": "UNKNOWN",
+        "body": [
+          "No existe evidencia suficiente."
+        ]
+      },
+      "sourceLines": [
+        648,
+        649
+      ],
+      "approvalEvidence": {
+        "text": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          830,
+          830
+        ]
+      }
+    },
+    {
+      "key": "V1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V1",
+      "fields": {
+        "heading": "V1 · MECHANISM-EXISTS",
+        "title": "MECHANISM-EXISTS",
+        "body": [
+          "Existe mecanismo de transferencia/preservación.",
+          "Ejemplo:",
+          "repositorio creado.",
+          "Todavía no demuestra capacidad."
+        ]
+      },
+      "sourceLines": [
+        650,
+        654
+      ],
+      "approvalEvidence": {
+        "text": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          830,
+          830
+        ]
+      }
+    },
+    {
+      "key": "V2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V2",
+      "fields": {
+        "heading": "V2 · RECOVERABLE",
+        "title": "RECOVERABLE",
+        "body": [
+          "Una persona pertinente puede encontrar y acceder al conocimiento."
+        ]
+      },
+      "sourceLines": [
+        655,
+        656
+      ],
+      "approvalEvidence": {
+        "text": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          830,
+          830
+        ]
+      }
+    },
+    {
+      "key": "V3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V3",
+      "fields": {
+        "heading": "V3 · USABLE",
+        "title": "USABLE",
+        "body": [
+          "Puede utilizarlo satisfactoriamente en una necesidad representativa."
+        ]
+      },
+      "sourceLines": [
+        657,
+        658
+      ],
+      "approvalEvidence": {
+        "text": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          830,
+          830
+        ]
+      }
+    },
+    {
+      "key": "V4",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V4",
+      "fields": {
+        "heading": "V4 · CONTINUITY-VALIDATED",
+        "title": "CONTINUITY-VALIDATED",
+        "body": [
+          "La disponibilidad se sostiene ante una condición relevante de continuidad:",
+          "- ausencia de persona;",
+          "- cambio de rol;",
+          "- paso del tiempo;",
+          "- recurrencia;",
+          "- actualización.",
+          "De nuevo, no toda situación necesita V4."
+        ]
+      },
+      "sourceLines": [
+        659,
+        666
+      ],
+      "approvalEvidence": {
+        "text": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          830,
+          830
+        ]
+      }
+    },
+    {
+      "key": "REASS-PC04-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_REASS",
+      "sourceId": "REASS-PC04-01",
+      "fields": {
+        "heading": "REASS-PC04-01",
+        "body": [
+          "La continuidad de conocimiento debe reevaluarse cuando cambien materialmente la fuente, el uso, la criticidad o el mecanismo mediante el cual se preserva."
+        ]
+      },
+      "sourceLines": [
+        709,
+        710
+      ],
+      "approvalEvidence": {
+        "text": "PC04-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          830,
+          830
+        ]
+      }
+    }
+  ],
+  "checksum": "sha256:9884930047df1115cd17bef4c71e1ef76c124fc93a342a53b11f9ceeb8baa3f0"
+}

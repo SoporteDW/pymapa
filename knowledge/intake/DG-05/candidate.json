@@ -1,0 +1,377 @@
+{
+  "candidateId": "CAND-DG-05-0.2.0-f8ec7dc84503",
+  "capabilityId": "DG-05",
+  "status": "CANDIDATE",
+  "registration": {
+    "registrationId": "RAW-DG-05-1862e0e860b8",
+    "textSha256": "f8ec7dc84503dca5a68e86133b034ba841bd597145478f7618535756c85c9ce1"
+  },
+  "producedBy": {
+    "method": "DETERMINISTIC_TOOL",
+    "agent": "pymapa-structural-segmenter@0.2.0 + pymapa-governed-supersession-resolver@0.1.0",
+    "note": "Segmentación literal por headings con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
+  },
+  "baselineId": "DG05-K4-v1.0",
+  "historicalStatus": {
+    "marker": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      654,
+      654
+    ]
+  },
+  "provenanceVocabulary": [],
+  "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 6,
+      "objectType": "SOURCE_ID_CE",
+      "sourceLines": [
+        657,
+        657
+      ]
+    }
+  ],
+  "verbatimKeys": [
+    "heading",
+    "title",
+    "body"
+  ],
+  "items": [
+    {
+      "key": "CE01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Visibilidad de exposición",
+        "title": "Visibilidad de exposición",
+        "body": [
+          "VA01 · riesgos materiales identificables",
+          "VA02 · dependencias materiales identificables"
+        ]
+      },
+      "sourceLines": [
+        131,
+        133
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          654,
+          654
+        ]
+      }
+    },
+    {
+      "key": "CE02",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Comprensión de materialidad",
+        "title": "Comprensión de materialidad",
+        "body": [
+          "VA03 · consecuencias potenciales sobre objetivos/resultados",
+          "VA04 · incertidumbre/probabilidad o plausibilidad suficientemente comprendida",
+          "No exigiremos probabilidades numéricas artificiales."
+        ]
+      },
+      "sourceLines": [
+        134,
+        137
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          654,
+          654
+        ]
+      }
+    },
+    {
+      "key": "CE03",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Interacción y concentración",
+        "title": "Interacción y concentración",
+        "body": [
+          "VA05 · interdependencias entre iniciativas/capacidades",
+          "VA06 · concentración/acumulación de exposición",
+          "Ejemplo:",
+          "Tres iniciativas parecen individualmente razonables.",
+          "Las tres requieren al mismo especialista.",
+          "El riesgo material aparece en la interacción, no necesariamente en cada proyecto.",
+          "Este es precisamente el tipo de efecto agregado que portfolio risk management busca hacer visible. Project Management Institute"
+        ]
+      },
+      "sourceLines": [
+        139,
+        146
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          654,
+          654
+        ]
+      }
+    },
+    {
+      "key": "CE04",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE04",
+      "fields": {
+        "heading": "CE04 · Respuesta y decisión",
+        "title": "Respuesta y decisión",
+        "body": [
+          "VA07 · respuesta proporcional definida",
+          "VA08 · integración del riesgo/dependencia en decisiones de transformación",
+          "Respuestas posibles no se limitarán a “mitigar”.",
+          "Podrían incluir:",
+          "aceptar, evitar, reducir, transferir/compartir, explotar una oportunidad, modificar secuencia, crear contingencia, aumentar observación o reconsiderar una iniciativa.",
+          "La semántica exacta se cerrará en SET B."
+        ]
+      },
+      "sourceLines": [
+        148,
+        154
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          654,
+          654
+        ]
+      }
+    },
+    {
+      "key": "CE05",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE05",
+      "fields": {
+        "heading": "CE05 · Ownership y escalamiento",
+        "title": "Ownership y escalamiento",
+        "body": [
+          "VA09 · responsabilidad sobre exposición/respuesta",
+          "VA10 · capacidad de escalamiento/aceptación cuando excede tolerancias",
+          "Aquí DG-05 reutiliza DG-03.",
+          "No vuelve a diagnosticar todo el gobierno decisional."
+        ]
+      },
+      "sourceLines": [
+        156,
+        160
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          654,
+          654
+        ]
+      }
+    },
+    {
+      "key": "CE06",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE06",
+      "fields": {
+        "heading": "CE06 · Monitoreo y adaptación",
+        "title": "Monitoreo y adaptación",
+        "body": [
+          "VA11 · señales/triggers de cambio de exposición",
+          "VA12 · revisión de respuesta ante nueva información"
+        ]
+      },
+      "sourceLines": [
+        162,
+        164
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          654,
+          654
+        ]
+      }
+    },
+    {
+      "key": "MAT-DG05-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_MAT",
+      "sourceId": "MAT-DG05-01",
+      "fields": {
+        "heading": "MAT-DG05-01",
+        "body": [
+          "Materialidad de riesgo no depende únicamente de probabilidad × impacto.",
+          "Ese cálculo puede ser útil en determinados contextos, pero Pymapa no lo convertirá en regla universal.",
+          "También pueden importar:",
+          "- irreversibilidad;",
+          "- velocidad de materialización;",
+          "- concentración;",
+          "- capacidad de recuperación;",
+          "- dependencia;",
+          "- detectabilidad;",
+          "- obligaciones externas;",
+          "- efecto sistémico."
+        ]
+      },
+      "sourceLines": [
+        227,
+        238
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          654,
+          654
+        ]
+      }
+    },
+    {
+      "key": "STOP-DG05-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_STOP",
+      "sourceId": "STOP-DG05-01",
+      "fields": {
+        "heading": "STOP-DG05-01",
+        "body": [
+          "Si la incertidumbre es demasiado alta para clasificar materialidad:",
+          "no inventar rating; aumentar información si su valor esperado justifica hacerlo.",
+          "Aquí reaparece Value of Information."
+        ]
+      },
+      "sourceLines": [
+        248,
+        251
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          654,
+          654
+        ]
+      }
+    },
+    {
+      "key": "V0",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V0",
+      "fields": {
+        "heading": "V0",
+        "body": [
+          "No existe evidencia suficiente de gobierno."
+        ]
+      },
+      "sourceLines": [
+        512,
+        513
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          654,
+          654
+        ]
+      }
+    },
+    {
+      "key": "V1",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V1",
+      "fields": {
+        "heading": "V1",
+        "body": [
+          "Exposición/respuesta documentada o declarada."
+        ]
+      },
+      "sourceLines": [
+        514,
+        515
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          654,
+          654
+        ]
+      }
+    },
+    {
+      "key": "V2",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V2",
+      "fields": {
+        "heading": "V2",
+        "body": [
+          "Existe evidencia de que exposición, respuesta y decisión están funcionalmente conectadas."
+        ]
+      },
+      "sourceLines": [
+        516,
+        517
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          654,
+          654
+        ]
+      }
+    },
+    {
+      "key": "V3",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_V",
+      "sourceId": "V3",
+      "fields": {
+        "heading": "V3",
+        "body": [
+          "Existe evidencia longitudinal de revisión/adaptación cuando cambian las condiciones."
+        ]
+      },
+      "sourceLines": [
+        518,
+        519
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          654,
+          654
+        ]
+      }
+    },
+    {
+      "key": "REASS-DG05-01",
+      "classification": "FINAL_APPROVED",
+      "objectType": "SOURCE_ID_REASS",
+      "sourceId": "REASS-DG05-01",
+      "fields": {
+        "heading": "REASS-DG05-01",
+        "body": [
+          "La ausencia de nuevos incidentes no es por sí sola evidencia suficiente para mantener indefinidamente una evaluación previa."
+        ]
+      },
+      "sourceLines": [
+        561,
+        562
+      ],
+      "approvalEvidence": {
+        "text": "DG05-K4-v1.0 · K4-VALIDATED · CLOSED",
+        "sourceLines": [
+          654,
+          654
+        ]
+      }
+    }
+  ],
+  "checksum": "sha256:66e52ebb3a2a1af4d33b8331571b45c9db03063f02f3377ac522066ea192b51a"
+}
