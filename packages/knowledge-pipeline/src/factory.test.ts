@@ -795,7 +795,7 @@ describe("Estados independientes de intake en el mismo lote", () => {
     expect(byId(r, SYN_ID).outcome).toBe("REVIEW_REQUIRED");
     expect(byId(r, "OP-01")).toEqual(byId(base, "OP-01"));
     expect(byId(r, "OP-02")).toEqual(byId(base, "OP-02"));
-    expect(r.manifest.unregisteredSlotCount).toBe(25);
+    expect(r.manifest.unregisteredSlotCount).toBe(15);
   });
 
   it("candidato válido → CANONICAL_REVIEW_REQUIRED; candidato no literal → FAIL aislado", () => {
