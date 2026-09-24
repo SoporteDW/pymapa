@@ -230,7 +230,7 @@ export function extractStructuralCandidate(input: StructuralExtractionInput): {
     : [];
 
   /* -------- headings -------- */
-  const headings: { line: number; text: string; level: number }[] = [];
+  const headings: { line: number; text: string; level: number; raw?: string }[] = [];
   lines.forEach((l, i) => {
     const t = headingText(l);
     if (t !== null)
@@ -239,6 +239,16 @@ export function extractStructuralCandidate(input: StructuralExtractionInput): {
       const plain = l.trim();
       const m = /^([A-Z][A-Z0-9]*(?:-[A-Za-z0-9.]+)*\d[A-Za-z0-9.]*) · \S.*$/.exec(plain);
       if (m && !plain.startsWith("-")) headings.push({ line: i + 1, text: plain, level: 9 });
+      else {
+        // M2-FACTORY-CLOSURE A3 · fila de tabla «| ID | valor |»: el ID y su valor,
+        // partidos en celdas por la conversión DOCX, forman un único objeto lógico.
+        // Solo filas de exactamente dos celdas no vacías cuya primera celda es un ID.
+        const row = /^\|\s*([A-Z][A-Z0-9]*(?:-[A-Za-z0-9.]+)*\d[A-Za-z0-9.]*)\s*\|\s*([^|]*\S)\s*\|$/.exec(
+          plain,
+        );
+        if (row)
+          headings.push({ line: i + 1, text: `${row[1]} · ${row[2]}`, level: 9, raw: plain });
+      }
     }
   });
   const headingAt = new Map(headings.map((h) => [h.line, h]));
@@ -371,7 +381,7 @@ export function extractStructuralCandidate(input: StructuralExtractionInput): {
       end,
       sectionEnd: sectionEndOf(h.line, h.level),
       level: h.level,
-      heading: t,
+      heading: h.raw ?? t,
       title: m[2]?.trim() ? (m[2] as string).trim() : null,
       body,
       backlog: [...ancestors, h.text].some((a) => /backlog/i.test(a)),
