@@ -73,7 +73,14 @@ const OP02_GRE = [
 
 /** Entradas reales con OP-02 en su estado pre-publicación (sin aprobación ni pack publicado). */
 function sinPublicacionOp02(): FactoryCapabilityInput[] {
+  // Contexto histórico de la autorización de OP-02 (2026-09-22): solo OP-01
+  // tenía fuente ejecutable publicada; las proyecciones posteriores
+  // (M2-FACTORY-CONTRACT-03) se retiran para reproducir la evidencia revisada.
   return loadFactoryCapabilityInputs(ROOT, VERSION).map((c) => {
+    if (!["OP-01", "OP-02"].includes(c.capabilityId) && c.master?.pipelineInput) {
+      const { pipelineInput: _pi, ...m } = c.master;
+      return { ...c, master: m as typeof c.master };
+    }
     if (c.capabilityId !== "OP-02" || !c.master?.pipelineInput) return c;
     const { governanceReview: _g, publishedPack: _p, ...resto } = c.master.pipelineInput;
     return { ...c, master: { ...c.master, pipelineInput: resto } };
