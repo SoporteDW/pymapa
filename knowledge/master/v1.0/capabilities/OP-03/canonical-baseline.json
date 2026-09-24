@@ -1,0 +1,3858 @@
+{
+  "baselineId": "OP03-K4-v1.0",
+  "capabilityId": "OP-03",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
+  "historicalStatus": {
+    "marker": "OP03-K4-v1.0 · K4-VALIDATED · CLOSED",
+    "sourceLines": [
+      6078,
+      6078
+    ]
+  },
+  "rawSource": {
+    "ref": "raw/OP-03_Completo.txt",
+    "sha256": "26d6a7a9d5d6a2867492f0eafcde1b447242dc1beff2dea13e372e7b833c2157",
+    "byteLength": 236618,
+    "lineCount": 6185,
+    "transcription": {
+      "tool": "pymapa-docx-text 1.0.0",
+      "arguments": ""
+    },
+    "originalDocument": {
+      "filename": "OP-03_Completo.docx",
+      "byteLength": 288189,
+      "sha256": "afe0758fb2b448c7a09f4c015d3e0b67acc69341ece1e00f0ae877bdf389c497"
+    }
+  },
+  "provenanceVocabulary": [
+    {
+      "code": "Architectural Authority",
+      "label": "Architectural Authority",
+      "meaning": "Documento Maestro Pymapa.",
+      "sourceLines": [
+        5295,
+        5296
+      ],
+      "scheme": "SOURCE_AUTHORITY_CLASS"
+    },
+    {
+      "code": "Internal Methodological Knowledge",
+      "label": "Internal Methodological Knowledge",
+      "meaning": "Digiway / metodologías propias.",
+      "sourceLines": [
+        5297,
+        5298
+      ],
+      "scheme": "SOURCE_AUTHORITY_CLASS"
+    },
+    {
+      "code": "External Conceptual Grounding",
+      "label": "External Conceptual Grounding",
+      "meaning": "APQC, Lean, ISO, literatura académica.",
+      "sourceLines": [
+        5299,
+        5300
+      ],
+      "scheme": "SOURCE_AUTHORITY_CLASS"
+    },
+    {
+      "code": "Contextual/Applied Evidence",
+      "label": "Contextual/Applied Evidence",
+      "meaning": "casos, benchmarks, documentación sectorial futura.",
+      "sourceLines": [
+        5301,
+        5302
+      ],
+      "scheme": "SOURCE_AUTHORITY_CLASS"
+    },
+    {
+      "code": "FOUNDATIONAL",
+      "label": "FOUNDATIONAL",
+      "meaning": "FOUNDATIONAL",
+      "sourceLines": [
+        5340,
+        5340
+      ],
+      "scheme": "SUPPORT_TYPE"
+    },
+    {
+      "code": "SUPPORTING",
+      "label": "SUPPORTING",
+      "meaning": "SUPPORTING",
+      "sourceLines": [
+        5341,
+        5341
+      ],
+      "scheme": "SUPPORT_TYPE"
+    },
+    {
+      "code": "CONTEXTUAL",
+      "label": "CONTEXTUAL",
+      "meaning": "CONTEXTUAL",
+      "sourceLines": [
+        5342,
+        5342
+      ],
+      "scheme": "SUPPORT_TYPE"
+    },
+    {
+      "code": "CONTRASTING",
+      "label": "CONTRASTING",
+      "meaning": "CONTRASTING",
+      "sourceLines": [
+        5343,
+        5343
+      ],
+      "scheme": "SUPPORT_TYPE"
+    },
+    {
+      "code": "INTERNAL",
+      "label": "INTERNAL",
+      "meaning": "INTERNAL",
+      "sourceLines": [
+        5344,
+        5344
+      ],
+      "scheme": "SUPPORT_TYPE"
+    }
+  ],
+  "controlCounts": [
+    {
+      "label": "CE",
+      "declared": 4,
+      "objectType": "SOURCE_ID_CE",
+      "sourceLines": [
+        6082,
+        6082
+      ]
+    },
+    {
+      "label": "CRV",
+      "declared": 8,
+      "objectType": "SOURCE_ID_CRV",
+      "role": "PRINCIPAL_RESULT_CRITERION",
+      "sourceLines": [
+        6089,
+        6089
+      ]
+    },
+    {
+      "label": "VA",
+      "declared": 8,
+      "objectType": "SOURCE_ID_VA",
+      "sourceLines": [
+        6083,
+        6083
+      ]
+    }
+  ],
+  "objects": [
+    {
+      "key": "HYP-OP03-01",
+      "objectType": "SOURCE_ID_HYP",
+      "sourceId": "HYP-OP03-01",
+      "fields": {
+        "heading": "HYP-OP03-01",
+        "body": [
+          "Integración end-to-end no equivale a integración tecnológica.",
+          "Si la causa es:",
+          "sistemas que no intercambian información,",
+          "OP-03 puede observar el efecto sobre el flujo E2E, pero la solución causal puede derivarse hacia DT.",
+          "Esto reproduce correctamente la lógica que ya construimos para OP-02."
+        ]
+      },
+      "sourceLines": [
+        80,
+        85
+      ]
+    },
+    {
+      "key": "HYP-OP03-02",
+      "objectType": "SOURCE_ID_HYP",
+      "sourceId": "HYP-OP03-02",
+      "fields": {
+        "heading": "HYP-OP03-02",
+        "body": [
+          "Fragmentación E2E ≠ necesidad automática de automatización.",
+          "Potencial derivación:",
+          "OP-04 o DT, dependiendo de la causa."
+        ]
+      },
+      "sourceLines": [
+        95,
+        98
+      ]
+    },
+    {
+      "key": "HYP-OP03-03",
+      "objectType": "SOURCE_ID_HYP",
+      "sourceId": "HYP-OP03-03",
+      "fields": {
+        "heading": "HYP-OP03-03 · Customer outcome como posible resultado, no CE automática.",
+        "title": "Customer outcome como posible resultado, no CE automática."
+      },
+      "sourceLines": [
+        259,
+        259
+      ]
+    },
+    {
+      "key": "P-OP03-01",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-OP03-01",
+      "fields": {
+        "heading": "P-OP03-01 · Integración suficiente ≠ formalización sofisticada",
+        "title": "Integración suficiente ≠ formalización sofisticada"
+      },
+      "sourceLines": [
+        747,
+        747
+      ]
+    },
+    {
+      "key": "P-OP03-03",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-OP03-03",
+      "fields": {
+        "heading": "P-OP03-03 · Desempeño local adecuado ≠ desempeño E2E adecuado",
+        "title": "Desempeño local adecuado ≠ desempeño E2E adecuado",
+        "body": [
+          "Este principio será importante para diagnóstico y KPI."
+        ]
+      },
+      "sourceLines": [
+        779,
+        780
+      ]
+    },
+    {
+      "key": "P-OP03-04",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-OP03-04",
+      "fields": {
+        "heading": "P-OP03-04 · Falla aislada de traspaso ≠ fragmentación estructural",
+        "title": "Falla aislada de traspaso ≠ fragmentación estructural",
+        "body": [
+          "Muy parecido a la lógica de variación OP-02, pero aplicado a integración."
+        ]
+      },
+      "sourceLines": [
+        793,
+        794
+      ]
+    },
+    {
+      "key": "P-OP03-05",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-OP03-05",
+      "fields": {
+        "heading": "P-OP03-05 · Visibilidad local ≠ visibilidad extremo a extremo",
+        "title": "Visibilidad local ≠ visibilidad extremo a extremo",
+        "body": [
+          "Justifica claramente VA07."
+        ]
+      },
+      "sourceLines": [
+        800,
+        801
+      ]
+    },
+    {
+      "key": "P-OP03-06",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-OP03-06",
+      "fields": {
+        "heading": "P-OP03-06 · Ownership funcional ≠ cargo formal obligatorio",
+        "title": "Ownership funcional ≠ cargo formal obligatorio",
+        "body": [
+          "Protección muy importante para pymes."
+        ]
+      },
+      "sourceLines": [
+        808,
+        809
+      ]
+    },
+    {
+      "key": "P-OP03-07",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-OP03-07",
+      "fields": {
+        "heading": "P-OP03-07 · Comunicación de problemas ≠ cierre del ciclo de retroalimentación",
+        "title": "Comunicación de problemas ≠ cierre del ciclo de retroalimentación"
+      },
+      "sourceLines": [
+        818,
+        818
+      ]
+    },
+    {
+      "key": "BOUND-OP03-01",
+      "objectType": "SOURCE_ID_BOUND",
+      "sourceId": "BOUND-OP03-01",
+      "fields": {
+        "heading": "BOUND-OP03-01",
+        "body": [
+          "La frontera OP-02/OP-03 se determina por el nivel del fenómeno —ejecución local vs articulación del resultado transversal—, no por el número de personas o áreas involucradas.",
+          "Esto resuelve bastante bien el backlog heredado A-OP02-02.",
+          "No lo cierro definitivamente hasta K1 de OP-03."
+        ]
+      },
+      "sourceLines": [
+        828,
+        831
+      ]
+    },
+    {
+      "key": "P-OP03-08",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-OP03-08",
+      "fields": {
+        "heading": "P-OP03-08 · Transferencia de información ≠ preservación de significado",
+        "title": "Transferencia de información ≠ preservación de significado",
+        "body": [
+          "Porque “el dato llegó” no demuestra que el receptor recibió el contexto necesario para actuar correctamente."
+        ]
+      },
+      "sourceLines": [
+        918,
+        919
+      ]
+    },
+    {
+      "key": "P-OP03-02@L1155",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P-OP03-02",
+      "fields": {
+        "heading": "P-OP03-02",
+        "body": [
+          "Integración tecnológica no demuestra por sí sola integración operacional E2E, y la integración operacional puede existir mediante mecanismos no tecnológicos.",
+          "Esto será uno de los guardrails más importantes de OP-03."
+        ]
+      },
+      "sourceLines": [
+        1155,
+        1157
+      ]
+    },
+    {
+      "key": "VA01@L1376",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA01",
+      "fields": {
+        "heading": "VA01 · Articulación funcional del flujo E2E",
+        "title": "Articulación funcional del flujo E2E"
+      },
+      "sourceLines": [
+        1376,
+        1376
+      ]
+    },
+    {
+      "key": "VA02@L1397",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA02",
+      "fields": {
+        "heading": "VA02 · Efectividad de traspasos críticos",
+        "title": "Efectividad de traspasos críticos"
+      },
+      "sourceLines": [
+        1397,
+        1397
+      ]
+    },
+    {
+      "key": "VA03@L1420",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA03",
+      "fields": {
+        "heading": "VA03 · Continuidad y preservación de información relevante",
+        "title": "Continuidad y preservación de información relevante"
+      },
+      "sourceLines": [
+        1420,
+        1420
+      ]
+    },
+    {
+      "key": "VA04@L1442",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA04",
+      "fields": {
+        "heading": "VA04 · Responsabilidad funcional sobre el resultado E2E",
+        "title": "Responsabilidad funcional sobre el resultado E2E",
+        "body": [
+          "Aquí debemos evitar preguntar:",
+          "“¿Tienen un process owner?”"
+        ]
+      },
+      "sourceLines": [
+        1442,
+        1444
+      ]
+    },
+    {
+      "key": "VA05@L1463",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA05",
+      "fields": {
+        "heading": "VA05 · Coherencia de decisiones interdependientes",
+        "title": "Coherencia de decisiones interdependientes"
+      },
+      "sourceLines": [
+        1463,
+        1463
+      ]
+    },
+    {
+      "key": "VA06@L1481",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA06",
+      "fields": {
+        "heading": "VA06 · Alineación entre objetivos locales y resultado E2E",
+        "title": "Alineación entre objetivos locales y resultado E2E",
+        "body": [
+          "Esta era una de las variables con más riesgo de abstracción."
+        ]
+      },
+      "sourceLines": [
+        1481,
+        1482
+      ]
+    },
+    {
+      "key": "VA07@L1503",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA07",
+      "fields": {
+        "heading": "VA07 · Visibilidad del estado E2E",
+        "title": "Visibilidad del estado E2E"
+      },
+      "sourceLines": [
+        1503,
+        1503
+      ]
+    },
+    {
+      "key": "VA08@L1522",
+      "objectType": "SOURCE_ID_VA",
+      "sourceId": "VA08",
+      "fields": {
+        "heading": "VA08 · Retroalimentación operacional entre fronteras",
+        "title": "Retroalimentación operacional entre fronteras",
+        "body": [
+          "Esta es la última variable que debía demostrar que no se convirtió en “mejora continua”."
+        ]
+      },
+      "sourceLines": [
+        1522,
+        1523
+      ]
+    },
+    {
+      "key": "SI-0",
+      "objectType": "SOURCE_ID_SI",
+      "sourceId": "SI-0",
+      "fields": {
+        "heading": "SI-0 · No resuelta",
+        "title": "No resuelta",
+        "body": [
+          "Sin información útil suficiente."
+        ]
+      },
+      "sourceLines": [
+        1559,
+        1560
+      ]
+    },
+    {
+      "key": "SI-1",
+      "objectType": "SOURCE_ID_SI",
+      "sourceId": "SI-1",
+      "fields": {
+        "heading": "SI-1 · Exploratoria",
+        "title": "Exploratoria",
+        "body": [
+          "Existe señal inicial, pero no permite evaluación."
+        ]
+      },
+      "sourceLines": [
+        1561,
+        1562
+      ]
+    },
+    {
+      "key": "SI-2",
+      "objectType": "SOURCE_ID_SI",
+      "sourceId": "SI-2",
+      "fields": {
+        "heading": "SI-2 · Diagnóstica",
+        "title": "Diagnóstica",
+        "body": [
+          "Información suficiente para evaluar razonablemente."
+        ]
+      },
+      "sourceLines": [
+        1563,
+        1564
+      ]
+    },
+    {
+      "key": "SI-3",
+      "objectType": "SOURCE_ID_SI",
+      "sourceId": "SI-3",
+      "fields": {
+        "heading": "SI-3 · Reforzada",
+        "title": "Reforzada",
+        "body": [
+          "Corroboración adicional apropiada a materialidad/confianza.",
+          "Estos niveles no son madurez."
+        ]
+      },
+      "sourceLines": [
+        1565,
+        1567
+      ]
+    },
+    {
+      "key": "SUF-OP03-01",
+      "objectType": "SOURCE_ID_SUF",
+      "sourceId": "SUF-OP03-01",
+      "fields": {
+        "heading": "SUF-OP03-01",
+        "body": [
+          "Una VA puede cerrarse cuando sus necesidades críticas de información están suficientemente resueltas, no existe contradicción material pendiente y la información adicional razonablemente disponible tiene baja probabilidad de modificar la evaluación o decisión asociada.",
+          "Misma lógica de Value of Information."
+        ]
+      },
+      "sourceLines": [
+        1571,
+        1573
+      ]
+    },
+    {
+      "key": "SUF-OP03-02",
+      "objectType": "SOURCE_ID_SUF",
+      "sourceId": "SUF-OP03-02",
+      "fields": {
+        "heading": "SUF-OP03-02 · Profundidad proporcional a materialidad",
+        "title": "Profundidad proporcional a materialidad",
+        "body": [
+          "Esto es transversal, pero OP-03 lo necesita especialmente."
+        ]
+      },
+      "sourceLines": [
+        1594,
+        1595
+      ]
+    },
+    {
+      "key": "REUSE-OP03-02",
+      "objectType": "SOURCE_ID_REUSE",
+      "sourceId": "REUSE-OP03-02",
+      "fields": {
+        "heading": "REUSE-OP03-02",
+        "body": [
+          "La reutilización conserva provenance original y no transfiere automáticamente la interpretación diagnóstica de la capacidad de origen."
+        ]
+      },
+      "sourceLines": [
+        1644,
+        1645
+      ]
+    },
+    {
+      "key": "CONTRA-OP03-01",
+      "objectType": "SOURCE_ID_CONTRA",
+      "sourceId": "CONTRA-OP03-01",
+      "fields": {
+        "heading": "CONTRA-OP03-01",
+        "body": [
+          "Contradicciones materiales entre fronteras son información diagnóstica relevante por sí mismas, pero no determinan automáticamente cuál parte tiene razón.",
+          "Acción:",
+          "- caso real;",
+          "- artefacto;",
+          "- muestra;",
+          "- P4 aclaración;",
+          "- evidencia multi-actor."
+        ]
+      },
+      "sourceLines": [
+        1654,
+        1661
+      ]
+    },
+    {
+      "key": "COV-OP03-01",
+      "objectType": "SOURCE_ID_COV",
+      "sourceId": "COV-OP03-01",
+      "fields": {
+        "heading": "COV-OP03-01",
+        "body": [
+          "La conclusión sobre integración E2E requiere cobertura suficiente de las fronteras y componentes que materialmente determinan el resultado evaluado.",
+          "No necesariamente todos los pasos."
+        ]
+      },
+      "sourceLines": [
+        1671,
+        1673
+      ]
+    },
+    {
+      "key": "SUF-OP03-CAP-01",
+      "objectType": "SOURCE_ID_SUF",
+      "sourceId": "SUF-OP03-CAP-01",
+      "fields": {
+        "heading": "SUF-OP03-CAP-01",
+        "body": [
+          "OP-03 puede considerarse suficientemente evaluada cuando el flujo E2E está delimitado, las CE aplicables están cerradas, existe cobertura suficiente de las fronteras materialmente relevantes, no persisten gaps críticos que puedan cambiar el diagnóstico y la confianza disponible permite producir hallazgos explicables y proporcionales."
+        ]
+      },
+      "sourceLines": [
+        1684,
+        1685
+      ]
+    },
+    {
+      "key": "STOP-OP03-01",
+      "objectType": "SOURCE_ID_STOP",
+      "sourceId": "STOP-OP03-01",
+      "fields": {
+        "heading": "STOP-OP03-01",
+        "body": [
+          "Detener profundización cuando una VA/CE alcanza suficiencia adecuada y nueva información tenga bajo valor esperado para modificar la conclusión o decisión.",
+          "OP-03 puede expandirse infinitamente si no protegemos esto.",
+          "Cada flujo tiene muchas conexiones posibles."
+        ]
+      },
+      "sourceLines": [
+        1688,
+        1691
+      ]
+    },
+    {
+      "key": "DERIVE-OP03-01",
+      "objectType": "SOURCE_ID_DERIVE",
+      "sourceId": "DERIVE-OP03-01",
+      "fields": {
+        "heading": "DERIVE-OP03-01",
+        "body": [
+          "OP-03 profundiza hasta el punto necesario para caracterizar el efecto sobre la integración; la causa especializada se deriva a la capacidad correspondiente cuando el valor de información adicional dentro de OP-03 es bajo.",
+          "Esto ayudará mucho a controlar alcance."
+        ]
+      },
+      "sourceLines": [
+        1699,
+        1701
+      ]
+    },
+    {
+      "key": "UA-OP03-v0.4",
+      "objectType": "SOURCE_ID_UA",
+      "sourceId": "UA-OP03-v0.4",
+      "fields": {
+        "heading": "UA-OP03-v0.4 · CANDIDATE-FROZEN",
+        "title": "CANDIDATE-FROZEN",
+        "body": [
+          "Flujo operacional extremo a extremo que conecta procesos, funciones, actores y/o sistemas materialmente interdependientes desde un disparador identificable hasta un resultado empresarial relevante."
+        ]
+      },
+      "sourceLines": [
+        1769,
+        1770
+      ]
+    },
+    {
+      "key": "SCOPE-OP03-01@L1773",
+      "objectType": "SOURCE_ID_SCOPE",
+      "sourceId": "SCOPE-OP03-01",
+      "fields": {
+        "heading": "SCOPE-OP03-01 · CANDIDATE-FROZEN",
+        "title": "CANDIDATE-FROZEN",
+        "body": [
+          "Toda evaluación debe delimitar:",
+          "- trigger;",
+          "- resultado;",
+          "- componentes;",
+          "- fronteras materiales."
+        ]
+      },
+      "sourceLines": [
+        1773,
+        1778
+      ]
+    },
+    {
+      "key": "CE01@L1781",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE01",
+      "fields": {
+        "heading": "CE01 · Articulación del flujo E2E",
+        "title": "Articulación del flujo E2E",
+        "body": [
+          "- VA01 Articulación funcional del flujo",
+          "- VA02 Efectividad de traspasos críticos"
+        ]
+      },
+      "sourceLines": [
+        1781,
+        1783
+      ]
+    },
+    {
+      "key": "CE02@L1784",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE02",
+      "fields": {
+        "heading": "CE02 · Continuidad de información E2E",
+        "title": "Continuidad de información E2E",
+        "body": [
+          "- VA03 Continuidad y preservación de información relevante"
+        ]
+      },
+      "sourceLines": [
+        1784,
+        1785
+      ]
+    },
+    {
+      "key": "CE03@L1786",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE03",
+      "fields": {
+        "heading": "CE03 · Gobernanza operacional del resultado E2E",
+        "title": "Gobernanza operacional del resultado E2E",
+        "body": [
+          "- VA04 Responsabilidad funcional",
+          "- VA05 Coherencia de decisiones interdependientes",
+          "- VA06 Alineación objetivos locales / E2E"
+        ]
+      },
+      "sourceLines": [
+        1786,
+        1789
+      ]
+    },
+    {
+      "key": "CE04@L1790",
+      "objectType": "SOURCE_ID_CE",
+      "sourceId": "CE04",
+      "fields": {
+        "heading": "CE04 · Visibilidad y retroalimentación E2E",
+        "title": "Visibilidad y retroalimentación E2E",
+        "body": [
+          "- VA07 Visibilidad del estado E2E",
+          "- VA08 Retroalimentación operacional entre fronteras"
+        ]
+      },
+      "sourceLines": [
+        1790,
+        1792
+      ]
+    },
+    {
+      "key": "REUSE-OP03-01@L1842",
+      "objectType": "SOURCE_ID_REUSE",
+      "sourceId": "REUSE-OP03-01",
+      "fields": {
+        "heading": "REUSE-OP03-01",
+        "body": [
+          "No volver a solicitar información ya disponible, vigente y suficientemente confiable, salvo que el nuevo uso requiera precisión distinta o exista contradicción."
+        ]
+      },
+      "sourceLines": [
+        1842,
+        1843
+      ]
+    },
+    {
+      "key": "P1-OP03-01",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P1-OP03-01",
+      "fields": {
+        "heading": "P1-OP03-01 · Resultado E2E",
+        "title": "Resultado E2E",
+        "body": [
+          "Tomemos un resultado concreto que la empresa necesite completar de principio a fin. ¿Qué inicia ese recorrido y qué tendría que haber ocurrido para decir que terminó correctamente?",
+          "Esto captura:",
+          "- trigger;",
+          "- resultado;",
+          "- alcance;",
+          "- posibles fronteras.",
+          "No le preguntamos:",
+          "“¿Cuál es su value stream?”"
+        ]
+      },
+      "sourceLines": [
+        1847,
+        1855
+      ]
+    },
+    {
+      "key": "P1-OP03-02",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P1-OP03-02",
+      "fields": {
+        "heading": "P1-OP03-02 · Caso extremo a extremo",
+        "title": "Caso extremo a extremo",
+        "body": [
+          "Pensemos en un caso reciente real. Desde que comenzó hasta que terminó, ¿por qué personas, áreas, procesos o sistemas fue pasando?",
+          "Esta pregunta puede alimentar:",
+          "VA01 articulación",
+          "VA02 handoffs",
+          "VA03 información",
+          "VA07 visibilidad",
+          "y producir señales de VA04–VA06.",
+          "Es probablemente la pregunta de mayor rendimiento de OP-03."
+        ]
+      },
+      "sourceLines": [
+        1859,
+        1867
+      ]
+    },
+    {
+      "key": "P1-OP03-03",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P1-OP03-03",
+      "fields": {
+        "heading": "P1-OP03-03 · Información crítica",
+        "title": "Información crítica",
+        "body": [
+          "¿Qué información no puede perderse o cambiar de significado durante ese recorrido para que el resultado salga bien?",
+          "Especialmente útil para VA03.",
+          "También puede revelar:",
+          "- decisiones upstream;",
+          "- restricciones downstream;",
+          "- puntos de handoff."
+        ]
+      },
+      "sourceLines": [
+        1870,
+        1876
+      ]
+    },
+    {
+      "key": "P1-OP03-04",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P1-OP03-04",
+      "fields": {
+        "heading": "P1-OP03-04 · Cuando algo se sale de lo normal",
+        "title": "Cuando algo se sale de lo normal",
+        "body": [
+          "Cuando aparece una excepción que cruza varias partes del proceso —por ejemplo un cambio del cliente, información incompleta o un problema en la entrega—, ¿quién se hace cargo del resultado y cómo se coordina la solución?",
+          "Alimenta:",
+          "VA04 responsabilidad",
+          "VA05 decisiones",
+          "VA07 visibilidad",
+          "VA08 retroalimentación.",
+          "No todas las empresas necesitarán las cuatro P1 si REUSE ya cubre parte importante."
+        ]
+      },
+      "sourceLines": [
+        1880,
+        1887
+      ]
+    },
+    {
+      "key": "P2",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P2",
+      "fields": {
+        "heading": "P2 · Preguntas condicionales",
+        "title": "Preguntas condicionales",
+        "body": [
+          "Se activan solo cuando una NI material permanece abierta.",
+          "| Gap | P2 candidata |",
+          "| VA01 articulación | “¿Hay algún punto donde el resultado queda entre dos partes sin que esté claro cómo continúa?” |",
+          "| VA02 handoff | “Cuando X entrega a Y, ¿qué necesita recibir Y para poder continuar sin devolver o aclarar?” |",
+          "| VA03 información | “¿Qué dato o contexto suele perderse, llegar tarde o interpretarse diferente entre esas partes?” |",
+          "| VA04 responsabilidad | “Si el problema no pertenece claramente a una sola área, ¿quién puede asumirlo hasta resolver el resultado?” |",
+          "| VA05 decisiones | “¿Qué decisiones tomadas al inicio pueden afectar materialmente lo que ocurre después?” |",
+          "| VA06 objetivos | “¿Hay situaciones donde a un área le conviene algo que complica el resultado completo?” |",
+          "| VA07 visibilidad | “Si hoy te preguntara dónde está exactamente este caso y qué falta para terminarlo, ¿cómo lo sabrías?” |",
+          "| VA08 feedback | “Cuando el problema se descubre al final, ¿cómo llega esa información a quien puede evitar que vuelva a ocurrir?” |",
+          "P2 no se lanza en batería."
+        ]
+      },
+      "sourceLines": [
+        1889,
+        1900
+      ]
+    },
+    {
+      "key": "P3",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P3",
+      "fields": {
+        "heading": "P3 · Preguntas de discriminación",
+        "title": "Preguntas de discriminación",
+        "body": [
+          "P3 debe ayudarnos a distinguir entre causas posibles.",
+          "Ejemplo:",
+          "“Los pedidos se devuelven mucho de operaciones a ventas.”",
+          "No sabemos si el problema es:",
+          "- handoff;",
+          "- información;",
+          "- decisión;",
+          "- definición del proceso;",
+          "- competencia;",
+          "- tecnología.",
+          "Una buena P3 sería:",
+          "“Cuando ocurre esa devolución, ¿qué falta normalmente: información, una decisión pendiente, una condición no cumplida o algo diferente?”",
+          "Una sola interacción puede discriminar VA02/03/05 y derivaciones."
+        ]
+      },
+      "sourceLines": [
+        1902,
+        1915
+      ]
+    },
+    {
+      "key": "P4",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P4",
+      "fields": {
+        "heading": "P4 · Contradicciones entre fronteras",
+        "title": "Contradicciones entre fronteras",
+        "body": [
+          "OP-03 va a encontrar esto frecuentemente.",
+          "Ventas:",
+          "“Siempre mandamos la orden completa.”",
+          "Operaciones:",
+          "“Casi siempre falta información.”",
+          "P4:",
+          "“Me aparecen dos descripciones diferentes del mismo traspaso. Revisemos un caso reciente: ¿qué se envió exactamente y qué necesitaba recibir la siguiente parte?”",
+          "Eso convierte una disputa de percepción en evidencia operativa."
+        ]
+      },
+      "sourceLines": [
+        1923,
+        1931
+      ]
+    },
+    {
+      "key": "P5",
+      "objectType": "SOURCE_ID_P",
+      "sourceId": "P5",
+      "fields": {
+        "heading": "P5 · Validación de interpretación",
+        "title": "Validación de interpretación",
+        "body": [
+          "Antes de consolidar un hallazgo material:",
+          "“Por lo que revisamos, el pedido sí pasa de ventas a operaciones, pero parte de la información acordada con el cliente no viaja de forma consistente y eso genera aclaraciones/retrabajo. ¿Representa correctamente lo que ocurre?”",
+          "P5:",
+          "- reduce errores de interpretación;",
+          "- no reemplaza evidencia;",
+          "- no convierte automáticamente una inferencia en hecho."
+        ]
+      },
+      "sourceLines": [
+        1944,
+        1950
+      ]
+    },
+    {
+      "key": "EVD-OP03-01",
+      "objectType": "SOURCE_ID_EVD",
+      "sourceId": "EVD-OP03-01",
+      "fields": {
+        "heading": "EVD-OP03-01",
+        "body": [
+          "Solicitar evidencia cuando:",
+          "- existe contradicción;",
+          "- el hallazgo potencial tiene alta severidad;",
+          "- la causalidad importa para la intervención;",
+          "- el caso puede verificarse con bajo esfuerzo y alto valor;",
+          "- una sola percepción no representa suficientemente varias fronteras."
+        ]
+      },
+      "sourceLines": [
+        1982,
+        1988
+      ]
+    },
+    {
+      "key": "EVD-OP03-02",
+      "objectType": "SOURCE_ID_EVD",
+      "sourceId": "EVD-OP03-02",
+      "fields": {
+        "heading": "EVD-OP03-02",
+        "body": [
+          "Una misma evidencia puede soportar múltiples VA cuando su relación semántica sea válida, conservando trazabilidad independiente por uso."
+        ]
+      },
+      "sourceLines": [
+        1998,
+        1999
+      ]
+    },
+    {
+      "key": "COLLAB-OP03-01",
+      "objectType": "SOURCE_ID_COLLAB",
+      "sourceId": "COLLAB-OP03-01",
+      "fields": {
+        "heading": "COLLAB-OP03-01",
+        "body": [
+          "Cuando una frontera material no pueda evaluarse con suficiente confianza desde una sola perspectiva, Pymapa debe poder obtener información de los actores que participan en ambos lados de la frontera."
+        ]
+      },
+      "sourceLines": [
+        2006,
+        2007
+      ]
+    },
+    {
+      "key": "NEXT-OP03-01",
+      "objectType": "SOURCE_ID_NEXT",
+      "sourceId": "NEXT-OP03-01",
+      "fields": {
+        "heading": "NEXT-OP03-01",
+        "body": [
+          "Priorizar la siguiente interacción que:",
+          "- cierre el mayor gap crítico;",
+          "- pueda cambiar materialmente diagnóstico/intervención;",
+          "- tenga costo razonable para obtenerse;",
+          "- reduzca contradicción o incertidumbre relevante.",
+          "Es Value of Information operacionalizado."
+        ]
+      },
+      "sourceLines": [
+        2127,
+        2133
+      ]
+    },
+    {
+      "key": "STOP-OP03-02",
+      "objectType": "SOURCE_ID_STOP",
+      "sourceId": "STOP-OP03-02",
+      "fields": {
+        "heading": "STOP-OP03-02",
+        "body": [
+          "Detener adquisición cuando:",
+          "- scope está suficientemente delimitado;",
+          "- VA críticas aplicables ≥ SI-2;",
+          "- cobertura de fronteras es suficiente;",
+          "- contradicciones materiales están resueltas o limitadas;",
+          "- evidencia requerida está satisfecha;",
+          "- nueva interacción tiene baja probabilidad de cambiar la decisión.",
+          "Esto evita que OP-03 se convierta en una auditoría de cada microhandoff."
+        ]
+      },
+      "sourceLines": [
+        2136,
+        2144
+      ]
+    },
+    {
+      "key": "SCOPE-OP03-02",
+      "objectType": "SOURCE_ID_SCOPE",
+      "sourceId": "SCOPE-OP03-02",
+      "fields": {
+        "heading": "SCOPE-OP03-02",
+        "body": [
+          "Profundizar prioritariamente en fronteras materialmente determinantes del resultado E2E.",
+          "Esto reduce muchísimo complejidad."
+        ]
+      },
+      "sourceLines": [
+        2174,
+        2176
+      ]
+    },
+    {
+      "key": "EVD-OP03-03",
+      "objectType": "SOURCE_ID_EVD",
+      "sourceId": "EVD-OP03-03",
+      "fields": {
+        "heading": "EVD-OP03-03 · Minimización",
+        "title": "Minimización",
+        "body": [
+          "Solicitar solamente la evidencia necesaria para la decisión diagnóstica, evitando información personal o sensible que no aporte valor.",
+          "No necesitamos toda la conversación del cliente si bastan los campos operativos relevantes."
+        ]
+      },
+      "sourceLines": [
+        2214,
+        2216
+      ]
+    },
+    {
+      "key": "EVD-OP03-04",
+      "objectType": "SOURCE_ID_EVD",
+      "sourceId": "EVD-OP03-04",
+      "fields": {
+        "heading": "EVD-OP03-04",
+        "body": [
+          "La cantidad de evidencia no sustituye relevancia, representatividad y calidad."
+        ]
+      },
+      "sourceLines": [
+        2223,
+        2224
+      ]
+    },
+    {
+      "key": "R-OP03-00",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP03-00",
+      "fields": {
+        "heading": "R-OP03-00 · Síntoma E2E no determina causa",
+        "title": "Síntoma E2E no determina causa",
+        "body": [
+          "Una falla observable entre fronteras no autoriza por sí sola a atribuir la causa a proceso, personas, gobierno, tecnología, información o incentivos.",
+          "Ejemplo:",
+          "“Operaciones devuelve pedidos a Ventas.”",
+          "Eso no significa automáticamente:",
+          "“Ventas captura mal la información.”",
+          "Puede ser:",
+          "- criterio de aceptación ambiguo;",
+          "- decisión comercial incompatible;",
+          "- información faltante;",
+          "- sistema;",
+          "- definición del proceso;",
+          "- competencia.",
+          "Esta regla debe operar como guardrail."
+        ]
+      },
+      "sourceLines": [
+        2337,
+        2350
+      ]
+    },
+    {
+      "key": "R-OP03-01",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP03-01",
+      "fields": {
+        "heading": "R-OP03-01 · Fragmentación estructural del flujo",
+        "title": "Fragmentación estructural del flujo",
+        "body": [
+          "Activar cuando:",
+          "- componentes materialmente necesarios del resultado E2E no están suficientemente conectados;",
+          "- existen vacíos estructurales, cortes o discontinuidades recurrentes;",
+          "- y eso deteriora materialmente el resultado completo."
+        ]
+      },
+      "sourceLines": [
+        2353,
+        2357
+      ]
+    },
+    {
+      "key": "R-OP03-02",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP03-02",
+      "fields": {
+        "heading": "R-OP03-02 · Traspaso crítico inefectivo",
+        "title": "Traspaso crítico inefectivo",
+        "body": [
+          "Activar cuando un handoff crítico presenta de forma material o recurrente:",
+          "- información incompleta;",
+          "- transferencia tardía;",
+          "- condición de aceptación no cumplida;",
+          "- devolución;",
+          "- ambigüedad de responsabilidad;",
+          "- pérdida de continuidad."
+        ]
+      },
+      "sourceLines": [
+        2365,
+        2372
+      ]
+    },
+    {
+      "key": "R-OP03-03",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP03-03",
+      "fields": {
+        "heading": "R-OP03-03 · Discontinuidad de información relevante",
+        "title": "Discontinuidad de información relevante",
+        "body": [
+          "Activar cuando información materialmente necesaria:",
+          "- no llega;",
+          "- llega demasiado tarde;",
+          "- pierde contexto;",
+          "- cambia de significado;",
+          "- o no puede ser utilizada correctamente downstream;",
+          "y eso afecta materialmente el resultado."
+        ]
+      },
+      "sourceLines": [
+        2380,
+        2387
+      ]
+    },
+    {
+      "key": "R-OP03-03A",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP03-03A",
+      "fields": {
+        "heading": "R-OP03-03A · Transferencia técnica ≠ continuidad informacional",
+        "title": "Transferencia técnica ≠ continuidad informacional",
+        "body": [
+          "El hecho de que un dato, archivo o registro haya sido transferido entre sistemas o áreas no demuestra que la información necesaria haya conservado contexto, significado o utilidad operacional.",
+          "Esto protege especialmente la frontera con DT."
+        ]
+      },
+      "sourceLines": [
+        2393,
+        2395
+      ]
+    },
+    {
+      "key": "R-OP03-04",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP03-04",
+      "fields": {
+        "heading": "R-OP03-04 · Vacío de responsabilidad funcional E2E",
+        "title": "Vacío de responsabilidad funcional E2E",
+        "body": [
+          "Activar cuando:",
+          "- aparece un problema material que cruza fronteras;",
+          "- ninguna parte tiene responsabilidad suficiente para sostenerlo hasta su resolución;",
+          "- el problema queda “entre áreas”, se devuelve o se escala repetidamente;",
+          "- y esto deteriora el resultado E2E."
+        ]
+      },
+      "sourceLines": [
+        2398,
+        2403
+      ]
+    },
+    {
+      "key": "R-OP03-05",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP03-05",
+      "fields": {
+        "heading": "R-OP03-05 · Decisiones interdependientes incoherentes",
+        "title": "Decisiones interdependientes incoherentes",
+        "body": [
+          "Activar cuando:",
+          "- una decisión tomada en una parte del flujo tiene consecuencias materiales en otra;",
+          "- quien decide no incorpora suficientemente restricciones o información relevante downstream/upstream;",
+          "- y se genera impacto material recurrente.",
+          "Ejemplo:",
+          "Ventas compromete un plazo que Operaciones no puede cumplir bajo las condiciones conocidas."
+        ]
+      },
+      "sourceLines": [
+        2409,
+        2415
+      ]
+    },
+    {
+      "key": "R-OP03-06",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP03-06",
+      "fields": {
+        "heading": "R-OP03-06 · Suboptimización local",
+        "title": "Suboptimización local",
+        "body": [
+          "Activar cuando:",
+          "- una función/unidad cumple o mejora su propio objetivo;",
+          "- pero esa lógica genera deterioro material en el resultado E2E;",
+          "- y el patrón responde a prioridades, métricas o incentivos locales."
+        ]
+      },
+      "sourceLines": [
+        2420,
+        2424
+      ]
+    },
+    {
+      "key": "R-OP03-06A",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP03-06A",
+      "fields": {
+        "heading": "R-OP03-06A · Tensión local ≠ suboptimización automática",
+        "title": "Tensión local ≠ suboptimización automática",
+        "body": [
+          "No activar solo porque dos áreas tengan objetivos diferentes.",
+          "Diferentes objetivos pueden coexistir funcionalmente.",
+          "Se necesita:",
+          "- conflicto material;",
+          "- recurrencia o patrón;",
+          "- impacto E2E."
+        ]
+      },
+      "sourceLines": [
+        2433,
+        2439
+      ]
+    },
+    {
+      "key": "R-OP03-07",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP03-07",
+      "fields": {
+        "heading": "R-OP03-07 · Visibilidad E2E insuficiente",
+        "title": "Visibilidad E2E insuficiente",
+        "body": [
+          "Activar cuando:",
+          "- cada parte puede ver su tramo;",
+          "- pero el estado transversal del caso/resultado no puede conocerse suficientemente;",
+          "- localizar un bloqueo requiere reconstrucción manual excesiva;",
+          "- o las excepciones quedan ocultas entre fronteras."
+        ]
+      },
+      "sourceLines": [
+        2442,
+        2447
+      ]
+    },
+    {
+      "key": "R-OP03-08",
+      "objectType": "SOURCE_ID_R",
+      "sourceId": "R-OP03-08",
+      "fields": {
+        "heading": "R-OP03-08 · Retroalimentación operacional rota",
+        "title": "Retroalimentación operacional rota",
+        "body": [
+          "Activar cuando:",
+          "- un problema o consecuencia aparece downstream;",
+          "- la información relevante debería regresar upstream/transversalmente;",
+          "- no llega, llega demasiado tarde o llega a quien no puede actuar;",
+          "- y eso contribuye a repetición material del problema."
+        ]
+      },
+      "sourceLines": [
+        2453,
+        2458
+      ]
+    },
+    {
+      "key": "DER-OP03-01",
+      "objectType": "SOURCE_ID_DER",
+      "sourceId": "DER-OP03-01",
+      "fields": {
+        "heading": "DER-OP03-01 · Local vs transversal",
+        "title": "Local vs transversal",
+        "body": [
+          "Cuando la condición se explica suficientemente como problema de ejecución dentro de una unidad/proceso:",
+          "conservar observación E2E si afecta el resultado, pero DERIVE → OP-02 para causa local.",
+          "Cuando el fenómeno surge de la articulación entre fronteras:",
+          "permanece en OP-03.",
+          "Esto operacionaliza la frontera que heredamos de A-OP02-02."
+        ]
+      },
+      "sourceLines": [
+        2483,
+        2488
+      ]
+    },
+    {
+      "key": "DER-OP03-02",
+      "objectType": "SOURCE_ID_DER",
+      "sourceId": "DER-OP03-02",
+      "fields": {
+        "heading": "DER-OP03-02",
+        "body": [
+          "Si un handoff falla porque el proceso upstream/downstream nunca fue suficientemente definido:",
+          "impacto en OP-03",
+          "causa especializada → OP-01.",
+          "Ejemplo:",
+          "Operaciones “no sabe qué debe recibir” porque nadie definió criterios de salida de Ventas."
+        ]
+      },
+      "sourceLines": [
+        2491,
+        2496
+      ]
+    },
+    {
+      "key": "DER-OP03-03",
+      "objectType": "SOURCE_ID_DER",
+      "sourceId": "DER-OP03-03",
+      "fields": {
+        "heading": "DER-OP03-03",
+        "body": [
+          "Si la discontinuidad se origina principalmente en:",
+          "- aplicaciones incompatibles;",
+          "- integraciones técnicas;",
+          "- datos;",
+          "- arquitectura tecnológica;",
+          "OP-03 conserva:",
+          "efecto sobre flujo/información.",
+          "Y deriva:",
+          "causa tecnológica → DT."
+        ]
+      },
+      "sourceLines": [
+        2499,
+        2508
+      ]
+    },
+    {
+      "key": "DER-OP03-04",
+      "objectType": "SOURCE_ID_DER",
+      "sourceId": "DER-OP03-04",
+      "fields": {
+        "heading": "DER-OP03-04",
+        "body": [
+          "Si el vacío de accountability o conflicto de objetivos refleja un problema de gobierno empresarial más amplio:",
+          "OP-03 diagnostica efecto en el flujo específico",
+          "DG evalúa estructura de gobierno general."
+        ]
+      },
+      "sourceLines": [
+        2511,
+        2514
+      ]
+    },
+    {
+      "key": "DER-OP03-05",
+      "objectType": "SOURCE_ID_DER",
+      "sourceId": "DER-OP03-05",
+      "fields": {
+        "heading": "DER-OP03-05",
+        "body": [
+          "Si el mecanismo de integración está bien definido pero falla principalmente por:",
+          "- capacidades;",
+          "- conocimiento;",
+          "- colaboración;",
+          "- comportamiento;",
+          "→ PC.",
+          "No confundimos fenómeno de integración con capacidad humana causal."
+        ]
+      },
+      "sourceLines": [
+        2517,
+        2524
+      ]
+    },
+    {
+      "key": "CONF-OP03-01",
+      "objectType": "SOURCE_ID_CONF",
+      "sourceId": "CONF-OP03-01",
+      "fields": {
+        "heading": "CONF-OP03-01",
+        "body": [
+          "Una inferencia sobre una frontera crítica debe reducir su confianza cuando depende exclusivamente de la percepción de una sola parte y existe razonablemente una perspectiva/evidencia contraparte materialmente relevante.",
+          "Ejemplo:",
+          "Ventas acusa a Operaciones.",
+          "Sin escuchar/ver el otro lado:",
+          "C1/C2 como máximo según evidencia."
+        ]
+      },
+      "sourceLines": [
+        2557,
+        2562
+      ]
+    },
+    {
+      "key": "CONF-OP03-02",
+      "objectType": "SOURCE_ID_CONF",
+      "sourceId": "CONF-OP03-02",
+      "fields": {
+        "heading": "CONF-OP03-02",
+        "body": [
+          "La confianza requerida para atribuir una falla E2E a una causa específica debe ser superior a la necesaria para confirmar la existencia de la falla.",
+          "Ejemplo:",
+          "C3:",
+          "pedidos se devuelven recurrentemente.",
+          "C1:",
+          "se debe a “falta de disciplina de Ventas”.",
+          "Perfectamente posible."
+        ]
+      },
+      "sourceLines": [
+        2565,
+        2572
+      ]
+    },
+    {
+      "key": "SEV-OP03-01",
+      "objectType": "SOURCE_ID_SEV",
+      "sourceId": "SEV-OP03-01",
+      "fields": {
+        "heading": "SEV-OP03-01",
+        "body": [
+          "La severidad debe considerar no solo el impacto local de la falla, sino también su capacidad de propagarse a componentes posteriores o afectar el resultado completo.",
+          "Muy importante para E2E."
+        ]
+      },
+      "sourceLines": [
+        2604,
+        2606
+      ]
+    },
+    {
+      "key": "CAUS-OP03-01",
+      "objectType": "SOURCE_ID_CAUS",
+      "sourceId": "CAUS-OP03-01",
+      "fields": {
+        "heading": "CAUS-OP03-01",
+        "body": [
+          "Cuando varias condiciones coexisten, no asumir automáticamente una cadena causal entre ellas. Registrar primero coexistencia y elevar a relación causal solo cuando exista evidencia suficiente.",
+          "Esto es especialmente importante en flujos complejos."
+        ]
+      },
+      "sourceLines": [
+        2699,
+        2701
+      ]
+    },
+    {
+      "key": "ALT-OP03-01",
+      "objectType": "SOURCE_ID_ALT",
+      "sourceId": "ALT-OP03-01",
+      "fields": {
+        "heading": "ALT-OP03-01",
+        "body": [
+          "Para hallazgos causales S2/S3, el Motor debe considerar al menos si existe una explicación razonable alternativa en:",
+          "- OP-01;",
+          "- OP-02;",
+          "- DT;",
+          "- PC;",
+          "- DG;",
+          "cuando la evidencia disponible lo sugiera.",
+          "No para complicar siempre el diagnóstico, sino para evitar atribución prematura."
+        ]
+      },
+      "sourceLines": [
+        2731,
+        2739
+      ]
+    },
+    {
+      "key": "FND-OP03-01",
+      "objectType": "SOURCE_ID_FND",
+      "sourceId": "FND-OP03-01",
+      "fields": {
+        "heading": "FND-OP03-01 · Condición E2E ≠ causa",
+        "title": "Condición E2E ≠ causa",
+        "body": [
+          "Un hallazgo puede confirmarse aunque todavía no sepamos explicar completamente por qué ocurre.",
+          "Eso es mejor que fingir causalidad."
+        ]
+      },
+      "sourceLines": [
+        2867,
+        2869
+      ]
+    },
+    {
+      "key": "HF01",
+      "objectType": "SOURCE_ID_HF",
+      "sourceId": "HF01",
+      "fields": {
+        "heading": "HF01 · Fragmentación estructural del flujo E2E",
+        "title": "Fragmentación estructural del flujo E2E",
+        "body": [
+          "Origen principal:",
+          "R-OP03-01 / VA01.",
+          "Ejemplo:",
+          "El resultado depende de varias partes que funcionan individualmente, pero no están suficientemente articuladas como un flujo continuo de principio a fin.",
+          "Este hallazgo debe reservarse para condiciones estructurales, no para un handoff puntual.",
+          "Guardrail:",
+          "Un fallo específico de transferencia no implica automáticamente HF01."
+        ]
+      },
+      "sourceLines": [
+        2884,
+        2891
+      ]
+    },
+    {
+      "key": "HF02",
+      "objectType": "SOURCE_ID_HF",
+      "sourceId": "HF02",
+      "fields": {
+        "heading": "HF02 · Traspasos críticos inefectivos",
+        "title": "Traspasos críticos inefectivos",
+        "body": [
+          "Origen:",
+          "R02 / VA02.",
+          "Ejemplo:",
+          "El traspaso entre Ventas y Operaciones genera devoluciones y aclaraciones recurrentes porque la siguiente parte no recibe el trabajo en condiciones suficientes para continuar.",
+          "Aquí podemos hablar del handoff sin afirmar todavía cuál es la causa."
+        ]
+      },
+      "sourceLines": [
+        2893,
+        2898
+      ]
+    },
+    {
+      "key": "HF03",
+      "objectType": "SOURCE_ID_HF",
+      "sourceId": "HF03",
+      "fields": {
+        "heading": "HF03 · Discontinuidad de información relevante",
+        "title": "Discontinuidad de información relevante",
+        "body": [
+          "Origen:",
+          "R03 / VA03.",
+          "Ejemplo:",
+          "Información necesaria para cumplir el resultado acordado con el cliente no mantiene suficiente continuidad a través del flujo.",
+          "Puede existir aunque el handoff “ocurra” técnicamente.",
+          "Esto merece permanecer separado de HF02 porque:",
+          "- puede haber handoff correcto pero información degradada;",
+          "- puede haber información completa pero handoff mal sincronizado."
+        ]
+      },
+      "sourceLines": [
+        2900,
+        2908
+      ]
+    },
+    {
+      "key": "HF04",
+      "objectType": "SOURCE_ID_HF",
+      "sourceId": "HF04",
+      "fields": {
+        "heading": "HF04 · Vacío de responsabilidad funcional E2E",
+        "title": "Vacío de responsabilidad funcional E2E",
+        "body": [
+          "Origen:",
+          "R04 / VA04.",
+          "Ejemplo:",
+          "Cuando aparece una excepción que cruza varias partes del flujo, ninguna persona o mecanismo asume suficientemente el resultado hasta su resolución.",
+          "No diremos:",
+          "“No existe Process Owner.”",
+          "Eso sería prescriptivo."
+        ]
+      },
+      "sourceLines": [
+        2910,
+        2917
+      ]
+    },
+    {
+      "key": "HF05",
+      "objectType": "SOURCE_ID_HF",
+      "sourceId": "HF05",
+      "fields": {
+        "heading": "HF05 · Decisiones interdependientes incoherentes",
+        "title": "Decisiones interdependientes incoherentes",
+        "body": [
+          "Origen:",
+          "R05 / VA05.",
+          "Ejemplo:",
+          "Decisiones tomadas en una parte del flujo generan consecuencias operativas previsibles en otra porque no incorporan suficientemente restricciones downstream.",
+          "Este hallazgo es típicamente causal/relacional y requiere mayor confianza que uno puramente descriptivo."
+        ]
+      },
+      "sourceLines": [
+        2919,
+        2924
+      ]
+    },
+    {
+      "key": "HF06",
+      "objectType": "SOURCE_ID_HF",
+      "sourceId": "HF06",
+      "fields": {
+        "heading": "HF06 · Suboptimización local",
+        "title": "Suboptimización local",
+        "body": [
+          "Origen:",
+          "R06 / VA06.",
+          "Ejemplo:",
+          "Las prioridades de una función favorecen su resultado local, pero deterioran de forma recurrente el resultado extremo a extremo.",
+          "Esto no se activa simplemente porque existan KPI distintos.",
+          "Tiene que existir:",
+          "tensión material + patrón + impacto E2E."
+        ]
+      },
+      "sourceLines": [
+        2926,
+        2933
+      ]
+    },
+    {
+      "key": "HF07",
+      "objectType": "SOURCE_ID_HF",
+      "sourceId": "HF07",
+      "fields": {
+        "heading": "HF07 · Visibilidad E2E insuficiente",
+        "title": "Visibilidad E2E insuficiente",
+        "body": [
+          "Origen:",
+          "R07 / VA07.",
+          "Ejemplo:",
+          "Cada parte puede conocer su propio estado, pero no existe una visión suficientemente confiable del estado transversal del caso o resultado.",
+          "Muy importante:",
+          "esto no equivale a “falta dashboard”."
+        ]
+      },
+      "sourceLines": [
+        2935,
+        2941
+      ]
+    },
+    {
+      "key": "HF08",
+      "objectType": "SOURCE_ID_HF",
+      "sourceId": "HF08",
+      "fields": {
+        "heading": "HF08 · Retroalimentación operacional insuficiente",
+        "title": "Retroalimentación operacional insuficiente",
+        "body": [
+          "Origen:",
+          "R08 / VA08.",
+          "Ejemplo:",
+          "Los problemas detectados downstream se corrigen localmente, pero la información necesaria no vuelve suficientemente a los puntos upstream que podrían evitar su repetición.",
+          "No es una crítica general a la cultura de mejora.",
+          "Es una ruptura del circuito informacional E2E."
+        ]
+      },
+      "sourceLines": [
+        2943,
+        2949
+      ]
+    },
+    {
+      "key": "CONS-OP03-01",
+      "objectType": "SOURCE_ID_CONS",
+      "sourceId": "CONS-OP03-01",
+      "fields": {
+        "heading": "CONS-OP03-01 · Mismo fenómeno",
+        "title": "Mismo fenómeno",
+        "body": [
+          "Las inferencias describen sustancialmente la misma condición E2E."
+        ]
+      },
+      "sourceLines": [
+        2955,
+        2956
+      ]
+    },
+    {
+      "key": "CONS-OP03-02",
+      "objectType": "SOURCE_ID_CONS",
+      "sourceId": "CONS-OP03-02",
+      "fields": {
+        "heading": "CONS-OP03-02 · Misma cadena causal",
+        "title": "Misma cadena causal",
+        "body": [
+          "Una inferencia explica materialmente a otra."
+        ]
+      },
+      "sourceLines": [
+        2957,
+        2958
+      ]
+    },
+    {
+      "key": "CONS-OP03-03",
+      "objectType": "SOURCE_ID_CONS",
+      "sourceId": "CONS-OP03-03",
+      "fields": {
+        "heading": "CONS-OP03-03 · Misma intervención probable",
+        "title": "Misma intervención probable",
+        "body": [
+          "Separarlas no cambia de manera importante la decisión."
+        ]
+      },
+      "sourceLines": [
+        2959,
+        2960
+      ]
+    },
+    {
+      "key": "CONS-OP03-04",
+      "objectType": "SOURCE_ID_CONS",
+      "sourceId": "CONS-OP03-04",
+      "fields": {
+        "heading": "CONS-OP03-04 · Mejor explicabilidad",
+        "title": "Mejor explicabilidad",
+        "body": [
+          "Consolidar reduce ruido sin ocultar información material."
+        ]
+      },
+      "sourceLines": [
+        2961,
+        2962
+      ]
+    },
+    {
+      "key": "CAUSE-0",
+      "objectType": "SOURCE_ID_CAUSE",
+      "sourceId": "CAUSE-0",
+      "fields": {
+        "heading": "CAUSE-0 · No determinada",
+        "title": "No determinada",
+        "body": [
+          "Confirmamos condición, no explicación."
+        ]
+      },
+      "sourceLines": [
+        2991,
+        2992
+      ]
+    },
+    {
+      "key": "CAUSE-1",
+      "objectType": "SOURCE_ID_CAUSE",
+      "sourceId": "CAUSE-1",
+      "fields": {
+        "heading": "CAUSE-1 · Probable",
+        "title": "Probable",
+        "body": [
+          "Existe explicación dominante, pero permanecen alternativas materiales."
+        ]
+      },
+      "sourceLines": [
+        2993,
+        2994
+      ]
+    },
+    {
+      "key": "CAUSE-2",
+      "objectType": "SOURCE_ID_CAUSE",
+      "sourceId": "CAUSE-2",
+      "fields": {
+        "heading": "CAUSE-2 · Sustentada",
+        "title": "Sustentada",
+        "body": [
+          "La evidencia permite atribución razonable y las alternativas relevantes fueron contrastadas suficientemente.",
+          "Esto será especialmente importante en OP-03 porque las causas pueden residir en otra capacidad."
+        ]
+      },
+      "sourceLines": [
+        2995,
+        2997
+      ]
+    },
+    {
+      "key": "GEN-OP03-01",
+      "objectType": "SOURCE_ID_GEN",
+      "sourceId": "GEN-OP03-01",
+      "fields": {
+        "heading": "GEN-OP03-01",
+        "body": [
+          "Un hallazgo observado en una frontera no puede generalizarse al flujo completo o a la capacidad empresarial sin cobertura suficiente de las partes materialmente relevantes.",
+          "Esto protege mucho el reporte final."
+        ]
+      },
+      "sourceLines": [
+        3037,
+        3039
+      ]
+    },
+    {
+      "key": "DER-OP03-06",
+      "objectType": "SOURCE_ID_DER",
+      "sourceId": "DER-OP03-06",
+      "fields": {
+        "heading": "DER-OP03-06",
+        "body": [
+          "OP-03 conserva la condición e impacto sobre el flujo E2E, pero deriva la causa especializada cuando ésta pertenece materialmente a otra capacidad.",
+          "Es exactamente la misma arquitectura de separación causal que ya funcionó en OP-02."
+        ]
+      },
+      "sourceLines": [
+        3109,
+        3111
+      ]
+    },
+    {
+      "key": "INT-OP03-01",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-OP03-01",
+      "fields": {
+        "heading": "INT-OP03-01 · Mínima intervención suficiente",
+        "title": "Mínima intervención suficiente",
+        "body": [
+          "Seleccionar la intervención menos compleja, costosa e invasiva que tenga una probabilidad razonable de corregir materialmente la condición diagnosticada dentro del contexto de la pyme.",
+          "“Menos compleja” no significa:",
+          "siempre manual.",
+          "Significa:",
+          "no introducir complejidad que el problema no necesita."
+        ]
+      },
+      "sourceLines": [
+        3280,
+        3285
+      ]
+    },
+    {
+      "key": "INT-OP03-02",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-OP03-02",
+      "fields": {
+        "heading": "INT-OP03-02 · Sofisticación proporcional al flujo",
+        "title": "Sofisticación proporcional al flujo",
+        "body": [
+          "La sofisticación de la intervención puede aumentar cuando lo justifican:",
+          "- volumen;",
+          "- número de fronteras;",
+          "- variabilidad;",
+          "- criticidad;",
+          "- velocidad requerida;",
+          "- número de actores;",
+          "- riesgo;",
+          "- complejidad informacional.",
+          "Una pyme con 30 pedidos semanales puede resolver algo con una vista compartida.",
+          "Una con 30.000 transacciones puede necesitar integración tecnológica.",
+          "El principio es el mismo."
+        ]
+      },
+      "sourceLines": [
+        3288,
+        3300
+      ]
+    },
+    {
+      "key": "INT-OP03-03",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-OP03-03",
+      "fields": {
+        "heading": "INT-OP03-03 · Fragmentación E2E ≠ integración tecnológica automática",
+        "title": "Fragmentación E2E ≠ integración tecnológica automática",
+        "body": [
+          "Un problema entre áreas puede corregirse mediante:",
+          "- criterio común;",
+          "- responsabilidad;",
+          "- regla;",
+          "- formato;",
+          "- secuencia;",
+          "- información;",
+          "- mecanismo de coordinación;",
+          "- sistema;",
+          "- integración tecnológica.",
+          "La tecnología entra cuando:",
+          "aporta valor suficiente frente al problema diagnosticado."
+        ]
+      },
+      "sourceLines": [
+        3303,
+        3315
+      ]
+    },
+    {
+      "key": "INT-OP03-04",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-OP03-04",
+      "fields": {
+        "heading": "INT-OP03-04 · Accountability funcional ≠ cargo adicional obligatorio",
+        "title": "Accountability funcional ≠ cargo adicional obligatorio",
+        "body": [
+          "Una pyme puede resolverlo mediante:",
+          "- responsable existente;",
+          "- regla de ownership por caso;",
+          "- escalamiento;",
+          "- rol temporal;",
+          "- mecanismo transversal;",
+          "- autoridad explícita."
+        ]
+      },
+      "sourceLines": [
+        3322,
+        3329
+      ]
+    },
+    {
+      "key": "REC-OP03-01@L3333",
+      "objectType": "SOURCE_ID_REC",
+      "sourceId": "REC-OP03-01",
+      "fields": {
+        "heading": "REC-OP03-01",
+        "body": [
+          "La especificidad de la recomendación no puede superar la confianza disponible sobre la causa.",
+          "Si sabemos:",
+          "C3: existe discontinuidad informacional.",
+          "pero:",
+          "C1: probablemente es tecnológica,",
+          "podemos recomendar:",
+          "asegurar continuidad de información.",
+          "No todavía:",
+          "integrar CRM con ERP mediante API."
+        ]
+      },
+      "sourceLines": [
+        3333,
+        3342
+      ]
+    },
+    {
+      "key": "INT-OP03-05",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-OP03-05",
+      "fields": {
+        "heading": "INT-OP03-05 · Interdependencia ≠ comité automático",
+        "title": "Interdependencia ≠ comité automático",
+        "body": [
+          "Cuando dos decisiones necesitan coordinación, la solución más sencilla puede ser:",
+          "una regla clara.",
+          "Crear reuniones permanentes puede aumentar fricción."
+        ]
+      },
+      "sourceLines": [
+        3473,
+        3476
+      ]
+    },
+    {
+      "key": "INT-OP03-06",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-OP03-06",
+      "fields": {
+        "heading": "INT-OP03-06",
+        "body": [
+          "Alinear no significa homogeneizar todos los objetivos."
+        ]
+      },
+      "sourceLines": [
+        3500,
+        3501
+      ]
+    },
+    {
+      "key": "INT-OP03-07",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-OP03-07",
+      "fields": {
+        "heading": "INT-OP03-07 · Visibilidad suficiente ≠ plataforma única",
+        "title": "Visibilidad suficiente ≠ plataforma única",
+        "body": [
+          "Si una hoja compartida proporciona visibilidad adecuada para 40 casos mensuales, puede ser suficiente.",
+          "Si existen miles de transacciones simultáneas, probablemente no.",
+          "La decisión depende del contexto."
+        ]
+      },
+      "sourceLines": [
+        3522,
+        3525
+      ]
+    },
+    {
+      "key": "INT-OP03-08",
+      "objectType": "SOURCE_ID_INT",
+      "sourceId": "INT-OP03-08",
+      "fields": {
+        "heading": "INT-OP03-08",
+        "body": [
+          "Una intervención de retroalimentación OP-03 busca cerrar una necesidad operacional concreta entre fronteras; no exige implantar un sistema general de mejora continua.",
+          "Esto preserva la frontera de VA08."
+        ]
+      },
+      "sourceLines": [
+        3543,
+        3545
+      ]
+    },
+    {
+      "key": "CONS-INT-OP03-01",
+      "objectType": "SOURCE_ID_CONS",
+      "sourceId": "CONS-INT-OP03-01",
+      "fields": {
+        "heading": "CONS-INT-OP03-01",
+        "body": [
+          "Consolidar patrones cuando:",
+          "- responden a la misma cadena causal;",
+          "- comparten frontera;",
+          "- comparten owner;",
+          "- pueden implementarse como una unidad;",
+          "- consolidarlos reduce carga sin ocultar objetivos distintos."
+        ]
+      },
+      "sourceLines": [
+        3565,
+        3571
+      ]
+    },
+    {
+      "key": "SEQ-OP03-01",
+      "objectType": "SOURCE_ID_SEQ",
+      "sourceId": "SEQ-OP03-01",
+      "fields": {
+        "heading": "SEQ-OP03-01",
+        "body": [
+          "Si una intervención depende conceptualmente del resultado de otra, se secuencia en lugar de consolidarse artificialmente."
+        ]
+      },
+      "sourceLines": [
+        3582,
+        3583
+      ]
+    },
+    {
+      "key": "DER-INT-OP03-01",
+      "objectType": "SOURCE_ID_DER",
+      "sourceId": "DER-INT-OP03-01",
+      "fields": {
+        "heading": "DER-INT-OP03-01",
+        "body": [
+          "OP-03 puede recomendar corregir la condición de integración; cuando la solución exige evaluar simplificación o automatización, crea dependencia hacia OP-04."
+        ]
+      },
+      "sourceLines": [
+        3620,
+        3621
+      ]
+    },
+    {
+      "key": "EXEC-OP03-01",
+      "objectType": "SOURCE_ID_EXEC",
+      "sourceId": "EXEC-OP03-01",
+      "fields": {
+        "heading": "EXEC-OP03-01 · Entregable ≠ documento",
+        "title": "Entregable ≠ documento",
+        "body": [
+          "Un entregable válido puede ser:",
+          "- un handoff funcionando;",
+          "- una regla de decisión activa;",
+          "- una responsabilidad asignada;",
+          "- estados compartidos;",
+          "- un mecanismo de feedback;",
+          "- una condición de aceptación;",
+          "- una integración configurada;",
+          "- una rutina transversal.",
+          "El valor está en el cambio operacional, no en producir archivos."
+        ]
+      },
+      "sourceLines": [
+        3888,
+        3898
+      ]
+    },
+    {
+      "key": "EXEC-OP03-02",
+      "objectType": "SOURCE_ID_EXEC",
+      "sourceId": "EXEC-OP03-02",
+      "fields": {
+        "heading": "EXEC-OP03-02",
+        "body": [
+          "El instrumento debe contener solamente lo necesario para configurar, ejecutar y verificar la intervención en el contexto particular.",
+          "Por tanto, los instrumentos que diseñamos abajo son estructuras generativas.",
+          "Pymapa no debería entregar siempre la misma plantilla rígida."
+        ]
+      },
+      "sourceLines": [
+        3901,
+        3904
+      ]
+    },
+    {
+      "key": "DONE-OP03-01",
+      "objectType": "SOURCE_ID_DONE",
+      "sourceId": "DONE-OP03-01",
+      "fields": {
+        "heading": "DONE-OP03-01",
+        "body": [
+          "Una intervención OP-03 se considera implementada cuando el mecanismo mínimo requerido ha sido configurado, activado y utilizado suficientemente en el flujo real para demostrar adopción inicial en las fronteras materialmente involucradas.",
+          "Esto último es importante:",
+          "no basta con que una sola parte diga “ya lo estamos haciendo”."
+        ]
+      },
+      "sourceLines": [
+        3921,
+        3924
+      ]
+    },
+    {
+      "key": "IP01@L3926",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP01",
+      "fields": {
+        "heading": "IP01 · Articular el flujo E2E",
+        "title": "Articular el flujo E2E"
+      },
+      "sourceLines": [
+        3926,
+        3926
+      ]
+    },
+    {
+      "key": "INS-OP03-01",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-OP03-01",
+      "fields": {
+        "heading": "INS-OP03-01 · Mapa Funcional E2E",
+        "title": "Mapa Funcional E2E",
+        "body": [
+          "Campos adaptativos:",
+          "| Elemento | Ejemplo |",
+          "| Trigger | Pedido confirmado |",
+          "| Componente | Ventas |",
+          "| Resultado/Salida | Pedido validado |",
+          "| Siguiente componente | Operaciones |",
+          "| Frontera | Ventas→Operaciones |",
+          "| Condición de continuidad | información mínima completa |",
+          "| Responsable | rol |",
+          "| Excepción | qué ocurre si falla |",
+          "No necesitamos BPMN obligatoriamente."
+        ]
+      },
+      "sourceLines": [
+        3938,
+        3949
+      ]
+    },
+    {
+      "key": "DEL-OP03-01",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-OP03-01",
+      "fields": {
+        "heading": "DEL-OP03-01 · Flujo E2E funcionalmente articulado",
+        "title": "Flujo E2E funcionalmente articulado"
+      },
+      "sourceLines": [
+        3951,
+        3951
+      ]
+    },
+    {
+      "key": "IP02@L3960",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP02",
+      "fields": {
+        "heading": "IP02 · Estabilizar traspasos críticos",
+        "title": "Estabilizar traspasos críticos"
+      },
+      "sourceLines": [
+        3960,
+        3960
+      ]
+    },
+    {
+      "key": "INS-OP03-02",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-OP03-02",
+      "fields": {
+        "heading": "INS-OP03-02 · Ficha de Handoff Crítico",
+        "title": "Ficha de Handoff Crítico",
+        "body": [
+          "Campos posibles:",
+          "Origen | Receptor | Objeto transferido | Información requerida | Condición de aceptación | Momento | Responsable | Excepción"
+        ]
+      },
+      "sourceLines": [
+        3972,
+        3974
+      ]
+    },
+    {
+      "key": "DEL-OP03-02",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-OP03-02",
+      "fields": {
+        "heading": "DEL-OP03-02 · Handoff crítico estabilizado",
+        "title": "Handoff crítico estabilizado"
+      },
+      "sourceLines": [
+        3976,
+        3976
+      ]
+    },
+    {
+      "key": "EXEC-OP03-03",
+      "objectType": "SOURCE_ID_EXEC",
+      "sourceId": "EXEC-OP03-03",
+      "fields": {
+        "heading": "EXEC-OP03-03 · Formalización selectiva",
+        "title": "Formalización selectiva",
+        "body": [
+          "Formalizar explícitamente aquellos elementos del handoff cuya ambigüedad o variabilidad sea material para el resultado.",
+          "No documentamos por documentar."
+        ]
+      },
+      "sourceLines": [
+        3988,
+        3990
+      ]
+    },
+    {
+      "key": "IP03@L3992",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP03",
+      "fields": {
+        "heading": "IP03 · Preservar información a través del flujo",
+        "title": "Preservar información a través del flujo"
+      },
+      "sourceLines": [
+        3992,
+        3992
+      ]
+    },
+    {
+      "key": "INS-OP03-03",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-OP03-03",
+      "fields": {
+        "heading": "INS-OP03-03 · Matriz de Continuidad de Información",
+        "title": "Matriz de Continuidad de Información",
+        "body": [
+          "| Información | Origen | Receptor | Momento | Significado/condición | Mecanismo | Gap |"
+        ]
+      },
+      "sourceLines": [
+        4004,
+        4005
+      ]
+    },
+    {
+      "key": "DEL-OP03-03",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-OP03-03",
+      "fields": {
+        "heading": "DEL-OP03-03 · Mecanismo activo de continuidad informacional",
+        "title": "Mecanismo activo de continuidad informacional",
+        "body": [
+          "Puede ser:",
+          "- campos modificados;",
+          "- formato;",
+          "- estructura compartida;",
+          "- regla;",
+          "- configuración;",
+          "- integración;",
+          "- identificador."
+        ]
+      },
+      "sourceLines": [
+        4007,
+        4015
+      ]
+    },
+    {
+      "key": "IP04@L4033",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP04",
+      "fields": {
+        "heading": "IP04 · Establecer responsabilidad funcional E2E",
+        "title": "Establecer responsabilidad funcional E2E"
+      },
+      "sourceLines": [
+        4033,
+        4033
+      ]
+    },
+    {
+      "key": "INS-OP03-04",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-OP03-04",
+      "fields": {
+        "heading": "INS-OP03-04 · Matriz de Responsabilidad E2E",
+        "title": "Matriz de Responsabilidad E2E",
+        "body": [
+          "Campos:",
+          "Situación | Resultado protegido | Responsable funcional | Autoridad | Participantes | Escalamiento | Cierre",
+          "No necesitamos necesariamente RACI completo."
+        ]
+      },
+      "sourceLines": [
+        4045,
+        4048
+      ]
+    },
+    {
+      "key": "DEL-OP03-04",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-OP03-04",
+      "fields": {
+        "heading": "DEL-OP03-04 · Mecanismo funcional de accountability E2E",
+        "title": "Mecanismo funcional de accountability E2E"
+      },
+      "sourceLines": [
+        4050,
+        4050
+      ]
+    },
+    {
+      "key": "EXEC-OP03-04",
+      "objectType": "SOURCE_ID_EXEC",
+      "sourceId": "EXEC-OP03-04",
+      "fields": {
+        "heading": "EXEC-OP03-04",
+        "body": [
+          "El Done de IP04 requiere responsabilidad funcional acompañada por autoridad práctica suficiente para el alcance asignado.",
+          "Esto evita falsos Process Owners."
+        ]
+      },
+      "sourceLines": [
+        4061,
+        4063
+      ]
+    },
+    {
+      "key": "IP05@L4065",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP05",
+      "fields": {
+        "heading": "IP05 · Conectar decisiones interdependientes",
+        "title": "Conectar decisiones interdependientes"
+      },
+      "sourceLines": [
+        4065,
+        4065
+      ]
+    },
+    {
+      "key": "INS-OP03-05",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-OP03-05",
+      "fields": {
+        "heading": "INS-OP03-05 · Matriz de Decisiones Interdependientes",
+        "title": "Matriz de Decisiones Interdependientes",
+        "body": [
+          "Decisión | Quién decide | Impacto E2E | Información necesaria | Restricción | Regla | Excepción"
+        ]
+      },
+      "sourceLines": [
+        4077,
+        4078
+      ]
+    },
+    {
+      "key": "DEL-OP03-05",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-OP03-05",
+      "fields": {
+        "heading": "DEL-OP03-05 · Mecanismo de decisión interdependiente en uso",
+        "title": "Mecanismo de decisión interdependiente en uso"
+      },
+      "sourceLines": [
+        4080,
+        4080
+      ]
+    },
+    {
+      "key": "IP06@L4089",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP06",
+      "fields": {
+        "heading": "IP06 · Alinear prioridades locales con resultado E2E",
+        "title": "Alinear prioridades locales con resultado E2E"
+      },
+      "sourceLines": [
+        4089,
+        4089
+      ]
+    },
+    {
+      "key": "INS-OP03-06",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-OP03-06",
+      "fields": {
+        "heading": "INS-OP03-06 · Matriz de Trade-offs E2E",
+        "title": "Matriz de Trade-offs E2E",
+        "body": [
+          "Campos:",
+          "Objetivo local | Resultado E2E afectado | Tensión | Condición | Criterio de decisión | Excepción | Responsable"
+        ]
+      },
+      "sourceLines": [
+        4101,
+        4103
+      ]
+    },
+    {
+      "key": "DEL-OP03-06",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-OP03-06",
+      "fields": {
+        "heading": "DEL-OP03-06 · Criterio operativo de alineación local–E2E",
+        "title": "Criterio operativo de alineación local–E2E",
+        "body": [
+          "No necesariamente “nuevo KPI”."
+        ]
+      },
+      "sourceLines": [
+        4105,
+        4106
+      ]
+    },
+    {
+      "key": "IP07@L4115",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP07",
+      "fields": {
+        "heading": "IP07 · Hacer visible el estado E2E",
+        "title": "Hacer visible el estado E2E"
+      },
+      "sourceLines": [
+        4115,
+        4115
+      ]
+    },
+    {
+      "key": "INS-OP03-07",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-OP03-07",
+      "fields": {
+        "heading": "INS-OP03-07 · Vista de Estado E2E",
+        "title": "Vista de Estado E2E",
+        "body": [
+          "Campos posibles:",
+          "Caso | Resultado esperado | Estado actual | Componente | Compromiso | Excepción | Responsable | Próxima acción",
+          "Puede materializarse en:",
+          "- hoja;",
+          "- tablero;",
+          "- CRM;",
+          "- ERP;",
+          "- sistema existente;",
+          "- integración."
+        ]
+      },
+      "sourceLines": [
+        4127,
+        4136
+      ]
+    },
+    {
+      "key": "DEL-OP03-07",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-OP03-07",
+      "fields": {
+        "heading": "DEL-OP03-07 · Mecanismo activo de visibilidad E2E",
+        "title": "Mecanismo activo de visibilidad E2E"
+      },
+      "sourceLines": [
+        4138,
+        4138
+      ]
+    },
+    {
+      "key": "EXEC-OP03-05",
+      "objectType": "SOURCE_ID_EXEC",
+      "sourceId": "EXEC-OP03-05",
+      "fields": {
+        "heading": "EXEC-OP03-05 · Visibilidad proporcional",
+        "title": "Visibilidad proporcional",
+        "body": [
+          "El mecanismo debe mostrar la información necesaria para gestionar el resultado E2E, no necesariamente todos los datos de todos los componentes.",
+          "Esto reduce ruido y complejidad."
+        ]
+      },
+      "sourceLines": [
+        4148,
+        4150
+      ]
+    },
+    {
+      "key": "IP08@L4152",
+      "objectType": "SOURCE_ID_IP",
+      "sourceId": "IP08",
+      "fields": {
+        "heading": "IP08 · Cerrar retroalimentación operacional",
+        "title": "Cerrar retroalimentación operacional"
+      },
+      "sourceLines": [
+        4152,
+        4152
+      ]
+    },
+    {
+      "key": "INS-OP03-08",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-OP03-08",
+      "fields": {
+        "heading": "INS-OP03-08 · Matriz de Retroalimentación entre Fronteras",
+        "title": "Matriz de Retroalimentación entre Fronteras",
+        "body": [
+          "Campos:",
+          "Señal | Detectada en | Debe llegar a | Momento | Acción esperada | Responsable | Cierre"
+        ]
+      },
+      "sourceLines": [
+        4164,
+        4166
+      ]
+    },
+    {
+      "key": "DEL-OP03-08",
+      "objectType": "SOURCE_ID_DEL",
+      "sourceId": "DEL-OP03-08",
+      "fields": {
+        "heading": "DEL-OP03-08 · Circuito operacional de retroalimentación activo",
+        "title": "Circuito operacional de retroalimentación activo"
+      },
+      "sourceLines": [
+        4168,
+        4168
+      ]
+    },
+    {
+      "key": "EXEC-OP03-06",
+      "objectType": "SOURCE_ID_EXEC",
+      "sourceId": "EXEC-OP03-06",
+      "fields": {
+        "heading": "EXEC-OP03-06 · Transmisión ≠ cierre de feedback",
+        "title": "Transmisión ≠ cierre de feedback",
+        "body": [
+          "IP08 no está implementado solo porque alguien envíe:",
+          "“FYI, esto volvió a pasar.”",
+          "Necesitamos:",
+          "señal llega → destinatario adecuado → acción esperada entendida → mecanismo de cierre."
+        ]
+      },
+      "sourceLines": [
+        4179,
+        4183
+      ]
+    },
+    {
+      "key": "DONE-OP03-02",
+      "objectType": "SOURCE_ID_DONE",
+      "sourceId": "DONE-OP03-02",
+      "fields": {
+        "heading": "DONE-OP03-02",
+        "body": [
+          "El estado de implementación se determina por cumplimiento funcional de Done Criteria aplicables, no por porcentaje de actividades completadas."
+        ]
+      },
+      "sourceLines": [
+        4205,
+        4206
+      ]
+    },
+    {
+      "key": "EVD-EXEC-OP03-01",
+      "objectType": "SOURCE_ID_EVD",
+      "sourceId": "EVD-EXEC-OP03-01",
+      "fields": {
+        "heading": "EVD-EXEC-OP03-01",
+        "body": [
+          "La evidencia de implementación debe ser proporcional al volumen, variabilidad, criticidad y alcance de la intervención."
+        ]
+      },
+      "sourceLines": [
+        4230,
+        4231
+      ]
+    },
+    {
+      "key": "INS-OP03-L01",
+      "objectType": "SOURCE_ID_INS",
+      "sourceId": "INS-OP03-L01",
+      "fields": {
+        "heading": "INS-OP03-L01 · Registro de Casos E2E",
+        "title": "Registro de Casos E2E",
+        "body": [
+          "Entregable:",
+          "evidencia diagnóstica suficiente para decidir siguiente intervención.",
+          "Done:",
+          "- muestra definida;",
+          "- casos observados;",
+          "- información obtenida;",
+          "- análisis completado;",
+          "- incertidumbre relevante reducida.",
+          "No necesita haber mejorado todavía el flujo."
+        ]
+      },
+      "sourceLines": [
+        4275,
+        4284
+      ]
+    },
+    {
+      "key": "DONE-OP03-03",
+      "objectType": "SOURCE_ID_DONE",
+      "sourceId": "DONE-OP03-03",
+      "fields": {
+        "heading": "DONE-OP03-03",
+        "body": [
+          "La implementación de una contención no demuestra resolución de la causa estructural."
+        ]
+      },
+      "sourceLines": [
+        4296,
+        4297
+      ]
+    },
+    {
+      "key": "DONE-OP03-04",
+      "objectType": "SOURCE_ID_DONE",
+      "sourceId": "DONE-OP03-04",
+      "fields": {
+        "heading": "DONE-OP03-04",
+        "body": [
+          "Cuando una intervención modifica una frontera, la adopción inicial debe demostrarse suficientemente desde el funcionamiento conjunto de las partes involucradas, no únicamente desde la parte que diseñó el mecanismo.",
+          "Ejemplo:",
+          "Ventas crea nuevo formulario.",
+          "Operaciones nunca lo utiliza.",
+          "No está implementado E2E."
+        ]
+      },
+      "sourceLines": [
+        4387,
+        4392
+      ]
+    },
+    {
+      "key": "RES-OP03-01",
+      "objectType": "SOURCE_ID_RES",
+      "sourceId": "RES-OP03-01",
+      "fields": {
+        "heading": "RES-OP03-01 · Implementación ≠ efectividad",
+        "title": "Implementación ≠ efectividad",
+        "body": [
+          "Una intervención implementada no puede considerarse efectiva hasta que exista evidencia suficiente de que produjo o contribuyó materialmente al resultado esperado."
+        ]
+      },
+      "sourceLines": [
+        4488,
+        4489
+      ]
+    },
+    {
+      "key": "RES-OP03-02",
+      "objectType": "SOURCE_ID_RES",
+      "sourceId": "RES-OP03-02",
+      "fields": {
+        "heading": "RES-OP03-02 · CRV antes de KPI",
+        "title": "CRV antes de KPI",
+        "body": [
+          "Un KPI existe cuando aporta valor de gestión recurrente.",
+          "No para llenar dashboards."
+        ]
+      },
+      "sourceLines": [
+        4498,
+        4500
+      ]
+    },
+    {
+      "key": "CRV-OP03-01",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-OP03-01",
+      "fields": {
+        "heading": "CRV-OP03-01",
+        "body": [
+          "Los casos evaluados pueden recorrer las fronteras críticas del flujo sin quedar sistemáticamente detenidos, huérfanos o devueltos por vacíos de articulación estructural."
+        ]
+      },
+      "sourceLines": [
+        4533,
+        4534
+      ],
+      "role": "PRINCIPAL_RESULT_CRITERION"
+    },
+    {
+      "key": "CRV-OP03-02",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-OP03-02",
+      "fields": {
+        "heading": "CRV-OP03-02",
+        "body": [
+          "Los traspasos intervenidos cumplen suficientemente las condiciones necesarias para que la parte receptora continúe, reduciendo materialmente las fallas de transferencia que originaron la intervención."
+        ]
+      },
+      "sourceLines": [
+        4551,
+        4552
+      ],
+      "role": "PRINCIPAL_RESULT_CRITERION"
+    },
+    {
+      "key": "RES-OP03-03",
+      "objectType": "SOURCE_ID_RES",
+      "sourceId": "RES-OP03-03",
+      "fields": {
+        "heading": "RES-OP03-03 · Meta numérica requiere fundamento",
+        "title": "Meta numérica requiere fundamento",
+        "body": [
+          "Los targets pueden provenir de:",
+          "- baseline;",
+          "- requisito contractual;",
+          "- riesgo;",
+          "- capacidad;",
+          "- benchmark pertinente;",
+          "- estándar;",
+          "- objetivo empresarial explícito.",
+          "No de números arbitrarios generados por Pymapa."
+        ]
+      },
+      "sourceLines": [
+        4569,
+        4578
+      ]
+    },
+    {
+      "key": "CRV-OP03-03",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-OP03-03",
+      "fields": {
+        "heading": "CRV-OP03-03",
+        "body": [
+          "La información materialmente necesaria llega a los puntos de uso con calidad suficiente para ejecutar correctamente las acciones o decisiones que dependen de ella."
+        ]
+      },
+      "sourceLines": [
+        4583,
+        4584
+      ],
+      "role": "PRINCIPAL_RESULT_CRITERION"
+    },
+    {
+      "key": "CRV-OP03-04",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-OP03-04",
+      "fields": {
+        "heading": "CRV-OP03-04",
+        "body": [
+          "Las situaciones que cruzan fronteras cuentan con responsabilidad funcional efectiva y dejan de permanecer materialmente huérfanas, rebotando entre partes o esperando indefinidamente una decisión."
+        ]
+      },
+      "sourceLines": [
+        4596,
+        4597
+      ],
+      "role": "PRINCIPAL_RESULT_CRITERION"
+    },
+    {
+      "key": "CRV-OP03-05",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-OP03-05",
+      "fields": {
+        "heading": "CRV-OP03-05",
+        "body": [
+          "Las decisiones intervenidas se toman con suficiente consideración de las condiciones materialmente relevantes de otras partes del flujo, reduciendo consecuencias adversas evitables derivadas de incompatibilidad entre decisiones."
+        ]
+      },
+      "sourceLines": [
+        4611,
+        4612
+      ],
+      "role": "PRINCIPAL_RESULT_CRITERION"
+    },
+    {
+      "key": "CRV-OP03-06",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-OP03-06",
+      "fields": {
+        "heading": "CRV-OP03-06",
+        "body": [
+          "Los trade-offs materiales se resuelven mediante criterios que protegen suficientemente el resultado E2E sin producir de forma recurrente suboptimización local perjudicial."
+        ]
+      },
+      "sourceLines": [
+        4622,
+        4623
+      ],
+      "role": "PRINCIPAL_RESULT_CRITERION"
+    },
+    {
+      "key": "CRV-OP03-07",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-OP03-07",
+      "fields": {
+        "heading": "CRV-OP03-07",
+        "body": [
+          "El estado de los casos relevantes puede determinarse con oportunidad y confiabilidad suficientes para identificar avance, bloqueo, excepción y responsabilidad de acción a través de las fronteras necesarias."
+        ]
+      },
+      "sourceLines": [
+        4637,
+        4638
+      ],
+      "role": "PRINCIPAL_RESULT_CRITERION"
+    },
+    {
+      "key": "CRV-OP03-08",
+      "objectType": "SOURCE_ID_CRV",
+      "sourceId": "CRV-OP03-08",
+      "fields": {
+        "heading": "CRV-OP03-08",
+        "body": [
+          "Las señales operacionales materiales regresan oportunamente a los puntos capaces de actuar y existe evidencia de cierre suficiente del circuito cuando la situación lo requiere."
+        ]
+      },
+      "sourceLines": [
+        4649,
+        4650
+      ],
+      "role": "PRINCIPAL_RESULT_CRITERION"
+    },
+    {
+      "key": "RES-OP03-04",
+      "objectType": "SOURCE_ID_RES",
+      "sourceId": "RES-OP03-04",
+      "fields": {
+        "heading": "RES-OP03-04",
+        "body": [
+          "Una intervención compuesta puede requerir múltiples CRV cuando cada uno representa una dimensión material independiente del resultado esperado."
+        ]
+      },
+      "sourceLines": [
+        4681,
+        4682
+      ]
+    },
+    {
+      "key": "RES-OP03-05",
+      "objectType": "SOURCE_ID_RES",
+      "sourceId": "RES-OP03-05",
+      "fields": {
+        "heading": "RES-OP03-05",
+        "body": [
+          "No introducir un KPI permanente cuando una validación puntual o periódica proporcional sea suficiente para verificar el resultado y sostener la decisión.",
+          "Una pyme de 5 personas no necesita un dashboard para demostrar que dejó de perder información en diez pedidos semanales."
+        ]
+      },
+      "sourceLines": [
+        4718,
+        4720
+      ]
+    },
+    {
+      "key": "BASE-OP03-01",
+      "objectType": "SOURCE_ID_BASE",
+      "sourceId": "BASE-OP03-01",
+      "fields": {
+        "heading": "BASE-OP03-01",
+        "body": [
+          "Ausencia de baseline perfecto no impide intervenir, pero limita el tipo y confianza de la comparación posterior."
+        ]
+      },
+      "sourceLines": [
+        4733,
+        4734
+      ]
+    },
+    {
+      "key": "VAL-OP03-01",
+      "objectType": "SOURCE_ID_VAL",
+      "sourceId": "VAL-OP03-01",
+      "fields": {
+        "heading": "VAL-OP03-01",
+        "body": [
+          "La ventana de validación debe proporcionar oportunidades suficientes de observar el fenómeno que la intervención pretendía modificar.",
+          "No definimos “30 días” por defecto."
+        ]
+      },
+      "sourceLines": [
+        4746,
+        4748
+      ]
+    },
+    {
+      "key": "ATTR-OP03-01",
+      "objectType": "SOURCE_ID_ATTR",
+      "sourceId": "ATTR-OP03-01",
+      "fields": {
+        "heading": "ATTR-OP03-01 · Resultado ≠ atribución",
+        "title": "Resultado ≠ atribución",
+        "body": [
+          "Observar una mejora posterior a una intervención no demuestra por sí solo que la intervención la causó."
+        ]
+      },
+      "sourceLines": [
+        4787,
+        4788
+      ]
+    },
+    {
+      "key": "A0",
+      "objectType": "SOURCE_ID_A",
+      "sourceId": "A0",
+      "fields": {
+        "heading": "A0 · No evaluable",
+        "title": "No evaluable",
+        "body": [
+          "No podemos atribuir razonablemente."
+        ]
+      },
+      "sourceLines": [
+        4792,
+        4793
+      ]
+    },
+    {
+      "key": "A1",
+      "objectType": "SOURCE_ID_A",
+      "sourceId": "A1",
+      "fields": {
+        "heading": "A1 · Plausible",
+        "title": "Plausible",
+        "body": [
+          "La intervención es explicación compatible, pero existen alternativas materiales."
+        ]
+      },
+      "sourceLines": [
+        4794,
+        4795
+      ]
+    },
+    {
+      "key": "A2",
+      "objectType": "SOURCE_ID_A",
+      "sourceId": "A2",
+      "fields": {
+        "heading": "A2 · Supported",
+        "title": "Supported",
+        "body": [
+          "Existe evidencia razonable de contribución."
+        ]
+      },
+      "sourceLines": [
+        4796,
+        4797
+      ]
+    },
+    {
+      "key": "A3",
+      "objectType": "SOURCE_ID_A",
+      "sourceId": "A3",
+      "fields": {
+        "heading": "A3 · Strongly Supported",
+        "title": "Strongly Supported",
+        "body": [
+          "La evidencia disponible sustenta fuertemente la relación dentro de las limitaciones del contexto.",
+          "Evitaría la palabra:",
+          "“proven”",
+          "porque Pymapa normalmente trabajará con evidencia operacional observacional, no experimentos controlados."
+        ]
+      },
+      "sourceLines": [
+        4798,
+        4802
+      ]
+    },
+    {
+      "key": "ATTR-OP03-02",
+      "objectType": "SOURCE_ID_ATTR",
+      "sourceId": "ATTR-OP03-02",
+      "fields": {
+        "heading": "ATTR-OP03-02",
+        "body": [
+          "La atribución es normalmente más defendible cuando el CRV se encuentra próximo al mecanismo intervenido que cuando utiliza resultados empresariales distantes sujetos a múltiples causas.",
+          "Esto es muy importante para todo Pymapa."
+        ]
+      },
+      "sourceLines": [
+        4837,
+        4839
+      ]
+    },
+    {
+      "key": "VAL-OP03-02",
+      "objectType": "SOURCE_ID_VAL",
+      "sourceId": "VAL-OP03-02",
+      "fields": {
+        "heading": "VAL-OP03-02",
+        "body": [
+          "La validación debe considerar efectos adversos materiales introducidos por la intervención."
+        ]
+      },
+      "sourceLines": [
+        4862,
+        4863
+      ]
+    },
+    {
+      "key": "FOLLOW-OP03-01",
+      "objectType": "SOURCE_ID_FOLLOW",
+      "sourceId": "FOLLOW-OP03-01",
+      "fields": {
+        "heading": "FOLLOW-OP03-01",
+        "body": [
+          "La frecuencia de seguimiento debe depender del riesgo de degradación y del valor de detectar oportunamente una regresión, no de una periodicidad estándar."
+        ]
+      },
+      "sourceLines": [
+        4903,
+        4904
+      ]
+    },
+    {
+      "key": "REASS-OP03-01",
+      "objectType": "SOURCE_ID_REASS",
+      "sourceId": "REASS-OP03-01",
+      "fields": {
+        "heading": "REASS-OP03-01",
+        "body": [
+          "Un resultado previamente validado puede reabrirse cuando nueva evidencia o cambio contextual reduce materialmente la validez de la conclusión anterior.",
+          "Esto enlaza con:",
+          "freeze ≠ immutability."
+        ]
+      },
+      "sourceLines": [
+        4921,
+        4924
+      ]
+    },
+    {
+      "key": "LEARN-OP03-01",
+      "objectType": "SOURCE_ID_LEARN",
+      "sourceId": "LEARN-OP03-01",
+      "fields": {
+        "heading": "LEARN-OP03-01",
+        "body": [
+          "Un resultado exitoso en una intervención genera evidencia contextual y eventualmente conocimiento candidato; no modifica automáticamente reglas, patrones o recomendaciones maestras.",
+          "Esto protege el Motor del aprendizaje accidental."
+        ]
+      },
+      "sourceLines": [
+        4939,
+        4941
+      ]
+    },
+    {
+      "key": "CTX-OP03-01",
+      "objectType": "SOURCE_ID_CTX",
+      "sourceId": "CTX-OP03-01",
+      "fields": {
+        "heading": "CTX-OP03-01 · Núcleo transversal por defecto",
+        "title": "Núcleo transversal por defecto",
+        "body": [
+          "Las CE, VA y principios diagnósticos de OP-03 permanecen transversales mientras no exista evidencia suficiente de que un contexto requiere una diferencia conceptual material y reutilizable.",
+          "Esto evita construir innecesariamente:",
+          "- OP-03 Retail;",
+          "- OP-03 Servicios;",
+          "- OP-03 Manufactura;",
+          "- OP-03 Ecommerce;",
+          "- etc."
+        ]
+      },
+      "sourceLines": [
+        5158,
+        5165
+      ]
+    },
+    {
+      "key": "CTX-OP03-02",
+      "objectType": "SOURCE_ID_CTX",
+      "sourceId": "CTX-OP03-02",
+      "fields": {
+        "heading": "CTX-OP03-02",
+        "body": [
+          "La existencia de integración E2E se determina por interdependencia funcional y no por cantidad de áreas, cargos o sistemas formales.",
+          "Esto es crítico para Pymapa porque evita sesgo hacia empresas grandes."
+        ]
+      },
+      "sourceLines": [
+        5190,
+        5192
+      ]
+    },
+    {
+      "key": "CTX-OP03-03",
+      "objectType": "SOURCE_ID_CTX",
+      "sourceId": "CTX-OP03-03",
+      "fields": {
+        "heading": "CTX-OP03-03",
+        "body": [
+          "La formalidad o sofisticación del mecanismo no constituye por sí misma evidencia de mayor integración E2E."
+        ]
+      },
+      "sourceLines": [
+        5205,
+        5206
+      ]
+    },
+    {
+      "key": "CTX-OP03-04",
+      "objectType": "SOURCE_ID_CTX",
+      "sourceId": "CTX-OP03-04",
+      "fields": {
+        "heading": "CTX-OP03-04",
+        "body": [
+          "Un aprendizaje observado en una empresa o sector no modifica el núcleo OP-03 hasta demostrar relevancia conceptual, recurrencia y reutilización suficientes y pasar por gobierno de conocimiento.",
+          "Con esto protegemos el Core."
+        ]
+      },
+      "sourceLines": [
+        5237,
+        5239
+      ]
+    },
+    {
+      "key": "PROV-OP03-01",
+      "objectType": "SOURCE_ID_PROV",
+      "sourceId": "PROV-OP03-01",
+      "fields": {
+        "heading": "PROV-OP03-01",
+        "body": [
+          "Toda conclusión material debe permitir rastrear tanto el fundamento del conocimiento utilizado como la evidencia específica del caso que produjo la conclusión.",
+          "Este principio probablemente debe pasar al Motor transversal."
+        ]
+      },
+      "sourceLines": [
+        5367,
+        5369
+      ]
+    },
+    {
+      "key": "GOV-OP03-01",
+      "objectType": "SOURCE_ID_GOV",
+      "sourceId": "GOV-OP03-01",
+      "fields": {
+        "heading": "GOV-OP03-01",
+        "body": [
+          "Un objeto congelado o publicado no se modifica informalmente; nueva evidencia inicia un cambio gobernado que conserva versión y trazabilidad histórica.",
+          "Por tanto:",
+          "CANDIDATE-FROZEN",
+          "no significa:",
+          "jamás puede cambiar.",
+          "Significa:",
+          "no cambia por intuición durante el siguiente bloque."
+        ]
+      },
+      "sourceLines": [
+        5421,
+        5428
+      ]
+    },
+    {
+      "key": "GOV-OP03-02",
+      "objectType": "SOURCE_ID_GOV",
+      "sourceId": "GOV-OP03-02",
+      "fields": {
+        "heading": "GOV-OP03-02",
+        "body": [
+          "Todo cambio material de conocimiento requiere evaluación de impacto downstream sobre los objetos dependientes.",
+          "Esto será importantísimo cuando Pymapa esté en producción."
+        ]
+      },
+      "sourceLines": [
+        5462,
+        5464
+      ]
+    },
+    {
+      "key": "GOV-OP03-03",
+      "objectType": "SOURCE_ID_GOV",
+      "sourceId": "GOV-OP03-03",
+      "fields": {
+        "heading": "GOV-OP03-03",
+        "body": [
+          "La experiencia de uso alimenta el gobierno del conocimiento, no modifica automáticamente el conocimiento publicado."
+        ]
+      },
+      "sourceLines": [
+        5475,
+        5476
+      ]
+    },
+    {
+      "key": "K1",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K1",
+      "fields": {
+        "heading": "K1 · COHERENCIA — PASS",
+        "title": "COHERENCIA — PASS",
+        "body": [
+          "No encontramos razón para reabrir CE/VA ni el alcance."
+        ]
+      },
+      "sourceLines": [
+        5741,
+        5742
+      ]
+    },
+    {
+      "key": "K2",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K2",
+      "fields": {
+        "heading": "K2 · RAZONAMIENTO — PASS",
+        "title": "RAZONAMIENTO — PASS",
+        "body": [
+          "OP-03 puede producir conclusiones trazables y epistemológicamente proporcionales a la información disponible."
+        ]
+      },
+      "sourceLines": [
+        5850,
+        5851
+      ]
+    },
+    {
+      "key": "K3",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K3",
+      "fields": {
+        "heading": "K3 · ACCIÓN — PASS",
+        "title": "ACCIÓN — PASS",
+        "body": [
+          "OP-03 no termina en recomendaciones genéricas: existe un camino completo hasta intervención, implementación y resultado verificable."
+        ]
+      },
+      "sourceLines": [
+        5955,
+        5956
+      ]
+    },
+    {
+      "key": "K4",
+      "objectType": "SOURCE_ID_K",
+      "sourceId": "K4",
+      "fields": {
+        "heading": "K4 · CONOCIMIENTO — PASS",
+        "title": "CONOCIMIENTO — PASS",
+        "body": [
+          "No queda una fuente genérica fingiendo ser evidencia publicada.",
+          "La ampliación académica permanece como backlog de enriquecimiento, no como bloqueo."
+        ]
+      },
+      "sourceLines": [
+        6047,
+        6049
+      ]
+    },
+    {
+      "key": "A-OP03-01",
+      "objectType": "SOURCE_ID_A",
+      "sourceId": "A-OP03-01",
+      "fields": {
+        "heading": "A-OP03-01 · Academic reinforcement",
+        "title": "Academic reinforcement",
+        "body": [
+          "Incorporar posteriormente referencias académicas BPM/E2E concretas si añaden valor frente al fundamento oficial existente."
+        ]
+      },
+      "sourceLines": [
+        6104,
+        6105
+      ]
+    },
+    {
+      "key": "A-OP03-02",
+      "objectType": "SOURCE_ID_A",
+      "sourceId": "A-OP03-02",
+      "fields": {
+        "heading": "A-OP03-02 · Contextual KPI Library",
+        "title": "Contextual KPI Library",
+        "body": [
+          "Construir biblioteca contextual de indicadores cuando dispongamos de suficientes capacidades/intervenciones para hacerlo transversalmente y evitar duplicaciones."
+        ]
+      },
+      "sourceLines": [
+        6106,
+        6107
+      ]
+    },
+    {
+      "key": "A-OP03-03",
+      "objectType": "SOURCE_ID_A",
+      "sourceId": "A-OP03-03",
+      "fields": {
+        "heading": "A-OP03-03 · Machine-readable Knowledge Pack",
+        "title": "Machine-readable Knowledge Pack",
+        "body": [
+          "Durante la etapa de industrialización técnica, transformar OP-03 v1.0 en objetos estructurados consumibles por el Motor."
+        ]
+      },
+      "sourceLines": [
+        6108,
+        6109
+      ]
+    }
+  ],
+  "supersessions": [
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "P-OP03-02 · Integración tecnológica ≠ integración operacional E2E",
+        "sourceLines": [
+          759,
+          759
+        ]
+      },
+      "supersededBy": {
+        "text": "P-OP03-02",
+        "sourceLines": [
+          1155,
+          1157
+        ],
+        "objectKey": "P-OP03-02@L1155"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "REUSE-OP03-01",
+        "sourceLines": [
+          1641,
+          1643
+        ]
+      },
+      "supersededBy": {
+        "text": "REUSE-OP03-01",
+        "sourceLines": [
+          1842,
+          1843
+        ],
+        "objectKey": "REUSE-OP03-01@L1842"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "IP01 · Articular el flujo E2E",
+        "sourceLines": [
+          3356,
+          3356
+        ]
+      },
+      "supersededBy": {
+        "text": "IP01 · Articular el flujo E2E",
+        "sourceLines": [
+          3926,
+          3926
+        ],
+        "objectKey": "IP01@L3926"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "IP02 · Estabilizar traspasos críticos",
+        "sourceLines": [
+          3357,
+          3357
+        ]
+      },
+      "supersededBy": {
+        "text": "IP02 · Estabilizar traspasos críticos",
+        "sourceLines": [
+          3960,
+          3960
+        ],
+        "objectKey": "IP02@L3960"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "IP03 · Preservar información a través del flujo",
+        "sourceLines": [
+          3358,
+          3358
+        ]
+      },
+      "supersededBy": {
+        "text": "IP03 · Preservar información a través del flujo",
+        "sourceLines": [
+          3992,
+          3992
+        ],
+        "objectKey": "IP03@L3992"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "IP04 · Establecer responsabilidad funcional E2E",
+        "sourceLines": [
+          3359,
+          3359
+        ]
+      },
+      "supersededBy": {
+        "text": "IP04 · Establecer responsabilidad funcional E2E",
+        "sourceLines": [
+          4033,
+          4033
+        ],
+        "objectKey": "IP04@L4033"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "IP05 · Conectar decisiones interdependientes",
+        "sourceLines": [
+          3360,
+          3360
+        ]
+      },
+      "supersededBy": {
+        "text": "IP05 · Conectar decisiones interdependientes",
+        "sourceLines": [
+          4065,
+          4065
+        ],
+        "objectKey": "IP05@L4065"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "IP06 · Alinear prioridades locales con resultado E2E",
+        "sourceLines": [
+          3361,
+          3361
+        ]
+      },
+      "supersededBy": {
+        "text": "IP06 · Alinear prioridades locales con resultado E2E",
+        "sourceLines": [
+          4089,
+          4089
+        ],
+        "objectKey": "IP06@L4089"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "IP07 · Hacer visible el estado E2E",
+        "sourceLines": [
+          3362,
+          3362
+        ]
+      },
+      "supersededBy": {
+        "text": "IP07 · Hacer visible el estado E2E",
+        "sourceLines": [
+          4115,
+          4115
+        ],
+        "objectKey": "IP07@L4115"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "IP08 · Cerrar retroalimentación operacional entre fronteras",
+        "sourceLines": [
+          3363,
+          3364
+        ]
+      },
+      "supersededBy": {
+        "text": "IP08 · Cerrar retroalimentación operacional",
+        "sourceLines": [
+          4152,
+          4152
+        ],
+        "objectKey": "IP08@L4152"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "IP01 · Articular el flujo E2E",
+        "sourceLines": [
+          3366,
+          3368
+        ]
+      },
+      "supersededBy": {
+        "text": "IP01 · Articular el flujo E2E",
+        "sourceLines": [
+          3926,
+          3926
+        ],
+        "objectKey": "IP01@L3926"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "IP02 · Estabilizar traspasos críticos",
+        "sourceLines": [
+          3384,
+          3386
+        ]
+      },
+      "supersededBy": {
+        "text": "IP02 · Estabilizar traspasos críticos",
+        "sourceLines": [
+          3960,
+          3960
+        ],
+        "objectKey": "IP02@L3960"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "IP03 · Preservar información a través del flujo",
+        "sourceLines": [
+          3408,
+          3410
+        ]
+      },
+      "supersededBy": {
+        "text": "IP03 · Preservar información a través del flujo",
+        "sourceLines": [
+          3992,
+          3992
+        ],
+        "objectKey": "IP03@L3992"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "IP02",
+        "sourceLines": [
+          3431,
+          3432
+        ]
+      },
+      "supersededBy": {
+        "text": "IP02 · Estabilizar traspasos críticos",
+        "sourceLines": [
+          3960,
+          3960
+        ],
+        "objectKey": "IP02@L3960"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "IP03",
+        "sourceLines": [
+          3433,
+          3438
+        ]
+      },
+      "supersededBy": {
+        "text": "IP03 · Preservar información a través del flujo",
+        "sourceLines": [
+          3992,
+          3992
+        ],
+        "objectKey": "IP03@L3992"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "IP04 · Establecer responsabilidad funcional E2E",
+        "sourceLines": [
+          3440,
+          3442
+        ]
+      },
+      "supersededBy": {
+        "text": "IP04 · Establecer responsabilidad funcional E2E",
+        "sourceLines": [
+          4033,
+          4033
+        ],
+        "objectKey": "IP04@L4033"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "IP05 · Conectar decisiones interdependientes",
+        "sourceLines": [
+          3454,
+          3456
+        ]
+      },
+      "supersededBy": {
+        "text": "IP05 · Conectar decisiones interdependientes",
+        "sourceLines": [
+          4065,
+          4065
+        ],
+        "objectKey": "IP05@L4065"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "IP06 · Alinear prioridades locales con resultado E2E",
+        "sourceLines": [
+          3478,
+          3480
+        ]
+      },
+      "supersededBy": {
+        "text": "IP06 · Alinear prioridades locales con resultado E2E",
+        "sourceLines": [
+          4089,
+          4089
+        ],
+        "objectKey": "IP06@L4089"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "IP07 · Hacer visible el estado E2E",
+        "sourceLines": [
+          3503,
+          3505
+        ]
+      },
+      "supersededBy": {
+        "text": "IP07 · Hacer visible el estado E2E",
+        "sourceLines": [
+          4115,
+          4115
+        ],
+        "objectKey": "IP07@L4115"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "IP08 · Cerrar retroalimentación operacional entre fronteras",
+        "sourceLines": [
+          3527,
+          3529
+        ]
+      },
+      "supersededBy": {
+        "text": "IP08 · Cerrar retroalimentación operacional",
+        "sourceLines": [
+          4152,
+          4152
+        ],
+        "objectKey": "IP08@L4152"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "IP01 · Articular el flujo E2E",
+        "sourceLines": [
+          4530,
+          4530
+        ]
+      },
+      "supersededBy": {
+        "text": "IP01 · Articular el flujo E2E",
+        "sourceLines": [
+          3926,
+          3926
+        ],
+        "objectKey": "IP01@L3926"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "IP02 · Estabilizar traspasos críticos",
+        "sourceLines": [
+          4548,
+          4548
+        ]
+      },
+      "supersededBy": {
+        "text": "IP02 · Estabilizar traspasos críticos",
+        "sourceLines": [
+          3960,
+          3960
+        ],
+        "objectKey": "IP02@L3960"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "IP03 · Preservar información",
+        "sourceLines": [
+          4580,
+          4580
+        ]
+      },
+      "supersededBy": {
+        "text": "IP03 · Preservar información a través del flujo",
+        "sourceLines": [
+          3992,
+          3992
+        ],
+        "objectKey": "IP03@L3992"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "IP04 · Responsabilidad funcional E2E",
+        "sourceLines": [
+          4593,
+          4593
+        ]
+      },
+      "supersededBy": {
+        "text": "IP04 · Establecer responsabilidad funcional E2E",
+        "sourceLines": [
+          4033,
+          4033
+        ],
+        "objectKey": "IP04@L4033"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "IP05 · Conectar decisiones interdependientes",
+        "sourceLines": [
+          4608,
+          4608
+        ]
+      },
+      "supersededBy": {
+        "text": "IP05 · Conectar decisiones interdependientes",
+        "sourceLines": [
+          4065,
+          4065
+        ],
+        "objectKey": "IP05@L4065"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "IP06 · Alinear prioridades locales con resultado E2E",
+        "sourceLines": [
+          4619,
+          4619
+        ]
+      },
+      "supersededBy": {
+        "text": "IP06 · Alinear prioridades locales con resultado E2E",
+        "sourceLines": [
+          4089,
+          4089
+        ],
+        "objectKey": "IP06@L4089"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "IP07 · Visibilidad del estado E2E",
+        "sourceLines": [
+          4634,
+          4634
+        ]
+      },
+      "supersededBy": {
+        "text": "IP07 · Hacer visible el estado E2E",
+        "sourceLines": [
+          4115,
+          4115
+        ],
+        "objectKey": "IP07@L4115"
+      }
+    },
+    {
+      "relation": "SUPERSEDED_BY",
+      "superseded": {
+        "text": "IP08 · Retroalimentación operacional",
+        "sourceLines": [
+          4646,
+          4646
+        ]
+      },
+      "supersededBy": {
+        "text": "IP08 · Cerrar retroalimentación operacional",
+        "sourceLines": [
+          4152,
+          4152
+        ],
+        "objectKey": "IP08@L4152"
+      }
+    }
+  ],
+  "executableProjection": {
+    "sourceRef": "source.json",
+    "verbatimKeys": [
+      "heading",
+      "title",
+      "body"
+    ],
+    "projectedObjectTypes": [],
+    "canonicalOnlyGapRefs": []
+  },
+  "gaps": [],
+  "transcriptionCorrections": [],
+  "checksum": "sha256:573e1906b898d67065fcc66fccee8710b71436a217d91874284d562d596df034"
+}

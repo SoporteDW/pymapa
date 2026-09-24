@@ -19,7 +19,98 @@
       6078
     ]
   },
-  "provenanceVocabulary": [],
+  "provenanceVocabulary": [
+    {
+      "code": "Architectural Authority",
+      "label": "Architectural Authority",
+      "meaning": "Documento Maestro Pymapa.",
+      "sourceLines": [
+        5295,
+        5296
+      ],
+      "scheme": "SOURCE_AUTHORITY_CLASS"
+    },
+    {
+      "code": "Internal Methodological Knowledge",
+      "label": "Internal Methodological Knowledge",
+      "meaning": "Digiway / metodologías propias.",
+      "sourceLines": [
+        5297,
+        5298
+      ],
+      "scheme": "SOURCE_AUTHORITY_CLASS"
+    },
+    {
+      "code": "External Conceptual Grounding",
+      "label": "External Conceptual Grounding",
+      "meaning": "APQC, Lean, ISO, literatura académica.",
+      "sourceLines": [
+        5299,
+        5300
+      ],
+      "scheme": "SOURCE_AUTHORITY_CLASS"
+    },
+    {
+      "code": "Contextual/Applied Evidence",
+      "label": "Contextual/Applied Evidence",
+      "meaning": "casos, benchmarks, documentación sectorial futura.",
+      "sourceLines": [
+        5301,
+        5302
+      ],
+      "scheme": "SOURCE_AUTHORITY_CLASS"
+    },
+    {
+      "code": "FOUNDATIONAL",
+      "label": "FOUNDATIONAL",
+      "meaning": "FOUNDATIONAL",
+      "sourceLines": [
+        5340,
+        5340
+      ],
+      "scheme": "SUPPORT_TYPE"
+    },
+    {
+      "code": "SUPPORTING",
+      "label": "SUPPORTING",
+      "meaning": "SUPPORTING",
+      "sourceLines": [
+        5341,
+        5341
+      ],
+      "scheme": "SUPPORT_TYPE"
+    },
+    {
+      "code": "CONTEXTUAL",
+      "label": "CONTEXTUAL",
+      "meaning": "CONTEXTUAL",
+      "sourceLines": [
+        5342,
+        5342
+      ],
+      "scheme": "SUPPORT_TYPE"
+    },
+    {
+      "code": "CONTRASTING",
+      "label": "CONTRASTING",
+      "meaning": "CONTRASTING",
+      "sourceLines": [
+        5343,
+        5343
+      ],
+      "scheme": "SUPPORT_TYPE"
+    },
+    {
+      "code": "INTERNAL",
+      "label": "INTERNAL",
+      "meaning": "INTERNAL",
+      "sourceLines": [
+        5344,
+        5344
+      ],
+      "scheme": "SUPPORT_TYPE"
+    }
+  ],
   "controlCounts": [
     {
       "label": "CE",
@@ -34,6 +125,7 @@
       "label": "CRV",
       "declared": 8,
       "objectType": "SOURCE_ID_CRV",
+      "role": "PRINCIPAL_RESULT_CRITERION",
       "sourceLines": [
         6089,
         6089
@@ -164,7 +256,9 @@
       "sourceLines": [
         379,
         381
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "role": "HISTORICAL_RECOVERY_GUARDRAIL"
     },
     {
       "key": "UA-OP03-v0.2",
@@ -1443,7 +1537,7 @@
     },
     {
       "key": "P-OP03-02@L759",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_P",
       "sourceId": "P-OP03-02",
       "fields": {
@@ -1453,7 +1547,9 @@
       "sourceLines": [
         759,
         759
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "P-OP03-02@L1155"
     },
     {
       "key": "P-OP03-03",
@@ -2331,7 +2427,7 @@
     },
     {
       "key": "P-OP03-02@L1155",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_P",
       "sourceId": "P-OP03-02",
       "fields": {
@@ -2344,7 +2440,15 @@
       "sourceLines": [
         1155,
         1157
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-03 · Bloque 3 — Fundamentación externa y mapa de fuentes",
+        "sourceLines": [
+          936,
+          936
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "VA08@L1219",
@@ -3210,7 +3314,7 @@
     },
     {
       "key": "REUSE-OP03-01@L1641",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_REUSE",
       "sourceId": "REUSE-OP03-01",
       "fields": {
@@ -3223,7 +3327,9 @@
       "sourceLines": [
         1641,
         1643
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "REUSE-OP03-01@L1842"
     },
     {
       "key": "REUSE-OP03-02",
@@ -3611,7 +3717,7 @@
     },
     {
       "key": "REUSE-OP03-01@L1842",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_REUSE",
       "sourceId": "REUSE-OP03-01",
       "fields": {
@@ -3623,7 +3729,15 @@
       "sourceLines": [
         1842,
         1843
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-03 · Bloque 5 — Adquisición adaptativa, evidencia y colaboración",
+        "sourceLines": [
+          1812,
+          1812
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "P1@L1845",
@@ -3640,7 +3754,9 @@
       "sourceLines": [
         1845,
         1846
-      ]
+      ],
+      "role": "ACQUISITION_STAGE_CATEGORY",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "P1-OP03-01",
@@ -3688,7 +3804,9 @@
       "sourceLines": [
         1857,
         1858
-      ]
+      ],
+      "role": "ACQUISITION_STAGE_CATEGORY",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "P1-OP03-02",
@@ -3733,7 +3851,9 @@
       "sourceLines": [
         1869,
         1869
-      ]
+      ],
+      "role": "ACQUISITION_STAGE_CATEGORY",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "P1-OP03-03",
@@ -3779,7 +3899,9 @@
       "sourceLines": [
         1878,
         1879
-      ]
+      ],
+      "role": "ACQUISITION_STAGE_CATEGORY",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "P1-OP03-04",
@@ -5459,7 +5581,7 @@
     },
     {
       "key": "REC-OP03-01@L3333",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_REC",
       "sourceId": "REC-OP03-01",
       "fields": {
@@ -5479,11 +5601,19 @@
       "sourceLines": [
         3333,
         3342
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-03 · Bloque 8 — Recomendaciones y Patrones de Intervención",
+        "sourceLines": [
+          3261,
+          3261
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "IP01@L3356",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP01",
       "fields": {
@@ -5493,11 +5623,13 @@
       "sourceLines": [
         3356,
         3356
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP01@L3926"
     },
     {
       "key": "IP02@L3357",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP02",
       "fields": {
@@ -5507,11 +5639,13 @@
       "sourceLines": [
         3357,
         3357
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP02@L3960"
     },
     {
       "key": "IP03@L3358",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP03",
       "fields": {
@@ -5521,11 +5655,13 @@
       "sourceLines": [
         3358,
         3358
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP03@L3992"
     },
     {
       "key": "IP04@L3359",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP04",
       "fields": {
@@ -5535,11 +5671,13 @@
       "sourceLines": [
         3359,
         3359
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP04@L4033"
     },
     {
       "key": "IP05@L3360",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP05",
       "fields": {
@@ -5549,11 +5687,13 @@
       "sourceLines": [
         3360,
         3360
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP05@L4065"
     },
     {
       "key": "IP06@L3361",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP06",
       "fields": {
@@ -5563,11 +5703,13 @@
       "sourceLines": [
         3361,
         3361
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP06@L4089"
     },
     {
       "key": "IP07@L3362",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP07",
       "fields": {
@@ -5577,11 +5719,13 @@
       "sourceLines": [
         3362,
         3362
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP07@L4115"
     },
     {
       "key": "IP08@L3363",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP08",
       "fields": {
@@ -5594,11 +5738,13 @@
       "sourceLines": [
         3363,
         3364
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP08@L4152"
     },
     {
       "key": "IP01@L3366",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP01",
       "fields": {
@@ -5612,11 +5758,13 @@
       "sourceLines": [
         3366,
         3368
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP01@L3926"
     },
     {
       "key": "IP02@L3384",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP02",
       "fields": {
@@ -5630,11 +5778,13 @@
       "sourceLines": [
         3384,
         3386
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP02@L3960"
     },
     {
       "key": "IP03@L3408",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP03",
       "fields": {
@@ -5648,11 +5798,13 @@
       "sourceLines": [
         3408,
         3410
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP03@L3992"
     },
     {
       "key": "IP02@L3431",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP02",
       "fields": {
@@ -5664,11 +5816,13 @@
       "sourceLines": [
         3431,
         3432
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP02@L3960"
     },
     {
       "key": "IP03@L3433",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP03",
       "fields": {
@@ -5684,11 +5838,13 @@
       "sourceLines": [
         3433,
         3438
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP03@L3992"
     },
     {
       "key": "IP04@L3440",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP04",
       "fields": {
@@ -5702,11 +5858,13 @@
       "sourceLines": [
         3440,
         3442
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP04@L4033"
     },
     {
       "key": "IP05@L3454",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP05",
       "fields": {
@@ -5720,7 +5878,9 @@
       "sourceLines": [
         3454,
         3456
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP05@L4065"
     },
     {
       "key": "INT-OP03-05",
@@ -5750,7 +5910,7 @@
     },
     {
       "key": "IP06@L3478",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP06",
       "fields": {
@@ -5764,7 +5924,9 @@
       "sourceLines": [
         3478,
         3480
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP06@L4089"
     },
     {
       "key": "INT-OP03-06",
@@ -5791,7 +5953,7 @@
     },
     {
       "key": "IP07@L3503",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP07",
       "fields": {
@@ -5805,7 +5967,9 @@
       "sourceLines": [
         3503,
         3505
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP07@L4115"
     },
     {
       "key": "INT-OP03-07",
@@ -5835,7 +5999,7 @@
     },
     {
       "key": "IP08@L3527",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP08",
       "fields": {
@@ -5849,7 +6013,9 @@
       "sourceLines": [
         3527,
         3529
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP08@L4152"
     },
     {
       "key": "INT-OP03-08",
@@ -6034,7 +6200,7 @@
     },
     {
       "key": "IP01@L3926",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP01",
       "fields": {
@@ -6044,7 +6210,15 @@
       "sourceLines": [
         3926,
         3926
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-03 · Bloque 9 — Ejecución de Intervenciones",
+        "sourceLines": [
+          3870,
+          3870
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "INS-OP03-01",
@@ -6103,7 +6277,7 @@
     },
     {
       "key": "IP02@L3960",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP02",
       "fields": {
@@ -6113,7 +6287,15 @@
       "sourceLines": [
         3960,
         3960
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-03 · Bloque 9 — Ejecución de Intervenciones",
+        "sourceLines": [
+          3870,
+          3870
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "INS-OP03-02",
@@ -6188,7 +6370,7 @@
     },
     {
       "key": "IP03@L3992",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP03",
       "fields": {
@@ -6198,7 +6380,15 @@
       "sourceLines": [
         3992,
         3992
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-03 · Bloque 9 — Ejecución de Intervenciones",
+        "sourceLines": [
+          3870,
+          3870
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "INS-OP03-03",
@@ -6257,7 +6447,7 @@
     },
     {
       "key": "IP04@L4033",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP04",
       "fields": {
@@ -6267,7 +6457,15 @@
       "sourceLines": [
         4033,
         4033
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-03 · Bloque 9 — Ejecución de Intervenciones",
+        "sourceLines": [
+          3870,
+          3870
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "INS-OP03-04",
@@ -6342,7 +6540,7 @@
     },
     {
       "key": "IP05@L4065",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP05",
       "fields": {
@@ -6352,7 +6550,15 @@
       "sourceLines": [
         4065,
         4065
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-03 · Bloque 9 — Ejecución de Intervenciones",
+        "sourceLines": [
+          3870,
+          3870
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "INS-OP03-05",
@@ -6401,7 +6607,7 @@
     },
     {
       "key": "IP06@L4089",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP06",
       "fields": {
@@ -6411,7 +6617,15 @@
       "sourceLines": [
         4089,
         4089
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-03 · Bloque 9 — Ejecución de Intervenciones",
+        "sourceLines": [
+          3870,
+          3870
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "INS-OP03-06",
@@ -6464,7 +6678,7 @@
     },
     {
       "key": "IP07@L4115",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP07",
       "fields": {
@@ -6474,7 +6688,15 @@
       "sourceLines": [
         4115,
         4115
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-03 · Bloque 9 — Ejecución de Intervenciones",
+        "sourceLines": [
+          3870,
+          3870
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "INS-OP03-07",
@@ -6556,7 +6778,7 @@
     },
     {
       "key": "IP08@L4152",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP08",
       "fields": {
@@ -6566,7 +6788,15 @@
       "sourceLines": [
         4152,
         4152
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-03 · Bloque 9 — Ejecución de Intervenciones",
+        "sourceLines": [
+          3870,
+          3870
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "INS-OP03-08",
@@ -6820,7 +7050,7 @@
     },
     {
       "key": "IP01@L4530",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP01",
       "fields": {
@@ -6830,7 +7060,9 @@
       "sourceLines": [
         4530,
         4530
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP01@L3926"
     },
     {
       "key": "CRV-OP03-01",
@@ -6853,11 +7085,13 @@
           6078,
           6078
         ]
-      }
+      },
+      "role": "PRINCIPAL_RESULT_CRITERION",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "IP02@L4548",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP02",
       "fields": {
@@ -6867,7 +7101,9 @@
       "sourceLines": [
         4548,
         4548
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP02@L3960"
     },
     {
       "key": "CRV-OP03-02",
@@ -6890,7 +7126,9 @@
           6078,
           6078
         ]
-      }
+      },
+      "role": "PRINCIPAL_RESULT_CRITERION",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "RES-OP03-03",
@@ -6926,7 +7164,7 @@
     },
     {
       "key": "IP03@L4580",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP03",
       "fields": {
@@ -6936,7 +7174,9 @@
       "sourceLines": [
         4580,
         4580
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP03@L3992"
     },
     {
       "key": "CRV-OP03-03",
@@ -6959,11 +7199,13 @@
           6078,
           6078
         ]
-      }
+      },
+      "role": "PRINCIPAL_RESULT_CRITERION",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "IP04@L4593",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP04",
       "fields": {
@@ -6973,7 +7215,9 @@
       "sourceLines": [
         4593,
         4593
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP04@L4033"
     },
     {
       "key": "CRV-OP03-04",
@@ -6996,11 +7240,13 @@
           6078,
           6078
         ]
-      }
+      },
+      "role": "PRINCIPAL_RESULT_CRITERION",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "IP05@L4608",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP05",
       "fields": {
@@ -7010,7 +7256,9 @@
       "sourceLines": [
         4608,
         4608
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP05@L4065"
     },
     {
       "key": "CRV-OP03-05",
@@ -7033,11 +7281,13 @@
           6078,
           6078
         ]
-      }
+      },
+      "role": "PRINCIPAL_RESULT_CRITERION",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "IP06@L4619",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP06",
       "fields": {
@@ -7047,7 +7297,9 @@
       "sourceLines": [
         4619,
         4619
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP06@L4089"
     },
     {
       "key": "CRV-OP03-06",
@@ -7070,11 +7322,13 @@
           6078,
           6078
         ]
-      }
+      },
+      "role": "PRINCIPAL_RESULT_CRITERION",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "IP07@L4634",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP07",
       "fields": {
@@ -7084,7 +7338,9 @@
       "sourceLines": [
         4634,
         4634
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP07@L4115"
     },
     {
       "key": "CRV-OP03-07",
@@ -7107,11 +7363,13 @@
           6078,
           6078
         ]
-      }
+      },
+      "role": "PRINCIPAL_RESULT_CRITERION",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "IP08@L4646",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP08",
       "fields": {
@@ -7121,7 +7379,9 @@
       "sourceLines": [
         4646,
         4646
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP08@L4152"
     },
     {
       "key": "CRV-OP03-08",
@@ -7144,7 +7404,9 @@
           6078,
           6078
         ]
-      }
+      },
+      "role": "PRINCIPAL_RESULT_CRITERION",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "RES-OP03-04",
@@ -7484,7 +7746,7 @@
     },
     {
       "key": "CRV02",
-      "classification": "FINAL_APPROVED",
+      "classification": "HISTORICAL_DRAFT",
       "objectType": "SOURCE_ID_CRV",
       "sourceId": "CRV02",
       "fields": {
@@ -7497,17 +7759,13 @@
         5040,
         5041
       ],
-      "approvalEvidence": {
-        "text": "OP03-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          6078,
-          6078
-        ]
-      }
+      "statement": "SHORTHAND_REFERENCE · alias de CRV-OP03-02 (decisión de gobierno M2-BATCH-02); no es objeto propio ni cuenta como tal",
+      "role": "SHORTHAND_REFERENCE",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "CRV03",
-      "classification": "FINAL_APPROVED",
+      "classification": "HISTORICAL_DRAFT",
       "objectType": "SOURCE_ID_CRV",
       "sourceId": "CRV03",
       "fields": {
@@ -7534,13 +7792,9 @@
         5042,
         5057
       ],
-      "approvalEvidence": {
-        "text": "OP03-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          6078,
-          6078
-        ]
-      }
+      "statement": "SHORTHAND_REFERENCE · alias de CRV-OP03-03 (decisión de gobierno M2-BATCH-02); no es objeto propio ni cuenta como tal",
+      "role": "SHORTHAND_REFERENCE",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "CTX-OP03-01",
@@ -7857,7 +8111,7 @@
         6105
       ],
       "publicationBlocking": false,
-      "governanceDecision": "M2-BATCH-01R"
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "A-OP03-02",
@@ -7876,7 +8130,7 @@
         6107
       ],
       "publicationBlocking": false,
-      "governanceDecision": "M2-BATCH-01R"
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "A-OP03-03",
@@ -7895,13 +8149,13 @@
         6109
       ],
       "publicationBlocking": false,
-      "governanceDecision": "M2-BATCH-01R"
+      "governanceDecision": "M2-BATCH-02"
     }
   ],
   "governanceDecisions": {
-    "decisionSetId": "M2-BATCH-01R",
+    "decisionSetId": "M2-BATCH-02",
     "ref": "knowledge/intake/OP-03/governance-decisions.json",
-    "checksum": "sha256:7a9e4626110fff13b2d7bd69229493d346d372c8195ef9c56cab0276c845fa55"
+    "checksum": "sha256:4e3d03fc519962404643b9f976cfad5a4a738f34456607b10631ab1bee04b92c"
   },
-  "checksum": "sha256:1a43ce78779601cddeecb4e3bacf317fbadf7228d45727cbe89fd6f38ad26f1c"
+  "checksum": "sha256:e04aa3a7dceb596fd5b63027065b865b53c8d38fd0e09a24307c367de4a4d022"
 }

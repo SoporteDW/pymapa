@@ -1,23 +1,32 @@
 {
-  "candidateId": "CAND-OP-05-0.2.0-09629d4e6ff6",
-  "capabilityId": "OP-05",
-  "status": "CANDIDATE",
-  "registration": {
-    "registrationId": "RAW-OP-05-16734c65ee57",
-    "textSha256": "09629d4e6ff63c925057ca821e4fc4640c098544ba7f51942fec886336a4b31c"
-  },
-  "producedBy": {
-    "method": "DETERMINISTIC_TOOL",
-    "agent": "pymapa-structural-segmenter@0.2.0 + pymapa-governed-supersession-resolver@0.1.0",
-    "note": "Segmentación literal por headings con identificador; supersesión resuelta solo con evidencia explícita de la fuente (resolver genérico); decisiones humanas de gobierno aplicadas con verificación literal. No decide tipo semántico."
-  },
   "baselineId": "OP05-K4-v1.0",
+  "capabilityId": "OP-05",
+  "master": {
+    "identity": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "baselineStatus": "BASELINE-APPROVED"
+  },
   "historicalStatus": {
     "marker": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
     "sourceLines": [
       1673,
       1673
     ]
+  },
+  "rawSource": {
+    "ref": "raw/OP-05_Completo.txt",
+    "sha256": "09629d4e6ff63c925057ca821e4fc4640c098544ba7f51942fec886336a4b31c",
+    "byteLength": 65087,
+    "lineCount": 1786,
+    "transcription": {
+      "tool": "pymapa-docx-text 1.0.0",
+      "arguments": ""
+    },
+    "originalDocument": {
+      "filename": "OP-05_Completo.docx",
+      "byteLength": 92912,
+      "sha256": "16734c65ee5761a6e086a1e54d978ef51883074b8a6c3593ef476713a0c92321"
+    }
   },
   "provenanceVocabulary": [
     {
@@ -100,42 +109,9 @@
       ]
     }
   ],
-  "verbatimKeys": [
-    "heading",
-    "title",
-    "body"
-  ],
-  "items": [
-    {
-      "key": "UA-OP05-v0.1",
-      "classification": "HISTORICAL_DRAFT",
-      "objectType": "SOURCE_ID_UA",
-      "sourceId": "UA-OP05-v0.1",
-      "fields": {
-        "heading": "UA-OP05-v0.1",
-        "body": [
-          "Iniciativa material de cambio que requiere coordinación deliberada de actividades, recursos, responsables y/o dependencias para alcanzar un estado objetivo verificable.",
-          "Puede ser:",
-          "- mejora de proceso;",
-          "- automatización;",
-          "- implementación tecnológica;",
-          "- cambio comercial;",
-          "- desarrollo de capacidad;",
-          "- iniciativa organizacional;",
-          "- implantación de herramienta;",
-          "- integración;",
-          "- cambio de política/procedimiento.",
-          "No toda tarea es una iniciativa."
-        ]
-      },
-      "sourceLines": [
-        20,
-        32
-      ]
-    },
+  "objects": [
     {
       "key": "BOUND-OP05-01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_BOUND",
       "sourceId": "BOUND-OP05-01",
       "fields": {
@@ -150,18 +126,10 @@
       "sourceLines": [
         45,
         49
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "BOUND-OP05-02",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_BOUND",
       "sourceId": "BOUND-OP05-02",
       "fields": {
@@ -173,18 +141,10 @@
       "sourceLines": [
         59,
         60
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "P-OP05-01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_P",
       "sourceId": "P-OP05-01",
       "fields": {
@@ -196,18 +156,10 @@
       "sourceLines": [
         70,
         71
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "P-OP05-02",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_P",
       "sourceId": "P-OP05-02",
       "fields": {
@@ -219,18 +171,10 @@
       "sourceLines": [
         85,
         86
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "P-OP05-03",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_P",
       "sourceId": "P-OP05-03",
       "fields": {
@@ -244,18 +188,10 @@
       "sourceLines": [
         93,
         96
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "P-OP05-04",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_P",
       "sourceId": "P-OP05-04",
       "fields": {
@@ -267,18 +203,10 @@
       "sourceLines": [
         105,
         106
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "REUSE-OP05-01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_REUSE",
       "sourceId": "REUSE-OP05-01",
       "fields": {
@@ -291,18 +219,10 @@
       "sourceLines": [
         119,
         121
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "CE01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_CE",
       "sourceId": "CE01",
       "fields": {
@@ -316,86 +236,10 @@
       "sourceLines": [
         126,
         128
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
-    },
-    {
-      "key": "VA01@L129",
-      "classification": "HISTORICAL_DRAFT",
-      "objectType": "SOURCE_ID_VA",
-      "sourceId": "VA01",
-      "fields": {
-        "heading": "VA01 · Objetivo y resultado esperado",
-        "title": "Objetivo y resultado esperado",
-        "body": [
-          "¿Existe claridad suficiente sobre:",
-          "qué debe cambiar y para qué?"
-        ]
-      },
-      "sourceLines": [
-        129,
-        131
-      ],
-      "supersession": {
-        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "GOVERNED_FREEZE",
-        "kind": "SUPERSEDED_BY_FROZEN_STATEMENT",
-        "evidence": [
-          {
-            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-            "sourceLines": [
-              249,
-              249
-            ]
-          }
-        ],
-        "canonicalKey": "VA01@L252"
-      }
-    },
-    {
-      "key": "VA02@L132",
-      "classification": "HISTORICAL_DRAFT",
-      "objectType": "SOURCE_ID_VA",
-      "sourceId": "VA02",
-      "fields": {
-        "heading": "VA02 · Alcance y criterios de terminación",
-        "title": "Alcance y criterios de terminación",
-        "body": [
-          "¿Está suficientemente delimitado:",
-          "- qué entra;",
-          "- qué no;",
-          "- qué estado demuestra implementación?"
-        ]
-      },
-      "sourceLines": [
-        132,
-        136
-      ],
-      "supersession": {
-        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "GOVERNED_FREEZE",
-        "kind": "SUPERSEDED_BY_FROZEN_STATEMENT",
-        "evidence": [
-          {
-            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-            "sourceLines": [
-              249,
-              249
-            ]
-          }
-        ],
-        "canonicalKey": "VA02@L262"
-      }
+      ]
     },
     {
       "key": "CE02",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_CE",
       "sourceId": "CE02",
       "fields": {
@@ -409,130 +253,10 @@
       "sourceLines": [
         138,
         140
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
-    },
-    {
-      "key": "VA03@L141",
-      "classification": "HISTORICAL_DRAFT",
-      "objectType": "SOURCE_ID_VA",
-      "sourceId": "VA03",
-      "fields": {
-        "heading": "VA03 · Responsabilidad y capacidad de decisión",
-        "title": "Responsabilidad y capacidad de decisión",
-        "body": [
-          "¿Está claro:",
-          "- quién responde;",
-          "- quién decide;",
-          "- quién ejecuta;",
-          "- quién desbloquea?"
-        ]
-      },
-      "sourceLines": [
-        141,
-        146
-      ],
-      "supersession": {
-        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "GOVERNED_FREEZE",
-        "kind": "SUPERSEDED_BY_FROZEN_STATEMENT",
-        "evidence": [
-          {
-            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-            "sourceLines": [
-              249,
-              249
-            ]
-          }
-        ],
-        "canonicalKey": "VA03@L273"
-      }
-    },
-    {
-      "key": "VA04@L147",
-      "classification": "HISTORICAL_DRAFT",
-      "objectType": "SOURCE_ID_VA",
-      "sourceId": "VA04",
-      "fields": {
-        "heading": "VA04 · Recursos y capacidad disponible",
-        "title": "Recursos y capacidad disponible",
-        "body": [
-          "Considera:",
-          "- personas;",
-          "- tiempo;",
-          "- presupuesto cuando aplique;",
-          "- capacidad especializada;",
-          "- disponibilidad."
-        ]
-      },
-      "sourceLines": [
-        147,
-        153
-      ],
-      "supersession": {
-        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "GOVERNED_FREEZE",
-        "kind": "SUPERSEDED_BY_FROZEN_STATEMENT",
-        "evidence": [
-          {
-            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-            "sourceLines": [
-              249,
-              249
-            ]
-          }
-        ],
-        "canonicalKey": "VA04@L283"
-      }
-    },
-    {
-      "key": "VA05@L154",
-      "classification": "HISTORICAL_DRAFT",
-      "objectType": "SOURCE_ID_VA",
-      "sourceId": "VA05",
-      "fields": {
-        "heading": "VA05 · Dependencias y prerrequisitos",
-        "title": "Dependencias y prerrequisitos",
-        "body": [
-          "Considera:",
-          "- otras iniciativas;",
-          "- datos;",
-          "- proveedores;",
-          "- decisiones;",
-          "- tecnología;",
-          "- aprobaciones;",
-          "- procesos."
-        ]
-      },
-      "sourceLines": [
-        154,
-        162
-      ],
-      "supersession": {
-        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "GOVERNED_FREEZE",
-        "kind": "SUPERSEDED_BY_FROZEN_STATEMENT",
-        "evidence": [
-          {
-            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-            "sourceLines": [
-              249,
-              249
-            ]
-          }
-        ],
-        "canonicalKey": "VA05@L294"
-      }
+      ]
     },
     {
       "key": "CE03",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_CE",
       "sourceId": "CE03",
       "fields": {
@@ -546,122 +270,10 @@
       "sourceLines": [
         164,
         166
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
-    },
-    {
-      "key": "VA06@L167",
-      "classification": "HISTORICAL_DRAFT",
-      "objectType": "SOURCE_ID_VA",
-      "sourceId": "VA06",
-      "fields": {
-        "heading": "VA06 · Plan y secuencia de ejecución",
-        "title": "Plan y secuencia de ejecución",
-        "body": [
-          "No necesariamente Gantt.",
-          "Debe existir:",
-          "siguiente trabajo suficientemente claro + secuencia/dependencias pertinentes."
-        ]
-      },
-      "sourceLines": [
-        167,
-        170
-      ],
-      "supersession": {
-        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "GOVERNED_FREEZE",
-        "kind": "SUPERSEDED_BY_FROZEN_STATEMENT",
-        "evidence": [
-          {
-            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-            "sourceLines": [
-              249,
-              249
-            ]
-          }
-        ],
-        "canonicalKey": "VA06@L306"
-      }
-    },
-    {
-      "key": "VA07@L171",
-      "classification": "HISTORICAL_DRAFT",
-      "objectType": "SOURCE_ID_VA",
-      "sourceId": "VA07",
-      "fields": {
-        "heading": "VA07 · Visibilidad de avance y estado real",
-        "title": "Visibilidad de avance y estado real",
-        "body": [
-          "¿Se puede saber:",
-          "- qué está hecho;",
-          "- qué falta;",
-          "- qué está bloqueado;",
-          "- qué cambió?"
-        ]
-      },
-      "sourceLines": [
-        171,
-        176
-      ],
-      "supersession": {
-        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "GOVERNED_FREEZE",
-        "kind": "SUPERSEDED_BY_FROZEN_STATEMENT",
-        "evidence": [
-          {
-            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-            "sourceLines": [
-              249,
-              249
-            ]
-          }
-        ],
-        "canonicalKey": "VA07@L317"
-      }
-    },
-    {
-      "key": "VA08@L177",
-      "classification": "HISTORICAL_DRAFT",
-      "objectType": "SOURCE_ID_VA",
-      "sourceId": "VA08",
-      "fields": {
-        "heading": "VA08 · Gestión de bloqueos, riesgos y cambios",
-        "title": "Gestión de bloqueos, riesgos y cambios",
-        "body": [
-          "¿La iniciativa puede:",
-          "detectar → decidir → adaptar.",
-          "No buscamos registro burocrático de riesgos."
-        ]
-      },
-      "sourceLines": [
-        177,
-        180
-      ],
-      "supersession": {
-        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "GOVERNED_FREEZE",
-        "kind": "SUPERSEDED_BY_FROZEN_STATEMENT",
-        "evidence": [
-          {
-            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-            "sourceLines": [
-              249,
-              249
-            ]
-          }
-        ],
-        "canonicalKey": "VA08@L328"
-      }
+      ]
     },
     {
       "key": "CE04",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_CE",
       "sourceId": "CE04",
       "fields": {
@@ -675,87 +287,10 @@
       "sourceLines": [
         182,
         184
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
-    },
-    {
-      "key": "VA09@L185",
-      "classification": "HISTORICAL_DRAFT",
-      "objectType": "SOURCE_ID_VA",
-      "sourceId": "VA09",
-      "fields": {
-        "heading": "VA09 · Activación, adopción y transición operativa",
-        "title": "Activación, adopción y transición operativa",
-        "body": [
-          "¿La solución:",
-          "- fue activada;",
-          "- incorporada al trabajo;",
-          "- entregada a responsables;",
-          "- utilizada suficientemente?"
-        ]
-      },
-      "sourceLines": [
-        185,
-        190
-      ],
-      "supersession": {
-        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "GOVERNED_FREEZE",
-        "kind": "SUPERSEDED_BY_FROZEN_STATEMENT",
-        "evidence": [
-          {
-            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-            "sourceLines": [
-              249,
-              249
-            ]
-          }
-        ],
-        "canonicalKey": "VA09@L340"
-      }
-    },
-    {
-      "key": "VA10@L191",
-      "classification": "HISTORICAL_DRAFT",
-      "objectType": "SOURCE_ID_VA",
-      "sourceId": "VA10",
-      "fields": {
-        "heading": "VA10 · Verificación y cierre de implementación",
-        "title": "Verificación y cierre de implementación",
-        "body": [
-          "¿Existe evidencia suficiente para determinar:",
-          "que alcanzó el estado objetivo y puede cerrarse o pasar a validación de resultados?"
-        ]
-      },
-      "sourceLines": [
-        191,
-        193
-      ],
-      "supersession": {
-        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "GOVERNED_FREEZE",
-        "kind": "SUPERSEDED_BY_FROZEN_STATEMENT",
-        "evidence": [
-          {
-            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-            "sourceLines": [
-              249,
-              249
-            ]
-          }
-        ],
-        "canonicalKey": "VA10@L353"
-      }
+      ]
     },
     {
       "key": "P-OP05-05",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_P",
       "sourceId": "P-OP05-05",
       "fields": {
@@ -767,18 +302,10 @@
       "sourceLines": [
         240,
         241
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "P-OP05-06",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_P",
       "sourceId": "P-OP05-06",
       "fields": {
@@ -790,18 +317,10 @@
       "sourceLines": [
         242,
         243
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "P-OP05-07",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_P",
       "sourceId": "P-OP05-07",
       "fields": {
@@ -813,18 +332,10 @@
       "sourceLines": [
         244,
         245
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "P-OP05-08",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_P",
       "sourceId": "P-OP05-08",
       "fields": {
@@ -838,18 +349,10 @@
       "sourceLines": [
         246,
         249
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "VA01@L252",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_VA",
       "sourceId": "VA01",
       "fields": {
@@ -869,32 +372,10 @@
       "sourceLines": [
         252,
         260
-      ],
-      "approvalEvidence": {
-        "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-        "sourceLines": [
-          249,
-          249
-        ]
-      },
-      "supersession": {
-        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "GOVERNED_FREEZE",
-        "kind": "CANONICAL_SELECTED",
-        "evidence": [
-          {
-            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-            "sourceLines": [
-              249,
-              249
-            ]
-          }
-        ]
-      }
+      ]
     },
     {
       "key": "VA02@L262",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_VA",
       "sourceId": "VA02",
       "fields": {
@@ -915,32 +396,10 @@
       "sourceLines": [
         262,
         271
-      ],
-      "approvalEvidence": {
-        "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-        "sourceLines": [
-          249,
-          249
-        ]
-      },
-      "supersession": {
-        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "GOVERNED_FREEZE",
-        "kind": "CANONICAL_SELECTED",
-        "evidence": [
-          {
-            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-            "sourceLines": [
-              249,
-              249
-            ]
-          }
-        ]
-      }
+      ]
     },
     {
       "key": "VA03@L273",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_VA",
       "sourceId": "VA03",
       "fields": {
@@ -960,32 +419,10 @@
       "sourceLines": [
         273,
         281
-      ],
-      "approvalEvidence": {
-        "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-        "sourceLines": [
-          249,
-          249
-        ]
-      },
-      "supersession": {
-        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "GOVERNED_FREEZE",
-        "kind": "CANONICAL_SELECTED",
-        "evidence": [
-          {
-            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-            "sourceLines": [
-              249,
-              249
-            ]
-          }
-        ]
-      }
+      ]
     },
     {
       "key": "VA04@L283",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_VA",
       "sourceId": "VA04",
       "fields": {
@@ -1006,32 +443,10 @@
       "sourceLines": [
         283,
         292
-      ],
-      "approvalEvidence": {
-        "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-        "sourceLines": [
-          249,
-          249
-        ]
-      },
-      "supersession": {
-        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "GOVERNED_FREEZE",
-        "kind": "CANONICAL_SELECTED",
-        "evidence": [
-          {
-            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-            "sourceLines": [
-              249,
-              249
-            ]
-          }
-        ]
-      }
+      ]
     },
     {
       "key": "VA05@L294",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_VA",
       "sourceId": "VA05",
       "fields": {
@@ -1053,32 +468,10 @@
       "sourceLines": [
         294,
         304
-      ],
-      "approvalEvidence": {
-        "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-        "sourceLines": [
-          249,
-          249
-        ]
-      },
-      "supersession": {
-        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "GOVERNED_FREEZE",
-        "kind": "CANONICAL_SELECTED",
-        "evidence": [
-          {
-            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-            "sourceLines": [
-              249,
-              249
-            ]
-          }
-        ]
-      }
+      ]
     },
     {
       "key": "VA06@L306",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_VA",
       "sourceId": "VA06",
       "fields": {
@@ -1099,32 +492,10 @@
       "sourceLines": [
         306,
         315
-      ],
-      "approvalEvidence": {
-        "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-        "sourceLines": [
-          249,
-          249
-        ]
-      },
-      "supersession": {
-        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "GOVERNED_FREEZE",
-        "kind": "CANONICAL_SELECTED",
-        "evidence": [
-          {
-            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-            "sourceLines": [
-              249,
-              249
-            ]
-          }
-        ]
-      }
+      ]
     },
     {
       "key": "VA07@L317",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_VA",
       "sourceId": "VA07",
       "fields": {
@@ -1145,32 +516,10 @@
       "sourceLines": [
         317,
         326
-      ],
-      "approvalEvidence": {
-        "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-        "sourceLines": [
-          249,
-          249
-        ]
-      },
-      "supersession": {
-        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "GOVERNED_FREEZE",
-        "kind": "CANONICAL_SELECTED",
-        "evidence": [
-          {
-            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-            "sourceLines": [
-              249,
-              249
-            ]
-          }
-        ]
-      }
+      ]
     },
     {
       "key": "VA08@L328",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_VA",
       "sourceId": "VA08",
       "fields": {
@@ -1192,32 +541,10 @@
       "sourceLines": [
         328,
         338
-      ],
-      "approvalEvidence": {
-        "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-        "sourceLines": [
-          249,
-          249
-        ]
-      },
-      "supersession": {
-        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "GOVERNED_FREEZE",
-        "kind": "CANONICAL_SELECTED",
-        "evidence": [
-          {
-            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-            "sourceLines": [
-              249,
-              249
-            ]
-          }
-        ]
-      }
+      ]
     },
     {
       "key": "VA09@L340",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_VA",
       "sourceId": "VA09",
       "fields": {
@@ -1240,32 +567,10 @@
       "sourceLines": [
         340,
         351
-      ],
-      "approvalEvidence": {
-        "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-        "sourceLines": [
-          249,
-          249
-        ]
-      },
-      "supersession": {
-        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "GOVERNED_FREEZE",
-        "kind": "CANONICAL_SELECTED",
-        "evidence": [
-          {
-            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-            "sourceLines": [
-              249,
-              249
-            ]
-          }
-        ]
-      }
+      ]
     },
     {
       "key": "VA10@L353",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_VA",
       "sourceId": "VA10",
       "fields": {
@@ -1288,32 +593,10 @@
       "sourceLines": [
         353,
         364
-      ],
-      "approvalEvidence": {
-        "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-        "sourceLines": [
-          249,
-          249
-        ]
-      },
-      "supersession": {
-        "resolver": "pymapa-governed-supersession-resolver@0.1.0",
-        "rule": "GOVERNED_FREEZE",
-        "kind": "CANONICAL_SELECTED",
-        "evidence": [
-          {
-            "text": "OP05-CEVA-v0.2 · FOUNDATION-SUPPORTED · CANDIDATE-FROZEN",
-            "sourceLines": [
-              249,
-              249
-            ]
-          }
-        ]
-      }
+      ]
     },
     {
       "key": "SUF-OP05-01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_SUF",
       "sourceId": "SUF-OP05-01",
       "fields": {
@@ -1325,18 +608,10 @@
       "sourceLines": [
         373,
         374
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "SUF-OP05-02",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_SUF",
       "sourceId": "SUF-OP05-02",
       "fields": {
@@ -1353,18 +628,10 @@
       "sourceLines": [
         378,
         384
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "COV-OP05-01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_COV",
       "sourceId": "COV-OP05-01",
       "fields": {
@@ -1376,18 +643,10 @@
       "sourceLines": [
         394,
         395
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "EVD-OP05-01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_EVD",
       "sourceId": "EVD-OP05-01",
       "fields": {
@@ -1399,18 +658,10 @@
       "sourceLines": [
         452,
         453
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "COLLAB-OP05-01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_COLLAB",
       "sourceId": "COLLAB-OP05-01",
       "fields": {
@@ -1422,18 +673,10 @@
       "sourceLines": [
         465,
         466
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "CONTRA-OP05-01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_CONTRA",
       "sourceId": "CONTRA-OP05-01",
       "fields": {
@@ -1445,18 +688,10 @@
       "sourceLines": [
         477,
         478
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "NEXT-OP05-01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_NEXT",
       "sourceId": "NEXT-OP05-01",
       "fields": {
@@ -1468,18 +703,10 @@
       "sourceLines": [
         486,
         487
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "STOP-OP05-01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_STOP",
       "sourceId": "STOP-OP05-01",
       "fields": {
@@ -1494,18 +721,10 @@
       "sourceLines": [
         496,
         500
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "R-OP05-01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_R",
       "sourceId": "R-OP05-01",
       "fields": {
@@ -1527,18 +746,10 @@
       "sourceLines": [
         507,
         517
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "R-OP05-02",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_R",
       "sourceId": "R-OP05-02",
       "fields": {
@@ -1558,18 +769,10 @@
       "sourceLines": [
         519,
         527
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "R-OP05-03",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_R",
       "sourceId": "R-OP05-03",
       "fields": {
@@ -1589,18 +792,10 @@
       "sourceLines": [
         529,
         537
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "R-OP05-04",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_R",
       "sourceId": "R-OP05-04",
       "fields": {
@@ -1622,18 +817,10 @@
       "sourceLines": [
         539,
         549
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "R-OP05-05",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_R",
       "sourceId": "R-OP05-05",
       "fields": {
@@ -1654,18 +841,10 @@
       "sourceLines": [
         551,
         560
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "R-OP05-06",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_R",
       "sourceId": "R-OP05-06",
       "fields": {
@@ -1684,18 +863,10 @@
       "sourceLines": [
         562,
         569
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "R-OP05-07",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_R",
       "sourceId": "R-OP05-07",
       "fields": {
@@ -1715,18 +886,10 @@
       "sourceLines": [
         571,
         579
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "R-OP05-08",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_R",
       "sourceId": "R-OP05-08",
       "fields": {
@@ -1745,18 +908,10 @@
       "sourceLines": [
         581,
         588
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "R-OP05-09",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_R",
       "sourceId": "R-OP05-09",
       "fields": {
@@ -1774,18 +929,10 @@
       "sourceLines": [
         590,
         596
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "R-OP05-10",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_R",
       "sourceId": "R-OP05-10",
       "fields": {
@@ -1807,18 +954,10 @@
       "sourceLines": [
         598,
         608
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "R-OP05-11",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_R",
       "sourceId": "R-OP05-11",
       "fields": {
@@ -1840,18 +979,10 @@
       "sourceLines": [
         615,
         625
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "R-OP05-11A",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_R",
       "sourceId": "R-OP05-11A",
       "fields": {
@@ -1864,18 +995,10 @@
       "sourceLines": [
         628,
         630
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "CAUS-OP05-01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_CAUS",
       "sourceId": "CAUS-OP05-01",
       "fields": {
@@ -1887,18 +1010,10 @@
       "sourceLines": [
         654,
         655
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "CONF-OP05-01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_CONF",
       "sourceId": "CONF-OP05-01",
       "fields": {
@@ -1912,18 +1027,10 @@
       "sourceLines": [
         671,
         674
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "DER-OP05-01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_DER",
       "sourceId": "DER-OP05-01",
       "fields": {
@@ -1935,18 +1042,10 @@
       "sourceLines": [
         687,
         688
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "PROG-OP05-01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_PROG",
       "sourceId": "PROG-OP05-01",
       "fields": {
@@ -1959,18 +1058,10 @@
       "sourceLines": [
         696,
         698
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "HF01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_HF",
       "sourceId": "HF01",
       "fields": {
@@ -1980,18 +1071,10 @@
       "sourceLines": [
         776,
         776
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "OP05-HF01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_OP",
       "sourceId": "OP05-HF01",
       "fields": {
@@ -2013,18 +1096,10 @@
       "sourceLines": [
         777,
         788
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "HF02",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_HF",
       "sourceId": "HF02",
       "fields": {
@@ -2034,18 +1109,10 @@
       "sourceLines": [
         790,
         790
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "OP05-HF02",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_OP",
       "sourceId": "OP05-HF02",
       "fields": {
@@ -2068,18 +1135,10 @@
       "sourceLines": [
         791,
         803
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "HF03",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_HF",
       "sourceId": "HF03",
       "fields": {
@@ -2089,18 +1148,10 @@
       "sourceLines": [
         805,
         805
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "OP05-HF03",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_OP",
       "sourceId": "OP05-HF03",
       "fields": {
@@ -2122,18 +1173,10 @@
       "sourceLines": [
         806,
         817
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "HF04",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_HF",
       "sourceId": "HF04",
       "fields": {
@@ -2143,18 +1186,10 @@
       "sourceLines": [
         819,
         819
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "OP05-HF04",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_OP",
       "sourceId": "OP05-HF04",
       "fields": {
@@ -2171,18 +1206,10 @@
       "sourceLines": [
         820,
         826
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "HF05",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_HF",
       "sourceId": "HF05",
       "fields": {
@@ -2192,18 +1219,10 @@
       "sourceLines": [
         828,
         828
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "OP05-HF05",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_OP",
       "sourceId": "OP05-HF05",
       "fields": {
@@ -2224,18 +1243,10 @@
       "sourceLines": [
         829,
         839
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "HF06",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_HF",
       "sourceId": "HF06",
       "fields": {
@@ -2245,18 +1256,10 @@
       "sourceLines": [
         841,
         841
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "OP05-HF06",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_OP",
       "sourceId": "OP05-HF06",
       "fields": {
@@ -2278,18 +1281,10 @@
       "sourceLines": [
         842,
         853
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "HF07",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_HF",
       "sourceId": "HF07",
       "fields": {
@@ -2299,18 +1294,10 @@
       "sourceLines": [
         855,
         855
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "OP05-HF07",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_OP",
       "sourceId": "OP05-HF07",
       "fields": {
@@ -2328,18 +1315,10 @@
       "sourceLines": [
         856,
         863
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "HF08",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_HF",
       "sourceId": "HF08",
       "fields": {
@@ -2349,18 +1328,10 @@
       "sourceLines": [
         865,
         865
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "OP05-HF08",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_OP",
       "sourceId": "OP05-HF08",
       "fields": {
@@ -2376,18 +1347,10 @@
       "sourceLines": [
         866,
         871
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "CONS-OP05-01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_CONS",
       "sourceId": "CONS-OP05-01",
       "fields": {
@@ -2404,18 +1367,10 @@
       "sourceLines": [
         884,
         890
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "CONS-OP05-02",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_CONS",
       "sourceId": "CONS-OP05-02",
       "fields": {
@@ -2430,18 +1385,10 @@
       "sourceLines": [
         891,
         895
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "FIND-OP05-01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_FIND",
       "sourceId": "FIND-OP05-01",
       "fields": {
@@ -2453,18 +1400,10 @@
       "sourceLines": [
         907,
         908
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "DERIVE-OP05-02",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_DERIVE",
       "sourceId": "DERIVE-OP05-02",
       "fields": {
@@ -2476,18 +1415,10 @@
       "sourceLines": [
         921,
         922
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "IP01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP01",
       "fields": {
@@ -2497,18 +1428,10 @@
       "sourceLines": [
         957,
         957
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "IP-OP05-01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP-OP05-01",
       "fields": {
@@ -2531,18 +1454,10 @@
       "sourceLines": [
         958,
         970
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "IP02",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP02",
       "fields": {
@@ -2552,18 +1467,10 @@
       "sourceLines": [
         972,
         972
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "IP-OP05-02",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP-OP05-02",
       "fields": {
@@ -2585,18 +1492,10 @@
       "sourceLines": [
         973,
         984
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "IP03",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP03",
       "fields": {
@@ -2606,18 +1505,10 @@
       "sourceLines": [
         988,
         988
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "IP-OP05-03",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP-OP05-03",
       "fields": {
@@ -2641,18 +1532,10 @@
       "sourceLines": [
         989,
         1002
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "IP04",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP04",
       "fields": {
@@ -2662,18 +1545,10 @@
       "sourceLines": [
         1004,
         1004
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "IP-OP05-04",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP-OP05-04",
       "fields": {
@@ -2691,18 +1566,10 @@
       "sourceLines": [
         1005,
         1012
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "IP05",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP05",
       "fields": {
@@ -2712,18 +1579,10 @@
       "sourceLines": [
         1014,
         1014
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "IP-OP05-05",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP-OP05-05",
       "fields": {
@@ -2747,18 +1606,10 @@
       "sourceLines": [
         1015,
         1028
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "IP06",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP06",
       "fields": {
@@ -2768,18 +1619,10 @@
       "sourceLines": [
         1030,
         1030
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "IP-OP05-06",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP-OP05-06",
       "fields": {
@@ -2804,18 +1647,10 @@
       "sourceLines": [
         1031,
         1045
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "IP07",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP07",
       "fields": {
@@ -2825,18 +1660,10 @@
       "sourceLines": [
         1047,
         1047
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "IP-OP05-07",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP-OP05-07",
       "fields": {
@@ -2853,18 +1680,10 @@
       "sourceLines": [
         1048,
         1054
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "IP08",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP08",
       "fields": {
@@ -2874,18 +1693,10 @@
       "sourceLines": [
         1056,
         1056
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "IP-OP05-08",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP-OP05-08",
       "fields": {
@@ -2906,18 +1717,10 @@
       "sourceLines": [
         1057,
         1067
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "INT-OP05-01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_INT",
       "sourceId": "INT-OP05-01",
       "fields": {
@@ -2930,18 +1733,10 @@
       "sourceLines": [
         1070,
         1072
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "INT-OP05-02",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_INT",
       "sourceId": "INT-OP05-02",
       "fields": {
@@ -2953,18 +1748,10 @@
       "sourceLines": [
         1080,
         1081
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "INS01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_INS",
       "sourceId": "INS01",
       "fields": {
@@ -2984,18 +1771,10 @@
       "sourceLines": [
         1103,
         1111
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "DEL01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_DEL",
       "sourceId": "DEL01",
       "fields": {
@@ -3009,18 +1788,10 @@
       "sourceLines": [
         1112,
         1115
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "INS02",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_INS",
       "sourceId": "INS02",
       "fields": {
@@ -3036,18 +1807,10 @@
       "sourceLines": [
         1117,
         1121
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "DEL02",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_DEL",
       "sourceId": "DEL02",
       "fields": {
@@ -3061,18 +1824,10 @@
       "sourceLines": [
         1122,
         1125
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "INS03",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_INS",
       "sourceId": "INS03",
       "fields": {
@@ -3091,18 +1846,10 @@
       "sourceLines": [
         1127,
         1134
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "DEL03",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_DEL",
       "sourceId": "DEL03",
       "fields": {
@@ -3116,18 +1863,10 @@
       "sourceLines": [
         1135,
         1138
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "INS04",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_INS",
       "sourceId": "INS04",
       "fields": {
@@ -3142,18 +1881,10 @@
       "sourceLines": [
         1140,
         1143
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "DEL04",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_DEL",
       "sourceId": "DEL04",
       "fields": {
@@ -3167,18 +1898,10 @@
       "sourceLines": [
         1144,
         1147
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "INS05",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_INS",
       "sourceId": "INS05",
       "fields": {
@@ -3194,18 +1917,10 @@
       "sourceLines": [
         1149,
         1153
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "DEL05",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_DEL",
       "sourceId": "DEL05",
       "fields": {
@@ -3219,18 +1934,10 @@
       "sourceLines": [
         1154,
         1157
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "INS06",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_INS",
       "sourceId": "INS06",
       "fields": {
@@ -3253,18 +1960,10 @@
       "sourceLines": [
         1159,
         1170
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "DEL06",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_DEL",
       "sourceId": "DEL06",
       "fields": {
@@ -3278,18 +1977,10 @@
       "sourceLines": [
         1171,
         1174
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "INS07",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_INS",
       "sourceId": "INS07",
       "fields": {
@@ -3309,18 +2000,10 @@
       "sourceLines": [
         1176,
         1184
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "DEL07",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_DEL",
       "sourceId": "DEL07",
       "fields": {
@@ -3334,18 +2017,10 @@
       "sourceLines": [
         1185,
         1188
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "INS08",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_INS",
       "sourceId": "INS08",
       "fields": {
@@ -3366,18 +2041,10 @@
       "sourceLines": [
         1190,
         1199
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "DEL08",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_DEL",
       "sourceId": "DEL08",
       "fields": {
@@ -3391,18 +2058,10 @@
       "sourceLines": [
         1200,
         1203
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "DONE-OP05-01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_DONE",
       "sourceId": "DONE-OP05-01",
       "fields": {
@@ -3414,18 +2073,10 @@
       "sourceLines": [
         1214,
         1215
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "DONE-OP05-02",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_DONE",
       "sourceId": "DONE-OP05-02",
       "fields": {
@@ -3437,18 +2088,10 @@
       "sourceLines": [
         1218,
         1219
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "CRV01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_CRV",
       "sourceId": "CRV01",
       "fields": {
@@ -3461,18 +2104,10 @@
       "sourceLines": [
         1261,
         1262
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "CRV02",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_CRV",
       "sourceId": "CRV02",
       "fields": {
@@ -3485,18 +2120,10 @@
       "sourceLines": [
         1264,
         1265
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "CRV03",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_CRV",
       "sourceId": "CRV03",
       "fields": {
@@ -3509,18 +2136,10 @@
       "sourceLines": [
         1267,
         1268
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "CRV04",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_CRV",
       "sourceId": "CRV04",
       "fields": {
@@ -3533,18 +2152,10 @@
       "sourceLines": [
         1270,
         1271
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "CRV05",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_CRV",
       "sourceId": "CRV05",
       "fields": {
@@ -3557,18 +2168,10 @@
       "sourceLines": [
         1273,
         1274
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "CRV06",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_CRV",
       "sourceId": "CRV06",
       "fields": {
@@ -3581,18 +2184,10 @@
       "sourceLines": [
         1276,
         1277
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "CRV07",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_CRV",
       "sourceId": "CRV07",
       "fields": {
@@ -3605,18 +2200,10 @@
       "sourceLines": [
         1279,
         1280
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "CRV08",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_CRV",
       "sourceId": "CRV08",
       "fields": {
@@ -3629,18 +2216,10 @@
       "sourceLines": [
         1282,
         1283
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "KPI-OP05-01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_KPI",
       "sourceId": "KPI-OP05-01",
       "fields": {
@@ -3653,18 +2232,10 @@
       "sourceLines": [
         1310,
         1312
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "KPI-OP05-02",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_KPI",
       "sourceId": "KPI-OP05-02",
       "fields": {
@@ -3676,18 +2247,10 @@
       "sourceLines": [
         1313,
         1314
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "HANDOFF-OP05-01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_HANDOFF",
       "sourceId": "HANDOFF-OP05-01",
       "fields": {
@@ -3700,18 +2263,10 @@
       "sourceLines": [
         1355,
         1357
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
+      ]
     },
     {
       "key": "CTX-OP05-01",
-      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_CTX",
       "sourceId": "CTX-OP05-01",
       "fields": {
@@ -3723,227 +2278,21 @@
       "sourceLines": [
         1392,
         1393
-      ],
-      "approvalEvidence": {
-        "text": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
-        "sourceLines": [
-          1673,
-          1673
-        ]
-      }
-    },
-    {
-      "key": "K1@L1506",
-      "classification": "HISTORICAL_DRAFT",
-      "objectType": "SOURCE_ID_K",
-      "sourceId": "K1",
-      "fields": {
-        "heading": "K1 · Coherencia",
-        "title": "Coherencia"
-      },
-      "sourceLines": [
-        1506,
-        1506
-      ],
-      "role": "QUALITY_GATE_STATE",
-      "governanceDecision": "M2-BATCH-02"
-    },
-    {
-      "key": "K1@L1529",
-      "classification": "HISTORICAL_DRAFT",
-      "objectType": "SOURCE_ID_K",
-      "sourceId": "K1",
-      "fields": {
-        "heading": "K1",
-        "body": [
-          "PASS"
-        ]
-      },
-      "sourceLines": [
-        1529,
-        1530
-      ],
-      "role": "QUALITY_GATE_STATE",
-      "governanceDecision": "M2-BATCH-02"
-    },
-    {
-      "key": "K2@L1532",
-      "classification": "HISTORICAL_DRAFT",
-      "objectType": "SOURCE_ID_K",
-      "sourceId": "K2",
-      "fields": {
-        "heading": "K2 · Razonamiento",
-        "title": "Razonamiento",
-        "body": [
-          "Ataques:",
-          "“atrasado = mala gestión” → bloqueado.",
-          "“sin Gantt = sin planificación” → bloqueado.",
-          "“90% tareas = 90% implementado” → bloqueado.",
-          "“entregado = implementado” → bloqueado.",
-          "“cerrado = exitoso” → bloqueado.",
-          "“cancelado = fracaso necesariamente” → bloqueado.",
-          "“cambio de plan = mala gestión” → bloqueado.",
-          "“dependencia = gap” → bloqueado.",
-          "“falta de avance = falta de recursos” → causalidad separada.",
-          "“más formalidad = mayor capacidad” → bloqueado.",
-          "Cobertura de decisiones:",
-          "- DEFINE;",
-          "- ASSIGN;",
-          "- RESOURCE;",
-          "- UNBLOCK;",
-          "- PLAN;",
-          "- ADAPT;",
-          "- ACTIVATE;",
-          "- VERIFY;",
-          "- REACTIVATE;",
-          "- REDEFINE;",
-          "- DEFER;",
-          "- CANCEL;",
-          "- CLOSE;",
-          "- DERIVE.",
-          "Suficiente."
-        ]
-      },
-      "sourceLines": [
-        1532,
-        1559
-      ],
-      "role": "QUALITY_GATE_STATE",
-      "governanceDecision": "M2-BATCH-02"
-    },
-    {
-      "key": "K2@L1560",
-      "classification": "HISTORICAL_DRAFT",
-      "objectType": "SOURCE_ID_K",
-      "sourceId": "K2",
-      "fields": {
-        "heading": "K2",
-        "body": [
-          "PASS"
-        ]
-      },
-      "sourceLines": [
-        1560,
-        1561
-      ],
-      "role": "QUALITY_GATE_STATE",
-      "governanceDecision": "M2-BATCH-02"
-    },
-    {
-      "key": "K3@L1563",
-      "classification": "HISTORICAL_DRAFT",
-      "objectType": "SOURCE_ID_K",
-      "sourceId": "K3",
-      "fields": {
-        "heading": "K3 · Acción",
-        "title": "Acción",
-        "body": [
-          "Cadena auditada:",
-          "HF01 → IP01 → INS01 → DEL01 → CRV01.",
-          "HF02 → IP02 → INS02 → DEL02 → CRV02.",
-          "HF03 → IP03 → INS03 → DEL03 → CRV03.",
-          "HF04 → IP04 → INS04 → DEL04 → CRV04.",
-          "HF05 → IP05 → INS05 → DEL05 → CRV05.",
-          "HF06 → IP06 → INS06 → DEL06 → CRV06.",
-          "HF07 → IP07 → INS07 → DEL07 → CRV07.",
-          "HF08 → IP08 → INS08 → DEL08 → CRV08.",
-          "Cobertura:",
-          "8/8.",
-          "Además existe handoff explícito a la capacidad originadora para validar el beneficio posterior."
-        ]
-      },
-      "sourceLines": [
-        1563,
-        1575
-      ],
-      "role": "QUALITY_GATE_STATE",
-      "governanceDecision": "M2-BATCH-02"
-    },
-    {
-      "key": "K3@L1576",
-      "classification": "HISTORICAL_DRAFT",
-      "objectType": "SOURCE_ID_K",
-      "sourceId": "K3",
-      "fields": {
-        "heading": "K3",
-        "body": [
-          "PASS"
-        ]
-      },
-      "sourceLines": [
-        1576,
-        1577
-      ],
-      "role": "QUALITY_GATE_STATE",
-      "governanceDecision": "M2-BATCH-02"
-    },
-    {
-      "key": "K4@L1579",
-      "classification": "HISTORICAL_DRAFT",
-      "objectType": "SOURCE_ID_K",
-      "sourceId": "K4",
-      "fields": {
-        "heading": "K4 · Conocimiento",
-        "title": "Conocimiento",
-        "body": [
-          "Aquí encontramos un punto real, y prefiero conservarlo en lugar de maquillarlo.",
-          "La ingeniería del conocimiento está:",
-          "- estructurada;",
-          "- trazable;",
-          "- conceptualmente fundamentada;",
-          "- versionable;",
-          "- gobernada.",
-          "Pero nuestra regla para Gate K4 dice:",
-          "“fundamentada, trazada, versionada y aprobada”.",
-          "Y el registro documental OP-05 todavía necesita una verificación externa específica de las fuentes exactas/versiones que sostienen el paquete.",
-          "Por tanto, aplicar correctamente nuestro propio Quality Gate significa:",
-          "K4 no debe declararse PASS todavía.",
-          "No porque falte rediseñar OP-05.",
-          "Falta:",
-          "cerrar la evidencia documental del Knowledge Pack."
-        ]
-      },
-      "sourceLines": [
-        1579,
-        1594
-      ],
-      "role": "QUALITY_GATE_STATE",
-      "governanceDecision": "M2-BATCH-02"
-    },
-    {
-      "key": "K4@L1661",
-      "classification": "HISTORICAL_DRAFT",
-      "objectType": "SOURCE_ID_K",
-      "sourceId": "K4",
-      "fields": {
-        "heading": "K4 · CONOCIMIENTO — PASS",
-        "title": "CONOCIMIENTO — PASS",
-        "body": [
-          "Y la auditoría completa de OP-05 queda:",
-          "| Quality Gate | Estado |",
-          "| K1 · Coherencia | PASS |",
-          "| K2 · Razonamiento | PASS |",
-          "| K3 · Acción | PASS |",
-          "| K4 · Conocimiento | PASS |",
-          "El anterior PASS WITH DOCUMENTARY ACTION del DoD-26 queda cerrado. Así, OP-05 alcanza:",
-          "DoD: 27/27 PASS",
-          "A–V: 22/22 PASS",
-          "K1–K4: 4/4 PASS",
-          "y podemos promover formalmente:"
-        ]
-      },
-      "sourceLines": [
-        1661,
-        1672
-      ],
-      "role": "QUALITY_GATE_STATE",
-      "governanceDecision": "M2-BATCH-02"
+      ]
     }
   ],
-  "governanceDecisions": {
-    "decisionSetId": "M2-BATCH-02",
-    "ref": "knowledge/intake/OP-05/governance-decisions.json",
-    "checksum": "sha256:54c94ad4e5fbffc45733b6000b792c3fcefb60ee03993f3a91e626ef82a1779f"
+  "supersessions": [],
+  "executableProjection": {
+    "sourceRef": "source.json",
+    "verbatimKeys": [
+      "heading",
+      "title",
+      "body"
+    ],
+    "projectedObjectTypes": [],
+    "canonicalOnlyGapRefs": []
   },
-  "checksum": "sha256:03da2cd45163f7ac46d71251a82068e885824cd68a0bed1bfcb3fccc4a793cd4"
+  "gaps": [],
+  "transcriptionCorrections": [],
+  "checksum": "sha256:5012dd5e604085ce748fb6eb44a98a5353fc887da5fb948af075b5f392034c40"
 }

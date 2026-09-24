@@ -1,10 +1,10 @@
 {
   "$schema": "../../schemas/governance-decisions.schema.json",
-  "decisionSetId": "M2-BATCH-01R",
+  "decisionSetId": "M2-BATCH-02",
   "decidedBy": "PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY",
   "decidedByIdentity": "ROLE_ONLY · no personal identity recorded or fabricated; the file-based governance mechanism exposes no authenticated project actor identity",
-  "decidedAt": "2026-09-23",
-  "authorizationSource": "M2-BATCH-01R · explicit human project-governance instruction (GOVERNED SUPERSESSION RESOLUTION + CANONICAL ACCEPTANCE)",
+  "decidedAt": "2026-09-24",
+  "authorizationSource": "M2-BATCH-02 · explicit human project-governance instruction (A · GOVERNED RESOLUTION OF OP-03 / OP-04 / OP-05); supersedes decision set M2-BATCH-01R, whose decisions are retained verbatim",
   "statement": "Decisiones humanas de gobierno sobre la fuente registrada. No son aceptación canónica, no aprueban el candidato y no publican; el extractor las aplica solo si se verifican literalmente contra la fuente.",
   "capabilityId": "OP-03",
   "approvedCounts": [
@@ -17,6 +17,12 @@
       "label": "VA",
       "declared": 8,
       "sourceLiteral": "8 VA"
+    },
+    {
+      "label": "CRV",
+      "declared": 8,
+      "sourceLiteral": "8 CRV principales",
+      "role": "PRINCIPAL_RESULT_CRITERION"
     }
   ],
   "governedBacklog": [
@@ -44,5 +50,123 @@
     "sectionHeading": "34. Cierre formal OP-03",
     "otherOccurrences": "CONFIRMATION_OR_NON_FINAL"
   },
-  "checksum": "sha256:7a9e4626110fff13b2d7bd69229493d346d372c8195ef9c56cab0276c845fa55"
+  "collisionResolutions": [
+    {
+      "sourceIds": [
+        "IP01",
+        "IP02",
+        "IP03",
+        "IP04",
+        "IP05",
+        "IP06",
+        "IP07",
+        "IP08"
+      ],
+      "resolution": "SELECT_OCCURRENCE",
+      "within": {
+        "fromLiteral": "# OP-03 · Bloque 9 — Ejecución de Intervenciones",
+        "toLiteral": "# OP-03 · Bloque 10 — Resultados"
+      },
+      "rationale": "M2-BATCH-02 A1: IP01–IP08 según la estructura final de intervención/ejecución aceptada por la baseline K4 V1; formulaciones previas preservadas."
+    },
+    {
+      "sourceIds": [
+        "P-OP03-02"
+      ],
+      "resolution": "SELECT_OCCURRENCE",
+      "within": {
+        "fromLiteral": "# OP-03 · Bloque 3 — Fundamentación externa y mapa de fuentes",
+        "toLiteral": "# OP-03 · Bloque 4 — Congelación CE/VA + NI + suficiencia"
+      },
+      "canonicalLiteral": "Integración tecnológica no demuestra por sí sola integración operacional E2E",
+      "rationale": "M2-BATCH-02 A1: formulación reforzada durante el grounding."
+    },
+    {
+      "sourceIds": [
+        "REUSE-OP03-01"
+      ],
+      "resolution": "SELECT_OCCURRENCE",
+      "within": {
+        "fromLiteral": "# OP-03 · Bloque 5 — Adquisición adaptativa, evidencia y colaboración",
+        "toLiteral": "# OP-03 · Bloque 6 — Motor diagnóstico"
+      },
+      "canonicalLiteral": "No volver a solicitar información ya disponible, vigente y suficientemente confiable",
+      "rationale": "M2-BATCH-02 A1: regla operacional de adquisición; formulación amplia previa preservada."
+    },
+    {
+      "sourceIds": [
+        "REC-OP03-01"
+      ],
+      "resolution": "GENUINE_COLLISION",
+      "within": {
+        "fromLiteral": "# OP-03 · Bloque 8 — Recomendaciones y Patrones de Intervención",
+        "toLiteral": "# OP-03 · Bloque 9 — Ejecución de Intervenciones"
+      },
+      "canonicalLiteral": "La especificidad de la recomendación no puede superar la confianza disponible sobre la causa.",
+      "otherOccurrencesRole": "HISTORICAL_RECOVERY_GUARDRAIL",
+      "rationale": "M2-BATCH-02 A1: colisión histórica real entre dos conceptos; no es supersesión. Ninguna aparición se borra."
+    },
+    {
+      "sourceIds": [
+        "P1"
+      ],
+      "resolution": "NOT_A_KNOWLEDGE_OBJECT",
+      "role": "ACQUISITION_STAGE_CATEGORY",
+      "rationale": "M2-BATCH-02 A1: P1 es etapa/categoría de adquisición; los objetos son P1-OP03-*."
+    }
+  ],
+  "semanticTypes": [
+    {
+      "sourceIds": [
+        "CRV-OP03-01",
+        "CRV-OP03-02",
+        "CRV-OP03-03",
+        "CRV-OP03-04",
+        "CRV-OP03-05",
+        "CRV-OP03-06",
+        "CRV-OP03-07",
+        "CRV-OP03-08"
+      ],
+      "role": "PRINCIPAL_RESULT_CRITERION",
+      "rationale": "M2-BATCH-02 A4: 8 criterios de resultado principales mapeados a IP01–IP08."
+    },
+    {
+      "sourceIds": [
+        "CRV02",
+        "CRV03"
+      ],
+      "role": "SHORTHAND_REFERENCE",
+      "aliasOf": {
+        "CRV02": "CRV-OP03-02",
+        "CRV03": "CRV-OP03-03"
+      },
+      "rationale": "M2-BATCH-02 A4: referencias abreviadas; no se cuentan aparte del ID canónico completo."
+    }
+  ],
+  "provenanceVocabulary": [
+    {
+      "scheme": "SOURCE_AUTHORITY_CLASS",
+      "anchorLiteral": "# 12. Autoridad de las fuentes",
+      "windowLines": 12,
+      "codes": [
+        "Architectural Authority",
+        "Internal Methodological Knowledge",
+        "External Conceptual Grounding",
+        "Contextual/Applied Evidence"
+      ]
+    },
+    {
+      "scheme": "SUPPORT_TYPE",
+      "anchorLiteral": "Support_Type puede ser:",
+      "windowLines": 8,
+      "codes": [
+        "FOUNDATIONAL",
+        "SUPPORTING",
+        "CONTEXTUAL",
+        "CONTRASTING",
+        "INTERNAL"
+      ]
+    }
+  ],
+  "checksum": "sha256:4e3d03fc519962404643b9f976cfad5a4a738f34456607b10631ab1bee04b92c"
 }

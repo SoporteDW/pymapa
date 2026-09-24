@@ -19,7 +19,58 @@
       5993
     ]
   },
-  "provenanceVocabulary": [],
+  "provenanceVocabulary": [
+    {
+      "code": "SOURCE-DERIVED",
+      "label": "SOURCE-DERIVED",
+      "meaning": "Derivado directamente de fuente.",
+      "sourceLines": [
+        5178,
+        5179
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "SYNTHESIZED",
+      "label": "SYNTHESIZED",
+      "meaning": "Síntesis de múltiples fuentes.",
+      "sourceLines": [
+        5180,
+        5181
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "Pymapa-DESIGNED",
+      "label": "Pymapa-DESIGNED",
+      "meaning": "Decisión arquitectónica/metodológica propia.",
+      "sourceLines": [
+        5182,
+        5183
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "INTERNAL",
+      "label": "INTERNAL",
+      "meaning": "Conocimiento Digiway/Pymapa.",
+      "sourceLines": [
+        5184,
+        5185
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    },
+    {
+      "code": "EXPERIENTIAL",
+      "label": "EXPERIENTIAL",
+      "meaning": "Aprendizaje procedente de casos.",
+      "sourceLines": [
+        5186,
+        5187
+      ],
+      "scheme": "PROVENANCE_CLASS"
+    }
+  ],
   "controlCounts": [
     {
       "label": "CE",
@@ -34,6 +85,7 @@
       "label": "CRV",
       "declared": 8,
       "objectType": "SOURCE_ID_CRV",
+      "role": "PRINCIPAL_RESULT_CRITERION",
       "sourceLines": [
         5962,
         5962
@@ -1926,7 +1978,7 @@
     },
     {
       "key": "UA-OP04-v0.4@L1282",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_UA",
       "sourceId": "UA-OP04-v0.4",
       "fields": {
@@ -1951,7 +2003,9 @@
       "sourceLines": [
         1282,
         1295
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "UA-OP04-v0.4@L1663"
     },
     {
       "key": "VA01@L1297",
@@ -2526,7 +2580,7 @@
     },
     {
       "key": "UA-OP04-v0.4@L1663",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_UA",
       "sourceId": "UA-OP04-v0.4",
       "fields": {
@@ -2539,7 +2593,15 @@
       "sourceLines": [
         1663,
         1664
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP04-CEVA-v0.4 · CANDIDATE-FROZEN",
+        "sourceLines": [
+          1661,
+          1661
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "CE01@L1667",
@@ -4000,7 +4062,7 @@
     },
     {
       "key": "HF01@L2872",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_HF",
       "sourceId": "HF01",
       "fields": {
@@ -4010,7 +4072,15 @@
       "sourceLines": [
         2872,
         2872
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-04 · Bloque 7 — Hallazgos, consolidación, causalidad y derivaciones",
+        "sourceLines": [
+          2832,
+          2832
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "OP04-HF01",
@@ -4047,7 +4117,7 @@
     },
     {
       "key": "HF02@L2886",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_HF",
       "sourceId": "HF02",
       "fields": {
@@ -4057,7 +4127,15 @@
       "sourceLines": [
         2886,
         2886
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-04 · Bloque 7 — Hallazgos, consolidación, causalidad y derivaciones",
+        "sourceLines": [
+          2832,
+          2832
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "OP04-HF02",
@@ -4096,7 +4174,7 @@
     },
     {
       "key": "HF03@L2902",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_HF",
       "sourceId": "HF03",
       "fields": {
@@ -4106,7 +4184,15 @@
       "sourceLines": [
         2902,
         2902
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-04 · Bloque 7 — Hallazgos, consolidación, causalidad y derivaciones",
+        "sourceLines": [
+          2832,
+          2832
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "OP04-HF03",
@@ -4139,7 +4225,7 @@
     },
     {
       "key": "HF04@L2912",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_HF",
       "sourceId": "HF04",
       "fields": {
@@ -4149,7 +4235,15 @@
       "sourceLines": [
         2912,
         2912
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-04 · Bloque 7 — Hallazgos, consolidación, causalidad y derivaciones",
+        "sourceLines": [
+          2832,
+          2832
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "OP04-HF04",
@@ -4190,7 +4284,7 @@
     },
     {
       "key": "HF05@L2930",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_HF",
       "sourceId": "HF05",
       "fields": {
@@ -4200,7 +4294,15 @@
       "sourceLines": [
         2930,
         2930
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-04 · Bloque 7 — Hallazgos, consolidación, causalidad y derivaciones",
+        "sourceLines": [
+          2832,
+          2832
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "OP04-HF05",
@@ -4234,7 +4336,7 @@
     },
     {
       "key": "HF06@L2941",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_HF",
       "sourceId": "HF06",
       "fields": {
@@ -4244,7 +4346,15 @@
       "sourceLines": [
         2941,
         2941
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-04 · Bloque 7 — Hallazgos, consolidación, causalidad y derivaciones",
+        "sourceLines": [
+          2832,
+          2832
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "OP04-HF06",
@@ -4280,7 +4390,7 @@
     },
     {
       "key": "HF07@L2954",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_HF",
       "sourceId": "HF07",
       "fields": {
@@ -4290,7 +4400,15 @@
       "sourceLines": [
         2954,
         2954
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-04 · Bloque 7 — Hallazgos, consolidación, causalidad y derivaciones",
+        "sourceLines": [
+          2832,
+          2832
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "OP04-HF07",
@@ -4324,7 +4442,7 @@
     },
     {
       "key": "HF08@L2965",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_HF",
       "sourceId": "HF08",
       "fields": {
@@ -4334,7 +4452,15 @@
       "sourceLines": [
         2965,
         2965
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-04 · Bloque 7 — Hallazgos, consolidación, causalidad y derivaciones",
+        "sourceLines": [
+          2832,
+          2832
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "OP04-HF08",
@@ -4637,7 +4763,7 @@
     },
     {
       "key": "IP01@L3419",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP01",
       "fields": {
@@ -4647,7 +4773,15 @@
       "sourceLines": [
         3419,
         3419
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-04 · Bloque 8 — Recomendaciones y patrones de intervención",
+        "sourceLines": [
+          3373,
+          3373
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "IP-OP04-01",
@@ -4718,7 +4852,7 @@
     },
     {
       "key": "IP02@L3447",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP02",
       "fields": {
@@ -4728,7 +4862,15 @@
       "sourceLines": [
         3447,
         3447
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-04 · Bloque 8 — Recomendaciones y patrones de intervención",
+        "sourceLines": [
+          3373,
+          3373
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "IP-OP04-02",
@@ -4770,7 +4912,7 @@
     },
     {
       "key": "IP03@L3479",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP03",
       "fields": {
@@ -4780,7 +4922,15 @@
       "sourceLines": [
         3479,
         3479
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-04 · Bloque 8 — Recomendaciones y patrones de intervención",
+        "sourceLines": [
+          3373,
+          3373
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "IP-OP04-03",
@@ -4822,7 +4972,7 @@
     },
     {
       "key": "IP04@L3504",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP04",
       "fields": {
@@ -4832,7 +4982,15 @@
       "sourceLines": [
         3504,
         3504
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-04 · Bloque 8 — Recomendaciones y patrones de intervención",
+        "sourceLines": [
+          3373,
+          3373
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "IP-OP04-04",
@@ -4903,7 +5061,7 @@
     },
     {
       "key": "IP05@L3532",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP05",
       "fields": {
@@ -4913,7 +5071,15 @@
       "sourceLines": [
         3532,
         3532
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-04 · Bloque 8 — Recomendaciones y patrones de intervención",
+        "sourceLines": [
+          3373,
+          3373
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "IP-OP04-05",
@@ -4957,7 +5123,7 @@
     },
     {
       "key": "IP06@L3552",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP06",
       "fields": {
@@ -4967,7 +5133,15 @@
       "sourceLines": [
         3552,
         3552
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-04 · Bloque 8 — Recomendaciones y patrones de intervención",
+        "sourceLines": [
+          3373,
+          3373
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "IP-OP04-06",
@@ -5009,7 +5183,7 @@
     },
     {
       "key": "IP07@L3570",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP07",
       "fields": {
@@ -5019,7 +5193,15 @@
       "sourceLines": [
         3570,
         3570
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-04 · Bloque 8 — Recomendaciones y patrones de intervención",
+        "sourceLines": [
+          3373,
+          3373
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "IP-OP04-07",
@@ -5089,7 +5271,7 @@
     },
     {
       "key": "IP08@L3597",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "FINAL_APPROVED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP08",
       "fields": {
@@ -5099,7 +5281,15 @@
       "sourceLines": [
         3597,
         3597
-      ]
+      ],
+      "approvalEvidence": {
+        "text": "# OP-04 · Bloque 8 — Recomendaciones y patrones de intervención",
+        "sourceLines": [
+          3373,
+          3373
+        ]
+      },
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "IP-OP04-08",
@@ -5359,7 +5549,7 @@
     },
     {
       "key": "IP01@L3951",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP01",
       "fields": {
@@ -5369,11 +5559,13 @@
       "sourceLines": [
         3951,
         3951
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP01@L3419"
     },
     {
       "key": "IP02@L3978",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP02",
       "fields": {
@@ -5383,11 +5575,13 @@
       "sourceLines": [
         3978,
         3978
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP02@L3447"
     },
     {
       "key": "IP03@L4002",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP03",
       "fields": {
@@ -5397,7 +5591,9 @@
       "sourceLines": [
         4002,
         4002
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP03@L3479"
     },
     {
       "key": "DONE-OP04-02",
@@ -5424,7 +5620,7 @@
     },
     {
       "key": "IP04@L4030",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP04",
       "fields": {
@@ -5434,7 +5630,9 @@
       "sourceLines": [
         4030,
         4030
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP04@L3504"
     },
     {
       "key": "DONE-OP04-03",
@@ -5462,7 +5660,7 @@
     },
     {
       "key": "IP05@L4079",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP05",
       "fields": {
@@ -5472,7 +5670,9 @@
       "sourceLines": [
         4079,
         4079
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP05@L3532"
     },
     {
       "key": "DONE-OP04-04",
@@ -5500,7 +5700,7 @@
     },
     {
       "key": "IP06@L4114",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP06",
       "fields": {
@@ -5510,7 +5710,9 @@
       "sourceLines": [
         4114,
         4114
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP06@L3552"
     },
     {
       "key": "DONE-OP04-05",
@@ -5537,7 +5739,7 @@
     },
     {
       "key": "IP07@L4141",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP07",
       "fields": {
@@ -5547,7 +5749,9 @@
       "sourceLines": [
         4141,
         4141
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP07@L3570"
     },
     {
       "key": "DONE-OP04-06",
@@ -5574,7 +5778,7 @@
     },
     {
       "key": "IP08@L4170",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_IP",
       "sourceId": "IP08",
       "fields": {
@@ -5588,7 +5792,9 @@
       "sourceLines": [
         4170,
         4172
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "IP08@L3597"
     },
     {
       "key": "DEL-OP04-01-RULE",
@@ -5743,7 +5949,9 @@
           5993,
           5993
         ]
-      }
+      },
+      "role": "PRINCIPAL_RESULT_CRITERION",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "CRV02",
@@ -5776,7 +5984,9 @@
           5993,
           5993
         ]
-      }
+      },
+      "role": "PRINCIPAL_RESULT_CRITERION",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "CRV03",
@@ -5812,7 +6022,9 @@
           5993,
           5993
         ]
-      }
+      },
+      "role": "PRINCIPAL_RESULT_CRITERION",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "CRV04",
@@ -5843,7 +6055,9 @@
           5993,
           5993
         ]
-      }
+      },
+      "role": "PRINCIPAL_RESULT_CRITERION",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "CRV05",
@@ -5871,7 +6085,9 @@
           5993,
           5993
         ]
-      }
+      },
+      "role": "PRINCIPAL_RESULT_CRITERION",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "CRV06",
@@ -5902,7 +6118,9 @@
           5993,
           5993
         ]
-      }
+      },
+      "role": "PRINCIPAL_RESULT_CRITERION",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "CRV07",
@@ -5930,7 +6148,9 @@
           5993,
           5993
         ]
-      }
+      },
+      "role": "PRINCIPAL_RESULT_CRITERION",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "CRV08",
@@ -5960,7 +6180,9 @@
           5993,
           5993
         ]
-      }
+      },
+      "role": "PRINCIPAL_RESULT_CRITERION",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "CRV-OP04-09",
@@ -5986,7 +6208,9 @@
           5993,
           5993
         ]
-      }
+      },
+      "role": "RESULT_TARGET_GUARDRAIL",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "KPI-OP04-01",
@@ -6453,7 +6677,9 @@
       "sourceLines": [
         5120,
         5122
-      ]
+      ],
+      "role": "QUALITY_GATE_STATE",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "K2@L5123",
@@ -6471,7 +6697,9 @@
       "sourceLines": [
         5123,
         5125
-      ]
+      ],
+      "role": "QUALITY_GATE_STATE",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "K3@L5126",
@@ -6488,7 +6716,9 @@
       "sourceLines": [
         5126,
         5127
-      ]
+      ],
+      "role": "QUALITY_GATE_STATE",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "K4@L5128",
@@ -6506,7 +6736,9 @@
       "sourceLines": [
         5128,
         5130
-      ]
+      ],
+      "role": "QUALITY_GATE_STATE",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "SRC-DEC-OP04-01",
@@ -6608,7 +6840,9 @@
       "sourceLines": [
         5442,
         5444
-      ]
+      ],
+      "role": "QUALITY_GATE_STATE",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "K1@L5542",
@@ -6625,7 +6859,9 @@
       "sourceLines": [
         5542,
         5543
-      ]
+      ],
+      "role": "QUALITY_GATE_STATE",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "CE01@L5544",
@@ -6740,7 +6976,9 @@
       "sourceLines": [
         5559,
         5559
-      ]
+      ],
+      "role": "QUALITY_GATE_STATE",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "K2@L5561",
@@ -6759,7 +6997,9 @@
       "sourceLines": [
         5561,
         5564
-      ]
+      ],
+      "role": "QUALITY_GATE_STATE",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "K2@L5700",
@@ -6788,7 +7028,9 @@
       "sourceLines": [
         5700,
         5713
-      ]
+      ],
+      "role": "QUALITY_GATE_STATE",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "K2@L5715",
@@ -6802,7 +7044,9 @@
       "sourceLines": [
         5715,
         5715
-      ]
+      ],
+      "role": "QUALITY_GATE_STATE",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "K3@L5717",
@@ -6821,11 +7065,13 @@
       "sourceLines": [
         5717,
         5720
-      ]
+      ],
+      "role": "QUALITY_GATE_STATE",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "HF01@L5722",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_HF",
       "sourceId": "HF01",
       "fields": {
@@ -6843,11 +7089,13 @@
       "sourceLines": [
         5722,
         5729
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "HF01@L2872"
     },
     {
       "key": "HF02@L5731",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_HF",
       "sourceId": "HF02",
       "fields": {
@@ -6865,11 +7113,13 @@
       "sourceLines": [
         5731,
         5738
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "HF02@L2886"
     },
     {
       "key": "HF03@L5740",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_HF",
       "sourceId": "HF03",
       "fields": {
@@ -6887,11 +7137,13 @@
       "sourceLines": [
         5740,
         5747
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "HF03@L2902"
     },
     {
       "key": "HF04@L5749",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_HF",
       "sourceId": "HF04",
       "fields": {
@@ -6908,11 +7160,13 @@
       "sourceLines": [
         5749,
         5755
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "HF04@L2912"
     },
     {
       "key": "HF05@L5757",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_HF",
       "sourceId": "HF05",
       "fields": {
@@ -6928,11 +7182,13 @@
       "sourceLines": [
         5757,
         5762
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "HF05@L2930"
     },
     {
       "key": "HF06@L5764",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_HF",
       "sourceId": "HF06",
       "fields": {
@@ -6948,11 +7204,13 @@
       "sourceLines": [
         5764,
         5769
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "HF06@L2941"
     },
     {
       "key": "HF07@L5771",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_HF",
       "sourceId": "HF07",
       "fields": {
@@ -6968,11 +7226,13 @@
       "sourceLines": [
         5771,
         5776
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "HF07@L2954"
     },
     {
       "key": "HF08@L5778",
-      "classification": "HISTORICAL_DRAFT",
+      "classification": "SUPERSEDED",
       "objectType": "SOURCE_ID_HF",
       "sourceId": "HF08",
       "fields": {
@@ -6989,7 +7249,9 @@
       "sourceLines": [
         5778,
         5784
-      ]
+      ],
+      "governanceDecision": "M2-BATCH-02",
+      "supersededBy": "HF08@L2965"
     },
     {
       "key": "K3@L5829",
@@ -7003,7 +7265,9 @@
       "sourceLines": [
         5829,
         5829
-      ]
+      ],
+      "role": "QUALITY_GATE_STATE",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "K4@L5831",
@@ -7024,7 +7288,9 @@
       "sourceLines": [
         5831,
         5836
-      ]
+      ],
+      "role": "QUALITY_GATE_STATE",
+      "governanceDecision": "M2-BATCH-02"
     },
     {
       "key": "A-OP04-01",
@@ -7124,13 +7390,15 @@
       "sourceLines": [
         5935,
         5935
-      ]
+      ],
+      "role": "QUALITY_GATE_STATE",
+      "governanceDecision": "M2-BATCH-02"
     }
   ],
   "governanceDecisions": {
-    "decisionSetId": "M2-BATCH-01R",
+    "decisionSetId": "M2-BATCH-02",
     "ref": "knowledge/intake/OP-04/governance-decisions.json",
-    "checksum": "sha256:230ea7de9e5a94f1cf7c8be80b5b4f2a6b66b6d4b55f7a96eb0e0a4491ff2f5a"
+    "checksum": "sha256:7039c377b6504d7905d7ef0c4f89ba88dfdd6b3578640b5c346a17e5939183dd"
   },
-  "checksum": "sha256:f0f4ec451fed7920384b6cbb00fb38e29e29bbaf3425f81e6197a195ac05611d"
+  "checksum": "sha256:5b328e056fb4ac328671b9b435ca70d7a575fbd22170b37158dcee549749f7d9"
 }

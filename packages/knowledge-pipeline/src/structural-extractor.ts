@@ -109,12 +109,22 @@ export interface GovernanceApplicationReport {
   approvedCounts: {
     label: string;
     declared: number;
+    role?: string;
     sourceLines: [number, number] | null;
     controlCount: { declared: number; sourceLines: [number, number] } | null;
     finalApprovedMaterialized: number | null;
     consistent: boolean | null;
   }[];
   backlogAdded: { sourceId: string; sourceLines: [number, number] }[];
+  collisionsApplied?: {
+    sourceId: string;
+    resolution: string;
+    selectedLine: number | null;
+    otherLines: number[];
+    role?: string;
+  }[];
+  semanticTypesApplied?: { sourceId: string; line: number; role: string; aliasOf?: string }[];
+  provenanceVocabularyApplied?: { scheme: string; code: string; line: number }[];
   errors: string[];
 }
 
@@ -467,6 +477,194 @@ export function extractStructuralCandidate(input: StructuralExtractionInput): {
     });
   }
 
+  /* -------- colisiones y tipado semántico gobernados (M2-BATCH-02) -------- */
+  const fullLine = (lit: string) =>
+    lines.flatMap((l, i) => (l.trim() === lit.trim() ? [i + 1] : []));
+  const rangeOf = (w: { fromLiteral: string; toLiteral: string } | undefined, ctx: string) => {
+    if (!w) return null;
+    const a = fullLine(w.fromLiteral);
+    const b = fullLine(w.toLiteral);
+    if (a.length !== 1 || b.length !== 1 || (a[0] as number) >= (b[0] as number)) {
+      govErrors.push(
+        `${ctx}: rango "${w.fromLiteral}" (${a.length}) → "${w.toLiteral}" (${b.length}) no es único/ordenado`,
+      );
+      return null;
+    }
+    return { from: a[0] as number, to: b[0] as number, text: w.fromLiteral.trim() };
+  };
+  const textOf = (i: CandidateItem) =>
+    [String(i.fields["heading"] ?? ""), ...((i.fields["body"] as string[] | undefined) ?? [])].join(
+      "\n",
+    );
+  const collisionsApplied: NonNullable<GovernanceApplicationReport["collisionsApplied"]> = [];
+  const governedIds = new Set<string>();
+  const setId = decisions?.value.decisionSetId;
+  for (const d of decisions?.value.collisionResolutions ?? []) {
+    const rng = rangeOf(d.within, d.sourceIds.join(","));
+    for (const sid of d.sourceIds) {
+      const occ = items.filter((i) => i.sourceId === sid && i.classification !== "GOVERNED_BACKLOG");
+      if (occ.length < 2) {
+        govErrors.push(`colisión ${sid}: ${occ.length} aparición(es); se exigen varias`);
+        continue;
+      }
+      if (d.resolution === "NOT_A_KNOWLEDGE_OBJECT") {
+        if (!d.role) {
+          govErrors.push(`colisión ${sid}: NOT_A_KNOWLEDGE_OBJECT exige role`);
+          continue;
+        }
+        occ.forEach((i) => {
+          i.classification = "HISTORICAL_DRAFT";
+          i.role = d.role as string;
+          i.governanceDecision = setId as string;
+          delete i.approvalEvidence;
+          delete i.supersededBy;
+        });
+        governedIds.add(sid);
+        collisionsApplied.push({
+          sourceId: sid,
+          resolution: d.resolution,
+          selectedLine: null,
+          otherLines: occ.map((i) => i.sourceLines?.[0] ?? 0),
+          role: d.role,
+        });
+        continue;
+      }
+      if (!rng) continue;
+      const inRange = occ.filter(
+        (i) => (i.sourceLines?.[0] ?? 0) > rng.from && (i.sourceLines?.[0] ?? 0) < rng.to,
+      );
+      if (inRange.length !== 1) {
+        govErrors.push(`colisión ${sid}: ${inRange.length} apariciones en el rango (se exige una)`);
+        continue;
+      }
+      const sel = inRange[0] as CandidateItem;
+      if (d.canonicalLiteral && !textOf(sel).includes(d.canonicalLiteral)) {
+        govErrors.push(`colisión ${sid}: literal canónico no figura en L${sel.sourceLines?.[0]}`);
+        continue;
+      }
+      if (d.resolution === "GENUINE_COLLISION" && !d.otherOccurrencesRole) {
+        govErrors.push(`colisión ${sid}: GENUINE_COLLISION exige otherOccurrencesRole`);
+        continue;
+      }
+      sel.classification = "FINAL_APPROVED";
+      sel.approvalEvidence = { text: rng.text, sourceLines: [rng.from, rng.from] };
+      sel.governanceDecision = setId as string;
+      delete sel.supersededBy;
+      delete sel.supersession;
+      if (d.role) sel.role = d.role;
+      const others = occ.filter((i) => i !== sel);
+      others.forEach((i) => {
+        delete i.approvalEvidence;
+        delete i.supersession;
+        i.governanceDecision = setId as string;
+        if (d.resolution === "SELECT_OCCURRENCE") {
+          i.classification = "SUPERSEDED";
+          i.supersededBy = sel.key;
+        } else {
+          i.classification = "HISTORICAL_DRAFT";
+          i.role = d.otherOccurrencesRole as string;
+          delete i.supersededBy;
+        }
+      });
+      governedIds.add(sid);
+      collisionsApplied.push({
+        sourceId: sid,
+        resolution: d.resolution,
+        selectedLine: sel.sourceLines?.[0] ?? null,
+        otherLines: others.map((i) => i.sourceLines?.[0] ?? 0),
+        ...(d.otherOccurrencesRole ? { role: d.otherOccurrencesRole } : {}),
+      });
+    }
+  }
+  const semanticTypesApplied: NonNullable<GovernanceApplicationReport["semanticTypesApplied"]> =
+    [];
+  for (const s of decisions?.value.semanticTypes ?? []) {
+    const rng = s.within ? rangeOf(s.within, `tipo ${s.role}`) : null;
+    if (s.within && !rng) continue;
+    for (const sid of s.sourceIds) {
+      const occ = items.filter(
+        (i) =>
+          i.sourceId === sid &&
+          (!rng || ((i.sourceLines?.[0] ?? 0) > rng.from && (i.sourceLines?.[0] ?? 0) < rng.to)),
+      );
+      if (occ.length !== 1) {
+        govErrors.push(`tipo ${s.role} ${sid}: ${occ.length} apariciones (se exige una)`);
+        continue;
+      }
+      const it = occ[0] as CandidateItem;
+      const bl = s.bodyLiterals?.[sid];
+      if (bl && !textOf(it).includes(bl)) {
+        govErrors.push(`tipo ${s.role} ${sid}: literal "${bl}" ausente en L${it.sourceLines?.[0]}`);
+        continue;
+      }
+      const alias = s.aliasOf?.[sid];
+      if (alias) {
+        const target = items.find(
+          (i) => i.sourceId === alias && i.classification === "FINAL_APPROVED",
+        );
+        const digits = (x: string) => /(\d+)$/.exec(x)?.[1];
+        if (!target || digits(alias) !== digits(sid)) {
+          govErrors.push(`alias ${sid} → ${alias}: destino inexistente o numeración distinta`);
+          continue;
+        }
+        it.classification = "HISTORICAL_DRAFT";
+        delete it.approvalEvidence;
+        it.statement = `SHORTHAND_REFERENCE · alias de ${alias} (decisión de gobierno ${setId}); no es objeto propio ni cuenta como tal`;
+      }
+      it.role = s.role;
+      it.governanceDecision = setId as string;
+      semanticTypesApplied.push({
+        sourceId: sid,
+        line: it.sourceLines?.[0] ?? 0,
+        role: s.role,
+        ...(alias ? { aliasOf: alias } : {}),
+      });
+    }
+  }
+  for (let n = ambiguous.length - 1; n >= 0; n -= 1)
+    if (governedIds.has((ambiguous[n] as { sourceId: string }).sourceId)) ambiguous.splice(n, 1);
+
+  /* -------- vocabulario de provenance nativo de la fuente -------- */
+  const provenanceVocabulary: ExtractionCandidate["provenanceVocabulary"] = [];
+  for (const v of decisions?.value.provenanceVocabulary ?? []) {
+    const a = fullLine(v.anchorLiteral);
+    if (a.length !== 1) {
+      govErrors.push(`provenance ${v.scheme}: ancla "${v.anchorLiteral}" aparece ${a.length} veces`);
+      continue;
+    }
+    const start = a[0] as number;
+    for (const code of v.codes) {
+      let at: number | null = null;
+      for (let n = start + 1; n <= Math.min(lines.length, start + v.windowLines); n += 1)
+        if ((lines[n - 1] ?? "").replace(/^#{1,9}\s+/, "").trim() === code) {
+          at = n;
+          break;
+        }
+      if (at === null) {
+        govErrors.push(`provenance ${v.scheme}: código ${code} no hallado tras el ancla`);
+        continue;
+      }
+      // Significado literal: línea siguiente a un código-heading. Si la fuente
+      // no lo declara, meaning repite el código literal (sin inventar texto).
+      let meaning = code;
+      let endLine = at;
+      if (headingAt.has(at)) {
+        const nx = lines[at] ?? "";
+        if (nx.trim() && !headingAt.has(at + 1)) {
+          meaning = nx.trim();
+          endLine = at + 1;
+        }
+      }
+      provenanceVocabulary.push({
+        code,
+        label: code,
+        meaning,
+        sourceLines: [at, endLine],
+        scheme: v.scheme,
+      });
+    }
+  }
+
   /* -------- backlog gobernado por decisión humana (líneas planas) -------- */
   const backlogAdded: GovernanceApplicationReport["backlogAdded"] = [];
   for (const b of decisions?.value.governedBacklog ?? []) {
@@ -530,12 +728,16 @@ export function extractStructuralCandidate(input: StructuralExtractionInput): {
     const n = a ? a[1] : b ? b[2] : null;
     if (p && n && prefixes.has(p)) lastCount.set(p, { declared: Number(n), line: i + 1 });
   });
+  const roleOfLabel = new Map(
+    (decisions?.value.approvedCounts ?? []).filter((a) => a.role).map((a) => [a.label, a.role]),
+  );
   const controlCounts = [...lastCount.entries()]
     .sort(([x], [y]) => (x < y ? -1 : 1))
     .map(([p, v]) => ({
       label: p,
       declared: v.declared,
       objectType: `SOURCE_ID_${p}`,
+      ...(roleOfLabel.get(p) ? { role: roleOfLabel.get(p) as string } : {}),
       sourceLines: [v.line, v.line] as [number, number],
     }));
 
@@ -553,12 +755,16 @@ export function extractStructuralCandidate(input: StructuralExtractionInput): {
     const cc = controlCounts.find((c) => c.label === a.label) ?? null;
     const materialized = prefixes.has(a.label)
       ? items.filter(
-          (i) => i.classification === "FINAL_APPROVED" && i.objectType === `SOURCE_ID_${a.label}`,
+          (i) =>
+            i.classification === "FINAL_APPROVED" &&
+            i.objectType === `SOURCE_ID_${a.label}` &&
+            (a.role === undefined || i.role === a.role),
         ).length
       : null;
     return {
       label: a.label,
       declared: a.declared,
+      ...(a.role ? { role: a.role } : {}),
       sourceLines: ln ? [ln, ln] : null,
       controlCount: cc ? { declared: cc.declared, sourceLines: cc.sourceLines } : null,
       finalApprovedMaterialized: materialized,
@@ -589,7 +795,7 @@ export function extractStructuralCandidate(input: StructuralExtractionInput): {
     baselineId: marker ? (marker.split(" · ")[0] as string) : null,
     historicalStatus:
       marker && closureLine ? { marker, sourceLines: [closureLine, closureLine] } : null,
-    provenanceVocabulary: [],
+    provenanceVocabulary,
     controlCounts,
     verbatimKeys: ["heading", "title", "body"],
     items,
@@ -722,6 +928,13 @@ export function extractStructuralCandidate(input: StructuralExtractionInput): {
                 closureSelection,
                 approvedCounts,
                 backlogAdded,
+                collisionsApplied,
+                semanticTypesApplied,
+                provenanceVocabularyApplied: provenanceVocabulary.map((v) => ({
+                  scheme: v.scheme ?? "",
+                  code: v.code,
+                  line: v.sourceLines[0],
+                })),
                 errors: govErrors,
               }
             : null,

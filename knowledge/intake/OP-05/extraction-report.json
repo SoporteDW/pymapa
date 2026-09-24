@@ -6,12 +6,9 @@
   "textSha256": "09629d4e6ff63c925057ca821e4fc4640c098544ba7f51942fec886336a4b31c",
   "extractor": "pymapa-structural-segmenter@0.2.0",
   "identity": {
-    "declaredName": "Gestionar iniciativas hasta su implementación efectiva",
-    "literalLines": [
-      7,
-      762
-    ],
-    "verified": true
+    "declaredName": null,
+    "literalLines": [],
+    "verified": false
   },
   "historicalClosure": {
     "marker": "OP05-K4-v1.0 · K4-VALIDATED · CLOSED",
@@ -70,60 +67,7 @@
     "finalApprovedCandidates": 117,
     "historicalDrafts": 19
   },
-  "ambiguousSupersessions": [
-    {
-      "sourceId": "K1",
-      "occurrences": [
-        {
-          "line": 1506,
-          "heading": "K1 · Coherencia"
-        },
-        {
-          "line": 1529,
-          "heading": "K1"
-        }
-      ]
-    },
-    {
-      "sourceId": "K2",
-      "occurrences": [
-        {
-          "line": 1532,
-          "heading": "K2 · Razonamiento"
-        },
-        {
-          "line": 1560,
-          "heading": "K2"
-        }
-      ]
-    },
-    {
-      "sourceId": "K3",
-      "occurrences": [
-        {
-          "line": 1563,
-          "heading": "K3 · Acción"
-        },
-        {
-          "line": 1576,
-          "heading": "K3"
-        }
-      ]
-    },
-    {
-      "sourceId": "K4",
-      "occurrences": [
-        {
-          "line": 1579,
-          "heading": "K4 · Conocimiento"
-        },
-        {
-          "line": 1661,
-          "heading": "K4 · CONOCIMIENTO — PASS"
-        }
-      ]
-    }
-  ],
+  "ambiguousSupersessions": [],
   "crossCapabilityReferences": [
     {
       "target": "OP-02",
@@ -183,15 +127,19 @@
       "historicalDrafts": 29
     },
     "after": {
-      "ambiguousIds": 4,
+      "ambiguousIds": 0,
       "finalApproved": 117,
       "superseded": 0,
       "historicalDrafts": 19,
       "governedBacklog": 0,
       "itemsWithSupersessionEvidence": 20
     },
-    "resolvedFromBaselineAmbiguous": 10,
+    "resolvedFromBaselineAmbiguous": 14,
     "resolvedFromBaselineAmbiguousList": [
+      "K1",
+      "K2",
+      "K3",
+      "K4",
       "VA01",
       "VA02",
       "VA03",
@@ -365,9 +313,9 @@
     ]
   },
   "governance": {
-    "decisionSetId": "M2-BATCH-01R",
+    "decisionSetId": "M2-BATCH-02",
     "ref": "knowledge/intake/OP-05/governance-decisions.json",
-    "checksum": "sha256:2a8c30eb2ce3c548fb9ad507e93474beb6940b525e1a1b8a853532ebbcb41462",
+    "checksum": "sha256:54c94ad4e5fbffc45733b6000b792c3fcefb60ee03993f3a91e626ef82a1779f",
     "closureSelection": {
       "selectedBy": "GOVERNANCE_DECISION",
       "selectedLine": 1673,
@@ -482,7 +430,77 @@
       }
     ],
     "backlogAdded": [],
+    "collisionsApplied": [
+      {
+        "sourceId": "K1",
+        "resolution": "NOT_A_KNOWLEDGE_OBJECT",
+        "selectedLine": null,
+        "otherLines": [
+          1506,
+          1529
+        ],
+        "role": "QUALITY_GATE_STATE"
+      },
+      {
+        "sourceId": "K2",
+        "resolution": "NOT_A_KNOWLEDGE_OBJECT",
+        "selectedLine": null,
+        "otherLines": [
+          1532,
+          1560
+        ],
+        "role": "QUALITY_GATE_STATE"
+      },
+      {
+        "sourceId": "K3",
+        "resolution": "NOT_A_KNOWLEDGE_OBJECT",
+        "selectedLine": null,
+        "otherLines": [
+          1563,
+          1576
+        ],
+        "role": "QUALITY_GATE_STATE"
+      },
+      {
+        "sourceId": "K4",
+        "resolution": "NOT_A_KNOWLEDGE_OBJECT",
+        "selectedLine": null,
+        "otherLines": [
+          1579,
+          1661
+        ],
+        "role": "QUALITY_GATE_STATE"
+      }
+    ],
+    "semanticTypesApplied": [],
+    "provenanceVocabularyApplied": [
+      {
+        "scheme": "PROVENANCE_CLASS",
+        "code": "SOURCE-DERIVED",
+        "line": 1443
+      },
+      {
+        "scheme": "PROVENANCE_CLASS",
+        "code": "SYNTHESIZED",
+        "line": 1444
+      },
+      {
+        "scheme": "PROVENANCE_CLASS",
+        "code": "Pymapa-DESIGNED",
+        "line": 1445
+      },
+      {
+        "scheme": "PROVENANCE_CLASS",
+        "code": "INTERNAL",
+        "line": 1446
+      },
+      {
+        "scheme": "PROVENANCE_CLASS",
+        "code": "EXPERIENTIAL",
+        "line": 1447
+      }
+    ],
     "errors": []
   },
-  "checksum": "sha256:5565b13aaf4cccc6fb8df84541ec8a6ccac16b4c28c93c5192df8e7452557876"
+  "checksum": "sha256:524cf201dc3ae2f056dac1757632a2fd5ae7e09abdecb258ab391294f858a636"
 }

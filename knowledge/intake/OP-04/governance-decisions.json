@@ -1,10 +1,10 @@
 {
   "$schema": "../../schemas/governance-decisions.schema.json",
-  "decisionSetId": "M2-BATCH-01R",
+  "decisionSetId": "M2-BATCH-02",
   "decidedBy": "PROJECT_OWNER / KNOWLEDGE_GOVERNANCE_AUTHORITY",
   "decidedByIdentity": "ROLE_ONLY · no personal identity recorded or fabricated; the file-based governance mechanism exposes no authenticated project actor identity",
-  "decidedAt": "2026-09-23",
-  "authorizationSource": "M2-BATCH-01R · explicit human project-governance instruction (GOVERNED SUPERSESSION RESOLUTION + CANONICAL ACCEPTANCE)",
+  "decidedAt": "2026-09-24",
+  "authorizationSource": "M2-BATCH-02 · explicit human project-governance instruction (A · GOVERNED RESOLUTION OF OP-03 / OP-04 / OP-05); supersedes decision set M2-BATCH-01R, whose decisions are retained verbatim",
   "statement": "Decisiones humanas de gobierno sobre la fuente registrada. No son aceptación canónica, no aprueban el candidato y no publican; el extractor las aplica solo si se verifican literalmente contra la fuente.",
   "capabilityId": "OP-04",
   "approvedCounts": [
@@ -17,8 +17,125 @@
       "label": "VA",
       "declared": 9,
       "sourceLiteral": "| VA | 9 |"
+    },
+    {
+      "label": "CRV",
+      "declared": 8,
+      "sourceLiteral": "| CRV principales | 8 |",
+      "role": "PRINCIPAL_RESULT_CRITERION"
     }
   ],
   "governedBacklog": [],
-  "checksum": "sha256:230ea7de9e5a94f1cf7c8be80b5b4f2a6b66b6d4b55f7a96eb0e0a4491ff2f5a"
+  "collisionResolutions": [
+    {
+      "sourceIds": [
+        "HF01",
+        "HF02",
+        "HF03",
+        "HF04",
+        "HF05",
+        "HF06",
+        "HF07",
+        "HF08"
+      ],
+      "resolution": "SELECT_OCCURRENCE",
+      "within": {
+        "fromLiteral": "# OP-04 · Bloque 7 — Hallazgos, consolidación, causalidad y derivaciones",
+        "toLiteral": "# OP-04 · Bloque 8 — Recomendaciones y patrones de intervención"
+      },
+      "rationale": "M2-BATCH-02 A2: HF01–HF08 según la estructura Candidate-Frozen (OP04-FINDINGS-v0.1) aceptada por K4."
+    },
+    {
+      "sourceIds": [
+        "IP01",
+        "IP02",
+        "IP03",
+        "IP04",
+        "IP05",
+        "IP06",
+        "IP07",
+        "IP08"
+      ],
+      "resolution": "SELECT_OCCURRENCE",
+      "within": {
+        "fromLiteral": "# OP-04 · Bloque 8 — Recomendaciones y patrones de intervención",
+        "toLiteral": "# OP-04 · Bloque 9 — Ejecución"
+      },
+      "rationale": "M2-BATCH-02 A2: IP01–IP08 según la estructura Candidate-Frozen (OP04-INTERVENTIONS-v0.1) aceptada por K4."
+    },
+    {
+      "sourceIds": [
+        "UA-OP04-v0.4"
+      ],
+      "resolution": "SELECT_OCCURRENCE",
+      "within": {
+        "fromLiteral": "# OP04-CEVA-v0.4 · CANDIDATE-FROZEN",
+        "toLiteral": "# OP-04 · Bloque 5 — Adquisición adaptativa, evidencia y selección de candidatas"
+      },
+      "rationale": "M2-BATCH-02 A2: UA-OP04-v0.4 · CANDIDATE-FROZEN promovida a la baseline V1."
+    },
+    {
+      "sourceIds": [
+        "K1",
+        "K2",
+        "K3",
+        "K4"
+      ],
+      "resolution": "NOT_A_KNOWLEDGE_OBJECT",
+      "role": "QUALITY_GATE_STATE",
+      "rationale": "M2-BATCH-02 A3: K1–K4 son estados de Quality Gate, no definiciones de objeto canónico competidoras; el estado final rige por el cierre K4 seleccionado. Las apariciones previas se preservan como evidencia de auditoría."
+    }
+  ],
+  "semanticTypes": [
+    {
+      "sourceIds": [
+        "CRV01",
+        "CRV02",
+        "CRV03",
+        "CRV04",
+        "CRV05",
+        "CRV06",
+        "CRV07",
+        "CRV08"
+      ],
+      "role": "PRINCIPAL_RESULT_CRITERION",
+      "within": {
+        "fromLiteral": "# 4. Ocho CRV principales",
+        "toLiteral": "# 6. CRV ≠ meta numérica"
+      },
+      "bodyLiterals": {
+        "CRV01": "CRV-OP04-01A",
+        "CRV02": "CRV-OP04-02",
+        "CRV03": "CRV-OP04-03",
+        "CRV04": "CRV-OP04-04",
+        "CRV05": "CRV-OP04-05",
+        "CRV06": "CRV-OP04-06",
+        "CRV07": "CRV-OP04-07",
+        "CRV08": "CRV-OP04-08"
+      },
+      "rationale": "M2-BATCH-02 A4: 8 criterios de resultado principales mapeados a IP01–IP08; el código completo figura literal en el cuerpo."
+    },
+    {
+      "sourceIds": [
+        "CRV-OP04-09"
+      ],
+      "role": "RESULT_TARGET_GUARDRAIL",
+      "rationale": "M2-BATCH-02 A4: guardrail de metas cuantitativas; ID histórico preservado sin renombrar."
+    }
+  ],
+  "provenanceVocabulary": [
+    {
+      "scheme": "PROVENANCE_CLASS",
+      "anchorLiteral": "Debemos distinguir:",
+      "windowLines": 12,
+      "codes": [
+        "SOURCE-DERIVED",
+        "SYNTHESIZED",
+        "Pymapa-DESIGNED",
+        "INTERNAL",
+        "EXPERIENTIAL"
+      ]
+    }
+  ],
+  "checksum": "sha256:7039c377b6504d7905d7ef0c4f89ba88dfdd6b3578640b5c346a17e5939183dd"
 }
