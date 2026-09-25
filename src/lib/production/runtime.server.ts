@@ -2013,7 +2013,8 @@ export async function asegurarContextoProductivo(
 ): Promise<AssessmentRecord> {
   // Releases que cubren la capacidad; el primero es el runtime manifest.
   const versionesCubren = await versionesQueCubren(capabilityId);
-  const knowledgeVersionId = versionesCubren[0]!;
+  // Assessments NUEVOS siempre se pinnean al runtime manifest compuesto.
+  const knowledgeVersionId = await asegurarKnowledgeVersion();
 
   // 1. Organization + Membership vía función gobernada (SECURITY DEFINER):
   //    crea la organización del usuario y su membresía OWNER, o devuelve la
