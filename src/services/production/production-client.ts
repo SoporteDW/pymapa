@@ -38,6 +38,105 @@ import {
   reviewOp01Finding,
   submitOp01Response,
 } from "@/lib/production/op01.functions";
+import {
+  changeCapabilityActivityState,
+  createCapabilityActivity,
+  createCapabilityIntervention,
+  createCapabilityRecommendationCandidate,
+  decideCapabilityRecommendation,
+  getCapabilityAssessmentState,
+  getCapabilityCollaboration,
+  getCapabilityFindings,
+  getCapabilityNextAcquisition,
+  inviteCapabilityRespondent,
+  registerCapabilityDeliverable,
+  compareCapabilityAssessments,
+  decideCapabilityFollowUp,
+  decideCapabilityValidation,
+  getCapabilityValidation,
+  markCapabilityActivityDone,
+  openCapabilityValidation,
+  registerCapabilityValidationCase,
+  registerCapabilityValidationRequirement,
+  startCapabilityFollowUp,
+  startCapabilityReassessment,
+  registerCapabilityEvidence,
+  reviewCapabilityFinding,
+  submitCapabilityResponse,
+} from "@/lib/production/capabilities.functions";
+
+/** Capacidad por defecto: compatibilidad con los consumidores OP-01 existentes. */
+export const OP01_CAPABILITY_ID = "OP-01";
+
+const BOUNDARY_OP01 = {
+  changeOp01ActivityState,
+  createOp01Activity,
+  createOp01Intervention,
+  createOp01RecommendationCandidate,
+  decideOp01Recommendation,
+  getOp01AssessmentState,
+  getOp01Collaboration,
+  getOp01Findings,
+  getOp01NextAcquisition,
+  inviteOp01Respondent,
+  registerOp01Deliverable,
+  compareOp01Assessments,
+  decideOp01FollowUp,
+  decideOp01Validation,
+  getOp01Validation,
+  markOp01ActivityDone,
+  openOp01Validation,
+  registerOp01ValidationCase,
+  registerOp01ValidationRequirement,
+  startOp01FollowUp,
+  startOp01Reassessment,
+  registerOp01Evidence,
+  reviewOp01Finding,
+  submitOp01Response,
+};
+
+type Boundary = typeof BOUNDARY_OP01;
+
+/** Inyecta capabilityId en la llamada a la función genérica (PKG-01). */
+function conCapacidad(fn: (args: { data: never }) => Promise<unknown>) {
+  return (capabilityId: string) =>
+    (args?: { data?: Record<string, unknown> }) =>
+      fn({ data: { ...(args?.data ?? {}), capabilityId } as never });
+}
+
+/** OP-01 conserva su superficie histórica; el resto usa el boundary genérico. */
+function boundaryFor(capabilityId: string): Boundary {
+  if (capabilityId === OP01_CAPABILITY_ID) return BOUNDARY_OP01;
+  const generic = {
+    changeOp01ActivityState: conCapacidad(changeCapabilityActivityState),
+    createOp01Activity: conCapacidad(createCapabilityActivity),
+    createOp01Intervention: conCapacidad(createCapabilityIntervention),
+    createOp01RecommendationCandidate: conCapacidad(createCapabilityRecommendationCandidate),
+    decideOp01Recommendation: conCapacidad(decideCapabilityRecommendation),
+    getOp01AssessmentState: conCapacidad(getCapabilityAssessmentState),
+    getOp01Collaboration: conCapacidad(getCapabilityCollaboration),
+    getOp01Findings: conCapacidad(getCapabilityFindings),
+    getOp01NextAcquisition: conCapacidad(getCapabilityNextAcquisition),
+    inviteOp01Respondent: conCapacidad(inviteCapabilityRespondent),
+    registerOp01Deliverable: conCapacidad(registerCapabilityDeliverable),
+    compareOp01Assessments: conCapacidad(compareCapabilityAssessments),
+    decideOp01FollowUp: conCapacidad(decideCapabilityFollowUp),
+    decideOp01Validation: conCapacidad(decideCapabilityValidation),
+    getOp01Validation: conCapacidad(getCapabilityValidation),
+    markOp01ActivityDone: conCapacidad(markCapabilityActivityDone),
+    openOp01Validation: conCapacidad(openCapabilityValidation),
+    registerOp01ValidationCase: conCapacidad(registerCapabilityValidationCase),
+    registerOp01ValidationRequirement: conCapacidad(registerCapabilityValidationRequirement),
+    startOp01FollowUp: conCapacidad(startCapabilityFollowUp),
+    startOp01Reassessment: conCapacidad(startCapabilityReassessment),
+    registerOp01Evidence: conCapacidad(registerCapabilityEvidence),
+    reviewOp01Finding: conCapacidad(reviewCapabilityFinding),
+    submitOp01Response: conCapacidad(submitCapabilityResponse),
+  };
+  return Object.fromEntries(
+    Object.entries(generic).map(([k, f]) => [k, (f as unknown as (c: string) => unknown)(capabilityId)]),
+  ) as unknown as Boundary;
+}
 import type { AssessmentClient } from "./assessment-client";
 
 type CollaborationPayload = Awaited<ReturnType<typeof getOp01Collaboration>>;
@@ -197,10 +296,13 @@ function aAssessmentStateDto(payload: {
   };
 }
 
-export function createProductionAssessmentClient(): ProductionAssessmentClient {
+export function createProductionAssessmentClient(
+  capabilityId: string = OP01_CAPABILITY_ID,
+): ProductionAssessmentClient {
+  const fns = boundaryFor(capabilityId);
   return {
     async getAssessmentState() {
-      const payload = await getOp01AssessmentState();
+      const payload = await fns.getOp01AssessmentState();
       return aAssessmentStateDto(payload);
     },
 
@@ -211,12 +313,12 @@ export function createProductionAssessmentClient(): ProductionAssessmentClient {
     },
 
     async getNextAcquisitionQuestion(): Promise<AcquisitionQuestionDTO | null> {
-      const payload = await getOp01NextAcquisition();
+      const payload = await fns.getOp01NextAcquisition();
       return payload.acquisition ?? null;
     },
 
     async submitResponse(command: SubmitResponseCommand): Promise<SubmitResponseResult> {
-      const resultado = await submitOp01Response({
+      const resultado = await fns.submitOp01Response({
         data: {
           acquisitionId: command.itemId,
           knowledgeState: command.knowledgeState ?? "KNOWN",
@@ -249,60 +351,60 @@ export function createProductionAssessmentClient(): ProductionAssessmentClient {
     },
 
     async getAssessmentDetail() {
-      const payload = await getOp01AssessmentState();
+      const payload = await fns.getOp01AssessmentState();
       return payload.state;
     },
 
     async getCollaboration() {
-      return getOp01Collaboration();
+      return fns.getOp01Collaboration();
     },
 
     async inviteRespondent(input) {
-      const salida = await inviteOp01Respondent({ data: input });
+      const salida = await fns.inviteOp01Respondent({ data: input });
       return { respondentId: salida.respondentId, assignmentId: salida.assignmentId };
     },
 
     async registerEvidence(input) {
-      const salida = await registerOp01Evidence({ data: input });
+      const salida = await fns.registerOp01Evidence({ data: input });
       return { evidenceId: salida.evidenceId, linkedObservationIds: salida.linkedObservationIds };
     },
 
     async getFindings() {
-      return getOp01Findings();
+      return fns.getOp01Findings();
     },
 
     async reviewFinding(input) {
-      const salida = await reviewOp01Finding({ data: input });
+      const salida = await fns.reviewOp01Finding({ data: input });
       return { accepted: salida.accepted, rejectionReason: salida.rejectionReason };
     },
 
     async createRecommendationCandidate(input) {
-      const salida = await createOp01RecommendationCandidate({ data: input });
+      const salida = await fns.createOp01RecommendationCandidate({ data: input });
       return { accepted: salida.accepted, rejectionReason: salida.rejectionReason };
     },
 
     async decideRecommendation(input) {
-      const salida = await decideOp01Recommendation({ data: input });
+      const salida = await fns.decideOp01Recommendation({ data: input });
       return { accepted: salida.accepted, rejectionReason: salida.rejectionReason };
     },
 
     async createIntervention(input) {
-      const salida = await createOp01Intervention({ data: input });
+      const salida = await fns.createOp01Intervention({ data: input });
       return { accepted: salida.accepted, rejectionReason: salida.rejectionReason };
     },
 
     async createActivity(input) {
-      const salida = await createOp01Activity({ data: input });
+      const salida = await fns.createOp01Activity({ data: input });
       return { accepted: salida.accepted, rejectionReason: salida.rejectionReason };
     },
 
     async changeActivityState(input) {
-      const salida = await changeOp01ActivityState({ data: input });
+      const salida = await fns.changeOp01ActivityState({ data: input });
       return { accepted: salida.accepted, rejectionReason: salida.rejectionReason };
     },
 
     async registerDeliverable(input) {
-      const salida = await registerOp01Deliverable({ data: input });
+      const salida = await fns.registerOp01Deliverable({ data: input });
       return {
         accepted: salida.accepted,
         rejectionReason: salida.rejectionReason,
@@ -312,7 +414,7 @@ export function createProductionAssessmentClient(): ProductionAssessmentClient {
     },
 
     async markActivityDone(activityId) {
-      const salida = await markOp01ActivityDone({ data: { activityId } });
+      const salida = await fns.markOp01ActivityDone({ data: { activityId } });
       return {
         accepted: salida.accepted,
         rejectionReason: salida.rejectionReason,
@@ -322,41 +424,41 @@ export function createProductionAssessmentClient(): ProductionAssessmentClient {
     },
 
     async registerValidationRequirement(input) {
-      const salida = await registerOp01ValidationRequirement({ data: input });
+      const salida = await fns.registerOp01ValidationRequirement({ data: input });
       return { accepted: salida.accepted, rejectionReason: salida.rejectionReason };
     },
 
     async registerValidationCase(input) {
-      const salida = await registerOp01ValidationCase({ data: input });
+      const salida = await fns.registerOp01ValidationCase({ data: input });
       return { accepted: salida.accepted, rejectionReason: salida.rejectionReason };
     },
 
     async openValidation(input) {
-      const salida = await openOp01Validation({ data: input });
+      const salida = await fns.openOp01Validation({ data: input });
       return { accepted: salida.accepted, rejectionReason: salida.rejectionReason };
     },
 
     async decideValidation(input) {
-      const salida = await decideOp01Validation({ data: input });
+      const salida = await fns.decideOp01Validation({ data: input });
       return { accepted: salida.accepted, rejectionReason: salida.rejectionReason };
     },
 
     async startFollowUp(input) {
-      const salida = await startOp01FollowUp({ data: input });
+      const salida = await fns.startOp01FollowUp({ data: input });
       return { accepted: salida.accepted, rejectionReason: salida.rejectionReason };
     },
 
     async decideFollowUp(input) {
-      const salida = await decideOp01FollowUp({ data: input });
+      const salida = await fns.decideOp01FollowUp({ data: input });
       return { accepted: salida.accepted, rejectionReason: salida.rejectionReason };
     },
 
     async getValidation() {
-      return getOp01Validation();
+      return fns.getOp01Validation();
     },
 
     async startReassessment(input) {
-      const salida = await startOp01Reassessment({ data: input ?? {} });
+      const salida = await fns.startOp01Reassessment({ data: input ?? {} });
       return {
         accepted: salida.accepted,
         rejectionReason: salida.rejectionReason,
@@ -366,7 +468,7 @@ export function createProductionAssessmentClient(): ProductionAssessmentClient {
     },
 
     async compareAssessments(input) {
-      return compareOp01Assessments({ data: input });
+      return fns.compareOp01Assessments({ data: input });
     },
   };
 }

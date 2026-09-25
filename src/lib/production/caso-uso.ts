@@ -72,6 +72,8 @@ export interface ProductionDeps {
   now?: () => string;
   /** Hash del token de invitación. El token en claro nunca se persiste. */
   hashToken?: (token: string) => string;
+  /** PKG-01 · checksum canónico del pack evaluado (registro publicado). */
+  packChecksum?: string;
 }
 
 export interface ProductionAssessmentState {
@@ -1816,6 +1818,16 @@ export async function iniciarReassessment(
       })),
       evaluationRunIds: runsBaseline.map((r) => r.id),
       findingRefs: findingsBaseline.map((f) => f.findingRef),
+      // PKG-01 · identidad del pack evaluado (solo snapshots nuevos).
+      ...(deps.packChecksum
+        ? {
+            capabilityPack: {
+              capabilityId: deps.engine.pack.capability.id,
+              packVersion: deps.engine.pack.packVersion,
+              packChecksum: deps.packChecksum,
+            },
+          }
+        : {}),
     },
     createdBy: input.actorUserId,
   });

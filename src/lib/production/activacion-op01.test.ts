@@ -130,8 +130,8 @@ describe("M1-D2 · recorrido productivo", () => {
     expect(resultado.rejectionReason).toBe(KNOWLEDGE_VERSION_MISMATCH);
   });
 
-  it("OP-01 se enruta a PRODUCTION_ENGINE y el resto permanece en MVP_ENGINE", () => {
-    expect([...PRODUCTION_CAPABILITY_IDS]).toEqual(["OP-01"]);
+  it("OP-01 se enruta a PRODUCTION_ENGINE y el MVP permanece en MVP_ENGINE", () => {
+    expect(PRODUCTION_CAPABILITY_IDS).toContain("OP-01"); // PKG-01: 31 publicadas
     expect(resolveExecutionSource("OP-01")).toBe("PRODUCTION_ENGINE");
     expect(resolveExecutionSource("CAP-03")).toBe("MVP_ENGINE");
   });

@@ -7,7 +7,15 @@
  */
 import { createHash } from "node:crypto";
 import { createKnowledgeEngine, type KnowledgeEngine } from "@pymapa/knowledge-engine";
-import packOp01 from "../../../knowledge/packs/op-01/1.0.0/pack.json" with { type: "json" };
+import {
+  OFFICIAL_CAPABILITY_IDS,
+  RUNTIME_MANIFEST_IDENTIFIER,
+  RUNTIME_MANIFEST_VERSION,
+  computeRuntimeManifestChecksum,
+  getPack,
+  getRegisteredPack,
+  listPublishedCapabilities,
+} from "./packs-registry";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Database, Json } from "@/integrations/supabase/types";
 import type {
@@ -62,39 +70,60 @@ const COLUMNAS_SNAPSHOT =
   "id, organization_id, case_id, assessment_id, knowledge_version_id, engine_version, reason, payload, created_by, created_at" as const;
 
 /**
- * M1-M · Registro de Knowledge Packs publicados.
+ * PKG-01 · Registro de Knowledge Packs publicados (31, estático en build time).
  *
- * Incorporar una capacidad nueva = añadir su pack gobernado a este registro.
- * El runtime no contiene lógica por capacidad: solo resuelve el pack por id.
+ * El runtime no contiene lógica por capacidad: solo resuelve el pack por
+ * capabilityId a través del registro genérico, que falla cerrado.
  */
-const PACKS_REGISTRADOS: ReadonlyArray<{ packId: string; pack: unknown }> = [
-  { packId: "op-01", pack: packOp01 },
-];
+const PACKS_REGISTRADOS: ReadonlyArray<{ capabilityId: string; packId: string }> =
+  OFFICIAL_CAPABILITY_IDS.map((id) => ({ capabilityId: id, packId: getRegisteredPack(id).packId }));
 
-function packPorId(packId: string): unknown {
-  const entrada = PACKS_REGISTRADOS.find((p) => p.packId === packId);
-  if (!entrada) throw new Error(`KNOWLEDGE_PACK_NOT_REGISTERED: ${packId}`);
-  return entrada.pack;
+function packPorId(capabilityId: string): unknown {
+  try {
+    return getPack(capabilityId);
+  } catch {
+    throw new Error(`KNOWLEDGE_PACK_NOT_REGISTERED: ${capabilityId}`);
+  }
 }
 
-/** Engine genérico enlazado a un pack registrado (declarativo). */
-export function cargarEngine(packId: string): KnowledgeEngine {
-  return createKnowledgeEngine(packPorId(packId));
+const ENGINES = new Map<string, KnowledgeEngine>();
+
+/** Engine 0.2.0 genérico enlazado a un pack publicado (reutilizado por capacidad). */
+export function cargarEngine(capabilityId: string): KnowledgeEngine {
+  const existente = ENGINES.get(capabilityId);
+  if (existente) return existente;
+  const engine = createKnowledgeEngine(packPorId(capabilityId));
+  ENGINES.set(capabilityId, engine);
+  return engine;
 }
 
-export function checksumPack(packId: string): string {
-  return createHash("sha256").update(JSON.stringify(packPorId(packId))).digest("hex");
+/**
+ * Checksum histórico M1 (sha256 hex de JSON.stringify del pack). Se conserva
+ * porque protege la fila `PYMAPA-KNOWLEDGE-MASTER 1.0.0`; no redefinirlo.
+ */
+export function checksumPack(capabilityId: string): string {
+  return createHash("sha256").update(JSON.stringify(packPorId(capabilityId))).digest("hex");
+}
+
+/** Identidad trazable de un pack: capabilityId + versión + checksum canónico. */
+export function identidadPack(capabilityId: string) {
+  const r = getRegisteredPack(capabilityId);
+  return { capabilityId: r.capabilityId, packId: r.packId, packVersion: r.packVersion, packChecksum: r.packChecksum };
+}
+
+export function listarCapacidadesDisponibles() {
+  return listPublishedCapabilities();
 }
 
 export const PACK_IDS_REGISTRADOS: readonly string[] = PACKS_REGISTRADOS.map((p) => p.packId);
 
-/** Alias de migración: OP-01 es la única capacidad productiva en M1-M. */
+/** Alias de compatibilidad M1: delega en el loader genérico. */
 export function cargarEngineOp01(): KnowledgeEngine {
-  return cargarEngine("op-01");
+  return cargarEngine("OP-01");
 }
 
 export function checksumPackOp01(): string {
-  return checksumPack("op-01");
+  return checksumPack("OP-01");
 }
 
 /** Hash del token de invitación. El token en claro nunca se persiste. */
@@ -102,8 +131,40 @@ export function hashTokenInvitacion(token: string): string {
   return createHash("sha256").update(token).digest("hex");
 }
 
+/** Fila histórica M1 (solo OP-01). Inmutable: nunca se actualiza ni reinterpreta. */
 export const KNOWLEDGE_VERSION_IDENTIFIER = "PYMAPA-KNOWLEDGE-MASTER";
 export const KNOWLEDGE_VERSION_NUMBER = "1.0.0";
+
+/** Release ejecutable compuesto de los 31 packs (PKG-01). */
+export const KNOWLEDGE_RUNTIME_IDENTIFIER = RUNTIME_MANIFEST_IDENTIFIER;
+export const KNOWLEDGE_RUNTIME_VERSION = RUNTIME_MANIFEST_VERSION;
+export const KNOWLEDGE_VERSION_INTEGRITY_MISMATCH = "KNOWLEDGE_VERSION_INTEGRITY_MISMATCH";
+
+/**
+ * Cobertura por release: qué capacidades respalda cada KnowledgeVersion y con
+ * qué checksum. Declarativo por versión, nunca por capacidad en el código.
+ */
+export function coberturaDeReleases(): ReadonlyArray<{
+  identifier: string;
+  version: string;
+  checksum: string;
+  capabilityIds: readonly string[];
+}> {
+  return [
+    {
+      identifier: KNOWLEDGE_VERSION_IDENTIFIER,
+      version: KNOWLEDGE_VERSION_NUMBER,
+      checksum: checksumPackOp01(),
+      capabilityIds: ["OP-01"],
+    },
+    {
+      identifier: KNOWLEDGE_RUNTIME_IDENTIFIER,
+      version: KNOWLEDGE_RUNTIME_VERSION,
+      checksum: computeRuntimeManifestChecksum(),
+      capabilityIds: OFFICIAL_CAPABILITY_IDS,
+    },
+  ];
+}
 
 /** Los campos jsonb del esquema aceptan objetos; el cast es solo de tipos. */
 const aJson = (valor: unknown): Json => valor as Json;
@@ -143,35 +204,103 @@ function lanzar(contexto: string, error: { message: string } | null): void {
   if (error) throw new Error(`${contexto}: ${error.message}`);
 }
 
-/**
- * Registra (idempotente) la KnowledgeVersion gobernada que respalda el pack y
- * devuelve su id. Una versión PUBLISHED es inmutable: solo se lee o se crea.
- */
-export async function asegurarKnowledgeVersion(): Promise<string> {
-  const db = await admin();
-  const checksum = checksumPackOp01();
-  const existente = await db
-    .from("knowledge_versions")
-    .select("id, checksum")
-    .eq("identifier", KNOWLEDGE_VERSION_IDENTIFIER)
-    .eq("version", KNOWLEDGE_VERSION_NUMBER)
-    .maybeSingle();
-  lanzar("knowledge_versions.select", existente.error);
-  if (existente.data) return existente.data.id;
+/** Puerto mínimo sobre knowledge_versions (inyectable en tests). */
+export interface KnowledgeVersionStore {
+  find(identifier: string, version: string): Promise<{ id: string; checksum: string } | null>;
+  insert(row: {
+    identifier: string;
+    version: string;
+    status: "PUBLISHED";
+    checksum: string;
+    published_at: string;
+  }): Promise<string>;
+}
 
-  const creada = await db
-    .from("knowledge_versions")
-    .insert({
-      identifier: KNOWLEDGE_VERSION_IDENTIFIER,
-      version: KNOWLEDGE_VERSION_NUMBER,
-      status: "PUBLISHED",
-      checksum,
-      published_at: new Date().toISOString(),
-    })
-    .select("id")
-    .single();
-  lanzar("knowledge_versions.insert", creada.error);
-  return creada.data!.id;
+async function storeSupabase(): Promise<KnowledgeVersionStore> {
+  const db = await admin();
+  return {
+    async find(identifier, version) {
+      const r = await db
+        .from("knowledge_versions")
+        .select("id, checksum")
+        .eq("identifier", identifier)
+        .eq("version", version)
+        .maybeSingle();
+      lanzar("knowledge_versions.select", r.error);
+      return r.data ?? null;
+    },
+    async insert(row) {
+      const r = await db.from("knowledge_versions").insert(row).select("id").single();
+      lanzar("knowledge_versions.insert", r.error);
+      return r.data!.id;
+    },
+  };
+}
+
+/**
+ * Resuelve una KnowledgeVersion PUBLISHED de forma inmutable: si existe, su
+ * checksum debe coincidir (fail-closed); si no existe, se inserta. Nunca UPDATE.
+ */
+export async function resolverKnowledgeVersionInmutable(
+  store: KnowledgeVersionStore,
+  identifier: string,
+  version: string,
+  checksum: string,
+  crearSiFalta = true,
+): Promise<string | null> {
+  const existente = await store.find(identifier, version);
+  if (existente) {
+    if (existente.checksum !== checksum) {
+      throw new Error(`${KNOWLEDGE_VERSION_INTEGRITY_MISMATCH}: ${identifier}@${version}`);
+    }
+    return existente.id;
+  }
+  if (!crearSiFalta) return null;
+  return store.insert({
+    identifier,
+    version,
+    status: "PUBLISHED",
+    checksum,
+    published_at: new Date().toISOString(),
+  });
+}
+
+/**
+ * KnowledgeVersion para assessments NUEVOS: el release compuesto
+ * PYMAPA-RUNTIME-MANIFEST 1.0.0. La fila histórica M1 no se toca.
+ */
+export async function asegurarKnowledgeVersion(store?: KnowledgeVersionStore): Promise<string> {
+  const s = store ?? (await storeSupabase());
+  const id = await resolverKnowledgeVersionInmutable(
+    s,
+    KNOWLEDGE_RUNTIME_IDENTIFIER,
+    KNOWLEDGE_RUNTIME_VERSION,
+    computeRuntimeManifestChecksum(),
+  );
+  return id!;
+}
+
+/**
+ * IDs de KnowledgeVersion existentes que cubren una capacidad (históricas
+ * incluidas, verificadas por checksum). Las históricas nunca se crean aquí.
+ */
+export async function versionesQueCubren(
+  capabilityId: string,
+  store?: KnowledgeVersionStore,
+): Promise<string[]> {
+  const s = store ?? (await storeSupabase());
+  const runtimeId = await asegurarKnowledgeVersion(s);
+  const ids: string[] = [];
+  for (const r of coberturaDeReleases()) {
+    if (!r.capabilityIds.includes(capabilityId)) continue;
+    if (r.identifier === KNOWLEDGE_RUNTIME_IDENTIFIER && r.version === KNOWLEDGE_RUNTIME_VERSION) {
+      ids.push(runtimeId);
+      continue;
+    }
+    const id = await resolverKnowledgeVersionInmutable(s, r.identifier, r.version, r.checksum, false);
+    if (id) ids.push(id);
+  }
+  return ids;
 }
 
 /* ------------------------------------------------------------------ */
@@ -1880,7 +2009,11 @@ export type ClienteUsuario = SupabaseClient<Database>;
 export async function asegurarContextoProductivo(
   db: ClienteUsuario,
   userId: string,
+  capabilityId: string = "OP-01",
 ): Promise<AssessmentRecord> {
+  // Releases que cubren la capacidad; el primero es el runtime manifest.
+  const versionesCubren = await versionesQueCubren(capabilityId);
+  // Assessments NUEVOS siempre se pinnean al runtime manifest compuesto.
   const knowledgeVersionId = await asegurarKnowledgeVersion();
 
   // 1. Organization + Membership vía función gobernada (SECURITY DEFINER):
@@ -1929,8 +2062,9 @@ export async function asegurarContextoProductivo(
     .from("assessments")
     .select("id, organization_id, case_id, knowledge_version_id, type, started_at, closed_at, updated_at")
     .eq("case_id", caseId)
-    .eq("knowledge_version_id", knowledgeVersionId)
+    .in("knowledge_version_id", versionesCubren)
     .eq("type", "BASELINE")
+    .order("started_at", { ascending: true })
     .limit(1)
     .maybeSingle();
   lanzar("assessments.select", existente.error);

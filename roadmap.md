@@ -48,4 +48,5 @@
 ## M2-FINAL-15 (M2_KNOWLEDGE_31_OF_31_INDUSTRIALIZED)
 - [x] GOVERNED_STRUCTURAL_CORRESPONDENCE (DT-02/03/06) y CAPABILITY_PROGRESSIVE (12) genéricos
 - [x] 15 publicadas @1.0.0; 31/31 PUBLISHED; 774/774 tests
-- Siguiente (no iniciado): activación en app / PILOT-READY / M3
+- [x] PILOT-READY-01 · PKG-01 runtime/API genérico 31 capacidades
+- Siguiente (no iniciado): PKG-02 journey/UI dinámica · PKG-03 resultados · PKG-04 ejecución/validación
