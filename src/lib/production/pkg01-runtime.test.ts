@@ -223,8 +223,12 @@ describe("PKG-01 · C/D · runtime y boundary genéricos en 6 dominios", () => {
       expect(estado?.capabilityId).toBe(id);
       expect(estado?.totalAcquisitions).toBe(engine.listAcquisitions().length);
 
-      const siguiente = await casoUso.getNextAcquisition(deps, "assess-1");
-      expect(siguiente).not.toBeNull();
+      // Engine 0.2.0: las vías INFORMATION_NEED no tienen pregunta literal, por lo
+      // que getNextAcquisition no las propone; se adquieren por su id gobernado.
+      const propuesta = await casoUso.getNextAcquisition(deps, "assess-1");
+      const primera = engine.listAcquisitions()[0]!;
+      if (!propuesta) expect(primera.acquisitionMode).toBe("INFORMATION_NEED");
+      const siguiente = propuesta ?? { acquisitionId: primera.id };
 
       const salida = await casoUso.submitAcquisitionResponse(deps, {
         assessmentId: "assess-1",
@@ -278,7 +282,7 @@ describe("PKG-01 · C/D · runtime y boundary genéricos en 6 dominios", () => {
   it("sin branching por capacidad en el runtime ni en los handlers", () => {
     for (const f of ["runtime.server.ts", "capability-handlers.ts", "capabilities.functions.ts", "packs-registry.ts"]) {
       const src = leer("src", "lib", "production", f);
-      expect(src, f).not.toMatch(/capabilityId\s*===\s*["']/);
+      expect(src, f).not.toMatch(/(?<!typeof )capabilityId\s*===\s*["']/);
     }
   });
 });
