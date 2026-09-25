@@ -18,6 +18,7 @@ import {
   extractCapabilityDefinition,
   linkInformationNeeds,
   applyGovernedOrdinalMapping,
+  extractProgressiveAcquisition,
   type GovernedOrdinalMappingDecision,
   type OrdinalMappingCheck,
   NOT_EXPLICIT_MARK,
@@ -256,6 +257,71 @@ export function projectBaselineToRunnableSource(
     };
   });
 
+  /*
+   * M2-FINAL-15 · solo si quedan VA sin vía tras los canales explícitos:
+   *  B) GOVERNED_STRUCTURAL_CORRESPONDENCE — la fuente declara «Resultan N NI
+   *     correspondientes» con N = |VA| y no enumera NI: un canal por VA, sin
+   *     texto NI ni IDs NI01..NInn fabricados.
+   *  C) CAPABILITY_PROGRESSIVE — preguntas P1 literales (con núcleo, P2, P3 y
+   *     provenance) como canales de capacidad sobre las VA restantes.
+   * Sin ninguna de las dos: ACQUISITION_SEMANTICS_MISSING (bloqueante).
+   */
+  const fedBefore = new Set(acquisitions.flatMap((a) => a["variableRefs"] as string[]));
+  const pending = vaIds.filter((v) => !fedBefore.has(v));
+  const progressive = pending.length ? extractProgressiveAcquisition(rawText) : null;
+  const correspondence = new Set<string>();
+  const decl = progressive?.niDeclaration ?? null;
+  const enumeratedLinked = informationNeeds.filter((n) => n.variableRefs.length).length;
+  if (decl && pending.length && enumeratedLinked < decl.count) {
+    gaps.push({
+      id: `NI-NOT-ENUMERATED-${cap}`,
+      kind: "INFORMATION_NEED_NOT_ENUMERATED",
+      statement: `La fuente declara ${decl.count} NI sin enumerarlas individualmente (DECLARED_NOT_ENUMERATED): «${decl.text}» (L${decl.line}). No se redacta texto NI ni se fabrican IDs.`,
+      publicationBlocking: false,
+      sourceReference: `raw L${decl.line}`,
+    });
+    if (decl.correspondence && decl.count === vaIds.length && enumeratedLinked === 0)
+      for (const va of pending) {
+        correspondence.add(va);
+        acquisitions.push({
+          id: `ACQ·NI-CORRESPONDENCE·${va}`,
+          acquisitionMode: "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+          variableRefs: [va],
+          informationNeedStatus: "DECLARED_NOT_ENUMERATED",
+          correspondenceStatement: decl.text,
+          correspondenceSourceLines: [decl.line, decl.line],
+          questionStatus: NOT_EXPLICIT_MARK,
+          responseModel: RESPONSE_MODEL,
+        });
+      }
+  }
+  const progressiveVa = pending.filter((v) => !correspondence.has(v));
+  const progressiveSet = new Set<string>();
+  if (progressive?.p1?.questions.length && progressiveVa.length) {
+    progressiveVa.forEach((v) => progressiveSet.add(v));
+    progressive.p1.questions.forEach((q, i) =>
+      acquisitions.push({
+        id: `ACQ·P1·${String(i + 1).padStart(2, "0")}`,
+        level: "P1",
+        acquisitionMode: "CAPABILITY_PROGRESSIVE",
+        variableRefs: progressiveVa,
+        question: q.text,
+        questionSourceLines: [q.line, q.line],
+        progressiveContext: {
+          informationNeedStatus: decl ? "DECLARED_NOT_ENUMERATED" : NOT_EXPLICIT_MARK,
+          declaredInformationNeeds: decl
+            ? { count: decl.count, statement: decl.text, line: decl.line }
+            : null,
+          nuclear: progressive.nuclear,
+          p1Heading: progressive.p1!.heading,
+          p2: progressive.p2,
+          p3: progressive.p3,
+        },
+        responseModel: RESPONSE_MODEL,
+      }),
+    );
+  }
+
   const fed = new Set(acquisitions.flatMap((a) => a["variableRefs"] as string[]));
   const variables: Record<string, unknown>[] = [];
   const noCrit: string[] = [];
@@ -271,13 +337,18 @@ export function projectBaselineToRunnableSource(
     );
     const resolution = viaQuestion
       ? "ACQUISITION_EXPLICIT"
-      : fed.has(id)
-        ? informationNeeds.some(
-            (n) => n.mappingStatus === "GOVERNED_STRUCTURAL_MAPPING" && n.variableRefs.includes(id),
-          )
-          ? "GOVERNED_STRUCTURAL_MAPPING"
-          : "INFORMATION_NEED"
-        : "UNRESOLVED";
+      : correspondence.has(id)
+        ? "GOVERNED_STRUCTURAL_CORRESPONDENCE"
+        : progressiveSet.has(id)
+          ? "CAPABILITY_PROGRESSIVE"
+          : fed.has(id)
+            ? informationNeeds.some(
+                (n) =>
+                  n.mappingStatus === "GOVERNED_STRUCTURAL_MAPPING" && n.variableRefs.includes(id),
+              )
+              ? "GOVERNED_STRUCTURAL_MAPPING"
+              : "INFORMATION_NEED"
+            : "UNRESOLVED";
     if (resolution === "UNRESOLVED") unresolved.push(id);
     variables.push({
       id,
@@ -305,7 +376,7 @@ export function projectBaselineToRunnableSource(
   if (unresolved.length)
     gaps.push({
       id: `NE-${cap}-VA-ACQUISITION`,
-      kind: "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      kind: "ACQUISITION_SEMANTICS_MISSING",
       statement: `Sin vínculo explícito NI/pregunta → VA para ${unresolved.join(", ")}: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.`,
       publicationBlocking: true,
     });

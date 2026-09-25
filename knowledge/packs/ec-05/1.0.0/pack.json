@@ -1,0 +1,1915 @@
+{
+  "packId": "ec-05",
+  "packVersion": "1.0.0",
+  "status": "draft",
+  "knowledgeMaster": {
+    "identifier": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "status": "BASELINE-APPROVED",
+    "sourceReference": "canonical-baseline.json#EC05-K4-v1.0@sha256:d97df1b04e560342b827ac08f72aec77a29c093095514b7992f9b7d769bb7968 · EC05-K4-v1.0 · K4-VALIDATED · CLOSED"
+  },
+  "capability": {
+    "id": "EC-05",
+    "domainId": "EC",
+    "name": "Gestionar dependencias externas críticas",
+    "definition": "EC-05 evalúa la capacidad de la organización para identificar dependencias externas materiales, determinar su criticidad y exposición, comprender las posibilidades y costos de sustitución o recuperación y establecer tratamientos proporcionales que permitan mantener, restaurar, sustituir, reducir o aceptar conscientemente dicha dependencia.",
+    "definitionStatus": "EXPLICIT",
+    "definitionSourceLines": [
+      62,
+      62
+    ]
+  },
+  "conditionsOfExistence": [
+    {
+      "id": "CE01",
+      "statement": "Dependency identity"
+    },
+    {
+      "id": "CE02",
+      "statement": "Dependency mapping"
+    },
+    {
+      "id": "CE03",
+      "statement": "Criticality"
+    },
+    {
+      "id": "CE04",
+      "statement": "Concentration"
+    },
+    {
+      "id": "CE05",
+      "statement": "Substitutability"
+    },
+    {
+      "id": "CE06",
+      "statement": "Lock-in/portability"
+    },
+    {
+      "id": "CE07",
+      "statement": "Continuity"
+    },
+    {
+      "id": "CE08",
+      "statement": "Recovery"
+    },
+    {
+      "id": "CE09",
+      "statement": "Treatment"
+    },
+    {
+      "id": "CE10",
+      "statement": "Accountability"
+    },
+    {
+      "id": "CE11",
+      "statement": "Monitoring/adaptation"
+    }
+  ],
+  "variables": [
+    {
+      "id": "VA01",
+      "name": "fuente de dependencia identificada",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA02",
+      "name": "outcome dependiente identificado",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA03",
+      "name": "relación dependencia→resultado suficientemente visible",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA04",
+      "name": "dependencias indirectas materiales consideradas cuando aplica",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA05",
+      "name": "consecuencia suficientemente comprendida",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA06",
+      "name": "tolerancia suficientemente comprendida",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA07",
+      "name": "concentración material visible",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA08",
+      "name": "single points suficientemente identificados",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA09",
+      "name": "alternativas plausibles suficientemente conocidas",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA10",
+      "name": "substitute readiness suficientemente comprendida",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA11",
+      "name": "switching burden suficientemente comprendido",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA12",
+      "name": "lock-in material visible",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA13",
+      "name": "portability suficientemente comprendida",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA14",
+      "name": "exit readiness proporcionalmente evaluada",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA15",
+      "name": "escenarios materiales de disrupción considerados",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA16",
+      "name": "mecanismos de continuidad suficientes",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA17",
+      "name": "continuidad proporcionalmente evidenciada",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA18",
+      "name": "recovery path suficientemente definido",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA19",
+      "name": "recoverability proporcionalmente evidenciada",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA20",
+      "name": "tratamiento explícito",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA21",
+      "name": "tratamiento proporcional a exposición",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA22",
+      "name": "residual exposure suficientemente comprendida",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA23",
+      "name": "ownership de dependencia suficientemente claro",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA24",
+      "name": "aceptación de exposición material posee autoridad suficiente",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA25",
+      "name": "señales de cambio material suficientemente observables",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA26",
+      "name": "tratamiento puede revisarse cuando cambia la exposición",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    }
+  ],
+  "informationNeeds": [],
+  "acquisitions": [
+    {
+      "id": "ACQ·P1·01",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23",
+        "VA24",
+        "VA25",
+        "VA26"
+      ],
+      "question": "¿Qué proveedores, plataformas o personas externas serían realmente difíciles de perder mañana?",
+      "questionSourceLines": [
+        520,
+        520
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 26,
+          "statement": "Resultan 26 NI.",
+          "line": 514
+        },
+        "nuclear": {
+          "text": "¿De qué actor, recurso o servicio externo depende un resultado material, qué ocurriría si se degrada o desaparece, cuánto podemos tolerarlo, qué tan viable es sustituirlo o recuperarnos y qué tratamiento resulta proporcional?",
+          "line": 516
+        },
+        "p1Heading": {
+          "text": "# 43. Captura P1",
+          "line": 518
+        },
+        "p2": {
+          "heading": {
+            "text": "# 44. P2 · Triggers",
+            "line": 529
+          },
+          "triggers": [
+            {
+              "text": "único proveedor;",
+              "line": 531
+            },
+            {
+              "text": "marketplace dominante;",
+              "line": 532
+            },
+            {
+              "text": "freelancer crítico;",
+              "line": 533
+            },
+            {
+              "text": "plataforma propietaria;",
+              "line": 534
+            },
+            {
+              "text": "datos no exportables;",
+              "line": 535
+            },
+            {
+              "text": "API crítica;",
+              "line": 536
+            },
+            {
+              "text": "contrato largo;",
+              "line": 537
+            },
+            {
+              "text": "auto-renewal;",
+              "line": 538
+            },
+            {
+              "text": "costos altos de migración;",
+              "line": 539
+            },
+            {
+              "text": "ausencia de documentación;",
+              "line": 540
+            },
+            {
+              "text": "conocimiento externo concentrado;",
+              "line": 541
+            },
+            {
+              "text": "infraestructura crítica;",
+              "line": 542
+            },
+            {
+              "text": "payment provider único;",
+              "line": 543
+            },
+            {
+              "text": "proveedor financieramente débil;",
+              "line": 544
+            },
+            {
+              "text": "alta dependencia geográfica;",
+              "line": 545
+            },
+            {
+              "text": "alternativa nunca probada;",
+              "line": 546
+            },
+            {
+              "text": "backup no probado;",
+              "line": 547
+            },
+            {
+              "text": "continuidad asumida;",
+              "line": 548
+            },
+            {
+              "text": "credenciales controladas externamente;",
+              "line": 549
+            },
+            {
+              "text": "licencia crítica;",
+              "line": 550
+            },
+            {
+              "text": "soporte discontinuable.",
+              "line": 551
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 45. P3 · Discriminación",
+            "line": 553
+          },
+          "lines": [
+            {
+              "text": "SELECTION PROBLEM → EC-02",
+              "line": 554
+            },
+            {
+              "text": "RELATIONSHIP GOVERNANCE → EC-03",
+              "line": 555
+            },
+            {
+              "text": "ABSORPTION/KNOWLEDGE → EC-04",
+              "line": 556
+            },
+            {
+              "text": "DEPENDENCY EXPOSURE → EC-05",
+              "line": 557
+            },
+            {
+              "text": "CYBER/TECH CONTINUITY → DT-05",
+              "line": 558
+            },
+            {
+              "text": "TECH FIT → DT-01/06",
+              "line": 559
+            },
+            {
+              "text": "TRANSFORMATION RISK GOVERNANCE → DG-05",
+              "line": 560
+            },
+            {
+              "text": "INTERNAL KNOWLEDGE CONCENTRATION → PC-04",
+              "line": 561
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·02",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23",
+        "VA24",
+        "VA25",
+        "VA26"
+      ],
+      "question": "¿Qué dejaría de funcionar?",
+      "questionSourceLines": [
+        521,
+        521
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 26,
+          "statement": "Resultan 26 NI.",
+          "line": 514
+        },
+        "nuclear": {
+          "text": "¿De qué actor, recurso o servicio externo depende un resultado material, qué ocurriría si se degrada o desaparece, cuánto podemos tolerarlo, qué tan viable es sustituirlo o recuperarnos y qué tratamiento resulta proporcional?",
+          "line": 516
+        },
+        "p1Heading": {
+          "text": "# 43. Captura P1",
+          "line": 518
+        },
+        "p2": {
+          "heading": {
+            "text": "# 44. P2 · Triggers",
+            "line": 529
+          },
+          "triggers": [
+            {
+              "text": "único proveedor;",
+              "line": 531
+            },
+            {
+              "text": "marketplace dominante;",
+              "line": 532
+            },
+            {
+              "text": "freelancer crítico;",
+              "line": 533
+            },
+            {
+              "text": "plataforma propietaria;",
+              "line": 534
+            },
+            {
+              "text": "datos no exportables;",
+              "line": 535
+            },
+            {
+              "text": "API crítica;",
+              "line": 536
+            },
+            {
+              "text": "contrato largo;",
+              "line": 537
+            },
+            {
+              "text": "auto-renewal;",
+              "line": 538
+            },
+            {
+              "text": "costos altos de migración;",
+              "line": 539
+            },
+            {
+              "text": "ausencia de documentación;",
+              "line": 540
+            },
+            {
+              "text": "conocimiento externo concentrado;",
+              "line": 541
+            },
+            {
+              "text": "infraestructura crítica;",
+              "line": 542
+            },
+            {
+              "text": "payment provider único;",
+              "line": 543
+            },
+            {
+              "text": "proveedor financieramente débil;",
+              "line": 544
+            },
+            {
+              "text": "alta dependencia geográfica;",
+              "line": 545
+            },
+            {
+              "text": "alternativa nunca probada;",
+              "line": 546
+            },
+            {
+              "text": "backup no probado;",
+              "line": 547
+            },
+            {
+              "text": "continuidad asumida;",
+              "line": 548
+            },
+            {
+              "text": "credenciales controladas externamente;",
+              "line": 549
+            },
+            {
+              "text": "licencia crítica;",
+              "line": 550
+            },
+            {
+              "text": "soporte discontinuable.",
+              "line": 551
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 45. P3 · Discriminación",
+            "line": 553
+          },
+          "lines": [
+            {
+              "text": "SELECTION PROBLEM → EC-02",
+              "line": 554
+            },
+            {
+              "text": "RELATIONSHIP GOVERNANCE → EC-03",
+              "line": 555
+            },
+            {
+              "text": "ABSORPTION/KNOWLEDGE → EC-04",
+              "line": 556
+            },
+            {
+              "text": "DEPENDENCY EXPOSURE → EC-05",
+              "line": 557
+            },
+            {
+              "text": "CYBER/TECH CONTINUITY → DT-05",
+              "line": 558
+            },
+            {
+              "text": "TECH FIT → DT-01/06",
+              "line": 559
+            },
+            {
+              "text": "TRANSFORMATION RISK GOVERNANCE → DG-05",
+              "line": 560
+            },
+            {
+              "text": "INTERNAL KNOWLEDGE CONCENTRATION → PC-04",
+              "line": 561
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·03",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23",
+        "VA24",
+        "VA25",
+        "VA26"
+      ],
+      "question": "¿Durante cuánto tiempo podrían operar sin ellos?",
+      "questionSourceLines": [
+        522,
+        522
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 26,
+          "statement": "Resultan 26 NI.",
+          "line": 514
+        },
+        "nuclear": {
+          "text": "¿De qué actor, recurso o servicio externo depende un resultado material, qué ocurriría si se degrada o desaparece, cuánto podemos tolerarlo, qué tan viable es sustituirlo o recuperarnos y qué tratamiento resulta proporcional?",
+          "line": 516
+        },
+        "p1Heading": {
+          "text": "# 43. Captura P1",
+          "line": 518
+        },
+        "p2": {
+          "heading": {
+            "text": "# 44. P2 · Triggers",
+            "line": 529
+          },
+          "triggers": [
+            {
+              "text": "único proveedor;",
+              "line": 531
+            },
+            {
+              "text": "marketplace dominante;",
+              "line": 532
+            },
+            {
+              "text": "freelancer crítico;",
+              "line": 533
+            },
+            {
+              "text": "plataforma propietaria;",
+              "line": 534
+            },
+            {
+              "text": "datos no exportables;",
+              "line": 535
+            },
+            {
+              "text": "API crítica;",
+              "line": 536
+            },
+            {
+              "text": "contrato largo;",
+              "line": 537
+            },
+            {
+              "text": "auto-renewal;",
+              "line": 538
+            },
+            {
+              "text": "costos altos de migración;",
+              "line": 539
+            },
+            {
+              "text": "ausencia de documentación;",
+              "line": 540
+            },
+            {
+              "text": "conocimiento externo concentrado;",
+              "line": 541
+            },
+            {
+              "text": "infraestructura crítica;",
+              "line": 542
+            },
+            {
+              "text": "payment provider único;",
+              "line": 543
+            },
+            {
+              "text": "proveedor financieramente débil;",
+              "line": 544
+            },
+            {
+              "text": "alta dependencia geográfica;",
+              "line": 545
+            },
+            {
+              "text": "alternativa nunca probada;",
+              "line": 546
+            },
+            {
+              "text": "backup no probado;",
+              "line": 547
+            },
+            {
+              "text": "continuidad asumida;",
+              "line": 548
+            },
+            {
+              "text": "credenciales controladas externamente;",
+              "line": 549
+            },
+            {
+              "text": "licencia crítica;",
+              "line": 550
+            },
+            {
+              "text": "soporte discontinuable.",
+              "line": 551
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 45. P3 · Discriminación",
+            "line": 553
+          },
+          "lines": [
+            {
+              "text": "SELECTION PROBLEM → EC-02",
+              "line": 554
+            },
+            {
+              "text": "RELATIONSHIP GOVERNANCE → EC-03",
+              "line": 555
+            },
+            {
+              "text": "ABSORPTION/KNOWLEDGE → EC-04",
+              "line": 556
+            },
+            {
+              "text": "DEPENDENCY EXPOSURE → EC-05",
+              "line": 557
+            },
+            {
+              "text": "CYBER/TECH CONTINUITY → DT-05",
+              "line": 558
+            },
+            {
+              "text": "TECH FIT → DT-01/06",
+              "line": 559
+            },
+            {
+              "text": "TRANSFORMATION RISK GOVERNANCE → DG-05",
+              "line": 560
+            },
+            {
+              "text": "INTERNAL KNOWLEDGE CONCENTRATION → PC-04",
+              "line": 561
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·04",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23",
+        "VA24",
+        "VA25",
+        "VA26"
+      ],
+      "question": "¿Existe una alternativa real?",
+      "questionSourceLines": [
+        523,
+        523
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 26,
+          "statement": "Resultan 26 NI.",
+          "line": 514
+        },
+        "nuclear": {
+          "text": "¿De qué actor, recurso o servicio externo depende un resultado material, qué ocurriría si se degrada o desaparece, cuánto podemos tolerarlo, qué tan viable es sustituirlo o recuperarnos y qué tratamiento resulta proporcional?",
+          "line": 516
+        },
+        "p1Heading": {
+          "text": "# 43. Captura P1",
+          "line": 518
+        },
+        "p2": {
+          "heading": {
+            "text": "# 44. P2 · Triggers",
+            "line": 529
+          },
+          "triggers": [
+            {
+              "text": "único proveedor;",
+              "line": 531
+            },
+            {
+              "text": "marketplace dominante;",
+              "line": 532
+            },
+            {
+              "text": "freelancer crítico;",
+              "line": 533
+            },
+            {
+              "text": "plataforma propietaria;",
+              "line": 534
+            },
+            {
+              "text": "datos no exportables;",
+              "line": 535
+            },
+            {
+              "text": "API crítica;",
+              "line": 536
+            },
+            {
+              "text": "contrato largo;",
+              "line": 537
+            },
+            {
+              "text": "auto-renewal;",
+              "line": 538
+            },
+            {
+              "text": "costos altos de migración;",
+              "line": 539
+            },
+            {
+              "text": "ausencia de documentación;",
+              "line": 540
+            },
+            {
+              "text": "conocimiento externo concentrado;",
+              "line": 541
+            },
+            {
+              "text": "infraestructura crítica;",
+              "line": 542
+            },
+            {
+              "text": "payment provider único;",
+              "line": 543
+            },
+            {
+              "text": "proveedor financieramente débil;",
+              "line": 544
+            },
+            {
+              "text": "alta dependencia geográfica;",
+              "line": 545
+            },
+            {
+              "text": "alternativa nunca probada;",
+              "line": 546
+            },
+            {
+              "text": "backup no probado;",
+              "line": 547
+            },
+            {
+              "text": "continuidad asumida;",
+              "line": 548
+            },
+            {
+              "text": "credenciales controladas externamente;",
+              "line": 549
+            },
+            {
+              "text": "licencia crítica;",
+              "line": 550
+            },
+            {
+              "text": "soporte discontinuable.",
+              "line": 551
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 45. P3 · Discriminación",
+            "line": 553
+          },
+          "lines": [
+            {
+              "text": "SELECTION PROBLEM → EC-02",
+              "line": 554
+            },
+            {
+              "text": "RELATIONSHIP GOVERNANCE → EC-03",
+              "line": 555
+            },
+            {
+              "text": "ABSORPTION/KNOWLEDGE → EC-04",
+              "line": 556
+            },
+            {
+              "text": "DEPENDENCY EXPOSURE → EC-05",
+              "line": 557
+            },
+            {
+              "text": "CYBER/TECH CONTINUITY → DT-05",
+              "line": 558
+            },
+            {
+              "text": "TECH FIT → DT-01/06",
+              "line": 559
+            },
+            {
+              "text": "TRANSFORMATION RISK GOVERNANCE → DG-05",
+              "line": 560
+            },
+            {
+              "text": "INTERNAL KNOWLEDGE CONCENTRATION → PC-04",
+              "line": 561
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·05",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23",
+        "VA24",
+        "VA25",
+        "VA26"
+      ],
+      "question": "¿Cuánto tardaría cambiar?",
+      "questionSourceLines": [
+        524,
+        524
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 26,
+          "statement": "Resultan 26 NI.",
+          "line": 514
+        },
+        "nuclear": {
+          "text": "¿De qué actor, recurso o servicio externo depende un resultado material, qué ocurriría si se degrada o desaparece, cuánto podemos tolerarlo, qué tan viable es sustituirlo o recuperarnos y qué tratamiento resulta proporcional?",
+          "line": 516
+        },
+        "p1Heading": {
+          "text": "# 43. Captura P1",
+          "line": 518
+        },
+        "p2": {
+          "heading": {
+            "text": "# 44. P2 · Triggers",
+            "line": 529
+          },
+          "triggers": [
+            {
+              "text": "único proveedor;",
+              "line": 531
+            },
+            {
+              "text": "marketplace dominante;",
+              "line": 532
+            },
+            {
+              "text": "freelancer crítico;",
+              "line": 533
+            },
+            {
+              "text": "plataforma propietaria;",
+              "line": 534
+            },
+            {
+              "text": "datos no exportables;",
+              "line": 535
+            },
+            {
+              "text": "API crítica;",
+              "line": 536
+            },
+            {
+              "text": "contrato largo;",
+              "line": 537
+            },
+            {
+              "text": "auto-renewal;",
+              "line": 538
+            },
+            {
+              "text": "costos altos de migración;",
+              "line": 539
+            },
+            {
+              "text": "ausencia de documentación;",
+              "line": 540
+            },
+            {
+              "text": "conocimiento externo concentrado;",
+              "line": 541
+            },
+            {
+              "text": "infraestructura crítica;",
+              "line": 542
+            },
+            {
+              "text": "payment provider único;",
+              "line": 543
+            },
+            {
+              "text": "proveedor financieramente débil;",
+              "line": 544
+            },
+            {
+              "text": "alta dependencia geográfica;",
+              "line": 545
+            },
+            {
+              "text": "alternativa nunca probada;",
+              "line": 546
+            },
+            {
+              "text": "backup no probado;",
+              "line": 547
+            },
+            {
+              "text": "continuidad asumida;",
+              "line": 548
+            },
+            {
+              "text": "credenciales controladas externamente;",
+              "line": 549
+            },
+            {
+              "text": "licencia crítica;",
+              "line": 550
+            },
+            {
+              "text": "soporte discontinuable.",
+              "line": 551
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 45. P3 · Discriminación",
+            "line": 553
+          },
+          "lines": [
+            {
+              "text": "SELECTION PROBLEM → EC-02",
+              "line": 554
+            },
+            {
+              "text": "RELATIONSHIP GOVERNANCE → EC-03",
+              "line": 555
+            },
+            {
+              "text": "ABSORPTION/KNOWLEDGE → EC-04",
+              "line": 556
+            },
+            {
+              "text": "DEPENDENCY EXPOSURE → EC-05",
+              "line": 557
+            },
+            {
+              "text": "CYBER/TECH CONTINUITY → DT-05",
+              "line": 558
+            },
+            {
+              "text": "TECH FIT → DT-01/06",
+              "line": 559
+            },
+            {
+              "text": "TRANSFORMATION RISK GOVERNANCE → DG-05",
+              "line": 560
+            },
+            {
+              "text": "INTERNAL KNOWLEDGE CONCENTRATION → PC-04",
+              "line": 561
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·06",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23",
+        "VA24",
+        "VA25",
+        "VA26"
+      ],
+      "question": "¿Qué información o conocimiento necesitarían para hacerlo?",
+      "questionSourceLines": [
+        525,
+        525
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 26,
+          "statement": "Resultan 26 NI.",
+          "line": 514
+        },
+        "nuclear": {
+          "text": "¿De qué actor, recurso o servicio externo depende un resultado material, qué ocurriría si se degrada o desaparece, cuánto podemos tolerarlo, qué tan viable es sustituirlo o recuperarnos y qué tratamiento resulta proporcional?",
+          "line": 516
+        },
+        "p1Heading": {
+          "text": "# 43. Captura P1",
+          "line": 518
+        },
+        "p2": {
+          "heading": {
+            "text": "# 44. P2 · Triggers",
+            "line": 529
+          },
+          "triggers": [
+            {
+              "text": "único proveedor;",
+              "line": 531
+            },
+            {
+              "text": "marketplace dominante;",
+              "line": 532
+            },
+            {
+              "text": "freelancer crítico;",
+              "line": 533
+            },
+            {
+              "text": "plataforma propietaria;",
+              "line": 534
+            },
+            {
+              "text": "datos no exportables;",
+              "line": 535
+            },
+            {
+              "text": "API crítica;",
+              "line": 536
+            },
+            {
+              "text": "contrato largo;",
+              "line": 537
+            },
+            {
+              "text": "auto-renewal;",
+              "line": 538
+            },
+            {
+              "text": "costos altos de migración;",
+              "line": 539
+            },
+            {
+              "text": "ausencia de documentación;",
+              "line": 540
+            },
+            {
+              "text": "conocimiento externo concentrado;",
+              "line": 541
+            },
+            {
+              "text": "infraestructura crítica;",
+              "line": 542
+            },
+            {
+              "text": "payment provider único;",
+              "line": 543
+            },
+            {
+              "text": "proveedor financieramente débil;",
+              "line": 544
+            },
+            {
+              "text": "alta dependencia geográfica;",
+              "line": 545
+            },
+            {
+              "text": "alternativa nunca probada;",
+              "line": 546
+            },
+            {
+              "text": "backup no probado;",
+              "line": 547
+            },
+            {
+              "text": "continuidad asumida;",
+              "line": 548
+            },
+            {
+              "text": "credenciales controladas externamente;",
+              "line": 549
+            },
+            {
+              "text": "licencia crítica;",
+              "line": 550
+            },
+            {
+              "text": "soporte discontinuable.",
+              "line": 551
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 45. P3 · Discriminación",
+            "line": 553
+          },
+          "lines": [
+            {
+              "text": "SELECTION PROBLEM → EC-02",
+              "line": 554
+            },
+            {
+              "text": "RELATIONSHIP GOVERNANCE → EC-03",
+              "line": 555
+            },
+            {
+              "text": "ABSORPTION/KNOWLEDGE → EC-04",
+              "line": 556
+            },
+            {
+              "text": "DEPENDENCY EXPOSURE → EC-05",
+              "line": 557
+            },
+            {
+              "text": "CYBER/TECH CONTINUITY → DT-05",
+              "line": 558
+            },
+            {
+              "text": "TECH FIT → DT-01/06",
+              "line": 559
+            },
+            {
+              "text": "TRANSFORMATION RISK GOVERNANCE → DG-05",
+              "line": 560
+            },
+            {
+              "text": "INTERNAL KNOWLEDGE CONCENTRATION → PC-04",
+              "line": 561
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·07",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23",
+        "VA24",
+        "VA25",
+        "VA26"
+      ],
+      "question": "¿Han probado alguna vez esa alternativa?",
+      "questionSourceLines": [
+        526,
+        526
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 26,
+          "statement": "Resultan 26 NI.",
+          "line": 514
+        },
+        "nuclear": {
+          "text": "¿De qué actor, recurso o servicio externo depende un resultado material, qué ocurriría si se degrada o desaparece, cuánto podemos tolerarlo, qué tan viable es sustituirlo o recuperarnos y qué tratamiento resulta proporcional?",
+          "line": 516
+        },
+        "p1Heading": {
+          "text": "# 43. Captura P1",
+          "line": 518
+        },
+        "p2": {
+          "heading": {
+            "text": "# 44. P2 · Triggers",
+            "line": 529
+          },
+          "triggers": [
+            {
+              "text": "único proveedor;",
+              "line": 531
+            },
+            {
+              "text": "marketplace dominante;",
+              "line": 532
+            },
+            {
+              "text": "freelancer crítico;",
+              "line": 533
+            },
+            {
+              "text": "plataforma propietaria;",
+              "line": 534
+            },
+            {
+              "text": "datos no exportables;",
+              "line": 535
+            },
+            {
+              "text": "API crítica;",
+              "line": 536
+            },
+            {
+              "text": "contrato largo;",
+              "line": 537
+            },
+            {
+              "text": "auto-renewal;",
+              "line": 538
+            },
+            {
+              "text": "costos altos de migración;",
+              "line": 539
+            },
+            {
+              "text": "ausencia de documentación;",
+              "line": 540
+            },
+            {
+              "text": "conocimiento externo concentrado;",
+              "line": 541
+            },
+            {
+              "text": "infraestructura crítica;",
+              "line": 542
+            },
+            {
+              "text": "payment provider único;",
+              "line": 543
+            },
+            {
+              "text": "proveedor financieramente débil;",
+              "line": 544
+            },
+            {
+              "text": "alta dependencia geográfica;",
+              "line": 545
+            },
+            {
+              "text": "alternativa nunca probada;",
+              "line": 546
+            },
+            {
+              "text": "backup no probado;",
+              "line": 547
+            },
+            {
+              "text": "continuidad asumida;",
+              "line": 548
+            },
+            {
+              "text": "credenciales controladas externamente;",
+              "line": 549
+            },
+            {
+              "text": "licencia crítica;",
+              "line": 550
+            },
+            {
+              "text": "soporte discontinuable.",
+              "line": 551
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 45. P3 · Discriminación",
+            "line": 553
+          },
+          "lines": [
+            {
+              "text": "SELECTION PROBLEM → EC-02",
+              "line": 554
+            },
+            {
+              "text": "RELATIONSHIP GOVERNANCE → EC-03",
+              "line": 555
+            },
+            {
+              "text": "ABSORPTION/KNOWLEDGE → EC-04",
+              "line": 556
+            },
+            {
+              "text": "DEPENDENCY EXPOSURE → EC-05",
+              "line": 557
+            },
+            {
+              "text": "CYBER/TECH CONTINUITY → DT-05",
+              "line": 558
+            },
+            {
+              "text": "TECH FIT → DT-01/06",
+              "line": 559
+            },
+            {
+              "text": "TRANSFORMATION RISK GOVERNANCE → DG-05",
+              "line": 560
+            },
+            {
+              "text": "INTERNAL KNOWLEDGE CONCENTRATION → PC-04",
+              "line": 561
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·08",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23",
+        "VA24",
+        "VA25",
+        "VA26"
+      ],
+      "question": "¿Quién decide cuánto riesgo están dispuestos a aceptar?",
+      "questionSourceLines": [
+        527,
+        527
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 26,
+          "statement": "Resultan 26 NI.",
+          "line": 514
+        },
+        "nuclear": {
+          "text": "¿De qué actor, recurso o servicio externo depende un resultado material, qué ocurriría si se degrada o desaparece, cuánto podemos tolerarlo, qué tan viable es sustituirlo o recuperarnos y qué tratamiento resulta proporcional?",
+          "line": 516
+        },
+        "p1Heading": {
+          "text": "# 43. Captura P1",
+          "line": 518
+        },
+        "p2": {
+          "heading": {
+            "text": "# 44. P2 · Triggers",
+            "line": 529
+          },
+          "triggers": [
+            {
+              "text": "único proveedor;",
+              "line": 531
+            },
+            {
+              "text": "marketplace dominante;",
+              "line": 532
+            },
+            {
+              "text": "freelancer crítico;",
+              "line": 533
+            },
+            {
+              "text": "plataforma propietaria;",
+              "line": 534
+            },
+            {
+              "text": "datos no exportables;",
+              "line": 535
+            },
+            {
+              "text": "API crítica;",
+              "line": 536
+            },
+            {
+              "text": "contrato largo;",
+              "line": 537
+            },
+            {
+              "text": "auto-renewal;",
+              "line": 538
+            },
+            {
+              "text": "costos altos de migración;",
+              "line": 539
+            },
+            {
+              "text": "ausencia de documentación;",
+              "line": 540
+            },
+            {
+              "text": "conocimiento externo concentrado;",
+              "line": 541
+            },
+            {
+              "text": "infraestructura crítica;",
+              "line": 542
+            },
+            {
+              "text": "payment provider único;",
+              "line": 543
+            },
+            {
+              "text": "proveedor financieramente débil;",
+              "line": 544
+            },
+            {
+              "text": "alta dependencia geográfica;",
+              "line": 545
+            },
+            {
+              "text": "alternativa nunca probada;",
+              "line": 546
+            },
+            {
+              "text": "backup no probado;",
+              "line": 547
+            },
+            {
+              "text": "continuidad asumida;",
+              "line": 548
+            },
+            {
+              "text": "credenciales controladas externamente;",
+              "line": 549
+            },
+            {
+              "text": "licencia crítica;",
+              "line": 550
+            },
+            {
+              "text": "soporte discontinuable.",
+              "line": 551
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 45. P3 · Discriminación",
+            "line": 553
+          },
+          "lines": [
+            {
+              "text": "SELECTION PROBLEM → EC-02",
+              "line": 554
+            },
+            {
+              "text": "RELATIONSHIP GOVERNANCE → EC-03",
+              "line": 555
+            },
+            {
+              "text": "ABSORPTION/KNOWLEDGE → EC-04",
+              "line": 556
+            },
+            {
+              "text": "DEPENDENCY EXPOSURE → EC-05",
+              "line": 557
+            },
+            {
+              "text": "CYBER/TECH CONTINUITY → DT-05",
+              "line": 558
+            },
+            {
+              "text": "TECH FIT → DT-01/06",
+              "line": 559
+            },
+            {
+              "text": "TRANSFORMATION RISK GOVERNANCE → DG-05",
+              "line": 560
+            },
+            {
+              "text": "INTERNAL KNOWLEDGE CONCENTRATION → PC-04",
+              "line": 561
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    }
+  ],
+  "acquisitionStages": [
+    {
+      "id": "P2",
+      "level": "P2",
+      "heading": "P2 · Triggers",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        529,
+        551
+      ]
+    },
+    {
+      "id": "P3",
+      "level": "P3",
+      "heading": "P3 · Discriminación",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        553,
+        561
+      ]
+    }
+  ]
+}

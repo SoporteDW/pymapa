@@ -1,0 +1,1140 @@
+{
+  "packId": "dt-04",
+  "packVersion": "1.0.0",
+  "status": "draft",
+  "knowledgeMaster": {
+    "identifier": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "status": "BASELINE-APPROVED",
+    "sourceReference": "canonical-baseline.json#DT04-K4-v1.0@sha256:ca3189d8767fbeb02e20ee6d33f8769ea700b040985d6a077613dfa3d8f89f08 · DT04-K4-v1.0 · K4-VALIDATED · CLOSED"
+  },
+  "capability": {
+    "id": "DT-04",
+    "domainId": "DT",
+    "name": "Convertir datos en información útil para decisiones",
+    "definition": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+    "definitionStatus": "NOT_EXPLICIT"
+  },
+  "conditionsOfExistence": [
+    {
+      "id": "CE01",
+      "statement": "Necesidad decisional"
+    },
+    {
+      "id": "CE02",
+      "statement": "Necesidad informacional"
+    },
+    {
+      "id": "CE03",
+      "statement": "Representación"
+    },
+    {
+      "id": "CE04",
+      "statement": "Transformación"
+    },
+    {
+      "id": "CE05",
+      "statement": "Contexto y comparación"
+    },
+    {
+      "id": "CE06",
+      "statement": "Interpretación y confianza"
+    },
+    {
+      "id": "CE07",
+      "statement": "Oportunidad y acceso"
+    },
+    {
+      "id": "CE08",
+      "statement": "Utilidad decisional"
+    }
+  ],
+  "variables": [
+    {
+      "id": "VA01",
+      "name": "Decisión material identificada",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA02",
+      "name": "Pregunta decisional suficientemente clara",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA03",
+      "name": "Información requerida identificada",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA04",
+      "name": "Datos/evidencia relevantes identificados",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA05",
+      "name": "Métricas/indicadores pertinentes",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA06",
+      "name": "Definiciones/cálculos suficientemente claros",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA07",
+      "name": "Transformaciones suficientemente correctas",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA08",
+      "name": "Agregación/segmentación adecuada al propósito",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA09",
+      "name": "Contexto material incorporado",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA10",
+      "name": "Baseline/comparador suficiente cuando aplica",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA11",
+      "name": "Información suficientemente interpretable",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA12",
+      "name": "Inferencias proporcionales a evidencia",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA13",
+      "name": "Incertidumbre material suficientemente visible",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA14",
+      "name": "Información disponible dentro de Decision Window",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA15",
+      "name": "Información accesible/comprensible para decisor aplicable",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA16",
+      "name": "Información responde suficientemente la pregunta",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA17",
+      "name": "Alternativas/implicaciones suficientemente distinguibles cuando aplica",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA18",
+      "name": "Información puede modificar, confirmar, diferir o profundizar razonablemente la decisión",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    }
+  ],
+  "informationNeeds": [],
+  "acquisitions": [
+    {
+      "id": "ACQ·P1·01",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18"
+      ],
+      "question": "¿Qué decisiones importantes les cuesta tomar porque no tienen suficiente información?",
+      "questionSourceLines": [
+        363,
+        363
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 18,
+          "statement": "Resultan 18 NI.",
+          "line": 341
+        },
+        "nuclear": null,
+        "p1Heading": {
+          "text": "## P1 · Núcleo",
+          "line": 361
+        },
+        "p2": {
+          "heading": {
+            "text": "# P2 · Triggers",
+            "line": 369
+          },
+          "triggers": [
+            {
+              "text": "reportes que nadie usa;",
+              "line": 371
+            },
+            {
+              "text": "múltiples versiones del mismo indicador;",
+              "line": 372
+            },
+            {
+              "text": "exceso de métricas;",
+              "line": 373
+            },
+            {
+              "text": "decisiones tardías;",
+              "line": 374
+            },
+            {
+              "text": "decisiones repetitivas sin información;",
+              "line": 375
+            },
+            {
+              "text": "métricas sin objetivo;",
+              "line": 376
+            },
+            {
+              "text": "dashboards extensos;",
+              "line": 377
+            },
+            {
+              "text": "interpretación contradictoria;",
+              "line": 378
+            },
+            {
+              "text": "ausencia de baseline;",
+              "line": 379
+            },
+            {
+              "text": "indicadores atrasados;",
+              "line": 380
+            },
+            {
+              "text": "pronósticos;",
+              "line": 381
+            },
+            {
+              "text": "decisiones de alta incertidumbre;",
+              "line": 382
+            },
+            {
+              "text": "análisis manual recurrente;",
+              "line": 383
+            },
+            {
+              "text": "“sabemos qué pasó pero no por qué”.",
+              "line": 384
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# P3 · Discriminación",
+            "line": 386
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 387
+            },
+            {
+              "text": "“el reporte no sirve”",
+              "line": 388
+            },
+            {
+              "text": "debemos distinguir:",
+              "line": 389
+            },
+            {
+              "text": "DATA QUALITY → DT-02",
+              "line": 390
+            },
+            {
+              "text": "INFORMATION NOT ARRIVING → DT-03",
+              "line": 391
+            },
+            {
+              "text": "WRONG METRIC → DT-04",
+              "line": 392
+            },
+            {
+              "text": "WRONG TRANSFORMATION → DT-04",
+              "line": 393
+            },
+            {
+              "text": "CONTEXT MISSING → DT-04",
+              "line": 394
+            },
+            {
+              "text": "DECISION QUESTION UNCLEAR → DT-04 / dominio decisor",
+              "line": 395
+            },
+            {
+              "text": "LACK OF COMPETENCE → PC-02",
+              "line": 396
+            },
+            {
+              "text": "NO FOLLOW-UP → DG-04",
+              "line": 397
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·02",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18"
+      ],
+      "question": "¿Qué reportes usan realmente para decidir?",
+      "questionSourceLines": [
+        364,
+        364
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 18,
+          "statement": "Resultan 18 NI.",
+          "line": 341
+        },
+        "nuclear": null,
+        "p1Heading": {
+          "text": "## P1 · Núcleo",
+          "line": 361
+        },
+        "p2": {
+          "heading": {
+            "text": "# P2 · Triggers",
+            "line": 369
+          },
+          "triggers": [
+            {
+              "text": "reportes que nadie usa;",
+              "line": 371
+            },
+            {
+              "text": "múltiples versiones del mismo indicador;",
+              "line": 372
+            },
+            {
+              "text": "exceso de métricas;",
+              "line": 373
+            },
+            {
+              "text": "decisiones tardías;",
+              "line": 374
+            },
+            {
+              "text": "decisiones repetitivas sin información;",
+              "line": 375
+            },
+            {
+              "text": "métricas sin objetivo;",
+              "line": 376
+            },
+            {
+              "text": "dashboards extensos;",
+              "line": 377
+            },
+            {
+              "text": "interpretación contradictoria;",
+              "line": 378
+            },
+            {
+              "text": "ausencia de baseline;",
+              "line": 379
+            },
+            {
+              "text": "indicadores atrasados;",
+              "line": 380
+            },
+            {
+              "text": "pronósticos;",
+              "line": 381
+            },
+            {
+              "text": "decisiones de alta incertidumbre;",
+              "line": 382
+            },
+            {
+              "text": "análisis manual recurrente;",
+              "line": 383
+            },
+            {
+              "text": "“sabemos qué pasó pero no por qué”.",
+              "line": 384
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# P3 · Discriminación",
+            "line": 386
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 387
+            },
+            {
+              "text": "“el reporte no sirve”",
+              "line": 388
+            },
+            {
+              "text": "debemos distinguir:",
+              "line": 389
+            },
+            {
+              "text": "DATA QUALITY → DT-02",
+              "line": 390
+            },
+            {
+              "text": "INFORMATION NOT ARRIVING → DT-03",
+              "line": 391
+            },
+            {
+              "text": "WRONG METRIC → DT-04",
+              "line": 392
+            },
+            {
+              "text": "WRONG TRANSFORMATION → DT-04",
+              "line": 393
+            },
+            {
+              "text": "CONTEXT MISSING → DT-04",
+              "line": 394
+            },
+            {
+              "text": "DECISION QUESTION UNCLEAR → DT-04 / dominio decisor",
+              "line": 395
+            },
+            {
+              "text": "LACK OF COMPETENCE → PC-02",
+              "line": 396
+            },
+            {
+              "text": "NO FOLLOW-UP → DG-04",
+              "line": 397
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·03",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18"
+      ],
+      "question": "¿Qué información reciben pero no saben cómo interpretar?",
+      "questionSourceLines": [
+        365,
+        365
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 18,
+          "statement": "Resultan 18 NI.",
+          "line": 341
+        },
+        "nuclear": null,
+        "p1Heading": {
+          "text": "## P1 · Núcleo",
+          "line": 361
+        },
+        "p2": {
+          "heading": {
+            "text": "# P2 · Triggers",
+            "line": 369
+          },
+          "triggers": [
+            {
+              "text": "reportes que nadie usa;",
+              "line": 371
+            },
+            {
+              "text": "múltiples versiones del mismo indicador;",
+              "line": 372
+            },
+            {
+              "text": "exceso de métricas;",
+              "line": 373
+            },
+            {
+              "text": "decisiones tardías;",
+              "line": 374
+            },
+            {
+              "text": "decisiones repetitivas sin información;",
+              "line": 375
+            },
+            {
+              "text": "métricas sin objetivo;",
+              "line": 376
+            },
+            {
+              "text": "dashboards extensos;",
+              "line": 377
+            },
+            {
+              "text": "interpretación contradictoria;",
+              "line": 378
+            },
+            {
+              "text": "ausencia de baseline;",
+              "line": 379
+            },
+            {
+              "text": "indicadores atrasados;",
+              "line": 380
+            },
+            {
+              "text": "pronósticos;",
+              "line": 381
+            },
+            {
+              "text": "decisiones de alta incertidumbre;",
+              "line": 382
+            },
+            {
+              "text": "análisis manual recurrente;",
+              "line": 383
+            },
+            {
+              "text": "“sabemos qué pasó pero no por qué”.",
+              "line": 384
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# P3 · Discriminación",
+            "line": 386
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 387
+            },
+            {
+              "text": "“el reporte no sirve”",
+              "line": 388
+            },
+            {
+              "text": "debemos distinguir:",
+              "line": 389
+            },
+            {
+              "text": "DATA QUALITY → DT-02",
+              "line": 390
+            },
+            {
+              "text": "INFORMATION NOT ARRIVING → DT-03",
+              "line": 391
+            },
+            {
+              "text": "WRONG METRIC → DT-04",
+              "line": 392
+            },
+            {
+              "text": "WRONG TRANSFORMATION → DT-04",
+              "line": 393
+            },
+            {
+              "text": "CONTEXT MISSING → DT-04",
+              "line": 394
+            },
+            {
+              "text": "DECISION QUESTION UNCLEAR → DT-04 / dominio decisor",
+              "line": 395
+            },
+            {
+              "text": "LACK OF COMPETENCE → PC-02",
+              "line": 396
+            },
+            {
+              "text": "NO FOLLOW-UP → DG-04",
+              "line": 397
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·04",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18"
+      ],
+      "question": "¿Qué decisiones terminan tomando demasiado tarde?",
+      "questionSourceLines": [
+        366,
+        366
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 18,
+          "statement": "Resultan 18 NI.",
+          "line": 341
+        },
+        "nuclear": null,
+        "p1Heading": {
+          "text": "## P1 · Núcleo",
+          "line": 361
+        },
+        "p2": {
+          "heading": {
+            "text": "# P2 · Triggers",
+            "line": 369
+          },
+          "triggers": [
+            {
+              "text": "reportes que nadie usa;",
+              "line": 371
+            },
+            {
+              "text": "múltiples versiones del mismo indicador;",
+              "line": 372
+            },
+            {
+              "text": "exceso de métricas;",
+              "line": 373
+            },
+            {
+              "text": "decisiones tardías;",
+              "line": 374
+            },
+            {
+              "text": "decisiones repetitivas sin información;",
+              "line": 375
+            },
+            {
+              "text": "métricas sin objetivo;",
+              "line": 376
+            },
+            {
+              "text": "dashboards extensos;",
+              "line": 377
+            },
+            {
+              "text": "interpretación contradictoria;",
+              "line": 378
+            },
+            {
+              "text": "ausencia de baseline;",
+              "line": 379
+            },
+            {
+              "text": "indicadores atrasados;",
+              "line": 380
+            },
+            {
+              "text": "pronósticos;",
+              "line": 381
+            },
+            {
+              "text": "decisiones de alta incertidumbre;",
+              "line": 382
+            },
+            {
+              "text": "análisis manual recurrente;",
+              "line": 383
+            },
+            {
+              "text": "“sabemos qué pasó pero no por qué”.",
+              "line": 384
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# P3 · Discriminación",
+            "line": 386
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 387
+            },
+            {
+              "text": "“el reporte no sirve”",
+              "line": 388
+            },
+            {
+              "text": "debemos distinguir:",
+              "line": 389
+            },
+            {
+              "text": "DATA QUALITY → DT-02",
+              "line": 390
+            },
+            {
+              "text": "INFORMATION NOT ARRIVING → DT-03",
+              "line": 391
+            },
+            {
+              "text": "WRONG METRIC → DT-04",
+              "line": 392
+            },
+            {
+              "text": "WRONG TRANSFORMATION → DT-04",
+              "line": 393
+            },
+            {
+              "text": "CONTEXT MISSING → DT-04",
+              "line": 394
+            },
+            {
+              "text": "DECISION QUESTION UNCLEAR → DT-04 / dominio decisor",
+              "line": 395
+            },
+            {
+              "text": "LACK OF COMPETENCE → PC-02",
+              "line": 396
+            },
+            {
+              "text": "NO FOLLOW-UP → DG-04",
+              "line": 397
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·05",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18"
+      ],
+      "question": "¿Dónde distintas personas llegan a conclusiones diferentes usando los mismos datos?",
+      "questionSourceLines": [
+        367,
+        367
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 18,
+          "statement": "Resultan 18 NI.",
+          "line": 341
+        },
+        "nuclear": null,
+        "p1Heading": {
+          "text": "## P1 · Núcleo",
+          "line": 361
+        },
+        "p2": {
+          "heading": {
+            "text": "# P2 · Triggers",
+            "line": 369
+          },
+          "triggers": [
+            {
+              "text": "reportes que nadie usa;",
+              "line": 371
+            },
+            {
+              "text": "múltiples versiones del mismo indicador;",
+              "line": 372
+            },
+            {
+              "text": "exceso de métricas;",
+              "line": 373
+            },
+            {
+              "text": "decisiones tardías;",
+              "line": 374
+            },
+            {
+              "text": "decisiones repetitivas sin información;",
+              "line": 375
+            },
+            {
+              "text": "métricas sin objetivo;",
+              "line": 376
+            },
+            {
+              "text": "dashboards extensos;",
+              "line": 377
+            },
+            {
+              "text": "interpretación contradictoria;",
+              "line": 378
+            },
+            {
+              "text": "ausencia de baseline;",
+              "line": 379
+            },
+            {
+              "text": "indicadores atrasados;",
+              "line": 380
+            },
+            {
+              "text": "pronósticos;",
+              "line": 381
+            },
+            {
+              "text": "decisiones de alta incertidumbre;",
+              "line": 382
+            },
+            {
+              "text": "análisis manual recurrente;",
+              "line": 383
+            },
+            {
+              "text": "“sabemos qué pasó pero no por qué”.",
+              "line": 384
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# P3 · Discriminación",
+            "line": 386
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 387
+            },
+            {
+              "text": "“el reporte no sirve”",
+              "line": 388
+            },
+            {
+              "text": "debemos distinguir:",
+              "line": 389
+            },
+            {
+              "text": "DATA QUALITY → DT-02",
+              "line": 390
+            },
+            {
+              "text": "INFORMATION NOT ARRIVING → DT-03",
+              "line": 391
+            },
+            {
+              "text": "WRONG METRIC → DT-04",
+              "line": 392
+            },
+            {
+              "text": "WRONG TRANSFORMATION → DT-04",
+              "line": 393
+            },
+            {
+              "text": "CONTEXT MISSING → DT-04",
+              "line": 394
+            },
+            {
+              "text": "DECISION QUESTION UNCLEAR → DT-04 / dominio decisor",
+              "line": 395
+            },
+            {
+              "text": "LACK OF COMPETENCE → PC-02",
+              "line": 396
+            },
+            {
+              "text": "NO FOLLOW-UP → DG-04",
+              "line": 397
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    }
+  ],
+  "acquisitionStages": [
+    {
+      "id": "P1",
+      "level": "P1",
+      "heading": "P1 · Núcleo",
+      "prompts": [
+        "“¿Qué decisiones importantes les cuesta tomar porque no tienen suficiente información?”",
+        "“¿Qué reportes usan realmente para decidir?”",
+        "“¿Qué información reciben pero no saben cómo interpretar?”",
+        "“¿Qué decisiones terminan tomando demasiado tarde?”",
+        "“¿Dónde distintas personas llegan a conclusiones diferentes usando los mismos datos?”"
+      ],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        361,
+        367
+      ]
+    },
+    {
+      "id": "P2",
+      "level": "P2",
+      "heading": "P2 · Triggers",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        369,
+        384
+      ]
+    },
+    {
+      "id": "P3",
+      "level": "P3",
+      "heading": "P3 · Discriminación",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        386,
+        397
+      ]
+    },
+    {
+      "id": "P4",
+      "level": "P4",
+      "heading": "P4 · Contradicciones",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        399,
+        399
+      ]
+    },
+    {
+      "id": "P5",
+      "level": "P5",
+      "heading": "P5 · Validación",
+      "prompts": [
+        "“¿Tiene información para tomar decisiones?”",
+        "“La última vez que decidieron ajustar precios, ¿qué pregunta necesitaban responder, qué información utilizaron y qué habría cambiado la decisión?”"
+      ],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        413,
+        419
+      ]
+    }
+  ]
+}

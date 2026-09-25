@@ -24,7 +24,12 @@ export const NOT_EXPLICIT = "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER" as const;
  * criticidad como propiedad contextual del caso, sin valor fijo por variable.
  * El runtime no la resuelve: no es un nivel ordenable.
  */
-export const criticalitySchema = z.enum(["CRITICAL", "IMPORTANT", "COMPLEMENTARY", "CONTEXT_DEPENDENT"]);
+export const criticalitySchema = z.enum([
+  "CRITICAL",
+  "IMPORTANT",
+  "COMPLEMENTARY",
+  "CONTEXT_DEPENDENT",
+]);
 export const evidenceLevelSchema = z.enum(["E0", "E1", "E2", "E3"]);
 export const acquisitionLevelSchema = z.enum(["P1", "P2", "P3", "P4", "P5"]);
 export const ruleClassificationSchema = z.enum([
@@ -46,7 +51,14 @@ export const variableSchema = z.object({
   criticality: z.union([criticalitySchema, z.literal(NOT_EXPLICIT)]),
   /** Cómo puede obtenerse información de la VA, o por qué sigue sin resolverse. */
   acquisitionResolution: z
-    .enum(["ACQUISITION_EXPLICIT", "INFORMATION_NEED", "GOVERNED_STRUCTURAL_MAPPING", "UNRESOLVED"])
+    .enum([
+      "ACQUISITION_EXPLICIT",
+      "INFORMATION_NEED",
+      "GOVERNED_STRUCTURAL_MAPPING",
+      "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+      "CAPABILITY_PROGRESSIVE",
+      "UNRESOLVED",
+    ])
     .optional(),
   acquisitionNote: z.string().optional(),
   /**
@@ -125,7 +137,16 @@ export const acquisitionSchema = z.object({
    * M2-FACTORY-CONTRACT-03: QUESTION (pregunta literal) o INFORMATION_NEED
    * (canal derivado de una NI explícita, sin pregunta literal). Por defecto QUESTION.
    */
-  acquisitionMode: z.enum(["QUESTION", "INFORMATION_NEED"]).optional(),
+  acquisitionMode: z
+    .enum([
+      "QUESTION",
+      "INFORMATION_NEED",
+      /** M2-FINAL-15: canal por correspondencia NI↔VA declarada por la fuente (NI no enumeradas). */
+      "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+      /** M2-FINAL-15: pregunta P1 literal de captura progresiva a nivel de capacidad. */
+      "CAPABILITY_PROGRESSIVE",
+    ])
+    .optional(),
   informationNeedRef: z.string().optional(),
   variableRefs: z.array(z.string().min(1)).min(1),
   purpose: z.string().optional(),
@@ -615,7 +636,9 @@ export type KnowledgePack = z.infer<typeof knowledgePackSchema>;
 export type KnowledgePackVariable = z.infer<typeof variableSchema>;
 export type KnowledgePackAcquisition = z.infer<typeof acquisitionSchema>;
 export type KnowledgePackRule = z.infer<typeof ruleSchema>;
-export type KnowledgePackValidationRequirement = NonNullable<KnowledgePack["validationRequirements"]>[number];
+export type KnowledgePackValidationRequirement = NonNullable<
+  KnowledgePack["validationRequirements"]
+>[number];
 export type KnowledgePackInterventionPattern = z.infer<typeof interventionPatternSchema>;
 
 /**
@@ -637,8 +660,7 @@ export interface KnowledgePackValidationIssue {
 }
 
 export type KnowledgePackValidation =
-  | { ok: true; pack: KnowledgePack }
-  | { ok: false; issues: KnowledgePackValidationIssue[] };
+  { ok: true; pack: KnowledgePack } | { ok: false; issues: KnowledgePackValidationIssue[] };
 
 /**
  * Valida estructura + integridad referencial interna del pack.
@@ -662,7 +684,10 @@ export function validateKnowledgePack(raw: unknown): KnowledgePackValidation {
   pack.acquisitions.forEach((acq, index) => {
     acq.variableRefs.forEach((ref) => {
       if (!variableIds.has(ref)) {
-        issues.push({ path: `acquisitions.${index}.variableRefs`, message: `variable desconocida: ${ref}` });
+        issues.push({
+          path: `acquisitions.${index}.variableRefs`,
+          message: `variable desconocida: ${ref}`,
+        });
       }
     });
     if (acq.informationNeedRef && !needIds.has(acq.informationNeedRef)) {
@@ -741,7 +766,10 @@ export function validateKnowledgePack(raw: unknown): KnowledgePackValidation {
     });
     (finding.variableRefs ?? []).forEach((ref) => {
       if (!variableIds.has(ref)) {
-        issues.push({ path: `findings.${index}.variableRefs`, message: `variable desconocida: ${ref}` });
+        issues.push({
+          path: `findings.${index}.variableRefs`,
+          message: `variable desconocida: ${ref}`,
+        });
       }
     });
     // Ninguna severidad puede ser numérica: no existe algoritmo aprobado.
@@ -757,7 +785,10 @@ export function validateKnowledgePack(raw: unknown): KnowledgePackValidation {
   (pack.recommendations ?? []).forEach((rec, index) => {
     (rec.findingRefs ?? []).forEach((ref) => {
       if (!findingIds.has(ref)) {
-        issues.push({ path: `recommendations.${index}.findingRefs`, message: `finding desconocido: ${ref}` });
+        issues.push({
+          path: `recommendations.${index}.findingRefs`,
+          message: `finding desconocido: ${ref}`,
+        });
       }
     });
   });
@@ -788,15 +819,27 @@ export function validateKnowledgePack(raw: unknown): KnowledgePackValidation {
     if (!owner) {
       issues.push({ path: `${base}.owner`, message: "un CRV debe declarar su dueño gobernado" });
     } else {
-      if (crv.activityRef && crv.owner && (crv.owner.kind !== "ACTIVITY" || crv.owner.ref !== crv.activityRef)) {
+      if (
+        crv.activityRef &&
+        crv.owner &&
+        (crv.owner.kind !== "ACTIVITY" || crv.owner.ref !== crv.activityRef)
+      ) {
         issues.push({ path: `${base}.owner`, message: "owner y activityRef se contradicen" });
       }
       const universo =
-        owner.kind === "ACTIVITY" ? activityIds : owner.kind === "INTERVENTION_PATTERN" ? patternIds : deliverableIds;
+        owner.kind === "ACTIVITY"
+          ? activityIds
+          : owner.kind === "INTERVENTION_PATTERN"
+            ? patternIds
+            : deliverableIds;
       if (!universo.has(owner.ref)) {
         const campo = crv.owner ? "owner.ref" : "activityRef";
         const etiqueta =
-          owner.kind === "ACTIVITY" ? "actividad" : owner.kind === "INTERVENTION_PATTERN" ? "patrón" : "deliverable";
+          owner.kind === "ACTIVITY"
+            ? "actividad"
+            : owner.kind === "INTERVENTION_PATTERN"
+              ? "patrón"
+              : "deliverable";
         issues.push({ path: `${base}.${campo}`, message: `${etiqueta} desconocida: ${owner.ref}` });
       }
     }
@@ -804,7 +847,10 @@ export function validateKnowledgePack(raw: unknown): KnowledgePackValidation {
     const deterministas = new Set<string>(DETERMINISTIC_VALIDATION_CONDITION_KINDS);
     if (evaluation === "DETERMINISTIC_CONDITIONS") {
       if (crv.conditions.length === 0) {
-        issues.push({ path: `${base}.conditions`, message: "un CRV determinístico exige al menos una condición" });
+        issues.push({
+          path: `${base}.conditions`,
+          message: "un CRV determinístico exige al menos una condición",
+        });
       }
       crv.conditions.forEach((c, i) => {
         if (!deterministas.has(c.kind)) {
@@ -817,7 +863,8 @@ export function validateKnowledgePack(raw: unknown): KnowledgePackValidation {
     } else if (!crv.conditions.some((c) => c.kind === "GOVERNED_STATEMENT")) {
       issues.push({
         path: `${base}.conditions`,
-        message: "un CRV GOVERNED_JUDGMENT debe declarar su enunciado gobernado (GOVERNED_STATEMENT)",
+        message:
+          "un CRV GOVERNED_JUDGMENT debe declarar su enunciado gobernado (GOVERNED_STATEMENT)",
       });
     }
     crv.conditions.forEach((condicion, i) => {
@@ -836,7 +883,10 @@ export function validateKnowledgePack(raw: unknown): KnowledgePackValidation {
     const layerIds = new Set(im.doneLayers.map((l) => l.id));
     const implementados = im.executionStates.filter((e) => e.implemented);
     if (implementados.length > 1) {
-      issues.push({ path: "implementationModel.executionStates", message: "solo un estado puede ser implementado" });
+      issues.push({
+        path: "implementationModel.executionStates",
+        message: "solo un estado puede ser implementado",
+      });
     }
     im.executionStates.forEach((estado, i) => {
       (estado.requiresDoneLayerRefs ?? []).forEach((ref) => {
@@ -852,11 +902,17 @@ export function validateKnowledgePack(raw: unknown): KnowledgePackValidation {
   const effIds = new Set((pack.effectivenessModel?.states ?? []).map((e) => e.id));
   const neg = pack.effectivenessModel?.negativeOutcomeStateRef;
   if (neg && !effIds.has(neg)) {
-    issues.push({ path: "effectivenessModel.negativeOutcomeStateRef", message: `estado de efectividad desconocido: ${neg}` });
+    issues.push({
+      path: "effectivenessModel.negativeOutcomeStateRef",
+      message: `estado de efectividad desconocido: ${neg}`,
+    });
   }
   const implRule = pack.effectivenessModel?.implementationRuleRef;
   if (implRule && !(pack.validationModel?.rules ?? []).some((r) => r.id === implRule)) {
-    issues.push({ path: "effectivenessModel.implementationRuleRef", message: `regla de validación desconocida: ${implRule}` });
+    issues.push({
+      path: "effectivenessModel.implementationRuleRef",
+      message: `regla de validación desconocida: ${implRule}`,
+    });
   }
   if (pack.effectivenessModel?.states.some((e) => e.presupposesImplementation) && !im) {
     issues.push({
@@ -866,31 +922,52 @@ export function validateKnowledgePack(raw: unknown): KnowledgePackValidation {
   }
   const checkEffRefs = (refs: string[] | undefined, path: string) =>
     (refs ?? []).forEach((ref) => {
-      if (!effIds.has(ref)) issues.push({ path, message: `estado de efectividad desconocido: ${ref}` });
+      if (!effIds.has(ref))
+        issues.push({ path, message: `estado de efectividad desconocido: ${ref}` });
     });
   (pack.validationModel?.decisions ?? []).forEach((d, i) =>
-    checkEffRefs(d.whenEffectivenessStateRef ? [d.whenEffectivenessStateRef] : [], `validationModel.decisions.${i}`),
+    checkEffRefs(
+      d.whenEffectivenessStateRef ? [d.whenEffectivenessStateRef] : [],
+      `validationModel.decisions.${i}`,
+    ),
   );
   (pack.followUp?.rules ?? []).forEach((r, i) =>
-    checkEffRefs(r.triggerEffectivenessStateRefs, `followUp.rules.${i}.triggerEffectivenessStateRefs`),
+    checkEffRefs(
+      r.triggerEffectivenessStateRefs,
+      `followUp.rules.${i}.triggerEffectivenessStateRefs`,
+    ),
   );
   (pack.reassessment?.rules ?? []).forEach((r, i) =>
-    checkEffRefs(r.triggerEffectivenessStateRefs, `reassessment.rules.${i}.triggerEffectivenessStateRefs`),
+    checkEffRefs(
+      r.triggerEffectivenessStateRefs,
+      `reassessment.rules.${i}.triggerEffectivenessStateRefs`,
+    ),
   );
   const sevIds = new Set((pack.severity?.levels ?? []).map((l) => l.id));
   const confIds = new Set((pack.confidence?.levels ?? []).map((l) => l.id));
   (pack.severity?.consolidationGuards ?? []).forEach((g, i) => {
     g.severityRefs.forEach((ref) => {
-      if (!sevIds.has(ref)) issues.push({ path: `severity.consolidationGuards.${i}`, message: `severidad desconocida: ${ref}` });
+      if (!sevIds.has(ref))
+        issues.push({
+          path: `severity.consolidationGuards.${i}`,
+          message: `severidad desconocida: ${ref}`,
+        });
     });
     g.confidenceRefs.forEach((ref) => {
-      if (!confIds.has(ref)) issues.push({ path: `severity.consolidationGuards.${i}`, message: `confianza desconocida: ${ref}` });
+      if (!confIds.has(ref))
+        issues.push({
+          path: `severity.consolidationGuards.${i}`,
+          message: `confianza desconocida: ${ref}`,
+        });
     });
   });
   if (pack.severity) {
     for (const l of pack.severity.levels) {
       if (/^\d+(\.\d+)?$/.test(l.id)) {
-        issues.push({ path: "severity.levels", message: "un nivel de severidad no puede ser numérico" });
+        issues.push({
+          path: "severity.levels",
+          message: "un nivel de severidad no puede ser numérico",
+        });
       }
     }
   }
@@ -898,7 +975,10 @@ export function validateKnowledgePack(raw: unknown): KnowledgePackValidation {
   pack.informationNeeds.forEach((need, index) => {
     need.variableRefs.forEach((ref) => {
       if (!variableIds.has(ref)) {
-        issues.push({ path: `informationNeeds.${index}.variableRefs`, message: `variable desconocida: ${ref}` });
+        issues.push({
+          path: `informationNeeds.${index}.variableRefs`,
+          message: `variable desconocida: ${ref}`,
+        });
       }
     });
     need.acquisitionRefs.forEach((ref) => {

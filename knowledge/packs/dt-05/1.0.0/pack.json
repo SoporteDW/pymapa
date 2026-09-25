@@ -1,0 +1,1320 @@
+{
+  "packId": "dt-05",
+  "packVersion": "1.0.0",
+  "status": "draft",
+  "knowledgeMaster": {
+    "identifier": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "status": "BASELINE-APPROVED",
+    "sourceReference": "canonical-baseline.json#DT05-K4-v1.0@sha256:28ee6a8bfe53ad3fc3a5cd42af6887c1393568e93be3ddd304fb0c0596659a7b · DT05-K4-v1.0 · K4-VALIDATED · CLOSED"
+  },
+  "capability": {
+    "id": "DT-05",
+    "domainId": "DT",
+    "name": "Proteger información, sistemas y continuidad",
+    "definition": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+    "definitionStatus": "NOT_EXPLICIT"
+  },
+  "conditionsOfExistence": [
+    {
+      "id": "CE01",
+      "statement": "Materialidad"
+    },
+    {
+      "id": "CE02",
+      "statement": "Dependencias"
+    },
+    {
+      "id": "CE03",
+      "statement": "Exposición"
+    },
+    {
+      "id": "CE04",
+      "statement": "Protección"
+    },
+    {
+      "id": "CE05",
+      "statement": "Identidad y acceso"
+    },
+    {
+      "id": "CE06",
+      "statement": "Detección"
+    },
+    {
+      "id": "CE07",
+      "statement": "Respuesta"
+    },
+    {
+      "id": "CE08",
+      "statement": "Recuperación"
+    },
+    {
+      "id": "CE09",
+      "statement": "Continuidad"
+    },
+    {
+      "id": "CE10",
+      "statement": "Aprendizaje y mantenimiento"
+    }
+  ],
+  "variables": [
+    {
+      "id": "VA01",
+      "name": "funciones/servicios tecnológicos materiales identificados",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA02",
+      "name": "información material/sensible suficientemente identificada",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA03",
+      "name": "dependencias críticas suficientemente visibles",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA04",
+      "name": "concentración/single points materialmente comprendidos",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA05",
+      "name": "eventos/amenazas materialmente relevantes reconocidos",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA06",
+      "name": "debilidades relevantes reconocidas",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA07",
+      "name": "consecuencias materiales suficientemente comprendidas",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA08",
+      "name": "controles preventivos proporcionales",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA09",
+      "name": "controles suficientemente efectivos para exposiciones aplicables",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA10",
+      "name": "acceso suficientemente restringido",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA11",
+      "name": "autenticación suficientemente fuerte",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA12",
+      "name": "privilegios suficientemente proporcionados",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA13",
+      "name": "altas/cambios/bajas suficientemente controlados",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA14",
+      "name": "eventos materiales suficientemente detectables",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA15",
+      "name": "señales/alertas pueden llegar a alguien capaz de actuar",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA16",
+      "name": "responsabilidades de respuesta suficientemente claras",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA17",
+      "name": "acciones críticas de contención/respuesta suficientemente ejecutables",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA18",
+      "name": "información/servicios críticos suficientemente recuperables",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA19",
+      "name": "recuperación compatible con tolerancias del negocio",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA20",
+      "name": "alternativas/degradación/continuidad suficientes cuando material",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA21",
+      "name": "incidentes/cambios relevantes generan revisión proporcional",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA22",
+      "name": "controles/exposiciones materiales se revisan cuando cambia el contexto",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    }
+  ],
+  "informationNeeds": [],
+  "acquisitions": [
+    {
+      "id": "ACQ·P1·01",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22"
+      ],
+      "question": "¿Qué sistemas o información, si mañana no estuvieran disponibles, realmente frenarían el negocio?",
+      "questionSourceLines": [
+        430,
+        430
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 22,
+          "statement": "Resultan 22 NI.",
+          "line": 421
+        },
+        "nuclear": {
+          "text": "¿Qué función no puede perderse? → ¿de qué depende? → ¿qué puede comprometerla? → ¿qué consecuencia tendría? → ¿qué la protege? → ¿cómo sabríamos que falló? → ¿cómo continuaríamos o recuperaríamos?",
+          "line": 423
+        },
+        "p1Heading": {
+          "text": "## P1 · Núcleo",
+          "line": 428
+        },
+        "p2": {
+          "heading": {
+            "text": "# P2 · Triggers",
+            "line": 436
+          },
+          "triggers": [
+            {
+              "text": "cuentas compartidas;",
+              "line": 438
+            },
+            {
+              "text": "excolaboradores con acceso;",
+              "line": 439
+            },
+            {
+              "text": "administrador único;",
+              "line": 440
+            },
+            {
+              "text": "sin MFA en acceso crítico;",
+              "line": 441
+            },
+            {
+              "text": "backups desconocidos;",
+              "line": 442
+            },
+            {
+              "text": "backup nunca restaurado;",
+              "line": 443
+            },
+            {
+              "text": "SaaS crítico;",
+              "line": 444
+            },
+            {
+              "text": "dispositivo único;",
+              "line": 445
+            },
+            {
+              "text": "información sensible;",
+              "line": 446
+            },
+            {
+              "text": "accesos externos;",
+              "line": 447
+            },
+            {
+              "text": "proveedor único;",
+              "line": 448
+            },
+            {
+              "text": "incidentes previos;",
+              "line": 449
+            },
+            {
+              "text": "fraude;",
+              "line": 450
+            },
+            {
+              "text": "ransomware/phishing;",
+              "line": 451
+            },
+            {
+              "text": "procesos dependientes de correo;",
+              "line": 452
+            },
+            {
+              "text": "pérdida de equipos;",
+              "line": 453
+            },
+            {
+              "text": "trabajo remoto;",
+              "line": 454
+            },
+            {
+              "text": "datos en equipos personales;",
+              "line": 455
+            },
+            {
+              "text": "integraciones críticas;",
+              "line": 456
+            },
+            {
+              "text": "credenciales no gestionadas;",
+              "line": 457
+            },
+            {
+              "text": "dependencia de una sola persona.",
+              "line": 458
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# P3 · Discriminación causal",
+            "line": 460
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 461
+            },
+            {
+              "text": "“no pudimos facturar durante seis horas”",
+              "line": 462
+            },
+            {
+              "text": "debemos distinguir:",
+              "line": 463
+            },
+            {
+              "text": "TECH FAILURE → DT-01 / DT-05",
+              "line": 464
+            },
+            {
+              "text": "INTEGRATION FAILURE → DT-03",
+              "line": 465
+            },
+            {
+              "text": "PROVIDER OUTAGE → DT-05 + EC",
+              "line": 466
+            },
+            {
+              "text": "ACCESS FAILURE → DT-05",
+              "line": 467
+            },
+            {
+              "text": "PROCESS WORKAROUND ABSENT → DT-05/OP",
+              "line": 468
+            },
+            {
+              "text": "DATA CORRUPTION → DT-02 + DT-05 según causa/condición",
+              "line": 469
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·02",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22"
+      ],
+      "question": "¿Qué información sería especialmente grave que se perdiera, alterara o viera alguien no autorizado?",
+      "questionSourceLines": [
+        431,
+        431
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 22,
+          "statement": "Resultan 22 NI.",
+          "line": 421
+        },
+        "nuclear": {
+          "text": "¿Qué función no puede perderse? → ¿de qué depende? → ¿qué puede comprometerla? → ¿qué consecuencia tendría? → ¿qué la protege? → ¿cómo sabríamos que falló? → ¿cómo continuaríamos o recuperaríamos?",
+          "line": 423
+        },
+        "p1Heading": {
+          "text": "## P1 · Núcleo",
+          "line": 428
+        },
+        "p2": {
+          "heading": {
+            "text": "# P2 · Triggers",
+            "line": 436
+          },
+          "triggers": [
+            {
+              "text": "cuentas compartidas;",
+              "line": 438
+            },
+            {
+              "text": "excolaboradores con acceso;",
+              "line": 439
+            },
+            {
+              "text": "administrador único;",
+              "line": 440
+            },
+            {
+              "text": "sin MFA en acceso crítico;",
+              "line": 441
+            },
+            {
+              "text": "backups desconocidos;",
+              "line": 442
+            },
+            {
+              "text": "backup nunca restaurado;",
+              "line": 443
+            },
+            {
+              "text": "SaaS crítico;",
+              "line": 444
+            },
+            {
+              "text": "dispositivo único;",
+              "line": 445
+            },
+            {
+              "text": "información sensible;",
+              "line": 446
+            },
+            {
+              "text": "accesos externos;",
+              "line": 447
+            },
+            {
+              "text": "proveedor único;",
+              "line": 448
+            },
+            {
+              "text": "incidentes previos;",
+              "line": 449
+            },
+            {
+              "text": "fraude;",
+              "line": 450
+            },
+            {
+              "text": "ransomware/phishing;",
+              "line": 451
+            },
+            {
+              "text": "procesos dependientes de correo;",
+              "line": 452
+            },
+            {
+              "text": "pérdida de equipos;",
+              "line": 453
+            },
+            {
+              "text": "trabajo remoto;",
+              "line": 454
+            },
+            {
+              "text": "datos en equipos personales;",
+              "line": 455
+            },
+            {
+              "text": "integraciones críticas;",
+              "line": 456
+            },
+            {
+              "text": "credenciales no gestionadas;",
+              "line": 457
+            },
+            {
+              "text": "dependencia de una sola persona.",
+              "line": 458
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# P3 · Discriminación causal",
+            "line": 460
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 461
+            },
+            {
+              "text": "“no pudimos facturar durante seis horas”",
+              "line": 462
+            },
+            {
+              "text": "debemos distinguir:",
+              "line": 463
+            },
+            {
+              "text": "TECH FAILURE → DT-01 / DT-05",
+              "line": 464
+            },
+            {
+              "text": "INTEGRATION FAILURE → DT-03",
+              "line": 465
+            },
+            {
+              "text": "PROVIDER OUTAGE → DT-05 + EC",
+              "line": 466
+            },
+            {
+              "text": "ACCESS FAILURE → DT-05",
+              "line": 467
+            },
+            {
+              "text": "PROCESS WORKAROUND ABSENT → DT-05/OP",
+              "line": 468
+            },
+            {
+              "text": "DATA CORRUPTION → DT-02 + DT-05 según causa/condición",
+              "line": 469
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·03",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22"
+      ],
+      "question": "¿Qué accesos tendría que poder quitar inmediatamente si alguien sale de la empresa?",
+      "questionSourceLines": [
+        432,
+        432
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 22,
+          "statement": "Resultan 22 NI.",
+          "line": 421
+        },
+        "nuclear": {
+          "text": "¿Qué función no puede perderse? → ¿de qué depende? → ¿qué puede comprometerla? → ¿qué consecuencia tendría? → ¿qué la protege? → ¿cómo sabríamos que falló? → ¿cómo continuaríamos o recuperaríamos?",
+          "line": 423
+        },
+        "p1Heading": {
+          "text": "## P1 · Núcleo",
+          "line": 428
+        },
+        "p2": {
+          "heading": {
+            "text": "# P2 · Triggers",
+            "line": 436
+          },
+          "triggers": [
+            {
+              "text": "cuentas compartidas;",
+              "line": 438
+            },
+            {
+              "text": "excolaboradores con acceso;",
+              "line": 439
+            },
+            {
+              "text": "administrador único;",
+              "line": 440
+            },
+            {
+              "text": "sin MFA en acceso crítico;",
+              "line": 441
+            },
+            {
+              "text": "backups desconocidos;",
+              "line": 442
+            },
+            {
+              "text": "backup nunca restaurado;",
+              "line": 443
+            },
+            {
+              "text": "SaaS crítico;",
+              "line": 444
+            },
+            {
+              "text": "dispositivo único;",
+              "line": 445
+            },
+            {
+              "text": "información sensible;",
+              "line": 446
+            },
+            {
+              "text": "accesos externos;",
+              "line": 447
+            },
+            {
+              "text": "proveedor único;",
+              "line": 448
+            },
+            {
+              "text": "incidentes previos;",
+              "line": 449
+            },
+            {
+              "text": "fraude;",
+              "line": 450
+            },
+            {
+              "text": "ransomware/phishing;",
+              "line": 451
+            },
+            {
+              "text": "procesos dependientes de correo;",
+              "line": 452
+            },
+            {
+              "text": "pérdida de equipos;",
+              "line": 453
+            },
+            {
+              "text": "trabajo remoto;",
+              "line": 454
+            },
+            {
+              "text": "datos en equipos personales;",
+              "line": 455
+            },
+            {
+              "text": "integraciones críticas;",
+              "line": 456
+            },
+            {
+              "text": "credenciales no gestionadas;",
+              "line": 457
+            },
+            {
+              "text": "dependencia de una sola persona.",
+              "line": 458
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# P3 · Discriminación causal",
+            "line": 460
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 461
+            },
+            {
+              "text": "“no pudimos facturar durante seis horas”",
+              "line": 462
+            },
+            {
+              "text": "debemos distinguir:",
+              "line": 463
+            },
+            {
+              "text": "TECH FAILURE → DT-01 / DT-05",
+              "line": 464
+            },
+            {
+              "text": "INTEGRATION FAILURE → DT-03",
+              "line": 465
+            },
+            {
+              "text": "PROVIDER OUTAGE → DT-05 + EC",
+              "line": 466
+            },
+            {
+              "text": "ACCESS FAILURE → DT-05",
+              "line": 467
+            },
+            {
+              "text": "PROCESS WORKAROUND ABSENT → DT-05/OP",
+              "line": 468
+            },
+            {
+              "text": "DATA CORRUPTION → DT-02 + DT-05 según causa/condición",
+              "line": 469
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·04",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22"
+      ],
+      "question": "Si el sistema principal deja de funcionar, ¿cuánto tiempo podrían operar?",
+      "questionSourceLines": [
+        433,
+        433
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 22,
+          "statement": "Resultan 22 NI.",
+          "line": 421
+        },
+        "nuclear": {
+          "text": "¿Qué función no puede perderse? → ¿de qué depende? → ¿qué puede comprometerla? → ¿qué consecuencia tendría? → ¿qué la protege? → ¿cómo sabríamos que falló? → ¿cómo continuaríamos o recuperaríamos?",
+          "line": 423
+        },
+        "p1Heading": {
+          "text": "## P1 · Núcleo",
+          "line": 428
+        },
+        "p2": {
+          "heading": {
+            "text": "# P2 · Triggers",
+            "line": 436
+          },
+          "triggers": [
+            {
+              "text": "cuentas compartidas;",
+              "line": 438
+            },
+            {
+              "text": "excolaboradores con acceso;",
+              "line": 439
+            },
+            {
+              "text": "administrador único;",
+              "line": 440
+            },
+            {
+              "text": "sin MFA en acceso crítico;",
+              "line": 441
+            },
+            {
+              "text": "backups desconocidos;",
+              "line": 442
+            },
+            {
+              "text": "backup nunca restaurado;",
+              "line": 443
+            },
+            {
+              "text": "SaaS crítico;",
+              "line": 444
+            },
+            {
+              "text": "dispositivo único;",
+              "line": 445
+            },
+            {
+              "text": "información sensible;",
+              "line": 446
+            },
+            {
+              "text": "accesos externos;",
+              "line": 447
+            },
+            {
+              "text": "proveedor único;",
+              "line": 448
+            },
+            {
+              "text": "incidentes previos;",
+              "line": 449
+            },
+            {
+              "text": "fraude;",
+              "line": 450
+            },
+            {
+              "text": "ransomware/phishing;",
+              "line": 451
+            },
+            {
+              "text": "procesos dependientes de correo;",
+              "line": 452
+            },
+            {
+              "text": "pérdida de equipos;",
+              "line": 453
+            },
+            {
+              "text": "trabajo remoto;",
+              "line": 454
+            },
+            {
+              "text": "datos en equipos personales;",
+              "line": 455
+            },
+            {
+              "text": "integraciones críticas;",
+              "line": 456
+            },
+            {
+              "text": "credenciales no gestionadas;",
+              "line": 457
+            },
+            {
+              "text": "dependencia de una sola persona.",
+              "line": 458
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# P3 · Discriminación causal",
+            "line": 460
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 461
+            },
+            {
+              "text": "“no pudimos facturar durante seis horas”",
+              "line": 462
+            },
+            {
+              "text": "debemos distinguir:",
+              "line": 463
+            },
+            {
+              "text": "TECH FAILURE → DT-01 / DT-05",
+              "line": 464
+            },
+            {
+              "text": "INTEGRATION FAILURE → DT-03",
+              "line": 465
+            },
+            {
+              "text": "PROVIDER OUTAGE → DT-05 + EC",
+              "line": 466
+            },
+            {
+              "text": "ACCESS FAILURE → DT-05",
+              "line": 467
+            },
+            {
+              "text": "PROCESS WORKAROUND ABSENT → DT-05/OP",
+              "line": 468
+            },
+            {
+              "text": "DATA CORRUPTION → DT-02 + DT-05 según causa/condición",
+              "line": 469
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·05",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22"
+      ],
+      "question": "¿Han comprobado que pueden recuperar la información importante?",
+      "questionSourceLines": [
+        434,
+        434
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 22,
+          "statement": "Resultan 22 NI.",
+          "line": 421
+        },
+        "nuclear": {
+          "text": "¿Qué función no puede perderse? → ¿de qué depende? → ¿qué puede comprometerla? → ¿qué consecuencia tendría? → ¿qué la protege? → ¿cómo sabríamos que falló? → ¿cómo continuaríamos o recuperaríamos?",
+          "line": 423
+        },
+        "p1Heading": {
+          "text": "## P1 · Núcleo",
+          "line": 428
+        },
+        "p2": {
+          "heading": {
+            "text": "# P2 · Triggers",
+            "line": 436
+          },
+          "triggers": [
+            {
+              "text": "cuentas compartidas;",
+              "line": 438
+            },
+            {
+              "text": "excolaboradores con acceso;",
+              "line": 439
+            },
+            {
+              "text": "administrador único;",
+              "line": 440
+            },
+            {
+              "text": "sin MFA en acceso crítico;",
+              "line": 441
+            },
+            {
+              "text": "backups desconocidos;",
+              "line": 442
+            },
+            {
+              "text": "backup nunca restaurado;",
+              "line": 443
+            },
+            {
+              "text": "SaaS crítico;",
+              "line": 444
+            },
+            {
+              "text": "dispositivo único;",
+              "line": 445
+            },
+            {
+              "text": "información sensible;",
+              "line": 446
+            },
+            {
+              "text": "accesos externos;",
+              "line": 447
+            },
+            {
+              "text": "proveedor único;",
+              "line": 448
+            },
+            {
+              "text": "incidentes previos;",
+              "line": 449
+            },
+            {
+              "text": "fraude;",
+              "line": 450
+            },
+            {
+              "text": "ransomware/phishing;",
+              "line": 451
+            },
+            {
+              "text": "procesos dependientes de correo;",
+              "line": 452
+            },
+            {
+              "text": "pérdida de equipos;",
+              "line": 453
+            },
+            {
+              "text": "trabajo remoto;",
+              "line": 454
+            },
+            {
+              "text": "datos en equipos personales;",
+              "line": 455
+            },
+            {
+              "text": "integraciones críticas;",
+              "line": 456
+            },
+            {
+              "text": "credenciales no gestionadas;",
+              "line": 457
+            },
+            {
+              "text": "dependencia de una sola persona.",
+              "line": 458
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# P3 · Discriminación causal",
+            "line": 460
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 461
+            },
+            {
+              "text": "“no pudimos facturar durante seis horas”",
+              "line": 462
+            },
+            {
+              "text": "debemos distinguir:",
+              "line": 463
+            },
+            {
+              "text": "TECH FAILURE → DT-01 / DT-05",
+              "line": 464
+            },
+            {
+              "text": "INTEGRATION FAILURE → DT-03",
+              "line": 465
+            },
+            {
+              "text": "PROVIDER OUTAGE → DT-05 + EC",
+              "line": 466
+            },
+            {
+              "text": "ACCESS FAILURE → DT-05",
+              "line": 467
+            },
+            {
+              "text": "PROCESS WORKAROUND ABSENT → DT-05/OP",
+              "line": 468
+            },
+            {
+              "text": "DATA CORRUPTION → DT-02 + DT-05 según causa/condición",
+              "line": 469
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    }
+  ],
+  "acquisitionStages": [
+    {
+      "id": "P1",
+      "level": "P1",
+      "heading": "P1 · Núcleo",
+      "prompts": [
+        "“¿Qué sistemas o información, si mañana no estuvieran disponibles, realmente frenarían el negocio?”",
+        "“¿Qué información sería especialmente grave que se perdiera, alterara o viera alguien no autorizado?”",
+        "“¿Qué accesos tendría que poder quitar inmediatamente si alguien sale de la empresa?”",
+        "“Si el sistema principal deja de funcionar, ¿cuánto tiempo podrían operar?”",
+        "“¿Han comprobado que pueden recuperar la información importante?”"
+      ],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        428,
+        434
+      ]
+    },
+    {
+      "id": "P2",
+      "level": "P2",
+      "heading": "P2 · Triggers",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        436,
+        458
+      ]
+    },
+    {
+      "id": "P3",
+      "level": "P3",
+      "heading": "P3 · Discriminación causal",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        460,
+        469
+      ]
+    },
+    {
+      "id": "P4",
+      "level": "P4",
+      "heading": "P4 · Contradicciones",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        471,
+        471
+      ]
+    },
+    {
+      "id": "P5",
+      "level": "P5",
+      "heading": "P5 · Validación",
+      "prompts": [
+        "“¿tienen backups?”",
+        "“¿tienen proceso de baja?”",
+        "“la última persona que salió de la empresa, ¿qué accesos tenía y cómo fueron retirados?”"
+      ],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        485,
+        493
+      ]
+    }
+  ]
+}

@@ -335,6 +335,22 @@ describe("M2-A · publication gate", () => {
     expect(puerta(fuenteValidada()).state).toBe("PUBLISHED");
   });
 
+  it("M2-FINAL-15 · NI no enumeradas no bloquean; ausencia real de adquisición sí", () => {
+    const conGap = (kind: string, publicationBlocking: boolean) =>
+      fuenteValidada((f) => {
+        (f["gaps"] as unknown[]).push({
+          id: `GAP-${kind}`,
+          kind,
+          statement: "Resultan 2 NI.",
+          publicationBlocking,
+        });
+      });
+    expect(puerta(conGap("INFORMATION_NEED_NOT_ENUMERATED", false)).state).toBe("PUBLISHED");
+    const falta = puerta(conGap("ACQUISITION_SEMANTICS_MISSING", true));
+    expect(falta.blockers.map((b) => b.code)).toContain("PUBLICATION_BLOCKING_GAP");
+    expect(falta.state).not.toBe("PUBLISHED");
+  });
+
   it("sin aprobación de gobierno el pack queda VALIDATED, nunca PUBLISHED", () => {
     const source = fuenteValidada();
     const candidate = candidatoDe(source);

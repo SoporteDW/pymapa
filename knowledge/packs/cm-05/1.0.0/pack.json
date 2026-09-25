@@ -1,0 +1,1609 @@
+{
+  "packId": "cm-05",
+  "packVersion": "1.0.0",
+  "status": "draft",
+  "knowledgeMaster": {
+    "identifier": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "status": "BASELINE-APPROVED",
+    "sourceReference": "canonical-baseline.json#CM05-K4-v1.0@sha256:83201f8411b88981209c322dcb9d26cdd26dbfa95abe6f8aef409966ae2684ab · CM05-K4-v1.0 · K4-VALIDATED · CLOSED"
+  },
+  "capability": {
+    "id": "CM-05",
+    "domainId": "CM",
+    "name": "Gestionar experiencia, servicio y continuidad de la relación",
+    "definition": "CM-05 evalúa la capacidad de la organización para gestionar experiencias y servicios materialmente relevantes a lo largo de la relación con el cliente, mantener suficiente coherencia entre expectativas y entrega, tratar fricciones o fallas de forma proporcional y preservar o cerrar la relación de manera adecuada según el valor y contexto aplicables.",
+    "definitionStatus": "EXPLICIT",
+    "definitionSourceLines": [
+      33,
+      33
+    ]
+  },
+  "conditionsOfExistence": [
+    {
+      "id": "CE01",
+      "statement": "Expectation"
+    },
+    {
+      "id": "CE02",
+      "statement": "Material experience moments"
+    },
+    {
+      "id": "CE03",
+      "statement": "Service delivery"
+    },
+    {
+      "id": "CE04",
+      "statement": "Experience perception"
+    },
+    {
+      "id": "CE05",
+      "statement": "Failure visibility"
+    },
+    {
+      "id": "CE06",
+      "statement": "Recovery"
+    },
+    {
+      "id": "CE07",
+      "statement": "Recurrence"
+    },
+    {
+      "id": "CE08",
+      "statement": "Trust/relationship health"
+    },
+    {
+      "id": "CE09",
+      "statement": "Continuity"
+    },
+    {
+      "id": "CE10",
+      "statement": "Adaptation"
+    }
+  ],
+  "variables": [
+    {
+      "id": "VA01",
+      "name": "expectativas materiales suficientemente conocidas",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA02",
+      "name": "fuente/legitimidad de expectativa suficientemente comprendida",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA03",
+      "name": "episodios/momentos materiales identificados",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA04",
+      "name": "importancia/consecuencia suficientemente entendida",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA05",
+      "name": "requisitos/promesas materiales suficientemente claros",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA06",
+      "name": "entrega suficientemente consistente",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA07",
+      "name": "customer effort suficientemente proporcional",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA08",
+      "name": "percepción material suficientemente visible",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA09",
+      "name": "gaps expectation–delivery/perception suficientemente identificados",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA10",
+      "name": "fallas materiales suficientemente detectables",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA11",
+      "name": "severidad suficientemente caracterizada",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA12",
+      "name": "respuesta a falla suficientemente oportuna",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA13",
+      "name": "recuperación suficientemente adecuada",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA14",
+      "name": "cierre/confirmación suficientemente claro",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA15",
+      "name": "fallas recurrentes suficientemente identificadas",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA16",
+      "name": "aprendizaje derivado hacia prevención/corrección cuando aplica",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA17",
+      "name": "señales materiales de confianza/deterioro suficientemente visibles",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA18",
+      "name": "riesgo relacional suficientemente tratable",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA19",
+      "name": "continuidad/renovación suficientemente gestionable",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA20",
+      "name": "salida/cancelación suficientemente tratable",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA21",
+      "name": "retención condicionada a fit/value suficientemente comprendido",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA22",
+      "name": "evidencia de experiencia modifica servicio cuando corresponde",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA23",
+      "name": "comprensión de relación puede actualizarse ante nueva evidencia",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    }
+  ],
+  "informationNeeds": [],
+  "acquisitions": [
+    {
+      "id": "ACQ·P1·01",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23"
+      ],
+      "question": "¿En qué momentos de la relación es más grave fallarle al cliente?",
+      "questionSourceLines": [
+        445,
+        445
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 23,
+          "statement": "Resultan 23 NI.",
+          "line": 440
+        },
+        "nuclear": {
+          "text": "¿Qué espera razonablemente el cliente en este episodio, qué ocurrió, cómo lo percibió, qué consecuencia produjo y qué necesita hacer la organización para entregar, recuperar o sostener suficientemente la relación?",
+          "line": 442
+        },
+        "p1Heading": {
+          "text": "# 41. Captura P1",
+          "line": 443
+        },
+        "p2": {
+          "heading": {
+            "text": "# 42. P2 · Triggers",
+            "line": 452
+          },
+          "triggers": [
+            {
+              "text": "reclamaciones repetidas;",
+              "line": 454
+            },
+            {
+              "text": "devoluciones;",
+              "line": 455
+            },
+            {
+              "text": "tickets reabiertos;",
+              "line": 456
+            },
+            {
+              "text": "escalaciones;",
+              "line": 457
+            },
+            {
+              "text": "clientes que deben insistir;",
+              "line": 458
+            },
+            {
+              "text": "promesas incumplidas;",
+              "line": 459
+            },
+            {
+              "text": "churn inesperado;",
+              "line": 460
+            },
+            {
+              "text": "bajas renovaciones;",
+              "line": 461
+            },
+            {
+              "text": "compensaciones recurrentes;",
+              "line": 462
+            },
+            {
+              "text": "errores repetidos;",
+              "line": 463
+            },
+            {
+              "text": "satisfacción alta con churn alto;",
+              "line": 464
+            },
+            {
+              "text": "retención alta con reclamos altos;",
+              "line": 465
+            },
+            {
+              "text": "clientes dependientes de una persona;",
+              "line": 466
+            },
+            {
+              "text": "primera experiencia problemática;",
+              "line": 467
+            },
+            {
+              "text": "cancelación difícil;",
+              "line": 468
+            },
+            {
+              "text": "problemas ocultos sin queja.",
+              "line": 469
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 43. P3 · Discriminación causal",
+            "line": 470
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 471
+            },
+            {
+              "text": "“los clientes se están yendo”",
+              "line": 472
+            },
+            {
+              "text": "distinguimos:",
+              "line": 473
+            },
+            {
+              "text": "CUSTOMER NEED CHANGE → CM-01",
+              "line": 474
+            },
+            {
+              "text": "VALUE PROPOSITION → CM-02",
+              "line": 475
+            },
+            {
+              "text": "COMMERCIAL RELATIONSHIP → CM-03",
+              "line": 476
+            },
+            {
+              "text": "CHANNEL/INTERACTION → CM-04",
+              "line": 477
+            },
+            {
+              "text": "SERVICE/EXPERIENCE → CM-05",
+              "line": 478
+            },
+            {
+              "text": "VALUE/ECONOMICS → CM-06",
+              "line": 479
+            },
+            {
+              "text": "DELIVERY PROCESS → OP",
+              "line": 480
+            },
+            {
+              "text": "TECH FAILURE → DT",
+              "line": 481
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·02",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23"
+      ],
+      "question": "¿Qué suele esperar el cliente en esos momentos?",
+      "questionSourceLines": [
+        446,
+        446
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 23,
+          "statement": "Resultan 23 NI.",
+          "line": 440
+        },
+        "nuclear": {
+          "text": "¿Qué espera razonablemente el cliente en este episodio, qué ocurrió, cómo lo percibió, qué consecuencia produjo y qué necesita hacer la organización para entregar, recuperar o sostener suficientemente la relación?",
+          "line": 442
+        },
+        "p1Heading": {
+          "text": "# 41. Captura P1",
+          "line": 443
+        },
+        "p2": {
+          "heading": {
+            "text": "# 42. P2 · Triggers",
+            "line": 452
+          },
+          "triggers": [
+            {
+              "text": "reclamaciones repetidas;",
+              "line": 454
+            },
+            {
+              "text": "devoluciones;",
+              "line": 455
+            },
+            {
+              "text": "tickets reabiertos;",
+              "line": 456
+            },
+            {
+              "text": "escalaciones;",
+              "line": 457
+            },
+            {
+              "text": "clientes que deben insistir;",
+              "line": 458
+            },
+            {
+              "text": "promesas incumplidas;",
+              "line": 459
+            },
+            {
+              "text": "churn inesperado;",
+              "line": 460
+            },
+            {
+              "text": "bajas renovaciones;",
+              "line": 461
+            },
+            {
+              "text": "compensaciones recurrentes;",
+              "line": 462
+            },
+            {
+              "text": "errores repetidos;",
+              "line": 463
+            },
+            {
+              "text": "satisfacción alta con churn alto;",
+              "line": 464
+            },
+            {
+              "text": "retención alta con reclamos altos;",
+              "line": 465
+            },
+            {
+              "text": "clientes dependientes de una persona;",
+              "line": 466
+            },
+            {
+              "text": "primera experiencia problemática;",
+              "line": 467
+            },
+            {
+              "text": "cancelación difícil;",
+              "line": 468
+            },
+            {
+              "text": "problemas ocultos sin queja.",
+              "line": 469
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 43. P3 · Discriminación causal",
+            "line": 470
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 471
+            },
+            {
+              "text": "“los clientes se están yendo”",
+              "line": 472
+            },
+            {
+              "text": "distinguimos:",
+              "line": 473
+            },
+            {
+              "text": "CUSTOMER NEED CHANGE → CM-01",
+              "line": 474
+            },
+            {
+              "text": "VALUE PROPOSITION → CM-02",
+              "line": 475
+            },
+            {
+              "text": "COMMERCIAL RELATIONSHIP → CM-03",
+              "line": 476
+            },
+            {
+              "text": "CHANNEL/INTERACTION → CM-04",
+              "line": 477
+            },
+            {
+              "text": "SERVICE/EXPERIENCE → CM-05",
+              "line": 478
+            },
+            {
+              "text": "VALUE/ECONOMICS → CM-06",
+              "line": 479
+            },
+            {
+              "text": "DELIVERY PROCESS → OP",
+              "line": 480
+            },
+            {
+              "text": "TECH FAILURE → DT",
+              "line": 481
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·03",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23"
+      ],
+      "question": "¿Dónde tiene que esforzarse demasiado para obtener algo que debería ser sencillo?",
+      "questionSourceLines": [
+        447,
+        447
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 23,
+          "statement": "Resultan 23 NI.",
+          "line": 440
+        },
+        "nuclear": {
+          "text": "¿Qué espera razonablemente el cliente en este episodio, qué ocurrió, cómo lo percibió, qué consecuencia produjo y qué necesita hacer la organización para entregar, recuperar o sostener suficientemente la relación?",
+          "line": 442
+        },
+        "p1Heading": {
+          "text": "# 41. Captura P1",
+          "line": 443
+        },
+        "p2": {
+          "heading": {
+            "text": "# 42. P2 · Triggers",
+            "line": 452
+          },
+          "triggers": [
+            {
+              "text": "reclamaciones repetidas;",
+              "line": 454
+            },
+            {
+              "text": "devoluciones;",
+              "line": 455
+            },
+            {
+              "text": "tickets reabiertos;",
+              "line": 456
+            },
+            {
+              "text": "escalaciones;",
+              "line": 457
+            },
+            {
+              "text": "clientes que deben insistir;",
+              "line": 458
+            },
+            {
+              "text": "promesas incumplidas;",
+              "line": 459
+            },
+            {
+              "text": "churn inesperado;",
+              "line": 460
+            },
+            {
+              "text": "bajas renovaciones;",
+              "line": 461
+            },
+            {
+              "text": "compensaciones recurrentes;",
+              "line": 462
+            },
+            {
+              "text": "errores repetidos;",
+              "line": 463
+            },
+            {
+              "text": "satisfacción alta con churn alto;",
+              "line": 464
+            },
+            {
+              "text": "retención alta con reclamos altos;",
+              "line": 465
+            },
+            {
+              "text": "clientes dependientes de una persona;",
+              "line": 466
+            },
+            {
+              "text": "primera experiencia problemática;",
+              "line": 467
+            },
+            {
+              "text": "cancelación difícil;",
+              "line": 468
+            },
+            {
+              "text": "problemas ocultos sin queja.",
+              "line": 469
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 43. P3 · Discriminación causal",
+            "line": 470
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 471
+            },
+            {
+              "text": "“los clientes se están yendo”",
+              "line": 472
+            },
+            {
+              "text": "distinguimos:",
+              "line": 473
+            },
+            {
+              "text": "CUSTOMER NEED CHANGE → CM-01",
+              "line": 474
+            },
+            {
+              "text": "VALUE PROPOSITION → CM-02",
+              "line": 475
+            },
+            {
+              "text": "COMMERCIAL RELATIONSHIP → CM-03",
+              "line": 476
+            },
+            {
+              "text": "CHANNEL/INTERACTION → CM-04",
+              "line": 477
+            },
+            {
+              "text": "SERVICE/EXPERIENCE → CM-05",
+              "line": 478
+            },
+            {
+              "text": "VALUE/ECONOMICS → CM-06",
+              "line": 479
+            },
+            {
+              "text": "DELIVERY PROCESS → OP",
+              "line": 480
+            },
+            {
+              "text": "TECH FAILURE → DT",
+              "line": 481
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·04",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23"
+      ],
+      "question": "Cuando algo sale mal, ¿cómo saben qué hacer?",
+      "questionSourceLines": [
+        448,
+        448
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 23,
+          "statement": "Resultan 23 NI.",
+          "line": 440
+        },
+        "nuclear": {
+          "text": "¿Qué espera razonablemente el cliente en este episodio, qué ocurrió, cómo lo percibió, qué consecuencia produjo y qué necesita hacer la organización para entregar, recuperar o sostener suficientemente la relación?",
+          "line": 442
+        },
+        "p1Heading": {
+          "text": "# 41. Captura P1",
+          "line": 443
+        },
+        "p2": {
+          "heading": {
+            "text": "# 42. P2 · Triggers",
+            "line": 452
+          },
+          "triggers": [
+            {
+              "text": "reclamaciones repetidas;",
+              "line": 454
+            },
+            {
+              "text": "devoluciones;",
+              "line": 455
+            },
+            {
+              "text": "tickets reabiertos;",
+              "line": 456
+            },
+            {
+              "text": "escalaciones;",
+              "line": 457
+            },
+            {
+              "text": "clientes que deben insistir;",
+              "line": 458
+            },
+            {
+              "text": "promesas incumplidas;",
+              "line": 459
+            },
+            {
+              "text": "churn inesperado;",
+              "line": 460
+            },
+            {
+              "text": "bajas renovaciones;",
+              "line": 461
+            },
+            {
+              "text": "compensaciones recurrentes;",
+              "line": 462
+            },
+            {
+              "text": "errores repetidos;",
+              "line": 463
+            },
+            {
+              "text": "satisfacción alta con churn alto;",
+              "line": 464
+            },
+            {
+              "text": "retención alta con reclamos altos;",
+              "line": 465
+            },
+            {
+              "text": "clientes dependientes de una persona;",
+              "line": 466
+            },
+            {
+              "text": "primera experiencia problemática;",
+              "line": 467
+            },
+            {
+              "text": "cancelación difícil;",
+              "line": 468
+            },
+            {
+              "text": "problemas ocultos sin queja.",
+              "line": 469
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 43. P3 · Discriminación causal",
+            "line": 470
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 471
+            },
+            {
+              "text": "“los clientes se están yendo”",
+              "line": 472
+            },
+            {
+              "text": "distinguimos:",
+              "line": 473
+            },
+            {
+              "text": "CUSTOMER NEED CHANGE → CM-01",
+              "line": 474
+            },
+            {
+              "text": "VALUE PROPOSITION → CM-02",
+              "line": 475
+            },
+            {
+              "text": "COMMERCIAL RELATIONSHIP → CM-03",
+              "line": 476
+            },
+            {
+              "text": "CHANNEL/INTERACTION → CM-04",
+              "line": 477
+            },
+            {
+              "text": "SERVICE/EXPERIENCE → CM-05",
+              "line": 478
+            },
+            {
+              "text": "VALUE/ECONOMICS → CM-06",
+              "line": 479
+            },
+            {
+              "text": "DELIVERY PROCESS → OP",
+              "line": 480
+            },
+            {
+              "text": "TECH FAILURE → DT",
+              "line": 481
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·05",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23"
+      ],
+      "question": "¿Qué problemas se repiten?",
+      "questionSourceLines": [
+        449,
+        449
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 23,
+          "statement": "Resultan 23 NI.",
+          "line": 440
+        },
+        "nuclear": {
+          "text": "¿Qué espera razonablemente el cliente en este episodio, qué ocurrió, cómo lo percibió, qué consecuencia produjo y qué necesita hacer la organización para entregar, recuperar o sostener suficientemente la relación?",
+          "line": 442
+        },
+        "p1Heading": {
+          "text": "# 41. Captura P1",
+          "line": 443
+        },
+        "p2": {
+          "heading": {
+            "text": "# 42. P2 · Triggers",
+            "line": 452
+          },
+          "triggers": [
+            {
+              "text": "reclamaciones repetidas;",
+              "line": 454
+            },
+            {
+              "text": "devoluciones;",
+              "line": 455
+            },
+            {
+              "text": "tickets reabiertos;",
+              "line": 456
+            },
+            {
+              "text": "escalaciones;",
+              "line": 457
+            },
+            {
+              "text": "clientes que deben insistir;",
+              "line": 458
+            },
+            {
+              "text": "promesas incumplidas;",
+              "line": 459
+            },
+            {
+              "text": "churn inesperado;",
+              "line": 460
+            },
+            {
+              "text": "bajas renovaciones;",
+              "line": 461
+            },
+            {
+              "text": "compensaciones recurrentes;",
+              "line": 462
+            },
+            {
+              "text": "errores repetidos;",
+              "line": 463
+            },
+            {
+              "text": "satisfacción alta con churn alto;",
+              "line": 464
+            },
+            {
+              "text": "retención alta con reclamos altos;",
+              "line": 465
+            },
+            {
+              "text": "clientes dependientes de una persona;",
+              "line": 466
+            },
+            {
+              "text": "primera experiencia problemática;",
+              "line": 467
+            },
+            {
+              "text": "cancelación difícil;",
+              "line": 468
+            },
+            {
+              "text": "problemas ocultos sin queja.",
+              "line": 469
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 43. P3 · Discriminación causal",
+            "line": 470
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 471
+            },
+            {
+              "text": "“los clientes se están yendo”",
+              "line": 472
+            },
+            {
+              "text": "distinguimos:",
+              "line": 473
+            },
+            {
+              "text": "CUSTOMER NEED CHANGE → CM-01",
+              "line": 474
+            },
+            {
+              "text": "VALUE PROPOSITION → CM-02",
+              "line": 475
+            },
+            {
+              "text": "COMMERCIAL RELATIONSHIP → CM-03",
+              "line": 476
+            },
+            {
+              "text": "CHANNEL/INTERACTION → CM-04",
+              "line": 477
+            },
+            {
+              "text": "SERVICE/EXPERIENCE → CM-05",
+              "line": 478
+            },
+            {
+              "text": "VALUE/ECONOMICS → CM-06",
+              "line": 479
+            },
+            {
+              "text": "DELIVERY PROCESS → OP",
+              "line": 480
+            },
+            {
+              "text": "TECH FAILURE → DT",
+              "line": 481
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·06",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23"
+      ],
+      "question": "¿Qué señales les indican que una relación se está deteriorando?",
+      "questionSourceLines": [
+        450,
+        450
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 23,
+          "statement": "Resultan 23 NI.",
+          "line": 440
+        },
+        "nuclear": {
+          "text": "¿Qué espera razonablemente el cliente en este episodio, qué ocurrió, cómo lo percibió, qué consecuencia produjo y qué necesita hacer la organización para entregar, recuperar o sostener suficientemente la relación?",
+          "line": 442
+        },
+        "p1Heading": {
+          "text": "# 41. Captura P1",
+          "line": 443
+        },
+        "p2": {
+          "heading": {
+            "text": "# 42. P2 · Triggers",
+            "line": 452
+          },
+          "triggers": [
+            {
+              "text": "reclamaciones repetidas;",
+              "line": 454
+            },
+            {
+              "text": "devoluciones;",
+              "line": 455
+            },
+            {
+              "text": "tickets reabiertos;",
+              "line": 456
+            },
+            {
+              "text": "escalaciones;",
+              "line": 457
+            },
+            {
+              "text": "clientes que deben insistir;",
+              "line": 458
+            },
+            {
+              "text": "promesas incumplidas;",
+              "line": 459
+            },
+            {
+              "text": "churn inesperado;",
+              "line": 460
+            },
+            {
+              "text": "bajas renovaciones;",
+              "line": 461
+            },
+            {
+              "text": "compensaciones recurrentes;",
+              "line": 462
+            },
+            {
+              "text": "errores repetidos;",
+              "line": 463
+            },
+            {
+              "text": "satisfacción alta con churn alto;",
+              "line": 464
+            },
+            {
+              "text": "retención alta con reclamos altos;",
+              "line": 465
+            },
+            {
+              "text": "clientes dependientes de una persona;",
+              "line": 466
+            },
+            {
+              "text": "primera experiencia problemática;",
+              "line": 467
+            },
+            {
+              "text": "cancelación difícil;",
+              "line": 468
+            },
+            {
+              "text": "problemas ocultos sin queja.",
+              "line": 469
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 43. P3 · Discriminación causal",
+            "line": 470
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 471
+            },
+            {
+              "text": "“los clientes se están yendo”",
+              "line": 472
+            },
+            {
+              "text": "distinguimos:",
+              "line": 473
+            },
+            {
+              "text": "CUSTOMER NEED CHANGE → CM-01",
+              "line": 474
+            },
+            {
+              "text": "VALUE PROPOSITION → CM-02",
+              "line": 475
+            },
+            {
+              "text": "COMMERCIAL RELATIONSHIP → CM-03",
+              "line": 476
+            },
+            {
+              "text": "CHANNEL/INTERACTION → CM-04",
+              "line": 477
+            },
+            {
+              "text": "SERVICE/EXPERIENCE → CM-05",
+              "line": 478
+            },
+            {
+              "text": "VALUE/ECONOMICS → CM-06",
+              "line": 479
+            },
+            {
+              "text": "DELIVERY PROCESS → OP",
+              "line": 480
+            },
+            {
+              "text": "TECH FAILURE → DT",
+              "line": 481
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·07",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23"
+      ],
+      "question": "¿Cuándo consideran que es mejor dejar ir a un cliente?",
+      "questionSourceLines": [
+        451,
+        451
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 23,
+          "statement": "Resultan 23 NI.",
+          "line": 440
+        },
+        "nuclear": {
+          "text": "¿Qué espera razonablemente el cliente en este episodio, qué ocurrió, cómo lo percibió, qué consecuencia produjo y qué necesita hacer la organización para entregar, recuperar o sostener suficientemente la relación?",
+          "line": 442
+        },
+        "p1Heading": {
+          "text": "# 41. Captura P1",
+          "line": 443
+        },
+        "p2": {
+          "heading": {
+            "text": "# 42. P2 · Triggers",
+            "line": 452
+          },
+          "triggers": [
+            {
+              "text": "reclamaciones repetidas;",
+              "line": 454
+            },
+            {
+              "text": "devoluciones;",
+              "line": 455
+            },
+            {
+              "text": "tickets reabiertos;",
+              "line": 456
+            },
+            {
+              "text": "escalaciones;",
+              "line": 457
+            },
+            {
+              "text": "clientes que deben insistir;",
+              "line": 458
+            },
+            {
+              "text": "promesas incumplidas;",
+              "line": 459
+            },
+            {
+              "text": "churn inesperado;",
+              "line": 460
+            },
+            {
+              "text": "bajas renovaciones;",
+              "line": 461
+            },
+            {
+              "text": "compensaciones recurrentes;",
+              "line": 462
+            },
+            {
+              "text": "errores repetidos;",
+              "line": 463
+            },
+            {
+              "text": "satisfacción alta con churn alto;",
+              "line": 464
+            },
+            {
+              "text": "retención alta con reclamos altos;",
+              "line": 465
+            },
+            {
+              "text": "clientes dependientes de una persona;",
+              "line": 466
+            },
+            {
+              "text": "primera experiencia problemática;",
+              "line": 467
+            },
+            {
+              "text": "cancelación difícil;",
+              "line": 468
+            },
+            {
+              "text": "problemas ocultos sin queja.",
+              "line": 469
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 43. P3 · Discriminación causal",
+            "line": 470
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 471
+            },
+            {
+              "text": "“los clientes se están yendo”",
+              "line": 472
+            },
+            {
+              "text": "distinguimos:",
+              "line": 473
+            },
+            {
+              "text": "CUSTOMER NEED CHANGE → CM-01",
+              "line": 474
+            },
+            {
+              "text": "VALUE PROPOSITION → CM-02",
+              "line": 475
+            },
+            {
+              "text": "COMMERCIAL RELATIONSHIP → CM-03",
+              "line": 476
+            },
+            {
+              "text": "CHANNEL/INTERACTION → CM-04",
+              "line": 477
+            },
+            {
+              "text": "SERVICE/EXPERIENCE → CM-05",
+              "line": 478
+            },
+            {
+              "text": "VALUE/ECONOMICS → CM-06",
+              "line": 479
+            },
+            {
+              "text": "DELIVERY PROCESS → OP",
+              "line": 480
+            },
+            {
+              "text": "TECH FAILURE → DT",
+              "line": 481
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    }
+  ],
+  "acquisitionStages": [
+    {
+      "id": "P2",
+      "level": "P2",
+      "heading": "P2 · Triggers",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        452,
+        469
+      ]
+    },
+    {
+      "id": "P3",
+      "level": "P3",
+      "heading": "P3 · Discriminación causal",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        470,
+        481
+      ]
+    }
+  ]
+}

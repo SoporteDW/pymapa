@@ -325,3 +325,86 @@ export function applyGovernedOrdinalMapping(
     }),
   };
 }
+
+/* ------- 4 · M2-FINAL-15 · adquisición progresiva nativa de la fuente ------- */
+
+export interface SourceLine {
+  text: string;
+  line: number;
+}
+export interface ProgressiveAcquisition {
+  niDeclaration: (SourceLine & { count: number; correspondence: boolean }) | null;
+  nuclear: SourceLine | null;
+  p1: { heading: SourceLine; questions: SourceLine[] } | null;
+  p2: { heading: SourceLine; triggers: SourceLine[] } | null;
+  p3: { heading: SourceLine; lines: SourceLine[] } | null;
+}
+
+const HEADING = /^#{1,9}\s+(.*)$/;
+const P_HEADING = (n: 1 | 2 | 3) =>
+  new RegExp(`^#{1,9}\\s+(?:\\d+\\.\\s+)?(?:Captura\\s+)?P${n}(?:\\s*·.*)?$`);
+const NI_DECLARATION = /^Resultan\s+(\d+)\s+NI\b(.*)$/;
+const QUESTION = /¿[^?]+\?/;
+const unquote = (s: string) =>
+  s
+    .trim()
+    .replace(/^[“"«]|[”"»]$/g, "")
+    .trim();
+
+/** Extrae literalmente (sin redactar) NI declaradas, núcleo y P1/P2/P3 de la fuente. */
+export function extractProgressiveAcquisition(rawText: string): ProgressiveAcquisition {
+  const lines = rawText.split("\n");
+  const sectionAfter = (start: number) => {
+    const out: SourceLine[] = [];
+    for (let k = start + 1; k < lines.length; k++) {
+      const t = lines[k]!.trim();
+      if (HEADING.test(t)) break;
+      if (t) out.push({ text: t, line: k + 1 });
+    }
+    return out;
+  };
+  const headingAt = (re: RegExp) => {
+    const i = lines.findIndex((l) => re.test(l.trim()));
+    return i < 0 ? null : { text: lines[i]!.trim(), line: i + 1, idx: i };
+  };
+  let niDeclaration: ProgressiveAcquisition["niDeclaration"] = null;
+  let nuclear: SourceLine | null = null;
+  const di = lines.findIndex((l) => NI_DECLARATION.test(l.trim()));
+  if (di >= 0) {
+    const t = lines[di]!.trim();
+    const m = NI_DECLARATION.exec(t)!;
+    niDeclaration = {
+      text: t,
+      line: di + 1,
+      count: Number(m[1]),
+      correspondence: /correspondientes/i.test(m[2]!),
+    };
+    const q = sectionAfter(di).find((s) => QUESTION.test(s.text));
+    if (q) nuclear = { text: unquote(q.text), line: q.line };
+  }
+  const h1 = headingAt(P_HEADING(1));
+  let p1: ProgressiveAcquisition["p1"] = null;
+  if (h1) {
+    let negative = false;
+    const questions: SourceLine[] = [];
+    for (const s of sectionAfter(h1.idx)) {
+      if (/^No\s+pregunt/i.test(s.text)) negative = true;
+      else if (/^Pregunt/i.test(s.text)) negative = false;
+      else if (!negative && QUESTION.test(s.text))
+        questions.push({ text: unquote(s.text), line: s.line });
+    }
+    p1 = { heading: { text: h1.text, line: h1.line }, questions };
+  }
+  const h2 = headingAt(P_HEADING(2));
+  const p2 = h2
+    ? {
+        heading: { text: h2.text, line: h2.line },
+        triggers: sectionAfter(h2.idx)
+          .filter((s) => /^-\s+\S/.test(s.text))
+          .map((s) => ({ text: s.text.replace(/^-\s+/, ""), line: s.line })),
+      }
+    : null;
+  const h3 = headingAt(P_HEADING(3));
+  const p3 = h3 ? { heading: { text: h3.text, line: h3.line }, lines: sectionAfter(h3.idx) } : null;
+  return { niDeclaration, nuclear, p1, p2, p3 };
+}

@@ -1,0 +1,938 @@
+{
+  "packId": "dt-06",
+  "packVersion": "1.0.0",
+  "status": "draft",
+  "knowledgeMaster": {
+    "identifier": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "status": "BASELINE-APPROVED",
+    "sourceReference": "canonical-baseline.json#DT06-K4-v1.0@sha256:5119c2f141304c067837f10484c6fb4bbd4073735c0a44402610c5f5180968bc · DT06-K4-v1.0 · K4-VALIDATED · CLOSED"
+  },
+  "capability": {
+    "id": "DT-06",
+    "domainId": "DT",
+    "name": "Evaluar, incorporar y aprovechar tecnologías pertinentes",
+    "definition": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+    "definitionStatus": "NOT_EXPLICIT"
+  },
+  "conditionsOfExistence": [
+    {
+      "id": "CE01",
+      "statement": "Need/Opportunity"
+    },
+    {
+      "id": "CE02",
+      "statement": "Alternativas"
+    },
+    {
+      "id": "CE03",
+      "statement": "Relevance"
+    },
+    {
+      "id": "CE04",
+      "statement": "Feasibility/Readiness"
+    },
+    {
+      "id": "CE05",
+      "statement": "Evidence"
+    },
+    {
+      "id": "CE06",
+      "statement": "Experimentation"
+    },
+    {
+      "id": "CE07",
+      "statement": "Adoption Decision"
+    },
+    {
+      "id": "CE08",
+      "statement": "Incorporation"
+    },
+    {
+      "id": "CE09",
+      "statement": "Effective Use/Value"
+    },
+    {
+      "id": "CE10",
+      "statement": "Learning/Lifecycle"
+    }
+  ],
+  "variables": [
+    {
+      "id": "VA01",
+      "name": "necesidad/oportunidad material suficientemente definida",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_CORRESPONDENCE"
+    },
+    {
+      "id": "VA02",
+      "name": "capacidad requerida suficientemente clara",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_CORRESPONDENCE"
+    },
+    {
+      "id": "VA03",
+      "name": "alternativas tecnológicas relevantes consideradas",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_CORRESPONDENCE"
+    },
+    {
+      "id": "VA04",
+      "name": "alternativas no tecnológicas consideradas cuando material",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_CORRESPONDENCE"
+    },
+    {
+      "id": "VA05",
+      "name": "need/functional fit suficiente",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_CORRESPONDENCE"
+    },
+    {
+      "id": "VA06",
+      "name": "context/operational fit suficiente",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_CORRESPONDENCE"
+    },
+    {
+      "id": "VA07",
+      "name": "costo total proporcional",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_CORRESPONDENCE"
+    },
+    {
+      "id": "VA08",
+      "name": "habilitación tecnológica suficiente",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_CORRESPONDENCE"
+    },
+    {
+      "id": "VA09",
+      "name": "datos/procesos suficientes cuando aplican",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_CORRESPONDENCE"
+    },
+    {
+      "id": "VA10",
+      "name": "personas/conocimiento suficientemente preparados o preparables",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_CORRESPONDENCE"
+    },
+    {
+      "id": "VA11",
+      "name": "riesgos/dependencias suficientemente tratables",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_CORRESPONDENCE"
+    },
+    {
+      "id": "VA12",
+      "name": "incertidumbres críticas identificadas",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_CORRESPONDENCE"
+    },
+    {
+      "id": "VA13",
+      "name": "evidencia proporcional disponible",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_CORRESPONDENCE"
+    },
+    {
+      "id": "VA14",
+      "name": "experimento pertinente cuando VoI lo justifica",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_CORRESPONDENCE"
+    },
+    {
+      "id": "VA15",
+      "name": "experimento responde incertidumbre material",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_CORRESPONDENCE"
+    },
+    {
+      "id": "VA16",
+      "name": "resultado suficientemente observado",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_CORRESPONDENCE"
+    },
+    {
+      "id": "VA17",
+      "name": "decisión consistente con evidencia disponible",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_CORRESPONDENCE"
+    },
+    {
+      "id": "VA18",
+      "name": "condiciones/incertidumbres residuales suficientemente explícitas",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_CORRESPONDENCE"
+    },
+    {
+      "id": "VA19",
+      "name": "tecnología suficientemente implementada para caso adoptado",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_CORRESPONDENCE"
+    },
+    {
+      "id": "VA20",
+      "name": "dependencias organizacionales/técnicas suficientemente habilitadas",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_CORRESPONDENCE"
+    },
+    {
+      "id": "VA21",
+      "name": "uso efectivo suficientemente evidenciado",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_CORRESPONDENCE"
+    },
+    {
+      "id": "VA22",
+      "name": "contribución/valor evaluado con atribución proporcional",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_CORRESPONDENCE"
+    },
+    {
+      "id": "VA23",
+      "name": "aprendizaje puede modificar continuidad, expansión, reducción o salida.",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "GOVERNED_STRUCTURAL_CORRESPONDENCE"
+    }
+  ],
+  "informationNeeds": [],
+  "acquisitions": [
+    {
+      "id": "ACQ·NI-CORRESPONDENCE·VA01",
+      "acquisitionMode": "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+      "variableRefs": [
+        "VA01"
+      ],
+      "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+      "correspondenceStatement": "Resultan 23 NI correspondientes.",
+      "correspondenceSourceLines": [
+        477,
+        477
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-CORRESPONDENCE·VA02",
+      "acquisitionMode": "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+      "variableRefs": [
+        "VA02"
+      ],
+      "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+      "correspondenceStatement": "Resultan 23 NI correspondientes.",
+      "correspondenceSourceLines": [
+        477,
+        477
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-CORRESPONDENCE·VA03",
+      "acquisitionMode": "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+      "variableRefs": [
+        "VA03"
+      ],
+      "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+      "correspondenceStatement": "Resultan 23 NI correspondientes.",
+      "correspondenceSourceLines": [
+        477,
+        477
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-CORRESPONDENCE·VA04",
+      "acquisitionMode": "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+      "variableRefs": [
+        "VA04"
+      ],
+      "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+      "correspondenceStatement": "Resultan 23 NI correspondientes.",
+      "correspondenceSourceLines": [
+        477,
+        477
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-CORRESPONDENCE·VA05",
+      "acquisitionMode": "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+      "variableRefs": [
+        "VA05"
+      ],
+      "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+      "correspondenceStatement": "Resultan 23 NI correspondientes.",
+      "correspondenceSourceLines": [
+        477,
+        477
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-CORRESPONDENCE·VA06",
+      "acquisitionMode": "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+      "variableRefs": [
+        "VA06"
+      ],
+      "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+      "correspondenceStatement": "Resultan 23 NI correspondientes.",
+      "correspondenceSourceLines": [
+        477,
+        477
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-CORRESPONDENCE·VA07",
+      "acquisitionMode": "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+      "variableRefs": [
+        "VA07"
+      ],
+      "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+      "correspondenceStatement": "Resultan 23 NI correspondientes.",
+      "correspondenceSourceLines": [
+        477,
+        477
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-CORRESPONDENCE·VA08",
+      "acquisitionMode": "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+      "variableRefs": [
+        "VA08"
+      ],
+      "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+      "correspondenceStatement": "Resultan 23 NI correspondientes.",
+      "correspondenceSourceLines": [
+        477,
+        477
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-CORRESPONDENCE·VA09",
+      "acquisitionMode": "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+      "variableRefs": [
+        "VA09"
+      ],
+      "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+      "correspondenceStatement": "Resultan 23 NI correspondientes.",
+      "correspondenceSourceLines": [
+        477,
+        477
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-CORRESPONDENCE·VA10",
+      "acquisitionMode": "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+      "variableRefs": [
+        "VA10"
+      ],
+      "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+      "correspondenceStatement": "Resultan 23 NI correspondientes.",
+      "correspondenceSourceLines": [
+        477,
+        477
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-CORRESPONDENCE·VA11",
+      "acquisitionMode": "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+      "variableRefs": [
+        "VA11"
+      ],
+      "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+      "correspondenceStatement": "Resultan 23 NI correspondientes.",
+      "correspondenceSourceLines": [
+        477,
+        477
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-CORRESPONDENCE·VA12",
+      "acquisitionMode": "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+      "variableRefs": [
+        "VA12"
+      ],
+      "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+      "correspondenceStatement": "Resultan 23 NI correspondientes.",
+      "correspondenceSourceLines": [
+        477,
+        477
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-CORRESPONDENCE·VA13",
+      "acquisitionMode": "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+      "variableRefs": [
+        "VA13"
+      ],
+      "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+      "correspondenceStatement": "Resultan 23 NI correspondientes.",
+      "correspondenceSourceLines": [
+        477,
+        477
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-CORRESPONDENCE·VA14",
+      "acquisitionMode": "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+      "variableRefs": [
+        "VA14"
+      ],
+      "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+      "correspondenceStatement": "Resultan 23 NI correspondientes.",
+      "correspondenceSourceLines": [
+        477,
+        477
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-CORRESPONDENCE·VA15",
+      "acquisitionMode": "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+      "variableRefs": [
+        "VA15"
+      ],
+      "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+      "correspondenceStatement": "Resultan 23 NI correspondientes.",
+      "correspondenceSourceLines": [
+        477,
+        477
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-CORRESPONDENCE·VA16",
+      "acquisitionMode": "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+      "variableRefs": [
+        "VA16"
+      ],
+      "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+      "correspondenceStatement": "Resultan 23 NI correspondientes.",
+      "correspondenceSourceLines": [
+        477,
+        477
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-CORRESPONDENCE·VA17",
+      "acquisitionMode": "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+      "variableRefs": [
+        "VA17"
+      ],
+      "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+      "correspondenceStatement": "Resultan 23 NI correspondientes.",
+      "correspondenceSourceLines": [
+        477,
+        477
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-CORRESPONDENCE·VA18",
+      "acquisitionMode": "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+      "variableRefs": [
+        "VA18"
+      ],
+      "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+      "correspondenceStatement": "Resultan 23 NI correspondientes.",
+      "correspondenceSourceLines": [
+        477,
+        477
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-CORRESPONDENCE·VA19",
+      "acquisitionMode": "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+      "variableRefs": [
+        "VA19"
+      ],
+      "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+      "correspondenceStatement": "Resultan 23 NI correspondientes.",
+      "correspondenceSourceLines": [
+        477,
+        477
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-CORRESPONDENCE·VA20",
+      "acquisitionMode": "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+      "variableRefs": [
+        "VA20"
+      ],
+      "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+      "correspondenceStatement": "Resultan 23 NI correspondientes.",
+      "correspondenceSourceLines": [
+        477,
+        477
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-CORRESPONDENCE·VA21",
+      "acquisitionMode": "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+      "variableRefs": [
+        "VA21"
+      ],
+      "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+      "correspondenceStatement": "Resultan 23 NI correspondientes.",
+      "correspondenceSourceLines": [
+        477,
+        477
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-CORRESPONDENCE·VA22",
+      "acquisitionMode": "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+      "variableRefs": [
+        "VA22"
+      ],
+      "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+      "correspondenceStatement": "Resultan 23 NI correspondientes.",
+      "correspondenceSourceLines": [
+        477,
+        477
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·NI-CORRESPONDENCE·VA23",
+      "acquisitionMode": "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+      "variableRefs": [
+        "VA23"
+      ],
+      "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+      "correspondenceStatement": "Resultan 23 NI correspondientes.",
+      "correspondenceSourceLines": [
+        477,
+        477
+      ],
+      "questionStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    }
+  ],
+  "acquisitionStages": [
+    {
+      "id": "P1",
+      "level": "P1",
+      "heading": "P1 · Núcleo",
+      "prompts": [
+        "“¿Qué tecnologías están considerando incorporar y qué problema esperan resolver?”",
+        "“¿Han comprado herramientas que después casi no se usan?”",
+        "“Cuando aparece una tecnología nueva, ¿cómo deciden si vale la pena probarla?”",
+        "“¿Qué probarían antes de comprometer una inversión importante?”",
+        "“¿Qué tecnología actual mantendrían aunque exista algo más nuevo, y por qué?”"
+      ],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        482,
+        488
+      ]
+    },
+    {
+      "id": "P2",
+      "level": "P2",
+      "heading": "P2 · Triggers",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        490,
+        507
+      ]
+    },
+    {
+      "id": "P3",
+      "level": "P3",
+      "heading": "P3 · Discriminación",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        509,
+        521
+      ]
+    },
+    {
+      "id": "P4",
+      "level": "P4",
+      "heading": "P4 · Contradicciones",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        523,
+        523
+      ]
+    },
+    {
+      "id": "P5",
+      "level": "P5",
+      "heading": "P5 · Validación",
+      "prompts": [
+        "“¿hicieron piloto?”",
+        "“¿Qué incertidumbre buscaban resolver, qué observaron y qué decisión cambió después?”",
+        "“¿usan IA?”",
+        "“¿qué necesidad concreta satisface, cómo verificaron que funciona suficientemente y qué hacen si deja de hacerlo?”"
+      ],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        539,
+        547
+      ]
+    }
+  ]
+}
