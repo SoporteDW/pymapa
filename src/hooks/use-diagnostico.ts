@@ -367,7 +367,7 @@ export function useDiagnostico() {
   const clienteParaCapacidad = useCallback(
     (capabilityId: string | null | undefined): AssessmentClient =>
       resolveExecutionSource(capabilityId) === ExecutionSource.PRODUCTION_ENGINE
-        ? createProductionAssessmentClient()
+        ? createProductionAssessmentClient(capabilityId ?? undefined)
         : assessmentClient,
     [assessmentClient]
   );
