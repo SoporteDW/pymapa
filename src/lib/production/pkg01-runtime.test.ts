@@ -227,7 +227,7 @@ describe("PKG-01 · C/D · runtime y boundary genéricos en 6 dominios", () => {
       // que getNextAcquisition no las propone; se adquieren por su id gobernado.
       const propuesta = await casoUso.getNextAcquisition(deps, "assess-1");
       const primera = engine.listAcquisitions()[0]!;
-      if (!propuesta) expect(primera.acquisitionMode).toBe("INFORMATION_NEED");
+      if (!propuesta) expect((primera as { acquisitionMode?: string }).acquisitionMode).toBe("INFORMATION_NEED");
       const siguiente = propuesta ?? { acquisitionId: primera.id };
 
       const salida = await casoUso.submitAcquisitionResponse(deps, {
