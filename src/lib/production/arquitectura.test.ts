@@ -66,9 +66,14 @@ describe("arquitectura · separación frontend / knowledge-engine", () => {
   });
 
   it("el application boundary carga el runtime server-only de forma dinámica", () => {
-    const fuente = readFileSync(join(SRC, "lib", "production", "op01.functions.ts"), "utf8");
-    expect(fuente).toMatch(/await import\("\.\/runtime\.server"\)/);
-    expect(fuente).not.toMatch(/^import .*runtime\.server/m);
+    // PKG-01: los handlers genéricos cargan el runtime; los boundaries delegan.
+    const handlers = readFileSync(join(SRC, "lib", "production", "capability-handlers.ts"), "utf8");
+    expect(handlers).toMatch(/await import\("\.\/runtime\.server"\)/);
+    for (const f of ["op01.functions.ts", "capabilities.functions.ts", "capability-handlers.ts"]) {
+      const fuente = readFileSync(join(SRC, "lib", "production", f), "utf8");
+      expect(fuente).not.toMatch(/^import .*runtime\.server/m);
+      expect(fuente).not.toMatch(/^import .*packs-registry/m);
+    }
   });
 
   it("no existe conocimiento OP-01 hardcodeado fuera del Knowledge Pack", () => {
@@ -81,11 +86,13 @@ describe("arquitectura · separación frontend / knowledge-engine", () => {
     expect(infractores.map((f) => relative(RAIZ, f))).toEqual([]);
   });
 
-  it("solo OP-01 está migrada a PRODUCTION_ENGINE", async () => {
+  it("las 31 capacidades publicadas resuelven a PRODUCTION_ENGINE (PKG-01)", async () => {
     const { PRODUCTION_CAPABILITY_IDS, resolveExecutionSource } = await import(
       "@/services/production/execution-source"
     );
-    expect([...PRODUCTION_CAPABILITY_IDS]).toEqual(["OP-01"]);
+    expect(PRODUCTION_CAPABILITY_IDS).toHaveLength(31);
+    expect(PRODUCTION_CAPABILITY_IDS).not.toContain("EC-01");
+    expect(resolveExecutionSource("EC-01")).toBe("MVP_ENGINE");
     expect(resolveExecutionSource("OP-01")).toBe("PRODUCTION_ENGINE");
     expect(resolveExecutionSource("CAP-01")).toBe("MVP_ENGINE");
     expect(resolveExecutionSource(null)).toBe("MVP_ENGINE");

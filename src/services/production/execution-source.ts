@@ -16,10 +16,19 @@ export const ExecutionSource = {
 export type ExecutionSource = (typeof ExecutionSource)[keyof typeof ExecutionSource];
 
 /**
- * Capacidades migradas al core productivo. Lista explícita y mínima:
- * migrar una capacidad es una decisión de gobierno, no un efecto lateral.
+ * PKG-01 · Las 31 capacidades publicadas (taxonomía oficial; EC-01 excluida).
+ * Lista explícita: migrar una capacidad es una decisión de gobierno. Debe
+ * coincidir con el registro de packs (verificado por tests). Sin ruta por
+ * capacidad: todas resuelven al mismo PRODUCTION_ENGINE.
  */
-export const PRODUCTION_CAPABILITY_IDS: readonly string[] = ["OP-01"];
+export const PRODUCTION_CAPABILITY_IDS: readonly string[] = [
+  "OP-01", "OP-02", "OP-03", "OP-04", "OP-05",
+  "DG-01", "DG-02", "DG-03", "DG-04", "DG-05",
+  "PC-01", "PC-02", "PC-03", "PC-04", "PC-05",
+  "DT-01", "DT-02", "DT-03", "DT-04", "DT-05", "DT-06",
+  "CM-01", "CM-02", "CM-03", "CM-04", "CM-05", "CM-06",
+  "EC-02", "EC-03", "EC-04", "EC-05",
+];
 
 /** Fuente por defecto para todo lo que no está migrado. */
 export const ACTIVE_EXECUTION_SOURCE: ExecutionSource = ExecutionSource.MVP_ENGINE;
