@@ -2009,8 +2009,11 @@ export type ClienteUsuario = SupabaseClient<Database>;
 export async function asegurarContextoProductivo(
   db: ClienteUsuario,
   userId: string,
+  capabilityId: string = "OP-01",
 ): Promise<AssessmentRecord> {
-  const knowledgeVersionId = await asegurarKnowledgeVersion();
+  // Releases que cubren la capacidad; el primero es el runtime manifest.
+  const versionesCubren = await versionesQueCubren(capabilityId);
+  const knowledgeVersionId = versionesCubren[0]!;
 
   // 1. Organization + Membership vía función gobernada (SECURITY DEFINER):
   //    crea la organización del usuario y su membresía OWNER, o devuelve la
@@ -2058,8 +2061,9 @@ export async function asegurarContextoProductivo(
     .from("assessments")
     .select("id, organization_id, case_id, knowledge_version_id, type, started_at, closed_at, updated_at")
     .eq("case_id", caseId)
-    .eq("knowledge_version_id", knowledgeVersionId)
+    .in("knowledge_version_id", versionesCubren)
     .eq("type", "BASELINE")
+    .order("started_at", { ascending: true })
     .limit(1)
     .maybeSingle();
   lanzar("assessments.select", existente.error);
