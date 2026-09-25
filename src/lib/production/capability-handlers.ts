@@ -702,7 +702,7 @@ export async function registerCapabilityValidationCaseHandler(context: Ctx, capa
 }
 
 export const openCapabilityValidationInput = (data: unknown) =>
-    z.object({ activityId: idSchema, evidenceIds: z.array(idSchema).optional() }).parse(data),;
+    z.object({ activityId: idSchema, evidenceIds: z.array(idSchema).optional() }).parse(data);
 
 export async function openCapabilityValidationHandler(context: Ctx, capabilityId: string, data: ReturnType<typeof openCapabilityValidationInput>) {
     const casoUso = await import("./caso-uso");
@@ -740,7 +740,7 @@ export async function decideCapabilityValidationHandler(context: Ctx, capability
 }
 
 export const startCapabilityFollowUpInput = (data: unknown) =>
-    z.object({ validationId: idSchema, note: z.string().min(1).nullable().optional() }).parse(data),;
+    z.object({ validationId: idSchema, note: z.string().min(1).nullable().optional() }).parse(data);
 
 export async function startCapabilityFollowUpHandler(context: Ctx, capabilityId: string, data: ReturnType<typeof startCapabilityFollowUpInput>) {
     const casoUso = await import("./caso-uso");
@@ -778,7 +778,7 @@ export async function decideCapabilityFollowUpHandler(context: Ctx, capabilityId
 
 /** Reassessment: nuevo Assessment del mismo Case, sin tocar el Baseline. */
 export const startCapabilityReassessmentInput = (data: unknown) =>
-    z.object({ knowledgeVersionId: idSchema.optional() }).parse(data ?? {}),;
+    z.object({ knowledgeVersionId: idSchema.optional() }).parse(data ?? {});
 
 export async function startCapabilityReassessmentHandler(context: Ctx, capabilityId: string, data: ReturnType<typeof startCapabilityReassessmentInput>) {
     const casoUso = await import("./caso-uso");
@@ -802,7 +802,7 @@ export async function startCapabilityReassessmentHandler(context: Ctx, capabilit
 export const compareCapabilityAssessmentsInput = (data: unknown) =>
     z
       .object({ baselineAssessmentId: idSchema, reassessmentAssessmentId: idSchema })
-      .parse(data),;
+      .parse(data);
 
 export async function compareCapabilityAssessmentsHandler(context: Ctx, capabilityId: string, data: ReturnType<typeof compareCapabilityAssessmentsInput>) {
     const casoUso = await import("./caso-uso");
