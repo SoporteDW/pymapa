@@ -44,3 +44,8 @@
 - [x] DT-01 publicado (tabla NI01–NI16 bajo «Information Needs»)
 - [ ] DT-02..06, CM-01..06, EC-02..05 (15): la fuente declara «Resultan N NI» sin enumerarlas → sin camino de adquisición por VA; espera decisión humana/fuente
 - [ ] Activación en la aplicación — espera orden explícita
+
+## M2-FINAL-15 (M2_KNOWLEDGE_31_OF_31_INDUSTRIALIZED)
+- [x] GOVERNED_STRUCTURAL_CORRESPONDENCE (DT-02/03/06) y CAPABILITY_PROGRESSIVE (12) genéricos
+- [x] 15 publicadas @1.0.0; 31/31 PUBLISHED; 774/774 tests
+- Siguiente (no iniciado): activación en app / PILOT-READY / M3

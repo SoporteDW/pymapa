@@ -1,0 +1,1573 @@
+{
+  "packId": "ec-02",
+  "packVersion": "1.0.0",
+  "status": "draft",
+  "knowledgeMaster": {
+    "identifier": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "status": "BASELINE-APPROVED",
+    "sourceReference": "canonical-baseline.json#EC02-K4-v1.0@sha256:6c0542e75e2e5c796108449351474b8a0daddf9682bc2806ab520ea1cf824f19 · EC02-K4-v1.0 · K4-VALIDATED · CLOSED"
+  },
+  "capability": {
+    "id": "EC-02",
+    "domainId": "EC",
+    "name": "Buscar y seleccionar actores externos adecuados",
+    "definition": "EC-02 evalúa la capacidad de la organización para reconocer cuándo necesita acceder externamente a una capacidad, recurso o conocimiento material, identificar alternativas suficientemente pertinentes y seleccionar un actor externo cuyo ajuste a la necesidad, condiciones y riesgos sea suficiente para el propósito requerido.",
+    "definitionStatus": "EXPLICIT",
+    "definitionSourceLines": [
+      49,
+      49
+    ]
+  },
+  "conditionsOfExistence": [
+    {
+      "id": "CE01",
+      "statement": "External Need"
+    },
+    {
+      "id": "CE02",
+      "statement": "Sourcing logic"
+    },
+    {
+      "id": "CE03",
+      "statement": "Search"
+    },
+    {
+      "id": "CE04",
+      "statement": "Selection requirements"
+    },
+    {
+      "id": "CE05",
+      "statement": "Actor capability fit"
+    },
+    {
+      "id": "CE06",
+      "statement": "Delivery/economic fit"
+    },
+    {
+      "id": "CE07",
+      "statement": "Risk/dependency fit"
+    },
+    {
+      "id": "CE08",
+      "statement": "Evidence/comparison"
+    },
+    {
+      "id": "CE09",
+      "statement": "Selection decision"
+    }
+  ],
+  "variables": [
+    {
+      "id": "VA01",
+      "name": "necesidad externa material suficientemente clara",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA02",
+      "name": "resultado/capacidad requerida suficientemente definida",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA03",
+      "name": "externalización/acceso suficientemente justificados",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA04",
+      "name": "alternativas build/buy/partner/access consideradas cuando materialmente relevantes",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA05",
+      "name": "espacio razonable de actores suficientemente considerado",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA06",
+      "name": "candidatos identificados mediante fuentes suficientemente pertinentes",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA07",
+      "name": "criterios críticos suficientemente definidos",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA08",
+      "name": "preferencias/discriminadores suficientemente claros",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA09",
+      "name": "capacidad relevante suficientemente evidenciada",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA10",
+      "name": "experiencia/context fit suficientes cuando aplican",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA11",
+      "name": "capacidad/disponibilidad suficientemente plausible",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA12",
+      "name": "alcance/condiciones de entrega suficientemente compatibles",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA13",
+      "name": "economics suficientemente comprendidos",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA14",
+      "name": "riesgos materiales de selección suficientemente visibles",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA15",
+      "name": "dependencia/continuidad potencial suficientemente considerada",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA16",
+      "name": "exit/migration sufficiently considered cuando aplica",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA17",
+      "name": "afirmaciones críticas suficientemente verificadas",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA18",
+      "name": "alternativas suficientemente comparables",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA19",
+      "name": "incertidumbres materiales suficientemente explícitas",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA20",
+      "name": "actor seleccionado satisface condiciones críticas",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA21",
+      "name": "rationale de selección suficientemente trazable",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    }
+  ],
+  "informationNeeds": [],
+  "acquisitions": [
+    {
+      "id": "ACQ·P1·01",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21"
+      ],
+      "question": "¿Qué necesitan conseguir afuera?",
+      "questionSourceLines": [
+        447,
+        447
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 21,
+          "statement": "Resultan 21 NI.",
+          "line": 441
+        },
+        "nuclear": {
+          "text": "¿Qué capacidad o resultado necesitamos externamente, por qué no resulta suficiente resolverlo internamente, qué condiciones debe satisfacer el actor y qué evidencia permitiría distinguir una alternativa suficientemente adecuada?",
+          "line": 443
+        },
+        "p1Heading": {
+          "text": "# 34. Captura P1",
+          "line": 445
+        },
+        "p2": {
+          "heading": {
+            "text": "# 35. P2 · Triggers",
+            "line": 455
+          },
+          "triggers": [
+            {
+              "text": "selección por precio únicamente;",
+              "line": 457
+            },
+            {
+              "text": "“siempre usamos al mismo”;",
+              "line": 458
+            },
+            {
+              "text": "proveedor recomendado informalmente;",
+              "line": 459
+            },
+            {
+              "text": "único candidato;",
+              "line": 460
+            },
+            {
+              "text": "solución propietaria;",
+              "line": 461
+            },
+            {
+              "text": "contrato largo;",
+              "line": 462
+            },
+            {
+              "text": "alto switching cost;",
+              "line": 463
+            },
+            {
+              "text": "datos sensibles;",
+              "line": 464
+            },
+            {
+              "text": "operación crítica;",
+              "line": 465
+            },
+            {
+              "text": "alta inversión;",
+              "line": 466
+            },
+            {
+              "text": "proveedor pequeño crítico;",
+              "line": 467
+            },
+            {
+              "text": "promesas sin evidencia;",
+              "line": 468
+            },
+            {
+              "text": "ofertas difícilmente comparables;",
+              "line": 469
+            },
+            {
+              "text": "dependencia futura;",
+              "line": 470
+            },
+            {
+              "text": "conocimiento muy especializado;",
+              "line": 471
+            },
+            {
+              "text": "outsourcing de competencia central.",
+              "line": 472
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 36. P3 · Discriminación",
+            "line": 474
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 475
+            },
+            {
+              "text": "“el proveedor no funcionó”",
+              "line": 476
+            },
+            {
+              "text": "distinguimos:",
+              "line": 477
+            },
+            {
+              "text": "NEED BADLY DEFINED → EC-02",
+              "line": 478
+            },
+            {
+              "text": "ACTOR FIT ERROR → EC-02",
+              "line": 479
+            },
+            {
+              "text": "RELATIONSHIP GOVERNANCE → EC-03",
+              "line": 480
+            },
+            {
+              "text": "ORGANIZATION COULD NOT ABSORB → EC-04",
+              "line": 481
+            },
+            {
+              "text": "DEPENDENCY/LOCK-IN → EC-05",
+              "line": 482
+            },
+            {
+              "text": "TECHNOLOGY ITSELF INADEQUATE → DT-06/DT-01",
+              "line": 483
+            },
+            {
+              "text": "IMPLEMENTATION EXECUTION → OP-05",
+              "line": 484
+            },
+            {
+              "text": "Esto será fundamental para evitar culpar automáticamente al proveedor.",
+              "line": 485
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·02",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21"
+      ],
+      "question": "¿Qué tendría que saber hacer ese proveedor o aliado para que realmente les sirva?",
+      "questionSourceLines": [
+        448,
+        448
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 21,
+          "statement": "Resultan 21 NI.",
+          "line": 441
+        },
+        "nuclear": {
+          "text": "¿Qué capacidad o resultado necesitamos externamente, por qué no resulta suficiente resolverlo internamente, qué condiciones debe satisfacer el actor y qué evidencia permitiría distinguir una alternativa suficientemente adecuada?",
+          "line": 443
+        },
+        "p1Heading": {
+          "text": "# 34. Captura P1",
+          "line": 445
+        },
+        "p2": {
+          "heading": {
+            "text": "# 35. P2 · Triggers",
+            "line": 455
+          },
+          "triggers": [
+            {
+              "text": "selección por precio únicamente;",
+              "line": 457
+            },
+            {
+              "text": "“siempre usamos al mismo”;",
+              "line": 458
+            },
+            {
+              "text": "proveedor recomendado informalmente;",
+              "line": 459
+            },
+            {
+              "text": "único candidato;",
+              "line": 460
+            },
+            {
+              "text": "solución propietaria;",
+              "line": 461
+            },
+            {
+              "text": "contrato largo;",
+              "line": 462
+            },
+            {
+              "text": "alto switching cost;",
+              "line": 463
+            },
+            {
+              "text": "datos sensibles;",
+              "line": 464
+            },
+            {
+              "text": "operación crítica;",
+              "line": 465
+            },
+            {
+              "text": "alta inversión;",
+              "line": 466
+            },
+            {
+              "text": "proveedor pequeño crítico;",
+              "line": 467
+            },
+            {
+              "text": "promesas sin evidencia;",
+              "line": 468
+            },
+            {
+              "text": "ofertas difícilmente comparables;",
+              "line": 469
+            },
+            {
+              "text": "dependencia futura;",
+              "line": 470
+            },
+            {
+              "text": "conocimiento muy especializado;",
+              "line": 471
+            },
+            {
+              "text": "outsourcing de competencia central.",
+              "line": 472
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 36. P3 · Discriminación",
+            "line": 474
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 475
+            },
+            {
+              "text": "“el proveedor no funcionó”",
+              "line": 476
+            },
+            {
+              "text": "distinguimos:",
+              "line": 477
+            },
+            {
+              "text": "NEED BADLY DEFINED → EC-02",
+              "line": 478
+            },
+            {
+              "text": "ACTOR FIT ERROR → EC-02",
+              "line": 479
+            },
+            {
+              "text": "RELATIONSHIP GOVERNANCE → EC-03",
+              "line": 480
+            },
+            {
+              "text": "ORGANIZATION COULD NOT ABSORB → EC-04",
+              "line": 481
+            },
+            {
+              "text": "DEPENDENCY/LOCK-IN → EC-05",
+              "line": 482
+            },
+            {
+              "text": "TECHNOLOGY ITSELF INADEQUATE → DT-06/DT-01",
+              "line": 483
+            },
+            {
+              "text": "IMPLEMENTATION EXECUTION → OP-05",
+              "line": 484
+            },
+            {
+              "text": "Esto será fundamental para evitar culpar automáticamente al proveedor.",
+              "line": 485
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·03",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21"
+      ],
+      "question": "¿Por qué prefieren buscarlo afuera y no resolverlo internamente?",
+      "questionSourceLines": [
+        449,
+        449
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 21,
+          "statement": "Resultan 21 NI.",
+          "line": 441
+        },
+        "nuclear": {
+          "text": "¿Qué capacidad o resultado necesitamos externamente, por qué no resulta suficiente resolverlo internamente, qué condiciones debe satisfacer el actor y qué evidencia permitiría distinguir una alternativa suficientemente adecuada?",
+          "line": 443
+        },
+        "p1Heading": {
+          "text": "# 34. Captura P1",
+          "line": 445
+        },
+        "p2": {
+          "heading": {
+            "text": "# 35. P2 · Triggers",
+            "line": 455
+          },
+          "triggers": [
+            {
+              "text": "selección por precio únicamente;",
+              "line": 457
+            },
+            {
+              "text": "“siempre usamos al mismo”;",
+              "line": 458
+            },
+            {
+              "text": "proveedor recomendado informalmente;",
+              "line": 459
+            },
+            {
+              "text": "único candidato;",
+              "line": 460
+            },
+            {
+              "text": "solución propietaria;",
+              "line": 461
+            },
+            {
+              "text": "contrato largo;",
+              "line": 462
+            },
+            {
+              "text": "alto switching cost;",
+              "line": 463
+            },
+            {
+              "text": "datos sensibles;",
+              "line": 464
+            },
+            {
+              "text": "operación crítica;",
+              "line": 465
+            },
+            {
+              "text": "alta inversión;",
+              "line": 466
+            },
+            {
+              "text": "proveedor pequeño crítico;",
+              "line": 467
+            },
+            {
+              "text": "promesas sin evidencia;",
+              "line": 468
+            },
+            {
+              "text": "ofertas difícilmente comparables;",
+              "line": 469
+            },
+            {
+              "text": "dependencia futura;",
+              "line": 470
+            },
+            {
+              "text": "conocimiento muy especializado;",
+              "line": 471
+            },
+            {
+              "text": "outsourcing de competencia central.",
+              "line": 472
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 36. P3 · Discriminación",
+            "line": 474
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 475
+            },
+            {
+              "text": "“el proveedor no funcionó”",
+              "line": 476
+            },
+            {
+              "text": "distinguimos:",
+              "line": 477
+            },
+            {
+              "text": "NEED BADLY DEFINED → EC-02",
+              "line": 478
+            },
+            {
+              "text": "ACTOR FIT ERROR → EC-02",
+              "line": 479
+            },
+            {
+              "text": "RELATIONSHIP GOVERNANCE → EC-03",
+              "line": 480
+            },
+            {
+              "text": "ORGANIZATION COULD NOT ABSORB → EC-04",
+              "line": 481
+            },
+            {
+              "text": "DEPENDENCY/LOCK-IN → EC-05",
+              "line": 482
+            },
+            {
+              "text": "TECHNOLOGY ITSELF INADEQUATE → DT-06/DT-01",
+              "line": 483
+            },
+            {
+              "text": "IMPLEMENTATION EXECUTION → OP-05",
+              "line": 484
+            },
+            {
+              "text": "Esto será fundamental para evitar culpar automáticamente al proveedor.",
+              "line": 485
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·04",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21"
+      ],
+      "question": "¿Cómo suelen escoger proveedores o especialistas?",
+      "questionSourceLines": [
+        450,
+        450
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 21,
+          "statement": "Resultan 21 NI.",
+          "line": 441
+        },
+        "nuclear": {
+          "text": "¿Qué capacidad o resultado necesitamos externamente, por qué no resulta suficiente resolverlo internamente, qué condiciones debe satisfacer el actor y qué evidencia permitiría distinguir una alternativa suficientemente adecuada?",
+          "line": 443
+        },
+        "p1Heading": {
+          "text": "# 34. Captura P1",
+          "line": 445
+        },
+        "p2": {
+          "heading": {
+            "text": "# 35. P2 · Triggers",
+            "line": 455
+          },
+          "triggers": [
+            {
+              "text": "selección por precio únicamente;",
+              "line": 457
+            },
+            {
+              "text": "“siempre usamos al mismo”;",
+              "line": 458
+            },
+            {
+              "text": "proveedor recomendado informalmente;",
+              "line": 459
+            },
+            {
+              "text": "único candidato;",
+              "line": 460
+            },
+            {
+              "text": "solución propietaria;",
+              "line": 461
+            },
+            {
+              "text": "contrato largo;",
+              "line": 462
+            },
+            {
+              "text": "alto switching cost;",
+              "line": 463
+            },
+            {
+              "text": "datos sensibles;",
+              "line": 464
+            },
+            {
+              "text": "operación crítica;",
+              "line": 465
+            },
+            {
+              "text": "alta inversión;",
+              "line": 466
+            },
+            {
+              "text": "proveedor pequeño crítico;",
+              "line": 467
+            },
+            {
+              "text": "promesas sin evidencia;",
+              "line": 468
+            },
+            {
+              "text": "ofertas difícilmente comparables;",
+              "line": 469
+            },
+            {
+              "text": "dependencia futura;",
+              "line": 470
+            },
+            {
+              "text": "conocimiento muy especializado;",
+              "line": 471
+            },
+            {
+              "text": "outsourcing de competencia central.",
+              "line": 472
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 36. P3 · Discriminación",
+            "line": 474
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 475
+            },
+            {
+              "text": "“el proveedor no funcionó”",
+              "line": 476
+            },
+            {
+              "text": "distinguimos:",
+              "line": 477
+            },
+            {
+              "text": "NEED BADLY DEFINED → EC-02",
+              "line": 478
+            },
+            {
+              "text": "ACTOR FIT ERROR → EC-02",
+              "line": 479
+            },
+            {
+              "text": "RELATIONSHIP GOVERNANCE → EC-03",
+              "line": 480
+            },
+            {
+              "text": "ORGANIZATION COULD NOT ABSORB → EC-04",
+              "line": 481
+            },
+            {
+              "text": "DEPENDENCY/LOCK-IN → EC-05",
+              "line": 482
+            },
+            {
+              "text": "TECHNOLOGY ITSELF INADEQUATE → DT-06/DT-01",
+              "line": 483
+            },
+            {
+              "text": "IMPLEMENTATION EXECUTION → OP-05",
+              "line": 484
+            },
+            {
+              "text": "Esto será fundamental para evitar culpar automáticamente al proveedor.",
+              "line": 485
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·05",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21"
+      ],
+      "question": "¿Qué sería indispensable y qué sería solamente deseable?",
+      "questionSourceLines": [
+        451,
+        451
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 21,
+          "statement": "Resultan 21 NI.",
+          "line": 441
+        },
+        "nuclear": {
+          "text": "¿Qué capacidad o resultado necesitamos externamente, por qué no resulta suficiente resolverlo internamente, qué condiciones debe satisfacer el actor y qué evidencia permitiría distinguir una alternativa suficientemente adecuada?",
+          "line": 443
+        },
+        "p1Heading": {
+          "text": "# 34. Captura P1",
+          "line": 445
+        },
+        "p2": {
+          "heading": {
+            "text": "# 35. P2 · Triggers",
+            "line": 455
+          },
+          "triggers": [
+            {
+              "text": "selección por precio únicamente;",
+              "line": 457
+            },
+            {
+              "text": "“siempre usamos al mismo”;",
+              "line": 458
+            },
+            {
+              "text": "proveedor recomendado informalmente;",
+              "line": 459
+            },
+            {
+              "text": "único candidato;",
+              "line": 460
+            },
+            {
+              "text": "solución propietaria;",
+              "line": 461
+            },
+            {
+              "text": "contrato largo;",
+              "line": 462
+            },
+            {
+              "text": "alto switching cost;",
+              "line": 463
+            },
+            {
+              "text": "datos sensibles;",
+              "line": 464
+            },
+            {
+              "text": "operación crítica;",
+              "line": 465
+            },
+            {
+              "text": "alta inversión;",
+              "line": 466
+            },
+            {
+              "text": "proveedor pequeño crítico;",
+              "line": 467
+            },
+            {
+              "text": "promesas sin evidencia;",
+              "line": 468
+            },
+            {
+              "text": "ofertas difícilmente comparables;",
+              "line": 469
+            },
+            {
+              "text": "dependencia futura;",
+              "line": 470
+            },
+            {
+              "text": "conocimiento muy especializado;",
+              "line": 471
+            },
+            {
+              "text": "outsourcing de competencia central.",
+              "line": 472
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 36. P3 · Discriminación",
+            "line": 474
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 475
+            },
+            {
+              "text": "“el proveedor no funcionó”",
+              "line": 476
+            },
+            {
+              "text": "distinguimos:",
+              "line": 477
+            },
+            {
+              "text": "NEED BADLY DEFINED → EC-02",
+              "line": 478
+            },
+            {
+              "text": "ACTOR FIT ERROR → EC-02",
+              "line": 479
+            },
+            {
+              "text": "RELATIONSHIP GOVERNANCE → EC-03",
+              "line": 480
+            },
+            {
+              "text": "ORGANIZATION COULD NOT ABSORB → EC-04",
+              "line": 481
+            },
+            {
+              "text": "DEPENDENCY/LOCK-IN → EC-05",
+              "line": 482
+            },
+            {
+              "text": "TECHNOLOGY ITSELF INADEQUATE → DT-06/DT-01",
+              "line": 483
+            },
+            {
+              "text": "IMPLEMENTATION EXECUTION → OP-05",
+              "line": 484
+            },
+            {
+              "text": "Esto será fundamental para evitar culpar automáticamente al proveedor.",
+              "line": 485
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·06",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21"
+      ],
+      "question": "¿Qué podría salir mal si escogen mal?",
+      "questionSourceLines": [
+        452,
+        452
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 21,
+          "statement": "Resultan 21 NI.",
+          "line": 441
+        },
+        "nuclear": {
+          "text": "¿Qué capacidad o resultado necesitamos externamente, por qué no resulta suficiente resolverlo internamente, qué condiciones debe satisfacer el actor y qué evidencia permitiría distinguir una alternativa suficientemente adecuada?",
+          "line": 443
+        },
+        "p1Heading": {
+          "text": "# 34. Captura P1",
+          "line": 445
+        },
+        "p2": {
+          "heading": {
+            "text": "# 35. P2 · Triggers",
+            "line": 455
+          },
+          "triggers": [
+            {
+              "text": "selección por precio únicamente;",
+              "line": 457
+            },
+            {
+              "text": "“siempre usamos al mismo”;",
+              "line": 458
+            },
+            {
+              "text": "proveedor recomendado informalmente;",
+              "line": 459
+            },
+            {
+              "text": "único candidato;",
+              "line": 460
+            },
+            {
+              "text": "solución propietaria;",
+              "line": 461
+            },
+            {
+              "text": "contrato largo;",
+              "line": 462
+            },
+            {
+              "text": "alto switching cost;",
+              "line": 463
+            },
+            {
+              "text": "datos sensibles;",
+              "line": 464
+            },
+            {
+              "text": "operación crítica;",
+              "line": 465
+            },
+            {
+              "text": "alta inversión;",
+              "line": 466
+            },
+            {
+              "text": "proveedor pequeño crítico;",
+              "line": 467
+            },
+            {
+              "text": "promesas sin evidencia;",
+              "line": 468
+            },
+            {
+              "text": "ofertas difícilmente comparables;",
+              "line": 469
+            },
+            {
+              "text": "dependencia futura;",
+              "line": 470
+            },
+            {
+              "text": "conocimiento muy especializado;",
+              "line": 471
+            },
+            {
+              "text": "outsourcing de competencia central.",
+              "line": 472
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 36. P3 · Discriminación",
+            "line": 474
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 475
+            },
+            {
+              "text": "“el proveedor no funcionó”",
+              "line": 476
+            },
+            {
+              "text": "distinguimos:",
+              "line": 477
+            },
+            {
+              "text": "NEED BADLY DEFINED → EC-02",
+              "line": 478
+            },
+            {
+              "text": "ACTOR FIT ERROR → EC-02",
+              "line": 479
+            },
+            {
+              "text": "RELATIONSHIP GOVERNANCE → EC-03",
+              "line": 480
+            },
+            {
+              "text": "ORGANIZATION COULD NOT ABSORB → EC-04",
+              "line": 481
+            },
+            {
+              "text": "DEPENDENCY/LOCK-IN → EC-05",
+              "line": 482
+            },
+            {
+              "text": "TECHNOLOGY ITSELF INADEQUATE → DT-06/DT-01",
+              "line": 483
+            },
+            {
+              "text": "IMPLEMENTATION EXECUTION → OP-05",
+              "line": 484
+            },
+            {
+              "text": "Esto será fundamental para evitar culpar automáticamente al proveedor.",
+              "line": 485
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·07",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21"
+      ],
+      "question": "¿Qué tan difícil sería cambiar de proveedor después?",
+      "questionSourceLines": [
+        453,
+        453
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 21,
+          "statement": "Resultan 21 NI.",
+          "line": 441
+        },
+        "nuclear": {
+          "text": "¿Qué capacidad o resultado necesitamos externamente, por qué no resulta suficiente resolverlo internamente, qué condiciones debe satisfacer el actor y qué evidencia permitiría distinguir una alternativa suficientemente adecuada?",
+          "line": 443
+        },
+        "p1Heading": {
+          "text": "# 34. Captura P1",
+          "line": 445
+        },
+        "p2": {
+          "heading": {
+            "text": "# 35. P2 · Triggers",
+            "line": 455
+          },
+          "triggers": [
+            {
+              "text": "selección por precio únicamente;",
+              "line": 457
+            },
+            {
+              "text": "“siempre usamos al mismo”;",
+              "line": 458
+            },
+            {
+              "text": "proveedor recomendado informalmente;",
+              "line": 459
+            },
+            {
+              "text": "único candidato;",
+              "line": 460
+            },
+            {
+              "text": "solución propietaria;",
+              "line": 461
+            },
+            {
+              "text": "contrato largo;",
+              "line": 462
+            },
+            {
+              "text": "alto switching cost;",
+              "line": 463
+            },
+            {
+              "text": "datos sensibles;",
+              "line": 464
+            },
+            {
+              "text": "operación crítica;",
+              "line": 465
+            },
+            {
+              "text": "alta inversión;",
+              "line": 466
+            },
+            {
+              "text": "proveedor pequeño crítico;",
+              "line": 467
+            },
+            {
+              "text": "promesas sin evidencia;",
+              "line": 468
+            },
+            {
+              "text": "ofertas difícilmente comparables;",
+              "line": 469
+            },
+            {
+              "text": "dependencia futura;",
+              "line": 470
+            },
+            {
+              "text": "conocimiento muy especializado;",
+              "line": 471
+            },
+            {
+              "text": "outsourcing de competencia central.",
+              "line": 472
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 36. P3 · Discriminación",
+            "line": 474
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 475
+            },
+            {
+              "text": "“el proveedor no funcionó”",
+              "line": 476
+            },
+            {
+              "text": "distinguimos:",
+              "line": 477
+            },
+            {
+              "text": "NEED BADLY DEFINED → EC-02",
+              "line": 478
+            },
+            {
+              "text": "ACTOR FIT ERROR → EC-02",
+              "line": 479
+            },
+            {
+              "text": "RELATIONSHIP GOVERNANCE → EC-03",
+              "line": 480
+            },
+            {
+              "text": "ORGANIZATION COULD NOT ABSORB → EC-04",
+              "line": 481
+            },
+            {
+              "text": "DEPENDENCY/LOCK-IN → EC-05",
+              "line": 482
+            },
+            {
+              "text": "TECHNOLOGY ITSELF INADEQUATE → DT-06/DT-01",
+              "line": 483
+            },
+            {
+              "text": "IMPLEMENTATION EXECUTION → OP-05",
+              "line": 484
+            },
+            {
+              "text": "Esto será fundamental para evitar culpar automáticamente al proveedor.",
+              "line": 485
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    }
+  ],
+  "acquisitionStages": [
+    {
+      "id": "P2",
+      "level": "P2",
+      "heading": "P2 · Triggers",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        455,
+        472
+      ]
+    },
+    {
+      "id": "P3",
+      "level": "P3",
+      "heading": "P3 · Discriminación",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        474,
+        485
+      ]
+    }
+  ]
+}

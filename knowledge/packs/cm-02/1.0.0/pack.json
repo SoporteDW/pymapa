@@ -1,0 +1,1355 @@
+{
+  "packId": "cm-02",
+  "packVersion": "1.0.0",
+  "status": "draft",
+  "knowledgeMaster": {
+    "identifier": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "status": "BASELINE-APPROVED",
+    "sourceReference": "canonical-baseline.json#CM02-K4-v1.0@sha256:db4324c0723b883cf8eb531f33890eb82dc23fb8dd95f165718d0719d1d1f300 · CM02-K4-v1.0 · K4-VALIDATED · CLOSED"
+  },
+  "capability": {
+    "id": "CM-02",
+    "domainId": "CM",
+    "name": "Diseñar y ajustar propuestas de valor",
+    "definition": "CM-02 evalúa la capacidad de la organización para formular, contrastar y ajustar propuestas de valor que conecten de manera suficientemente clara y creíble necesidades materiales de segmentos o actores relevantes con beneficios, resultados o experiencias que la organización puede entregar de forma diferenciada y sostenible.",
+    "definitionStatus": "EXPLICIT",
+    "definitionSourceLines": [
+      32,
+      32
+    ]
+  },
+  "conditionsOfExistence": [
+    {
+      "id": "CE01",
+      "statement": "Base de cliente"
+    },
+    {
+      "id": "CE02",
+      "statement": "Value Hypothesis"
+    },
+    {
+      "id": "CE03",
+      "statement": "Proposition clarity"
+    },
+    {
+      "id": "CE04",
+      "statement": "Differentiation"
+    },
+    {
+      "id": "CE05",
+      "statement": "Credibility"
+    },
+    {
+      "id": "CE06",
+      "statement": "Offer fit"
+    },
+    {
+      "id": "CE07",
+      "statement": "Perception"
+    },
+    {
+      "id": "CE08",
+      "statement": "Delivery and realization"
+    },
+    {
+      "id": "CE09",
+      "statement": "Adjustment"
+    }
+  ],
+  "variables": [
+    {
+      "id": "VA01",
+      "name": "segmento/actor suficientemente definido",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA02",
+      "name": "necesidad material suficientemente evidenciada",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA03",
+      "name": "beneficio/resultado buscado suficientemente explícito",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA04",
+      "name": "hipótesis de valor diferenciada de hechos comprobados",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA05",
+      "name": "propuesta suficientemente clara",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA06",
+      "name": "relación necesidad–beneficio suficientemente explícita",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA07",
+      "name": "alcance de la promesa suficientemente definido",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA08",
+      "name": "alternativas relevantes identificadas",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA09",
+      "name": "diferencia material suficientemente clara",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA10",
+      "name": "diferencia suficientemente relevante para el cliente",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA11",
+      "name": "claims materiales suficientemente soportados",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA12",
+      "name": "capacidad de entrega suficientemente plausible",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA13",
+      "name": "oferta suficientemente alineada con promesa",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA14",
+      "name": "complejidad/alcance proporcional",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA15",
+      "name": "precio/condiciones suficientemente coherentes con value exchange cuando material",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA16",
+      "name": "valor esperado/percibido suficientemente conocido",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA17",
+      "name": "fricciones de percepción/entendimiento suficientemente visibles",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA18",
+      "name": "valor prometido suficientemente entregable",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA19",
+      "name": "valor realizado suficientemente evidenciado cuando material",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA20",
+      "name": "gaps entre promised/delivered/perceived/realized suficientemente visibles",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA21",
+      "name": "nueva evidencia modifica propuesta cuando corresponde",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA22",
+      "name": "hipótesis/propuesta pueden actualizarse sin perder trazabilidad",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    }
+  ],
+  "informationNeeds": [],
+  "acquisitions": [
+    {
+      "id": "ACQ·P1·01",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22"
+      ],
+      "question": "¿Por qué sus mejores clientes los eligen?",
+      "questionSourceLines": [
+        375,
+        375
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 22,
+          "statement": "Resultan 22 NI.",
+          "line": 370
+        },
+        "nuclear": {
+          "text": "¿Para quién es esta propuesta, qué necesidad material pretende resolver, qué valor promete, mediante qué oferta, frente a qué alternativa, con qué evidencia y qué diferencia existe entre lo prometido, percibido y realmente obtenido?",
+          "line": 372
+        },
+        "p1Heading": {
+          "text": "# 34. Captura P1",
+          "line": 373
+        },
+        "p2": {
+          "heading": {
+            "text": "# 35. P2 · Triggers",
+            "line": 381
+          },
+          "triggers": [
+            {
+              "text": "mensaje genérico;",
+              "line": 383
+            },
+            {
+              "text": "“calidad y servicio” como única diferenciación;",
+              "line": 384
+            },
+            {
+              "text": "muchas features;",
+              "line": 385
+            },
+            {
+              "text": "bajo cierre pese a interés;",
+              "line": 386
+            },
+            {
+              "text": "precio constantemente cuestionado;",
+              "line": 387
+            },
+            {
+              "text": "descuentos frecuentes;",
+              "line": 388
+            },
+            {
+              "text": "producto infrautilizado;",
+              "line": 389
+            },
+            {
+              "text": "churn tras onboarding;",
+              "line": 390
+            },
+            {
+              "text": "expectativa vs entrega;",
+              "line": 391
+            },
+            {
+              "text": "segmentación diferente pero misma propuesta;",
+              "line": 392
+            },
+            {
+              "text": "claims sin evidencia;",
+              "line": 393
+            },
+            {
+              "text": "propuesta histórica;",
+              "line": 394
+            },
+            {
+              "text": "cliente compra por motivo diferente al que empresa cree;",
+              "line": 395
+            },
+            {
+              "text": "alta satisfacción pero baja renovación;",
+              "line": 396
+            },
+            {
+              "text": "alta conversión con baja rentabilidad.",
+              "line": 397
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 36. P3 · Discriminación",
+            "line": 398
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 399
+            },
+            {
+              "text": "“el cliente no ve valor”",
+              "line": 400
+            },
+            {
+              "text": "distinguimos:",
+              "line": 401
+            },
+            {
+              "text": "CUSTOMER UNDERSTANDING → CM-01",
+              "line": 402
+            },
+            {
+              "text": "PROPOSITION RELEVANCE → CM-02",
+              "line": 403
+            },
+            {
+              "text": "MESSAGE/ACQUISITION EXECUTION → CM-03",
+              "line": 404
+            },
+            {
+              "text": "CHANNEL EXPERIENCE → CM-04",
+              "line": 405
+            },
+            {
+              "text": "SERVICE EXPERIENCE → CM-05",
+              "line": 406
+            },
+            {
+              "text": "VALUE MEASUREMENT → CM-06",
+              "line": 407
+            },
+            {
+              "text": "DELIVERY CAPABILITY → OP/DT/PC",
+              "line": 408
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·02",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22"
+      ],
+      "question": "¿Qué problema concreto esperan resolver cuando los contratan?",
+      "questionSourceLines": [
+        376,
+        376
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 22,
+          "statement": "Resultan 22 NI.",
+          "line": 370
+        },
+        "nuclear": {
+          "text": "¿Para quién es esta propuesta, qué necesidad material pretende resolver, qué valor promete, mediante qué oferta, frente a qué alternativa, con qué evidencia y qué diferencia existe entre lo prometido, percibido y realmente obtenido?",
+          "line": 372
+        },
+        "p1Heading": {
+          "text": "# 34. Captura P1",
+          "line": 373
+        },
+        "p2": {
+          "heading": {
+            "text": "# 35. P2 · Triggers",
+            "line": 381
+          },
+          "triggers": [
+            {
+              "text": "mensaje genérico;",
+              "line": 383
+            },
+            {
+              "text": "“calidad y servicio” como única diferenciación;",
+              "line": 384
+            },
+            {
+              "text": "muchas features;",
+              "line": 385
+            },
+            {
+              "text": "bajo cierre pese a interés;",
+              "line": 386
+            },
+            {
+              "text": "precio constantemente cuestionado;",
+              "line": 387
+            },
+            {
+              "text": "descuentos frecuentes;",
+              "line": 388
+            },
+            {
+              "text": "producto infrautilizado;",
+              "line": 389
+            },
+            {
+              "text": "churn tras onboarding;",
+              "line": 390
+            },
+            {
+              "text": "expectativa vs entrega;",
+              "line": 391
+            },
+            {
+              "text": "segmentación diferente pero misma propuesta;",
+              "line": 392
+            },
+            {
+              "text": "claims sin evidencia;",
+              "line": 393
+            },
+            {
+              "text": "propuesta histórica;",
+              "line": 394
+            },
+            {
+              "text": "cliente compra por motivo diferente al que empresa cree;",
+              "line": 395
+            },
+            {
+              "text": "alta satisfacción pero baja renovación;",
+              "line": 396
+            },
+            {
+              "text": "alta conversión con baja rentabilidad.",
+              "line": 397
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 36. P3 · Discriminación",
+            "line": 398
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 399
+            },
+            {
+              "text": "“el cliente no ve valor”",
+              "line": 400
+            },
+            {
+              "text": "distinguimos:",
+              "line": 401
+            },
+            {
+              "text": "CUSTOMER UNDERSTANDING → CM-01",
+              "line": 402
+            },
+            {
+              "text": "PROPOSITION RELEVANCE → CM-02",
+              "line": 403
+            },
+            {
+              "text": "MESSAGE/ACQUISITION EXECUTION → CM-03",
+              "line": 404
+            },
+            {
+              "text": "CHANNEL EXPERIENCE → CM-04",
+              "line": 405
+            },
+            {
+              "text": "SERVICE EXPERIENCE → CM-05",
+              "line": 406
+            },
+            {
+              "text": "VALUE MEASUREMENT → CM-06",
+              "line": 407
+            },
+            {
+              "text": "DELIVERY CAPABILITY → OP/DT/PC",
+              "line": 408
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·03",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22"
+      ],
+      "question": "¿Qué prometen ustedes que ocurrirá?",
+      "questionSourceLines": [
+        377,
+        377
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 22,
+          "statement": "Resultan 22 NI.",
+          "line": 370
+        },
+        "nuclear": {
+          "text": "¿Para quién es esta propuesta, qué necesidad material pretende resolver, qué valor promete, mediante qué oferta, frente a qué alternativa, con qué evidencia y qué diferencia existe entre lo prometido, percibido y realmente obtenido?",
+          "line": 372
+        },
+        "p1Heading": {
+          "text": "# 34. Captura P1",
+          "line": 373
+        },
+        "p2": {
+          "heading": {
+            "text": "# 35. P2 · Triggers",
+            "line": 381
+          },
+          "triggers": [
+            {
+              "text": "mensaje genérico;",
+              "line": 383
+            },
+            {
+              "text": "“calidad y servicio” como única diferenciación;",
+              "line": 384
+            },
+            {
+              "text": "muchas features;",
+              "line": 385
+            },
+            {
+              "text": "bajo cierre pese a interés;",
+              "line": 386
+            },
+            {
+              "text": "precio constantemente cuestionado;",
+              "line": 387
+            },
+            {
+              "text": "descuentos frecuentes;",
+              "line": 388
+            },
+            {
+              "text": "producto infrautilizado;",
+              "line": 389
+            },
+            {
+              "text": "churn tras onboarding;",
+              "line": 390
+            },
+            {
+              "text": "expectativa vs entrega;",
+              "line": 391
+            },
+            {
+              "text": "segmentación diferente pero misma propuesta;",
+              "line": 392
+            },
+            {
+              "text": "claims sin evidencia;",
+              "line": 393
+            },
+            {
+              "text": "propuesta histórica;",
+              "line": 394
+            },
+            {
+              "text": "cliente compra por motivo diferente al que empresa cree;",
+              "line": 395
+            },
+            {
+              "text": "alta satisfacción pero baja renovación;",
+              "line": 396
+            },
+            {
+              "text": "alta conversión con baja rentabilidad.",
+              "line": 397
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 36. P3 · Discriminación",
+            "line": 398
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 399
+            },
+            {
+              "text": "“el cliente no ve valor”",
+              "line": 400
+            },
+            {
+              "text": "distinguimos:",
+              "line": 401
+            },
+            {
+              "text": "CUSTOMER UNDERSTANDING → CM-01",
+              "line": 402
+            },
+            {
+              "text": "PROPOSITION RELEVANCE → CM-02",
+              "line": 403
+            },
+            {
+              "text": "MESSAGE/ACQUISITION EXECUTION → CM-03",
+              "line": 404
+            },
+            {
+              "text": "CHANNEL EXPERIENCE → CM-04",
+              "line": 405
+            },
+            {
+              "text": "SERVICE EXPERIENCE → CM-05",
+              "line": 406
+            },
+            {
+              "text": "VALUE MEASUREMENT → CM-06",
+              "line": 407
+            },
+            {
+              "text": "DELIVERY CAPABILITY → OP/DT/PC",
+              "line": 408
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·04",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22"
+      ],
+      "question": "¿Qué alternativa usaría el cliente si ustedes no existieran?",
+      "questionSourceLines": [
+        378,
+        378
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 22,
+          "statement": "Resultan 22 NI.",
+          "line": 370
+        },
+        "nuclear": {
+          "text": "¿Para quién es esta propuesta, qué necesidad material pretende resolver, qué valor promete, mediante qué oferta, frente a qué alternativa, con qué evidencia y qué diferencia existe entre lo prometido, percibido y realmente obtenido?",
+          "line": 372
+        },
+        "p1Heading": {
+          "text": "# 34. Captura P1",
+          "line": 373
+        },
+        "p2": {
+          "heading": {
+            "text": "# 35. P2 · Triggers",
+            "line": 381
+          },
+          "triggers": [
+            {
+              "text": "mensaje genérico;",
+              "line": 383
+            },
+            {
+              "text": "“calidad y servicio” como única diferenciación;",
+              "line": 384
+            },
+            {
+              "text": "muchas features;",
+              "line": 385
+            },
+            {
+              "text": "bajo cierre pese a interés;",
+              "line": 386
+            },
+            {
+              "text": "precio constantemente cuestionado;",
+              "line": 387
+            },
+            {
+              "text": "descuentos frecuentes;",
+              "line": 388
+            },
+            {
+              "text": "producto infrautilizado;",
+              "line": 389
+            },
+            {
+              "text": "churn tras onboarding;",
+              "line": 390
+            },
+            {
+              "text": "expectativa vs entrega;",
+              "line": 391
+            },
+            {
+              "text": "segmentación diferente pero misma propuesta;",
+              "line": 392
+            },
+            {
+              "text": "claims sin evidencia;",
+              "line": 393
+            },
+            {
+              "text": "propuesta histórica;",
+              "line": 394
+            },
+            {
+              "text": "cliente compra por motivo diferente al que empresa cree;",
+              "line": 395
+            },
+            {
+              "text": "alta satisfacción pero baja renovación;",
+              "line": 396
+            },
+            {
+              "text": "alta conversión con baja rentabilidad.",
+              "line": 397
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 36. P3 · Discriminación",
+            "line": 398
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 399
+            },
+            {
+              "text": "“el cliente no ve valor”",
+              "line": 400
+            },
+            {
+              "text": "distinguimos:",
+              "line": 401
+            },
+            {
+              "text": "CUSTOMER UNDERSTANDING → CM-01",
+              "line": 402
+            },
+            {
+              "text": "PROPOSITION RELEVANCE → CM-02",
+              "line": 403
+            },
+            {
+              "text": "MESSAGE/ACQUISITION EXECUTION → CM-03",
+              "line": 404
+            },
+            {
+              "text": "CHANNEL EXPERIENCE → CM-04",
+              "line": 405
+            },
+            {
+              "text": "SERVICE EXPERIENCE → CM-05",
+              "line": 406
+            },
+            {
+              "text": "VALUE MEASUREMENT → CM-06",
+              "line": 407
+            },
+            {
+              "text": "DELIVERY CAPABILITY → OP/DT/PC",
+              "line": 408
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·05",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22"
+      ],
+      "question": "¿Qué parte de su oferta valora realmente y cuál usa poco?",
+      "questionSourceLines": [
+        379,
+        379
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 22,
+          "statement": "Resultan 22 NI.",
+          "line": 370
+        },
+        "nuclear": {
+          "text": "¿Para quién es esta propuesta, qué necesidad material pretende resolver, qué valor promete, mediante qué oferta, frente a qué alternativa, con qué evidencia y qué diferencia existe entre lo prometido, percibido y realmente obtenido?",
+          "line": 372
+        },
+        "p1Heading": {
+          "text": "# 34. Captura P1",
+          "line": 373
+        },
+        "p2": {
+          "heading": {
+            "text": "# 35. P2 · Triggers",
+            "line": 381
+          },
+          "triggers": [
+            {
+              "text": "mensaje genérico;",
+              "line": 383
+            },
+            {
+              "text": "“calidad y servicio” como única diferenciación;",
+              "line": 384
+            },
+            {
+              "text": "muchas features;",
+              "line": 385
+            },
+            {
+              "text": "bajo cierre pese a interés;",
+              "line": 386
+            },
+            {
+              "text": "precio constantemente cuestionado;",
+              "line": 387
+            },
+            {
+              "text": "descuentos frecuentes;",
+              "line": 388
+            },
+            {
+              "text": "producto infrautilizado;",
+              "line": 389
+            },
+            {
+              "text": "churn tras onboarding;",
+              "line": 390
+            },
+            {
+              "text": "expectativa vs entrega;",
+              "line": 391
+            },
+            {
+              "text": "segmentación diferente pero misma propuesta;",
+              "line": 392
+            },
+            {
+              "text": "claims sin evidencia;",
+              "line": 393
+            },
+            {
+              "text": "propuesta histórica;",
+              "line": 394
+            },
+            {
+              "text": "cliente compra por motivo diferente al que empresa cree;",
+              "line": 395
+            },
+            {
+              "text": "alta satisfacción pero baja renovación;",
+              "line": 396
+            },
+            {
+              "text": "alta conversión con baja rentabilidad.",
+              "line": 397
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 36. P3 · Discriminación",
+            "line": 398
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 399
+            },
+            {
+              "text": "“el cliente no ve valor”",
+              "line": 400
+            },
+            {
+              "text": "distinguimos:",
+              "line": 401
+            },
+            {
+              "text": "CUSTOMER UNDERSTANDING → CM-01",
+              "line": 402
+            },
+            {
+              "text": "PROPOSITION RELEVANCE → CM-02",
+              "line": 403
+            },
+            {
+              "text": "MESSAGE/ACQUISITION EXECUTION → CM-03",
+              "line": 404
+            },
+            {
+              "text": "CHANNEL EXPERIENCE → CM-04",
+              "line": 405
+            },
+            {
+              "text": "SERVICE EXPERIENCE → CM-05",
+              "line": 406
+            },
+            {
+              "text": "VALUE MEASUREMENT → CM-06",
+              "line": 407
+            },
+            {
+              "text": "DELIVERY CAPABILITY → OP/DT/PC",
+              "line": 408
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·06",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22"
+      ],
+      "question": "¿Dónde prometen algo que después cuesta mucho entregar?",
+      "questionSourceLines": [
+        380,
+        380
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 22,
+          "statement": "Resultan 22 NI.",
+          "line": 370
+        },
+        "nuclear": {
+          "text": "¿Para quién es esta propuesta, qué necesidad material pretende resolver, qué valor promete, mediante qué oferta, frente a qué alternativa, con qué evidencia y qué diferencia existe entre lo prometido, percibido y realmente obtenido?",
+          "line": 372
+        },
+        "p1Heading": {
+          "text": "# 34. Captura P1",
+          "line": 373
+        },
+        "p2": {
+          "heading": {
+            "text": "# 35. P2 · Triggers",
+            "line": 381
+          },
+          "triggers": [
+            {
+              "text": "mensaje genérico;",
+              "line": 383
+            },
+            {
+              "text": "“calidad y servicio” como única diferenciación;",
+              "line": 384
+            },
+            {
+              "text": "muchas features;",
+              "line": 385
+            },
+            {
+              "text": "bajo cierre pese a interés;",
+              "line": 386
+            },
+            {
+              "text": "precio constantemente cuestionado;",
+              "line": 387
+            },
+            {
+              "text": "descuentos frecuentes;",
+              "line": 388
+            },
+            {
+              "text": "producto infrautilizado;",
+              "line": 389
+            },
+            {
+              "text": "churn tras onboarding;",
+              "line": 390
+            },
+            {
+              "text": "expectativa vs entrega;",
+              "line": 391
+            },
+            {
+              "text": "segmentación diferente pero misma propuesta;",
+              "line": 392
+            },
+            {
+              "text": "claims sin evidencia;",
+              "line": 393
+            },
+            {
+              "text": "propuesta histórica;",
+              "line": 394
+            },
+            {
+              "text": "cliente compra por motivo diferente al que empresa cree;",
+              "line": 395
+            },
+            {
+              "text": "alta satisfacción pero baja renovación;",
+              "line": 396
+            },
+            {
+              "text": "alta conversión con baja rentabilidad.",
+              "line": 397
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 36. P3 · Discriminación",
+            "line": 398
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 399
+            },
+            {
+              "text": "“el cliente no ve valor”",
+              "line": 400
+            },
+            {
+              "text": "distinguimos:",
+              "line": 401
+            },
+            {
+              "text": "CUSTOMER UNDERSTANDING → CM-01",
+              "line": 402
+            },
+            {
+              "text": "PROPOSITION RELEVANCE → CM-02",
+              "line": 403
+            },
+            {
+              "text": "MESSAGE/ACQUISITION EXECUTION → CM-03",
+              "line": 404
+            },
+            {
+              "text": "CHANNEL EXPERIENCE → CM-04",
+              "line": 405
+            },
+            {
+              "text": "SERVICE EXPERIENCE → CM-05",
+              "line": 406
+            },
+            {
+              "text": "VALUE MEASUREMENT → CM-06",
+              "line": 407
+            },
+            {
+              "text": "DELIVERY CAPABILITY → OP/DT/PC",
+              "line": 408
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    }
+  ],
+  "acquisitionStages": [
+    {
+      "id": "P2",
+      "level": "P2",
+      "heading": "P2 · Triggers",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        381,
+        397
+      ]
+    },
+    {
+      "id": "P3",
+      "level": "P3",
+      "heading": "P3 · Discriminación",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        398,
+        408
+      ]
+    }
+  ]
+}

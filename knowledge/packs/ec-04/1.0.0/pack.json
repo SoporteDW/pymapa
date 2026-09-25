@@ -1,0 +1,1653 @@
+{
+  "packId": "ec-04",
+  "packVersion": "1.0.0",
+  "status": "draft",
+  "knowledgeMaster": {
+    "identifier": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "status": "BASELINE-APPROVED",
+    "sourceReference": "canonical-baseline.json#EC04-K4-v1.0@sha256:c898df6ba62a5470bab98049ec567e1fa07ec944fd4c1df9e6292980d2b5d9ba · EC04-K4-v1.0 · K4-VALIDATED · CLOSED"
+  },
+  "capability": {
+    "id": "EC-04",
+    "domainId": "EC",
+    "name": "Absorber y aprovechar recursos externos",
+    "definition": "EC-04 evalúa la capacidad de la organización para recibir, comprender, adaptar, aplicar, incorporar y conservar suficientemente recursos externos relevantes de manera que puedan convertirse en capacidad utilizable y contribuir a resultados materiales.",
+    "definitionStatus": "EXPLICIT",
+    "definitionSourceLines": [
+      39,
+      39
+    ]
+  },
+  "conditionsOfExistence": [
+    {
+      "id": "CE01",
+      "statement": "Absorption intent"
+    },
+    {
+      "id": "CE02",
+      "statement": "Readiness"
+    },
+    {
+      "id": "CE03",
+      "statement": "Access/transfer"
+    },
+    {
+      "id": "CE04",
+      "statement": "Understanding"
+    },
+    {
+      "id": "CE05",
+      "statement": "Adaptation"
+    },
+    {
+      "id": "CE06",
+      "statement": "Application"
+    },
+    {
+      "id": "CE07",
+      "statement": "Embedding"
+    },
+    {
+      "id": "CE08",
+      "statement": "Retention"
+    },
+    {
+      "id": "CE09",
+      "statement": "Utilization/outcome"
+    },
+    {
+      "id": "CE10",
+      "statement": "Learning/adaptation"
+    }
+  ],
+  "variables": [
+    {
+      "id": "VA01",
+      "name": "recurso externo suficientemente identificado",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA02",
+      "name": "propósito/uso interno suficientemente claro",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA03",
+      "name": "Absorption Target suficientemente definido",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA04",
+      "name": "receptor/owner suficientemente claro",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA05",
+      "name": "condiciones internas mínimas suficientemente disponibles",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA06",
+      "name": "recurso suficientemente accesible",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA07",
+      "name": "transferencia suficientemente adecuada al receptor",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA08",
+      "name": "comprensión suficiente para el target",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA09",
+      "name": "limitaciones/uncertainties suficientemente reconocidas",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA10",
+      "name": "necesidad de adaptación suficientemente evaluada",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA11",
+      "name": "recurso suficientemente contextualizado cuando aplica",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA12",
+      "name": "recurso utilizado en casos relevantes",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA13",
+      "name": "calidad de uso suficientemente adecuada",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA14",
+      "name": "barreras de aplicación suficientemente visibles",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA15",
+      "name": "integración suficiente en práctica/proceso cuando aplica",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA16",
+      "name": "ownership operativo suficientemente sostenible",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA17",
+      "name": "conocimiento/configuración crítica suficientemente conservable",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA18",
+      "name": "concentración crítica suficientemente visible",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA19",
+      "name": "utilización suficientemente observable",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA20",
+      "name": "resultado esperado suficientemente observable",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA21",
+      "name": "uso y outcome permanecen diferenciados",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA22",
+      "name": "evidencia actualiza forma de uso",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA23",
+      "name": "Absorption Target puede revisarse",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA24",
+      "name": "soporte externo/interno puede reajustarse según necesidad",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    }
+  ],
+  "informationNeeds": [],
+  "acquisitions": [
+    {
+      "id": "ACQ·P1·01",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23",
+        "VA24"
+      ],
+      "question": "¿Qué esperaban poder hacer después de contratar/comprar esto?",
+      "questionSourceLines": [
+        455,
+        455
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 24,
+          "statement": "Resultan 24 NI.",
+          "line": 449
+        },
+        "nuclear": {
+          "text": "¿Qué estamos recibiendo externamente, qué necesitamos ser capaces de hacer con ello, quién debe comprenderlo y utilizarlo, qué impide su aprovechamiento y qué capacidad necesitamos conservar internamente para sostener el resultado?",
+          "line": 451
+        },
+        "p1Heading": {
+          "text": "# 42. Captura P1",
+          "line": 453
+        },
+        "p2": {
+          "heading": {
+            "text": "# 43. P2 · Triggers",
+            "line": 463
+          },
+          "triggers": [
+            {
+              "text": "consultoría no utilizada;",
+              "line": 465
+            },
+            {
+              "text": "capacitación sin aplicación;",
+              "line": 466
+            },
+            {
+              "text": "herramienta subutilizada;",
+              "line": 467
+            },
+            {
+              "text": "dependencia de una persona;",
+              "line": 468
+            },
+            {
+              "text": "proveedor hace todo;",
+              "line": 469
+            },
+            {
+              "text": "documentación extensa sin uso;",
+              "line": 470
+            },
+            {
+              "text": "implementación “terminada” sin adopción;",
+              "line": 471
+            },
+            {
+              "text": "workarounds;",
+              "line": 472
+            },
+            {
+              "text": "rework;",
+              "line": 473
+            },
+            {
+              "text": "baja utilización;",
+              "line": 474
+            },
+            {
+              "text": "knowledge transfer pendiente;",
+              "line": 475
+            },
+            {
+              "text": "equipo no entiende configuración;",
+              "line": 476
+            },
+            {
+              "text": "baja disponibilidad de tiempo;",
+              "line": 477
+            },
+            {
+              "text": "falta de owner;",
+              "line": 478
+            },
+            {
+              "text": "datos insuficientes;",
+              "line": 479
+            },
+            {
+              "text": "incapacidad de operar sin tercero;",
+              "line": 480
+            },
+            {
+              "text": "repetición de capacitación sin mejora;",
+              "line": 481
+            },
+            {
+              "text": "prácticas copiadas sin adaptación.",
+              "line": 482
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 44. P3 · Discriminación",
+            "line": 484
+          },
+          "lines": [
+            {
+              "text": "Ante “no aprovechamos la solución”:",
+              "line": 485
+            },
+            {
+              "text": "WRONG EXTERNAL ACTOR → EC-02",
+              "line": 486
+            },
+            {
+              "text": "BAD EXTERNAL GOVERNANCE → EC-03",
+              "line": 487
+            },
+            {
+              "text": "ABSORPTION GAP → EC-04",
+              "line": 488
+            },
+            {
+              "text": "DEPENDENCY EXPOSURE → EC-05",
+              "line": 489
+            },
+            {
+              "text": "COMPETENCE GAP GENERAL → PC-02",
+              "line": 490
+            },
+            {
+              "text": "KNOWLEDGE RETENTION GENERAL → PC-04",
+              "line": 491
+            },
+            {
+              "text": "TECHNOLOGY FIT → DT-01/06",
+              "line": 492
+            },
+            {
+              "text": "IMPLEMENTATION FAILURE → OP-05",
+              "line": 493
+            },
+            {
+              "text": "VALUE GAP → CM-06",
+              "line": 494
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·02",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23",
+        "VA24"
+      ],
+      "question": "¿Quién necesita saber utilizarlo?",
+      "questionSourceLines": [
+        456,
+        456
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 24,
+          "statement": "Resultan 24 NI.",
+          "line": 449
+        },
+        "nuclear": {
+          "text": "¿Qué estamos recibiendo externamente, qué necesitamos ser capaces de hacer con ello, quién debe comprenderlo y utilizarlo, qué impide su aprovechamiento y qué capacidad necesitamos conservar internamente para sostener el resultado?",
+          "line": 451
+        },
+        "p1Heading": {
+          "text": "# 42. Captura P1",
+          "line": 453
+        },
+        "p2": {
+          "heading": {
+            "text": "# 43. P2 · Triggers",
+            "line": 463
+          },
+          "triggers": [
+            {
+              "text": "consultoría no utilizada;",
+              "line": 465
+            },
+            {
+              "text": "capacitación sin aplicación;",
+              "line": 466
+            },
+            {
+              "text": "herramienta subutilizada;",
+              "line": 467
+            },
+            {
+              "text": "dependencia de una persona;",
+              "line": 468
+            },
+            {
+              "text": "proveedor hace todo;",
+              "line": 469
+            },
+            {
+              "text": "documentación extensa sin uso;",
+              "line": 470
+            },
+            {
+              "text": "implementación “terminada” sin adopción;",
+              "line": 471
+            },
+            {
+              "text": "workarounds;",
+              "line": 472
+            },
+            {
+              "text": "rework;",
+              "line": 473
+            },
+            {
+              "text": "baja utilización;",
+              "line": 474
+            },
+            {
+              "text": "knowledge transfer pendiente;",
+              "line": 475
+            },
+            {
+              "text": "equipo no entiende configuración;",
+              "line": 476
+            },
+            {
+              "text": "baja disponibilidad de tiempo;",
+              "line": 477
+            },
+            {
+              "text": "falta de owner;",
+              "line": 478
+            },
+            {
+              "text": "datos insuficientes;",
+              "line": 479
+            },
+            {
+              "text": "incapacidad de operar sin tercero;",
+              "line": 480
+            },
+            {
+              "text": "repetición de capacitación sin mejora;",
+              "line": 481
+            },
+            {
+              "text": "prácticas copiadas sin adaptación.",
+              "line": 482
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 44. P3 · Discriminación",
+            "line": 484
+          },
+          "lines": [
+            {
+              "text": "Ante “no aprovechamos la solución”:",
+              "line": 485
+            },
+            {
+              "text": "WRONG EXTERNAL ACTOR → EC-02",
+              "line": 486
+            },
+            {
+              "text": "BAD EXTERNAL GOVERNANCE → EC-03",
+              "line": 487
+            },
+            {
+              "text": "ABSORPTION GAP → EC-04",
+              "line": 488
+            },
+            {
+              "text": "DEPENDENCY EXPOSURE → EC-05",
+              "line": 489
+            },
+            {
+              "text": "COMPETENCE GAP GENERAL → PC-02",
+              "line": 490
+            },
+            {
+              "text": "KNOWLEDGE RETENTION GENERAL → PC-04",
+              "line": 491
+            },
+            {
+              "text": "TECHNOLOGY FIT → DT-01/06",
+              "line": 492
+            },
+            {
+              "text": "IMPLEMENTATION FAILURE → OP-05",
+              "line": 493
+            },
+            {
+              "text": "VALUE GAP → CM-06",
+              "line": 494
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·03",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23",
+        "VA24"
+      ],
+      "question": "¿Lo están usando realmente?",
+      "questionSourceLines": [
+        457,
+        457
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 24,
+          "statement": "Resultan 24 NI.",
+          "line": 449
+        },
+        "nuclear": {
+          "text": "¿Qué estamos recibiendo externamente, qué necesitamos ser capaces de hacer con ello, quién debe comprenderlo y utilizarlo, qué impide su aprovechamiento y qué capacidad necesitamos conservar internamente para sostener el resultado?",
+          "line": 451
+        },
+        "p1Heading": {
+          "text": "# 42. Captura P1",
+          "line": 453
+        },
+        "p2": {
+          "heading": {
+            "text": "# 43. P2 · Triggers",
+            "line": 463
+          },
+          "triggers": [
+            {
+              "text": "consultoría no utilizada;",
+              "line": 465
+            },
+            {
+              "text": "capacitación sin aplicación;",
+              "line": 466
+            },
+            {
+              "text": "herramienta subutilizada;",
+              "line": 467
+            },
+            {
+              "text": "dependencia de una persona;",
+              "line": 468
+            },
+            {
+              "text": "proveedor hace todo;",
+              "line": 469
+            },
+            {
+              "text": "documentación extensa sin uso;",
+              "line": 470
+            },
+            {
+              "text": "implementación “terminada” sin adopción;",
+              "line": 471
+            },
+            {
+              "text": "workarounds;",
+              "line": 472
+            },
+            {
+              "text": "rework;",
+              "line": 473
+            },
+            {
+              "text": "baja utilización;",
+              "line": 474
+            },
+            {
+              "text": "knowledge transfer pendiente;",
+              "line": 475
+            },
+            {
+              "text": "equipo no entiende configuración;",
+              "line": 476
+            },
+            {
+              "text": "baja disponibilidad de tiempo;",
+              "line": 477
+            },
+            {
+              "text": "falta de owner;",
+              "line": 478
+            },
+            {
+              "text": "datos insuficientes;",
+              "line": 479
+            },
+            {
+              "text": "incapacidad de operar sin tercero;",
+              "line": 480
+            },
+            {
+              "text": "repetición de capacitación sin mejora;",
+              "line": 481
+            },
+            {
+              "text": "prácticas copiadas sin adaptación.",
+              "line": 482
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 44. P3 · Discriminación",
+            "line": 484
+          },
+          "lines": [
+            {
+              "text": "Ante “no aprovechamos la solución”:",
+              "line": 485
+            },
+            {
+              "text": "WRONG EXTERNAL ACTOR → EC-02",
+              "line": 486
+            },
+            {
+              "text": "BAD EXTERNAL GOVERNANCE → EC-03",
+              "line": 487
+            },
+            {
+              "text": "ABSORPTION GAP → EC-04",
+              "line": 488
+            },
+            {
+              "text": "DEPENDENCY EXPOSURE → EC-05",
+              "line": 489
+            },
+            {
+              "text": "COMPETENCE GAP GENERAL → PC-02",
+              "line": 490
+            },
+            {
+              "text": "KNOWLEDGE RETENTION GENERAL → PC-04",
+              "line": 491
+            },
+            {
+              "text": "TECHNOLOGY FIT → DT-01/06",
+              "line": 492
+            },
+            {
+              "text": "IMPLEMENTATION FAILURE → OP-05",
+              "line": 493
+            },
+            {
+              "text": "VALUE GAP → CM-06",
+              "line": 494
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·04",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23",
+        "VA24"
+      ],
+      "question": "¿Qué todavía depende del proveedor?",
+      "questionSourceLines": [
+        458,
+        458
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 24,
+          "statement": "Resultan 24 NI.",
+          "line": 449
+        },
+        "nuclear": {
+          "text": "¿Qué estamos recibiendo externamente, qué necesitamos ser capaces de hacer con ello, quién debe comprenderlo y utilizarlo, qué impide su aprovechamiento y qué capacidad necesitamos conservar internamente para sostener el resultado?",
+          "line": 451
+        },
+        "p1Heading": {
+          "text": "# 42. Captura P1",
+          "line": 453
+        },
+        "p2": {
+          "heading": {
+            "text": "# 43. P2 · Triggers",
+            "line": 463
+          },
+          "triggers": [
+            {
+              "text": "consultoría no utilizada;",
+              "line": 465
+            },
+            {
+              "text": "capacitación sin aplicación;",
+              "line": 466
+            },
+            {
+              "text": "herramienta subutilizada;",
+              "line": 467
+            },
+            {
+              "text": "dependencia de una persona;",
+              "line": 468
+            },
+            {
+              "text": "proveedor hace todo;",
+              "line": 469
+            },
+            {
+              "text": "documentación extensa sin uso;",
+              "line": 470
+            },
+            {
+              "text": "implementación “terminada” sin adopción;",
+              "line": 471
+            },
+            {
+              "text": "workarounds;",
+              "line": 472
+            },
+            {
+              "text": "rework;",
+              "line": 473
+            },
+            {
+              "text": "baja utilización;",
+              "line": 474
+            },
+            {
+              "text": "knowledge transfer pendiente;",
+              "line": 475
+            },
+            {
+              "text": "equipo no entiende configuración;",
+              "line": 476
+            },
+            {
+              "text": "baja disponibilidad de tiempo;",
+              "line": 477
+            },
+            {
+              "text": "falta de owner;",
+              "line": 478
+            },
+            {
+              "text": "datos insuficientes;",
+              "line": 479
+            },
+            {
+              "text": "incapacidad de operar sin tercero;",
+              "line": 480
+            },
+            {
+              "text": "repetición de capacitación sin mejora;",
+              "line": 481
+            },
+            {
+              "text": "prácticas copiadas sin adaptación.",
+              "line": 482
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 44. P3 · Discriminación",
+            "line": 484
+          },
+          "lines": [
+            {
+              "text": "Ante “no aprovechamos la solución”:",
+              "line": 485
+            },
+            {
+              "text": "WRONG EXTERNAL ACTOR → EC-02",
+              "line": 486
+            },
+            {
+              "text": "BAD EXTERNAL GOVERNANCE → EC-03",
+              "line": 487
+            },
+            {
+              "text": "ABSORPTION GAP → EC-04",
+              "line": 488
+            },
+            {
+              "text": "DEPENDENCY EXPOSURE → EC-05",
+              "line": 489
+            },
+            {
+              "text": "COMPETENCE GAP GENERAL → PC-02",
+              "line": 490
+            },
+            {
+              "text": "KNOWLEDGE RETENTION GENERAL → PC-04",
+              "line": 491
+            },
+            {
+              "text": "TECHNOLOGY FIT → DT-01/06",
+              "line": 492
+            },
+            {
+              "text": "IMPLEMENTATION FAILURE → OP-05",
+              "line": 493
+            },
+            {
+              "text": "VALUE GAP → CM-06",
+              "line": 494
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·05",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23",
+        "VA24"
+      ],
+      "question": "¿Qué pasaría si mañana cambia la persona que hoy sabe manejarlo?",
+      "questionSourceLines": [
+        459,
+        459
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 24,
+          "statement": "Resultan 24 NI.",
+          "line": 449
+        },
+        "nuclear": {
+          "text": "¿Qué estamos recibiendo externamente, qué necesitamos ser capaces de hacer con ello, quién debe comprenderlo y utilizarlo, qué impide su aprovechamiento y qué capacidad necesitamos conservar internamente para sostener el resultado?",
+          "line": 451
+        },
+        "p1Heading": {
+          "text": "# 42. Captura P1",
+          "line": 453
+        },
+        "p2": {
+          "heading": {
+            "text": "# 43. P2 · Triggers",
+            "line": 463
+          },
+          "triggers": [
+            {
+              "text": "consultoría no utilizada;",
+              "line": 465
+            },
+            {
+              "text": "capacitación sin aplicación;",
+              "line": 466
+            },
+            {
+              "text": "herramienta subutilizada;",
+              "line": 467
+            },
+            {
+              "text": "dependencia de una persona;",
+              "line": 468
+            },
+            {
+              "text": "proveedor hace todo;",
+              "line": 469
+            },
+            {
+              "text": "documentación extensa sin uso;",
+              "line": 470
+            },
+            {
+              "text": "implementación “terminada” sin adopción;",
+              "line": 471
+            },
+            {
+              "text": "workarounds;",
+              "line": 472
+            },
+            {
+              "text": "rework;",
+              "line": 473
+            },
+            {
+              "text": "baja utilización;",
+              "line": 474
+            },
+            {
+              "text": "knowledge transfer pendiente;",
+              "line": 475
+            },
+            {
+              "text": "equipo no entiende configuración;",
+              "line": 476
+            },
+            {
+              "text": "baja disponibilidad de tiempo;",
+              "line": 477
+            },
+            {
+              "text": "falta de owner;",
+              "line": 478
+            },
+            {
+              "text": "datos insuficientes;",
+              "line": 479
+            },
+            {
+              "text": "incapacidad de operar sin tercero;",
+              "line": 480
+            },
+            {
+              "text": "repetición de capacitación sin mejora;",
+              "line": 481
+            },
+            {
+              "text": "prácticas copiadas sin adaptación.",
+              "line": 482
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 44. P3 · Discriminación",
+            "line": 484
+          },
+          "lines": [
+            {
+              "text": "Ante “no aprovechamos la solución”:",
+              "line": 485
+            },
+            {
+              "text": "WRONG EXTERNAL ACTOR → EC-02",
+              "line": 486
+            },
+            {
+              "text": "BAD EXTERNAL GOVERNANCE → EC-03",
+              "line": 487
+            },
+            {
+              "text": "ABSORPTION GAP → EC-04",
+              "line": 488
+            },
+            {
+              "text": "DEPENDENCY EXPOSURE → EC-05",
+              "line": 489
+            },
+            {
+              "text": "COMPETENCE GAP GENERAL → PC-02",
+              "line": 490
+            },
+            {
+              "text": "KNOWLEDGE RETENTION GENERAL → PC-04",
+              "line": 491
+            },
+            {
+              "text": "TECHNOLOGY FIT → DT-01/06",
+              "line": 492
+            },
+            {
+              "text": "IMPLEMENTATION FAILURE → OP-05",
+              "line": 493
+            },
+            {
+              "text": "VALUE GAP → CM-06",
+              "line": 494
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·06",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23",
+        "VA24"
+      ],
+      "question": "¿Qué les impide aprovecharlo más?",
+      "questionSourceLines": [
+        460,
+        460
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 24,
+          "statement": "Resultan 24 NI.",
+          "line": 449
+        },
+        "nuclear": {
+          "text": "¿Qué estamos recibiendo externamente, qué necesitamos ser capaces de hacer con ello, quién debe comprenderlo y utilizarlo, qué impide su aprovechamiento y qué capacidad necesitamos conservar internamente para sostener el resultado?",
+          "line": 451
+        },
+        "p1Heading": {
+          "text": "# 42. Captura P1",
+          "line": 453
+        },
+        "p2": {
+          "heading": {
+            "text": "# 43. P2 · Triggers",
+            "line": 463
+          },
+          "triggers": [
+            {
+              "text": "consultoría no utilizada;",
+              "line": 465
+            },
+            {
+              "text": "capacitación sin aplicación;",
+              "line": 466
+            },
+            {
+              "text": "herramienta subutilizada;",
+              "line": 467
+            },
+            {
+              "text": "dependencia de una persona;",
+              "line": 468
+            },
+            {
+              "text": "proveedor hace todo;",
+              "line": 469
+            },
+            {
+              "text": "documentación extensa sin uso;",
+              "line": 470
+            },
+            {
+              "text": "implementación “terminada” sin adopción;",
+              "line": 471
+            },
+            {
+              "text": "workarounds;",
+              "line": 472
+            },
+            {
+              "text": "rework;",
+              "line": 473
+            },
+            {
+              "text": "baja utilización;",
+              "line": 474
+            },
+            {
+              "text": "knowledge transfer pendiente;",
+              "line": 475
+            },
+            {
+              "text": "equipo no entiende configuración;",
+              "line": 476
+            },
+            {
+              "text": "baja disponibilidad de tiempo;",
+              "line": 477
+            },
+            {
+              "text": "falta de owner;",
+              "line": 478
+            },
+            {
+              "text": "datos insuficientes;",
+              "line": 479
+            },
+            {
+              "text": "incapacidad de operar sin tercero;",
+              "line": 480
+            },
+            {
+              "text": "repetición de capacitación sin mejora;",
+              "line": 481
+            },
+            {
+              "text": "prácticas copiadas sin adaptación.",
+              "line": 482
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 44. P3 · Discriminación",
+            "line": 484
+          },
+          "lines": [
+            {
+              "text": "Ante “no aprovechamos la solución”:",
+              "line": 485
+            },
+            {
+              "text": "WRONG EXTERNAL ACTOR → EC-02",
+              "line": 486
+            },
+            {
+              "text": "BAD EXTERNAL GOVERNANCE → EC-03",
+              "line": 487
+            },
+            {
+              "text": "ABSORPTION GAP → EC-04",
+              "line": 488
+            },
+            {
+              "text": "DEPENDENCY EXPOSURE → EC-05",
+              "line": 489
+            },
+            {
+              "text": "COMPETENCE GAP GENERAL → PC-02",
+              "line": 490
+            },
+            {
+              "text": "KNOWLEDGE RETENTION GENERAL → PC-04",
+              "line": 491
+            },
+            {
+              "text": "TECHNOLOGY FIT → DT-01/06",
+              "line": 492
+            },
+            {
+              "text": "IMPLEMENTATION FAILURE → OP-05",
+              "line": 493
+            },
+            {
+              "text": "VALUE GAP → CM-06",
+              "line": 494
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·07",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23",
+        "VA24"
+      ],
+      "question": "¿Qué necesitan saber ustedes y qué puede seguir haciendo el tercero?",
+      "questionSourceLines": [
+        461,
+        461
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 24,
+          "statement": "Resultan 24 NI.",
+          "line": 449
+        },
+        "nuclear": {
+          "text": "¿Qué estamos recibiendo externamente, qué necesitamos ser capaces de hacer con ello, quién debe comprenderlo y utilizarlo, qué impide su aprovechamiento y qué capacidad necesitamos conservar internamente para sostener el resultado?",
+          "line": 451
+        },
+        "p1Heading": {
+          "text": "# 42. Captura P1",
+          "line": 453
+        },
+        "p2": {
+          "heading": {
+            "text": "# 43. P2 · Triggers",
+            "line": 463
+          },
+          "triggers": [
+            {
+              "text": "consultoría no utilizada;",
+              "line": 465
+            },
+            {
+              "text": "capacitación sin aplicación;",
+              "line": 466
+            },
+            {
+              "text": "herramienta subutilizada;",
+              "line": 467
+            },
+            {
+              "text": "dependencia de una persona;",
+              "line": 468
+            },
+            {
+              "text": "proveedor hace todo;",
+              "line": 469
+            },
+            {
+              "text": "documentación extensa sin uso;",
+              "line": 470
+            },
+            {
+              "text": "implementación “terminada” sin adopción;",
+              "line": 471
+            },
+            {
+              "text": "workarounds;",
+              "line": 472
+            },
+            {
+              "text": "rework;",
+              "line": 473
+            },
+            {
+              "text": "baja utilización;",
+              "line": 474
+            },
+            {
+              "text": "knowledge transfer pendiente;",
+              "line": 475
+            },
+            {
+              "text": "equipo no entiende configuración;",
+              "line": 476
+            },
+            {
+              "text": "baja disponibilidad de tiempo;",
+              "line": 477
+            },
+            {
+              "text": "falta de owner;",
+              "line": 478
+            },
+            {
+              "text": "datos insuficientes;",
+              "line": 479
+            },
+            {
+              "text": "incapacidad de operar sin tercero;",
+              "line": 480
+            },
+            {
+              "text": "repetición de capacitación sin mejora;",
+              "line": 481
+            },
+            {
+              "text": "prácticas copiadas sin adaptación.",
+              "line": 482
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 44. P3 · Discriminación",
+            "line": 484
+          },
+          "lines": [
+            {
+              "text": "Ante “no aprovechamos la solución”:",
+              "line": 485
+            },
+            {
+              "text": "WRONG EXTERNAL ACTOR → EC-02",
+              "line": 486
+            },
+            {
+              "text": "BAD EXTERNAL GOVERNANCE → EC-03",
+              "line": 487
+            },
+            {
+              "text": "ABSORPTION GAP → EC-04",
+              "line": 488
+            },
+            {
+              "text": "DEPENDENCY EXPOSURE → EC-05",
+              "line": 489
+            },
+            {
+              "text": "COMPETENCE GAP GENERAL → PC-02",
+              "line": 490
+            },
+            {
+              "text": "KNOWLEDGE RETENTION GENERAL → PC-04",
+              "line": 491
+            },
+            {
+              "text": "TECHNOLOGY FIT → DT-01/06",
+              "line": 492
+            },
+            {
+              "text": "IMPLEMENTATION FAILURE → OP-05",
+              "line": 493
+            },
+            {
+              "text": "VALUE GAP → CM-06",
+              "line": 494
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    }
+  ],
+  "acquisitionStages": [
+    {
+      "id": "P2",
+      "level": "P2",
+      "heading": "P2 · Triggers",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        463,
+        482
+      ]
+    },
+    {
+      "id": "P3",
+      "level": "P3",
+      "heading": "P3 · Discriminación",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        484,
+        494
+      ]
+    }
+  ]
+}

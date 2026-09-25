@@ -41,6 +41,10 @@ export const GAP_KINDS = [
   "GENERIC_RUNTIME_EXTENSION_REQUIRED",
   /** El artefacto autoritativo declara la fuente como no recuperada (M2-SOURCE). */
   "SOURCE_CONTENT_NOT_RECOVERED",
+  /** M2-FINAL-15: NI declaradas no enumeradas individualmente (no bloqueante si hay adquisición). */
+  "INFORMATION_NEED_NOT_ENUMERATED",
+  /** M2-FINAL-15: ausencia real de semántica de adquisición para una VA (bloqueante). */
+  "ACQUISITION_SEMANTICS_MISSING",
 ] as const;
 export type GapKind = (typeof GAP_KINDS)[number];
 

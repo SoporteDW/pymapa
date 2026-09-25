@@ -1,0 +1,1839 @@
+{
+  "packId": "ec-03",
+  "packVersion": "1.0.0",
+  "status": "draft",
+  "knowledgeMaster": {
+    "identifier": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "status": "BASELINE-APPROVED",
+    "sourceReference": "canonical-baseline.json#EC03-K4-v1.0@sha256:70c45acc044f0989d0ced475c82669a87c8efc747f5e16f0dc6c36ddc06621b2 · EC03-K4-v1.0 · K4-VALIDATED · CLOSED"
+  },
+  "capability": {
+    "id": "EC-03",
+    "domainId": "EC",
+    "name": "Coordinar y gobernar relaciones con terceros",
+    "definition": "EC-03 evalúa la capacidad de la organización para establecer y mantener condiciones suficientemente claras de responsabilidad, coordinación, decisión, información, seguimiento y tratamiento de excepciones con actores externos, de modo que la relación pueda producir los resultados esperados y adaptarse cuando cambien sus condiciones.",
+    "definitionStatus": "EXPLICIT",
+    "definitionSourceLines": [
+      35,
+      35
+    ]
+  },
+  "conditionsOfExistence": [
+    {
+      "id": "CE01",
+      "statement": "Purpose/outcome"
+    },
+    {
+      "id": "CE02",
+      "statement": "Roles/accountability"
+    },
+    {
+      "id": "CE03",
+      "statement": "Working model"
+    },
+    {
+      "id": "CE04",
+      "statement": "Coordination"
+    },
+    {
+      "id": "CE05",
+      "statement": "Performance"
+    },
+    {
+      "id": "CE06",
+      "statement": "Issues/exceptions"
+    },
+    {
+      "id": "CE07",
+      "statement": "Escalation"
+    },
+    {
+      "id": "CE08",
+      "statement": "Relationship health"
+    },
+    {
+      "id": "CE09",
+      "statement": "Change"
+    },
+    {
+      "id": "CE10",
+      "statement": "Learning/governance"
+    }
+  ],
+  "variables": [
+    {
+      "id": "VA01",
+      "name": "propósito suficientemente claro",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA02",
+      "name": "outcome esperado suficientemente definido",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA03",
+      "name": "responsabilidades suficientemente claras",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA04",
+      "name": "accountability suficientemente clara",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA05",
+      "name": "decision rights suficientemente claros",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA06",
+      "name": "working agreements suficientes",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA07",
+      "name": "interfaces materiales suficientemente definidas",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA08",
+      "name": "información necesaria fluye suficientemente",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA09",
+      "name": "acciones/tiempos suficientemente coordinados",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA10",
+      "name": "performance material suficientemente visible",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA11",
+      "name": "outcome de relación suficientemente observable",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA12",
+      "name": "métricas suficientemente alineadas al propósito",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA13",
+      "name": "issues materiales suficientemente detectables",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA14",
+      "name": "exceptions suficientemente tratables",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA15",
+      "name": "triggers de escalación suficientemente claros",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA16",
+      "name": "escalaciones llegan a capacidad/autoridad suficiente",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA17",
+      "name": "closure suficientemente verificable",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA18",
+      "name": "señales de salud/deterioro suficientemente visibles",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA19",
+      "name": "desalineaciones materiales suficientemente tratables",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA20",
+      "name": "cambios materiales suficientemente gobernados",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA21",
+      "name": "condiciones pueden renegociarse/adaptarse cuando corresponde",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA22",
+      "name": "evidencia de relación modifica gobernanza cuando corresponde",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA23",
+      "name": "revisiones son proporcionales a materialidad/evolución",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    }
+  ],
+  "informationNeeds": [],
+  "acquisitions": [
+    {
+      "id": "ACQ·P1·01",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23"
+      ],
+      "question": "¿Qué esperan realmente obtener de este tercero?",
+      "questionSourceLines": [
+        435,
+        435
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 23,
+          "statement": "Resultan 23 NI.",
+          "line": 429
+        },
+        "nuclear": {
+          "text": "¿Para qué existe esta relación, qué resultado debe producir, quién responde y decide sobre qué, cómo se coordinan las partes, cómo sabemos si funciona y qué ocurre cuando aparece una desviación o cambian las condiciones?",
+          "line": 431
+        },
+        "p1Heading": {
+          "text": "# 40. Captura P1",
+          "line": 433
+        },
+        "p2": {
+          "heading": {
+            "text": "# 41. P2 · Triggers",
+            "line": 444
+          },
+          "triggers": [
+            {
+              "text": "“eso lo maneja el proveedor”;",
+              "line": 446
+            },
+            {
+              "text": "roles ambiguos;",
+              "line": 447
+            },
+            {
+              "text": "exceso de reuniones;",
+              "line": 448
+            },
+            {
+              "text": "retrabajo;",
+              "line": 449
+            },
+            {
+              "text": "incumplimientos;",
+              "line": 450
+            },
+            {
+              "text": "SLA bueno pero outcome malo;",
+              "line": 451
+            },
+            {
+              "text": "issues repetidos;",
+              "line": 452
+            },
+            {
+              "text": "escalaciones tardías;",
+              "line": 453
+            },
+            {
+              "text": "relación dependiente de una persona;",
+              "line": 454
+            },
+            {
+              "text": "scope creep;",
+              "line": 455
+            },
+            {
+              "text": "cambios no documentados;",
+              "line": 456
+            },
+            {
+              "text": "disputas de facturación;",
+              "line": 457
+            },
+            {
+              "text": "problemas de información;",
+              "line": 458
+            },
+            {
+              "text": "finger-pointing;",
+              "line": 459
+            },
+            {
+              "text": "renovación automática;",
+              "line": 460
+            },
+            {
+              "text": "proveedor crítico sin review;",
+              "line": 461
+            },
+            {
+              "text": "relación cordial con bajo performance;",
+              "line": 462
+            },
+            {
+              "text": "performance alto con conflicto recurrente.",
+              "line": 463
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 42. P3 · Discriminación",
+            "line": 465
+          },
+          "lines": [
+            {
+              "text": "Ante “el proveedor no funciona”:",
+              "line": 466
+            },
+            {
+              "text": "WRONG ACTOR → EC-02",
+              "line": 467
+            },
+            {
+              "text": "BAD RELATIONSHIP GOVERNANCE → EC-03",
+              "line": 468
+            },
+            {
+              "text": "LOW INTERNAL ABSORPTION → EC-04",
+              "line": 469
+            },
+            {
+              "text": "CRITICAL DEPENDENCY → EC-05",
+              "line": 470
+            },
+            {
+              "text": "INTERNAL PROCESS → OP",
+              "line": 471
+            },
+            {
+              "text": "TECHNOLOGY → DT",
+              "line": 472
+            },
+            {
+              "text": "CUSTOMER CONSEQUENCE → CM-04/05",
+              "line": 473
+            },
+            {
+              "text": "La misma evidencia puede alimentar varias capacidades:",
+              "line": 474
+            },
+            {
+              "text": "reuse evidence, not conclusions.",
+              "line": 475
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·02",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23"
+      ],
+      "question": "¿Quién responde internamente por que esa relación funcione?",
+      "questionSourceLines": [
+        436,
+        436
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 23,
+          "statement": "Resultan 23 NI.",
+          "line": 429
+        },
+        "nuclear": {
+          "text": "¿Para qué existe esta relación, qué resultado debe producir, quién responde y decide sobre qué, cómo se coordinan las partes, cómo sabemos si funciona y qué ocurre cuando aparece una desviación o cambian las condiciones?",
+          "line": 431
+        },
+        "p1Heading": {
+          "text": "# 40. Captura P1",
+          "line": 433
+        },
+        "p2": {
+          "heading": {
+            "text": "# 41. P2 · Triggers",
+            "line": 444
+          },
+          "triggers": [
+            {
+              "text": "“eso lo maneja el proveedor”;",
+              "line": 446
+            },
+            {
+              "text": "roles ambiguos;",
+              "line": 447
+            },
+            {
+              "text": "exceso de reuniones;",
+              "line": 448
+            },
+            {
+              "text": "retrabajo;",
+              "line": 449
+            },
+            {
+              "text": "incumplimientos;",
+              "line": 450
+            },
+            {
+              "text": "SLA bueno pero outcome malo;",
+              "line": 451
+            },
+            {
+              "text": "issues repetidos;",
+              "line": 452
+            },
+            {
+              "text": "escalaciones tardías;",
+              "line": 453
+            },
+            {
+              "text": "relación dependiente de una persona;",
+              "line": 454
+            },
+            {
+              "text": "scope creep;",
+              "line": 455
+            },
+            {
+              "text": "cambios no documentados;",
+              "line": 456
+            },
+            {
+              "text": "disputas de facturación;",
+              "line": 457
+            },
+            {
+              "text": "problemas de información;",
+              "line": 458
+            },
+            {
+              "text": "finger-pointing;",
+              "line": 459
+            },
+            {
+              "text": "renovación automática;",
+              "line": 460
+            },
+            {
+              "text": "proveedor crítico sin review;",
+              "line": 461
+            },
+            {
+              "text": "relación cordial con bajo performance;",
+              "line": 462
+            },
+            {
+              "text": "performance alto con conflicto recurrente.",
+              "line": 463
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 42. P3 · Discriminación",
+            "line": 465
+          },
+          "lines": [
+            {
+              "text": "Ante “el proveedor no funciona”:",
+              "line": 466
+            },
+            {
+              "text": "WRONG ACTOR → EC-02",
+              "line": 467
+            },
+            {
+              "text": "BAD RELATIONSHIP GOVERNANCE → EC-03",
+              "line": 468
+            },
+            {
+              "text": "LOW INTERNAL ABSORPTION → EC-04",
+              "line": 469
+            },
+            {
+              "text": "CRITICAL DEPENDENCY → EC-05",
+              "line": 470
+            },
+            {
+              "text": "INTERNAL PROCESS → OP",
+              "line": 471
+            },
+            {
+              "text": "TECHNOLOGY → DT",
+              "line": 472
+            },
+            {
+              "text": "CUSTOMER CONSEQUENCE → CM-04/05",
+              "line": 473
+            },
+            {
+              "text": "La misma evidencia puede alimentar varias capacidades:",
+              "line": 474
+            },
+            {
+              "text": "reuse evidence, not conclusions.",
+              "line": 475
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·03",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23"
+      ],
+      "question": "¿Qué cosas puede decidir el proveedor y cuáles requieren aprobación?",
+      "questionSourceLines": [
+        437,
+        437
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 23,
+          "statement": "Resultan 23 NI.",
+          "line": 429
+        },
+        "nuclear": {
+          "text": "¿Para qué existe esta relación, qué resultado debe producir, quién responde y decide sobre qué, cómo se coordinan las partes, cómo sabemos si funciona y qué ocurre cuando aparece una desviación o cambian las condiciones?",
+          "line": 431
+        },
+        "p1Heading": {
+          "text": "# 40. Captura P1",
+          "line": 433
+        },
+        "p2": {
+          "heading": {
+            "text": "# 41. P2 · Triggers",
+            "line": 444
+          },
+          "triggers": [
+            {
+              "text": "“eso lo maneja el proveedor”;",
+              "line": 446
+            },
+            {
+              "text": "roles ambiguos;",
+              "line": 447
+            },
+            {
+              "text": "exceso de reuniones;",
+              "line": 448
+            },
+            {
+              "text": "retrabajo;",
+              "line": 449
+            },
+            {
+              "text": "incumplimientos;",
+              "line": 450
+            },
+            {
+              "text": "SLA bueno pero outcome malo;",
+              "line": 451
+            },
+            {
+              "text": "issues repetidos;",
+              "line": 452
+            },
+            {
+              "text": "escalaciones tardías;",
+              "line": 453
+            },
+            {
+              "text": "relación dependiente de una persona;",
+              "line": 454
+            },
+            {
+              "text": "scope creep;",
+              "line": 455
+            },
+            {
+              "text": "cambios no documentados;",
+              "line": 456
+            },
+            {
+              "text": "disputas de facturación;",
+              "line": 457
+            },
+            {
+              "text": "problemas de información;",
+              "line": 458
+            },
+            {
+              "text": "finger-pointing;",
+              "line": 459
+            },
+            {
+              "text": "renovación automática;",
+              "line": 460
+            },
+            {
+              "text": "proveedor crítico sin review;",
+              "line": 461
+            },
+            {
+              "text": "relación cordial con bajo performance;",
+              "line": 462
+            },
+            {
+              "text": "performance alto con conflicto recurrente.",
+              "line": 463
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 42. P3 · Discriminación",
+            "line": 465
+          },
+          "lines": [
+            {
+              "text": "Ante “el proveedor no funciona”:",
+              "line": 466
+            },
+            {
+              "text": "WRONG ACTOR → EC-02",
+              "line": 467
+            },
+            {
+              "text": "BAD RELATIONSHIP GOVERNANCE → EC-03",
+              "line": 468
+            },
+            {
+              "text": "LOW INTERNAL ABSORPTION → EC-04",
+              "line": 469
+            },
+            {
+              "text": "CRITICAL DEPENDENCY → EC-05",
+              "line": 470
+            },
+            {
+              "text": "INTERNAL PROCESS → OP",
+              "line": 471
+            },
+            {
+              "text": "TECHNOLOGY → DT",
+              "line": 472
+            },
+            {
+              "text": "CUSTOMER CONSEQUENCE → CM-04/05",
+              "line": 473
+            },
+            {
+              "text": "La misma evidencia puede alimentar varias capacidades:",
+              "line": 474
+            },
+            {
+              "text": "reuse evidence, not conclusions.",
+              "line": 475
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·04",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23"
+      ],
+      "question": "¿Cómo saben si está funcionando bien?",
+      "questionSourceLines": [
+        438,
+        438
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 23,
+          "statement": "Resultan 23 NI.",
+          "line": 429
+        },
+        "nuclear": {
+          "text": "¿Para qué existe esta relación, qué resultado debe producir, quién responde y decide sobre qué, cómo se coordinan las partes, cómo sabemos si funciona y qué ocurre cuando aparece una desviación o cambian las condiciones?",
+          "line": 431
+        },
+        "p1Heading": {
+          "text": "# 40. Captura P1",
+          "line": 433
+        },
+        "p2": {
+          "heading": {
+            "text": "# 41. P2 · Triggers",
+            "line": 444
+          },
+          "triggers": [
+            {
+              "text": "“eso lo maneja el proveedor”;",
+              "line": 446
+            },
+            {
+              "text": "roles ambiguos;",
+              "line": 447
+            },
+            {
+              "text": "exceso de reuniones;",
+              "line": 448
+            },
+            {
+              "text": "retrabajo;",
+              "line": 449
+            },
+            {
+              "text": "incumplimientos;",
+              "line": 450
+            },
+            {
+              "text": "SLA bueno pero outcome malo;",
+              "line": 451
+            },
+            {
+              "text": "issues repetidos;",
+              "line": 452
+            },
+            {
+              "text": "escalaciones tardías;",
+              "line": 453
+            },
+            {
+              "text": "relación dependiente de una persona;",
+              "line": 454
+            },
+            {
+              "text": "scope creep;",
+              "line": 455
+            },
+            {
+              "text": "cambios no documentados;",
+              "line": 456
+            },
+            {
+              "text": "disputas de facturación;",
+              "line": 457
+            },
+            {
+              "text": "problemas de información;",
+              "line": 458
+            },
+            {
+              "text": "finger-pointing;",
+              "line": 459
+            },
+            {
+              "text": "renovación automática;",
+              "line": 460
+            },
+            {
+              "text": "proveedor crítico sin review;",
+              "line": 461
+            },
+            {
+              "text": "relación cordial con bajo performance;",
+              "line": 462
+            },
+            {
+              "text": "performance alto con conflicto recurrente.",
+              "line": 463
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 42. P3 · Discriminación",
+            "line": 465
+          },
+          "lines": [
+            {
+              "text": "Ante “el proveedor no funciona”:",
+              "line": 466
+            },
+            {
+              "text": "WRONG ACTOR → EC-02",
+              "line": 467
+            },
+            {
+              "text": "BAD RELATIONSHIP GOVERNANCE → EC-03",
+              "line": 468
+            },
+            {
+              "text": "LOW INTERNAL ABSORPTION → EC-04",
+              "line": 469
+            },
+            {
+              "text": "CRITICAL DEPENDENCY → EC-05",
+              "line": 470
+            },
+            {
+              "text": "INTERNAL PROCESS → OP",
+              "line": 471
+            },
+            {
+              "text": "TECHNOLOGY → DT",
+              "line": 472
+            },
+            {
+              "text": "CUSTOMER CONSEQUENCE → CM-04/05",
+              "line": 473
+            },
+            {
+              "text": "La misma evidencia puede alimentar varias capacidades:",
+              "line": 474
+            },
+            {
+              "text": "reuse evidence, not conclusions.",
+              "line": 475
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·05",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23"
+      ],
+      "question": "¿Qué pasa cuando algo se sale de lo acordado?",
+      "questionSourceLines": [
+        439,
+        439
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 23,
+          "statement": "Resultan 23 NI.",
+          "line": 429
+        },
+        "nuclear": {
+          "text": "¿Para qué existe esta relación, qué resultado debe producir, quién responde y decide sobre qué, cómo se coordinan las partes, cómo sabemos si funciona y qué ocurre cuando aparece una desviación o cambian las condiciones?",
+          "line": 431
+        },
+        "p1Heading": {
+          "text": "# 40. Captura P1",
+          "line": 433
+        },
+        "p2": {
+          "heading": {
+            "text": "# 41. P2 · Triggers",
+            "line": 444
+          },
+          "triggers": [
+            {
+              "text": "“eso lo maneja el proveedor”;",
+              "line": 446
+            },
+            {
+              "text": "roles ambiguos;",
+              "line": 447
+            },
+            {
+              "text": "exceso de reuniones;",
+              "line": 448
+            },
+            {
+              "text": "retrabajo;",
+              "line": 449
+            },
+            {
+              "text": "incumplimientos;",
+              "line": 450
+            },
+            {
+              "text": "SLA bueno pero outcome malo;",
+              "line": 451
+            },
+            {
+              "text": "issues repetidos;",
+              "line": 452
+            },
+            {
+              "text": "escalaciones tardías;",
+              "line": 453
+            },
+            {
+              "text": "relación dependiente de una persona;",
+              "line": 454
+            },
+            {
+              "text": "scope creep;",
+              "line": 455
+            },
+            {
+              "text": "cambios no documentados;",
+              "line": 456
+            },
+            {
+              "text": "disputas de facturación;",
+              "line": 457
+            },
+            {
+              "text": "problemas de información;",
+              "line": 458
+            },
+            {
+              "text": "finger-pointing;",
+              "line": 459
+            },
+            {
+              "text": "renovación automática;",
+              "line": 460
+            },
+            {
+              "text": "proveedor crítico sin review;",
+              "line": 461
+            },
+            {
+              "text": "relación cordial con bajo performance;",
+              "line": 462
+            },
+            {
+              "text": "performance alto con conflicto recurrente.",
+              "line": 463
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 42. P3 · Discriminación",
+            "line": 465
+          },
+          "lines": [
+            {
+              "text": "Ante “el proveedor no funciona”:",
+              "line": 466
+            },
+            {
+              "text": "WRONG ACTOR → EC-02",
+              "line": 467
+            },
+            {
+              "text": "BAD RELATIONSHIP GOVERNANCE → EC-03",
+              "line": 468
+            },
+            {
+              "text": "LOW INTERNAL ABSORPTION → EC-04",
+              "line": 469
+            },
+            {
+              "text": "CRITICAL DEPENDENCY → EC-05",
+              "line": 470
+            },
+            {
+              "text": "INTERNAL PROCESS → OP",
+              "line": 471
+            },
+            {
+              "text": "TECHNOLOGY → DT",
+              "line": 472
+            },
+            {
+              "text": "CUSTOMER CONSEQUENCE → CM-04/05",
+              "line": 473
+            },
+            {
+              "text": "La misma evidencia puede alimentar varias capacidades:",
+              "line": 474
+            },
+            {
+              "text": "reuse evidence, not conclusions.",
+              "line": 475
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·06",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23"
+      ],
+      "question": "¿Quién escala un problema y a quién?",
+      "questionSourceLines": [
+        440,
+        440
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 23,
+          "statement": "Resultan 23 NI.",
+          "line": 429
+        },
+        "nuclear": {
+          "text": "¿Para qué existe esta relación, qué resultado debe producir, quién responde y decide sobre qué, cómo se coordinan las partes, cómo sabemos si funciona y qué ocurre cuando aparece una desviación o cambian las condiciones?",
+          "line": 431
+        },
+        "p1Heading": {
+          "text": "# 40. Captura P1",
+          "line": 433
+        },
+        "p2": {
+          "heading": {
+            "text": "# 41. P2 · Triggers",
+            "line": 444
+          },
+          "triggers": [
+            {
+              "text": "“eso lo maneja el proveedor”;",
+              "line": 446
+            },
+            {
+              "text": "roles ambiguos;",
+              "line": 447
+            },
+            {
+              "text": "exceso de reuniones;",
+              "line": 448
+            },
+            {
+              "text": "retrabajo;",
+              "line": 449
+            },
+            {
+              "text": "incumplimientos;",
+              "line": 450
+            },
+            {
+              "text": "SLA bueno pero outcome malo;",
+              "line": 451
+            },
+            {
+              "text": "issues repetidos;",
+              "line": 452
+            },
+            {
+              "text": "escalaciones tardías;",
+              "line": 453
+            },
+            {
+              "text": "relación dependiente de una persona;",
+              "line": 454
+            },
+            {
+              "text": "scope creep;",
+              "line": 455
+            },
+            {
+              "text": "cambios no documentados;",
+              "line": 456
+            },
+            {
+              "text": "disputas de facturación;",
+              "line": 457
+            },
+            {
+              "text": "problemas de información;",
+              "line": 458
+            },
+            {
+              "text": "finger-pointing;",
+              "line": 459
+            },
+            {
+              "text": "renovación automática;",
+              "line": 460
+            },
+            {
+              "text": "proveedor crítico sin review;",
+              "line": 461
+            },
+            {
+              "text": "relación cordial con bajo performance;",
+              "line": 462
+            },
+            {
+              "text": "performance alto con conflicto recurrente.",
+              "line": 463
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 42. P3 · Discriminación",
+            "line": 465
+          },
+          "lines": [
+            {
+              "text": "Ante “el proveedor no funciona”:",
+              "line": 466
+            },
+            {
+              "text": "WRONG ACTOR → EC-02",
+              "line": 467
+            },
+            {
+              "text": "BAD RELATIONSHIP GOVERNANCE → EC-03",
+              "line": 468
+            },
+            {
+              "text": "LOW INTERNAL ABSORPTION → EC-04",
+              "line": 469
+            },
+            {
+              "text": "CRITICAL DEPENDENCY → EC-05",
+              "line": 470
+            },
+            {
+              "text": "INTERNAL PROCESS → OP",
+              "line": 471
+            },
+            {
+              "text": "TECHNOLOGY → DT",
+              "line": 472
+            },
+            {
+              "text": "CUSTOMER CONSEQUENCE → CM-04/05",
+              "line": 473
+            },
+            {
+              "text": "La misma evidencia puede alimentar varias capacidades:",
+              "line": 474
+            },
+            {
+              "text": "reuse evidence, not conclusions.",
+              "line": 475
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·07",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23"
+      ],
+      "question": "¿Qué suele generar retrabajo o discusiones?",
+      "questionSourceLines": [
+        441,
+        441
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 23,
+          "statement": "Resultan 23 NI.",
+          "line": 429
+        },
+        "nuclear": {
+          "text": "¿Para qué existe esta relación, qué resultado debe producir, quién responde y decide sobre qué, cómo se coordinan las partes, cómo sabemos si funciona y qué ocurre cuando aparece una desviación o cambian las condiciones?",
+          "line": 431
+        },
+        "p1Heading": {
+          "text": "# 40. Captura P1",
+          "line": 433
+        },
+        "p2": {
+          "heading": {
+            "text": "# 41. P2 · Triggers",
+            "line": 444
+          },
+          "triggers": [
+            {
+              "text": "“eso lo maneja el proveedor”;",
+              "line": 446
+            },
+            {
+              "text": "roles ambiguos;",
+              "line": 447
+            },
+            {
+              "text": "exceso de reuniones;",
+              "line": 448
+            },
+            {
+              "text": "retrabajo;",
+              "line": 449
+            },
+            {
+              "text": "incumplimientos;",
+              "line": 450
+            },
+            {
+              "text": "SLA bueno pero outcome malo;",
+              "line": 451
+            },
+            {
+              "text": "issues repetidos;",
+              "line": 452
+            },
+            {
+              "text": "escalaciones tardías;",
+              "line": 453
+            },
+            {
+              "text": "relación dependiente de una persona;",
+              "line": 454
+            },
+            {
+              "text": "scope creep;",
+              "line": 455
+            },
+            {
+              "text": "cambios no documentados;",
+              "line": 456
+            },
+            {
+              "text": "disputas de facturación;",
+              "line": 457
+            },
+            {
+              "text": "problemas de información;",
+              "line": 458
+            },
+            {
+              "text": "finger-pointing;",
+              "line": 459
+            },
+            {
+              "text": "renovación automática;",
+              "line": 460
+            },
+            {
+              "text": "proveedor crítico sin review;",
+              "line": 461
+            },
+            {
+              "text": "relación cordial con bajo performance;",
+              "line": 462
+            },
+            {
+              "text": "performance alto con conflicto recurrente.",
+              "line": 463
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 42. P3 · Discriminación",
+            "line": 465
+          },
+          "lines": [
+            {
+              "text": "Ante “el proveedor no funciona”:",
+              "line": 466
+            },
+            {
+              "text": "WRONG ACTOR → EC-02",
+              "line": 467
+            },
+            {
+              "text": "BAD RELATIONSHIP GOVERNANCE → EC-03",
+              "line": 468
+            },
+            {
+              "text": "LOW INTERNAL ABSORPTION → EC-04",
+              "line": 469
+            },
+            {
+              "text": "CRITICAL DEPENDENCY → EC-05",
+              "line": 470
+            },
+            {
+              "text": "INTERNAL PROCESS → OP",
+              "line": 471
+            },
+            {
+              "text": "TECHNOLOGY → DT",
+              "line": 472
+            },
+            {
+              "text": "CUSTOMER CONSEQUENCE → CM-04/05",
+              "line": 473
+            },
+            {
+              "text": "La misma evidencia puede alimentar varias capacidades:",
+              "line": 474
+            },
+            {
+              "text": "reuse evidence, not conclusions.",
+              "line": 475
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·08",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23"
+      ],
+      "question": "¿Cuándo revisan si la relación todavía tiene sentido?",
+      "questionSourceLines": [
+        442,
+        442
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 23,
+          "statement": "Resultan 23 NI.",
+          "line": 429
+        },
+        "nuclear": {
+          "text": "¿Para qué existe esta relación, qué resultado debe producir, quién responde y decide sobre qué, cómo se coordinan las partes, cómo sabemos si funciona y qué ocurre cuando aparece una desviación o cambian las condiciones?",
+          "line": 431
+        },
+        "p1Heading": {
+          "text": "# 40. Captura P1",
+          "line": 433
+        },
+        "p2": {
+          "heading": {
+            "text": "# 41. P2 · Triggers",
+            "line": 444
+          },
+          "triggers": [
+            {
+              "text": "“eso lo maneja el proveedor”;",
+              "line": 446
+            },
+            {
+              "text": "roles ambiguos;",
+              "line": 447
+            },
+            {
+              "text": "exceso de reuniones;",
+              "line": 448
+            },
+            {
+              "text": "retrabajo;",
+              "line": 449
+            },
+            {
+              "text": "incumplimientos;",
+              "line": 450
+            },
+            {
+              "text": "SLA bueno pero outcome malo;",
+              "line": 451
+            },
+            {
+              "text": "issues repetidos;",
+              "line": 452
+            },
+            {
+              "text": "escalaciones tardías;",
+              "line": 453
+            },
+            {
+              "text": "relación dependiente de una persona;",
+              "line": 454
+            },
+            {
+              "text": "scope creep;",
+              "line": 455
+            },
+            {
+              "text": "cambios no documentados;",
+              "line": 456
+            },
+            {
+              "text": "disputas de facturación;",
+              "line": 457
+            },
+            {
+              "text": "problemas de información;",
+              "line": 458
+            },
+            {
+              "text": "finger-pointing;",
+              "line": 459
+            },
+            {
+              "text": "renovación automática;",
+              "line": 460
+            },
+            {
+              "text": "proveedor crítico sin review;",
+              "line": 461
+            },
+            {
+              "text": "relación cordial con bajo performance;",
+              "line": 462
+            },
+            {
+              "text": "performance alto con conflicto recurrente.",
+              "line": 463
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 42. P3 · Discriminación",
+            "line": 465
+          },
+          "lines": [
+            {
+              "text": "Ante “el proveedor no funciona”:",
+              "line": 466
+            },
+            {
+              "text": "WRONG ACTOR → EC-02",
+              "line": 467
+            },
+            {
+              "text": "BAD RELATIONSHIP GOVERNANCE → EC-03",
+              "line": 468
+            },
+            {
+              "text": "LOW INTERNAL ABSORPTION → EC-04",
+              "line": 469
+            },
+            {
+              "text": "CRITICAL DEPENDENCY → EC-05",
+              "line": 470
+            },
+            {
+              "text": "INTERNAL PROCESS → OP",
+              "line": 471
+            },
+            {
+              "text": "TECHNOLOGY → DT",
+              "line": 472
+            },
+            {
+              "text": "CUSTOMER CONSEQUENCE → CM-04/05",
+              "line": 473
+            },
+            {
+              "text": "La misma evidencia puede alimentar varias capacidades:",
+              "line": 474
+            },
+            {
+              "text": "reuse evidence, not conclusions.",
+              "line": 475
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    }
+  ],
+  "acquisitionStages": [
+    {
+      "id": "P2",
+      "level": "P2",
+      "heading": "P2 · Triggers",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        444,
+        463
+      ]
+    },
+    {
+      "id": "P3",
+      "level": "P3",
+      "heading": "P3 · Discriminación",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        465,
+        475
+      ]
+    },
+    {
+      "id": "P4",
+      "level": "P4",
+      "heading": "P4 · Contradicciones",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        477,
+        493
+      ]
+    }
+  ]
+}

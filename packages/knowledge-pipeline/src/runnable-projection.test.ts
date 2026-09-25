@@ -77,7 +77,9 @@ describe("M2-FACTORY-CONTRACT-03 · contrato genérico baseline → pack", () =>
     expect(ni02.mappingStatus).toBe("UNRESOLVED_NO_EXPLICIT_SOURCE_STRUCTURE");
     expect(s.variables[1].acquisitionResolution).toBe("UNRESOLVED");
     const gaps = r.source!["gaps"] as any[];
-    expect(gaps.find((g) => g.id === "NE-ZZ-01-VA-ACQUISITION").publicationBlocking).toBe(true);
+    const g = gaps.find((x) => x.id === "NE-ZZ-01-VA-ACQUISITION");
+    expect(g.publicationBlocking).toBe(true);
+    expect(g.kind).toBe("ACQUISITION_SEMANTICS_MISSING");
   });
   it("sin definición productiva ⇒ NOT_EXPLICIT (no bloqueante); sin nombre ⇒ bloqueo", () => {
     const r = projectBaselineToRunnableSource(
@@ -127,5 +129,88 @@ describe("M2-FACTORY-CLOSURE A2 · enriquecimiento de identidad", () => {
         itemsAfter: [],
       }).ok,
     ).toBe(false);
+  });
+});
+
+describe("M2-FINAL-15 · NI declaradas no enumeradas", () => {
+  const two = base([obj("VA01", "V"), obj("VA02", "W")]);
+  const P = [
+    "# P1 · Núcleo",
+    "No preguntaremos:",
+    "“¿Cuál es su nivel?”",
+    "Preguntaremos:",
+    "“¿Qué falta hoy?”",
+    "“¿Qué se repite?”",
+    "# P2 · Triggers",
+    "- retrabajo;",
+    "# P3 · Discriminación",
+    "Ante «x» distinguir A → ZZ-02",
+  ];
+  const rawB = ["# NI", "Resultan 2 NI correspondientes a las VA.", ...P].join("\n");
+  const rawC = ["# NI", "Resultan 2 NI.", ...P].join("\n");
+  const acqs = (r: any) => r.source.sections.acquisitions as any[];
+  const gaps = (r: any) => r.source.gaps as any[];
+
+  it("Grupo B · GOVERNED_STRUCTURAL_CORRESPONDENCE sin texto NI fabricado", () => {
+    const r = projectBaselineToRunnableSource(two, ident, rawB);
+    expect(r.ok).toBe(true);
+    const s = r.source!["sections"] as any;
+    expect(s.variables.map((v: any) => v.acquisitionResolution)).toEqual([
+      "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+      "GOVERNED_STRUCTURAL_CORRESPONDENCE",
+    ]);
+    const corr = acqs(r).filter((a) => a.acquisitionMode === "GOVERNED_STRUCTURAL_CORRESPONDENCE");
+    expect(corr).toHaveLength(2);
+    for (const a of corr) {
+      expect(a.informationNeedStatus).toBe("DECLARED_NOT_ENUMERATED");
+      expect(a.correspondenceStatement).toBe("Resultan 2 NI correspondientes a las VA.");
+      expect(a.question).toBeUndefined();
+      expect(a.informationNeedRef).toBeUndefined();
+    }
+    expect(s.informationNeeds).toEqual([]);
+    expect(generatePackCandidate(r.source as never).ok).toBe(true);
+  });
+
+  it("Grupo C · CAPABILITY_PROGRESSIVE con P1 literal, sin mapeo ordinal", () => {
+    const r = projectBaselineToRunnableSource(two, ident, rawC);
+    expect(r.ok).toBe(true);
+    const s = r.source!["sections"] as any;
+    expect(
+      s.variables.every((v: any) => v.acquisitionResolution === "CAPABILITY_PROGRESSIVE"),
+    ).toBe(true);
+    const p = acqs(r).filter((a) => a.acquisitionMode === "CAPABILITY_PROGRESSIVE");
+    expect(p.map((a) => a.question)).toEqual(["¿Qué falta hoy?", "¿Qué se repite?"]);
+    expect(p[0].variableRefs).toEqual(["VA01", "VA02"]);
+    expect(p[0].progressiveContext.informationNeedStatus).toBe("DECLARED_NOT_ENUMERATED");
+    expect(p[0].progressiveContext.p2.triggers[0].text).toBe("retrabajo;");
+    expect(acqs(r).some((a) => a.acquisitionMode === "GOVERNED_STRUCTURAL_CORRESPONDENCE")).toBe(
+      false,
+    );
+    expect(generatePackCandidate(r.source as never).ok).toBe(true);
+  });
+
+  it("INFORMATION_NEED_NOT_ENUMERATED no bloquea cuando existe adquisición", () => {
+    const g = gaps(projectBaselineToRunnableSource(two, ident, rawC)).find(
+      (x) => x.kind === "INFORMATION_NEED_NOT_ENUMERATED",
+    );
+    expect(g.publicationBlocking).toBe(false);
+    expect(g.sourceReference).toBe("raw L2");
+    expect(
+      gaps(projectBaselineToRunnableSource(two, ident, rawC)).some((x) => x.publicationBlocking),
+    ).toBe(false);
+  });
+
+  it("ACQUISITION_SEMANTICS_MISSING sigue bloqueando sin P1 ni correspondencia", () => {
+    const r = projectBaselineToRunnableSource(two, ident, "# NI\nResultan 2 NI.");
+    const g = gaps(r).find((x) => x.kind === "ACQUISITION_SEMANTICS_MISSING");
+    expect(g.publicationBlocking).toBe(true);
+    expect(
+      gaps(r).find((x) => x.kind === "INFORMATION_NEED_NOT_ENUMERATED").publicationBlocking,
+    ).toBe(false);
+  });
+
+  it("no altera proyecciones ya resueltas (sin VA pendientes no se añade nada)", () => {
+    const r = projectBaselineToRunnableSource(complete, ident, RAW + "\n" + P.join("\n"));
+    expect(acqs(r).some((a) => a.acquisitionMode === "CAPABILITY_PROGRESSIVE")).toBe(false);
   });
 });

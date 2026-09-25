@@ -1,0 +1,1470 @@
+{
+  "packId": "cm-03",
+  "packVersion": "1.0.0",
+  "status": "draft",
+  "knowledgeMaster": {
+    "identifier": "PYMAPA-KNOWLEDGE-MASTER",
+    "version": "1.0",
+    "status": "BASELINE-APPROVED",
+    "sourceReference": "canonical-baseline.json#CM03-K4-v1.0@sha256:a9a82c56ca7312010ae7b5bd7fbe664df694dee5bfc43eab6331ce97de95c790 · CM03-K4-v1.0 · K4-VALIDATED · CLOSED"
+  },
+  "capability": {
+    "id": "CM-03",
+    "domainId": "CM",
+    "name": "Gestionar adquisición, conversión y relación comercial",
+    "definition": "CM-03 evalúa la capacidad de la organización para generar o captar oportunidades comerciales materialmente pertinentes, calificarlas, convertirlas mediante interacciones y decisiones comerciales suficientemente efectivas y gestionar posteriormente la relación de manera coherente con el valor esperado del cliente y del negocio.",
+    "definitionStatus": "EXPLICIT",
+    "definitionSourceLines": [
+      36,
+      36
+    ]
+  },
+  "conditionsOfExistence": [
+    {
+      "id": "CE01",
+      "statement": "Mercado y adquisición"
+    },
+    {
+      "id": "CE02",
+      "statement": "Calidad de adquisición"
+    },
+    {
+      "id": "CE03",
+      "statement": "Qualification"
+    },
+    {
+      "id": "CE04",
+      "statement": "Opportunity management"
+    },
+    {
+      "id": "CE05",
+      "statement": "Conversion process"
+    },
+    {
+      "id": "CE06",
+      "statement": "Commercial execution"
+    },
+    {
+      "id": "CE07",
+      "statement": "Relationship continuity"
+    },
+    {
+      "id": "CE08",
+      "statement": "Development"
+    },
+    {
+      "id": "CE09",
+      "statement": "Relationship risk/exit"
+    },
+    {
+      "id": "CE10",
+      "statement": "Learning"
+    }
+  ],
+  "variables": [
+    {
+      "id": "VA01",
+      "name": "población de adquisición suficientemente definida",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA02",
+      "name": "fuentes/canales de adquisición materialmente conocidos",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA03",
+      "name": "reach suficientemente relevante",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA04",
+      "name": "señales de interés suficientemente distinguibles",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA05",
+      "name": "calidad/fit de adquisición suficientemente conocida",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA06",
+      "name": "criterios de calificación suficientemente claros",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA07",
+      "name": "esfuerzo comercial focalizado proporcionalmente",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA08",
+      "name": "oportunidades suficientemente identificables",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA09",
+      "name": "estado/progresión suficientemente visible",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA10",
+      "name": "siguiente acción/responsabilidad suficientemente clara",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA11",
+      "name": "conversión objetivo suficientemente definida",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA12",
+      "name": "fricciones materiales suficientemente visibles",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA13",
+      "name": "causas de pérdida/no decisión suficientemente investigadas cuando material",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA14",
+      "name": "propuesta/oferta suficientemente conectada con necesidad del caso",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA15",
+      "name": "interacción comercial suficientemente consistente con complejidad del caso",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA16",
+      "name": "clientes/relaciones relevantes suficientemente visibles",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA17",
+      "name": "continuidad/renovación suficientemente gestionada cuando aplica",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA18",
+      "name": "oportunidades de expansión relevantes identificadas sin presión indiscriminada",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA19",
+      "name": "acciones de desarrollo conectadas con valor/fit suficiente",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA20",
+      "name": "señales de riesgo comercial suficientemente detectables",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA21",
+      "name": "pérdida/dormancia/salida suficientemente tratadas y aprendidas",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA22",
+      "name": "desempeño comercial alimenta aprendizaje sobre adquisición/conversión",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    },
+    {
+      "id": "VA23",
+      "name": "decisiones comerciales se ajustan ante nueva evidencia",
+      "criticality": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidence": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+      "minimumEvidenceResolution": "NOT_EXPLICIT",
+      "semanticStates": null,
+      "acquisitionResolution": "CAPABILITY_PROGRESSIVE"
+    }
+  ],
+  "informationNeeds": [],
+  "acquisitions": [
+    {
+      "id": "ACQ·P1·01",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23"
+      ],
+      "question": "¿De dónde vienen los clientes que realmente terminan comprando?",
+      "questionSourceLines": [
+        392,
+        392
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 23,
+          "statement": "Resultan 23 NI.",
+          "line": 387
+        },
+        "nuclear": {
+          "text": "¿A quién queremos atraer? → ¿de dónde llega? → ¿qué evidencia demuestra interés/fit? → ¿qué justifica invertir esfuerzo comercial? → ¿qué estado tiene el caso? → ¿qué necesita ocurrir para avanzar? → ¿por qué convierte/no convierte? → ¿qué ocurre después de convertir?",
+          "line": 389
+        },
+        "p1Heading": {
+          "text": "# 37. Captura P1",
+          "line": 390
+        },
+        "p2": {
+          "heading": {
+            "text": "# 38. P2 · Triggers",
+            "line": 398
+          },
+          "triggers": [
+            {
+              "text": "muchos leads, pocas ventas;",
+              "line": 400
+            },
+            {
+              "text": "vendedores saturados;",
+              "line": 401
+            },
+            {
+              "text": "pipeline inflado;",
+              "line": 402
+            },
+            {
+              "text": "oportunidades sin siguiente acción;",
+              "line": 403
+            },
+            {
+              "text": "ventas dependientes del fundador;",
+              "line": 404
+            },
+            {
+              "text": "CRM desactualizado;",
+              "line": 405
+            },
+            {
+              "text": "alta actividad sin progreso;",
+              "line": 406
+            },
+            {
+              "text": "ciclo de venta creciente;",
+              "line": 407
+            },
+            {
+              "text": "descuentos recurrentes;",
+              "line": 408
+            },
+            {
+              "text": "pérdidas sin motivo;",
+              "line": 409
+            },
+            {
+              "text": "ventas puntuales sin recompra;",
+              "line": 410
+            },
+            {
+              "text": "renovaciones inesperadamente bajas;",
+              "line": 411
+            },
+            {
+              "text": "upselling indiscriminado;",
+              "line": 412
+            },
+            {
+              "text": "clientes dormidos;",
+              "line": 413
+            },
+            {
+              "text": "concentración comercial;",
+              "line": 414
+            },
+            {
+              "text": "adquisición cara;",
+              "line": 415
+            },
+            {
+              "text": "baja calidad de leads.",
+              "line": 416
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 39. P3 · Discriminación",
+            "line": 417
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 418
+            },
+            {
+              "text": "“no estamos vendiendo”",
+              "line": 419
+            },
+            {
+              "text": "distinguimos:",
+              "line": 420
+            },
+            {
+              "text": "UNDERSTANDING → CM-01",
+              "line": 421
+            },
+            {
+              "text": "VALUE PROPOSITION → CM-02",
+              "line": 422
+            },
+            {
+              "text": "ACQUISITION QUALITY → CM-03",
+              "line": 423
+            },
+            {
+              "text": "QUALIFICATION → CM-03",
+              "line": 424
+            },
+            {
+              "text": "SALES EXECUTION → CM-03",
+              "line": 425
+            },
+            {
+              "text": "CHANNEL → CM-04",
+              "line": 426
+            },
+            {
+              "text": "EXPERIENCE → CM-05",
+              "line": 427
+            },
+            {
+              "text": "ECONOMICS/VALUE → CM-06",
+              "line": 428
+            },
+            {
+              "text": "CAPABILITY/PROCESS → PC/OP",
+              "line": 429
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·02",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23"
+      ],
+      "question": "¿Cómo saben cuándo vale la pena seguir invirtiendo tiempo en una oportunidad?",
+      "questionSourceLines": [
+        393,
+        393
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 23,
+          "statement": "Resultan 23 NI.",
+          "line": 387
+        },
+        "nuclear": {
+          "text": "¿A quién queremos atraer? → ¿de dónde llega? → ¿qué evidencia demuestra interés/fit? → ¿qué justifica invertir esfuerzo comercial? → ¿qué estado tiene el caso? → ¿qué necesita ocurrir para avanzar? → ¿por qué convierte/no convierte? → ¿qué ocurre después de convertir?",
+          "line": 389
+        },
+        "p1Heading": {
+          "text": "# 37. Captura P1",
+          "line": 390
+        },
+        "p2": {
+          "heading": {
+            "text": "# 38. P2 · Triggers",
+            "line": 398
+          },
+          "triggers": [
+            {
+              "text": "muchos leads, pocas ventas;",
+              "line": 400
+            },
+            {
+              "text": "vendedores saturados;",
+              "line": 401
+            },
+            {
+              "text": "pipeline inflado;",
+              "line": 402
+            },
+            {
+              "text": "oportunidades sin siguiente acción;",
+              "line": 403
+            },
+            {
+              "text": "ventas dependientes del fundador;",
+              "line": 404
+            },
+            {
+              "text": "CRM desactualizado;",
+              "line": 405
+            },
+            {
+              "text": "alta actividad sin progreso;",
+              "line": 406
+            },
+            {
+              "text": "ciclo de venta creciente;",
+              "line": 407
+            },
+            {
+              "text": "descuentos recurrentes;",
+              "line": 408
+            },
+            {
+              "text": "pérdidas sin motivo;",
+              "line": 409
+            },
+            {
+              "text": "ventas puntuales sin recompra;",
+              "line": 410
+            },
+            {
+              "text": "renovaciones inesperadamente bajas;",
+              "line": 411
+            },
+            {
+              "text": "upselling indiscriminado;",
+              "line": 412
+            },
+            {
+              "text": "clientes dormidos;",
+              "line": 413
+            },
+            {
+              "text": "concentración comercial;",
+              "line": 414
+            },
+            {
+              "text": "adquisición cara;",
+              "line": 415
+            },
+            {
+              "text": "baja calidad de leads.",
+              "line": 416
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 39. P3 · Discriminación",
+            "line": 417
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 418
+            },
+            {
+              "text": "“no estamos vendiendo”",
+              "line": 419
+            },
+            {
+              "text": "distinguimos:",
+              "line": 420
+            },
+            {
+              "text": "UNDERSTANDING → CM-01",
+              "line": 421
+            },
+            {
+              "text": "VALUE PROPOSITION → CM-02",
+              "line": 422
+            },
+            {
+              "text": "ACQUISITION QUALITY → CM-03",
+              "line": 423
+            },
+            {
+              "text": "QUALIFICATION → CM-03",
+              "line": 424
+            },
+            {
+              "text": "SALES EXECUTION → CM-03",
+              "line": 425
+            },
+            {
+              "text": "CHANNEL → CM-04",
+              "line": 426
+            },
+            {
+              "text": "EXPERIENCE → CM-05",
+              "line": 427
+            },
+            {
+              "text": "ECONOMICS/VALUE → CM-06",
+              "line": 428
+            },
+            {
+              "text": "CAPABILITY/PROCESS → PC/OP",
+              "line": 429
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·03",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23"
+      ],
+      "question": "¿Dónde suelen detenerse las ventas?",
+      "questionSourceLines": [
+        394,
+        394
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 23,
+          "statement": "Resultan 23 NI.",
+          "line": 387
+        },
+        "nuclear": {
+          "text": "¿A quién queremos atraer? → ¿de dónde llega? → ¿qué evidencia demuestra interés/fit? → ¿qué justifica invertir esfuerzo comercial? → ¿qué estado tiene el caso? → ¿qué necesita ocurrir para avanzar? → ¿por qué convierte/no convierte? → ¿qué ocurre después de convertir?",
+          "line": 389
+        },
+        "p1Heading": {
+          "text": "# 37. Captura P1",
+          "line": 390
+        },
+        "p2": {
+          "heading": {
+            "text": "# 38. P2 · Triggers",
+            "line": 398
+          },
+          "triggers": [
+            {
+              "text": "muchos leads, pocas ventas;",
+              "line": 400
+            },
+            {
+              "text": "vendedores saturados;",
+              "line": 401
+            },
+            {
+              "text": "pipeline inflado;",
+              "line": 402
+            },
+            {
+              "text": "oportunidades sin siguiente acción;",
+              "line": 403
+            },
+            {
+              "text": "ventas dependientes del fundador;",
+              "line": 404
+            },
+            {
+              "text": "CRM desactualizado;",
+              "line": 405
+            },
+            {
+              "text": "alta actividad sin progreso;",
+              "line": 406
+            },
+            {
+              "text": "ciclo de venta creciente;",
+              "line": 407
+            },
+            {
+              "text": "descuentos recurrentes;",
+              "line": 408
+            },
+            {
+              "text": "pérdidas sin motivo;",
+              "line": 409
+            },
+            {
+              "text": "ventas puntuales sin recompra;",
+              "line": 410
+            },
+            {
+              "text": "renovaciones inesperadamente bajas;",
+              "line": 411
+            },
+            {
+              "text": "upselling indiscriminado;",
+              "line": 412
+            },
+            {
+              "text": "clientes dormidos;",
+              "line": 413
+            },
+            {
+              "text": "concentración comercial;",
+              "line": 414
+            },
+            {
+              "text": "adquisición cara;",
+              "line": 415
+            },
+            {
+              "text": "baja calidad de leads.",
+              "line": 416
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 39. P3 · Discriminación",
+            "line": 417
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 418
+            },
+            {
+              "text": "“no estamos vendiendo”",
+              "line": 419
+            },
+            {
+              "text": "distinguimos:",
+              "line": 420
+            },
+            {
+              "text": "UNDERSTANDING → CM-01",
+              "line": 421
+            },
+            {
+              "text": "VALUE PROPOSITION → CM-02",
+              "line": 422
+            },
+            {
+              "text": "ACQUISITION QUALITY → CM-03",
+              "line": 423
+            },
+            {
+              "text": "QUALIFICATION → CM-03",
+              "line": 424
+            },
+            {
+              "text": "SALES EXECUTION → CM-03",
+              "line": 425
+            },
+            {
+              "text": "CHANNEL → CM-04",
+              "line": 426
+            },
+            {
+              "text": "EXPERIENCE → CM-05",
+              "line": 427
+            },
+            {
+              "text": "ECONOMICS/VALUE → CM-06",
+              "line": 428
+            },
+            {
+              "text": "CAPABILITY/PROCESS → PC/OP",
+              "line": 429
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·04",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23"
+      ],
+      "question": "¿Por qué pierden oportunidades?",
+      "questionSourceLines": [
+        395,
+        395
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 23,
+          "statement": "Resultan 23 NI.",
+          "line": 387
+        },
+        "nuclear": {
+          "text": "¿A quién queremos atraer? → ¿de dónde llega? → ¿qué evidencia demuestra interés/fit? → ¿qué justifica invertir esfuerzo comercial? → ¿qué estado tiene el caso? → ¿qué necesita ocurrir para avanzar? → ¿por qué convierte/no convierte? → ¿qué ocurre después de convertir?",
+          "line": 389
+        },
+        "p1Heading": {
+          "text": "# 37. Captura P1",
+          "line": 390
+        },
+        "p2": {
+          "heading": {
+            "text": "# 38. P2 · Triggers",
+            "line": 398
+          },
+          "triggers": [
+            {
+              "text": "muchos leads, pocas ventas;",
+              "line": 400
+            },
+            {
+              "text": "vendedores saturados;",
+              "line": 401
+            },
+            {
+              "text": "pipeline inflado;",
+              "line": 402
+            },
+            {
+              "text": "oportunidades sin siguiente acción;",
+              "line": 403
+            },
+            {
+              "text": "ventas dependientes del fundador;",
+              "line": 404
+            },
+            {
+              "text": "CRM desactualizado;",
+              "line": 405
+            },
+            {
+              "text": "alta actividad sin progreso;",
+              "line": 406
+            },
+            {
+              "text": "ciclo de venta creciente;",
+              "line": 407
+            },
+            {
+              "text": "descuentos recurrentes;",
+              "line": 408
+            },
+            {
+              "text": "pérdidas sin motivo;",
+              "line": 409
+            },
+            {
+              "text": "ventas puntuales sin recompra;",
+              "line": 410
+            },
+            {
+              "text": "renovaciones inesperadamente bajas;",
+              "line": 411
+            },
+            {
+              "text": "upselling indiscriminado;",
+              "line": 412
+            },
+            {
+              "text": "clientes dormidos;",
+              "line": 413
+            },
+            {
+              "text": "concentración comercial;",
+              "line": 414
+            },
+            {
+              "text": "adquisición cara;",
+              "line": 415
+            },
+            {
+              "text": "baja calidad de leads.",
+              "line": 416
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 39. P3 · Discriminación",
+            "line": 417
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 418
+            },
+            {
+              "text": "“no estamos vendiendo”",
+              "line": 419
+            },
+            {
+              "text": "distinguimos:",
+              "line": 420
+            },
+            {
+              "text": "UNDERSTANDING → CM-01",
+              "line": 421
+            },
+            {
+              "text": "VALUE PROPOSITION → CM-02",
+              "line": 422
+            },
+            {
+              "text": "ACQUISITION QUALITY → CM-03",
+              "line": 423
+            },
+            {
+              "text": "QUALIFICATION → CM-03",
+              "line": 424
+            },
+            {
+              "text": "SALES EXECUTION → CM-03",
+              "line": 425
+            },
+            {
+              "text": "CHANNEL → CM-04",
+              "line": 426
+            },
+            {
+              "text": "EXPERIENCE → CM-05",
+              "line": 427
+            },
+            {
+              "text": "ECONOMICS/VALUE → CM-06",
+              "line": 428
+            },
+            {
+              "text": "CAPABILITY/PROCESS → PC/OP",
+              "line": 429
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·05",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23"
+      ],
+      "question": "¿Qué pasa después de la primera compra?",
+      "questionSourceLines": [
+        396,
+        396
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 23,
+          "statement": "Resultan 23 NI.",
+          "line": 387
+        },
+        "nuclear": {
+          "text": "¿A quién queremos atraer? → ¿de dónde llega? → ¿qué evidencia demuestra interés/fit? → ¿qué justifica invertir esfuerzo comercial? → ¿qué estado tiene el caso? → ¿qué necesita ocurrir para avanzar? → ¿por qué convierte/no convierte? → ¿qué ocurre después de convertir?",
+          "line": 389
+        },
+        "p1Heading": {
+          "text": "# 37. Captura P1",
+          "line": 390
+        },
+        "p2": {
+          "heading": {
+            "text": "# 38. P2 · Triggers",
+            "line": 398
+          },
+          "triggers": [
+            {
+              "text": "muchos leads, pocas ventas;",
+              "line": 400
+            },
+            {
+              "text": "vendedores saturados;",
+              "line": 401
+            },
+            {
+              "text": "pipeline inflado;",
+              "line": 402
+            },
+            {
+              "text": "oportunidades sin siguiente acción;",
+              "line": 403
+            },
+            {
+              "text": "ventas dependientes del fundador;",
+              "line": 404
+            },
+            {
+              "text": "CRM desactualizado;",
+              "line": 405
+            },
+            {
+              "text": "alta actividad sin progreso;",
+              "line": 406
+            },
+            {
+              "text": "ciclo de venta creciente;",
+              "line": 407
+            },
+            {
+              "text": "descuentos recurrentes;",
+              "line": 408
+            },
+            {
+              "text": "pérdidas sin motivo;",
+              "line": 409
+            },
+            {
+              "text": "ventas puntuales sin recompra;",
+              "line": 410
+            },
+            {
+              "text": "renovaciones inesperadamente bajas;",
+              "line": 411
+            },
+            {
+              "text": "upselling indiscriminado;",
+              "line": 412
+            },
+            {
+              "text": "clientes dormidos;",
+              "line": 413
+            },
+            {
+              "text": "concentración comercial;",
+              "line": 414
+            },
+            {
+              "text": "adquisición cara;",
+              "line": 415
+            },
+            {
+              "text": "baja calidad de leads.",
+              "line": 416
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 39. P3 · Discriminación",
+            "line": 417
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 418
+            },
+            {
+              "text": "“no estamos vendiendo”",
+              "line": 419
+            },
+            {
+              "text": "distinguimos:",
+              "line": 420
+            },
+            {
+              "text": "UNDERSTANDING → CM-01",
+              "line": 421
+            },
+            {
+              "text": "VALUE PROPOSITION → CM-02",
+              "line": 422
+            },
+            {
+              "text": "ACQUISITION QUALITY → CM-03",
+              "line": 423
+            },
+            {
+              "text": "QUALIFICATION → CM-03",
+              "line": 424
+            },
+            {
+              "text": "SALES EXECUTION → CM-03",
+              "line": 425
+            },
+            {
+              "text": "CHANNEL → CM-04",
+              "line": 426
+            },
+            {
+              "text": "EXPERIENCE → CM-05",
+              "line": 427
+            },
+            {
+              "text": "ECONOMICS/VALUE → CM-06",
+              "line": 428
+            },
+            {
+              "text": "CAPABILITY/PROCESS → PC/OP",
+              "line": 429
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    },
+    {
+      "id": "ACQ·P1·06",
+      "level": "P1",
+      "acquisitionMode": "CAPABILITY_PROGRESSIVE",
+      "variableRefs": [
+        "VA01",
+        "VA02",
+        "VA03",
+        "VA04",
+        "VA05",
+        "VA06",
+        "VA07",
+        "VA08",
+        "VA09",
+        "VA10",
+        "VA11",
+        "VA12",
+        "VA13",
+        "VA14",
+        "VA15",
+        "VA16",
+        "VA17",
+        "VA18",
+        "VA19",
+        "VA20",
+        "VA21",
+        "VA22",
+        "VA23"
+      ],
+      "question": "¿Qué clientes vale la pena desarrollar y cuáles no?",
+      "questionSourceLines": [
+        397,
+        397
+      ],
+      "progressiveContext": {
+        "informationNeedStatus": "DECLARED_NOT_ENUMERATED",
+        "declaredInformationNeeds": {
+          "count": 23,
+          "statement": "Resultan 23 NI.",
+          "line": 387
+        },
+        "nuclear": {
+          "text": "¿A quién queremos atraer? → ¿de dónde llega? → ¿qué evidencia demuestra interés/fit? → ¿qué justifica invertir esfuerzo comercial? → ¿qué estado tiene el caso? → ¿qué necesita ocurrir para avanzar? → ¿por qué convierte/no convierte? → ¿qué ocurre después de convertir?",
+          "line": 389
+        },
+        "p1Heading": {
+          "text": "# 37. Captura P1",
+          "line": 390
+        },
+        "p2": {
+          "heading": {
+            "text": "# 38. P2 · Triggers",
+            "line": 398
+          },
+          "triggers": [
+            {
+              "text": "muchos leads, pocas ventas;",
+              "line": 400
+            },
+            {
+              "text": "vendedores saturados;",
+              "line": 401
+            },
+            {
+              "text": "pipeline inflado;",
+              "line": 402
+            },
+            {
+              "text": "oportunidades sin siguiente acción;",
+              "line": 403
+            },
+            {
+              "text": "ventas dependientes del fundador;",
+              "line": 404
+            },
+            {
+              "text": "CRM desactualizado;",
+              "line": 405
+            },
+            {
+              "text": "alta actividad sin progreso;",
+              "line": 406
+            },
+            {
+              "text": "ciclo de venta creciente;",
+              "line": 407
+            },
+            {
+              "text": "descuentos recurrentes;",
+              "line": 408
+            },
+            {
+              "text": "pérdidas sin motivo;",
+              "line": 409
+            },
+            {
+              "text": "ventas puntuales sin recompra;",
+              "line": 410
+            },
+            {
+              "text": "renovaciones inesperadamente bajas;",
+              "line": 411
+            },
+            {
+              "text": "upselling indiscriminado;",
+              "line": 412
+            },
+            {
+              "text": "clientes dormidos;",
+              "line": 413
+            },
+            {
+              "text": "concentración comercial;",
+              "line": 414
+            },
+            {
+              "text": "adquisición cara;",
+              "line": 415
+            },
+            {
+              "text": "baja calidad de leads.",
+              "line": 416
+            }
+          ]
+        },
+        "p3": {
+          "heading": {
+            "text": "# 39. P3 · Discriminación",
+            "line": 417
+          },
+          "lines": [
+            {
+              "text": "Ante:",
+              "line": 418
+            },
+            {
+              "text": "“no estamos vendiendo”",
+              "line": 419
+            },
+            {
+              "text": "distinguimos:",
+              "line": 420
+            },
+            {
+              "text": "UNDERSTANDING → CM-01",
+              "line": 421
+            },
+            {
+              "text": "VALUE PROPOSITION → CM-02",
+              "line": 422
+            },
+            {
+              "text": "ACQUISITION QUALITY → CM-03",
+              "line": 423
+            },
+            {
+              "text": "QUALIFICATION → CM-03",
+              "line": 424
+            },
+            {
+              "text": "SALES EXECUTION → CM-03",
+              "line": 425
+            },
+            {
+              "text": "CHANNEL → CM-04",
+              "line": 426
+            },
+            {
+              "text": "EXPERIENCE → CM-05",
+              "line": 427
+            },
+            {
+              "text": "ECONOMICS/VALUE → CM-06",
+              "line": 428
+            },
+            {
+              "text": "CAPABILITY/PROCESS → PC/OP",
+              "line": 429
+            }
+          ]
+        }
+      },
+      "responseModel": {
+        "kind": "free_statement_or_unknown",
+        "preservesUnknown": true,
+        "knowledgeStates": [
+          "KNOWN",
+          "UNKNOWN",
+          "NOT_APPLICABLE",
+          "CONTRADICTORY"
+        ],
+        "optionSet": null,
+        "optionSetStatus": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+      }
+    }
+  ],
+  "acquisitionStages": [
+    {
+      "id": "P2",
+      "level": "P2",
+      "heading": "P2 · Triggers",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        398,
+        416
+      ]
+    },
+    {
+      "id": "P3",
+      "level": "P3",
+      "heading": "P3 · Discriminación",
+      "prompts": [],
+      "variableRefsResolution": "CONTEXTUAL",
+      "sourceLines": [
+        417,
+        429
+      ]
+    }
+  ]
+}

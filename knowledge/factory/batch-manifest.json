@@ -88,13 +88,13 @@
       "REGISTERED": 0,
       "EXTRACTED_CANDIDATE": 0,
       "CANONICAL_REVIEW_REQUIRED": 0,
-      "VALIDATED": 15,
+      "VALIDATED": 0,
       "READY_FOR_PUBLICATION": 0,
-      "PUBLISHED": 16
+      "PUBLISHED": 31
     },
     "byOutcome": {
-      "PASS": 16,
-      "REVIEW_REQUIRED": 15,
+      "PASS": 31,
+      "REVIEW_REQUIRED": 0,
       "FAIL": 0
     }
   },
@@ -139,14 +139,11 @@
       "gaps": {
         "total": 2,
         "notExplicit": [
-          "NE-CM-01-CRITICALITY",
-          "NE-CM-01-VA-ACQUISITION"
+          "NE-CM-01-CRITICALITY"
         ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
-        "publicationBlocking": [
-          "NE-CM-01-VA-ACQUISITION"
-        ]
+        "publicationBlocking": []
       },
       "transcriptionCorrections": [],
       "runtimeCompatibility": {
@@ -156,23 +153,23 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 1,
-        "pass": 1,
+        "count": 2,
+        "pass": 2,
         "governedJudgment": 0,
         "fail": 0
       },
       "governance": {
-        "reviewStatus": "NOT_REQUESTED",
-        "evidence": "CURRENT"
+        "reviewStatus": "APPROVED",
+        "evidence": "NOT_APPLICABLE"
       },
       "publication": {
-        "status": "UNPUBLISHED",
+        "status": "PUBLISHED",
         "packId": "cm-01",
         "packVersion": "1.0.0",
-        "packChecksum": "sha256:006750cf7ff1826863d21c4fc4ee6b49a51ff70e273301c62162b13d234ed08a"
+        "packChecksum": "sha256:b695b708c504d2a2d9db56eba928c6551ce30e97837c3e1c793ebdd5c38b6a75"
       },
-      "state": "VALIDATED",
-      "outcome": "REVIEW_REQUIRED",
+      "state": "PUBLISHED",
+      "outcome": "PASS",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -226,18 +223,8 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "CANONICAL_TO_PACK",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "gaps.NE-CM-01-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "corregir la proyección ejecutable",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -261,47 +248,18 @@
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_APPLICABLE",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "PUBLICATION_GATE",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "NE-CM-01-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-CM-01-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-CM-01-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "NOT_APPLICABLE",
+          "reasons": []
         }
       ],
       "reasons": [
@@ -322,42 +280,6 @@
           "action": "ninguna",
           "sourceLines": null,
           "objectKey": null
-        },
-        {
-          "check": "CANONICAL_TO_PACK",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "gaps.NE-CM-01-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "corregir la proyección ejecutable",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "PUBLICATION_GATE",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "NE-CM-01-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-CM-01-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-CM-01-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
         }
       ],
       "metrics": {
@@ -367,15 +289,15 @@
         "candidateItems": null,
         "canonicalObjects": 144,
         "executableSections": 6,
-        "checksAutoPassed": 9,
-        "humanReviewItems": 4,
-        "notExplicit": 2,
+        "checksAutoPassed": 12,
+        "humanReviewItems": 0,
+        "notExplicit": 1,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 1
+        "publicationBlockers": 0
       }
     },
     {
@@ -411,14 +333,11 @@
       "gaps": {
         "total": 2,
         "notExplicit": [
-          "NE-CM-02-CRITICALITY",
-          "NE-CM-02-VA-ACQUISITION"
+          "NE-CM-02-CRITICALITY"
         ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
-        "publicationBlocking": [
-          "NE-CM-02-VA-ACQUISITION"
-        ]
+        "publicationBlocking": []
       },
       "transcriptionCorrections": [],
       "runtimeCompatibility": {
@@ -428,23 +347,23 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 1,
-        "pass": 1,
+        "count": 2,
+        "pass": 2,
         "governedJudgment": 0,
         "fail": 0
       },
       "governance": {
-        "reviewStatus": "NOT_REQUESTED",
-        "evidence": "CURRENT"
+        "reviewStatus": "APPROVED",
+        "evidence": "NOT_APPLICABLE"
       },
       "publication": {
-        "status": "UNPUBLISHED",
+        "status": "PUBLISHED",
         "packId": "cm-02",
         "packVersion": "1.0.0",
-        "packChecksum": "sha256:6855a6b2e419278fcd451437f031fcce05e6b9d84db6bc94774b16c23958d4e3"
+        "packChecksum": "sha256:1c8eefc48363637c50af6736bf8c7b6ff75884f031969fbbc50747ba695d9ed9"
       },
-      "state": "VALIDATED",
-      "outcome": "REVIEW_REQUIRED",
+      "state": "PUBLISHED",
+      "outcome": "PASS",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -498,18 +417,8 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "CANONICAL_TO_PACK",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "gaps.NE-CM-02-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "corregir la proyección ejecutable",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -533,47 +442,18 @@
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_APPLICABLE",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "PUBLICATION_GATE",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "NE-CM-02-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-CM-02-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-CM-02-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "NOT_APPLICABLE",
+          "reasons": []
         }
       ],
       "reasons": [
@@ -594,42 +474,6 @@
           "action": "ninguna",
           "sourceLines": null,
           "objectKey": null
-        },
-        {
-          "check": "CANONICAL_TO_PACK",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "gaps.NE-CM-02-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "corregir la proyección ejecutable",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "PUBLICATION_GATE",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "NE-CM-02-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-CM-02-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-CM-02-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
         }
       ],
       "metrics": {
@@ -639,15 +483,15 @@
         "candidateItems": null,
         "canonicalObjects": 141,
         "executableSections": 6,
-        "checksAutoPassed": 9,
-        "humanReviewItems": 4,
-        "notExplicit": 2,
+        "checksAutoPassed": 12,
+        "humanReviewItems": 0,
+        "notExplicit": 1,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 1
+        "publicationBlockers": 0
       }
     },
     {
@@ -683,14 +527,11 @@
       "gaps": {
         "total": 2,
         "notExplicit": [
-          "NE-CM-03-CRITICALITY",
-          "NE-CM-03-VA-ACQUISITION"
+          "NE-CM-03-CRITICALITY"
         ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
-        "publicationBlocking": [
-          "NE-CM-03-VA-ACQUISITION"
-        ]
+        "publicationBlocking": []
       },
       "transcriptionCorrections": [],
       "runtimeCompatibility": {
@@ -700,23 +541,23 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 1,
-        "pass": 1,
+        "count": 2,
+        "pass": 2,
         "governedJudgment": 0,
         "fail": 0
       },
       "governance": {
-        "reviewStatus": "NOT_REQUESTED",
-        "evidence": "CURRENT"
+        "reviewStatus": "APPROVED",
+        "evidence": "NOT_APPLICABLE"
       },
       "publication": {
-        "status": "UNPUBLISHED",
+        "status": "PUBLISHED",
         "packId": "cm-03",
         "packVersion": "1.0.0",
-        "packChecksum": "sha256:db4813ff7dc6c9a391d8c029f547636fe4e77867e7dd0e14ea3bb71099ed711a"
+        "packChecksum": "sha256:a7bcb0f91f72ff20198610ab6be494479b3a54591492355b435a9d901979d0e2"
       },
-      "state": "VALIDATED",
-      "outcome": "REVIEW_REQUIRED",
+      "state": "PUBLISHED",
+      "outcome": "PASS",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -770,18 +611,8 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "CANONICAL_TO_PACK",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "gaps.NE-CM-03-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "corregir la proyección ejecutable",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -805,47 +636,18 @@
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_APPLICABLE",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "PUBLICATION_GATE",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "NE-CM-03-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-CM-03-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-CM-03-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "NOT_APPLICABLE",
+          "reasons": []
         }
       ],
       "reasons": [
@@ -866,42 +668,6 @@
           "action": "ninguna",
           "sourceLines": null,
           "objectKey": null
-        },
-        {
-          "check": "CANONICAL_TO_PACK",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "gaps.NE-CM-03-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "corregir la proyección ejecutable",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "PUBLICATION_GATE",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "NE-CM-03-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-CM-03-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-CM-03-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
         }
       ],
       "metrics": {
@@ -911,15 +677,15 @@
         "candidateItems": null,
         "canonicalObjects": 142,
         "executableSections": 6,
-        "checksAutoPassed": 9,
-        "humanReviewItems": 4,
-        "notExplicit": 2,
+        "checksAutoPassed": 12,
+        "humanReviewItems": 0,
+        "notExplicit": 1,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 1
+        "publicationBlockers": 0
       }
     },
     {
@@ -955,14 +721,11 @@
       "gaps": {
         "total": 2,
         "notExplicit": [
-          "NE-CM-04-CRITICALITY",
-          "NE-CM-04-VA-ACQUISITION"
+          "NE-CM-04-CRITICALITY"
         ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
-        "publicationBlocking": [
-          "NE-CM-04-VA-ACQUISITION"
-        ]
+        "publicationBlocking": []
       },
       "transcriptionCorrections": [],
       "runtimeCompatibility": {
@@ -972,23 +735,23 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 1,
-        "pass": 1,
+        "count": 2,
+        "pass": 2,
         "governedJudgment": 0,
         "fail": 0
       },
       "governance": {
-        "reviewStatus": "NOT_REQUESTED",
-        "evidence": "CURRENT"
+        "reviewStatus": "APPROVED",
+        "evidence": "NOT_APPLICABLE"
       },
       "publication": {
-        "status": "UNPUBLISHED",
+        "status": "PUBLISHED",
         "packId": "cm-04",
         "packVersion": "1.0.0",
-        "packChecksum": "sha256:bc17054d3c0925a0f7f89fbfe0235aa1f2877cbe43e2fa5ccead318100ab0ffa"
+        "packChecksum": "sha256:d7ad5e7af75e6cbe1113ce2b00c53abec0e94f5cbea354e7940ba8d46b9097e0"
       },
-      "state": "VALIDATED",
-      "outcome": "REVIEW_REQUIRED",
+      "state": "PUBLISHED",
+      "outcome": "PASS",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -1042,18 +805,8 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "CANONICAL_TO_PACK",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "gaps.NE-CM-04-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "corregir la proyección ejecutable",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -1077,47 +830,18 @@
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_APPLICABLE",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "PUBLICATION_GATE",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "NE-CM-04-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-CM-04-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-CM-04-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "NOT_APPLICABLE",
+          "reasons": []
         }
       ],
       "reasons": [
@@ -1138,42 +862,6 @@
           "action": "ninguna",
           "sourceLines": null,
           "objectKey": null
-        },
-        {
-          "check": "CANONICAL_TO_PACK",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "gaps.NE-CM-04-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "corregir la proyección ejecutable",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "PUBLICATION_GATE",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "NE-CM-04-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-CM-04-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-CM-04-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
         }
       ],
       "metrics": {
@@ -1183,15 +871,15 @@
         "candidateItems": null,
         "canonicalObjects": 135,
         "executableSections": 6,
-        "checksAutoPassed": 9,
-        "humanReviewItems": 4,
-        "notExplicit": 2,
+        "checksAutoPassed": 12,
+        "humanReviewItems": 0,
+        "notExplicit": 1,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 1
+        "publicationBlockers": 0
       }
     },
     {
@@ -1227,14 +915,11 @@
       "gaps": {
         "total": 2,
         "notExplicit": [
-          "NE-CM-05-CRITICALITY",
-          "NE-CM-05-VA-ACQUISITION"
+          "NE-CM-05-CRITICALITY"
         ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
-        "publicationBlocking": [
-          "NE-CM-05-VA-ACQUISITION"
-        ]
+        "publicationBlocking": []
       },
       "transcriptionCorrections": [],
       "runtimeCompatibility": {
@@ -1244,23 +929,23 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 1,
-        "pass": 1,
+        "count": 2,
+        "pass": 2,
         "governedJudgment": 0,
         "fail": 0
       },
       "governance": {
-        "reviewStatus": "NOT_REQUESTED",
-        "evidence": "CURRENT"
+        "reviewStatus": "APPROVED",
+        "evidence": "NOT_APPLICABLE"
       },
       "publication": {
-        "status": "UNPUBLISHED",
+        "status": "PUBLISHED",
         "packId": "cm-05",
         "packVersion": "1.0.0",
-        "packChecksum": "sha256:0971698ad7f36b943920a6f2491106efc00c9612b7b48ee3273817503a85c1d4"
+        "packChecksum": "sha256:5e2960998a7feb15dc277ade3746dd2b38067876c0e2bb7c33b89f8b0fd14a96"
       },
-      "state": "VALIDATED",
-      "outcome": "REVIEW_REQUIRED",
+      "state": "PUBLISHED",
+      "outcome": "PASS",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -1314,18 +999,8 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "CANONICAL_TO_PACK",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "gaps.NE-CM-05-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "corregir la proyección ejecutable",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -1349,47 +1024,18 @@
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_APPLICABLE",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "PUBLICATION_GATE",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "NE-CM-05-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-CM-05-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-CM-05-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "NOT_APPLICABLE",
+          "reasons": []
         }
       ],
       "reasons": [
@@ -1410,42 +1056,6 @@
           "action": "ninguna",
           "sourceLines": null,
           "objectKey": null
-        },
-        {
-          "check": "CANONICAL_TO_PACK",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "gaps.NE-CM-05-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "corregir la proyección ejecutable",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "PUBLICATION_GATE",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "NE-CM-05-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-CM-05-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-CM-05-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
         }
       ],
       "metrics": {
@@ -1455,15 +1065,15 @@
         "candidateItems": null,
         "canonicalObjects": 154,
         "executableSections": 6,
-        "checksAutoPassed": 9,
-        "humanReviewItems": 4,
-        "notExplicit": 2,
+        "checksAutoPassed": 12,
+        "humanReviewItems": 0,
+        "notExplicit": 1,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 1
+        "publicationBlockers": 0
       }
     },
     {
@@ -1499,14 +1109,11 @@
       "gaps": {
         "total": 2,
         "notExplicit": [
-          "NE-CM-06-CRITICALITY",
-          "NE-CM-06-VA-ACQUISITION"
+          "NE-CM-06-CRITICALITY"
         ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
-        "publicationBlocking": [
-          "NE-CM-06-VA-ACQUISITION"
-        ]
+        "publicationBlocking": []
       },
       "transcriptionCorrections": [],
       "runtimeCompatibility": {
@@ -1516,23 +1123,23 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 1,
-        "pass": 1,
+        "count": 2,
+        "pass": 2,
         "governedJudgment": 0,
         "fail": 0
       },
       "governance": {
-        "reviewStatus": "NOT_REQUESTED",
-        "evidence": "CURRENT"
+        "reviewStatus": "APPROVED",
+        "evidence": "NOT_APPLICABLE"
       },
       "publication": {
-        "status": "UNPUBLISHED",
+        "status": "PUBLISHED",
         "packId": "cm-06",
         "packVersion": "1.0.0",
-        "packChecksum": "sha256:8788adfa7b97d7a5c0fcad9f028d295365b19353274525734a73cda4e907c75d"
+        "packChecksum": "sha256:77c98476203491c04c8f6a134761d20125fa51932bbc2b8fa2a8b4d012e65c6b"
       },
-      "state": "VALIDATED",
-      "outcome": "REVIEW_REQUIRED",
+      "state": "PUBLISHED",
+      "outcome": "PASS",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -1586,18 +1193,8 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "CANONICAL_TO_PACK",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "gaps.NE-CM-06-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23, VA24: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "corregir la proyección ejecutable",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -1621,47 +1218,18 @@
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_APPLICABLE",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "PUBLICATION_GATE",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "NE-CM-06-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-CM-06-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23, VA24: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-CM-06-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "NOT_APPLICABLE",
+          "reasons": []
         }
       ],
       "reasons": [
@@ -1682,42 +1250,6 @@
           "action": "ninguna",
           "sourceLines": null,
           "objectKey": null
-        },
-        {
-          "check": "CANONICAL_TO_PACK",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "gaps.NE-CM-06-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23, VA24: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "corregir la proyección ejecutable",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "PUBLICATION_GATE",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "NE-CM-06-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-CM-06-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23, VA24: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-CM-06-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
         }
       ],
       "metrics": {
@@ -1727,15 +1259,15 @@
         "candidateItems": null,
         "canonicalObjects": 162,
         "executableSections": 6,
-        "checksAutoPassed": 9,
-        "humanReviewItems": 4,
-        "notExplicit": 2,
+        "checksAutoPassed": 12,
+        "humanReviewItems": 0,
+        "notExplicit": 1,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 1
+        "publicationBlockers": 0
       }
     },
     {
@@ -2937,14 +2469,11 @@
         "total": 3,
         "notExplicit": [
           "NE-DT-02-DEFINITION",
-          "NE-DT-02-CRITICALITY",
-          "NE-DT-02-VA-ACQUISITION"
+          "NE-DT-02-CRITICALITY"
         ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
-        "publicationBlocking": [
-          "NE-DT-02-VA-ACQUISITION"
-        ]
+        "publicationBlocking": []
       },
       "transcriptionCorrections": [],
       "runtimeCompatibility": {
@@ -2954,23 +2483,23 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 1,
-        "pass": 1,
+        "count": 2,
+        "pass": 2,
         "governedJudgment": 0,
         "fail": 0
       },
       "governance": {
-        "reviewStatus": "NOT_REQUESTED",
-        "evidence": "CURRENT"
+        "reviewStatus": "APPROVED",
+        "evidence": "NOT_APPLICABLE"
       },
       "publication": {
-        "status": "UNPUBLISHED",
+        "status": "PUBLISHED",
         "packId": "dt-02",
         "packVersion": "1.0.0",
-        "packChecksum": "sha256:1a3a1053ccd7a1c1e8518c28ec0caa77973088a38d540e65f3de02cab340d507"
+        "packChecksum": "sha256:d420414d078f39a118fe500b33340d0dcac90b9d23bb7edd0e50b94d88054b2b"
       },
-      "state": "VALIDATED",
-      "outcome": "REVIEW_REQUIRED",
+      "state": "PUBLISHED",
+      "outcome": "PASS",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -3024,18 +2553,8 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "CANONICAL_TO_PACK",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "gaps.NE-DT-02-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "corregir la proyección ejecutable",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -3059,47 +2578,18 @@
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_APPLICABLE",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "PUBLICATION_GATE",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "NE-DT-02-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-DT-02-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-DT-02-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "NOT_APPLICABLE",
+          "reasons": []
         }
       ],
       "reasons": [
@@ -3120,42 +2610,6 @@
           "action": "ninguna",
           "sourceLines": null,
           "objectKey": null
-        },
-        {
-          "check": "CANONICAL_TO_PACK",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "gaps.NE-DT-02-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "corregir la proyección ejecutable",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "PUBLICATION_GATE",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "NE-DT-02-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-DT-02-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-DT-02-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
         }
       ],
       "metrics": {
@@ -3165,15 +2619,15 @@
         "candidateItems": null,
         "canonicalObjects": 120,
         "executableSections": 6,
-        "checksAutoPassed": 9,
-        "humanReviewItems": 4,
-        "notExplicit": 3,
+        "checksAutoPassed": 12,
+        "humanReviewItems": 0,
+        "notExplicit": 2,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 1
+        "publicationBlockers": 0
       }
     },
     {
@@ -3210,14 +2664,11 @@
         "total": 3,
         "notExplicit": [
           "NE-DT-03-DEFINITION",
-          "NE-DT-03-CRITICALITY",
-          "NE-DT-03-VA-ACQUISITION"
+          "NE-DT-03-CRITICALITY"
         ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
-        "publicationBlocking": [
-          "NE-DT-03-VA-ACQUISITION"
-        ]
+        "publicationBlocking": []
       },
       "transcriptionCorrections": [],
       "runtimeCompatibility": {
@@ -3227,23 +2678,23 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 1,
-        "pass": 1,
+        "count": 2,
+        "pass": 2,
         "governedJudgment": 0,
         "fail": 0
       },
       "governance": {
-        "reviewStatus": "NOT_REQUESTED",
-        "evidence": "CURRENT"
+        "reviewStatus": "APPROVED",
+        "evidence": "NOT_APPLICABLE"
       },
       "publication": {
-        "status": "UNPUBLISHED",
+        "status": "PUBLISHED",
         "packId": "dt-03",
         "packVersion": "1.0.0",
-        "packChecksum": "sha256:9e7bae16524b389c3a809a011c9d8341bdf6c81b662f0681d476733337cd7d7d"
+        "packChecksum": "sha256:db60107537683387b20a16c9374ba4c74c9447977606db5b4e86988fc7aba64f"
       },
-      "state": "VALIDATED",
-      "outcome": "REVIEW_REQUIRED",
+      "state": "PUBLISHED",
+      "outcome": "PASS",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -3297,18 +2748,8 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "CANONICAL_TO_PACK",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "gaps.NE-DT-03-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "corregir la proyección ejecutable",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -3332,47 +2773,18 @@
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_APPLICABLE",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "PUBLICATION_GATE",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "NE-DT-03-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-DT-03-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-DT-03-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "NOT_APPLICABLE",
+          "reasons": []
         }
       ],
       "reasons": [
@@ -3393,42 +2805,6 @@
           "action": "ninguna",
           "sourceLines": null,
           "objectKey": null
-        },
-        {
-          "check": "CANONICAL_TO_PACK",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "gaps.NE-DT-03-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "corregir la proyección ejecutable",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "PUBLICATION_GATE",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "NE-DT-03-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-DT-03-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-DT-03-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
         }
       ],
       "metrics": {
@@ -3438,15 +2814,15 @@
         "candidateItems": null,
         "canonicalObjects": 119,
         "executableSections": 6,
-        "checksAutoPassed": 9,
-        "humanReviewItems": 4,
-        "notExplicit": 3,
+        "checksAutoPassed": 12,
+        "humanReviewItems": 0,
+        "notExplicit": 2,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 1
+        "publicationBlockers": 0
       }
     },
     {
@@ -3483,14 +2859,11 @@
         "total": 3,
         "notExplicit": [
           "NE-DT-04-DEFINITION",
-          "NE-DT-04-CRITICALITY",
-          "NE-DT-04-VA-ACQUISITION"
+          "NE-DT-04-CRITICALITY"
         ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
-        "publicationBlocking": [
-          "NE-DT-04-VA-ACQUISITION"
-        ]
+        "publicationBlocking": []
       },
       "transcriptionCorrections": [],
       "runtimeCompatibility": {
@@ -3500,23 +2873,23 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 1,
-        "pass": 1,
+        "count": 2,
+        "pass": 2,
         "governedJudgment": 0,
         "fail": 0
       },
       "governance": {
-        "reviewStatus": "NOT_REQUESTED",
-        "evidence": "CURRENT"
+        "reviewStatus": "APPROVED",
+        "evidence": "NOT_APPLICABLE"
       },
       "publication": {
-        "status": "UNPUBLISHED",
+        "status": "PUBLISHED",
         "packId": "dt-04",
         "packVersion": "1.0.0",
-        "packChecksum": "sha256:17460e3692893f58407ef30106dc7a1444e7ccce1a06b383e1dc84e63f5adf12"
+        "packChecksum": "sha256:8781bb399f2b53d07bed68fa0fa813b602c98fb6dbffaedb68d6ab784d1c24f0"
       },
-      "state": "VALIDATED",
-      "outcome": "REVIEW_REQUIRED",
+      "state": "PUBLISHED",
+      "outcome": "PASS",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -3570,18 +2943,8 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "CANONICAL_TO_PACK",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "gaps.NE-DT-04-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "corregir la proyección ejecutable",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -3605,47 +2968,18 @@
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_APPLICABLE",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "PUBLICATION_GATE",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "NE-DT-04-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-DT-04-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-DT-04-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "NOT_APPLICABLE",
+          "reasons": []
         }
       ],
       "reasons": [
@@ -3666,42 +3000,6 @@
           "action": "ninguna",
           "sourceLines": null,
           "objectKey": null
-        },
-        {
-          "check": "CANONICAL_TO_PACK",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "gaps.NE-DT-04-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "corregir la proyección ejecutable",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "PUBLICATION_GATE",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "NE-DT-04-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-DT-04-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-DT-04-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
         }
       ],
       "metrics": {
@@ -3711,15 +3009,15 @@
         "candidateItems": null,
         "canonicalObjects": 127,
         "executableSections": 6,
-        "checksAutoPassed": 9,
-        "humanReviewItems": 4,
-        "notExplicit": 3,
+        "checksAutoPassed": 12,
+        "humanReviewItems": 0,
+        "notExplicit": 2,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 1
+        "publicationBlockers": 0
       }
     },
     {
@@ -3756,14 +3054,11 @@
         "total": 3,
         "notExplicit": [
           "NE-DT-05-DEFINITION",
-          "NE-DT-05-CRITICALITY",
-          "NE-DT-05-VA-ACQUISITION"
+          "NE-DT-05-CRITICALITY"
         ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
-        "publicationBlocking": [
-          "NE-DT-05-VA-ACQUISITION"
-        ]
+        "publicationBlocking": []
       },
       "transcriptionCorrections": [],
       "runtimeCompatibility": {
@@ -3773,23 +3068,23 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 1,
-        "pass": 1,
+        "count": 2,
+        "pass": 2,
         "governedJudgment": 0,
         "fail": 0
       },
       "governance": {
-        "reviewStatus": "NOT_REQUESTED",
-        "evidence": "CURRENT"
+        "reviewStatus": "APPROVED",
+        "evidence": "NOT_APPLICABLE"
       },
       "publication": {
-        "status": "UNPUBLISHED",
+        "status": "PUBLISHED",
         "packId": "dt-05",
         "packVersion": "1.0.0",
-        "packChecksum": "sha256:839269aa95118a1eaedaf8fd500aaf2b6b18daa0531d4b8bc349b6722187be8f"
+        "packChecksum": "sha256:fd6518fd0f93b2738dc848f2a3e09b0f1e3a9a562def0914a09244036861cd9b"
       },
-      "state": "VALIDATED",
-      "outcome": "REVIEW_REQUIRED",
+      "state": "PUBLISHED",
+      "outcome": "PASS",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -3843,18 +3138,8 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "CANONICAL_TO_PACK",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "gaps.NE-DT-05-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "corregir la proyección ejecutable",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -3878,47 +3163,18 @@
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_APPLICABLE",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "PUBLICATION_GATE",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "NE-DT-05-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-DT-05-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-DT-05-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "NOT_APPLICABLE",
+          "reasons": []
         }
       ],
       "reasons": [
@@ -3939,42 +3195,6 @@
           "action": "ninguna",
           "sourceLines": null,
           "objectKey": null
-        },
-        {
-          "check": "CANONICAL_TO_PACK",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "gaps.NE-DT-05-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "corregir la proyección ejecutable",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "PUBLICATION_GATE",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "NE-DT-05-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-DT-05-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-DT-05-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
         }
       ],
       "metrics": {
@@ -3984,15 +3204,15 @@
         "candidateItems": null,
         "canonicalObjects": 158,
         "executableSections": 6,
-        "checksAutoPassed": 9,
-        "humanReviewItems": 4,
-        "notExplicit": 3,
+        "checksAutoPassed": 12,
+        "humanReviewItems": 0,
+        "notExplicit": 2,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 1
+        "publicationBlockers": 0
       }
     },
     {
@@ -4029,14 +3249,11 @@
         "total": 3,
         "notExplicit": [
           "NE-DT-06-DEFINITION",
-          "NE-DT-06-CRITICALITY",
-          "NE-DT-06-VA-ACQUISITION"
+          "NE-DT-06-CRITICALITY"
         ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
-        "publicationBlocking": [
-          "NE-DT-06-VA-ACQUISITION"
-        ]
+        "publicationBlocking": []
       },
       "transcriptionCorrections": [],
       "runtimeCompatibility": {
@@ -4046,23 +3263,23 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 1,
-        "pass": 1,
+        "count": 2,
+        "pass": 2,
         "governedJudgment": 0,
         "fail": 0
       },
       "governance": {
-        "reviewStatus": "NOT_REQUESTED",
-        "evidence": "CURRENT"
+        "reviewStatus": "APPROVED",
+        "evidence": "NOT_APPLICABLE"
       },
       "publication": {
-        "status": "UNPUBLISHED",
+        "status": "PUBLISHED",
         "packId": "dt-06",
         "packVersion": "1.0.0",
-        "packChecksum": "sha256:c52b307045c2dc32e41af66fad8d947fbfdb0e130960a0365b19137e3b80f342"
+        "packChecksum": "sha256:051468db075c118fe45f8b40cb34b129079a584b5f4a0c3e1919493260e4e0bd"
       },
-      "state": "VALIDATED",
-      "outcome": "REVIEW_REQUIRED",
+      "state": "PUBLISHED",
+      "outcome": "PASS",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -4116,18 +3333,8 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "CANONICAL_TO_PACK",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "gaps.NE-DT-06-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "corregir la proyección ejecutable",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -4151,47 +3358,18 @@
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_APPLICABLE",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "PUBLICATION_GATE",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "NE-DT-06-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-DT-06-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-DT-06-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "NOT_APPLICABLE",
+          "reasons": []
         }
       ],
       "reasons": [
@@ -4212,42 +3390,6 @@
           "action": "ninguna",
           "sourceLines": null,
           "objectKey": null
-        },
-        {
-          "check": "CANONICAL_TO_PACK",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "gaps.NE-DT-06-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "corregir la proyección ejecutable",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "PUBLICATION_GATE",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "NE-DT-06-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-DT-06-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-DT-06-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
         }
       ],
       "metrics": {
@@ -4257,15 +3399,15 @@
         "candidateItems": null,
         "canonicalObjects": 160,
         "executableSections": 6,
-        "checksAutoPassed": 9,
-        "humanReviewItems": 4,
-        "notExplicit": 3,
+        "checksAutoPassed": 12,
+        "humanReviewItems": 0,
+        "notExplicit": 2,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 1
+        "publicationBlockers": 0
       }
     },
     {
@@ -4301,14 +3443,11 @@
       "gaps": {
         "total": 2,
         "notExplicit": [
-          "NE-EC-02-CRITICALITY",
-          "NE-EC-02-VA-ACQUISITION"
+          "NE-EC-02-CRITICALITY"
         ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
-        "publicationBlocking": [
-          "NE-EC-02-VA-ACQUISITION"
-        ]
+        "publicationBlocking": []
       },
       "transcriptionCorrections": [],
       "runtimeCompatibility": {
@@ -4318,23 +3457,23 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 1,
-        "pass": 1,
+        "count": 2,
+        "pass": 2,
         "governedJudgment": 0,
         "fail": 0
       },
       "governance": {
-        "reviewStatus": "NOT_REQUESTED",
-        "evidence": "CURRENT"
+        "reviewStatus": "APPROVED",
+        "evidence": "NOT_APPLICABLE"
       },
       "publication": {
-        "status": "UNPUBLISHED",
+        "status": "PUBLISHED",
         "packId": "ec-02",
         "packVersion": "1.0.0",
-        "packChecksum": "sha256:8e5326e5f60c6395432c1e6d6be67b5ad56b511cb7ecb3fa0fde37c81fd32fd9"
+        "packChecksum": "sha256:a70bee1ee9d8ddd2d8b3fe5223bbcd82df1bae0d883d01bbc240dfd54e52ef64"
       },
-      "state": "VALIDATED",
-      "outcome": "REVIEW_REQUIRED",
+      "state": "PUBLISHED",
+      "outcome": "PASS",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -4388,18 +3527,8 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "CANONICAL_TO_PACK",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "gaps.NE-EC-02-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "corregir la proyección ejecutable",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -4423,47 +3552,18 @@
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_APPLICABLE",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "PUBLICATION_GATE",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "NE-EC-02-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-EC-02-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-EC-02-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "NOT_APPLICABLE",
+          "reasons": []
         }
       ],
       "reasons": [
@@ -4484,42 +3584,6 @@
           "action": "ninguna",
           "sourceLines": null,
           "objectKey": null
-        },
-        {
-          "check": "CANONICAL_TO_PACK",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "gaps.NE-EC-02-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "corregir la proyección ejecutable",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "PUBLICATION_GATE",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "NE-EC-02-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-EC-02-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-EC-02-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
         }
       ],
       "metrics": {
@@ -4529,15 +3593,15 @@
         "candidateItems": null,
         "canonicalObjects": 151,
         "executableSections": 6,
-        "checksAutoPassed": 9,
-        "humanReviewItems": 4,
-        "notExplicit": 2,
+        "checksAutoPassed": 12,
+        "humanReviewItems": 0,
+        "notExplicit": 1,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 1
+        "publicationBlockers": 0
       }
     },
     {
@@ -4573,14 +3637,11 @@
       "gaps": {
         "total": 2,
         "notExplicit": [
-          "NE-EC-03-CRITICALITY",
-          "NE-EC-03-VA-ACQUISITION"
+          "NE-EC-03-CRITICALITY"
         ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
-        "publicationBlocking": [
-          "NE-EC-03-VA-ACQUISITION"
-        ]
+        "publicationBlocking": []
       },
       "transcriptionCorrections": [],
       "runtimeCompatibility": {
@@ -4590,23 +3651,23 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 1,
-        "pass": 1,
+        "count": 2,
+        "pass": 2,
         "governedJudgment": 0,
         "fail": 0
       },
       "governance": {
-        "reviewStatus": "NOT_REQUESTED",
-        "evidence": "CURRENT"
+        "reviewStatus": "APPROVED",
+        "evidence": "NOT_APPLICABLE"
       },
       "publication": {
-        "status": "UNPUBLISHED",
+        "status": "PUBLISHED",
         "packId": "ec-03",
         "packVersion": "1.0.0",
-        "packChecksum": "sha256:90ed99957058eac938846845871e98a47092e6312152ea6ab457edd252329eb7"
+        "packChecksum": "sha256:be64175cd5b9f40d685392dd098086178356eabf9035945c8e9abf903cd1f609"
       },
-      "state": "VALIDATED",
-      "outcome": "REVIEW_REQUIRED",
+      "state": "PUBLISHED",
+      "outcome": "PASS",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -4660,18 +3721,8 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "CANONICAL_TO_PACK",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "gaps.NE-EC-03-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "corregir la proyección ejecutable",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -4695,47 +3746,18 @@
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_APPLICABLE",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "PUBLICATION_GATE",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "NE-EC-03-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-EC-03-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-EC-03-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "NOT_APPLICABLE",
+          "reasons": []
         }
       ],
       "reasons": [
@@ -4756,42 +3778,6 @@
           "action": "ninguna",
           "sourceLines": null,
           "objectKey": null
-        },
-        {
-          "check": "CANONICAL_TO_PACK",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "gaps.NE-EC-03-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "corregir la proyección ejecutable",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "PUBLICATION_GATE",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "NE-EC-03-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-EC-03-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-EC-03-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
         }
       ],
       "metrics": {
@@ -4801,15 +3787,15 @@
         "candidateItems": null,
         "canonicalObjects": 135,
         "executableSections": 6,
-        "checksAutoPassed": 9,
-        "humanReviewItems": 4,
-        "notExplicit": 2,
+        "checksAutoPassed": 12,
+        "humanReviewItems": 0,
+        "notExplicit": 1,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 1
+        "publicationBlockers": 0
       }
     },
     {
@@ -4845,14 +3831,11 @@
       "gaps": {
         "total": 2,
         "notExplicit": [
-          "NE-EC-04-CRITICALITY",
-          "NE-EC-04-VA-ACQUISITION"
+          "NE-EC-04-CRITICALITY"
         ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
-        "publicationBlocking": [
-          "NE-EC-04-VA-ACQUISITION"
-        ]
+        "publicationBlocking": []
       },
       "transcriptionCorrections": [],
       "runtimeCompatibility": {
@@ -4862,23 +3845,23 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 1,
-        "pass": 1,
+        "count": 2,
+        "pass": 2,
         "governedJudgment": 0,
         "fail": 0
       },
       "governance": {
-        "reviewStatus": "NOT_REQUESTED",
-        "evidence": "CURRENT"
+        "reviewStatus": "APPROVED",
+        "evidence": "NOT_APPLICABLE"
       },
       "publication": {
-        "status": "UNPUBLISHED",
+        "status": "PUBLISHED",
         "packId": "ec-04",
         "packVersion": "1.0.0",
-        "packChecksum": "sha256:4224e8a791a06771858ceba421bcf60377a94ca2e15566e08a4badeee6939ea1"
+        "packChecksum": "sha256:c333b26ed118b8e296efacf88ef039c25aaf7f35335bcd3ed3f107e64c823ecb"
       },
-      "state": "VALIDATED",
-      "outcome": "REVIEW_REQUIRED",
+      "state": "PUBLISHED",
+      "outcome": "PASS",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -4932,18 +3915,8 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "CANONICAL_TO_PACK",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "gaps.NE-EC-04-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23, VA24: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "corregir la proyección ejecutable",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -4967,47 +3940,18 @@
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_APPLICABLE",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "PUBLICATION_GATE",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "NE-EC-04-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-EC-04-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23, VA24: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-EC-04-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "NOT_APPLICABLE",
+          "reasons": []
         }
       ],
       "reasons": [
@@ -5028,42 +3972,6 @@
           "action": "ninguna",
           "sourceLines": null,
           "objectKey": null
-        },
-        {
-          "check": "CANONICAL_TO_PACK",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "gaps.NE-EC-04-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23, VA24: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "corregir la proyección ejecutable",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "PUBLICATION_GATE",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "NE-EC-04-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-EC-04-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23, VA24: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-EC-04-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
         }
       ],
       "metrics": {
@@ -5073,15 +3981,15 @@
         "candidateItems": null,
         "canonicalObjects": 156,
         "executableSections": 6,
-        "checksAutoPassed": 9,
-        "humanReviewItems": 4,
-        "notExplicit": 2,
+        "checksAutoPassed": 12,
+        "humanReviewItems": 0,
+        "notExplicit": 1,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 1
+        "publicationBlockers": 0
       }
     },
     {
@@ -5117,14 +4025,11 @@
       "gaps": {
         "total": 2,
         "notExplicit": [
-          "NE-EC-05-CRITICALITY",
-          "NE-EC-05-VA-ACQUISITION"
+          "NE-EC-05-CRITICALITY"
         ],
         "sourceContentNotRecovered": [],
         "runtimeExtension": [],
-        "publicationBlocking": [
-          "NE-EC-05-VA-ACQUISITION"
-        ]
+        "publicationBlocking": []
       },
       "transcriptionCorrections": [],
       "runtimeCompatibility": {
@@ -5134,23 +4039,23 @@
         "extensions": []
       },
       "fixtures": {
-        "count": 1,
-        "pass": 1,
+        "count": 2,
+        "pass": 2,
         "governedJudgment": 0,
         "fail": 0
       },
       "governance": {
-        "reviewStatus": "NOT_REQUESTED",
-        "evidence": "CURRENT"
+        "reviewStatus": "APPROVED",
+        "evidence": "NOT_APPLICABLE"
       },
       "publication": {
-        "status": "UNPUBLISHED",
+        "status": "PUBLISHED",
         "packId": "ec-05",
         "packVersion": "1.0.0",
-        "packChecksum": "sha256:9fdc5c29638f75509271cd15ab457431cd1143c72990532ffcb762182e49ddd0"
+        "packChecksum": "sha256:0f02fbc16a0227281d40dcfe5cc3092bbc4342c0a663cddbe4b1fb34d8a49183"
       },
-      "state": "VALIDATED",
-      "outcome": "REVIEW_REQUIRED",
+      "state": "PUBLISHED",
+      "outcome": "PASS",
       "checks": [
         {
           "check": "RAW_REGISTRATION",
@@ -5204,18 +4109,8 @@
         },
         {
           "check": "CANONICAL_TO_PACK",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "CANONICAL_TO_PACK",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "gaps.NE-EC-05-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23, VA24, VA25, VA26: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "corregir la proyección ejecutable",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "RUNTIME_COMPATIBILITY",
@@ -5239,47 +4134,18 @@
         },
         {
           "check": "GOLDEN_REGRESSION",
-          "status": "NOT_APPLICABLE",
+          "status": "PASS",
           "reasons": []
         },
         {
           "check": "PUBLICATION_GATE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "PUBLICATION_GATE",
-              "code": "PUBLICATION_BLOCKING_GAP",
-              "severity": "REVIEW",
-              "message": "NE-EC-05-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "PASS",
+          "reasons": []
         },
         {
           "check": "GOVERNANCE_EVIDENCE",
-          "status": "REVIEW_REQUIRED",
-          "reasons": [
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-EC-05-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23, VA24, VA25, VA26: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            },
-            {
-              "check": "GOVERNANCE_EVIDENCE",
-              "code": "NOT_READY",
-              "severity": "REVIEW",
-              "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-EC-05-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-              "action": "resolver antes de solicitar autorización humana",
-              "sourceLines": null,
-              "objectKey": null
-            }
-          ]
+          "status": "NOT_APPLICABLE",
+          "reasons": []
         }
       ],
       "reasons": [
@@ -5300,42 +4166,6 @@
           "action": "ninguna",
           "sourceLines": null,
           "objectKey": null
-        },
-        {
-          "check": "CANONICAL_TO_PACK",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "gaps.NE-EC-05-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23, VA24, VA25, VA26: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "corregir la proyección ejecutable",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "PUBLICATION_GATE",
-          "code": "PUBLICATION_BLOCKING_GAP",
-          "severity": "REVIEW",
-          "message": "NE-EC-05-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "retenido antes de publicar: requiere vínculo gobernado por la fuente o decisión humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "CANONICAL_TO_PACK PUBLICATION_BLOCKING_GAP: gaps.NE-EC-05-VA-ACQUISITION: NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: Sin vínculo explícito NI/pregunta → VA para VA01, VA02, VA03, VA04, VA05, VA06, VA07, VA08, VA09, VA10, VA11, VA12, VA13, VA14, VA15, VA16, VA17, VA18, VA19, VA20, VA21, VA22, VA23, VA24, VA25, VA26: el runtime no puede admitir observaciones para estas VA. Requiere vínculo gobernado por la fuente o decisión humana; no se infiere.",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
-        },
-        {
-          "check": "GOVERNANCE_EVIDENCE",
-          "code": "NOT_READY",
-          "severity": "REVIEW",
-          "message": "PUBLICATION_GATE PUBLICATION_BLOCKING_GAP: NE-EC-05-VA-ACQUISITION · NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
-          "action": "resolver antes de solicitar autorización humana",
-          "sourceLines": null,
-          "objectKey": null
         }
       ],
       "metrics": {
@@ -5345,15 +4175,15 @@
         "candidateItems": null,
         "canonicalObjects": 143,
         "executableSections": 6,
-        "checksAutoPassed": 9,
-        "humanReviewItems": 4,
-        "notExplicit": 2,
+        "checksAutoPassed": 12,
+        "humanReviewItems": 0,
+        "notExplicit": 1,
         "sourceContentNotRecovered": 0,
         "transcriptionIssues": 0,
         "runtimeExtensionsRequired": 0,
         "runtimeExtensionsClosed": 0,
         "testFailures": 0,
-        "publicationBlockers": 1
+        "publicationBlockers": 0
       }
     },
     {
@@ -7346,5 +6176,5 @@
       }
     }
   ],
-  "checksum": "sha256:2f4f44cda21255e87e2c896e25b3506e60d0c21a39dbdfe9702faf8a1834e8b6"
+  "checksum": "sha256:48c325d38fbc945a221d945b2a0207019dce262368d1be8a64a67f791e50ebe6"
 }

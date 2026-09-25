@@ -1,0 +1,89 @@
+{
+  "fixtureId": "CM-02-FX-UNKNOWN-PRESERVED",
+  "capabilityId": "CM-02",
+  "packId": "cm-02",
+  "packVersion": "1.0.0",
+  "kind": "ARCHITECTURE_RUNTIME",
+  "knowledgeVersionId": "fixture-kv-cm-02-1.0.0",
+  "description": "UNKNOWN explícito por cada canal de adquisición admitido: se preserva como UNKNOWN y nunca produce hallazgo.",
+  "observations": [
+    {
+      "id": "obs-unknown-1",
+      "variableRef": "VA01",
+      "acquisitionRef": "ACQ·P1·01",
+      "knowledgeState": "UNKNOWN",
+      "semanticValue": null,
+      "sourceResponseId": "resp-unknown-1",
+      "respondentId": "respondent-1",
+      "evidenceIds": [],
+      "recordedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "obs-unknown-2",
+      "variableRef": "VA01",
+      "acquisitionRef": "ACQ·P1·02",
+      "knowledgeState": "UNKNOWN",
+      "semanticValue": null,
+      "sourceResponseId": "resp-unknown-2",
+      "respondentId": "respondent-1",
+      "evidenceIds": [],
+      "recordedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "obs-unknown-3",
+      "variableRef": "VA01",
+      "acquisitionRef": "ACQ·P1·03",
+      "knowledgeState": "UNKNOWN",
+      "semanticValue": null,
+      "sourceResponseId": "resp-unknown-3",
+      "respondentId": "respondent-1",
+      "evidenceIds": [],
+      "recordedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "obs-unknown-4",
+      "variableRef": "VA01",
+      "acquisitionRef": "ACQ·P1·04",
+      "knowledgeState": "UNKNOWN",
+      "semanticValue": null,
+      "sourceResponseId": "resp-unknown-4",
+      "respondentId": "respondent-1",
+      "evidenceIds": [],
+      "recordedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "obs-unknown-5",
+      "variableRef": "VA01",
+      "acquisitionRef": "ACQ·P1·05",
+      "knowledgeState": "UNKNOWN",
+      "semanticValue": null,
+      "sourceResponseId": "resp-unknown-5",
+      "respondentId": "respondent-1",
+      "evidenceIds": [],
+      "recordedAt": "2026-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "obs-unknown-6",
+      "variableRef": "VA01",
+      "acquisitionRef": "ACQ·P1·06",
+      "knowledgeState": "UNKNOWN",
+      "semanticValue": null,
+      "sourceResponseId": "resp-unknown-6",
+      "respondentId": "respondent-1",
+      "evidenceIds": [],
+      "recordedAt": "2026-01-01T00:00:00.000Z"
+    }
+  ],
+  "expected": {
+    "outcome": "PASS",
+    "variableStates": [
+      {
+        "variableRef": "VA01",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      }
+    ],
+    "contradictionVariableRefs": [],
+    "noConfirmedFindings": true
+  }
+}
