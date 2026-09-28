@@ -311,7 +311,24 @@ export async function getDiagnosticHubHandler(context: Ctx) {
   const catalogo = runtime.listarCapacidadesDisponibles();
   const capacidades = [];
   for (const entrada of catalogo) {
-    const { assessment, deps } = await prepararContexto(context, entrada.capabilityId, { baseRepository: base });
+    // Fail-closed por capacidad: un fallo de integridad en una no oculta las otras 30.
+    let ctx: Awaited<ReturnType<typeof prepararContexto>>;
+    try {
+      ctx = await prepararContexto(context, entrada.capabilityId, { baseRepository: base });
+    } catch (e) {
+      console.error(`[hub] ${entrada.capabilityId}:`, e instanceof Error ? e.message : e);
+      capacidades.push({
+        capabilityId: entrada.capabilityId,
+        name: entrada.name,
+        domainId: entrada.domainId,
+        packVersion: entrada.packVersion,
+        interactionState: "UNAVAILABLE" as const,
+        counts: null,
+        findingsCount: 0,
+      });
+      continue;
+    }
+    const { assessment, deps } = ctx;
     const evaluado = await casoUso.evaluarCapacidad(deps, assessment.id);
     const workspace = evaluado
       ? createActionableProjector(getRegisteredPack(entrada.capabilityId).pack).derive({
