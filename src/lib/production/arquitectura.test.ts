@@ -31,6 +31,8 @@ const ARCHIVOS_SRC = archivos(SRC);
 const AUTORIZADOS = [
   "src/lib/production/runtime.server.ts",
   "src/lib/production/caso-uso.ts",
+  // PKG-02: proyector server-side; solo tipos del Engine, cargado dinámicamente por los handlers.
+  "src/lib/production/actionable.ts",
   "src/lib/production/puertos.ts",
   "src/lib/production/vertical-op01.test.ts",
   "src/lib/production/arquitectura.test.ts",

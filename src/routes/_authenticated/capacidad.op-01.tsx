@@ -421,8 +421,15 @@ function CapacidadOp01() {
       <PageHeader
         titulo="Capacidad OP-01"
         subtitulo="Este recorrido se ejecuta sobre el núcleo productivo con conocimiento gobernado."
-        migas={[{ label: "Inicio", to: "/inicio" }, { label: "Capacidad OP-01" }]}
-        acciones={<Badge variant="secondary">{resolveExecutionSource("OP-01")}</Badge>}
+        migas={[{ label: "Diagnóstico", to: "/diagnostico-productivo" }, { label: "Capacidad OP-01" }]}
+        acciones={
+          <div className="flex items-center gap-2">
+            <Badge variant="secondary">{resolveExecutionSource("OP-01")}</Badge>
+            <Button asChild variant="outline" size="sm">
+              <Link to="/diagnostico-productivo">Volver al diagnóstico</Link>
+            </Button>
+          </div>
+        }
       />
 
       {acquisition ? (

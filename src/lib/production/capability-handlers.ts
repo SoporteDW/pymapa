@@ -51,12 +51,22 @@ const evidenciaSchema = z.object({
 export type Ctx = { userId: string; supabase: unknown };
 
 /** Carga runtime + repositorio + assessment pinneado del usuario autenticado. */
-async function prepararContexto(context: Ctx, capabilityId: string) {
+async function prepararContexto(
+  context: Ctx,
+  capabilityId: string,
+  opciones: { baseRepository?: import("./puertos").ProductionRepository } = {},
+) {
   const runtime = await import("./runtime.server");
+  const { scopeRepositoryToCapability } = await import("./capability-scope");
   // Falla cerrado ante capacidades no publicadas (registro genérico).
   const engine = runtime.cargarEngine(capabilityId);
   const { packChecksum } = runtime.identidadPack(capabilityId);
-  const repository = runtime.createSupabaseProductionRepository();
+  // PKG-02: el Assessment del runtime manifest es compartido por las 31
+  // capacidades; el repositorio se aísla por capacidad (ids de pack se repiten).
+  const repository = scopeRepositoryToCapability(
+    opciones.baseRepository ?? runtime.createSupabaseProductionRepository(),
+    engine.pack.capability.id,
+  );
   // El bootstrap tenant-owned se ejecuta con la identidad del usuario (RLS).
   type ClienteUsuario = Parameters<typeof runtime.asegurarContextoProductivo>[0];
   const assessment = await runtime.asegurarContextoProductivo(
@@ -245,7 +255,144 @@ export async function inviteCapabilityRespondentHandler(context: Ctx, capability
       assignmentId: salida.assignment.id,
       invitationId: salida.invitation.id,
       status: salida.assignment.status,
+      // PKG-02: única vez que el token en claro sale del servidor (solo se
+      // persiste su hash). Va en el fragmento: no viaja en peticiones ni logs.
+      invitationPath: `/invitacion#${token}`,
     };
+}
+
+/* ------------------------------------------------------------------ */
+/* PKG-02 · Trabajo accionable, hub de 31 capacidades e invitaciones     */
+/* ------------------------------------------------------------------ */
+
+/** Espacio de trabajo accionable de una capacidad (server-authoritative). */
+export async function getCapabilityWorkspaceHandler(context: Ctx, capabilityId: string, _data: Record<string, never>) {
+  const casoUso = await import("./caso-uso");
+  const { getRegisteredPack } = await import("./packs-registry");
+  const { createActionableProjector } = await import("./actionable");
+  const { assessment, deps } = await prepararContexto(context, capabilityId);
+  const registro = getRegisteredPack(deps.engine.pack.capability.id);
+  const evaluado = await casoUso.evaluarCapacidad(deps, assessment.id);
+  if (!evaluado) throw new Error("ASSESSMENT_NOT_FOUND");
+  const workspace = createActionableProjector(registro.pack).derive({
+    engine: deps.engine,
+    evaluation: evaluado.evaluation,
+    answeredAcquisitionIds: evaluado.answeredAcquisitionIds,
+  });
+  const findings = await deps.repository.listFindings(assessment.id);
+  return {
+    assessmentId: assessment.id,
+    organizationId: assessment.organizationId,
+    capability: {
+      capabilityId: registro.capabilityId,
+      name: registro.name,
+      domainId: registro.domainId,
+      packId: registro.packId,
+      packVersion: registro.packVersion,
+      definition: (deps.engine.pack.capability as { definition?: string }).definition ?? null,
+    },
+    workspace,
+    findingsCount: findings.length,
+    contradictions: evaluado.evaluation.contradictions.map((c) => ({
+      variableRef: c.variableRef,
+      conflictingObservationIds: c.conflictingObservationIds,
+    })),
+  };
+}
+
+/** Hub: estado real de las 31 capacidades. Lecturas memoizadas por petición. */
+export async function getDiagnosticHubHandler(context: Ctx) {
+  const runtime = await import("./runtime.server");
+  const casoUso = await import("./caso-uso");
+  const { getRegisteredPack } = await import("./packs-registry");
+  const { createActionableProjector } = await import("./actionable");
+  const { memoizeReads } = await import("./capability-scope");
+  const base = memoizeReads(runtime.createSupabaseProductionRepository());
+  const catalogo = runtime.listarCapacidadesDisponibles();
+  const capacidades = [];
+  for (const entrada of catalogo) {
+    const { assessment, deps } = await prepararContexto(context, entrada.capabilityId, { baseRepository: base });
+    const evaluado = await casoUso.evaluarCapacidad(deps, assessment.id);
+    const workspace = evaluado
+      ? createActionableProjector(getRegisteredPack(entrada.capabilityId).pack).derive({
+          engine: deps.engine,
+          evaluation: evaluado.evaluation,
+          answeredAcquisitionIds: evaluado.answeredAcquisitionIds,
+        })
+      : null;
+    const findings = await deps.repository.listFindings(assessment.id);
+    capacidades.push({
+      capabilityId: entrada.capabilityId,
+      name: entrada.name,
+      domainId: entrada.domainId,
+      packVersion: entrada.packVersion,
+      interactionState: workspace?.interactionState ?? "NOT_STARTED",
+      counts: workspace?.counts ?? null,
+      findingsCount: findings.length,
+    });
+  }
+  return {
+    runtimeManifest: {
+      identifier: runtime.KNOWLEDGE_RUNTIME_IDENTIFIER,
+      version: runtime.KNOWLEDGE_RUNTIME_VERSION,
+    },
+    capabilities: capacidades,
+  };
+}
+
+const aceptarSchema = z.object({ token: z.string().uuid() });
+export const acceptInvitationInput = (data: unknown) => aceptarSchema.parse(data);
+
+/**
+ * Acepta una invitación con el token de un solo uso. La persona invitada no es
+ * miembro de la organización (User ≠ Membership ≠ Respondent): se vincula su
+ * usuario al Respondent invitado, sin crear membresía. Requiere que el email
+ * autenticado coincida con el invitado. Nunca expone hashes.
+ */
+export async function acceptInvitationHandler(context: Ctx, data: ReturnType<typeof acceptInvitationInput>) {
+  const runtime = await import("./runtime.server");
+  type ClienteUsuario = { auth: { getUser: () => Promise<{ data: { user: { email?: string | null } | null } }> } };
+  const { data: usuario } = await (context.supabase as ClienteUsuario).auth.getUser();
+  const email = usuario.user?.email?.toLowerCase() ?? null;
+  if (!email) return { accepted: false, reason: "EMAIL_REQUIRED" as const };
+
+  const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+  const hash = runtime.hashTokenInvitacion(data.token);
+  const inv = await supabaseAdmin
+    .from("invitations")
+    .select("id, respondent_id, status, expires_at")
+    .eq("token_hash", hash)
+    .maybeSingle();
+  if (inv.error || !inv.data) return { accepted: false, reason: "INVITATION_NOT_FOUND" as const };
+  if (inv.data.status !== "PENDING") return { accepted: false, reason: "INVITATION_NOT_PENDING" as const };
+  if (inv.data.expires_at && new Date(inv.data.expires_at) < new Date()) {
+    return { accepted: false, reason: "INVITATION_EXPIRED" as const };
+  }
+  const resp = await supabaseAdmin
+    .from("respondents")
+    .select("id, email, user_id")
+    .eq("id", inv.data.respondent_id)
+    .maybeSingle();
+  if (resp.error || !resp.data) return { accepted: false, reason: "INVITATION_NOT_FOUND" as const };
+  if ((resp.data.email ?? "").toLowerCase() !== email) {
+    return { accepted: false, reason: "EMAIL_MISMATCH" as const };
+  }
+  if (resp.data.user_id && resp.data.user_id !== context.userId) {
+    return { accepted: false, reason: "RESPONDENT_ALREADY_BOUND" as const };
+  }
+  const ahora = new Date().toISOString();
+  const r1 = await supabaseAdmin
+    .from("respondents")
+    .update({ user_id: context.userId, status: "ACTIVE" })
+    .eq("id", resp.data.id);
+  if (r1.error) throw new Error("respondents.update");
+  const r2 = await supabaseAdmin
+    .from("invitations")
+    .update({ status: "ACCEPTED", accepted_at: ahora })
+    .eq("id", inv.data.id)
+    .eq("status", "PENDING");
+  if (r2.error) throw new Error("invitations.update");
+  return { accepted: true, reason: null };
 }
 
 /** Registra evidencia y la vincula a las observaciones que soporta. */
