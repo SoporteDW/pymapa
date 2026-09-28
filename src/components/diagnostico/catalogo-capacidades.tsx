@@ -23,6 +23,7 @@ export const ETIQUETA_ESTADO: Record<string, string> = {
   AWAITING_INFORMATION: "Pendiente de información",
   NEEDS_CLARIFICATION: "Requiere aclaración",
   ACQUISITION_EXHAUSTED: "Adquisiciones agotadas",
+  UNAVAILABLE: "No disponible",
 };
 
 const TONO: Record<string, string> = {
@@ -31,6 +32,7 @@ const TONO: Record<string, string> = {
   AWAITING_INFORMATION: "border-primary/40 bg-primary/5 text-primary",
   NEEDS_CLARIFICATION: "border-destructive/40 bg-destructive/10 text-destructive",
   ACQUISITION_EXHAUSTED: "border-success/40 bg-success/10 text-success",
+  UNAVAILABLE: "border-destructive/40 bg-destructive/10 text-destructive",
 };
 
 export interface CapacidadHub {
