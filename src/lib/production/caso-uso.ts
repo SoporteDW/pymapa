@@ -273,6 +273,30 @@ export async function getClarificationCandidates(
   return deps.engine.getClarificationCandidates(evaluation);
 }
 
+/**
+ * PKG-02 · Evaluación actual + adquisiciones respondidas, para derivar en el
+ * servidor el trabajo accionable de la capacidad. No persiste nada.
+ */
+export async function evaluarCapacidad(
+  deps: ProductionDeps,
+  assessmentId: string,
+): Promise<{ evaluation: EvaluationResult; answeredAcquisitionIds: string[] } | null> {
+  const fijado = await assessmentFijado(deps, assessmentId);
+  if (!fijado.ok) {
+    if (fijado.reason === KNOWLEDGE_VERSION_MISMATCH) throw new Error(KNOWLEDGE_VERSION_MISMATCH);
+    return null;
+  }
+  const [observations, responses] = await Promise.all([
+    observacionesDelEngine(deps, assessmentId),
+    deps.repository.listResponses(assessmentId),
+  ]);
+  const evaluation = deps.engine.evaluate({ observations, knowledgeVersionId: deps.knowledgeVersionId });
+  return {
+    evaluation,
+    answeredAcquisitionIds: [...new Set(responses.map((r) => r.acquisitionRef))],
+  };
+}
+
 /* ------------------------------------------------------------------ */
 /* Assignment Scope                                                    */
 /* ------------------------------------------------------------------ */

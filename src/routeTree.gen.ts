@@ -20,12 +20,15 @@ import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as DemostracionRouteImport } from './routes/demostracion'
 import { Route as DiagnosticoRouteImport } from './routes/diagnostico'
 import { Route as InicioRouteImport } from './routes/inicio'
+import { Route as InvitacionRouteImport } from './routes/invitacion'
 import { Route as ModaOrigenRouteImport } from './routes/moda-origen'
 import { Route as PerfilRouteImport } from './routes/perfil'
 import { Route as PlanDeAccionRouteImport } from './routes/plan-de-accion'
 import { Route as ResultadosRouteImport } from './routes/resultados'
 import { Route as RoadmapRouteImport } from './routes/roadmap'
 import { Route as SeguimientoRouteImport } from './routes/seguimiento'
+import { Route as AuthenticatedDiagnosticoProductivoRouteImport } from './routes/_authenticated/diagnostico-productivo'
+import { Route as AuthenticatedResultadosProductivosRouteImport } from './routes/_authenticated/resultados-productivos'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
 import { Route as DashboardAlertasRouteImport } from './routes/dashboard.alertas'
 import { Route as DiagnosticoIndexRouteImport } from './routes/diagnostico.index'
@@ -48,6 +51,7 @@ import { Route as RoadmapAccionRouteImport } from './routes/roadmap.$accion'
 import { Route as SeguimientoIndexRouteImport } from './routes/seguimiento.index'
 import { Route as SeguimientoActividadRouteImport } from './routes/seguimiento.$actividad'
 import { Route as SeguimientoEntradaRouteImport } from './routes/seguimiento.entrada'
+import { Route as AuthenticatedCapacidadIdRouteImport } from './routes/_authenticated/capacidad.$id'
 import { Route as AuthenticatedCapacidadOp01RouteImport } from './routes/_authenticated/capacidad.op-01'
 import { Route as DashboardDimensionDimensionRouteImport } from './routes/dashboard.dimension.$dimension'
 import { Route as DiagnosticoEspecializadosIndexRouteImport } from './routes/diagnostico.especializados.index'
@@ -109,6 +113,11 @@ const InicioRoute = InicioRouteImport.update({
   path: '/inicio',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InvitacionRoute = InvitacionRouteImport.update({
+  id: '/invitacion',
+  path: '/invitacion',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ModaOrigenRoute = ModaOrigenRouteImport.update({
   id: '/moda-origen',
   path: '/moda-origen',
@@ -139,6 +148,18 @@ const SeguimientoRoute = SeguimientoRouteImport.update({
   path: '/seguimiento',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedDiagnosticoProductivoRoute =
+  AuthenticatedDiagnosticoProductivoRouteImport.update({
+    id: '/diagnostico-productivo',
+    path: '/diagnostico-productivo',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedResultadosProductivosRoute =
+  AuthenticatedResultadosProductivosRouteImport.update({
+    id: '/resultados-productivos',
+    path: '/resultados-productivos',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const DashboardIndexRoute = DashboardIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -250,6 +271,12 @@ const SeguimientoEntradaRoute = SeguimientoEntradaRouteImport.update({
   path: '/entrada',
   getParentRoute: () => SeguimientoRoute,
 } as any)
+const AuthenticatedCapacidadIdRoute =
+  AuthenticatedCapacidadIdRouteImport.update({
+    id: '/capacidad/$id',
+    path: '/capacidad/$id',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedCapacidadOp01Route =
   AuthenticatedCapacidadOp01RouteImport.update({
     id: '/capacidad/op-01',
@@ -297,12 +324,15 @@ export interface FileRoutesByFullPath {
   '/demostracion': typeof DemostracionRoute
   '/diagnostico': typeof DiagnosticoRouteWithChildren
   '/inicio': typeof InicioRoute
+  '/invitacion': typeof InvitacionRoute
   '/moda-origen': typeof ModaOrigenRoute
   '/perfil': typeof PerfilRoute
   '/plan-de-accion': typeof PlanDeAccionRouteWithChildren
   '/resultados': typeof ResultadosRouteWithChildren
   '/roadmap': typeof RoadmapRouteWithChildren
   '/seguimiento': typeof SeguimientoRouteWithChildren
+  '/diagnostico-productivo': typeof AuthenticatedDiagnosticoProductivoRoute
+  '/resultados-productivos': typeof AuthenticatedResultadosProductivosRoute
   '/dashboard/alertas': typeof DashboardAlertasRoute
   '/diagnostico/cierre': typeof DiagnosticoCierreRoute
   '/diagnostico/especializados': typeof DiagnosticoEspecializadosRouteWithChildren
@@ -325,6 +355,7 @@ export interface FileRoutesByFullPath {
   '/resultados/': typeof ResultadosIndexRoute
   '/roadmap/': typeof RoadmapIndexRoute
   '/seguimiento/': typeof SeguimientoIndexRoute
+  '/capacidad/$id': typeof AuthenticatedCapacidadIdRoute
   '/capacidad/op-01': typeof AuthenticatedCapacidadOp01Route
   '/dashboard/dimension/$dimension': typeof DashboardDimensionDimensionRoute
   '/diagnostico/especializados/ecommerce': typeof DiagnosticoEspecializadosEcommerceRoute
@@ -341,8 +372,11 @@ export interface FileRoutesByTo {
   '/colaboracion': typeof ColaboracionRoute
   '/demostracion': typeof DemostracionRoute
   '/inicio': typeof InicioRoute
+  '/invitacion': typeof InvitacionRoute
   '/moda-origen': typeof ModaOrigenRoute
   '/perfil': typeof PerfilRoute
+  '/diagnostico-productivo': typeof AuthenticatedDiagnosticoProductivoRoute
+  '/resultados-productivos': typeof AuthenticatedResultadosProductivosRoute
   '/dashboard/alertas': typeof DashboardAlertasRoute
   '/diagnostico/cierre': typeof DiagnosticoCierreRoute
   '/diagnostico/listo': typeof DiagnosticoListoRoute
@@ -364,6 +398,7 @@ export interface FileRoutesByTo {
   '/resultados': typeof ResultadosIndexRoute
   '/roadmap': typeof RoadmapIndexRoute
   '/seguimiento': typeof SeguimientoIndexRoute
+  '/capacidad/$id': typeof AuthenticatedCapacidadIdRoute
   '/capacidad/op-01': typeof AuthenticatedCapacidadOp01Route
   '/dashboard/dimension/$dimension': typeof DashboardDimensionDimensionRoute
   '/diagnostico/especializados/ecommerce': typeof DiagnosticoEspecializadosEcommerceRoute
@@ -384,12 +419,15 @@ export interface FileRoutesById {
   '/demostracion': typeof DemostracionRoute
   '/diagnostico': typeof DiagnosticoRouteWithChildren
   '/inicio': typeof InicioRoute
+  '/invitacion': typeof InvitacionRoute
   '/moda-origen': typeof ModaOrigenRoute
   '/perfil': typeof PerfilRoute
   '/plan-de-accion': typeof PlanDeAccionRouteWithChildren
   '/resultados': typeof ResultadosRouteWithChildren
   '/roadmap': typeof RoadmapRouteWithChildren
   '/seguimiento': typeof SeguimientoRouteWithChildren
+  '/_authenticated/diagnostico-productivo': typeof AuthenticatedDiagnosticoProductivoRoute
+  '/_authenticated/resultados-productivos': typeof AuthenticatedResultadosProductivosRoute
   '/dashboard/alertas': typeof DashboardAlertasRoute
   '/diagnostico/cierre': typeof DiagnosticoCierreRoute
   '/diagnostico/especializados': typeof DiagnosticoEspecializadosRouteWithChildren
@@ -412,6 +450,7 @@ export interface FileRoutesById {
   '/resultados/': typeof ResultadosIndexRoute
   '/roadmap/': typeof RoadmapIndexRoute
   '/seguimiento/': typeof SeguimientoIndexRoute
+  '/_authenticated/capacidad/$id': typeof AuthenticatedCapacidadIdRoute
   '/_authenticated/capacidad/op-01': typeof AuthenticatedCapacidadOp01Route
   '/dashboard/dimension/$dimension': typeof DashboardDimensionDimensionRoute
   '/diagnostico/especializados/ecommerce': typeof DiagnosticoEspecializadosEcommerceRoute
@@ -432,12 +471,15 @@ export interface FileRouteTypes {
     | '/demostracion'
     | '/diagnostico'
     | '/inicio'
+    | '/invitacion'
     | '/moda-origen'
     | '/perfil'
     | '/plan-de-accion'
     | '/resultados'
     | '/roadmap'
     | '/seguimiento'
+    | '/diagnostico-productivo'
+    | '/resultados-productivos'
     | '/dashboard/alertas'
     | '/diagnostico/cierre'
     | '/diagnostico/especializados'
@@ -460,6 +502,7 @@ export interface FileRouteTypes {
     | '/resultados/'
     | '/roadmap/'
     | '/seguimiento/'
+    | '/capacidad/$id'
     | '/capacidad/op-01'
     | '/dashboard/dimension/$dimension'
     | '/diagnostico/especializados/ecommerce'
@@ -476,8 +519,11 @@ export interface FileRouteTypes {
     | '/colaboracion'
     | '/demostracion'
     | '/inicio'
+    | '/invitacion'
     | '/moda-origen'
     | '/perfil'
+    | '/diagnostico-productivo'
+    | '/resultados-productivos'
     | '/dashboard/alertas'
     | '/diagnostico/cierre'
     | '/diagnostico/listo'
@@ -499,6 +545,7 @@ export interface FileRouteTypes {
     | '/resultados'
     | '/roadmap'
     | '/seguimiento'
+    | '/capacidad/$id'
     | '/capacidad/op-01'
     | '/dashboard/dimension/$dimension'
     | '/diagnostico/especializados/ecommerce'
@@ -518,12 +565,15 @@ export interface FileRouteTypes {
     | '/demostracion'
     | '/diagnostico'
     | '/inicio'
+    | '/invitacion'
     | '/moda-origen'
     | '/perfil'
     | '/plan-de-accion'
     | '/resultados'
     | '/roadmap'
     | '/seguimiento'
+    | '/_authenticated/diagnostico-productivo'
+    | '/_authenticated/resultados-productivos'
     | '/dashboard/alertas'
     | '/diagnostico/cierre'
     | '/diagnostico/especializados'
@@ -546,6 +596,7 @@ export interface FileRouteTypes {
     | '/resultados/'
     | '/roadmap/'
     | '/seguimiento/'
+    | '/_authenticated/capacidad/$id'
     | '/_authenticated/capacidad/op-01'
     | '/dashboard/dimension/$dimension'
     | '/diagnostico/especializados/ecommerce'
@@ -566,6 +617,7 @@ export interface RootRouteChildren {
   DemostracionRoute: typeof DemostracionRoute
   DiagnosticoRoute: typeof DiagnosticoRouteWithChildren
   InicioRoute: typeof InicioRoute
+  InvitacionRoute: typeof InvitacionRoute
   ModaOrigenRoute: typeof ModaOrigenRoute
   PerfilRoute: typeof PerfilRoute
   PlanDeAccionRoute: typeof PlanDeAccionRouteWithChildren
@@ -654,6 +706,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InicioRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/invitacion': {
+      id: '/invitacion'
+      path: '/invitacion'
+      fullPath: '/invitacion'
+      preLoaderRoute: typeof InvitacionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/moda-origen': {
       id: '/moda-origen'
       path: '/moda-origen'
@@ -695,6 +754,20 @@ declare module '@tanstack/react-router' {
       fullPath: '/seguimiento'
       preLoaderRoute: typeof SeguimientoRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/diagnostico-productivo': {
+      id: '/_authenticated/diagnostico-productivo'
+      path: '/diagnostico-productivo'
+      fullPath: '/diagnostico-productivo'
+      preLoaderRoute: typeof AuthenticatedDiagnosticoProductivoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/resultados-productivos': {
+      id: '/_authenticated/resultados-productivos'
+      path: '/resultados-productivos'
+      fullPath: '/resultados-productivos'
+      preLoaderRoute: typeof AuthenticatedResultadosProductivosRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
     '/dashboard/': {
       id: '/dashboard/'
@@ -850,6 +923,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SeguimientoEntradaRouteImport
       parentRoute: typeof SeguimientoRoute
     }
+    '/_authenticated/capacidad/$id': {
+      id: '/_authenticated/capacidad/$id'
+      path: '/capacidad/$id'
+      fullPath: '/capacidad/$id'
+      preLoaderRoute: typeof AuthenticatedCapacidadIdRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/capacidad/op-01': {
       id: '/_authenticated/capacidad/op-01'
       path: '/capacidad/op-01'
@@ -896,10 +976,18 @@ declare module '@tanstack/react-router' {
 }
 
 interface AuthenticatedRouteRouteChildren {
+  AuthenticatedDiagnosticoProductivoRoute: typeof AuthenticatedDiagnosticoProductivoRoute
+  AuthenticatedResultadosProductivosRoute: typeof AuthenticatedResultadosProductivosRoute
+  AuthenticatedCapacidadIdRoute: typeof AuthenticatedCapacidadIdRoute
   AuthenticatedCapacidadOp01Route: typeof AuthenticatedCapacidadOp01Route
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedDiagnosticoProductivoRoute:
+    AuthenticatedDiagnosticoProductivoRoute,
+  AuthenticatedResultadosProductivosRoute:
+    AuthenticatedResultadosProductivosRoute,
+  AuthenticatedCapacidadIdRoute: AuthenticatedCapacidadIdRoute,
   AuthenticatedCapacidadOp01Route: AuthenticatedCapacidadOp01Route,
 }
 
@@ -1042,6 +1130,7 @@ const rootRouteChildren: RootRouteChildren = {
   DemostracionRoute: DemostracionRoute,
   DiagnosticoRoute: DiagnosticoRouteWithChildren,
   InicioRoute: InicioRoute,
+  InvitacionRoute: InvitacionRoute,
   ModaOrigenRoute: ModaOrigenRoute,
   PerfilRoute: PerfilRoute,
   PlanDeAccionRoute: PlanDeAccionRouteWithChildren,

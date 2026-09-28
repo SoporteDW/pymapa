@@ -211,3 +211,18 @@ export const getCapabilityValidation = createServerFn({ method: "GET" })
   .inputValidator((data: unknown) => ({ capabilityId: separar(data).capabilityId }))
   .handler(async ({ data, context }) => h.getCapabilityValidationHandler(context, data.capabilityId, {}));
 
+
+/* PKG-02 · Trabajo accionable server-authoritative, hub e invitaciones. */
+export const getCapabilityWorkspace = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => ({ capabilityId: separar(data).capabilityId }))
+  .handler(async ({ data, context }) => h.getCapabilityWorkspaceHandler(context, data.capabilityId, {}));
+
+export const getDiagnosticHub = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => h.getDiagnosticHubHandler(context));
+
+export const acceptInvitation = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => h.acceptInvitationInput(data))
+  .handler(async ({ data, context }) => h.acceptInvitationHandler(context, data));

@@ -44,7 +44,7 @@ function Acceso() {
 
   useEffect(() => {
     if (isHydrated && user) {
-      void navigate({ to: "/capacidad/op-01", replace: true });
+      void navigate({ to: "/diagnostico-productivo", replace: true });
     }
   }, [isHydrated, user, navigate]);
 
