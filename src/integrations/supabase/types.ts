@@ -562,6 +562,7 @@ export type Database = {
           submitted_by: string | null
           title: string | null
           updated_at: string
+          upload_context_capability_id: string | null
         }
         Insert: {
           assessment_id: string
@@ -581,6 +582,7 @@ export type Database = {
           submitted_by?: string | null
           title?: string | null
           updated_at?: string
+          upload_context_capability_id?: string | null
         }
         Update: {
           assessment_id?: string
@@ -600,6 +602,7 @@ export type Database = {
           submitted_by?: string | null
           title?: string | null
           updated_at?: string
+          upload_context_capability_id?: string | null
         }
         Relationships: [
           {
