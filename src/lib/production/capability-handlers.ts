@@ -218,16 +218,24 @@ export async function submitCapabilityResponseHandler(context: Ctx, capabilityId
 export async function getCapabilityCollaborationHandler(context: Ctx, capabilityId: string, _data: Record<string, never>) {
     const casoUso = await import("./caso-uso");
     const { assessment, deps } = await prepararContexto(context, capabilityId);
-    const [respondents, assignments, evidence, clarifications] = await Promise.all([
+    const capability = deps.engine.pack.capability;
+    const [respondents, assignmentsTodas, evidence, links, clarifications] = await Promise.all([
       deps.repository.listRespondents(assessment.organizationId),
       deps.repository.listAssignments(assessment.id),
       deps.repository.listEvidence(assessment.id),
+      deps.repository.listEvidenceLinks(assessment.id),
       casoUso.getClarificationCandidates(deps, assessment.id),
     ]);
     const observations = await deps.repository.listObservations(assessment.id);
+    // SPRINT-04-FIX · Solo los alcances de esta capacidad.
+    const assignments = assignmentsTodas.filter((a) => casoUso.assignmentPerteneceACapacidad(a, capability));
+    // Evidencia vinculada a observaciones de esta capacidad = "de esta capacidad".
+    // El resto de la organización se ofrece como reutilizable, nunca atribuida.
+    const obsIds = new Set(observations.map((o) => o.id));
+    const vinculadas = new Set(links.filter((l) => obsIds.has(l.observationId)).map((l) => l.evidenceId));
     return {
       assessmentId: assessment.id,
-      capabilityId: deps.engine.pack.capability.id,
+      capabilityId: capability.id,
       // Nunca se expone el token de invitación, solo el estado del alcance.
       respondents: respondents.map((r) => ({
         id: r.id,
@@ -253,6 +261,7 @@ export async function getCapabilityCollaborationHandler(context: Ctx, capability
         source: e.source,
         title: e.title,
         createdAt: e.createdAt,
+        relation: vinculadas.has(e.id) ? ("CAPABILITY" as const) : ("ORGANIZATION" as const),
       })),
       evidenceCandidates: (deps.engine.pack.evidence?.candidates ?? []).map((c) => ({
         id: c.id,
