@@ -72,6 +72,12 @@ export interface CapabilityWorkspace {
     questionsNotYetEnabled: number;
     pendingInformationTasks: number;
     contradictions: number;
+    /** UX-PROD-FIX-02 · Preguntas literales del pack (total y sin responder). */
+    literalQuestions: number;
+    pendingQuestions: number;
+    /** Requerimientos de información sin pregunta literal (total del pack). */
+    informationTasks: number;
+    clarificationsAvailable: number;
   };
 }
 
@@ -141,6 +147,11 @@ export function createActionableProjector(rawPack: unknown) {
   }
 
   return {
+    /** Proyección literal de una adquisición del pack (para corrección). */
+    project(acquisitionId: string): ActionableAcquisition | null {
+      const acq = acqById.get(acquisitionId);
+      return acq ? proyectar(acq) : null;
+    },
     derive(params: {
       engine: KnowledgeEngine;
       evaluation: EvaluationResult;
@@ -184,6 +195,10 @@ export function createActionableProjector(rawPack: unknown) {
           questionsNotYetEnabled: preguntasNoHabilitadas,
           pendingInformationTasks: pendientes.length,
           contradictions: evaluation.contradictions.length,
+          literalQuestions: todas.filter((a) => typeof a.question === "string").length,
+          pendingQuestions: todas.filter((a) => typeof a.question === "string" && !respondidas.has(a.id)).length,
+          informationTasks: todas.filter((a) => typeof a.question !== "string").length,
+          clarificationsAvailable: aclaraciones.length,
         },
       };
     },
