@@ -50,3 +50,5 @@
 - [x] 15 publicadas @1.0.0; 31/31 PUBLISHED; 774/774 tests
 - [x] PILOT-READY-01 · PKG-01 runtime/API genérico 31 capacidades
 - Siguiente (no iniciado): PKG-02 journey/UI dinámica · PKG-03 resultados · PKG-04 ejecución/validación
+
+- [x] SPRINT-04-FIX code complete — pending human acceptance (delegated respondent, evidence upload, mobile)
