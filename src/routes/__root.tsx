@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -20,6 +21,12 @@ import { useSesion } from "@/hooks/use-sesion";
 import { AsistentePymapa } from "@/components/asistente/asistente-pymapa";
 import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/sonner";
+import { useQuery } from "@tanstack/react-query";
+import { useServerFn } from "@tanstack/react-start";
+import { ProductionSidebar } from "@/components/layout/production-sidebar";
+import { useAuth } from "@/hooks/use-auth";
+import { esRutaProductiva } from "@/lib/production/entrada";
+import { getCompany } from "@/lib/production/company.functions";
 
 const modulosPrincipales = [
   { to: "/inicio", label: "Inicio" },
@@ -178,6 +185,43 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <Shell
+        sesion={sesion}
+        storageError={storageError}
+        sidebarCollapsed={sidebarCollapsed}
+        onToggleSidebar={handleToggleSidebar}
+      />
+      <Toaster position="bottom-right" />
+    </QueryClientProvider>
+  );
+}
+
+function Shell({
+  sesion,
+  storageError,
+  sidebarCollapsed,
+  onToggleSidebar: handleToggleSidebar,
+}: {
+  sesion: ReturnType<typeof useSesion>["sesion"];
+  storageError: ReturnType<typeof useSesion>["storageError"];
+  sidebarCollapsed: boolean;
+  onToggleSidebar: () => void;
+}) {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const { isHydrated: authHidratado, user } = useAuth();
+  // PKG-02A · El journey productivo usa navegación propia: sin rutas legacy,
+  // sin progreso demo de localStorage y sin etiqueta "MVP Alfa".
+  const produccion = esRutaProductiva(pathname);
+  const cargarEmpresa = useServerFn(getCompany);
+  const empresaProductiva = useQuery({
+    queryKey: ["empresa-productiva"],
+    queryFn: () => cargarEmpresa(),
+    enabled: produccion && authHidratado && !!user && pathname !== "/acceso",
+  });
+  const nombreEmpresa = empresaProductiva.data && !empresaProductiva.data.needsName ? empresaProductiva.data.name : null;
+
+  return (
+    <>
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:text-primary-foreground"
@@ -187,12 +231,18 @@ function RootComponent() {
       <div className="flex min-h-screen flex-col bg-background">
         <AppHeader
           empresa={sesion.empresa}
+          produccion={produccion}
+          nombreEmpresaProductiva={nombreEmpresa}
           onToggleSidebar={handleToggleSidebar}
-          mobileNav={<MobileNav />}
+          mobileNav={<MobileNav produccion={produccion} />}
         />
-        <DemoBanner />
+        {!produccion && <DemoBanner />}
         <div className="flex flex-1 overflow-hidden">
-          <AppSidebar collapsed={sidebarCollapsed} className="h-[calc(100vh-4rem)]" />
+          {produccion ? (
+            <ProductionSidebar collapsed={sidebarCollapsed} className="h-[calc(100vh-4rem)]" />
+          ) : (
+            <AppSidebar collapsed={sidebarCollapsed} className="h-[calc(100vh-4rem)]" />
+          )}
           <div className="flex flex-1 flex-col overflow-hidden">
             <main
               id="main-content"
@@ -200,7 +250,7 @@ function RootComponent() {
               tabIndex={-1}
             >
               <div className="mx-auto max-w-6xl">
-                {storageError && (
+                {storageError && !produccion && (
                   <div
                     role="status"
                     className="mb-4 rounded-lg border border-warning/20 bg-warning/5 p-3 text-sm text-warning-foreground"
@@ -212,13 +262,12 @@ function RootComponent() {
                 <Outlet />
               </div>
             </main>
-            <AppFooter />
+            <AppFooter produccion={produccion} />
           </div>
         </div>
       </div>
-      {/* Macroentrega 5 · Asistente Pymapa persistente (simulado). */}
-      <AsistentePymapa />
-      <Toaster position="bottom-right" />
-    </QueryClientProvider>
+      {/* Macroentrega 5 · Asistente simulado: solo fuera del journey productivo. */}
+      {!produccion && <AsistentePymapa />}
+    </>
   );
 }

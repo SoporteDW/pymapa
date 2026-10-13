@@ -180,11 +180,12 @@ describe("PKG-02 · H · navegación", () => {
     expect(new Set(ids.map((i) => i.slice(0, 2)))).toEqual(new Set(["DG", "PC", "OP", "DT", "CM", "EC"]));
     expect(OFFICIAL_CAPABILITY_IDS).toEqual(ids);
   });
-  it("rutas productivas existen y el login lleva al hub", () => {
+  it("rutas productivas existen y el login lleva al hub (vía onboarding de empresa PKG-02A)", () => {
     for (const f of ["capacidad.$id.tsx", "diagnostico-productivo.tsx", "resultados-productivos.tsx", "capacidad.op-01.tsx"]) {
       expect(existsSync(join(RAIZ, "src/routes/_authenticated", f))).toBe(true);
     }
-    expect(leer("src/routes/acceso.tsx")).toContain('"/diagnostico-productivo"');
+    expect(leer("src/routes/acceso.tsx")).toContain('"/empresa"');
+    expect(leer("src/routes/_authenticated/empresa.tsx")).toContain("RUTA_HUB");
   });
   it("capacidad inválida falla cerrada", () => {
     expect(() => cargarEngine("EC-01")).toThrow();

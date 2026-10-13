@@ -6,9 +6,10 @@ import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 import { navItems } from "./app-sidebar";
 import { BrandLogo } from "./brand-logo";
+import { ProductionNavList } from "./production-sidebar";
 
 
-export function MobileNav() {
+export function MobileNav({ produccion = false }: { produccion?: boolean }) {
   const [open, setOpen] = useState(false);
   const currentPath = useRouterState({
     select: (state) => state.location.pathname,
@@ -38,6 +39,9 @@ export function MobileNav() {
             <BrandLogo />
           </div>
           <nav className="flex-1 overflow-y-auto p-3" aria-label="Navegación principal">
+            {produccion ? (
+              <ProductionNavList onNavigate={() => setOpen(false)} />
+            ) : (
             <ul className="space-y-1.5">
               {navItems.map((item) => {
                 const isActive =
@@ -69,10 +73,13 @@ export function MobileNav() {
                 );
               })}
             </ul>
+            )}
           </nav>
-          <div className="border-t border-border p-4">
-            <p className="text-xs text-muted-foreground">MVP Alfa · v0.2</p>
-          </div>
+          {!produccion && (
+            <div className="border-t border-border p-4">
+              <p className="text-xs text-muted-foreground">MVP Alfa · v0.2</p>
+            </div>
+          )}
         </div>
       </SheetContent>
 
