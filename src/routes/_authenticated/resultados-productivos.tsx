@@ -92,7 +92,7 @@ function ResultadosProductivos() {
   const listas: Partial<Record<Filtro, { titulo: string; lista: typeof caps }>> = {
     actividad: { titulo: "Capacidades con actividad", lista: iniciadas },
     respuestas: { titulo: "Capacidades con respuestas vigentes", lista: iniciadas },
-    preguntas: { titulo: "Capacidades con preguntas disponibles", lista: caps.filter((c) => (c.counts?.pendingQuestions ?? 0) > 0) },
+    preguntas: { titulo: "Capacidades con preguntas disponibles", lista: caps.filter((c) => (c.counts?.eligibleQuestions ?? 0) > 0) },
     requerimientos: { titulo: "Capacidades con requerimientos pendientes", lista: caps.filter((c) => (c.counts?.pendingInformationTasks ?? 0) > 0) },
     aclarar: { titulo: "Capacidades con aclaraciones pendientes", lista: caps.filter((c) => (c.counts?.contradictions ?? 0) > 0) },
     hallazgos: { titulo: "Capacidades con hallazgos preliminares", lista: caps.filter((c) => c.findingsCount > 0) },
@@ -122,7 +122,7 @@ function ResultadosProductivos() {
         {([
           ["actividad", iniciadas.length, `capacidades con actividad (de ${caps.length})`],
           ["respuestas", t.responsesActive, "respuestas vigentes"],
-          ["preguntas", suma((c) => c.counts?.pendingQuestions ?? 0), "preguntas sin responder"],
+          ["preguntas", suma((c) => c.counts?.eligibleQuestions ?? 0), "preguntas disponibles ahora"],
           ["requerimientos", suma((c) => c.counts?.pendingInformationTasks ?? 0), "requerimientos de información pendientes"],
           ["aclarar", suma((c) => c.counts?.contradictions ?? 0), "puntos por aclarar"],
           ["documentos", t.evidenceUploaded, "documentos cargados"],
@@ -153,7 +153,7 @@ function ResultadosProductivos() {
                       <span className="text-xs text-muted-foreground">{c.capabilityId}</span> {c.name}
                     </Link>
                     <span className="text-xs text-muted-foreground">
-                      {c.counts ? `${c.counts.answered} resp. · ${c.counts.pendingQuestions ?? 0} preg. · ${c.counts.pendingInformationTasks} req. · ${c.counts.contradictions ?? 0} aclar.` : "—"}
+                      {c.counts ? `${c.counts.answered} resp. · ${c.counts.eligibleQuestions ?? 0} preg. · ${c.counts.pendingInformationTasks} req. · ${c.counts.contradictions ?? 0} aclar.` : "—"}
                     </span>
                   </li>
                 ))}
@@ -199,7 +199,7 @@ function ResultadosProductivos() {
                     </Link>
                     <span className="text-xs text-muted-foreground">
                       {c.counts
-                        ? `${c.counts.answered} resp. · ${c.counts.pendingQuestions} preg. · ${c.counts.pendingInformationTasks} req.`
+                        ? `${c.counts.answered} resp. · ${c.counts.eligibleQuestions} preg. · ${c.counts.pendingInformationTasks} req.`
                         : "—"}
                     </span>
                     <Badge variant="outline" className="rounded-full text-[11px]">{ETIQUETA_ESTADO[c.interactionState] ?? c.interactionState}</Badge>
