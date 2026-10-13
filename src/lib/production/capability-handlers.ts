@@ -86,30 +86,69 @@ async function prepararContexto(
   };
 }
 
+/** Roles de membresía que participan en todas las capacidades sin invitación. */
+const ROLES_CON_PARTICIPACION_PLENA = new Set(["OWNER", "ADMIN"]);
+
 /**
- * Respondent propio del usuario autenticado, con asignación sobre la capacidad.
+ * Respondent propio del usuario autenticado, con asignación que autoriza la
+ * capacidad (y la adquisición, si se indica).
  * User ≠ Membership ≠ Respondent: esto no crea ni altera membresías.
+ *
+ * SPRINT-04-FIX · Nunca reutiliza una asignación que no cubra la petición.
+ * OWNER/ADMIN reciben una asignación CAPABILITY auditable por capacidad la
+ * primera vez que participan; los demás (p. ej. respondents delegados)
+ * conservan exactamente el alcance que se les asignó.
  */
-async function asegurarRespondentPropio(
+export async function asegurarRespondentPropio(
   deps: Awaited<ReturnType<typeof prepararContexto>>["deps"],
-  params: { organizationId: string; assessmentId: string; capabilityId: string; userId: string },
+  params: {
+    organizationId: string;
+    assessmentId: string;
+    capabilityId: string;
+    userId: string;
+    acquisitionId?: string;
+  },
 ) {
   const casoUso = await import("./caso-uso");
+  const capability = deps.engine.pack.capability;
+  if (capability.id !== params.capabilityId) throw new Error("CAPABILITY_MISMATCH");
   const respondent = await casoUso.asegurarRespondentDeUsuario(deps, {
     organizationId: params.organizationId,
     userId: params.userId,
   });
-  const asignaciones = await deps.repository.listAssignments(params.assessmentId);
-  const propia = asignaciones.find(
-    (a) => a.respondentId === respondent.id && a.status !== "REVOKED",
+  const acquisition = params.acquisitionId ? deps.engine.getAcquisition(params.acquisitionId) : null;
+  const asignaciones = (await deps.repository.listAssignments(params.assessmentId)).filter(
+    (a) =>
+      a.respondentId === respondent.id &&
+      a.assessmentId === params.assessmentId &&
+      a.status !== "REVOKED",
   );
-  if (propia) return { respondent, assignment: propia };
+  const valida = asignaciones.find((a) =>
+    acquisition
+      ? casoUso.assignmentCubreAdquisicion(
+          a,
+          {
+            id: acquisition.id,
+            ...(acquisition.informationNeedRef ? { informationNeedRef: acquisition.informationNeedRef } : {}),
+            variableRefs: acquisition.variableRefs,
+          },
+          capability,
+        )
+      : casoUso.assignmentPerteneceACapacidad(a, capability),
+  );
+  if (valida) return { respondent, assignment: valida };
+
+  const rol = await deps.repository.getMembershipRole(params.organizationId, params.userId);
+  if (!rol || !ROLES_CON_PARTICIPACION_PLENA.has(rol)) {
+    // Sin asignación válida: el caso de uso rechazará con el motivo gobernado.
+    return { respondent, assignment: null };
+  }
   const assignment = await deps.repository.insertAssignment({
     organizationId: params.organizationId,
     assessmentId: params.assessmentId,
     respondentId: respondent.id,
     scopeType: "CAPABILITY",
-    scopeRef: params.capabilityId,
+    scopeRef: capability.id,
     status: "IN_PROGRESS",
     delegatedFromAssignmentId: null,
     delegationReason: null,
@@ -154,6 +193,7 @@ export async function submitCapabilityResponseHandler(context: Ctx, capabilityId
       assessmentId: assessment.id,
       capabilityId: deps.engine.pack.capability.id,
       userId: context.userId,
+      acquisitionId: data.acquisitionId,
     });
     return casoUso.submitAcquisitionResponse(deps, {
       assessmentId: assessment.id,
@@ -179,16 +219,24 @@ export async function submitCapabilityResponseHandler(context: Ctx, capabilityId
 export async function getCapabilityCollaborationHandler(context: Ctx, capabilityId: string, _data: Record<string, never>) {
     const casoUso = await import("./caso-uso");
     const { assessment, deps } = await prepararContexto(context, capabilityId);
-    const [respondents, assignments, evidence, clarifications] = await Promise.all([
+    const capability = deps.engine.pack.capability;
+    const [respondents, assignmentsTodas, evidence, links, clarifications] = await Promise.all([
       deps.repository.listRespondents(assessment.organizationId),
       deps.repository.listAssignments(assessment.id),
       deps.repository.listEvidence(assessment.id),
+      deps.repository.listEvidenceLinks(assessment.id),
       casoUso.getClarificationCandidates(deps, assessment.id),
     ]);
     const observations = await deps.repository.listObservations(assessment.id);
+    // SPRINT-04-FIX · Solo los alcances de esta capacidad.
+    const assignments = assignmentsTodas.filter((a) => casoUso.assignmentPerteneceACapacidad(a, capability));
+    // Evidencia vinculada a observaciones de esta capacidad = "de esta capacidad".
+    // El resto de la organización se ofrece como reutilizable, nunca atribuida.
+    const obsIds = new Set(observations.map((o) => o.id));
+    const vinculadas = new Set(links.filter((l) => obsIds.has(l.observationId)).map((l) => l.evidenceId));
     return {
       assessmentId: assessment.id,
-      capabilityId: deps.engine.pack.capability.id,
+      capabilityId: capability.id,
       // Nunca se expone el token de invitación, solo el estado del alcance.
       respondents: respondents.map((r) => ({
         id: r.id,
@@ -214,6 +262,7 @@ export async function getCapabilityCollaborationHandler(context: Ctx, capability
         source: e.source,
         title: e.title,
         createdAt: e.createdAt,
+        relation: vinculadas.has(e.id) ? ("CAPABILITY" as const) : ("ORGANIZATION" as const),
       })),
       evidenceCandidates: (deps.engine.pack.evidence?.candidates ?? []).map((c) => ({
         id: c.id,
@@ -235,6 +284,15 @@ export const inviteCapabilityRespondentInput = (data: unknown) => invitarSchema.
 export async function inviteCapabilityRespondentHandler(context: Ctx, capabilityId: string, data: ReturnType<typeof inviteCapabilityRespondentInput>) {
     const casoUso = await import("./caso-uso");
     const { assessment, deps } = await prepararContexto(context, capabilityId);
+    // SPRINT-04-FIX · El alcance invitado debe pertenecer a esta capacidad.
+    const capability = deps.engine.pack.capability;
+    const scopeRef =
+      data.scopeType === "INFORMATION_NEED" || data.scopeType === "SECTION"
+        ? casoUso.calificarAlcance(capability.id, data.scopeRef)
+        : data.scopeRef;
+    if (!casoUso.assignmentPerteneceACapacidad({ scopeType: data.scopeType, scopeRef }, capability)) {
+      throw new Error("SCOPE_OUTSIDE_CAPABILITY");
+    }
     // Token de un solo uso generado en el servidor; solo se persiste su hash.
     const token = crypto.randomUUID();
     const salida = await casoUso.invitarRespondent(deps, {
@@ -244,7 +302,7 @@ export async function inviteCapabilityRespondentHandler(context: Ctx, capability
       displayName: data.displayName ?? null,
       roleLabel: data.roleLabel ?? null,
       scopeType: data.scopeType,
-      scopeRef: data.scopeRef,
+      scopeRef,
       createdBy: context.userId,
       token,
       delegatedFromAssignmentId: data.delegatedFromAssignmentId ?? null,
@@ -418,12 +476,18 @@ export const registerCapabilityEvidenceInput = (data: unknown) => evidenciaSchem
 export async function registerCapabilityEvidenceHandler(context: Ctx, capabilityId: string, data: ReturnType<typeof registerCapabilityEvidenceInput>) {
     const casoUso = await import("./caso-uso");
     const { assessment, deps } = await prepararContexto(context, capabilityId);
-    const { respondent } = await asegurarRespondentPropio(deps, {
+    const { respondent, assignment } = await asegurarRespondentPropio(deps, {
       organizationId: assessment.organizationId,
       assessmentId: assessment.id,
       capabilityId: deps.engine.pack.capability.id,
       userId: context.userId,
     });
+    if (!assignment) throw new Error("OUT_OF_ASSIGNMENT_SCOPE");
+    // SPRINT-04-FIX · Solo se vincula a observaciones de esta capacidad.
+    if (data.observationIds?.length) {
+      const propias = new Set((await deps.repository.listObservations(assessment.id)).map((o) => o.id));
+      if (data.observationIds.some((id) => !propias.has(id))) throw new Error("OBSERVATION_OUTSIDE_CAPABILITY");
+    }
     const salida = await casoUso.registrarEvidencia(deps, {
       organizationId: assessment.organizationId,
       caseId: assessment.caseId,
