@@ -478,6 +478,7 @@ function construirHistorial(p: {
 
 /** Hub: estado real de las 31 capacidades. Lecturas memoizadas por petición. */
 export async function getDiagnosticHubHandler(context: Ctx) {
+  const inicio = Date.now();
   const runtime = await import("./runtime.server");
   const casoUso = await import("./caso-uso");
   const { getRegisteredPack } = await import("./packs-registry");
@@ -485,15 +486,30 @@ export async function getDiagnosticHubHandler(context: Ctx) {
   const { memoizeReads } = await import("./capability-scope");
   const base = memoizeReads(runtime.createSupabaseProductionRepository());
   const catalogo = runtime.listarCapacidadesDisponibles();
-  const capacidades = [];
-  for (const entrada of catalogo) {
-    // Fail-closed por capacidad: un fallo de integridad en una no oculta las otras 30.
+
+  // UX-PROD-FIX-02 · El bootstrap Organization→Case→Assessment se resuelve una
+  // vez por grupo de cobertura (antes: 31 veces en serie). Mismo usuario, misma
+  // identidad RLS, mismo Assessment pinneado: determinismo preservado.
+  type ClienteUsuario = Parameters<typeof runtime.asegurarContextoProductivo>[0];
+  const assessments = new Map<string, Promise<import("./puertos").AssessmentRecord>>();
+  const resolverAssessment = (capabilityId: string) => {
+    const clave = runtime.claveCoberturaCapacidad(capabilityId);
+    let p = assessments.get(clave);
+    if (!p) {
+      p = runtime.asegurarContextoProductivo(context.supabase as ClienteUsuario, context.userId, capabilityId);
+      assessments.set(clave, p);
+    }
+    return p;
+  };
+
+  async function evaluarEntrada(entrada: (typeof catalogo)[number]) {
     let ctx: Awaited<ReturnType<typeof prepararContexto>>;
     try {
-      ctx = await prepararContexto(context, entrada.capabilityId, { baseRepository: base });
+      ctx = await prepararContexto(context, entrada.capabilityId, { baseRepository: base, resolverAssessment });
     } catch (e) {
+      // Fail-closed por capacidad: un fallo de integridad en una no oculta las otras 30.
       console.error(`[hub] ${entrada.capabilityId}:`, e instanceof Error ? e.message : e);
-      capacidades.push({
+      return {
         capabilityId: entrada.capabilityId,
         name: entrada.name,
         domainId: entrada.domainId,
@@ -501,8 +517,8 @@ export async function getDiagnosticHubHandler(context: Ctx) {
         interactionState: "UNAVAILABLE" as const,
         counts: null,
         findingsCount: 0,
-      });
-      continue;
+        assessmentId: null as string | null,
+      };
     }
     const { assessment, deps } = ctx;
     const evaluado = await casoUso.evaluarCapacidad(deps, assessment.id);
@@ -514,7 +530,7 @@ export async function getDiagnosticHubHandler(context: Ctx) {
         })
       : null;
     const findings = await deps.repository.listFindings(assessment.id);
-    capacidades.push({
+    return {
       capabilityId: entrada.capabilityId,
       name: entrada.name,
       domainId: entrada.domainId,
@@ -522,14 +538,52 @@ export async function getDiagnosticHubHandler(context: Ctx) {
       interactionState: workspace?.interactionState ?? "NOT_STARTED",
       counts: workspace?.counts ?? null,
       findingsCount: findings.length,
-    });
+      assessmentId: assessment.id as string | null,
+    };
   }
+
+  // Concurrencia acotada: la evaluación es pura por capacidad y las lecturas
+  // están memoizadas, así que el orden de ejecución no altera el resultado.
+  const LIMITE = 8;
+  const capacidades: Awaited<ReturnType<typeof evaluarEntrada>>[] = new Array(catalogo.length);
+  let siguiente = 0;
+  await Promise.all(
+    Array.from({ length: Math.min(LIMITE, catalogo.length) }, async () => {
+      while (siguiente < catalogo.length) {
+        const i = siguiente++;
+        capacidades[i] = await evaluarEntrada(catalogo[i]!);
+      }
+    }),
+  );
+
+  // Totales reales persistidos (no son porcentajes ni madurez).
+  const ids = [...new Set(capacidades.map((c) => c.assessmentId).filter((x): x is string => Boolean(x)))];
+  const porAssessment = await Promise.all(
+    ids.map(async (id) => {
+      const [obs, ev, links] = await Promise.all([
+        base.listObservations(id),
+        base.listEvidence(id),
+        base.listEvidenceLinks(id),
+      ]);
+      return { obs, ev, links };
+    }),
+  );
+  const totales = {
+    responsesActive: porAssessment.reduce((n, a) => n + casoUso.observacionesVigentes(a.obs).length, 0),
+    responsesCorrected: porAssessment.reduce((n, a) => n + casoUso.observacionesCorregidas(a.obs).size, 0),
+    evidenceUploaded: porAssessment.reduce((n, a) => n + a.ev.length, 0),
+    evidenceLinked: porAssessment.reduce((n, a) => n + new Set(a.links.map((l) => l.evidenceId)).size, 0),
+  };
+  const elapsedMs = Date.now() - inicio;
+  console.info(`[hub] ${catalogo.length} capacidades en ${elapsedMs} ms`);
   return {
     runtimeManifest: {
       identifier: runtime.KNOWLEDGE_RUNTIME_IDENTIFIER,
       version: runtime.KNOWLEDGE_RUNTIME_VERSION,
     },
-    capabilities: capacidades,
+    capabilities: capacidades.map(({ assessmentId: _a, ...c }) => c),
+    totals: totales,
+    elapsedMs,
   };
 }
 
