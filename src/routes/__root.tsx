@@ -3,6 +3,7 @@ import {
   Outlet,
   Link,
   createRootRouteWithContext,
+  redirect,
   useRouter,
   useRouterState,
   HeadContent,
@@ -25,17 +26,15 @@ import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { ProductionSidebar } from "@/components/layout/production-sidebar";
 import { useAuth } from "@/hooks/use-auth";
-import { modoShell } from "@/lib/production/entrada";
+import { destinoRutaLegacy, modoShell } from "@/lib/production/entrada";
 import { getCompany } from "@/lib/production/company.functions";
 
 const modulosPrincipales = [
-  { to: "/inicio", label: "Inicio" },
-  { to: "/diagnostico", label: "Diagnóstico" },
-  { to: "/resultados", label: "Resultados" },
-  { to: "/plan-de-accion", label: "Plan de acción" },
-  { to: "/dashboard", label: "Dashboard" },
+  { to: "/diagnostico-productivo", label: "Diagnóstico" },
+  { to: "/resultados-productivos", label: "Avance y resultados" },
+  { to: "/empresa", label: "Mi empresa" },
   { to: "/ayuda", label: "Ayuda" },
-];
+] as const;
 
 function NotFoundComponent() {
   const router = useRouter();
@@ -52,7 +51,7 @@ function NotFoundComponent() {
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <Button asChild>
-            <Link to="/inicio">Ir a Inicio</Link>
+            <Link to="/">Ir a Inicio</Link>
           </Button>
           <Button variant="outline" onClick={() => router.history.back()}>
             Volver
@@ -101,7 +100,7 @@ function ErrorComponent({ error, reset }: { error: unknown; reset: () => void })
             Intentar de nuevo
           </Button>
           <Button variant="outline" asChild>
-            <a href="/inicio">Ir a Inicio</a>
+            <a href="/">Ir a Inicio</a>
           </Button>
         </div>
       </div>
@@ -147,6 +146,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
   }),
 
+  // UX-PROD-FIX-02 · Un solo producto: las rutas legacy van al destino productivo.
+  beforeLoad: ({ location }) => {
+    const destino = destinoRutaLegacy(location.pathname);
+    if (destino) throw redirect({ href: destino, replace: true });
+  },
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,

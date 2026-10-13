@@ -109,8 +109,8 @@ function EntradaPage() {
           ))}
         </ol>
         <p className="text-sm text-muted-foreground">
-          Al final del recorrido tendrás tres documentos: el Informe de Diagnóstico, el Plan de
-          Acción y el Plan de Seguimiento.
+          Hoy puedes completar el diagnóstico por capacidades y ver tu avance real. El informe
+          ejecutivo y el plan de transformación llegarán en próximas versiones.
         </p>
       </section>
 
@@ -149,22 +149,16 @@ function EntradaPage() {
                   Caso demostrativo
                 </span>
               </div>
-              <CardTitle className="text-xl">Explorar la demostración: Moda Origen</CardTitle>
+              <CardTitle className="text-xl">Demostración con el producto real</CardTitle>
               <CardDescription>
-                Una tienda de ropa que ya hizo su diagnóstico, entregó evidencias, ejecutó una
-                acción y está midiendo resultados. Verás el modelo completo en pocos minutos, con
-                datos simulados.
+                La demostración se presentará con una empresa de demostración creada en vivo, usando
+                exactamente el mismo recorrido y el mismo diagnóstico que cualquier empresa. Sus datos
+                quedan aislados y marcados como demostración.
               </CardDescription>
             </CardHeader>
-            <CardContent className="mt-auto space-y-2">
-              <Button asChild size="lg" variant="outline" className="w-full">
-                <Link to="/moda-origen">
-                  Ver qué ya pasó en Moda Origen
-                  <ArrowRight className="size-4" aria-hidden="true" />
-                </Link>
-              </Button>
+            <CardContent className="mt-auto">
               <p className="text-xs text-muted-foreground">
-                Solo demostración: no usa tu cuenta ni se mezcla con los datos de tu empresa.
+                No hay un recorrido simulado aparte: lo que ves en la demostración es el producto.
               </p>
             </CardContent>
           </Card>

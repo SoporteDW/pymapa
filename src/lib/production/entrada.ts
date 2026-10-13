@@ -61,11 +61,43 @@ export function modoShell(pathname: string, autenticado: boolean): "PRODUCCION" 
 }
 
 /**
+ * UX-PROD-FIX-02 · Un único producto. Las rutas legacy (MVP Alfa con
+ * localStorage y la demo simulada Moda Origen) ya no forman parte del journey:
+ * se redirigen al destino productivo equivalente. El código legacy se conserva
+ * (compatibilidad), pero es inaccesible por navegación.
+ */
+const REDIRECCIONES_LEGACY: ReadonlyArray<readonly [string, string]> = [
+  ["/perfil", RUTA_EMPRESA],
+  ["/inicio", RUTA_HUB],
+  ["/diagnostico", RUTA_HUB],
+  ["/colaboracion", RUTA_HUB],
+  ["/resultados", RUTA_RESULTADOS],
+  ["/dashboard", RUTA_RESULTADOS],
+  ["/plan-de-accion", RUTA_RESULTADOS],
+  ["/roadmap", RUTA_RESULTADOS],
+  ["/seguimiento", RUTA_RESULTADOS],
+  ["/proyecto", RUTA_RESULTADOS],
+  ["/apoyo", RUTA_AYUDA],
+  ["/cohorte", RUTA_AYUDA],
+  ["/demostracion", "/"],
+  ["/moda-origen", "/"],
+];
+
+/** Destino productivo de una ruta legacy, o null si la ruta no es legacy. */
+export function destinoRutaLegacy(pathname: string): string | null {
+  const limpia = pathname.length > 1 ? pathname.replace(/\/+$/, "") : pathname;
+  for (const [prefijo, destino] of REDIRECCIONES_LEGACY) {
+    if (limpia === prefijo || limpia.startsWith(`${prefijo}/`)) return destino;
+  }
+  return null;
+}
+
+/**
  * Navegación productiva mínima. Solo rutas productivas existentes.
  * OP-01 se accede desde el catálogo de 31 capacidades (sin entrada aparte).
  */
 export const navegacionProductiva = [
   { id: "diagnostico", to: RUTA_HUB, label: "Diagnóstico" },
-  { id: "resultados", to: RUTA_RESULTADOS, label: "Resultados (preliminar)" },
+  { id: "resultados", to: RUTA_RESULTADOS, label: "Avance y resultados" },
   { id: "empresa", to: RUTA_EMPRESA, label: "Mi empresa" },
 ] as const;
