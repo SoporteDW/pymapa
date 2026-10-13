@@ -15,3 +15,5 @@
 - Server boundary logic lives in `capability-handlers.ts` (capabilityId-parametrized); `op01.functions.ts` and `capabilities.functions.ts` are thin auth-protected wrappers — no per-capability code paths.
 - Responses/observations on the shared runtime Assessment carry `capabilityId` in their JSON and are read through `scopeRepositoryToCapability` (untagged legacy rows = OP-01) — acquisition/variable IDs repeat across packs.
 - Actionable workspace (pending tasks, states) is derived server-side in `actionable.ts` from Engine + pack source text — UI never invents questions or order.
+- `PYMAPA-KNOWLEDGE-MASTER 1.0.0` is verified against the pinned literal `KNOWLEDGE_VERSION_CHECKSUM_HISTORICO`, never recomputed from the evolving OP-01 pack — recomputing breaks the immutable DB row.
+- `bootstrap_organization` is SECURITY DEFINER (enforces auth.uid + one org per user) — under RLS its INSERT…RETURNING cannot see the org before the membership exists.
