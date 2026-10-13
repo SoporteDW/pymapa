@@ -363,10 +363,42 @@ export async function getCapabilityWorkspaceHandler(context: Ctx, capabilityId: 
     evaluation: evaluado.evaluation,
     answeredAcquisitionIds: evaluado.answeredAcquisitionIds,
   });
-  const findings = await deps.repository.listFindings(assessment.id);
+  const projector = createActionableProjector(registro.pack);
+  const [findings, observaciones, respondents, rol] = await Promise.all([
+    deps.repository.listFindings(assessment.id),
+    deps.repository.listObservations(assessment.id),
+    deps.repository.listRespondents(assessment.organizationId),
+    deps.repository.getMembershipRole(assessment.organizationId, context.userId),
+  ]);
+  const historial = construirHistorial({
+    observaciones,
+    respondents,
+    userId: context.userId,
+    plena: Boolean(rol && ROLES_CON_PARTICIPACION_PLENA.has(rol)),
+    corregidas: casoUso.observacionesCorregidas(observaciones),
+    project: (id) => projector.project(id),
+  });
+  const variables = new Map(
+    ((deps.engine.pack as { variables?: { id: string; name?: string }[] }).variables ?? []).map((v) => [v.id, v.name ?? null]),
+  );
   return {
     assessmentId: assessment.id,
     organizationId: assessment.organizationId,
+    responseHistory: historial,
+    clarificationDetails: evaluado.evaluation.contradictions.map((c) => {
+      const entradas = historial.filter((h) => c.conflictingObservationIds.includes(h.observationId));
+      return {
+        variableRef: c.variableRef,
+        variableName: variables.get(c.variableRef) ?? null,
+        // Motivo según la procedencia real: declarado por la persona o valores distintos.
+        reason: entradas.some((e) => e.knowledgeState === "CONTRADICTORY")
+          ? ("DECLARED_CONTRADICTORY" as const)
+          : ("DIVERGENT_VALUES" as const),
+        conflictingSemanticValues: c.conflictingSemanticValues,
+        observationIds: c.conflictingObservationIds,
+        packClarificationAvailable: workspace.clarifications.length > 0,
+      };
+    }),
     capability: {
       capabilityId: registro.capabilityId,
       name: registro.name,
@@ -382,6 +414,66 @@ export async function getCapabilityWorkspaceHandler(context: Ctx, capabilityId: 
       conflictingObservationIds: c.conflictingObservationIds,
     })),
   };
+}
+
+type HistorialEntrada = {
+  observationId: string;
+  acquisitionId: string;
+  label: string | null;
+  knowledgeState: string;
+  semanticValue: string | null;
+  notApplicableReason: string | null;
+  recordedAt: string;
+  submittedBy: string | null;
+  submittedBySelf: boolean;
+  correctsObservationId: string | null;
+  supersededByObservationId: string | null;
+  canCorrect: boolean;
+  acquisition: import("./actionable").ActionableAcquisition | null;
+};
+
+/** UX-PROD-FIX-02 · Historial de respuestas de la capacidad (más reciente primero). */
+function construirHistorial(p: {
+  observaciones: import("./puertos").ObservationRecord[];
+  respondents: import("./puertos").RespondentRecord[];
+  userId: string;
+  plena: boolean;
+  corregidas: Set<string>;
+  project: (acquisitionId: string) => import("./actionable").ActionableAcquisition | null;
+}): HistorialEntrada[] {
+  const porId = new Map(p.respondents.map((r) => [r.id, r]));
+  const sustituta = new Map<string, string>();
+  for (const o of p.observaciones) {
+    const c = (o.value as { correctsObservationId?: string }).correctsObservationId;
+    if (c) sustituta.set(c, o.id);
+  }
+  return p.observaciones
+    .map((o) => {
+      const r = o.respondentId ? porId.get(o.respondentId) : undefined;
+      const propia = Boolean(r && r.userId === p.userId);
+      const acq = p.project(o.value.acquisitionRef);
+      const label =
+        acq?.question ??
+        acq?.informationNeedStatement ??
+        acq?.correspondenceStatement ??
+        (acq ? acq.variables.map((v) => v.name).filter(Boolean).join(" · ") || null : null);
+      return {
+        observationId: o.id,
+        acquisitionId: o.value.acquisitionRef,
+        label,
+        knowledgeState: o.value.knowledgeState,
+        semanticValue: o.value.semanticValue,
+        notApplicableReason: o.value.notApplicableReason ?? null,
+        recordedAt: o.createdAt,
+        submittedBy: r ? (r.displayName ?? r.email ?? null) : null,
+        submittedBySelf: propia,
+        correctsObservationId: (o.value as { correctsObservationId?: string }).correctsObservationId ?? null,
+        supersededByObservationId: sustituta.get(o.id) ?? null,
+        canCorrect: !p.corregidas.has(o.id) && acq !== null && (propia || p.plena),
+        acquisition: acq,
+      };
+    })
+    .reverse();
 }
 
 /** Hub: estado real de las 31 capacidades. Lecturas memoizadas por petición. */
