@@ -274,6 +274,15 @@ export const inviteCapabilityRespondentInput = (data: unknown) => invitarSchema.
 export async function inviteCapabilityRespondentHandler(context: Ctx, capabilityId: string, data: ReturnType<typeof inviteCapabilityRespondentInput>) {
     const casoUso = await import("./caso-uso");
     const { assessment, deps } = await prepararContexto(context, capabilityId);
+    // SPRINT-04-FIX · El alcance invitado debe pertenecer a esta capacidad.
+    const capability = deps.engine.pack.capability;
+    const scopeRef =
+      data.scopeType === "INFORMATION_NEED" || data.scopeType === "SECTION"
+        ? casoUso.calificarAlcance(capability.id, data.scopeRef)
+        : data.scopeRef;
+    if (!casoUso.assignmentPerteneceACapacidad({ scopeType: data.scopeType, scopeRef }, capability)) {
+      throw new Error("SCOPE_OUTSIDE_CAPABILITY");
+    }
     // Token de un solo uso generado en el servidor; solo se persiste su hash.
     const token = crypto.randomUUID();
     const salida = await casoUso.invitarRespondent(deps, {
@@ -283,7 +292,7 @@ export async function inviteCapabilityRespondentHandler(context: Ctx, capability
       displayName: data.displayName ?? null,
       roleLabel: data.roleLabel ?? null,
       scopeType: data.scopeType,
-      scopeRef: data.scopeRef,
+      scopeRef,
       createdBy: context.userId,
       token,
       delegatedFromAssignmentId: data.delegatedFromAssignmentId ?? null,
