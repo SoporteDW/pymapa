@@ -774,6 +774,7 @@ export function createSupabaseProductionRepository(): ProductionRepository {
           submitted_by: input.submittedBy,
           respondent_id: input.respondentId,
           captured_at: input.capturedAt,
+          upload_context_capability_id: input.uploadContextCapabilityId ?? null,
         })
         .select("id, created_at")
         .single();
@@ -1917,7 +1918,7 @@ const CAMPOS_ASSIGNMENT =
   "id, organization_id, assessment_id, respondent_id, scope_type, scope_ref, status, delegated_from_assignment_id, delegation_reason, created_at";
 
 const CAMPOS_EVIDENCE =
-  "id, organization_id, case_id, assessment_id, candidate_ref, evidence_type, source, storage_bucket, storage_path, external_reference, title, note, submitted_by, respondent_id, captured_at, created_at";
+  "id, organization_id, case_id, assessment_id, candidate_ref, evidence_type, source, storage_bucket, storage_path, external_reference, title, note, submitted_by, respondent_id, captured_at, upload_context_capability_id, created_at";
 
 function mapRespondent(row: {
   id: string;
@@ -1983,9 +1984,11 @@ function mapEvidence(row: {
   submitted_by: string | null;
   respondent_id: string | null;
   captured_at: string | null;
+  upload_context_capability_id?: string | null;
   created_at: string;
 }): EvidenceRecord {
   return {
+    uploadContextCapabilityId: row.upload_context_capability_id ?? null,
     id: row.id,
     organizationId: row.organization_id,
     caseId: row.case_id,

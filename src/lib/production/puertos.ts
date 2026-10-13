@@ -140,6 +140,8 @@ export interface EvidenceRecord {
   submittedBy: string | null;
   respondentId: string | null;
   capturedAt: string | null;
+  /** UX-PROD-FIX-02 · Capacidad donde se cargó (procedencia, no vínculo). */
+  uploadContextCapabilityId?: string | null;
   createdAt: string;
 }
 

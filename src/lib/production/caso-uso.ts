@@ -764,6 +764,7 @@ export interface RegistrarEvidenciaInput {
   submittedBy: string | null;
   respondentId?: string | null;
   capturedAt?: string | null;
+  uploadContextCapabilityId?: string | null;
   /** Observaciones que esta evidencia soporta (puede ser más de una). */
   observationIds?: string[];
 }
@@ -801,6 +802,7 @@ export async function registrarEvidencia(
     submittedBy: input.submittedBy,
     respondentId: input.respondentId ?? null,
     capturedAt: input.capturedAt ?? null,
+    uploadContextCapabilityId: input.uploadContextCapabilityId ?? null,
   });
 
   const links: ObservationEvidenceLink[] = [];
