@@ -76,7 +76,8 @@ describe("PKG-02A · A. Entrada pública", () => {
     const home = leer("src/routes/index.tsx");
     expect(home).toContain("rutaCtaPrincipal");
     expect(home).not.toContain('to="/perfil"');
-    expect(home).toContain('to="/moda-origen"');
+    // UX-PROD-FIX-02 · Sin demo simulada aparte: la Home ya no enlaza a Moda Origen.
+    expect(home).not.toContain('to="/moda-origen"');
   });
   it("Tras iniciar sesión, /acceso lleva al onboarding productivo", () => {
     expect(leer("src/routes/acceso.tsx")).toContain('navigate({ to: "/empresa"');
@@ -154,7 +155,7 @@ describe("PKG-02A · D. Navegación productiva", () => {
   it("sidebar productivo sin 'MVP Alfa'; resultados marcados como preliminares", () => {
     const sb = leer("src/components/layout/production-sidebar.tsx");
     expect(sb).not.toMatch(/>\s*MVP Alfa/);
-    expect(navegacionProductiva.find((n) => n.id === "resultados")?.label).toMatch(/preliminar/i);
+    expect(navegacionProductiva.find((n) => n.id === "resultados")?.label).toBe("Avance y resultados");
     const root = leer("src/routes/__root.tsx");
     expect(root).toContain("<ProductionSidebar");
     expect(root).toContain("{!produccion && <DemoBanner />}");

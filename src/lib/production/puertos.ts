@@ -51,6 +51,8 @@ export interface ObservationRecord {
     acquisitionRef: string;
     notApplicableReason?: string | null;
     conflictingObservationIds?: string[];
+    /** UX-PROD-FIX-02 · Observación vigente que esta corrige (historial preservado). */
+    correctsObservationId?: string;
   };
   createdAt: string;
 }
@@ -138,6 +140,8 @@ export interface EvidenceRecord {
   submittedBy: string | null;
   respondentId: string | null;
   capturedAt: string | null;
+  /** UX-PROD-FIX-02 · Capacidad donde se cargó (procedencia, no vínculo). */
+  uploadContextCapabilityId?: string | null;
   createdAt: string;
 }
 

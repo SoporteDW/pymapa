@@ -52,3 +52,7 @@
 - Siguiente (no iniciado): PKG-02 journey/UI dinámica · PKG-03 resultados · PKG-04 ejecución/validación
 
 - [x] SPRINT-04-FIX code complete — pending human acceptance (delegated respondent, evidence upload, mobile)
+
+## UX-PROD-FIX-02 · Unified Product Journey
+- [x] Six workstreams + acceptance tests (docs/architecture/UX_PROD_FIX_02_UNIFIED_JOURNEY.md)
+- [ ] Human acceptance (correction in browser, invited respondent, mobile, published domain) — waits on user

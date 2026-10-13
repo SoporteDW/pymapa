@@ -56,6 +56,8 @@ import type {
 
 export const KNOWLEDGE_VERSION_MISMATCH = "KNOWLEDGE_VERSION_MISMATCH" as const;
 export const OUT_OF_ASSIGNMENT_SCOPE = "OUT_OF_ASSIGNMENT_SCOPE" as const;
+export const CORRECTION_TARGET_INVALID = "CORRECTION_TARGET_INVALID" as const;
+export const CORRECTION_NOT_AUTHORIZED = "CORRECTION_NOT_AUTHORIZED" as const;
 export const RESPONDENT_WITHOUT_ASSIGNMENT = "RESPONDENT_WITHOUT_ASSIGNMENT" as const;
 export const FINDING_NOT_REVIEWED = "FINDING_NOT_REVIEWED" as const;
 export const RECOMMENDATION_NOT_SELECTED = "RECOMMENDATION_NOT_SELECTED" as const;
@@ -114,6 +116,11 @@ export interface SubmitAcquisitionResponseInput {
   rawInput?: Record<string, unknown>;
   /** Evidencias que soportan la observación resultante. */
   evidenceIds?: string[];
+  /**
+   * UX-PROD-FIX-02 · Corrección gobernada: la nueva observación sustituye a
+   * esta en la evaluación vigente. La fila corregida se conserva (historial).
+   */
+  correctsObservationId?: string | null;
 }
 
 export interface SubmitAcquisitionResponseOutput {
@@ -205,12 +212,27 @@ async function assessmentFijado(deps: ProductionDeps, assessmentId: string) {
   return { ok: true as const, assessment };
 }
 
+/** Ids de observaciones sustituidas por una corrección explícita posterior. */
+export function observacionesCorregidas(filas: ObservationRecord[]): Set<string> {
+  return new Set(
+    filas
+      .map((o) => (o.value as { correctsObservationId?: unknown }).correctsObservationId)
+      .filter((x): x is string => typeof x === "string" && x.length > 0),
+  );
+}
+
+/** Observaciones vigentes: excluye las sustituidas por corrección (sin borrar). */
+export function observacionesVigentes(filas: ObservationRecord[]): ObservationRecord[] {
+  const corregidas = observacionesCorregidas(filas);
+  return filas.filter((o) => !corregidas.has(o.id));
+}
+
 async function observacionesDelEngine(deps: ProductionDeps, assessmentId: string) {
   const [filas, enlaces] = await Promise.all([
     deps.repository.listObservations(assessmentId),
     deps.repository.listEvidenceLinks(assessmentId),
   ]);
-  return aEngineObservations(filas, enlaces);
+  return aEngineObservations(observacionesVigentes(filas), enlaces);
 }
 
 export async function getAssessmentState(
@@ -517,6 +539,20 @@ export async function submitAcquisitionResponse(
     if (!cubierta) return { ...vacio, rejectionReason: OUT_OF_ASSIGNMENT_SCOPE };
   }
 
+  // UX-PROD-FIX-02 · La corrección solo sustituye una observación vigente de
+  // la misma adquisición; nunca borra ni reescribe la fila original.
+  if (input.correctsObservationId) {
+    const filas = await deps.repository.listObservations(input.assessmentId);
+    const objetivo = filas.find((o) => o.id === input.correctsObservationId);
+    if (
+      !objetivo ||
+      objetivo.value.acquisitionRef !== acquisition.id ||
+      observacionesCorregidas(filas).has(objetivo.id)
+    ) {
+      return { ...vacio, rejectionReason: CORRECTION_TARGET_INVALID };
+    }
+  }
+
   // Una adquisición puede alimentar varias variables; el pack decide, no el código.
   const variableRef = acquisition.variableRefs[0]!;
 
@@ -534,6 +570,7 @@ export async function submitAcquisitionResponse(
       conflictingObservationIds: input.conflictingObservationIds ?? [],
       raw: input.rawInput ?? null,
       capturedAt: now(),
+      ...(input.correctsObservationId ? { correctsObservationId: input.correctsObservationId } : {}),
     },
   });
 
@@ -577,6 +614,7 @@ export async function submitAcquisitionResponse(
       ...(input.conflictingObservationIds
         ? { conflictingObservationIds: input.conflictingObservationIds }
         : {}),
+      ...(input.correctsObservationId ? { correctsObservationId: input.correctsObservationId } : {}),
     },
   });
 
@@ -726,6 +764,7 @@ export interface RegistrarEvidenciaInput {
   submittedBy: string | null;
   respondentId?: string | null;
   capturedAt?: string | null;
+  uploadContextCapabilityId?: string | null;
   /** Observaciones que esta evidencia soporta (puede ser más de una). */
   observationIds?: string[];
 }
@@ -763,6 +802,7 @@ export async function registrarEvidencia(
     submittedBy: input.submittedBy,
     respondentId: input.respondentId ?? null,
     capturedAt: input.capturedAt ?? null,
+    uploadContextCapabilityId: input.uploadContextCapabilityId ?? null,
   });
 
   const links: ObservationEvidenceLink[] = [];
@@ -785,6 +825,35 @@ export async function registrarEvidencia(
   });
 
   return { evidence, links, evaluationRunId: run.id, state };
+}
+
+/**
+ * UX-PROD-FIX-02 · Vincula un documento ya existente de la organización a una
+ * observación. Vincular no valida la evidencia ni satisface la necesidad.
+ */
+export async function vincularEvidenciaExistente(
+  deps: ProductionDeps,
+  input: { organizationId: string; assessmentId: string; evidenceId: string; observationId: string },
+) {
+  const fijado = await assessmentFijado(deps, input.assessmentId);
+  if (!fijado.ok) throw new Error(fijado.reason);
+  const existentes = await deps.repository.listEvidenceLinks(input.assessmentId);
+  const previo = existentes.find((l) => l.evidenceId === input.evidenceId && l.observationId === input.observationId);
+  const link =
+    previo ??
+    (await deps.repository.linkEvidenceToObservation({
+      organizationId: input.organizationId,
+      observationId: input.observationId,
+      evidenceId: input.evidenceId,
+    }));
+  const { run, state } = await ejecutarEvaluacion(deps, {
+    assessmentId: input.assessmentId,
+    organizationId: input.organizationId,
+    knowledgeVersionId: fijado.assessment.knowledgeVersionId,
+    closedAt: fijado.assessment.closedAt,
+    trigger: "EVIDENCE_ADDED",
+  });
+  return { link, alreadyLinked: Boolean(previo), evaluationRunId: run.id, state };
 }
 
 /* ------------------------------------------------------------------ */

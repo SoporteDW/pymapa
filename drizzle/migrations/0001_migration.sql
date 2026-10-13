@@ -1,0 +1,2 @@
+ALTER TABLE public.evidence ADD COLUMN IF NOT EXISTS upload_context_capability_id text NULL;
+COMMENT ON COLUMN public.evidence.upload_context_capability_id IS 'UX-PROD-FIX-02: capability screen where the file was uploaded. Provenance only; does not imply linkage or validation. NULL = not recorded (historical rows).';

@@ -22,6 +22,7 @@ const submitSchema = z.object({
   conflictingObservationIds: z.array(z.string()).optional(),
   rawInput: z.record(z.unknown()).optional(),
   evidenceIds: z.array(z.string()).optional(),
+  correctsObservationId: z.string().uuid().nullable().optional(),
 });
 
 const alcanceSchema = z.enum(["DOMAIN", "CAPABILITY", "INFORMATION_NEED", "SECTION"]);
@@ -54,7 +55,11 @@ export type Ctx = { userId: string; supabase: unknown };
 async function prepararContexto(
   context: Ctx,
   capabilityId: string,
-  opciones: { baseRepository?: import("./puertos").ProductionRepository } = {},
+  opciones: {
+    baseRepository?: import("./puertos").ProductionRepository;
+    /** UX-PROD-FIX-02 · Resolución memoizada del Assessment (hub). */
+    resolverAssessment?: (capabilityId: string) => Promise<import("./puertos").AssessmentRecord>;
+  } = {},
 ) {
   const runtime = await import("./runtime.server");
   const { scopeRepositoryToCapability } = await import("./capability-scope");
@@ -63,19 +68,20 @@ async function prepararContexto(
   const { packChecksum } = runtime.identidadPack(capabilityId);
   // PKG-02: el Assessment del runtime manifest es compartido por las 31
   // capacidades; el repositorio se aísla por capacidad (ids de pack se repiten).
-  const repository = scopeRepositoryToCapability(
-    opciones.baseRepository ?? runtime.createSupabaseProductionRepository(),
-    engine.pack.capability.id,
-  );
+  const baseRepository = opciones.baseRepository ?? runtime.createSupabaseProductionRepository();
+  const repository = scopeRepositoryToCapability(baseRepository, engine.pack.capability.id);
   // El bootstrap tenant-owned se ejecuta con la identidad del usuario (RLS).
   type ClienteUsuario = Parameters<typeof runtime.asegurarContextoProductivo>[0];
-  const assessment = await runtime.asegurarContextoProductivo(
-    context.supabase as ClienteUsuario,
-    context.userId,
-    capabilityId,
-  );
+  const assessment = opciones.resolverAssessment
+    ? await opciones.resolverAssessment(capabilityId)
+    : await runtime.asegurarContextoProductivo(
+        context.supabase as ClienteUsuario,
+        context.userId,
+        capabilityId,
+      );
   return {
     assessment,
+    baseRepository,
     deps: {
       engine,
       repository,
@@ -195,6 +201,25 @@ export async function submitCapabilityResponseHandler(context: Ctx, capabilityId
       userId: context.userId,
       acquisitionId: data.acquisitionId,
     });
+    // UX-PROD-FIX-02 · Corregir: el autor de la respuesta o OWNER/ADMIN.
+    // Un respondent invitado nunca corrige respuestas de otra persona.
+    if (data.correctsObservationId) {
+      const objetivo = (await deps.repository.listObservations(assessment.id)).find(
+        (o) => o.id === data.correctsObservationId,
+      );
+      const rol = await deps.repository.getMembershipRole(assessment.organizationId, context.userId);
+      const esAutor = Boolean(objetivo && objetivo.respondentId && objetivo.respondentId === respondent.id);
+      if (objetivo && !esAutor && !(rol && ROLES_CON_PARTICIPACION_PLENA.has(rol))) {
+        return {
+          accepted: false,
+          rejectionReason: casoUso.CORRECTION_NOT_AUTHORIZED,
+          responseId: null,
+          observationId: null,
+          evaluationRunId: null,
+          state: null,
+        };
+      }
+    }
     return casoUso.submitAcquisitionResponse(deps, {
       assessmentId: assessment.id,
       organizationId: assessment.organizationId,
@@ -209,6 +234,7 @@ export async function submitCapabilityResponseHandler(context: Ctx, capabilityId
         : {}),
       ...(data.rawInput ? { rawInput: data.rawInput } : {}),
       ...(data.evidenceIds ? { evidenceIds: data.evidenceIds } : {}),
+      ...(data.correctsObservationId ? { correctsObservationId: data.correctsObservationId } : {}),
     });
 }
 
@@ -218,22 +244,26 @@ export async function submitCapabilityResponseHandler(context: Ctx, capabilityId
  */
 export async function getCapabilityCollaborationHandler(context: Ctx, capabilityId: string, _data: Record<string, never>) {
     const casoUso = await import("./caso-uso");
-    const { assessment, deps } = await prepararContexto(context, capabilityId);
+    const { assessment, deps, baseRepository } = await prepararContexto(context, capabilityId);
     const capability = deps.engine.pack.capability;
-    const [respondents, assignmentsTodas, evidence, links, clarifications] = await Promise.all([
+    const [respondents, assignmentsTodas, evidence, links, clarifications, todasObs] = await Promise.all([
       deps.repository.listRespondents(assessment.organizationId),
       deps.repository.listAssignments(assessment.id),
       deps.repository.listEvidence(assessment.id),
       deps.repository.listEvidenceLinks(assessment.id),
       casoUso.getClarificationCandidates(deps, assessment.id),
+      baseRepository.listObservations(assessment.id),
     ]);
-    const observations = await deps.repository.listObservations(assessment.id);
+    const observationsTodas = await deps.repository.listObservations(assessment.id);
+    const corregidas = casoUso.observacionesCorregidas(observationsTodas);
+    const observations = observationsTodas.filter((o) => !corregidas.has(o.id));
     // SPRINT-04-FIX · Solo los alcances de esta capacidad.
     const assignments = assignmentsTodas.filter((a) => casoUso.assignmentPerteneceACapacidad(a, capability));
-    // Evidencia vinculada a observaciones de esta capacidad = "de esta capacidad".
-    // El resto de la organización se ofrece como reutilizable, nunca atribuida.
-    const obsIds = new Set(observations.map((o) => o.id));
-    const vinculadas = new Set(links.filter((l) => obsIds.has(l.observationId)).map((l) => l.evidenceId));
+    // UX-PROD-FIX-02 · Procedencia real de cada documento: vínculos explícitos
+    // (capacidad + adquisición) y contexto de carga si quedó registrado.
+    const obsPorId = new Map(todasObs.map((o) => [o.id, o]));
+    const propias = new Set(observationsTodas.map((o) => o.id));
+    const nombre = new Map(respondents.map((r) => [r.id, r.displayName ?? r.email ?? null]));
     return {
       assessmentId: assessment.id,
       capabilityId: capability.id,
@@ -255,15 +285,36 @@ export async function getCapabilityCollaborationHandler(context: Ctx, capability
         delegatedFromAssignmentId: a.delegatedFromAssignmentId,
         delegationReason: a.delegationReason,
       })),
-      evidence: evidence.map((e) => ({
-        id: e.id,
-        candidateRef: e.candidateRef,
-        evidenceType: e.evidenceType,
-        source: e.source,
-        title: e.title,
-        createdAt: e.createdAt,
-        relation: vinculadas.has(e.id) ? ("CAPABILITY" as const) : ("ORGANIZATION" as const),
-      })),
+      evidence: evidence.map((e) => {
+        const vinculos = links
+          .filter((l) => l.evidenceId === e.id)
+          .map((l) => obsPorId.get(l.observationId))
+          .filter((o): o is NonNullable<typeof o> => Boolean(o))
+          .map((o) => ({
+            observationId: o.id,
+            capabilityId: (o.value as { capabilityId?: string }).capabilityId ?? "OP-01",
+            acquisitionRef: o.value.acquisitionRef,
+            thisCapability: propias.has(o.id),
+          }));
+        const aqui = vinculos.some((v) => v.thisCapability);
+        const contexto = e.uploadContextCapabilityId ?? null;
+        return {
+          id: e.id,
+          candidateRef: e.candidateRef,
+          evidenceType: e.evidenceType,
+          source: e.source,
+          title: e.title,
+          createdAt: e.createdAt,
+          uploadedBy: e.respondentId ? (nombre.get(e.respondentId) ?? null) : null,
+          uploadContextCapabilityId: contexto,
+          links: vinculos,
+          relation: aqui
+            ? ("CAPABILITY" as const)
+            : contexto === capability.id
+              ? ("NEEDS_LINK" as const)
+              : ("ORGANIZATION" as const),
+        };
+      }),
       evidenceCandidates: (deps.engine.pack.evidence?.candidates ?? []).map((c) => ({
         id: c.id,
         name: c.name,
@@ -337,10 +388,42 @@ export async function getCapabilityWorkspaceHandler(context: Ctx, capabilityId: 
     evaluation: evaluado.evaluation,
     answeredAcquisitionIds: evaluado.answeredAcquisitionIds,
   });
-  const findings = await deps.repository.listFindings(assessment.id);
+  const projector = createActionableProjector(registro.pack);
+  const [findings, observaciones, respondents, rol] = await Promise.all([
+    deps.repository.listFindings(assessment.id),
+    deps.repository.listObservations(assessment.id),
+    deps.repository.listRespondents(assessment.organizationId),
+    deps.repository.getMembershipRole(assessment.organizationId, context.userId),
+  ]);
+  const historial = construirHistorial({
+    observaciones,
+    respondents,
+    userId: context.userId,
+    plena: Boolean(rol && ROLES_CON_PARTICIPACION_PLENA.has(rol)),
+    corregidas: casoUso.observacionesCorregidas(observaciones),
+    project: (id) => projector.project(id),
+  });
+  const variables = new Map(
+    ((deps.engine.pack as { variables?: { id: string; name?: string }[] }).variables ?? []).map((v) => [v.id, v.name ?? null]),
+  );
   return {
     assessmentId: assessment.id,
     organizationId: assessment.organizationId,
+    responseHistory: historial,
+    clarificationDetails: evaluado.evaluation.contradictions.map((c) => {
+      const entradas = historial.filter((h) => c.conflictingObservationIds.includes(h.observationId));
+      return {
+        variableRef: c.variableRef,
+        variableName: variables.get(c.variableRef) ?? null,
+        // Motivo según la procedencia real: declarado por la persona o valores distintos.
+        reason: entradas.some((e) => e.knowledgeState === "CONTRADICTORY")
+          ? ("DECLARED_CONTRADICTORY" as const)
+          : ("DIVERGENT_VALUES" as const),
+        conflictingSemanticValues: c.conflictingSemanticValues,
+        observationIds: c.conflictingObservationIds,
+        packClarificationAvailable: workspace.clarifications.length > 0,
+      };
+    }),
     capability: {
       capabilityId: registro.capabilityId,
       name: registro.name,
@@ -358,8 +441,69 @@ export async function getCapabilityWorkspaceHandler(context: Ctx, capabilityId: 
   };
 }
 
+type HistorialEntrada = {
+  observationId: string;
+  acquisitionId: string;
+  label: string | null;
+  knowledgeState: string;
+  semanticValue: string | null;
+  notApplicableReason: string | null;
+  recordedAt: string;
+  submittedBy: string | null;
+  submittedBySelf: boolean;
+  correctsObservationId: string | null;
+  supersededByObservationId: string | null;
+  canCorrect: boolean;
+  acquisition: import("./actionable").ActionableAcquisition | null;
+};
+
+/** UX-PROD-FIX-02 · Historial de respuestas de la capacidad (más reciente primero). */
+function construirHistorial(p: {
+  observaciones: import("./puertos").ObservationRecord[];
+  respondents: import("./puertos").RespondentRecord[];
+  userId: string;
+  plena: boolean;
+  corregidas: Set<string>;
+  project: (acquisitionId: string) => import("./actionable").ActionableAcquisition | null;
+}): HistorialEntrada[] {
+  const porId = new Map(p.respondents.map((r) => [r.id, r]));
+  const sustituta = new Map<string, string>();
+  for (const o of p.observaciones) {
+    const c = (o.value as { correctsObservationId?: string }).correctsObservationId;
+    if (c) sustituta.set(c, o.id);
+  }
+  return p.observaciones
+    .map((o) => {
+      const r = o.respondentId ? porId.get(o.respondentId) : undefined;
+      const propia = Boolean(r && r.userId === p.userId);
+      const acq = p.project(o.value.acquisitionRef);
+      const label =
+        acq?.question ??
+        acq?.informationNeedStatement ??
+        acq?.correspondenceStatement ??
+        (acq ? acq.variables.map((v) => v.name).filter(Boolean).join(" · ") || null : null);
+      return {
+        observationId: o.id,
+        acquisitionId: o.value.acquisitionRef,
+        label,
+        knowledgeState: o.value.knowledgeState,
+        semanticValue: o.value.semanticValue,
+        notApplicableReason: o.value.notApplicableReason ?? null,
+        recordedAt: o.createdAt,
+        submittedBy: r ? (r.displayName ?? r.email ?? null) : null,
+        submittedBySelf: propia,
+        correctsObservationId: (o.value as { correctsObservationId?: string }).correctsObservationId ?? null,
+        supersededByObservationId: sustituta.get(o.id) ?? null,
+        canCorrect: !p.corregidas.has(o.id) && acq !== null && (propia || p.plena),
+        acquisition: acq,
+      };
+    })
+    .reverse();
+}
+
 /** Hub: estado real de las 31 capacidades. Lecturas memoizadas por petición. */
 export async function getDiagnosticHubHandler(context: Ctx) {
+  const inicio = Date.now();
   const runtime = await import("./runtime.server");
   const casoUso = await import("./caso-uso");
   const { getRegisteredPack } = await import("./packs-registry");
@@ -367,15 +511,30 @@ export async function getDiagnosticHubHandler(context: Ctx) {
   const { memoizeReads } = await import("./capability-scope");
   const base = memoizeReads(runtime.createSupabaseProductionRepository());
   const catalogo = runtime.listarCapacidadesDisponibles();
-  const capacidades = [];
-  for (const entrada of catalogo) {
-    // Fail-closed por capacidad: un fallo de integridad en una no oculta las otras 30.
+
+  // UX-PROD-FIX-02 · El bootstrap Organization→Case→Assessment se resuelve una
+  // vez por grupo de cobertura (antes: 31 veces en serie). Mismo usuario, misma
+  // identidad RLS, mismo Assessment pinneado: determinismo preservado.
+  type ClienteUsuario = Parameters<typeof runtime.asegurarContextoProductivo>[0];
+  const assessments = new Map<string, Promise<import("./puertos").AssessmentRecord>>();
+  const resolverAssessment = (capabilityId: string) => {
+    const clave = runtime.claveCoberturaCapacidad(capabilityId);
+    let p = assessments.get(clave);
+    if (!p) {
+      p = runtime.asegurarContextoProductivo(context.supabase as ClienteUsuario, context.userId, capabilityId);
+      assessments.set(clave, p);
+    }
+    return p;
+  };
+
+  async function evaluarEntrada(entrada: (typeof catalogo)[number]) {
     let ctx: Awaited<ReturnType<typeof prepararContexto>>;
     try {
-      ctx = await prepararContexto(context, entrada.capabilityId, { baseRepository: base });
+      ctx = await prepararContexto(context, entrada.capabilityId, { baseRepository: base, resolverAssessment });
     } catch (e) {
+      // Fail-closed por capacidad: un fallo de integridad en una no oculta las otras 30.
       console.error(`[hub] ${entrada.capabilityId}:`, e instanceof Error ? e.message : e);
-      capacidades.push({
+      return {
         capabilityId: entrada.capabilityId,
         name: entrada.name,
         domainId: entrada.domainId,
@@ -383,8 +542,8 @@ export async function getDiagnosticHubHandler(context: Ctx) {
         interactionState: "UNAVAILABLE" as const,
         counts: null,
         findingsCount: 0,
-      });
-      continue;
+        assessmentId: null as string | null,
+      };
     }
     const { assessment, deps } = ctx;
     const evaluado = await casoUso.evaluarCapacidad(deps, assessment.id);
@@ -396,7 +555,7 @@ export async function getDiagnosticHubHandler(context: Ctx) {
         })
       : null;
     const findings = await deps.repository.listFindings(assessment.id);
-    capacidades.push({
+    return {
       capabilityId: entrada.capabilityId,
       name: entrada.name,
       domainId: entrada.domainId,
@@ -404,14 +563,52 @@ export async function getDiagnosticHubHandler(context: Ctx) {
       interactionState: workspace?.interactionState ?? "NOT_STARTED",
       counts: workspace?.counts ?? null,
       findingsCount: findings.length,
-    });
+      assessmentId: assessment.id as string | null,
+    };
   }
+
+  // Concurrencia acotada: la evaluación es pura por capacidad y las lecturas
+  // están memoizadas, así que el orden de ejecución no altera el resultado.
+  const LIMITE = 8;
+  const capacidades: Awaited<ReturnType<typeof evaluarEntrada>>[] = new Array(catalogo.length);
+  let siguiente = 0;
+  await Promise.all(
+    Array.from({ length: Math.min(LIMITE, catalogo.length) }, async () => {
+      while (siguiente < catalogo.length) {
+        const i = siguiente++;
+        capacidades[i] = await evaluarEntrada(catalogo[i]!);
+      }
+    }),
+  );
+
+  // Totales reales persistidos (no son porcentajes ni madurez).
+  const ids = [...new Set(capacidades.map((c) => c.assessmentId).filter((x): x is string => Boolean(x)))];
+  const porAssessment = await Promise.all(
+    ids.map(async (id) => {
+      const [obs, ev, links] = await Promise.all([
+        base.listObservations(id),
+        base.listEvidence(id),
+        base.listEvidenceLinks(id),
+      ]);
+      return { obs, ev, links };
+    }),
+  );
+  const totales = {
+    responsesActive: porAssessment.reduce((n, a) => n + casoUso.observacionesVigentes(a.obs).length, 0),
+    responsesCorrected: porAssessment.reduce((n, a) => n + casoUso.observacionesCorregidas(a.obs).size, 0),
+    evidenceUploaded: porAssessment.reduce((n, a) => n + a.ev.length, 0),
+    evidenceLinked: porAssessment.reduce((n, a) => n + new Set(a.links.map((l) => l.evidenceId)).size, 0),
+  };
+  const elapsedMs = Date.now() - inicio;
+  console.info(`[hub] ${catalogo.length} capacidades en ${elapsedMs} ms`);
   return {
     runtimeManifest: {
       identifier: runtime.KNOWLEDGE_RUNTIME_IDENTIFIER,
       version: runtime.KNOWLEDGE_RUNTIME_VERSION,
     },
-    capabilities: capacidades,
+    capabilities: capacidades.map(({ assessmentId: _a, ...c }) => c),
+    totals: totales,
+    elapsedMs,
   };
 }
 
@@ -502,6 +699,8 @@ export async function registerCapabilityEvidenceHandler(context: Ctx, capability
       note: data.note ?? null,
       submittedBy: context.userId,
       respondentId: respondent.id,
+      // Procedencia: dónde se cargó. No implica vínculo ni validación.
+      uploadContextCapabilityId: deps.engine.pack.capability.id,
       ...(data.observationIds ? { observationIds: data.observationIds } : {}),
     });
     return {
@@ -510,6 +709,36 @@ export async function registerCapabilityEvidenceHandler(context: Ctx, capability
       evaluationRunId: salida.evaluationRunId,
       state: salida.state,
     };
+}
+
+/** UX-PROD-FIX-02 · Vincula un documento existente a una respuesta de esta capacidad. */
+export const linkCapabilityEvidenceInput = (data: unknown) =>
+  z.object({ evidenceId: z.string().uuid(), observationId: z.string().uuid() }).parse(data);
+
+export async function linkCapabilityEvidenceHandler(context: Ctx, capabilityId: string, data: ReturnType<typeof linkCapabilityEvidenceInput>) {
+  const casoUso = await import("./caso-uso");
+  const { assessment, deps } = await prepararContexto(context, capabilityId);
+  const { assignment } = await asegurarRespondentPropio(deps, {
+    organizationId: assessment.organizationId,
+    assessmentId: assessment.id,
+    capabilityId: deps.engine.pack.capability.id,
+    userId: context.userId,
+  });
+  if (!assignment) throw new Error("OUT_OF_ASSIGNMENT_SCOPE");
+  const obs = casoUso.observacionesVigentes(await deps.repository.listObservations(assessment.id));
+  if (!obs.some((o) => o.id === data.observationId)) throw new Error("OBSERVATION_OUTSIDE_CAPABILITY");
+  // Mismo tenant y mismo assessment: nunca documentos de otra organización.
+  const ev = await deps.repository.listEvidence(assessment.id);
+  if (!ev.some((e) => e.id === data.evidenceId && e.organizationId === assessment.organizationId)) {
+    throw new Error("EVIDENCE_NOT_IN_ORGANIZATION");
+  }
+  const salida = await casoUso.vincularEvidenciaExistente(deps, {
+    organizationId: assessment.organizationId,
+    assessmentId: assessment.id,
+    evidenceId: data.evidenceId,
+    observationId: data.observationId,
+  });
+  return { linked: true, alreadyLinked: salida.alreadyLinked, evaluationRunId: salida.evaluationRunId };
 }
 
 /* ------------------------------------------------------------------ */

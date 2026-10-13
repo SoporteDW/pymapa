@@ -40,7 +40,15 @@ export interface CapacidadHub {
   name: string;
   domainId: string;
   interactionState: string;
-  counts: { answered: number; totalAcquisitions: number; pendingInformationTasks: number } | null;
+  counts: {
+    answered: number;
+    totalAcquisitions: number;
+    pendingInformationTasks: number;
+    literalQuestions?: number;
+    pendingQuestions?: number;
+    informationTasks?: number;
+    contradictions?: number;
+  } | null;
   findingsCount: number;
 }
 
@@ -70,7 +78,7 @@ export function CatalogoCapacidades({ capacidades }: { capacidades: CapacidadHub
                         <CardTitle className="text-sm leading-snug">{c.name}</CardTitle>
                       </CardHeader>
                       <CardContent className="space-y-1 text-xs text-muted-foreground">
-                        {c.counts && <p>{c.counts.answered} respondidas · {c.counts.pendingInformationTasks} requerimientos pendientes</p>}
+                        {c.counts && <ContadoresCapacidad counts={c.counts} />}
                         {c.findingsCount > 0 && <p>Con hallazgos ({c.findingsCount})</p>}
                         {c.capabilityId === "OP-01" && <p>Capacidad de referencia</p>}
                       </CardContent>
@@ -83,5 +91,21 @@ export function CatalogoCapacidades({ capacidades }: { capacidades: CapacidadHub
         );
       })}
     </div>
+  );
+}
+
+/** UX-PROD-FIX-02 · Preguntas literales y requerimientos de información por separado. */
+export function ContadoresCapacidad({ counts }: { counts: NonNullable<CapacidadHub["counts"]> }) {
+  return (
+    <>
+      <p>{counts.answered} con respuesta</p>
+      {(counts.literalQuestions ?? 0) > 0 && (
+        <p>{counts.pendingQuestions} de {counts.literalQuestions} preguntas sin responder</p>
+      )}
+      {(counts.informationTasks ?? 0) > 0 && (
+        <p>{counts.pendingInformationTasks} de {counts.informationTasks} requerimientos de información pendientes</p>
+      )}
+      {(counts.contradictions ?? 0) > 0 && <p className="text-destructive">{counts.contradictions} por aclarar</p>}
+    </>
   );
 }

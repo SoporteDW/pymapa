@@ -73,6 +73,14 @@ export const registerCapabilityEvidence = createServerFn({ method: "POST" })
   })
   .handler(async ({ data, context }) => h.registerCapabilityEvidenceHandler(context, data.capabilityId, data.input));
 
+export const linkCapabilityEvidence = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => {
+    const { capabilityId, resto } = separar(data);
+    return { capabilityId, input: h.linkCapabilityEvidenceInput(resto) };
+  })
+  .handler(async ({ data, context }) => h.linkCapabilityEvidenceHandler(context, data.capabilityId, data.input));
+
 export const getCapabilityFindings = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
   .inputValidator((data: unknown) => ({ capabilityId: separar(data).capabilityId }))
