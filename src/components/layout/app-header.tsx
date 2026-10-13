@@ -67,6 +67,7 @@ export function AppHeader({ empresa, produccion = false, nombreEmpresaProductiva
           </Link>
           <Link
             to="/empresa"
+            search={{ editar: true }}
             aria-label="Mi empresa"
             title="Mi empresa"
             className="inline-flex h-11 min-w-11 items-center justify-center gap-1.5 rounded-full px-2 text-sm text-primary hover:bg-accent sm:px-3"
