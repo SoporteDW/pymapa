@@ -95,7 +95,7 @@ export function EvidenciaPanel(p: Props) {
               Otras evidencias de tu organización ({organizacion.length})
             </summary>
             <p className="mt-2 text-xs text-muted-foreground">
-              No están vinculadas a respuestas de esta capacidad. Puedes reutilizarlas registrando el vínculo de forma explícita.
+              No están vinculadas a respuestas de esta capacidad y no se usan en su diagnóstico.
             </p>
             <ul className="mt-2 space-y-1">
               {organizacion.map((e) => (
