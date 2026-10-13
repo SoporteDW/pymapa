@@ -25,7 +25,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { ProductionSidebar } from "@/components/layout/production-sidebar";
 import { useAuth } from "@/hooks/use-auth";
-import { esRutaProductiva } from "@/lib/production/entrada";
+import { modoShell } from "@/lib/production/entrada";
 import { getCompany } from "@/lib/production/company.functions";
 
 const modulosPrincipales = [
@@ -211,7 +211,7 @@ function Shell({
   const { isHydrated: authHidratado, user } = useAuth();
   // PKG-02A · El journey productivo usa navegación propia: sin rutas legacy,
   // sin progreso demo de localStorage y sin etiqueta "MVP Alfa".
-  const produccion = esRutaProductiva(pathname);
+  const produccion = modoShell(pathname, authHidratado && !!user) === "PRODUCCION";
   const cargarEmpresa = useServerFn(getCompany);
   const empresaProductiva = useQuery({
     queryKey: ["empresa-productiva"],
