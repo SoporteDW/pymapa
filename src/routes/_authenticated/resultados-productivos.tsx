@@ -5,6 +5,7 @@
  */
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -12,7 +13,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { LoadingState } from "@/components/ui/loading-state";
 import { PageHeader } from "@/components/layout/page-header";
 import { DOMINIOS, ETIQUETA_ESTADO } from "@/components/diagnostico/catalogo-capacidades";
-import { getDiagnosticHub } from "@/lib/production/capabilities.functions";
+import { getCapabilityCollaboration, getDiagnosticHub } from "@/lib/production/capabilities.functions";
 
 export const Route = createFileRoute("/_authenticated/resultados-productivos")({
   head: () => ({
@@ -28,16 +29,54 @@ export const Route = createFileRoute("/_authenticated/resultados-productivos")({
   component: ResultadosProductivos,
 });
 
-function Dato({ valor, etiqueta }: { valor: number; etiqueta: string }) {
+type Filtro = "actividad" | "respuestas" | "preguntas" | "requerimientos" | "aclarar" | "documentos" | "vinculados" | "hallazgos";
+
+function Dato({ valor, etiqueta, activo, onClick }: { valor: number; etiqueta: string; activo: boolean; onClick: () => void }) {
   return (
-    <div className="rounded-xl border border-border p-3">
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={activo}
+      className={`rounded-xl border p-3 text-left transition-colors hover:border-primary/50 ${activo ? "border-primary bg-primary/5" : "border-border"}`}
+    >
       <p className="text-2xl font-semibold">{valor}</p>
       <p className="text-xs text-muted-foreground">{etiqueta}</p>
-    </div>
+      <p className="mt-1 text-[11px] text-primary">{activo ? "Ocultar detalle" : "Ver detalle"}</p>
+    </button>
+  );
+}
+
+function DetalleDocumentos({ soloVinculados }: { soloVinculados: boolean }) {
+  const cargar = useServerFn(getCapabilityCollaboration);
+  // La colaboración de cualquier capacidad lista todos los documentos de la organización con su procedencia.
+  const q = useQuery({ queryKey: ["documentos-organizacion"], queryFn: () => cargar({ data: { capabilityId: "DG-01" } }) });
+  if (q.isLoading) return <p className="text-sm text-muted-foreground">Cargando documentos…</p>;
+  if (!q.data) return <p className="text-sm text-destructive">No pudimos cargar los documentos.</p>;
+  const docs = q.data.evidence.filter((e) => !soloVinculados || e.links.length > 0);
+  if (docs.length === 0) return <p className="text-sm text-muted-foreground">No hay documentos en esta categoría.</p>;
+  return (
+    <ul className="space-y-2 text-sm">
+      {docs.map((e) => (
+        <li key={e.id} className="rounded-lg border border-border px-3 py-2">
+          <span className="font-medium">{e.title ?? e.evidenceType}</span>
+          <p className="text-xs text-muted-foreground">
+            Cargado el {new Date(e.createdAt).toLocaleDateString("es")}
+            {e.uploadedBy ? ` por ${e.uploadedBy}` : ""} · {e.uploadContextCapabilityId ? `desde ${e.uploadContextCapabilityId}` : "lugar de carga no registrado"}
+          </p>
+          <p className="text-xs text-muted-foreground">
+            {e.links.length === 0
+              ? "Sin asociar a ninguna respuesta"
+              : `Asociado a respuestas de: ${[...new Set(e.links.map((l) => l.capabilityId))].join(", ")}`}
+            {" · cargado no significa validado"}
+          </p>
+        </li>
+      ))}
+    </ul>
   );
 }
 
 function ResultadosProductivos() {
+  const [filtro, setFiltro] = useState<Filtro | null>(null);
   const cargar = useServerFn(getDiagnosticHub);
   const hub = useQuery({ queryKey: ["hub-diagnostico"], queryFn: () => cargar() });
 
@@ -49,6 +88,15 @@ function ResultadosProductivos() {
   const iniciadas = caps.filter((c) => (c.counts?.answered ?? 0) > 0);
   const aclarar = caps.filter((c) => c.interactionState === "NEEDS_CLARIFICATION");
   const t = hub.data.totals;
+  const pct = caps.length ? Math.round((iniciadas.length / caps.length) * 100) : 0;
+  const listas: Partial<Record<Filtro, { titulo: string; lista: typeof caps }>> = {
+    actividad: { titulo: "Capacidades con actividad", lista: iniciadas },
+    respuestas: { titulo: "Capacidades con respuestas vigentes", lista: iniciadas },
+    preguntas: { titulo: "Capacidades con preguntas disponibles", lista: caps.filter((c) => (c.counts?.pendingQuestions ?? 0) > 0) },
+    requerimientos: { titulo: "Capacidades con requerimientos pendientes", lista: caps.filter((c) => (c.counts?.pendingInformationTasks ?? 0) > 0) },
+    aclarar: { titulo: "Capacidades con aclaraciones pendientes", lista: caps.filter((c) => (c.counts?.contradictions ?? 0) > 0) },
+    hallazgos: { titulo: "Capacidades con hallazgos preliminares", lista: caps.filter((c) => c.findingsCount > 0) },
+  };
 
   return (
     <div className="mx-auto max-w-5xl space-y-6 p-4 sm:p-6">
@@ -58,16 +106,62 @@ function ResultadosProductivos() {
         acciones={<Button asChild variant="outline"><Link to="/diagnostico-productivo">Ir al diagnóstico</Link></Button>}
       />
 
+      <Card>
+        <CardContent className="space-y-2 py-4">
+          <p className="text-sm font-medium" data-testid="exploracion">
+            {iniciadas.length} de {caps.length} capacidades abordadas · {pct} % del catálogo explorado
+          </p>
+          <div className="h-2 overflow-hidden rounded-full bg-muted" role="progressbar" aria-valuenow={pct} aria-valuemin={0} aria-valuemax={100} aria-label="Catálogo explorado">
+            <div className="h-full bg-primary" style={{ width: `${pct}%` }} />
+          </div>
+          <p className="text-xs text-muted-foreground">Exploración del catálogo: capacidades con al menos una respuesta. No es el avance ni el cierre del diagnóstico.</p>
+        </CardContent>
+      </Card>
+
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <Dato valor={iniciadas.length} etiqueta={`capacidades con actividad (de ${caps.length})`} />
-        <Dato valor={t.responsesActive} etiqueta="respuestas vigentes" />
-        <Dato valor={suma((c) => c.counts?.pendingQuestions ?? 0)} etiqueta="preguntas sin responder" />
-        <Dato valor={suma((c) => c.counts?.pendingInformationTasks ?? 0)} etiqueta="requerimientos de información pendientes" />
-        <Dato valor={suma((c) => c.counts?.contradictions ?? 0)} etiqueta="puntos por aclarar" />
-        <Dato valor={t.evidenceUploaded} etiqueta="documentos cargados" />
-        <Dato valor={t.evidenceLinked} etiqueta="documentos vinculados a respuestas" />
-        <Dato valor={suma((c) => c.findingsCount)} etiqueta="hallazgos preliminares (por revisar)" />
+        {([
+          ["actividad", iniciadas.length, `capacidades con actividad (de ${caps.length})`],
+          ["respuestas", t.responsesActive, "respuestas vigentes"],
+          ["preguntas", suma((c) => c.counts?.pendingQuestions ?? 0), "preguntas sin responder"],
+          ["requerimientos", suma((c) => c.counts?.pendingInformationTasks ?? 0), "requerimientos de información pendientes"],
+          ["aclarar", suma((c) => c.counts?.contradictions ?? 0), "puntos por aclarar"],
+          ["documentos", t.evidenceUploaded, "documentos cargados"],
+          ["vinculados", t.evidenceLinked, "documentos asociados a respuestas"],
+          ["hallazgos", suma((c) => c.findingsCount), "hallazgos preliminares (por revisar)"],
+        ] as [Filtro, number, string][]).map(([f, v, e]) => (
+          <Dato key={f} valor={v} etiqueta={e} activo={filtro === f} onClick={() => setFiltro(filtro === f ? null : f)} />
+        ))}
       </div>
+
+      {filtro && (
+        <Card data-testid="detalle-metrica">
+          <CardHeader>
+            <CardTitle className="text-base">
+              {filtro === "documentos" ? "Documentos cargados" : filtro === "vinculados" ? "Documentos asociados a respuestas" : listas[filtro]!.titulo}
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            {filtro === "documentos" || filtro === "vinculados" ? (
+              <DetalleDocumentos soloVinculados={filtro === "vinculados"} />
+            ) : listas[filtro]!.lista.length === 0 ? (
+              <p className="text-sm text-muted-foreground">Ninguna capacidad en esta categoría.</p>
+            ) : (
+              <ul className="divide-y divide-border text-sm">
+                {listas[filtro]!.lista.map((c) => (
+                  <li key={c.capabilityId} className="flex flex-wrap items-center justify-between gap-2 py-2">
+                    <Link to="/capacidad/$id" params={{ id: c.capabilityId }} className="min-w-0 flex-1 hover:text-primary">
+                      <span className="text-xs text-muted-foreground">{c.capabilityId}</span> {c.name}
+                    </Link>
+                    <span className="text-xs text-muted-foreground">
+                      {c.counts ? `${c.counts.answered} resp. · ${c.counts.pendingQuestions ?? 0} preg. · ${c.counts.pendingInformationTasks} req. · ${c.counts.contradictions ?? 0} aclar.` : "—"}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </CardContent>
+        </Card>
+      )}
 
       {aclarar.length > 0 && (
         <Card className="border-destructive/40">
