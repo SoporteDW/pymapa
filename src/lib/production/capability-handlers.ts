@@ -193,6 +193,7 @@ export async function submitCapabilityResponseHandler(context: Ctx, capabilityId
       assessmentId: assessment.id,
       capabilityId: deps.engine.pack.capability.id,
       userId: context.userId,
+      acquisitionId: data.acquisitionId,
     });
     return casoUso.submitAcquisitionResponse(deps, {
       assessmentId: assessment.id,
