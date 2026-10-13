@@ -9,7 +9,6 @@ import { navegacionProductiva } from "@/lib/production/entrada";
  */
 const iconos = {
   diagnostico: ClipboardList,
-  capacidades: Layers,
   resultados: BarChart3,
   empresa: Building2,
 } as const;
@@ -21,7 +20,8 @@ export function ProductionNavList({ onNavigate, collapsed = false }: { onNavigat
     <ul className="space-y-1">
       {navegacionProductiva.map((item) => {
         const Icon = iconos[item.id];
-        const esActivo = item.id === "capacidades" ? currentPath.startsWith("/capacidad/") : activo(item.to);
+        // Las capacidades (incluida OP-01) forman parte del diagnóstico.
+        const esActivo = item.id === "diagnostico" ? activo(item.to) || currentPath.startsWith("/capacidad/") : activo(item.to);
         return (
           <li key={item.id}>
             <Link

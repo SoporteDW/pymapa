@@ -1,137 +1,77 @@
+/**
+ * SPRINT-04-FIX · Ayuda del journey productivo. Ruta productiva: usa el shell
+ * de producción. Solo describe funcionalidad implementada.
+ */
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { DemoNote } from "@/components/ui/demo-note";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { PageHeader } from "@/components/layout/page-header";
-import { etapasJourney } from "@/lib/journey/etapas";
 
 export const Route = createFileRoute("/ayuda")({
   head: () => ({
     meta: [
-      { title: "Ayuda y guía del recorrido — pymapa" },
-      {
-        name: "description",
-        content: "Entiende las cuatro etapas del recorrido y qué esperar del MVP Alfa.",
-      },
-      { property: "og:title", content: "Ayuda y guía del recorrido — pymapa" },
-      {
-        property: "og:description",
-        content: "Entiende las cuatro etapas del recorrido y qué esperar del MVP Alfa.",
-      },
+      { title: "Ayuda — cómo funciona tu diagnóstico pymapa" },
+      { name: "description", content: "Cómo registrar tu empresa, responder capacidades, aportar evidencias y colaborar en pymapa." },
+      { property: "og:title", content: "Ayuda — cómo funciona tu diagnóstico pymapa" },
+      { property: "og:description", content: "Empresa, diagnóstico por capacidades, evidencias, colaboración y resultados preliminares." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: AyudaPage,
 });
 
-const preguntas = [
+export const SECCIONES_AYUDA = [
   {
-    q: "¿Cuánto tiempo toma el diagnóstico?",
-    a: "Entre 10 y 15 minutos. Puedes pausar en cualquier momento: tus respuestas se guardan automáticamente en este navegador y podrás continuar donde quedaste.",
+    q: "¿Cómo registro mi empresa?",
+    a: "Crea tu cuenta o inicia sesión y escribe el nombre de tu empresa. Se crea una sola organización para tu cuenta, con su caso de diagnóstico; al volver a entrar recuperas la misma.",
   },
   {
-    q: "¿Necesito conocimientos técnicos?",
-    a: "No. Todas las preguntas están escritas en lenguaje de negocio y cada una incluye una ayuda breve con ejemplos.",
+    q: "¿Cómo está organizado el diagnóstico?",
+    a: "En seis dominios con 31 capacidades. Puedes entrar a cualquier capacidad desde el diagnóstico y avanzar en el orden que prefieras; el orden no altera el resultado.",
   },
   {
-    q: "¿Qué pasa si no sé responder una pregunta?",
-    a: "Puedes elegir la opción que más se acerque a tu realidad o dejarla para el final. En la etapa de revisión verás qué preguntas quedaron pendientes.",
+    q: "¿Qué son las respuestas y las evidencias?",
+    a: "En cada capacidad respondes preguntas o requerimientos de información; también puedes indicar que no lo sabes o que no aplica. Las evidencias son documentos o referencias que respaldan una respuesta; los archivos se guardan de forma privada para tu organización.",
   },
   {
-    q: "¿Dónde se guarda mi información?",
-    a: "En esta versión Alfa, toda la información se guarda únicamente en el almacenamiento local de tu navegador. No se envía a ningún servidor y no se comparte con terceros.",
+    q: "¿Puedo invitar a otras personas?",
+    a: "Sí. Desde una capacidad puedes invitar a alguien con un alcance concreto (la capacidad, su dominio o un requerimiento). Esa persona solo puede responder dentro del alcance asignado y no pasa a ser miembro de tu organización.",
   },
   {
-    q: "¿Los resultados son definitivos?",
-    a: "No. Los resultados, niveles y acciones que ves son ilustrativos y sirven para validar el recorrido. El motor de evaluación real se incorporará en paquetes posteriores del MVP.",
+    q: "¿Se guarda mi progreso?",
+    a: "Sí. Tus respuestas y evidencias se guardan en tu cuenta, no en este navegador. Puedes cerrar sesión y continuar desde otro dispositivo.",
   },
   {
-    q: "¿Puedo repetir el diagnóstico?",
-    a: "Sí. Puedes revisar y modificar tus respuestas antes de generar resultados, y reiniciar todo el progreso desde tu perfil.",
+    q: "¿Qué muestran los resultados?",
+    a: "Por ahora los resultados son preliminares: muestran el estado de avance real de tus capacidades. El informe ejecutivo completo aún no está disponible.",
   },
-];
+] as const;
 
 function AyudaPage() {
   return (
     <div className="space-y-6">
-      <PageHeader
-        titulo="Ayuda"
-        subtitulo="Cómo funciona el recorrido y qué esperar de esta versión."
-        migas={[{ label: "Inicio", to: "/inicio" }, { label: "Ayuda" }]}
-      />
-
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-base">Las cuatro etapas del recorrido</CardTitle>
-          <CardDescription>
-            El modelo avanza de forma ordenada: cada etapa habilita la siguiente.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ol className="space-y-4">
-            {etapasJourney.map((etapa, index) => (
-              <li key={etapa.id} className="flex gap-3">
-                <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
-                  {index + 1}
-                </span>
-                <div>
-                  <p className="text-sm font-semibold text-foreground">{etapa.titulo}</p>
-                  <p className="text-sm text-muted-foreground">{etapa.descripcion}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </CardContent>
-      </Card>
-
+      <PageHeader titulo="Ayuda" subtitulo="Cómo funciona tu diagnóstico en pymapa." />
       <Card>
         <CardHeader>
           <CardTitle className="text-base">Preguntas frecuentes</CardTitle>
         </CardHeader>
         <CardContent>
           <Accordion type="single" collapsible>
-            {preguntas.map((item, index) => (
-              <AccordionItem key={item.q} value={`faq-${index}`}>
-                <AccordionTrigger className="text-left text-sm font-medium">
-                  {item.q}
-                </AccordionTrigger>
-                <AccordionContent className="text-sm text-muted-foreground">
-                  {item.a}
-                </AccordionContent>
+            {SECCIONES_AYUDA.map((s, i) => (
+              <AccordionItem key={s.q} value={`p-${i}`}>
+                <AccordionTrigger>{s.q}</AccordionTrigger>
+                <AccordionContent>{s.a}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
         </CardContent>
       </Card>
-
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-base">Sobre esta versión (MVP Alfa)</CardTitle>
-          <CardDescription>
-            Esta es una versión de validación: el recorrido completo es navegable, pero los
-            contenidos, cálculos y recomendaciones son demostrativos. No la uses como asesoría
-            definitiva para decisiones de inversión.
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="flex flex-col gap-2 sm:flex-row">
-          <Button asChild>
-            <Link to="/diagnostico">Ir al diagnóstico</Link>
-          </Button>
-          <Button variant="outline" asChild>
-            <Link to="/perfil">Revisar mi perfil</Link>
-          </Button>
-        </CardContent>
-      </Card>
-
-      <DemoNote>
-        Los canales de soporte, la documentación ampliada y los materiales de acompañamiento se
-        incorporarán en paquetes posteriores.
-      </DemoNote>
+      <div className="flex flex-wrap gap-2">
+        <Button asChild><Link to="/diagnostico-productivo">Ir a mi diagnóstico</Link></Button>
+        <Button asChild variant="outline"><Link to="/demostracion">Ver la demostración (Moda Origen)</Link></Button>
+      </div>
     </div>
   );
 }
