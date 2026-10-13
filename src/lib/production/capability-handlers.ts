@@ -54,7 +54,11 @@ export type Ctx = { userId: string; supabase: unknown };
 async function prepararContexto(
   context: Ctx,
   capabilityId: string,
-  opciones: { baseRepository?: import("./puertos").ProductionRepository } = {},
+  opciones: {
+    baseRepository?: import("./puertos").ProductionRepository;
+    /** UX-PROD-FIX-02 · Resolución memoizada del Assessment (hub). */
+    resolverAssessment?: (capabilityId: string) => Promise<import("./puertos").AssessmentRecord>;
+  } = {},
 ) {
   const runtime = await import("./runtime.server");
   const { scopeRepositoryToCapability } = await import("./capability-scope");
@@ -63,19 +67,20 @@ async function prepararContexto(
   const { packChecksum } = runtime.identidadPack(capabilityId);
   // PKG-02: el Assessment del runtime manifest es compartido por las 31
   // capacidades; el repositorio se aísla por capacidad (ids de pack se repiten).
-  const repository = scopeRepositoryToCapability(
-    opciones.baseRepository ?? runtime.createSupabaseProductionRepository(),
-    engine.pack.capability.id,
-  );
+  const baseRepository = opciones.baseRepository ?? runtime.createSupabaseProductionRepository();
+  const repository = scopeRepositoryToCapability(baseRepository, engine.pack.capability.id);
   // El bootstrap tenant-owned se ejecuta con la identidad del usuario (RLS).
   type ClienteUsuario = Parameters<typeof runtime.asegurarContextoProductivo>[0];
-  const assessment = await runtime.asegurarContextoProductivo(
-    context.supabase as ClienteUsuario,
-    context.userId,
-    capabilityId,
-  );
+  const assessment = opciones.resolverAssessment
+    ? await opciones.resolverAssessment(capabilityId)
+    : await runtime.asegurarContextoProductivo(
+        context.supabase as ClienteUsuario,
+        context.userId,
+        capabilityId,
+      );
   return {
     assessment,
+    baseRepository,
     deps: {
       engine,
       repository,

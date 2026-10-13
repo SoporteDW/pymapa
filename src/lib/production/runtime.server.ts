@@ -151,6 +151,14 @@ export const KNOWLEDGE_VERSION_INTEGRITY_MISMATCH = "KNOWLEDGE_VERSION_INTEGRITY
  * Cobertura por release: qué capacidades respalda cada KnowledgeVersion y con
  * qué checksum. Declarativo por versión, nunca por capacidad en el código.
  */
+/** UX-PROD-FIX-02 · Capacidades con la misma cobertura comparten Assessment. */
+export function claveCoberturaCapacidad(capabilityId: string): string {
+  return coberturaDeReleases()
+    .filter((r) => r.capabilityIds.includes(capabilityId))
+    .map((r) => `${r.identifier}@${r.version}`)
+    .join("|");
+}
+
 export function coberturaDeReleases(): ReadonlyArray<{
   identifier: string;
   version: string;
