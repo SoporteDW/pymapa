@@ -56,3 +56,7 @@
 ## UX-PROD-FIX-02 · Unified Product Journey
 - [x] Six workstreams + acceptance tests (docs/architecture/UX_PROD_FIX_02_UNIFIED_JOURNEY.md)
 - [ ] Human acceptance (correction in browser, invited respondent, mobile, published domain) — waits on user
+
+## UX-PROD-FIX-03 · Business UX Clarity
+- [x] Workstreams 1–6 + #7 E2E business acceptance (docs/architecture/UX_PROD_FIX_03_BUSINESS_UX_CLARITY.md)
+- [ ] Aceptación humana (CM-05/DG-02 en Digiway, móvil completo)
