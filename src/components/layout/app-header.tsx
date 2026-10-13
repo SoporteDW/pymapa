@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "@tanstack/react-router";
 import { useQueryClient } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
-import { FlaskConical, HelpCircle, LogIn, LogOut, PanelLeft, User } from "lucide-react";
+import { HelpCircle, LogIn, LogOut, PanelLeft, User } from "lucide-react";
 import type { ReactNode } from "react";
 import type { Empresa } from "@/types";
 import { BrandLogo } from "./brand-logo";
@@ -44,7 +44,7 @@ export function AppHeader({ empresa, produccion = false, nombreEmpresaProductiva
             <PanelLeft className="h-5 w-5" aria-hidden="true" />
           </Button>
         )}
-        <Link to={produccion ? "/diagnostico-productivo" : "/inicio"} aria-label="pymapa, ir al inicio" className="ml-1 flex items-center">
+        <Link to="/diagnostico-productivo" aria-label="pymapa, ir al inicio" className="ml-1 flex items-center">
           <BrandLogo sinBadge={produccion} />
         </Link>
       </div>
@@ -55,32 +55,15 @@ export function AppHeader({ empresa, produccion = false, nombreEmpresaProductiva
             {nombreVisible}
           </span>
         )}
-        <Button variant="outline" size="sm" className="hidden sm:inline-flex" asChild>
-          <Link to="/demostracion">
-            <FlaskConical className="mr-1 h-4 w-4" aria-hidden="true" />
-            Ver demostraciones
-          </Link>
-        </Button>
-        <Button variant="ghost" size="icon" className="sm:hidden" asChild>
-          <Link to="/demostracion" aria-label="Ver demostraciones">
-            <FlaskConical className="h-5 w-5 text-primary" aria-hidden="true" />
-          </Link>
-        </Button>
         <Button variant="ghost" size="icon" className="rounded-full" asChild>
           <Link to="/ayuda" aria-label="Centro de ayuda">
             <HelpCircle className="h-5 w-5 text-primary" aria-hidden="true" />
           </Link>
         </Button>
         <Button variant="ghost" size="icon" className="rounded-full" asChild>
-          {produccion ? (
-            <Link to="/empresa" search={{ editar: true }} aria-label="Perfil de empresa">
-              <User className="h-5 w-5 text-primary" aria-hidden="true" />
-            </Link>
-          ) : (
-            <Link to="/perfil" aria-label="Perfil de empresa">
-              <User className="h-5 w-5 text-primary" aria-hidden="true" />
-            </Link>
-          )}
+          <Link to="/empresa" search={{ editar: true }} aria-label="Perfil de empresa">
+            <User className="h-5 w-5 text-primary" aria-hidden="true" />
+          </Link>
         </Button>
         {isHydrated && user ? (
           <Button
