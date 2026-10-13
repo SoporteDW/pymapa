@@ -304,12 +304,12 @@ export async function evaluarCapacidad(
 /**
  * SPRINT-04-FIX · Los ids de NI/sección (`NI01`, `VA01`, `ACQ·NI01`) se repiten
  * entre packs. Los alcances granulares se califican con la capacidad
- * (`PC-01::NI01`) para que una asignación de DG-01 nunca autorice PC-01.
- * Refs sin calificar son históricas y pertenecen a OP-01 (misma regla que
+ * (`<capacidad>::<ref>`) para que una asignación de una capacidad nunca autorice otra.
+ * Refs sin calificar son históricas (capacidad histórica sin etiqueta) (misma regla que
  * `capability-scope.ts`).
  */
 export const SEPARADOR_ALCANCE = "::";
-const CAPACIDAD_HISTORICA_ALCANCE = "OP-01";
+import { CAPACIDAD_HISTORICA_SIN_ETIQUETA as CAPACIDAD_HISTORICA_ALCANCE } from "./capability-scope";
 
 export function calificarAlcance(capabilityId: string, ref: string): string {
   return ref.includes(SEPARADOR_ALCANCE) ? ref : `${capabilityId}${SEPARADOR_ALCANCE}${ref}`;
