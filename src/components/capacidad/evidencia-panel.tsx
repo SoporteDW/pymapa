@@ -35,7 +35,7 @@ interface Props {
   assessmentId: string;
   evidence: EvidenciaVista[];
   evidenceCandidates: { id: string; name: string }[];
-  observations: { id: string; acquisitionRef: string }[];
+  observations: { id: string; acquisitionRef: string; label?: string | null }[];
 }
 
 const fecha = (iso: string) => new Date(iso).toLocaleDateString("es", { day: "numeric", month: "short", year: "numeric" });
@@ -50,8 +50,9 @@ function Procedencia({ e }: { e: EvidenciaVista }) {
         {e.uploadedBy ? ` por ${e.uploadedBy}` : ""} ·{" "}
         {e.uploadContextCapabilityId ? `desde ${e.uploadContextCapabilityId}` : "lugar de carga no registrado"}
       </p>
-      {aqui.length > 0 && <p>Respalda aquí: {aqui.map((l) => l.acquisitionRef).join(", ")}</p>}
-      {otras.length > 0 && <p>Vinculado en: {otras.map((l) => `${l.capabilityId} (${l.acquisitionRef})`).join(", ")}</p>}
+      {aqui.length > 0 && <p>Asociado a {aqui.length === 1 ? "una respuesta" : `${aqui.length} respuestas`} de esta capacidad</p>}
+      {otras.length > 0 && <p>También asociado en: {[...new Set(otras.map((l) => l.capabilityId))].join(", ")}</p>}
+      <p>Cargado ≠ validado: el documento aún no se considera evidencia revisada.</p>
       {e.links.length === 0 && <p>Sin vínculo a ninguna respuesta todavía.</p>}
     </div>
   );
@@ -100,7 +101,7 @@ export function EvidenciaPanel(p: Props) {
       });
     },
     onSuccess: async () => {
-      toast.success("Documento registrado");
+      toast.success(`Documento registrado en ${p.capabilityId}`, { description: "Aún no está validado como evidencia." });
       setArchivo(null);
       setReferencia("");
       setObservacion("");
@@ -113,7 +114,7 @@ export function EvidenciaPanel(p: Props) {
     mutationFn: (v: { evidenceId: string; observationId: string }) =>
       vincularFn({ data: { capabilityId: p.capabilityId, ...v } }),
     onSuccess: async (r) => {
-      toast.success(r.alreadyLinked ? "Ya estaba vinculado" : "Documento vinculado a la respuesta");
+      toast.success(r.alreadyLinked ? "Ya estaba asociado" : "Documento asociado a la respuesta");
       await refrescar();
     },
     onError: (e: Error) => toast.error("No pudimos vincular", { description: e.message }),
@@ -131,7 +132,7 @@ export function EvidenciaPanel(p: Props) {
           onChange={(ev) => setDestino((d) => ({ ...d, [e.id]: ev.target.value }))}
         >
           <option value="">Elegir respuesta…</option>
-          {p.observations.map((o) => <option key={o.id} value={o.id}>{o.acquisitionRef}</option>)}
+          {p.observations.map((o, i) => <option key={o.id} value={o.id}>{o.label ?? `Respuesta ${i + 1}`}</option>)}
         </select>
         <Button
           size="sm"
@@ -139,7 +140,7 @@ export function EvidenciaPanel(p: Props) {
           disabled={!destino[e.id] || vincular.isPending}
           onClick={() => vincular.mutate({ evidenceId: e.id, observationId: destino[e.id]! })}
         >
-          Vincular
+          Asociar
         </Button>
       </div>
     );
@@ -209,6 +210,7 @@ export function EvidenciaPanel(p: Props) {
 
         <div className="grid gap-3 border-t border-border pt-4">
           <p className="text-sm font-medium">Cargar un documento nuevo</p>
+          <p className="text-xs text-muted-foreground">Queda registrado automáticamente en {p.capabilityId}, con fecha y quién lo cargó. Podrás reutilizarlo en otras capacidades.</p>
           {p.evidenceCandidates.length > 0 && (
             <div className="space-y-1">
               <Label htmlFor="ev-tipo">Tipo de evidencia</Label>
@@ -220,10 +222,10 @@ export function EvidenciaPanel(p: Props) {
           )}
           {p.observations.length > 0 && (
             <div className="space-y-1">
-              <Label htmlFor="ev-obs">Respuesta que respalda</Label>
+              <Label htmlFor="ev-obs">¿Respalda alguna respuesta? (opcional)</Label>
               <select id="ev-obs" className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm" value={observacion} onChange={(e) => setObservacion(e.target.value)}>
                 <option value="">Ninguna por ahora</option>
-                {p.observations.map((o) => <option key={o.id} value={o.id}>{o.acquisitionRef}</option>)}
+                {p.observations.map((o, i) => <option key={o.id} value={o.id}>{o.label ?? `Respuesta ${i + 1}`}</option>)}
               </select>
             </div>
           )}
