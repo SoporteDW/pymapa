@@ -476,12 +476,18 @@ export const registerCapabilityEvidenceInput = (data: unknown) => evidenciaSchem
 export async function registerCapabilityEvidenceHandler(context: Ctx, capabilityId: string, data: ReturnType<typeof registerCapabilityEvidenceInput>) {
     const casoUso = await import("./caso-uso");
     const { assessment, deps } = await prepararContexto(context, capabilityId);
-    const { respondent } = await asegurarRespondentPropio(deps, {
+    const { respondent, assignment } = await asegurarRespondentPropio(deps, {
       organizationId: assessment.organizationId,
       assessmentId: assessment.id,
       capabilityId: deps.engine.pack.capability.id,
       userId: context.userId,
     });
+    if (!assignment) throw new Error("OUT_OF_ASSIGNMENT_SCOPE");
+    // SPRINT-04-FIX · Solo se vincula a observaciones de esta capacidad.
+    if (data.observationIds?.length) {
+      const propias = new Set((await deps.repository.listObservations(assessment.id)).map((o) => o.id));
+      if (data.observationIds.some((id) => !propias.has(id))) throw new Error("OBSERVATION_OUTSIDE_CAPABILITY");
+    }
     const salida = await casoUso.registrarEvidencia(deps, {
       organizationId: assessment.organizationId,
       caseId: assessment.caseId,
