@@ -37,7 +37,7 @@ export const SECCIONES_AYUDA = [
   },
   {
     q: "¿Cómo se guardan mis respuestas?",
-    a: "Al pulsar «Guardar respuesta» queda registrada en tu cuenta y el estado se actualiza enseguida. Puedes responder que lo sabes, que no lo sabes por ahora o que no aplica (explicando por qué).",
+    a: "Al pulsar «Guardar respuesta» queda registrada en tu cuenta, no en este navegador, y el estado se actualiza enseguida. Puedes responder que lo sabes, que no lo sabes por ahora o que no aplica (explicando por qué).",
   },
   {
     q: "¿Cómo reviso o corrijo una respuesta?",
