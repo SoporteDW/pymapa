@@ -51,6 +51,8 @@ export interface ObservationRecord {
     acquisitionRef: string;
     notApplicableReason?: string | null;
     conflictingObservationIds?: string[];
+    /** UX-PROD-FIX-02 · Observación vigente que esta corrige (historial preservado). */
+    correctsObservationId?: string;
   };
   createdAt: string;
 }
