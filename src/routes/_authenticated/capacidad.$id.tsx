@@ -43,8 +43,14 @@ export const Route = createFileRoute("/_authenticated/capacidad/$id")({
     ],
   }),
   notFoundComponent: NoEncontrada,
-  component: CapacidadGenerica,
+  component: CapacidadPorId,
 });
+
+/** SPRINT-04-FIX · Cambiar de capacidad remonta todo el estado de UI. */
+function CapacidadPorId() {
+  const capabilityId = Route.useParams().id.toUpperCase();
+  return <CapacidadGenerica key={capabilityId} capabilityId={capabilityId} />;
+}
 
 function NoEncontrada() {
   return (
@@ -55,8 +61,7 @@ function NoEncontrada() {
   );
 }
 
-function CapacidadGenerica() {
-  const capabilityId = Route.useParams().id.toUpperCase();
+function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
   const qc = useQueryClient();
   const cargarWs = useServerFn(getCapabilityWorkspace);
   const cargarCol = useServerFn(getCapabilityCollaboration);

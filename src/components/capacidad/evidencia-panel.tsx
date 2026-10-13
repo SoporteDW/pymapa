@@ -16,7 +16,14 @@ interface Props {
   capabilityId: string;
   organizationId: string;
   assessmentId: string;
-  evidence: { id: string; title: string | null; evidenceType: string; candidateRef: string | null; source: string }[];
+  evidence: {
+    id: string;
+    title: string | null;
+    evidenceType: string;
+    candidateRef: string | null;
+    source: string;
+    relation?: "CAPABILITY" | "ORGANIZATION";
+  }[];
   evidenceCandidates: { id: string; name: string }[];
   observations: { id: string; acquisitionRef: string }[];
 }
@@ -28,6 +35,8 @@ export function EvidenciaPanel(p: Props) {
   const [referencia, setReferencia] = useState("");
   const [candidato, setCandidato] = useState("");
   const [observacion, setObservacion] = useState("");
+  const propias = p.evidence.filter((e) => e.relation !== "ORGANIZATION");
+  const organizacion = p.evidence.filter((e) => e.relation === "ORGANIZATION");
 
   const adjuntar = useMutation({
     mutationFn: async () => {
@@ -69,16 +78,33 @@ export function EvidenciaPanel(p: Props) {
         <CardDescription>Los archivos se guardan de forma privada para tu organización.</CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        {p.evidence.length > 0 ? (
+        {propias.length > 0 ? (
           <ul className="space-y-1 text-sm">
-            {p.evidence.map((e) => (
+            {propias.map((e) => (
               <li key={e.id} className="rounded-lg border border-border px-3 py-2">
                 {e.title ?? e.evidenceType} · <span className="text-muted-foreground">{e.candidateRef ?? e.source}</span>
               </li>
             ))}
           </ul>
         ) : (
-          <p className="text-sm text-muted-foreground">Aún no hay evidencias registradas.</p>
+          <p className="text-sm text-muted-foreground">Aún no hay evidencias vinculadas a respuestas de esta capacidad.</p>
+        )}
+        {organizacion.length > 0 && (
+          <details className="text-sm">
+            <summary className="cursor-pointer text-muted-foreground">
+              Otras evidencias de tu organización ({organizacion.length})
+            </summary>
+            <p className="mt-2 text-xs text-muted-foreground">
+              No están vinculadas a respuestas de esta capacidad. Puedes reutilizarlas registrando el vínculo de forma explícita.
+            </p>
+            <ul className="mt-2 space-y-1">
+              {organizacion.map((e) => (
+                <li key={e.id} className="rounded-lg border border-dashed border-border px-3 py-2">
+                  {e.title ?? e.evidenceType}
+                </li>
+              ))}
+            </ul>
+          </details>
         )}
         <div className="grid gap-3">
           {p.evidenceCandidates.length > 0 && (
