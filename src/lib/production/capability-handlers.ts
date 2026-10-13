@@ -22,6 +22,7 @@ const submitSchema = z.object({
   conflictingObservationIds: z.array(z.string()).optional(),
   rawInput: z.record(z.unknown()).optional(),
   evidenceIds: z.array(z.string()).optional(),
+  correctsObservationId: z.string().uuid().nullable().optional(),
 });
 
 const alcanceSchema = z.enum(["DOMAIN", "CAPABILITY", "INFORMATION_NEED", "SECTION"]);
@@ -200,6 +201,25 @@ export async function submitCapabilityResponseHandler(context: Ctx, capabilityId
       userId: context.userId,
       acquisitionId: data.acquisitionId,
     });
+    // UX-PROD-FIX-02 · Corregir: el autor de la respuesta o OWNER/ADMIN.
+    // Un respondent invitado nunca corrige respuestas de otra persona.
+    if (data.correctsObservationId) {
+      const objetivo = (await deps.repository.listObservations(assessment.id)).find(
+        (o) => o.id === data.correctsObservationId,
+      );
+      const rol = await deps.repository.getMembershipRole(assessment.organizationId, context.userId);
+      const esAutor = Boolean(objetivo && objetivo.respondentId && objetivo.respondentId === respondent.id);
+      if (objetivo && !esAutor && !(rol && ROLES_CON_PARTICIPACION_PLENA.has(rol))) {
+        return {
+          accepted: false,
+          rejectionReason: casoUso.CORRECTION_NOT_AUTHORIZED,
+          responseId: null,
+          observationId: null,
+          evaluationRunId: null,
+          state: null,
+        };
+      }
+    }
     return casoUso.submitAcquisitionResponse(deps, {
       assessmentId: assessment.id,
       organizationId: assessment.organizationId,
@@ -214,6 +234,7 @@ export async function submitCapabilityResponseHandler(context: Ctx, capabilityId
         : {}),
       ...(data.rawInput ? { rawInput: data.rawInput } : {}),
       ...(data.evidenceIds ? { evidenceIds: data.evidenceIds } : {}),
+      ...(data.correctsObservationId ? { correctsObservationId: data.correctsObservationId } : {}),
     });
 }
 
