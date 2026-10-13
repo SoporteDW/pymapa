@@ -17,6 +17,7 @@ import {
   KNOWLEDGE_RUNTIME_IDENTIFIER,
   KNOWLEDGE_RUNTIME_VERSION,
   KNOWLEDGE_VERSION_IDENTIFIER,
+  KNOWLEDGE_VERSION_CHECKSUM_HISTORICO,
   KNOWLEDGE_VERSION_NUMBER,
   asegurarKnowledgeVersion,
   cargarEngine,
@@ -59,7 +60,7 @@ const HISTORICA = () => ({
   id: "kv-m1",
   identifier: KNOWLEDGE_VERSION_IDENTIFIER,
   version: KNOWLEDGE_VERSION_NUMBER,
-  checksum: checksumPackOp01(),
+  checksum: KNOWLEDGE_VERSION_CHECKSUM_HISTORICO,
 });
 
 describe("PKG-01 · A · registro de packs", () => {

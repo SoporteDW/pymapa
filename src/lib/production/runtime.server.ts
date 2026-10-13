@@ -134,6 +134,13 @@ export function hashTokenInvitacion(token: string): string {
 /** Fila histórica M1 (solo OP-01). Inmutable: nunca se actualiza ni reinterpreta. */
 export const KNOWLEDGE_VERSION_IDENTIFIER = "PYMAPA-KNOWLEDGE-MASTER";
 export const KNOWLEDGE_VERSION_NUMBER = "1.0.0";
+/**
+ * Checksum sellado de la fila histórica M1 tal como está persistida (pack OP-01
+ * original). Literal fijo: el pack actual evolucionó y recalcularlo rompería la
+ * verificación de inmutabilidad de assessments históricos.
+ */
+export const KNOWLEDGE_VERSION_CHECKSUM_HISTORICO =
+  "4c1f797895ea44be5565e518783402d97f51769f18f9f818258c126e71a2a014";
 
 /** Release ejecutable compuesto de los 31 packs (PKG-01). */
 export const KNOWLEDGE_RUNTIME_IDENTIFIER = RUNTIME_MANIFEST_IDENTIFIER;
@@ -154,7 +161,7 @@ export function coberturaDeReleases(): ReadonlyArray<{
     {
       identifier: KNOWLEDGE_VERSION_IDENTIFIER,
       version: KNOWLEDGE_VERSION_NUMBER,
-      checksum: checksumPackOp01(),
+      checksum: KNOWLEDGE_VERSION_CHECKSUM_HISTORICO,
       capabilityIds: ["OP-01"],
     },
     {
