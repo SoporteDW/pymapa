@@ -302,6 +302,44 @@ export async function evaluarCapacidad(
 /* ------------------------------------------------------------------ */
 
 /**
+ * SPRINT-04-FIX · Los ids de NI/sección (`NI01`, `VA01`, `ACQ·NI01`) se repiten
+ * entre packs. Los alcances granulares se califican con la capacidad
+ * (`PC-01::NI01`) para que una asignación de DG-01 nunca autorice PC-01.
+ * Refs sin calificar son históricas y pertenecen a OP-01 (misma regla que
+ * `capability-scope.ts`).
+ */
+export const SEPARADOR_ALCANCE = "::";
+const CAPACIDAD_HISTORICA_ALCANCE = "OP-01";
+
+export function calificarAlcance(capabilityId: string, ref: string): string {
+  return ref.includes(SEPARADOR_ALCANCE) ? ref : `${capabilityId}${SEPARADOR_ALCANCE}${ref}`;
+}
+
+export function desglosarAlcance(ref: string): { capabilityId: string; ref: string } {
+  const i = ref.indexOf(SEPARADOR_ALCANCE);
+  if (i < 0) return { capabilityId: CAPACIDAD_HISTORICA_ALCANCE, ref };
+  return { capabilityId: ref.slice(0, i), ref: ref.slice(i + SEPARADOR_ALCANCE.length) };
+}
+
+/** ¿La asignación pertenece (a nivel capacidad/dominio/granular) a esta capacidad? */
+export function assignmentPerteneceACapacidad(
+  assignment: Pick<AssignmentRecord, "scopeType" | "scopeRef">,
+  capability: { id: string; domainId: string },
+): boolean {
+  switch (assignment.scopeType) {
+    case "DOMAIN":
+      return assignment.scopeRef === capability.domainId;
+    case "CAPABILITY":
+      return assignment.scopeRef === capability.id;
+    case "INFORMATION_NEED":
+    case "SECTION":
+      return desglosarAlcance(assignment.scopeRef).capabilityId === capability.id;
+    default:
+      return false;
+  }
+}
+
+/**
  * ¿El alcance de la asignación cubre esta adquisición?
  * Genérico: el alcance se compara contra referencias declaradas por el pack.
  */
@@ -315,12 +353,14 @@ export function assignmentCubreAdquisicion(
       return assignment.scopeRef === capability.domainId;
     case "CAPABILITY":
       return assignment.scopeRef === capability.id;
-    case "INFORMATION_NEED":
-      return assignment.scopeRef === acquisition.informationNeedRef;
-    case "SECTION":
-      return (
-        assignment.scopeRef === acquisition.id || acquisition.variableRefs.includes(assignment.scopeRef)
-      );
+    case "INFORMATION_NEED": {
+      const { capabilityId, ref } = desglosarAlcance(assignment.scopeRef);
+      return capabilityId === capability.id && ref === acquisition.informationNeedRef;
+    }
+    case "SECTION": {
+      const { capabilityId, ref } = desglosarAlcance(assignment.scopeRef);
+      return capabilityId === capability.id && (ref === acquisition.id || acquisition.variableRefs.includes(ref));
+    }
     default:
       return false;
   }
