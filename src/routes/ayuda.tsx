@@ -40,8 +40,8 @@ export const SECCIONES_AYUDA = [
     a: "Al pulsar «Guardar respuesta» queda registrada en tu cuenta, no en este navegador, y el estado se actualiza enseguida. Puedes responder que lo sabes, que no lo sabes por ahora o que no aplica (explicando por qué).",
   },
   {
-    q: "¿Cómo reviso o corrijo una respuesta?",
-    a: "Dentro de cada capacidad, en «Respuestas registradas», ves qué respondiste, cuándo y quién. Con «Corregir» registras la versión correcta. La respuesta anterior no se borra: queda marcada como corregida para que haya trazabilidad. Solo quien respondió o un administrador de la empresa puede corregir.",
+    q: "¿Cómo reviso o modifico una respuesta?",
+    a: "Dentro de cada capacidad, en «Respuestas registradas», ves qué respondiste, cuándo y quién. Una respuesta guardada no está pendiente de nada; si algo cambió, usa «Modificar respuesta» (opcional). Solo cuando Pymapa detecta respuestas que no coinciden verás «Aclaración pendiente» y el botón «Resolver aclaración». La versión anterior nunca se borra. Solo quien respondió o un administrador de la empresa puede modificar.",
   },
   {
     q: "¿Qué significa «Requiere aclaración»?",
@@ -57,7 +57,7 @@ export const SECCIONES_AYUDA = [
   },
   {
     q: "¿Qué significan los indicadores de avance?",
-    a: "Son conteos reales: capacidades con actividad, respuestas, preguntas y requerimientos pendientes, puntos por aclarar y documentos. No son una nota de madurez ni un porcentaje de diagnóstico terminado. «Adquisiciones agotadas» significa que no quedan preguntas disponibles con lo que se sabe, no que la capacidad esté cerrada.",
+    a: "Son conteos reales: capacidades con actividad, respuestas, preguntas y requerimientos pendientes, puntos por aclarar y documentos. No son una nota de madurez ni un porcentaje de diagnóstico terminado. «Sin preguntas disponibles por ahora» significa que con lo que ya respondiste no se activan más preguntas, no que la capacidad esté cerrada. El porcentaje de «catálogo explorado» solo indica cuántas de las 31 capacidades ya tienen alguna respuesta. Puedes pulsar cada indicador para ver de dónde sale.",
   },
   {
     q: "¿Qué resultados hay disponibles hoy?",

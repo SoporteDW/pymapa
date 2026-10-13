@@ -49,27 +49,38 @@ export function AppHeader({ empresa, produccion = false, nombreEmpresaProductiva
         </Link>
       </div>
 
-      <div className="flex items-center gap-1 sm:gap-2">
+      <div className="flex items-center gap-2 sm:gap-3">
         {nombreVisible && (
           <span className="hidden max-w-[14rem] truncate text-sm text-muted-foreground xl:inline">
             {nombreVisible}
           </span>
         )}
-        <Button variant="ghost" size="icon" className="rounded-full" asChild>
-          <Link to="/ayuda" aria-label="Centro de ayuda">
-            <HelpCircle className="h-5 w-5 text-primary" aria-hidden="true" />
+        <nav aria-label="Accesos rápidos" className="flex items-center gap-2 sm:gap-3">
+          <Link
+            to="/ayuda"
+            aria-label="Ayuda"
+            title="Ayuda"
+            className="inline-flex h-11 min-w-11 items-center justify-center gap-1.5 rounded-full px-2 text-sm text-primary hover:bg-accent sm:px-3"
+          >
+            <HelpCircle className="h-5 w-5" aria-hidden="true" />
+            <span className="hidden sm:inline">Ayuda</span>
           </Link>
-        </Button>
-        <Button variant="ghost" size="icon" className="rounded-full" asChild>
-          <Link to="/empresa" search={{ editar: true }} aria-label="Perfil de empresa">
-            <User className="h-5 w-5 text-primary" aria-hidden="true" />
+          <Link
+            to="/empresa"
+            search={{ editar: true }}
+            aria-label="Mi empresa"
+            title="Mi empresa"
+            className="inline-flex h-11 min-w-11 items-center justify-center gap-1.5 rounded-full px-2 text-sm text-primary hover:bg-accent sm:px-3"
+          >
+            <User className="h-5 w-5" aria-hidden="true" />
+            <span className="hidden sm:inline">Mi empresa</span>
           </Link>
-        </Button>
+        </nav>
         {isHydrated && user ? (
           <Button
             variant="ghost"
             size="icon"
-            className="rounded-full"
+            className="h-11 w-11 rounded-full"
             onClick={() => void cerrarSesion()}
             aria-label="Cerrar sesión"
           >

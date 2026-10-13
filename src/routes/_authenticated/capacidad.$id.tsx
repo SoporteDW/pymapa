@@ -99,7 +99,8 @@ function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
         toast.error("La respuesta no fue aceptada", { description: r.rejectionReason ?? undefined });
         return;
       }
-      toast.success(corrigiendo ? "Corrección guardada" : "Respuesta guardada");
+      const eraModificacion = Boolean(corrigiendo);
+      const habiaAclaracion = (ws.data?.clarificationDetails.length ?? 0) > 0;
       setSeleccion(null);
       setCorrigiendo(null);
       // Estado inmediato: el workspace recién evaluado actualiza la tarjeta del
@@ -109,6 +110,12 @@ function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
         queryFn: () => cargarWs({ data: { capabilityId } }),
         staleTime: 0,
       });
+      // Reevaluación gobernada: el estado de aclaración sale del Engine, no de la edición.
+      const persiste = nuevo.clarificationDetails.length > 0;
+      if (eraModificacion && habiaAclaracion) {
+        if (persiste) toast.warning("Respuesta modificada, pero la aclaración sigue pendiente", { description: "El diagnóstico se reevaluó y todavía hay información que no coincide." });
+        else toast.success("Aclaración resuelta", { description: "El diagnóstico se reevaluó y ya no encuentra información contradictoria." });
+      } else toast.success(eraModificacion ? "Respuesta modificada y reevaluada" : "Respuesta guardada");
       qc.setQueryData(["hub-diagnostico"], (hub: { capabilities: { capabilityId: string }[] } | undefined) =>
         hub
           ? {
@@ -140,6 +147,9 @@ function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
       tareas.find((t) => t.acquisitionId === seleccion) ??
       null);
   const c = workspace.counts;
+  const enAclaracion = Boolean(corrigiendo && clarificationDetails.some((d) => d.observationIds.includes(corrigiendo.observationId)));
+  const hub = qc.getQueryData<{ capabilities: { capabilityId: string; interactionState: string }[] }>(["hub-diagnostico"]);
+  const siguiente = hub?.capabilities.find((x) => x.capabilityId !== capabilityId && x.interactionState === "NOT_STARTED") ?? null;
 
   return (
     <div className="mx-auto max-w-5xl space-y-6 p-4 sm:p-6">
@@ -153,7 +163,8 @@ function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
         <Badge variant="outline" className="rounded-full">{ETIQUETA_ESTADO[workspace.interactionState]}</Badge>
         <span className="text-muted-foreground">
           {c.answered} con respuesta
-          {c.literalQuestions > 0 && ` · ${c.pendingQuestions} de ${c.literalQuestions} preguntas sin responder (${c.eligibleQuestions} disponibles ahora)`}
+          {c.literalQuestions > 0 && ` · ${c.eligibleQuestions} ${c.eligibleQuestions === 1 ? "pregunta disponible" : "preguntas disponibles"} ahora`}
+          {c.questionsNotYetEnabled > 0 && ` · ${c.questionsNotYetEnabled} condicionales no activadas (no son trabajo pendiente)`}
           {c.informationTasks > 0 && ` · ${c.pendingInformationTasks} de ${c.informationTasks} requerimientos de información pendientes`}
           {c.contradictions > 0 && ` · ${c.contradictions} por aclarar`}
           {findingsCount > 0 && ` · ${findingsCount} hallazgos`}
@@ -165,9 +176,9 @@ function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
           {clarificationDetails.length > 0 && !corrigiendo && (
             <Card className="border-destructive/40">
               <CardHeader>
-                <CardTitle className="text-base">Necesitamos aclarar información</CardTitle>
+                <CardTitle className="text-base">Aclaración pendiente</CardTitle>
                 <CardDescription>
-                  El diagnóstico no puede usar este punto hasta que se aclare. Nada se borra: la corrección queda registrada junto a la respuesta original.
+                  Hay respuestas que no coinciden entre sí sobre el mismo tema. Elige la que no sea correcta y escribe la versión buena: Pymapa vuelve a revisar y te dice si quedó resuelto. Nada se borra.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -176,8 +187,8 @@ function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
                     <p className="font-medium">{d.variableName ?? d.variableRef}</p>
                     <p className="text-muted-foreground">
                       {d.reason === "DECLARED_CONTRADICTORY"
-                        ? "Una respuesta indicó que hay versiones que se contradicen. Corrígela con la versión correcta, o indica que no lo sabes por ahora."
-                        : `Hay respuestas con valores distintos para el mismo dato: ${d.conflictingSemanticValues.join(" / ")}. Corrige la que no sea correcta.`}
+                        ? "Una respuesta indicó que hay versiones que se contradicen. Escribe la versión correcta, o indica que no lo sabes por ahora."
+                        : `Estas ${d.observationIds.length} respuestas dicen cosas distintas sobre lo mismo. Revisa cuál es la correcta y modifica las demás.`}
                     </p>
                     <ul className="space-y-2">
                       {d.observationIds.map((id) => {
@@ -186,13 +197,13 @@ function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
                         return (
                           <li key={id} className="flex flex-wrap items-start justify-between gap-2 rounded-lg bg-muted/50 p-2">
                             <span className="min-w-0 flex-1">
-                              <span className="block text-xs text-muted-foreground">{h.acquisitionId} · {ESTADO_RESPUESTA[h.knowledgeState] ?? h.knowledgeState}</span>
+                              <span className="block text-xs text-muted-foreground">{h.label ?? "Respuesta"} · {new Date(h.recordedAt).toLocaleDateString("es")}</span>
                               {h.semanticValue ?? h.notApplicableReason ?? "—"}
                             </span>
                             {h.canCorrect ? (
-                              <Button size="sm" onClick={() => setCorrigiendo(h)}>Corregir</Button>
+                              <Button size="sm" variant="destructive" onClick={() => setCorrigiendo(h)}>Resolver aclaración</Button>
                             ) : (
-                              <span className="text-xs text-muted-foreground">Solo quien la respondió o un administrador puede corregirla</span>
+                              <span className="text-xs text-muted-foreground">Solo quien la respondió o un administrador puede modificarla</span>
                             )}
                           </li>
                         );
@@ -213,7 +224,7 @@ function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
             <Card>
               <CardHeader>
                 <CardTitle className="text-base">
-                  {corrigiendo ? "Corregir respuesta" : workspace.clarifications[0] ? "Pregunta de aclaración" : "Tu siguiente paso"}
+                  {corrigiendo ? (enAclaracion ? "Resolver aclaración" : "Modificar respuesta") : workspace.clarifications[0] ? "Pregunta de aclaración" : "Tu siguiente paso"}
                 </CardTitle>
                 {corrigiendo && (
                   <CardDescription>
@@ -233,14 +244,29 @@ function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
                   observaciones={col.data?.observations ?? []}
                 />
                 {corrigiendo && (
-                  <Button variant="ghost" onClick={() => setCorrigiendo(null)}>Cancelar corrección</Button>
+                  <Button variant="ghost" onClick={() => setCorrigiendo(null)}>Cancelar</Button>
                 )}
               </CardContent>
             </Card>
           ) : tareas.length === 0 && clarificationDetails.length === 0 ? (
-            <Card>
-              <CardContent className="py-6 text-sm text-muted-foreground">
-                No quedan preguntas ni requerimientos disponibles con la información actual. Esto no significa que el diagnóstico de la capacidad esté cerrado.
+            <Card data-testid="sin-preguntas">
+              <CardHeader>
+                <CardTitle className="text-base">No hay más preguntas disponibles por ahora</CardTitle>
+                <CardDescription>
+                  Con lo que ya respondiste no se activan más preguntas en esta capacidad. Esto no significa que su diagnóstico esté cerrado.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex flex-wrap gap-2">
+                {siguiente && (
+                  <Button asChild>
+                    <Link to="/capacidad/$id" params={{ id: siguiente.capabilityId }}>Continuar con otra capacidad: {siguiente.capabilityId}</Link>
+                  </Button>
+                )}
+                <Button asChild variant="outline"><Link to="/diagnostico-productivo">Volver al diagnóstico</Link></Button>
+                {responseHistory.length > 0 && (
+                  <Button variant="ghost" onClick={() => document.getElementById("respuestas")?.scrollIntoView({ behavior: "smooth" })}>Consultar respuestas</Button>
+                )}
+                {siguiente && <p className="w-full text-xs text-muted-foreground">La sugerencia es solo de navegación (siguiente capacidad sin iniciar del catálogo), no una prioridad para tu negocio.</p>}
               </CardContent>
             </Card>
           ) : null}
@@ -260,7 +286,6 @@ function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
                         onClick={() => setSeleccion(t.acquisitionId)}
                         className={`w-full rounded-xl border p-3 text-left text-sm transition-colors ${seleccion === t.acquisitionId ? "border-primary bg-primary/5" : "border-border hover:border-primary/40"}`}
                       >
-                        <span className="block text-xs text-muted-foreground">{t.acquisitionId}</span>
                         {t.informationNeedStatement ?? t.variables.map((v) => v.name).filter(Boolean).join(" · ")}
                       </button>
                     </li>
@@ -270,10 +295,10 @@ function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
             </Card>
           )}
 
-          <Card>
+          <Card id="respuestas">
             <CardHeader>
               <CardTitle className="text-base">Respuestas registradas ({responseHistory.filter((h) => !h.supersededByObservationId).length})</CardTitle>
-              <CardDescription>Las correcciones no borran la respuesta anterior: queda marcada como corregida.</CardDescription>
+              <CardDescription>Estas respuestas ya quedaron guardadas. Puedes modificarlas si cambió algo; la versión anterior se conserva en el historial.</CardDescription>
             </CardHeader>
             <CardContent>
               {responseHistory.length === 0 ? (
@@ -284,12 +309,11 @@ function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
                     <li key={h.observationId} className={`rounded-xl border p-3 text-sm ${h.supersededByObservationId ? "border-dashed border-border opacity-70" : "border-border"}`}>
                       <div className="flex flex-wrap items-center justify-between gap-2">
                         <span className="text-xs text-muted-foreground">
-                          {h.acquisitionId} · {ESTADO_RESPUESTA[h.knowledgeState] ?? h.knowledgeState}
-                          {h.supersededByObservationId && " · corregida"}
-                          {h.correctsObservationId && " · corrección"}
+                          {h.supersededByObservationId ? "Versión anterior (reemplazada)" : `Registrada · ${ESTADO_RESPUESTA[h.knowledgeState] ?? h.knowledgeState}`}
+                          {h.correctsObservationId && " · modificada"}
                         </span>
-                        {h.canCorrect && (
-                          <Button size="sm" variant="outline" onClick={() => setCorrigiendo(h)}>Corregir</Button>
+                        {h.canCorrect && !h.supersededByObservationId && (
+                          <Button size="sm" variant="link" className="h-auto p-0 text-xs text-muted-foreground" onClick={() => setCorrigiendo(h)}>Modificar respuesta</Button>
                         )}
                       </div>
                       {h.label && <p className="mt-1 font-medium">{h.label}</p>}
@@ -315,7 +339,7 @@ function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
                 assessmentId={ws.data.assessmentId}
                 evidence={col.data.evidence}
                 evidenceCandidates={col.data.evidenceCandidates}
-                observations={col.data.observations}
+                observations={col.data.observations.map((o) => ({ ...o, label: porId.get(o.id)?.label ?? null }))}
               />
               <ColaboracionPanel
                 capabilityId={capabilityId}

@@ -22,7 +22,7 @@ export const ETIQUETA_ESTADO: Record<string, string> = {
   IN_PROGRESS: "En curso",
   AWAITING_INFORMATION: "Pendiente de información",
   NEEDS_CLARIFICATION: "Requiere aclaración",
-  ACQUISITION_EXHAUSTED: "Adquisiciones agotadas",
+  ACQUISITION_EXHAUSTED: "Sin preguntas disponibles por ahora",
   UNAVAILABLE: "No disponible",
 };
 
@@ -31,7 +31,7 @@ const TONO: Record<string, string> = {
   IN_PROGRESS: "border-primary/40 bg-primary/10 text-primary",
   AWAITING_INFORMATION: "border-primary/40 bg-primary/5 text-primary",
   NEEDS_CLARIFICATION: "border-destructive/40 bg-destructive/10 text-destructive",
-  ACQUISITION_EXHAUSTED: "border-success/40 bg-success/10 text-success",
+  ACQUISITION_EXHAUSTED: "border-border bg-secondary text-secondary-foreground",
   UNAVAILABLE: "border-destructive/40 bg-destructive/10 text-destructive",
 };
 
@@ -48,6 +48,8 @@ export interface CapacidadHub {
     pendingQuestions?: number;
     informationTasks?: number;
     contradictions?: number;
+    eligibleQuestions?: number;
+    questionsNotYetEnabled?: number;
   } | null;
   findingsCount: number;
 }
@@ -100,7 +102,10 @@ export function ContadoresCapacidad({ counts }: { counts: NonNullable<CapacidadH
     <>
       <p>{counts.answered} con respuesta</p>
       {(counts.literalQuestions ?? 0) > 0 && (
-        <p>{counts.pendingQuestions} de {counts.literalQuestions} preguntas sin responder</p>
+        <p>
+          {counts.eligibleQuestions ?? counts.pendingQuestions} {(counts.eligibleQuestions ?? counts.pendingQuestions) === 1 ? "pregunta disponible" : "preguntas disponibles"}
+          {(counts.questionsNotYetEnabled ?? 0) > 0 && ` · ${counts.questionsNotYetEnabled} condicionales no activadas`}
+        </p>
       )}
       {(counts.informationTasks ?? 0) > 0 && (
         <p>{counts.pendingInformationTasks} de {counts.informationTasks} requerimientos de información pendientes</p>
