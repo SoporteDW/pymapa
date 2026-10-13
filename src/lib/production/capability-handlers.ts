@@ -244,22 +244,26 @@ export async function submitCapabilityResponseHandler(context: Ctx, capabilityId
  */
 export async function getCapabilityCollaborationHandler(context: Ctx, capabilityId: string, _data: Record<string, never>) {
     const casoUso = await import("./caso-uso");
-    const { assessment, deps } = await prepararContexto(context, capabilityId);
+    const { assessment, deps, baseRepository } = await prepararContexto(context, capabilityId);
     const capability = deps.engine.pack.capability;
-    const [respondents, assignmentsTodas, evidence, links, clarifications] = await Promise.all([
+    const [respondents, assignmentsTodas, evidence, links, clarifications, todasObs] = await Promise.all([
       deps.repository.listRespondents(assessment.organizationId),
       deps.repository.listAssignments(assessment.id),
       deps.repository.listEvidence(assessment.id),
       deps.repository.listEvidenceLinks(assessment.id),
       casoUso.getClarificationCandidates(deps, assessment.id),
+      baseRepository.listObservations(assessment.id),
     ]);
-    const observations = await deps.repository.listObservations(assessment.id);
+    const observationsTodas = await deps.repository.listObservations(assessment.id);
+    const corregidas = casoUso.observacionesCorregidas(observationsTodas);
+    const observations = observationsTodas.filter((o) => !corregidas.has(o.id));
     // SPRINT-04-FIX · Solo los alcances de esta capacidad.
     const assignments = assignmentsTodas.filter((a) => casoUso.assignmentPerteneceACapacidad(a, capability));
-    // Evidencia vinculada a observaciones de esta capacidad = "de esta capacidad".
-    // El resto de la organización se ofrece como reutilizable, nunca atribuida.
-    const obsIds = new Set(observations.map((o) => o.id));
-    const vinculadas = new Set(links.filter((l) => obsIds.has(l.observationId)).map((l) => l.evidenceId));
+    // UX-PROD-FIX-02 · Procedencia real de cada documento: vínculos explícitos
+    // (capacidad + adquisición) y contexto de carga si quedó registrado.
+    const obsPorId = new Map(todasObs.map((o) => [o.id, o]));
+    const propias = new Set(observationsTodas.map((o) => o.id));
+    const nombre = new Map(respondents.map((r) => [r.id, r.displayName ?? r.email ?? null]));
     return {
       assessmentId: assessment.id,
       capabilityId: capability.id,
@@ -281,15 +285,36 @@ export async function getCapabilityCollaborationHandler(context: Ctx, capability
         delegatedFromAssignmentId: a.delegatedFromAssignmentId,
         delegationReason: a.delegationReason,
       })),
-      evidence: evidence.map((e) => ({
-        id: e.id,
-        candidateRef: e.candidateRef,
-        evidenceType: e.evidenceType,
-        source: e.source,
-        title: e.title,
-        createdAt: e.createdAt,
-        relation: vinculadas.has(e.id) ? ("CAPABILITY" as const) : ("ORGANIZATION" as const),
-      })),
+      evidence: evidence.map((e) => {
+        const vinculos = links
+          .filter((l) => l.evidenceId === e.id)
+          .map((l) => obsPorId.get(l.observationId))
+          .filter((o): o is NonNullable<typeof o> => Boolean(o))
+          .map((o) => ({
+            observationId: o.id,
+            capabilityId: (o.value as { capabilityId?: string }).capabilityId ?? "OP-01",
+            acquisitionRef: o.value.acquisitionRef,
+            thisCapability: propias.has(o.id),
+          }));
+        const aqui = vinculos.some((v) => v.thisCapability);
+        const contexto = e.uploadContextCapabilityId ?? null;
+        return {
+          id: e.id,
+          candidateRef: e.candidateRef,
+          evidenceType: e.evidenceType,
+          source: e.source,
+          title: e.title,
+          createdAt: e.createdAt,
+          uploadedBy: e.respondentId ? (nombre.get(e.respondentId) ?? null) : null,
+          uploadContextCapabilityId: contexto,
+          links: vinculos,
+          relation: aqui
+            ? ("CAPABILITY" as const)
+            : contexto === capability.id
+              ? ("NEEDS_LINK" as const)
+              : ("ORGANIZATION" as const),
+        };
+      }),
       evidenceCandidates: (deps.engine.pack.evidence?.candidates ?? []).map((c) => ({
         id: c.id,
         name: c.name,
@@ -674,6 +699,8 @@ export async function registerCapabilityEvidenceHandler(context: Ctx, capability
       note: data.note ?? null,
       submittedBy: context.userId,
       respondentId: respondent.id,
+      // Procedencia: dónde se cargó. No implica vínculo ni validación.
+      uploadContextCapabilityId: deps.engine.pack.capability.id,
       ...(data.observationIds ? { observationIds: data.observationIds } : {}),
     });
     return {
@@ -682,6 +709,36 @@ export async function registerCapabilityEvidenceHandler(context: Ctx, capability
       evaluationRunId: salida.evaluationRunId,
       state: salida.state,
     };
+}
+
+/** UX-PROD-FIX-02 · Vincula un documento existente a una respuesta de esta capacidad. */
+export const linkCapabilityEvidenceInput = (data: unknown) =>
+  z.object({ evidenceId: z.string().uuid(), observationId: z.string().uuid() }).parse(data);
+
+export async function linkCapabilityEvidenceHandler(context: Ctx, capabilityId: string, data: ReturnType<typeof linkCapabilityEvidenceInput>) {
+  const casoUso = await import("./caso-uso");
+  const { assessment, deps } = await prepararContexto(context, capabilityId);
+  const { assignment } = await asegurarRespondentPropio(deps, {
+    organizationId: assessment.organizationId,
+    assessmentId: assessment.id,
+    capabilityId: deps.engine.pack.capability.id,
+    userId: context.userId,
+  });
+  if (!assignment) throw new Error("OUT_OF_ASSIGNMENT_SCOPE");
+  const obs = casoUso.observacionesVigentes(await deps.repository.listObservations(assessment.id));
+  if (!obs.some((o) => o.id === data.observationId)) throw new Error("OBSERVATION_OUTSIDE_CAPABILITY");
+  // Mismo tenant y mismo assessment: nunca documentos de otra organización.
+  const ev = await deps.repository.listEvidence(assessment.id);
+  if (!ev.some((e) => e.id === data.evidenceId && e.organizationId === assessment.organizationId)) {
+    throw new Error("EVIDENCE_NOT_IN_ORGANIZATION");
+  }
+  const salida = await casoUso.vincularEvidenciaExistente(deps, {
+    organizationId: assessment.organizationId,
+    assessmentId: assessment.id,
+    evidenceId: data.evidenceId,
+    observationId: data.observationId,
+  });
+  return { linked: true, alreadyLinked: salida.alreadyLinked, evaluationRunId: salida.evaluationRunId };
 }
 
 /* ------------------------------------------------------------------ */
