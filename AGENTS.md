@@ -17,3 +17,5 @@
 - Actionable workspace (pending tasks, states) is derived server-side in `actionable.ts` from Engine + pack source text — UI never invents questions or order.
 - `PYMAPA-KNOWLEDGE-MASTER 1.0.0` is verified against the pinned literal `KNOWLEDGE_VERSION_CHECKSUM_HISTORICO`, never recomputed from the evolving OP-01 pack — recomputing breaks the immutable DB row.
 - `bootstrap_organization` is SECURITY DEFINER (enforces auth.uid + one org per user) — under RLS its INSERT…RETURNING cannot see the org before the membership exists.
+- Granular assignment scopes (INFORMATION_NEED/SECTION) are stored as `<capability>::<ref>`; unqualified refs are historical OP-01 — pack ids repeat across capabilities.
+- Shell mode (production vs demo) is decided only by `modoShell()` in `src/lib/production/entrada.ts` — one navigation authority.
