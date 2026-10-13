@@ -28,6 +28,7 @@ import { Route as ResultadosRouteImport } from './routes/resultados'
 import { Route as RoadmapRouteImport } from './routes/roadmap'
 import { Route as SeguimientoRouteImport } from './routes/seguimiento'
 import { Route as AuthenticatedDiagnosticoProductivoRouteImport } from './routes/_authenticated/diagnostico-productivo'
+import { Route as AuthenticatedEmpresaRouteImport } from './routes/_authenticated/empresa'
 import { Route as AuthenticatedResultadosProductivosRouteImport } from './routes/_authenticated/resultados-productivos'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
 import { Route as DashboardAlertasRouteImport } from './routes/dashboard.alertas'
@@ -154,6 +155,11 @@ const AuthenticatedDiagnosticoProductivoRoute =
     path: '/diagnostico-productivo',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
+const AuthenticatedEmpresaRoute = AuthenticatedEmpresaRouteImport.update({
+  id: '/empresa',
+  path: '/empresa',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedResultadosProductivosRoute =
   AuthenticatedResultadosProductivosRouteImport.update({
     id: '/resultados-productivos',
@@ -332,6 +338,7 @@ export interface FileRoutesByFullPath {
   '/roadmap': typeof RoadmapRouteWithChildren
   '/seguimiento': typeof SeguimientoRouteWithChildren
   '/diagnostico-productivo': typeof AuthenticatedDiagnosticoProductivoRoute
+  '/empresa': typeof AuthenticatedEmpresaRoute
   '/resultados-productivos': typeof AuthenticatedResultadosProductivosRoute
   '/dashboard/alertas': typeof DashboardAlertasRoute
   '/diagnostico/cierre': typeof DiagnosticoCierreRoute
@@ -376,6 +383,7 @@ export interface FileRoutesByTo {
   '/moda-origen': typeof ModaOrigenRoute
   '/perfil': typeof PerfilRoute
   '/diagnostico-productivo': typeof AuthenticatedDiagnosticoProductivoRoute
+  '/empresa': typeof AuthenticatedEmpresaRoute
   '/resultados-productivos': typeof AuthenticatedResultadosProductivosRoute
   '/dashboard/alertas': typeof DashboardAlertasRoute
   '/diagnostico/cierre': typeof DiagnosticoCierreRoute
@@ -427,6 +435,7 @@ export interface FileRoutesById {
   '/roadmap': typeof RoadmapRouteWithChildren
   '/seguimiento': typeof SeguimientoRouteWithChildren
   '/_authenticated/diagnostico-productivo': typeof AuthenticatedDiagnosticoProductivoRoute
+  '/_authenticated/empresa': typeof AuthenticatedEmpresaRoute
   '/_authenticated/resultados-productivos': typeof AuthenticatedResultadosProductivosRoute
   '/dashboard/alertas': typeof DashboardAlertasRoute
   '/diagnostico/cierre': typeof DiagnosticoCierreRoute
@@ -479,6 +488,7 @@ export interface FileRouteTypes {
     | '/roadmap'
     | '/seguimiento'
     | '/diagnostico-productivo'
+    | '/empresa'
     | '/resultados-productivos'
     | '/dashboard/alertas'
     | '/diagnostico/cierre'
@@ -523,6 +533,7 @@ export interface FileRouteTypes {
     | '/moda-origen'
     | '/perfil'
     | '/diagnostico-productivo'
+    | '/empresa'
     | '/resultados-productivos'
     | '/dashboard/alertas'
     | '/diagnostico/cierre'
@@ -573,6 +584,7 @@ export interface FileRouteTypes {
     | '/roadmap'
     | '/seguimiento'
     | '/_authenticated/diagnostico-productivo'
+    | '/_authenticated/empresa'
     | '/_authenticated/resultados-productivos'
     | '/dashboard/alertas'
     | '/diagnostico/cierre'
@@ -760,6 +772,13 @@ declare module '@tanstack/react-router' {
       path: '/diagnostico-productivo'
       fullPath: '/diagnostico-productivo'
       preLoaderRoute: typeof AuthenticatedDiagnosticoProductivoRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/empresa': {
+      id: '/_authenticated/empresa'
+      path: '/empresa'
+      fullPath: '/empresa'
+      preLoaderRoute: typeof AuthenticatedEmpresaRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/resultados-productivos': {
@@ -977,6 +996,7 @@ declare module '@tanstack/react-router' {
 
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedDiagnosticoProductivoRoute: typeof AuthenticatedDiagnosticoProductivoRoute
+  AuthenticatedEmpresaRoute: typeof AuthenticatedEmpresaRoute
   AuthenticatedResultadosProductivosRoute: typeof AuthenticatedResultadosProductivosRoute
   AuthenticatedCapacidadIdRoute: typeof AuthenticatedCapacidadIdRoute
   AuthenticatedCapacidadOp01Route: typeof AuthenticatedCapacidadOp01Route
@@ -985,6 +1005,7 @@ interface AuthenticatedRouteRouteChildren {
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedDiagnosticoProductivoRoute:
     AuthenticatedDiagnosticoProductivoRoute,
+  AuthenticatedEmpresaRoute: AuthenticatedEmpresaRoute,
   AuthenticatedResultadosProductivosRoute:
     AuthenticatedResultadosProductivosRoute,
   AuthenticatedCapacidadIdRoute: AuthenticatedCapacidadIdRoute,

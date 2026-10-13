@@ -44,7 +44,7 @@ function Acceso() {
 
   useEffect(() => {
     if (isHydrated && user) {
-      void navigate({ to: "/diagnostico-productivo", replace: true });
+      void navigate({ to: "/empresa", replace: true });
     }
   }, [isHydrated, user, navigate]);
 
@@ -135,7 +135,7 @@ function Acceso() {
             >
               {modo === "login" ? "No tengo cuenta, quiero crearla" : "Ya tengo cuenta"}
             </button>
-            <Link to="/inicio" className="text-muted-foreground underline-offset-4 hover:underline">
+            <Link to="/" className="text-muted-foreground underline-offset-4 hover:underline">
               Volver al inicio
             </Link>
           </div>

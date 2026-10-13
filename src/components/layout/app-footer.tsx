@@ -4,6 +4,8 @@ import { cn } from "@/lib/utils";
 
 interface AppFooterProps {
   className?: string;
+  /** Contexto productivo: oculta la etiqueta de datos ilustrativos. */
+  produccion?: boolean;
 }
 
 const paises = ["Colombia", "Ecuador", "Perú", "Puerto Rico", "Costa Rica", "USA"];
@@ -16,7 +18,7 @@ const enlaces = [
   { label: "Contacto", to: "/ayuda" },
 ];
 
-export function AppFooter({ className }: AppFooterProps) {
+export function AppFooter({ className, produccion = false }: AppFooterProps) {
   return (
     <footer
       className={cn("border-t border-border bg-card px-4 py-8 sm:px-6", className)}
@@ -62,7 +64,7 @@ export function AppFooter({ className }: AppFooterProps) {
         <div className="text-xs leading-relaxed text-muted-foreground md:text-right">
           <p>© Digiway. Todos los derechos reservados.</p>
           <p>Marca registrada.</p>
-          <p className="mt-1">MVP Alfa · datos ilustrativos</p>
+          {!produccion && <p className="mt-1">MVP Alfa · datos ilustrativos</p>}
         </div>
       </div>
     </footer>

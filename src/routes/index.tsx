@@ -3,6 +3,8 @@ import { ArrowRight, Building2, PlayCircle } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useAuth } from "@/hooks/use-auth";
+import { rutaCtaPrincipal } from "@/lib/production/entrada";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -71,6 +73,8 @@ const pasos = [
 ];
 
 function EntradaPage() {
+  const { isHydrated, user } = useAuth();
+  const destinoCta = rutaCtaPrincipal(isHydrated && !!user);
   return (
     <div className="mx-auto max-w-5xl space-y-10">
       <header className="space-y-4 text-center">
@@ -123,13 +127,13 @@ function EntradaPage() {
               </div>
               <CardTitle className="text-xl">Comenzar desde cero</CardTitle>
               <CardDescription>
-                Ideal si quieres recorrer el modelo con la información real de tu pyme. Empiezas por
-                el perfil y avanzas paso a paso; puedes guardar y continuar después.
+                Crea tu cuenta, identifica tu empresa y empieza el diagnóstico real. Tus respuestas
+                y evidencias se guardan en tu cuenta y puedes continuar cuando quieras.
               </CardDescription>
             </CardHeader>
             <CardContent className="mt-auto">
               <Button asChild size="lg" className="w-full">
-                <Link to="/perfil">
+                <Link to={destinoCta}>
                   Iniciar mi recorrido
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
@@ -145,7 +149,7 @@ function EntradaPage() {
                   Caso demostrativo
                 </span>
               </div>
-              <CardTitle className="text-xl">Continuar con Moda Origen</CardTitle>
+              <CardTitle className="text-xl">Explorar la demostración: Moda Origen</CardTitle>
               <CardDescription>
                 Una tienda de ropa que ya hizo su diagnóstico, entregó evidencias, ejecutó una
                 acción y está midiendo resultados. Verás el modelo completo en pocos minutos, con
@@ -160,7 +164,7 @@ function EntradaPage() {
                 </Link>
               </Button>
               <p className="text-xs text-muted-foreground">
-                Tu información real queda respaldada y se restaura al salir de la demostración.
+                Solo demostración: no usa tu cuenta ni se mezcla con los datos de tu empresa.
               </p>
             </CardContent>
           </Card>

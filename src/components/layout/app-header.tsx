@@ -9,11 +9,15 @@ import { useAuth } from "@/hooks/use-auth";
 
 interface AppHeaderProps {
   empresa?: Empresa;
+  /** PKG-02A: contexto productivo (sin perfil legacy, nombre desde PostgreSQL). */
+  produccion?: boolean;
+  nombreEmpresaProductiva?: string | null;
   onToggleSidebar?: () => void;
   mobileNav?: ReactNode;
 }
 
-export function AppHeader({ empresa, onToggleSidebar, mobileNav }: AppHeaderProps) {
+export function AppHeader({ empresa, produccion = false, nombreEmpresaProductiva, onToggleSidebar, mobileNav }: AppHeaderProps) {
+  const nombreVisible = produccion ? nombreEmpresaProductiva : empresa?.nombre;
   const { isHydrated, user, signOut } = useAuth();
   const navigate = useNavigate();
   const queryClient = useQueryClient();
@@ -40,15 +44,15 @@ export function AppHeader({ empresa, onToggleSidebar, mobileNav }: AppHeaderProp
             <PanelLeft className="h-5 w-5" aria-hidden="true" />
           </Button>
         )}
-        <Link to="/inicio" aria-label="pymapa, ir al inicio" className="ml-1 flex items-center">
-          <BrandLogo />
+        <Link to={produccion ? "/diagnostico-productivo" : "/inicio"} aria-label="pymapa, ir al inicio" className="ml-1 flex items-center">
+          <BrandLogo sinBadge={produccion} />
         </Link>
       </div>
 
       <div className="flex items-center gap-1 sm:gap-2">
-        {empresa?.nombre && (
+        {nombreVisible && (
           <span className="hidden max-w-[14rem] truncate text-sm text-muted-foreground xl:inline">
-            {empresa.nombre}
+            {nombreVisible}
           </span>
         )}
         <Button variant="outline" size="sm" className="hidden sm:inline-flex" asChild>
@@ -68,9 +72,15 @@ export function AppHeader({ empresa, onToggleSidebar, mobileNav }: AppHeaderProp
           </Link>
         </Button>
         <Button variant="ghost" size="icon" className="rounded-full" asChild>
-          <Link to="/perfil" aria-label="Perfil de empresa">
-            <User className="h-5 w-5 text-primary" aria-hidden="true" />
-          </Link>
+          {produccion ? (
+            <Link to="/empresa" search={{ editar: true }} aria-label="Perfil de empresa">
+              <User className="h-5 w-5 text-primary" aria-hidden="true" />
+            </Link>
+          ) : (
+            <Link to="/perfil" aria-label="Perfil de empresa">
+              <User className="h-5 w-5 text-primary" aria-hidden="true" />
+            </Link>
+          )}
         </Button>
         {isHydrated && user ? (
           <Button
