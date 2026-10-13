@@ -19,3 +19,5 @@
 - `bootstrap_organization` is SECURITY DEFINER (enforces auth.uid + one org per user) — under RLS its INSERT…RETURNING cannot see the org before the membership exists.
 - Granular assignment scopes (INFORMATION_NEED/SECTION) are stored as `<capability>::<ref>`; unqualified refs are historical OP-01 — pack ids repeat across capabilities.
 - Shell mode (production vs demo) is decided only by `modoShell()` in `src/lib/production/entrada.ts` — one navigation authority.
+- Response corrections append a new Observation with `value.correctsObservationId`; the Engine only sees `observacionesVigentes()` — history is never deleted or rewritten.
+- Legacy MVP/demo routes are redirected by `destinoRutaLegacy()` in the root `beforeLoad` — one production journey, legacy code kept for compatibility.
