@@ -117,7 +117,7 @@ export function AcquisitionInput({
           {observaciones.length === 0 ? (
             <p className="text-sm text-muted-foreground">Todavía no hay respuestas anteriores con las que comparar.</p>
           ) : (
-            observaciones.map((o) => (
+            observaciones.map((o, i) => (
               <label key={o.id} className="flex items-center gap-3 rounded-lg border border-border p-3 text-sm">
                 <input
                   type="checkbox"
@@ -126,7 +126,7 @@ export function AcquisitionInput({
                     setFuentes((f) => (f.includes(o.id) ? f.filter((x) => x !== o.id) : [...f, o.id]))
                   }
                 />
-                <span>{o.acquisitionRef} · {o.knowledgeState}</span>
+                <span>{(o as { label?: string | null }).label ?? `Respuesta ${i + 1}`} · {ETIQUETAS[o.knowledgeState as KnowledgeStateInput] ?? "registrada"}</span>
               </label>
             ))
           )}

@@ -241,7 +241,7 @@ function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
                   onSubmit={(a) =>
                     enviar.mutate(corrigiendo ? { ...a, correctsObservationId: corrigiendo.observationId } : a)
                   }
-                  observaciones={col.data?.observations ?? []}
+                  observaciones={(col.data?.observations ?? []).map((o) => ({ ...o, label: porId.get(o.id)?.label ?? null }))}
                 />
                 {corrigiendo && (
                   <Button variant="ghost" onClick={() => setCorrigiendo(null)}>Cancelar</Button>
