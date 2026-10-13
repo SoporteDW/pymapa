@@ -86,30 +86,69 @@ async function prepararContexto(
   };
 }
 
+/** Roles de membresía que participan en todas las capacidades sin invitación. */
+const ROLES_CON_PARTICIPACION_PLENA = new Set(["OWNER", "ADMIN"]);
+
 /**
- * Respondent propio del usuario autenticado, con asignación sobre la capacidad.
+ * Respondent propio del usuario autenticado, con asignación que autoriza la
+ * capacidad (y la adquisición, si se indica).
  * User ≠ Membership ≠ Respondent: esto no crea ni altera membresías.
+ *
+ * SPRINT-04-FIX · Nunca reutiliza una asignación que no cubra la petición.
+ * OWNER/ADMIN reciben una asignación CAPABILITY auditable por capacidad la
+ * primera vez que participan; los demás (p. ej. respondents delegados)
+ * conservan exactamente el alcance que se les asignó.
  */
-async function asegurarRespondentPropio(
+export async function asegurarRespondentPropio(
   deps: Awaited<ReturnType<typeof prepararContexto>>["deps"],
-  params: { organizationId: string; assessmentId: string; capabilityId: string; userId: string },
+  params: {
+    organizationId: string;
+    assessmentId: string;
+    capabilityId: string;
+    userId: string;
+    acquisitionId?: string;
+  },
 ) {
   const casoUso = await import("./caso-uso");
+  const capability = deps.engine.pack.capability;
+  if (capability.id !== params.capabilityId) throw new Error("CAPABILITY_MISMATCH");
   const respondent = await casoUso.asegurarRespondentDeUsuario(deps, {
     organizationId: params.organizationId,
     userId: params.userId,
   });
-  const asignaciones = await deps.repository.listAssignments(params.assessmentId);
-  const propia = asignaciones.find(
-    (a) => a.respondentId === respondent.id && a.status !== "REVOKED",
+  const acquisition = params.acquisitionId ? deps.engine.getAcquisition(params.acquisitionId) : null;
+  const asignaciones = (await deps.repository.listAssignments(params.assessmentId)).filter(
+    (a) =>
+      a.respondentId === respondent.id &&
+      a.assessmentId === params.assessmentId &&
+      a.status !== "REVOKED",
   );
-  if (propia) return { respondent, assignment: propia };
+  const valida = asignaciones.find((a) =>
+    acquisition
+      ? casoUso.assignmentCubreAdquisicion(
+          a,
+          {
+            id: acquisition.id,
+            ...(acquisition.informationNeedRef ? { informationNeedRef: acquisition.informationNeedRef } : {}),
+            variableRefs: acquisition.variableRefs,
+          },
+          capability,
+        )
+      : casoUso.assignmentPerteneceACapacidad(a, capability),
+  );
+  if (valida) return { respondent, assignment: valida };
+
+  const rol = await deps.repository.getMembershipRole(params.organizationId, params.userId);
+  if (!rol || !ROLES_CON_PARTICIPACION_PLENA.has(rol)) {
+    // Sin asignación válida: el caso de uso rechazará con el motivo gobernado.
+    return { respondent, assignment: null };
+  }
   const assignment = await deps.repository.insertAssignment({
     organizationId: params.organizationId,
     assessmentId: params.assessmentId,
     respondentId: respondent.id,
     scopeType: "CAPABILITY",
-    scopeRef: params.capabilityId,
+    scopeRef: capability.id,
     status: "IN_PROGRESS",
     delegatedFromAssignmentId: null,
     delegationReason: null,
