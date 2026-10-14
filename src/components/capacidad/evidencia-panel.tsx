@@ -53,7 +53,7 @@ function Procedencia({ e }: { e: EvidenciaVista }) {
       {aqui.length > 0 && <p>Asociado a {aqui.length === 1 ? "una respuesta" : `${aqui.length} respuestas`} de esta capacidad</p>}
       {otras.length > 0 && <p>También asociado en: {[...new Set(otras.map((l) => l.capabilityId))].join(", ")}</p>}
       <p>Cargado ≠ validado: el documento aún no se considera evidencia revisada.</p>
-      {e.links.length === 0 && <p>Sin vínculo a ninguna respuesta todavía.</p>}
+      {e.links.length === 0 && e.uploadContextCapabilityId && <p>Registrado en la capacidad {e.uploadContextCapabilityId}.</p>}
     </div>
   );
 }
