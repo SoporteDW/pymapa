@@ -60,7 +60,7 @@ describe("B1 · CM-05: preguntas progresivas distintas son complementarias", () 
     expect(e.evaluation.contradictions).toHaveLength(0);
     expect(e.evaluation.variableEvaluations.some((v) => v.state === "CONTRADICTORY")).toBe(false);
     const w = await m.ws();
-    expect(JSON.stringify(w)).not.toMatch(/CONTRADICT/);
+    expect(w.interactionState).not.toMatch(/CONTRADICT|CLARIF/);
   });
 });
 
@@ -131,8 +131,8 @@ describe("B7 · alcance VARIABLE intacto (OP-01)", () => {
   it("valores distintos sobre la misma VA siguen siendo contradicción", async () => {
     const m = await montar("OP-01");
     const q = m.acqs.find((x) => !casoUso.esAdquisicionDeCapacidad(x) && x.variableRefs.length > 0)!;
-    await m.resp(q.id, "A");
-    await m.resp(q.id, "B");
+    expect((await m.resp(q.id, "Implícita")).accepted).toBe(true);
+    expect((await m.resp(q.id, "Formalizada")).accepted).toBe(true);
     expect((await m.evaluar()).evaluation.variableEvaluations.some((v) => v.state === "CONTRADICTORY")).toBe(true);
   });
 });
