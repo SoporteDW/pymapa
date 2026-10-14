@@ -274,15 +274,46 @@ export function observacionesParaEngine(
   return salida;
 }
 
-async function observacionesDelEngine(deps: ProductionDeps, assessmentId: string) {
+/**
+ * CM05-HISTORICAL-JOURNEY-FIX · Evaluación única para todos los caminos de
+ * lectura. Las observaciones de alcance CAPACIDAD que no llegan al Engine
+ * (sin conflicto legítimo) siguen siendo respuestas vigentes: se reconocen en
+ * `answeredAcquisitionRefs` (campo público del EvaluationResult que usa el
+ * Engine para no repreguntar). No se crean variables ficticias ni se altera
+ * ninguna evaluación de variable/NI.
+ */
+async function evaluarAssessment(
+  deps: ProductionDeps,
+  assessmentId: string,
+  knowledgeVersionId: string = deps.knowledgeVersionId,
+): Promise<EvaluationResult> {
   const [filas, enlaces] = await Promise.all([
     deps.repository.listObservations(assessmentId),
     deps.repository.listEvidenceLinks(assessmentId),
   ]);
-  const vigentes = observacionesParaEngine(observacionesVigentes(filas), (id) =>
+  const vigentes = observacionesVigentes(filas);
+  const paraEngine = observacionesParaEngine(vigentes, (id) =>
     deps.engine.getAcquisition(id) as { acquisitionMode?: string; variableRefs: readonly string[] } | null | undefined,
   );
-  return aEngineObservations(vigentes, enlaces);
+  const evaluation = deps.engine.evaluate({
+    observations: aEngineObservations(paraEngine, enlaces),
+    knowledgeVersionId,
+  });
+  return { ...evaluation, answeredAcquisitionRefs: respondidasVigentes(evaluation.answeredAcquisitionRefs, vigentes, deps) };
+}
+
+/** Adquisiciones con respuesta vigente (del Engine + alcance capacidad). */
+export function respondidasVigentes(
+  delEngine: readonly string[],
+  vigentes: ObservationRecord[],
+  deps: { engine: { getAcquisition(id: string): unknown } },
+): string[] {
+  const refs = new Set(delEngine);
+  for (const o of vigentes) {
+    const ref = o.value.acquisitionRef;
+    if (ref && deps.engine.getAcquisition(ref)) refs.add(ref);
+  }
+  return [...refs];
 }
 
 export async function getAssessmentState(
@@ -294,12 +325,8 @@ export async function getAssessmentState(
     if (fijado.reason === KNOWLEDGE_VERSION_MISMATCH) throw new Error(KNOWLEDGE_VERSION_MISMATCH);
     return null;
   }
-  const observations = await observacionesDelEngine(deps, assessmentId);
+  const evaluation = await evaluarAssessment(deps, assessmentId);
   const responses = await deps.repository.listResponses(assessmentId);
-  const evaluation = deps.engine.evaluate({
-    observations,
-    knowledgeVersionId: deps.knowledgeVersionId,
-  });
   return construirEstado({
     assessmentId,
     capabilityId: deps.engine.pack.capability.id,
@@ -322,11 +349,7 @@ export async function getNextAcquisition(
     if (fijado.reason === KNOWLEDGE_VERSION_MISMATCH) throw new Error(KNOWLEDGE_VERSION_MISMATCH);
     return null;
   }
-  const observations = await observacionesDelEngine(deps, assessmentId);
-  const evaluation = deps.engine.evaluate({
-    observations,
-    knowledgeVersionId: deps.knowledgeVersionId,
-  });
+  const evaluation = await evaluarAssessment(deps, assessmentId);
   return deps.engine.getNextAcquisition(evaluation);
 }
 
@@ -337,11 +360,7 @@ export async function getClarificationCandidates(
 ): Promise<NextAcquisition[]> {
   const fijado = await assessmentFijado(deps, assessmentId);
   if (!fijado.ok) return [];
-  const observations = await observacionesDelEngine(deps, assessmentId);
-  const evaluation = deps.engine.evaluate({
-    observations,
-    knowledgeVersionId: deps.knowledgeVersionId,
-  });
+  const evaluation = await evaluarAssessment(deps, assessmentId);
   return deps.engine.getClarificationCandidates(evaluation);
 }
 
@@ -358,11 +377,10 @@ export async function evaluarCapacidad(
     if (fijado.reason === KNOWLEDGE_VERSION_MISMATCH) throw new Error(KNOWLEDGE_VERSION_MISMATCH);
     return null;
   }
-  const [observations, responses] = await Promise.all([
-    observacionesDelEngine(deps, assessmentId),
+  const [evaluation, responses] = await Promise.all([
+    evaluarAssessment(deps, assessmentId),
     deps.repository.listResponses(assessmentId),
   ]);
-  const evaluation = deps.engine.evaluate({ observations, knowledgeVersionId: deps.knowledgeVersionId });
   return {
     evaluation,
     answeredAcquisitionIds: [...new Set(responses.map((r) => r.acquisitionRef))],
@@ -463,11 +481,7 @@ async function ejecutarEvaluacion(
     startedAt: now(),
   });
 
-  const observations = await observacionesDelEngine(deps, params.assessmentId);
-  const evaluation = deps.engine.evaluate({
-    observations,
-    knowledgeVersionId: params.knowledgeVersionId,
-  });
+  const evaluation = await evaluarAssessment(deps, params.assessmentId, params.knowledgeVersionId);
 
   await deps.repository.replaceVariableEvaluations(
     run.id,

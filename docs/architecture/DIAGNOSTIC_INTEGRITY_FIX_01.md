@@ -25,3 +25,13 @@ Sin migraciones ni borrados: las filas antiguas en VA01 se reinterpretan al leer
 
 ## Congelados
 Knowledge Master, packs publicados y Engine 0.2.0 sin cambios.
+
+## CM05-HISTORICAL-JOURNEY-FIX
+Estado: CM05_HISTORICAL_JOURNEY_FIX_CODE_COMPLETE_PENDING_HUMAN_ACCEPTANCE
+- `__CAPABILITY_SCOPE__` NO se usa: `validateObservation` del Engine 0.2.0 lo rechaza (no es variable del pack). Bloqueo reportado.
+- Mecanismo compatible: `evaluarAssessment()` (único camino de evaluación) amplía `answeredAcquisitionRefs` —campo público del EvaluationResult— con las adquisiciones con respuesta vigente. No toca variables, NI ni findings.
+- UI: progresivas con varias VA ya no muestran «Variable vinculada».
+- Pruebas: `cm05-historical-journey.test.ts` (historial con correcciones encadenadas + 31 capacidades). Suite: 934/934, 0 fallos, 0 omitidas.
+- Navegador QA (lectura tras historial previo): siguiente = ACQ·P1·02, sin aclaración ni VA expuestas. Recorrido de 10 pasos con escrituras en navegador: NOT_TESTED.
+- Riesgo: si dos preguntas progresivas distintas tienen cada una valores sin corregir en conflicto, el Engine las agrupa bajo VA01 en una misma aclaración.
+- Dependencia PR-DOC-01/PKG-03: respuestas progresivas sin correspondencia gobernada no satisfacen NI.
