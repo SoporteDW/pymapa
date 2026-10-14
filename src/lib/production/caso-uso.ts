@@ -227,12 +227,62 @@ export function observacionesVigentes(filas: ObservationRecord[]): ObservationRe
   return filas.filter((o) => !corregidas.has(o.id));
 }
 
+/**
+ * DIAGNOSTIC-INTEGRITY-FIX-01 · Una adquisición CAPABILITY_PROGRESSIVE que el
+ * pack asocia a varias VA sin correspondencia gobernada pregunta-por-variable
+ * tiene alcance de CAPACIDAD: su respuesta no afirma el valor de una VA
+ * concreta. Por eso respuestas a preguntas progresivas DISTINTAS no se
+ * comparan entre sí (son aspectos complementarios, no el mismo dato).
+ */
+export function esAdquisicionDeCapacidad(
+  acq: { acquisitionMode?: string; variableRefs: readonly string[] } | null | undefined,
+): boolean {
+  return Boolean(acq && acq.acquisitionMode === "CAPABILITY_PROGRESSIVE" && acq.variableRefs.length > 1);
+}
+
+/**
+ * Filtra qué observaciones vigentes llegan al Engine 0.2.0 (sin modificarlo):
+ *  - alcance VARIABLE: todas, como antes;
+ *  - alcance CAPACIDAD: se conservan (procedencia, historial, conteo) pero solo
+ *    se entregan al Engine cuando hay conflicto legítimo: CONTRADICTORY
+ *    declarada explícitamente, o valores KNOWN distintos para la MISMA pregunta.
+ */
+export function observacionesParaEngine(
+  vigentes: ObservationRecord[],
+  getAcq: (id: string) => { acquisitionMode?: string; variableRefs: readonly string[] } | null | undefined,
+): ObservationRecord[] {
+  const porAdq = new Map<string, ObservationRecord[]>();
+  const salida: ObservationRecord[] = [];
+  for (const o of vigentes) {
+    const ref = o.value.acquisitionRef;
+    if (!ref || !esAdquisicionDeCapacidad(getAcq(ref))) {
+      salida.push(o);
+      continue;
+    }
+    if (o.value.knowledgeState === "CONTRADICTORY") {
+      salida.push(o);
+      continue;
+    }
+    porAdq.set(ref, [...(porAdq.get(ref) ?? []), o]);
+  }
+  for (const grupo of porAdq.values()) {
+    const valores = new Set(
+      grupo.filter((o) => o.value.knowledgeState === "KNOWN" && o.value.semanticValue).map((o) => o.value.semanticValue),
+    );
+    if (valores.size > 1) salida.push(...grupo.filter((o) => o.value.knowledgeState === "KNOWN"));
+  }
+  return salida;
+}
+
 async function observacionesDelEngine(deps: ProductionDeps, assessmentId: string) {
   const [filas, enlaces] = await Promise.all([
     deps.repository.listObservations(assessmentId),
     deps.repository.listEvidenceLinks(assessmentId),
   ]);
-  return aEngineObservations(observacionesVigentes(filas), enlaces);
+  const vigentes = observacionesParaEngine(observacionesVigentes(filas), (id) =>
+    deps.engine.getAcquisition(id) as { acquisitionMode?: string; variableRefs: readonly string[] } | null | undefined,
+  );
+  return aEngineObservations(vigentes, enlaces);
 }
 
 export async function getAssessmentState(

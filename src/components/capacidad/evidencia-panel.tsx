@@ -53,7 +53,7 @@ function Procedencia({ e }: { e: EvidenciaVista }) {
       {aqui.length > 0 && <p>Asociado a {aqui.length === 1 ? "una respuesta" : `${aqui.length} respuestas`} de esta capacidad</p>}
       {otras.length > 0 && <p>También asociado en: {[...new Set(otras.map((l) => l.capabilityId))].join(", ")}</p>}
       <p>Cargado ≠ validado: el documento aún no se considera evidencia revisada.</p>
-      {e.links.length === 0 && <p>Sin vínculo a ninguna respuesta todavía.</p>}
+      {e.links.length === 0 && e.uploadContextCapabilityId && <p>Registrado en la capacidad {e.uploadContextCapabilityId}.</p>}
     </div>
   );
 }
@@ -155,38 +155,27 @@ export function EvidenciaPanel(p: Props) {
       </CardHeader>
       <CardContent className="space-y-4">
         <section className="space-y-2">
-          <h3 className="text-sm font-medium">Vinculadas a esta capacidad ({vinculadas.length})</h3>
-          {vinculadas.length === 0 ? (
-            <p className="text-sm text-muted-foreground">Ningún documento está vinculado todavía a respuestas de esta capacidad.</p>
+          <h3 className="text-sm font-medium">Documentos de esta capacidad ({vinculadas.length + porVincular.length})</h3>
+          {vinculadas.length + porVincular.length === 0 ? (
+            <p className="text-sm text-muted-foreground">Todavía no hay documentos cargados en {p.capabilityId}.</p>
           ) : (
             <ul className="space-y-2 text-sm">
-              {vinculadas.map((e) => (
+              {[...vinculadas, ...porVincular].map((e) => (
                 <li key={e.id} className="rounded-lg border border-border px-3 py-2">
                   <span className="font-medium">{e.title ?? e.evidenceType}</span>
                   <Procedencia e={e} />
+                  {e.relation === "NEEDS_LINK" && p.observations.length > 0 && (
+                    <details className="mt-1">
+                      <summary className="cursor-pointer text-xs text-muted-foreground">Opcional: indicar a qué respuesta apoya</summary>
+                      {selectorVinculo(e)}
+                    </details>
+                  )}
                 </li>
               ))}
             </ul>
           )}
         </section>
 
-        {porVincular.length > 0 && (
-          <section className="space-y-2">
-            <h3 className="flex items-center gap-2 text-sm font-medium">
-              Cargados aquí, pendientes de vincular
-              <Badge variant="outline" className="rounded-full text-[11px]">{porVincular.length}</Badge>
-            </h3>
-            <ul className="space-y-2 text-sm">
-              {porVincular.map((e) => (
-                <li key={e.id} className="rounded-lg border border-dashed border-primary/40 px-3 py-2">
-                  <span className="font-medium">{e.title ?? e.evidenceType}</span>
-                  <Procedencia e={e} />
-                  {selectorVinculo(e)}
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
 
         {organizacion.length > 0 && (
           <details className="text-sm">
