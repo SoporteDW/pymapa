@@ -58,7 +58,7 @@ describe("B1 · CM-05: preguntas progresivas distintas son complementarias", () 
     for (const [i, q] of p.slice(0, 3).entries()) expect((await m.resp(q.id, `respuesta ${i}`)).accepted).toBe(true);
     const e = await m.evaluar();
     expect(e.evaluation.contradictions).toHaveLength(0);
-    expect(e.evaluation.variableStates.some((v) => v.state === "CONTRADICTORY")).toBe(false);
+    expect(e.evaluation.variableEvaluations.some((v) => v.state === "CONTRADICTORY")).toBe(false);
     const w = await m.ws();
     expect(JSON.stringify(w)).not.toMatch(/CONTRADICT/);
   });
@@ -80,7 +80,7 @@ describe("B2 · B3 · conservación y procedencia", () => {
     const m = await montar("CM-05");
     await m.resp(progresivas(m.acqs)[0]!.id, "texto A");
     const e = await m.evaluar();
-    expect(e.evaluation.variableStates.some((v) => v.state === "KNOWN")).toBe(false);
+    expect(e.evaluation.variableEvaluations.some((v) => v.state === "KNOWN")).toBe(false);
   });
 });
 
@@ -91,7 +91,7 @@ describe("B4 · contradicción real en la MISMA pregunta se conserva", () => {
     await m.resp(q.id, "sí, existe");
     await m.resp(q.id, "no existe");
     const e = await m.evaluar();
-    expect(e.evaluation.variableStates.some((v) => v.state === "CONTRADICTORY")).toBe(true);
+    expect(e.evaluation.variableEvaluations.some((v) => v.state === "CONTRADICTORY")).toBe(true);
   });
   it("CONTRADICTORY declarada explícitamente llega al Engine", async () => {
     const m = await montar("CM-05");
@@ -99,7 +99,7 @@ describe("B4 · contradicción real en la MISMA pregunta se conserva", () => {
     const r = await m.resp(q.id, null, { conflictingObservationIds: ["x", "y"] });
     expect(r.accepted).toBe(true);
     const e = await m.evaluar();
-    expect(e.evaluation.variableStates.some((v) => v.state === "CONTRADICTORY")).toBe(true);
+    expect(e.evaluation.variableEvaluations.some((v) => v.state === "CONTRADICTORY")).toBe(true);
   });
 });
 
@@ -112,7 +112,7 @@ describe("B5 · corrección resuelve la contradicción y preserva historial", ()
     await m.resp(q.id, "sí, existe", { correctsObservationId: r2.observationId });
     expect(await m.base.listObservations(m.a.id)).toHaveLength(3);
     const e = await m.evaluar();
-    expect(e.evaluation.variableStates.some((v) => v.state === "CONTRADICTORY")).toBe(false);
+    expect(e.evaluation.variableEvaluations.some((v) => v.state === "CONTRADICTORY")).toBe(false);
   });
 });
 
@@ -130,17 +130,17 @@ describe("B6 · histórico: filas previas colapsadas en VA01 se reinterpretan si
 describe("B7 · alcance VARIABLE intacto (OP-01)", () => {
   it("valores distintos sobre la misma VA siguen siendo contradicción", async () => {
     const m = await montar("OP-01");
-    const q = m.acqs.find((x) => x.acquisitionMode === "QUESTION")!;
+    const q = m.acqs.find((x) => !casoUso.esAdquisicionDeCapacidad(x) && x.variableRefs.length > 0)!;
     await m.resp(q.id, "A");
     await m.resp(q.id, "B");
-    expect((await m.evaluar()).evaluation.variableStates.some((v) => v.state === "CONTRADICTORY")).toBe(true);
+    expect((await m.evaluar()).evaluation.variableEvaluations.some((v) => v.state === "CONTRADICTORY")).toBe(true);
   });
 });
 
 describe("B8 · las 31 capacidades", () => {
   it.each([...OFFICIAL_CAPABILITY_IDS])("%s: respuestas a preguntas distintas no generan contradicción artificial", async (cap) => {
     const m = await montar(cap);
-    const qs = m.acqs.filter((x) => x.acquisitionMode === "QUESTION" || x.acquisitionMode === "CAPABILITY_PROGRESSIVE");
+    const qs = m.acqs.filter((x) => x.variableRefs.length > 0);
     const distintas = qs.filter((x, i) => !qs.slice(0, i).some((y) => y.variableRefs.some((v) => x.variableRefs.includes(v)) && !casoUso.esAdquisicionDeCapacidad(y)));
     for (const [i, q] of distintas.slice(0, 4).entries()) await m.resp(q.id, `v${i}`);
     expect((await m.evaluar()).evaluation.contradictions).toHaveLength(0);
