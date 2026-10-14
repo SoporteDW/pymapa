@@ -44,7 +44,10 @@ export function AcquisitionRenderer({ acquisition }: { acquisition: ActionableAc
       {a.triggerStatement && (
         <p className="text-xs text-muted-foreground">Habilitada por: {a.triggerStatement}</p>
       )}
-      {a.mode !== "GOVERNED_STRUCTURAL_CORRESPONDENCE" && variables.length > 0 && (
+      {/* Progresivas con varias VA: sin correspondencia individual gobernada, no se exponen VA. */}
+      {a.mode !== "GOVERNED_STRUCTURAL_CORRESPONDENCE" &&
+        !(a.mode === "CAPABILITY_PROGRESSIVE" && a.variables.length > 1) &&
+        variables.length > 0 && (
         <p className="text-xs text-muted-foreground">
           Variable vinculada: {variables.map((v) => `${v.variableRef} · ${v.name}`).join("; ")}
         </p>
