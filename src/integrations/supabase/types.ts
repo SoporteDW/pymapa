@@ -482,6 +482,86 @@ export type Database = {
           },
         ]
       }
+      document_extractions: {
+        Row: {
+          completed_at: string | null
+          created_at: string
+          error_detail: Json | null
+          evidence_version_id: string
+          extraction_version: number
+          id: string
+          knowledge_version_id: string
+          model_id: string
+          model_provider: string
+          organization_id: string
+          prompt_ref: string
+          started_at: string | null
+          status: Database["public"]["Enums"]["extraction_status"]
+          superseded_by_extraction_id: string | null
+        }
+        Insert: {
+          completed_at?: string | null
+          created_at?: string
+          error_detail?: Json | null
+          evidence_version_id: string
+          extraction_version: number
+          id?: string
+          knowledge_version_id: string
+          model_id: string
+          model_provider: string
+          organization_id: string
+          prompt_ref: string
+          started_at?: string | null
+          status?: Database["public"]["Enums"]["extraction_status"]
+          superseded_by_extraction_id?: string | null
+        }
+        Update: {
+          completed_at?: string | null
+          created_at?: string
+          error_detail?: Json | null
+          evidence_version_id?: string
+          extraction_version?: number
+          id?: string
+          knowledge_version_id?: string
+          model_id?: string
+          model_provider?: string
+          organization_id?: string
+          prompt_ref?: string
+          started_at?: string | null
+          status?: Database["public"]["Enums"]["extraction_status"]
+          superseded_by_extraction_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "document_extractions_knowledge_version_id_fkey"
+            columns: ["knowledge_version_id"]
+            isOneToOne: false
+            referencedRelation: "knowledge_versions"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "document_extractions_organization_id_evidence_version_id_fkey"
+            columns: ["organization_id", "evidence_version_id"]
+            isOneToOne: false
+            referencedRelation: "evidence_versions"
+            referencedColumns: ["organization_id", "id"]
+          },
+          {
+            foreignKeyName: "document_extractions_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "document_extractions_superseded_by_extraction_id_fkey"
+            columns: ["superseded_by_extraction_id"]
+            isOneToOne: false
+            referencedRelation: "document_extractions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       evaluation_runs: {
         Row: {
           assessment_id: string
@@ -631,6 +711,111 @@ export type Database = {
             columns: ["respondent_id"]
             isOneToOne: false
             referencedRelation: "respondents"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      evidence_fragments: {
+        Row: {
+          created_at: string
+          extraction_id: string
+          id: string
+          locator: Json
+          organization_id: string
+          sequence_index: number
+          text_sha256: string
+          verbatim_text: string
+        }
+        Insert: {
+          created_at?: string
+          extraction_id: string
+          id?: string
+          locator: Json
+          organization_id: string
+          sequence_index: number
+          text_sha256: string
+          verbatim_text: string
+        }
+        Update: {
+          created_at?: string
+          extraction_id?: string
+          id?: string
+          locator?: Json
+          organization_id?: string
+          sequence_index?: number
+          text_sha256?: string
+          verbatim_text?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "evidence_fragments_organization_id_extraction_id_fkey"
+            columns: ["organization_id", "extraction_id"]
+            isOneToOne: false
+            referencedRelation: "document_extractions"
+            referencedColumns: ["organization_id", "id"]
+          },
+          {
+            foreignKeyName: "evidence_fragments_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      evidence_versions: {
+        Row: {
+          byte_size: number | null
+          content_sha256: string
+          created_at: string
+          created_by: string | null
+          evidence_id: string
+          id: string
+          mime_type: string | null
+          organization_id: string
+          storage_bucket: string | null
+          storage_path: string | null
+          version_number: number
+        }
+        Insert: {
+          byte_size?: number | null
+          content_sha256: string
+          created_at?: string
+          created_by?: string | null
+          evidence_id: string
+          id?: string
+          mime_type?: string | null
+          organization_id: string
+          storage_bucket?: string | null
+          storage_path?: string | null
+          version_number: number
+        }
+        Update: {
+          byte_size?: number | null
+          content_sha256?: string
+          created_at?: string
+          created_by?: string | null
+          evidence_id?: string
+          id?: string
+          mime_type?: string | null
+          organization_id?: string
+          storage_bucket?: string | null
+          storage_path?: string | null
+          version_number?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "evidence_versions_organization_id_evidence_id_fkey"
+            columns: ["organization_id", "evidence_id"]
+            isOneToOne: false
+            referencedRelation: "evidence"
+            referencedColumns: ["organization_id", "id"]
+          },
+          {
+            foreignKeyName: "evidence_versions_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
             referencedColumns: ["id"]
           },
         ]
@@ -1014,6 +1199,181 @@ export type Database = {
             columns: ["validation_id"]
             isOneToOne: false
             referencedRelation: "validations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      fragment_interpretations: {
+        Row: {
+          created_at: string
+          fragment_id: string
+          id: string
+          model_id: string
+          model_provider: string
+          organization_id: string
+          prompt_ref: string
+          statement: string
+        }
+        Insert: {
+          created_at?: string
+          fragment_id: string
+          id?: string
+          model_id: string
+          model_provider: string
+          organization_id: string
+          prompt_ref: string
+          statement: string
+        }
+        Update: {
+          created_at?: string
+          fragment_id?: string
+          id?: string
+          model_id?: string
+          model_provider?: string
+          organization_id?: string
+          prompt_ref?: string
+          statement?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fragment_interpretations_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "fragment_interpretations_organization_id_fragment_id_fkey"
+            columns: ["organization_id", "fragment_id"]
+            isOneToOne: false
+            referencedRelation: "evidence_fragments"
+            referencedColumns: ["organization_id", "id"]
+          },
+        ]
+      }
+      fragment_mappings: {
+        Row: {
+          admission_basis:
+            | Database["public"]["Enums"]["mapping_admission_basis"]
+            | null
+          admission_rule_ref: string | null
+          assessment_id: string
+          capability_id: string
+          created_at: string
+          decision_note: string | null
+          factual_correspondence_ref: string | null
+          fragment_id: string
+          id: string
+          interpretation_id: string | null
+          knowledge_pack_id: string
+          knowledge_pack_version: string
+          knowledge_version_id: string
+          organization_id: string
+          proposed_by: Database["public"]["Enums"]["mapping_proposer"]
+          proposer_model_id: string | null
+          status: Database["public"]["Enums"]["mapping_status"]
+          supersedes_mapping_id: string | null
+          target_ref: string
+          target_type: Database["public"]["Enums"]["mapping_target_type"]
+          updated_at: string
+          validated_at: string | null
+          validated_by: string | null
+        }
+        Insert: {
+          admission_basis?:
+            | Database["public"]["Enums"]["mapping_admission_basis"]
+            | null
+          admission_rule_ref?: string | null
+          assessment_id: string
+          capability_id: string
+          created_at?: string
+          decision_note?: string | null
+          factual_correspondence_ref?: string | null
+          fragment_id: string
+          id?: string
+          interpretation_id?: string | null
+          knowledge_pack_id: string
+          knowledge_pack_version: string
+          knowledge_version_id: string
+          organization_id: string
+          proposed_by: Database["public"]["Enums"]["mapping_proposer"]
+          proposer_model_id?: string | null
+          status?: Database["public"]["Enums"]["mapping_status"]
+          supersedes_mapping_id?: string | null
+          target_ref: string
+          target_type: Database["public"]["Enums"]["mapping_target_type"]
+          updated_at?: string
+          validated_at?: string | null
+          validated_by?: string | null
+        }
+        Update: {
+          admission_basis?:
+            | Database["public"]["Enums"]["mapping_admission_basis"]
+            | null
+          admission_rule_ref?: string | null
+          assessment_id?: string
+          capability_id?: string
+          created_at?: string
+          decision_note?: string | null
+          factual_correspondence_ref?: string | null
+          fragment_id?: string
+          id?: string
+          interpretation_id?: string | null
+          knowledge_pack_id?: string
+          knowledge_pack_version?: string
+          knowledge_version_id?: string
+          organization_id?: string
+          proposed_by?: Database["public"]["Enums"]["mapping_proposer"]
+          proposer_model_id?: string | null
+          status?: Database["public"]["Enums"]["mapping_status"]
+          supersedes_mapping_id?: string | null
+          target_ref?: string
+          target_type?: Database["public"]["Enums"]["mapping_target_type"]
+          updated_at?: string
+          validated_at?: string | null
+          validated_by?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "fragment_mappings_knowledge_version_id_fkey"
+            columns: ["knowledge_version_id"]
+            isOneToOne: false
+            referencedRelation: "knowledge_versions"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "fragment_mappings_organization_id_assessment_id_fkey"
+            columns: ["organization_id", "assessment_id"]
+            isOneToOne: false
+            referencedRelation: "assessments"
+            referencedColumns: ["organization_id", "id"]
+          },
+          {
+            foreignKeyName: "fragment_mappings_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "fragment_mappings_organization_id_fragment_id_fkey"
+            columns: ["organization_id", "fragment_id"]
+            isOneToOne: false
+            referencedRelation: "evidence_fragments"
+            referencedColumns: ["organization_id", "id"]
+          },
+          {
+            foreignKeyName: "fragment_mappings_organization_id_interpretation_id_fkey"
+            columns: ["organization_id", "interpretation_id"]
+            isOneToOne: false
+            referencedRelation: "fragment_interpretations"
+            referencedColumns: ["organization_id", "id"]
+          },
+          {
+            foreignKeyName: "fragment_mappings_supersedes_mapping_id_fkey"
+            columns: ["supersedes_mapping_id"]
+            isOneToOne: false
+            referencedRelation: "fragment_mappings"
             referencedColumns: ["id"]
           },
         ]
@@ -2112,6 +2472,16 @@ export type Database = {
     }
     Functions: {
       bootstrap_organization: { Args: { _name?: string }; Returns: string }
+      validate_fragment_mapping: {
+        Args: {
+          _basis: Database["public"]["Enums"]["mapping_admission_basis"]
+          _decision: Database["public"]["Enums"]["mapping_status"]
+          _mapping_id: string
+          _note: string
+          _rule_ref: string
+        }
+        Returns: undefined
+      }
     }
     Enums: {
       assessment_type: "BASELINE" | "REASSESSMENT" | "FOLLOW_UP"
@@ -2146,6 +2516,11 @@ export type Database = {
         | "REASSESSMENT_STARTED"
         | "SNAPSHOT_CREATED"
         | "LEARNING_CANDIDATE_CREATED"
+        | "FRAGMENT_MAPPING_PROPOSED"
+        | "FRAGMENT_MAPPING_VALIDATED"
+        | "FRAGMENT_MAPPING_REJECTED"
+        | "FRAGMENT_MAPPING_SUPERSEDED"
+        | "EXTRACTION_SUPERSEDED"
       evaluation_run_status:
         | "PENDING"
         | "PROCESSING"
@@ -2173,6 +2548,12 @@ export type Database = {
         | "FOLLOW_UP"
         | "CONSOLIDATED"
         | "NEEDS_ADJUSTMENT"
+      extraction_status:
+        | "PENDING"
+        | "PROCESSING"
+        | "COMPLETED"
+        | "FAILED"
+        | "SUPERSEDED"
       finding_lifecycle_state:
         | "CANDIDATE"
         | "NEEDS_REVIEW"
@@ -2188,6 +2569,14 @@ export type Database = {
         | "VALIDATED"
         | "PUBLISHED"
         | "SUPERSEDED"
+      mapping_admission_basis: "GOVERNED_RULE" | "HUMAN_VALIDATION"
+      mapping_proposer: "AI" | "HUMAN" | "DETERMINISTIC_RULE"
+      mapping_status: "CANDIDATE" | "VALIDATED" | "REJECTED" | "SUPERSEDED"
+      mapping_target_type:
+        | "ACQUISITION"
+        | "INFORMATION_NEED"
+        | "VARIABLE"
+        | "EVIDENCE_CRITERION"
       membership_role: "OWNER" | "ADMIN" | "MEMBER"
       recommendation_selection_status: "CANDIDATE" | "SELECTED" | "REJECTED"
       respondent_status: "INVITED" | "ACTIVE" | "REVOKED"
@@ -2365,6 +2754,11 @@ export const Constants = {
         "REASSESSMENT_STARTED",
         "SNAPSHOT_CREATED",
         "LEARNING_CANDIDATE_CREATED",
+        "FRAGMENT_MAPPING_PROPOSED",
+        "FRAGMENT_MAPPING_VALIDATED",
+        "FRAGMENT_MAPPING_REJECTED",
+        "FRAGMENT_MAPPING_SUPERSEDED",
+        "EXTRACTION_SUPERSEDED",
       ],
       evaluation_run_status: [
         "PENDING",
@@ -2397,6 +2791,13 @@ export const Constants = {
         "CONSOLIDATED",
         "NEEDS_ADJUSTMENT",
       ],
+      extraction_status: [
+        "PENDING",
+        "PROCESSING",
+        "COMPLETED",
+        "FAILED",
+        "SUPERSEDED",
+      ],
       finding_lifecycle_state: [
         "CANDIDATE",
         "NEEDS_REVIEW",
@@ -2413,6 +2814,15 @@ export const Constants = {
         "VALIDATED",
         "PUBLISHED",
         "SUPERSEDED",
+      ],
+      mapping_admission_basis: ["GOVERNED_RULE", "HUMAN_VALIDATION"],
+      mapping_proposer: ["AI", "HUMAN", "DETERMINISTIC_RULE"],
+      mapping_status: ["CANDIDATE", "VALIDATED", "REJECTED", "SUPERSEDED"],
+      mapping_target_type: [
+        "ACQUISITION",
+        "INFORMATION_NEED",
+        "VARIABLE",
+        "EVIDENCE_CRITERION",
       ],
       membership_role: ["OWNER", "ADMIN", "MEMBER"],
       recommendation_selection_status: ["CANDIDATE", "SELECTED", "REJECTED"],

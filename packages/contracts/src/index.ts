@@ -162,3 +162,43 @@ export interface SubmitResponseResult {
   /** Motivo de rechazo, cuando accepted === false. */
   rejectionReason?: string;
 }
+
+/* ------------------------------------------------------------------ */
+/* Document-First · Bloque 1 (fragmentos y correspondencias)           */
+/* ------------------------------------------------------------------ */
+
+export type MappingStatus = "CANDIDATE" | "VALIDATED" | "REJECTED" | "SUPERSEDED";
+export type MappingTargetType = "ACQUISITION" | "INFORMATION_NEED" | "VARIABLE" | "EVIDENCE_CRITERION";
+/** Únicos fundamentos de admisión. La semejanza semántica no es uno de ellos. */
+export type AdmissionBasis = "GOVERNED_RULE" | "HUMAN_VALIDATION";
+export type MappingProposer = "AI" | "HUMAN" | "DETERMINISTIC_RULE";
+
+export interface EvidenceFragmentDTO {
+  fragmentId: string;
+  extractionId: string;
+  sequenceIndex: number;
+  verbatimText: string;
+  locator: Record<string, unknown>;
+}
+
+export interface FragmentInterpretationDTO {
+  interpretationId: string;
+  fragmentId: string;
+  statement: string;
+  modelId: string;
+}
+
+export interface FragmentMappingDTO {
+  mappingId: string;
+  fragmentId: string;
+  interpretationId: string | null;
+  capabilityId: string;
+  targetType: MappingTargetType;
+  targetRef: string;
+  status: MappingStatus;
+  proposedBy: MappingProposer;
+  admissionBasis: AdmissionBasis | null;
+  admissionRuleRef: string | null;
+  knowledgePackId: string;
+  knowledgePackVersion: string;
+}

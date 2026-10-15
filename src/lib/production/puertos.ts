@@ -410,7 +410,13 @@ export type AuditEventType =
   | "FOLLOW_UP_DECIDED"
   | "REASSESSMENT_STARTED"
   | "SNAPSHOT_CREATED"
-  | "LEARNING_CANDIDATE_CREATED";
+  | "LEARNING_CANDIDATE_CREATED"
+  // Document-First · Bloque 1
+  | "FRAGMENT_MAPPING_PROPOSED"
+  | "FRAGMENT_MAPPING_VALIDATED"
+  | "FRAGMENT_MAPPING_REJECTED"
+  | "FRAGMENT_MAPPING_SUPERSEDED"
+  | "EXTRACTION_SUPERSEDED";
 
 /* ------------------------------------------------------------------ */
 /* CRV / Validation / Follow-up / Learning (M1-KL)                     */
