@@ -103,7 +103,7 @@ export function createLovableGatewayClient(apiKey: string, baseURL = "https://ai
             .map((l) => l.slice(5).trim())
             .join("");
           if (!data || data === "[DONE]") continue;
-          let ev: Record<string, any>;
+          let ev: any;
           try {
             ev = JSON.parse(data);
           } catch {

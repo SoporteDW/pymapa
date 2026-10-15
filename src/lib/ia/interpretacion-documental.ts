@@ -136,7 +136,7 @@ export interface PropuestaVerificada {
 
 export interface PropuestaDescartada {
   motivo: MotivoRechazo;
-  bruto: unknown;
+  bruto: string;
 }
 
 export interface ResultadoVerificacion {
@@ -156,16 +156,16 @@ export function verificarSalida(cat: CatalogoCanonico, paginas: PaginaTexto[], s
   lista.forEach((raw, i) => {
     const r = raw as Record<string, unknown>;
     if (typeof r?.informationNeedRef !== "string" || typeof r.cita !== "string" || typeof r.pagina !== "number") {
-      descartadas.push({ motivo: "ESTRUCTURA_INVALIDA", bruto: raw });
+      descartadas.push({ motivo: "ESTRUCTURA_INVALIDA", bruto: JSON.stringify(raw) });
       return;
     }
     const ni = porId.get(r.informationNeedRef);
-    if (!ni) return void descartadas.push({ motivo: "NI_NO_CANONICA", bruto: raw });
+    if (!ni) return void descartadas.push({ motivo: "NI_NO_CANONICA", bruto: JSON.stringify(raw) });
     const pag = textoPag.get(r.pagina);
-    if (pag === undefined) return void descartadas.push({ motivo: "PAGINA_INEXISTENTE", bruto: raw });
+    if (pag === undefined) return void descartadas.push({ motivo: "PAGINA_INEXISTENTE", bruto: JSON.stringify(raw) });
     const cita = normalizarCita(r.cita);
-    if (cita.length < 8) return void descartadas.push({ motivo: "CITA_DEMASIADO_CORTA", bruto: raw });
-    if (!pag.includes(cita)) return void descartadas.push({ motivo: "CITA_NO_ENCONTRADA", bruto: raw });
+    if (cita.length < 8) return void descartadas.push({ motivo: "CITA_DEMASIADO_CORTA", bruto: JSON.stringify(raw) });
+    if (!pag.includes(cita)) return void descartadas.push({ motivo: "CITA_NO_ENCONTRADA", bruto: JSON.stringify(raw) });
     verificadas.push({
       id: `prop-${i}`,
       estado: "CANDIDATE",
