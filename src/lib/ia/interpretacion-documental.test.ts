@@ -16,8 +16,8 @@ describe("interpretación documental DG-01 · verificación", () => {
       sinCorrespondencia: [],
     });
     expect(r.verificadas).toHaveLength(1);
-    expect(r.verificadas[0].variableRefs).toEqual(["VA01"]);
-    expect(r.verificadas[0].estado).toBe("CANDIDATE");
+    expect(r.verificadas[0]!.variableRefs).toEqual(["VA01"]);
+    expect(r.verificadas[0]!.estado).toBe("CANDIDATE");
   });
   it("rechaza NI inventada, página inexistente y cita parafraseada", () => {
     const r = verificarSalida(cat, paginas, {

@@ -154,7 +154,7 @@ export function verificarSalida(cat: CatalogoCanonico, paginas: PaginaTexto[], s
   const s = salida as { propuestas?: unknown; sinCorrespondencia?: unknown };
   const lista = Array.isArray(s?.propuestas) ? s.propuestas : [];
   lista.forEach((raw, i) => {
-    const r = raw as Record<string, unknown>;
+    const r = raw as any;
     if (typeof r?.informationNeedRef !== "string" || typeof r.cita !== "string" || typeof r.pagina !== "number") {
       descartadas.push({ motivo: "ESTRUCTURA_INVALIDA", bruto: JSON.stringify(raw) });
       return;
