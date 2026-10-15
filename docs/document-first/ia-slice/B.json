@@ -1,0 +1,170 @@
+{
+ "archivo": "B_tostadora_coloquial.pdf",
+ "sha256": "e6011c5c6fcd23325ed74b7bcf87a703f7389f6f0471a16f44c7213397af3d7f",
+ "ok": true,
+ "traza": {
+  "provider": "lovable-ai-gateway",
+  "model": "openai/gpt-6-luna",
+  "promptVersion": "df-ia-interpretacion-1.0.0",
+  "runId": "01a14198-42a5-7402-9f5e-0db3ba9c4418",
+  "packId": "dg-01",
+  "packVersion": "1.0.0",
+  "packChecksum": "sha256:56b7e8f6b3bad7cb6253728af66ccaebe8b048b900e253323907926b8596e034",
+  "inputTokens": 1181,
+  "outputTokens": 888,
+  "costoEstimadoUsd": 0.0005621000000000001,
+  "durationMs": 5652
+ },
+ "resultado": {
+  "verificadas": [
+   {
+    "id": "prop-0",
+    "estado": "CANDIDATE",
+    "informationNeedRef": "NI01",
+    "informationNeedStatement": "Cómo crea valor actualmente la empresa",
+    "variableRefs": [
+     "VA01"
+    ],
+    "acquisitionRefs": [
+     "ACQ·NI01"
+    ],
+    "cita": "Nuestro negocio consiste en adquirir el grano directamente a cuarenta productores del sur del Huila, procesarlo en nuestra tostadora de Neiva y comercializarlo empacado, sobre todo a cafeterias especializadas y tambien a clientes que reciben su cafe cada mes desde la pagina web.",
+    "pagina": 1,
+    "hechoInterpretado": "La empresa compra grano a productores, lo procesa y vende café empacado a cafeterías y clientes por suscripción web.",
+    "justificacion": "La cita describe cómo opera y comercializa actualmente la empresa para crear valor."
+   },
+   {
+    "id": "prop-1",
+    "estado": "CANDIDATE",
+    "informationNeedRef": "NI02",
+    "informationNeedStatement": "Cuáles son sus principales restricciones/desafíos materiales",
+    "variableRefs": [
+     "VA02"
+    ],
+    "acquisitionRefs": [
+     "ACQ·NI02"
+    ],
+    "cita": "Nuestro mayor problema hoy es la plata para operar: al productor le pagamos de inmediato, mientras que las cafeterias tardan dos meses en pagarnos.",
+    "pagina": 1,
+    "hechoInterpretado": "La empresa enfrenta una necesidad de liquidez porque paga de inmediato a productores y cobra a cafeterías dos meses después.",
+    "justificacion": "La cita identifica una restricción financiera y operativa material."
+   },
+   {
+    "id": "prop-2",
+    "estado": "CANDIDATE",
+    "informationNeedRef": "NI03",
+    "informationNeedStatement": "Qué objetivos o resultados empresariales busca",
+    "variableRefs": [
+     "VA03"
+    ],
+    "acquisitionRefs": [
+     "ACQ·NI03"
+    ],
+    "cita": "La meta que nos fijamos para el proximo ano es que casi un tercio de la facturacion llegue por las suscripciones web, para no depender tanto de las cafeterias.",
+    "pagina": 2,
+    "hechoInterpretado": "La empresa busca que casi un tercio de su facturación provenga de suscripciones web el próximo año.",
+    "justificacion": "La cita explicita un objetivo empresarial cuantificado y la finalidad de reducir la dependencia de cafeterías."
+   },
+   {
+    "id": "prop-3",
+    "estado": "CANDIDATE",
+    "informationNeedRef": "NI04",
+    "informationNeedStatement": "Qué cambios relevantes espera realizar o enfrentar",
+    "variableRefs": [
+     "VA04"
+    ],
+    "acquisitionRefs": [
+     "ACQ·NI04"
+    ],
+    "cita": "Este ano lo mas importante es ofrecer suscripciones a empresas para sus oficinas en Bogota y Medellin.",
+    "pagina": 2,
+    "hechoInterpretado": "La empresa prevé ofrecer suscripciones a empresas con oficinas en Bogotá y Medellín durante este año.",
+    "justificacion": "La cita señala un cambio comercial que la empresa espera realizar."
+   },
+   {
+    "id": "prop-4",
+    "estado": "CANDIDATE",
+    "informationNeedRef": "NI05",
+    "informationNeedStatement": "Qué cambios de clientes/mercado pueden afectar esos objetivos",
+    "variableRefs": [
+     "VA05"
+    ],
+    "acquisitionRefs": [
+     "ACQ·NI05"
+    ],
+    "cita": "Afuera, el cafe se encarecio cerca de un 40% en el ultimo ano y competidores con mas musculo ya venden cafe de origen mas barato en las grandes superficies.",
+    "pagina": 2,
+    "hechoInterpretado": "El café se encareció cerca de un 40% y competidores venden café de origen más barato en grandes superficies.",
+    "justificacion": "La cita aporta cambios de mercado y competencia que pueden afectar los objetivos de la empresa."
+   },
+   {
+    "id": "prop-5",
+    "estado": "CANDIDATE",
+    "informationNeedRef": "NI06",
+    "informationNeedStatement": "Qué cambios competitivos, tecnológicos o del ecosistema son materiales",
+    "variableRefs": [
+     "VA06"
+    ],
+    "acquisitionRefs": [
+     "ACQ·NI06"
+    ],
+    "cita": "Afuera, el cafe se encarecio cerca de un 40% en el ultimo ano y competidores con mas musculo ya venden cafe de origen mas barato en las grandes superficies.",
+    "pagina": 2,
+    "hechoInterpretado": "El mercado presenta un encarecimiento del café y competencia de empresas con mayor capacidad que venden café de origen más barato.",
+    "justificacion": "La cita describe cambios competitivos relevantes para la posición de la empresa."
+   },
+   {
+    "id": "prop-6",
+    "estado": "CANDIDATE",
+    "informationNeedRef": "NI07",
+    "informationNeedStatement": "Qué restricciones/riesgos externos condicionan la dirección",
+    "variableRefs": [
+     "VA07"
+    ],
+    "acquisitionRefs": [
+     "ACQ·NI07"
+    ],
+    "cita": "Ademas, la regulacion de sellos de advertencia nos obliga a cambiar los empaques en 2027.",
+    "pagina": 2,
+    "hechoInterpretado": "La regulación de sellos de advertencia obliga a la empresa a cambiar sus empaques en 2027.",
+    "justificacion": "La cita identifica una condición regulatoria externa que condiciona las acciones de la empresa."
+   },
+   {
+    "id": "prop-7",
+    "estado": "CANDIDATE",
+    "informationNeedRef": "NI08",
+    "informationNeedStatement": "Qué necesidades u oportunidades de transformación se derivan de lo anterior",
+    "variableRefs": [
+     "VA08"
+    ],
+    "acquisitionRefs": [
+     "ACQ·NI08"
+    ],
+    "cita": "Por eso acordamos que el esfuerzo digital se enfocara en automatizar las suscripciones y aprovechar la informacion de pedidos para programar la produccion.",
+    "pagina": 2,
+    "hechoInterpretado": "La empresa enfocará su esfuerzo digital en automatizar suscripciones y usar información de pedidos para programar la producción.",
+    "justificacion": "La cita vincula circunstancias del negocio y su entorno con acciones de transformación previstas."
+   },
+   {
+    "id": "prop-8",
+    "estado": "CANDIDATE",
+    "informationNeedRef": "NI09",
+    "informationNeedStatement": "Cómo se conecta la transformación prevista con resultados del negocio",
+    "variableRefs": [
+     "VA09"
+    ],
+    "acquisitionRefs": [
+     "ACQ·NI09"
+    ],
+    "cita": "La meta que nos fijamos para el proximo ano es que casi un tercio de la facturacion llegue por las suscripciones web, para no depender tanto de las cafeterias.",
+    "pagina": 2,
+    "hechoInterpretado": "La empresa relaciona el crecimiento de las suscripciones web con la facturación y con una menor dependencia de las cafeterías.",
+    "justificacion": "La cita conecta una iniciativa comercial con resultados empresariales esperados."
+   }
+  ],
+  "descartadas": [],
+  "sinCorrespondencia": [],
+  "necesidadesSinPropuesta": []
+ },
+ "propuestasBrutas": 9
+}
