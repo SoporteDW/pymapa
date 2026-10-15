@@ -156,9 +156,15 @@ function EntradaPage() {
                 quedan aislados y marcados como demostración.
               </CardDescription>
             </CardHeader>
-            <CardContent className="mt-auto">
+            <CardContent className="mt-auto space-y-3">
+              <Button asChild size="lg" variant="outline" className="w-full">
+                <Link to="/demo-documental">
+                  Ver demo Moda Origen con documentos
+                  <ArrowRight className="size-4" aria-hidden="true" />
+                </Link>
+              </Button>
               <p className="text-xs text-muted-foreground">
-                No hay un recorrido simulado aparte: lo que ves en la demostración es el producto.
+                Demo con datos ficticios guardados solo en este navegador; no toca cuentas reales.
               </p>
             </CardContent>
           </Card>
