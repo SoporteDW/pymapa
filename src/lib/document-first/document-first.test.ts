@@ -93,3 +93,24 @@ describe("Document-First · importación de plan", () => {
     expect(ps[0]!.campos.some((c) => /Probar cambios con usuarios/.test(c.valor))).toBe(false);
   });
 });
+
+import { estadoVacio, registrarRespuesta, revertirRespuesta } from "./sandbox-demo";
+
+describe("Document-First · sandbox demo", () => {
+  it("MO-05 · confirmar, editar y revertir no destruye la respuesta anterior", () => {
+    let e = estadoVacio();
+    e = registrarRespuesta(e, "Q03", { valor: 3, origen: "manual", en: "t1" }, "MANUAL");
+    e = registrarRespuesta(e, "Q03", { valor: 4, origen: "documento", en: "t2", procedencia: { documento: "x.pdf", sha256: "h", pagina: 1, cita: "c", regla: "r" } }, "CONFIRMADA");
+    expect(e.respuestas.Q03!.valor).toBe(4);
+    e = revertirRespuesta(e, "Q03", "t3");
+    expect(e.respuestas.Q03!.valor).toBe(3);
+    expect(e.historial.map((h) => h.accion)).toEqual(["MANUAL", "CONFIRMADA", "REVERTIDA"]);
+  });
+
+  it("MO-LIVE-08 / MO-10 · los módulos del demo no importan el backend productivo", () => {
+    for (const f of ["pdf-texto.ts", "reglas-g1.ts", "plan-import.ts", "sandbox-demo.ts", "../../routes/demo-documental.tsx"]) {
+      const src = readFileSync(join(__dirname, f), "utf8");
+      expect(src).not.toMatch(/integrations\/supabase|\.functions"|createServerFn/);
+    }
+  });
+});

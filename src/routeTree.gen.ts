@@ -17,6 +17,7 @@ import { Route as AyudaRouteImport } from './routes/ayuda'
 import { Route as CohorteRouteImport } from './routes/cohorte'
 import { Route as ColaboracionRouteImport } from './routes/colaboracion'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as DemoDocumentalRouteImport } from './routes/demo-documental'
 import { Route as DemostracionRouteImport } from './routes/demostracion'
 import { Route as DiagnosticoRouteImport } from './routes/diagnostico'
 import { Route as InicioRouteImport } from './routes/inicio'
@@ -97,6 +98,11 @@ const ColaboracionRoute = ColaboracionRouteImport.update({
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DemoDocumentalRoute = DemoDocumentalRouteImport.update({
+  id: '/demo-documental',
+  path: '/demo-documental',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DemostracionRoute = DemostracionRouteImport.update({
@@ -327,6 +333,7 @@ export interface FileRoutesByFullPath {
   '/cohorte': typeof CohorteRoute
   '/colaboracion': typeof ColaboracionRoute
   '/dashboard': typeof DashboardRouteWithChildren
+  '/demo-documental': typeof DemoDocumentalRoute
   '/demostracion': typeof DemostracionRoute
   '/diagnostico': typeof DiagnosticoRouteWithChildren
   '/inicio': typeof InicioRoute
@@ -377,6 +384,7 @@ export interface FileRoutesByTo {
   '/ayuda': typeof AyudaRoute
   '/cohorte': typeof CohorteRoute
   '/colaboracion': typeof ColaboracionRoute
+  '/demo-documental': typeof DemoDocumentalRoute
   '/demostracion': typeof DemostracionRoute
   '/inicio': typeof InicioRoute
   '/invitacion': typeof InvitacionRoute
@@ -424,6 +432,7 @@ export interface FileRoutesById {
   '/cohorte': typeof CohorteRoute
   '/colaboracion': typeof ColaboracionRoute
   '/dashboard': typeof DashboardRouteWithChildren
+  '/demo-documental': typeof DemoDocumentalRoute
   '/demostracion': typeof DemostracionRoute
   '/diagnostico': typeof DiagnosticoRouteWithChildren
   '/inicio': typeof InicioRoute
@@ -477,6 +486,7 @@ export interface FileRouteTypes {
     | '/cohorte'
     | '/colaboracion'
     | '/dashboard'
+    | '/demo-documental'
     | '/demostracion'
     | '/diagnostico'
     | '/inicio'
@@ -527,6 +537,7 @@ export interface FileRouteTypes {
     | '/ayuda'
     | '/cohorte'
     | '/colaboracion'
+    | '/demo-documental'
     | '/demostracion'
     | '/inicio'
     | '/invitacion'
@@ -573,6 +584,7 @@ export interface FileRouteTypes {
     | '/cohorte'
     | '/colaboracion'
     | '/dashboard'
+    | '/demo-documental'
     | '/demostracion'
     | '/diagnostico'
     | '/inicio'
@@ -626,6 +638,7 @@ export interface RootRouteChildren {
   CohorteRoute: typeof CohorteRoute
   ColaboracionRoute: typeof ColaboracionRoute
   DashboardRoute: typeof DashboardRouteWithChildren
+  DemoDocumentalRoute: typeof DemoDocumentalRoute
   DemostracionRoute: typeof DemostracionRoute
   DiagnosticoRoute: typeof DiagnosticoRouteWithChildren
   InicioRoute: typeof InicioRoute
@@ -695,6 +708,13 @@ declare module '@tanstack/react-router' {
       path: '/dashboard'
       fullPath: '/dashboard'
       preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/demo-documental': {
+      id: '/demo-documental'
+      path: '/demo-documental'
+      fullPath: '/demo-documental'
+      preLoaderRoute: typeof DemoDocumentalRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/demostracion': {
@@ -1148,6 +1168,7 @@ const rootRouteChildren: RootRouteChildren = {
   CohorteRoute: CohorteRoute,
   ColaboracionRoute: ColaboracionRoute,
   DashboardRoute: DashboardRouteWithChildren,
+  DemoDocumentalRoute: DemoDocumentalRoute,
   DemostracionRoute: DemostracionRoute,
   DiagnosticoRoute: DiagnosticoRouteWithChildren,
   InicioRoute: InicioRoute,
