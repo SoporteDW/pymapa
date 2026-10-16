@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { extraerPdf, mensajeErrorExtraccion, ExtraccionError } from "@/lib/document-first/pdf-texto";
-import { interpretarDocumentoDG01 } from "@/lib/ia/interpretacion.functions";
+import { interpretarDocumentoDG01, decidirCorrespondenciaIA } from "@/lib/ia/interpretacion.functions";
 
 export const Route = createFileRoute("/_authenticated/ia-documental")({
   head: () => ({
@@ -30,6 +30,15 @@ function IaDocumental() {
   const [error, setError] = useState<string | null>(null);
   const [res, setRes] = useState<Resultado | null>(null);
   const [decisiones, setDecisiones] = useState<Record<string, Decision>>({});
+  const [errDec, setErrDec] = useState<Record<string, string>>({});
+  const decidirFn = useServerFn(decidirCorrespondenciaIA);
+  async function decidir(id: string, d: "ACEPTADA" | "RECHAZADA") {
+    const mappingId = res?.persistencia?.mappingIds[id];
+    if (!mappingId) return;
+    const r = await decidirFn({ data: { mappingId, decision: d === "ACEPTADA" ? "VALIDATED" : "REJECTED" } });
+    if (r.ok) setDecisiones((s) => ({ ...s, [id]: d }));
+    else setErrDec((s) => ({ ...s, [id]: r.error }));
+  }
 
   async function onFile(f: File) {
     setError(null);
@@ -40,7 +49,7 @@ function IaDocumental() {
       const doc = await extraerPdf(new Uint8Array(await f.arrayBuffer()));
       const paginas = Object.entries(doc.textoPorPagina).map(([p, texto]) => ({ pagina: Number(p), texto }));
       setEstado("interpretando");
-      const r = await interpretar({ data: { paginas } });
+      const r = await interpretar({ data: { paginas, titulo: f.name } });
       if (!r.ok) setError(r.error ?? "No se pudo interpretar el documento.");
       setRes(r);
     } catch (e) {
@@ -56,7 +65,7 @@ function IaDocumental() {
       <div>
         <h1 className="text-2xl font-semibold">Lectura documental con IA · DG-01</h1>
         <p className="text-muted-foreground mt-1 text-sm">
-          Prueba controlada. La IA propone; tú decides. Ninguna propuesta se guarda ni cuenta como respuesta del diagnóstico.
+          Prueba controlada. La IA propone; tú decides. Las propuestas se guardan como pendientes y nunca cuentan solas como respuesta del diagnóstico.
           Usa solo documentos de prueba (PDF, máx. 5 páginas).
         </p>
       </div>
@@ -99,17 +108,25 @@ function IaDocumental() {
                   <blockquote className="border-l-2 pl-3 italic">“{p.cita}”</blockquote>
                   <p><strong>Lo que dice:</strong> {p.hechoInterpretado}</p>
                   <p className="text-muted-foreground"><strong>Por qué se relaciona:</strong> {p.justificacion}</p>
+                  {(res.persistencia?.fragmentoCompartido[p.id]?.length ?? 0) > 0 && (
+                    <p className="text-xs text-muted-foreground">
+                      Esta misma cita también se propone para{" "}
+                      {res.persistencia!.fragmentoCompartido[p.id]!.map((o) => props.find((x) => x.id === o)?.informationNeedRef).join(", ")}. Cada propuesta se decide por separado.
+                    </p>
+                  )}
                   <div className="flex gap-2 pt-2">
-                    <Button size="sm" variant={d === "ACEPTADA" ? "default" : "outline"} onClick={() => setDecisiones((s) => ({ ...s, [p.id]: "ACEPTADA" }))}>Aceptar</Button>
-                    <Button size="sm" variant={d === "RECHAZADA" ? "destructive" : "outline"} onClick={() => setDecisiones((s) => ({ ...s, [p.id]: "RECHAZADA" }))}>Rechazar</Button>
+                    <Button size="sm" disabled={d !== "PENDIENTE" || !res.persistencia} variant={d === "ACEPTADA" ? "default" : "outline"} onClick={() => decidir(p.id, "ACEPTADA")}>Aceptar</Button>
+                    <Button size="sm" disabled={d !== "PENDIENTE" || !res.persistencia} variant={d === "RECHAZADA" ? "destructive" : "outline"} onClick={() => decidir(p.id, "RECHAZADA")}>Rechazar</Button>
                   </div>
+                  {errDec[p.id] && <p className="text-destructive text-xs">{errDec[p.id]}</p>}
                 </CardContent>
               </Card>
             );
           })}
           <p className="text-muted-foreground text-xs">
-            Aceptar una propuesta no la convierte en respuesta del diagnóstico ni cierra la capacidad.
+            Las propuestas quedan guardadas como pendientes en tu empresa. Aceptar una propuesta no la convierte en respuesta del diagnóstico, no demuestra que la información sea suficiente y no cierra la capacidad.
           </p>
+          {"errorPersistencia" in res && res.errorPersistencia && <p className="text-destructive text-sm">{res.errorPersistencia}</p>}
         </>
       )}
       {res && (

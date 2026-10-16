@@ -60,6 +60,28 @@ describe("CM-05 · recorrido con historial previo", () => {
     expect(e.evaluation.contradictions.length).toBeGreaterThan(0);
   });
 
+  it("conflictos en dos preguntas progresivas distintas producen aclaraciones separadas", async () => {
+    const m = montar("CM-05");
+    const [p1, p2, p3] = m.acqs.filter((x) => casoUso.esAdquisicionDeCapacidad(x) && typeof x.question === "string");
+    // Historial previo complementario
+    await m.resp(p3!.id, "complementaria");
+    await m.resp(p1!.id, "A");
+    await m.resp(p1!.id, "B");
+    await m.resp(p2!.id, "C");
+    await m.resp(p2!.id, "D");
+    const obs = await m.base.listObservations(m.a.id);
+    const ref = new Map(obs.map((o) => [o.id, o.value.acquisitionRef]));
+    const e = (await casoUso.evaluarCapacidad(m.deps, m.a.id))!;
+    expect(e.evaluation.contradictions).toHaveLength(2);
+    for (const c of e.evaluation.contradictions) {
+      expect(new Set(c.conflictingObservationIds.map((id) => ref.get(id))).size).toBe(1);
+      expect(c.conflictingObservationIds).toHaveLength(2);
+    }
+    const acqsEnConflicto = e.evaluation.contradictions.map((c) => ref.get(c.conflictingObservationIds[0]!)).sort();
+    expect(acqsEnConflicto).toEqual([p1!.id, p2!.id].sort());
+    expect((await m.base.listObservations(m.a.id)).length).toBe(5);
+  });
+
   it.each(OFFICIAL_CAPABILITY_IDS)("%s · una pregunta respondida nunca vuelve como siguiente", async (cap) => {
     const m = montar(cap);
     const n1 = await casoUso.getNextAcquisition(m.deps, m.a.id);
