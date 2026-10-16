@@ -30,6 +30,15 @@ function IaDocumental() {
   const [error, setError] = useState<string | null>(null);
   const [res, setRes] = useState<Resultado | null>(null);
   const [decisiones, setDecisiones] = useState<Record<string, Decision>>({});
+  const [errDec, setErrDec] = useState<Record<string, string>>({});
+  const decidirFn = useServerFn(decidirCorrespondenciaIA);
+  async function decidir(id: string, d: "ACEPTADA" | "RECHAZADA") {
+    const mappingId = res?.persistencia?.mappingIds[id];
+    if (!mappingId) return;
+    const r = await decidirFn({ data: { mappingId, decision: d === "ACEPTADA" ? "VALIDATED" : "REJECTED" } });
+    if (r.ok) setDecisiones((s) => ({ ...s, [id]: d }));
+    else setErrDec((s) => ({ ...s, [id]: r.error }));
+  }
 
   async function onFile(f: File) {
     setError(null);
@@ -99,17 +108,25 @@ function IaDocumental() {
                   <blockquote className="border-l-2 pl-3 italic">“{p.cita}”</blockquote>
                   <p><strong>Lo que dice:</strong> {p.hechoInterpretado}</p>
                   <p className="text-muted-foreground"><strong>Por qué se relaciona:</strong> {p.justificacion}</p>
+                  {(res.persistencia?.fragmentoCompartido[p.id]?.length ?? 0) > 0 && (
+                    <p className="text-xs text-muted-foreground">
+                      Esta misma cita también se propone para{" "}
+                      {res.persistencia!.fragmentoCompartido[p.id]!.map((o) => props.find((x) => x.id === o)?.informationNeedRef).join(", ")}. Cada propuesta se decide por separado.
+                    </p>
+                  )}
                   <div className="flex gap-2 pt-2">
-                    <Button size="sm" variant={d === "ACEPTADA" ? "default" : "outline"} onClick={() => setDecisiones((s) => ({ ...s, [p.id]: "ACEPTADA" }))}>Aceptar</Button>
-                    <Button size="sm" variant={d === "RECHAZADA" ? "destructive" : "outline"} onClick={() => setDecisiones((s) => ({ ...s, [p.id]: "RECHAZADA" }))}>Rechazar</Button>
+                    <Button size="sm" disabled={d !== "PENDIENTE" || !res.persistencia} variant={d === "ACEPTADA" ? "default" : "outline"} onClick={() => decidir(p.id, "ACEPTADA")}>Aceptar</Button>
+                    <Button size="sm" disabled={d !== "PENDIENTE" || !res.persistencia} variant={d === "RECHAZADA" ? "destructive" : "outline"} onClick={() => decidir(p.id, "RECHAZADA")}>Rechazar</Button>
                   </div>
+                  {errDec[p.id] && <p className="text-destructive text-xs">{errDec[p.id]}</p>}
                 </CardContent>
               </Card>
             );
           })}
           <p className="text-muted-foreground text-xs">
-            Aceptar una propuesta no la convierte en respuesta del diagnóstico ni cierra la capacidad.
+            Las propuestas quedan guardadas como pendientes en tu empresa. Aceptar una propuesta no la convierte en respuesta del diagnóstico, no demuestra que la información sea suficiente y no cierra la capacidad.
           </p>
+          {"errorPersistencia" in res && res.errorPersistencia && <p className="text-destructive text-sm">{res.errorPersistencia}</p>}
         </>
       )}
       {res && (
