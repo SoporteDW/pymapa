@@ -299,7 +299,50 @@ async function evaluarAssessment(
     observations: aEngineObservations(paraEngine, enlaces),
     knowledgeVersionId,
   });
-  return { ...evaluation, answeredAcquisitionRefs: respondidasVigentes(evaluation.answeredAcquisitionRefs, vigentes, deps) };
+  const getAcq = (id: string) =>
+    deps.engine.getAcquisition(id) as { acquisitionMode?: string; variableRefs: readonly string[] } | null | undefined;
+  return {
+    ...evaluation,
+    contradictions: separarContradiccionesPorAdquisicion(evaluation.contradictions, vigentes, getAcq),
+    answeredAcquisitionRefs: respondidasVigentes(evaluation.answeredAcquisitionRefs, vigentes, deps),
+  };
+}
+
+/**
+ * CM05-CROSS-CLARIFICATION-FIX · El Engine agrupa conflictos por variableRef;
+ * en adquisiciones progresivas multimapeadas varias preguntas distintas
+ * comparten la variable genérica. Una aclaración nunca mezcla observaciones de
+ * adquisiciones de capacidad diferentes: se separa por adquisición, sin
+ * ocultar ningún conflicto ni alterar la evaluación de variables.
+ */
+export function separarContradiccionesPorAdquisicion<
+  C extends { conflictingObservationIds: string[]; conflictingSemanticValues: string[] },
+>(
+  contradicciones: readonly C[],
+  vigentes: ObservationRecord[],
+  getAcq: (id: string) => { acquisitionMode?: string; variableRefs: readonly string[] } | null | undefined,
+): C[] {
+  const porId = new Map(vigentes.map((o) => [o.id, o]));
+  const salida: C[] = [];
+  for (const c of contradicciones) {
+    const grupos = new Map<string, string[]>();
+    for (const id of c.conflictingObservationIds) {
+      const ref = porId.get(id)?.value.acquisitionRef;
+      const clave = ref && esAdquisicionDeCapacidad(getAcq(ref)) ? `acq:${ref}` : "__resto__";
+      grupos.set(clave, [...(grupos.get(clave) ?? []), id]);
+    }
+    if (grupos.size <= 1) {
+      salida.push(c);
+      continue;
+    }
+    for (const ids of grupos.values()) {
+      const valores = [
+        ...new Set(ids.map((id) => porId.get(id)?.value.semanticValue).filter((v): v is string => typeof v === "string")),
+      ];
+      salida.push({ ...c, conflictingObservationIds: ids, conflictingSemanticValues: valores });
+    }
+  }
+  return salida;
 }
 
 /** Adquisiciones con respuesta vigente (del Engine + alcance capacidad). */
