@@ -65,7 +65,7 @@ function IaDocumental() {
       <div>
         <h1 className="text-2xl font-semibold">Lectura documental con IA · DG-01</h1>
         <p className="text-muted-foreground mt-1 text-sm">
-          Prueba controlada. La IA propone; tú decides. Ninguna propuesta se guarda ni cuenta como respuesta del diagnóstico.
+          Prueba controlada. La IA propone; tú decides. Las propuestas se guardan como pendientes y nunca cuentan solas como respuesta del diagnóstico.
           Usa solo documentos de prueba (PDF, máx. 5 páginas).
         </p>
       </div>
