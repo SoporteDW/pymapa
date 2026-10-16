@@ -60,3 +60,11 @@
 ## UX-PROD-FIX-03 · Business UX Clarity
 - [x] Workstreams 1–6 + #7 E2E business acceptance (docs/architecture/UX_PROD_FIX_03_BUSINESS_UX_CLARITY.md)
 - [ ] Aceptación humana (CM-05/DG-02 en Digiway, móvil completo)
+
+## DF-QA-IA-DG01 + P5–P7
+- [x] Etapa 1 QA navegador IA DG-01 (org QA)
+- [x] P5/P6 persistencia candidata + revisión humana gobernada
+- [x] CM-05 aclaraciones separadas por adquisición
+- [x] P7 aislamiento/RLS/regresión (957/957)
+- [ ] Admisión NI→adquisición / suficiencia — pendiente de regla de gobierno
+- [ ] Usuario MEMBER de QA para probar rechazo de rol — pendiente de cuenta
