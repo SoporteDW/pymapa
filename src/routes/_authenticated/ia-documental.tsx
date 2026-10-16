@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { extraerPdf, mensajeErrorExtraccion, ExtraccionError } from "@/lib/document-first/pdf-texto";
-import { interpretarDocumentoDG01 } from "@/lib/ia/interpretacion.functions";
+import { interpretarDocumentoDG01, decidirCorrespondenciaIA } from "@/lib/ia/interpretacion.functions";
 
 export const Route = createFileRoute("/_authenticated/ia-documental")({
   head: () => ({
