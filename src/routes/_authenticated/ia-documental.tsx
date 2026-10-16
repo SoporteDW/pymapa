@@ -49,7 +49,7 @@ function IaDocumental() {
       const doc = await extraerPdf(new Uint8Array(await f.arrayBuffer()));
       const paginas = Object.entries(doc.textoPorPagina).map(([p, texto]) => ({ pagina: Number(p), texto }));
       setEstado("interpretando");
-      const r = await interpretar({ data: { paginas } });
+      const r = await interpretar({ data: { paginas, titulo: f.name } });
       if (!r.ok) setError(r.error ?? "No se pudo interpretar el documento.");
       setRes(r);
     } catch (e) {
