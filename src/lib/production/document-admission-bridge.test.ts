@@ -67,6 +67,16 @@ function mapping(parcial: Partial<DocumentMappingRecord>): DocumentMappingRecord
   };
 }
 
+
+type EstadoMemoria = {
+  documentMappings: DocumentMappingRecord[];
+  observations: ObservationRecord[];
+  evidenceLinks: { observationId: string; evidenceId: string }[];
+  auditEvents: { eventType: string }[];
+};
+const estado = (repo: ReturnType<typeof createInMemoryProductionRepository>) =>
+  repo.estado as unknown as EstadoMemoria;
+
 function setup(pack = packDg01) {
   const engine = createKnowledgeEngine(pack);
   const repo = createInMemoryProductionRepository([
@@ -88,11 +98,11 @@ function setup(pack = packDg01) {
 describe("INT-01-E1 · DocumentAdmissionBridge", () => {
   it("admite una correspondencia VALIDATED con correspondencia factual gobernada (DG-01)", async () => {
     const { engine, repo, deps } = setup();
-    repo.estado.documentMappings.push(mapping({}));
+    estado(repo).documentMappings.push(mapping({}));
     const report = await admitirCorrespondenciasDocumentales(deps, { assessmentId: ASSESS, organizationId: ORG_A });
     expect(report.admitted).toBe(1);
     expect(report.rejected).toEqual([]);
-    const obs = repo.estado.observations;
+    const obs = estado(repo).observations;
     expect(obs).toHaveLength(1);
     expect(obs[0].variableRef).toBe("VA01");
     expect(obs[0].sourceResponseId).toBeNull();
@@ -101,9 +111,9 @@ describe("INT-01-E1 · DocumentAdmissionBridge", () => {
     expect(obs[0].value.documentProvenance?.mappingId).toBe("map-1");
     expect(obs[0].value.documentProvenance?.evidenceId).toBe("ev-1");
     // Trazabilidad: vínculo observación ↔ evidencia y evento de auditoría.
-    expect(repo.estado.evidenceLinks).toHaveLength(1);
-    expect(repo.estado.evidenceLinks[0].evidenceId).toBe("ev-1");
-    expect(repo.estado.auditEvents.some((e) => e.eventType === "DOCUMENT_OBSERVATION_ADMITTED")).toBe(true);
+    expect(estado(repo).evidenceLinks).toHaveLength(1);
+    expect(estado(repo).evidenceLinks[0].evidenceId).toBe("ev-1");
+    expect(estado(repo).auditEvents.some((e) => e.eventType === "DOCUMENT_OBSERVATION_ADMITTED")).toBe(true);
     // La observación alimenta el Engine como variable evaluable.
     const resultado = (await evaluarCapacidad(deps, ASSESS))!.evaluation;
     expect(resultado.variableEvaluations.find((v) => v.variableRef === "VA01")?.state).toBe("KNOWN");
@@ -111,7 +121,7 @@ describe("INT-01-E1 · DocumentAdmissionBridge", () => {
 
   it("rechaza CANDIDATE y REJECTED sin crear observaciones", async () => {
     const { repo, deps } = setup();
-    repo.estado.documentMappings.push(
+    estado(repo).documentMappings.push(
       mapping({ id: "m-cand", status: "CANDIDATE", validatedBy: null }),
       mapping({ id: "m-rej", status: "REJECTED" }),
     );
@@ -119,12 +129,12 @@ describe("INT-01-E1 · DocumentAdmissionBridge", () => {
     expect(report.admitted).toBe(0);
     expect(report.rejected).toHaveLength(2);
     expect(report.rejected.every((r) => r.reason === "STATUS_NOT_VALIDATED")).toBe(true);
-    expect(repo.estado.observations).toHaveLength(0);
+    expect(estado(repo).observations).toHaveLength(0);
   });
 
   it("rechaza mappings temáticos (INFORMATION_NEED / ACQUISITION) aunque estén VALIDATED", async () => {
     const { repo, deps } = setup();
-    repo.estado.documentMappings.push(
+    estado(repo).documentMappings.push(
       mapping({ id: "m-ni", targetType: "INFORMATION_NEED", targetRef: "NI01", factualCorrespondenceRef: null }),
       mapping({ id: "m-acq", targetType: "ACQUISITION", targetRef: "ACQ·NI01", factualCorrespondenceRef: null }),
       mapping({ id: "m-var-sin-factual", factualCorrespondenceRef: null }),
@@ -136,13 +146,13 @@ describe("INT-01-E1 · DocumentAdmissionBridge", () => {
       "THEMATIC_MAPPING_NOT_FACTUAL",
       "THEMATIC_MAPPING_NOT_FACTUAL",
     ]);
-    expect(repo.estado.observations).toHaveLength(0);
+    expect(estado(repo).observations).toHaveLength(0);
   });
 
   it("CM-05: variable genérica de adquisición progresiva nunca se asigna", async () => {
     const { repo, deps } = setup(packCm05);
     // VA01 es la variable genérica a la que apuntan todas las progresivas.
-    repo.estado.documentMappings.push(
+    estado(repo).documentMappings.push(
       mapping({
         id: "m-cm05",
         capabilityId: "CM-05",
@@ -154,12 +164,12 @@ describe("INT-01-E1 · DocumentAdmissionBridge", () => {
     const report = await admitirCorrespondenciasDocumentales(deps, { assessmentId: ASSESS, organizationId: ORG_A });
     expect(report.admitted).toBe(0);
     expect(report.rejected[0].reason).toBe("PROGRESSIVE_VARIABLE_WITHOUT_GOVERNED_FACTUAL_MAPPING");
-    expect(repo.estado.observations).toHaveLength(0);
+    expect(estado(repo).observations).toHaveLength(0);
   });
 
   it("rechaza incompatibilidades de organización, versión de conocimiento y pack", async () => {
     const { repo, deps } = setup();
-    repo.estado.documentMappings.push(
+    estado(repo).documentMappings.push(
       mapping({ id: "m-org", organizationId: ORG_B }),
       mapping({ id: "m-kv", knowledgeVersionId: "kv-otra" }),
       mapping({ id: "m-pack", knowledgePackVersion: "9.9.9" }),
@@ -173,18 +183,18 @@ describe("INT-01-E1 · DocumentAdmissionBridge", () => {
       "PACK_VERSION_MISMATCH",
       "CAPABILITY_MISMATCH",
     ]);
-    expect(repo.estado.observations).toHaveLength(0);
+    expect(estado(repo).observations).toHaveLength(0);
   });
 
   it("idempotencia: reintento no duplica la observación ni el vínculo", async () => {
     const { repo, deps } = setup();
-    repo.estado.documentMappings.push(mapping({}));
+    estado(repo).documentMappings.push(mapping({}));
     await admitirCorrespondenciasDocumentales(deps, { assessmentId: ASSESS, organizationId: ORG_A });
     const segundo = await admitirCorrespondenciasDocumentales(deps, { assessmentId: ASSESS, organizationId: ORG_A });
     expect(segundo.admitted).toBe(0);
     expect(segundo.items[0].outcome).toBe("ALREADY_ADMITTED");
-    expect(repo.estado.observations).toHaveLength(1);
-    expect(repo.estado.evidenceLinks).toHaveLength(1);
+    expect(estado(repo).observations).toHaveLength(1);
+    expect(estado(repo).evidenceLinks).toHaveLength(1);
   });
 
   it("no toca observaciones manuales preexistentes", async () => {
@@ -198,9 +208,9 @@ describe("INT-01-E1 · DocumentAdmissionBridge", () => {
       value: { knowledgeState: "KNOWN", semanticValue: "respuesta manual", acquisitionRef: "ACQ·NI02" },
     };
     await repo.insertObservation(manual);
-    repo.estado.documentMappings.push(mapping({}));
+    estado(repo).documentMappings.push(mapping({}));
     await admitirCorrespondenciasDocumentales(deps, { assessmentId: ASSESS, organizationId: ORG_A });
-    const obs = repo.estado.observations;
+    const obs = estado(repo).observations;
     expect(obs).toHaveLength(2);
     const manualGuardada = obs.find((o) => o.sourceResponseId === "resp-manual-1")!;
     expect(manualGuardada.value.documentProvenance).toBeUndefined();
@@ -210,24 +220,24 @@ describe("INT-01-E1 · DocumentAdmissionBridge", () => {
   it("invalidación append-only: SUPERSEDED retira la observación del Engine sin borrar historial", async () => {
     const { engine, repo, deps } = setup();
     const m = mapping({});
-    repo.estado.documentMappings.push(m);
+    estado(repo).documentMappings.push(m);
     await admitirCorrespondenciasDocumentales(deps, { assessmentId: ASSESS, organizationId: ORG_A });
-    const admitida = repo.estado.observations[0];
+    const admitida = estado(repo).observations[0];
 
     // El mapping queda SUPERSEDED (transición gobernada del Bloque 1).
-    repo.estado.documentMappings[0] = { ...m, status: "SUPERSEDED", supersedesMappingId: "map-2" };
+    estado(repo).documentMappings[0] = { ...m, status: "SUPERSEDED", supersedesMappingId: "map-2" };
     const report = await admitirCorrespondenciasDocumentales(deps, { assessmentId: ASSESS, organizationId: ORG_A });
     expect(report.invalidated).toBe(1);
 
     // Historial intacto: la admitida sigue existiendo; hay un registro de CONTROL.
-    expect(repo.estado.observations).toHaveLength(2);
-    const control = repo.estado.observations.find((o) => o.value.documentControl)!;
+    expect(estado(repo).observations).toHaveLength(2);
+    const control = estado(repo).observations.find((o) => o.value.documentControl)!;
     expect(control.value.documentControl).toEqual({ kind: "INVALIDATION", mappingId: "map-1" });
     expect(control.value.correctsObservationId).toBe(admitida.id);
-    expect(repo.estado.auditEvents.some((e) => e.eventType === "DOCUMENT_OBSERVATION_INVALIDATED")).toBe(true);
+    expect(estado(repo).auditEvents.some((e) => e.eventType === "DOCUMENT_OBSERVATION_INVALIDATED")).toBe(true);
 
     // El registro de control jamás llega al Engine; VA01 vuelve a NOT_OBSERVED.
-    const vigentes = observacionesVigentes(repo.estado.observations);
+    const vigentes = observacionesVigentes(estado(repo).observations);
     expect(vigentes).toHaveLength(0);
     const resultado = (await evaluarCapacidad(deps, ASSESS))!.evaluation;
     expect(resultado.variableEvaluations.find((v) => v.variableRef === "VA01")?.state).toBe("UNKNOWN");
@@ -235,7 +245,7 @@ describe("INT-01-E1 · DocumentAdmissionBridge", () => {
     // Idempotencia de la invalidación.
     const tercero = await admitirCorrespondenciasDocumentales(deps, { assessmentId: ASSESS, organizationId: ORG_A });
     expect(tercero.invalidated).toBe(0);
-    expect(repo.estado.observations).toHaveLength(2);
+    expect(estado(repo).observations).toHaveLength(2);
   });
 
   it("baseline intacto: checksum del pack DG-01 publicado sin cambios", () => {
