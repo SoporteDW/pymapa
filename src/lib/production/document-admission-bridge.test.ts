@@ -101,8 +101,8 @@ describe("INT-01-E1 · DocumentAdmissionBridge", () => {
     expect(obs[0].value.documentProvenance?.mappingId).toBe("map-1");
     expect(obs[0].value.documentProvenance?.evidenceId).toBe("ev-1");
     // Trazabilidad: vínculo observación ↔ evidencia y evento de auditoría.
-    expect(repo.estado.observationEvidenceLinks).toHaveLength(1);
-    expect(repo.estado.observationEvidenceLinks[0].evidenceId).toBe("ev-1");
+    expect(repo.estado.evidenceLinks).toHaveLength(1);
+    expect(repo.estado.evidenceLinks[0].evidenceId).toBe("ev-1");
     expect(repo.estado.auditEvents.some((e) => e.eventType === "DOCUMENT_OBSERVATION_ADMITTED")).toBe(true);
     // La observación alimenta el Engine como variable evaluable.
     const resultado = evaluarAssessment(engine, observacionesVigentes(obs));
@@ -184,7 +184,7 @@ describe("INT-01-E1 · DocumentAdmissionBridge", () => {
     expect(segundo.admitted).toBe(0);
     expect(segundo.items[0].outcome).toBe("ALREADY_ADMITTED");
     expect(repo.estado.observations).toHaveLength(1);
-    expect(repo.estado.observationEvidenceLinks).toHaveLength(1);
+    expect(repo.estado.evidenceLinks).toHaveLength(1);
   });
 
   it("no toca observaciones manuales preexistentes", async () => {
