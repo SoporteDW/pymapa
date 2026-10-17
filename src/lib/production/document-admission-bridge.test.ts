@@ -104,12 +104,12 @@ describe("INT-01-E1 · DocumentAdmissionBridge", () => {
     expect(report.rejected).toEqual([]);
     const obs = estado(repo).observations!;
     expect(obs).toHaveLength(1);
-    expect(obs[0].variableRef).toBe("VA01");
-    expect(obs[0].sourceResponseId).toBeNull();
-    expect(obs[0].value.knowledgeState).toBe("KNOWN");
-    expect(obs[0].value.semanticValue).toBe("Hecho interpretado sintético sobre DG-01");
-    expect(obs[0].value.documentProvenance?.mappingId).toBe("map-1");
-    expect(obs[0].value.documentProvenance?.evidenceId).toBe("ev-1");
+    expect(obs[0]!.variableRef).toBe("VA01");
+    expect(obs[0]!.sourceResponseId).toBeNull();
+    expect(obs[0]!.value.knowledgeState).toBe("KNOWN");
+    expect(obs[0]!.value.semanticValue).toBe("Hecho interpretado sintético sobre DG-01");
+    expect(obs[0]!.value.documentProvenance?.mappingId).toBe("map-1");
+    expect(obs[0]!.value.documentProvenance?.evidenceId).toBe("ev-1");
     // Trazabilidad: vínculo observación ↔ evidencia y evento de auditoría.
     expect(estado(repo).evidenceLinks).toHaveLength(1);
     expect(estado(repo).evidenceLinks[0].evidenceId).toBe("ev-1");
