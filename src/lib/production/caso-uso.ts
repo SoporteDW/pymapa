@@ -221,10 +221,16 @@ export function observacionesCorregidas(filas: ObservationRecord[]): Set<string>
   );
 }
 
-/** Observaciones vigentes: excluye las sustituidas por corrección (sin borrar). */
+/**
+ * Observaciones vigentes: excluye las sustituidas por corrección (sin borrar).
+ * INT-01-E1 · Los registros de CONTROL de invalidación documental
+ * (`value.documentControl`) nunca son observaciones diagnósticas: se conservan
+ * en el historial y producen su efecto de corrección, pero jamás llegan al
+ * Engine ni cuentan como respuesta.
+ */
 export function observacionesVigentes(filas: ObservationRecord[]): ObservationRecord[] {
   const corregidas = observacionesCorregidas(filas);
-  return filas.filter((o) => !corregidas.has(o.id));
+  return filas.filter((o) => !corregidas.has(o.id) && !o.value.documentControl);
 }
 
 /**
