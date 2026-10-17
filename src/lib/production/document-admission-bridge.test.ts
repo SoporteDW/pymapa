@@ -48,7 +48,7 @@ function mapping(parcial: Partial<DocumentMappingRecord>): DocumentMappingRecord
     targetType: "VARIABLE",
     targetRef: "VA01",
     knowledgeVersionId: KV,
-    knowledgePackId: "PYMAPA-DG-01",
+    knowledgePackId: "dg-01",
     knowledgePackVersion: "1.0.0",
     proposedBy: "AI",
     status: "VALIDATED",
@@ -148,7 +148,7 @@ describe("INT-01-E1 · DocumentAdmissionBridge", () => {
         capabilityId: "CM-05",
         targetRef: "VA01",
         factualCorrespondenceRef: "ACQ·P1·01",
-        knowledgePackId: "PYMAPA-CM-05",
+        knowledgePackId: "cm-05",
       }),
     );
     const report = await admitirCorrespondenciasDocumentales(deps, { assessmentId: ASSESS, organizationId: ORG_A });
