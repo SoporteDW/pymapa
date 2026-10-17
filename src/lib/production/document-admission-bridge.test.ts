@@ -222,7 +222,7 @@ describe("INT-01-E1 · DocumentAdmissionBridge", () => {
     const m = mapping({});
     estado(repo).documentMappings.push(m);
     await admitirCorrespondenciasDocumentales(deps, { assessmentId: ASSESS, organizationId: ORG_A });
-    const admitida = estado(repo).observations[0];
+    const admitida = estado(repo).observations![0]!;
 
     // El mapping queda SUPERSEDED (transición gobernada del Bloque 1).
     estado(repo).documentMappings[0] = { ...m, status: "SUPERSEDED", supersedesMappingId: "map-2" };
