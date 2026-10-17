@@ -25,7 +25,7 @@ import {
   type ObservationRecord,
 } from "./puertos";
 import { admitirCorrespondenciasDocumentales } from "./document-admission-bridge";
-import { evaluarAssessment, observacionesVigentes } from "./caso-uso";
+import { evaluarCapacidad, observacionesVigentes } from "./caso-uso";
 
 const packDg01Raw = readFileSync(join(process.cwd(), "knowledge", "packs", "dg-01", "1.0.0", "pack.json"), "utf8");
 const packCm05Raw = readFileSync(join(process.cwd(), "knowledge", "packs", "cm-05", "1.0.0", "pack.json"), "utf8");
@@ -105,7 +105,7 @@ describe("INT-01-E1 · DocumentAdmissionBridge", () => {
     expect(repo.estado.evidenceLinks[0].evidenceId).toBe("ev-1");
     expect(repo.estado.auditEvents.some((e) => e.eventType === "DOCUMENT_OBSERVATION_ADMITTED")).toBe(true);
     // La observación alimenta el Engine como variable evaluable.
-    const resultado = evaluarAssessment(engine, observacionesVigentes(obs));
+    const resultado = (await evaluarCapacidad(deps, ASSESS))!.evaluation;
     expect(resultado.variableEvaluations.find((v) => v.variableRef === "VA01")?.state).toBe("KNOWN");
   });
 
@@ -197,7 +197,7 @@ describe("INT-01-E1 · DocumentAdmissionBridge", () => {
       variableRef: "VA02",
       value: { knowledgeState: "KNOWN", semanticValue: "respuesta manual", acquisitionRef: "ACQ·NI02" },
     };
-    await repo.repository.insertObservation(manual);
+    await repo.insertObservation(manual);
     repo.estado.documentMappings.push(mapping({}));
     await admitirCorrespondenciasDocumentales(deps, { assessmentId: ASSESS, organizationId: ORG_A });
     const obs = repo.estado.observations;
@@ -229,7 +229,7 @@ describe("INT-01-E1 · DocumentAdmissionBridge", () => {
     // El registro de control jamás llega al Engine; VA01 vuelve a NOT_OBSERVED.
     const vigentes = observacionesVigentes(repo.estado.observations);
     expect(vigentes).toHaveLength(0);
-    const resultado = evaluarAssessment(engine, vigentes);
+    const resultado = (await evaluarCapacidad(deps, ASSESS))!.evaluation;
     expect(resultado.variableEvaluations.find((v) => v.variableRef === "VA01")?.state).toBe("NOT_OBSERVED");
 
     // Idempotencia de la invalidación.
