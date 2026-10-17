@@ -53,6 +53,26 @@ export interface ObservationRecord {
     conflictingObservationIds?: string[];
     /** UX-PROD-FIX-02 · Observación vigente que esta corrige (historial preservado). */
     correctsObservationId?: string;
+    /**
+     * INT-01-E1 · Procedencia documental gobernada de una observación admitida
+     * por el DocumentAdmissionBridge. Nunca la escribe una respuesta manual.
+     */
+    documentProvenance?: {
+      mappingId: string;
+      fragmentId: string;
+      interpretationId: string | null;
+      extractionId: string;
+      evidenceId: string;
+      knowledgePackId: string;
+      knowledgePackVersion: string;
+    };
+    /**
+     * INT-01-E1 · Registro de CONTROL de invalidación append-only. Jamás es una
+     * observación diagnóstica: `observacionesVigentes` lo excluye siempre del
+     * Engine; su único efecto es corregir (retirar de la vigencia) la
+     * observación documental admitida que referencia.
+     */
+    documentControl?: { kind: "INVALIDATION"; mappingId: string };
   };
   createdAt: string;
 }
@@ -416,7 +436,10 @@ export type AuditEventType =
   | "FRAGMENT_MAPPING_VALIDATED"
   | "FRAGMENT_MAPPING_REJECTED"
   | "FRAGMENT_MAPPING_SUPERSEDED"
-  | "EXTRACTION_SUPERSEDED";
+  | "EXTRACTION_SUPERSEDED"
+  // INT-01-E1 · Puente de admisión documental
+  | "DOCUMENT_OBSERVATION_ADMITTED"
+  | "DOCUMENT_OBSERVATION_INVALIDATED";
 
 /* ------------------------------------------------------------------ */
 /* CRV / Validation / Follow-up / Learning (M1-KL)                     */
