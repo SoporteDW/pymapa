@@ -112,7 +112,7 @@ describe("INT-01-E1 · DocumentAdmissionBridge", () => {
     expect(obs[0]!.value.documentProvenance?.evidenceId).toBe("ev-1");
     // Trazabilidad: vínculo observación ↔ evidencia y evento de auditoría.
     expect(estado(repo).evidenceLinks).toHaveLength(1);
-    expect(estado(repo).evidenceLinks[0].evidenceId).toBe("ev-1");
+    expect(estado(repo).evidenceLinks[0]!.evidenceId).toBe("ev-1");
     expect(estado(repo).auditEvents.some((e) => e.eventType === "DOCUMENT_OBSERVATION_ADMITTED")).toBe(true);
     // La observación alimenta el Engine como variable evaluable.
     const resultado = (await evaluarCapacidad(deps, ASSESS))!.evaluation;
@@ -163,7 +163,7 @@ describe("INT-01-E1 · DocumentAdmissionBridge", () => {
     );
     const report = await admitirCorrespondenciasDocumentales(deps, { assessmentId: ASSESS, organizationId: ORG_A });
     expect(report.admitted).toBe(0);
-    expect(report.rejected[0].reason).toBe("PROGRESSIVE_VARIABLE_WITHOUT_GOVERNED_FACTUAL_MAPPING");
+    expect(report.rejected[0]!.reason).toBe("PROGRESSIVE_VARIABLE_WITHOUT_GOVERNED_FACTUAL_MAPPING");
     expect(estado(repo).observations).toHaveLength(0);
   });
 
@@ -192,7 +192,7 @@ describe("INT-01-E1 · DocumentAdmissionBridge", () => {
     await admitirCorrespondenciasDocumentales(deps, { assessmentId: ASSESS, organizationId: ORG_A });
     const segundo = await admitirCorrespondenciasDocumentales(deps, { assessmentId: ASSESS, organizationId: ORG_A });
     expect(segundo.admitted).toBe(0);
-    expect(segundo.items[0].outcome).toBe("ALREADY_ADMITTED");
+    expect(segundo.items[0]!.outcome).toBe("ALREADY_ADMITTED");
     expect(estado(repo).observations).toHaveLength(1);
     expect(estado(repo).evidenceLinks).toHaveLength(1);
   });
