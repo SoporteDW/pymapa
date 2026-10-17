@@ -230,7 +230,7 @@ describe("INT-01-E1 · DocumentAdmissionBridge", () => {
     const vigentes = observacionesVigentes(repo.estado.observations);
     expect(vigentes).toHaveLength(0);
     const resultado = (await evaluarCapacidad(deps, ASSESS))!.evaluation;
-    expect(resultado.variableEvaluations.find((v) => v.variableRef === "VA01")?.state).toBe("NOT_OBSERVED");
+    expect(resultado.variableEvaluations.find((v) => v.variableRef === "VA01")?.state).toBe("UNKNOWN");
 
     // Idempotencia de la invalidación.
     const tercero = await admitirCorrespondenciasDocumentales(deps, { assessmentId: ASSESS, organizationId: ORG_A });
