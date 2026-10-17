@@ -16,8 +16,8 @@
  */
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { createHash } from "node:crypto";
 import { describe, expect, it } from "vitest";
+import { checksumOf } from "./packs-registry";
 import { createKnowledgeEngine } from "@pymapa/knowledge-engine";
 import {
   createInMemoryProductionRepository,
@@ -81,7 +81,7 @@ function setup(pack = packDg01) {
       updatedAt: "2026-01-01T00:00:00.000Z",
     },
   ]);
-  const deps = { engine, repository: repo.repository, knowledgeVersionId: KV };
+  const deps = { engine, repository: repo, knowledgeVersionId: KV };
   return { engine, repo, deps };
 }
 
@@ -239,11 +239,10 @@ describe("INT-01-E1 · DocumentAdmissionBridge", () => {
   });
 
   it("baseline intacto: checksum del pack DG-01 publicado sin cambios", () => {
-    const checksum = createHash("sha256").update(packDg01Raw).digest("hex");
     const published = JSON.parse(
       readFileSync(join(process.cwd(), "knowledge", "packs", "dg-01", "1.0.0", "published.json"), "utf8"),
     ) as { checksum: string; status: string };
     expect(published.status).toBe("PUBLISHED");
-    expect(published.checksum).toBe(`sha256:${checksum}`);
+    expect(published.checksum).toBe(checksumOf(packDg01));
   });
 });
