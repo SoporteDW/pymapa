@@ -600,6 +600,43 @@ export interface AuditEventRecord {
   createdAt: string;
 }
 
+/**
+ * INT-01-E1 · Correspondencia documental con su linaje completo
+ * (mapping → fragmento → extracción → versión → evidencia), tal como la
+ * necesita el DocumentAdmissionBridge. Registro de lectura; las transiciones
+ * de estado las gobierna `validate_fragment_mapping` (Bloque 1).
+ */
+export interface DocumentMappingRecord {
+  id: string;
+  organizationId: string;
+  assessmentId: string;
+  fragmentId: string;
+  interpretationId: string | null;
+  capabilityId: string;
+  targetType: "ACQUISITION" | "INFORMATION_NEED" | "VARIABLE" | "EVIDENCE_CRITERION";
+  targetRef: string;
+  knowledgeVersionId: string;
+  knowledgePackId: string;
+  knowledgePackVersion: string;
+  proposedBy: "AI" | "HUMAN" | "DETERMINISTIC_RULE";
+  status: "CANDIDATE" | "VALIDATED" | "REJECTED" | "SUPERSEDED";
+  admissionBasis: "GOVERNED_RULE" | "HUMAN_VALIDATION" | null;
+  admissionRuleRef: string | null;
+  /** Adquisición del pack que respalda la correspondencia factual (p. ej. "ACQ·NI01"). */
+  factualCorrespondenceRef: string | null;
+  validatedBy: string | null;
+  validatedAt: string | null;
+  supersedesMappingId: string | null;
+  createdAt: string;
+  /* Linaje verificado por FKs compuestas de organización (Bloque 1). */
+  extractionId: string;
+  evidenceId: string;
+  /** Cita literal verificada del fragmento. */
+  fragmentText: string;
+  /** Hecho interpretado asociado a la correspondencia, cuando existe. */
+  interpretationStatement: string | null;
+}
+
 /** Puerto de persistencia. Toda escritura del vertical pasa por aquí. */
 export interface ProductionRepository {
   getAssessment(assessmentId: string): Promise<AssessmentRecord | null>;
@@ -743,6 +780,9 @@ export interface ProductionRepository {
     input: Omit<AssessmentSnapshotRecord, "id" | "createdAt">,
   ): Promise<AssessmentSnapshotRecord>;
   listAssessmentSnapshots(assessmentId: string): Promise<AssessmentSnapshotRecord[]>;
+
+  /* INT-01-E1 · Document-First: correspondencias con linaje (solo lectura). */
+  listDocumentMappings(assessmentId: string): Promise<DocumentMappingRecord[]>;
 }
 
 /* ------------------------------------------------------------------ */
