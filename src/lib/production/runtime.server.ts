@@ -1686,6 +1686,56 @@ export function createSupabaseProductionRepository(): ProductionRepository {
       lanzar("assessment_snapshots.list", error);
       return (data ?? []).map(aSnapshot);
     },
+
+    /* INT-01-E1 · Correspondencias documentales con linaje completo. */
+    async listDocumentMappings(assessmentId): Promise<DocumentMappingRecord[]> {
+      const db = await admin();
+      const { data, error } = await db
+        .from("fragment_mappings")
+        .select(
+          "*, evidence_fragments!fragment_mappings_organization_id_fragment_id_fkey(extraction_id, verbatim_text, document_extractions!evidence_fragments_organization_id_extraction_id_fkey(evidence_version_id, evidence_versions!document_extractions_organization_id_evidence_version_id_fkey(evidence_id))), fragment_interpretations!fragment_mappings_organization_id_interpretation_id_fkey(statement)",
+        )
+        .eq("assessment_id", assessmentId)
+        .order("created_at", { ascending: true });
+      lanzar("fragment_mappings.list_document_mappings", error);
+      type FilaMapping = Record<string, unknown> & {
+        evidence_fragments?: {
+          extraction_id: string;
+          verbatim_text: string;
+          document_extractions?: {
+            evidence_version_id: string;
+            evidence_versions?: { evidence_id: string } | null;
+          } | null;
+        } | null;
+        fragment_interpretations?: { statement: string } | null;
+      };
+      return ((data ?? []) as FilaMapping[]).map((r) => ({
+        id: r.id as string,
+        organizationId: r.organization_id as string,
+        assessmentId: r.assessment_id as string,
+        fragmentId: r.fragment_id as string,
+        interpretationId: (r.interpretation_id as string | null) ?? null,
+        capabilityId: r.capability_id as string,
+        targetType: r.target_type as DocumentMappingRecord["targetType"],
+        targetRef: r.target_ref as string,
+        knowledgeVersionId: r.knowledge_version_id as string,
+        knowledgePackId: r.knowledge_pack_id as string,
+        knowledgePackVersion: r.knowledge_pack_version as string,
+        proposedBy: r.proposed_by as DocumentMappingRecord["proposedBy"],
+        status: r.status as DocumentMappingRecord["status"],
+        admissionBasis: (r.admission_basis as DocumentMappingRecord["admissionBasis"]) ?? null,
+        admissionRuleRef: (r.admission_rule_ref as string | null) ?? null,
+        factualCorrespondenceRef: (r.factual_correspondence_ref as string | null) ?? null,
+        validatedBy: (r.validated_by as string | null) ?? null,
+        validatedAt: (r.validated_at as string | null) ?? null,
+        supersedesMappingId: (r.supersedes_mapping_id as string | null) ?? null,
+        createdAt: r.created_at as string,
+        extractionId: r.evidence_fragments?.extraction_id ?? "",
+        evidenceId: r.evidence_fragments?.document_extractions?.evidence_versions?.evidence_id ?? "",
+        fragmentText: r.evidence_fragments?.verbatim_text ?? "",
+        interpretationStatement: r.fragment_interpretations?.statement ?? null,
+      }));
+    },
   };
 }
 
