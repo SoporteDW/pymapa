@@ -825,6 +825,7 @@ export function createInMemoryProductionRepository(
   const followUps: FollowUpRecord[] = [];
   const learningCandidates: LearningCandidateRecord[] = [];
   const snapshots: AssessmentSnapshotRecord[] = [];
+  const documentMappings: DocumentMappingRecord[] = [];
 
   const assessmentIdsDe = (organizationOrAssessment: string) => organizationOrAssessment;
 
@@ -858,6 +859,7 @@ export function createInMemoryProductionRepository(
       followUps,
       learningCandidates,
       snapshots,
+      documentMappings,
     },
 
     async getAssessment(assessmentId) {
@@ -1292,6 +1294,11 @@ export function createInMemoryProductionRepository(
     },
     async listAssessmentSnapshots(assessmentId) {
       return snapshots.filter((s) => s.assessmentId === assessmentId);
+    },
+
+    /* INT-01-E1 · Document-First */
+    async listDocumentMappings(assessmentId) {
+      return documentMappings.filter((m) => m.assessmentId === assessmentId);
     },
   };
 }
