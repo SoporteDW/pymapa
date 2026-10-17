@@ -69,7 +69,18 @@ function mapping(parcial: Partial<DocumentMappingRecord>): DocumentMappingRecord
 
 function setup(pack = packDg01) {
   const engine = createKnowledgeEngine(pack);
-  const repo = createInMemoryProductionRepository();
+  const repo = createInMemoryProductionRepository([
+    {
+      id: ASSESS,
+      organizationId: ORG_A,
+      caseId: "case-qa-1",
+      knowledgeVersionId: KV,
+      type: "BASELINE",
+      startedAt: "2026-01-01T00:00:00.000Z",
+      closedAt: null,
+      updatedAt: "2026-01-01T00:00:00.000Z",
+    },
+  ]);
   const deps = { engine, repository: repo.repository, knowledgeVersionId: KV };
   return { engine, repo, deps };
 }
@@ -230,8 +241,9 @@ describe("INT-01-E1 · DocumentAdmissionBridge", () => {
   it("baseline intacto: checksum del pack DG-01 publicado sin cambios", () => {
     const checksum = createHash("sha256").update(packDg01Raw).digest("hex");
     const published = JSON.parse(
-      readFileSync(join(process.cwd(), "knowledge", "packs", "published.json"), "utf8"),
-    ) as Record<string, { checksum: string }>;
-    expect(published["PYMAPA-DG-01"].checksum).toBe(checksum);
+      readFileSync(join(process.cwd(), "knowledge", "packs", "dg-01", "1.0.0", "published.json"), "utf8"),
+    ) as { checksum: string; status: string };
+    expect(published.status).toBe("PUBLISHED");
+    expect(published.checksum).toBe(`sha256:${checksum}`);
   });
 });
