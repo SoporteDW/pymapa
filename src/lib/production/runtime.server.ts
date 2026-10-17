@@ -49,6 +49,7 @@ import type {
   ValidationRecord,
   ValidationEvidenceLink,
   FollowUpRecord,
+  DocumentMappingRecord,
   LearningCandidateRecord,
   AssessmentSnapshotRecord,
 } from "./puertos";
