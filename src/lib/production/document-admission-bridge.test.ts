@@ -102,7 +102,7 @@ describe("INT-01-E1 · DocumentAdmissionBridge", () => {
     const report = await admitirCorrespondenciasDocumentales(deps, { assessmentId: ASSESS, organizationId: ORG_A });
     expect(report.admitted).toBe(1);
     expect(report.rejected).toEqual([]);
-    const obs = estado(repo).observations;
+    const obs = estado(repo).observations!;
     expect(obs).toHaveLength(1);
     expect(obs[0].variableRef).toBe("VA01");
     expect(obs[0].sourceResponseId).toBeNull();
@@ -210,7 +210,7 @@ describe("INT-01-E1 · DocumentAdmissionBridge", () => {
     await repo.insertObservation(manual);
     estado(repo).documentMappings.push(mapping({}));
     await admitirCorrespondenciasDocumentales(deps, { assessmentId: ASSESS, organizationId: ORG_A });
-    const obs = estado(repo).observations;
+    const obs = estado(repo).observations!;
     expect(obs).toHaveLength(2);
     const manualGuardada = obs.find((o) => o.sourceResponseId === "resp-manual-1")!;
     expect(manualGuardada.value.documentProvenance).toBeUndefined();
@@ -231,7 +231,7 @@ describe("INT-01-E1 · DocumentAdmissionBridge", () => {
 
     // Historial intacto: la admitida sigue existiendo; hay un registro de CONTROL.
     expect(estado(repo).observations).toHaveLength(2);
-    const control = estado(repo).observations.find((o) => o.value.documentControl)!;
+    const control = estado(repo).observations!.find((o) => o.value.documentControl)!;
     expect(control.value.documentControl).toEqual({ kind: "INVALIDATION", mappingId: "map-1" });
     expect(control.value.correctsObservationId).toBe(admitida.id);
     expect(estado(repo).auditEvents.some((e) => e.eventType === "DOCUMENT_OBSERVATION_INVALIDATED")).toBe(true);
