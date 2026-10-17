@@ -2521,6 +2521,8 @@ export type Database = {
         | "FRAGMENT_MAPPING_REJECTED"
         | "FRAGMENT_MAPPING_SUPERSEDED"
         | "EXTRACTION_SUPERSEDED"
+        | "DOCUMENT_OBSERVATION_ADMITTED"
+        | "DOCUMENT_OBSERVATION_INVALIDATED"
       evaluation_run_status:
         | "PENDING"
         | "PROCESSING"
@@ -2759,6 +2761,8 @@ export const Constants = {
         "FRAGMENT_MAPPING_REJECTED",
         "FRAGMENT_MAPPING_SUPERSEDED",
         "EXTRACTION_SUPERSEDED",
+        "DOCUMENT_OBSERVATION_ADMITTED",
+        "DOCUMENT_OBSERVATION_INVALIDATED",
       ],
       evaluation_run_status: [
         "PENDING",
