@@ -165,7 +165,7 @@ describe("INT-01-COV-02 · cobertura documental gobernada (DG-01)", () => {
     expect(result.answeredAcquisitionIds).not.toContain("ACQ·NI01");
     // FULL sobre una adquisición distinta de la factual no descuenta ésta.
     const s2 = setup();
-    s2.state.documentMappings.push(conCoberturaFull(mapping({ coverageAcquisitionRef: "ACQ·NI02" })));
+    s2.state.documentMappings.push({ ...conCoberturaFull(mapping()), coverageAcquisitionRef: "ACQ·NI02" });
     await admitirCorrespondenciasDocumentales(s2.deps, { organizationId: ORG, assessmentId: ASSESS });
     const w2 = await workspace(s2);
     expect(w2.workspace.documentaryCoverage[0]?.state).toBe("PARTIAL");
