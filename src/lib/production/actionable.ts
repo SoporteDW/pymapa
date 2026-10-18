@@ -14,6 +14,7 @@
  * Todo texto devuelto es copia literal del pack publicado.
  */
 import type { EvaluationResult, KnowledgeEngine, NextAcquisition } from "@pymapa/knowledge-engine";
+import type { DocumentaryCoverage } from "./documentary-coverage";
 
 export type CapabilityInteractionState =
   | "NOT_STARTED"
@@ -65,6 +66,7 @@ export interface CapabilityWorkspace {
   /** Tareas de información sin pregunta literal aún no respondidas. */
   pendingInformationTasks: ActionableAcquisition[];
   clarifications: ActionableAcquisition[];
+  documentaryCoverage: DocumentaryCoverage[];
   counts: {
     totalAcquisitions: number;
     answered: number;
@@ -156,6 +158,7 @@ export function createActionableProjector(rawPack: unknown) {
       engine: KnowledgeEngine;
       evaluation: EvaluationResult;
       answeredAcquisitionIds: string[];
+      documentaryCoverage?: DocumentaryCoverage[];
     }): CapabilityWorkspace {
       const { engine, evaluation } = params;
       const respondidas = new Set(params.answeredAcquisitionIds);
@@ -188,6 +191,7 @@ export function createActionableProjector(rawPack: unknown) {
         eligibleQuestions: elegibles.map(desdeNext),
         pendingInformationTasks: pendientes,
         clarifications: aclaraciones.map(desdeNext),
+        documentaryCoverage: params.documentaryCoverage ?? [],
         counts: {
           totalAcquisitions: todas.length,
           answered: todas.filter((a) => respondidas.has(a.id)).length,

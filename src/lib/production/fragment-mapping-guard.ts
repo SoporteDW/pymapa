@@ -62,17 +62,13 @@ export function puedeAdmitirse(p: PropuestaAdmision, cat: CatalogoCapacidad): Re
 }
 
 /**
- * Adquisiciones cubiertas por información ADMITIDA. Solo correspondencias
- * VALIDATED de tipo ACQUISITION; las candidatas nunca cuentan. No es prueba de
- * suficiencia de NI ni de cierre de capacidad.
+ * E2: legacy helper kept fail-closed. No mapping status proves completeness.
  */
 export function adquisicionesCubiertasPorAdmision(
   mappings: ReadonlyArray<{ status: string; targetType: string; targetRef: string; capabilityId: string }>,
   capabilityId: string,
 ): Set<string> {
-  return new Set(
-    mappings
-      .filter((m) => m.capabilityId === capabilityId && m.status === "VALIDATED" && m.targetType === "ACQUISITION")
-      .map((m) => m.targetRef),
-  );
+  void mappings;
+  void capabilityId;
+  return new Set();
 }

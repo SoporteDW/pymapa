@@ -80,13 +80,13 @@ describe("Document-First · Bloque 1 · guardia de admisión", () => {
     expect(puedeAdmitirse({ ...base, targetType: "INFORMATION_NEED", targetRef: "NI99", admissionBasis: "GOVERNED_RULE", admissionRuleRef: "R1" }, CM05).admisible).toBe(false);
   });
 
-  it("solo correspondencias VALIDATED de adquisición cubren preguntas; candidatas nunca", () => {
+  it("E2: VALIDATED de adquisición no demuestra cobertura completa", () => {
     const set = adquisicionesCubiertasPorAdmision([
       { status: "CANDIDATE", targetType: "ACQUISITION", targetRef: "ACQ·P1·01", capabilityId: "CM-05" },
       { status: "VALIDATED", targetType: "ACQUISITION", targetRef: "ACQ·P1·02", capabilityId: "CM-05" },
       { status: "VALIDATED", targetType: "INFORMATION_NEED", targetRef: "NI01", capabilityId: "CM-05" },
       { status: "REJECTED", targetType: "ACQUISITION", targetRef: "ACQ·V·01", capabilityId: "CM-05" },
     ], "CM-05");
-    expect([...set]).toEqual(["ACQ·P1·02"]);
+    expect([...set]).toEqual([]);
   });
 });
