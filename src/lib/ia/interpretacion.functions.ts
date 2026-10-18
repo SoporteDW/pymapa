@@ -61,5 +61,25 @@ export const decidirCorrespondenciaIA = createServerFn({ method: "POST" })
           : "No se pudo registrar la decisión.";
       return { ok: false as const, error: msg };
     }
+    // INT-01-R1 · Tras una validación, el DocumentAdmissionBridge procesa las
+    // correspondencias de esa capacidad (best-effort: una admisión fallida
+    // nunca revierte la decisión ya registrada). Las temáticas (NI sin
+    // correspondencia factual) son rechazadas por el puente, fail-closed.
+    if (data.decision === "VALIDATED") {
+      try {
+        const { data: mapping } = await context.supabase
+          .from("fragment_mappings")
+          .select("capability_id")
+          .eq("id", data.mappingId)
+          .maybeSingle();
+        const capabilityId = (mapping as { capability_id?: string } | null)?.capability_id;
+        if (capabilityId) {
+          const { processCapabilityDocumentAdmissionsHandler } = await import("../production/capability-handlers");
+          await processCapabilityDocumentAdmissionsHandler(context, capabilityId);
+        }
+      } catch (e) {
+        console.error("[ia-documental] admision documental", e);
+      }
+    }
     return { ok: true as const };
   });
