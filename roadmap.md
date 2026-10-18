@@ -68,3 +68,9 @@
 - [x] P7 aislamiento/RLS/regresión (957/957)
 - [ ] Admisión NI→adquisición / suficiencia — pendiente de regla de gobierno
 - [ ] Usuario MEMBER de QA para probar rechazo de rol — pendiente de cuenta
+
+## INT-01 E2 · Authorized scope only
+- [ ] Connect conservative factual coverage to evaluation, workspace and handlers.
+- [ ] Implement independent same-organization CANDIDATE reuse with lineage and retry safety.
+- [ ] Run synthetic T-E2-01–10 and full regression suite; report canonical limitations.
+- E3 not authorized; do not begin.
