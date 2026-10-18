@@ -46,6 +46,7 @@ const AUTORIZADOS = [
   // INT-01-E1: puente de admisión documental; solo tipos del Engine + validateObservation vía deps.
   "src/lib/production/document-admission-bridge.ts",
   "src/lib/production/document-admission-bridge.test.ts",
+  "src/lib/production/documentary-e2.test.ts",
 ];
 
 describe("arquitectura · separación frontend / knowledge-engine", () => {

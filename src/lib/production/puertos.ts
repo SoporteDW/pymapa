@@ -635,6 +635,8 @@ export interface DocumentMappingRecord {
   fragmentText: string;
   /** Hecho interpretado asociado a la correspondencia, cuando existe. */
   interpretationStatement: string | null;
+  /** E2 provenance, encoded in the immutable proposal note; not an admission. */
+  reuseSourceMappingId?: string;
 }
 
 /** Puerto de persistencia. Toda escritura del vertical pasa por aquí. */
@@ -783,6 +785,7 @@ export interface ProductionRepository {
 
   /* INT-01-E1 · Document-First: correspondencias con linaje (solo lectura). */
   listDocumentMappings(assessmentId: string): Promise<DocumentMappingRecord[]>;
+  insertDocumentReuseCandidate(input: Omit<DocumentMappingRecord, "createdAt">, actorUserId: string): Promise<DocumentMappingRecord>;
 }
 
 /* ------------------------------------------------------------------ */
@@ -1299,6 +1302,18 @@ export function createInMemoryProductionRepository(
     /* INT-01-E1 · Document-First */
     async listDocumentMappings(assessmentId) {
       return documentMappings.filter((m) => m.assessmentId === assessmentId);
+    },
+    async insertDocumentReuseCandidate(input, actorUserId) {
+      const prior = documentMappings.find((m) => m.id === input.id);
+      if (prior) return prior;
+      const row = { ...input, createdAt: new Date().toISOString() };
+      documentMappings.push(row);
+      auditEvents.push({ id: nuevoId("aud"), createdAt: row.createdAt,
+        organizationId: input.organizationId, assessmentId: input.assessmentId,
+        eventType: "FRAGMENT_MAPPING_PROPOSED", subjectTable: "fragment_mappings", subjectId: input.id,
+        actorUserId, detail: { sourceMappingId: input.reuseSourceMappingId, fragmentId: input.fragmentId,
+          evidenceId: input.evidenceId, capabilityId: input.capabilityId } });
+      return row;
     },
   };
 }

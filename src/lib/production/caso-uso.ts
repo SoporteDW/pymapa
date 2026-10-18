@@ -53,6 +53,7 @@ import type {
   ValidationRequirementStatus,
   ValidationStatus,
 } from "./puertos";
+import { documentalesVigentes, proyectarCoberturaDocumental, type DocumentaryCoverage } from "./documentary-coverage";
 
 export const KNOWLEDGE_VERSION_MISMATCH = "KNOWLEDGE_VERSION_MISMATCH" as const;
 export const OUT_OF_ASSIGNMENT_SCOPE = "OUT_OF_ASSIGNMENT_SCOPE" as const;
@@ -292,12 +293,18 @@ async function evaluarAssessment(
   deps: ProductionDeps,
   assessmentId: string,
   knowledgeVersionId: string = deps.knowledgeVersionId,
-): Promise<EvaluationResult> {
-  const [filas, enlaces] = await Promise.all([
+): Promise<EvaluationResult & { documentaryCoverage: DocumentaryCoverage[] }> {
+  const [filas, enlaces, mappings, assessment] = await Promise.all([
     deps.repository.listObservations(assessmentId),
     deps.repository.listEvidenceLinks(assessmentId),
+    deps.repository.listDocumentMappings(assessmentId),
+    deps.repository.getAssessment(assessmentId),
   ]);
-  const vigentes = observacionesVigentes(filas);
+  if (!assessment) throw new Error("ASSESSMENT_NOT_FOUND");
+  const vigentes = documentalesVigentes(observacionesVigentes(filas), mappings, {
+    organizationId: assessment.organizationId, assessmentId, capabilityId: deps.engine.pack.capability.id,
+    knowledgeVersionId, packId: deps.engine.pack.packId, packVersion: deps.engine.pack.packVersion,
+  });
   const paraEngine = observacionesParaEngine(vigentes, (id) =>
     deps.engine.getAcquisition(id) as { acquisitionMode?: string; variableRefs: readonly string[] } | null | undefined,
   );
@@ -307,10 +314,17 @@ async function evaluarAssessment(
   });
   const getAcq = (id: string) =>
     deps.engine.getAcquisition(id) as { acquisitionMode?: string; variableRefs: readonly string[] } | null | undefined;
+  const contradictions = separarContradiccionesPorAdquisicion(evaluation.contradictions, vigentes, getAcq);
+  const documentaryCoverage = proyectarCoberturaDocumental(vigentes, contradictions);
+  const review = new Set(documentaryCoverage.filter((c) => c.state === "CONTRADICTORY").map((c) => c.acquisitionId));
+  const manuales = vigentes.filter((o) => !o.value.documentProvenance);
+  const manualRefs = new Set(manuales.map((o) => o.value.acquisitionRef));
   return {
     ...evaluation,
-    contradictions: separarContradiccionesPorAdquisicion(evaluation.contradictions, vigentes, getAcq),
-    answeredAcquisitionRefs: respondidasVigentes(evaluation.answeredAcquisitionRefs, vigentes, deps),
+    contradictions,
+    documentaryCoverage,
+    answeredAcquisitionRefs: respondidasVigentes(evaluation.answeredAcquisitionRefs.filter((r) => manualRefs.has(r)), manuales, deps)
+      .filter((r) => !review.has(r)),
   };
 }
 
@@ -359,6 +373,7 @@ export function respondidasVigentes(
 ): string[] {
   const refs = new Set(delEngine);
   for (const o of vigentes) {
+    if (o.value.documentProvenance || o.value.documentControl) continue;
     const ref = o.value.acquisitionRef;
     if (ref && deps.engine.getAcquisition(ref)) refs.add(ref);
   }
@@ -375,14 +390,13 @@ export async function getAssessmentState(
     return null;
   }
   const evaluation = await evaluarAssessment(deps, assessmentId);
-  const responses = await deps.repository.listResponses(assessmentId);
   return construirEstado({
     assessmentId,
     capabilityId: deps.engine.pack.capability.id,
     knowledgeVersionId: deps.knowledgeVersionId,
     engineVersion: deps.engine.engineVersion,
     evaluation,
-    answeredAcquisitionIds: [...new Set(responses.map((r) => r.acquisitionRef))],
+    answeredAcquisitionIds: evaluation.answeredAcquisitionRefs,
     totalAcquisitions: deps.engine.listAcquisitions().length,
     closedAt: fijado.assessment.closedAt,
     updatedAt: fijado.assessment.updatedAt,
@@ -420,19 +434,17 @@ export async function getClarificationCandidates(
 export async function evaluarCapacidad(
   deps: ProductionDeps,
   assessmentId: string,
-): Promise<{ evaluation: EvaluationResult; answeredAcquisitionIds: string[] } | null> {
+): Promise<{ evaluation: EvaluationResult; answeredAcquisitionIds: string[]; documentaryCoverage: DocumentaryCoverage[] } | null> {
   const fijado = await assessmentFijado(deps, assessmentId);
   if (!fijado.ok) {
     if (fijado.reason === KNOWLEDGE_VERSION_MISMATCH) throw new Error(KNOWLEDGE_VERSION_MISMATCH);
     return null;
   }
-  const [evaluation, responses] = await Promise.all([
-    evaluarAssessment(deps, assessmentId),
-    deps.repository.listResponses(assessmentId),
-  ]);
+  const evaluation = await evaluarAssessment(deps, assessmentId);
   return {
     evaluation,
-    answeredAcquisitionIds: [...new Set(responses.map((r) => r.acquisitionRef))],
+    answeredAcquisitionIds: evaluation.answeredAcquisitionRefs,
+    documentaryCoverage: evaluation.documentaryCoverage,
   };
 }
 
@@ -592,14 +604,13 @@ async function ejecutarEvaluacion(
     evaluation,
   });
 
-  const responses = await deps.repository.listResponses(params.assessmentId);
   const state = construirEstado({
     assessmentId: params.assessmentId,
     capabilityId: deps.engine.pack.capability.id,
     knowledgeVersionId: params.knowledgeVersionId,
     engineVersion: deps.engine.engineVersion,
     evaluation,
-    answeredAcquisitionIds: [...new Set(responses.map((r) => r.acquisitionRef))],
+    answeredAcquisitionIds: evaluation.answeredAcquisitionRefs,
     totalAcquisitions: deps.engine.listAcquisitions().length,
     closedAt: params.closedAt,
     updatedAt: runCerrado.completedAt ?? now(),

@@ -68,3 +68,11 @@
 - [x] P7 aislamiento/RLS/regresión (957/957)
 - [ ] Admisión NI→adquisición / suficiencia — pendiente de regla de gobierno
 - [ ] Usuario MEMBER de QA para probar rechazo de rol — pendiente de cuenta
+
+## INT-01 E2 · Authorized scope only
+- [x] Connect conservative factual coverage to evaluation, workspace and handlers.
+- [x] Implement independent same-organization CANDIDATE reuse with lineage and retry safety.
+- [x] Run synthetic E2 tests and full regression suite: 984 PASS; report in docs/architecture/INT01_E2_CLOSURE.md.
+- [ ] Documentary COMPLETE subtraction / T-E2-01 — blocked by absent canonical acquisition-completeness criteria; no rules invented.
+- [ ] Hosted E2 endpoint, RLS and browser acceptance — not executed in E2; requires isolated QA acceptance scope before operational PASS.
+- E3 not authorized; do not begin.
