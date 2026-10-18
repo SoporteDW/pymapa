@@ -217,9 +217,10 @@ export async function reuseCapabilityDocumentHandler(context: Ctx, capabilityId:
     packId: engine.pack.packId, packVersion: engine.pack.packVersion,
     catalog: {
       capabilityId: engine.pack.capability.id,
-      acquisitions: engine.listAcquisitions(), variableIds: engine.pack.variables.map((v) => v.id),
+       acquisitions: engine.listAcquisitions().map((a) => ({ id: a.id, variableRefs: a.variableRefs,
+         ...(a.acquisitionMode ? { acquisitionMode: a.acquisitionMode } : {}) })), variableIds: engine.pack.variables.map((v) => v.id),
       informationNeedIds: (engine.pack.informationNeeds ?? []).map((n) => n.id),
-      evidenceCriterionIds: (engine.pack.evidence?.criteria ?? []).map((c) => c.id),
+      evidenceCriterionIds: engine.pack.conditionsOfExistence.map((c) => c.id),
     },
   }, { ...data, organizationId: assessment.organizationId, assessmentId: assessment.id, actorUserId: context.userId });
   return { mappingId: mapping.id, status: mapping.status, evidenceId: mapping.evidenceId,
@@ -588,6 +589,7 @@ export async function getDiagnosticHubHandler(context: Ctx) {
           engine: deps.engine,
           evaluation: evaluado.evaluation,
           answeredAcquisitionIds: evaluado.answeredAcquisitionIds,
+          documentaryCoverage: evaluado.documentaryCoverage,
         })
       : null;
     const findings = await deps.repository.listFindings(assessment.id);

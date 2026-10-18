@@ -34,15 +34,16 @@ async function workspace(s: ReturnType<typeof setup>) {
 }
 async function reuseSetup(role: "OWNER" | "ADMIN" | "MEMBER" = "OWNER") {
   const s = setup("DG-01", role); s.state.documentMappings.push(mapping());
-  await s.repo.insertEvidence({ id: undefined, organizationId: ORG, assessmentId: ASSESS, caseId: "qa-e2-case",
+  await s.repo.insertEvidence({ organizationId: ORG, assessmentId: ASSESS, caseId: "qa-e2-case",
     candidateRef: null, evidenceType: "SYNTHETIC", source: "DOCUMENT", storageBucket: null, storagePath: null,
-    externalReference: null, title: "QA", note: null, submittedBy: "qa-e2-user", respondentId: null, capturedAt: null } as Parameters<typeof s.repo.insertEvidence>[0]);
+    externalReference: null, title: "QA", note: null, submittedBy: "qa-e2-user", respondentId: null, capturedAt: null });
   const evidence = await s.repo.listEvidence(ASSESS);
   const first = evidence[0]; if (!first) throw new Error("missing evidence");
   s.state.documentMappings[0] = { ...mapping(), evidenceId: first.id };
   const target = createKnowledgeEngine(pack("PC-01"));
   const reuseDeps = { repository: s.repo, knowledgeVersionId: KV, packId: target.pack.packId, packVersion: target.pack.packVersion,
-    catalog: { capabilityId: "PC-01", acquisitions: target.listAcquisitions(), variableIds: target.pack.variables.map((v) => v.id),
+    catalog: { capabilityId: "PC-01", acquisitions: target.listAcquisitions().map((a) => ({ id: a.id, variableRefs: a.variableRefs,
+      ...(a.acquisitionMode ? { acquisitionMode: a.acquisitionMode } : {}) })), variableIds: target.pack.variables.map((v) => v.id),
       informationNeedIds: (target.pack.informationNeeds ?? []).map((n) => n.id), evidenceCriterionIds: [] } };
   const input = { organizationId: ORG, assessmentId: ASSESS, actorUserId: "qa-e2-user", sourceMappingId: "qa-e2-map",
     targetType: "INFORMATION_NEED" as const, targetRef: "NI01" };
