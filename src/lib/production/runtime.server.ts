@@ -1736,7 +1736,7 @@ export function createSupabaseProductionRepository(): ProductionRepository {
         interpretationStatement: r.fragment_interpretations?.statement ?? null,
       }));
     },
-    async insertDocumentReuseCandidate(input) {
+    async insertDocumentReuseCandidate(input, actorUserId) {
       const db = await admin();
       const { error } = await db.from("fragment_mappings").insert({
         id: input.id, organization_id: input.organizationId, assessment_id: input.assessmentId,
@@ -1756,6 +1756,16 @@ export function createSupabaseProductionRepository(): ProductionRepository {
         && m.knowledgeVersionId === input.knowledgeVersionId && m.knowledgePackId === input.knowledgePackId
         && m.knowledgePackVersion === input.knowledgePackVersion);
       if (!saved) throw new Error("DOCUMENT_REUSE_READBACK_FAILED");
+      // Deterministic audit ID repairs a failed audit on retry without duplicating events.
+      const { error: auditError } = await db.from("audit_events").insert({
+        id: input.id, organization_id: input.organizationId, assessment_id: input.assessmentId,
+        event_type: "FRAGMENT_MAPPING_PROPOSED", subject_table: "fragment_mappings", subject_id: input.id,
+        actor_user_id: actorUserId, detail: aJson({ kind: "CROSS_CAPABILITY_REUSE",
+          sourceMappingId: input.reuseSourceMappingId, fragmentId: input.fragmentId,
+          extractionId: input.extractionId, evidenceId: input.evidenceId, capabilityId: input.capabilityId,
+          knowledgePackId: input.knowledgePackId, knowledgePackVersion: input.knowledgePackVersion }),
+      });
+      if (auditError && auditError.code !== "23505") lanzar("audit_events.document_reuse", auditError);
       return saved;
     },
   };

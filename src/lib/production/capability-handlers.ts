@@ -220,7 +220,7 @@ export async function reuseCapabilityDocumentHandler(context: Ctx, capabilityId:
        acquisitions: engine.listAcquisitions().map((a) => ({ id: a.id, variableRefs: a.variableRefs,
          ...(a.acquisitionMode ? { acquisitionMode: a.acquisitionMode } : {}) })), variableIds: engine.pack.variables.map((v) => v.id),
       informationNeedIds: (engine.pack.informationNeeds ?? []).map((n) => n.id),
-      evidenceCriterionIds: engine.pack.conditionsOfExistence.map((c) => c.id),
+      evidenceCriterionIds: (engine.pack.conditionsOfExistence ?? []).map((c) => c.id),
     },
   }, { ...data, organizationId: assessment.organizationId, assessmentId: assessment.id, actorUserId: context.userId });
   return { mappingId: mapping.id, status: mapping.status, evidenceId: mapping.evidenceId,
