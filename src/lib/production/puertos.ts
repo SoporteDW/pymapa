@@ -54,6 +54,12 @@ export interface ObservationRecord {
     /** UX-PROD-FIX-02 · Observación vigente que esta corrige (historial preservado). */
     correctsObservationId?: string;
     /**
+     * INT-01-R1 · Etiqueta de capacidad para el scope por capacidad
+     * (scopeRepositoryToCapability): las filas sin etiqueta se leen como
+     * legado OP-01. Las observaciones documentales la llevan siempre.
+     */
+    capabilityId?: string;
+    /**
      * INT-01-E1 · Procedencia documental gobernada de una observación admitida
      * por el DocumentAdmissionBridge. Nunca la escribe una respuesta manual.
      */
