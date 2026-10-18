@@ -57,6 +57,14 @@ export const getCapabilityCollaboration = createServerFn({ method: "GET" })
   .inputValidator((data: unknown) => ({ capabilityId: separar(data).capabilityId }))
   .handler(async ({ data, context }) => h.getCapabilityCollaborationHandler(context, data.capabilityId, {}));
 
+export const reuseCapabilityDocument = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => {
+    const { capabilityId, resto } = separar(data);
+    return { capabilityId, input: h.reuseCapabilityDocumentInput(resto) };
+  })
+  .handler(async ({ data, context }) => h.reuseCapabilityDocumentHandler(context, data.capabilityId, data.input));
+
 export const inviteCapabilityRespondent = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((data: unknown) => {

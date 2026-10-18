@@ -191,6 +191,41 @@ export async function getCapabilityNextAcquisitionHandler(context: Ctx, capabili
 
 export const submitCapabilityResponseInput = (data: unknown) => submitSchema.parse(data);
 
+export const reuseCapabilityDocumentInput = (data: unknown) => z.object({
+  sourceMappingId: z.string().uuid(),
+  targetType: z.enum(["ACQUISITION", "INFORMATION_NEED", "VARIABLE", "EVIDENCE_CRITERION"]),
+  targetRef: z.string().min(1),
+}).strict().parse(data);
+
+export async function reuseCapabilityDocumentHandler(context: Ctx, capabilityId: string, data: ReturnType<typeof reuseCapabilityDocumentInput>) {
+  const runtime = await import("./runtime.server");
+  type Client = Parameters<typeof runtime.asegurarContextoProductivo>[0];
+  const client = context.supabase as Client;
+  const assessment = await runtime.asegurarContextoProductivo(client, context.userId, capabilityId);
+  // Authorization through the authenticated client BEFORE accessing the privileged repository.
+  const { data: membership, error: roleError } = await client.from("memberships").select("role")
+    .eq("organization_id", assessment.organizationId).eq("user_id", context.userId).maybeSingle();
+  if (roleError || !membership || (membership.role !== "OWNER" && membership.role !== "ADMIN")) throw new Error("DOCUMENT_REUSE_FORBIDDEN");
+  const { data: source, error: sourceError } = await client.from("fragment_mappings").select("id")
+    .eq("id", data.sourceMappingId).eq("organization_id", assessment.organizationId)
+    .eq("assessment_id", assessment.id).maybeSingle();
+  if (sourceError || !source) throw new Error("SOURCE_MAPPING_NOT_IN_ORGANIZATION");
+  const engine = runtime.cargarEngine(capabilityId);
+  const { reutilizarEvidenciaDocumental } = await import("./cross-capability-evidence");
+  const mapping = await reutilizarEvidenciaDocumental({
+    repository: runtime.createSupabaseProductionRepository(), knowledgeVersionId: assessment.knowledgeVersionId,
+    packId: engine.pack.packId, packVersion: engine.pack.packVersion,
+    catalog: {
+      capabilityId: engine.pack.capability.id,
+      acquisitions: engine.listAcquisitions(), variableIds: engine.pack.variables.map((v) => v.id),
+      informationNeedIds: (engine.pack.informationNeeds ?? []).map((n) => n.id),
+      evidenceCriterionIds: (engine.pack.evidence?.criteria ?? []).map((c) => c.id),
+    },
+  }, { ...data, organizationId: assessment.organizationId, assessmentId: assessment.id, actorUserId: context.userId });
+  return { mappingId: mapping.id, status: mapping.status, evidenceId: mapping.evidenceId,
+    fragmentId: mapping.fragmentId, capabilityId: mapping.capabilityId };
+}
+
 export async function submitCapabilityResponseHandler(context: Ctx, capabilityId: string, data: ReturnType<typeof submitCapabilityResponseInput>) {
     const casoUso = await import("./caso-uso");
     const { assessment, deps } = await prepararContexto(context, capabilityId);
