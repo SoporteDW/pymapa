@@ -46,6 +46,8 @@ const AUTORIZADOS = [
   // INT-01-E1: puente de admisión documental; solo tipos del Engine + validateObservation vía deps.
   "src/lib/production/document-admission-bridge.ts",
   "src/lib/production/document-admission-bridge.test.ts",
+  // INT-01-R1: pruebas de integración operativa del puente (mismas reglas).
+  "src/lib/production/document-admission-r1.test.ts",
   "src/lib/production/documentary-e2.test.ts",
 ];
 
