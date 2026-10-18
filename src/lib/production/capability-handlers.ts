@@ -312,7 +312,15 @@ export async function revokeCapabilityDocumentMappingHandler(
   // Reproceso del puente: la revocación excluye la observación documental de
   // las evaluaciones posteriores (append-only, historial intacto).
   const report = await processCapabilityDocumentAdmissionsHandler(context, capabilityId);
-  return { mappingId: data.mappingId, revoked: true, admissionReport: report };
+  // Resumen compacto y serializable (el informe completo lo expone
+  // processCapabilityDocumentAdmissions).
+  return {
+    mappingId: data.mappingId,
+    revoked: true,
+    admitted: report.admitted,
+    invalidated: report.invalidated,
+    rejected: report.rejected.length,
+  };
 }
 
 export async function submitCapabilityResponseHandler(context: Ctx, capabilityId: string, data: ReturnType<typeof submitCapabilityResponseInput>) {
