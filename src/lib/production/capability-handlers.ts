@@ -316,11 +316,12 @@ async function revokeCapabilityDocumentMappingInner(
     .maybeSingle();
   if (mappingError || !mapping) throw new Error("MAPPING_NOT_IN_CAPABILITY");
   // RPC creado en la migración 0004; los tipos generados aún no lo incluyen.
+  // Importante: invocar con .call(client, …) — rpc usa this.rest internamente.
   const rpc = client.rpc as unknown as (
     fn: string,
     args: Record<string, unknown>,
   ) => Promise<{ error: { message: string } | null }>;
-  const { error: rpcError } = await rpc("revoke_fragment_mapping", {
+  const { error: rpcError } = await rpc.call(client, "revoke_fragment_mapping", {
     _mapping_id: data.mappingId,
     _note: data.note ?? null,
   });
