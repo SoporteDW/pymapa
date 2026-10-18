@@ -1736,6 +1736,28 @@ export function createSupabaseProductionRepository(): ProductionRepository {
         interpretationStatement: r.fragment_interpretations?.statement ?? null,
       }));
     },
+    async insertDocumentReuseCandidate(input) {
+      const db = await admin();
+      const { error } = await db.from("fragment_mappings").insert({
+        id: input.id, organization_id: input.organizationId, assessment_id: input.assessmentId,
+        fragment_id: input.fragmentId, interpretation_id: null, capability_id: input.capabilityId,
+        target_type: input.targetType, target_ref: input.targetRef,
+        knowledge_version_id: input.knowledgeVersionId, knowledge_pack_id: input.knowledgePackId,
+        knowledge_pack_version: input.knowledgePackVersion, proposed_by: "HUMAN", status: "CANDIDATE",
+        decision_note: JSON.stringify({ kind: "CROSS_CAPABILITY_REUSE", sourceMappingId: input.reuseSourceMappingId,
+          fragmentId: input.fragmentId, extractionId: input.extractionId, evidenceId: input.evidenceId }),
+      });
+      // INSERT only: never upsert immutable rows or reset a validated candidate on retry.
+      if (error && error.code !== "23505") lanzar("fragment_mappings.reuse_insert", error);
+      const rows = await this.listDocumentMappings(input.assessmentId);
+      const saved = rows.find((m) => m.id === input.id && m.organizationId === input.organizationId
+        && m.fragmentId === input.fragmentId && m.capabilityId === input.capabilityId
+        && m.targetType === input.targetType && m.targetRef === input.targetRef
+        && m.knowledgeVersionId === input.knowledgeVersionId && m.knowledgePackId === input.knowledgePackId
+        && m.knowledgePackVersion === input.knowledgePackVersion);
+      if (!saved) throw new Error("DOCUMENT_REUSE_READBACK_FAILED");
+      return saved;
+    },
   };
 }
 

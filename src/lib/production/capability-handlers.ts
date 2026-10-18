@@ -387,6 +387,7 @@ export async function getCapabilityWorkspaceHandler(context: Ctx, capabilityId: 
     engine: deps.engine,
     evaluation: evaluado.evaluation,
     answeredAcquisitionIds: evaluado.answeredAcquisitionIds,
+    documentaryCoverage: evaluado.documentaryCoverage,
   });
   const projector = createActionableProjector(registro.pack);
   const [findings, observaciones, respondents, rol] = await Promise.all([
