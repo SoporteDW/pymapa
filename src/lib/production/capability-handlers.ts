@@ -295,7 +295,12 @@ export async function revokeCapabilityDocumentMappingHandler(
     .eq("capability_id", capabilityId)
     .maybeSingle();
   if (mappingError || !mapping) throw new Error("MAPPING_NOT_IN_CAPABILITY");
-  const { error: rpcError } = await client.rpc("revoke_fragment_mapping", {
+  // RPC creado en la migración 0004; los tipos generados aún no lo incluyen.
+  const rpc = client.rpc as unknown as (
+    fn: string,
+    args: Record<string, unknown>,
+  ) => Promise<{ error: { message: string } | null }>;
+  const { error: rpcError } = await rpc("revoke_fragment_mapping", {
     _mapping_id: data.mappingId,
     _note: data.note ?? null,
   });
