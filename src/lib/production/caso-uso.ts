@@ -315,16 +315,24 @@ async function evaluarAssessment(
   const getAcq = (id: string) =>
     deps.engine.getAcquisition(id) as { acquisitionMode?: string; variableRefs: readonly string[] } | null | undefined;
   const contradictions = separarContradiccionesPorAdquisicion(evaluation.contradictions, vigentes, getAcq);
-  const documentaryCoverage = proyectarCoberturaDocumental(vigentes, contradictions);
+  const documentaryCoverage = proyectarCoberturaDocumental(vigentes, mappings, contradictions);
   const review = new Set(documentaryCoverage.filter((c) => c.state === "CONTRADICTORY").map((c) => c.acquisitionId));
   const manuales = vigentes.filter((o) => !o.value.documentProvenance);
   const manualRefs = new Set(manuales.map((o) => o.value.acquisitionRef));
+  // INT-01-COV-02 · Solo una decisión de cobertura COMPLETE (FULL gobernada,
+  // sin conflicto vigente) descuenta la adquisición documental. PARTIAL y
+  // las correspondencias históricas sin calificación conservan la tarea.
+  const completas = documentaryCoverage.filter((c) => c.state === "COMPLETE").map((c) => c.acquisitionId);
   return {
     ...evaluation,
     contradictions,
     documentaryCoverage,
-    answeredAcquisitionRefs: respondidasVigentes(evaluation.answeredAcquisitionRefs.filter((r) => manualRefs.has(r)), manuales, deps)
-      .filter((r) => !review.has(r)),
+    answeredAcquisitionRefs: [
+      ...new Set([
+        ...respondidasVigentes(evaluation.answeredAcquisitionRefs.filter((r) => manualRefs.has(r)), manuales, deps),
+        ...completas,
+      ]),
+    ].filter((r) => !review.has(r)),
   };
 }
 

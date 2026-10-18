@@ -445,7 +445,9 @@ export type AuditEventType =
   | "EXTRACTION_SUPERSEDED"
   // INT-01-E1 · Puente de admisión documental
   | "DOCUMENT_OBSERVATION_ADMITTED"
-  | "DOCUMENT_OBSERVATION_INVALIDATED";
+  | "DOCUMENT_OBSERVATION_INVALIDATED"
+  // INT-01-COV-02 · Decisión gobernada de cobertura documental
+  | "FRAGMENT_MAPPING_COVERAGE_DECIDED";
 
 /* ------------------------------------------------------------------ */
 /* CRV / Validation / Follow-up / Learning (M1-KL)                     */
@@ -643,6 +645,17 @@ export interface DocumentMappingRecord {
   interpretationStatement: string | null;
   /** E2 provenance, encoded in the immutable proposal note; not an admission. */
   reuseSourceMappingId?: string;
+  /**
+   * INT-01-COV-02 · Cobertura documental gobernada de la adquisición factual.
+   * FULL solo por decisión OWNER/ADMIN (RPC set_fragment_mapping_coverage);
+   * ausencia/PARTIAL nunca descuenta la adquisición. Opcional: las filas
+   * históricas y los fixtures sin calificación se leen como PARTIAL.
+   */
+  coverageScope?: "FULL" | "PARTIAL";
+  coverageAcquisitionRef?: string | null;
+  coverageJustification?: string | null;
+  coverageDecidedBy?: string | null;
+  coverageDecidedAt?: string | null;
 }
 
 /** Puerto de persistencia. Toda escritura del vertical pasa por aquí. */

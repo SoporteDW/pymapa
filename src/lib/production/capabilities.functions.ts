@@ -79,6 +79,15 @@ export const revokeCapabilityDocumentMapping = createServerFn({ method: "POST" }
   })
   .handler(async ({ data, context }) => h.revokeCapabilityDocumentMappingHandler(context, data.capabilityId, data.input));
 
+/* INT-01-COV-02 · Decisión gobernada de cobertura documental (OWNER/ADMIN). */
+export const declareCapabilityDocumentCoverage = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => {
+    const { capabilityId, resto } = separar(data);
+    return { capabilityId, input: h.declareCapabilityDocumentCoverageInput(resto) };
+  })
+  .handler(async ({ data, context }) => h.declareCapabilityDocumentCoverageHandler(context, data.capabilityId, data.input));
+
 export const inviteCapabilityRespondent = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((data: unknown) => {

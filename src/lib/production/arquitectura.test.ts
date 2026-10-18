@@ -49,6 +49,8 @@ const AUTORIZADOS = [
   // INT-01-R1: pruebas de integración operativa del puente (mismas reglas).
   "src/lib/production/document-admission-r1.test.ts",
   "src/lib/production/documentary-e2.test.ts",
+  // INT-01-COV-02: pruebas del contrato gobernado de cobertura documental (mismas reglas).
+  "src/lib/production/documentary-cov02.test.ts",
 ];
 
 describe("arquitectura · separación frontend / knowledge-engine", () => {

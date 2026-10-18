@@ -16,6 +16,7 @@ import { AcquisitionRenderer } from "@/components/capacidad/acquisition-renderer
 import { AcquisitionInput, type AcquisitionAnswer } from "@/components/capacidad/acquisition-input";
 import { EvidenciaPanel } from "@/components/capacidad/evidencia-panel";
 import { ColaboracionPanel } from "@/components/capacidad/colaboracion-panel";
+import { CoberturaDocumentalPanel } from "@/components/capacidad/cobertura-documental-panel";
 import { ETIQUETA_ESTADO } from "@/components/diagnostico/catalogo-capacidades";
 import {
   getCapabilityCollaboration,
@@ -348,6 +349,11 @@ function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
                 informationNeeds={tareas
                   .filter((t) => t.informationNeedRef && t.informationNeedStatement)
                   .map((t) => ({ ref: t.informationNeedRef!, label: t.informationNeedStatement! }))}
+              />
+              <CoberturaDocumentalPanel
+                capabilityId={capabilityId}
+                mappings={ws.data.documentaryMappings}
+                canGovern={ws.data.userRole === "OWNER" || ws.data.userRole === "ADMIN"}
               />
             </>
           )}

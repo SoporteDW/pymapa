@@ -67,7 +67,7 @@ describe("E2 conservative coverage", () => {
     expect(result.evaluation.variableEvaluations.find((v) => v.variableRef === "VA01")?.state).toBe("KNOWN");
     expect(result.evaluation.answeredAcquisitionRefs).not.toContain("ACQ·NI01");
     expect(w.pendingInformationTasks.map((a) => a.acquisitionId)).toContain("ACQ·NI01");
-    expect(w.documentaryCoverage[0]?.reason).toBe("ACQUISITION_COMPLETENESS_NOT_GOVERNED");
+    expect(w.documentaryCoverage[0]?.reason).toBe("COVERAGE_NOT_FULL");
   });
   it("T-E2-03: CM-05 thematic progressive mapping leaves first question available", async () => {
     const s = setup("CM-05");
