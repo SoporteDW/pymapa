@@ -2472,6 +2472,10 @@ export type Database = {
     }
     Functions: {
       bootstrap_organization: { Args: { _name?: string }; Returns: string }
+      revoke_fragment_mapping: {
+        Args: { _mapping_id: string; _note: string }
+        Returns: undefined
+      }
       validate_fragment_mapping: {
         Args: {
           _basis: Database["public"]["Enums"]["mapping_admission_basis"]
