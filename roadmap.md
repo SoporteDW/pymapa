@@ -75,4 +75,4 @@
 - [x] Run synthetic E2 tests and full regression suite: 984 PASS; report in docs/architecture/INT01_E2_CLOSURE.md.
 - [ ] Documentary COMPLETE subtraction / T-E2-01 — blocked by absent canonical acquisition-completeness criteria; no rules invented.
 - [ ] Hosted E2 endpoint, RLS and browser acceptance — not executed in E2; requires isolated QA acceptance scope before operational PASS.
-- E3 not authorized; do not begin.
+- E3 cerrado: PASS WITH CONDITIONS (integración) / BLOCKED BY CANONICAL CONTRACT (cobertura). Informe: docs/architecture/INT01_E3_CLOSURE.md. INT01-COVERAGE-GAP-01 abierto. Esperar autorización antes de nuevas fases.
