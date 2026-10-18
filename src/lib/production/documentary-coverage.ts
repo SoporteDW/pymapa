@@ -23,6 +23,9 @@ export function documentalesVigentes(
       && m.assessmentId === scope.assessmentId && o.assessmentId === scope.assessmentId
       && m.capabilityId === scope.capabilityId && m.knowledgeVersionId === scope.knowledgeVersionId
       && m.knowledgePackId === scope.packId && m.knowledgePackVersion === scope.packVersion
+      && p.knowledgePackId === scope.packId && p.knowledgePackVersion === scope.packVersion
+      && ((m.admissionBasis === "HUMAN_VALIDATION" && Boolean(m.validatedBy))
+        || (m.admissionBasis === "GOVERNED_RULE" && Boolean(m.admissionRuleRef)))
       && m.targetType === "VARIABLE" && m.targetRef === o.variableRef
       && m.factualCorrespondenceRef === o.value.acquisitionRef
       && m.fragmentId === p.fragmentId && m.evidenceId === p.evidenceId

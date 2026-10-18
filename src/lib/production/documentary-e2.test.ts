@@ -118,6 +118,22 @@ describe("E2 conservative coverage", () => {
     expect((await workspace(s)).result.answeredAcquisitionIds).toContain("ACQ·P1·01");
     expect((await getNextAcquisition(s.deps, ASSESS))?.acquisitionId).not.toBe("ACQ·P1·01");
   });
+  it("CM-05 internal conflicts remain isolated by acquisition", async () => {
+    const s = setup("CM-05");
+    for (const ref of ["ACQ·P1·01", "ACQ·P1·02"]) {
+      for (const value of ["Declaración A", "Declaración B"]) {
+        await s.repo.insertObservation({ organizationId: ORG, assessmentId: ASSESS, sourceResponseId: "qa-source",
+          variableRef: "VA01", value: { acquisitionRef: ref, knowledgeState: "KNOWN", semanticValue: value } });
+      }
+    }
+    const { result } = await workspace(s);
+    expect(result.evaluation.contradictions).toHaveLength(2);
+    for (const c of result.evaluation.contradictions) {
+      const refs = new Set(s.state.observations.filter((o) => c.conflictingObservationIds.includes(o.id)).map((o) => o.value.acquisitionRef));
+      expect(refs.size).toBe(1);
+      expect(c.conflictingObservationIds).toHaveLength(2);
+    }
+  });
 });
 
 describe("E2 cross-capability reuse", () => {
@@ -169,6 +185,13 @@ describe("E2 cross-capability reuse", () => {
   it("target absent from canonical pack cannot be proposed", async () => {
     const s = await reuseSetup();
     await expect(reutilizarEvidenciaDocumental(s.reuseDeps, { ...s.input, targetRef: "NI-NOT-CANONICAL" })).rejects.toThrow("TARGET_NOT_IN_PACK");
+    expect(s.state.documentMappings).toHaveLength(1);
+  });
+  it("foreign evidence is rejected even when the source mapping claims the local organization", async () => {
+    const s = await reuseSetup();
+    const original = s.repo.listEvidence.bind(s.repo);
+    s.repo.listEvidence = async (id) => (await original(id)).map((e) => ({ ...e, organizationId: "qa-e2-b" }));
+    await expect(reutilizarEvidenciaDocumental(s.reuseDeps, s.input)).rejects.toThrow("EVIDENCE_NOT_IN_ORGANIZATION");
     expect(s.state.documentMappings).toHaveLength(1);
   });
 });
