@@ -592,7 +592,7 @@ export async function getCapabilityWorkspaceHandler(context: Ctx, capabilityId: 
   const casoUso = await import("./caso-uso");
   const { getRegisteredPack } = await import("./packs-registry");
   const { createActionableProjector } = await import("./actionable");
-  const { assessment, deps } = await prepararContexto(context, capabilityId);
+  const { assessment, deps, baseRepository } = await prepararContexto(context, capabilityId);
   const registro = getRegisteredPack(deps.engine.pack.capability.id);
   const evaluado = await casoUso.evaluarCapacidad(deps, assessment.id);
   if (!evaluado) throw new Error("ASSESSMENT_NOT_FOUND");
@@ -653,6 +653,26 @@ export async function getCapabilityWorkspaceHandler(context: Ctx, capabilityId: 
       variableRef: c.variableRef,
       conflictingObservationIds: c.conflictingObservationIds,
     })),
+    // INT-01-COV-02 · Correspondencias documentales de esta capacidad con su
+    // cobertura gobernada; la decisión FULL/PARTIAL es separada de la
+    // validación factual y solo la toma OWNER/ADMIN.
+    userRole: rol ?? null,
+    documentaryMappings: mappingsDocumentales
+      .filter((m) => m.capabilityId === deps.engine.pack.capability.id)
+      .map((m) => ({
+        id: m.id,
+        status: m.status,
+        targetType: m.targetType,
+        targetRef: m.targetRef,
+        factualCorrespondenceRef: m.factualCorrespondenceRef,
+        fragmentText: m.fragmentText,
+        interpretationStatement: m.interpretationStatement,
+        evidenceId: m.evidenceId,
+        coverageScope: m.coverageScope ?? "PARTIAL",
+        coverageAcquisitionRef: m.coverageAcquisitionRef ?? null,
+        coverageJustification: m.coverageJustification ?? null,
+        coverageDecidedAt: m.coverageDecidedAt ?? null,
+      })),
   };
 }
 
