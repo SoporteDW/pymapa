@@ -272,26 +272,6 @@ export async function revokeCapabilityDocumentMappingHandler(
   capabilityId: string,
   data: ReturnType<typeof revokeCapabilityDocumentMappingInput>,
 ) {
-  try {
-    return await revokeCapabilityDocumentMappingInner(context, capabilityId, data);
-  } catch (e) {
-    // Diagnóstico R1: devolver el punto de fallo en lugar de un error opaco.
-    return {
-      mappingId: data.mappingId,
-      revoked: false,
-      admitted: 0,
-      invalidated: 0,
-      rejected: 0,
-      debugError: e instanceof Error ? `${e.message} :: ${(e.stack ?? "").split("\n")[1] ?? ""}` : String(e),
-    };
-  }
-}
-
-async function revokeCapabilityDocumentMappingInner(
-  context: Ctx,
-  capabilityId: string,
-  data: ReturnType<typeof revokeCapabilityDocumentMappingInput>,
-) {
   const runtime = await import("./runtime.server");
   type Client = Parameters<typeof runtime.asegurarContextoProductivo>[0];
   const client = context.supabase as Client;
