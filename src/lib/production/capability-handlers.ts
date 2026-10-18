@@ -227,6 +227,89 @@ export async function reuseCapabilityDocumentHandler(context: Ctx, capabilityId:
     fragmentId: mapping.fragmentId, capabilityId: mapping.capabilityId };
 }
 
+/* ------------------------------------------------------------------ */
+/* INT-01-R1 · Admisión y revocación documental gobernadas              */
+/* ------------------------------------------------------------------ */
+
+/** Solo OWNER/ADMIN pueden admitir o revocar correspondencias documentales. */
+export function assertDocumentGovernanceRole(rol: string | null): void {
+  if (!rol || !ROLES_CON_PARTICIPACION_PLENA.has(rol)) {
+    throw new Error("DOCUMENT_GOVERNANCE_FORBIDDEN");
+  }
+}
+
+/**
+ * R1 · Punto de integración efectivo del DocumentAdmissionBridge: procesa las
+ * correspondencias documentales del Assessment de esta capacidad. Admite las
+ * VALIDATED con correspondencia factual gobernada (observación física que el
+ * Engine evalúa) e invalida append-only las de mappings SUPERSEDED.
+ * Autorización: OWNER/ADMIN de la organización del Assessment.
+ */
+export async function processCapabilityDocumentAdmissionsHandler(context: Ctx, capabilityId: string) {
+  const { assessment, deps, baseRepository } = await prepararContexto(context, capabilityId);
+  const rol = await deps.repository.getMembershipRole(assessment.organizationId, context.userId);
+  assertDocumentGovernanceRole(rol);
+  const { admitirCorrespondenciasDocumentales } = await import("./document-admission-bridge");
+  // Repositorio base (sin scope): el puente verifica capacidad/pack/versión
+  // de cada mapping y rechaza fail-closed los ajenos a esta capacidad.
+  return admitirCorrespondenciasDocumentales(
+    { engine: deps.engine, repository: baseRepository, knowledgeVersionId: assessment.knowledgeVersionId },
+    { assessmentId: assessment.id, organizationId: assessment.organizationId, actorUserId: context.userId },
+  );
+}
+
+export const revokeCapabilityDocumentMappingInput = (data: unknown) =>
+  z.object({ mappingId: z.string().uuid(), note: z.string().max(1000).optional() }).strict().parse(data);
+
+/**
+ * R1 · Revocación gobernada: VALIDATED → SUPERSEDED vía RPC autorizado
+ * (revoke_fragment_mapping, solo OWNER/ADMIN, auditable e idempotente) y
+ * reproceso del puente para excluir la observación documental admitida
+ * (registro de CONTROL append-only). Las observaciones manuales no se tocan.
+ */
+export async function revokeCapabilityDocumentMappingHandler(
+  context: Ctx,
+  capabilityId: string,
+  data: ReturnType<typeof revokeCapabilityDocumentMappingInput>,
+) {
+  const runtime = await import("./runtime.server");
+  type Client = Parameters<typeof runtime.asegurarContextoProductivo>[0];
+  const client = context.supabase as Client;
+  const assessment = await runtime.asegurarContextoProductivo(client, context.userId, capabilityId);
+  // Autorización y pertenencia verificadas con la identidad del usuario (RLS)
+  // ANTES de cualquier operación privilegiada.
+  const { data: membership, error: roleError } = await client
+    .from("memberships")
+    .select("role")
+    .eq("organization_id", assessment.organizationId)
+    .eq("user_id", context.userId)
+    .maybeSingle();
+  if (roleError || !membership) throw new Error("DOCUMENT_GOVERNANCE_FORBIDDEN");
+  assertDocumentGovernanceRole(membership.role as string);
+  const { data: mapping, error: mappingError } = await client
+    .from("fragment_mappings")
+    .select("id, status")
+    .eq("id", data.mappingId)
+    .eq("organization_id", assessment.organizationId)
+    .eq("assessment_id", assessment.id)
+    .eq("capability_id", capabilityId)
+    .maybeSingle();
+  if (mappingError || !mapping) throw new Error("MAPPING_NOT_IN_CAPABILITY");
+  const { error: rpcError } = await client.rpc("revoke_fragment_mapping", {
+    _mapping_id: data.mappingId,
+    _note: data.note ?? null,
+  });
+  if (rpcError) {
+    if (rpcError.message.includes("FORBIDDEN")) throw new Error("DOCUMENT_GOVERNANCE_FORBIDDEN");
+    if (rpcError.message.includes("REVOKE_REQUIRES_VALIDATED")) throw new Error("MAPPING_NOT_VALIDATED");
+    throw new Error(rpcError.message);
+  }
+  // Reproceso del puente: la revocación excluye la observación documental de
+  // las evaluaciones posteriores (append-only, historial intacto).
+  const report = await processCapabilityDocumentAdmissionsHandler(context, capabilityId);
+  return { mappingId: data.mappingId, revoked: true, admissionReport: report };
+}
+
 export async function submitCapabilityResponseHandler(context: Ctx, capabilityId: string, data: ReturnType<typeof submitCapabilityResponseInput>) {
     const casoUso = await import("./caso-uso");
     const { assessment, deps } = await prepararContexto(context, capabilityId);

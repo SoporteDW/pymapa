@@ -65,6 +65,20 @@ export const reuseCapabilityDocument = createServerFn({ method: "POST" })
   })
   .handler(async ({ data, context }) => h.reuseCapabilityDocumentHandler(context, data.capabilityId, data.input));
 
+/* INT-01-R1 · Admisión y revocación documental gobernadas (OWNER/ADMIN). */
+export const processCapabilityDocumentAdmissions = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => ({ capabilityId: separar(data).capabilityId }))
+  .handler(async ({ data, context }) => h.processCapabilityDocumentAdmissionsHandler(context, data.capabilityId));
+
+export const revokeCapabilityDocumentMapping = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => {
+    const { capabilityId, resto } = separar(data);
+    return { capabilityId, input: h.revokeCapabilityDocumentMappingInput(resto) };
+  })
+  .handler(async ({ data, context }) => h.revokeCapabilityDocumentMappingHandler(context, data.capabilityId, data.input));
+
 export const inviteCapabilityRespondent = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((data: unknown) => {
