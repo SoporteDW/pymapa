@@ -1259,6 +1259,11 @@ export type Database = {
           admission_rule_ref: string | null
           assessment_id: string
           capability_id: string
+          coverage_acquisition_ref: string | null
+          coverage_decided_at: string | null
+          coverage_decided_by: string | null
+          coverage_justification: string | null
+          coverage_scope: string
           created_at: string
           decision_note: string | null
           factual_correspondence_ref: string | null
@@ -1286,6 +1291,11 @@ export type Database = {
           admission_rule_ref?: string | null
           assessment_id: string
           capability_id: string
+          coverage_acquisition_ref?: string | null
+          coverage_decided_at?: string | null
+          coverage_decided_by?: string | null
+          coverage_justification?: string | null
+          coverage_scope?: string
           created_at?: string
           decision_note?: string | null
           factual_correspondence_ref?: string | null
@@ -1313,6 +1323,11 @@ export type Database = {
           admission_rule_ref?: string | null
           assessment_id?: string
           capability_id?: string
+          coverage_acquisition_ref?: string | null
+          coverage_decided_at?: string | null
+          coverage_decided_by?: string | null
+          coverage_justification?: string | null
+          coverage_scope?: string
           created_at?: string
           decision_note?: string | null
           factual_correspondence_ref?: string | null
@@ -2476,6 +2491,15 @@ export type Database = {
         Args: { _mapping_id: string; _note: string }
         Returns: undefined
       }
+      set_fragment_mapping_coverage: {
+        Args: {
+          _acquisition_ref: string
+          _justification: string
+          _mapping_id: string
+          _scope: string
+        }
+        Returns: undefined
+      }
       validate_fragment_mapping: {
         Args: {
           _basis: Database["public"]["Enums"]["mapping_admission_basis"]
@@ -2527,6 +2551,7 @@ export type Database = {
         | "EXTRACTION_SUPERSEDED"
         | "DOCUMENT_OBSERVATION_ADMITTED"
         | "DOCUMENT_OBSERVATION_INVALIDATED"
+        | "FRAGMENT_MAPPING_COVERAGE_DECIDED"
       evaluation_run_status:
         | "PENDING"
         | "PROCESSING"
@@ -2767,6 +2792,7 @@ export const Constants = {
         "EXTRACTION_SUPERSEDED",
         "DOCUMENT_OBSERVATION_ADMITTED",
         "DOCUMENT_OBSERVATION_INVALIDATED",
+        "FRAGMENT_MAPPING_COVERAGE_DECIDED",
       ],
       evaluation_run_status: [
         "PENDING",
