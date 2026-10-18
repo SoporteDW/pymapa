@@ -350,6 +350,11 @@ function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
                   .filter((t) => t.informationNeedRef && t.informationNeedStatement)
                   .map((t) => ({ ref: t.informationNeedRef!, label: t.informationNeedStatement! }))}
               />
+              <CoberturaDocumentalPanel
+                capabilityId={capabilityId}
+                mappings={ws.data.documentaryMappings}
+                canGovern={ws.data.userRole === "OWNER" || ws.data.userRole === "ADMIN"}
+              />
             </>
           )}
         </div>
