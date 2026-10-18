@@ -1,11 +1,20 @@
-/** E2: admission is not acquisition coverage. No published completeness rule exists. */
+/**
+ * INT-01-COV-02 · Contrato gobernado de cobertura documental.
+ *
+ * Una correspondencia VALIDATED con observación admitida NO descuenta la
+ * adquisición por sí sola: el descuento exige una decisión humana explícita
+ * de cobertura COMPLETA (coverage_scope = FULL, solo OWNER/ADMIN, con
+ * justificación y adquisición canónica igual a la correspondencia factual).
+ * Sin esa decisión la cobertura es PARTIAL y la tarea permanece pendiente.
+ * Un conflicto vigente (documento vs. respuesta manual) bloquea el descuento.
+ */
 import type { DocumentMappingRecord, ObservationRecord } from "./puertos";
 
-export type DocumentaryCoverageState = "INDETERMINATE" | "CONTRADICTORY";
+export type DocumentaryCoverageState = "COMPLETE" | "PARTIAL" | "CONTRADICTORY";
 export interface DocumentaryCoverage {
   acquisitionId: string;
   state: DocumentaryCoverageState;
-  reason: "ACQUISITION_COMPLETENESS_NOT_GOVERNED" | "SOURCE_CONFLICT";
+  reason: "COVERAGE_DECLARED_FULL" | "COVERAGE_NOT_FULL" | "SOURCE_CONFLICT";
   observationIds: string[];
   mappingIds: string[];
 }
@@ -33,20 +42,39 @@ export function documentalesVigentes(
   });
 }
 
+/**
+ * Proyección de cobertura por adquisición. COMPLETE exige: observación
+ * documental KNOWN vigente + mapping VALIDATED + decisión FULL gobernada
+ * sobre ESA adquisición canónica + sin conflicto vigente. Todo lo demás es
+ * PARTIAL (nunca descuenta) o CONTRADICTORY (conserva la aclaración).
+ */
 export function proyectarCoberturaDocumental(
-  observations: ObservationRecord[], conflicts: readonly { conflictingObservationIds: string[] }[],
+  observations: ObservationRecord[],
+  mappings: DocumentMappingRecord[],
+  conflicts: readonly { conflictingObservationIds: string[] }[],
 ): DocumentaryCoverage[] {
+  const mappingPorId = new Map(mappings.map((m) => [m.id, m]));
   const groups = new Map<string, ObservationRecord[]>();
   for (const o of observations) {
     if (o.value.documentProvenance) groups.set(o.value.acquisitionRef, [...(groups.get(o.value.acquisitionRef) ?? []), o]);
   }
   return [...groups].map(([acquisitionId, rows]) => {
-    const conflict = conflicts.some((c) => rows.some((o) => c.conflictingObservationIds.includes(o.id)));
-    return {
-      acquisitionId, state: conflict ? "CONTRADICTORY" : "INDETERMINATE",
-      reason: conflict ? "SOURCE_CONFLICT" : "ACQUISITION_COMPLETENESS_NOT_GOVERNED",
+    const base = {
+      acquisitionId,
       observationIds: rows.map((o) => o.id),
       mappingIds: rows.flatMap((o) => o.value.documentProvenance ? [o.value.documentProvenance.mappingId] : []),
     };
+    const conflict = conflicts.some((c) => rows.some((o) => c.conflictingObservationIds.includes(o.id)));
+    if (conflict) return { ...base, state: "CONTRADICTORY" as const, reason: "SOURCE_CONFLICT" as const };
+    const completa = rows.some((o) => {
+      const p = o.value.documentProvenance;
+      if (!p || o.value.knowledgeState !== "KNOWN") return false;
+      const m = mappingPorId.get(p.mappingId);
+      return Boolean(m && m.status === "VALIDATED" && m.coverageScope === "FULL"
+        && m.coverageAcquisitionRef === acquisitionId);
+    });
+    return completa
+      ? { ...base, state: "COMPLETE" as const, reason: "COVERAGE_DECLARED_FULL" as const }
+      : { ...base, state: "PARTIAL" as const, reason: "COVERAGE_NOT_FULL" as const };
   });
 }

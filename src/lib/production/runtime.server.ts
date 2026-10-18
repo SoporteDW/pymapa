@@ -1734,6 +1734,12 @@ export function createSupabaseProductionRepository(): ProductionRepository {
         evidenceId: r.evidence_fragments?.document_extractions?.evidence_versions?.evidence_id ?? "",
         fragmentText: r.evidence_fragments?.verbatim_text ?? "",
         interpretationStatement: r.fragment_interpretations?.statement ?? null,
+        // INT-01-COV-02 · Cobertura gobernada (default conservador PARTIAL).
+        coverageScope: (r["coverage_scope"] as "FULL" | "PARTIAL" | null) ?? "PARTIAL",
+        coverageAcquisitionRef: (r["coverage_acquisition_ref"] as string | null) ?? null,
+        coverageJustification: (r["coverage_justification"] as string | null) ?? null,
+        coverageDecidedBy: (r["coverage_decided_by"] as string | null) ?? null,
+        coverageDecidedAt: (r["coverage_decided_at"] as string | null) ?? null,
       }));
     },
     async insertDocumentReuseCandidate(input, actorUserId) {
