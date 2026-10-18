@@ -324,6 +324,86 @@ export async function revokeCapabilityDocumentMappingHandler(
   };
 }
 
+/* ------------------------------------------------------------------ */
+/* INT-01-COV-02 · Decisión gobernada de cobertura documental           */
+/* ------------------------------------------------------------------ */
+
+export const declareCapabilityDocumentCoverageInput = (data: unknown) =>
+  z.object({
+    mappingId: z.string().uuid(),
+    scope: z.enum(["FULL", "PARTIAL"]),
+    justification: z.string().min(10).max(2000),
+  }).strict().parse(data);
+
+/**
+ * COV-02 · Declaración de cobertura documental, decisión SEPARADA de la
+ * validación factual: un OWNER/ADMIN declara FULL (la evidencia vigente
+ * cubre por completo la adquisición canónica) o revierte a PARTIAL. El RPC
+ * set_fragment_mapping_coverage (migración COV-02) exige mapping VALIDATED,
+ * justificación y adquisición igual a la correspondencia factual; la guarda
+ * de transiciones audita cada decisión (FRAGMENT_MAPPING_COVERAGE_DECIDED).
+ * FULL nunca se transfiere a otra capacidad: la decisión queda ligada a
+ * organización, assessment, capacidad y adquisición del mapping.
+ */
+export async function declareCapabilityDocumentCoverageHandler(
+  context: Ctx,
+  capabilityId: string,
+  data: ReturnType<typeof declareCapabilityDocumentCoverageInput>,
+) {
+  const runtime = await import("./runtime.server");
+  type Client = Parameters<typeof runtime.asegurarContextoProductivo>[0];
+  const client = context.supabase as Client;
+  const assessment = await runtime.asegurarContextoProductivo(client, context.userId, capabilityId);
+  // Autorización y pertenencia verificadas con la identidad del usuario (RLS)
+  // ANTES de cualquier operación privilegiada.
+  const { data: membership, error: roleError } = await client
+    .from("memberships")
+    .select("role")
+    .eq("organization_id", assessment.organizationId)
+    .eq("user_id", context.userId)
+    .maybeSingle();
+  if (roleError || !membership) throw new Error("DOCUMENT_GOVERNANCE_FORBIDDEN");
+  assertDocumentGovernanceRole(membership.role as string);
+  const { data: mapping, error: mappingError } = await client
+    .from("fragment_mappings")
+    .select("id, status, target_type, factual_correspondence_ref")
+    .eq("id", data.mappingId)
+    .eq("organization_id", assessment.organizationId)
+    .eq("assessment_id", assessment.id)
+    .eq("capability_id", capabilityId)
+    .maybeSingle();
+  if (mappingError || !mapping) throw new Error("MAPPING_NOT_IN_CAPABILITY");
+  const factualRef = (mapping as { factual_correspondence_ref: string | null }).factual_correspondence_ref;
+  if ((mapping as { target_type: string }).target_type !== "VARIABLE" || !factualRef) {
+    throw new Error("COVERAGE_REQUIRES_FACTUAL_MAPPING");
+  }
+  // La adquisición cubierta debe existir en el pack fijado al Assessment.
+  const engine = runtime.cargarEngine(capabilityId);
+  if (!engine.getAcquisition(factualRef)) throw new Error("FACTUAL_ACQUISITION_NOT_IN_PACK");
+  // RPC creado en la migración COV-02; los tipos generados aún no lo incluyen.
+  // Importante: invocar con .call(client, …) — rpc usa this.rest internamente.
+  const rpc = client.rpc as unknown as (
+    fn: string,
+    args: Record<string, unknown>,
+  ) => Promise<{ error: { message: string } | null }>;
+  const { error: rpcError } = await rpc.call(client, "set_fragment_mapping_coverage", {
+    _mapping_id: data.mappingId,
+    _scope: data.scope,
+    _acquisition_ref: data.scope === "FULL" ? factualRef : null,
+    _justification: data.justification,
+  });
+  if (rpcError) {
+    if (rpcError.message.includes("FORBIDDEN")) throw new Error("DOCUMENT_GOVERNANCE_FORBIDDEN");
+    if (rpcError.message.includes("COVERAGE_REQUIRES_VALIDATED_MAPPING")) throw new Error("MAPPING_NOT_VALIDATED");
+    throw new Error(rpcError.message);
+  }
+  return {
+    mappingId: data.mappingId,
+    coverageScope: data.scope,
+    acquisitionRef: data.scope === "FULL" ? factualRef : null,
+  };
+}
+
 export async function submitCapabilityResponseHandler(context: Ctx, capabilityId: string, data: ReturnType<typeof submitCapabilityResponseInput>) {
     const casoUso = await import("./caso-uso");
     const { assessment, deps } = await prepararContexto(context, capabilityId);
@@ -523,11 +603,12 @@ export async function getCapabilityWorkspaceHandler(context: Ctx, capabilityId: 
     documentaryCoverage: evaluado.documentaryCoverage,
   });
   const projector = createActionableProjector(registro.pack);
-  const [findings, observaciones, respondents, rol] = await Promise.all([
+  const [findings, observaciones, respondents, rol, mappingsDocumentales] = await Promise.all([
     deps.repository.listFindings(assessment.id),
     deps.repository.listObservations(assessment.id),
     deps.repository.listRespondents(assessment.organizationId),
     deps.repository.getMembershipRole(assessment.organizationId, context.userId),
+    baseRepository.listDocumentMappings(assessment.id),
   ]);
   const historial = construirHistorial({
     observaciones,
