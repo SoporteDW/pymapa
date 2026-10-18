@@ -296,11 +296,12 @@ export async function revokeCapabilityDocumentMappingHandler(
     .maybeSingle();
   if (mappingError || !mapping) throw new Error("MAPPING_NOT_IN_CAPABILITY");
   // RPC creado en la migración 0004; los tipos generados aún no lo incluyen.
+  // Importante: invocar con .call(client, …) — rpc usa this.rest internamente.
   const rpc = client.rpc as unknown as (
     fn: string,
     args: Record<string, unknown>,
   ) => Promise<{ error: { message: string } | null }>;
-  const { error: rpcError } = await rpc("revoke_fragment_mapping", {
+  const { error: rpcError } = await rpc.call(client, "revoke_fragment_mapping", {
     _mapping_id: data.mappingId,
     _note: data.note ?? null,
   });
@@ -312,7 +313,15 @@ export async function revokeCapabilityDocumentMappingHandler(
   // Reproceso del puente: la revocación excluye la observación documental de
   // las evaluaciones posteriores (append-only, historial intacto).
   const report = await processCapabilityDocumentAdmissionsHandler(context, capabilityId);
-  return { mappingId: data.mappingId, revoked: true, admissionReport: report };
+  // Resumen compacto y serializable (el informe completo lo expone
+  // processCapabilityDocumentAdmissions).
+  return {
+    mappingId: data.mappingId,
+    revoked: true,
+    admitted: report.admitted,
+    invalidated: report.invalidated,
+    rejected: report.rejected.length,
+  };
 }
 
 export async function submitCapabilityResponseHandler(context: Ctx, capabilityId: string, data: ReturnType<typeof submitCapabilityResponseInput>) {

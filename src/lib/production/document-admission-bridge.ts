@@ -186,6 +186,10 @@ export async function admitirCorrespondenciasDocumentales(
           semanticValue: null,
           acquisitionRef: admitidaPrevia.value.acquisitionRef,
           correctsObservationId: admitidaPrevia.id,
+          // Etiqueta de capacidad: el scope por capacidad trata las filas sin
+          // etiqueta como legado OP-01; sin ella la invalidación sería
+          // invisible para la capacidad documental.
+          capabilityId: deps.engine.pack.capability.id,
           documentControl: { kind: "INVALIDATION", mappingId: m.id },
         },
       });
@@ -225,6 +229,10 @@ export async function admitirCorrespondenciasDocumentales(
         knowledgeState: "KNOWN" as const,
         semanticValue: m.interpretationStatement!,
         acquisitionRef: admisibilidad.acquisitionId,
+        // Etiqueta de capacidad (scopeRepositoryToCapability): sin ella la
+        // observación se leería como legado OP-01 y el Engine de esta
+        // capacidad nunca la vería.
+        capabilityId: deps.engine.pack.capability.id,
         documentProvenance: {
           mappingId: m.id,
           fragmentId: m.fragmentId,
