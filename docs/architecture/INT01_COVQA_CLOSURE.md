@@ -91,3 +91,10 @@ Las respuestas manuales conservan su contrato y regresión. La cobertura se sepa
 **QA-01 + QA-02: PASS WITH CONDITIONS.** Mecanismo estructurado, decisiones parciales/completas, historial, reintento idéntico concurrente, obsolescencia y recorrido OWNER QA demostrados. No equivale a validación automática de verdad o suficiencia semántica. Los NOT_TESTED y límites anteriores impiden un PASS incondicional de toda la seguridad alojada.
 
 No se implementó COV-03A/B/C/D. DEC-COVQA-06 sigue obligatorio para COV-03B; su prueba CM-05 no se ejecutó. Esperar autorización expresa para cualquier fase posterior.
+## 11. Adenda · Dictamen definitivo (2026-10-19)
+
+**QA-01 + QA-02: PASS DEFINITIVO.** Los resultados históricos de las secciones 1–10 se conservan sin cambios.
+
+- SEC-QA-01 (MEMBER no declara ni modifica cobertura): **PASS**. RPC estructurada y legacy rechazaron con `DOCUMENT_GOVERNANCE_FORBIDDEN`; INSERT REST en `coverage_decisions` 403. PATCH/DELETE REST devolvieron 200 con cero filas afectadas; fila intacta comprobada administrativamente.
+- SEC-QA-02 (aislamiento `coverage_decisions` entre organizaciones): **PASS**. Lectura cruzada cero filas, propia sin filas ajenas, INSERT cruzado 403, anónimo cero filas.
+- Causa del NOT_TESTED previo: canal de prueba (clave en `apikey`, sesión en `Authorization`), no defecto de producto.

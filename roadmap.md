@@ -1,3 +1,10 @@
+## INT-01-COV-03 · BUILD 01 (Gate A + piloto Gate B)
+- [x] QA-01/QA-02 PASS DEFINITIVO; SEC-QA-01/02 PASS registrados.
+- [x] Gate A: registro transversal de criterios auxiliares (PARTIAL_ONLY por defecto).
+- [x] Gate B piloto CM-05 / ACQ·P1·01: cobertura de adquisición sin observación (unitarias + RPC alojada).
+- [ ] Descuento visible en navegador CM-05 alojado: bloqueado — la única org QA ya respondió ACQ·P1·01 manualmente; requiere org/usuario QA sintético nuevo autorizado.
+- [ ] COV-03C / COV-03D: no autorizados.
+
 # Roadmap
 
 ## INT-01-COV-QA · QA-01 + QA-02 only
