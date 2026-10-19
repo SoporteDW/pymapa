@@ -14,6 +14,7 @@ export interface DocumentaryMappingItem {
  fragmentText: string; interpretationStatement: string | null; coverageScope: "FULL" | "PARTIAL";
  coverageAcquisitionRef: string | null; coverageJustification: string | null; coverageDecidedAt: string | null;
  fragmentId: string; knowledgeVersionId: string; coverageRevision: number; coverageEvaluation: unknown;
+ coverageVerified: boolean;
  coverageCriteria: { coverageCriteriaVersion: string; components: readonly { componentKey: string; componentDescription: string; required: boolean }[] } | null;
 }
 
@@ -62,7 +63,7 @@ export function CoberturaDocumentalPanel({ capabilityId, mappings, canGovern }: 
  return <section data-testid="cobertura-documental" className="space-y-4 border-t border-border pt-6">
   <h2 className="text-base font-semibold">Cobertura documental</h2>
   <ul className="space-y-4">{factual.map((m) => <li key={m.id} data-mapping-id={m.id} className="space-y-3 rounded-lg border border-border p-4 text-sm">
-   <div className="flex flex-wrap justify-between gap-2"><span>Requerimiento {m.factualCorrespondenceRef} · variable {m.targetRef}</span><Badge variant="outline">{m.coverageScope === "FULL" && m.coverageEvaluation ? "Cobertura completa declarada" : "Cobertura parcial / no verificada"}</Badge></div>
+   <div className="flex flex-wrap justify-between gap-2"><span>Requerimiento {m.factualCorrespondenceRef} · variable {m.targetRef}</span><Badge variant="outline">{m.coverageScope === "FULL" && m.coverageVerified ? "Cobertura completa declarada" : "Cobertura parcial / no verificada"}</Badge></div>
    <p className="whitespace-pre-wrap text-muted-foreground">«{m.fragmentText}»</p>
    {m.coverageJustification && <p>Decisión registrada: {m.coverageJustification}</p>}
    {canGovern && editing !== m.id && <Button size="sm" variant="outline" onClick={() => setEditing(m.id)}>Evaluar cobertura</Button>}

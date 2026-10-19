@@ -13,6 +13,7 @@
 import { z } from "zod";
 import { approvedCoverageCriteria } from "./coverage-criteria";
 import { structuredCoverageDeclarationSchema } from "./structured-coverage";
+import { hasVerifiedStructuredCoverage } from "./documentary-coverage";
 
 const estadoConocimiento = z.enum(["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"]);
 
@@ -673,6 +674,7 @@ export async function getCapabilityWorkspaceHandler(context: Ctx, capabilityId: 
         coverageRevision: m.coverageRevision ?? 0,
         coverageCriteria: approvedCoverageCriteria(m.knowledgeVersionId, m.capabilityId, m.factualCorrespondenceRef ?? ""),
         coverageEvaluation: m.coverageEvaluation ?? null,
+        coverageVerified: hasVerifiedStructuredCoverage(m),
       })),
   };
 }
