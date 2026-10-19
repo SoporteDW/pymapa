@@ -1,0 +1,46 @@
+create or replace function public.approved_coverage_components(_knowledge uuid,_capability text,_acquisition text,_version text) returns jsonb language sql immutable set search_path=public as $$ select case
+ when _knowledge='d1a25af1-3634-4c9b-9465-69ac25875e26'::uuid and _capability='DG-01' and _acquisition='ACQ·NI04' and _version='DG01-NI04-COV-1.0.0' then '[{"componentKey":"TEMPORAL_HORIZON","componentDescription":"Horizonte temporal"},{"componentKey":"STRATEGIC_AMBITION","componentDescription":"Ambición estratégica"},{"componentKey":"MATERIAL_CHANGES","componentDescription":"Cambios materiales previstos"},{"componentKey":"ENVIRONMENT_CHANGES","componentDescription":"Cambios relevantes del entorno"},{"componentKey":"SCOPE_EXHAUSTIVENESS","componentDescription":"Exhaustividad del alcance declarado"}]'::jsonb
+ when _knowledge='d1a25af1-3634-4c9b-9465-69ac25875e26'::uuid and _capability='CM-05' and _acquisition='ACQ·P1·01' and _version='CM05-P101-COV-1.0.0' then '[{"componentKey":"RELATIONSHIP_MOMENTS","componentDescription":"Momentos de la relación con el cliente identificados"},{"componentKey":"FAILURE_SEVERITY","componentDescription":"Gravedad relativa de fallar en esos momentos"},{"componentKey":"SCOPE_EXHAUSTIVENESS","componentDescription":"Exhaustividad del alcance declarado"}]'::jsonb
+ else null end $$;
+comment on function public.approved_coverage_components(uuid,text,text,text) is 'COV-03A auxiliary registry (mirrors coverage-criteria.ts). Not diagnostic knowledge. CM05-P101 is a governed pilot test entry.';
+
+create function public.set_structured_acquisition_coverage(_declaration jsonb) returns jsonb language plpgsql security definer set search_path=public as $$
+declare m public.fragment_mappings%rowtype;prior public.coverage_decisions%rowtype;criteria jsonb;c jsonb;req jsonb;fragment text;extraction public.document_extractions%rowtype;evidence_version public.evidence_versions%rowtype;effective text;reasons text[]:=array[]::text[];seen text[]:=array[]::text[];quotes text[]:=array[]::text[];result jsonb;revision integer;
+begin
+if auth.uid() is null then raise exception 'NOT_AUTHENTICATED';end if;
+if jsonb_typeof(_declaration)<>'object' or octet_length(_declaration::text)>100000 then raise exception 'COVERAGE_PAYLOAD_INVALID';end if;
+select * into m from public.fragment_mappings where id=(_declaration->>'mappingId')::uuid for update;
+if not found then raise exception 'MAPPING_NOT_FOUND';end if;
+if not private.has_organization_role(m.organization_id,array['OWNER','ADMIN']::public.membership_role[]) then raise exception 'DOCUMENT_GOVERNANCE_FORBIDDEN';end if;
+select * into prior from public.coverage_decisions where id=(_declaration->>'requestId')::uuid;
+if found then if prior.mapping_id<>m.id or prior.actor_user_id<>auth.uid() or prior.declaration<>_declaration then raise exception 'IDEMPOTENCY_KEY_REUSED';end if;if m.coverage_revision<>prior.revision or m.status<>'VALIDATED' then raise exception 'COVERAGE_DECISION_OBSOLETE';end if;return prior.result;end if;
+if m.coverage_revision is distinct from (_declaration->>'expectedRevision')::integer then raise exception 'COVERAGE_DECISION_OBSOLETE';end if;
+if m.status<>'VALIDATED' or m.target_type<>'ACQUISITION' then raise exception 'COVERAGE_REQUIRES_VALIDATED_ACQUISITION_MAPPING';end if;
+if m.knowledge_version_id::text is distinct from (_declaration->>'knowledgeVersionId') or m.target_ref is distinct from (_declaration->>'acquisitionRef') or not exists(select 1 from public.assessments a where a.id=m.assessment_id and a.organization_id=m.organization_id and a.knowledge_version_id=m.knowledge_version_id) then raise exception 'COVERAGE_IDENTITY_MISMATCH';end if;
+if coalesce(_declaration->>'targetScope','') not in ('FULL','PARTIAL') or length(trim(coalesce(_declaration->>'synthesisJustification','')))<10 or length(_declaration->>'synthesisJustification')>2000 then raise exception 'COVERAGE_JUSTIFICATION_REQUIRED';end if;
+if jsonb_typeof(_declaration->'componentEvaluations') is distinct from 'array' or jsonb_array_length(_declaration->'componentEvaluations')>20 then raise exception 'COVERAGE_COMPONENTS_INVALID';end if;
+criteria:=public.approved_coverage_components(m.knowledge_version_id,m.capability_id,m.target_ref,_declaration->>'coverageCriteriaVersion');if criteria is null then reasons:=array_append(reasons,'GOVERNED_COMPONENTS_NOT_DEFINED');end if;
+select f.verbatim_text into fragment from public.evidence_fragments f where f.id=m.fragment_id and f.organization_id=m.organization_id;
+select x.* into extraction from public.document_extractions x join public.evidence_fragments f on f.extraction_id=x.id and f.organization_id=x.organization_id where f.id=m.fragment_id and f.organization_id=m.organization_id;
+select * into evidence_version from public.evidence_versions v where v.id=extraction.evidence_version_id and v.organization_id=m.organization_id;
+if extraction.status is distinct from 'COMPLETED' or extraction.superseded_by_extraction_id is not null or extraction.knowledge_version_id is distinct from m.knowledge_version_id or exists(select 1 from public.evidence_versions v where v.evidence_id=evidence_version.evidence_id and v.version_number>evidence_version.version_number) or exists(select 1 from public.document_extractions x where x.evidence_version_id=extraction.evidence_version_id and x.extraction_version>extraction.extraction_version and x.status='COMPLETED') or not exists(select 1 from public.evidence e where e.id=evidence_version.evidence_id and e.organization_id=m.organization_id and e.assessment_id=m.assessment_id) then reasons:=array_append(reasons,'EVIDENCE_NOT_CURRENT');end if;
+for c in select value from jsonb_array_elements(_declaration->'componentEvaluations') loop
+if c->>'componentKey' is null or c->>'componentKey'=any(seen) then raise exception 'DUPLICATE_COMPONENT';end if;seen:=array_append(seen,c->>'componentKey');
+if not exists(select 1 from jsonb_array_elements(criteria) r where r->>'componentKey'=c->>'componentKey' and r->>'componentDescription'=c->>'componentDescription') then reasons:=array_append(reasons,'COMPONENT_NOT_GOVERNED');end if;
+if coalesce(c->>'supportState','') not in ('SUPPORTED','PARTIAL','UNSUPPORTED','UNCERTAIN') then raise exception 'COVERAGE_COMPONENT_STATE_INVALID';end if;
+if c->>'supportState'='SUPPORTED' then
+if c->>'fragmentId' is distinct from m.fragment_id::text or length(trim(coalesce(c->>'supportingQuote','')))=0 or fragment is null or position(c->>'supportingQuote' in fragment)=0 then raise exception 'INVALID_COMPONENT_QUOTE';end if;
+if trim(c->>'supportingQuote')=any(quotes) then reasons:=array_append(reasons,'QUOTE_REUSED_FOR_OTHER_COMPONENT');end if;quotes:=array_append(quotes,trim(c->>'supportingQuote'));
+if c->>'humanConfirmedRelevance' is distinct from 'true' or length(trim(coalesce(c->>'componentJustification','')))=0 or length(trim(coalesce(c->>'uncertaintyNotes','')))>0 then reasons:=array_append(reasons,'COMPONENT_RELEVANCE_NOT_GOVERNED');end if;
+end if;end loop;
+for req in select value from jsonb_array_elements(criteria) loop if not exists(select 1 from jsonb_array_elements(_declaration->'componentEvaluations') e where e->>'componentKey'=req->>'componentKey' and e->>'supportState'='SUPPORTED') then reasons:=array_append(reasons,'REQUIRED_COMPONENT_INCOMPLETE');end if;end loop;
+if _declaration->>'humanConfirmedCompleteness' is distinct from 'true' then reasons:=array_append(reasons,'HUMAN_COMPLETENESS_NOT_CONFIRMED');end if;
+if exists(select 1 from public.observations o where o.organization_id=m.organization_id and o.assessment_id=m.assessment_id and o.value->>'capabilityId'=m.capability_id and o.value->>'acquisitionRef'=m.target_ref and o.value->>'knowledgeState'='CONTRADICTORY' and not exists(select 1 from public.observations control where control.assessment_id=o.assessment_id and control.value->>'correctsObservationId'=o.id::text)) then reasons:=array_append(reasons,'SOURCE_CONFLICT');end if;
+effective:=case when _declaration->>'targetScope'='FULL' and cardinality(reasons)=0 then 'FULL' else 'PARTIAL' end;revision:=m.coverage_revision+1;
+result:=jsonb_build_object('coverageScope',effective,'rejectionReasons',to_jsonb(reasons),'revision',revision,'validationKind','STRUCTURAL_AND_HUMAN_GOVERNANCE','coverageKind','ACQUISITION_ONLY_NO_OBSERVATION');
+insert into public.coverage_decisions(id,organization_id,assessment_id,mapping_id,revision,actor_user_id,declaration,result) values((_declaration->>'requestId')::uuid,m.organization_id,m.assessment_id,m.id,revision,auth.uid(),_declaration,result);
+update public.fragment_mappings set coverage_scope=effective,coverage_acquisition_ref=case when effective='FULL' then m.target_ref else null end,coverage_justification=_declaration->>'synthesisJustification',coverage_decided_by=auth.uid(),coverage_decided_at=clock_timestamp(),coverage_revision=revision,coverage_evaluation=jsonb_build_object('declaration',_declaration,'result',result,'evidenceId',evidence_version.evidence_id,'extractionId',extraction.id,'evidenceVersionId',evidence_version.id,'decidedBy',auth.uid()) where id=m.id;
+return result;
+end $$;
+revoke all on function public.set_structured_acquisition_coverage(jsonb) from public,anon;
+grant execute on function public.set_structured_acquisition_coverage(jsonb) to authenticated;
