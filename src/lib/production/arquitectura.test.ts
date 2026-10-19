@@ -51,6 +51,8 @@ const AUTORIZADOS = [
   "src/lib/production/documentary-e2.test.ts",
   // INT-01-COV-02: pruebas del contrato gobernado de cobertura documental (mismas reglas).
   "src/lib/production/documentary-cov02.test.ts",
+  // INT-01-COV-03 BUILD 01: piloto CM-05 de cobertura de adquisición (mismas reglas).
+  "src/lib/production/cov03-cm05-pilot.test.ts",
 ];
 
 describe("arquitectura · separación frontend / knowledge-engine", () => {

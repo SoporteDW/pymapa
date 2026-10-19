@@ -2573,6 +2573,10 @@ export type Database = {
         }
         Returns: undefined
       }
+      set_structured_acquisition_coverage: {
+        Args: { _declaration: Json }
+        Returns: Json
+      }
       set_structured_fragment_coverage: {
         Args: { _declaration: Json }
         Returns: Json
