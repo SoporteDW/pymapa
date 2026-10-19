@@ -294,13 +294,18 @@ async function evaluarAssessment(
   assessmentId: string,
   knowledgeVersionId: string = deps.knowledgeVersionId,
 ): Promise<EvaluationResult & { documentaryCoverage: DocumentaryCoverage[] }> {
-  const [filas, enlaces, mappings, assessment] = await Promise.all([
+  const [filas, enlaces, todasMappings, assessment] = await Promise.all([
     deps.repository.listObservations(assessmentId),
     deps.repository.listEvidenceLinks(assessmentId),
     deps.repository.listDocumentMappings(assessmentId),
     deps.repository.getAssessment(assessmentId),
   ]);
   if (!assessment) throw new Error("ASSESSMENT_NOT_FOUND");
+  // COV-03C · No propagation: the shared runtime Assessment holds mappings of
+  // every capability and acquisition IDs repeat across packs, so only this
+  // capability's mappings of this organization/knowledge version may project coverage.
+  const mappings = todasMappings.filter((m) => m.organizationId === assessment.organizationId
+    && m.capabilityId === deps.engine.pack.capability.id && m.knowledgeVersionId === knowledgeVersionId);
   const vigentes = documentalesVigentes(observacionesVigentes(filas), mappings, {
     organizationId: assessment.organizationId, assessmentId, capabilityId: deps.engine.pack.capability.id,
     knowledgeVersionId, packId: deps.engine.pack.packId, packVersion: deps.engine.pack.packVersion,

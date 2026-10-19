@@ -61,6 +61,7 @@ async function ws(s: ReturnType<typeof setup>) {
   if (!r) throw new Error("no assessment");
   return { r, w: createActionableProjector(raw).derive({ engine: s.engine, ...r }) };
 }
+const pending = (w: Awaited<ReturnType<typeof ws>>["w"]) => w.pendingInformationTasks.map((t) => t.acquisitionId);
 const states = (r: Awaited<ReturnType<typeof ws>>["r"]) => r.evaluation.variableEvaluations.map((v) => [v.variableRef, v.state]);
 
 describe("COV-03C · inventario OP-05 (pack publicado, sin inferir 1:1)", () => {
@@ -101,7 +102,9 @@ describe("COV-03C · piloto OP-05 / ACQ·VA01#NI@L254", () => {
   it("C1: inicialmente las 64 adquisiciones están pendientes", async () => {
     const { r, w } = await ws(setup());
     expect(r.answeredAcquisitionIds).toEqual([]);
-    expect(w.nextQuestion?.acquisitionId).toBe(ACQ);
+    expect(w.nextQuestion).toBeNull(); // OP-05 no tiene preguntas literales: son tareas de información
+    expect(pending(w)).toEqual(ALL);
+    expect(w.counts.literalQuestions).toBe(0);
   });
   it("C2: PARTIAL, FULL incompleto, sin confirmación o con versión no registrada no descuentan", async () => {
     for (const m of [mapping("PARTIAL"), mapping("FULL", { components: OP05_VA01_L254_COMPONENTS.slice(0, 1) }),
@@ -109,7 +112,7 @@ describe("COV-03C · piloto OP-05 / ACQ·VA01#NI@L254", () => {
       const s = setup(); s.state.documentMappings.push(m);
       const { r, w } = await ws(s);
       expect(r.answeredAcquisitionIds).toEqual([]);
-      expect(w.nextQuestion?.acquisitionId).toBe(ACQ);
+      expect(pending(w)).toEqual(ALL);
     }
   });
   it("C3–C6: FULL válido descuenta solo L254; 63 restantes intactas, sin observaciones ni variables KNOWN", async () => {
@@ -119,7 +122,8 @@ describe("COV-03C · piloto OP-05 / ACQ·VA01#NI@L254", () => {
     expect(report.admitted).toBe(0);
     const { r, w } = await ws(s);
     expect(r.answeredAcquisitionIds).toEqual([ACQ]);
-    expect(w.nextQuestion?.acquisitionId).toBe("ACQ·VA01#NI@L255");
+    expect(pending(w)).toEqual(ALL.filter((a) => a !== ACQ));
+    expect(pending(w)).toHaveLength(63);
     expect(w.documentaryCoverage.map((c) => [c.acquisitionId, c.state])).toEqual([[ACQ, "COMPLETE"]]);
     expect(s.state.observations).toHaveLength(0);
     expect(states(r)).toEqual(states(before.r));
@@ -129,7 +133,7 @@ describe("COV-03C · piloto OP-05 / ACQ·VA01#NI@L254", () => {
     const s = setup(); s.state.documentMappings.push(mapping("FULL", { status: "SUPERSEDED" }));
     const { r, w } = await ws(s);
     expect(r.answeredAcquisitionIds).toEqual([]);
-    expect(w.nextQuestion?.acquisitionId).toBe(ACQ);
+    expect(pending(w)).toEqual(ALL);
   });
   it("C10a cardinalidad: los criterios de L254 no cubren una hermana (L255) aunque se declare FULL", async () => {
     const s = setup(); s.state.documentMappings.push(mapping("FULL", { targetRef: "ACQ·VA01#NI@L255" }));
@@ -147,6 +151,11 @@ describe("COV-03C · piloto OP-05 / ACQ·VA01#NI@L254", () => {
   });
   it("C10d multitenant: un mapping de otra organización no descuenta", async () => {
     const s = setup(); s.state.documentMappings.push(mapping("FULL", { org: "otra-org" }));
+    expect((await ws(s)).r.answeredAcquisitionIds).toEqual([]);
+  });
+  it("C10e no propagación: un FULL verificado de otra capacidad en el mismo assessment no descuenta en OP-05", async () => {
+    const s = setup();
+    s.state.documentMappings.push({ ...mapping("FULL"), capabilityId: "CM-05" }, { ...mapping("FULL"), id: "c0700000-0000-4000-8000-000000000009", knowledgeVersionId: "ee463f4d-2ed1-428d-8809-aa6ac0f43cb9" });
     expect((await ws(s)).r.answeredAcquisitionIds).toEqual([]);
   });
   it("C11: el pack OP-05 no se altera", () => {
