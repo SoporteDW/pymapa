@@ -11,6 +11,8 @@
  *   React → AssessmentClient → Application boundary → Knowledge Engine → PostgreSQL
  */
 import { z } from "zod";
+import { approvedCoverageCriteria } from "./coverage-criteria";
+import { structuredCoverageDeclarationSchema } from "./structured-coverage";
 
 const estadoConocimiento = z.enum(["KNOWN", "UNKNOWN", "NOT_APPLICABLE", "CONTRADICTORY"]);
 
@@ -329,11 +331,7 @@ export async function revokeCapabilityDocumentMappingHandler(
 /* ------------------------------------------------------------------ */
 
 export const declareCapabilityDocumentCoverageInput = (data: unknown) =>
-  z.object({
-    mappingId: z.string().uuid(),
-    scope: z.enum(["FULL", "PARTIAL"]),
-    justification: z.string().min(10).max(2000),
-  }).strict().parse(data);
+  structuredCoverageDeclarationSchema.parse(data);
 
 /**
  * COV-02 · Declaración de cobertura documental, decisión SEPARADA de la
@@ -388,9 +386,9 @@ export async function declareCapabilityDocumentCoverageHandler(
   ) => Promise<{ error: { message: string } | null }>;
   const { error: rpcError } = await rpc.call(client, "set_fragment_mapping_coverage", {
     _mapping_id: data.mappingId,
-    _scope: data.scope,
-    _acquisition_ref: data.scope === "FULL" ? factualRef : null,
-    _justification: data.justification,
+    _scope: "PARTIAL",
+    _acquisition_ref: null,
+    _justification: data.synthesisJustification,
   });
   if (rpcError) {
     if (rpcError.message.includes("FORBIDDEN")) throw new Error("DOCUMENT_GOVERNANCE_FORBIDDEN");
@@ -399,8 +397,8 @@ export async function declareCapabilityDocumentCoverageHandler(
   }
   return {
     mappingId: data.mappingId,
-    coverageScope: data.scope,
-    acquisitionRef: data.scope === "FULL" ? factualRef : null,
+    coverageScope: "PARTIAL" as const,
+    acquisitionRef: null,
   };
 }
 
