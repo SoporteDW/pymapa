@@ -10,6 +10,7 @@
 <!-- LOVABLE:END -->
 
 ## Architecture decisions
+- Subdirectories have their own `AGENTS.md`; read it before changing files there.
 - Knowledge packs are loaded only via the static registry `src/lib/production/packs-registry.ts` (31 build-time imports, checksum-verified against `published.json`, fail-closed) — Workers have no runtime filesystem.
 - New assessments pin to `PYMAPA-RUNTIME-MANIFEST` (composite checksum of all published packs); `PYMAPA-KNOWLEDGE-MASTER 1.0.0` is a frozen M1/OP-01 row, never updated — historical traceability.
 - Server boundary logic lives in `capability-handlers.ts` (capabilityId-parametrized); `op01.functions.ts` and `capabilities.functions.ts` are thin auth-protected wrappers — no per-capability code paths.
@@ -27,8 +28,3 @@
 - AI document interpretation goes through the `LlmGatewayClient` interface (`src/lib/ia/llm-gateway-client.server.ts`); the server verifies literal quotes, pages and canonical pack IDs, and AI proposals stay CANDIDATE — provider can change without touching diagnostic logic.
 - AI document readings are persisted server-side (`src/lib/ia/persistencia-documental.server.ts`) as evidence → version → extraction → fragment (one per literal quote) → interpretation → INFORMATION_NEED mapping CANDIDATE; human decisions go only through `validate_fragment_mapping` — accepted NI mappings never create observations, sufficiency or closure.
 - Engine contradictions are split per capability-scoped acquisition (`separarContradiccionesPorAdquisicion` in `caso-uso.ts`) — progressive questions share a generic variableRef and must never be clarified together.
-- Documentary coverage is projected separately from Engine admission; documentary subtraction requires a version-pinned auxiliary criteria contract and a current structured human declaration, never a bare FULL flag — mappings alone cannot hide questions.
-- Structured coverage uses an authenticated row-locked RPC, append-only coverage_decisions and revision/request IDs; the UI consumes approved criteria from the server — retries and stale decisions cannot silently replace governance.
-- Cross-capability reuse references the original fragment with a deterministic candidate primary key and no interpretation/admission copied; authenticated OWNER/ADMIN authorization precedes privileged writes — retries and tenant isolation cannot transfer conclusions.
-- Coverage criteria live in the registry `COVERAGE_CRITERIA_REGISTRY` (`coverage-criteria.ts`), mirrored literally in SQL `approved_coverage_components`; each entry fixes knowledge version, capability, acquisition, criteria version, approval ref and mapping archetype — anything unregistered is PARTIAL_ONLY.
-- Progressive capabilities use ACQUISITION-target mappings + `set_structured_acquisition_coverage`: FULL discounts only that question via `answeredAcquisitionRefs`, never creates observations or variable states — the Engine never sees coverage.
