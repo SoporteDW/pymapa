@@ -1,5 +1,11 @@
 # Roadmap
 
+## INT-01-COV-QA · QA-01 + QA-02 only
+- [ ] Versioned governed auxiliary criteria and structured declaration for DG-01 / ACQ·NI04 only.
+- [ ] Additive persistence, audit, authorization, evidence validation and stale/retry safety.
+- [ ] Synthetic QA02-01..12, authenticated QA browser and full regression.
+- [ ] Ten-section closure report; no COV-03 implementation or protected changes.
+
 ## M2-OP02-02 · Generic Runtime Compatibility Closure
 - [x] Cerrado (ver docs/architecture/M2_OP02_RUNTIME_COMPATIBILITY_CLOSURE.md)
 
