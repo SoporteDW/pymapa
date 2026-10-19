@@ -15,10 +15,11 @@ import { admitirCorrespondenciasDocumentales } from "./document-admission-bridge
 import { evaluarCapacidad, submitAcquisitionResponse } from "./caso-uso";
 import { createActionableProjector } from "./actionable";
 import { reutilizarEvidenciaDocumental } from "./cross-capability-evidence";
+import { COVERAGE_KNOWLEDGE_VERSION_ID, COVERAGE_CRITERIA_VERSION, DG01_NI04_COMPONENTS } from "./coverage-criteria";
 import { assertDocumentGovernanceRole } from "./capability-handlers";
 
 function pack(id: string) { return JSON.parse(readFileSync(`knowledge/packs/${id.toLowerCase()}/1.0.0/pack.json`, "utf8")); }
-const ORG = "qa-cov02-a", ASSESS = "qa-cov02-assessment", KV = "qa-cov02-kv";
+const ORG = "qa-cov02-a", ASSESS = "qa-cov02-assessment", KV = COVERAGE_KNOWLEDGE_VERSION_ID;
 
 function setup(id = "DG-01", role: "OWNER" | "ADMIN" | "MEMBER" = "OWNER") {
   const raw = pack(id), engine = createKnowledgeEngine(raw);
@@ -47,6 +48,13 @@ function conCoberturaFull(m: DocumentMappingRecord): DocumentMappingRecord {
     coverageDecidedAt: "2026-10-18" };
 }
 
+function coberturaNi04(): DocumentMappingRecord {
+  const quotes = ["Horizonte 2026–2028.", "Ambición: venta directa al consumidor.", "Cambios: nueva logística interna.", "Entorno: regulación 2027.", "La dirección declara todos los cambios materiales del período."];
+  const m = conCoberturaFull(mapping({id:"a0040000-0000-4000-8000-000000000001",fragmentId:"a0040000-0000-4000-8000-000000000002",targetRef:"VA04",factualCorrespondenceRef:"ACQ·NI04",fragmentText:quotes.join("\n")}));
+  const declaration = {mappingId:m.id,acquisitionRef:"ACQ·NI04",knowledgeVersionId:KV,coverageCriteriaVersion:COVERAGE_CRITERIA_VERSION,targetScope:"FULL",componentEvaluations:DG01_NI04_COMPONENTS.map((c,i)=>({componentKey:c.componentKey,componentDescription:c.componentDescription,supportState:"SUPPORTED",fragmentId:m.fragmentId,supportingQuote:quotes[i],componentJustification:"Respaldo confirmado por la dirección.",uncertaintyNotes:"",humanConfirmedRelevance:true})),synthesisJustification:"Todos los componentes están respaldados por el fragmento.",humanConfirmedCompleteness:true,expectedRevision:0,requestId:"a0040000-0000-4000-8000-000000000003"};
+  return {...m,coverageRevision:1,coverageEvidenceCurrent:true,coverageEvaluation:{declaration,result:{coverageScope:"FULL",revision:1},decidedBy:m.coverageDecidedBy,evidenceId:m.evidenceId,extractionId:m.extractionId}};
+}
+
 async function workspace(s: ReturnType<typeof setup>) {
   const result = await evaluarCapacidad(s.deps, ASSESS);
   if (!result) throw new Error("missing synthetic assessment");
@@ -56,13 +64,13 @@ async function workspace(s: ReturnType<typeof setup>) {
 describe("INT-01-COV-02 · cobertura documental gobernada (DG-01)", () => {
   it("COV-01: evidencia completa, justificada y gobernada descuenta la adquisición", async () => {
     const s = setup();
-    s.state.documentMappings.push(conCoberturaFull(mapping()));
+    s.state.documentMappings.push(coberturaNi04());
     expect((await admitirCorrespondenciasDocumentales(s.deps, { organizationId: ORG, assessmentId: ASSESS })).admitted).toBe(1);
     const { result, workspace: w } = await workspace(s);
     expect(w.documentaryCoverage[0]?.state).toBe("COMPLETE");
     expect(w.documentaryCoverage[0]?.reason).toBe("COVERAGE_DECLARED_FULL");
-    expect(result.answeredAcquisitionIds).toContain("ACQ·NI01");
-    expect(w.pendingInformationTasks.map((a) => a.acquisitionId)).not.toContain("ACQ·NI01");
+    expect(result.answeredAcquisitionIds).toContain("ACQ·NI04");
+    expect(w.pendingInformationTasks.map((a) => a.acquisitionId)).not.toContain("ACQ·NI04");
     expect(w.counts.answered).toBe(1);
   });
 
@@ -101,16 +109,18 @@ describe("INT-01-COV-02 · cobertura documental gobernada (DG-01)", () => {
 
   it("COV-05: revocar la cobertura completa restituye la adquisición pendiente", async () => {
     const s = setup();
-    s.state.documentMappings.push(conCoberturaFull(mapping()));
+    s.state.documentMappings.push(coberturaNi04());
     await admitirCorrespondenciasDocumentales(s.deps, { organizationId: ORG, assessmentId: ASSESS });
-    expect((await workspace(s)).result.answeredAcquisitionIds).toContain("ACQ·NI01");
+    expect((await workspace(s)).result.answeredAcquisitionIds).toContain("ACQ·NI04");
     // Revocación gobernada: FULL → PARTIAL (la observación admitida sigue vigente).
-    s.state.documentMappings[0] = { ...s.state.documentMappings[0]!, coverageScope: "PARTIAL", coverageAcquisitionRef: null,
+    const current = s.state.documentMappings[0];
+    if (!current) throw new Error("missing mapping");
+    s.state.documentMappings[0] = { ...current, coverageScope: "PARTIAL", coverageAcquisitionRef: null,
       coverageJustification: "Se revierte: la evidencia no demuestra cobertura completa.", coverageDecidedAt: "2026-10-18" };
     const { result, workspace: w } = await workspace(s);
     expect(w.documentaryCoverage[0]?.state).toBe("PARTIAL");
-    expect(result.answeredAcquisitionIds).not.toContain("ACQ·NI01");
-    expect(w.pendingInformationTasks.map((a) => a.acquisitionId)).toContain("ACQ·NI01");
+    expect(result.answeredAcquisitionIds).not.toContain("ACQ·NI04");
+    expect(w.pendingInformationTasks.map((a) => a.acquisitionId)).toContain("ACQ·NI04");
   });
 
   it("COV-06: la reutilización transversal no transfiere la cobertura", async () => {
@@ -121,7 +131,9 @@ describe("INT-01-COV-02 · cobertura documental gobernada (DG-01)", () => {
       externalReference: null, title: "QA", note: null, submittedBy: "qa-cov02-user", respondentId: null, capturedAt: null });
     const evidence = (await s.repo.listEvidence(ASSESS))[0];
     if (!evidence) throw new Error("missing evidence");
-    s.state.documentMappings[0] = { ...s.state.documentMappings[0]!, evidenceId: evidence.id };
+    const current = s.state.documentMappings[0];
+    if (!current) throw new Error("missing mapping");
+    s.state.documentMappings[0] = { ...current, evidenceId: evidence.id };
     const target = createKnowledgeEngine(pack("PC-01"));
     const reusado = await reutilizarEvidenciaDocumental({
       repository: s.repo, knowledgeVersionId: KV, packId: target.pack.packId, packVersion: target.pack.packVersion,

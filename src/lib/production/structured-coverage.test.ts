@@ -1,0 +1,23 @@
+import { describe,expect,it } from 'vitest';
+import { COVERAGE_CRITERIA_VERSION,COVERAGE_KNOWLEDGE_VERSION_ID,DG01_NI04_COMPONENTS } from './coverage-criteria';
+import { validateStructuredCoverage,structuredCoverageDeclarationSchema,type StructuredCoverageDeclaration } from './structured-coverage';
+import { hasVerifiedStructuredCoverage } from './documentary-coverage';
+import { assertDocumentGovernanceRole } from './capability-handlers';
+const QA_QUOTES = ['Horizonte temporal: 2026 a 2028.','Ambición: pasar de venta mayorista a venta directa al consumidor.','Cambios materiales: retirar intermediarios y crear logística interna y atención al cliente.','Entorno: adaptar los empaques a la regulación prevista para 2027.','Exhaustividad: la dirección declara que estos son todos los cambios relevantes previstos o por enfrentar en el período.'];
+const fragmentId='a0030000-0000-4000-8000-000000000001';
+function declaration(): StructuredCoverageDeclaration { return {mappingId:'a0030000-0000-4000-8000-000000000002',acquisitionRef:'ACQ·NI04',knowledgeVersionId:COVERAGE_KNOWLEDGE_VERSION_ID,coverageCriteriaVersion:COVERAGE_CRITERIA_VERSION,targetScope:'FULL',componentEvaluations:DG01_NI04_COMPONENTS.map((c,i)=>({...c,fragmentId,supportState:'SUPPORTED',supportingQuote:QA_QUOTES[i] ?? '',componentJustification:`La dirección confirma el respaldo del componente ${c.componentDescription}.`,uncertaintyNotes:'',humanConfirmedRelevance:true})),synthesisJustification:'La dirección revisó los cinco componentes y confirma el alcance completo.',humanConfirmedCompleteness:true,expectedRevision:0,requestId:'a0030000-0000-4000-8000-000000000003'}; }
+const context={capabilityId:'DG-01',knowledgeVersionId:COVERAGE_KNOWLEDGE_VERSION_ID,acquisitionRef:'ACQ·NI04',fragmentId,fragmentText:QA_QUOTES.join('\n'),evidenceCurrent:true,hasConflict:false};
+describe('QA02 structured human documentary governance',()=>{
+ it('T-QA02-01: prioridad anual sola permanece PARTIAL',()=>{const d=declaration();d.componentEvaluations=d.componentEvaluations.map(c=>({...c,supportState:'PARTIAL',supportingQuote:''}));expect(validateStructuredCoverage(d,{...context,fragmentText:'Prioridad anual: lanzar suscripción corporativa.'}).coverageScope).toBe('PARTIAL');});
+ it('T-QA02-02: cinco componentes completos y confirmados permiten FULL',()=>expect(validateStructuredCoverage(declaration(),context).coverageScope).toBe('FULL'));
+ it('T-QA02-03: cita inventada es rechazada',()=>{const d=declaration();const first=d.componentEvaluations[0];if(!first)throw Error('fixture');first.supportingQuote='Cita ausente';expect(()=>validateStructuredCoverage(d,context)).toThrow('INVALID_COMPONENT_QUOTE');});
+ it('T-QA02-04: MEMBER no gobierna',()=>expect(()=>assertDocumentGovernanceRole('MEMBER')).toThrow('DOCUMENT_GOVERNANCE_FORBIDDEN'));
+ it('T-QA02-05: conflicto y evidencia no vigente impiden FULL',()=>{expect(validateStructuredCoverage(declaration(),{...context,hasConflict:true}).coverageScope).toBe('PARTIAL');expect(validateStructuredCoverage(declaration(),{...context,evidenceCurrent:false}).coverageScope).toBe('PARTIAL');});
+ it('T-QA02-06: otra adquisición sin criterios nunca recibe FULL',()=>{const d=declaration();d.acquisitionRef='ACQ·NI03';expect(validateStructuredCoverage(d,{...context,acquisitionRef:d.acquisitionRef}).coverageScope).toBe('PARTIAL');});
+ it('T-QA02-07: omitir exhaustividad impide FULL',()=>{const d=declaration();d.componentEvaluations.pop();expect(validateStructuredCoverage(d,context).coverageScope).toBe('PARTIAL');});
+ it('T-QA02-08: cita de horizonte no demuestra ambición',()=>{const d=declaration();const second=d.componentEvaluations[1];if(!second)throw Error('fixture');second.supportingQuote=QA_QUOTES[0] ?? '';second.humanConfirmedRelevance=false;expect(validateStructuredCoverage(d,context).coverageScope).toBe('PARTIAL');});
+ it('T-QA02-09: FULL histórico sin evaluación no es verificado',()=>expect(hasVerifiedStructuredCoverage({coverageScope:'FULL',coverageEvaluation:null} as Parameters<typeof hasVerifiedStructuredCoverage>[0])).toBe(false));
+ it('identidad/version incorrecta no es admisible',()=>{const d=declaration();d.knowledgeVersionId='a0030000-0000-4000-8000-000000000099';expect(()=>validateStructuredCoverage(d,context)).toThrow('COVERAGE_IDENTITY_MISMATCH');});
+ it('sin confirmación humana no se considera completo',()=>{const d=declaration();d.humanConfirmedCompleteness=false;expect(validateStructuredCoverage(d,context).coverageScope).toBe('PARTIAL');});
+ it('claves libres no son contrato válido',()=>expect(structuredCoverageDeclarationSchema.safeParse({...declaration(),freeCriteria:['invented']}).success).toBe(false));
+});
