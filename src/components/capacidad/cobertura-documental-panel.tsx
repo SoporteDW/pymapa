@@ -10,7 +10,7 @@ import { declareCapabilityDocumentCoverage } from "@/lib/production/capabilities
 import type { ComponentEvidenceEvaluation, StructuredCoverageDeclaration } from "@/lib/production/structured-coverage";
 
 export interface DocumentaryMappingItem {
- id: string; status: string; targetType: string; targetRef: string; factualCorrespondenceRef: string | null;
+ id: string; status: string; targetType: string; targetRef: string; factualCorrespondenceRef: string | null; coveredAcquisitionRef?: string | null;
  fragmentText: string; interpretationStatement: string | null; coverageScope: "FULL" | "PARTIAL";
  coverageAcquisitionRef: string | null; coverageJustification: string | null; coverageDecidedAt: string | null;
  fragmentId: string; knowledgeVersionId: string; coverageRevision: number; coverageEvaluation: unknown;
@@ -27,7 +27,7 @@ function CoverageEditor({ m, save, pending, cancel }: { m: DocumentaryMappingIte
  const [complete, setComplete] = useState(false);
  const [requestId] = useState(() => crypto.randomUUID());
  const update = (i: number, patch: Partial<ComponentEvidenceEvaluation>) => setComponents((rows) => rows.map((r, n) => n === i ? { ...r, ...patch } : r));
- const submit = (scope: "FULL" | "PARTIAL") => save({ mappingId: m.id, acquisitionRef: m.factualCorrespondenceRef ?? "", knowledgeVersionId: m.knowledgeVersionId,
+ const submit = (scope: "FULL" | "PARTIAL") => save({ mappingId: m.id, acquisitionRef: m.coveredAcquisitionRef ?? m.factualCorrespondenceRef ?? "", knowledgeVersionId: m.knowledgeVersionId,
   coverageCriteriaVersion: m.coverageCriteria?.coverageCriteriaVersion ?? "NOT_DEFINED", targetScope: scope, componentEvaluations: components,
   synthesisJustification: justification.trim(), humanConfirmedCompleteness: complete, expectedRevision: m.coverageRevision, requestId });
  return <div className="space-y-4">
@@ -58,12 +58,12 @@ export function CoberturaDocumentalPanel({ capabilityId, mappings, canGovern }: 
   onSuccess: (r) => { toast.success(r.coverageScope === "FULL" ? "Cobertura completa registrada" : "Cobertura parcial registrada", { description: r.rejectionReasons.length ? `La solicitud completa no fue aceptada: ${r.rejectionReasons.join(", ")}` : undefined }); setEditing(null); qc.invalidateQueries({ queryKey: ["capacidad", capabilityId] }); qc.invalidateQueries({ queryKey: ["hub-diagnostico"] }); },
   onError: (e) => toast.error("No se pudo registrar la decisión", { description: e instanceof Error ? e.message : undefined }),
  });
- const factual = mappings.filter((m) => m.status === "VALIDATED" && m.targetType === "VARIABLE" && m.factualCorrespondenceRef);
+ const factual = mappings.filter((m) => m.status === "VALIDATED" && ((m.targetType === "VARIABLE" && m.factualCorrespondenceRef) || m.targetType === "ACQUISITION"));
  if (!factual.length) return null;
  return <section data-testid="cobertura-documental" className="space-y-4 border-t border-border pt-6">
   <h2 className="text-base font-semibold">Cobertura documental</h2>
   <ul className="space-y-4">{factual.map((m) => <li key={m.id} data-mapping-id={m.id} className="space-y-3 rounded-lg border border-border p-4 text-sm">
-   <div className="flex flex-wrap justify-between gap-2"><span>Requerimiento {m.factualCorrespondenceRef} · variable {m.targetRef}</span><Badge variant="outline">{m.coverageScope === "FULL" && m.coverageVerified ? "Cobertura completa declarada" : "Cobertura parcial / no verificada"}</Badge></div>
+   <div className="flex flex-wrap justify-between gap-2"><span>Requerimiento {m.coveredAcquisitionRef ?? m.factualCorrespondenceRef}{m.targetType === "VARIABLE" ? ` · variable ${m.targetRef}` : " · cobertura de pregunta (sin valor de variable)"}</span><Badge variant="outline">{m.coverageScope === "FULL" && m.coverageVerified ? "Cobertura completa declarada" : "Cobertura parcial / no verificada"}</Badge></div>
    <p className="whitespace-pre-wrap text-muted-foreground">«{m.fragmentText}»</p>
    {m.coverageJustification && <p>Decisión registrada: {m.coverageJustification}</p>}
    {canGovern && editing !== m.id && <Button size="sm" variant="outline" onClick={() => setEditing(m.id)}>Evaluar cobertura</Button>}

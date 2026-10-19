@@ -11,7 +11,7 @@
  *   React → AssessmentClient → Application boundary → Knowledge Engine → PostgreSQL
  */
 import { z } from "zod";
-import { approvedCoverageCriteria } from "./coverage-criteria";
+import { approvedCoverageCriteria, coveredAcquisitionOf } from "./coverage-criteria";
 import { structuredCoverageDeclarationSchema } from "./structured-coverage";
 import { hasVerifiedStructuredCoverage } from "./documentary-coverage";
 
@@ -365,17 +365,18 @@ export async function declareCapabilityDocumentCoverageHandler(
   assertDocumentGovernanceRole(membership.role as string);
   const { data: mapping, error: mappingError } = await client
     .from("fragment_mappings")
-    .select("id, status, target_type, factual_correspondence_ref")
+    .select("id, status, target_type, target_ref, factual_correspondence_ref")
     .eq("id", data.mappingId)
     .eq("organization_id", assessment.organizationId)
     .eq("assessment_id", assessment.id)
     .eq("capability_id", capabilityId)
     .maybeSingle();
   if (mappingError || !mapping) throw new Error("MAPPING_NOT_IN_CAPABILITY");
-  const factualRef = (mapping as { factual_correspondence_ref: string | null }).factual_correspondence_ref;
-  if ((mapping as { target_type: string }).target_type !== "VARIABLE" || !factualRef) {
-    throw new Error("COVERAGE_REQUIRES_FACTUAL_MAPPING");
-  }
+  const row = mapping as { target_type: string; target_ref: string; factual_correspondence_ref: string | null };
+  // COV-03A/B: VARIABLE (factual) or ACQUISITION (pure coverage, no observation).
+  const factualRef = coveredAcquisitionOf({ targetType: row.target_type, targetRef: row.target_ref, factualCorrespondenceRef: row.factual_correspondence_ref });
+  if (!factualRef) throw new Error("COVERAGE_REQUIRES_FACTUAL_MAPPING");
+  const rpcName = row.target_type === "ACQUISITION" ? "set_structured_acquisition_coverage" : "set_structured_fragment_coverage";
   // La adquisición cubierta debe existir en el pack fijado al Assessment.
   const engine = runtime.cargarEngine(capabilityId);
   if (!engine.getAcquisition(factualRef)) throw new Error("FACTUAL_ACQUISITION_NOT_IN_PACK");
@@ -385,7 +386,7 @@ export async function declareCapabilityDocumentCoverageHandler(
     fn: string,
     args: Record<string, unknown>,
   ) => Promise<{ data: { coverageScope: "FULL" | "PARTIAL"; rejectionReasons: string[]; revision: number } | null; error: { message: string } | null }>;
-  const { data: decision, error: rpcError } = await rpc.call(client, "set_structured_fragment_coverage", {
+  const { data: decision, error: rpcError } = await rpc.call(client, rpcName, {
     _declaration: data,
   });
   if (rpcError) {
@@ -672,7 +673,8 @@ export async function getCapabilityWorkspaceHandler(context: Ctx, capabilityId: 
         fragmentId: m.fragmentId,
         knowledgeVersionId: m.knowledgeVersionId,
         coverageRevision: m.coverageRevision ?? 0,
-        coverageCriteria: approvedCoverageCriteria(m.knowledgeVersionId, m.capabilityId, m.factualCorrespondenceRef ?? ""),
+        coverageCriteria: approvedCoverageCriteria(m.knowledgeVersionId, m.capabilityId, coveredAcquisitionOf(m) ?? ""),
+        coveredAcquisitionRef: coveredAcquisitionOf(m),
         coverageEvaluation: m.coverageEvaluation ?? null,
         coverageVerified: hasVerifiedStructuredCoverage(m),
       })),
