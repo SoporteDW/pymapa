@@ -378,27 +378,25 @@ export async function declareCapabilityDocumentCoverageHandler(
   // La adquisición cubierta debe existir en el pack fijado al Assessment.
   const engine = runtime.cargarEngine(capabilityId);
   if (!engine.getAcquisition(factualRef)) throw new Error("FACTUAL_ACQUISITION_NOT_IN_PACK");
-  // RPC creado en la migración COV-02; los tipos generados aún no lo incluyen.
-  // Importante: invocar con .call(client, …) — rpc usa this.rest internamente.
+  if (data.acquisitionRef !== factualRef || data.knowledgeVersionId !== assessment.knowledgeVersionId) throw new Error("COVERAGE_IDENTITY_MISMATCH");
+  // Atomic authenticated RPC repeats all checks under a row lock.
   const rpc = client.rpc as unknown as (
     fn: string,
     args: Record<string, unknown>,
-  ) => Promise<{ error: { message: string } | null }>;
-  const { error: rpcError } = await rpc.call(client, "set_fragment_mapping_coverage", {
-    _mapping_id: data.mappingId,
-    _scope: "PARTIAL",
-    _acquisition_ref: null,
-    _justification: data.synthesisJustification,
+  ) => Promise<{ data: { coverageScope: "FULL" | "PARTIAL"; rejectionReasons: string[]; revision: number } | null; error: { message: string } | null }>;
+  const { data: decision, error: rpcError } = await rpc.call(client, "set_structured_fragment_coverage", {
+    _declaration: data,
   });
   if (rpcError) {
     if (rpcError.message.includes("FORBIDDEN")) throw new Error("DOCUMENT_GOVERNANCE_FORBIDDEN");
     if (rpcError.message.includes("COVERAGE_REQUIRES_VALIDATED_MAPPING")) throw new Error("MAPPING_NOT_VALIDATED");
     throw new Error(rpcError.message);
   }
+  if (!decision) throw new Error("COVERAGE_DECISION_NOT_RETURNED");
   return {
     mappingId: data.mappingId,
-    coverageScope: "PARTIAL" as const,
-    acquisitionRef: null,
+    ...decision,
+    acquisitionRef: decision.coverageScope === "FULL" ? factualRef : null,
   };
 }
 
@@ -670,6 +668,11 @@ export async function getCapabilityWorkspaceHandler(context: Ctx, capabilityId: 
         coverageAcquisitionRef: m.coverageAcquisitionRef ?? null,
         coverageJustification: m.coverageJustification ?? null,
         coverageDecidedAt: m.coverageDecidedAt ?? null,
+        fragmentId: m.fragmentId,
+        knowledgeVersionId: m.knowledgeVersionId,
+        coverageRevision: m.coverageRevision ?? 0,
+        coverageCriteria: approvedCoverageCriteria(m.knowledgeVersionId, m.capabilityId, m.factualCorrespondenceRef ?? ""),
+        coverageEvaluation: m.coverageEvaluation ?? null,
       })),
   };
 }
