@@ -357,6 +357,64 @@ export type Database = {
           },
         ]
       }
+      coverage_decisions: {
+        Row: {
+          actor_user_id: string
+          assessment_id: string
+          created_at: string
+          declaration: Json
+          id: string
+          mapping_id: string
+          organization_id: string
+          result: Json
+          revision: number
+        }
+        Insert: {
+          actor_user_id: string
+          assessment_id: string
+          created_at?: string
+          declaration: Json
+          id: string
+          mapping_id: string
+          organization_id: string
+          result: Json
+          revision: number
+        }
+        Update: {
+          actor_user_id?: string
+          assessment_id?: string
+          created_at?: string
+          declaration?: Json
+          id?: string
+          mapping_id?: string
+          organization_id?: string
+          result?: Json
+          revision?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "coverage_decisions_assessment_id_fkey"
+            columns: ["assessment_id"]
+            isOneToOne: false
+            referencedRelation: "assessments"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "coverage_decisions_mapping_id_fkey"
+            columns: ["mapping_id"]
+            isOneToOne: false
+            referencedRelation: "fragment_mappings"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "coverage_decisions_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       deliverables: {
         Row: {
           activity_id: string
@@ -1262,7 +1320,9 @@ export type Database = {
           coverage_acquisition_ref: string | null
           coverage_decided_at: string | null
           coverage_decided_by: string | null
+          coverage_evaluation: Json | null
           coverage_justification: string | null
+          coverage_revision: number
           coverage_scope: string
           created_at: string
           decision_note: string | null
@@ -1294,7 +1354,9 @@ export type Database = {
           coverage_acquisition_ref?: string | null
           coverage_decided_at?: string | null
           coverage_decided_by?: string | null
+          coverage_evaluation?: Json | null
           coverage_justification?: string | null
+          coverage_revision?: number
           coverage_scope?: string
           created_at?: string
           decision_note?: string | null
@@ -1326,7 +1388,9 @@ export type Database = {
           coverage_acquisition_ref?: string | null
           coverage_decided_at?: string | null
           coverage_decided_by?: string | null
+          coverage_evaluation?: Json | null
           coverage_justification?: string | null
+          coverage_revision?: number
           coverage_scope?: string
           created_at?: string
           decision_note?: string | null
@@ -2486,6 +2550,15 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      approved_coverage_components: {
+        Args: {
+          _acquisition: string
+          _capability: string
+          _knowledge: string
+          _version: string
+        }
+        Returns: Json
+      }
       bootstrap_organization: { Args: { _name?: string }; Returns: string }
       revoke_fragment_mapping: {
         Args: { _mapping_id: string; _note: string }
@@ -2499,6 +2572,10 @@ export type Database = {
           _scope: string
         }
         Returns: undefined
+      }
+      set_structured_fragment_coverage: {
+        Args: { _declaration: Json }
+        Returns: Json
       }
       validate_fragment_mapping: {
         Args: {
