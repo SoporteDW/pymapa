@@ -2,7 +2,7 @@
  * INT-01-COV-03 · BUILD 01 · Gate A (registro transversal) + Gate B (piloto CM-05 / ACQ·P1·01).
  * Sintético, sin IA, sin datos reales; Master/packs/Engine intactos.
  */
-import { readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { createKnowledgeEngine } from "@pymapa/knowledge-engine";
 import { describe, expect, it } from "vitest";
 import { createInMemoryProductionRepository, type DocumentMappingRecord, type ObservationRecord } from "./puertos";
@@ -69,8 +69,8 @@ describe("COV-03A · registro transversal de criterios", () => {
     expect(COVERAGE_CRITERIA_REGISTRY).toHaveLength(2);
   });
   it("todas las demás adquisiciones de los 31 packs quedan PARTIAL_ONLY", () => {
-    const published = JSON.parse(readFileSync("knowledge/manifest.json", "utf8"));
-    const ids: string[] = (published.packs ?? published.capabilities ?? []).map((x: { packId?: string; id?: string }) => x.packId ?? x.id);
+    const ids = readdirSync("knowledge/packs").filter((d) => existsSync(`knowledge/packs/${d}/1.0.0/pack.json`));
+    expect(ids).toHaveLength(31);
     let full = 0, total = 0;
     for (const pid of ids) {
       const pk = JSON.parse(readFileSync(`knowledge/packs/${pid.toLowerCase()}/1.0.0/pack.json`, "utf8"));
