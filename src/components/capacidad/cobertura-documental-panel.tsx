@@ -1,151 +1,73 @@
-/**
- * INT-01-COV-02 · Panel mínimo de cobertura documental gobernada.
- *
- * Dos decisiones SEPARADAS, nunca equivalentes:
- *  1. Validar la correspondencia factual (flujo Bloque 1 / R1, ya existente).
- *  2. Declarar cobertura completa de la adquisición canónica (este panel).
- *
- * Solo OWNER/ADMIN declaran FULL, siempre con justificación verificable.
- * PARTIAL es el estado conservador por defecto y nunca descuenta la tarea.
- */
 import { useServerFn } from "@tanstack/react-start";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { toast } from "sonner";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Textarea } from "@/components/ui/textarea";
 import { declareCapabilityDocumentCoverage } from "@/lib/production/capabilities.functions";
+import type { ComponentEvidenceEvaluation, StructuredCoverageDeclaration } from "@/lib/production/structured-coverage";
 
 export interface DocumentaryMappingItem {
-  id: string;
-  status: string;
-  targetType: string;
-  targetRef: string;
-  factualCorrespondenceRef: string | null;
-  fragmentText: string;
-  interpretationStatement: string | null;
-  coverageScope: "FULL" | "PARTIAL";
-  coverageAcquisitionRef: string | null;
-  coverageJustification: string | null;
-  coverageDecidedAt: string | null;
+ id: string; status: string; targetType: string; targetRef: string; factualCorrespondenceRef: string | null;
+ fragmentText: string; interpretationStatement: string | null; coverageScope: "FULL" | "PARTIAL";
+ coverageAcquisitionRef: string | null; coverageJustification: string | null; coverageDecidedAt: string | null;
+ fragmentId: string; knowledgeVersionId: string; coverageRevision: number; coverageEvaluation: unknown;
+ coverageCriteria: { coverageCriteriaVersion: string; components: readonly { componentKey: string; componentDescription: string; required: boolean }[] } | null;
 }
 
-export function CoberturaDocumentalPanel({
-  capabilityId,
-  mappings,
-  canGovern,
-}: {
-  capabilityId: string;
-  mappings: DocumentaryMappingItem[];
-  canGovern: boolean;
-}) {
-  const qc = useQueryClient();
-  const declarar = useServerFn(declareCapabilityDocumentCoverage);
-  const [editando, setEditando] = useState<{ id: string; scope: "FULL" | "PARTIAL" } | null>(null);
-  const [justificacion, setJustificacion] = useState("");
+function CoverageEditor({ m, save, pending, cancel }: { m: DocumentaryMappingItem; save: (d: StructuredCoverageDeclaration) => void; pending: boolean; cancel: () => void }) {
+ const [components, setComponents] = useState<ComponentEvidenceEvaluation[]>(() => (m.coverageCriteria?.components ?? []).map((c) => ({
+  componentKey: c.componentKey, componentDescription: c.componentDescription, supportState: "UNSUPPORTED", fragmentId: m.fragmentId,
+  supportingQuote: "", componentJustification: "", uncertaintyNotes: "", humanConfirmedRelevance: false,
+ })));
+ const [justification, setJustification] = useState("");
+ const [complete, setComplete] = useState(false);
+ const [requestId] = useState(() => crypto.randomUUID());
+ const update = (i: number, patch: Partial<ComponentEvidenceEvaluation>) => setComponents((rows) => rows.map((r, n) => n === i ? { ...r, ...patch } : r));
+ const submit = (scope: "FULL" | "PARTIAL") => save({ mappingId: m.id, acquisitionRef: m.factualCorrespondenceRef ?? "", knowledgeVersionId: m.knowledgeVersionId,
+  coverageCriteriaVersion: m.coverageCriteria?.coverageCriteriaVersion ?? "NOT_DEFINED", targetScope: scope, componentEvaluations: components,
+  synthesisJustification: justification.trim(), humanConfirmedCompleteness: complete, expectedRevision: m.coverageRevision, requestId });
+ return <div className="space-y-4">
+  {components.map((c, i) => <fieldset key={c.componentKey} className="space-y-2 border-t border-border pt-3">
+   <legend className="font-medium">{c.componentDescription}</legend>
+   <label className="block">Respaldo documental<select aria-label={`Respaldo: ${c.componentDescription}`} className="ml-2 rounded border border-input bg-background p-2" value={c.supportState} onChange={(e) => update(i, { supportState: e.target.value as ComponentEvidenceEvaluation["supportState"] })}>
+    <option value="SUPPORTED">Respaldado</option><option value="PARTIAL">Parcial</option><option value="UNSUPPORTED">Sin respaldo</option><option value="UNCERTAIN">Incierto</option>
+   </select></label>
+   <Textarea aria-label={`Cita: ${c.componentDescription}`} placeholder="Cita literal del fragmento" value={c.supportingQuote} onChange={(e) => update(i, { supportingQuote: e.target.value })} />
+   <Textarea aria-label={`Justificación: ${c.componentDescription}`} placeholder="Justificación de la relación con este componente" value={c.componentJustification} onChange={(e) => update(i, { componentJustification: e.target.value })} />
+   <Textarea aria-label={`Incertidumbres: ${c.componentDescription}`} placeholder="Incertidumbres pendientes" value={c.uncertaintyNotes} onChange={(e) => update(i, { uncertaintyNotes: e.target.value })} />
+   <label className="flex items-start gap-2"><Checkbox checked={c.humanConfirmedRelevance} onCheckedChange={(v) => update(i, { humanConfirmedRelevance: v === true })} />Confirmo que la cita respalda este componente, no solamente otro.</label>
+  </fieldset>)}
+  {!m.coverageCriteria && <p className="text-muted-foreground">No hay criterios de cobertura aprobados para este requerimiento. Se conserva cobertura parcial.</p>}
+  <Textarea aria-label="Justificación de síntesis" placeholder="Justificación de la decisión" value={justification} onChange={(e) => setJustification(e.target.value)} />
+  {m.coverageCriteria && <label className="flex items-start gap-2"><Checkbox checked={complete} onCheckedChange={(v) => setComplete(v === true)} />Declaro bajo mi responsabilidad que todos los componentes están cubiertos; la verificación de citas no certifica su suficiencia semántica.</label>}
+  <div className="flex flex-wrap gap-2">
+   {m.coverageCriteria && <Button size="sm" disabled={pending || justification.trim().length < 10} onClick={() => submit("FULL")}>Solicitar cobertura completa</Button>}
+   <Button size="sm" variant="outline" disabled={pending || justification.trim().length < 10} onClick={() => submit("PARTIAL")}>Registrar cobertura parcial</Button>
+   <Button size="sm" variant="ghost" onClick={cancel}>Cancelar</Button>
+  </div>
+ </div>;
+}
 
-  const mutacion = useMutation({
-    mutationFn: (input: { mappingId: string; scope: "FULL" | "PARTIAL"; justification: string }) =>
-      declarar({ data: { capabilityId, ...input } }),
-    onSuccess: (r) => {
-      toast.success(
-        r.coverageScope === "FULL" ? "Cobertura completa declarada" : "Cobertura revertida a parcial",
-        {
-          description:
-            r.coverageScope === "FULL"
-              ? `La adquisición ${r.acquisitionRef} queda cubierta por esta evidencia. La decisión quedó registrada y es reversible.`
-              : "La adquisición vuelve a estar pendiente si no tiene otra cobertura vigente.",
-        },
-      );
-      setEditando(null);
-      setJustificacion("");
-      qc.invalidateQueries({ queryKey: ["capacidad", capabilityId] });
-      qc.invalidateQueries({ queryKey: ["hub-diagnostico"] });
-    },
-    onError: (e) => {
-      toast.error("No se pudo registrar la decisión", { description: e instanceof Error ? e.message : undefined });
-    },
-  });
-
-  // Solo correspondencias factuales validadas admiten decisión de cobertura.
-  const factuales = mappings.filter((m) => m.status === "VALIDATED" && m.targetType === "VARIABLE" && m.factualCorrespondenceRef);
-  if (factuales.length === 0) return null;
-
-  return (
-    <Card data-testid="cobertura-documental">
-      <CardHeader>
-        <CardTitle className="text-base">Cobertura documental</CardTitle>
-        <CardDescription>
-          Estas correspondencias documentales ya fueron validadas. Decidir que una evidencia cubre por completo un
-          requerimiento es una decisión distinta de validar la correspondencia: exige justificación y queda registrada.
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <ul className="space-y-3">
-          {factuales.map((m) => (
-            <li key={m.id} className="space-y-2 rounded-xl border border-border p-3 text-sm">
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <span className="text-xs text-muted-foreground">
-                  Requerimiento {m.factualCorrespondenceRef} · variable {m.targetRef}
-                </span>
-                <Badge variant={m.coverageScope === "FULL" ? "default" : "outline"} className="rounded-full">
-                  {m.coverageScope === "FULL" ? "Cobertura completa" : "Cobertura parcial"}
-                </Badge>
-              </div>
-              <p className="text-muted-foreground">«{m.fragmentText}»</p>
-              {m.interpretationStatement && <p>{m.interpretationStatement}</p>}
-              {m.coverageScope === "FULL" && m.coverageJustification && (
-                <p className="text-xs text-muted-foreground">
-                  Justificación registrada: {m.coverageJustification}
-                </p>
-              )}
-              {canGovern && editando?.id !== m.id && (
-                <div className="flex flex-wrap gap-2">
-                  {m.coverageScope !== "FULL" ? (
-                    <Button size="sm" variant="outline" onClick={() => { setEditando({ id: m.id, scope: "FULL" }); setJustificacion(""); }}>
-                      Declarar cobertura completa
-                    </Button>
-                  ) : (
-                    <Button size="sm" variant="ghost" onClick={() => { setEditando({ id: m.id, scope: "PARTIAL" }); setJustificacion(""); }}>
-                      Revertir a parcial
-                    </Button>
-                  )}
-                </div>
-              )}
-              {canGovern && editando?.id === m.id && (
-                <div className="space-y-2">
-                  <Textarea
-                    value={justificacion}
-                    onChange={(e) => setJustificacion(e.target.value)}
-                    placeholder={
-                      editando.scope === "FULL"
-                        ? "Explica por qué esta evidencia cubre por completo el requerimiento (mínimo 10 caracteres)."
-                        : "Explica por qué se revierte la cobertura completa (mínimo 10 caracteres)."
-                    }
-                  />
-                  <div className="flex flex-wrap gap-2">
-                    <Button
-                      size="sm"
-                      disabled={justificacion.trim().length < 10 || mutacion.isPending}
-                      onClick={() => mutacion.mutate({ mappingId: m.id, scope: editando.scope, justification: justificacion.trim() })}
-                    >
-                      Confirmar decisión
-                    </Button>
-                    <Button size="sm" variant="ghost" onClick={() => { setEditando(null); setJustificacion(""); }}>
-                      Cancelar
-                    </Button>
-                  </div>
-                </div>
-              )}
-              {!canGovern && (
-                <p className="text-xs text-muted-foreground">Solo un responsable de la organización puede decidir la cobertura.</p>
-              )}
-            </li>
-          ))}
-        </ul>
-      </CardContent>
-    </Card>
-  );
+export function CoberturaDocumentalPanel({ capabilityId, mappings, canGovern }: { capabilityId: string; mappings: DocumentaryMappingItem[]; canGovern: boolean }) {
+ const qc = useQueryClient(); const declare = useServerFn(declareCapabilityDocumentCoverage); const [editing, setEditing] = useState<string | null>(null);
+ const mutation = useMutation({ mutationFn: (d: StructuredCoverageDeclaration) => declare({ data: { capabilityId, ...d } }),
+  onSuccess: (r) => { toast.success(r.coverageScope === "FULL" ? "Cobertura completa registrada" : "Cobertura parcial registrada", { description: r.rejectionReasons.length ? `La solicitud completa no fue aceptada: ${r.rejectionReasons.join(", ")}` : undefined }); setEditing(null); qc.invalidateQueries({ queryKey: ["capacidad", capabilityId] }); qc.invalidateQueries({ queryKey: ["hub-diagnostico"] }); },
+  onError: (e) => toast.error("No se pudo registrar la decisión", { description: e instanceof Error ? e.message : undefined }),
+ });
+ const factual = mappings.filter((m) => m.status === "VALIDATED" && m.targetType === "VARIABLE" && m.factualCorrespondenceRef);
+ if (!factual.length) return null;
+ return <section data-testid="cobertura-documental" className="space-y-4 border-t border-border pt-6">
+  <h2 className="text-base font-semibold">Cobertura documental</h2>
+  <ul className="space-y-4">{factual.map((m) => <li key={m.id} data-mapping-id={m.id} className="space-y-3 rounded-lg border border-border p-4 text-sm">
+   <div className="flex flex-wrap justify-between gap-2"><span>Requerimiento {m.factualCorrespondenceRef} · variable {m.targetRef}</span><Badge variant="outline">{m.coverageScope === "FULL" && m.coverageEvaluation ? "Cobertura completa declarada" : "Cobertura parcial / no verificada"}</Badge></div>
+   <p className="whitespace-pre-wrap text-muted-foreground">«{m.fragmentText}»</p>
+   {m.coverageJustification && <p>Decisión registrada: {m.coverageJustification}</p>}
+   {canGovern && editing !== m.id && <Button size="sm" variant="outline" onClick={() => setEditing(m.id)}>Evaluar cobertura</Button>}
+   {canGovern && editing === m.id && <CoverageEditor m={m} save={(d) => mutation.mutate(d)} pending={mutation.isPending} cancel={() => setEditing(null)} />}
+   {!canGovern && <p className="text-muted-foreground">Solo OWNER/ADMIN pueden decidir la cobertura.</p>}
+  </li>)}</ul>
+ </section>;
 }

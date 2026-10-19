@@ -9,6 +9,21 @@
  * Un conflicto vigente (documento vs. respuesta manual) bloquea el descuento.
  */
 import type { DocumentMappingRecord, ObservationRecord } from "./puertos";
+import { structuredCoverageDeclarationSchema, validateStructuredCoverage } from "./structured-coverage";
+
+export function hasVerifiedStructuredCoverage(m: DocumentMappingRecord): boolean {
+  if (!m.coverageEvidenceCurrent || !m.coverageEvaluation || typeof m.coverageEvaluation !== "object") return false;
+  const e = m.coverageEvaluation as { declaration?: unknown; result?: { coverageScope?: string; revision?: number }; decidedBy?: string; evidenceId?: string; extractionId?: string };
+  const parsed = structuredCoverageDeclarationSchema.safeParse(e.declaration);
+  if (!parsed.success || e.result?.coverageScope !== "FULL" || e.result.revision !== m.coverageRevision
+    || e.decidedBy !== m.coverageDecidedBy || e.evidenceId !== m.evidenceId || e.extractionId !== m.extractionId
+    || parsed.data.mappingId !== m.id || !m.factualCorrespondenceRef) return false;
+  try {
+    return validateStructuredCoverage(parsed.data, { capabilityId: m.capabilityId, knowledgeVersionId: m.knowledgeVersionId,
+      acquisitionRef: m.factualCorrespondenceRef, fragmentId: m.fragmentId, fragmentText: m.fragmentText,
+      evidenceCurrent: true, hasConflict: false }).coverageScope === "FULL";
+  } catch { return false; }
+}
 
 export type DocumentaryCoverageState = "COMPLETE" | "PARTIAL" | "CONTRADICTORY";
 export interface DocumentaryCoverage {
@@ -71,7 +86,7 @@ export function proyectarCoberturaDocumental(
       if (!p || o.value.knowledgeState !== "KNOWN") return false;
       const m = mappingPorId.get(p.mappingId);
       return Boolean(m && m.status === "VALIDATED" && m.coverageScope === "FULL"
-        && m.coverageAcquisitionRef === acquisitionId);
+        && m.coverageAcquisitionRef === acquisitionId && hasVerifiedStructuredCoverage(m));
     });
     return completa
       ? { ...base, state: "COMPLETE" as const, reason: "COVERAGE_DECLARED_FULL" as const }

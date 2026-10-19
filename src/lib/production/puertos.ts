@@ -656,6 +656,9 @@ export interface DocumentMappingRecord {
   coverageJustification?: string | null;
   coverageDecidedBy?: string | null;
   coverageDecidedAt?: string | null;
+  coverageRevision?: number;
+  coverageEvaluation?: unknown;
+  coverageEvidenceCurrent?: boolean;
 }
 
 /** Puerto de persistencia. Toda escritura del vertical pasa por aquí. */

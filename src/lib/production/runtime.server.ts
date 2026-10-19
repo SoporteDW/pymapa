@@ -1698,6 +1698,12 @@ export function createSupabaseProductionRepository(): ProductionRepository {
         .eq("assessment_id", assessmentId)
         .order("created_at", { ascending: true });
       lanzar("fragment_mappings.list_document_mappings", error);
+      const [versionsResult, extractionsResult] = await Promise.all([
+        db.from("evidence_versions").select("id, evidence_id, version_number").eq("organization_id", (data?.[0] as { organization_id?: string } | undefined)?.organization_id ?? "00000000-0000-0000-0000-000000000000"),
+        db.from("document_extractions").select("id, evidence_version_id, extraction_version, status, superseded_by_extraction_id, knowledge_version_id").eq("organization_id", (data?.[0] as { organization_id?: string } | undefined)?.organization_id ?? "00000000-0000-0000-0000-000000000000"),
+      ]);
+      lanzar("coverage.versions", versionsResult.error);
+      lanzar("coverage.extractions", extractionsResult.error);
       type FilaMapping = Record<string, unknown> & {
         evidence_fragments?: {
           extraction_id: string;
@@ -1740,6 +1746,15 @@ export function createSupabaseProductionRepository(): ProductionRepository {
         coverageJustification: (r["coverage_justification"] as string | null) ?? null,
         coverageDecidedBy: (r["coverage_decided_by"] as string | null) ?? null,
         coverageDecidedAt: (r["coverage_decided_at"] as string | null) ?? null,
+        coverageRevision: (r["coverage_revision"] as number | null) ?? 0,
+        coverageEvaluation: r["coverage_evaluation"] ?? null,
+        coverageEvidenceCurrent: (() => {
+          const x = extractionsResult.data?.find((v) => v.id === r.evidence_fragments?.extraction_id);
+          const v = versionsResult.data?.find((v) => v.id === x?.evidence_version_id);
+          return Boolean(x && v && x.status === "COMPLETED" && !x.superseded_by_extraction_id && x.knowledge_version_id === r["knowledge_version_id"]
+            && !versionsResult.data?.some((other) => other.evidence_id === v.evidence_id && other.version_number > v.version_number)
+            && !extractionsResult.data?.some((other) => other.evidence_version_id === v.id && other.status === "COMPLETED" && other.extraction_version > x.extraction_version));
+        })(),
       }));
     },
     async insertDocumentReuseCandidate(input, actorUserId) {
