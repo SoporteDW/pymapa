@@ -66,7 +66,7 @@ describe("COV-03A · registro transversal de criterios", () => {
     const p = approvedCoverageCriteria(KV, "CM-05", "ACQ·P1·01");
     expect(p?.coverageCriteriaVersion).toBe("CM05-P101-COV-1.0.0");
     expect(p?.approvalStatus).toBe("PILOT_TEST_GOVERNED");
-    expect(COVERAGE_CRITERIA_REGISTRY).toHaveLength(2);
+    expect(COVERAGE_CRITERIA_REGISTRY).toHaveLength(3); // BUILD 02 añade el piloto OP-05
   });
   it("todas las demás adquisiciones de los 31 packs quedan PARTIAL_ONLY", () => {
     const ids = readdirSync("knowledge/packs").filter((d) => existsSync(`knowledge/packs/${d}/1.0.0/pack.json`));
@@ -77,7 +77,7 @@ describe("COV-03A · registro transversal de criterios", () => {
       for (const a of pk.acquisitions ?? []) { total++; if (coverageModeFor(KV, pk.capability.id, a.id) === "FULL_ELIGIBLE") full++; }
     }
     expect(total).toBeGreaterThan(100);
-    expect(full).toBe(2);
+    expect(full).toBe(3); // DG-01 NI04, CM-05 P1·01, OP-05 VA01#NI@L254
     expect(coverageModeFor(KV, "CM-05", "ACQ·P1·02")).toBe("PARTIAL_ONLY");
     expect(coverageModeFor("ee463f4d-2ed1-428d-8809-aa6ac0f43cb9", "CM-05", "ACQ·P1·01")).toBe("PARTIAL_ONLY");
   });

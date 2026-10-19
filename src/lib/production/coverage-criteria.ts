@@ -40,6 +40,16 @@ export const CM05_P101_COMPONENTS = [
   { componentKey: "SCOPE_EXHAUSTIVENESS", componentDescription: "Exhaustividad del alcance declarado", required: true },
 ] as const;
 
+/**
+ * Piloto COV-03C · BUILD 02: derivado literalmente de OP-05 «VA01 · Objetivo y resultado ·
+ * Necesitamos saber: problema/oportunidad;» (OP-05_Completo.txt L254, NI VA01#NI@L254).
+ * Solo cubre ESA necesidad; las hermanas L255–L258 permanecen PARTIAL_ONLY.
+ */
+export const OP05_VA01_L254_COMPONENTS = [
+  { componentKey: "PROBLEM_OR_OPPORTUNITY", componentDescription: "Problema u oportunidad que origina el objetivo identificado", required: true },
+  { componentKey: "SCOPE_EXHAUSTIVENESS", componentDescription: "Exhaustividad del alcance declarado", required: true },
+] as const;
+
 export const COVERAGE_CRITERIA_REGISTRY: readonly CoverageCriteriaEntry[] = [
   { knowledgeVersionId: COVERAGE_KNOWLEDGE_VERSION_ID, capabilityId: "DG-01", acquisitionRef: "ACQ·NI04",
     coverageCriteriaVersion: COVERAGE_CRITERIA_VERSION, approvalReference: "INT-01-COV-QA-BUILD-QA01-QA02-v1.0",
@@ -47,6 +57,9 @@ export const COVERAGE_CRITERIA_REGISTRY: readonly CoverageCriteriaEntry[] = [
   { knowledgeVersionId: COVERAGE_KNOWLEDGE_VERSION_ID, capabilityId: "CM-05", acquisitionRef: "ACQ·P1·01",
     coverageCriteriaVersion: "CM05-P101-COV-1.0.0", approvalReference: "INT-01-COV-03-BUILD-01",
     approvalStatus: "PILOT_TEST_GOVERNED", mappingTargetType: "ACQUISITION", components: CM05_P101_COMPONENTS },
+  { knowledgeVersionId: COVERAGE_KNOWLEDGE_VERSION_ID, capabilityId: "OP-05", acquisitionRef: "ACQ·VA01#NI@L254",
+    coverageCriteriaVersion: "OP05-VA01-L254-COV-1.0.0", approvalReference: "INT-01-COV-03-BUILD-02",
+    approvalStatus: "PILOT_TEST_GOVERNED", mappingTargetType: "ACQUISITION", components: OP05_VA01_L254_COMPONENTS },
 ];
 
 export function approvedCoverageCriteria(knowledgeVersionId: string, capabilityId: string, acquisitionRef: string) {
