@@ -1,10 +1,12 @@
 # Roadmap
 
 ## INT-01-COV-QA · QA-01 + QA-02 only
-- [ ] Versioned governed auxiliary criteria and structured declaration for DG-01 / ACQ·NI04 only.
-- [ ] Additive persistence, audit, authorization, evidence validation and stale/retry safety.
-- [ ] Synthetic QA02-01..12, authenticated QA browser and full regression.
-- [ ] Ten-section closure report; no COV-03 implementation or protected changes.
+- [x] Versioned governed auxiliary criteria and structured declaration for DG-01 / ACQ·NI04 only.
+- [x] Additive persistence, audit, authorization, evidence validation and stale/retry safety.
+- [x] Synthetic QA02 bank, OWNER QA browser and full regression (1014/1014); hosted MEMBER/vigency negatives not claimed.
+- [x] Ten-section closure report: PASS WITH CONDITIONS; no COV-03 implementation or protected changes.
+- [ ] Hosted MEMBER/two-org RLS and stale-evidence QA: blocked pending authorization for additional identities/QA changes.
+- [ ] Reconcile original QA02-01..05 definitions: blocked pending source report not materialized in repository.
 
 ## M2-OP02-02 · Generic Runtime Compatibility Closure
 - [x] Cerrado (ver docs/architecture/M2_OP02_RUNTIME_COMPATIBILITY_CLOSURE.md)
