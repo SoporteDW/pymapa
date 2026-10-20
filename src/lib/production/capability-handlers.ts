@@ -1290,6 +1290,8 @@ export const createCapabilityInterventionInput = (data: unknown) => intervencion
 export async function createCapabilityInterventionHandler(context: Ctx, capabilityId: string, data: ReturnType<typeof createCapabilityInterventionInput>) {
     const casoUso = await import("./caso-uso");
     const { assessment, deps } = await prepararContexto(context, capabilityId);
+    // MVP-BETA-INT-01 · Intervenciones humanas: decisión de gobierno, OWNER/ADMIN en servidor.
+    assertDocumentGovernanceRole(await deps.repository.getMembershipRole(assessment.organizationId, context.userId));
     const salida = await casoUso.crearIntervencion(deps, {
       assessmentId: assessment.id,
       organizationId: assessment.organizationId,
@@ -1311,6 +1313,8 @@ export const createCapabilityActivityInput = (data: unknown) => actividadSchema.
 export async function createCapabilityActivityHandler(context: Ctx, capabilityId: string, data: ReturnType<typeof createCapabilityActivityInput>) {
     const casoUso = await import("./caso-uso");
     const { assessment, deps } = await prepararContexto(context, capabilityId);
+    // MVP-BETA-INT-01 · Intervenciones humanas: decisión de gobierno, OWNER/ADMIN en servidor.
+    assertDocumentGovernanceRole(await deps.repository.getMembershipRole(assessment.organizationId, context.userId));
     const salida = await casoUso.crearActividad(deps, {
       interventionId: data.interventionId,
       organizationId: assessment.organizationId,
@@ -1331,7 +1335,9 @@ export const changeCapabilityActivityStateInput = (data: unknown) => estadoActiv
 
 export async function changeCapabilityActivityStateHandler(context: Ctx, capabilityId: string, data: ReturnType<typeof changeCapabilityActivityStateInput>) {
     const casoUso = await import("./caso-uso");
-    const { deps } = await prepararContexto(context, capabilityId);
+    const { assessment, deps } = await prepararContexto(context, capabilityId);
+    // MVP-BETA-INT-01 · Intervenciones humanas: decisión de gobierno, OWNER/ADMIN en servidor.
+    assertDocumentGovernanceRole(await deps.repository.getMembershipRole(assessment.organizationId, context.userId));
     const salida = await casoUso.cambiarEstadoActividad(deps, {
       activityId: data.activityId,
       state: data.state,
@@ -1350,6 +1356,8 @@ export const registerCapabilityDeliverableInput = (data: unknown) => entregableS
 export async function registerCapabilityDeliverableHandler(context: Ctx, capabilityId: string, data: ReturnType<typeof registerCapabilityDeliverableInput>) {
     const casoUso = await import("./caso-uso");
     const { assessment, deps } = await prepararContexto(context, capabilityId);
+    // MVP-BETA-INT-01 · Intervenciones humanas: decisión de gobierno, OWNER/ADMIN en servidor.
+    assertDocumentGovernanceRole(await deps.repository.getMembershipRole(assessment.organizationId, context.userId));
     const salida = await casoUso.registrarEntregable(deps, {
       activityId: data.activityId,
       organizationId: assessment.organizationId,
