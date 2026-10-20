@@ -55,6 +55,8 @@ const AUTORIZADOS = [
   "src/lib/production/cov03-cm05-pilot.test.ts",
   // INT-01-COV-03 BUILD 02: piloto OP-05 operacional N:1 (mismas reglas).
   "src/lib/production/cov03-op05-pilot.test.ts",
+  // BUILD03: isolated four-archetype harness; never imported by the UI.
+  "src/lib/production/coverage-build03.test.ts",
 ];
 
 describe("arquitectura · separación frontend / knowledge-engine", () => {
