@@ -36,9 +36,9 @@ DOCS = {
 for name, pages in DOCS.items():
     c = canvas.Canvas(OUT + name, pagesize=A4, invariant=1)
     c.setTitle(name); c.setAuthor('SEM-QA-01 synthetic'); c.setCreator('make_corpus.py')
-    for lines in pages:
+    for i, lines in enumerate(pages, 1):
         y = 800; c.setFont('Helvetica', 10)
-        for l in [H] + lines:
+        for l in [f"{H} · página {i}"] + lines:
             c.drawString(50, y, l); y -= 18
         c.showPage()
     c.save()
