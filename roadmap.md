@@ -1,9 +1,10 @@
 ## INT-01-COV-03 · BUILD 04 / COV-03D (autorizado)
-- [ ] A: seguridad OWNER/ADMIN/MEMBER, dos organizaciones sintéticas, concurrencia simultánea e idempotencia con lectura posterior.
-- [ ] B: archivo sintético nuevo desde UI → extracción literal → CANDIDATE → validación → PARTIAL/FULL elegible → revocación, sin IA externa.
-- [ ] C: admisión factual VARIABLE independiente, invalidación y comparación de variables; cero observaciones ficticias ACQUISITION/NI.
-- [ ] D/E: matriz verificable de 31 capacidades, expediente de propuestas por dominios/arquetipos y plan por lotes sin promociones.
-- [ ] Regresión, evidencia reproducible y cierre de 13 secciones en docs/architecture/INT01_COV03_BUILD04_CLOSURE.md.
+- [x] A: MEMBER negativas, OWNER/ADMIN decisiones, dos organizaciones QA, concurrencia real y lectura persistida; variantes no ejecutadas delimitadas en informe.
+- [ ] B: carga UI y bytes PASS; recorrido del mismo archivo BLOCKED: no versión/extracción/propuesta autenticada sin IA; requiere autorización específica de IA o paquete no-IA.
+- [x] C: VARIABLE DG01 VA01 UNKNOWN→KNOWN→UNKNOWN, invalidación append-only; ACQUISITION/NI sin observaciones ficticias.
+- [x] D/E: 31 lecturas autenticadas PASS, matriz por nivel, 126 PROPOSED conservadas, 52 NI no enlazadas y plan de 445 adquisiciones sin promover criterios.
+- [x] Regresión 1065/1065, 218 hashes sin cambios, evidencia y cierre de 13 secciones: docs/architecture/INT01_COV03_BUILD04_CLOSURE.md — PASS WITH CONDITIONS.
+- [ ] A/C aceptación integral restante: variantes OWNER de escritura directa, identidad exclusivamente QA B para lectura inversa y respuesta manual alojada existente; pendientes de paquete QA de cierre, no PASS integral.
 
 ## INT-01-COV-03 · BUILD 03 (cerrado PASS WITH CONDITIONS)
 - [x] Ciclo de vida, validación canónica y restricción alojada de pilotos a QA autorizado; promoción institucional bloqueada.

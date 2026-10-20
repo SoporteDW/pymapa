@@ -1,0 +1,12 @@
+import json,requests,hashlib
+from pathlib import Path
+D=Path('/tmp/browser/build04');m=json.load(open(D/'owner-session.json'));e=dict(l.strip().split('=',1) for l in open('/dev-server/.env') if '=' in l);u=e['VITE_SUPABASE_URL'].strip('"');k=e['VITE_SUPABASE_PUBLISHABLE_KEY'].strip('"');h={'apikey':k,'Authorization':'Bearer '+m['session']['access_token']}
+def read(t,q):
+ r=requests.get(u+'/rest/v1/'+t,headers=h,params=q);r.raise_for_status();return r.json()
+ev=read('evidence',{'title':'eq.QA BUILD04 documento sintético nuevo','select':'id,title,storage_bucket,storage_path,upload_context_capability_id'})
+versions=read('evidence_versions',{'evidence_id':'eq.'+ev[0]['id'],'select':'id,version_number,content_sha256'})
+r=requests.get(u+'/storage/v1/object/authenticated/'+ev[0]['storage_bucket']+'/'+ev[0]['storage_path'],headers=h);local=D.joinpath('BUILD04-synthetic.txt').read_bytes()
+out={'upload':ev,'versions':versions,'downloadStatus':r.status_code,'bytesMatch':r.content==local,'fileSha256':hashlib.sha256(local).hexdigest(),'documentFlowBlocked':'No authenticated non-AI extraction/candidate UI path; upload creates evidence only, no version. No external AI invoked.'}
+obs=read('observations',{'assessment_id':'eq.c71d7b34-9da0-4755-8394-418172412731','select':'id,variable_ref,value'});out['finalObservations']=obs;out['responseCount']=len(read('responses',{'assessment_id':'eq.c71d7b34-9da0-4755-8394-418172412731','select':'id'}));out['audit']=read('audit_events',{'assessment_id':'eq.c71d7b34-9da0-4755-8394-418172412731','created_at':'gte.2026-10-20T02:00:00Z','select':'id,event_type,subject_id,detail','order':'created_at'});out['catalogCounts']={s:len(read('coverage_criteria_catalog',{'approval_status':'eq.'+s,'select':'criteria_version'})) for s in ['APPROVED','PILOT_TEST_GOVERNED','PROPOSED']}
+d=json.load(open(D/'factual-variable-states.json'));out['factualVariableSummary']={s:d[s]['state']['variableStates'] for s in ['before','admitted','revoked']};assert out['factualVariableSummary']['before']==out['factualVariableSummary']['revoked'];assert d['admitted']['state']['variableStates'][0]['state']=='KNOWN';assert out['responseCount']==0;assert out['bytesMatch'];assert out['catalogCounts']=={'APPROVED':1,'PILOT_TEST_GOVERNED':2,'PROPOSED':126}
+D.joinpath('final-checks.json').write_text(json.dumps(out,indent=2));print('stored bytes match',out['bytesMatch'],'versions',len(versions),'responses',out['responseCount'],'observations',len(obs),'catalog',out['catalogCounts'],'audit',len(out['audit']))

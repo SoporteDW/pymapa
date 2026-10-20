@@ -1,0 +1,508 @@
+{
+  "adminPartial": {
+    "status": 200,
+    "result": {
+      "revision": 3,
+      "coverageKind": "ACQUISITION_ONLY_NO_OBSERVATION",
+      "coverageScope": "PARTIAL",
+      "validationKind": "STRUCTURAL_AND_HUMAN_GOVERNANCE",
+      "rejectionReasons": []
+    },
+    "start": 1792463237.7636728,
+    "end": 1792463238.2923992
+  },
+  "adminFull": {
+    "status": 200,
+    "result": {
+      "revision": 4,
+      "coverageKind": "ACQUISITION_ONLY_NO_OBSERVATION",
+      "coverageScope": "FULL",
+      "validationKind": "STRUCTURAL_AND_HUMAN_GOVERNANCE",
+      "rejectionReasons": []
+    },
+    "start": 1792463238.2935238,
+    "end": 1792463238.4804318
+  },
+  "concurrentRevocation": [
+    {
+      "status": 200,
+      "result": {
+        "revision": 5,
+        "coverageKind": "ACQUISITION_ONLY_NO_OBSERVATION",
+        "coverageScope": "FULL",
+        "validationKind": "STRUCTURAL_AND_HUMAN_GOVERNANCE",
+        "rejectionReasons": []
+      },
+      "start": 1792463238.4832466,
+      "end": 1792463238.7125392
+    },
+    {
+      "status": 204,
+      "result": null,
+      "start": 1792463238.4845693,
+      "end": 1792463238.7169552
+    }
+  ],
+  "postRevokeRetry": {
+    "status": 400,
+    "result": {
+      "code": "P0001",
+      "details": null,
+      "hint": null,
+      "message": "COVERAGE_DECISION_OBSOLETE"
+    },
+    "start": 1792463238.7185159,
+    "end": 1792463238.8877945
+  },
+  "idempotentRevoke": {
+    "status": 204,
+    "result": null,
+    "start": 1792463238.888461,
+    "end": 1792463239.052748
+  },
+  "mappingAfter": [
+    {
+      "id": "b0400000-0000-4000-8000-000000000014",
+      "status": "SUPERSEDED",
+      "coverage_scope": "PARTIAL",
+      "coverage_revision": 6
+    }
+  ],
+  "decisions": [
+    {
+      "id": "2977da1f-f138-4fef-8f3f-06227fbb26d8",
+      "revision": 1,
+      "result": {
+        "revision": 1,
+        "coverageKind": "ACQUISITION_ONLY_NO_OBSERVATION",
+        "coverageScope": "PARTIAL",
+        "validationKind": "STRUCTURAL_AND_HUMAN_GOVERNANCE",
+        "rejectionReasons": [
+          "REQUIRED_COMPONENT_INCOMPLETE"
+        ]
+      }
+    },
+    {
+      "id": "47a82478-e39f-42e9-920d-2fb04d014e0d",
+      "revision": 2,
+      "result": {
+        "revision": 2,
+        "coverageKind": "ACQUISITION_ONLY_NO_OBSERVATION",
+        "coverageScope": "FULL",
+        "validationKind": "STRUCTURAL_AND_HUMAN_GOVERNANCE",
+        "rejectionReasons": []
+      }
+    },
+    {
+      "id": "4b8c8483-08c4-4d0c-9fa9-b78bf9b17f3b",
+      "revision": 3,
+      "result": {
+        "revision": 3,
+        "coverageKind": "ACQUISITION_ONLY_NO_OBSERVATION",
+        "coverageScope": "PARTIAL",
+        "validationKind": "STRUCTURAL_AND_HUMAN_GOVERNANCE",
+        "rejectionReasons": []
+      }
+    },
+    {
+      "id": "2ab23a2c-22a3-4464-996b-760dd8278ca5",
+      "revision": 4,
+      "result": {
+        "revision": 4,
+        "coverageKind": "ACQUISITION_ONLY_NO_OBSERVATION",
+        "coverageScope": "FULL",
+        "validationKind": "STRUCTURAL_AND_HUMAN_GOVERNANCE",
+        "rejectionReasons": []
+      }
+    },
+    {
+      "id": "2ead7af9-09c1-451a-9bba-66594be2fca5",
+      "revision": 5,
+      "result": {
+        "revision": 5,
+        "coverageKind": "ACQUISITION_ONLY_NO_OBSERVATION",
+        "coverageScope": "FULL",
+        "validationKind": "STRUCTURAL_AND_HUMAN_GOVERNANCE",
+        "rejectionReasons": []
+      }
+    }
+  ],
+  "audit": [
+    {
+      "event_type": "FRAGMENT_MAPPING_PROPOSED",
+      "subject_id": "b0400000-0000-4000-8000-000000000014",
+      "actor_user_id": null,
+      "detail": {
+        "target_ref": "ACQ\u00b7P1\u00b701",
+        "proposed_by": "HUMAN",
+        "target_type": "ACQUISITION",
+        "capability_id": "CM-05"
+      },
+      "created_at": "2026-10-20T02:16:09.12566+00:00"
+    },
+    {
+      "event_type": "FRAGMENT_MAPPING_VALIDATED",
+      "subject_id": "b0400000-0000-4000-8000-000000000014",
+      "actor_user_id": "d918f1e4-d569-4569-b60e-fe3b90ec86da",
+      "detail": {
+        "to": "VALIDATED",
+        "from": "CANDIDATE",
+        "note": "BUILD04 synthetic QA OWNER validation of independent candidate.",
+        "admission_basis": "HUMAN_VALIDATION",
+        "admission_rule_ref": null
+      },
+      "created_at": "2026-10-20T02:16:44.744479+00:00"
+    },
+    {
+      "event_type": "FRAGMENT_MAPPING_COVERAGE_DECIDED",
+      "subject_id": "b0400000-0000-4000-8000-000000000014",
+      "actor_user_id": "d918f1e4-d569-4569-b60e-fe3b90ec86da",
+      "detail": {
+        "scope": "PARTIAL",
+        "justification": "BUILD03 OWNER QA verifies all pilot components and scope.",
+        "previous_scope": "PARTIAL",
+        "acquisition_ref": null
+      },
+      "created_at": "2026-10-20T02:16:44.914662+00:00"
+    },
+    {
+      "event_type": "FRAGMENT_MAPPING_COVERAGE_DECIDED",
+      "subject_id": "b0400000-0000-4000-8000-000000000014",
+      "actor_user_id": "d918f1e4-d569-4569-b60e-fe3b90ec86da",
+      "detail": {
+        "scope": "FULL",
+        "justification": "BUILD03 OWNER QA verifies all pilot components and scope.",
+        "previous_scope": "PARTIAL",
+        "acquisition_ref": "ACQ\u00b7P1\u00b701"
+      },
+      "created_at": "2026-10-20T02:16:45.107602+00:00"
+    },
+    {
+      "event_type": "FRAGMENT_MAPPING_COVERAGE_DECIDED",
+      "subject_id": "b0400000-0000-4000-8000-000000000014",
+      "actor_user_id": "5c764919-cfc9-4c4e-b26c-761502de0a4b",
+      "detail": {
+        "scope": "PARTIAL",
+        "justification": "BUILD03 OWNER QA verifies all pilot components and scope.",
+        "previous_scope": "FULL",
+        "acquisition_ref": null
+      },
+      "created_at": "2026-10-20T02:27:18.188933+00:00"
+    },
+    {
+      "event_type": "FRAGMENT_MAPPING_COVERAGE_DECIDED",
+      "subject_id": "b0400000-0000-4000-8000-000000000014",
+      "actor_user_id": "5c764919-cfc9-4c4e-b26c-761502de0a4b",
+      "detail": {
+        "scope": "FULL",
+        "justification": "BUILD03 OWNER QA verifies all pilot components and scope.",
+        "previous_scope": "PARTIAL",
+        "acquisition_ref": "ACQ\u00b7P1\u00b701"
+      },
+      "created_at": "2026-10-20T02:27:18.399268+00:00"
+    },
+    {
+      "event_type": "FRAGMENT_MAPPING_COVERAGE_DECIDED",
+      "subject_id": "b0400000-0000-4000-8000-000000000014",
+      "actor_user_id": "5c764919-cfc9-4c4e-b26c-761502de0a4b",
+      "detail": {
+        "scope": "FULL",
+        "justification": "BUILD03 OWNER QA verifies all pilot components and scope.",
+        "previous_scope": "FULL",
+        "acquisition_ref": "ACQ\u00b7P1\u00b701"
+      },
+      "created_at": "2026-10-20T02:27:18.627521+00:00"
+    },
+    {
+      "event_type": "FRAGMENT_MAPPING_SUPERSEDED",
+      "subject_id": "b0400000-0000-4000-8000-000000000014",
+      "actor_user_id": "d918f1e4-d569-4569-b60e-fe3b90ec86da",
+      "detail": {
+        "to": "SUPERSEDED",
+        "from": "VALIDATED",
+        "note": "BUILD04 simultaneous governed QA revocation",
+        "admission_basis": "HUMAN_VALIDATION",
+        "admission_rule_ref": null
+      },
+      "created_at": "2026-10-20T02:27:18.631601+00:00"
+    }
+  ],
+  "orgBValidation": {
+    "status": 204,
+    "result": null,
+    "start": 1792463239.5284948,
+    "end": 1792463239.6913552
+  },
+  "orgBPartial": {
+    "status": 200,
+    "result": {
+      "revision": 1,
+      "coverageKind": "ACQUISITION_ONLY_NO_OBSERVATION",
+      "coverageScope": "PARTIAL",
+      "validationKind": "STRUCTURAL_AND_HUMAN_GOVERNANCE",
+      "rejectionReasons": [
+        "REQUIRED_COMPONENT_INCOMPLETE",
+        "REQUIRED_COMPONENT_INCOMPLETE",
+        "REQUIRED_COMPONENT_INCOMPLETE",
+        "HUMAN_COMPLETENESS_NOT_CONFIRMED"
+      ]
+    },
+    "start": 1792463239.6930015,
+    "end": 1792463239.85109
+  },
+  "ownerCrossOrgDecisions": [],
+  "orgBPositiveDecisions": [
+    {
+      "id": "383f82d7-900c-4dea-88d2-872ac7302547"
+    }
+  ],
+  "promote": {
+    "status": 204,
+    "result": null
+  },
+  "directFull": {
+    "status": 204,
+    "result": null
+  },
+  "catalogCounts": {
+    "APPROVED": 1,
+    "PILOT_TEST_GOVERNED": 2,
+    "PROPOSED": 126
+  },
+  "observationsBeforeFactual": [],
+  "validate-b0400000-0000-4000-8000-000000000036": {
+    "status": 204,
+    "result": null,
+    "start": 1792463254.1190755,
+    "end": 1792463254.2700527
+  },
+  "validate-b0400000-0000-4000-8000-000000000037": {
+    "status": 204,
+    "result": null,
+    "start": 1792463254.2710357,
+    "end": 1792463254.425826
+  },
+  "admission-DG-01": {
+    "assessmentId": "c71d7b34-9da0-4755-8394-418172412731",
+    "organizationId": "9816dfad-a1be-4140-8293-c4cab34f3603",
+    "admitted": 1,
+    "invalidated": 0,
+    "rejected": [
+      {
+        "mappingId": "b0400000-0000-4000-8000-000000000024",
+        "reason": "STATUS_NOT_VALIDATED"
+      },
+      {
+        "mappingId": "b0400000-0000-4000-8000-000000000037",
+        "reason": "THEMATIC_MAPPING_NOT_FACTUAL"
+      }
+    ],
+    "items": [
+      {
+        "mappingId": "b0070000-0000-4000-8000-000000000014",
+        "outcome": "ALREADY_INVALIDATED"
+      },
+      {
+        "mappingId": "c0700000-0000-4000-8000-000000000014",
+        "outcome": "ALREADY_INVALIDATED"
+      },
+      {
+        "mappingId": "b0300000-0000-4000-8000-000000000024",
+        "outcome": "ALREADY_INVALIDATED"
+      },
+      {
+        "mappingId": "b0300000-0000-4000-8000-000000000014",
+        "outcome": "ALREADY_INVALIDATED"
+      },
+      {
+        "mappingId": "b0400000-0000-4000-8000-000000000024",
+        "outcome": "REJECTED",
+        "reason": "STATUS_NOT_VALIDATED"
+      },
+      {
+        "mappingId": "b0400000-0000-4000-8000-000000000014",
+        "outcome": "ALREADY_INVALIDATED"
+      },
+      {
+        "mappingId": "b0400000-0000-4000-8000-000000000037",
+        "outcome": "REJECTED",
+        "reason": "THEMATIC_MAPPING_NOT_FACTUAL"
+      },
+      {
+        "mappingId": "b0400000-0000-4000-8000-000000000036",
+        "outcome": "ADMITTED",
+        "observationId": "240bb03c-aaa8-4c54-b6f9-3d64c96d0ac4"
+      }
+    ]
+  },
+  "admission-CM-05": {
+    "assessmentId": "c71d7b34-9da0-4755-8394-418172412731",
+    "organizationId": "9816dfad-a1be-4140-8293-c4cab34f3603",
+    "admitted": 0,
+    "invalidated": 0,
+    "rejected": [
+      {
+        "mappingId": "b0400000-0000-4000-8000-000000000024",
+        "reason": "STATUS_NOT_VALIDATED"
+      },
+      {
+        "mappingId": "b0400000-0000-4000-8000-000000000037",
+        "reason": "CAPABILITY_MISMATCH"
+      }
+    ],
+    "items": [
+      {
+        "mappingId": "b0070000-0000-4000-8000-000000000014",
+        "outcome": "ALREADY_INVALIDATED"
+      },
+      {
+        "mappingId": "c0700000-0000-4000-8000-000000000014",
+        "outcome": "ALREADY_INVALIDATED"
+      },
+      {
+        "mappingId": "b0300000-0000-4000-8000-000000000024",
+        "outcome": "ALREADY_INVALIDATED"
+      },
+      {
+        "mappingId": "b0300000-0000-4000-8000-000000000014",
+        "outcome": "ALREADY_INVALIDATED"
+      },
+      {
+        "mappingId": "b0400000-0000-4000-8000-000000000024",
+        "outcome": "REJECTED",
+        "reason": "STATUS_NOT_VALIDATED"
+      },
+      {
+        "mappingId": "b0400000-0000-4000-8000-000000000014",
+        "outcome": "ALREADY_INVALIDATED"
+      },
+      {
+        "mappingId": "b0400000-0000-4000-8000-000000000037",
+        "outcome": "REJECTED",
+        "reason": "CAPABILITY_MISMATCH"
+      },
+      {
+        "mappingId": "b0400000-0000-4000-8000-000000000036",
+        "outcome": "ALREADY_ADMITTED",
+        "observationId": "240bb03c-aaa8-4c54-b6f9-3d64c96d0ac4"
+      }
+    ]
+  },
+  "observationsAdmitted": [
+    {
+      "id": "240bb03c-aaa8-4c54-b6f9-3d64c96d0ac4",
+      "variable_ref": "VA01",
+      "value": {
+        "capabilityId": "DG-01",
+        "semanticValue": "La empresa sint\u00e9tica QA fabrica sensores de laboratorio para centros de investigaci\u00f3n.",
+        "acquisitionRef": "ACQ\u00b7NI01",
+        "knowledgeState": "KNOWN",
+        "documentProvenance": {
+          "mappingId": "b0400000-0000-4000-8000-000000000036",
+          "evidenceId": "b0400000-0000-4000-8000-000000000031",
+          "fragmentId": "b0400000-0000-4000-8000-000000000034",
+          "extractionId": "b0400000-0000-4000-8000-000000000033",
+          "knowledgePackId": "dg-01",
+          "interpretationId": "b0400000-0000-4000-8000-000000000035",
+          "knowledgePackVersion": "1.0.0"
+        }
+      }
+    }
+  ],
+  "factualRetry": {
+    "assessmentId": "c71d7b34-9da0-4755-8394-418172412731",
+    "organizationId": "9816dfad-a1be-4140-8293-c4cab34f3603",
+    "admitted": 0,
+    "invalidated": 0,
+    "rejected": [
+      {
+        "mappingId": "b0400000-0000-4000-8000-000000000024",
+        "reason": "STATUS_NOT_VALIDATED"
+      },
+      {
+        "mappingId": "b0400000-0000-4000-8000-000000000037",
+        "reason": "THEMATIC_MAPPING_NOT_FACTUAL"
+      }
+    ],
+    "items": [
+      {
+        "mappingId": "b0070000-0000-4000-8000-000000000014",
+        "outcome": "ALREADY_INVALIDATED"
+      },
+      {
+        "mappingId": "c0700000-0000-4000-8000-000000000014",
+        "outcome": "ALREADY_INVALIDATED"
+      },
+      {
+        "mappingId": "b0300000-0000-4000-8000-000000000024",
+        "outcome": "ALREADY_INVALIDATED"
+      },
+      {
+        "mappingId": "b0300000-0000-4000-8000-000000000014",
+        "outcome": "ALREADY_INVALIDATED"
+      },
+      {
+        "mappingId": "b0400000-0000-4000-8000-000000000024",
+        "outcome": "REJECTED",
+        "reason": "STATUS_NOT_VALIDATED"
+      },
+      {
+        "mappingId": "b0400000-0000-4000-8000-000000000014",
+        "outcome": "ALREADY_INVALIDATED"
+      },
+      {
+        "mappingId": "b0400000-0000-4000-8000-000000000037",
+        "outcome": "REJECTED",
+        "reason": "THEMATIC_MAPPING_NOT_FACTUAL"
+      },
+      {
+        "mappingId": "b0400000-0000-4000-8000-000000000036",
+        "outcome": "ALREADY_ADMITTED",
+        "observationId": "240bb03c-aaa8-4c54-b6f9-3d64c96d0ac4"
+      }
+    ]
+  },
+  "factualRevoke": {
+    "mappingId": "b0400000-0000-4000-8000-000000000036",
+    "revoked": true,
+    "admitted": 0,
+    "invalidated": 1,
+    "rejected": 2
+  },
+  "observationsInvalidated": [
+    {
+      "id": "240bb03c-aaa8-4c54-b6f9-3d64c96d0ac4",
+      "variable_ref": "VA01",
+      "value": {
+        "capabilityId": "DG-01",
+        "semanticValue": "La empresa sint\u00e9tica QA fabrica sensores de laboratorio para centros de investigaci\u00f3n.",
+        "acquisitionRef": "ACQ\u00b7NI01",
+        "knowledgeState": "KNOWN",
+        "documentProvenance": {
+          "mappingId": "b0400000-0000-4000-8000-000000000036",
+          "evidenceId": "b0400000-0000-4000-8000-000000000031",
+          "fragmentId": "b0400000-0000-4000-8000-000000000034",
+          "extractionId": "b0400000-0000-4000-8000-000000000033",
+          "knowledgePackId": "dg-01",
+          "interpretationId": "b0400000-0000-4000-8000-000000000035",
+          "knowledgePackVersion": "1.0.0"
+        }
+      }
+    },
+    {
+      "id": "86739131-9f4b-4dd6-ab65-c41f7a43d4d2",
+      "variable_ref": "VA01",
+      "value": {
+        "capabilityId": "DG-01",
+        "semanticValue": null,
+        "acquisitionRef": "ACQ\u00b7NI01",
+        "knowledgeState": "UNKNOWN",
+        "documentControl": {
+          "kind": "INVALIDATION",
+          "mappingId": "b0400000-0000-4000-8000-000000000036"
+        },
+        "correctsObservationId": "240bb03c-aaa8-4c54-b6f9-3d64c96d0ac4"
+      }
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "status": "PROPOSED_NO_PROMOTION",
+  "source": "docs/coverage/build03/criteria-lote01.proposed.v1.0.0.json",
+  "count": 126,
+  "groups": [
+    {
+      "domain": "DG",
+      "archetype": "ONE_TO_ONE",
+      "capabilities": [
+        "DG-01",
+        "DG-02",
+        "DG-03",
+        "DG-04",
+        "DG-05"
+      ]
+    },
+    {
+      "domain": "PC",
+      "archetype": "ONE_TO_ONE",
+      "capabilities": [
+        "PC-01",
+        "PC-02",
+        "PC-03",
+        "PC-04",
+        "PC-05"
+      ]
+    },
+    {
+      "domain": "DT",
+      "archetype": "ONE_TO_ONE",
+      "capabilities": [
+        "DT-01"
+      ]
+    },
+    {
+      "domain": "DT",
+      "archetype": "STRUCTURAL",
+      "capabilities": [
+        "DT-02",
+        "DT-03",
+        "DT-06"
+      ]
+    },
+    {
+      "domain": "DT",
+      "archetype": "PROGRESSIVE",
+      "capabilities": [
+        "DT-04",
+        "DT-05"
+      ]
+    },
+    {
+      "domain": "CM",
+      "archetype": "PROGRESSIVE",
+      "capabilities": [
+        "CM-01",
+        "CM-02",
+        "CM-03",
+        "CM-04",
+        "CM-05",
+        "CM-06"
+      ]
+    },
+    {
+      "domain": "EC",
+      "archetype": "PROGRESSIVE",
+      "capabilities": [
+        "EC-02",
+        "EC-03",
+        "EC-04",
+        "EC-05"
+      ]
+    },
+    {
+      "domain": "OP",
+      "archetype": "OPERATIONAL_MIXED",
+      "capabilities": [
+        "OP-01",
+        "OP-02",
+        "OP-03",
+        "OP-04",
+        "OP-05"
+      ]
+    }
+  ],
+  "reviewChecklist": [
+    "Reviewer authority, domain and signed approval reference",
+    "Exact acquisition text, pack checksum, version and identity",
+    "Evidence type, literal quote requirements, scope and exhaustiveness",
+    "Partial, uncertain, contradiction and absent evidence negatives",
+    "No variable value or diagnostic sufficiency derived",
+    "Independent decision: criterion approval / documentary enablement / diagnostic sufficiency"
+  ],
+  "institutionalPublicationProposal": "Explicit institutional role outside tenant memberships; authenticated authorization, append-only signed decisions, version-pinned catalog and runtime mirror, rejection tests and independent release gate. NOT_IMPLEMENTED."
+}

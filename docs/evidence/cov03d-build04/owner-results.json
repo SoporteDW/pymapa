@@ -1,0 +1,74 @@
+{
+  "validation": {
+    "status": 204,
+    "result": null,
+    "start": 1792462604.4471295,
+    "end": 1792462604.8146873
+  },
+  "partial": {
+    "status": 200,
+    "result": {
+      "revision": 1,
+      "coverageKind": "ACQUISITION_ONLY_NO_OBSERVATION",
+      "coverageScope": "PARTIAL",
+      "validationKind": "STRUCTURAL_AND_HUMAN_GOVERNANCE",
+      "rejectionReasons": [
+        "REQUIRED_COMPONENT_INCOMPLETE"
+      ]
+    },
+    "start": 1792462604.8157225,
+    "end": 1792462605.0009754
+  },
+  "parallelDifferentKeys": [
+    {
+      "status": 400,
+      "result": {
+        "code": "P0001",
+        "details": null,
+        "hint": null,
+        "message": "COVERAGE_DECISION_OBSOLETE"
+      },
+      "start": 1792462605.0029974,
+      "end": 1792462605.2100203
+    },
+    {
+      "status": 200,
+      "result": {
+        "revision": 2,
+        "coverageKind": "ACQUISITION_ONLY_NO_OBSERVATION",
+        "coverageScope": "FULL",
+        "validationKind": "STRUCTURAL_AND_HUMAN_GOVERNANCE",
+        "rejectionReasons": []
+      },
+      "start": 1792462605.0057976,
+      "end": 1792462605.1881068
+    }
+  ],
+  "parallelSameKey": [
+    {
+      "status": 200,
+      "result": {
+        "revision": 2,
+        "coverageKind": "ACQUISITION_ONLY_NO_OBSERVATION",
+        "coverageScope": "FULL",
+        "validationKind": "STRUCTURAL_AND_HUMAN_GOVERNANCE",
+        "rejectionReasons": []
+      },
+      "start": 1792462605.3802917,
+      "end": 1792462605.5415816
+    },
+    {
+      "status": 200,
+      "result": {
+        "revision": 2,
+        "coverageKind": "ACQUISITION_ONLY_NO_OBSERVATION",
+        "coverageScope": "FULL",
+        "validationKind": "STRUCTURAL_AND_HUMAN_GOVERNANCE",
+        "rejectionReasons": []
+      },
+      "start": 1792462605.382491,
+      "end": 1792462605.5337055
+    }
+  ],
+  "pageErrors": []
+}

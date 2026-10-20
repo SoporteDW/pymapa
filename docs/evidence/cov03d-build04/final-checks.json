@@ -1,0 +1,527 @@
+{
+  "upload": [
+    {
+      "id": "fe46b513-cfa8-4cae-9181-7d94bd260b4f",
+      "title": "QA BUILD04 documento sint\u00e9tico nuevo",
+      "storage_bucket": "evidence",
+      "storage_path": "9816dfad-a1be-4140-8293-c4cab34f3603/c71d7b34-9da0-4755-8394-418172412731/3deba332-dbe2-4535-a032-7a48f42d4157-BUILD04-synthetic.txt",
+      "upload_context_capability_id": "CM-05"
+    }
+  ],
+  "versions": [],
+  "downloadStatus": 200,
+  "bytesMatch": true,
+  "fileSha256": "2cd8cf9500b683cb619b2c6a94c8d54c7bcae07039a65232594eb3900d84abd9",
+  "documentFlowBlocked": "No authenticated non-AI extraction/candidate UI path; upload creates evidence only, no version. No external AI invoked.",
+  "finalObservations": [
+    {
+      "id": "240bb03c-aaa8-4c54-b6f9-3d64c96d0ac4",
+      "variable_ref": "VA01",
+      "value": {
+        "capabilityId": "DG-01",
+        "semanticValue": "La empresa sint\u00e9tica QA fabrica sensores de laboratorio para centros de investigaci\u00f3n.",
+        "acquisitionRef": "ACQ\u00b7NI01",
+        "knowledgeState": "KNOWN",
+        "documentProvenance": {
+          "mappingId": "b0400000-0000-4000-8000-000000000036",
+          "evidenceId": "b0400000-0000-4000-8000-000000000031",
+          "fragmentId": "b0400000-0000-4000-8000-000000000034",
+          "extractionId": "b0400000-0000-4000-8000-000000000033",
+          "knowledgePackId": "dg-01",
+          "interpretationId": "b0400000-0000-4000-8000-000000000035",
+          "knowledgePackVersion": "1.0.0"
+        }
+      }
+    },
+    {
+      "id": "86739131-9f4b-4dd6-ab65-c41f7a43d4d2",
+      "variable_ref": "VA01",
+      "value": {
+        "capabilityId": "DG-01",
+        "semanticValue": null,
+        "acquisitionRef": "ACQ\u00b7NI01",
+        "knowledgeState": "UNKNOWN",
+        "documentControl": {
+          "kind": "INVALIDATION",
+          "mappingId": "b0400000-0000-4000-8000-000000000036"
+        },
+        "correctsObservationId": "240bb03c-aaa8-4c54-b6f9-3d64c96d0ac4"
+      }
+    },
+    {
+      "id": "2ee6a9c5-20ad-40fe-9da9-6ecc2837b7bd",
+      "variable_ref": "VA01",
+      "value": {
+        "capabilityId": "DG-01",
+        "semanticValue": "La empresa sint\u00e9tica QA fabrica sensores de laboratorio para centros de investigaci\u00f3n.",
+        "acquisitionRef": "ACQ\u00b7NI01",
+        "knowledgeState": "KNOWN",
+        "documentProvenance": {
+          "mappingId": "b0400000-0000-4000-8000-000000000038",
+          "evidenceId": "b0400000-0000-4000-8000-000000000031",
+          "fragmentId": "b0400000-0000-4000-8000-000000000034",
+          "extractionId": "b0400000-0000-4000-8000-000000000033",
+          "knowledgePackId": "dg-01",
+          "interpretationId": "b0400000-0000-4000-8000-000000000035",
+          "knowledgePackVersion": "1.0.0"
+        }
+      }
+    },
+    {
+      "id": "db8368e6-7c76-4bd4-a0bb-0a4fb6ece299",
+      "variable_ref": "VA01",
+      "value": {
+        "capabilityId": "DG-01",
+        "semanticValue": null,
+        "acquisitionRef": "ACQ\u00b7NI01",
+        "knowledgeState": "UNKNOWN",
+        "documentControl": {
+          "kind": "INVALIDATION",
+          "mappingId": "b0400000-0000-4000-8000-000000000038"
+        },
+        "correctsObservationId": "2ee6a9c5-20ad-40fe-9da9-6ecc2837b7bd"
+      }
+    }
+  ],
+  "responseCount": 0,
+  "audit": [
+    {
+      "id": "8084ba44-bfbe-4f47-9d74-1a3011e0cca5",
+      "event_type": "FRAGMENT_MAPPING_PROPOSED",
+      "subject_id": "b0400000-0000-4000-8000-000000000024",
+      "detail": {
+        "target_ref": "ACQ\u00b7VA01#NI@L254",
+        "proposed_by": "HUMAN",
+        "target_type": "ACQUISITION",
+        "capability_id": "OP-05"
+      }
+    },
+    {
+      "id": "ec2469a8-faa9-4f0c-b585-b891150d9788",
+      "event_type": "FRAGMENT_MAPPING_PROPOSED",
+      "subject_id": "b0400000-0000-4000-8000-000000000014",
+      "detail": {
+        "target_ref": "ACQ\u00b7P1\u00b701",
+        "proposed_by": "HUMAN",
+        "target_type": "ACQUISITION",
+        "capability_id": "CM-05"
+      }
+    },
+    {
+      "id": "9099a3cf-66fe-481f-94f2-726b2165ec6f",
+      "event_type": "FRAGMENT_MAPPING_VALIDATED",
+      "subject_id": "b0400000-0000-4000-8000-000000000014",
+      "detail": {
+        "to": "VALIDATED",
+        "from": "CANDIDATE",
+        "note": "BUILD04 synthetic QA OWNER validation of independent candidate.",
+        "admission_basis": "HUMAN_VALIDATION",
+        "admission_rule_ref": null
+      }
+    },
+    {
+      "id": "f034a3dd-bff5-469d-86f7-28fe2365a7e5",
+      "event_type": "FRAGMENT_MAPPING_COVERAGE_DECIDED",
+      "subject_id": "b0400000-0000-4000-8000-000000000014",
+      "detail": {
+        "scope": "PARTIAL",
+        "justification": "BUILD03 OWNER QA verifies all pilot components and scope.",
+        "previous_scope": "PARTIAL",
+        "acquisition_ref": null
+      }
+    },
+    {
+      "id": "f5196f61-5432-434d-9268-0156436d818e",
+      "event_type": "FRAGMENT_MAPPING_COVERAGE_DECIDED",
+      "subject_id": "b0400000-0000-4000-8000-000000000014",
+      "detail": {
+        "scope": "FULL",
+        "justification": "BUILD03 OWNER QA verifies all pilot components and scope.",
+        "previous_scope": "PARTIAL",
+        "acquisition_ref": "ACQ\u00b7P1\u00b701"
+      }
+    },
+    {
+      "id": "7348d2da-85e4-4407-b153-3685a153e32a",
+      "event_type": "FRAGMENT_MAPPING_PROPOSED",
+      "subject_id": "b0400000-0000-4000-8000-000000000036",
+      "detail": {
+        "target_ref": "VA01",
+        "proposed_by": "HUMAN",
+        "target_type": "VARIABLE",
+        "capability_id": "DG-01"
+      }
+    },
+    {
+      "id": "cec583a8-ebdd-4911-84de-ea32741f451e",
+      "event_type": "FRAGMENT_MAPPING_PROPOSED",
+      "subject_id": "b0400000-0000-4000-8000-000000000037",
+      "detail": {
+        "target_ref": "NI01",
+        "proposed_by": "HUMAN",
+        "target_type": "INFORMATION_NEED",
+        "capability_id": "DG-01"
+      }
+    },
+    {
+      "id": "7a77966a-566f-418b-98c6-895ff129ce58",
+      "event_type": "FRAGMENT_MAPPING_COVERAGE_DECIDED",
+      "subject_id": "b0400000-0000-4000-8000-000000000014",
+      "detail": {
+        "scope": "PARTIAL",
+        "justification": "BUILD03 OWNER QA verifies all pilot components and scope.",
+        "previous_scope": "FULL",
+        "acquisition_ref": null
+      }
+    },
+    {
+      "id": "f922f644-3903-418f-a017-06edce0b6533",
+      "event_type": "FRAGMENT_MAPPING_COVERAGE_DECIDED",
+      "subject_id": "b0400000-0000-4000-8000-000000000014",
+      "detail": {
+        "scope": "FULL",
+        "justification": "BUILD03 OWNER QA verifies all pilot components and scope.",
+        "previous_scope": "PARTIAL",
+        "acquisition_ref": "ACQ\u00b7P1\u00b701"
+      }
+    },
+    {
+      "id": "94c66905-cda5-4b38-b6b4-fc1f10ef3eee",
+      "event_type": "FRAGMENT_MAPPING_COVERAGE_DECIDED",
+      "subject_id": "b0400000-0000-4000-8000-000000000014",
+      "detail": {
+        "scope": "FULL",
+        "justification": "BUILD03 OWNER QA verifies all pilot components and scope.",
+        "previous_scope": "FULL",
+        "acquisition_ref": "ACQ\u00b7P1\u00b701"
+      }
+    },
+    {
+      "id": "cca5953b-021b-4645-abae-2549030044d9",
+      "event_type": "FRAGMENT_MAPPING_SUPERSEDED",
+      "subject_id": "b0400000-0000-4000-8000-000000000014",
+      "detail": {
+        "to": "SUPERSEDED",
+        "from": "VALIDATED",
+        "note": "BUILD04 simultaneous governed QA revocation",
+        "admission_basis": "HUMAN_VALIDATION",
+        "admission_rule_ref": null
+      }
+    },
+    {
+      "id": "a25b8248-22f8-4a81-b71e-b1940d124368",
+      "event_type": "FRAGMENT_MAPPING_VALIDATED",
+      "subject_id": "b0400000-0000-4000-8000-000000000036",
+      "detail": {
+        "to": "VALIDATED",
+        "from": "CANDIDATE",
+        "note": "BUILD04 governed synthetic human factual or thematic validation",
+        "admission_basis": "HUMAN_VALIDATION",
+        "admission_rule_ref": null
+      }
+    },
+    {
+      "id": "f3555c0d-cea2-41a1-a39b-e700e33aa2cf",
+      "event_type": "FRAGMENT_MAPPING_VALIDATED",
+      "subject_id": "b0400000-0000-4000-8000-000000000037",
+      "detail": {
+        "to": "VALIDATED",
+        "from": "CANDIDATE",
+        "note": "BUILD04 governed synthetic human factual or thematic validation",
+        "admission_basis": "HUMAN_VALIDATION",
+        "admission_rule_ref": null
+      }
+    },
+    {
+      "id": "6d7391fa-e6da-4678-af3c-f44826568f89",
+      "event_type": "DOCUMENT_OBSERVATION_ADMITTED",
+      "subject_id": "240bb03c-aaa8-4c54-b6f9-3d64c96d0ac4",
+      "detail": {
+        "at": "2026-10-20T02:27:36.301Z",
+        "mappingId": "b0400000-0000-4000-8000-000000000036",
+        "evidenceId": "b0400000-0000-4000-8000-000000000031",
+        "fragmentId": "b0400000-0000-4000-8000-000000000034",
+        "variableRef": "VA01",
+        "extractionId": "b0400000-0000-4000-8000-000000000033",
+        "acquisitionRef": "ACQ\u00b7NI01",
+        "admissionBasis": "HUMAN_VALIDATION"
+      }
+    },
+    {
+      "id": "dc6663f6-2a2c-4ee5-9b1e-cb3896b3e3bc",
+      "event_type": "FRAGMENT_MAPPING_SUPERSEDED",
+      "subject_id": "b0400000-0000-4000-8000-000000000036",
+      "detail": {
+        "to": "SUPERSEDED",
+        "from": "VALIDATED",
+        "note": "BUILD04 synthetic factual invalidation with retained lineage",
+        "admission_basis": "HUMAN_VALIDATION",
+        "admission_rule_ref": null
+      }
+    },
+    {
+      "id": "01246571-6bf6-4da4-ad3a-564c3aa32b99",
+      "event_type": "DOCUMENT_OBSERVATION_INVALIDATED",
+      "subject_id": "240bb03c-aaa8-4c54-b6f9-3d64c96d0ac4",
+      "detail": {
+        "at": "2026-10-20T02:27:42.031Z",
+        "mappingId": "b0400000-0000-4000-8000-000000000036",
+        "controlObservationId": "86739131-9f4b-4dd6-ab65-c41f7a43d4d2"
+      }
+    },
+    {
+      "id": "a4ce981d-ae5c-4d7a-a804-d893401eaabd",
+      "event_type": "FRAGMENT_MAPPING_PROPOSED",
+      "subject_id": "b0400000-0000-4000-8000-000000000038",
+      "detail": {
+        "target_ref": "VA01",
+        "proposed_by": "HUMAN",
+        "target_type": "VARIABLE",
+        "capability_id": "DG-01"
+      }
+    },
+    {
+      "id": "07a01585-adf1-4f21-9f14-52f4caa0259f",
+      "event_type": "FRAGMENT_MAPPING_VALIDATED",
+      "subject_id": "b0400000-0000-4000-8000-000000000038",
+      "detail": {
+        "to": "VALIDATED",
+        "from": "CANDIDATE",
+        "note": "BUILD04 second synthetic factual validation for variable contrast",
+        "admission_basis": "HUMAN_VALIDATION",
+        "admission_rule_ref": null
+      }
+    },
+    {
+      "id": "39006dd5-4a65-4a51-a1bf-4fab1c7ffd75",
+      "event_type": "DOCUMENT_OBSERVATION_ADMITTED",
+      "subject_id": "2ee6a9c5-20ad-40fe-9da9-6ecc2837b7bd",
+      "detail": {
+        "at": "2026-10-20T02:28:26.654Z",
+        "mappingId": "b0400000-0000-4000-8000-000000000038",
+        "evidenceId": "b0400000-0000-4000-8000-000000000031",
+        "fragmentId": "b0400000-0000-4000-8000-000000000034",
+        "variableRef": "VA01",
+        "extractionId": "b0400000-0000-4000-8000-000000000033",
+        "acquisitionRef": "ACQ\u00b7NI01",
+        "admissionBasis": "HUMAN_VALIDATION"
+      }
+    },
+    {
+      "id": "82b7f7f4-4bd3-4f15-b43b-22e4810bbb61",
+      "event_type": "FRAGMENT_MAPPING_SUPERSEDED",
+      "subject_id": "b0400000-0000-4000-8000-000000000038",
+      "detail": {
+        "to": "SUPERSEDED",
+        "from": "VALIDATED",
+        "note": "BUILD04 synthetic factual variable contrast revocation",
+        "admission_basis": "HUMAN_VALIDATION",
+        "admission_rule_ref": null
+      }
+    },
+    {
+      "id": "a23ec2b8-a9b4-40e6-985f-ac7b4e4fba5d",
+      "event_type": "DOCUMENT_OBSERVATION_INVALIDATED",
+      "subject_id": "2ee6a9c5-20ad-40fe-9da9-6ecc2837b7bd",
+      "detail": {
+        "at": "2026-10-20T02:28:36.093Z",
+        "mappingId": "b0400000-0000-4000-8000-000000000038",
+        "controlObservationId": "db8368e6-7c76-4bd4-a0bb-0a4fb6ece299"
+      }
+    },
+    {
+      "id": "2fd8c829-fcac-4333-93f7-cb404a6bfa79",
+      "event_type": "FRAGMENT_MAPPING_VALIDATED",
+      "subject_id": "b0400000-0000-4000-8000-000000000024",
+      "detail": {
+        "to": "VALIDATED",
+        "from": "CANDIDATE",
+        "note": "BUILD04 OWNER validates OP05 synthetic candidate",
+        "admission_basis": "HUMAN_VALIDATION",
+        "admission_rule_ref": null
+      }
+    },
+    {
+      "id": "84099d95-34db-4cab-bbbb-7a0f758441b2",
+      "event_type": "FRAGMENT_MAPPING_COVERAGE_DECIDED",
+      "subject_id": "b0400000-0000-4000-8000-000000000024",
+      "detail": {
+        "scope": "PARTIAL",
+        "justification": "BUILD03 OWNER QA verifies all pilot components and scope.",
+        "previous_scope": "PARTIAL",
+        "acquisition_ref": null
+      }
+    },
+    {
+      "id": "40e8dd79-e01b-4ccb-8c3b-6609ebca73db",
+      "event_type": "FRAGMENT_MAPPING_COVERAGE_DECIDED",
+      "subject_id": "b0400000-0000-4000-8000-000000000024",
+      "detail": {
+        "scope": "FULL",
+        "justification": "BUILD04 OWNER confirma el alcance completo del piloto sint\u00e9tico OP05.",
+        "previous_scope": "PARTIAL",
+        "acquisition_ref": "ACQ\u00b7VA01#NI@L254"
+      }
+    },
+    {
+      "id": "e3d90f10-0324-491f-9115-bd8944ae5fa6",
+      "event_type": "FRAGMENT_MAPPING_SUPERSEDED",
+      "subject_id": "b0400000-0000-4000-8000-000000000024",
+      "detail": {
+        "to": "SUPERSEDED",
+        "from": "VALIDATED",
+        "note": "BUILD04 OWNER revoca piloto OP05 sin alterar variables",
+        "admission_basis": "HUMAN_VALIDATION",
+        "admission_rule_ref": null
+      }
+    }
+  ],
+  "catalogCounts": {
+    "APPROVED": 1,
+    "PILOT_TEST_GOVERNED": 2,
+    "PROPOSED": 126
+  },
+  "factualVariableSummary": {
+    "before": [
+      {
+        "variableRef": "VA01",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      },
+      {
+        "variableRef": "VA02",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      },
+      {
+        "variableRef": "VA03",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      },
+      {
+        "variableRef": "VA04",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      },
+      {
+        "variableRef": "VA05",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      },
+      {
+        "variableRef": "VA06",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      },
+      {
+        "variableRef": "VA07",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      },
+      {
+        "variableRef": "VA08",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      },
+      {
+        "variableRef": "VA09",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      }
+    ],
+    "admitted": [
+      {
+        "variableRef": "VA01",
+        "state": "KNOWN",
+        "semanticValue": "La empresa sint\u00e9tica QA fabrica sensores de laboratorio para centros de investigaci\u00f3n."
+      },
+      {
+        "variableRef": "VA02",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      },
+      {
+        "variableRef": "VA03",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      },
+      {
+        "variableRef": "VA04",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      },
+      {
+        "variableRef": "VA05",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      },
+      {
+        "variableRef": "VA06",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      },
+      {
+        "variableRef": "VA07",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      },
+      {
+        "variableRef": "VA08",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      },
+      {
+        "variableRef": "VA09",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      }
+    ],
+    "revoked": [
+      {
+        "variableRef": "VA01",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      },
+      {
+        "variableRef": "VA02",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      },
+      {
+        "variableRef": "VA03",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      },
+      {
+        "variableRef": "VA04",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      },
+      {
+        "variableRef": "VA05",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      },
+      {
+        "variableRef": "VA06",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      },
+      {
+        "variableRef": "VA07",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      },
+      {
+        "variableRef": "VA08",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      },
+      {
+        "variableRef": "VA09",
+        "state": "UNKNOWN",
+        "semanticValue": null
+      }
+    ]
+  }
+}

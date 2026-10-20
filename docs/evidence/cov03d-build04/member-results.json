@@ -1,0 +1,137 @@
+{
+  "identity": {
+    "userId": "90cecfe9-0fb1-4ff4-bc00-048958840601",
+    "role": "MEMBER",
+    "syntheticOnly": true
+  },
+  "before": {
+    "mapping": [
+      {
+        "status": "VALIDATED",
+        "coverage_scope": "FULL",
+        "coverage_revision": 2
+      }
+    ],
+    "decisions": [
+      {
+        "id": "2977da1f-f138-4fef-8f3f-06227fbb26d8",
+        "revision": 1
+      },
+      {
+        "id": "47a82478-e39f-42e9-920d-2fb04d014e0d",
+        "revision": 2
+      }
+    ],
+    "criteria": [
+      {
+        "approval_status": "PILOT_TEST_GOVERNED"
+      }
+    ]
+  },
+  "attempts": [
+    {
+      "name": "FULL",
+      "status": 400,
+      "result": {
+        "code": "P0001",
+        "details": null,
+        "hint": null,
+        "message": "DOCUMENT_GOVERNANCE_FORBIDDEN"
+      },
+      "persistedUnchanged": true
+    },
+    {
+      "name": "PARTIAL",
+      "status": 400,
+      "result": {
+        "code": "P0001",
+        "details": null,
+        "hint": null,
+        "message": "DOCUMENT_GOVERNANCE_FORBIDDEN"
+      },
+      "persistedUnchanged": true
+    },
+    {
+      "name": "revoke",
+      "status": 400,
+      "result": {
+        "code": "P0001",
+        "details": null,
+        "hint": null,
+        "message": "FRAGMENT_MAPPING_REVOCATION_FORBIDDEN"
+      },
+      "persistedUnchanged": true
+    },
+    {
+      "name": "directFull",
+      "status": 204,
+      "result": null,
+      "persistedUnchanged": true
+    },
+    {
+      "name": "directPartial",
+      "status": 204,
+      "result": null,
+      "persistedUnchanged": true
+    },
+    {
+      "name": "directDelete",
+      "status": 204,
+      "result": null,
+      "persistedUnchanged": true
+    },
+    {
+      "name": "promote",
+      "status": 204,
+      "result": null,
+      "persistedUnchanged": true
+    },
+    {
+      "name": "directDecision-9816dfad-a1be-4140-8293-c4cab34f3603",
+      "status": 403,
+      "result": {
+        "code": "42501",
+        "details": null,
+        "hint": null,
+        "message": "new row violates row-level security policy for table \"coverage_decisions\""
+      },
+      "persistedUnchanged": true
+    },
+    {
+      "name": "directDecision-b0400000-0000-4000-8000-000000000001",
+      "status": 403,
+      "result": {
+        "code": "42501",
+        "details": null,
+        "hint": null,
+        "message": "new row violates row-level security policy for table \"coverage_decisions\""
+      },
+      "persistedUnchanged": true
+    }
+  ],
+  "after": {
+    "mapping": [
+      {
+        "status": "VALIDATED",
+        "coverage_scope": "FULL",
+        "coverage_revision": 2
+      }
+    ],
+    "decisions": [
+      {
+        "id": "2977da1f-f138-4fef-8f3f-06227fbb26d8",
+        "revision": 1
+      },
+      {
+        "id": "47a82478-e39f-42e9-920d-2fb04d014e0d",
+        "revision": 2
+      }
+    ],
+    "criteria": [
+      {
+        "approval_status": "PILOT_TEST_GOVERNED"
+      }
+    ]
+  },
+  "allUnchanged": true
+}
