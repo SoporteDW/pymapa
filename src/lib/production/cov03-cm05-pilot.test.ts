@@ -48,7 +48,7 @@ function mapping(scope: "FULL" | "PARTIAL", over: { components?: typeof CM05_P10
     factualCorrespondenceRef: null, validatedBy: "qa-cov03-owner", validatedAt: "2026-10-19", supersedesMappingId: null,
     createdAt: "2026-10-19", extractionId: "qa-cov03-extraction", evidenceId: "qa-cov03-evidence", fragmentText: QUOTES.join("\n"),
     interpretationStatement: null, coverageScope: scope, coverageAcquisitionRef: scope === "FULL" ? "ACQ·P1·01" : null,
-    coverageDecidedBy: "qa-cov03-owner", coverageRevision: 1, coverageEvidenceCurrent: true,
+    coverageDecidedBy: "qa-cov03-owner", coverageRevision: 1, coverageEvidenceCurrent: true, coveragePilotAuthorized: true,
     coverageEvaluation: { declaration, result: { coverageScope: scope, revision: 1 }, decidedBy: "qa-cov03-owner",
       evidenceId: "qa-cov03-evidence", extractionId: "qa-cov03-extraction" } } as DocumentMappingRecord;
 }
@@ -74,7 +74,7 @@ describe("COV-03A · registro transversal de criterios", () => {
     let full = 0, total = 0;
     for (const pid of ids) {
       const pk = JSON.parse(readFileSync(`knowledge/packs/${pid.toLowerCase()}/1.0.0/pack.json`, "utf8"));
-      for (const a of pk.acquisitions ?? []) { total++; if (coverageModeFor(KV, pk.capability.id, a.id) === "FULL_ELIGIBLE") full++; }
+      for (const a of pk.acquisitions ?? []) { total++; if (coverageModeFor(KV, pk.capability.id, a.id, true) === "FULL_ELIGIBLE") full++; }
     }
     expect(total).toBeGreaterThan(100);
     expect(full).toBe(3); // DG-01 NI04, CM-05 P1·01, OP-05 VA01#NI@L254

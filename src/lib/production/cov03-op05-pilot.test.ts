@@ -51,7 +51,7 @@ function mapping(scope: "FULL" | "PARTIAL", over: { components?: readonly Comp[]
     factualCorrespondenceRef: null, validatedBy: "qa-cov03c-owner", validatedAt: "2026-10-19", supersedesMappingId: null,
     createdAt: "2026-10-19", extractionId: "qa-cov03c-extraction", evidenceId: "qa-cov03c-evidence", fragmentText: QUOTES.join("\n"),
     interpretationStatement: null, coverageScope: scope, coverageAcquisitionRef: scope === "FULL" ? target : null,
-    coverageDecidedBy: "qa-cov03c-owner", coverageRevision: 1, coverageEvidenceCurrent: true,
+    coverageDecidedBy: "qa-cov03c-owner", coverageRevision: 1, coverageEvidenceCurrent: true, coveragePilotAuthorized: true,
     coverageEvaluation: { declaration, result: { coverageScope: scope, revision: 1 }, decidedBy: "qa-cov03c-owner",
       evidenceId: "qa-cov03c-evidence", extractionId: "qa-cov03c-extraction" } } as DocumentMappingRecord;
 }
@@ -85,12 +85,13 @@ describe("COV-03C · inventario OP-05 (pack publicado, sin inferir 1:1)", () => 
     expect(e?.mappingTargetType).toBe("ACQUISITION");
   });
   it("solo L254 es FULL_ELIGIBLE; hermanas de VA01 y las otras 63 siguen PARTIAL_ONLY", () => {
-    expect(ALL.filter((a) => coverageModeFor(KV, "OP-05", a) === "FULL_ELIGIBLE")).toEqual([ACQ]);
+    expect(ALL.filter((a) => coverageModeFor(KV, "OP-05", a, true) === "FULL_ELIGIBLE")).toEqual([ACQ]);
     expect(coverageModeFor(KV, "OP-04", ACQ)).toBe("PARTIAL_ONLY");
   });
   it("el registro TS se replica literalmente en la última definición SQL", () => {
     const files = readdirSync("drizzle/migrations").filter((f) => f.endsWith(".sql")).sort();
-    const sql = files.map((f) => readFileSync(`drizzle/migrations/${f}`, "utf8")).filter((t) => t.includes("function public.approved_coverage_components")).at(-1)!;
+    const sql = files.map((f) => readFileSync(`drizzle/migrations/${f}`, "utf8")).filter((t) => t.includes("function public.approved_coverage_components")).at(-1);
+    if (!sql) throw new Error("Missing SQL criteria definition");
     for (const e of COVERAGE_CRITERIA_REGISTRY) {
       expect(sql).toContain(`_capability='${e.capabilityId}' and _acquisition='${e.acquisitionRef}' and _version='${e.coverageCriteriaVersion}'`);
       for (const c of e.components) expect(sql).toContain(`{"componentKey":"${c.componentKey}","componentDescription":"${c.componentDescription}"}`);
@@ -143,7 +144,7 @@ describe("COV-03C · piloto OP-05 / ACQ·VA01#NI@L254", () => {
     const d = mapping("FULL").coverageEvaluation as { declaration: Parameters<typeof validateStructuredCoverage>[0] };
     const bad = { ...d.declaration, componentEvaluations: d.declaration.componentEvaluations.map((c, i) => i === 0 ? { ...c, supportingQuote: "cita inventada" } : c) };
     expect(() => validateStructuredCoverage(bad, { capabilityId: "OP-05", knowledgeVersionId: KV, acquisitionRef: ACQ,
-      fragmentId: "c0700000-0000-4000-8000-000000000002", fragmentText: QUOTES.join("\n"), evidenceCurrent: true, hasConflict: false })).toThrow("INVALID_COMPONENT_QUOTE");
+      fragmentId: "c0700000-0000-4000-8000-000000000002", fragmentText: QUOTES.join("\n"), evidenceCurrent: true, hasConflict: false, pilotAuthorized: true })).toThrow("INVALID_COMPONENT_QUOTE");
   });
   it("C10c versión de conocimiento distinta y archetype VARIABLE no verifican cobertura", () => {
     expect(hasVerifiedStructuredCoverage({ ...mapping("FULL"), knowledgeVersionId: "ee463f4d-2ed1-428d-8809-aa6ac0f43cb9" })).toBe(false);

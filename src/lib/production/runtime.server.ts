@@ -6,6 +6,7 @@
  * módulo (protección por sufijo `.server`) ni el engine.
  */
 import { createHash } from "node:crypto";
+import { approvedCoverageCriteria } from "./coverage-criteria";
 import { createKnowledgeEngine, type KnowledgeEngine } from "@pymapa/knowledge-engine";
 import {
   OFFICIAL_CAPABILITY_IDS,
