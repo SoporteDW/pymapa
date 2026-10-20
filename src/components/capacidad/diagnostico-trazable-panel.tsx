@@ -87,7 +87,10 @@ export function DiagnosticoTrazablePanel({ capabilityId, canGovern }: { capabili
   if (!q.data) return null;
   const d = q.data;
   const vigentes = d.findings.filter((f) => f.lifecycleState !== "SUPERSEDED");
-  const historicos = d.findings.filter((f) => f.lifecycleState === "SUPERSEDED");
+  // Retirado por pérdida de sustento: SUPERSEDED sin sustituto. Reemplazado: con sustituto.
+  const sinSustento = d.findings.filter((f) => f.lifecycleState === "SUPERSEDED" && !f.supersededByFindingId);
+  const reemplazados = d.findings.filter((f) => f.lifecycleState === "SUPERSEDED" && !!f.supersededByFindingId);
+  const idsSinSustento = new Set(sinSustento.map((f) => f.id));
   const gobernadas = d.recommendationIdentities.filter(esRecomendacionGobernada);
   const pendientes = d.findingsAwaitingResolution.items;
 
@@ -150,7 +153,21 @@ export function DiagnosticoTrazablePanel({ capabilityId, canGovern }: { capabili
               ))}
             </div>
           )}
-          {historicos.length > 0 && <p className="text-xs text-muted-foreground">{historicos.length} hallazgos anteriores ya no vigentes se conservan en el historial.</p>}
+          {sinSustento.map((f) => (
+            <article key={f.id} data-finding-ref={f.findingRef} data-testid="hallazgo-sin-sustento" className="space-y-2 rounded-lg border border-dashed border-border p-3">
+              <div className="flex flex-wrap items-center gap-2">
+                <Badge variant="outline">Sin sustento vigente / Requiere reevaluación</Badge>
+                <span className="font-medium">{f.findingRef} · {f.name}</span>
+              </div>
+              <ul className="space-y-0.5 text-xs text-muted-foreground">
+                <li>Confirmación humana histórica: {f.reviewedAt ? `sí, ${new Date(f.reviewedAt).toLocaleDateString("es-CO")}` : "no hubo confirmación"}</li>
+                <li>Vigencia diagnóstica actual: no vigente (el motor ya no lo produce con la información actual)</li>
+                <li>Evidencia válida disponible: {f.support.some((s) => s.origin !== "DOCUMENT" || s.document?.mappingStatus !== "SUPERSEDED") ? "parcial, insuficiente para el motor" : "ninguna (evidencia revocada)"}</li>
+                <li>Intervención humana vinculada: {d.interventions.filter((i) => i.findingId === f.id).length > 0 ? "se conserva; su fundamento requiere revisión" : "ninguna"}</li>
+              </ul>
+            </article>
+          ))}
+          {reemplazados.length > 0 && <p className="text-xs text-muted-foreground">{reemplazados.length} versiones anteriores de hallazgos se conservan en el historial.</p>}
         </section>
 
         <section className="space-y-2" data-testid="capa-recomendaciones">
@@ -173,6 +190,9 @@ export function DiagnosticoTrazablePanel({ capabilityId, canGovern }: { capabili
                 <span className="font-medium">{i.title}</span>
               </div>
               {i.findingId && <p className="text-xs text-muted-foreground">Vinculada al hallazgo {d.findings.find((f) => f.id === i.findingId)?.findingRef ?? i.findingId}</p>}
+              {i.findingId && idsSinSustento.has(i.findingId) && (
+                <p data-testid="fundamento-requiere-revision" className="text-xs font-medium">El hallazgo que motivó esta acción perdió su sustento vigente: el fundamento de la acción requiere revisión.</p>
+              )}
               {i.activities.map((a) => (
                 <div key={a.id} className="space-y-2 rounded-md bg-muted/50 p-2 text-xs">
                   <p><span className="font-medium">{a.title}</span> · {ACTIVIDAD[a.state] ?? a.state}</p>
