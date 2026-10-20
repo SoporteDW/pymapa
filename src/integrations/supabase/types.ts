@@ -357,6 +357,108 @@ export type Database = {
           },
         ]
       }
+      coverage_canonical_acquisitions: {
+        Row: {
+          acquisition_ref: string
+          capability_id: string
+          knowledge_version_id: string
+          pack_checksum: string
+          pack_id: string
+          pack_version: string
+          source_text: string
+          variable_refs: Json
+        }
+        Insert: {
+          acquisition_ref: string
+          capability_id: string
+          knowledge_version_id: string
+          pack_checksum: string
+          pack_id: string
+          pack_version: string
+          source_text: string
+          variable_refs: Json
+        }
+        Update: {
+          acquisition_ref?: string
+          capability_id?: string
+          knowledge_version_id?: string
+          pack_checksum?: string
+          pack_id?: string
+          pack_version?: string
+          source_text?: string
+          variable_refs?: Json
+        }
+        Relationships: []
+      }
+      coverage_criteria_catalog: {
+        Row: {
+          acquisition_ref: string
+          approval_reference: string
+          approval_status: string
+          capability_id: string
+          components: Json
+          criteria_version: string
+          knowledge_version_id: string
+          mapping_target_type: string
+          proposal_detail: Json | null
+        }
+        Insert: {
+          acquisition_ref: string
+          approval_reference: string
+          approval_status?: string
+          capability_id: string
+          components: Json
+          criteria_version: string
+          knowledge_version_id: string
+          mapping_target_type: string
+          proposal_detail?: Json | null
+        }
+        Update: {
+          acquisition_ref?: string
+          approval_reference?: string
+          approval_status?: string
+          capability_id?: string
+          components?: Json
+          criteria_version?: string
+          knowledge_version_id?: string
+          mapping_target_type?: string
+          proposal_detail?: Json | null
+        }
+        Relationships: []
+      }
+      coverage_criteria_events: {
+        Row: {
+          acquisition_ref: string
+          capability_id: string
+          created_at: string
+          criteria_version: string
+          detail: Json
+          event_type: string
+          id: string
+          knowledge_version_id: string
+        }
+        Insert: {
+          acquisition_ref: string
+          capability_id: string
+          created_at?: string
+          criteria_version: string
+          detail: Json
+          event_type: string
+          id?: string
+          knowledge_version_id: string
+        }
+        Update: {
+          acquisition_ref?: string
+          capability_id?: string
+          created_at?: string
+          criteria_version?: string
+          detail?: Json
+          event_type?: string
+          id?: string
+          knowledge_version_id?: string
+        }
+        Relationships: []
+      }
       coverage_decisions: {
         Row: {
           actor_user_id: string
@@ -408,6 +510,80 @@ export type Database = {
           },
           {
             foreignKeyName: "coverage_decisions_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      coverage_pilot_authorizations: {
+        Row: {
+          acquisition_ref: string
+          active: boolean
+          assessment_id: string
+          authorization_reference: string
+          capability_id: string
+          created_at: string
+          criteria_version: string
+          id: string
+          knowledge_version_id: string
+          organization_id: string
+          synthetic_qa: boolean
+        }
+        Insert: {
+          acquisition_ref: string
+          active?: boolean
+          assessment_id: string
+          authorization_reference: string
+          capability_id: string
+          created_at?: string
+          criteria_version: string
+          id?: string
+          knowledge_version_id: string
+          organization_id: string
+          synthetic_qa?: boolean
+        }
+        Update: {
+          acquisition_ref?: string
+          active?: boolean
+          assessment_id?: string
+          authorization_reference?: string
+          capability_id?: string
+          created_at?: string
+          criteria_version?: string
+          id?: string
+          knowledge_version_id?: string
+          organization_id?: string
+          synthetic_qa?: boolean
+        }
+        Relationships: [
+          {
+            foreignKeyName: "coverage_pilot_authorizations_assessment_id_fkey"
+            columns: ["assessment_id"]
+            isOneToOne: false
+            referencedRelation: "assessments"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "coverage_pilot_authorizations_knowledge_version_id_capabil_fkey"
+            columns: [
+              "knowledge_version_id",
+              "capability_id",
+              "acquisition_ref",
+              "criteria_version",
+            ]
+            isOneToOne: false
+            referencedRelation: "coverage_criteria_catalog"
+            referencedColumns: [
+              "knowledge_version_id",
+              "capability_id",
+              "acquisition_ref",
+              "criteria_version",
+            ]
+          },
+          {
+            foreignKeyName: "coverage_pilot_authorizations_organization_id_fkey"
             columns: ["organization_id"]
             isOneToOne: false
             referencedRelation: "organizations"
