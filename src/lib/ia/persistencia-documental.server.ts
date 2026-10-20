@@ -30,6 +30,8 @@ export async function persistirLectura(
     titulo: string;
     paginas: PaginaTexto[];
     resultado: ResultadoVerificacion;
+    /** SEM-QA-01: evidencia y versión ya enlazadas por la guarda al archivo verificado. */
+    existente?: { evidenceId: string; versionId: string; fileSha256: string; executionId: string };
     traza: { provider: string; model: string; promptVersion: string; runId: string | null; packId: string; packVersion: string; packChecksum: string };
   },
 ): Promise<LecturaPersistida> {
@@ -44,6 +46,15 @@ export async function persistirLectura(
   };
   const textoHash = await sha256(params.paginas.map((p) => `${p.pagina}\n${p.texto}`).join("\n\f\n"));
 
+  let evidenceId: string;
+  let versionId: string;
+  let extractionVersion = 1;
+  if (params.existente) {
+    evidenceId = params.existente.evidenceId;
+    versionId = params.existente.versionId;
+    const { count } = await db.from("document_extractions").select("id", { count: "exact", head: true }).eq("evidence_version_id", versionId);
+    extractionVersion = (count ?? 0) + 1;
+  } else {
   const ev = await db
     .from("evidence")
     .insert({
@@ -67,16 +78,19 @@ export async function persistirLectura(
     .select("id")
     .single();
   fallo("evidence_versions", ver.error);
+  evidenceId = ev.data!.id;
+  versionId = ver.data!.id;
+  }
   const ext = await db
     .from("document_extractions")
     .insert({
       organization_id: org,
-      evidence_version_id: ver.data!.id,
-      extraction_version: 1,
+      evidence_version_id: versionId,
+      extraction_version: extractionVersion,
       status: "COMPLETED",
       model_provider: params.traza.provider,
       model_id: params.traza.model,
-      prompt_ref: `${params.traza.promptVersion}|run:${params.traza.runId ?? "n/a"}|pack:${params.traza.packId}@${params.traza.packVersion}`,
+      prompt_ref: `${params.existente ? `${params.existente.executionId}|SYNTHETIC_QA_ONLY|file-sha256:${params.existente.fileSha256}|text-sha256:${textoHash}|` : ""}${params.traza.promptVersion}|run:${params.traza.runId ?? "n/a"}|pack:${params.traza.packId}@${params.traza.packVersion}`,
       knowledge_version_id: assessment.knowledgeVersionId,
       started_at: new Date().toISOString(),
       completed_at: new Date().toISOString(),
@@ -139,5 +153,5 @@ export async function persistirLectura(
     fallo("fragment_mappings", m.error);
     mappingIds[v.id] = m.data!.id;
   }
-  return { evidenceId: ev.data!.id, extractionId: ext.data!.id, mappingIds, fragmentoCompartido };
+  return { evidenceId, extractionId: ext.data!.id, mappingIds, fragmentoCompartido };
 }
