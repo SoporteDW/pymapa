@@ -42,3 +42,47 @@ Vitest: 1072/1072 pruebas superadas. `tsgo`: sin errores.
 
 ## 6. Dictamen
 MVP-BETA-INT-01: **PASS WITH CONDITIONS**. El recorrido documento → hallazgo del motor → acción humana → revocación queda demostrado de extremo a extremo con datos sintéticos. El MVP Beta no queda declarado como terminado.
+
+---
+
+## 7. Cierre complementario de condiciones (2026-10-20)
+
+Mismo paquete, sin nuevo build funcional. Sin IA externa, sin cambios en Master v1.0, 31 packs v1.0.0 ni Engine 0.2.0. Sin migraciones nuevas. Ninguna membresía existente fue modificada; se añadió una identidad sintética nueva `qa.int01.member` como MEMBER solo de la organización QA limpia `a62e562b…`.
+
+### 7.1 Verificación de contratos (antes de modificar código)
+- El Engine ya deja de producir H04/H06 cuando la observación documental se invalida (control UNKNOWN append-only); la reevaluación existente marca el finding `SUPERSEDED` sin sustituto y audita `FINDING_SUPPORT_WITHDRAWN`. `reviewedAt` conserva la confirmación humana; la intervención no se toca.
+- Si quedan evidencias independientes, el Engine sigue produciendo el candidato y el finding no se retira (regla aplicada por el motor, no por la UI).
+- Conclusión: la regla funcional se cumple con los contratos actuales; **no requiere cambios de Engine, historial ni arquitectura**.
+
+### 7.2 Cambios
+- Servidor: crear intervención, crear actividad, cambiar estado y registrar entregable exigen OWNER/ADMIN (`assertDocumentGovernanceRole`), igual que la revisión de hallazgos.
+- UI: hallazgo retirado se muestra «Sin sustento vigente / Requiere reevaluación» con cuatro líneas separadas: confirmación humana histórica, vigencia diagnóstica actual, evidencia válida disponible, intervención vinculada. La intervención vinculada muestra «su fundamento requiere revisión».
+- OP-01: eliminado el bloque antiguo «Planes de trabajo» (duplicaba acciones/tareas/entregables). Se conserva «Comprobación de tareas» (marcar hecha, preparar y abrir comprobación), única función no cubierta por el panel nuevo. Ningún registro fue borrado.
+
+### 7.3 Evidencias (`docs/evidence/mvp-beta-int01/`, huellas en `SHA256SUMS-complementario.txt`)
+- `r-complementario.json`: resultados MEMBER y aislamiento.
+- `c1-sin-sustento.png`: H04 confirmado y retirado, acción vinculada marcada para revisión.
+- `sec_complementario.py`, `owner_complementario.py`: scripts (las sesiones viven fuera del repositorio).
+
+### 7.4 Matriz final
+| Verificación | Resultado |
+|---|---|
+| MEMBER revisa hallazgo | PASS (rechazado `DOCUMENT_GOVERNANCE_FORBIDDEN`) |
+| MEMBER crea intervención / actividad | PASS (rechazado) |
+| MEMBER cambia estado / registra entregable | PASS (rechazado) |
+| Aislamiento findings/interventions/activities/deliverables/audit_events | PASS (propios 2/1/1/0/19; otras organizaciones 0) |
+| Hallazgo sin evidencia deja de estar vigente, historial conservado | PASS |
+| Presentación de los cuatro estados separados | PASS (captura) |
+| Intervención conservada y señalada | PASS |
+| Reevaluación con evidencia independiente restante | PASS por contrato del Engine; NOT_TESTED alojado |
+| Duplicación OP-01 eliminada | PASS |
+| Verificación de tipos | PASS |
+| Suite automatizada | PASS 1072/1072 (una ejecución completa tuvo 2 fallos por tiempo en `ux-prod-fix02`; el archivo aislado pasa 11/11) |
+
+### 7.5 Condiciones abiertas
+- Reevaluación con evidencia independiente restante: no probada en entorno alojado.
+- Ingesta documental solo sintética: faltan privacidad, consentimiento y purga para documentos reales.
+- Inestabilidad por tiempo de `ux-prod-fix02.test.ts` bajo carga de la suite completa.
+
+### 7.6 Dictamen complementario
+Condiciones de seguridad, vigencia del hallazgo e interfaz: **cerradas**. MVP-BETA-INT-01 se mantiene **PASS WITH CONDITIONS** por las condiciones de 7.5. El MVP Beta Integral **no** queda listo para clientes reales.
