@@ -1,0 +1,598 @@
+{
+ "actor": "qa.op01 (OWNER org de trabajo QA 88fb67d6)",
+ "assessment": "5a64a7f8-016e-4e75-8510-556901fba203",
+ "mapping": "ee961093-44b8-449e-aef6-3023b4ff1dd3",
+ "manualResponse": "e80faf59-fcce-4429-a573-b9f9e5f11f8a",
+ "manualObservation": "f27c7d79-e3d1-4289-a101-8bb373417d7e",
+ "documentObservation": "80928de1-756c-49aa-b6ee-83d51d7aad0b",
+ "stateBefore": {
+  "assessmentId": "5a64a7f8-016e-4e75-8510-556901fba203",
+  "state": {
+   "assessmentId": "5a64a7f8-016e-4e75-8510-556901fba203",
+   "capabilityId": "DG-01",
+   "knowledgeVersionId": "d1a25af1-3634-4c9b-9465-69ac25875e26",
+   "engineVersion": "pymapa-knowledge-engine/0.2.0",
+   "status": "in_progress",
+   "answeredAcquisitionIds": [
+    "ACQ·NI01",
+    "ACQ·NI02"
+   ],
+   "totalAcquisitions": 9,
+   "variableStates": [
+    {
+     "variableRef": "VA01",
+     "state": "UNKNOWN",
+     "semanticValue": null
+    },
+    {
+     "variableRef": "VA02",
+     "state": "UNKNOWN",
+     "semanticValue": null
+    },
+    {
+     "variableRef": "VA03",
+     "state": "UNKNOWN",
+     "semanticValue": null
+    },
+    {
+     "variableRef": "VA04",
+     "state": "KNOWN",
+     "semanticValue": "Entre 2026 y 2028 se prevén venta directa, logística interna y adaptación regulatoria; la dirección declara el alcance exhaustivo."
+    },
+    {
+     "variableRef": "VA05",
+     "state": "UNKNOWN",
+     "semanticValue": null
+    },
+    {
+     "variableRef": "VA06",
+     "state": "UNKNOWN",
+     "semanticValue": null
+    },
+    {
+     "variableRef": "VA07",
+     "state": "UNKNOWN",
+     "semanticValue": null
+    },
+    {
+     "variableRef": "VA08",
+     "state": "UNKNOWN",
+     "semanticValue": null
+    },
+    {
+     "variableRef": "VA09",
+     "state": "UNKNOWN",
+     "semanticValue": null
+    }
+   ],
+   "informationNeedStates": [
+    {
+     "needRef": "NI01",
+     "state": "PARTIAL"
+    },
+    {
+     "needRef": "NI02",
+     "state": "PARTIAL"
+    },
+    {
+     "needRef": "NI03",
+     "state": "PENDING"
+    },
+    {
+     "needRef": "NI04",
+     "state": "COLLECTED"
+    },
+    {
+     "needRef": "NI05",
+     "state": "PENDING"
+    },
+    {
+     "needRef": "NI06",
+     "state": "PENDING"
+    },
+    {
+     "needRef": "NI07",
+     "state": "PENDING"
+    },
+    {
+     "needRef": "NI08",
+     "state": "PENDING"
+    },
+    {
+     "needRef": "NI09",
+     "state": "PENDING"
+    }
+   ],
+   "pendingJudgmentRuleRefs": [],
+   "contradictions": [],
+   "evidenceRequirements": [
+    {
+     "variableRef": "VA01",
+     "requiredLevel": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+     "options": null,
+     "resolution": "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED",
+     "resolutionMode": "NOT_EXPLICIT",
+     "provenance": {
+      "knowledgePackId": "dg-01",
+      "knowledgePackVersion": "1.0.0",
+      "note": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: requisito condicional sin fórmula aprobada; queda para revisión gobernada.",
+      "escalationFactors": [],
+      "escalationFormula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+     }
+    },
+    {
+     "variableRef": "VA02",
+     "requiredLevel": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+     "options": null,
+     "resolution": "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED",
+     "resolutionMode": "NOT_EXPLICIT",
+     "provenance": {
+      "knowledgePackId": "dg-01",
+      "knowledgePackVersion": "1.0.0",
+      "note": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: requisito condicional sin fórmula aprobada; queda para revisión gobernada.",
+      "escalationFactors": [],
+      "escalationFormula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+     }
+    },
+    {
+     "variableRef": "VA03",
+     "requiredLevel": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+     "options": null,
+     "resolution": "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED",
+     "resolutionMode": "NOT_EXPLICIT",
+     "provenance": {
+      "knowledgePackId": "dg-01",
+      "knowledgePackVersion": "1.0.0",
+      "note": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: requisito condicional sin fórmula aprobada; queda para revisión gobernada.",
+      "escalationFactors": [],
+      "escalationFormula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+     }
+    },
+    {
+     "variableRef": "VA04",
+     "requiredLevel": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+     "options": null,
+     "resolution": "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED",
+     "resolutionMode": "NOT_EXPLICIT",
+     "provenance": {
+      "knowledgePackId": "dg-01",
+      "knowledgePackVersion": "1.0.0",
+      "note": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: requisito condicional sin fórmula aprobada; queda para revisión gobernada.",
+      "escalationFactors": [],
+      "escalationFormula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+     }
+    },
+    {
+     "variableRef": "VA05",
+     "requiredLevel": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+     "options": null,
+     "resolution": "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED",
+     "resolutionMode": "NOT_EXPLICIT",
+     "provenance": {
+      "knowledgePackId": "dg-01",
+      "knowledgePackVersion": "1.0.0",
+      "note": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: requisito condicional sin fórmula aprobada; queda para revisión gobernada.",
+      "escalationFactors": [],
+      "escalationFormula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+     }
+    },
+    {
+     "variableRef": "VA06",
+     "requiredLevel": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+     "options": null,
+     "resolution": "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED",
+     "resolutionMode": "NOT_EXPLICIT",
+     "provenance": {
+      "knowledgePackId": "dg-01",
+      "knowledgePackVersion": "1.0.0",
+      "note": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: requisito condicional sin fórmula aprobada; queda para revisión gobernada.",
+      "escalationFactors": [],
+      "escalationFormula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+     }
+    },
+    {
+     "variableRef": "VA07",
+     "requiredLevel": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+     "options": null,
+     "resolution": "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED",
+     "resolutionMode": "NOT_EXPLICIT",
+     "provenance": {
+      "knowledgePackId": "dg-01",
+      "knowledgePackVersion": "1.0.0",
+      "note": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: requisito condicional sin fórmula aprobada; queda para revisión gobernada.",
+      "escalationFactors": [],
+      "escalationFormula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+     }
+    },
+    {
+     "variableRef": "VA08",
+     "requiredLevel": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+     "options": null,
+     "resolution": "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED",
+     "resolutionMode": "NOT_EXPLICIT",
+     "provenance": {
+      "knowledgePackId": "dg-01",
+      "knowledgePackVersion": "1.0.0",
+      "note": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: requisito condicional sin fórmula aprobada; queda para revisión gobernada.",
+      "escalationFactors": [],
+      "escalationFormula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+     }
+    },
+    {
+     "variableRef": "VA09",
+     "requiredLevel": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+     "options": null,
+     "resolution": "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED",
+     "resolutionMode": "NOT_EXPLICIT",
+     "provenance": {
+      "knowledgePackId": "dg-01",
+      "knowledgePackVersion": "1.0.0",
+      "note": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: requisito condicional sin fórmula aprobada; queda para revisión gobernada.",
+      "escalationFactors": [],
+      "escalationFormula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+     }
+    }
+   ],
+   "findingsAwaitingResolution": [],
+   "needsReview": true,
+   "sufficiency": null,
+   "confidence": null,
+   "updatedAt": "2026-09-28T12:59:23.078989+00:00"
+  }
+ },
+ "before": {
+  "responses": [
+   "e80faf59-fcce-4429-a573-b9f9e5f11f8a|ACQ·NI01|350ce8110234c0b482ee532c1b5da5dd",
+   "a52f11cd-7c02-4bf3-945f-1e37b7c6398c|ACQ·NI01|47870d783b22833c7d394d0381ead186",
+   "f6362575-7b66-4e7a-9c1d-965ea4b4d7cd|ACQ·NI02|f9b80f825bee9e559fe823437f53b022",
+   "7e2cb40b-a36f-4dcd-bc65-a36bbf4844db|ACQ·NI03|3ea06e7dd0c07932b5ae6910cbde7f05",
+   "78eeaa5f-3052-400e-bb54-6a282b00afea|ACQ·NI03|bb9128d1752e6aaaca27aadc0cea2f28",
+   "61556556-12aa-4203-a8e2-c68948a80403|ACQ·P1·01|2213340350ecd5d8bf9cef40bafc05a4",
+   "96c40a75-3db7-4fe1-be9e-ee715dd525b1|ACQ·P1·01|210b8880fcd379fc4f0d9da89aecea93",
+   "151f3942-7bff-4fef-b687-9e7305890672|ACQ·P1·01|88d128a4f63499b96beba52b68e29ec7",
+   "e364f20f-2a20-42b0-be72-5772030f2746|ACQ·P1·02|14682bd0f323ef4df35c0fea74a391a8",
+   "2979af59-3a6c-4b7d-90e5-1e7e64c39b70|ACQ·P1·02|da65105748bacb3b8c4d231c90f5cb09",
+   "2191cf03-f260-4726-95a3-7dc1e1350c96|ACQ·P1·03|766522dd70bf1041ecff0fbddb7199b8",
+   "21b40846-eec2-4f00-b59b-29a2698a7c04|ACQ·P1·04|6ebf3dfe3d06913b8baf2250d2daab6e",
+   "5ef44bbd-9d4a-43f4-8d65-b5f330319d90|ACQ·P1·05|f11237408851cca35151427cc6b121cc",
+   "e8faa3c4-cec5-4c97-9394-4f6b1e36b1b9|ACQ·NI02|72b99ded6aec214cb9c5bbf1289ae949",
+   "79fce245-45e9-4d07-9678-17c3669ea146|ACQ·NI02|b6f767d97647f844183b5b42f33d04dc"
+  ],
+  "observations": [
+   "f27c7d79-e3d1-4289-a101-8bb373417d7e|VA01|83f9373136a587a24495966fff672077",
+   "efdbc125-3780-49ee-9c93-5f3866091f9e|VA01|30e9c35cd89fca746814b50eaf81113d",
+   "fa561824-2202-4922-9293-303c0f6e299c|VA02|f9e589b0a03e6e83446d86e393efe4ce",
+   "5df939d6-7c5d-41c5-b9c5-8568aa221faf|VA03|492bb1fd7f1b83f0e38927dcee680bcb",
+   "6ee38144-6e6a-4eeb-a42e-405dd1c7f427|VA03|39af50c8d58f265e5b0bf298d206a30f",
+   "d98c882c-838d-49a1-9a1b-9c5d56ec0e86|VA01|3e62119461439ce4faf3db68d54e166f",
+   "6787bc93-48a0-49b2-b249-2feec7722959|VA01|498d3a0528c124e4606b583340d2add5",
+   "3e4b9bb3-cb26-4973-bebc-e292e77b140d|VA01|caa8006d96d6aa37b0f51c0418e8c24b",
+   "cc8b9035-bbd5-4ebb-8163-d285b63748a4|VA01|1d0bfef06be2bc870468ab4dcd94728f",
+   "86baba58-bc14-4783-838f-2a22f593cc64|VA01|3140ae2feede0155928f796c6a5044c9",
+   "354e4663-70e4-49b6-bb15-e4fba00a38dc|VA01|6db943b37de5fe15e3c14c04a36dcc9e",
+   "85b68632-38a5-4bb1-b649-bcd1759bf2f5|VA01|fa4b6815174816b1cc56efb0125908f1",
+   "01724298-d922-4314-a5b6-3b5739890fcf|VA01|1b1d57139fcea49b00d5f22bd9a9b82b",
+   "70325cc0-0905-475f-8d42-ddf48d0d815e|VA02|7cf19c325401bd25310e956948470b57",
+   "80928de1-756c-49aa-b6ee-83d51d7aad0b|VA01|e7e5c6d976684634d4d1f90bde72cdda",
+   "b84b4f99-b98f-4340-a56e-4d3a5673f9aa|VA02|c5593cae40284574429050b91bce400d",
+   "a9258a0e-72b3-4b82-863d-0119d191d4cb|VA02|88447a486f273e7e9d61a4d47e1768f4",
+   "ab636094-23ed-4d5f-97b7-39ddcab60607|VA03|4642fa7af111969028ec0a7fd3cbaccc",
+   "d7a849fe-2972-435c-af7b-bd3458b9bfb9|VA03|6a8b07e97d10f4778e2d66a8068fd843",
+   "df94ee0d-74fe-4cd1-8a9f-332d296667a1|VA04|b113a9840b969ccbcbeed7ad85a10cc3",
+   "1a71829d-dc10-4a0d-ba42-67e70a3e5c2c|VA04|74c47edbfe59733a3e9a81faef06de0f",
+   "c172a65e-4b05-420c-a2f0-42f0be76adc1|VA04|97a4f21b2f820182cba9ec28a123777c",
+   "37c016ce-1fb0-46f7-a60a-04cfd85ce9f7|VA04|310cd06b16cf77509d66648efdc0b072",
+   "083963a8-f754-4c5c-ac16-a884a5c4964f|VA04|8924828473006a63341e6813a00a5843"
+  ],
+  "mapping": [
+   "VALIDATED|PARTIAL"
+  ],
+  "audit": [
+   "FRAGMENT_MAPPING_PROPOSED|2026-10-18 15:56:39.885006+00",
+   "FRAGMENT_MAPPING_VALIDATED|2026-10-18 15:56:49.633542+00"
+  ]
+ },
+ "revoke": {
+  "mappingId": "ee961093-44b8-449e-aef6-3023b4ff1dd3",
+  "revoked": true,
+  "admitted": 0,
+  "invalidated": 1,
+  "rejected": 10
+ },
+ "revokeRetry": {
+  "mappingId": "ee961093-44b8-449e-aef6-3023b4ff1dd3",
+  "revoked": true,
+  "admitted": 0,
+  "invalidated": 0,
+  "rejected": 10
+ },
+ "stateAfter": {
+  "assessmentId": "5a64a7f8-016e-4e75-8510-556901fba203",
+  "state": {
+   "assessmentId": "5a64a7f8-016e-4e75-8510-556901fba203",
+   "capabilityId": "DG-01",
+   "knowledgeVersionId": "d1a25af1-3634-4c9b-9465-69ac25875e26",
+   "engineVersion": "pymapa-knowledge-engine/0.2.0",
+   "status": "in_progress",
+   "answeredAcquisitionIds": [
+    "ACQ·NI01",
+    "ACQ·NI02"
+   ],
+   "totalAcquisitions": 9,
+   "variableStates": [
+    {
+     "variableRef": "VA01",
+     "state": "UNKNOWN",
+     "semanticValue": null
+    },
+    {
+     "variableRef": "VA02",
+     "state": "UNKNOWN",
+     "semanticValue": null
+    },
+    {
+     "variableRef": "VA03",
+     "state": "UNKNOWN",
+     "semanticValue": null
+    },
+    {
+     "variableRef": "VA04",
+     "state": "KNOWN",
+     "semanticValue": "Entre 2026 y 2028 se prevén venta directa, logística interna y adaptación regulatoria; la dirección declara el alcance exhaustivo."
+    },
+    {
+     "variableRef": "VA05",
+     "state": "UNKNOWN",
+     "semanticValue": null
+    },
+    {
+     "variableRef": "VA06",
+     "state": "UNKNOWN",
+     "semanticValue": null
+    },
+    {
+     "variableRef": "VA07",
+     "state": "UNKNOWN",
+     "semanticValue": null
+    },
+    {
+     "variableRef": "VA08",
+     "state": "UNKNOWN",
+     "semanticValue": null
+    },
+    {
+     "variableRef": "VA09",
+     "state": "UNKNOWN",
+     "semanticValue": null
+    }
+   ],
+   "informationNeedStates": [
+    {
+     "needRef": "NI01",
+     "state": "PARTIAL"
+    },
+    {
+     "needRef": "NI02",
+     "state": "PARTIAL"
+    },
+    {
+     "needRef": "NI03",
+     "state": "PENDING"
+    },
+    {
+     "needRef": "NI04",
+     "state": "COLLECTED"
+    },
+    {
+     "needRef": "NI05",
+     "state": "PENDING"
+    },
+    {
+     "needRef": "NI06",
+     "state": "PENDING"
+    },
+    {
+     "needRef": "NI07",
+     "state": "PENDING"
+    },
+    {
+     "needRef": "NI08",
+     "state": "PENDING"
+    },
+    {
+     "needRef": "NI09",
+     "state": "PENDING"
+    }
+   ],
+   "pendingJudgmentRuleRefs": [],
+   "contradictions": [],
+   "evidenceRequirements": [
+    {
+     "variableRef": "VA01",
+     "requiredLevel": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+     "options": null,
+     "resolution": "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED",
+     "resolutionMode": "NOT_EXPLICIT",
+     "provenance": {
+      "knowledgePackId": "dg-01",
+      "knowledgePackVersion": "1.0.0",
+      "note": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: requisito condicional sin fórmula aprobada; queda para revisión gobernada.",
+      "escalationFactors": [],
+      "escalationFormula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+     }
+    },
+    {
+     "variableRef": "VA02",
+     "requiredLevel": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+     "options": null,
+     "resolution": "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED",
+     "resolutionMode": "NOT_EXPLICIT",
+     "provenance": {
+      "knowledgePackId": "dg-01",
+      "knowledgePackVersion": "1.0.0",
+      "note": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: requisito condicional sin fórmula aprobada; queda para revisión gobernada.",
+      "escalationFactors": [],
+      "escalationFormula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+     }
+    },
+    {
+     "variableRef": "VA03",
+     "requiredLevel": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+     "options": null,
+     "resolution": "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED",
+     "resolutionMode": "NOT_EXPLICIT",
+     "provenance": {
+      "knowledgePackId": "dg-01",
+      "knowledgePackVersion": "1.0.0",
+      "note": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: requisito condicional sin fórmula aprobada; queda para revisión gobernada.",
+      "escalationFactors": [],
+      "escalationFormula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+     }
+    },
+    {
+     "variableRef": "VA04",
+     "requiredLevel": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+     "options": null,
+     "resolution": "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED",
+     "resolutionMode": "NOT_EXPLICIT",
+     "provenance": {
+      "knowledgePackId": "dg-01",
+      "knowledgePackVersion": "1.0.0",
+      "note": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: requisito condicional sin fórmula aprobada; queda para revisión gobernada.",
+      "escalationFactors": [],
+      "escalationFormula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+     }
+    },
+    {
+     "variableRef": "VA05",
+     "requiredLevel": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+     "options": null,
+     "resolution": "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED",
+     "resolutionMode": "NOT_EXPLICIT",
+     "provenance": {
+      "knowledgePackId": "dg-01",
+      "knowledgePackVersion": "1.0.0",
+      "note": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: requisito condicional sin fórmula aprobada; queda para revisión gobernada.",
+      "escalationFactors": [],
+      "escalationFormula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+     }
+    },
+    {
+     "variableRef": "VA06",
+     "requiredLevel": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+     "options": null,
+     "resolution": "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED",
+     "resolutionMode": "NOT_EXPLICIT",
+     "provenance": {
+      "knowledgePackId": "dg-01",
+      "knowledgePackVersion": "1.0.0",
+      "note": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: requisito condicional sin fórmula aprobada; queda para revisión gobernada.",
+      "escalationFactors": [],
+      "escalationFormula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+     }
+    },
+    {
+     "variableRef": "VA07",
+     "requiredLevel": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+     "options": null,
+     "resolution": "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED",
+     "resolutionMode": "NOT_EXPLICIT",
+     "provenance": {
+      "knowledgePackId": "dg-01",
+      "knowledgePackVersion": "1.0.0",
+      "note": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: requisito condicional sin fórmula aprobada; queda para revisión gobernada.",
+      "escalationFactors": [],
+      "escalationFormula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+     }
+    },
+    {
+     "variableRef": "VA08",
+     "requiredLevel": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+     "options": null,
+     "resolution": "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED",
+     "resolutionMode": "NOT_EXPLICIT",
+     "provenance": {
+      "knowledgePackId": "dg-01",
+      "knowledgePackVersion": "1.0.0",
+      "note": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: requisito condicional sin fórmula aprobada; queda para revisión gobernada.",
+      "escalationFactors": [],
+      "escalationFormula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+     }
+    },
+    {
+     "variableRef": "VA09",
+     "requiredLevel": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
+     "options": null,
+     "resolution": "EVIDENCE_REQUIREMENT_REVIEW_REQUIRED",
+     "resolutionMode": "NOT_EXPLICIT",
+     "provenance": {
+      "knowledgePackId": "dg-01",
+      "knowledgePackVersion": "1.0.0",
+      "note": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER: requisito condicional sin fórmula aprobada; queda para revisión gobernada.",
+      "escalationFactors": [],
+      "escalationFormula": "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER"
+     }
+    }
+   ],
+   "findingsAwaitingResolution": [],
+   "needsReview": true,
+   "sufficiency": null,
+   "confidence": null,
+   "updatedAt": "2026-09-28T12:59:23.078989+00:00"
+  }
+ },
+ "after": {
+  "responses": [
+   "e80faf59-fcce-4429-a573-b9f9e5f11f8a|ACQ·NI01|350ce8110234c0b482ee532c1b5da5dd",
+   "a52f11cd-7c02-4bf3-945f-1e37b7c6398c|ACQ·NI01|47870d783b22833c7d394d0381ead186",
+   "f6362575-7b66-4e7a-9c1d-965ea4b4d7cd|ACQ·NI02|f9b80f825bee9e559fe823437f53b022",
+   "7e2cb40b-a36f-4dcd-bc65-a36bbf4844db|ACQ·NI03|3ea06e7dd0c07932b5ae6910cbde7f05",
+   "78eeaa5f-3052-400e-bb54-6a282b00afea|ACQ·NI03|bb9128d1752e6aaaca27aadc0cea2f28",
+   "61556556-12aa-4203-a8e2-c68948a80403|ACQ·P1·01|2213340350ecd5d8bf9cef40bafc05a4",
+   "96c40a75-3db7-4fe1-be9e-ee715dd525b1|ACQ·P1·01|210b8880fcd379fc4f0d9da89aecea93",
+   "151f3942-7bff-4fef-b687-9e7305890672|ACQ·P1·01|88d128a4f63499b96beba52b68e29ec7",
+   "e364f20f-2a20-42b0-be72-5772030f2746|ACQ·P1·02|14682bd0f323ef4df35c0fea74a391a8",
+   "2979af59-3a6c-4b7d-90e5-1e7e64c39b70|ACQ·P1·02|da65105748bacb3b8c4d231c90f5cb09",
+   "2191cf03-f260-4726-95a3-7dc1e1350c96|ACQ·P1·03|766522dd70bf1041ecff0fbddb7199b8",
+   "21b40846-eec2-4f00-b59b-29a2698a7c04|ACQ·P1·04|6ebf3dfe3d06913b8baf2250d2daab6e",
+   "5ef44bbd-9d4a-43f4-8d65-b5f330319d90|ACQ·P1·05|f11237408851cca35151427cc6b121cc",
+   "e8faa3c4-cec5-4c97-9394-4f6b1e36b1b9|ACQ·NI02|72b99ded6aec214cb9c5bbf1289ae949",
+   "79fce245-45e9-4d07-9678-17c3669ea146|ACQ·NI02|b6f767d97647f844183b5b42f33d04dc"
+  ],
+  "observations": [
+   "f27c7d79-e3d1-4289-a101-8bb373417d7e|VA01|83f9373136a587a24495966fff672077",
+   "efdbc125-3780-49ee-9c93-5f3866091f9e|VA01|30e9c35cd89fca746814b50eaf81113d",
+   "fa561824-2202-4922-9293-303c0f6e299c|VA02|f9e589b0a03e6e83446d86e393efe4ce",
+   "5df939d6-7c5d-41c5-b9c5-8568aa221faf|VA03|492bb1fd7f1b83f0e38927dcee680bcb",
+   "6ee38144-6e6a-4eeb-a42e-405dd1c7f427|VA03|39af50c8d58f265e5b0bf298d206a30f",
+   "d98c882c-838d-49a1-9a1b-9c5d56ec0e86|VA01|3e62119461439ce4faf3db68d54e166f",
+   "6787bc93-48a0-49b2-b249-2feec7722959|VA01|498d3a0528c124e4606b583340d2add5",
+   "3e4b9bb3-cb26-4973-bebc-e292e77b140d|VA01|caa8006d96d6aa37b0f51c0418e8c24b",
+   "cc8b9035-bbd5-4ebb-8163-d285b63748a4|VA01|1d0bfef06be2bc870468ab4dcd94728f",
+   "86baba58-bc14-4783-838f-2a22f593cc64|VA01|3140ae2feede0155928f796c6a5044c9",
+   "354e4663-70e4-49b6-bb15-e4fba00a38dc|VA01|6db943b37de5fe15e3c14c04a36dcc9e",
+   "85b68632-38a5-4bb1-b649-bcd1759bf2f5|VA01|fa4b6815174816b1cc56efb0125908f1",
+   "01724298-d922-4314-a5b6-3b5739890fcf|VA01|1b1d57139fcea49b00d5f22bd9a9b82b",
+   "70325cc0-0905-475f-8d42-ddf48d0d815e|VA02|7cf19c325401bd25310e956948470b57",
+   "80928de1-756c-49aa-b6ee-83d51d7aad0b|VA01|e7e5c6d976684634d4d1f90bde72cdda",
+   "b84b4f99-b98f-4340-a56e-4d3a5673f9aa|VA02|c5593cae40284574429050b91bce400d",
+   "a9258a0e-72b3-4b82-863d-0119d191d4cb|VA02|88447a486f273e7e9d61a4d47e1768f4",
+   "ab636094-23ed-4d5f-97b7-39ddcab60607|VA03|4642fa7af111969028ec0a7fd3cbaccc",
+   "d7a849fe-2972-435c-af7b-bd3458b9bfb9|VA03|6a8b07e97d10f4778e2d66a8068fd843",
+   "df94ee0d-74fe-4cd1-8a9f-332d296667a1|VA04|b113a9840b969ccbcbeed7ad85a10cc3",
+   "1a71829d-dc10-4a0d-ba42-67e70a3e5c2c|VA04|74c47edbfe59733a3e9a81faef06de0f",
+   "c172a65e-4b05-420c-a2f0-42f0be76adc1|VA04|97a4f21b2f820182cba9ec28a123777c",
+   "37c016ce-1fb0-46f7-a60a-04cfd85ce9f7|VA04|310cd06b16cf77509d66648efdc0b072",
+   "083963a8-f754-4c5c-ac16-a884a5c4964f|VA04|8924828473006a63341e6813a00a5843",
+   "37b7f8d4-74a0-4272-9fe9-2207c634d3f2|VA01|927cd942491bda33418f89808a8ae2de"
+  ],
+  "mapping": [
+   "SUPERSEDED|PARTIAL"
+  ],
+  "audit": [
+   "FRAGMENT_MAPPING_PROPOSED|2026-10-18 15:56:39.885006+00",
+   "FRAGMENT_MAPPING_VALIDATED|2026-10-18 15:56:49.633542+00",
+   "FRAGMENT_MAPPING_SUPERSEDED|2026-10-20 04:17:01.496163+00"
+  ]
+ }
+}
