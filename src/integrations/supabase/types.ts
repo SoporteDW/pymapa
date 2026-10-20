@@ -2847,6 +2847,8 @@ export type Database = {
         | "DOCUMENT_OBSERVATION_ADMITTED"
         | "DOCUMENT_OBSERVATION_INVALIDATED"
         | "FRAGMENT_MAPPING_COVERAGE_DECIDED"
+        | "FINDING_SUPPORT_WITHDRAWN"
+        | "SYNTHETIC_DOCUMENT_PROCESSED"
       evaluation_run_status:
         | "PENDING"
         | "PROCESSING"
@@ -3088,6 +3090,8 @@ export const Constants = {
         "DOCUMENT_OBSERVATION_ADMITTED",
         "DOCUMENT_OBSERVATION_INVALIDATED",
         "FRAGMENT_MAPPING_COVERAGE_DECIDED",
+        "FINDING_SUPPORT_WITHDRAWN",
+        "SYNTHETIC_DOCUMENT_PROCESSED",
       ],
       evaluation_run_status: [
         "PENDING",
