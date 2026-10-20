@@ -1,0 +1,777 @@
+[
+  {
+    "capabilityId": "OP-01",
+    "domain": "OP",
+    "archetype": "OPERATIONAL_MIXED",
+    "acquisitions": 12,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 12,
+      "informationTasks": 0,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "OP-02",
+    "domain": "OP",
+    "archetype": "OPERATIONAL_MIXED",
+    "acquisitions": 2,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 2,
+      "informationTasks": 0,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "OP-03",
+    "domain": "OP",
+    "archetype": "OPERATIONAL_MIXED",
+    "acquisitions": 42,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 5,
+      "informationTasks": 37,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "OP-04",
+    "domain": "OP",
+    "archetype": "OPERATIONAL_MIXED",
+    "acquisitions": 60,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 5,
+      "informationTasks": 55,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "OP-05",
+    "domain": "OP",
+    "archetype": "OPERATIONAL_MIXED",
+    "acquisitions": 64,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 0,
+      "informationTasks": 64,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "RPC PASS",
+    "criteria": "1 PILOT QA (L254)",
+    "fullEligibility": "Exact synthetic QA authorization only",
+    "discount": "PASS BUILD04 adquisición única",
+    "factualAdmission": "NO OBSERVACIONES (piloto)",
+    "browser": "BUILD04 piloto",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "QA piloto limitada, no producción"
+  },
+  {
+    "capabilityId": "DG-01",
+    "domain": "DG",
+    "archetype": "ONE_TO_ONE",
+    "acquisitions": 9,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 0,
+      "informationTasks": 9,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "RPC PASS",
+    "criteria": "1 APPROVED (NI04)",
+    "fullEligibility": "Conditional approved",
+    "discount": "Antecedente COV12; no reejecutado",
+    "factualAdmission": "PASS VARIABLE VA01 alojado; UNKNOWN→KNOWN→UNKNOWN",
+    "browser": "BUILD04 factual",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "QA factual limitada; documento integral BLOCKED"
+  },
+  {
+    "capabilityId": "DG-02",
+    "domain": "DG",
+    "archetype": "ONE_TO_ONE",
+    "acquisitions": 10,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 0,
+      "informationTasks": 10,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "DG-03",
+    "domain": "DG",
+    "archetype": "ONE_TO_ONE",
+    "acquisitions": 10,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 0,
+      "informationTasks": 10,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "DG-04",
+    "domain": "DG",
+    "archetype": "ONE_TO_ONE",
+    "acquisitions": 10,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 0,
+      "informationTasks": 10,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "DG-05",
+    "domain": "DG",
+    "archetype": "ONE_TO_ONE",
+    "acquisitions": 12,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 0,
+      "informationTasks": 12,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "PC-01",
+    "domain": "PC",
+    "archetype": "ONE_TO_ONE",
+    "acquisitions": 11,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 0,
+      "informationTasks": 11,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "PC-02",
+    "domain": "PC",
+    "archetype": "ONE_TO_ONE",
+    "acquisitions": 13,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 0,
+      "informationTasks": 13,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "PC-03",
+    "domain": "PC",
+    "archetype": "ONE_TO_ONE",
+    "acquisitions": 14,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 0,
+      "informationTasks": 14,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "PC-04",
+    "domain": "PC",
+    "archetype": "ONE_TO_ONE",
+    "acquisitions": 14,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 0,
+      "informationTasks": 14,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "PC-05",
+    "domain": "PC",
+    "archetype": "ONE_TO_ONE",
+    "acquisitions": 15,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 0,
+      "informationTasks": 15,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "DT-01",
+    "domain": "DT",
+    "archetype": "ONE_TO_ONE",
+    "acquisitions": 16,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 0,
+      "informationTasks": 16,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "DT-02",
+    "domain": "DT",
+    "archetype": "STRUCTURAL",
+    "acquisitions": 17,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 0,
+      "informationTasks": 17,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "DT-03",
+    "domain": "DT",
+    "archetype": "STRUCTURAL",
+    "acquisitions": 17,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 0,
+      "informationTasks": 17,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "DT-04",
+    "domain": "DT",
+    "archetype": "PROGRESSIVE",
+    "acquisitions": 5,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 5,
+      "informationTasks": 0,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "DT-05",
+    "domain": "DT",
+    "archetype": "PROGRESSIVE",
+    "acquisitions": 5,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 5,
+      "informationTasks": 0,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "DT-06",
+    "domain": "DT",
+    "archetype": "STRUCTURAL",
+    "acquisitions": 23,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 0,
+      "informationTasks": 23,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "CM-01",
+    "domain": "CM",
+    "archetype": "PROGRESSIVE",
+    "acquisitions": 6,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 6,
+      "informationTasks": 0,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "CM-02",
+    "domain": "CM",
+    "archetype": "PROGRESSIVE",
+    "acquisitions": 6,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 6,
+      "informationTasks": 0,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "CM-03",
+    "domain": "CM",
+    "archetype": "PROGRESSIVE",
+    "acquisitions": 6,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 6,
+      "informationTasks": 0,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "CM-04",
+    "domain": "CM",
+    "archetype": "PROGRESSIVE",
+    "acquisitions": 6,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 6,
+      "informationTasks": 0,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "CM-05",
+    "domain": "CM",
+    "archetype": "PROGRESSIVE",
+    "acquisitions": 7,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 7,
+      "informationTasks": 0,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "PASS UI CM05 ONLY",
+    "proposalValidation": "RPC PASS",
+    "criteria": "1 PILOT QA (P1·01)",
+    "fullEligibility": "Exact synthetic QA authorization only",
+    "discount": "PASS BUILD04 adquisición única",
+    "factualAdmission": "NO OBSERVACIONES (piloto)",
+    "browser": "BUILD04 piloto",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "QA piloto limitada, no producción"
+  },
+  {
+    "capabilityId": "CM-06",
+    "domain": "CM",
+    "archetype": "PROGRESSIVE",
+    "acquisitions": 6,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 6,
+      "informationTasks": 0,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "EC-02",
+    "domain": "EC",
+    "archetype": "PROGRESSIVE",
+    "acquisitions": 7,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 7,
+      "informationTasks": 0,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "EC-03",
+    "domain": "EC",
+    "archetype": "PROGRESSIVE",
+    "acquisitions": 8,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 8,
+      "informationTasks": 0,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "EC-04",
+    "domain": "EC",
+    "archetype": "PROGRESSIVE",
+    "acquisitions": 7,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 7,
+      "informationTasks": 0,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  },
+  {
+    "capabilityId": "EC-05",
+    "domain": "EC",
+    "archetype": "PROGRESSIVE",
+    "acquisitions": 8,
+    "questionnaire": {
+      "hostedRead": "PASS",
+      "literalQuestions": 8,
+      "informationTasks": 0,
+      "manualSubmit": "NOT_TESTED_BUILD04"
+    },
+    "upload": "IMPLEMENTED_GENERIC_NOT_TESTED_PER_CAPABILITY",
+    "proposalValidation": "IMPLEMENTED_GENERIC_NOT_TESTED",
+    "criteria": "Sin elegible / PROPOSED no habilita FULL",
+    "fullEligibility": "BLOCKED",
+    "discount": "BLOCKED sin criterio",
+    "factualAdmission": "NOT_TESTED alojado; condicionado a correspondencia factual",
+    "browser": "NOT_TESTED",
+    "governmentDependencies": [
+      "NO_AUTOMATED_SEMANTIC_VALIDATION",
+      "NO_GOVERNED_SUFFICIENCY_FORMULA",
+      "CRITERIA_REVIEW_REQUIRED_BEFORE_EXPANSION"
+    ],
+    "functionalQAReadiness": "Lectura QA PASS; FULL BLOCKED"
+  }
+]
