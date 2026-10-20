@@ -3,7 +3,8 @@
 - [x] Gate A: registro transversal de criterios auxiliares (PARTIAL_ONLY por defecto).
 - [x] Gate B piloto CM-05 / ACQ·P1·01: cobertura de adquisición sin observación (unitarias + RPC alojada).
 - [ ] Descuento visible en navegador CM-05 alojado: bloqueado — la única org QA ya respondió ACQ·P1·01 manualmente; requiere org/usuario QA sintético nuevo autorizado.
-- [ ] COV-03C / COV-03D: no autorizados.
+- [x] COV-03C · BUILD 02: piloto OP-05, contrato maestro, Gate C PASS WITH CONDITIONS (docs/architecture/INT01_COV03_BUILD02_CLOSURE.md).
+- [ ] BUILD 03 / COV-03D: no autorizados.
 
 # Roadmap
 
