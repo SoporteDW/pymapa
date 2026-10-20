@@ -1,10 +1,17 @@
-## INT-01-COV-03 · BUILD 03 (autorizado, sin BUILD 04/COV-03D)
+## INT-01-COV-03 · BUILD 04 / COV-03D (autorizado)
+- [ ] A: seguridad OWNER/ADMIN/MEMBER, dos organizaciones sintéticas, concurrencia simultánea e idempotencia con lectura posterior.
+- [ ] B: archivo sintético nuevo desde UI → extracción literal → CANDIDATE → validación → PARTIAL/FULL elegible → revocación, sin IA externa.
+- [ ] C: admisión factual VARIABLE independiente, invalidación y comparación de variables; cero observaciones ficticias ACQUISITION/NI.
+- [ ] D/E: matriz verificable de 31 capacidades, expediente de propuestas por dominios/arquetipos y plan por lotes sin promociones.
+- [ ] Regresión, evidencia reproducible y cierre de 13 secciones en docs/architecture/INT01_COV03_BUILD04_CLOSURE.md.
+
+## INT-01-COV-03 · BUILD 03 (cerrado PASS WITH CONDITIONS)
 - [x] Ciclo de vida, validación canónica y restricción alojada de pilotos a QA autorizado; promoción institucional bloqueada.
 - [x] Inventario versionado: 31 capacidades, 448 adquisiciones, 47 NI OP-02 trazables y 126 propuestas PROPOSED Lote 01.
 - [x] Harness 28/28, recorridos CM05/OP05 QA, seguridad con lectura posterior y regresión 1065/1065; no se equipara con Gate D.
 - [x] Informe persistente: docs/architecture/INT01_COV03_BUILD03_CLOSURE.md — PASS WITH CONDITIONS, 15 secciones.
 - [ ] Promoción global y criterios productivos: bloqueados hasta autoridad institucional y autorización humana posterior.
-- [ ] Aceptación integral COV-03D/BUILD 04 (incluidos MEMBER alojado tras nuevo guard y paralelismo): requiere autorización posterior; no iniciada.
+- [x] Aceptación integral COV-03D/BUILD 04 autorizada posteriormente; seguimiento en el bloque BUILD 04.
 
 ## INT-01-COV-03 · BUILD 01 (Gate A + piloto Gate B)
 - [x] QA-01/QA-02 PASS DEFINITIVO; SEC-QA-01/02 PASS registrados.
@@ -12,7 +19,7 @@
 - [x] Gate B piloto CM-05 / ACQ·P1·01: cobertura de adquisición sin observación (unitarias + RPC alojada).
 - [x] Descuento visible CM-05 en QA limpia: aceptación E2E-CM05-01 recibida; corroborado BUILD 03 con ACQ·P1·01 → P1·02 → P1·01 y cero observaciones.
 - [x] COV-03C · BUILD 02: piloto OP-05, contrato maestro, Gate C PASS WITH CONDITIONS (docs/architecture/INT01_COV03_BUILD02_CLOSURE.md).
-- [ ] COV-03D / BUILD 04: no autorizados.
+- [x] COV-03D / BUILD 04 autorizado posteriormente; seguimiento en el bloque BUILD 04.
 
 # Roadmap
 
