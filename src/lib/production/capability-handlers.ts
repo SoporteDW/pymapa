@@ -1101,6 +1101,8 @@ export async function getCapabilityFindingsHandler(context: Ctx, capabilityId: s
             activityRef: a.activityRef,
             title: a.title,
             state: a.state,
+            responsibleLabel: a.responsibleLabel ?? null,
+            dueDate: a.dueDate ?? null,
             contentStatus: a.contentStatus,
             mappingStatus: a.mappingStatus,
             deliverables: (await casoUso.listDeliverables(deps, a.id)).map((d) => ({
