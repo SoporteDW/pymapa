@@ -14,6 +14,7 @@ async def main():
     radios=pg.locator('[id^="ev-"]'); out['tipoEvidencia']=await pg.locator('label[for^="ev-"]').first.inner_text(); await radios.first.click()
     await pg.set_input_files('#archivo-evidencia',PDF); await pg.fill('#referencia-evidencia','SQA_manual_operativo_calibracion.pdf')
     await pg.get_by_role('button',name='Registrar evidencia').click()
+    await pg.wait_for_timeout(6000); await pg.screenshot(path='/tmp/int01/op-reg.png'); await pg.reload()
     panel=pg.locator('[data-testid="documentos-gobernados"]')
     btn=panel.get_by_role('button',name='Leer documento de prueba').first; await btn.wait_for(timeout=30000); await btn.click()
     prop=pg.locator('[data-proposal-id]',has_text='OP01-P11').first; await prop.wait_for(timeout=60000)
