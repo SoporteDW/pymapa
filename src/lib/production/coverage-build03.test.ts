@@ -28,7 +28,7 @@ describe("BUILD03 canonical validation and lifecycle", () => {
   });
   it("DG01 is approved, CM05/OP05 require exact QA eligibility, PROPOSED never enables FULL", () => {
     expect(criteriaModule.coverageModeFor(KV,"DG-01","ACQ·NI04")).toBe("FULL_ELIGIBLE");
-    for (const [cap,acq] of [["CM-05","ACQ·P1·01"],["OP-05","ACQ·VA01#NI@L254"]]) {
+    for (const [cap,acq] of [["CM-05","ACQ·P1·01"],["OP-05","ACQ·VA01#NI@L254"]] as const) {
       expect(criteriaModule.coverageModeFor(KV,cap,acq)).toBe("PARTIAL_ONLY");
       expect(criteriaModule.coverageModeFor(KV,cap,acq,true)).toBe("FULL_ELIGIBLE");
     }
