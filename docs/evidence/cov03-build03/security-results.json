@@ -1,0 +1,26 @@
+{
+  "owner_promote": {
+    "status": 204,
+    "result": null
+  },
+  "owner_self_authorize": {
+    "status": 403,
+    "result": {
+      "code": "42501",
+      "details": null,
+      "hint": null,
+      "message": "new row violates row-level security policy for table \"coverage_pilot_authorizations\""
+    }
+  },
+  "cross_org_authorizations": {
+    "status": 200,
+    "result": []
+  },
+  "owner_delete_events": {
+    "status": 204,
+    "result": null
+  },
+  "anonymous": {
+    "status": 200
+  }
+}

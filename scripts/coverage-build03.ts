@@ -5,6 +5,7 @@ import { COVERAGE_KNOWLEDGE_VERSION_ID as KV } from "../src/lib/production/cover
 
 const root = "docs/coverage/build03";
 mkdirSync(root, { recursive: true });
+mkdirSync("/tmp/cov03-build03", { recursive: true });
 const inventory = buildCoverageInventory();
 const proposedCapabilities = new Set(["DG-02", "DG-03", "DG-04", "DG-05", "PC-01", "PC-02", "PC-03", "PC-04", "PC-05", "DT-01"]);
 const proposals = inventory.flatMap((p) => p.acquisitions.filter((a) => proposedCapabilities.has(p.capabilityId)

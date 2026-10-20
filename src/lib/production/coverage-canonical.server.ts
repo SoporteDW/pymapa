@@ -5,7 +5,7 @@ import { COVERAGE_CRITERIA_REGISTRY, COVERAGE_KNOWLEDGE_VERSION_ID, type Coverag
 export interface CanonicalCoveragePack {
   acquisitions: { id: string; variableRefs: string[]; acquisitionMode?: string; informationNeedRef?: string; question?: string }[];
   variables: { id: string }[];
-  informationNeeds?: { id: string; statement: string; variableRefs?: string[]; acquisitionRefs?: string[]; sourceLines?: number[]; mappingStatus?: string }[];
+  informationNeeds?: { id: string; statement: string; variableRefs?: string[]; acquisitionRefs?: string[]; sourceLines?: number[]; mappingStatus?: string; acquisitionResolution?: string }[];
 }
 
 export function validateCanonicalCriteria(entries: readonly CoverageCriteriaEntry[]) {
@@ -33,7 +33,7 @@ export function buildCoverageInventory() {
     const modes = [...new Set(pack.acquisitions.map((a) => a.acquisitionMode))];
     const archetype = capabilityId.startsWith("OP-") ? "OPERATIONAL_MIXED"
       : modes.includes("CAPABILITY_PROGRESSIVE") ? "PROGRESSIVE"
-      : needs.some((n) => n.mappingStatus === "GOVERNED_STRUCTURAL_CORRESPONDENCE") ? "STRUCTURAL" : "ONE_TO_ONE";
+      : modes.includes("GOVERNED_STRUCTURAL_CORRESPONDENCE") ? "STRUCTURAL" : "ONE_TO_ONE";
     return { capabilityId, domainId: registered.domainId, archetype, packId: registered.packId, packVersion: registered.packVersion,
       packChecksum: registered.packChecksum, knowledgeVersionId: COVERAGE_KNOWLEDGE_VERSION_ID,
       variables: pack.variables.map((v) => v.id), informationNeeds: needs,
