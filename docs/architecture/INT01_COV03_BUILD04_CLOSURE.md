@@ -179,3 +179,30 @@ Tres decisiones independientes: (1) aprobar criterios; (2) habilitar recorrido d
 **BUILD05 propuesto, no iniciado:** cierre de recorrido documental no-IA (o autorización específica de IA) desde archivo nuevo hasta revocación; extraer literalmente con ubicación, persistir versión/extracción, propuesta humana CANDIDATE y revisión autenticada sin inventar observaciones. Repetir escenario con evidencia insuficiente/completa para un criterio ya elegible; cerrar variantes OWNER e identidad B-only y regresión manual alojada con respuestas preservadas. Un expediente institucional de criterios debe ser otra decisión explícita, no prerrequisito para reusar pilotos QA exactos.
 
 Criterio de salida: mismo documento trazable end-to-end, decisiones persistidas, restitución, roles/aislamiento y variables contrastadas; si una dependencia permanece, no PASS integral. **No promoción APPROVED, publicación, modificación protegida ni inicio de habilitación transversal automática.**
+
+---
+
+## Anexo · Verificaciones complementarias de cierre controlado (2026-10-20)
+
+Modalidad: QA alojada, sin nuevo Build, sin cambios de código, esquema, migraciones, RLS ni configuración. Sin IA externa. Sin Digiway Corp (`f26a1777…`) ni datos reales. Las secciones 1–13 anteriores se conservan sin cambios. Evidencia: `docs/evidence/cov03d-build04/cierre-controlado/` (SHA256SUMS; sin sesiones ni tokens).
+
+### V1 · Escritura directa por OWNER — **PASS**
+Actor `qa.cm05e2e` (OWNER, org QA A `9816dfad…`), mapping `b0400000-…-0014`. 13 operaciones REST directas: PATCH/DELETE `fragment_mappings`, `coverage_decisions`, `coverage_criteria_catalog`, `coverage_pilot_authorizations`, `audit_events` → 200 con 0 filas afectadas; POST `coverage_decisions`/`audit_events` → 403 (42501); POST `fragment_mappings`/`coverage_criteria_catalog`/`coverage_pilot_authorizations` → 400 (P0001, bloqueo). Instantánea antes = después (mapping SUPERSEDED/PARTIAL/rev 6, decisiones, catálogo no PROPOSED, pilotos, observaciones, auditoría). Evidencia `t1-owner-direct-write.json`.
+
+### V2 · Aislamiento multiempresa con identidad exclusiva QA B — **PASS**
+Siguiendo la instrucción de no modificar membresías existentes, no se retiró ninguna membresía. Se creó la cuenta sintética nueva `qa.orgb.exclusive@digiwaycorp.com` (`ef9d59d2…`), que nunca perteneció a QA A, y el OWNER de QA B la añadió como MEMBER solo en `QA SINTETICA BUILD04 B` (`b0400000-…-0001`; membresía `c6176572…`, operación aditiva). Resultado: lectura de 10 tablas de QA A → 0 filas (`content-range */0`, mapping por id 0); PATCH/DELETE → 0 filas; POST → 403; RPC revocación/validación/cobertura → `FRAGMENT_MAPPING_REVOCATION_FORBIDDEN`, `FRAGMENT_MAPPING_VALIDATION_FORBIDDEN`, `DOCUMENT_GOVERNANCE_FORBIDDEN`. Control positivo: lee sus propios registros de QA B (1 decisión, 1 mapping, 3 eventos). Estado QA A sin cambios (17 decisiones; mappings intactos). Evidencia `t2-isolation.json`.
+Queda en la base: la cuenta y la membresía sintéticas nuevas (reutilizables para futuras pruebas de QA B).
+
+### V3 · Preservación de respuestas manuales — **PASS (con observación)**
+Assessment sintético DG-01 `5a64a7f8…` (organización de trabajo QA `88fb67d6…`, solo cuentas QA). Secuencia en orden cronológico: respuesta manual `e80faf59…` en ACQ·NI01 (2026-09-28, observación `f27c7d79…`) → admisión documental del mapping VARIABLE VA01 `ee961093…` (factualCorrespondenceRef ACQ·NI01, observación `80928de1…`) → revocación gobernada ejecutada en esta verificación desde el servidor de la aplicación. Resultado: mapping VALIDATED→SUPERSEDED; control append-only `37b7f8d4…` UNKNOWN/INVALIDATION que corrige **solo** `80928de1`; evento `DOCUMENT_OBSERVATION_INVALIDATED`; reintento idempotente (invalidated 0). Respuestas idénticas (mismos hash) y observación manual intacta; 24→25 observaciones, ninguna borrada. Engine: VA01 UNKNOWN antes y después; ACQ·NI01 sigue respondida por la respuesta manual.
+Observación: la respuesta manual y la admisión eran previas a esta sesión (no se crearon de nuevo) y la respuesta manual tenía estado UNKNOWN; por eso no se demostró precedencia entre dos valores KNOWN distintos. Evidencia `t3-manual-preservation.json`, `t3-dg01-after.png`.
+
+### Línea base
+`git status` limpio para código, `knowledge/`, `packages/` y `supabase/`: Knowledge Master v1.0, 31 packs v1.0.0, Engine 0.2.0, Moda Origen y Digiway Corp sin cambios. Sin promoción de criterios (DG-01 APPROVED; CM-05/OP-05 PILOT_TEST_GOVERNED; resto PROPOSED).
+
+### Condiciones pendientes
+1. Recorrido documental integral desde archivo nuevo sin IA (Bloque B): sigue BLOCKED; fuera de esta fase.
+2. Precedencia manual KNOWN frente a hecho documental KNOWN distinto: no demostrada en alojado (solo unitaria R1-08).
+
+### Dictamen específico INT-01-COV-03
+**PASS WITH CONDITIONS → aceptación de la infraestructura de cobertura documental gobernada.** Las tres verificaciones complementarias pasan. Esto no valida el recorrido documental integral, la interpretación semántica ni el diagnóstico de los seis dominios, y no cierra el MVP Beta Integral.

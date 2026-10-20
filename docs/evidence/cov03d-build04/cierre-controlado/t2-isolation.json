@@ -1,0 +1,130 @@
+{
+ "actor": "qa.orgb.exclusive (MEMBER, solo QA B, creada en esta verificación)",
+ "ownMemberships": [
+  {
+   "organization_id": "b0400000-0000-4000-8000-000000000001",
+   "role": "MEMBER"
+  }
+ ],
+ "readsA": {
+  "coverage_decisions": {
+   "status": 200,
+   "rows": 0
+  },
+  "fragment_mappings": {
+   "status": 200,
+   "rows": 0
+  },
+  "evidence": {
+   "status": 200,
+   "rows": 0
+  },
+  "evidence_fragments": {
+   "status": 200,
+   "rows": 0
+  },
+  "observations": {
+   "status": 200,
+   "rows": 0
+  },
+  "responses": {
+   "status": 200,
+   "rows": 0
+  },
+  "audit_events": {
+   "status": 200,
+   "rows": 0
+  },
+  "coverage_pilot_authorizations": {
+   "status": 200,
+   "rows": 0
+  },
+  "assessments": {
+   "status": 200,
+   "rows": 0
+  },
+  "memberships": {
+   "status": 200,
+   "rows": 0
+  },
+  "mappingById": 0,
+  "countHeader": "*/0"
+ },
+ "writesA": [
+  {
+   "method": "PATCH",
+   "target": "fragment_mappings",
+   "status": 200,
+   "rows": 0
+  },
+  {
+   "method": "DELETE",
+   "target": "coverage_decisions",
+   "status": 200,
+   "rows": 0
+  },
+  {
+   "method": "POST",
+   "target": "coverage_decisions",
+   "status": 403,
+   "rows": null
+  }
+ ],
+ "rpcA": {
+  "revoke": {
+   "status": 400,
+   "message": "FRAGMENT_MAPPING_REVOCATION_FORBIDDEN"
+  },
+  "validate": {
+   "status": 400,
+   "message": "FRAGMENT_MAPPING_VALIDATION_FORBIDDEN"
+  },
+  "setCoverage": {
+   "status": 400,
+   "message": "DOCUMENT_GOVERNANCE_FORBIDDEN"
+  }
+ },
+ "readsB": {
+  "coverage_decisions": {
+   "status": 200,
+   "rows": 1
+  },
+  "fragment_mappings": {
+   "status": 200,
+   "rows": 1
+  },
+  "evidence": {
+   "status": 200,
+   "rows": 1
+  },
+  "evidence_fragments": {
+   "status": 200,
+   "rows": 1
+  },
+  "observations": {
+   "status": 200,
+   "rows": 0
+  },
+  "responses": {
+   "status": 200,
+   "rows": 0
+  },
+  "audit_events": {
+   "status": 200,
+   "rows": 3
+  },
+  "coverage_pilot_authorizations": {
+   "status": 200,
+   "rows": 0
+  },
+  "assessments": {
+   "status": 200,
+   "rows": 1
+  },
+  "memberships": {
+   "status": 200,
+   "rows": 1
+  }
+ },
+ "pass": true
+}

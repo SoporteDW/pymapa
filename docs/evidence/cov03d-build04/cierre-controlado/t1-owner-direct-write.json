@@ -1,0 +1,232 @@
+{
+ "actor": "qa.cm05e2e (OWNER, org QA A)",
+ "before": {
+  "mapping": [
+   {
+    "id": "b0400000-0000-4000-8000-000000000014",
+    "status": "SUPERSEDED",
+    "coverage_scope": "PARTIAL",
+    "coverage_revision": 6,
+    "coverage_acquisition_ref": null,
+    "updated_at": "2026-10-20T02:27:18.631601+00:00"
+   }
+  ],
+  "decisions": [
+   {
+    "id": "2977da1f-f138-4fef-8f3f-06227fbb26d8",
+    "revision": 1,
+    "created_at": "2026-10-20T02:16:44.914662+00:00"
+   },
+   {
+    "id": "47a82478-e39f-42e9-920d-2fb04d014e0d",
+    "revision": 2,
+    "created_at": "2026-10-20T02:16:45.107602+00:00"
+   },
+   {
+    "id": "4b8c8483-08c4-4d0c-9fa9-b78bf9b17f3b",
+    "revision": 3,
+    "created_at": "2026-10-20T02:27:18.188933+00:00"
+   },
+   {
+    "id": "2ab23a2c-22a3-4464-996b-760dd8278ca5",
+    "revision": 4,
+    "created_at": "2026-10-20T02:27:18.399268+00:00"
+   },
+   {
+    "id": "2ead7af9-09c1-451a-9bba-66594be2fca5",
+    "revision": 5,
+    "created_at": "2026-10-20T02:27:18.627521+00:00"
+   }
+  ],
+  "catalog": [
+   {
+    "criteria_version": "DG01-NI04-COV-1.0.0",
+    "approval_status": "APPROVED"
+   },
+   {
+    "criteria_version": "CM05-P101-COV-1.0.0",
+    "approval_status": "PILOT_TEST_GOVERNED"
+   },
+   {
+    "criteria_version": "OP05-VA01-L254-COV-1.0.0",
+    "approval_status": "PILOT_TEST_GOVERNED"
+   }
+  ],
+  "pilots": [
+   {
+    "id": "69b57fe4-30b1-4346-96fe-c456af943041",
+    "active": true,
+    "organization_id": "9816dfad-a1be-4140-8293-c4cab34f3603"
+   },
+   {
+    "id": "ebc015c3-c957-489f-829b-9a00d99055cb",
+    "active": true,
+    "organization_id": "9816dfad-a1be-4140-8293-c4cab34f3603"
+   }
+  ],
+  "observations": 4,
+  "audit": 8
+ },
+ "attempts": [
+  {
+   "method": "PATCH",
+   "target": "fragment_mappings",
+   "status": 200,
+   "rowsAffected": 0,
+   "error": null
+  },
+  {
+   "method": "PATCH",
+   "target": "fragment_mappings",
+   "status": 200,
+   "rowsAffected": 0,
+   "error": null
+  },
+  {
+   "method": "DELETE",
+   "target": "fragment_mappings",
+   "status": 200,
+   "rowsAffected": 0,
+   "error": null
+  },
+  {
+   "method": "POST",
+   "target": "fragment_mappings",
+   "status": 400,
+   "rowsAffected": null,
+   "error": "P0001"
+  },
+  {
+   "method": "POST",
+   "target": "coverage_decisions",
+   "status": 403,
+   "rowsAffected": null,
+   "error": "42501"
+  },
+  {
+   "method": "PATCH",
+   "target": "coverage_decisions",
+   "status": 200,
+   "rowsAffected": 0,
+   "error": null
+  },
+  {
+   "method": "DELETE",
+   "target": "coverage_decisions",
+   "status": 200,
+   "rowsAffected": 0,
+   "error": null
+  },
+  {
+   "method": "PATCH",
+   "target": "coverage_criteria_catalog",
+   "status": 200,
+   "rowsAffected": 0,
+   "error": null
+  },
+  {
+   "method": "POST",
+   "target": "coverage_criteria_catalog",
+   "status": 400,
+   "rowsAffected": null,
+   "error": "P0001"
+  },
+  {
+   "method": "POST",
+   "target": "coverage_pilot_authorizations",
+   "status": 400,
+   "rowsAffected": null,
+   "error": "P0001"
+  },
+  {
+   "method": "PATCH",
+   "target": "coverage_pilot_authorizations",
+   "status": 200,
+   "rowsAffected": 0,
+   "error": null
+  },
+  {
+   "method": "POST",
+   "target": "audit_events",
+   "status": 403,
+   "rowsAffected": null,
+   "error": "42501"
+  },
+  {
+   "method": "DELETE",
+   "target": "audit_events",
+   "status": 200,
+   "rowsAffected": 0,
+   "error": null
+  }
+ ],
+ "after": {
+  "mapping": [
+   {
+    "id": "b0400000-0000-4000-8000-000000000014",
+    "status": "SUPERSEDED",
+    "coverage_scope": "PARTIAL",
+    "coverage_revision": 6,
+    "coverage_acquisition_ref": null,
+    "updated_at": "2026-10-20T02:27:18.631601+00:00"
+   }
+  ],
+  "decisions": [
+   {
+    "id": "2977da1f-f138-4fef-8f3f-06227fbb26d8",
+    "revision": 1,
+    "created_at": "2026-10-20T02:16:44.914662+00:00"
+   },
+   {
+    "id": "47a82478-e39f-42e9-920d-2fb04d014e0d",
+    "revision": 2,
+    "created_at": "2026-10-20T02:16:45.107602+00:00"
+   },
+   {
+    "id": "4b8c8483-08c4-4d0c-9fa9-b78bf9b17f3b",
+    "revision": 3,
+    "created_at": "2026-10-20T02:27:18.188933+00:00"
+   },
+   {
+    "id": "2ab23a2c-22a3-4464-996b-760dd8278ca5",
+    "revision": 4,
+    "created_at": "2026-10-20T02:27:18.399268+00:00"
+   },
+   {
+    "id": "2ead7af9-09c1-451a-9bba-66594be2fca5",
+    "revision": 5,
+    "created_at": "2026-10-20T02:27:18.627521+00:00"
+   }
+  ],
+  "catalog": [
+   {
+    "criteria_version": "DG01-NI04-COV-1.0.0",
+    "approval_status": "APPROVED"
+   },
+   {
+    "criteria_version": "CM05-P101-COV-1.0.0",
+    "approval_status": "PILOT_TEST_GOVERNED"
+   },
+   {
+    "criteria_version": "OP05-VA01-L254-COV-1.0.0",
+    "approval_status": "PILOT_TEST_GOVERNED"
+   }
+  ],
+  "pilots": [
+   {
+    "id": "69b57fe4-30b1-4346-96fe-c456af943041",
+    "active": true,
+    "organization_id": "9816dfad-a1be-4140-8293-c4cab34f3603"
+   },
+   {
+    "id": "ebc015c3-c957-489f-829b-9a00d99055cb",
+    "active": true,
+    "organization_id": "9816dfad-a1be-4140-8293-c4cab34f3603"
+   }
+  ],
+  "observations": 4,
+  "audit": 8
+ },
+ "unchanged": true,
+ "allRejectedOrZeroRows": true
+}
