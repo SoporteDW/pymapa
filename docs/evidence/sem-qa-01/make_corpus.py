@@ -38,7 +38,7 @@ for name, pages in DOCS.items():
     c.setTitle(name); c.setAuthor('SEM-QA-01 synthetic'); c.setCreator('make_corpus.py')
     for i, lines in enumerate(pages, 1):
         y = 800; c.setFont('Helvetica', 10)
-        for l in [f"{H} · página {i}"] + lines:
+        for l in [H] + lines + ([f"Control {i}: SYNTHETIC_QA_ONLY, hoja {chr(64+i)} del documento ficticio."] if len(pages) > 1 else []):
             c.drawString(50, y, l); y -= 18
         c.showPage()
     c.save()
