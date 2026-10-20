@@ -1,3 +1,4 @@
+import { esAutorizacionSemQaValida, type AutorizacionSemQa } from "./sem-qa-guard.server";
 import { createLovableGatewayClient, type LlmGatewayClient } from "./llm-gateway-client.server";
 import {
   MAX_OUTPUT_TOKENS,
@@ -34,8 +35,13 @@ export interface InterpretacionResultado {
   propuestasBrutas?: number;
 }
 
+/**
+ * Única puerta hacia el Gateway documental. Exige una autorización emitida
+ * por la guarda SEM-QA-01 (fail-closed); el texto proviene SOLO de esa
+ * autorización (extraído por el servidor del archivo verificado).
+ */
 export async function interpretarDocumento(
-  paginas: PaginaTexto[],
+  autorizacion: AutorizacionSemQa,
   capabilityId = "DG-01",
   client?: LlmGatewayClient,
 ): Promise<InterpretacionResultado> {
@@ -53,6 +59,10 @@ export async function interpretarDocumento(
     costoEstimadoUsd: null,
     durationMs: null,
   };
+  if (!esAutorizacionSemQaValida(autorizacion)) {
+    return { ok: false, error: "Lectura documental con IA cerrada: falta autorización SEM-QA-01.", status: 403, traza: baseTraza };
+  }
+  const paginas: PaginaTexto[] = autorizacion.paginas.map((p) => ({ ...p }));
   const err = validarEntrada(paginas);
   if (err) return { ok: false, error: err, status: 400, traza: baseTraza };
   let c = client;
