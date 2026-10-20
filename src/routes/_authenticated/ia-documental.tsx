@@ -4,8 +4,10 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { extraerPdf, mensajeErrorExtraccion, ExtraccionError } from "@/lib/document-first/pdf-texto";
-import { interpretarDocumentoDG01, decidirCorrespondenciaIA } from "@/lib/ia/interpretacion.functions";
+import { interpretarDocumentoSemQa, decidirCorrespondenciaIA } from "@/lib/ia/interpretacion.functions";
+import { getCapabilityContext, registerCapabilityEvidence } from "@/lib/production/capabilities.functions";
+import { supabase } from "@/integrations/supabase/client";
+import { SEM_QA_01_CORPUS, SEM_QA_EXECUTION_ID } from "@/lib/ia/sem-qa-corpus";
 
 export const Route = createFileRoute("/_authenticated/ia-documental")({
   head: () => ({
@@ -21,11 +23,14 @@ export const Route = createFileRoute("/_authenticated/ia-documental")({
   component: IaDocumental,
 });
 
-type Resultado = Awaited<ReturnType<typeof interpretarDocumentoDG01>>;
+type Resultado = Extract<Awaited<ReturnType<typeof interpretarDocumentoSemQa>>, { ok: true }>;
 type Decision = "PENDIENTE" | "ACEPTADA" | "RECHAZADA";
 
 function IaDocumental() {
-  const interpretar = useServerFn(interpretarDocumentoDG01);
+  const interpretar = useServerFn(interpretarDocumentoSemQa);
+  const contexto = useServerFn(getCapabilityContext);
+  const registrar = useServerFn(registerCapabilityEvidence);
+  const [documentId, setDocumentId] = useState<string>(SEM_QA_01_CORPUS[0]!.documentId);
   const [estado, setEstado] = useState<"idle" | "leyendo" | "interpretando">("idle");
   const [error, setError] = useState<string | null>(null);
   const [res, setRes] = useState<Resultado | null>(null);
@@ -46,14 +51,19 @@ function IaDocumental() {
     setDecisiones({});
     try {
       setEstado("leyendo");
-      const doc = await extraerPdf(new Uint8Array(await f.arrayBuffer()));
-      const paginas = Object.entries(doc.textoPorPagina).map(([p, texto]) => ({ pagina: Number(p), texto }));
+      const ctx = (await contexto({ data: { capabilityId: "DG-01" } })) as { organizationId: string; assessmentId: string };
+      const ruta = `${ctx.organizationId}/${ctx.assessmentId}/${crypto.randomUUID()}-${f.name}`;
+      const up = await supabase.storage.from("evidence").upload(ruta, f, { upsert: false });
+      if (up.error) throw new Error(up.error.message);
+      const ev = (await registrar({ data: { capabilityId: "DG-01", candidateRef: null, evidenceType: "DOCUMENT", source: "DOCUMENT", storageBucket: "evidence", storagePath: ruta, externalReference: null, title: f.name, note: "SEM-QA-01 · SYNTHETIC_QA_ONLY", observationIds: [] } })) as { evidenceId?: string; id?: string };
+      const evidenceId = ev.evidenceId ?? ev.id;
+      if (!evidenceId) throw new Error("No se pudo registrar el documento.");
       setEstado("interpretando");
-      const r = await interpretar({ data: { paginas, titulo: f.name } });
+      const r = await interpretar({ data: { executionId: SEM_QA_EXECUTION_ID, documentId, evidenceId } });
       if (!r.ok) setError(r.error ?? "No se pudo interpretar el documento.");
-      setRes(r);
+      else setRes(r);
     } catch (e) {
-      setError(e instanceof ExtraccionError ? mensajeErrorExtraccion(e.codigo) : e instanceof Error ? e.message : "Error inesperado");
+      setError(e instanceof Error ? e.message : "Error inesperado");
     } finally {
       setEstado("idle");
     }
@@ -66,12 +76,18 @@ function IaDocumental() {
         <h1 className="text-2xl font-semibold">Lectura documental con IA · DG-01</h1>
         <p className="text-muted-foreground mt-1 text-sm">
           Prueba controlada. La IA propone; tú decides. Las propuestas se guardan como pendientes y nunca cuentan solas como respuesta del diagnóstico.
-          Usa solo documentos de prueba (PDF, máx. 5 páginas).
+          Solo está habilitada la prueba sintética SEM-QA-01: el servidor rechaza, sin enviar nada a la IA, cualquier archivo que no sea uno de los cinco documentos sintéticos aprobados.
         </p>
       </div>
 
       <Card>
         <CardContent className="pt-6">
+          <label className="mb-3 block text-sm">
+            Documento del corpus{" "}
+            <select aria-label="Documento del corpus" className="border-input bg-background rounded border px-2 py-1" value={documentId} onChange={(e) => setDocumentId(e.target.value)}>
+              {SEM_QA_01_CORPUS.map((d) => (<option key={d.documentId} value={d.documentId}>{d.documentId}</option>))}
+            </select>
+          </label>
           <input
             type="file"
             accept="application/pdf"
@@ -92,6 +108,12 @@ function IaDocumental() {
             {props.length} propuestas con cita verificada · {res.resultado.descartadas.length} descartadas por no superar la verificación ·{" "}
             {res.resultado.necesidadesSinPropuesta.length} necesidades sin información en el documento
           </p>
+          {res.resultado.contradicciones.map((c) => (
+            <Card key={c.informationNeedRef}>
+              <CardHeader><CardTitle className="text-base">Contradicción sin resolver · {c.informationNeedRef}</CardTitle><CardDescription>{c.descripcion}</CardDescription></CardHeader>
+              <CardContent className="space-y-1 text-sm">{c.citas.map((x, i) => (<blockquote key={i} className="border-l-2 pl-3 italic">Pág. {x.pagina}: “{x.cita}”</blockquote>))}</CardContent>
+            </Card>
+          ))}
           {props.map((p) => {
             const d = decisiones[p.id] ?? "PENDIENTE";
             return (
@@ -101,7 +123,7 @@ function IaDocumental() {
                     {p.informationNeedRef} · {p.informationNeedStatement}
                   </CardTitle>
                   <CardDescription>
-                    Página {p.pagina} · {p.variableRefs.join(", ")} · <Badge variant="outline">Propuesta {d === "PENDIENTE" ? "pendiente" : d.toLowerCase()}</Badge>
+                    Página {p.pagina} · {p.tipo} · {p.variableRefs.join(", ")} · <Badge variant="outline">Propuesta {d === "PENDIENTE" ? "pendiente" : d.toLowerCase()}</Badge>
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-2 text-sm">
@@ -126,7 +148,7 @@ function IaDocumental() {
           <p className="text-muted-foreground text-xs">
             Las propuestas quedan guardadas como pendientes en tu empresa. Aceptar una propuesta no la convierte en respuesta del diagnóstico, no demuestra que la información sea suficiente y no cierra la capacidad.
           </p>
-          {"errorPersistencia" in res && res.errorPersistencia && <p className="text-destructive text-sm">{res.errorPersistencia}</p>}
+          {res.errorPersistencia && <p className="text-destructive text-sm">{res.errorPersistencia}</p>}
         </>
       )}
       {res && (

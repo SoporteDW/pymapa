@@ -2323,6 +2323,113 @@ export type Database = {
           },
         ]
       }
+      semantic_qa_attempts: {
+        Row: {
+          contradiction_count: number | null
+          corpus_checksum: string
+          created_at: string
+          discarded_count: number | null
+          document_id: string
+          evidence_id: string | null
+          execution_id: string
+          file_sha256: string | null
+          id: string
+          model: string | null
+          organization_id: string | null
+          outcome: string
+          prompt_version: string | null
+          provider: string | null
+          rejection_reason: string | null
+          result_summary: Json | null
+          run_id: string | null
+          text_sha256: string | null
+          user_id: string
+          verified_count: number | null
+        }
+        Insert: {
+          contradiction_count?: number | null
+          corpus_checksum: string
+          created_at?: string
+          discarded_count?: number | null
+          document_id: string
+          evidence_id?: string | null
+          execution_id: string
+          file_sha256?: string | null
+          id?: string
+          model?: string | null
+          organization_id?: string | null
+          outcome: string
+          prompt_version?: string | null
+          provider?: string | null
+          rejection_reason?: string | null
+          result_summary?: Json | null
+          run_id?: string | null
+          text_sha256?: string | null
+          user_id: string
+          verified_count?: number | null
+        }
+        Update: {
+          contradiction_count?: number | null
+          corpus_checksum?: string
+          created_at?: string
+          discarded_count?: number | null
+          document_id?: string
+          evidence_id?: string | null
+          execution_id?: string
+          file_sha256?: string | null
+          id?: string
+          model?: string | null
+          organization_id?: string | null
+          outcome?: string
+          prompt_version?: string | null
+          provider?: string | null
+          rejection_reason?: string | null
+          result_summary?: Json | null
+          run_id?: string | null
+          text_sha256?: string | null
+          user_id?: string
+          verified_count?: number | null
+        }
+        Relationships: []
+      }
+      semantic_qa_authorizations: {
+        Row: {
+          active: boolean
+          authorization_reference: string
+          corpus_checksum: string
+          corpus_version: string
+          created_at: string
+          execution_id: string
+          organization_id: string
+        }
+        Insert: {
+          active?: boolean
+          authorization_reference: string
+          corpus_checksum: string
+          corpus_version: string
+          created_at?: string
+          execution_id: string
+          organization_id: string
+        }
+        Update: {
+          active?: boolean
+          authorization_reference?: string
+          corpus_checksum?: string
+          corpus_version?: string
+          created_at?: string
+          execution_id?: string
+          organization_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "semantic_qa_authorizations_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       synthetic_qa_ingestion_authorizations: {
         Row: {
           active: boolean

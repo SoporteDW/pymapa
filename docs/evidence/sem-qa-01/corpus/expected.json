@@ -1,0 +1,32 @@
+{
+  "executionId": "SEM-QA-01",
+  "fixedAt": "2026-10-20T19:40:00Z",
+  "note": "Resultados esperados fijados ANTES de cualquier invocación al Gateway. Capacidad DG-01 (pack dg-01@1.0.0). Empresa ficticia; sin datos reales.",
+  "scenarios": [
+    {
+      "documentId": "SEMQA01-S1", "scenario": "HECHO_EXPLICITO",
+      "expected": "Al menos una propuesta verificada a NI01 con tipo EXPLICITO y cita literal de la página 1. Sin contradicciones.",
+      "pass": { "requiredNI": ["NI01"], "requiredTipo": "EXPLICITO", "maxContradicciones": 0 }
+    },
+    {
+      "documentId": "SEMQA01-S2", "scenario": "INFERENCIA_PLAUSIBLE",
+      "expected": "Al menos una propuesta verificada a NI01 o NI06 con tipo INFERENCIA (el texto no enuncia la propuesta de valor; se infiere de la personalización y la ausencia de competidores). Sin contradicciones.",
+      "pass": { "anyOfNI": ["NI01", "NI06"], "requiredTipo": "INFERENCIA", "maxContradicciones": 0 }
+    },
+    {
+      "documentId": "SEMQA01-S3", "scenario": "NEGACION",
+      "expected": "Ninguna propuesta afirmativa (EXPLICITO/INFERENCIA) para NI04. Aceptable: propuesta NI04 con tipo NEGACION cuya cita contenga la negación, o NI04 en sinCorrespondencia.",
+      "pass": { "forbiddenAffirmativeNI": ["NI04"] }
+    },
+    {
+      "documentId": "SEMQA01-S4", "scenario": "CONTRADICCION",
+      "expected": "Contradicción declarada para NI03 con citas literales verificadas en páginas 1 y 2; cero propuestas verificadas para NI03 (descartadas como CONTRADICCION_NO_RESUELTA o no emitidas).",
+      "pass": { "contradictionNI": "NI03", "maxVerifiedForNI": 0 }
+    },
+    {
+      "documentId": "SEMQA01-S5", "scenario": "AUSENCIA",
+      "expected": "Cero propuestas verificadas y cero contradicciones (abstención).",
+      "pass": { "maxVerified": 0, "maxContradicciones": 0 }
+    }
+  ]
+}
