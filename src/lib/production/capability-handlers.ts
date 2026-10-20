@@ -668,6 +668,13 @@ export async function getCapabilityWorkspaceHandler(context: Ctx, capabilityId: 
     // cobertura gobernada; la decisión FULL/PARTIAL es separada de la
     // validación factual y solo la toma OWNER/ADMIN.
     userRole: rol ?? null,
+    // MVP-BETA-INT-01 · Autorización SYNTHETIC_QA_ONLY leída de la base (RLS), nunca del cliente.
+    syntheticQaIngestionAuthorized: await (async () => {
+      const cliente = context.supabase as { from: (t: string) => { select: (c: string) => { eq: (a: string, b: unknown) => { eq: (a: string, b: unknown) => { maybeSingle: () => Promise<{ data: unknown }> } } } } };
+      const { data } = await cliente.from("synthetic_qa_ingestion_authorizations").select("organization_id")
+        .eq("organization_id", assessment.organizationId).eq("active", true).maybeSingle();
+      return Boolean(data);
+    })(),
     documentaryMappings: mappingsDocumentales
       .filter((m) => m.capabilityId === deps.engine.pack.capability.id)
       .map((m) => ({
