@@ -1054,15 +1054,43 @@ const entregableSchema = z.object({
  */
 export async function getCapabilityFindingsHandler(context: Ctx, capabilityId: string, _data: Record<string, never>) {
     const casoUso = await import("./caso-uso");
-    const { assessment, deps } = await prepararContexto(context, capabilityId);
-    const [findings, dependencies, recommendations, interventions, auditEvents, pendientes] = await Promise.all([
+    const { assessment, deps, baseRepository } = await prepararContexto(context, capabilityId);
+    const [findings, dependencies, recommendations, interventions, auditEvents, pendientes, observaciones, mappingsDoc] = await Promise.all([
       casoUso.listFindings(deps, assessment.id),
       casoUso.listDerivedDependencyReferences(deps, assessment.id),
       casoUso.listRecommendationCandidates(deps, assessment.id),
       casoUso.listInterventions(deps, assessment.id),
       deps.repository.listAuditEvents(assessment.organizationId),
       casoUso.listFindingsAwaitingResolution(deps, assessment.id),
+      deps.repository.listObservations(assessment.id),
+      baseRepository.listDocumentMappings(assessment.id),
     ]);
+    // MVP-BETA-INT-01 · Trazabilidad del soporte: observaciones enlazadas al
+    // finding y, si son documentales, su fragmento literal y página.
+    const { supabaseAdmin: dbSoporte } = await import("@/integrations/supabase/client.server");
+    const idsFindings = findings.map((f) => f.id);
+    const enlaces = idsFindings.length
+      ? (await dbSoporte.from("finding_observations").select("finding_id, observation_id").in("finding_id", idsFindings)).data ?? []
+      : [];
+    const obsPorId = new Map(observaciones.map((o) => [o.id, o]));
+    const mappingPorId = new Map(mappingsDoc.map((m) => [m.id, m]));
+    const reglas = new Map(((deps.engine.pack as { rules?: { id: string; statement?: string; classification?: string }[] }).rules ?? []).map((r) => [r.id, r]));
+    const nombresVar = new Map(((deps.engine.pack as { variables?: { id: string; name?: string }[] }).variables ?? []).map((v) => [v.id, v.name ?? null]));
+    const soportePara = (findingId: string) =>
+      enlaces.filter((e) => e.finding_id === findingId).map((e) => {
+        const o = obsPorId.get(e.observation_id);
+        const prov = o?.value.documentProvenance;
+        const m = prov ? mappingPorId.get(prov.mappingId) : undefined;
+        return {
+          observationId: e.observation_id,
+          variableRef: o?.variableRef ?? null,
+          acquisitionRef: o?.value.acquisitionRef ?? null,
+          knowledgeState: o?.value.knowledgeState ?? null,
+          origin: prov ? ("DOCUMENT" as const) : ("RESPONSE" as const),
+          document: prov ? { mappingId: prov.mappingId, fragmentId: prov.fragmentId, evidenceId: prov.evidenceId,
+            fragmentText: m?.fragmentText ?? null, mappingStatus: m?.status ?? null } : null,
+        };
+      });
 
     const conActividades = await Promise.all(
       interventions.map(async (i) => {
