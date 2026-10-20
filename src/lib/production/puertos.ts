@@ -401,6 +401,9 @@ export interface ActivityRecord {
   /** Done: marca de ejecución terminada. NO implica validación. */
   doneAt: string | null;
   doneBy: string | null;
+  /** MVP-BETA-INT-01 · Responsable y plazo declarados por personas (opcionales). */
+  responsibleLabel?: string | null;
+  dueDate?: string | null;
   createdAt: string;
 }
 

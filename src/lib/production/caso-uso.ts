@@ -1422,6 +1422,9 @@ export interface CrearActividadInput {
   title: string;
   /** Identidad A01–A09 cuando la persona la elige; el mapeo no es automático. */
   activityRef?: string | null;
+  /** MVP-BETA-INT-01 · Responsable y plazo: datos humanos, nunca inferidos. */
+  responsibleLabel?: string | null;
+  dueDate?: string | null;
   createdBy: string | null;
 }
 
@@ -1450,6 +1453,8 @@ export async function crearActividad(
     contentStatus: identidad?.contentStatus ?? "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
     mappingStatus: identidad?.mappingStatus ?? "NOT_GOVERNED",
     title: input.title,
+    responsibleLabel: input.responsibleLabel ?? null,
+    dueDate: input.dueDate ?? null,
     state: "PENDING",
     // Done es un hecho posterior y explícito: nunca se presume al crear.
     doneAt: null,

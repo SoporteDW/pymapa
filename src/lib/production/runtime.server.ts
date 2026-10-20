@@ -1155,8 +1155,10 @@ export function createSupabaseProductionRepository(): ProductionRepository {
           mapping_status: input.mappingStatus,
           title: input.title,
           state: input.state,
+          responsible_label: input.responsibleLabel ?? null,
+          due_date: input.dueDate ?? null,
         })
-        .select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, done_at, done_by, created_at")
+        .select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, done_at, done_by, created_at, responsible_label, due_date")
         .single();
       lanzar("activities.insert", error);
       return aActividad(data!);
@@ -1164,7 +1166,7 @@ export function createSupabaseProductionRepository(): ProductionRepository {
 
     async getActivity(id): Promise<ActivityRecord | null> {
       const db = await admin();
-      const { data, error } = await db.from("activities").select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, done_at, done_by, created_at").eq("id", id).maybeSingle();
+      const { data, error } = await db.from("activities").select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, done_at, done_by, created_at, responsible_label, due_date").eq("id", id).maybeSingle();
       lanzar("activities.get", error);
       return data ? aActividad(data) : null;
     },
@@ -1173,7 +1175,7 @@ export function createSupabaseProductionRepository(): ProductionRepository {
       const db = await admin();
       const { data, error } = await db
         .from("activities")
-        .select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, done_at, done_by, created_at")
+        .select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, done_at, done_by, created_at, responsible_label, due_date")
         .eq("intervention_id", interventionId)
         .order("created_at", { ascending: true });
       lanzar("activities.list", error);
@@ -1186,7 +1188,7 @@ export function createSupabaseProductionRepository(): ProductionRepository {
         .from("activities")
         .update({ state })
         .eq("id", id)
-        .select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, done_at, done_by, created_at")
+        .select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, done_at, done_by, created_at, responsible_label, due_date")
         .single();
       lanzar("activities.updateState", error);
       return aActividad(data!);
@@ -1340,7 +1342,7 @@ export function createSupabaseProductionRepository(): ProductionRepository {
         .from("activities")
         .update({ done_at: doneAt, done_by: doneBy })
         .eq("id", id)
-        .select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, done_at, done_by, created_at")
+        .select("id, organization_id, intervention_id, activity_ref, content_status, mapping_status, title, state, done_at, done_by, created_at, responsible_label, due_date")
         .single();
       lanzar("activities.markDone", error);
       return aActividad(data!);
@@ -1963,8 +1965,12 @@ function aActividad(a: {
   done_at?: string | null;
   done_by?: string | null;
   created_at: string;
+  responsible_label?: string | null;
+  due_date?: string | null;
 }): ActivityRecord {
   return {
+    responsibleLabel: a.responsible_label ?? null,
+    dueDate: a.due_date ?? null,
     id: a.id,
     organizationId: a.organization_id,
     interventionId: a.intervention_id,

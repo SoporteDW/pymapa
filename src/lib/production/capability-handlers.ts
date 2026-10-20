@@ -1019,6 +1019,8 @@ const actividadSchema = z.object({
   interventionId: z.string().uuid(),
   title: z.string().min(1),
   activityRef: z.string().min(1).nullable().optional(),
+  responsibleLabel: z.string().trim().min(1).max(200).nullable().optional(),
+  dueDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).nullable().optional(),
 });
 
 const estadoActividadSchema = z.object({
@@ -1254,6 +1256,8 @@ export async function createCapabilityActivityHandler(context: Ctx, capabilityId
       organizationId: assessment.organizationId,
       title: data.title,
       activityRef: data.activityRef ?? null,
+      responsibleLabel: data.responsibleLabel ?? null,
+      dueDate: data.dueDate ?? null,
       createdBy: context.userId,
     });
     return {
