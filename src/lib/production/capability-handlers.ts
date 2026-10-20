@@ -1227,7 +1227,9 @@ export const reviewCapabilityFindingInput = (data: unknown) => revisionSchema.pa
 
 export async function reviewCapabilityFindingHandler(context: Ctx, capabilityId: string, data: ReturnType<typeof reviewCapabilityFindingInput>) {
     const casoUso = await import("./caso-uso");
-    const { deps } = await prepararContexto(context, capabilityId);
+    const { assessment, deps } = await prepararContexto(context, capabilityId);
+    // MVP-BETA-INT-01 · Revisar un hallazgo es decisión de gobierno: OWNER/ADMIN en servidor.
+    assertDocumentGovernanceRole(await deps.repository.getMembershipRole(assessment.organizationId, context.userId));
     const salida = await casoUso.revisarFinding(deps, {
       findingId: data.findingId,
       decision: data.decision,
