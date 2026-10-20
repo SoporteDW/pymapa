@@ -16,7 +16,8 @@ import { AcquisitionRenderer } from "@/components/capacidad/acquisition-renderer
 import { AcquisitionInput, type AcquisitionAnswer } from "@/components/capacidad/acquisition-input";
 import { EvidenciaPanel } from "@/components/capacidad/evidencia-panel";
 import { ColaboracionPanel } from "@/components/capacidad/colaboracion-panel";
-import { CoberturaDocumentalPanel } from "@/components/capacidad/cobertura-documental-panel";
+import { DocumentosGobernadosPanel } from "@/components/capacidad/documentos-gobernados-panel";
+import { DiagnosticoTrazablePanel } from "@/components/capacidad/diagnostico-trazable-panel";
 import { ETIQUETA_ESTADO } from "@/components/diagnostico/catalogo-capacidades";
 import {
   getCapabilityCollaboration,
@@ -296,6 +297,8 @@ function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
             </Card>
           )}
 
+          <DiagnosticoTrazablePanel capabilityId={capabilityId} canGovern={ws.data.userRole === "OWNER" || ws.data.userRole === "ADMIN"} />
+
           <Card id="respuestas">
             <CardHeader>
               <CardTitle className="text-base">Respuestas registradas ({responseHistory.filter((h) => !h.supersededByObservationId).length})</CardTitle>
@@ -350,11 +353,7 @@ function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
                   .filter((t) => t.informationNeedRef && t.informationNeedStatement)
                   .map((t) => ({ ref: t.informationNeedRef!, label: t.informationNeedStatement! }))}
               />
-              <CoberturaDocumentalPanel
-                capabilityId={capabilityId}
-                mappings={ws.data.documentaryMappings}
-                canGovern={ws.data.userRole === "OWNER" || ws.data.userRole === "ADMIN"}
-              />
+              <DocumentosGobernadosPanel capabilityId={capabilityId} />
             </>
           )}
         </div>

@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { CoberturaDocumentalPanel } from "@/components/capacidad/cobertura-documental-panel";
+import { DiagnosticoTrazablePanel } from "@/components/capacidad/diagnostico-trazable-panel";
 import {
   getCapabilityCollaboration,
   getCapabilityWorkspace,
@@ -25,7 +26,7 @@ const ESTADO: Record<string, string> = {
   SUPERSEDED: "Revocada (se conserva en el historial)",
 };
 
-export function DocumentosGobernadosPanel({ capabilityId }: { capabilityId: string }) {
+export function DocumentosGobernadosPanel({ capabilityId, incluirDiagnostico = false }: { capabilityId: string; incluirDiagnostico?: boolean }) {
   const qc = useQueryClient();
   const cargarWs = useServerFn(getCapabilityWorkspace);
   const cargarCol = useServerFn(getCapabilityCollaboration);
@@ -138,6 +139,7 @@ export function DocumentosGobernadosPanel({ capabilityId }: { capabilityId: stri
         </CardContent>
       </Card>
       <CoberturaDocumentalPanel capabilityId={capabilityId} mappings={mappings} canGovern={gobierna} />
+      {incluirDiagnostico && <DiagnosticoTrazablePanel capabilityId={capabilityId} canGovern={gobierna} />}
     </div>
   );
 }
