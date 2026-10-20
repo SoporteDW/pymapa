@@ -77,7 +77,7 @@ Mismo paquete, sin nuevo build funcional. Sin IA externa, sin cambios en Master 
 | Reevaluación con evidencia independiente restante | PASS por contrato del Engine; NOT_TESTED alojado |
 | Duplicación OP-01 eliminada | PASS |
 | Verificación de tipos | PASS |
-| Suite automatizada | PASS 1072/1072 (una ejecución completa tuvo 2 fallos por tiempo en `ux-prod-fix02`; el archivo aislado pasa 11/11) |
+| Suite automatizada | PASS WITH CONDITIONS: suite completa 1070/1072 (2 fallos por tiempo en `ux-prod-fix02`); ese archivo aislado 11/11 y `src/lib/production` 432/432 |
 
 ### 7.5 Condiciones abiertas
 - Reevaluación con evidencia independiente restante: no probada en entorno alojado.
