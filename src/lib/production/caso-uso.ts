@@ -1123,6 +1123,28 @@ async function materializarFindings(
     creados.push(finding);
   }
 
+  // MVP-BETA-INT-01 · Retiro de soporte: si el Engine ya no produce el candidato
+  // (p. ej. tras revocar la observación documental que lo sostenía), el finding
+  // vigente deja de estarlo. Nunca se borra: pasa a SUPERSEDED sin sustituto y
+  // queda auditado. Los DISMISSED se conservan como decisión humana.
+  const vigentesRefs = new Set(params.evaluation.findingCandidates.map((c) => c.findingRef));
+  for (const previo of previos) {
+    if (previo.supersededByFindingId !== null) continue;
+    if (previo.lifecycleState === "DISMISSED" || previo.lifecycleState === "SUPERSEDED") continue;
+    if (vigentesRefs.has(previo.findingRef)) continue;
+    await deps.repository.updateFinding(previo.id, { lifecycleState: "SUPERSEDED" });
+    await deps.repository.insertAuditEvent({
+      organizationId: params.organizationId,
+      assessmentId: params.assessmentId,
+      eventType: "FINDING_SUPPORT_WITHDRAWN",
+      subjectTable: "findings",
+      subjectId: previo.id,
+      actorUserId: null,
+      detail: { findingRef: previo.findingRef, evaluationRunId: params.evaluationRunId, previousState: previo.lifecycleState },
+    });
+  }
+
+
   // Referencias cruzadas declarativas: nunca ejecutan la capacidad destino.
   const existentes = await deps.repository.listDerivedDependencyReferences(params.assessmentId);
   for (const ref of params.evaluation.derivedDependencyReferences) {
