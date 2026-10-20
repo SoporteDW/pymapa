@@ -26,7 +26,7 @@ export function hasVerifiedStructuredCoverage(m: DocumentMappingRecord): boolean
   try {
     return validateStructuredCoverage(parsed.data, { capabilityId: m.capabilityId, knowledgeVersionId: m.knowledgeVersionId,
       acquisitionRef, fragmentId: m.fragmentId, fragmentText: m.fragmentText,
-      evidenceCurrent: true, hasConflict: false }).coverageScope === "FULL";
+      evidenceCurrent: true, hasConflict: false, pilotAuthorized: m.coveragePilotAuthorized === true }).coverageScope === "FULL";
   } catch { return false; }
 }
 

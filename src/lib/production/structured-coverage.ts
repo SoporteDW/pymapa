@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { approvedCoverageCriteria } from "./coverage-criteria";
+import { approvedCoverageCriteria, criteriaEligible } from "./coverage-criteria";
 
 export const componentEvidenceEvaluationSchema = z.object({
   componentKey: z.string().min(1),
@@ -27,12 +27,13 @@ export type StructuredCoverageDeclaration = z.infer<typeof structuredCoverageDec
 /** Structural integrity and literal provenance only. Human relevance is an attestation, not an algorithmic verdict. */
 export function validateStructuredCoverage(d: StructuredCoverageDeclaration, context: {
   capabilityId: string; knowledgeVersionId: string; acquisitionRef: string; fragmentId: string; fragmentText: string;
-  evidenceCurrent: boolean; hasConflict: boolean;
+  evidenceCurrent: boolean; hasConflict: boolean; pilotAuthorized?: boolean;
 }) {
   if (d.knowledgeVersionId !== context.knowledgeVersionId || d.acquisitionRef !== context.acquisitionRef) throw new Error("COVERAGE_IDENTITY_MISMATCH");
   const criteria = approvedCoverageCriteria(context.knowledgeVersionId, context.capabilityId, context.acquisitionRef);
   const reasons: string[] = [];
   if (!criteria || criteria.coverageCriteriaVersion !== d.coverageCriteriaVersion) reasons.push("GOVERNED_COMPONENTS_NOT_DEFINED");
+  if (criteria && !criteriaEligible(criteria, context.pilotAuthorized)) reasons.push("CRITERIA_NOT_AUTHORIZED_FOR_CONTEXT");
   const keys = new Set<string>();
   const quotes = new Set<string>();
   for (const c of d.componentEvaluations) {

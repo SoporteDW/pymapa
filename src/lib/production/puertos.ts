@@ -659,6 +659,8 @@ export interface DocumentMappingRecord {
   coverageRevision?: number;
   coverageEvaluation?: unknown;
   coverageEvidenceCurrent?: boolean;
+  /** Set only by the server's exact database allowlist lookup; absent/error is fail-closed. */
+  coveragePilotAuthorized?: boolean;
 }
 
 /** Puerto de persistencia. Toda escritura del vertical pasa por aquí. */

@@ -11,7 +11,7 @@
  *   React → AssessmentClient → Application boundary → Knowledge Engine → PostgreSQL
  */
 import { z } from "zod";
-import { approvedCoverageCriteria, coveredAcquisitionOf } from "./coverage-criteria";
+import { approvedCoverageCriteria, coveredAcquisitionOf, criteriaEligible } from "./coverage-criteria";
 import { structuredCoverageDeclarationSchema } from "./structured-coverage";
 import { hasVerifiedStructuredCoverage } from "./documentary-coverage";
 
@@ -673,7 +673,10 @@ export async function getCapabilityWorkspaceHandler(context: Ctx, capabilityId: 
         fragmentId: m.fragmentId,
         knowledgeVersionId: m.knowledgeVersionId,
         coverageRevision: m.coverageRevision ?? 0,
-        coverageCriteria: approvedCoverageCriteria(m.knowledgeVersionId, m.capabilityId, coveredAcquisitionOf(m) ?? ""),
+        coverageCriteria: (() => {
+          const criteria = approvedCoverageCriteria(m.knowledgeVersionId, m.capabilityId, coveredAcquisitionOf(m) ?? "");
+          return criteriaEligible(criteria, m.coveragePilotAuthorized === true) ? criteria : null;
+        })(),
         coveredAcquisitionRef: coveredAcquisitionOf(m),
         coverageEvaluation: m.coverageEvaluation ?? null,
         coverageVerified: hasVerifiedStructuredCoverage(m),
