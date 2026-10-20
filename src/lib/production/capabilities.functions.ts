@@ -265,3 +265,12 @@ export const acceptInvitation = createServerFn({ method: "POST" })
   .middleware([requireSupabaseAuth])
   .inputValidator((data: unknown) => h.acceptInvitationInput(data))
   .handler(async ({ data, context }) => h.acceptInvitationHandler(context, data));
+
+/* MVP-BETA-INT-01 · Ingesta determinista SYNTHETIC_QA_ONLY (OWNER/ADMIN, org autorizada). */
+export const processSyntheticDocument = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => {
+    const { capabilityId, resto } = separar(data);
+    return { capabilityId, input: h.processSyntheticDocumentInput(resto) };
+  })
+  .handler(async ({ data, context }) => h.processSyntheticDocumentHandler(context, data.capabilityId, data.input));
