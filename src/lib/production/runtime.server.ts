@@ -1698,9 +1698,11 @@ export function createSupabaseProductionRepository(): ProductionRepository {
         .eq("assessment_id", assessmentId)
         .order("created_at", { ascending: true });
       lanzar("fragment_mappings.list_document_mappings", error);
-      const [versionsResult, extractionsResult] = await Promise.all([
+      const [versionsResult, extractionsResult, pilotResult] = await Promise.all([
         db.from("evidence_versions").select("id, evidence_id, version_number").eq("organization_id", (data?.[0] as { organization_id?: string } | undefined)?.organization_id ?? "00000000-0000-0000-0000-000000000000"),
         db.from("document_extractions").select("id, evidence_version_id, extraction_version, status, superseded_by_extraction_id, knowledge_version_id").eq("organization_id", (data?.[0] as { organization_id?: string } | undefined)?.organization_id ?? "00000000-0000-0000-0000-000000000000"),
+        db.from("coverage_pilot_authorizations").select("organization_id, assessment_id, knowledge_version_id, capability_id, acquisition_ref, criteria_version")
+          .eq("assessment_id", assessmentId).eq("active", true).eq("synthetic_qa", true),
       ]);
       lanzar("coverage.versions", versionsResult.error);
       lanzar("coverage.extractions", extractionsResult.error);
@@ -1748,6 +1750,12 @@ export function createSupabaseProductionRepository(): ProductionRepository {
         coverageDecidedAt: (r["coverage_decided_at"] as string | null) ?? null,
         coverageRevision: (r["coverage_revision"] as number | null) ?? 0,
         coverageEvaluation: r["coverage_evaluation"] ?? null,
+        coveragePilotAuthorized: !pilotResult.error && Boolean(pilotResult.data?.some((p) =>
+          p.organization_id === r["organization_id"] && p.assessment_id === r["assessment_id"]
+          && p.knowledge_version_id === r["knowledge_version_id"] && p.capability_id === r["capability_id"]
+          && p.acquisition_ref === (r["target_type"] === "ACQUISITION" ? r["target_ref"] : r["factual_correspondence_ref"])
+          && p.criteria_version === approvedCoverageCriteria(r["knowledge_version_id"] as string, r["capability_id"] as string,
+            (r["target_type"] === "ACQUISITION" ? r["target_ref"] : r["factual_correspondence_ref"]) as string)?.coverageCriteriaVersion)),
         coverageEvidenceCurrent: (() => {
           const x = extractionsResult.data?.find((v) => v.id === r.evidence_fragments?.extraction_id);
           const v = versionsResult.data?.find((v) => v.id === x?.evidence_version_id);
