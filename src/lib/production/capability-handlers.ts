@@ -1136,6 +1136,9 @@ export async function getCapabilityFindingsHandler(context: Ctx, capabilityId: s
         severityReason: f.severityReason,
         ruleRefs: f.ruleRefs,
         variableRefs: f.variableRefs,
+        rules: f.ruleRefs.map((ref) => ({ ruleRef: ref, statement: reglas.get(ref)?.statement ?? null, classification: reglas.get(ref)?.classification ?? null })),
+        variables: f.variableRefs.map((ref) => ({ variableRef: ref, name: nombresVar.get(ref) ?? null })),
+        support: soportePara(f.id),
         supersededByFindingId: f.supersededByFindingId,
         reviewedAt: f.reviewedAt,
         lineage: {
