@@ -1,14 +1,16 @@
 ## INT-01-COV-03 · BUILD 03 (autorizado, sin BUILD 04/COV-03D)
-- [ ] Ciclo de vida, validación canónica y restricción alojada de pilotos a QA autorizado.
-- [ ] Inventario versionado de 31 capacidades, OP-02 y propuestas PROPOSED Lote 01.
-- [ ] Harness parametrizado, seguridad alojada, navegador y regresión.
-- [ ] Informe persistente de cierre con 15 secciones y pendientes verificables.
+- [x] Ciclo de vida, validación canónica y restricción alojada de pilotos a QA autorizado; promoción institucional bloqueada.
+- [x] Inventario versionado: 31 capacidades, 448 adquisiciones, 47 NI OP-02 trazables y 126 propuestas PROPOSED Lote 01.
+- [x] Harness 28/28, recorridos CM05/OP05 QA, seguridad con lectura posterior y regresión 1065/1065; no se equipara con Gate D.
+- [x] Informe persistente: docs/architecture/INT01_COV03_BUILD03_CLOSURE.md — PASS WITH CONDITIONS, 15 secciones.
+- [ ] Promoción global y criterios productivos: bloqueados hasta autoridad institucional y autorización humana posterior.
+- [ ] Aceptación integral COV-03D/BUILD 04 (incluidos MEMBER alojado tras nuevo guard y paralelismo): requiere autorización posterior; no iniciada.
 
 ## INT-01-COV-03 · BUILD 01 (Gate A + piloto Gate B)
 - [x] QA-01/QA-02 PASS DEFINITIVO; SEC-QA-01/02 PASS registrados.
 - [x] Gate A: registro transversal de criterios auxiliares (PARTIAL_ONLY por defecto).
 - [x] Gate B piloto CM-05 / ACQ·P1·01: cobertura de adquisición sin observación (unitarias + RPC alojada).
-- [ ] Descuento visible en navegador CM-05 alojado: bloqueado — la única org QA ya respondió ACQ·P1·01 manualmente; requiere org/usuario QA sintético nuevo autorizado.
+- [x] Descuento visible CM-05 en QA limpia: aceptación E2E-CM05-01 recibida; corroborado BUILD 03 con ACQ·P1·01 → P1·02 → P1·01 y cero observaciones.
 - [x] COV-03C · BUILD 02: piloto OP-05, contrato maestro, Gate C PASS WITH CONDITIONS (docs/architecture/INT01_COV03_BUILD02_CLOSURE.md).
 - [ ] COV-03D / BUILD 04: no autorizados.
 
