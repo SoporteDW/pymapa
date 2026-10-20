@@ -1,10 +1,16 @@
+## INT-01-COV-03 · BUILD 03 (autorizado, sin BUILD 04/COV-03D)
+- [ ] Ciclo de vida, validación canónica y restricción alojada de pilotos a QA autorizado.
+- [ ] Inventario versionado de 31 capacidades, OP-02 y propuestas PROPOSED Lote 01.
+- [ ] Harness parametrizado, seguridad alojada, navegador y regresión.
+- [ ] Informe persistente de cierre con 15 secciones y pendientes verificables.
+
 ## INT-01-COV-03 · BUILD 01 (Gate A + piloto Gate B)
 - [x] QA-01/QA-02 PASS DEFINITIVO; SEC-QA-01/02 PASS registrados.
 - [x] Gate A: registro transversal de criterios auxiliares (PARTIAL_ONLY por defecto).
 - [x] Gate B piloto CM-05 / ACQ·P1·01: cobertura de adquisición sin observación (unitarias + RPC alojada).
 - [ ] Descuento visible en navegador CM-05 alojado: bloqueado — la única org QA ya respondió ACQ·P1·01 manualmente; requiere org/usuario QA sintético nuevo autorizado.
 - [x] COV-03C · BUILD 02: piloto OP-05, contrato maestro, Gate C PASS WITH CONDITIONS (docs/architecture/INT01_COV03_BUILD02_CLOSURE.md).
-- [ ] BUILD 03 / COV-03D: no autorizados.
+- [ ] COV-03D / BUILD 04: no autorizados.
 
 # Roadmap
 
