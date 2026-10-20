@@ -832,137 +832,50 @@ function CapacidadOp01() {
         </Card>
       )}
 
-      {(hallazgos.data?.interventions.length ?? 0) > 0 && (
-        <Card>
+      {(hallazgos.data?.interventions.some((i) => i.activities.length > 0) ?? false) && (
+        <Card data-testid="comprobacion-tareas">
           <CardHeader>
-            <CardTitle className="text-base font-semibold">Planes de trabajo</CardTitle>
+            <CardTitle className="text-base font-semibold">Comprobación de tareas</CardTitle>
             <CardDescription>
-              Entregar algo no significa que quede aprobado: la comprobación llega más adelante.
+              Las acciones y tareas de tu equipo se gestionan en «Diagnóstico de esta capacidad». Aquí solo
+              se prepara su comprobación: entregar algo no significa que quede aprobado.
             </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-4">
-            {hallazgos.data!.interventions.map((i) => (
-              <div key={i.id} className="space-y-3 rounded-lg border border-border p-4">
+          <CardContent className="space-y-3">
+            {hallazgos.data!.interventions.flatMap((i) => i.activities).map((a) => (
+              <div key={a.id} className="space-y-2 rounded-lg border border-border p-3">
                 <div className="flex flex-wrap items-center gap-2 text-sm">
-                  <Badge variant="outline">{i.status}</Badge>
-                  <span className="font-medium">{i.title}</span>
+                  <Badge variant="secondary">{a.state}</Badge>
+                  <span>{a.title}</span>
                 </div>
-                {i.activities.map((a) => (
-                  <div key={a.id} className="space-y-2 rounded-lg border border-border p-3">
-                    <div className="flex flex-wrap items-center gap-2 text-sm">
-                      <Badge variant="secondary">{a.state}</Badge>
-                      <span>{a.title}</span>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        onClick={() =>
-                          cambiarEstadoActividad.mutate({ activityId: a.id, state: "EXECUTING" })
-                        }
-                        disabled={cambiarEstadoActividad.isPending}
-                      >
-                        En curso
-                      </Button>
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        onClick={() => marcarHecho.mutate({ activityId: a.id })}
-                        disabled={marcarHecho.isPending}
-                      >
-                        Marcar como hecha
-                      </Button>
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        onClick={() =>
-                          prepararComprobacion.mutate({
-                            activityId: a.id,
-                            primaryExecutorRespondentId: ejecutorPrimario || null,
-                          })
-                        }
-                        disabled={prepararComprobacion.isPending}
-                      >
-                        Preparar comprobación
-                      </Button>
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        onClick={() => abrirComprobacion.mutate({ activityId: a.id })}
-                        disabled={abrirComprobacion.isPending}
-                      >
-                        Abrir comprobación
-                      </Button>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor={`prim-${a.id}`}>Quién hace la tarea habitualmente</Label>
-                      <select
-                        id={`prim-${a.id}`}
-                        className="w-full rounded-md border border-input bg-background p-2 text-sm"
-                        value={ejecutorPrimario}
-                        onChange={(e) => setEjecutorPrimario(e.target.value)}
-                      >
-                        <option value="">Selecciona a la persona</option>
-                        {(colaboracion.data?.respondents ?? []).map((pp) => (
-                          <option key={pp.id} value={pp.id}>
-                            {pp.displayName ?? pp.email ?? pp.id}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                    {a.deliverables.map((d) => (
-                      <p key={d.id} className="text-xs text-muted-foreground">
-                        Entregado: {d.title} (pendiente de comprobación)
-                      </p>
-                    ))}
-                    <div className="space-y-2">
-                      <Label htmlFor={`dlv-${a.id}`}>Registrar entregable</Label>
-                      <Input
-                        id={`dlv-${a.id}`}
-                        value={tituloEntregable}
-                        onChange={(e) => setTituloEntregable(e.target.value)}
-                        placeholder="Ej.: Mapa del proceso en una página"
-                      />
-                      <Button
-                        size="sm"
-                        onClick={() =>
-                          registrarEntregable.mutate({ activityId: a.id, title: tituloEntregable })
-                        }
-                        disabled={registrarEntregable.isPending || tituloEntregable.trim().length === 0}
-                      >
-                        Registrar entregable
-                      </Button>
-                    </div>
-                  </div>
-                ))}
-                <div className="space-y-2">
-                  <Label htmlFor={`act-${i.id}`}>Añadir tarea</Label>
-                  <Input
-                    id={`act-${i.id}`}
-                    value={tituloActividad}
-                    onChange={(e) => setTituloActividad(e.target.value)}
-                    placeholder="Ej.: Escribir la guía del proceso"
-                  />
-                  <Label htmlFor={`ref-${i.id}`}>Referencia de la tarea (opcional)</Label>
-                  <Input
-                    id={`ref-${i.id}`}
-                    value={refActividad}
-                    onChange={(e) => setRefActividad(e.target.value)}
-                    placeholder="Ej.: A04"
-                  />
+                <Label htmlFor={`prim-${a.id}`}>Quién hace la tarea habitualmente</Label>
+                <select
+                  id={`prim-${a.id}`}
+                  className="w-full rounded-md border border-input bg-background p-2 text-sm"
+                  value={ejecutorPrimario}
+                  onChange={(e) => setEjecutorPrimario(e.target.value)}
+                >
+                  <option value="">Selecciona a la persona</option>
+                  {(colaboracion.data?.respondents ?? []).map((pp) => (
+                    <option key={pp.id} value={pp.id}>
+                      {pp.displayName ?? pp.email ?? pp.id}
+                    </option>
+                  ))}
+                </select>
+                <div className="flex flex-wrap gap-2">
+                  <Button size="sm" variant="outline" onClick={() => marcarHecho.mutate({ activityId: a.id })} disabled={marcarHecho.isPending}>
+                    Marcar como hecha
+                  </Button>
                   <Button
                     size="sm"
                     variant="outline"
-                    onClick={() =>
-                      crearActividad.mutate({
-                        interventionId: i.id,
-                        title: tituloActividad,
-                        activityRef: refActividad.trim() || null,
-                      })
-                    }
-                    disabled={crearActividad.isPending || tituloActividad.trim().length === 0}
+                    onClick={() => prepararComprobacion.mutate({ activityId: a.id, primaryExecutorRespondentId: ejecutorPrimario || null })}
+                    disabled={prepararComprobacion.isPending}
                   >
-                    Añadir tarea
+                    Preparar comprobación
+                  </Button>
+                  <Button size="sm" variant="outline" onClick={() => abrirComprobacion.mutate({ activityId: a.id })} disabled={abrirComprobacion.isPending}>
+                    Abrir comprobación
                   </Button>
                 </div>
               </div>
