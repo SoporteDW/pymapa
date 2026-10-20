@@ -255,10 +255,23 @@ export async function processCapabilityDocumentAdmissionsHandler(context: Ctx, c
   const { admitirCorrespondenciasDocumentales } = await import("./document-admission-bridge");
   // Repositorio base (sin scope): el puente verifica capacidad/pack/versión
   // de cada mapping y rechaza fail-closed los ajenos a esta capacidad.
-  return admitirCorrespondenciasDocumentales(
+  const report = await admitirCorrespondenciasDocumentales(
     { engine: deps.engine, repository: baseRepository, knowledgeVersionId: assessment.knowledgeVersionId },
     { assessmentId: assessment.id, organizationId: assessment.organizationId, actorUserId: context.userId },
   );
+  // MVP-BETA-INT-01 · Solo si cambió el conjunto de observaciones: el Engine
+  // reevalúa (findings, NI, variables) con el mismo EvaluationRun gobernado.
+  let evaluationRunId: string | null = null;
+  if (report.admitted > 0 || report.invalidated > 0) {
+    const casoUso = await import("./caso-uso");
+    const r = await casoUso.reevaluarTrasCambioDocumental(deps, {
+      assessmentId: assessment.id,
+      organizationId: assessment.organizationId,
+      trigger: report.invalidated > 0 ? "OBSERVATION_UPDATED" : "EVIDENCE_ADDED",
+    });
+    evaluationRunId = r.evaluationRunId;
+  }
+  return { ...report, evaluationRunId };
 }
 
 export const revokeCapabilityDocumentMappingInput = (data: unknown) =>
