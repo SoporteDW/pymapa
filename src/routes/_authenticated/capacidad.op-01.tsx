@@ -22,6 +22,7 @@ import { createProductionAssessmentClient, resolveExecutionSource } from "@/serv
 import { supabase } from "@/integrations/supabase/client";
 import type { KnowledgeState } from "@pymapa/contracts";
 import { toast } from "sonner";
+import { DocumentosGobernadosPanel } from "@/components/capacidad/documentos-gobernados-panel";
 
 export const Route = createFileRoute("/_authenticated/capacidad/op-01")({
   head: () => ({
@@ -731,103 +732,8 @@ function CapacidadOp01() {
       )}
 
 
-      {(hallazgos.data?.findings.length ?? 0) > 0 && (
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-base font-semibold">Hallazgos por revisar</CardTitle>
-            <CardDescription>
-              Ninguno se confirma automáticamente: cada uno depende de criterio humano y conserva
-              el origen de la información que lo sustenta.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            {hallazgos.data!.findings.map((f) => (
-              <div key={f.id} className="space-y-3 rounded-lg border border-border p-4">
-                <div className="flex flex-wrap items-center gap-2">
-                  <Badge variant={f.polarity === "STRENGTH" ? "default" : "secondary"}>
-                    {f.polarity === "STRENGTH" ? "Fortaleza" : "Punto débil"}
-                  </Badge>
-                  <Badge variant="outline">{f.lifecycleState}</Badge>
-                  <span className="text-sm font-medium">{f.name}</span>
-                </div>
-                {f.reason && <p className="text-sm text-muted-foreground">{f.reason}</p>}
-                <p className="text-xs text-muted-foreground">
-                  Gravedad: {f.severityQualitative ?? "sin definir"}. {f.severityReason}
-                </p>
-                <p className="text-xs text-muted-foreground">
-                  Basado en: {f.variableRefs.join(", ") || "sin variables"} · reglas{" "}
-                  {f.ruleRefs.join(", ") || "sin reglas"}
-                </p>
-                {f.lifecycleState !== "SUPERSEDED" && (
-                  <div className="flex flex-wrap gap-2">
-                    <Button
-                      size="sm"
-                      onClick={() => revisar.mutate({ findingId: f.id, decision: "CONFIRMED" })}
-                      disabled={revisar.isPending}
-                    >
-                      Confirmar
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      onClick={() => revisar.mutate({ findingId: f.id, decision: "NEEDS_REVIEW" })}
-                      disabled={revisar.isPending}
-                    >
-                      Dejar en revisión
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      onClick={() => revisar.mutate({ findingId: f.id, decision: "DISMISSED" })}
-                      disabled={revisar.isPending}
-                    >
-                      Descartar
-                    </Button>
-                    {recomendacionElegida && (
-                      <Button
-                        size="sm"
-                        variant="secondary"
-                        onClick={() =>
-                          crearRecomendacion.mutate({
-                            recommendationRef: recomendacionElegida,
-                            findingId: f.id,
-                          })
-                        }
-                        disabled={crearRecomendacion.isPending}
-                      >
-                        Proponer {recomendacionElegida}
-                      </Button>
-                    )}
-                  </div>
-                )}
-              </div>
-            ))}
-            {(hallazgos.data?.recommendationIdentities.length ?? 0) > 0 && (
-              <div className="space-y-2">
-                <Label>Propuesta a considerar</Label>
-                <RadioGroup
-                  value={recomendacionElegida}
-                  onValueChange={setRecomendacionElegida}
-                  className="grid gap-2 sm:grid-cols-3"
-                >
-                  {hallazgos.data!.recommendationIdentities.map((r) => (
-                    <div key={r.recommendationRef} className="flex items-center gap-2">
-                      <RadioGroupItem value={r.recommendationRef} id={`rec-${r.recommendationRef}`} />
-                      <Label htmlFor={`rec-${r.recommendationRef}`} className="text-sm font-normal">
-                        {r.title ?? r.recommendationRef}
-                      </Label>
-                    </div>
-                  ))}
-                </RadioGroup>
-                <p className="text-xs text-muted-foreground">
-                  El contenido detallado de estas propuestas todavía no está definido, así que se
-                  registran solo como candidatas y nunca se generan por sí solas.
-                </p>
-              </div>
-            )}
-          </CardContent>
-        </Card>
-      )}
+      {/* MVP-BETA-INT-01 · documento gobernado y diagnóstico trazable en tres capas. */}
+      <DocumentosGobernadosPanel capabilityId="OP-01" incluirDiagnostico />
 
       {(hallazgos.data?.derivedDependencyReferences.length ?? 0) > 0 && (
         <Card>

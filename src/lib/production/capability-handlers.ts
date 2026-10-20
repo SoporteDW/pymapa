@@ -255,10 +255,23 @@ export async function processCapabilityDocumentAdmissionsHandler(context: Ctx, c
   const { admitirCorrespondenciasDocumentales } = await import("./document-admission-bridge");
   // Repositorio base (sin scope): el puente verifica capacidad/pack/versión
   // de cada mapping y rechaza fail-closed los ajenos a esta capacidad.
-  return admitirCorrespondenciasDocumentales(
+  const report = await admitirCorrespondenciasDocumentales(
     { engine: deps.engine, repository: baseRepository, knowledgeVersionId: assessment.knowledgeVersionId },
     { assessmentId: assessment.id, organizationId: assessment.organizationId, actorUserId: context.userId },
   );
+  // MVP-BETA-INT-01 · Solo si cambió el conjunto de observaciones: el Engine
+  // reevalúa (findings, NI, variables) con el mismo EvaluationRun gobernado.
+  let evaluationRunId: string | null = null;
+  if (report.admitted > 0 || report.invalidated > 0) {
+    const casoUso = await import("./caso-uso");
+    const r = await casoUso.reevaluarTrasCambioDocumental(deps, {
+      assessmentId: assessment.id,
+      organizationId: assessment.organizationId,
+      trigger: report.invalidated > 0 ? "OBSERVATION_UPDATED" : "EVIDENCE_ADDED",
+    });
+    evaluationRunId = r.evaluationRunId;
+  }
+  return { ...report, evaluationRunId };
 }
 
 export const revokeCapabilityDocumentMappingInput = (data: unknown) =>
@@ -655,6 +668,18 @@ export async function getCapabilityWorkspaceHandler(context: Ctx, capabilityId: 
     // cobertura gobernada; la decisión FULL/PARTIAL es separada de la
     // validación factual y solo la toma OWNER/ADMIN.
     userRole: rol ?? null,
+    // MVP-BETA-INT-01 · Autorización SYNTHETIC_QA_ONLY leída de la base (RLS), nunca del cliente.
+    syntheticQaIngestionAuthorized: await (async () => {
+      const cliente = context.supabase as { from: (t: string) => { select: (c: string) => { eq: (a: string, b: unknown) => { eq: (a: string, b: unknown) => { maybeSingle: () => Promise<{ data: unknown }> } } } } };
+      // Fail-closed: cualquier error de lectura equivale a no autorizado.
+      try {
+        const { data } = await cliente.from("synthetic_qa_ingestion_authorizations").select("organization_id")
+          .eq("organization_id", assessment.organizationId).eq("active", true).maybeSingle();
+        return Boolean(data);
+      } catch {
+        return false;
+      }
+    })(),
     documentaryMappings: mappingsDocumentales
       .filter((m) => m.capabilityId === deps.engine.pack.capability.id)
       .map((m) => ({
@@ -1019,6 +1044,8 @@ const actividadSchema = z.object({
   interventionId: z.string().uuid(),
   title: z.string().min(1),
   activityRef: z.string().min(1).nullable().optional(),
+  responsibleLabel: z.string().trim().min(1).max(200).nullable().optional(),
+  dueDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).nullable().optional(),
 });
 
 const estadoActividadSchema = z.object({
@@ -1039,15 +1066,43 @@ const entregableSchema = z.object({
  */
 export async function getCapabilityFindingsHandler(context: Ctx, capabilityId: string, _data: Record<string, never>) {
     const casoUso = await import("./caso-uso");
-    const { assessment, deps } = await prepararContexto(context, capabilityId);
-    const [findings, dependencies, recommendations, interventions, auditEvents, pendientes] = await Promise.all([
+    const { assessment, deps, baseRepository } = await prepararContexto(context, capabilityId);
+    const [findings, dependencies, recommendations, interventions, auditEvents, pendientes, observaciones, mappingsDoc] = await Promise.all([
       casoUso.listFindings(deps, assessment.id),
       casoUso.listDerivedDependencyReferences(deps, assessment.id),
       casoUso.listRecommendationCandidates(deps, assessment.id),
       casoUso.listInterventions(deps, assessment.id),
       deps.repository.listAuditEvents(assessment.organizationId),
       casoUso.listFindingsAwaitingResolution(deps, assessment.id),
+      deps.repository.listObservations(assessment.id),
+      baseRepository.listDocumentMappings(assessment.id),
     ]);
+    // MVP-BETA-INT-01 · Trazabilidad del soporte: observaciones enlazadas al
+    // finding y, si son documentales, su fragmento literal y página.
+    const { supabaseAdmin: dbSoporte } = await import("@/integrations/supabase/client.server");
+    const idsFindings = findings.map((f) => f.id);
+    const enlaces = idsFindings.length
+      ? (await dbSoporte.from("finding_observations").select("finding_id, observation_id").in("finding_id", idsFindings)).data ?? []
+      : [];
+    const obsPorId = new Map(observaciones.map((o) => [o.id, o]));
+    const mappingPorId = new Map(mappingsDoc.map((m) => [m.id, m]));
+    const reglas = new Map(((deps.engine.pack as { rules?: { id: string; statement?: string; classification?: string }[] }).rules ?? []).map((r) => [r.id, r]));
+    const nombresVar = new Map(((deps.engine.pack as { variables?: { id: string; name?: string }[] }).variables ?? []).map((v) => [v.id, v.name ?? null]));
+    const soportePara = (findingId: string) =>
+      enlaces.filter((e) => e.finding_id === findingId).map((e) => {
+        const o = obsPorId.get(e.observation_id);
+        const prov = o?.value.documentProvenance;
+        const m = prov ? mappingPorId.get(prov.mappingId) : undefined;
+        return {
+          observationId: e.observation_id,
+          variableRef: o?.variableRef ?? null,
+          acquisitionRef: o?.value.acquisitionRef ?? null,
+          knowledgeState: o?.value.knowledgeState ?? null,
+          origin: prov ? ("DOCUMENT" as const) : ("RESPONSE" as const),
+          document: prov ? { mappingId: prov.mappingId, fragmentId: prov.fragmentId, evidenceId: prov.evidenceId,
+            fragmentText: m?.fragmentText ?? null, mappingStatus: m?.status ?? null } : null,
+        };
+      });
 
     const conActividades = await Promise.all(
       interventions.map(async (i) => {
@@ -1058,6 +1113,8 @@ export async function getCapabilityFindingsHandler(context: Ctx, capabilityId: s
             activityRef: a.activityRef,
             title: a.title,
             state: a.state,
+            responsibleLabel: a.responsibleLabel ?? null,
+            dueDate: a.dueDate ?? null,
             contentStatus: a.contentStatus,
             mappingStatus: a.mappingStatus,
             deliverables: (await casoUso.listDeliverables(deps, a.id)).map((d) => ({
@@ -1093,6 +1150,9 @@ export async function getCapabilityFindingsHandler(context: Ctx, capabilityId: s
         severityReason: f.severityReason,
         ruleRefs: f.ruleRefs,
         variableRefs: f.variableRefs,
+        rules: f.ruleRefs.map((ref) => ({ ruleRef: ref, statement: reglas.get(ref)?.statement ?? null, classification: reglas.get(ref)?.classification ?? null })),
+        variables: f.variableRefs.map((ref) => ({ variableRef: ref, name: nombresVar.get(ref) ?? null })),
+        support: soportePara(f.id),
         supersededByFindingId: f.supersededByFindingId,
         reviewedAt: f.reviewedAt,
         lineage: {
@@ -1254,6 +1314,8 @@ export async function createCapabilityActivityHandler(context: Ctx, capabilityId
       organizationId: assessment.organizationId,
       title: data.title,
       activityRef: data.activityRef ?? null,
+      responsibleLabel: data.responsibleLabel ?? null,
+      dueDate: data.dueDate ?? null,
       createdBy: context.userId,
     });
     return {
@@ -1540,4 +1602,123 @@ export async function getCapabilityValidationHandler(context: Ctx, capabilityId:
         startedAt: a.startedAt,
       })),
     };
+}
+
+/* ------------------------------------------------------------------ */
+/* MVP-BETA-INT-01 · Ingesta documental determinista SYNTHETIC_QA_ONLY  */
+/* ------------------------------------------------------------------ */
+
+export const processSyntheticDocumentInput = (data: unknown) =>
+  z.object({ evidenceId: z.string().uuid() }).strict().parse(data);
+
+async function sha256Texto(texto: string): Promise<string> {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(texto));
+  return [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+/**
+ * Documento cargado → versión → extracción local (unpdf) → fragmento literal
+ * con página y hash → interpretación literal → correspondencia CANDIDATE.
+ * Bloqueos en servidor: OWNER/ADMIN, organización autorizada en
+ * synthetic_qa_ingestion_authorizations y marca SYNTHETIC_QA_ONLY en el texto.
+ * Nada se valida, admite ni declara cubierto aquí. Idempotente por documento.
+ */
+export async function processSyntheticDocumentHandler(
+  context: Ctx,
+  capabilityId: string,
+  data: ReturnType<typeof processSyntheticDocumentInput>,
+) {
+  const runtime = await import("./runtime.server");
+  type Client = Parameters<typeof runtime.asegurarContextoProductivo>[0];
+  const client = context.supabase as Client;
+  const engine = runtime.cargarEngine(capabilityId);
+  const assessment = await runtime.asegurarContextoProductivo(client, context.userId, capabilityId);
+  const org = assessment.organizationId;
+  // 1. Autorización con la identidad del usuario (RLS) ANTES de todo acceso privilegiado.
+  const { data: membership } = await client.from("memberships").select("role")
+    .eq("organization_id", org).eq("user_id", context.userId).maybeSingle();
+  assertDocumentGovernanceRole((membership?.role as string | undefined) ?? null);
+  const { data: autorizacion } = await client.from("synthetic_qa_ingestion_authorizations")
+    .select("organization_id, rule_set_version").eq("organization_id", org).eq("active", true).maybeSingle();
+  const ingesta = await import("./ingesta-sintetica");
+  if (!autorizacion || autorizacion.rule_set_version !== ingesta.SYNTHETIC_QA_RULE_SET_VERSION) {
+    throw new Error("SYNTHETIC_QA_ONLY_NOT_AUTHORIZED");
+  }
+  const { data: evidencia } = await client.from("evidence")
+    .select("id, organization_id, storage_bucket, storage_path, title")
+    .eq("id", data.evidenceId).eq("organization_id", org).maybeSingle();
+  if (!evidencia) throw new Error("EVIDENCE_NOT_IN_ORGANIZATION");
+  if (!evidencia.storage_bucket || !evidencia.storage_path) throw new Error("EVIDENCE_WITHOUT_FILE");
+
+  const { supabaseAdmin: db } = await import("@/integrations/supabase/client.server");
+  // 2. Idempotencia: un documento se procesa una sola vez (versión 1).
+  const previa = await db.from("evidence_versions").select("id").eq("organization_id", org)
+    .eq("evidence_id", evidencia.id).eq("version_number", 1).maybeSingle();
+  if (previa.data) return { alreadyProcessed: true as const, evidenceVersionId: previa.data.id, proposals: [] };
+
+  // 3. Bytes reales del archivo privado de la organización (RLS de storage).
+  const descarga = await client.storage.from(evidencia.storage_bucket).download(evidencia.storage_path);
+  if (descarga.error || !descarga.data) throw new Error("EVIDENCE_FILE_UNAVAILABLE");
+  const bytes = new Uint8Array(await descarga.data.arrayBuffer());
+  const { extraerPdf } = await import("@/lib/document-first/pdf-texto");
+  const doc = await extraerPdf(bytes);
+  const propuestas = ingesta.proponerCorrespondenciasSinteticas(doc.lineas, capabilityId);
+  // 4. Destinos verificados contra el pack fijado: nunca se inventa un id.
+  for (const p of propuestas) {
+    const acq = engine.getAcquisition(p.rule.factualCorrespondenceRef);
+    if (!acq || !acq.variableRefs.includes(p.rule.targetRef)) throw new Error("SYNTHETIC_RULE_TARGET_NOT_IN_PACK");
+    if (!ingesta.citaEsLiteral(doc.textoPorPagina[p.page], p.verbatim)) throw new Error("SYNTHETIC_QUOTE_NOT_LITERAL");
+  }
+  const fallo = (paso: string, e: { message: string; code?: string } | null) => {
+    if (e) throw new Error(`SYNTHETIC_INGEST_FAILED:${paso}:${e.message}`);
+  };
+  const textoHash = await sha256Texto(Object.entries(doc.textoPorPagina).map(([p, t]) => `${p}\n${t}`).join("\n\f\n"));
+  const ver = await db.from("evidence_versions").insert({
+    organization_id: org, evidence_id: evidencia.id, version_number: 1, content_sha256: doc.sha256,
+    storage_bucket: evidencia.storage_bucket, storage_path: evidencia.storage_path, mime_type: "application/pdf",
+    byte_size: bytes.length, created_by: context.userId,
+  }).select("id").single();
+  if (ver.error?.code === "23505") return { alreadyProcessed: true as const, evidenceVersionId: null, proposals: [] };
+  fallo("evidence_versions", ver.error);
+  const ahora = new Date().toISOString();
+  const ext = await db.from("document_extractions").insert({
+    organization_id: org, evidence_version_id: ver.data!.id, extraction_version: 1, status: "COMPLETED",
+    model_provider: "LOCAL_DETERMINISTIC", model_id: doc.extractorVersion,
+    prompt_ref: `${ingesta.SYNTHETIC_QA_MARKER}|rules:${ingesta.SYNTHETIC_QA_RULE_SET_VERSION}|text-sha256:${textoHash}|pages:${doc.paginas}`,
+    knowledge_version_id: assessment.knowledgeVersionId, started_at: ahora, completed_at: ahora,
+  }).select("id").single();
+  fallo("document_extractions", ext.error);
+  const salida: { mappingId: string; fragmentId: string; ruleId: string; page: number; targetRef: string; fragmentSha256: string }[] = [];
+  let i = 0;
+  for (const p of propuestas) {
+    const fragmentSha256 = await sha256Texto(p.verbatim);
+    const f = await db.from("evidence_fragments").insert({
+      organization_id: org, extraction_id: ext.data!.id, sequence_index: i++, verbatim_text: p.verbatim,
+      locator: { page: p.page, section: p.section }, text_sha256: fragmentSha256,
+    }).select("id").single();
+    fallo("evidence_fragments", f.error);
+    // Interpretación literal: la regla no interpreta; el enunciado ES la cita.
+    const it = await db.from("fragment_interpretations").insert({
+      organization_id: org, fragment_id: f.data!.id, statement: p.verbatim,
+      model_provider: "LOCAL_DETERMINISTIC", model_id: p.rule.ruleId, prompt_ref: ingesta.SYNTHETIC_QA_RULE_SET_VERSION,
+    }).select("id").single();
+    fallo("fragment_interpretations", it.error);
+    const m = await db.from("fragment_mappings").insert({
+      organization_id: org, assessment_id: assessment.id, fragment_id: f.data!.id, interpretation_id: it.data!.id,
+      capability_id: capabilityId, target_type: p.rule.targetType, target_ref: p.rule.targetRef,
+      factual_correspondence_ref: p.rule.factualCorrespondenceRef,
+      knowledge_version_id: assessment.knowledgeVersionId, knowledge_pack_id: engine.pack.packId,
+      knowledge_pack_version: engine.pack.packVersion, proposed_by: "DETERMINISTIC_RULE",
+      decision_note: `${ingesta.SYNTHETIC_QA_MARKER} · regla ${p.rule.ruleId} (${ingesta.SYNTHETIC_QA_RULE_SET_VERSION}): coincidencia léxica del encabezado «${p.section}»; no es interpretación semántica. Requiere revisión OWNER/ADMIN.`,
+    }).select("id").single();
+    fallo("fragment_mappings", m.error);
+    salida.push({ mappingId: m.data!.id, fragmentId: f.data!.id, ruleId: p.rule.ruleId, page: p.page, targetRef: p.rule.targetRef, fragmentSha256 });
+  }
+  await db.from("audit_events").insert({
+    organization_id: org, assessment_id: assessment.id, event_type: "SYNTHETIC_DOCUMENT_PROCESSED",
+    subject_table: "evidence_versions", subject_id: ver.data!.id, actor_user_id: context.userId,
+    detail: { evidenceId: evidencia.id, extractionId: ext.data!.id, contentSha256: doc.sha256, textSha256: textoHash,
+      ruleSet: ingesta.SYNTHETIC_QA_RULE_SET_VERSION, capabilityId, proposals: salida.length },
+  });
+  return { alreadyProcessed: false as const, evidenceVersionId: ver.data!.id, extractionId: ext.data!.id, contentSha256: doc.sha256, proposals: salida };
 }

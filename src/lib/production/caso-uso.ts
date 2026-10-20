@@ -632,6 +632,27 @@ async function ejecutarEvaluacion(
   return { run, evaluation, state };
 }
 
+/**
+ * MVP-BETA-INT-01 · Reevaluación tras admitir o invalidar observaciones
+ * documentales: mismo EvaluationRun gobernado que una respuesta (variables,
+ * NI, findings). No crea observaciones ni decide nada por sí misma.
+ */
+export async function reevaluarTrasCambioDocumental(
+  deps: ProductionDeps,
+  input: { assessmentId: string; organizationId: string; trigger: "EVIDENCE_ADDED" | "OBSERVATION_UPDATED" },
+) {
+  const fijado = await assessmentFijado(deps, input.assessmentId);
+  if (!fijado.ok) return { evaluationRunId: null, rejectionReason: fijado.reason };
+  const { run } = await ejecutarEvaluacion(deps, {
+    assessmentId: input.assessmentId,
+    organizationId: input.organizationId,
+    knowledgeVersionId: fijado.assessment.knowledgeVersionId,
+    closedAt: fijado.assessment.closedAt,
+    trigger: input.trigger,
+  });
+  return { evaluationRunId: run.id, rejectionReason: null };
+}
+
 export async function submitAcquisitionResponse(
   deps: ProductionDeps,
   input: SubmitAcquisitionResponseInput,
@@ -1123,6 +1144,28 @@ async function materializarFindings(
     creados.push(finding);
   }
 
+  // MVP-BETA-INT-01 · Retiro de soporte: si el Engine ya no produce el candidato
+  // (p. ej. tras revocar la observación documental que lo sostenía), el finding
+  // vigente deja de estarlo. Nunca se borra: pasa a SUPERSEDED sin sustituto y
+  // queda auditado. Los DISMISSED se conservan como decisión humana.
+  const vigentesRefs = new Set(params.evaluation.findingCandidates.map((c) => c.findingRef));
+  for (const previo of previos) {
+    if (previo.supersededByFindingId !== null) continue;
+    if (previo.lifecycleState === "DISMISSED" || previo.lifecycleState === "SUPERSEDED") continue;
+    if (vigentesRefs.has(previo.findingRef)) continue;
+    await deps.repository.updateFinding(previo.id, { lifecycleState: "SUPERSEDED" });
+    await deps.repository.insertAuditEvent({
+      organizationId: params.organizationId,
+      assessmentId: params.assessmentId,
+      eventType: "FINDING_SUPPORT_WITHDRAWN",
+      subjectTable: "findings",
+      subjectId: previo.id,
+      actorUserId: null,
+      detail: { findingRef: previo.findingRef, evaluationRunId: params.evaluationRunId, previousState: previo.lifecycleState },
+    });
+  }
+
+
   // Referencias cruzadas declarativas: nunca ejecutan la capacidad destino.
   const existentes = await deps.repository.listDerivedDependencyReferences(params.assessmentId);
   for (const ref of params.evaluation.derivedDependencyReferences) {
@@ -1422,6 +1465,9 @@ export interface CrearActividadInput {
   title: string;
   /** Identidad A01–A09 cuando la persona la elige; el mapeo no es automático. */
   activityRef?: string | null;
+  /** MVP-BETA-INT-01 · Responsable y plazo: datos humanos, nunca inferidos. */
+  responsibleLabel?: string | null;
+  dueDate?: string | null;
   createdBy: string | null;
 }
 
@@ -1450,6 +1496,8 @@ export async function crearActividad(
     contentStatus: identidad?.contentStatus ?? "NOT_EXPLICIT_IN_KNOWLEDGE_MASTER",
     mappingStatus: identidad?.mappingStatus ?? "NOT_GOVERNED",
     title: input.title,
+    responsibleLabel: input.responsibleLabel ?? null,
+    dueDate: input.dueDate ?? null,
     state: "PENDING",
     // Done es un hecho posterior y explícito: nunca se presume al crear.
     doneAt: null,

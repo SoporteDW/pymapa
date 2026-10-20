@@ -57,6 +57,8 @@ const AUTORIZADOS = [
   "src/lib/production/cov03-op05-pilot.test.ts",
   // BUILD03: isolated four-archetype harness; never imported by the UI.
   "src/lib/production/coverage-build03.test.ts",
+  // MVP-BETA-INT-01: reglas del paquete integral sobre packs publicados; nunca importado por la UI.
+  "src/lib/production/mvp-beta-int01.test.ts",
 ];
 
 describe("arquitectura · separación frontend / knowledge-engine", () => {

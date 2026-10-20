@@ -21,10 +21,12 @@ export type Database = {
           created_at: string
           done_at: string | null
           done_by: string | null
+          due_date: string | null
           id: string
           intervention_id: string
           mapping_status: string
           organization_id: string
+          responsible_label: string | null
           state: Database["public"]["Enums"]["execution_state"]
           title: string
           updated_at: string
@@ -35,10 +37,12 @@ export type Database = {
           created_at?: string
           done_at?: string | null
           done_by?: string | null
+          due_date?: string | null
           id?: string
           intervention_id: string
           mapping_status?: string
           organization_id: string
+          responsible_label?: string | null
           state?: Database["public"]["Enums"]["execution_state"]
           title: string
           updated_at?: string
@@ -49,10 +53,12 @@ export type Database = {
           created_at?: string
           done_at?: string | null
           done_by?: string | null
+          due_date?: string | null
           id?: string
           intervention_id?: string
           mapping_status?: string
           organization_id?: string
+          responsible_label?: string | null
           state?: Database["public"]["Enums"]["execution_state"]
           title?: string
           updated_at?: string
@@ -2317,6 +2323,38 @@ export type Database = {
           },
         ]
       }
+      synthetic_qa_ingestion_authorizations: {
+        Row: {
+          active: boolean
+          authorization_reference: string
+          created_at: string
+          organization_id: string
+          rule_set_version: string
+        }
+        Insert: {
+          active?: boolean
+          authorization_reference: string
+          created_at?: string
+          organization_id: string
+          rule_set_version: string
+        }
+        Update: {
+          active?: boolean
+          authorization_reference?: string
+          created_at?: string
+          organization_id?: string
+          rule_set_version?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "synthetic_qa_ingestion_authorizations_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: true
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       validation_evidence: {
         Row: {
           created_at: string
@@ -2809,6 +2847,8 @@ export type Database = {
         | "DOCUMENT_OBSERVATION_ADMITTED"
         | "DOCUMENT_OBSERVATION_INVALIDATED"
         | "FRAGMENT_MAPPING_COVERAGE_DECIDED"
+        | "FINDING_SUPPORT_WITHDRAWN"
+        | "SYNTHETIC_DOCUMENT_PROCESSED"
       evaluation_run_status:
         | "PENDING"
         | "PROCESSING"
@@ -3050,6 +3090,8 @@ export const Constants = {
         "DOCUMENT_OBSERVATION_ADMITTED",
         "DOCUMENT_OBSERVATION_INVALIDATED",
         "FRAGMENT_MAPPING_COVERAGE_DECIDED",
+        "FINDING_SUPPORT_WITHDRAWN",
+        "SYNTHETIC_DOCUMENT_PROCESSED",
       ],
       evaluation_run_status: [
         "PENDING",
