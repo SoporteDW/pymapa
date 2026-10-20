@@ -10,7 +10,8 @@ async def main():
     b,pg=await abrir(p,'owner-c.json','/capacidad/op-01'); out={}
     pg.on('console',lambda m: m.type=='error' and print('console',m.text[:200]))
     await pg.get_by_role('button',name='Registrar evidencia').wait_for(timeout=90000)
-    await pg.locator('label',has_text='OP01-P11').first.click()
+    card=pg.locator('div.rounded-lg, div',has=pg.get_by_text('Adjuntar evidencia',exact=True)).last
+    radios=pg.locator('[id^="ev-"]'); out['tipoEvidencia']=await pg.locator('label[for^="ev-"]').first.inner_text(); await radios.first.click()
     await pg.set_input_files('#archivo-evidencia',PDF); await pg.fill('#referencia-evidencia','SQA_manual_operativo_calibracion.pdf')
     await pg.get_by_role('button',name='Registrar evidencia').click()
     panel=pg.locator('[data-testid="documentos-gobernados"]')
