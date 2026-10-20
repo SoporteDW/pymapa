@@ -632,6 +632,27 @@ async function ejecutarEvaluacion(
   return { run, evaluation, state };
 }
 
+/**
+ * MVP-BETA-INT-01 · Reevaluación tras admitir o invalidar observaciones
+ * documentales: mismo EvaluationRun gobernado que una respuesta (variables,
+ * NI, findings). No crea observaciones ni decide nada por sí misma.
+ */
+export async function reevaluarTrasCambioDocumental(
+  deps: ProductionDeps,
+  input: { assessmentId: string; organizationId: string; trigger: "EVIDENCE_ADDED" | "OBSERVATION_UPDATED" },
+) {
+  const fijado = await assessmentFijado(deps, input.assessmentId);
+  if (!fijado.ok) return { evaluationRunId: null, rejectionReason: fijado.reason };
+  const { run } = await ejecutarEvaluacion(deps, {
+    assessmentId: input.assessmentId,
+    organizationId: input.organizationId,
+    knowledgeVersionId: fijado.assessment.knowledgeVersionId,
+    closedAt: fijado.assessment.closedAt,
+    trigger: input.trigger,
+  });
+  return { evaluationRunId: run.id, rejectionReason: null };
+}
+
 export async function submitAcquisitionResponse(
   deps: ProductionDeps,
   input: SubmitAcquisitionResponseInput,
