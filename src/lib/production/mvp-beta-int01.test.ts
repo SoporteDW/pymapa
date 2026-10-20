@@ -10,7 +10,7 @@ import { createInMemoryProductionRepository, type DocumentMappingRecord, type Ob
 import { admitirCorrespondenciasDocumentales } from "./document-admission-bridge";
 import { crearActividad, crearIntervencion, listFindings, reevaluarTrasCambioDocumental, revisarFinding, SELECTION_REQUIRED } from "./caso-uso";
 import { citaEsLiteral, IngestaSinteticaError, proponerCorrespondenciasSinteticas, REGLAS_SINTETICAS } from "./ingesta-sintetica";
-import { esRecomendacionGobernada } from "@/components/capacidad/diagnostico-trazable-panel";
+import { esRecomendacionGobernada } from "./recomendaciones";
 
 const pack = (id: string) => JSON.parse(readFileSync(join(process.cwd(), "knowledge", "packs", id, "1.0.0", "pack.json"), "utf8"));
 const KV = "kv-runtime-manifest-1.0.0";

@@ -22,6 +22,7 @@ import {
   registerCapabilityDeliverable,
   reviewCapabilityFinding,
 } from "@/lib/production/capabilities.functions";
+import { esRecomendacionGobernada } from "@/lib/production/recomendaciones";
 
 const CICLO: Record<string, string> = {
   CANDIDATE: "Propuesto por el motor",
@@ -31,11 +32,6 @@ const CICLO: Record<string, string> = {
   SUPERSEDED: "Ya no vigente",
 };
 const ACTIVIDAD: Record<string, string> = { PENDING: "Pendiente", EXECUTING: "En curso", DELIVERABLE_PRODUCED: "Entregable producido" };
-
-/** Una recomendación es gobernada solo con contenido y vínculo gobernado. */
-export function esRecomendacionGobernada(r: { title: string | null; mappingStatus: string; contentStatus: string }): boolean {
-  return Boolean(r.title) && r.mappingStatus !== "NOT_GOVERNED" && !r.contentStatus.startsWith("NOT_EXPLICIT");
-}
 
 export function DiagnosticoTrazablePanel({ capabilityId, canGovern }: { capabilityId: string; canGovern: boolean }) {
   const qc = useQueryClient();
