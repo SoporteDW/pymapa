@@ -11,7 +11,7 @@
 export const COVERAGE_KNOWLEDGE_VERSION_ID = "d1a25af1-3634-4c9b-9465-69ac25875e26";
 export const COVERAGE_CRITERIA_VERSION = "DG01-NI04-COV-1.0.0";
 
-export type CoverageApprovalStatus = "APPROVED" | "PILOT_TEST_GOVERNED";
+export type CoverageApprovalStatus = "PROPOSED" | "APPROVED" | "PILOT_TEST_GOVERNED";
 export interface CoverageComponent { componentKey: string; componentDescription: string; required: true }
 export interface CoverageCriteriaEntry {
   knowledgeVersionId: string;
@@ -68,8 +68,12 @@ export function approvedCoverageCriteria(knowledgeVersionId: string, capabilityI
 }
 
 export type CoverageMode = "FULL_ELIGIBLE" | "PARTIAL_ONLY";
-export function coverageModeFor(knowledgeVersionId: string, capabilityId: string, acquisitionRef: string): CoverageMode {
-  return approvedCoverageCriteria(knowledgeVersionId, capabilityId, acquisitionRef) ? "FULL_ELIGIBLE" : "PARTIAL_ONLY";
+/** Authorization is read from the database, never from client input or organization names. */
+export function criteriaEligible(entry: CoverageCriteriaEntry | null | undefined, pilotAuthorized = false): boolean {
+  return entry?.approvalStatus === "APPROVED" || (entry?.approvalStatus === "PILOT_TEST_GOVERNED" && pilotAuthorized);
+}
+export function coverageModeFor(knowledgeVersionId: string, capabilityId: string, acquisitionRef: string, pilotAuthorized = false): CoverageMode {
+  return criteriaEligible(approvedCoverageCriteria(knowledgeVersionId, capabilityId, acquisitionRef), pilotAuthorized) ? "FULL_ELIGIBLE" : "PARTIAL_ONLY";
 }
 
 /** Adquisición canónica cubierta por un mapping: factual (VARIABLE) o directa (ACQUISITION). */
