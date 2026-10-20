@@ -36,6 +36,7 @@ Implementación y regresión:
 - `src/lib/production/coverage-build03.test.ts`, `cov03-cm05-pilot.test.ts`, `cov03-op05-pilot.test.ts`, `arquitectura.test.ts`: harness/regresión/allowlist.
 - `scripts/coverage-build03.ts`: generación de inventario y propuestas, no extracción semántica automatizada.
 - `AGENTS.md`, `src/lib/production/AGENTS.md`, `roadmap.md`: decisiones y seguimiento.
+- `src/routes/index.tsx`: metadatos og:type/twitter:card faltantes, sin cambio del recorrido ni diagnóstico.
 
 Migraciones aditivas aplicadas:
 

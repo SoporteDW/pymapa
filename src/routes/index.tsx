@@ -24,6 +24,8 @@ export const Route = createFileRoute("/")({
         content:
           "Ocho pasos para pasar del diagnóstico a resultados verificables: evidencias, plan de acción, validación y seguimiento a 30, 60 y 90 días.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: EntradaPage,
