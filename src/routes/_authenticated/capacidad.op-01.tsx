@@ -832,7 +832,6 @@ function CapacidadOp01() {
         </Card>
       )}
 
-      {(hallazgos.data?.interventions.length ?? 0) > 0 && (
       {(hallazgos.data?.interventions.some((i) => i.activities.length > 0) ?? false) && (
         <Card data-testid="comprobacion-tareas">
           <CardHeader>
