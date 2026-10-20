@@ -33,7 +33,7 @@ export function buildCoverageInventory() {
     const modes = [...new Set(pack.acquisitions.map((a) => a.acquisitionMode))];
     const archetype = capabilityId.startsWith("OP-") ? "OPERATIONAL_MIXED"
       : modes.includes("CAPABILITY_PROGRESSIVE") ? "PROGRESSIVE"
-      : needs.some((n) => n.acquisitionResolution === "GOVERNED_STRUCTURAL_CORRESPONDENCE") ? "STRUCTURAL" : "ONE_TO_ONE";
+      : modes.includes("GOVERNED_STRUCTURAL_CORRESPONDENCE") ? "STRUCTURAL" : "ONE_TO_ONE";
     return { capabilityId, domainId: registered.domainId, archetype, packId: registered.packId, packVersion: registered.packVersion,
       packChecksum: registered.packChecksum, knowledgeVersionId: COVERAGE_KNOWLEDGE_VERSION_ID,
       variables: pack.variables.map((v) => v.id), informationNeeds: needs,

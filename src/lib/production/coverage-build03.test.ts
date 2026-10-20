@@ -52,11 +52,11 @@ describe.each(["DG-02","DT-02","CM-05","OP-03"])("BUILD03 isolated four-archetyp
       coverageCriteriaVersion:"SYNTHETIC-HARNESS-1.0.0",approvalReference:"TEST_ONLY",approvalStatus:"APPROVED",mappingTargetType:"ACQUISITION",
       components:[{componentKey:"TEST_LITERAL",componentDescription:"Synthetic literal component",required:true}]};
     vi.spyOn(criteriaModule,"approvedCoverageCriteria").mockImplementation((k,c,a)=>k===KV&&c===capabilityId&&a===acq.id?entry:null);
-    const declaration: StructuredCoverageDeclaration = {mappingId:"b0300000-0000-4000-8000-000000000001",fragmentId:undefined,
+    const declaration: StructuredCoverageDeclaration = {mappingId:"b0300000-0000-4000-8000-000000000001",
       acquisitionRef:acq.id,knowledgeVersionId:KV,coverageCriteriaVersion:entry.coverageCriteriaVersion,targetScope:"FULL",componentEvaluations:[{
       componentKey:"TEST_LITERAL",componentDescription:"Synthetic literal component",fragmentId:"b0300000-0000-4000-8000-000000000002",
       supportState:"SUPPORTED",supportingQuote:"Synthetic complete evidence.",componentJustification:"Synthetic human justification.",uncertaintyNotes:"",humanConfirmedRelevance:true}],
-      synthesisJustification:"Synthetic complete declaration.",humanConfirmedCompleteness:true,expectedRevision:0,requestId:"b0300000-0000-4000-8000-000000000003"} as StructuredCoverageDeclaration;
+      synthesisJustification:"Synthetic complete declaration.",humanConfirmedCompleteness:true,expectedRevision:0,requestId:"b0300000-0000-4000-8000-000000000003"};
     const repo=createInMemoryProductionRepository([{id:"qa-assess",organizationId:"qa-org",caseId:"qa-case",knowledgeVersionId:KV,type:"BASELINE",startedAt:null,closedAt:null,updatedAt:"2026-10-20"}],[]);
     const mapping:DocumentMappingRecord={id:declaration.mappingId,organizationId:"qa-org",assessmentId:"qa-assess",capabilityId,targetType:"ACQUISITION",targetRef:acq.id,
       fragmentId:declaration.componentEvaluations[0]?.fragmentId??"",interpretationId:null,knowledgeVersionId:KV,knowledgePackId:getRegisteredPack(capabilityId).packId,knowledgePackVersion:"1.0.0",
