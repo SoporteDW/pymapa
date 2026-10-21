@@ -110,3 +110,9 @@
 - E3 cerrado: PASS WITH CONDITIONS (integración) / BLOCKED BY CANONICAL CONTRACT (cobertura). Informe: docs/architecture/INT01_E3_CLOSURE.md. INT01-COVERAGE-GAP-01 abierto. Esperar autorización antes de nuevas fases.
 - [x] INT-01-COV-03 cierre controlado: V1/V2/V3 ejecutadas, anexo en BUILD04 closure
 - [x] SEM-QA-01: guarda fail-closed, pruebas de seguridad y 5 escenarios IA (PASS WITH CONDITIONS; S2 clasificación)
+
+## SEM-QA-01 · Corrección focalizada autorizada
+- [ ] Instrucciones 1.2.0 generales; ambigüedad no admisible y desviación histórica 1.1.0 documentada.
+- [ ] S6–S8 canónicos, corpus extendido con procedencia/checksums y S1–S5 intactos.
+- [ ] Seguridad/regresión y tres corridas independientes S1/S2/S6/S7; S8 negación.
+- [ ] Registro stability-runs.json y actualización del cierre con dictamen observado.
