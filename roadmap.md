@@ -1,3 +1,9 @@
+## DEC-046 · PRESC-OP01-H04 0.3.0
+- [ ] Preserve original dossier and record subsequent content approval separately.
+- [ ] Implement server-owned complementary evaluator, evidence guards, append-only history and blocked emission.
+- [ ] Execute synthetic T01–T12, security/isolation and regression; deliver technical closure.
+- [ ] Publication/activation/emission: blocked pending subsequent Government authorization.
+
 ## INT-01-COV-03 · BUILD 04 / COV-03D (autorizado)
 - [x] A: MEMBER negativas, OWNER/ADMIN decisiones, dos organizaciones QA, concurrencia real y lectura persistida; variantes no ejecutadas delimitadas en informe.
 - [ ] B: carga UI y bytes PASS; recorrido del mismo archivo BLOCKED: no versión/extracción/propuesta autenticada sin IA; requiere autorización específica de IA o paquete no-IA.
