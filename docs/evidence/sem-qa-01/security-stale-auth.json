@@ -1,0 +1,40 @@
+[
+  {
+    "test": "NEW_DOC_STALE_AUTH",
+    "expected": "CORPUS_PROVENANCE_MISMATCH",
+    "result": {
+      "ok": false,
+      "rechazo": "CORPUS_PROVENANCE_MISMATCH",
+      "error": "Rechazado antes de usar IA: CORPUS_PROVENANCE_MISMATCH"
+    },
+    "pass": true
+  },
+  {
+    "test": "UNKNOWN_ID",
+    "expected": "DOCUMENT_NOT_IN_CORPUS",
+    "result": {
+      "ok": false,
+      "rechazo": "DOCUMENT_NOT_IN_CORPUS",
+      "error": "Rechazado antes de usar IA: DOCUMENT_NOT_IN_CORPUS"
+    },
+    "pass": true
+  },
+  {
+    "test": "OTHER_EXECUTION",
+    "expected": "EXECUTION_NOT_AUTHORIZED",
+    "result": {
+      "ok": false,
+      "rechazo": "EXECUTION_NOT_AUTHORIZED",
+      "error": "Rechazado antes de usar IA: EXECUTION_NOT_AUTHORIZED"
+    },
+    "pass": true
+  },
+  {
+    "test": "GENERAL_ROUTE_CLOSED",
+    "result": {
+      "ok": false,
+      "error": "La lectura documental con IA está cerrada para uso general. Solo está habilitada la prueba sintética SEM-QA-01."
+    },
+    "pass": true
+  }
+]

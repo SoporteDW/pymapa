@@ -6,7 +6,7 @@
  */
 export const SEM_QA_EXECUTION_ID = "SEM-QA-01";
 export const SEM_QA_MARKER = "SYNTHETIC_QA_ONLY";
-export const SEM_QA_CORPUS_VERSION = "SEM-QA-01-CORPUS-1.0.0";
+export const SEM_QA_CORPUS_VERSION = "SEM-QA-01-CORPUS-1.1.0";
 export const SEM_QA_CAPABILITY = "DG-01";
 
 export interface DocumentoCorpus {
@@ -22,10 +22,13 @@ export const SEM_QA_01_CORPUS: readonly DocumentoCorpus[] = Object.freeze([
   { documentId: "SEMQA01-S3", fileSha256: "1b9f5cd4ded79c1bd336757f5ac8990ac7136f47409b1d01379059cbbebb049d", textSha256: "83d12bead8e7a9e4da286a2647b37fcd8d55816c47824c26001ca0b649ce833a", pages: 1 },
   { documentId: "SEMQA01-S4", fileSha256: "4db40f5d18595e91f83d4e107dda8d489e0a07dac53c70d15d93a086ef2ed2bd", textSha256: "a7173c66a222bcf1830a96d039b75bd7ce7f2f3a109b88af202811ddda27f3be", pages: 2 },
   { documentId: "SEMQA01-S5", fileSha256: "ed6343390b8cc074a02bef87512ebf86e96378ba66894c7e9d44227c2d85c3db", textSha256: "a5413d6ca1eade604c805c0e2cb527b55e894fe221ac764584074704f8cd1b28", pages: 1 },
+  { documentId: "SEMQA01-S6", fileSha256: "0259aac241d65bf41380e33a6b01cf077cbf320f0eba248f7833ea679db87899", textSha256: "71a1f5db9267e8a4180dd5f2b3da8f7418da591b85f025869a0d4da71c97f983", pages: 1 },
+  { documentId: "SEMQA01-S7", fileSha256: "95efcf0244b98c33be09c31c5eda0850f25cfd16fede8db1ec56b311e63094fe", textSha256: "f4a1f8842cce51a33913689497040a6a23117db653c669f3e725d568be7cfab1", pages: 1 },
+  { documentId: "SEMQA01-S8", fileSha256: "47751b023f550aaaf541a1a0a1c5dd2e3fcbb1c50782d8ef742de69cedef9249", textSha256: "e3cd668bd9112025f2e8aaa1ad7f1d872db6d7623a7d14fc6a20fa3b96d1ab97", pages: 1 },
 ]);
 
 /** Checksum compuesto del corpus; debe coincidir con la autorización en base de datos. */
-export const SEM_QA_01_CORPUS_CHECKSUM = "6670bfdfb498210f202bd319d70bcb7bd40713d99cd40b383156914a6faa8f59";
+export const SEM_QA_01_CORPUS_CHECKSUM = "e47c223b5bf762d08e9995456ff19f8aaa7ffa884e6baaf87487a6da89b285aa";
 
 export function lineaCorpus(d: DocumentoCorpus): string {
   return `${d.documentId}|${d.fileSha256}|${d.textSha256}|${d.pages}`;

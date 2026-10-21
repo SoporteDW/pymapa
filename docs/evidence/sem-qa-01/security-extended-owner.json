@@ -1,0 +1,42 @@
+[
+  {
+    "test": "NEW_ID_WRONG_FILE",
+    "result": {
+      "ok": false,
+      "rechazo": "FILE_CHECKSUM_MISMATCH",
+      "error": "Rechazado antes de usar IA: FILE_CHECKSUM_MISMATCH"
+    },
+    "expected": "FILE_CHECKSUM_MISMATCH",
+    "pass": true
+  },
+  {
+    "test": "NEW_ID_CROSS_ORG",
+    "result": {
+      "ok": false,
+      "rechazo": "EVIDENCE_NOT_IN_ORGANIZATION",
+      "error": "Rechazado antes de usar IA: EVIDENCE_NOT_IN_ORGANIZATION"
+    },
+    "expected": "EVIDENCE_NOT_IN_ORGANIZATION",
+    "pass": true
+  },
+  {
+    "test": "OLD_ID_MODIFIED",
+    "result": {
+      "ok": false,
+      "rechazo": "FILE_CHECKSUM_MISMATCH",
+      "error": "Rechazado antes de usar IA: FILE_CHECKSUM_MISMATCH"
+    },
+    "expected": "FILE_CHECKSUM_MISMATCH",
+    "pass": true
+  },
+  {
+    "test": "HISTORICAL_VERSION_FIXTURE_PREEMPTED",
+    "result": {
+      "ok": false,
+      "rechazo": "FILE_CHECKSUM_MISMATCH",
+      "error": "Rechazado antes de usar IA: FILE_CHECKSUM_MISMATCH"
+    },
+    "expected": "FILE_CHECKSUM_MISMATCH",
+    "pass": true
+  }
+]

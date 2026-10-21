@@ -30,7 +30,7 @@ function IaDocumental() {
   const interpretar = useServerFn(interpretarDocumentoSemQa);
   const contexto = useServerFn(getCapabilityContext);
   const registrar = useServerFn(registerCapabilityEvidence);
-  const [documentId, setDocumentId] = useState<string>(SEM_QA_01_CORPUS[0]!.documentId);
+  const [documentId, setDocumentId] = useState<string>(SEM_QA_01_CORPUS[0]?.documentId ?? "");
   const [estado, setEstado] = useState<"idle" | "leyendo" | "interpretando">("idle");
   const [error, setError] = useState<string | null>(null);
   const [res, setRes] = useState<Resultado | null>(null);
@@ -76,7 +76,7 @@ function IaDocumental() {
         <h1 className="text-2xl font-semibold">Lectura documental con IA · DG-01</h1>
         <p className="text-muted-foreground mt-1 text-sm">
           Prueba controlada. La IA propone; tú decides. Las propuestas se guardan como pendientes y nunca cuentan solas como respuesta del diagnóstico.
-          Solo está habilitada la prueba sintética SEM-QA-01: el servidor rechaza, sin enviar nada a la IA, cualquier archivo que no sea uno de los cinco documentos sintéticos aprobados.
+          Solo está habilitada la prueba sintética SEM-QA-01: el servidor rechaza, sin enviar nada a la IA, cualquier archivo que no pertenezca al corpus sintético aprobado.
         </p>
       </div>
 
