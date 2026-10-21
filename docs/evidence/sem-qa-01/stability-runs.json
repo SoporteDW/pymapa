@@ -28464,5 +28464,57 @@
     "S2": "0/3",
     "S6": "0/3",
     "S8": "PASS"
-  }
+  },
+  "finalVerdict": {
+    "focalCorrection": "FAIL",
+    "overallSemQa01": "PASS WITH CONDITIONS",
+    "acceptanceMet": false,
+    "S2": "0/3: NI01 EXPLICITO instead of expected INFERENCIA; historical expectation unchanged",
+    "S6": "0/3: NI08 inference absent; NI02 EXPLICITO is a separate factual proposal",
+    "historicalPromptDeviation": "1.1.0 pending ratification",
+    "furtherAction": "Stopped; any new prompt version or intervention requires prior authorization"
+  },
+  "hostedReadback": {
+    "evidence": "stability-hosted-readback.json",
+    "transmittedAttempts": 16,
+    "createdMappings": 16,
+    "mappingStatuses": [
+      "CANDIDATE"
+    ],
+    "organizationCountsBeforeAndAfter": {
+      "observations": [
+        3,
+        3
+      ],
+      "responses": [
+        0,
+        0
+      ],
+      "coverage_decisions": [
+        1,
+        1
+      ]
+    },
+    "automaticAdmissions": 0
+  },
+  "regression": {
+    "fullSuitePassed": 1086,
+    "fullSuiteTotal": 1086,
+    "focusedPassed": 19,
+    "focusedTotal": 19,
+    "latestAutomaticBuild": "OK",
+    "manualTypecheck": "NOT_RUN"
+  },
+  "securityEvidence": [
+    "security-stale-auth.json",
+    "security-extended-owner.json",
+    "security-extended-member.json"
+  ],
+  "limitations": [
+    "S2 oracle may conflict with authorized semantic equivalence; expectation not changed",
+    "S6 is inference retrieval/abstention failure, not mislabeling NI08",
+    "Historical N7 sample now rejected at earlier file checksum guard; no new isolated evidence-version check claimed",
+    "UI readback screenshot shows authenticated empty page after reload; per-run UI text and persisted records support results",
+    "No further IA calls or tuning after observed failures"
+  ]
 }
