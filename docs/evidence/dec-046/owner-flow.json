@@ -1,7 +1,7 @@
 {
   "owner": {
     "result": {
-      "id": "08104d09-7fa9-4514-9eaa-21901b821034",
+      "id": "b4fb0f54-380e-46ac-a5c1-2cb243b77290",
       "emissionDecision": "BLOCKED",
       "semanticDecision": "REQUEST_INFO",
       "lifecycleState": "EVALUATED"
@@ -9,7 +9,7 @@
   },
   "retry": {
     "result": {
-      "id": "08104d09-7fa9-4514-9eaa-21901b821034",
+      "id": "b4fb0f54-380e-46ac-a5c1-2cb243b77290",
       "emissionDecision": "BLOCKED",
       "semanticDecision": "REQUEST_INFO",
       "lifecycleState": "EVALUATED"
@@ -17,14 +17,14 @@
   },
   "reevaluation": {
     "result": {
-      "id": "3e33764d-d2b4-489f-bc65-c1e766bd802a",
+      "id": "7f4b7e9d-b16f-4d3e-ba65-d75c61e22f4d",
       "emissionDecision": "BLOCKED",
       "semanticDecision": "REQUEST_INFO",
       "lifecycleState": "SUSPENDED"
     }
   },
   "input": {
-    "requestId": "3bd6d8ed-a654-4e41-b94e-a0cb8d8f6cfd",
+    "requestId": "7cb2ea1f-c6a3-4226-b968-47a214600a59",
     "assessmentId": "c0a99e22-33c2-4128-914e-0deaa47bbd28",
     "findingId": "75f65a68-54fc-458b-a5f6-06bce1c34ee7",
     "priorDecisionRef": null,
@@ -69,14 +69,14 @@
   "readback": {
     "data": [
       {
-        "id": "08104d09-7fa9-4514-9eaa-21901b821034",
+        "id": "b4fb0f54-380e-46ac-a5c1-2cb243b77290",
         "emission_decision": "BLOCKED",
         "payload": {
           "actor": "61f0d167-aa0b-4562-8f59-e988adf2f569",
           "input": {
             "trigger": "INITIAL_REVIEW",
             "findingId": "75f65a68-54fc-458b-a5f6-06bce1c34ee7",
-            "requestId": "3bd6d8ed-a654-4e41-b94e-a0cb8d8f6cfd",
+            "requestId": "7cb2ea1f-c6a3-4226-b968-47a214600a59",
             "conditions": {
               "C1": {
                 "state": "UNKNOWN",
@@ -123,7 +123,7 @@
           "conditions": {
             "C1": {
               "state": "UNKNOWN",
-              "evaluatedAt": "2026-10-21T05:51:40.916Z",
+              "evaluatedAt": "2026-10-21T06:01:58.009Z",
               "evaluatedBy": "61f0d167-aa0b-4562-8f59-e988adf2f569",
               "evidenceRefs": [],
               "justification": "DEC-046 QA sint\u00e9tica: pendiente de informaci\u00f3n validada",
@@ -131,7 +131,7 @@
             },
             "C2": {
               "state": "UNKNOWN",
-              "evaluatedAt": "2026-10-21T05:51:40.916Z",
+              "evaluatedAt": "2026-10-21T06:01:58.009Z",
               "evaluatedBy": "61f0d167-aa0b-4562-8f59-e988adf2f569",
               "evidenceRefs": [],
               "justification": "DEC-046 QA sint\u00e9tica: pendiente de informaci\u00f3n validada",
@@ -139,7 +139,7 @@
             },
             "C3": {
               "state": "UNKNOWN",
-              "evaluatedAt": "2026-10-21T05:51:40.916Z",
+              "evaluatedAt": "2026-10-21T06:01:58.009Z",
               "evaluatedBy": "61f0d167-aa0b-4562-8f59-e988adf2f569",
               "evidenceRefs": [],
               "justification": "DEC-046 QA sint\u00e9tica: pendiente de informaci\u00f3n validada",
@@ -147,7 +147,7 @@
             },
             "C4": {
               "state": "UNKNOWN",
-              "evaluatedAt": "2026-10-21T05:51:40.916Z",
+              "evaluatedAt": "2026-10-21T06:01:58.009Z",
               "evaluatedBy": "61f0d167-aa0b-4562-8f59-e988adf2f569",
               "evidenceRefs": [],
               "justification": "DEC-046 QA sint\u00e9tica: pendiente de informaci\u00f3n validada",
@@ -155,7 +155,7 @@
             },
             "C5": {
               "state": "UNKNOWN",
-              "evaluatedAt": "2026-10-21T05:51:40.916Z",
+              "evaluatedAt": "2026-10-21T06:01:58.009Z",
               "evaluatedBy": "61f0d167-aa0b-4562-8f59-e988adf2f569",
               "evidenceRefs": [],
               "justification": "DEC-046 QA sint\u00e9tica: pendiente de informaci\u00f3n validada",
@@ -163,7 +163,7 @@
             },
             "C6": {
               "state": "UNKNOWN",
-              "evaluatedAt": "2026-10-21T05:51:40.916Z",
+              "evaluatedAt": "2026-10-21T06:01:58.009Z",
               "evaluatedBy": "61f0d167-aa0b-4562-8f59-e988adf2f569",
               "evidenceRefs": [],
               "justification": "DEC-046 QA sint\u00e9tica: pendiente de informaci\u00f3n validada",
@@ -171,8 +171,21 @@
             }
           },
           "contractId": "PRESC-OP01-H04",
+          "sourceRefs": {
+            "caseId": "128c7690-5d1c-4308-a3f9-4ac5c7a782c1",
+            "ruleRefs": [
+              "R-OP01-02",
+              "R-OP01-05"
+            ],
+            "evidenceIds": [],
+            "variableRefs": [
+              "VA07"
+            ],
+            "observationIds": [],
+            "evaluationRunId": "b7faee44-38f8-4ae1-abea-e14ed494bdf4"
+          },
           "timestamps": {
-            "evaluatedAt": "2026-10-21T05:51:40.916Z"
+            "evaluatedAt": "2026-10-21T06:01:58.009Z"
           },
           "activityIds": [],
           "missingInfo": [
@@ -228,6 +241,7 @@
           "lifecycleState": "EVALUATED",
           "processContext": {},
           "contractVersion": "0.3.0",
+          "alternativeRoute": null,
           "causalAssessment": "UNKNOWN",
           "emissionDecision": "BLOCKED",
           "priorDecisionRef": null,
@@ -257,20 +271,22 @@
             "C5": [],
             "C6": []
           },
+          "reconciliationRequests": [],
           "technicalVerificationRef": "DEC-046-T01-T12",
-          "technicalAuthorizationState": "VERIFIED_FOR_SYNTHETIC_TESTS"
+          "technicalAuthorizationState": "VERIFIED",
+          "implementationAuthorizationId": "DEC-046"
         },
         "prior_decision_ref": null
       },
       {
-        "id": "3e33764d-d2b4-489f-bc65-c1e766bd802a",
+        "id": "7f4b7e9d-b16f-4d3e-ba65-d75c61e22f4d",
         "emission_decision": "BLOCKED",
         "payload": {
           "actor": "61f0d167-aa0b-4562-8f59-e988adf2f569",
           "input": {
             "trigger": "NEW_EVIDENCE",
             "findingId": "75f65a68-54fc-458b-a5f6-06bce1c34ee7",
-            "requestId": "6841979e-c0b1-4cfe-a15a-7aaecd3305a3",
+            "requestId": "c72d3714-e2f9-41ea-9cba-65fbaa2e90bc",
             "conditions": {
               "C1": {
                 "state": "UNKNOWN",
@@ -307,7 +323,7 @@
             "differential": {},
             "processContext": {},
             "causalAssessment": "UNKNOWN",
-            "priorDecisionRef": "08104d09-7fa9-4514-9eaa-21901b821034",
+            "priorDecisionRef": "b4fb0f54-380e-46ac-a5c1-2cb243b77290",
             "contraindications": []
           },
           "trigger": "NEW_EVIDENCE",
@@ -317,7 +333,7 @@
           "conditions": {
             "C1": {
               "state": "UNKNOWN",
-              "evaluatedAt": "2026-10-21T05:51:43.563Z",
+              "evaluatedAt": "2026-10-21T06:02:00.900Z",
               "evaluatedBy": "61f0d167-aa0b-4562-8f59-e988adf2f569",
               "evidenceRefs": [],
               "justification": "DEC-046 QA sint\u00e9tica: pendiente de informaci\u00f3n validada",
@@ -325,7 +341,7 @@
             },
             "C2": {
               "state": "UNKNOWN",
-              "evaluatedAt": "2026-10-21T05:51:43.563Z",
+              "evaluatedAt": "2026-10-21T06:02:00.900Z",
               "evaluatedBy": "61f0d167-aa0b-4562-8f59-e988adf2f569",
               "evidenceRefs": [],
               "justification": "DEC-046 QA sint\u00e9tica: pendiente de informaci\u00f3n validada",
@@ -333,7 +349,7 @@
             },
             "C3": {
               "state": "UNKNOWN",
-              "evaluatedAt": "2026-10-21T05:51:43.563Z",
+              "evaluatedAt": "2026-10-21T06:02:00.900Z",
               "evaluatedBy": "61f0d167-aa0b-4562-8f59-e988adf2f569",
               "evidenceRefs": [],
               "justification": "DEC-046 QA sint\u00e9tica: pendiente de informaci\u00f3n validada",
@@ -341,7 +357,7 @@
             },
             "C4": {
               "state": "UNKNOWN",
-              "evaluatedAt": "2026-10-21T05:51:43.563Z",
+              "evaluatedAt": "2026-10-21T06:02:00.900Z",
               "evaluatedBy": "61f0d167-aa0b-4562-8f59-e988adf2f569",
               "evidenceRefs": [],
               "justification": "DEC-046 QA sint\u00e9tica: pendiente de informaci\u00f3n validada",
@@ -349,7 +365,7 @@
             },
             "C5": {
               "state": "UNKNOWN",
-              "evaluatedAt": "2026-10-21T05:51:43.563Z",
+              "evaluatedAt": "2026-10-21T06:02:00.900Z",
               "evaluatedBy": "61f0d167-aa0b-4562-8f59-e988adf2f569",
               "evidenceRefs": [],
               "justification": "DEC-046 QA sint\u00e9tica: pendiente de informaci\u00f3n validada",
@@ -357,7 +373,7 @@
             },
             "C6": {
               "state": "UNKNOWN",
-              "evaluatedAt": "2026-10-21T05:51:43.563Z",
+              "evaluatedAt": "2026-10-21T06:02:00.900Z",
               "evaluatedBy": "61f0d167-aa0b-4562-8f59-e988adf2f569",
               "evidenceRefs": [],
               "justification": "DEC-046 QA sint\u00e9tica: pendiente de informaci\u00f3n validada",
@@ -365,8 +381,21 @@
             }
           },
           "contractId": "PRESC-OP01-H04",
+          "sourceRefs": {
+            "caseId": "128c7690-5d1c-4308-a3f9-4ac5c7a782c1",
+            "ruleRefs": [
+              "R-OP01-02",
+              "R-OP01-05"
+            ],
+            "evidenceIds": [],
+            "variableRefs": [
+              "VA07"
+            ],
+            "observationIds": [],
+            "evaluationRunId": "b7faee44-38f8-4ae1-abea-e14ed494bdf4"
+          },
           "timestamps": {
-            "evaluatedAt": "2026-10-21T05:51:43.563Z"
+            "evaluatedAt": "2026-10-21T06:02:00.900Z"
           },
           "activityIds": [],
           "missingInfo": [
@@ -422,9 +451,10 @@
           "lifecycleState": "SUSPENDED",
           "processContext": {},
           "contractVersion": "0.3.0",
+          "alternativeRoute": null,
           "causalAssessment": "UNKNOWN",
           "emissionDecision": "BLOCKED",
-          "priorDecisionRef": "08104d09-7fa9-4514-9eaa-21901b821034",
+          "priorDecisionRef": "b4fb0f54-380e-46ac-a5c1-2cb243b77290",
           "publicationState": "UNPUBLISHED",
           "recommendationId": null,
           "semanticDecision": "REQUEST_INFO",
@@ -451,10 +481,12 @@
             "C5": [],
             "C6": []
           },
+          "reconciliationRequests": [],
           "technicalVerificationRef": "DEC-046-T01-T12",
-          "technicalAuthorizationState": "VERIFIED_FOR_SYNTHETIC_TESTS"
+          "technicalAuthorizationState": "VERIFIED",
+          "implementationAuthorizationId": "DEC-046"
         },
-        "prior_decision_ref": "08104d09-7fa9-4514-9eaa-21901b821034"
+        "prior_decision_ref": "b4fb0f54-380e-46ac-a5c1-2cb243b77290"
       }
     ],
     "error": null
