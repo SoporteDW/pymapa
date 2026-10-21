@@ -42,4 +42,9 @@ describe("DEC-046 fail-closed security", () => {
   it("NOT_APPLICABLE mandatory condition abstains",()=>{const i=syntheticInput(); i.conditions.C1.state="NOT_APPLICABLE"; expect(run(i).semanticDecision).toBe("ABSTAIN_ESCALATE");});
   it("client cannot inject emission approval",()=>expect(prescriptionInputSchema.safeParse({...syntheticInput(),emissionDecision:"EMIT_ALLOWED",activationApprovalId:"fake"}).success).toBe(false));
   it("missing differential cannot recommend",()=>{const i=syntheticInput(); i.differential={}; expect(run(i).semanticDecision).toBe("REQUEST_INFO");});
+  it("DEC-046 approves content but never activation or publication",()=>{const out=run(syntheticInput());expect(out.contentApprovalId).toBe("DEC-046");expect(out.contentApprovalState).toBe("GOVERNMENT_APPROVED");expect(out.gateFailures).toContain("ACTIVATION_EMISSION_NOT_AUTHORIZED");});
+  it("C3 FALSE preserves even if C2 remains TRUE",()=>{const i=syntheticInput();i.conditions.C3.state="FALSE";expect(run(i).semanticDecision).toBe("PRESERVE_MONITOR");});
+  it("process change cannot retain a fresh candidate without history",()=>{const i=syntheticInput();i.trigger="PROCESS_CHANGE";const out=run(i);expect(out.lifecycleState).toBe("SUSPENDED");expect(out.semanticDecision).toBe("ABSTAIN_ESCALATE");expect(out.activityIds).toEqual([]);});
+  it("access cause returns governed alternative route",()=>{const i=syntheticInput();i.causalAssessment="ACCESS";expect(run(i).alternativeRoute).toBe("ACCESS_CONTROL");});
+  it("contradiction retains references in reconciliation request",()=>{const i=syntheticInput();i.conditions.C2.state="CONTRADICTORY";expect(run(i).reconciliationRequests[0]).toMatchObject({conditionId:"C2",evidenceRefs:[evidence]});});
 });
