@@ -12,7 +12,7 @@ describe("interpretación documental DG-01 · verificación", () => {
   });
   it("acepta cita literal y deriva variables del pack, no del modelo", () => {
     const r = verificarSalida(cat, paginas, {
-      propuestas: [{ informationNeedRef: "NI01", cita: "vende café de origen a tiendas", pagina: 1, hechoInterpretado: "x", justificacion: "y", variableRefs: ["VA99"] }],
+      propuestas: [{ informationNeedRef: "NI01", tipo: "EXPLICITO", cita: "vende café de origen a tiendas", pagina: 1, hechoInterpretado: "x", justificacion: "y", variableRefs: ["VA99"] }],
       sinCorrespondencia: [],
     });
     expect(r.verificadas).toHaveLength(1);
@@ -37,6 +37,24 @@ describe("interpretación documental DG-01 · verificación", () => {
     expect(validarEntrada(Array.from({ length: 6 }, (_, i) => ({ pagina: i + 1, texto: "texto suficiente aquí" })))).not.toBeNull();
     expect(validarEntrada([{ pagina: 1, texto: "a".repeat(20_001) }])).not.toBeNull();
     expect(validarEntrada(paginas)).toBeNull();
+  });
+  it("la ambigüedad conserva el rechazo y nunca crea una propuesta admisible", () => {
+    const r = verificarSalida(cat, paginas, { propuestas: [{ informationNeedRef: "NI01", tipo: "AMBIGUO", cita: "vende café de origen a tiendas", pagina: 1 }] });
+    expect(r.verificadas).toHaveLength(0);
+    expect(r.descartadas[0]?.motivo).toBe("CLASIFICACION_AMBIGUA");
+    expect(JSON.parse(r.descartadas[0]?.bruto ?? "{}").tipo).toBe("AMBIGUO");
+  });
+  it("un tipo ausente o desconocido no se convierte en EXPLICITO", () => {
+    for (const tipo of [undefined, "DESCONOCIDO"]) {
+      const r = verificarSalida(cat, paginas, { propuestas: [{ informationNeedRef: "NI01", tipo, cita: "vende café de origen a tiendas", pagina: 1 }] });
+      expect(r.verificadas).toHaveLength(0);
+      expect(r.descartadas[0]?.motivo).toBe("ESTRUCTURA_INVALIDA");
+    }
+  });
+  it.each(["EXPLICITO", "INFERENCIA", "NEGACION"])("%s permanece CANDIDATE sin promoción", (tipo) => {
+    const r = verificarSalida(cat, paginas, { propuestas: [{ informationNeedRef: "NI01", tipo, cita: "vende café de origen a tiendas", pagina: 1 }] });
+    expect(r.verificadas[0]?.tipo).toBe(tipo);
+    expect(r.verificadas[0]?.estado).toBe("CANDIDATE");
   });
   it("no modifica el pack publicado", () => {
     const pub = JSON.parse(readFileSync("knowledge/packs/dg-01/1.0.0/published.json", "utf8"));
