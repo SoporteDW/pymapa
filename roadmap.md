@@ -1,9 +1,11 @@
 ## DEC-046 · PRESC-OP01-H04 0.3.0
-- [ ] Complete exclusively hosted security/isolation checks and issue final technical addendum; no contract or functional changes (2026-10-21 mandate).
+- [x] Complete hosted security/isolation addendum (2026-10-21): bilateral RLS, MEMBER/anonymous, OWNER lock and parallel idempotency PASS; definitive report DEC-046_HOSTED_SECURITY_FINAL.md — PASS WITH CONDITIONS.
 - [x] Preserve original dossier and record subsequent content approval separately.
 - [x] Implement server-owned complementary evaluator, evidence guards, append-only history and blocked emission.
 - [x] Execute synthetic T01–T12, MEMBER/cross-org security and regression 1114/1114; report DEC-046_PRESC_OP01_H04_CLOSURE.md — PASS WITH CONDITIONS.
-- [ ] Positive hosted candidature / factual revocation / parallel concurrency: NOT_TESTED; needs a valid synthetic confirmed H04 and governed admitted evidence, no forced business states.
+- [x] Parallel hosted concurrency: eight identical calls, one persisted ID; mismatched request reuse rejected.
+- [ ] Positive hosted candidature / factual revocation / ADMIN own eligible H04 / persisted cross-org history reference: NOT_TESTED; needs authorized synthetic fixtures/functional verification, no forced business states.
+- [ ] Effective table grants exceed explicit migration grants; RLS/trigger protection verified, least-privilege review requires subsequent technical authorization.
 - [ ] Publication/activation/emission: blocked pending subsequent Government authorization.
 
 ## INT-01-COV-03 · BUILD 04 / COV-03D (autorizado)
