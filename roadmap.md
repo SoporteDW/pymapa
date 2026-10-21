@@ -1,7 +1,8 @@
 ## DEC-046 · PRESC-OP01-H04 0.3.0
-- [ ] Preserve original dossier and record subsequent content approval separately.
-- [ ] Implement server-owned complementary evaluator, evidence guards, append-only history and blocked emission.
-- [ ] Execute synthetic T01–T12, security/isolation and regression; deliver technical closure.
+- [x] Preserve original dossier and record subsequent content approval separately.
+- [x] Implement server-owned complementary evaluator, evidence guards, append-only history and blocked emission.
+- [x] Execute synthetic T01–T12, MEMBER/cross-org security and regression 1114/1114; report DEC-046_PRESC_OP01_H04_CLOSURE.md — PASS WITH CONDITIONS.
+- [ ] Positive hosted candidature / factual revocation / parallel concurrency: NOT_TESTED; needs a valid synthetic confirmed H04 and governed admitted evidence, no forced business states.
 - [ ] Publication/activation/emission: blocked pending subsequent Government authorization.
 
 ## INT-01-COV-03 · BUILD 04 / COV-03D (autorizado)
