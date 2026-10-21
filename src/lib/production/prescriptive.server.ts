@@ -1,6 +1,6 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Database, Json } from "@/integrations/supabase/types";
-import { assertPrescriptionRole, evaluatePrescription, prescriptionInputSchema } from "./prescriptive-contract";
+import { assertPrescriptionRole, evaluatePrescription, prescriptionInputSchema } from "./prescriptive-contract.server";
 
 /** No bootstrap, no UI activation and no writes to findings, evidence or Engine. */
 export async function evaluateStoredPrescription(db: SupabaseClient<Database>, actor: string, raw: unknown) {

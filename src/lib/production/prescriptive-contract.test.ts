@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { assertPrescriptionRole, CONDITION_IDS, evaluatePrescription, prescriptionInputSchema, type PrescriptionInput, type VerifiedContext } from "./prescriptive-contract";
+import { assertPrescriptionRole, CONDITION_IDS, evaluatePrescription, prescriptionInputSchema, type PrescriptionInput, type VerifiedContext } from "./prescriptive-contract.server";
 
 const evidence = "10000000-0000-4000-8000-000000000001";
 export function syntheticInput(): PrescriptionInput {
