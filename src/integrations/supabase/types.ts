@@ -2135,6 +2135,80 @@ export type Database = {
         }
         Relationships: []
       }
+      prescriptive_decisions: {
+        Row: {
+          actor: string
+          assessment_id: string
+          contract_id: string
+          contract_version: string
+          created_at: string
+          emission_decision: string
+          finding_id: string
+          id: string
+          organization_id: string
+          payload: Json
+          prior_decision_ref: string | null
+          request_id: string
+        }
+        Insert: {
+          actor: string
+          assessment_id: string
+          contract_id?: string
+          contract_version?: string
+          created_at?: string
+          emission_decision?: string
+          finding_id: string
+          id?: string
+          organization_id: string
+          payload: Json
+          prior_decision_ref?: string | null
+          request_id: string
+        }
+        Update: {
+          actor?: string
+          assessment_id?: string
+          contract_id?: string
+          contract_version?: string
+          created_at?: string
+          emission_decision?: string
+          finding_id?: string
+          id?: string
+          organization_id?: string
+          payload?: Json
+          prior_decision_ref?: string | null
+          request_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "prescriptive_decisions_assessment_id_fkey"
+            columns: ["assessment_id"]
+            isOneToOne: false
+            referencedRelation: "assessments"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "prescriptive_decisions_finding_id_fkey"
+            columns: ["finding_id"]
+            isOneToOne: false
+            referencedRelation: "findings"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "prescriptive_decisions_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "prescriptive_decisions_prior_decision_ref_fkey"
+            columns: ["prior_decision_ref"]
+            isOneToOne: false
+            referencedRelation: "prescriptive_decisions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       recommendation_candidates: {
         Row: {
           assessment_id: string
