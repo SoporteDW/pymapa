@@ -1,0 +1,21 @@
+[
+  {
+    "test": "MEMBER_ROLE_GUARD",
+    "result": {
+      "ok": false,
+      "rechazo": "ROLE_NOT_ALLOWED",
+      "error": "Rechazado antes de usar IA: ROLE_NOT_ALLOWED"
+    },
+    "pass": true
+  },
+  {
+    "test": "MEMBER_AUDIT_AND_AUTHORIZATION_WRITE",
+    "result": {
+      "attemptRows": 0,
+      "attemptError": null,
+      "updateRows": 0,
+      "updateError": null
+    },
+    "pass": true
+  }
+]
