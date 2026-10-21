@@ -64,3 +64,7 @@ Regresión final: **57 archivos / 1114 pruebas PASS**. Pruebas focalizadas: **28
 ## Devolución a Arquitectura Técnica / Gobierno
 
 Implementación y pruebas nominales completadas; aceptación integral alojada condicionada a un fixture sintético H04 confirmado y evidencia admitida vinculada, sin forzar resultados, y a las variantes anteriores. **REC-01 permanece UNPUBLISHED, sin activationApprovalId, emissionDecision=BLOCKED en servidor y base de datos.** No declarar habilitación, publicación, emisión ni cierre del MVP.
+
+## Anexo posterior · seguridad y aislamiento alojados
+
+Mandato posterior de 2026-10-21 completado sin modificar el contrato: `DEC-046_HOSTED_SECURITY_FINAL.md`. Concurrencia paralela idéntica PASS (8 llamadas, una fila), contenido distinto rechazado, aislamiento bilateral/MEMBER/anónimo PASS, bloqueo e independencia de gates PASS en escenarios ejecutados. Candidatura positiva, revocación factual, ADMIN con H04 propio y referencia histórica cross-org persistida siguen NOT_TESTED. Diferencia de privilegios efectivos versus GRANT explícito documentada, sin cambios técnicos. Dictamen definitivo del alcance: **PASS WITH CONDITIONS**; REC-01 continúa bloqueada.

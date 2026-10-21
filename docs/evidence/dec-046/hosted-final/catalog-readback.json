@@ -1,0 +1,26 @@
+{
+  "source": "Read-only hosted database queries, 2026-10-21 UTC",
+  "prescriptive_decisions": {
+    "total": 9,
+    "emission_publication_activation_violations": 0,
+    "semantic_decisions": ["ABSTAIN_ESCALATE", "REQUEST_INFO"]
+  },
+  "effective_table_privileges": {
+    "anon_select": true,
+    "authenticated_insert": true,
+    "authenticated_update": true,
+    "authenticated_delete": true
+  },
+  "rls_policy": {"command":"SELECT", "role":"authenticated", "qualification":"private.is_organization_member(organization_id)"},
+  "cross_org_actor": {
+    "user_id":"5c764919-cfc9-4c4e-b26c-761502de0a4b",
+    "memberships":[
+      {"organization_id":"88fb67d6-4161-4f1e-a698-c703a4db9319","role":"OWNER"},
+      {"organization_id":"9816dfad-a1be-4140-8293-c4cab34f3603","role":"ADMIN"},
+      {"organization_id":"b0400000-0000-4000-8000-000000000001","role":"OWNER"}
+    ],
+    "membership_in_target_qa_a":false,
+    "admin_assessment":"c71d7b34-9da0-4755-8394-418172412731",
+    "h04_rows_in_admin_assessment":0
+  }
+}
