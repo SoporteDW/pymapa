@@ -18,7 +18,7 @@ export async function evaluateStoredPrescription(db: SupabaseClient<Database>, a
     || finding.knowledge_pack_id !== "op-01" || finding.knowledge_pack_version !== "1.0.0" || finding.engine_version !== "pymapa-knowledge-engine/0.2.0"
     || finding.knowledge_version_id !== assessment.knowledge_version_id) throw new Error("PRESCRIPTION_FINDING_SCOPE_MISMATCH");
   const { data: run, error: runError } = await db.from("evaluation_runs").select("*").eq("id",finding.evaluation_run_id).eq("organization_id",org).eq("assessment_id",input.assessmentId).maybeSingle();
-  if (runError || !run || run.status !== "COMPLETED" || run.knowledge_version_id !== assessment.knowledge_version_id
+  if (runError || !run || !run.completed_at || !["PROCESSED","NEEDS_REVIEW"].includes(run.status) || run.knowledge_version_id !== assessment.knowledge_version_id
     || run.engine_version !== finding.engine_version || !finding.variable_refs.includes("VA07")
     || !finding.rule_refs.some(ref=>["R-OP01-02","R-OP01-05"].includes(ref))) throw new Error("PRESCRIPTION_FINDING_LINEAGE_INVALID");
   let previous: { id: string; lifecycleState: string; emissionDecision: string } | undefined;
