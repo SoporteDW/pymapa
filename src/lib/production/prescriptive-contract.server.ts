@@ -4,6 +4,12 @@ export const CONTRACT_ID = "PRESC-OP01-H04";
 export const CONTRACT_VERSION = "0.3.0";
 export const CONDITION_IDS = ["C1", "C2", "C3", "C4", "C5", "C6"] as const;
 export const RECOMMENDATION_ID = "PRESC-OP01-H04-REC-01";
+/** Approved content is retained internally; it is never an end-user emission. */
+export const RECOMMENDATION = {
+  id: RECOMMENDATION_ID,
+  title: "Asegurar la continuidad del proceso mediante transferencia focalizada del conocimiento crítico y respaldo operativo mínimo.",
+  template: "En [proceso], la continuidad o calidad depende materialmente de [rol o función clave] para [actividad/decisión]. La evidencia [referencias] indica [consecuencia]. Como la causa predominante es una dependencia de conocimiento transferible y existe respaldo viable, se propone transferir únicamente los pasos, decisiones y excepciones indispensables a un ejecutor alterno autorizado y comprobar su ejecución independiente mediante [criterio ajustado al riesgo]. Registrar responsable, incertidumbre residual y fecha de revisión. No adoptar software ni documentación extensa sin necesidad demostrada",
+};
 export const ACTIVITIES = [
   ["ACT-01", "Delimitar punto crítico, caso representativo, titular y suplente.", "Ficha con impacto y responsables."],
   ["ACT-02", "Capturar secuencia mínima, decisiones, excepciones, criterios de calidad y requisitos de acceso.", "Guía breve validada, sin compartir credenciales."],
@@ -63,11 +69,12 @@ export function evaluatePrescription(input: PrescriptionInput, context: Verified
   const reasons: string[] = [];
   let semanticDecision: SemanticDecision = "REQUEST_INFO";
   const conflict = CONDITION_IDS.some((id) => conditions[id].state === "CONTRADICTORY");
+  const requiresReassessment = ["ROLE_CHANGE", "PROCESS_CHANGE", "VALIDATION_FAILED"].includes(input.trigger);
   const expired = Boolean(input.processContext.validUntil && Date.parse(input.processContext.validUntil) <= Date.parse(context.now));
-  if (conflict || input.contraindications.length || expired || input.trigger === "SUSPEND") {
+  if (conflict || input.contraindications.length || expired || input.trigger === "SUSPEND" || requiresReassessment) {
     semanticDecision = "ABSTAIN_ESCALATE"; reasons.push(conflict ? "CONCILIATION_REQUIRED" : "CONTRAINDICATION_OR_SUSPENSION");
-  } else if ((input.causalAssessment === "CONTINUITY_COVERED" || conditions.C3.state === "FALSE")
-    && conditions.C1.state === "TRUE" && conditions.C2.state === "FALSE") {
+  } else if (conditions.C1.state === "TRUE" && (conditions.C3.state === "FALSE"
+    || (input.causalAssessment === "CONTINUITY_COVERED" && conditions.C2.state === "FALSE"))) {
     semanticDecision = "PRESERVE_MONITOR"; reasons.push("CONTINUITY_COVERED_OR_MITIGATED");
   } else if (CONDITION_IDS.some((id) => ["FALSE", "NOT_APPLICABLE"].includes(conditions[id].state))
     || !["TRANSFERABLE_KNOWLEDGE", "UNKNOWN"].includes(input.causalAssessment)) {
@@ -78,17 +85,19 @@ export function evaluatePrescription(input: PrescriptionInput, context: Verified
     semanticDecision = "RECOMMEND_CANDIDATE"; reasons.push("H04_AND_SIX_GOVERNED_CONDITIONS_SUPPORTED");
   }
   const invalidating = semanticDecision !== "RECOMMEND_CANDIDATE" || ["ROLE_CHANGE", "PROCESS_CHANGE", "VALIDATION_FAILED", "SUSPEND"].includes(input.trigger);
-  const lifecycleState = context.previous && invalidating ? "SUSPENDED" : "EVALUATED";
+  const lifecycleState = (context.previous && invalidating) || requiresReassessment || input.trigger === "SUSPEND" ? "SUSPENDED" : "EVALUATED";
   return {
     contractId: CONTRACT_ID, contractVersion: CONTRACT_VERSION, findingId: input.findingId,
     semanticDecision, semanticReasonCodes: reasons, conditions,
+    alternativeRoute: semanticDecision === "ABSTAIN_ESCALATE" ? ({ ACCESS: "ACCESS_CONTROL", STAFFING: "RESOURCE_PLANNING", PROCESS_ROLES: "PROCESS_ROLE_REVIEW", COMPETENCE: "COMPETENCE_REVIEW", OUTDATED_DOCUMENT: "DOCUMENT_REVIEW" } as Record<string,string>)[input.causalAssessment] ?? "COMPETENT_HUMAN_REVIEW" : null,
+    reconciliationRequests: conflict ? CONDITION_IDS.filter(id=>conditions[id].state === "CONTRADICTORY").map(id=>({conditionId:id,evidenceRefs:conditions[id].evidenceRefs,request:"Conciliar fuentes contradictorias mediante revisión humana antes de reevaluar."})) : [],
     conditionEvidenceRefs: Object.fromEntries(CONDITION_IDS.map((id) => [id, conditions[id].evidenceRefs])),
     missingInfo: missingInfo.map((id) => ({ conditionId: id, request: CONDITION_DEFINITIONS[id] })), missingFields, differentialMissing,
     causalAssessment: input.causalAssessment, contraindications: input.contraindications, processContext: input.processContext,
     uncertainty: input.processContext.uncertainty ?? "Información pendiente de revisión humana",
     contentApprovalState: context.contentApproval?.state ?? "GOVERNMENT_APPROVED",
     contentApprovalId: context.contentApproval?.id === undefined ? "DEC-046" : context.contentApproval.id,
-    technicalAuthorizationState: "VERIFIED_FOR_SYNTHETIC_TESTS", technicalVerificationRef: "DEC-046-T01-T12",
+    technicalAuthorizationState: "VERIFIED", technicalVerificationRef: "DEC-046-T01-T12", implementationAuthorizationId: "DEC-046",
     activationApprovalId: null, publicationState: "UNPUBLISHED", emissionDecision: "BLOCKED" as const,
     gateFailures: ["ACTIVATION_EMISSION_NOT_AUTHORIZED", "UNPUBLISHED", "STAGE_EMISSION_LOCK"],
     recommendationId: semanticDecision === "RECOMMEND_CANDIDATE" ? RECOMMENDATION_ID : null,

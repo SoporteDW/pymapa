@@ -17,9 +17,19 @@ export async function evaluateStoredPrescription(db: SupabaseClient<Database>, a
   if (findingError || !finding || finding.capability_id !== "OP-01" || finding.finding_ref !== "H04"
     || finding.knowledge_pack_id !== "op-01" || finding.knowledge_pack_version !== "1.0.0" || finding.engine_version !== "pymapa-knowledge-engine/0.2.0"
     || finding.knowledge_version_id !== assessment.knowledge_version_id) throw new Error("PRESCRIPTION_FINDING_SCOPE_MISMATCH");
+  const { data: run, error: runError } = await db.from("evaluation_runs").select("*").eq("id",finding.evaluation_run_id).eq("organization_id",org).eq("assessment_id",input.assessmentId).maybeSingle();
+  if (runError || !run || !run.completed_at || !["PROCESSED","NEEDS_REVIEW"].includes(run.status) || run.knowledge_version_id !== assessment.knowledge_version_id
+    || run.engine_version !== finding.engine_version || !finding.variable_refs.includes("VA07")
+    || !finding.rule_refs.some(ref=>["R-OP01-02","R-OP01-05"].includes(ref))) throw new Error("PRESCRIPTION_FINDING_LINEAGE_INVALID");
   let previous: { id: string; lifecycleState: string; emissionDecision: string } | undefined;
-  if (input.priorDecisionRef) {
-    const { data: row, error } = await db.from("prescriptive_decisions").select("*").eq("id",input.priorDecisionRef).eq("organization_id",org).eq("assessment_id",input.assessmentId).eq("finding_id",input.findingId).maybeSingle();
+  let priorDecisionRef=input.priorDecisionRef;
+  if (!priorDecisionRef && input.trigger !== "INITIAL_REVIEW") {
+    const {data:latest,error}=await db.from("prescriptive_decisions").select("id").eq("organization_id",org).eq("assessment_id",input.assessmentId).eq("finding_id",input.findingId).order("created_at",{ascending:false}).limit(1).maybeSingle();
+    if(error) throw new Error("PRESCRIPTION_HISTORY_READ_FAILED");
+    priorDecisionRef=latest?.id ?? null;
+  }
+  if (priorDecisionRef) {
+    const { data: row, error } = await db.from("prescriptive_decisions").select("*").eq("id",priorDecisionRef).eq("organization_id",org).eq("assessment_id",input.assessmentId).eq("finding_id",input.findingId).maybeSingle();
     if (error || !row) throw new Error("PRESCRIPTION_HISTORY_SCOPE_MISMATCH");
     const p = row.payload as Record<string, Json | undefined>;
     previous = { id: row.id, lifecycleState: typeof p['lifecycleState'] === "string" ? p['lifecycleState'] : "EVALUATED", emissionDecision: row.emission_decision };
@@ -54,7 +64,8 @@ export async function evaluateStoredPrescription(db: SupabaseClient<Database>, a
       && m.fragment_id===p['fragmentId'] && m.interpretation_id===p['interpretationId'] && linksEvidenceMatch(p['evidenceId'],o.id,linkResult.data ?? [])
       && ((m.admission_basis==="HUMAN_VALIDATION" && m.validated_by) || (m.admission_basis==="GOVERNED_RULE" && m.admission_rule_ref)));
   });
-  const currentIds=new Set(current.map(o=>o.id));
+  const h04ObservationIds=new Set((findingLinkResult.data ?? []).map(l=>l.observation_id));
+  const currentIds=new Set(current.filter(o=>o.variable_ref === "VA07" && h04ObservationIds.has(o.id)).map(o=>o.id));
   const links=linkResult.data ?? [];
   const admittedIds = [...new Set(links.filter(l=>currentIds.has(l.observation_id)).map(l=>l.evidence_id))].filter(id=>(evidenceResult.data ?? []).some(e=>e.id===id));
   const supported = finding.lifecycle_state === "CONFIRMED" && Boolean(finding.reviewed_by && finding.reviewed_at)
@@ -70,7 +81,13 @@ export async function evaluateStoredPrescription(db: SupabaseClient<Database>, a
     if(existing.assessment_id!==input.assessmentId || existing.finding_id!==input.findingId || canonicalJson(payload['input'])!==canonicalJson(input)) throw new Error("PRESCRIPTION_REQUEST_REUSE_MISMATCH");
     return {id:existing.id,emissionDecision:"BLOCKED",semanticDecision:payload['semanticDecision'],lifecycleState:payload['lifecycleState']};
   }
-  const {data:stored,error}=await supabaseAdmin.from("prescriptive_decisions").insert({organization_id:org,assessment_id:input.assessmentId,finding_id:input.findingId,actor,request_id:input.requestId,prior_decision_ref:input.priorDecisionRef,payload:JSON.parse(JSON.stringify({...decision,input})) as Json}).select("id").single();
+  const {data:stored,error}=await supabaseAdmin.from("prescriptive_decisions").insert({organization_id:org,assessment_id:input.assessmentId,finding_id:input.findingId,actor,request_id:input.requestId,prior_decision_ref:priorDecisionRef,payload:JSON.parse(JSON.stringify({...decision,input,sourceRefs:{evaluationRunId:run.id,caseId:finding.case_id,ruleRefs:finding.rule_refs,variableRefs:finding.variable_refs,observationIds:[...currentIds],evidenceIds:admittedIds}})) as Json}).select("id").single();
+  if(error?.code === "23505") {
+    const {data:retry,error:retryError}=await supabaseAdmin.from("prescriptive_decisions").select("*").eq("organization_id",org).eq("request_id",input.requestId).maybeSingle();
+    const payload=retry?.payload as Record<string,Json|undefined> | undefined;
+    if(retryError || !retry || retry.assessment_id!==input.assessmentId || retry.finding_id!==input.findingId || canonicalJson(payload?.['input'])!==canonicalJson(input)) throw new Error("PRESCRIPTION_REQUEST_REUSE_MISMATCH");
+    return {id:retry.id,emissionDecision:"BLOCKED",semanticDecision:payload?.['semanticDecision'],lifecycleState:payload?.['lifecycleState']};
+  }
   if(error || !stored) throw new Error("PRESCRIPTION_HISTORY_WRITE_FAILED");
   // No recommendation title, text or activities returned to end-user UI.
   return {id:stored.id,emissionDecision:decision.emissionDecision,semanticDecision:decision.semanticDecision,lifecycleState:decision.lifecycleState};
