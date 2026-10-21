@@ -1,0 +1,205 @@
+{
+  "timestamp": "2026-10-21T12:19:30.070096+00:00",
+  "label": "owner",
+  "environment": "local preview server + hosted Cloud",
+  "cases": {
+    "parallel_identical": {
+      "status": "PASS",
+      "requestId": "b8c8671b-ac90-4ea7-90f2-e1513dc1ed65",
+      "calls": 8,
+      "results": [
+        {
+          "result": {
+            "id": "863082b9-6fcc-4e11-bbe5-902faa0d8c67",
+            "emissionDecision": "BLOCKED",
+            "semanticDecision": "REQUEST_INFO",
+            "lifecycleState": "EVALUATED"
+          }
+        },
+        {
+          "result": {
+            "id": "863082b9-6fcc-4e11-bbe5-902faa0d8c67",
+            "emissionDecision": "BLOCKED",
+            "semanticDecision": "REQUEST_INFO",
+            "lifecycleState": "EVALUATED"
+          }
+        },
+        {
+          "result": {
+            "id": "863082b9-6fcc-4e11-bbe5-902faa0d8c67",
+            "emissionDecision": "BLOCKED",
+            "semanticDecision": "REQUEST_INFO",
+            "lifecycleState": "EVALUATED"
+          }
+        },
+        {
+          "result": {
+            "id": "863082b9-6fcc-4e11-bbe5-902faa0d8c67",
+            "emissionDecision": "BLOCKED",
+            "semanticDecision": "REQUEST_INFO",
+            "lifecycleState": "EVALUATED"
+          }
+        },
+        {
+          "result": {
+            "id": "863082b9-6fcc-4e11-bbe5-902faa0d8c67",
+            "emissionDecision": "BLOCKED",
+            "semanticDecision": "REQUEST_INFO",
+            "lifecycleState": "EVALUATED"
+          }
+        },
+        {
+          "result": {
+            "id": "863082b9-6fcc-4e11-bbe5-902faa0d8c67",
+            "emissionDecision": "BLOCKED",
+            "semanticDecision": "REQUEST_INFO",
+            "lifecycleState": "EVALUATED"
+          }
+        },
+        {
+          "result": {
+            "id": "863082b9-6fcc-4e11-bbe5-902faa0d8c67",
+            "emissionDecision": "BLOCKED",
+            "semanticDecision": "REQUEST_INFO",
+            "lifecycleState": "EVALUATED"
+          }
+        },
+        {
+          "result": {
+            "id": "863082b9-6fcc-4e11-bbe5-902faa0d8c67",
+            "emissionDecision": "BLOCKED",
+            "semanticDecision": "REQUEST_INFO",
+            "lifecycleState": "EVALUATED"
+          }
+        }
+      ],
+      "persisted_rows": 1
+    },
+    "request_reuse_mismatch": {
+      "status": "PASS",
+      "error": "PRESCRIPTION_REQUEST_REUSE_MISMATCH"
+    },
+    "independent_gates": {
+      "status": "PASS",
+      "first": {
+        "result": {
+          "id": "863082b9-6fcc-4e11-bbe5-902faa0d8c67",
+          "emissionDecision": "BLOCKED",
+          "semanticDecision": "REQUEST_INFO",
+          "lifecycleState": "EVALUATED"
+        }
+      },
+      "different_semantic": {
+        "result": {
+          "id": "e40fae4d-fe78-4779-a108-343fd96c0a15",
+          "emissionDecision": "BLOCKED",
+          "semanticDecision": "ABSTAIN_ESCALATE",
+          "lifecycleState": "EVALUATED"
+        }
+      }
+    },
+    "endpoint_activation_injection": {
+      "status": "PASS",
+      "rejected": true,
+      "error_type": "strict schema rejection"
+    },
+    "a_to_b_scope": {
+      "status": "PASS",
+      "error": "PRESCRIPTION_SCOPE_FORBIDDEN"
+    },
+    "a_to_b_read": {
+      "status": "PASS",
+      "rows": 0
+    },
+    "nonexistent_history": {
+      "status": "PASS",
+      "error": "PRESCRIPTION_HISTORY_SCOPE_MISMATCH",
+      "limitation": "no persisted cross-org prior decision available"
+    },
+    "owner_direct_mutations": {
+      "status": "PASS",
+      "operations": {
+        "insert": {
+          "error": "P0001",
+          "message": "PRESCRIPTIVE_EMISSION_BLOCKED"
+        },
+        "update": {
+          "error": null,
+          "message": null
+        },
+        "delete": {
+          "error": null,
+          "message": null
+        }
+      },
+      "old_rows_preserved": 7
+    }
+  },
+  "actorId": "61f0d167-aa0b-4562-8f59-e988adf2f569",
+  "readback": [
+    {
+      "id": "08104d09-7fa9-4514-9eaa-21901b821034",
+      "emissionDecision": "BLOCKED",
+      "semanticDecision": "REQUEST_INFO",
+      "publicationState": "UNPUBLISHED",
+      "activationApprovalId": null
+    },
+    {
+      "id": "1eef56fd-f408-4919-ad3f-98cf843b38f0",
+      "emissionDecision": "BLOCKED",
+      "semanticDecision": "REQUEST_INFO",
+      "publicationState": "UNPUBLISHED",
+      "activationApprovalId": null
+    },
+    {
+      "id": "3e33764d-d2b4-489f-bc65-c1e766bd802a",
+      "emissionDecision": "BLOCKED",
+      "semanticDecision": "REQUEST_INFO",
+      "publicationState": "UNPUBLISHED",
+      "activationApprovalId": null
+    },
+    {
+      "id": "b4fb0f54-380e-46ac-a5c1-2cb243b77290",
+      "emissionDecision": "BLOCKED",
+      "semanticDecision": "REQUEST_INFO",
+      "publicationState": "UNPUBLISHED",
+      "activationApprovalId": null
+    },
+    {
+      "id": "74cdbb6d-cde1-455e-ab39-0a92f97678d9",
+      "emissionDecision": "BLOCKED",
+      "semanticDecision": "ABSTAIN_ESCALATE",
+      "publicationState": "UNPUBLISHED",
+      "activationApprovalId": null
+    },
+    {
+      "id": "e40fae4d-fe78-4779-a108-343fd96c0a15",
+      "emissionDecision": "BLOCKED",
+      "semanticDecision": "ABSTAIN_ESCALATE",
+      "publicationState": "UNPUBLISHED",
+      "activationApprovalId": null
+    },
+    {
+      "id": "ceb0a755-72f9-4542-90fc-cbcf939dc958",
+      "emissionDecision": "BLOCKED",
+      "semanticDecision": "REQUEST_INFO",
+      "publicationState": "UNPUBLISHED",
+      "activationApprovalId": null
+    },
+    {
+      "id": "863082b9-6fcc-4e11-bbe5-902faa0d8c67",
+      "emissionDecision": "BLOCKED",
+      "semanticDecision": "REQUEST_INFO",
+      "publicationState": "UNPUBLISHED",
+      "activationApprovalId": null
+    },
+    {
+      "id": "7f4b7e9d-b16f-4d3e-ba65-d75c61e22f4d",
+      "emissionDecision": "BLOCKED",
+      "semanticDecision": "REQUEST_INFO",
+      "publicationState": "UNPUBLISHED",
+      "activationApprovalId": null
+    }
+  ],
+  "finalUrl": "http://localhost:8080/"
+}
