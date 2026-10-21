@@ -1,0 +1,38 @@
+{
+  "executionId": "SEM-QA-01",
+  "authorization": "PYMAPA · SEM-QA-01 · Autorización de corrección semántica focalizada; received 2026-10-21",
+  "promptVersion": "df-ia-interpretacion-1.2.0",
+  "holdout": true,
+  "notUsedForPromptAdjustment": true,
+  "canonicalPack": "dg-01@1.0.0",
+  "canonicalPackChecksum": "sha256:56b7e8f6b3bad7cb6253728af66ccaebe8b048b900e253323907926b8596e034",
+  "scenarios": [
+    {
+      "documentId": "SEMQA01-S6",
+      "file": "SEMQA01-S6_inferencia.pdf",
+      "requiredNI": "NI08",
+      "canonicalStatement": "Qué necesidades u oportunidades de transformación se derivan de lo anterior",
+      "requiredTipo": "INFERENCIA",
+      "rationale": "Los hechos describen errores de registro manual. Una necesidad u oportunidad de transformar el registro se deduce, pero el documento no formula esa conclusión. NI02 puede recibir hechos EXPLICITO independientes: no se exige que todas las NI sean inferencias.",
+      "runs": 3
+    },
+    {
+      "documentId": "SEMQA01-S7",
+      "file": "SEMQA01-S7_explicito_equivalente.pdf",
+      "requiredNI": "NI03",
+      "canonicalStatement": "Qué objetivos o resultados empresariales busca",
+      "requiredTipo": "EXPLICITO",
+      "rationale": "Buscamos vender el doble y queremos entregas puntuales enuncian directamente resultados perseguidos, aunque no empleen la palabra objetivo. No hace falta deducir otra conclusión.",
+      "runs": 3
+    },
+    {
+      "documentId": "SEMQA01-S8",
+      "file": "SEMQA01-S8_negacion.pdf",
+      "requiredNI": "NI04",
+      "canonicalStatement": "Qué cambios relevantes espera realizar o enfrentar",
+      "requiredTipo": "NEGACION",
+      "rationale": "Se niegan dos cambios concretos previstos; no se declara exhaustividad de todos los cambios posibles. Se exige no convertir estas negaciones en EXPLICITO/INFERENCIA positivas para NI04; la abstención también es segura.",
+      "runs": 1
+    }
+  ]
+}

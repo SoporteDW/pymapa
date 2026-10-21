@@ -14,12 +14,27 @@ const FILES: Record<string, string> = {
   "SEMQA01-S3": "SEMQA01-S3_negacion.pdf",
   "SEMQA01-S4": "SEMQA01-S4_contradiccion.pdf",
   "SEMQA01-S5": "SEMQA01-S5_ausencia.pdf",
+  "SEMQA01-S6": "SEMQA01-S6_inferencia.pdf",
+  "SEMQA01-S7": "SEMQA01-S7_explicito_equivalente.pdf",
+  "SEMQA01-S8": "SEMQA01-S8_negacion.pdf",
 };
 
 describe("SEM-QA-01 · corpus aprobado", () => {
   it("el checksum compuesto coincide con el fijado", async () => {
     expect(await checksumCorpus()).toBe(SEM_QA_01_CORPUS_CHECKSUM);
-    expect(SEM_QA_01_CORPUS).toHaveLength(5);
+    expect(SEM_QA_01_CORPUS).toHaveLength(8);
+  });
+  it("el corpus original conserva las cinco identidades y huellas aprobadas", () => {
+    const originales = JSON.parse(readFileSync("docs/evidence/sem-qa-01/corpus/manifest-original.json", "utf8"));
+    expect(SEM_QA_01_CORPUS.slice(0, 5)).toEqual(originales.documents);
+  });
+  it("los resultados holdout se vinculan a enunciados canónicos reales", () => {
+    const holdout = JSON.parse(readFileSync("docs/evidence/sem-qa-01/corpus/expected-holdout.json", "utf8"));
+    const cat = catalogoCanonico("DG-01");
+    expect(holdout.canonicalPackChecksum).toBe(cat.packChecksum);
+    for (const s of holdout.scenarios) {
+      expect(cat.necesidades.find(n => n.id === s.requiredNI)?.statement).toBe(s.canonicalStatement);
+    }
   });
   it("cada archivo del corpus coincide con su checksum de archivo y de texto", async () => {
     for (const d of SEM_QA_01_CORPUS) {
