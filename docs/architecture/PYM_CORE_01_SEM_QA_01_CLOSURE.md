@@ -66,3 +66,65 @@ Suite completa 1079/1079 PASS (incluye 7 pruebas nuevas en `sem-qa-01.test.ts`);
 
 ## 9. Dictamen
 **PASS WITH CONDITIONS.** Guarda fail-closed y aislamiento demostrados de forma alojada y sin transmisiones no autorizadas; interpretación semántica real ejecutada con IA; 4/5 escenarios conformes; S2 falla en la clasificación inferencia/explícito. Condición: decidir si se acepta esa limitación o se autoriza una iteración documentada del prompt.
+
+## 10. Corrección focalizada autorizada · instrucciones 1.2.0
+
+Autorización previa: anexo «PYMAPA · SEM-QA-01 · Autorización de corrección semántica focalizada», recibido 2026-10-21; SHA-256 `993cbe61c2d5c2a26994cdd27b0723b3212999b95c93ceb9118323194e68aba4`. Se ejecutó una sola revisión de instrucciones, sin reajustes tras observar fallos. **1.1.0 permanece registrada como desviación técnica histórica pendiente de ratificación**: autorizar 1.2.0 no ratifica retroactivamente 1.1.0.
+
+Cambios exactos:
+- `interpretacion-documental.ts`: versión `df-ia-interpretacion-1.2.0`; EXPLICITO admite equivalencia semántica sin deducción adicional; INFERENCIA exige una conclusión no afirmada directamente; NEGACION conserva la polaridad. Cita literal y relación semántica son comprobaciones diferentes. No contiene ejemplos ni reglas de NI, capacidad o documento concretos.
+- Representación técnica `AMBIGUO`: conserva el bruto como descartado `CLASIFICACION_AMBIGUA`, no como correspondencia admisible. Tipo ausente/desconocido se descarta `ESTRUCTURA_INVALIDA`; se elimina el antiguo valor implícito EXPLICITO. No se implementa validación semántica automática.
+- Registro cerrado extendido a S6–S8; texto informativo de la pantalla deja de mencionar cinco documentos. El servidor conserva todas las guardas originales, sin cambios en sus permisos ni en la ruta general cerrada.
+- Único cambio alojado: actualización condicionada de la fila de autorización SEM-QA-01 de la misma organización QA, corpus 1.0.0→1.1.0; sin migración ni nueva organización autorizada. La referencia incluye autorización y huella del anexo.
+- No se cambia proveedor, modelo `openai/gpt-6-luna`, endpoint `/v1/responses`, streaming, límites de salida (6000), razonamiento, temporizadores ni reintentos (cero). No se toca Master, packs, Engine, otras capacidades ni demo.
+
+## 11. Corpus y protocolo fijados antes de las llamadas
+
+S1–S5, `make_corpus.py`, `expected.json` y el archivo histórico `SHA256SUMS` permanecen íntegros: todas sus huellas verificadas tras las pruebas. `manifest-original.json` conserva sus identidades y huella compuesta. S6–S8 se generan determinísticamente con `make_holdout.py`, empresa ficticia distinta, marca `SYNTHETIC_QA_ONLY`, y **no se usaron como ejemplos ni para ajustar las instrucciones**.
+
+| Documento | NI canónica verificada antes de ejecutar | Esperado fijado | Justificación |
+|---|---|---|---|
+| S6 | NI08: Qué necesidades u oportunidades de transformación se derivan de lo anterior | INFERENCIA | Registro manual con anotaciones perdidas y entregas repetidas permite deducir una oportunidad de transformar el registro; esa conclusión no está enunciada. NI02 puede contener hechos explícitos independientes. |
+| S7 | NI03: Qué objetivos o resultados empresariales busca | EXPLICITO | «Buscamos vender el doble» y «Queremos que ninguna entrega llegue después» afirman resultados sin usar la palabra objetivo. |
+| S8 | NI04: Qué cambios relevantes espera realizar o enfrentar | NEGACION o abstención segura | Niega abrir canales adicionales y cambiar fabricación. No supone exhaustividad de todos los cambios posibles. |
+
+Enunciados y checksum canónico contrastados con `catalogoCanonico`; prueba automática de correspondencia. Se evitó reutilizar el S6 sugerido sobre personalización porque podía confundirse con una equivalencia explícita de creación de valor. `expected-holdout.json` se fijó antes de transmitir.
+
+Corpus extendido `SEM-QA-01-CORPUS-1.1.0`: SHA-256 compuesto `e47c223b5bf762d08e9995456ff19f8aaa7ffa884e6baaf87487a6da89b285aa`. Identidades, páginas, huellas completas de archivo/texto y procedencia en `corpus/manifest-extended.json`.
+
+Protocolo efectivamente ejecutado: tres bloques de S1→S2→S6→S7, cada carga en un contexto nuevo de navegador autenticado OWNER QA, sin conversación previa ni reintentos; bytes del PDF cargados desde la pantalla `/ia-documental`, extracción/verificación del servidor y resultado visible. Después, una corrida de S3/S4/S5/S8. 16 solicitudes efectivas, 16 run IDs distintos, con resultados íntegros de transporte, trazas y resumen legible en `stability-runs.json`. Esto mide consistencia en este piloto, no independencia estadística del proveedor ni reproducibilidad determinista de una IA.
+
+## 12. Resultado por documento y corrida
+
+| Documento | Corrida 1 | Corrida 2 | Corrida 3 | Aceptación |
+|---|---|---|---|---|
+| S1 / NI01 | EXPLICITO | EXPLICITO | EXPLICITO | **3/3 PASS** |
+| S2 / NI01 | EXPLICITO | EXPLICITO | EXPLICITO | **0/3 FAIL** contra INFERENCIA esperada |
+| S6 / NI08 | Sin propuesta NI08 | Sin propuesta NI08 | Sin propuesta NI08 | **0/3 FAIL**; solo NI02 EXPLICITO |
+| S7 / NI03 | EXPLICITO | 2 EXPLICITO | EXPLICITO | **3/3 PASS**; variación en cantidad de propuestas |
+| S3 / NI04 | NEGACION | No requerida | No requerida | PASS |
+| S4 / NI03 | Contradicción p.1–2; 2 descartadas | No requerida | No requerida | PASS; 0 verificadas NI03 |
+| S5 | 0 propuestas/contradicciones | No requerida | No requerida | PASS |
+| S8 / NI04 | 2 NEGACION | No requerida | No requerida | PASS; ninguna afirmación positiva |
+
+S2 sigue justificando la personalización como una descripción directa de creación de valor. La definición autorizada permite equivalencia semántica, por lo que también existe tensión entre la expectativa histórica de S2 y ese criterio. **No se cambió su expectativa ni se reinterpretó como PASS.** S6 evidencia abstención sobre NI08, no una inferencia mal etiquetada: la limitación es también de recuperación de inferencias. No se ampliaron las instrucciones ni se forzó una conclusión para lograr 3/3.
+
+## 13. Seguridad, persistencia y regresión de la corrección
+
+Antes de llamadas semánticas se demostró que build/corpus nuevo con autorización alojada antigua devuelve `CORPUS_PROVENANCE_MISMATCH`. También: S9 desconocido, otra ejecución y ruta general rechazados. Tras actualizar únicamente la autorización: nuevo ID con archivo ajeno→`FILE_CHECKSUM_MISMATCH`; S7 con evidencia cross-org→`EVIDENCE_NOT_IN_ORGANIZATION`; S1 alterado→`FILE_CHECKSUM_MISMATCH`. Evidencias: `security-stale-auth.json`, `security-extended-owner.json`.
+
+La antigua muestra N7 ya se rechaza por checksum de archivo, antes de llegar a versión: no se cuenta como nueva prueba aislada de `EVIDENCE_VERSION_CHECKSUM_MISMATCH`. Su prueba histórica permanece, sin alterar ni recrear la muestra.
+
+MEMBER alojado: S6→`ROLE_NOT_ALLOWED`; lectura de auditoría devuelve 0 filas; intento de modificar autorización devuelve 0 filas, sin efecto. `security-extended-member.json`. No se recrearon todas las variantes históricas de empresa no autorizada, versión o checksum de texto: guardas sin cambios y evidencia histórica conservada; no se afirma un nuevo 10/10 completo.
+
+Lectura posterior autenticada OWNER: `stability-hosted-readback.json` registra 16 intentos `TRANSMITTED_OK` con prompt 1.2.0 y los 16 mappings creados por estas corridas, **todos CANDIDATE**. No se pulsó aceptar/rechazar ni se invocó admisión. Conteos de organización antes/después: observaciones 3→3, respuestas 0→0, decisiones de cobertura 1→1 (filas históricas, no creadas por SEM-QA). No hubo correspondencias aceptadas no canónicas, citas inventadas aceptadas ni transmisiones exitosas fuera del corpus; las 16 propuestas tienen citas verificadas. No se observa error de modelo ni persistencia en las 16 corridas.
+
+Regresión completa ejecutada: **55 archivos, 1086/1086 PASS** (7 pruebas adicionales a 1079). Reejecución focal después de consolidar: **19/19 PASS**. Último estado de compilación automática: `build OK`. No se ejecutó typecheck manual ni se atribuye al turno uno nuevo. Huellas históricas del corpus/evidencias conservadas; no se modificaron archivos de Master, packs ni Engine. La verificación temporal de huellas protegidas se perdió por reemplazo del entorno; no se presenta como nueva comparación integral persistida.
+
+Limitación operativa: un reemplazo del entorno eliminó scripts y capturas temporales entre ejecuciones; no se repitieron llamadas IA. Permanecieron resultados de transporte y se reconstruyó su lectura; la captura `ui-stability-readback.png` muestra la pantalla autenticada vacía tras recarga, no una propuesta visible. La evidencia de las propuestas de cada corrida es el texto UI registrado y su lectura persistida, no esa captura vacía.
+
+## 14. Dictamen actualizado y detención
+
+**Corrección semántica: FAIL respecto al criterio de aceptación 3/3. SEM-QA-01 global: PASS WITH CONDITIONS**, sin cerrar la brecha. Seguridad, aislamiento, citas y persistencia candidata se conservan; S1/S7 pasan y S3/S4/S5/S8 no regresan. S2 y S6 no satisfacen el piloto, con fallos diferentes documentados.
+
+No se habilitan documentos reales, admisión automática ni uso diagnóstico de la clasificación. Pendientes sujetos a decisión/autorización humana: ratificación histórica 1.1.0; revisión del oráculo S2 frente a equivalencia semántica y límite de abstención S6; cualquier intervención ulterior. **La intervención única autorizada termina aquí**, sin nueva versión, llamadas adicionales ni otro paquete.
