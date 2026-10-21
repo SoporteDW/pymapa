@@ -15,7 +15,7 @@ export async function evaluateStoredPrescription(db: SupabaseClient<Database>, a
   if (qaError || !qa?.active) throw new Error("PRESCRIPTION_SYNTHETIC_QA_ONLY");
   const { data: finding, error: findingError } = await db.from("findings").select("*").eq("id", input.findingId).eq("organization_id", org).eq("assessment_id", input.assessmentId).maybeSingle();
   if (findingError || !finding || finding.capability_id !== "OP-01" || finding.finding_ref !== "H04"
-    || finding.knowledge_pack_version !== "1.0.0" || finding.engine_version !== "0.2.0"
+    || finding.knowledge_pack_id !== "op-01" || finding.knowledge_pack_version !== "1.0.0" || finding.engine_version !== "pymapa-knowledge-engine/0.2.0"
     || finding.knowledge_version_id !== assessment.knowledge_version_id) throw new Error("PRESCRIPTION_FINDING_SCOPE_MISMATCH");
   let previous: { id: string; lifecycleState: string; emissionDecision: string } | undefined;
   if (input.priorDecisionRef) {
@@ -30,9 +30,11 @@ export async function evaluateStoredPrescription(db: SupabaseClient<Database>, a
     db.from("finding_observations").select("observation_id").eq("finding_id",input.findingId).eq("organization_id",org),
     db.from("fragment_mappings").select("*").eq("assessment_id",input.assessmentId).eq("organization_id",org),
     db.from("evidence").select("id,captured_at,created_at").eq("assessment_id",input.assessmentId).eq("organization_id",org),
+    db.from("document_extractions").select("id,status,evidence_version_id").eq("organization_id",org),
+    db.from("evidence_versions").select("id,evidence_id,version_number").eq("organization_id",org),
   ]);
   if (results.some(r=>r.error)) throw new Error("PRESCRIPTION_EVIDENCE_READ_FAILED");
-  const [obsResult, linkResult, findingLinkResult, mappingResult, evidenceResult] = results;
+  const [obsResult, linkResult, findingLinkResult, mappingResult, evidenceResult, extractionResult, versionResult] = results;
   const observations = obsResult.data ?? [];
   const values = new Map(observations.map(o=>[o.id,o.value as Record<string,Json|undefined>]));
   const corrected = new Set(observations.flatMap(o=> {const v=values.get(o.id); return typeof v?.['correctsObservationId'] === "string" ? [v['correctsObservationId']] : []; }));
@@ -42,11 +44,14 @@ export async function evaluateStoredPrescription(db: SupabaseClient<Database>, a
     if (!v || corrected.has(o.id) || v['documentControl'] || v['knowledgeState'] !== "KNOWN" || (v['capabilityId'] ?? "OP-01") !== "OP-01") return false;
     const p=v['documentProvenance'] as Record<string,Json|undefined> | undefined;
     if (!p) return Boolean(o.source_response_id);
+    const extraction=(extractionResult.data ?? []).find(e=>e.id===p['extractionId'] && e.status==="COMPLETED");
+    const version=(versionResult.data ?? []).find(e=>e.id===extraction?.evidence_version_id && e.evidence_id===p['evidenceId']);
+    if (!version || (versionResult.data ?? []).some(e=>e.evidence_id===version.evidence_id && e.version_number>version.version_number)) return false;
     return mappings.some(m=>m.id===p['mappingId'] && m.status==="VALIDATED" && m.target_type==="VARIABLE"
       && m.target_ref===o.variable_ref && m.factual_correspondence_ref===v['acquisitionRef']
       && m.capability_id==="OP-01" && m.knowledge_version_id===assessment.knowledge_version_id
       && m.knowledge_pack_id===finding.knowledge_pack_id && m.knowledge_pack_version==="1.0.0"
-      && m.fragment_id===p['fragmentId'] && m.interpretation_id===p['interpretationId']
+      && m.fragment_id===p['fragmentId'] && m.interpretation_id===p['interpretationId'] && linksEvidenceMatch(p['evidenceId'],o.id,linkResult.data ?? [])
       && ((m.admission_basis==="HUMAN_VALIDATION" && m.validated_by) || (m.admission_basis==="GOVERNED_RULE" && m.admission_rule_ref)));
   });
   const currentIds=new Set(current.map(o=>o.id));
@@ -62,11 +67,20 @@ export async function evaluateStoredPrescription(db: SupabaseClient<Database>, a
   if(readError) throw new Error("PRESCRIPTION_HISTORY_READ_FAILED");
   if(existing) {
     const payload=existing.payload as Record<string,Json|undefined>;
-    if(existing.assessment_id!==input.assessmentId || existing.finding_id!==input.findingId || JSON.stringify(payload['input'])!==JSON.stringify(input)) throw new Error("PRESCRIPTION_REQUEST_REUSE_MISMATCH");
+    if(existing.assessment_id!==input.assessmentId || existing.finding_id!==input.findingId || canonicalJson(payload['input'])!==canonicalJson(input)) throw new Error("PRESCRIPTION_REQUEST_REUSE_MISMATCH");
     return {id:existing.id,emissionDecision:"BLOCKED",semanticDecision:payload['semanticDecision'],lifecycleState:payload['lifecycleState']};
   }
   const {data:stored,error}=await supabaseAdmin.from("prescriptive_decisions").insert({organization_id:org,assessment_id:input.assessmentId,finding_id:input.findingId,actor,request_id:input.requestId,prior_decision_ref:input.priorDecisionRef,payload:JSON.parse(JSON.stringify({...decision,input})) as Json}).select("id").single();
   if(error || !stored) throw new Error("PRESCRIPTION_HISTORY_WRITE_FAILED");
   // No recommendation title, text or activities returned to end-user UI.
   return {id:stored.id,emissionDecision:decision.emissionDecision,semanticDecision:decision.semanticDecision,lifecycleState:decision.lifecycleState};
+}
+
+function linksEvidenceMatch(evidenceId: Json | undefined, observationId:string, links:{evidence_id:string;observation_id:string}[]) {
+  return links.some(l=>l.evidence_id===evidenceId && l.observation_id===observationId);
+}
+function canonicalJson(value:unknown):string {
+  if(Array.isArray(value)) return `[${value.map(canonicalJson).join(",")}]`;
+  if(value && typeof value==="object") return `{${Object.entries(value).sort(([a],[b])=>a.localeCompare(b)).map(([k,v])=>`${JSON.stringify(k)}:${canonicalJson(v)}`).join(",")}}`;
+  return JSON.stringify(value) ?? "null";
 }
