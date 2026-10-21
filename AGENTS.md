@@ -10,7 +10,8 @@
 <!-- LOVABLE:END -->
 
 ## Architecture decisions
-- Auxiliary coverage inventories and PROPOSED criteria are generated from the checksum-verified static pack registry; they never rewrite published knowledge or enable diagnostic conclusions — canonical identity and semantic approval remain separate.
+- Auxiliary inventories derive from the verified static registry; never rewrite knowledge or enable conclusions — identity is not semantic approval.
+- Complementary prescription uses authenticated server evaluation and append-only prescriptive_decisions, outside Engine recommendations; server/database lock emission independently of semantic eligibility.
 - Subdirectories have their own `AGENTS.md`; read it before changing files there.
 - Knowledge packs are loaded only via the static registry `src/lib/production/packs-registry.ts` (31 build-time imports, checksum-verified against `published.json`, fail-closed) — Workers have no runtime filesystem.
 - New assessments pin to `PYMAPA-RUNTIME-MANIFEST` (composite checksum of all published packs); `PYMAPA-KNOWLEDGE-MASTER 1.0.0` is a frozen M1/OP-01 row, never updated — historical traceability.
