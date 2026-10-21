@@ -1,4 +1,5 @@
 ## DEC-046 · PRESC-OP01-H04 0.3.0
+- [ ] Complete exclusively hosted security/isolation checks and issue final technical addendum; no contract or functional changes (2026-10-21 mandate).
 - [x] Preserve original dossier and record subsequent content approval separately.
 - [x] Implement server-owned complementary evaluator, evidence guards, append-only history and blocked emission.
 - [x] Execute synthetic T01–T12, MEMBER/cross-org security and regression 1114/1114; report DEC-046_PRESC_OP01_H04_CLOSURE.md — PASS WITH CONDITIONS.
