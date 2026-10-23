@@ -1,3 +1,8 @@
+## PYM-BETA-INT-01-ACT · Plan de Acción consolidado
+- [x] getCompanyActionPlan (RLS como usuario), pantalla /plan-de-accion, navegación, pruebas 1120/1120.
+- [ ] Evidencia alojada con actividades reales de varias capacidades en org QA: NOT_TESTED (cuenta actual sin actividades).
+- [ ] Seguimiento: fuera de alcance, requiere mandato posterior.
+
 ## DEC-046 · PRESC-OP01-H04 0.3.0
 - [x] Complete hosted security/isolation addendum (2026-10-21): bilateral RLS, MEMBER/anonymous, OWNER lock and parallel idempotency PASS; definitive report DEC-046_HOSTED_SECURITY_FINAL.md — PASS WITH CONDITIONS.
 - [x] Preserve original dossier and record subsequent content approval separately.
