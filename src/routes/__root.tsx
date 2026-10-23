@@ -33,6 +33,7 @@ const modulosPrincipales = [
   { to: "/diagnostico-productivo", label: "Diagnóstico" },
   { to: "/resultados-productivos", label: "Avance y resultados" },
   { to: "/plan-de-accion", label: "Plan de Acción" },
+  { to: "/seguimiento", label: "Seguimiento" },
   { to: "/empresa", label: "Mi empresa" },
   { to: "/ayuda", label: "Ayuda" },
 ] as const;

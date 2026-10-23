@@ -50,10 +50,10 @@ const responder = (user: string, cap: string, acquisitionId: string, valor: stri
 
 describe("1 · Un solo producto: rutas legacy redirigidas", () => {
   it("toda ruta legacy tiene destino productivo; las productivas no se tocan", () => {
-    for (const r of ["/perfil", "/inicio", "/diagnostico", "/diagnostico/paso/1", "/resultados", "/resultados/x", "/dashboard", "/plan-de-accion/workspace/x", "/roadmap", "/seguimiento", "/proyecto/a", "/apoyo", "/cohorte", "/colaboracion", "/demostracion", "/moda-origen"]) {
+    for (const r of ["/perfil", "/inicio", "/diagnostico", "/diagnostico/paso/1", "/resultados", "/resultados/x", "/dashboard", "/plan-de-accion/workspace/x", "/roadmap", "/seguimiento/x", "/proyecto/a", "/apoyo", "/cohorte", "/colaboracion", "/demostracion", "/moda-origen"]) {
       expect(destinoRutaLegacy(r)).not.toBeNull();
     }
-    for (const r of ["/", "/acceso", "/empresa", "/diagnostico-productivo", "/resultados-productivos", "/capacidad/DG-02", "/ayuda", "/invitacion", "/plan-de-accion"]) {
+    for (const r of ["/", "/acceso", "/empresa", "/diagnostico-productivo", "/resultados-productivos", "/capacidad/DG-02", "/ayuda", "/invitacion", "/plan-de-accion", "/seguimiento"]) {
       expect(destinoRutaLegacy(r)).toBeNull();
     }
     expect(destinoRutaLegacy("/perfil")).toBe("/empresa");

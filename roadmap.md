@@ -132,3 +132,5 @@
 - [x] Seguridad/regresión 1086/1086 y tres corridas independientes S1/S2/S6/S7; S8 negación PASS.
 - [x] Registro stability-runs.json y cierre actualizado: S1/S7 3/3; S2/S6 0/3, corrección FAIL / SEM-QA PASS WITH CONDITIONS.
 - [ ] Brecha inferencia y ratificación histórica 1.1.0: requieren decisión y autorización humana; intervención única terminada, sin nuevos ajustes.
+
+- [x] PYM-BETA-INT-02-SEG · Seguimiento empresarial consolidado (/seguimiento)
