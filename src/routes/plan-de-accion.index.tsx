@@ -51,10 +51,10 @@ function PlanDeAccion() {
   return (
     <div className="space-y-6">
       <PageHeader
-        title="Plan de Acción"
-        description="Actividades formuladas por tu equipo a partir del diagnóstico de cada capacidad. Son decisiones humanas, no recomendaciones institucionales."
+        titulo="Plan de Acción"
+        subtitulo="Actividades formuladas por tu equipo a partir del diagnóstico de cada capacidad. Son decisiones humanas, no recomendaciones institucionales."
       />
-      {q.isLoading && <LoadingState mensaje="Cargando tu Plan de Acción…" />}
+      {q.isLoading && <LoadingState message="Cargando tu Plan de Acción…" />}
       {q.isError && (
         <Card role="alert">
           <CardContent className="space-y-3 p-6">
@@ -107,7 +107,7 @@ function PlanDeAccion() {
                     {a.deliverables.length > 0 && <p>Entregables registrados: {a.deliverables.map((d) => d.title).join(", ")}</p>}
                     {a.capabilityId && (
                       <Button asChild size="sm" variant="outline">
-                        <Link to="/capacidad/$id" params={{ id: a.capabilityId.toLowerCase() }}>
+                        <Link to="/capacidad/$id" params={{ id: a.capabilityId }}>
                           {q.data.canManage ? "Gestionar en la capacidad" : "Ver en la capacidad"}
                         </Link>
                       </Button>
