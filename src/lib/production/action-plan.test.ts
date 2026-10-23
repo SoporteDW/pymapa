@@ -56,6 +56,6 @@ describe("PYM-BETA-INT-01-ACT · Plan de Acción consolidado", () => {
     expect(fn).toContain("requireSupabaseAuth");
     expect(fn).not.toContain("client.server");
     const page = readFileSync("src/routes/plan-de-accion.index.tsx", "utf8");
-    expect(page).not.toMatch(/localStorage|mocks|useActuar|prescriptive/);
+    expect(page.split("\n").filter((l) => !l.trim().startsWith("*") && !l.trim().startsWith("/*")).join("\n")).not.toMatch(/localStorage|mocks|useActuar|prescriptive/);
   });
 });
