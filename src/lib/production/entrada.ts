@@ -39,8 +39,9 @@ export function validarNombreEmpresa(valor: unknown): { ok: true; nombre: string
 
 export const RUTA_AYUDA = "/ayuda" as const;
 export const RUTA_PLAN = "/plan-de-accion" as const;
+export const RUTA_SEGUIMIENTO = "/seguimiento" as const;
 
-const PREFIJOS_PRODUCTIVOS = [RUTA_PLAN, RUTA_EMPRESA, RUTA_HUB, RUTA_RESULTADOS, "/capacidad", RUTA_ACCESO, "/invitacion", RUTA_AYUDA];
+const PREFIJOS_PRODUCTIVOS = [RUTA_PLAN, RUTA_SEGUIMIENTO, RUTA_EMPRESA, RUTA_HUB, RUTA_RESULTADOS, "/capacidad", RUTA_ACCESO, "/invitacion", RUTA_AYUDA];
 
 /** Rutas del journey productivo (navegación sin enlaces legacy ni progreso demo). */
 export function esRutaProductiva(pathname: string): boolean {
@@ -75,7 +76,6 @@ const REDIRECCIONES_LEGACY: ReadonlyArray<readonly [string, string]> = [
   ["/resultados", RUTA_RESULTADOS],
   ["/dashboard", RUTA_RESULTADOS],
   ["/roadmap", RUTA_RESULTADOS],
-  ["/seguimiento", RUTA_RESULTADOS],
   ["/proyecto", RUTA_RESULTADOS],
   ["/apoyo", RUTA_AYUDA],
   ["/cohorte", RUTA_AYUDA],
@@ -89,6 +89,9 @@ export function destinoRutaLegacy(pathname: string): string | null {
   // PYM-BETA-INT-01-ACT · Solo la pantalla consolidada es productiva; subrutas MVP Alfa siguen redirigidas.
   if (limpia === RUTA_PLAN) return null;
   if (limpia.startsWith(`${RUTA_PLAN}/`)) return RUTA_PLAN;
+  // PYM-BETA-INT-02-SEG · Igual para Seguimiento: subrutas MVP Alfa → pantalla consolidada.
+  if (limpia === RUTA_SEGUIMIENTO) return null;
+  if (limpia.startsWith(`${RUTA_SEGUIMIENTO}/`)) return RUTA_SEGUIMIENTO;
   for (const [prefijo, destino] of REDIRECCIONES_LEGACY) {
     if (limpia === prefijo || limpia.startsWith(`${prefijo}/`)) return destino;
   }
@@ -103,5 +106,6 @@ export const navegacionProductiva = [
   { id: "diagnostico", to: RUTA_HUB, label: "Diagnóstico" },
   { id: "resultados", to: RUTA_RESULTADOS, label: "Avance y resultados" },
   { id: "plan", to: RUTA_PLAN, label: "Plan de Acción" },
+  { id: "seguimiento", to: RUTA_SEGUIMIENTO, label: "Seguimiento" },
   { id: "empresa", to: RUTA_EMPRESA, label: "Mi empresa" },
 ] as const;
