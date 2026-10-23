@@ -139,7 +139,7 @@ describe("PKG-02A · C. Empresa existente", () => {
 describe("PKG-02A · D. Navegación productiva", () => {
   it("solo rutas productivas, sin legacy ni mocks", () => {
     const rutas = navegacionProductiva.map((n) => n.to as string);
-    for (const legacy of ["/perfil", "/diagnostico", "/resultados", "/plan-de-accion", "/dashboard", "/roadmap"]) {
+    for (const legacy of ["/perfil", "/diagnostico", "/resultados", "/dashboard", "/roadmap"]) {
       expect(rutas).not.toContain(legacy);
     }
     expect(rutas).toContain("/diagnostico-productivo");

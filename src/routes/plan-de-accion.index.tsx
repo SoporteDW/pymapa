@@ -1,278 +1,124 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useMemo, useState } from "react";
-import { Button } from "@/components/ui/button";
+/**
+ * PYM-BETA-INT-01-ACT · Plan de Acción empresarial productivo.
+ * Fuente única: actividades persistidas de la organización (sin mocks ni localStorage).
+ */
+import { createFileRoute, Link, redirect } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
+import { useServerFn } from "@tanstack/react-start";
+import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { EmptyState } from "@/components/ui/empty-state";
-import { DemoNote } from "@/components/ui/demo-note";
-import { PageHeader } from "@/components/layout/page-header";
-import { EtapaFooter, EtapaProgreso } from "@/components/recorrido/etapa-nav";
-
-import { ResultState } from "@/components/resultados/result-state";
-import { ActionCard } from "@/components/resultados/action-card";
-import { PriorityFilters } from "@/components/resultados/priority-filters";
-import { useResultados } from "@/hooks/use-resultados";
-import { filtrarAcciones, filtrosIniciales, type FiltrosAcciones } from "@/lib/resultados/generador";
-import { registrarEvento } from "@/lib/analytics";
-import { IniciativasKb } from "@/components/kb/iniciativas-kb";
-import { useIniciativasKb } from "@/hooks/use-kb-ecommerce";
-import { ArrowRight, FilterX } from "lucide-react";
 import { LoadingState } from "@/components/ui/loading-state";
-import { BloqueoEtapa } from "@/components/journey/bloqueo-etapa";
-import { useJourney } from "@/hooks/use-journey";
-import { useActuar } from "@/hooks/use-actuar";
+import { PageHeader } from "@/components/layout/page-header";
+import { getCompanyActionPlan } from "@/lib/production/action-plan.functions";
 
+const ETIQUETA: Record<string, string> = {
+  PENDING: "Pendiente",
+  EXECUTING: "En curso",
+  DELIVERABLE_PRODUCED: "Entregable producido",
+  VALIDATED: "Validada",
+  FOLLOW_UP: "En seguimiento",
+  CONSOLIDATED: "Consolidada",
+  NEEDS_ADJUSTMENT: "Requiere ajuste",
+};
 
 export const Route = createFileRoute("/plan-de-accion/")({
+  ssr: false,
+  beforeLoad: async () => {
+    const { data, error } = await supabase.auth.getUser();
+    if (error || !data.user) throw redirect({ to: "/acceso" });
+  },
   head: () => ({
     meta: [
-      { title: "Plan de acción — pymapa" },
-      {
-        name: "description",
-        content: "Fichas de acción priorizadas para avanzar en tu transformación digital.",
-      },
-      { property: "og:title", content: "Plan de acción — pymapa" },
-      {
-        property: "og:description",
-        content: "Fichas de acción priorizadas para avanzar en tu transformación digital.",
-      },
+      { title: "Plan de Acción — pymapa" },
+      { name: "description", content: "Todas las actividades de tu empresa, con responsable, plazo, estado y origen diagnóstico." },
+      { property: "og:title", content: "Plan de Acción — pymapa" },
+      { property: "og:description", content: "Plan de Acción empresarial consolidado desde tus capacidades diagnosticadas." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
-  component: PlanDeAccionPage,
+  component: PlanDeAccion,
 });
 
-function PlanDeAccionPage() {
-  const navigate = useNavigate();
-  const { hidratado, bloqueoDe } = useJourney();
-  // Workspace (proyectado en `useActuar`) es la única fuente del estado de ejecución.
-  const { plan, siguienteActividad, siguienteFicha } = useActuar();
-  const { estado, resultado, errorCodigo, reintentar } = useResultados();
-  const { iniciativas } = useIniciativasKb();
-  const [filtros, setFiltros] = useState<FiltrosAcciones>(filtrosIniciales);
-
-  const acciones = useMemo(
-    () => (resultado ? filtrarAcciones(resultado, filtros) : []),
-    [resultado, filtros]
-  );
-
-  const cambiarFiltros = (nuevos: FiltrosAcciones) => {
-    setFiltros(nuevos);
-    registrarEvento("action_filters_changed", {
-      nivel: nuevos.nivel,
-      esfuerzo: nuevos.esfuerzo,
-      orden: nuevos.orden,
-    });
-  };
-
-  const bloqueo = bloqueoDe("actuar");
-  /** Solo lectura del estado de ejecución ya proyectado por `useActuar`. */
-  const estadoDeActividad = (id: string) => plan.actividades.find((a) => a.id === id)?.estado;
-  const tituloSiguiente = siguienteActividad?.titulo ?? siguienteFicha?.title ?? "";
-  const detalleSiguiente = siguienteActividad?.objetivo ?? siguienteFicha?.impactExpected ?? "";
-  const etiquetaSiguiente = !siguienteActividad
-    ? "Abrir su Ficha de Actividad"
-    : siguienteActividad.estado === "pendiente"
-      ? "Abrir su Ficha de Actividad"
-      : siguienteActividad.estado === "requiere_ajustes"
-        ? "Retomar esta Actividad y corregir"
-        : "Continuar esta Actividad";
-
-  if (!hidratado) return <LoadingState fullPage />;
-
-  if (bloqueo) {
-    return (
-      <div className="space-y-6">
-        <PageHeader
-          titulo="Tu Plan de Acción"
-          subtitulo="Etapa 3 · Actuar"
-          migas={[{ label: "Inicio", to: "/inicio" }, { label: "Plan de Acción" }]}
-        />
-        <BloqueoEtapa bloqueo={bloqueo} titulo="Tu Plan de Acción aún no está disponible" />
-      </div>
-    );
-  }
+function PlanDeAccion() {
+  const cargar = useServerFn(getCompanyActionPlan);
+  const q = useQuery({ queryKey: ["plan-de-accion-empresa"], queryFn: () => cargar() });
+  const [filtro, setFiltro] = useState<string | null>(null);
 
   return (
     <div className="space-y-6">
       <PageHeader
-        titulo="Tu Plan de Acción"
-        subtitulo="Actividades derivadas de tu diagnóstico, ordenadas por prioridad."
-        migas={[{ label: "Inicio", to: "/inicio" }, { label: "Plan de Acción" }]}
+        titulo="Plan de Acción"
+        subtitulo="Actividades formuladas por tu equipo a partir del diagnóstico de cada capacidad. Son decisiones humanas, no recomendaciones institucionales."
       />
-
-      {/* Macroentrega 5.3 · En esta pantalla manda el progreso real de las
-          Actividades; el porcentaje de módulo se oculta para que no se lea como
-          ejecución del Plan. */}
-      <EtapaProgreso
-        modulo="plan-de-accion"
-        ocultarPorcentaje
-        estadoTexto={
-          plan.construido ? (plan.cerrado ? "Plan completado" : "En ejecución") : undefined
-        }
-      />
-
-      {/* Estado real del Plan: construido no es completado. */}
-      {plan.construido && (
-        <Card>
-          <CardHeader className="space-y-1.5">
-            <CardDescription>
-              {plan.cerrado ? "Plan de Acción · completado" : "Plan de Acción · en ejecución"}
-            </CardDescription>
-            <CardTitle className="text-base">
-              {plan.validadas} de {plan.total} Actividades validadas
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="flex flex-wrap gap-2">
-            <Badge variant="outline">{plan.pendientes} sin empezar</Badge>
-            <Badge variant="outline">{plan.enEjecucion} en ejecución</Badge>
-            {plan.requierenAjustes > 0 && (
-              <Badge variant="outline">{plan.requierenAjustes} requieren ajustes</Badge>
-            )}
-            <Badge variant="secondary">{plan.validadas} validadas</Badge>
+      {q.isLoading && <LoadingState message="Cargando tu Plan de Acción…" />}
+      {q.isError && (
+        <Card role="alert">
+          <CardContent className="space-y-3 p-6">
+            <p className="text-sm text-destructive">No pudimos cargar tu Plan de Acción. Revisa tu conexión e inténtalo de nuevo.</p>
+            <Button variant="outline" onClick={() => q.refetch()}>Reintentar</Button>
           </CardContent>
         </Card>
       )}
-
-      {/* Un único CTA principal: qué Actividad trabajar ahora. */}
-      {plan.siguienteId ? (
-        <Card className="border-primary/25 bg-primary/5">
-          <CardHeader className="space-y-1.5">
-            <CardDescription>Siguiente paso recomendado</CardDescription>
-            <CardTitle className="text-lg leading-snug">{tituloSiguiente}</CardTitle>
-            <CardDescription>{detalleSiguiente}</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button size="lg" asChild>
-              <Link
-                to="/plan-de-accion/workspace/$actividad"
-                params={{ actividad: plan.siguienteId }}
-              >
-                {etiquetaSiguiente}
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </Link>
-            </Button>
+      {q.data && q.data.activities.length === 0 && (
+        <Card data-testid="plan-vacio">
+          <CardContent className="space-y-3 p-6">
+            <p className="font-medium">Todavía no hay actividades en tu plan.</p>
+            <p className="text-sm text-muted-foreground">
+              Las actividades se crean dentro de cada capacidad, a partir de un hallazgo y una intervención decidida por tu equipo.
+            </p>
+            <Button asChild><Link to="/diagnostico-productivo">Ir al diagnóstico</Link></Button>
           </CardContent>
         </Card>
-      ) : plan.cerrado ? (
-        <Card className="border-success/30 bg-success/5">
-          <CardHeader className="space-y-1.5">
-            <CardTitle className="text-lg leading-snug">
-              Todas las Actividades de tu Plan quedaron validadas
-            </CardTitle>
-            <CardDescription>
-              El siguiente paso es revisar el cierre de tu Plan de Acción y pasar al seguimiento.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button size="lg" asChild>
-              <Link to="/plan-de-accion/cierre">
-                Ver cierre de mi Plan de Acción
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </Link>
+      )}
+      {q.data && q.data.activities.length > 0 && (
+        <>
+          <div className="flex flex-wrap gap-2" role="group" aria-label="Filtrar por estado">
+            <Button size="sm" variant={filtro === null ? "default" : "outline"} onClick={() => setFiltro(null)}>
+              Todas ({q.data.summary.total})
             </Button>
-          </CardContent>
-        </Card>
-      ) : null}
-
-
-
-
-
-
-      <ResultState
-        estado={estado}
-        errorCodigo={errorCodigo}
-        onReintentar={reintentar}
-        onIrAlDiagnostico={() => navigate({ to: "/diagnostico" })}
-      >
-        {/* POC-09 (D-02): una pyme sin brechas accionables no genera fichas; se explica el motivo. */}
-        {resultado && resultado.actions.length === 0 && (
-          <EmptyState
-            title="Tu diagnóstico no generó Actividades"
-            description="No se detectaron brechas ni riesgos que requieran una acción inmediata. Revisa tus resultados para ver las fortalezas identificadas."
-            icon={FilterX}
-            actionLabel="Ver mis resultados"
-            onAction={() => navigate({ to: "/resultados" })}
-          />
-        )}
-
-        {resultado && resultado.actions.length > 0 && (
-          <div className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Cómo trabajar tus Actividades</CardTitle>
-                <CardDescription>
-                  Cada Actividad responde a un hallazgo del diagnóstico: su Ficha explica qué
-                  encontramos, qué queremos lograr, cómo trabajarla, qué debes entregar y cómo se
-                  valida. Empieza por las primeras: habilitan a las siguientes. El Roadmap muestra
-                  estas mismas Actividades en el tiempo.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="flex flex-wrap gap-2 text-sm text-muted-foreground">
-                <Badge variant="secondary">{resultado.actions.length} Actividades priorizadas</Badge>
-                <Badge variant="outline">
-                  {resultado.actions.filter((a) => a.priorityLevel === "critica").length} críticas
-                </Badge>
-                <Badge variant="outline">
-                  {resultado.actions.filter((a) => a.effort === "bajo").length} de bajo esfuerzo
-                </Badge>
-                {resultado.actions.some((a) => a.requiereValidacion) && (
-                  <Badge variant="outline">Algunas requieren validación previa</Badge>
-                )}
-              </CardContent>
-            </Card>
-
-            <PriorityFilters
-              filtros={filtros}
-              dimensiones={resultado.dimensions}
-              onCambio={cambiarFiltros}
-            />
-
-            {acciones.length === 0 ? (
-              <EmptyState
-                title="Ninguna Actividad coincide con los filtros"
-                description="Ajusta los filtros para ver otras Actividades disponibles."
-                icon={FilterX}
-                actionLabel="Restablecer filtros"
-                onAction={() => cambiarFiltros(filtrosIniciales)}
-              />
-            ) : (
-              <section aria-labelledby="mi-plan-completo" className="space-y-3">
-                <div>
-                  <h2 id="mi-plan-completo" className="text-lg font-semibold text-foreground">
-                    Mi Plan completo
-                  </h2>
-                  <p className="text-sm text-muted-foreground">
-                    Todas las Actividades de tu Plan con su estado actual. El siguiente paso
-                    recomendado es solo uno: el que aparece arriba.
-                  </p>
-                </div>
-                <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                  {acciones.map((ficha) => (
-                    <ActionCard
-                      key={ficha.id}
-                      ficha={ficha}
-                      estado={estadoDeActividad(ficha.id)}
-                      esSiguiente={plan.siguienteId === ficha.id}
-                    />
-                  ))}
-                </div>
-              </section>
-            )}
-
-
-            <DemoNote>
-              Las Actividades marcadas con un punto de apoyo requieren una intervención adicional
-              (consultor, decisión gerencial, documento o validación). No bloquean tu avance.
-            </DemoNote>
+            {Object.entries(q.data.summary.byState).map(([estado, n]) => (
+              <Button key={estado} size="sm" variant={filtro === estado ? "default" : "outline"} onClick={() => setFiltro(estado)}>
+                {ETIQUETA[estado] ?? estado} ({n})
+              </Button>
+            ))}
           </div>
-        )}
-      </ResultState>
-
-      <IniciativasKb iniciativas={iniciativas} />
-
-      <EtapaFooter modulo="plan-de-accion" />
+          <ul className="space-y-3" data-testid="plan-actividades">
+            {q.data.activities.filter((a) => !filtro || a.state === filtro).map((a) => (
+              <li key={a.id}>
+                <Card>
+                  <CardHeader className="pb-2">
+                    <div className="flex flex-wrap items-center gap-2">
+                      {a.capabilityId && <Badge variant="outline">{a.capabilityId}</Badge>}
+                      <Badge variant="secondary">{ETIQUETA[a.state] ?? a.state}</Badge>
+                    </div>
+                    <CardTitle className="text-base">{a.title}</CardTitle>
+                    <CardDescription>
+                      Intervención: {a.intervention.title}
+                      {a.finding ? ` · Hallazgo ${a.finding.ref}: ${a.finding.name}` : " · Sin hallazgo vinculado"}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-2 text-sm">
+                    <p>Responsable: {a.responsibleLabel ?? <span className="text-muted-foreground">sin asignar</span>}</p>
+                    <p>Fecha límite: {a.dueDate ?? <span className="text-muted-foreground">sin fecha</span>}</p>
+                    {a.deliverables.length > 0 && <p>Entregables registrados: {a.deliverables.map((d) => d.title).join(", ")}</p>}
+                    {a.capabilityId && (
+                      <Button asChild size="sm" variant="outline">
+                        <Link to="/capacidad/$id" params={{ id: a.capabilityId }}>
+                          {q.data.canManage ? "Gestionar en la capacidad" : "Ver en la capacidad"}
+                        </Link>
+                      </Button>
+                    )}
+                  </CardContent>
+                </Card>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
     </div>
   );
 }
-

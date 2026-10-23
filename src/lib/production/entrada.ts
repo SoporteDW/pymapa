@@ -38,8 +38,9 @@ export function validarNombreEmpresa(valor: unknown): { ok: true; nombre: string
 }
 
 export const RUTA_AYUDA = "/ayuda" as const;
+export const RUTA_PLAN = "/plan-de-accion" as const;
 
-const PREFIJOS_PRODUCTIVOS = [RUTA_EMPRESA, RUTA_HUB, RUTA_RESULTADOS, "/capacidad", RUTA_ACCESO, "/invitacion", RUTA_AYUDA];
+const PREFIJOS_PRODUCTIVOS = [RUTA_PLAN, RUTA_EMPRESA, RUTA_HUB, RUTA_RESULTADOS, "/capacidad", RUTA_ACCESO, "/invitacion", RUTA_AYUDA];
 
 /** Rutas del journey productivo (navegación sin enlaces legacy ni progreso demo). */
 export function esRutaProductiva(pathname: string): boolean {
@@ -73,7 +74,6 @@ const REDIRECCIONES_LEGACY: ReadonlyArray<readonly [string, string]> = [
   ["/colaboracion", RUTA_HUB],
   ["/resultados", RUTA_RESULTADOS],
   ["/dashboard", RUTA_RESULTADOS],
-  ["/plan-de-accion", RUTA_RESULTADOS],
   ["/roadmap", RUTA_RESULTADOS],
   ["/seguimiento", RUTA_RESULTADOS],
   ["/proyecto", RUTA_RESULTADOS],
@@ -86,6 +86,9 @@ const REDIRECCIONES_LEGACY: ReadonlyArray<readonly [string, string]> = [
 /** Destino productivo de una ruta legacy, o null si la ruta no es legacy. */
 export function destinoRutaLegacy(pathname: string): string | null {
   const limpia = pathname.length > 1 ? pathname.replace(/\/+$/, "") : pathname;
+  // PYM-BETA-INT-01-ACT · Solo la pantalla consolidada es productiva; subrutas MVP Alfa siguen redirigidas.
+  if (limpia === RUTA_PLAN) return null;
+  if (limpia.startsWith(`${RUTA_PLAN}/`)) return RUTA_PLAN;
   for (const [prefijo, destino] of REDIRECCIONES_LEGACY) {
     if (limpia === prefijo || limpia.startsWith(`${prefijo}/`)) return destino;
   }
@@ -99,5 +102,6 @@ export function destinoRutaLegacy(pathname: string): string | null {
 export const navegacionProductiva = [
   { id: "diagnostico", to: RUTA_HUB, label: "Diagnóstico" },
   { id: "resultados", to: RUTA_RESULTADOS, label: "Avance y resultados" },
+  { id: "plan", to: RUTA_PLAN, label: "Plan de Acción" },
   { id: "empresa", to: RUTA_EMPRESA, label: "Mi empresa" },
 ] as const;
