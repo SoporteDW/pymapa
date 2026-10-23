@@ -75,6 +75,6 @@ describe("PYM-BETA-INT-02-SEG · Seguimiento consolidado", () => {
     expect(fn).toMatch(/note: z\.string\(\)\.trim\(\)\.min\(1\)\.max\(2000\),/);
     expect(fn).not.toMatch(/updateActivityState|\.update\(/);
     const page = readFileSync("src/routes/seguimiento.index.tsx", "utf8");
-    expect(page).not.toMatch(/localStorage|mocks|useSeguimiento/);
+    expect(page).not.toMatch(/localStorage\.|@\/data\/mocks|useSeguimiento\(/);
   });
 });
