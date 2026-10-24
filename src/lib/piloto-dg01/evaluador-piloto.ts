@@ -1,5 +1,6 @@
 import { createKnowledgeEngine, type EngineObservation } from "@pymapa/knowledge-engine";
 import { crearCandidatoPack, METADATOS_PILOTO } from "./candidato-pack";
+import { interpretarObservaciones } from "./interprete-semantico";
 import { entradaPilotoSchema, type EntradaPiloto } from "./escenarios";
 
 /** Called exclusively by the server boundary or local tests; no persistence. */
@@ -30,6 +31,8 @@ export function evaluarPiloto(entrada: EntradaPiloto) {
     engineVersion: engine.engineVersion,
     observations,
     evaluation,
+    /** Capa experimental separada: solo lee observaciones, no toca `evaluation`. */
+    interpretacionExperimental: interpretarObservaciones(observations),
   };
 }
 
