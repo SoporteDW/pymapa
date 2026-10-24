@@ -73,11 +73,12 @@ export interface InterpretacionExperimental {
 function fragmentar(obs: EngineObservation): Fragmento[] {
   const texto = typeof obs.semanticValue === "string" ? obs.semanticValue : "";
   const out: Fragmento[] = [];
-  const re = /[^.;:]+[.;:]?/g;
+  const re = /[^.:]+[.:]?/g;
   for (const m of texto.matchAll(re)) {
     const raw = m[0];
+    if (raw.trimEnd().endsWith(":")) continue; // etiqueta («Empresa sintética:»), no afirmación
     const lead = raw.length - raw.trimStart().length;
-    const t = raw.trim().replace(/[.;:]$/, "").trim();
+    const t = raw.trim().replace(/[.:]$/, "").trim();
     if (!t) continue;
     const inicio = (m.index ?? 0) + lead;
     out.push({ observationId: obs.id, texto: t, inicio, fin: inicio + t.length });
