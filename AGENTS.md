@@ -10,6 +10,7 @@
 <!-- LOVABLE:END -->
 
 ## Architecture decisions
+- DG01-VERTICAL-01 evaluates a separate draft pack through a public synthetic-only server function, with Engine imports behind `piloto.server.ts`; raw Engine results and demonstration metadata stay separate to prevent semantic or production admission.
 - Auxiliary inventories derive from the verified static registry; never rewrite knowledge or enable conclusions — identity is not semantic approval.
 - Complementary prescription content stays in server-only modules and append-only prescriptive_decisions, outside Engine recommendations; server/database lock emission independently of semantic eligibility.
 - Subdirectories have their own `AGENTS.md`; read it before changing files there.
