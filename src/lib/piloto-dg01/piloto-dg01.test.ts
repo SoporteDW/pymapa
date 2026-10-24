@@ -29,7 +29,7 @@ describe("DEC-049 · DG01-VERTICAL-01 · Engine real", () => {
     });
   }
   it("no aplica un predicado semántico inventado a los relatos positivo y adverso", () => {
-    const [adverse, positive] = ESCENARIOS;
+    const [adverse, positive] = ESCENARIOS.filter((s) => s.id === "S1" || s.id === "S2");
     if (!adverse || !positive) throw new Error("Escenarios obligatorios ausentes");
     expect(evaluarPiloto(adverse.input).evaluation.findingCandidates).toEqual(evaluarPiloto(positive.input).evaluation.findingCandidates);
   });
