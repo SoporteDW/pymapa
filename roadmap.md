@@ -1,7 +1,8 @@
 ## DEC-049 · DG01-VERTICAL-01 · Piloto aislado
-- [ ] Crear candidato separado y evaluador con Engine real 0.2.0, sin escrituras productivas ni IA.
-- [ ] Ejecutar cinco escenarios y mostrar candidatos sin confirmación ni inferencias semánticas.
-- [ ] Verificar interfaz, integridad de baselines y entregar evidencia y limitaciones.
+- [x] Crear candidato separado y evaluador con Engine real 0.2.0, sin escrituras productivas ni IA.
+- [x] Ejecutar cinco escenarios y mostrar candidatos sin confirmación ni inferencias semánticas: 9/9 pruebas PASS.
+- [x] Verificar interfaz (cinco ejecuciones, sin errores, 659 px sin desbordamiento), 208 hashes protegidos intactos y cierre DG01_VERTICAL01_CLOSURE.md.
+- [ ] Validación semántica positivo/adverso: bloqueada por ausencia de predicado gobernado; fuera de este Build.
 
 ## PYM-BETA-INT-01-ACT · Plan de Acción consolidado
 - [x] getCompanyActionPlan (RLS como usuario), pantalla /plan-de-accion, navegación, pruebas 1120/1120.
