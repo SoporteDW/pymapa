@@ -24,6 +24,7 @@ import { Route as InicioRouteImport } from './routes/inicio'
 import { Route as InvitacionRouteImport } from './routes/invitacion'
 import { Route as ModaOrigenRouteImport } from './routes/moda-origen'
 import { Route as PerfilRouteImport } from './routes/perfil'
+import { Route as PilotoDg01RouteImport } from './routes/piloto-dg01'
 import { Route as PlanDeAccionRouteImport } from './routes/plan-de-accion'
 import { Route as ResultadosRouteImport } from './routes/resultados'
 import { Route as RoadmapRouteImport } from './routes/roadmap'
@@ -134,6 +135,11 @@ const ModaOrigenRoute = ModaOrigenRouteImport.update({
 const PerfilRoute = PerfilRouteImport.update({
   id: '/perfil',
   path: '/perfil',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PilotoDg01Route = PilotoDg01RouteImport.update({
+  id: '/piloto-dg01',
+  path: '/piloto-dg01',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PlanDeAccionRoute = PlanDeAccionRouteImport.update({
@@ -347,6 +353,7 @@ export interface FileRoutesByFullPath {
   '/invitacion': typeof InvitacionRoute
   '/moda-origen': typeof ModaOrigenRoute
   '/perfil': typeof PerfilRoute
+  '/piloto-dg01': typeof PilotoDg01Route
   '/plan-de-accion': typeof PlanDeAccionRouteWithChildren
   '/resultados': typeof ResultadosRouteWithChildren
   '/roadmap': typeof RoadmapRouteWithChildren
@@ -398,6 +405,7 @@ export interface FileRoutesByTo {
   '/invitacion': typeof InvitacionRoute
   '/moda-origen': typeof ModaOrigenRoute
   '/perfil': typeof PerfilRoute
+  '/piloto-dg01': typeof PilotoDg01Route
   '/diagnostico-productivo': typeof AuthenticatedDiagnosticoProductivoRoute
   '/empresa': typeof AuthenticatedEmpresaRoute
   '/ia-documental': typeof AuthenticatedIaDocumentalRoute
@@ -448,6 +456,7 @@ export interface FileRoutesById {
   '/invitacion': typeof InvitacionRoute
   '/moda-origen': typeof ModaOrigenRoute
   '/perfil': typeof PerfilRoute
+  '/piloto-dg01': typeof PilotoDg01Route
   '/plan-de-accion': typeof PlanDeAccionRouteWithChildren
   '/resultados': typeof ResultadosRouteWithChildren
   '/roadmap': typeof RoadmapRouteWithChildren
@@ -503,6 +512,7 @@ export interface FileRouteTypes {
     | '/invitacion'
     | '/moda-origen'
     | '/perfil'
+    | '/piloto-dg01'
     | '/plan-de-accion'
     | '/resultados'
     | '/roadmap'
@@ -554,6 +564,7 @@ export interface FileRouteTypes {
     | '/invitacion'
     | '/moda-origen'
     | '/perfil'
+    | '/piloto-dg01'
     | '/diagnostico-productivo'
     | '/empresa'
     | '/ia-documental'
@@ -603,6 +614,7 @@ export interface FileRouteTypes {
     | '/invitacion'
     | '/moda-origen'
     | '/perfil'
+    | '/piloto-dg01'
     | '/plan-de-accion'
     | '/resultados'
     | '/roadmap'
@@ -658,6 +670,7 @@ export interface RootRouteChildren {
   InvitacionRoute: typeof InvitacionRoute
   ModaOrigenRoute: typeof ModaOrigenRoute
   PerfilRoute: typeof PerfilRoute
+  PilotoDg01Route: typeof PilotoDg01Route
   PlanDeAccionRoute: typeof PlanDeAccionRouteWithChildren
   ResultadosRoute: typeof ResultadosRouteWithChildren
   RoadmapRoute: typeof RoadmapRouteWithChildren
@@ -770,6 +783,13 @@ declare module '@tanstack/react-router' {
       path: '/perfil'
       fullPath: '/perfil'
       preLoaderRoute: typeof PerfilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/piloto-dg01': {
+      id: '/piloto-dg01'
+      path: '/piloto-dg01'
+      fullPath: '/piloto-dg01'
+      preLoaderRoute: typeof PilotoDg01RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/plan-de-accion': {
@@ -1197,6 +1217,7 @@ const rootRouteChildren: RootRouteChildren = {
   InvitacionRoute: InvitacionRoute,
   ModaOrigenRoute: ModaOrigenRoute,
   PerfilRoute: PerfilRoute,
+  PilotoDg01Route: PilotoDg01Route,
   PlanDeAccionRoute: PlanDeAccionRouteWithChildren,
   ResultadosRoute: ResultadosRouteWithChildren,
   RoadmapRoute: RoadmapRouteWithChildren,
