@@ -1,0 +1,1 @@
+export { evaluarPiloto } from "./evaluador-piloto";
