@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ESCENARIOS, type EntradaPiloto } from "@/lib/piloto-dg01/escenarios";
 import { ejecutarPiloto } from "@/lib/piloto-dg01/piloto.functions";
 import type { ResultadoPiloto } from "@/lib/piloto-dg01/evaluador-piloto";
+import { FUENTES_CONOCIMIENTO } from "@/lib/piloto-dg01/interprete-semantico";
 
 export const Route = createFileRoute("/piloto-dg01")({
   head: () => ({ meta: [
@@ -44,7 +45,7 @@ function PilotoDg01() {
   return (
     <div className="space-y-7 tracking-normal">
       <header className="space-y-3 border-b border-border pb-5">
-        <p className="flex items-center gap-2 text-sm font-medium text-primary"><FlaskConical className="size-5" aria-hidden="true" />DEC-049 · DG01-VERTICAL-01</p>
+        <p className="flex items-center gap-2 text-sm font-medium text-primary"><FlaskConical className="size-5" aria-hidden="true" />DEC-049 · DG01-VERTICAL-01 · VERTICAL-02</p>
         <h1 className="text-3xl font-semibold !tracking-normal">DG-01 · Piloto aislado</h1>
         <p className="text-muted-foreground">Orientar la transformación a partir del negocio y su entorno</p>
         <p className="flex items-center gap-2 text-sm text-muted-foreground"><ShieldCheck className="size-4 shrink-0" aria-hidden="true" />Solo datos sintéticos · Sin persistencia productiva · Sin IA externa</p>
@@ -58,7 +59,7 @@ function PilotoDg01() {
       <section aria-labelledby="capture" className="space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h2 id="capture" className="text-lg font-semibold !tracking-normal">01 · Captura sintética</h2>
-          <Button variant="outline" disabled={busy} onClick={() => evaluate(true)}><Play aria-hidden="true" />Ejecutar los cinco escenarios</Button>
+          <Button variant="outline" disabled={busy} onClick={() => evaluate(true)}><Play aria-hidden="true" />Ejecutar los siete escenarios</Button>
         </div>
         <div className="flex flex-wrap gap-2" aria-label="Escenarios sintéticos">
           {ESCENARIOS.map((scenario) => <Button key={scenario.id} variant={selected === scenario.id ? "default" : "outline"} size="sm" aria-pressed={selected === scenario.id} disabled={busy} onClick={() => { setInput({ ...scenario.input }); setSelected(scenario.id); setResult(null); setError(""); }}>{scenario.id} · {scenario.name}</Button>)}
@@ -97,12 +98,46 @@ function PilotoDg01() {
         <details className="border-t border-border pt-4"><summary className="cursor-pointer text-sm font-medium">Observaciones y resultado íntegro del Engine</summary><pre className="mt-3 max-h-96 overflow-auto rounded-md bg-muted p-3 text-xs">{JSON.stringify({ observations: result.observations, evaluation: result.evaluation }, null, 2)}</pre></details>
       </section>}
 
+      {result && <PanelInterpretacion result={result} />}
+
       {bank.length > 0 && <section aria-labelledby="bank" className="space-y-4 border-t border-border pt-6" aria-live="polite">
-        <h2 id="bank" className="text-lg font-semibold !tracking-normal">Cinco ejecuciones sintéticas · Engine 0.2.0</h2>
-        <div className="overflow-x-auto"><table className="w-full text-left text-sm"><thead className="bg-muted"><tr><th className="p-3">Escenario</th><th className="p-3">VA01</th><th className="p-3">Resultado técnico</th><th className="p-3">Confirmados</th></tr></thead><tbody>{bank.map((s) => <tr key={s.id} className="border-b border-border"><td className="p-3">{s.id} · {s.name}</td><td className="p-3">{s.result.evaluation.variableEvaluations.find((v) => v.variableRef === "VA01")?.state}</td><td className="p-3">{s.result.evaluation.findingCandidates.map((c) => `${c.findingRef} · ${c.lifecycleState}`).join(", ") || s.result.evaluation.findingsAwaitingResolution.map((f) => f.status).join(", ")}</td><td className="p-3">0</td></tr>)}</tbody></table></div>
-        <p className="text-sm text-warning-foreground">S1 y S2 producen el mismo candidato técnico NEEDS_REVIEW. La discriminación semántica positivo/adverso está BLOQUEADA POR SEMÁNTICA, no superada.</p>
+        <h2 id="bank" className="text-lg font-semibold !tracking-normal">Siete ejecuciones sintéticas · Engine 0.2.0</h2>
+        <div className="overflow-x-auto"><table className="w-full text-left text-sm"><thead className="bg-muted"><tr><th className="p-3">Escenario</th><th className="p-3">VA01</th><th className="p-3">Resultado técnico</th><th className="p-3">03 · Interpretación experimental</th><th className="p-3">Confirmados</th></tr></thead><tbody>{bank.map((s) => <tr key={s.id} className="border-b border-border"><td className="p-3">{s.id} · {s.name}</td><td className="p-3">{s.result.evaluation.variableEvaluations.find((v) => v.variableRef === "VA01")?.state}</td><td className="p-3">{s.result.evaluation.findingCandidates.map((c) => `${c.findingRef} · ${c.lifecycleState}`).join(", ") || s.result.evaluation.findingsAwaitingResolution.map((f) => f.status).join(", ")}</td><td className="p-3">{s.result.interpretacionExperimental.postura}</td><td className="p-3">0</td></tr>)}</tbody></table></div>
+        <p className="text-sm text-warning-foreground">S1 y S2 producen el mismo candidato técnico NEEDS_REVIEW. El Engine no los distingue; la capa experimental 03 sí los interpreta de forma distinta (compatible vs. contraria), pendiente de gobierno.</p>
       </section>}
       <footer className="border-t border-border pt-4 text-xs text-muted-foreground">Master v1.0 · 31 packs v1.0.0 · Engine 0.2.0 preservados. REC-01 bloqueada. DEC-046 y SEM-QA-01 sin reapertura.</footer>
     </div>
+  );
+}
+const RELACION = { COMPATIBLE: "Compatible con la condición", CONTRADICE: "Contradice la condición", INSUFICIENTE: "Insuficiente o ambigua" } as const;
+
+function PanelInterpretacion({ result }: { result: ResultadoPiloto }) {
+  const i = result.interpretacionExperimental;
+  return (
+    <section aria-labelledby="semantic" className="space-y-5 border-t border-border pt-6" aria-live="polite">
+      <div className="space-y-2">
+        <h2 id="semantic" className="text-lg font-semibold !tracking-normal">03 · Interpretación semántica experimental</h2>
+        <p className="border-l-4 border-warning bg-warning/10 p-3 text-sm">EXPERIMENTAL · Análisis léxico determinista con criterios creados para este piloto (sin IA, sin aprobación metodológica). No reemplaza ni altera el resultado del Engine y no confirma hallazgos.</p>
+      </div>
+      <div className="grid gap-4 sm:grid-cols-3">
+        <div className="border-l-2 border-primary pl-3"><p className="text-sm text-muted-foreground">Relación con {i.ruleRef} · {i.condicion}</p><p className="mt-1 break-words font-semibold">{i.postura}</p></div>
+        <div className="border-l-2 border-warning pl-3"><p className="text-sm text-muted-foreground">Revisión semántica</p><p className="mt-1 break-words font-semibold">{i.estadoRevision}</p></div>
+        <div className="border-l-2 border-border pl-3"><p className="text-sm text-muted-foreground">Hallazgo confirmado</p><p className="mt-1 font-semibold">No</p></div>
+      </div>
+      <p className="text-sm">{i.resumen}</p>
+      {i.afirmaciones.length > 0 && <div className="space-y-3">
+        <h3 className="font-semibold !tracking-normal">Qué afirmó la empresa y qué evidencia se identificó</h3>
+        {i.afirmaciones.map((a) => <article key={a.id} className="rounded-md border border-border bg-card p-4 text-sm">
+          <blockquote className="border-l-2 border-primary pl-3 italic">“{a.fragmento.texto}”</blockquote>
+          <p className="mt-2 font-medium">{RELACION[a.relacion]}</p>
+          <p className="mt-1 text-muted-foreground">{a.explicacion}</p>
+          <p className="mt-2 break-words text-xs text-muted-foreground">{a.id} · {a.fragmento.observationId} [{a.fragmento.inicio}–{a.fragmento.fin}] · {i.variableRef} · {i.ruleRef} · {a.criterio} · elementos: {a.elementos.join(", ") || "ninguno"}</p>
+        </article>)}
+      </div>}
+      <div><h3 className="font-semibold !tracking-normal">Pendiente de aprobación o revisión</h3><ul className="mt-2 list-disc space-y-1 pl-5 text-sm">{i.pendiente.map((p) => <li key={p}>{p}</li>)}</ul></div>
+      <details className="border-t border-border pt-4"><summary className="cursor-pointer text-sm font-medium">Procedencia del conocimiento</summary>
+        {([["Conocimiento histórico (fuente DG-01)", FUENTES_CONOCIMIENTO.historico], ["Vinculaciones candidatas", FUENTES_CONOCIMIENTO.candidato], ["Criterios experimentales del piloto", FUENTES_CONOCIMIENTO.experimental]] as const).map(([titulo, items]) => <div key={titulo} className="mt-3 text-sm"><p className="font-medium">{titulo}</p>{items.map((k) => <p key={k.ref} className="mt-1 text-muted-foreground"><span className="text-foreground">{k.ref}</span> · {k.texto} <span className="break-words text-xs">({k.fuente})</span></p>)}</div>)}
+      </details>
+    </section>
   );
 }
