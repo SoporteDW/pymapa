@@ -1,0 +1,585 @@
+{
+  "contract": "PYMAPA-DIAGNOSTIC-TRANSLATION-CANDIDATE",
+  "contractVersion": "0.1.0",
+  "capabilityId": "OP-03",
+  "status": "STAGING_CANDIDATE_NOT_EXECUTABLE",
+  "publicationAuthorized": false,
+  "provenance": {
+    "baselinePath": "knowledge/master/v1.0/capabilities/OP-03/canonical-baseline.json",
+    "baselineChecksum": "sha256:573e1906b898d67065fcc66fccee8710b71436a217d91874284d562d596df034",
+    "historicalVersion": "OP03-K4-v1.0",
+    "semanticInputId": "KNOW-EXEC-03-S",
+    "semanticInputSha256": "042b19d832673ad745fc918af29741e07998c8bb98886ce488cd614703172c76",
+    "publishedPackPath": "knowledge/packs/op-03/1.0.0/pack.json",
+    "publishedPackChecksum": "sha256:e434808329627c622a228c3c74a05641a5c82bd0fe54a7f8976bb38ba73f02d3"
+  },
+  "rules": [
+    {
+      "ruleId": "R-OP03-00",
+      "role": "GUARDRAIL",
+      "title": "Síntoma E2E no determina causa",
+      "historicalText": "Una falla observable entre fronteras no autoriza por sí sola a atribuir la causa a proceso, personas, gobierno, tecnología, información o incentivos.\nEjemplo:\n“Operaciones devuelve pedidos a Ventas.”\nEso no significa automáticamente:\n“Ventas captura mal la información.”\nPuede ser:\n- criterio de aceptación ambiguo;\n- decisión comercial incompatible;\n- información faltante;\n- sistema;\n- definición del proceso;\n- competencia.\nEsta regla debe operar como guardrail.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-03/canonical-baseline.json",
+        "objectKey": "R-OP03-00",
+        "sourceLines": [
+          2337,
+          2350
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Síntoma E2E no determina causa; no atribuir causalidad sin evidencia",
+      "exceptionRefs": [
+        "EX-01",
+        "OP-03:R-OP03-00:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP03-01",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Fragmentación estructural del flujo",
+      "historicalText": "Activar cuando:\n- componentes materialmente necesarios del resultado E2E no están suficientemente conectados;\n- existen vacíos estructurales, cortes o discontinuidades recurrentes;\n- y eso deteriora materialmente el resultado completo.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-03/canonical-baseline.json",
+        "objectKey": "R-OP03-01",
+        "sourceLines": [
+          2353,
+          2357
+        ]
+      },
+      "conditionRefs": [
+        "CE01"
+      ],
+      "variableRefs": [
+        "VA01"
+      ],
+      "hfReferences": [
+        "HF01"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": false,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-02",
+        "OP-03:R-OP03-01:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP03-02",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Traspaso crítico inefectivo",
+      "historicalText": "Activar cuando un handoff crítico presenta de forma material o recurrente:\n- información incompleta;\n- transferencia tardía;\n- condición de aceptación no cumplida;\n- devolución;\n- ambigüedad de responsabilidad;\n- pérdida de continuidad.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-03/canonical-baseline.json",
+        "objectKey": "R-OP03-02",
+        "sourceLines": [
+          2365,
+          2372
+        ]
+      },
+      "conditionRefs": [
+        "CE01"
+      ],
+      "variableRefs": [
+        "VA02"
+      ],
+      "hfReferences": [
+        "HF02"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": false,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-02",
+        "OP-03:R-OP03-02:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP03-03",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Discontinuidad de información relevante",
+      "historicalText": "Activar cuando información materialmente necesaria:\n- no llega;\n- llega demasiado tarde;\n- pierde contexto;\n- cambia de significado;\n- o no puede ser utilizada correctamente downstream;\ny eso afecta materialmente el resultado.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-03/canonical-baseline.json",
+        "objectKey": "R-OP03-03",
+        "sourceLines": [
+          2380,
+          2387
+        ]
+      },
+      "conditionRefs": [
+        "CE02"
+      ],
+      "variableRefs": [
+        "VA03"
+      ],
+      "hfReferences": [
+        "HF03"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": false,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-02",
+        "OP-03:R-OP03-03:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP03-03A",
+      "role": "GUARDRAIL",
+      "title": "Transferencia técnica ≠ continuidad informacional",
+      "historicalText": "El hecho de que un dato, archivo o registro haya sido transferido entre sistemas o áreas no demuestra que la información necesaria haya conservado contexto, significado o utilidad operacional.\nEsto protege especialmente la frontera con DT.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-03/canonical-baseline.json",
+        "objectKey": "R-OP03-03A",
+        "sourceLines": [
+          2393,
+          2395
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Transferencia técnica no acredita continuidad informacional",
+      "exceptionRefs": [
+        "EX-01",
+        "OP-03:R-OP03-03A:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP03-04",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Vacío de responsabilidad funcional E2E",
+      "historicalText": "Activar cuando:\n- aparece un problema material que cruza fronteras;\n- ninguna parte tiene responsabilidad suficiente para sostenerlo hasta su resolución;\n- el problema queda “entre áreas”, se devuelve o se escala repetidamente;\n- y esto deteriora el resultado E2E.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-03/canonical-baseline.json",
+        "objectKey": "R-OP03-04",
+        "sourceLines": [
+          2398,
+          2403
+        ]
+      },
+      "conditionRefs": [
+        "CE03"
+      ],
+      "variableRefs": [
+        "VA04"
+      ],
+      "hfReferences": [
+        "HF04"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": false,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-06",
+        "OP-03:R-OP03-04:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP03-05",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Decisiones interdependientes incoherentes",
+      "historicalText": "Activar cuando:\n- una decisión tomada en una parte del flujo tiene consecuencias materiales en otra;\n- quien decide no incorpora suficientemente restricciones o información relevante downstream/upstream;\n- y se genera impacto material recurrente.\nEjemplo:\nVentas compromete un plazo que Operaciones no puede cumplir bajo las condiciones conocidas.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-03/canonical-baseline.json",
+        "objectKey": "R-OP03-05",
+        "sourceLines": [
+          2409,
+          2415
+        ]
+      },
+      "conditionRefs": [
+        "CE03"
+      ],
+      "variableRefs": [
+        "VA05"
+      ],
+      "hfReferences": [
+        "HF05"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": false,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-06",
+        "OP-03:R-OP03-05:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP03-06",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Suboptimización local",
+      "historicalText": "Activar cuando:\n- una función/unidad cumple o mejora su propio objetivo;\n- pero esa lógica genera deterioro material en el resultado E2E;\n- y el patrón responde a prioridades, métricas o incentivos locales.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-03/canonical-baseline.json",
+        "objectKey": "R-OP03-06",
+        "sourceLines": [
+          2420,
+          2424
+        ]
+      },
+      "conditionRefs": [
+        "CE03"
+      ],
+      "variableRefs": [
+        "VA06"
+      ],
+      "hfReferences": [
+        "HF06"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": false,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-06",
+        "OP-03:R-OP03-06:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP03-06A",
+      "role": "GUARDRAIL",
+      "title": "Tensión local ≠ suboptimización automática",
+      "historicalText": "No activar solo porque dos áreas tengan objetivos diferentes.\nDiferentes objetivos pueden coexistir funcionalmente.\nSe necesita:\n- conflicto material;\n- recurrencia o patrón;\n- impacto E2E.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-03/canonical-baseline.json",
+        "objectKey": "R-OP03-06A",
+        "sourceLines": [
+          2433,
+          2439
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Objetivos distintos no demuestran suboptimización",
+      "exceptionRefs": [
+        "EX-01",
+        "OP-03:R-OP03-06A:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP03-07",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Visibilidad E2E insuficiente",
+      "historicalText": "Activar cuando:\n- cada parte puede ver su tramo;\n- pero el estado transversal del caso/resultado no puede conocerse suficientemente;\n- localizar un bloqueo requiere reconstrucción manual excesiva;\n- o las excepciones quedan ocultas entre fronteras.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-03/canonical-baseline.json",
+        "objectKey": "R-OP03-07",
+        "sourceLines": [
+          2442,
+          2447
+        ]
+      },
+      "conditionRefs": [
+        "CE04"
+      ],
+      "variableRefs": [
+        "VA07"
+      ],
+      "hfReferences": [
+        "HF07"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": false,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-02",
+        "OP-03:R-OP03-07:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP03-08",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Retroalimentación operacional rota",
+      "historicalText": "Activar cuando:\n- un problema o consecuencia aparece downstream;\n- la información relevante debería regresar upstream/transversalmente;\n- no llega, llega demasiado tarde o llega a quien no puede actuar;\n- y eso contribuye a repetición material del problema.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-03/canonical-baseline.json",
+        "objectKey": "R-OP03-08",
+        "sourceLines": [
+          2453,
+          2458
+        ]
+      },
+      "conditionRefs": [
+        "CE04"
+      ],
+      "variableRefs": [
+        "VA08"
+      ],
+      "hfReferences": [
+        "HF08"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": false,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-02",
+        "OP-03:R-OP03-08:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    }
+  ],
+  "exceptions": [
+    {
+      "exceptionId": "OP-03:R-OP03-00:PARTICULAR",
+      "scope": "OP-03",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP03-00"
+      ],
+      "description": "Clasificar como guardrail; no producir hallazgo",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-03:R-OP03-01:PARTICULAR",
+      "scope": "OP-03",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP03-01"
+      ],
+      "description": "Aprobar condición de decisión y suficiencia por caso; no inferir predicado",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-03:R-OP03-02:PARTICULAR",
+      "scope": "OP-03",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP03-02"
+      ],
+      "description": "Aprobar condición de decisión y suficiencia por caso; no inferir predicado",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-03:R-OP03-03:PARTICULAR",
+      "scope": "OP-03",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP03-03"
+      ],
+      "description": "Aprobar condición de decisión y suficiencia por caso; no inferir predicado",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-03:R-OP03-03A:PARTICULAR",
+      "scope": "OP-03",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP03-03A"
+      ],
+      "description": "Clasificar como guardrail; no producir hallazgo",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-03:R-OP03-04:PARTICULAR",
+      "scope": "OP-03",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP03-04"
+      ],
+      "description": "Relación E2E/causalidad: exigir evidencia y atribución independiente",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-03:R-OP03-05:PARTICULAR",
+      "scope": "OP-03",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP03-05"
+      ],
+      "description": "Relación E2E/causalidad: exigir evidencia y atribución independiente",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-03:R-OP03-06:PARTICULAR",
+      "scope": "OP-03",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP03-06"
+      ],
+      "description": "Relación E2E/causalidad: exigir evidencia y atribución independiente",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-03:R-OP03-06A:PARTICULAR",
+      "scope": "OP-03",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP03-06A"
+      ],
+      "description": "Clasificar como guardrail; no producir hallazgo",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-03:R-OP03-07:PARTICULAR",
+      "scope": "OP-03",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP03-07"
+      ],
+      "description": "Aprobar condición de decisión y suficiencia por caso; no inferir predicado",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-03:R-OP03-08:PARTICULAR",
+      "scope": "OP-03",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP03-08"
+      ],
+      "description": "Aprobar condición de decisión y suficiencia por caso; no inferir predicado",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "EX-01",
+      "scope": "OP-03, OP-04, OP-05",
+      "kind": "PATTERN",
+      "ruleIds": [
+        "R-OP03-00",
+        "R-OP03-03A",
+        "R-OP03-06A"
+      ],
+      "description": "Reglas con rol de guardrail o restricción; no toda R es una brecha",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "EX-02",
+      "scope": "Tres capacidades",
+      "kind": "PATTERN",
+      "ruleIds": [
+        "R-OP03-01",
+        "R-OP03-02",
+        "R-OP03-03",
+        "R-OP03-07",
+        "R-OP03-08"
+      ],
+      "description": "Suficiencia y predicado no formalizados como contrato técnico",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "EX-03",
+      "scope": "Reglas sin vínculo individual",
+      "kind": "PATTERN",
+      "ruleIds": [],
+      "description": "Vínculo R–HF no identificado en K4",
+      "authority": "Conocimiento / Gobierno si se requiere vínculo nuevo",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "EX-06",
+      "scope": "OP-03",
+      "kind": "PATTERN",
+      "ruleIds": [
+        "R-OP03-04",
+        "R-OP03-05",
+        "R-OP03-06"
+      ],
+      "description": "Atribución causal, continuidad informacional y tensión local",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "EX-07",
+      "scope": "Tres capacidades",
+      "kind": "ACQUISITION",
+      "ruleIds": [],
+      "description": "Preguntas de adquisición por regla no verificadas como binding aprobado",
+      "authority": "Conocimiento + Arquitectura (mapeo técnico)",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "EX-08",
+      "scope": "Tres capacidades",
+      "kind": "PATTERN",
+      "ruleIds": [],
+      "description": "Estructuras del Engine/Pack no contienen reglas ni findings publicados",
+      "authority": "Arquitectura; Gate 02; Gobierno para autorización",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "EX-09",
+      "scope": "Tres capacidades",
+      "kind": "PATTERN",
+      "ruleIds": [],
+      "description": "IA y automatización diagnóstica sin autorización",
+      "authority": "Gobierno / autoridad SEM-QA-01",
+      "status": "PENDING"
+    }
+  ],
+  "counts": {
+    "rules": 11,
+    "diagnostic": 8,
+    "guardrails": 3,
+    "withHfReference": 8,
+    "composite": 0,
+    "exceptions": 18,
+    "executable": 0,
+    "emitted": 0
+  },
+  "checksum": "sha256:70013bcd2ccd98d58cc42ffb6568bbd49741dd32d80b814af4440d89240486a5"
+}

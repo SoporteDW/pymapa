@@ -1,0 +1,1014 @@
+{
+  "contract": "PYMAPA-DIAGNOSTIC-TRANSLATION-CANDIDATE",
+  "contractVersion": "0.1.0",
+  "capabilityId": "OP-04",
+  "status": "STAGING_CANDIDATE_NOT_EXECUTABLE",
+  "publicationAuthorized": false,
+  "provenance": {
+    "baselinePath": "knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json",
+    "baselineChecksum": "sha256:711b804cf0b7341730ea7159c6f375ba7b0584602b462206cf18f4408c2ffc07",
+    "historicalVersion": "OP04-K4-v1.0",
+    "semanticInputId": "KNOW-EXEC-03-S",
+    "semanticInputSha256": "042b19d832673ad745fc918af29741e07998c8bb98886ce488cd614703172c76",
+    "publishedPackPath": "knowledge/packs/op-04/1.0.0/pack.json",
+    "publishedPackChecksum": "sha256:df9600bf997b5234dcfc2dbb8c3bdf34ba711aababe4e5d4a4e39906e31c655c"
+  },
+  "rules": [
+    {
+      "ruleId": "R-OP04-00",
+      "role": "GUARDRAIL",
+      "title": "Fricción no determina intervención",
+      "historicalText": "La existencia de trabajo manual, repetitivo, complejo o costoso no determina por sí misma que deba automatizarse.\nEsta debe ser la regla cero.\nPorque evita:\nproblema → tecnología\nsin pasar por razonamiento.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json",
+        "objectKey": "R-OP04-00",
+        "sourceLines": [
+          2236,
+          2241
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Fricción no determina automáticamente intervención",
+      "exceptionRefs": [
+        "EX-01",
+        "OP-04:R-OP04-00:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP04-01",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Trabajo sin necesidad funcional material vigente",
+      "historicalText": "Se activa cuando existe evidencia suficiente de que:\n- una actividad consume esfuerzo;\n- su propósito original desapareció o ya está cubierto;\n- no protege resultado, control, requisito o riesgo material;\n- eliminarla no introduce consecuencia adversa relevante conocida.\nInferencia:\nUNNECESSARY_WORK\nDirección candidata:\nELIMINATE\nPero con un guardrail.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json",
+        "objectKey": "R-OP04-01",
+        "sourceLines": [
+          2245,
+          2255
+        ]
+      },
+      "conditionRefs": [
+        "CE01"
+      ],
+      "variableRefs": [
+        "VA01"
+      ],
+      "hfReferences": [
+        "HF01"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": false,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-02",
+        "OP-04:R-OP04-01:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP04-01A",
+      "role": "GUARDRAIL",
+      "title": "R-OP04-01A",
+      "historicalText": "Ausencia de una razón conocida ≠ evidencia suficiente de innecesariedad.\nSi nadie sabe por qué existe:\nINVESTIGATE.\nNo:\neliminar.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json",
+        "objectKey": "R-OP04-01A",
+        "sourceLines": [
+          2256,
+          2261
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrail histórico: leer cuerpo K4; no inferir condición",
+      "exceptionRefs": [
+        "EX-01",
+        "OP-04:R-OP04-01A:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP04-02",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Repetición funcionalmente evitable",
+      "historicalText": "Se activa cuando:\n- trabajo equivalente se realiza nuevamente;\n- la repetición es material;\n- no cumple una función independiente necesaria;\n- existe evidencia razonable de que puede evitarse.\nEjemplos:\ndoble digitación;\nreconstrucción de información;\nconciliación causada por múltiples registros equivalentes;\ncorrección recurrente.\nInferencia:\nAVOIDABLE_REDUNDANCY_REWORK\nDirección:\neliminar causa / reutilizar / integrar / simplificar.\nNo automáticamente:\nautomatizar el retrabajo.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json",
+        "objectKey": "R-OP04-02",
+        "sourceLines": [
+          2265,
+          2281
+        ]
+      },
+      "conditionRefs": [
+        "CE01"
+      ],
+      "variableRefs": [
+        "VA02"
+      ],
+      "hfReferences": [
+        "HF02"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": false,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-02",
+        "OP-04:R-OP04-02:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP04-02A",
+      "role": "GUARDRAIL",
+      "title": "Retrabajo ≠ causa",
+      "historicalText": "El retrabajo puede originarse en:\n- OP-01 definición;\n- OP-02 ejecución;\n- OP-03 frontera/información;\n- DT;\n- PC;\n- otra causa.\nPor tanto:\nOP-04 puede diagnosticar trabajo evitable sin afirmar automáticamente qué originó ese trabajo.\nEsto preserva nuestra arquitectura causal.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json",
+        "objectKey": "R-OP04-02A",
+        "sourceLines": [
+          2284,
+          2294
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Retrabajo no demuestra por sí solo su causa",
+      "exceptionRefs": [
+        "EX-01",
+        "OP-04:R-OP04-02A:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP04-03",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Complejidad superior a la funcionalmente necesaria",
+      "historicalText": "Se activa cuando:\n- existen pasos, aprobaciones, transferencias, esperas, variantes o controles materiales;\n- parte de esa complejidad no es necesaria para cumplir el propósito;\n- puede reducirse razonablemente sin introducir perjuicio material.\nInferencia:\nAVOIDABLE_COMPLEXITY\nDirección:\nSIMPLIFY / COMBINE / REARRANGE / ELIMINATE",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json",
+        "objectKey": "R-OP04-03",
+        "sourceLines": [
+          2298,
+          2306
+        ]
+      },
+      "conditionRefs": [
+        "CE01"
+      ],
+      "variableRefs": [
+        "VA03"
+      ],
+      "hfReferences": [
+        "HF03"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": false,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-02",
+        "OP-04:R-OP04-03:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP04-03A",
+      "role": "GUARDRAIL",
+      "title": "R-OP04-03A",
+      "historicalText": "Mayor cantidad de pasos ≠ complejidad evitable.\nUn proceso con doce pasos puede estar correctamente diseñado.\nOtro con tres puede ser absurdamente complejo.\nEl Motor debe entender:\nnecesidad relativa, no contar pasos.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json",
+        "objectKey": "R-OP04-03A",
+        "sourceLines": [
+          2309,
+          2314
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrail histórico: leer cuerpo K4; no inferir condición",
+      "exceptionRefs": [
+        "EX-01",
+        "OP-04:R-OP04-03A:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP04-04",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Recurrencia o esfuerzo acumulado materialmente automatizable",
+      "historicalText": "Se activa cuando existe suficiente:\n- recurrencia;\n- volumen;\n- esfuerzo acumulado;\n- reutilización;\n- crecimiento esperado,\npara que delegar trabajo pueda producir un beneficio material.\nInferencia:\nAUTOMATION_LEVERAGE_PRESENT\nPero:",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json",
+        "objectKey": "R-OP04-04",
+        "sourceLines": [
+          2318,
+          2328
+        ]
+      },
+      "conditionRefs": [
+        "CE02"
+      ],
+      "variableRefs": [
+        "VA04"
+      ],
+      "hfReferences": [
+        "HF04"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": true,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-04",
+        "OP-04:R-OP04-04:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP04-04A",
+      "role": "GUARDRAIL",
+      "title": "R-OP04-04A",
+      "historicalText": "Bajo volumen ≠ baja oportunidad automáticamente.\nUn evento poco frecuente puede ser:\n- muy costoso;\n- muy lento;\n- crítico;\n- altamente riesgoso.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json",
+        "objectKey": "R-OP04-04A",
+        "sourceLines": [
+          2329,
+          2335
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrail histórico: leer cuerpo K4; no inferir condición",
+      "exceptionRefs": [
+        "EX-01",
+        "OP-04:R-OP04-04A:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP04-05",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Trabajo suficientemente determinable",
+      "historicalText": "Se activa cuando:\n- inputs son suficientemente identificables;\n- outputs esperados son suficientemente verificables;\n- reglas/patrones pueden describirse;\n- existe información utilizable;\n- comportamiento aceptable puede gobernarse.\nInferencia:\nAUTOMATION_DETERMINABILITY_SUPPORTED\nNo significa todavía:\nautomatización total.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json",
+        "objectKey": "R-OP04-05",
+        "sourceLines": [
+          2339,
+          2349
+        ]
+      },
+      "conditionRefs": [
+        "CE02"
+      ],
+      "variableRefs": [
+        "VA05"
+      ],
+      "hfReferences": [
+        "HF04"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": true,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-04",
+        "OP-04:R-OP04-05:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP04-06",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Autonomía limitada por variabilidad o juicio material",
+      "historicalText": "Se activa cuando:\n- existen excepciones relevantes;\n- hay ambigüedad material;\n- decisiones dependen de contexto;\n- consecuencias requieren juicio;\n- el mecanismo no puede gobernar suficientemente todas las situaciones.\nInferencia:\nAUTONOMY_CONSTRAINT\nEsto modifica la arquitectura candidata:\nFull Automation\n↓\nAutomation + Exceptions\n↓\nHuman-in-the-loop\n↓\nAssistance\n↓\nKeep Manual\nNo es una escala de madurez.\nEs una decisión de diseño.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json",
+        "objectKey": "R-OP04-06",
+        "sourceLines": [
+          2365,
+          2385
+        ]
+      },
+      "conditionRefs": [
+        "CE02"
+      ],
+      "variableRefs": [
+        "VA06"
+      ],
+      "hfReferences": [
+        "HF04",
+        "HF06"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": true,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-04",
+        "OP-04:R-OP04-06:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP04-06A",
+      "role": "GUARDRAIL",
+      "title": "R-OP04-06A",
+      "historicalText": "Capacidad técnica de un modelo para producir una respuesta ≠ evidencia suficiente para delegarle autónomamente la decisión o acción.\nNecesitamos además:\n- calidad suficiente;\n- verificabilidad;\n- impacto;\n- supervisión;\n- reversibilidad;\n- gobernabilidad.\nEste guardrail será cada vez más importante.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json",
+        "objectKey": "R-OP04-06A",
+        "sourceLines": [
+          2388,
+          2397
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Capacidad técnica IA no autoriza autonomía",
+      "exceptionRefs": [
+        "EX-01",
+        "OP-04:R-OP04-06A:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP04-07",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Valor material de intervención",
+      "historicalText": "Se activa cuando existe evidencia suficiente de beneficio material en uno o más de:\n- tiempo;\n- capacidad;\n- costo;\n- calidad;\n- error;\n- velocidad;\n- riesgo;\n- experiencia;\n- escalabilidad.\nInferencia:\nMATERIAL_INTERVENTION_VALUE\nNo requiere monetización.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json",
+        "objectKey": "R-OP04-07",
+        "sourceLines": [
+          2401,
+          2414
+        ]
+      },
+      "conditionRefs": [
+        "CE03"
+      ],
+      "variableRefs": [
+        "VA07"
+      ],
+      "hfReferences": [
+        "HF04"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": true,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-04",
+        "OP-04:R-OP04-07:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP04-07A",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "R-OP04-07A",
+      "historicalText": "Puede existir:\nsimplificación o automatización técnicamente posible,\npero:\nbeneficio material insuficiente.\nInferencia:\nLOW_VALUE_OPPORTUNITY\nDirección:\nNO_ACTION / DEFER\nEsto es un resultado diagnóstico válido.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json",
+        "objectKey": "R-OP04-07A",
+        "sourceLines": [
+          2417,
+          2426
+        ]
+      },
+      "conditionRefs": [
+        "CE03"
+      ],
+      "variableRefs": [
+        "VA07"
+      ],
+      "hfReferences": [
+        "HF05"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": true,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-04",
+        "OP-04:R-OP04-07A:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP04-08",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Solución desproporcionada o difícilmente sostenible",
+      "historicalText": "Se activa cuando implementación u operación requieren recursos, dependencias o complejidad desproporcionados respecto del valor esperado/contexto.\nInferencia:\nSOLUTION_SUSTAINABILITY_CONSTRAINT\nPuede producir:\nsimplificación alternativa;\nsolución menor;\ndiferir;\nmantener manual;\nderivación tecnológica.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json",
+        "objectKey": "R-OP04-08",
+        "sourceLines": [
+          2430,
+          2439
+        ]
+      },
+      "conditionRefs": [
+        "CE03"
+      ],
+      "variableRefs": [
+        "VA08"
+      ],
+      "hfReferences": [
+        "HF05"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": true,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-04",
+        "OP-04:R-OP04-08:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP04-08A",
+      "role": "GUARDRAIL",
+      "title": "R-OP04-08A",
+      "historicalText": "Inversión tecnológica previa o disponibilidad de una herramienta ≠ pertinencia de utilizarla para una intervención concreta.\nMuy importante comercialmente.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json",
+        "objectKey": "R-OP04-08A",
+        "sourceLines": [
+          2445,
+          2447
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Herramienta disponible no demuestra pertinencia",
+      "exceptionRefs": [
+        "EX-01",
+        "OP-04:R-OP04-08A:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP04-09",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Automatización insuficientemente gobernable",
+      "historicalText": "Se activa cuando:\n- consecuencia de error es material;\n- error puede pasar inadvertido;\n- reversibilidad es baja;\n- supervisión es insuficiente;\n- trazabilidad requerida no está disponible;\n- autonomía propuesta excede control razonable.\nInferencia:\nAUTOMATION_GOVERNANCE_CONSTRAINT\nDirección:\nreducir autonomía / añadir control / human-in-the-loop / mantener humano / derivar.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json",
+        "objectKey": "R-OP04-09",
+        "sourceLines": [
+          2451,
+          2462
+        ]
+      },
+      "conditionRefs": [
+        "CE03"
+      ],
+      "variableRefs": [
+        "VA09"
+      ],
+      "hfReferences": [
+        "HF06"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": true,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-04",
+        "OP-04:R-OP04-09:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP04-09A",
+      "role": "GUARDRAIL",
+      "title": "R-OP04-09A",
+      "historicalText": "A mayor consecuencia potencial de error, mayor evidencia y gobernabilidad requeridas para recomendar autonomía.\nEsto operacionaliza P-OP04-13.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json",
+        "objectKey": "R-OP04-09A",
+        "sourceLines": [
+          2465,
+          2467
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Mayor consecuencia exige mayor evidencia y gobernabilidad",
+      "exceptionRefs": [
+        "EX-01",
+        "OP-04:R-OP04-09A:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP04-10",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Automatización prematura",
+      "historicalText": "Se activa cuando:\n- existe automatización candidata;\n- pero VA01–03 muestran trabajo eliminable/redundante/complejidad evitable material;\n- automatizar sin corregirlo preservaría materialmente esa fricción.\nInferencia:\nPREMATURE_AUTOMATION\nDirección:\nsimplificar primero o rediseñar conjuntamente.\nEsto merece ser una regla adicional transversal, aunque no corresponde a una VA independiente.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json",
+        "objectKey": "R-OP04-10",
+        "sourceLines": [
+          2629,
+          2638
+        ]
+      },
+      "conditionRefs": [
+        "CE01"
+      ],
+      "variableRefs": [
+        "VA01–VA03"
+      ],
+      "hfReferences": [
+        "HF07"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": true,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-04",
+        "OP-04:R-OP04-10:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP04-11",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Sobreautomatización",
+      "historicalText": "Se activa cuando:\n- automatización técnicamente posible;\n- beneficio marginal bajo;\n- costo/complexity/risk material;\n- alternativa más simple suficiente.\nInferencia:\nOVERAUTOMATION_RISK\nDirección:\nsolución menor / mantener manual / no acción.\nEsto captura el corazón de “pertinente”.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json",
+        "objectKey": "R-OP04-11",
+        "sourceLines": [
+          2642,
+          2652
+        ]
+      },
+      "conditionRefs": [
+        "CE03"
+      ],
+      "variableRefs": [
+        "VA07–VA09"
+      ],
+      "hfReferences": [
+        "HF05"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": true,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-04",
+        "OP-04:R-OP04-11:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP04-12",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Intervención insuficiente",
+      "historicalText": "Se activa cuando:\nla automatización propuesta no aborda suficientemente la fuente material de fricción u oportunidad.\nInferencia:\nINSUFFICIENT_INTERVENTION_SCOPE\nEsto será importante después en intervención.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json",
+        "objectKey": "R-OP04-12",
+        "sourceLines": [
+          2660,
+          2665
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [
+        "No especificada por vínculo HF"
+      ],
+      "hfReferences": [
+        "HF07 (eventual)"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": true,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-04",
+        "OP-04:R-OP04-12:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    }
+  ],
+  "exceptions": [
+    {
+      "exceptionId": "OP-04:R-OP04-00:PARTICULAR",
+      "scope": "OP-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP04-00"
+      ],
+      "description": "Clasificar como guardrail; no producir hallazgo",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-04:R-OP04-01:PARTICULAR",
+      "scope": "OP-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP04-01"
+      ],
+      "description": "Aprobar condición de decisión y suficiencia por caso; no inferir predicado",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-04:R-OP04-01A:PARTICULAR",
+      "scope": "OP-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP04-01A"
+      ],
+      "description": "Clasificar como guardrail; no producir hallazgo",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-04:R-OP04-02:PARTICULAR",
+      "scope": "OP-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP04-02"
+      ],
+      "description": "Aprobar condición de decisión y suficiencia por caso; no inferir predicado",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-04:R-OP04-02A:PARTICULAR",
+      "scope": "OP-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP04-02A"
+      ],
+      "description": "Clasificar como guardrail; no producir hallazgo",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-04:R-OP04-03:PARTICULAR",
+      "scope": "OP-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP04-03"
+      ],
+      "description": "Aprobar condición de decisión y suficiencia por caso; no inferir predicado",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-04:R-OP04-03A:PARTICULAR",
+      "scope": "OP-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP04-03A"
+      ],
+      "description": "Clasificar como guardrail; no producir hallazgo",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-04:R-OP04-04:PARTICULAR",
+      "scope": "OP-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP04-04"
+      ],
+      "description": "Consolidación multirregla / alternativa / positivo; decisión compuesta pendiente",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-04:R-OP04-04A:PARTICULAR",
+      "scope": "OP-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP04-04A"
+      ],
+      "description": "Clasificar como guardrail; no producir hallazgo",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-04:R-OP04-05:PARTICULAR",
+      "scope": "OP-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP04-05"
+      ],
+      "description": "Consolidación multirregla / alternativa / positivo; decisión compuesta pendiente",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-04:R-OP04-06:PARTICULAR",
+      "scope": "OP-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP04-06"
+      ],
+      "description": "Consolidación multirregla / alternativa / positivo; decisión compuesta pendiente",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-04:R-OP04-06A:PARTICULAR",
+      "scope": "OP-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP04-06A"
+      ],
+      "description": "Clasificar como guardrail; no producir hallazgo",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-04:R-OP04-07:PARTICULAR",
+      "scope": "OP-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP04-07"
+      ],
+      "description": "Consolidación multirregla / alternativa / positivo; decisión compuesta pendiente",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-04:R-OP04-07A:PARTICULAR",
+      "scope": "OP-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP04-07A"
+      ],
+      "description": "Consolidación multirregla / alternativa / positivo; decisión compuesta pendiente",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-04:R-OP04-08:PARTICULAR",
+      "scope": "OP-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP04-08"
+      ],
+      "description": "Consolidación multirregla / alternativa / positivo; decisión compuesta pendiente",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-04:R-OP04-08A:PARTICULAR",
+      "scope": "OP-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP04-08A"
+      ],
+      "description": "Clasificar como guardrail; no producir hallazgo",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-04:R-OP04-09:PARTICULAR",
+      "scope": "OP-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP04-09"
+      ],
+      "description": "Consolidación multirregla / alternativa / positivo; decisión compuesta pendiente",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-04:R-OP04-09A:PARTICULAR",
+      "scope": "OP-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP04-09A"
+      ],
+      "description": "Clasificar como guardrail; no producir hallazgo",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-04:R-OP04-10:PARTICULAR",
+      "scope": "OP-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP04-10"
+      ],
+      "description": "Consolidación multirregla / alternativa / positivo; decisión compuesta pendiente",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-04:R-OP04-11:PARTICULAR",
+      "scope": "OP-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP04-11"
+      ],
+      "description": "Consolidación multirregla / alternativa / positivo; decisión compuesta pendiente",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-04:R-OP04-12:PARTICULAR",
+      "scope": "OP-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP04-12"
+      ],
+      "description": "Consolidación multirregla / alternativa / positivo; decisión compuesta pendiente",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "EX-01",
+      "scope": "OP-03, OP-04, OP-05",
+      "kind": "PATTERN",
+      "ruleIds": [
+        "R-OP04-00",
+        "R-OP04-01A",
+        "R-OP04-02A",
+        "R-OP04-03A",
+        "R-OP04-04A",
+        "R-OP04-06A",
+        "R-OP04-08A",
+        "R-OP04-09A"
+      ],
+      "description": "Reglas con rol de guardrail o restricción; no toda R es una brecha",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "EX-02",
+      "scope": "Tres capacidades",
+      "kind": "PATTERN",
+      "ruleIds": [
+        "R-OP04-01",
+        "R-OP04-02",
+        "R-OP04-03"
+      ],
+      "description": "Suficiencia y predicado no formalizados como contrato técnico",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "EX-03",
+      "scope": "Reglas sin vínculo individual",
+      "kind": "PATTERN",
+      "ruleIds": [],
+      "description": "Vínculo R–HF no identificado en K4",
+      "authority": "Conocimiento / Gobierno si se requiere vínculo nuevo",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "EX-04",
+      "scope": "OP-04",
+      "kind": "PATTERN",
+      "ruleIds": [
+        "R-OP04-04",
+        "R-OP04-05",
+        "R-OP04-06",
+        "R-OP04-07",
+        "R-OP04-07A",
+        "R-OP04-08",
+        "R-OP04-09",
+        "R-OP04-10",
+        "R-OP04-11",
+        "R-OP04-12"
+      ],
+      "description": "HF04/HF05/HF06/HF07 requieren combinación de reglas, alternativas y evidencia afirmativa",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "EX-07",
+      "scope": "Tres capacidades",
+      "kind": "ACQUISITION",
+      "ruleIds": [],
+      "description": "Preguntas de adquisición por regla no verificadas como binding aprobado",
+      "authority": "Conocimiento + Arquitectura (mapeo técnico)",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "EX-08",
+      "scope": "Tres capacidades",
+      "kind": "PATTERN",
+      "ruleIds": [],
+      "description": "Estructuras del Engine/Pack no contienen reglas ni findings publicados",
+      "authority": "Arquitectura; Gate 02; Gobierno para autorización",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "EX-09",
+      "scope": "Tres capacidades",
+      "kind": "PATTERN",
+      "ruleIds": [],
+      "description": "IA y automatización diagnóstica sin autorización",
+      "authority": "Gobierno / autoridad SEM-QA-01",
+      "status": "PENDING"
+    }
+  ],
+  "counts": {
+    "rules": 21,
+    "diagnostic": 13,
+    "guardrails": 8,
+    "withHfReference": 13,
+    "composite": 10,
+    "exceptions": 28,
+    "executable": 0,
+    "emitted": 0
+  },
+  "checksum": "sha256:53f0bc2d146a93715d562bd4dbb97170bbff7a945be9803868683cea2e646f7e"
+}
