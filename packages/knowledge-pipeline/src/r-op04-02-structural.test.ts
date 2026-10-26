@@ -30,7 +30,7 @@ const baselineQuestion = baseline.objects.find((o: { key: string }) => o.key ===
 
 describe("KNOW-EXEC-08-B · R-OP04-02 estructural (S01–S10)", () => {
   it("S01 · el artefacto valida contra el contrato D1–D4 completo", () => {
-    const parsed = rOp0402StructuralArtifactSchema.safeParse(artifact);
+    const parsed = structuralRuleArtifactSchema.safeParse(artifact);
     expect(parsed.success).toBe(true);
     expect(artifact.status).toBe("STRUCTURAL_CANDIDATE_NOT_EXECUTABLE");
   });
