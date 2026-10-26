@@ -9,18 +9,18 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
 import {
-  rOp0402StructuralArtifactSchema,
+  structuralRuleArtifactSchema,
   diagnosticEntrySchema,
   conditionDescriptorSchema,
   structuralDecisionResultSchema,
   findingAuthorizationDescriptorSchema,
   SEMANTIC_DECISION_STATES,
   TECHNICAL_CONTROL_STATE,
-  type ROp0402StructuralArtifact,
+  type StructuralRuleArtifact,
 } from "@pymapa/knowledge-schema";
 
 const ARTIFACT_PATH = "knowledge/staging/OP-04/r-op04-02-structural.json";
-const artifact = JSON.parse(readFileSync(ARTIFACT_PATH, "utf8")) as ROp0402StructuralArtifact;
+const artifact = JSON.parse(readFileSync(ARTIFACT_PATH, "utf8")) as StructuralRuleArtifact;
 const baseline = JSON.parse(
   readFileSync("knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json", "utf8"),
 );
