@@ -1,0 +1,641 @@
+{
+  "contract": "PYMAPA-DIAGNOSTIC-TRANSLATION-CANDIDATE",
+  "contractVersion": "0.1.0",
+  "capabilityId": "OP-05",
+  "status": "STAGING_CANDIDATE_NOT_EXECUTABLE",
+  "publicationAuthorized": false,
+  "provenance": {
+    "baselinePath": "knowledge/master/v1.0/capabilities/OP-05/canonical-baseline.json",
+    "baselineChecksum": "sha256:5012dd5e604085ce748fb6eb44a98a5353fc887da5fb948af075b5f392034c40",
+    "historicalVersion": "OP05-K4-v1.0",
+    "semanticInputId": "KNOW-EXEC-03-S",
+    "semanticInputSha256": "042b19d832673ad745fc918af29741e07998c8bb98886ce488cd614703172c76",
+    "publishedPackPath": "knowledge/packs/op-05/1.0.0/pack.json",
+    "publishedPackChecksum": "sha256:5a7483eb61582bb7fef8ebe364ebc2249fe6a4d563567e1c97d9d2b6afdbe236"
+  },
+  "rules": [
+    {
+      "ruleId": "R-OP05-01",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Resultado insuficientemente definido",
+      "historicalText": "Si:\n- iniciativa existe;\n- actividades/solución conocidas;\n- pero estado objetivo o resultado esperado no es suficientemente claro;\nentonces:\nUNCLEAR_IMPLEMENTATION_TARGET\nDirección:\nclarificar antes de escalar ejecución.\nGuardrail:\nlista de tareas ≠ objetivo.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-05/canonical-baseline.json",
+        "objectKey": "R-OP05-01",
+        "sourceLines": [
+          507,
+          517
+        ]
+      },
+      "conditionRefs": [
+        "CE01"
+      ],
+      "variableRefs": [
+        "VA01"
+      ],
+      "hfReferences": [
+        "HF01"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": true,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-05",
+        "OP-05:R-OP05-01:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP05-02",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Alcance o terminación ambiguos",
+      "historicalText": "Si:\n- no se distingue suficientemente qué entra;\n- qué queda fuera;\n- o qué condición significa terminado;\nentonces:\nAMBIGUOUS_SCOPE_OR_DONE\nConsecuencia:\nexpansión, cierre prematuro, trabajo indefinido.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-05/canonical-baseline.json",
+        "objectKey": "R-OP05-02",
+        "sourceLines": [
+          519,
+          527
+        ]
+      },
+      "conditionRefs": [
+        "CE01"
+      ],
+      "variableRefs": [
+        "VA02"
+      ],
+      "hfReferences": [
+        "HF01"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": true,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-05",
+        "OP-05:R-OP05-02:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP05-03",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Responsabilidad o autoridad insuficiente",
+      "historicalText": "Si:\n- decisiones no tienen dueño;\n- responsable carece de autoridad;\n- accountability está fragmentada;\nentonces:\nOWNERSHIP_DECISION_GAP\nNo significa:\n“necesita PMO”.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-05/canonical-baseline.json",
+        "objectKey": "R-OP05-03",
+        "sourceLines": [
+          529,
+          537
+        ]
+      },
+      "conditionRefs": [
+        "CE02"
+      ],
+      "variableRefs": [
+        "VA03"
+      ],
+      "hfReferences": [
+        "HF02"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": false,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-02",
+        "OP-05:R-OP05-03:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP05-04",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Capacidad de ejecución insuficiente",
+      "historicalText": "Si:\n- trabajo requerido supera materialmente tiempo, recursos o capacidades disponibles;\nentonces:\nEXECUTION_CAPACITY_CONSTRAINT\nPuede derivar:\n- PC;\n- financiero;\n- DT;\n- proveedor;\n- priorización.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-05/canonical-baseline.json",
+        "objectKey": "R-OP05-04",
+        "sourceLines": [
+          539,
+          549
+        ]
+      },
+      "conditionRefs": [
+        "CE02"
+      ],
+      "variableRefs": [
+        "VA04"
+      ],
+      "hfReferences": [
+        "HF03"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": false,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-02",
+        "OP-05:R-OP05-04:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP05-05",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Dependencia crítica no gestionada",
+      "historicalText": "Si:\n- avance depende de condición externa/interna material;\n- no está resuelta ni gestionada;\nentonces:\nCRITICAL_DEPENDENCY_BLOCK\nImportante:\ndependencia ≠ problema.\nEl problema es:\ndependencia material no gestionada.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-05/canonical-baseline.json",
+        "objectKey": "R-OP05-05",
+        "sourceLines": [
+          551,
+          560
+        ]
+      },
+      "conditionRefs": [
+        "CE02"
+      ],
+      "variableRefs": [
+        "VA05"
+      ],
+      "hfReferences": [
+        "HF04"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": false,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-02",
+        "OP-05:R-OP05-05:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP05-06",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Ruta de ejecución insuficiente",
+      "historicalText": "Si:\n- objetivo claro;\n- pero trabajo no tiene secuencia/próximos pasos/hitos suficientes;\nentonces:\nEXECUTION_PATH_GAP\nGuardrail:\nausencia de Gantt ≠ ausencia de plan.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-05/canonical-baseline.json",
+        "objectKey": "R-OP05-06",
+        "sourceLines": [
+          562,
+          569
+        ]
+      },
+      "conditionRefs": [
+        "CE03"
+      ],
+      "variableRefs": [
+        "VA06"
+      ],
+      "hfReferences": [
+        "HF05"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": true,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-05",
+        "OP-05:R-OP05-06:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP05-07",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Avance no suficientemente visible",
+      "historicalText": "Si:\n- no puede distinguirse avance real;\n- pendientes;\n- bloqueos;\n- evidencia;\nentonces:\nEXECUTION_VISIBILITY_GAP\nPuede existir mucho reporte y poca visibilidad real.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-05/canonical-baseline.json",
+        "objectKey": "R-OP05-07",
+        "sourceLines": [
+          571,
+          579
+        ]
+      },
+      "conditionRefs": [
+        "CE03"
+      ],
+      "variableRefs": [
+        "VA07"
+      ],
+      "hfReferences": [
+        "HF05"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": true,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-05",
+        "OP-05:R-OP05-07:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP05-08",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Desviaciones no gestionadas",
+      "historicalText": "Si:\n- riesgos/bloqueos/cambios aparecen;\n- pero no generan decisión/adaptación suficiente;\nentonces:\nADAPTATION_CONTROL_GAP\nGuardrail:\ncambiar el plan puede demostrar buena gestión.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-05/canonical-baseline.json",
+        "objectKey": "R-OP05-08",
+        "sourceLines": [
+          581,
+          588
+        ]
+      },
+      "conditionRefs": [
+        "CE03"
+      ],
+      "variableRefs": [
+        "VA08"
+      ],
+      "hfReferences": [
+        "HF05"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": true,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-05",
+        "OP-05:R-OP05-08:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP05-09",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Entrega sin implementación",
+      "historicalText": "Si:\n- solución/entregable producido;\n- pero no está activado, adoptado o incorporado al trabajo;\nentonces:\nDELIVERED_NOT_IMPLEMENTED\nEste probablemente será uno de los hallazgos más importantes de OP-05.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-05/canonical-baseline.json",
+        "objectKey": "R-OP05-09",
+        "sourceLines": [
+          590,
+          596
+        ]
+      },
+      "conditionRefs": [
+        "CE04"
+      ],
+      "variableRefs": [
+        "VA09"
+      ],
+      "hfReferences": [
+        "HF06"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": false,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-02",
+        "OP-05:R-OP05-09:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP05-10",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Cierre sin verificación",
+      "historicalText": "Si:\n- iniciativa se declara terminada;\n- pero no existe evidencia suficiente del Done funcional;\nentonces:\nUNVERIFIED_CLOSURE\nEjemplos:\n“proveedor entregó”.\n“capacitamos”.\n“software instalado”.\nNinguno demuestra por sí mismo implementación efectiva.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-05/canonical-baseline.json",
+        "objectKey": "R-OP05-10",
+        "sourceLines": [
+          598,
+          608
+        ]
+      },
+      "conditionRefs": [
+        "CE04"
+      ],
+      "variableRefs": [
+        "VA10"
+      ],
+      "hfReferences": [
+        "HF07"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": false,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-02",
+        "OP-05:R-OP05-10:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP05-11",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Iniciativa persistentemente abierta sin decisión",
+      "historicalText": "Si una iniciativa:\n- no avanza materialmente;\n- no está cancelada;\n- no está diferida de forma gobernada;\n- consume atención o permanece en backlog indefinidamente;\nentonces:\nUNRESOLVED_INITIATIVE_STATE\nDirecciones posibles:\nreactivar / redefinir / diferir / cancelar.\nCancelar puede ser una decisión correcta.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-05/canonical-baseline.json",
+        "objectKey": "R-OP05-11",
+        "sourceLines": [
+          615,
+          625
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [
+        "No especificada por vínculo HF"
+      ],
+      "hfReferences": [
+        "HF08"
+      ],
+      "hfLinkKind": "DOCUMENTAL_REFERENCE",
+      "composite": false,
+      "restrictions": "Respetar cuerpo histórico, límites de atribución, suficiencia y no automatizar HF",
+      "exceptionRefs": [
+        "EX-02",
+        "OP-05:R-OP05-11:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-OP05-11A",
+      "role": "GUARDRAIL",
+      "title": "R-OP05-11A",
+      "historicalText": "El esfuerzo o dinero ya invertido no constituye por sí mismo razón suficiente para continuar una iniciativa.\nMuy importante.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/OP-05/canonical-baseline.json",
+        "objectKey": "R-OP05-11A",
+        "sourceLines": [
+          628,
+          630
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Costo hundido no justifica continuar iniciativa",
+      "exceptionRefs": [
+        "EX-01",
+        "OP-05:R-OP05-11A:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    }
+  ],
+  "exceptions": [
+    {
+      "exceptionId": "OP-05:R-OP05-01:PARTICULAR",
+      "scope": "OP-05",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP05-01"
+      ],
+      "description": "Familia HF compuesta; evitar emisión por una sola regla",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-05:R-OP05-02:PARTICULAR",
+      "scope": "OP-05",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP05-02"
+      ],
+      "description": "Familia HF compuesta; evitar emisión por una sola regla",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-05:R-OP05-03:PARTICULAR",
+      "scope": "OP-05",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP05-03"
+      ],
+      "description": "Aprobar condición de decisión y suficiencia por caso; no inferir predicado",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-05:R-OP05-04:PARTICULAR",
+      "scope": "OP-05",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP05-04"
+      ],
+      "description": "Aprobar condición de decisión y suficiencia por caso; no inferir predicado",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-05:R-OP05-05:PARTICULAR",
+      "scope": "OP-05",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP05-05"
+      ],
+      "description": "Aprobar condición de decisión y suficiencia por caso; no inferir predicado",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-05:R-OP05-06:PARTICULAR",
+      "scope": "OP-05",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP05-06"
+      ],
+      "description": "Familia HF compuesta; evitar emisión por una sola regla",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-05:R-OP05-07:PARTICULAR",
+      "scope": "OP-05",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP05-07"
+      ],
+      "description": "Familia HF compuesta; evitar emisión por una sola regla",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-05:R-OP05-08:PARTICULAR",
+      "scope": "OP-05",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP05-08"
+      ],
+      "description": "Familia HF compuesta; evitar emisión por una sola regla",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-05:R-OP05-09:PARTICULAR",
+      "scope": "OP-05",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP05-09"
+      ],
+      "description": "Aprobar condición de decisión y suficiencia por caso; no inferir predicado",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-05:R-OP05-10:PARTICULAR",
+      "scope": "OP-05",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP05-10"
+      ],
+      "description": "Aprobar condición de decisión y suficiencia por caso; no inferir predicado",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-05:R-OP05-11:PARTICULAR",
+      "scope": "OP-05",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP05-11"
+      ],
+      "description": "Aprobar condición de decisión y suficiencia por caso; no inferir predicado",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "OP-05:R-OP05-11A:PARTICULAR",
+      "scope": "OP-05",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-OP05-11A"
+      ],
+      "description": "Clasificar como guardrail; no producir hallazgo",
+      "authority": "Autoridad de Conocimiento; Gobierno solo ante novedad normativa",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "EX-01",
+      "scope": "OP-03, OP-04, OP-05",
+      "kind": "PATTERN",
+      "ruleIds": [
+        "R-OP05-11A"
+      ],
+      "description": "Reglas con rol de guardrail o restricción; no toda R es una brecha",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "EX-02",
+      "scope": "Tres capacidades",
+      "kind": "PATTERN",
+      "ruleIds": [
+        "R-OP05-03",
+        "R-OP05-04",
+        "R-OP05-05",
+        "R-OP05-09",
+        "R-OP05-10",
+        "R-OP05-11"
+      ],
+      "description": "Suficiencia y predicado no formalizados como contrato técnico",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "EX-03",
+      "scope": "Reglas sin vínculo individual",
+      "kind": "PATTERN",
+      "ruleIds": [],
+      "description": "Vínculo R–HF no identificado en K4",
+      "authority": "Conocimiento / Gobierno si se requiere vínculo nuevo",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "EX-05",
+      "scope": "OP-05",
+      "kind": "PATTERN",
+      "ruleIds": [
+        "R-OP05-01",
+        "R-OP05-02",
+        "R-OP05-06",
+        "R-OP05-07",
+        "R-OP05-08"
+      ],
+      "description": "HF01 y HF05 agrupan varias reglas; riesgo de hallazgo automático aislado",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "EX-07",
+      "scope": "Tres capacidades",
+      "kind": "ACQUISITION",
+      "ruleIds": [],
+      "description": "Preguntas de adquisición por regla no verificadas como binding aprobado",
+      "authority": "Conocimiento + Arquitectura (mapeo técnico)",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "EX-08",
+      "scope": "Tres capacidades",
+      "kind": "PATTERN",
+      "ruleIds": [],
+      "description": "Estructuras del Engine/Pack no contienen reglas ni findings publicados",
+      "authority": "Arquitectura; Gate 02; Gobierno para autorización",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "EX-09",
+      "scope": "Tres capacidades",
+      "kind": "PATTERN",
+      "ruleIds": [],
+      "description": "IA y automatización diagnóstica sin autorización",
+      "authority": "Gobierno / autoridad SEM-QA-01",
+      "status": "PENDING"
+    }
+  ],
+  "counts": {
+    "rules": 12,
+    "diagnostic": 11,
+    "guardrails": 1,
+    "withHfReference": 11,
+    "composite": 5,
+    "exceptions": 19,
+    "executable": 0,
+    "emitted": 0
+  },
+  "checksum": "sha256:25b7e2656bce631165e0fd34d6d2d3b23a1b2a932c10ccf21a463ab62328f15e"
+}

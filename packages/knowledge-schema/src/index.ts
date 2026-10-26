@@ -1004,3 +1004,6 @@ export function parseKnowledgePack(raw: unknown): KnowledgePack {
   }
   return result.pack;
 }
+
+/* KNOW-EXEC-03 · Bloque A: contrato aditivo de candidatos de staging. */
+export * from "./staging.ts";
