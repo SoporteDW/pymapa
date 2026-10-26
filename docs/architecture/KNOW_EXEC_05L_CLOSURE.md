@@ -39,7 +39,7 @@ Categorías: recuperadas 152 (121 R + 31 G) · candidatas no ejecutables 152 · 
 ## 4. Pruebas
 - Lote 2: 9/9 PASS (conteos 121, no ejecución/binding/emisión/predicado, cero HF/VA/CE inferidos, DS-04, texto literal, STOP sin cuerpo, determinismo vs staging, independencia, aislamiento del registro).
 - Lote 1 (regresión KNOW-EXEC-03): 11/11 PASS; staging OP sin cambios.
-- `packages/knowledge-pipeline`: PASS salvo nada nuevo. `knowledge:validate`, `knowledge:factory:check`, `knowledge:seal:check`: PASS.
+- `knowledge:validate`, `knowledge:factory:check`, `knowledge:seal:check`: PASS.
 - Suite completa: único fallo preexistente `arquitectura.test.ts` (imports del piloto DG-01, ya reportado en KNOW-EXEC-03).
 
 ## 5. Integridad
