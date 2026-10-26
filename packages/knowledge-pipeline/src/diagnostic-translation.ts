@@ -89,7 +89,9 @@ export function translateCapability(input: TranslationInput): StagingCandidate {
         scope: capabilityId,
         kind: "MISSING_SOURCE",
         ruleIds: [ruleId],
-        description: "La regla de la matriz no existe en el baseline canónico; no se reconstruye.",
+        description: obj
+          ? "El objeto existe en el baseline canónico pero sin cuerpo textual recuperado; no se reconstruye."
+          : "La regla de la matriz no existe en el baseline canónico; no se reconstruye.",
         authority: "Autoridad de Conocimiento",
         status: "PENDING",
       });

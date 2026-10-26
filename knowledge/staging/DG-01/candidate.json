@@ -1,0 +1,589 @@
+{
+  "contract": "PYMAPA-DIAGNOSTIC-TRANSLATION-CANDIDATE",
+  "contractVersion": "0.1.0",
+  "capabilityId": "DG-01",
+  "status": "STAGING_CANDIDATE_NOT_EXECUTABLE",
+  "publicationAuthorized": false,
+  "provenance": {
+    "baselinePath": "knowledge/master/v1.0/capabilities/DG-01/canonical-baseline.json",
+    "baselineChecksum": "sha256:3f6de9b97d68b94e548beb9f9c47026c6bb717b2f799753be5cb1835bf0d809f",
+    "historicalVersion": "DG01-K4-v1.0",
+    "semanticInputId": "KNOW-EXEC-04-L",
+    "semanticInputSha256": "201d9c10d97cddf9f6316af7ff56022650511fb6b55577163d9745a537f214ad",
+    "publishedPackPath": "knowledge/packs/dg-01/1.0.0/pack.json",
+    "publishedPackChecksum": "sha256:a8caeb7b7ced1d38037660b6633891aecdc565a788d8c2840395d0c9a137a8bf"
+  },
+  "rules": [
+    {
+      "ruleId": "R-DG01-01",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "BUSINESS_LOGIC_UNCLEAR",
+      "historicalText": "No existe comprensión suficiente de cómo funciona/crea valor materialmente el negocio para orientar la transformación.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-01/canonical-baseline.json",
+        "objectKey": "R-DG01-01",
+        "sourceLines": [
+          487,
+          488
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-01:R-DG01-01:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG01-02",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "MATERIAL_BUSINESS_CONSTRAINTS_UNCLEAR",
+      "historicalText": "La organización impulsa transformación sin comprensión suficiente de restricciones o problemas empresariales materiales.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-01/canonical-baseline.json",
+        "objectKey": "R-DG01-02",
+        "sourceLines": [
+          489,
+          490
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-01:R-DG01-02:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG01-03",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "BUSINESS_DIRECTION_UNCLEAR",
+      "historicalText": "Los objetivos/prioridades empresariales son insuficientemente claros para orientar decisiones de transformación.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-01/canonical-baseline.json",
+        "objectKey": "R-DG01-03",
+        "sourceLines": [
+          491,
+          492
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-01:R-DG01-03:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG01-04",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "TRANSFORMATION_HORIZON_DISCONNECTED",
+      "historicalText": "La ambición o horizonte de transformación no guarda relación suficientemente explicable con el horizonte/cambio esperado del negocio.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-01/canonical-baseline.json",
+        "objectKey": "R-DG01-04",
+        "sourceLines": [
+          493,
+          494
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-01:R-DG01-04:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG01-05",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "MARKET_CONTEXT_BLIND_SPOT",
+      "historicalText": "Cambios materiales en clientes o mercado no están siendo considerados en la dirección de transformación.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-01/canonical-baseline.json",
+        "objectKey": "R-DG01-05",
+        "sourceLines": [
+          495,
+          496
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-01:R-DG01-05:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG01-06",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "EXTERNAL_CHANGE_BLIND_SPOT",
+      "historicalText": "Cambios competitivos, tecnológicos o del ecosistema materialmente relevantes no están siendo considerados.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-01/canonical-baseline.json",
+        "objectKey": "R-DG01-06",
+        "sourceLines": [
+          497,
+          498
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-01:R-DG01-06:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG01-07",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "MATERIAL_EXTERNAL_CONSTRAINT_OMITTED",
+      "historicalText": "Una condición externa material capaz de condicionar la transformación está siendo ignorada.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-01/canonical-baseline.json",
+        "objectKey": "R-DG01-07",
+        "sourceLines": [
+          499,
+          500
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-01:R-DG01-07:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG01-08",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "TRANSFORMATION_NEED_UNGROUNDED",
+      "historicalText": "Una necesidad/oportunidad de transformación declarada no puede vincularse suficientemente con evidencia del negocio o su entorno.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-01/canonical-baseline.json",
+        "objectKey": "R-DG01-08",
+        "sourceLines": [
+          501,
+          502
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-01:R-DG01-08:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG01-09",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "BUSINESS_TRANSFORMATION_MISALIGNMENT",
+      "historicalText": "La dirección observable de transformación no es coherente con las prioridades/resultados empresariales suficientemente establecidos.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-01/canonical-baseline.json",
+        "objectKey": "R-DG01-09",
+        "sourceLines": [
+          503,
+          504
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-01:R-DG01-09:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "G-DG01-01",
+      "role": "GUARDRAIL",
+      "title": "G-DG01-01",
+      "historicalText": "Tener “estrategia digital” no demuestra alineación.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-01/canonical-baseline.json",
+        "objectKey": "G-DG01-01",
+        "sourceLines": [
+          507,
+          508
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "RESTRICCIÓN HISTÓRICA · SIN EFECTO EJECUTIVO APROBADO",
+      "exceptionRefs": [],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "G-DG01-02",
+      "role": "GUARDRAIL",
+      "title": "G-DG01-02",
+      "historicalText": "No tener “estrategia digital” no demuestra brecha.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-01/canonical-baseline.json",
+        "objectKey": "G-DG01-02",
+        "sourceLines": [
+          509,
+          510
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "RESTRICCIÓN HISTÓRICA · SIN EFECTO EJECUTIVO APROBADO",
+      "exceptionRefs": [],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "G-DG01-03",
+      "role": "GUARDRAIL",
+      "title": "G-DG01-03",
+      "historicalText": "Adoptar una tecnología popular no constituye por sí mismo evidencia de orientación.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-01/canonical-baseline.json",
+        "objectKey": "G-DG01-03",
+        "sourceLines": [
+          511,
+          512
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "RESTRICCIÓN HISTÓRICA · SIN EFECTO EJECUTIVO APROBADO",
+      "exceptionRefs": [],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "G-DG01-04",
+      "role": "GUARDRAIL",
+      "title": "G-DG01-04",
+      "historicalText": "Un cambio del entorno solo entra al diagnóstico si tiene materialidad plausible para la organización.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-01/canonical-baseline.json",
+        "objectKey": "G-DG01-04",
+        "sourceLines": [
+          513,
+          514
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "RESTRICCIÓN HISTÓRICA · SIN EFECTO EJECUTIVO APROBADO",
+      "exceptionRefs": [],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "G-DG01-05",
+      "role": "GUARDRAIL",
+      "title": "G-DG01-05",
+      "historicalText": "Una inconsistencia declarada no se convierte automáticamente en causalidad.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-01/canonical-baseline.json",
+        "objectKey": "G-DG01-05",
+        "sourceLines": [
+          515,
+          516
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "RESTRICCIÓN HISTÓRICA · SIN EFECTO EJECUTIVO APROBADO",
+      "exceptionRefs": [],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "G-DG01-06",
+      "role": "GUARDRAIL",
+      "title": "G-DG01-06",
+      "historicalText": "DG-01 no determina qué iniciativa debe ganar prioridad; deriva esa evaluación a DG-02.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-01/canonical-baseline.json",
+        "objectKey": "G-DG01-06",
+        "sourceLines": [
+          517,
+          518
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "RESTRICCIÓN HISTÓRICA · SIN EFECTO EJECUTIVO APROBADO",
+      "exceptionRefs": [],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    }
+  ],
+  "exceptions": [
+    {
+      "exceptionId": "DG-01:R-DG01-01:PARTICULAR",
+      "scope": "DG-01",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG01-01"
+      ],
+      "description": "Preparación: APTO CON RESERVAS · DS-04 bloquea HF01 | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-01:R-DG01-02:PARTICULAR",
+      "scope": "DG-01",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG01-02"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-01:R-DG01-03:PARTICULAR",
+      "scope": "DG-01",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG01-03"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-01:R-DG01-04:PARTICULAR",
+      "scope": "DG-01",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG01-04"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-01:R-DG01-05:PARTICULAR",
+      "scope": "DG-01",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG01-05"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-01:R-DG01-06:PARTICULAR",
+      "scope": "DG-01",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG01-06"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-01:R-DG01-07:PARTICULAR",
+      "scope": "DG-01",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG01-07"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-01:R-DG01-08:PARTICULAR",
+      "scope": "DG-01",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG01-08"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-01:R-DG01-09:PARTICULAR",
+      "scope": "DG-01",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG01-09"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-01:MISSING:STOP-DG01-01",
+      "scope": "DG-01",
+      "kind": "MISSING_SOURCE",
+      "ruleIds": [
+        "STOP-DG01-01"
+      ],
+      "description": "El objeto existe en el baseline canónico pero sin cuerpo textual recuperado; no se reconstruye.",
+      "authority": "Autoridad de Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "MAP-VA-CE",
+      "scope": "DG-01, DG-02, DG-03, DG-04, DG-05, PC-01, PC-02, PC-03, PC-04, PC-05",
+      "kind": "PATTERN",
+      "ruleIds": [
+        "R-DG01-01",
+        "R-DG01-02",
+        "R-DG01-03",
+        "R-DG01-04",
+        "R-DG01-05",
+        "R-DG01-06",
+        "R-DG01-07",
+        "R-DG01-08",
+        "R-DG01-09"
+      ],
+      "description": "Relación individual R–VA/CE no explícita en cuerpo de regla; no completar por proximidad",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "MAP-HF",
+      "scope": "DG-01, DG-02, DG-03, DG-04, DG-05, PC-01, PC-02, PC-03, PC-04, PC-05",
+      "kind": "PATTERN",
+      "ruleIds": [],
+      "description": "Sin referencia directa HF verificada; no inventar binding",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DS-04",
+      "scope": "DG-01",
+      "kind": "PATTERN",
+      "ruleIds": [],
+      "description": "DS-04: vínculo R-DG01-01 → HF-DG01-01 NO aprobado; prohibido mapear automáticamente",
+      "authority": "Fase 2 / Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "ACQ-RQ",
+      "scope": "DG-01, DG-02, DG-03, DG-04, DG-05, PC-01, PC-02, PC-03, PC-04, PC-05",
+      "kind": "ACQUISITION",
+      "ruleIds": [],
+      "description": "Pregunta–variable declarada en pack; relación regla–pregunta de adquisición NO aprobada",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    }
+  ],
+  "counts": {
+    "rules": 15,
+    "diagnostic": 9,
+    "guardrails": 6,
+    "withHfReference": 0,
+    "composite": 0,
+    "exceptions": 14,
+    "executable": 0,
+    "emitted": 0
+  },
+  "checksum": "sha256:4bdf760ce7af529ca12fd7a794b42bdbaaf7f38ee1a28bd2614a99deaa5eb097"
+}

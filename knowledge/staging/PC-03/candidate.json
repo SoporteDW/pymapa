@@ -1,0 +1,619 @@
+{
+  "contract": "PYMAPA-DIAGNOSTIC-TRANSLATION-CANDIDATE",
+  "contractVersion": "0.1.0",
+  "capabilityId": "PC-03",
+  "status": "STAGING_CANDIDATE_NOT_EXECUTABLE",
+  "publicationAuthorized": false,
+  "provenance": {
+    "baselinePath": "knowledge/master/v1.0/capabilities/PC-03/canonical-baseline.json",
+    "baselineChecksum": "sha256:d015e54ab97120ed93df6b28948566cc0eb7fc13e2bdff949a346c13247a6f3b",
+    "historicalVersion": "PC03-K4-v1.0",
+    "semanticInputId": "KNOW-EXEC-04-L",
+    "semanticInputSha256": "201d9c10d97cddf9f6316af7ff56022650511fb6b55577163d9745a537f214ad",
+    "publishedPackPath": "knowledge/packs/pc-03/1.0.0/pack.json",
+    "publishedPackChecksum": "sha256:48b58a0c4afe3dd4734048fde85bf64742243a2d1b542301eb68aa11c29cc8ca"
+  },
+  "rules": [
+    {
+      "ruleId": "R-PC03-01",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "TARGET_WAY_OF_WORKING_UNCLEAR",
+      "historicalText": "La nueva forma de trabajo no está suficientemente definida.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/PC-03/canonical-baseline.json",
+        "objectKey": "R-PC03-01",
+        "sourceLines": [
+          348,
+          349
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "PC-03:R-PC03-01:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-PC03-02",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "CHANGE_DELTA_UNCLEAR",
+      "historicalText": "No se comprende suficientemente qué debe cambiar respecto de la práctica actual.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/PC-03/canonical-baseline.json",
+        "objectKey": "R-PC03-02",
+        "sourceLines": [
+          350,
+          351
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "PC-03:R-PC03-02:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-PC03-03",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "CHANGE_POPULATION_UNCLEAR",
+      "historicalText": "No está suficientemente identificado quién necesita cambiar.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/PC-03/canonical-baseline.json",
+        "objectKey": "R-PC03-03",
+        "sourceLines": [
+          352,
+          353
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "PC-03:R-PC03-03:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-PC03-04",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "CHANGE_IMPACT_UNDERSTATED",
+      "historicalText": "El impacto real sobre el trabajo de la población está insuficientemente comprendido.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/PC-03/canonical-baseline.json",
+        "objectKey": "R-PC03-04",
+        "sourceLines": [
+          354,
+          355
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "PC-03:R-PC03-04:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-PC03-05",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "CHANGE_UNDERSTANDING_GAP",
+      "historicalText": "Las personas afectadas no comprenden suficientemente qué cambia.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/PC-03/canonical-baseline.json",
+        "objectKey": "R-PC03-05",
+        "sourceLines": [
+          356,
+          357
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "PC-03:R-PC03-05:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-PC03-06",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "CHANGE_PURPOSE_GAP",
+      "historicalText": "No existe comprensión funcional suficiente del propósito/relevancia.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/PC-03/canonical-baseline.json",
+        "objectKey": "R-PC03-06",
+        "sourceLines": [
+          358,
+          359
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "PC-03:R-PC03-06:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-PC03-07",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "ADOPTION_COMPETENCE_GAP",
+      "historicalText": "La adopción está limitada por competencia insuficiente.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/PC-03/canonical-baseline.json",
+        "objectKey": "R-PC03-07",
+        "sourceLines": [
+          360,
+          361
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "PC-03:R-PC03-07:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-PC03-08",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "ADOPTION_ENABLEMENT_GAP",
+      "historicalText": "Faltan herramientas, accesos, información u otras condiciones habilitantes.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/PC-03/canonical-baseline.json",
+        "objectKey": "R-PC03-08",
+        "sourceLines": [
+          362,
+          363
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "PC-03:R-PC03-08:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-PC03-09",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "WORK_CONTEXT_ADOPTION_BARRIER",
+      "historicalText": "El sistema de trabajo dificulta materialmente la nueva práctica.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/PC-03/canonical-baseline.json",
+        "objectKey": "R-PC03-09",
+        "sourceLines": [
+          364,
+          365
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "PC-03:R-PC03-09:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-PC03-10",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "TARGET_BEHAVIOR_NOT_OBSERVED",
+      "historicalText": "La nueva práctica no se observa suficientemente.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/PC-03/canonical-baseline.json",
+        "objectKey": "R-PC03-10",
+        "sourceLines": [
+          366,
+          367
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "PC-03:R-PC03-10:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-PC03-11",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "ADOPTION_COVERAGE_GAP",
+      "historicalText": "Se utiliza solo en parte de los casos/población donde corresponde.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/PC-03/canonical-baseline.json",
+        "objectKey": "R-PC03-11",
+        "sourceLines": [
+          368,
+          369
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "PC-03:R-PC03-11:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-PC03-12",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "ADOPTION_CONSISTENCY_GAP",
+      "historicalText": "El uso existe pero es insuficientemente consistente o correcto.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/PC-03/canonical-baseline.json",
+        "objectKey": "R-PC03-12",
+        "sourceLines": [
+          370,
+          371
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "PC-03:R-PC03-12:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-PC03-13",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "CHANGE_NOT_EMBEDDED",
+      "historicalText": "La nueva práctica todavía depende excesivamente de mecanismos extraordinarios.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/PC-03/canonical-baseline.json",
+        "objectKey": "R-PC03-13",
+        "sourceLines": [
+          372,
+          373
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "PC-03:R-PC03-13:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-PC03-14",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "ADOPTION_NOT_SUSTAINED",
+      "historicalText": "La práctica retrocede cuando disminuye acompañamiento/control.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/PC-03/canonical-baseline.json",
+        "objectKey": "R-PC03-14",
+        "sourceLines": [
+          374,
+          375
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "PC-03:R-PC03-14:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    }
+  ],
+  "exceptions": [
+    {
+      "exceptionId": "PC-03:R-PC03-01:PARTICULAR",
+      "scope": "PC-03",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-PC03-01"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "PC-03:R-PC03-02:PARTICULAR",
+      "scope": "PC-03",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-PC03-02"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "PC-03:R-PC03-03:PARTICULAR",
+      "scope": "PC-03",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-PC03-03"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "PC-03:R-PC03-04:PARTICULAR",
+      "scope": "PC-03",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-PC03-04"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "PC-03:R-PC03-05:PARTICULAR",
+      "scope": "PC-03",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-PC03-05"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "PC-03:R-PC03-06:PARTICULAR",
+      "scope": "PC-03",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-PC03-06"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "PC-03:R-PC03-07:PARTICULAR",
+      "scope": "PC-03",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-PC03-07"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "PC-03:R-PC03-08:PARTICULAR",
+      "scope": "PC-03",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-PC03-08"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "PC-03:R-PC03-09:PARTICULAR",
+      "scope": "PC-03",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-PC03-09"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "PC-03:R-PC03-10:PARTICULAR",
+      "scope": "PC-03",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-PC03-10"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "PC-03:R-PC03-11:PARTICULAR",
+      "scope": "PC-03",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-PC03-11"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "PC-03:R-PC03-12:PARTICULAR",
+      "scope": "PC-03",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-PC03-12"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "PC-03:R-PC03-13:PARTICULAR",
+      "scope": "PC-03",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-PC03-13"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "PC-03:R-PC03-14:PARTICULAR",
+      "scope": "PC-03",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-PC03-14"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "MAP-VA-CE",
+      "scope": "DG-01, DG-02, DG-03, DG-04, DG-05, PC-01, PC-02, PC-03, PC-04, PC-05",
+      "kind": "PATTERN",
+      "ruleIds": [
+        "R-PC03-01",
+        "R-PC03-02",
+        "R-PC03-03",
+        "R-PC03-04",
+        "R-PC03-05",
+        "R-PC03-06",
+        "R-PC03-07",
+        "R-PC03-08",
+        "R-PC03-09",
+        "R-PC03-10",
+        "R-PC03-11",
+        "R-PC03-12",
+        "R-PC03-13",
+        "R-PC03-14"
+      ],
+      "description": "Relación individual R–VA/CE no explícita en cuerpo de regla; no completar por proximidad",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "MAP-HF",
+      "scope": "DG-01, DG-02, DG-03, DG-04, DG-05, PC-01, PC-02, PC-03, PC-04, PC-05",
+      "kind": "PATTERN",
+      "ruleIds": [],
+      "description": "Sin referencia directa HF verificada; no inventar binding",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "ACQ-RQ",
+      "scope": "DG-01, DG-02, DG-03, DG-04, DG-05, PC-01, PC-02, PC-03, PC-04, PC-05",
+      "kind": "ACQUISITION",
+      "ruleIds": [],
+      "description": "Pregunta–variable declarada en pack; relación regla–pregunta de adquisición NO aprobada",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    }
+  ],
+  "counts": {
+    "rules": 14,
+    "diagnostic": 14,
+    "guardrails": 0,
+    "withHfReference": 0,
+    "composite": 0,
+    "exceptions": 17,
+    "executable": 0,
+    "emitted": 0
+  },
+  "checksum": "sha256:f79bd533c1966e0ed4c43d726e6d137f25570e9dfe404e2fb09e5965e6eda8ff"
+}
