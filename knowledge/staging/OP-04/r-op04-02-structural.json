@@ -1,0 +1,101 @@
+{
+  "contract": "PYMAPA-STRUCTURAL-RULE-CANDIDATE",
+  "contractVersion": "0.1.0",
+  "capabilityId": "OP-04",
+  "status": "STRUCTURAL_CANDIDATE_NOT_EXECUTABLE",
+  "entry": {
+    "questionId": "P1-OP04-02",
+    "variableRefs": ["VA01", "VA02", "VA04", "VA05", "VA07"],
+    "focusVariableRef": "VA02",
+    "bindingApproved": false,
+    "responses": []
+  },
+  "conditions": {
+    "ruleId": "R-OP04-02",
+    "conditions": [
+      {
+        "conditionId": "R-OP04-02-C1",
+        "historicalText": "trabajo equivalente se realiza nuevamente",
+        "sourceRef": {
+          "baselinePath": "knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json",
+          "objectKey": "R-OP04-02",
+          "sourceLines": [2265, 2281]
+        },
+        "executable": false,
+        "predicate": null,
+        "threshold": null
+      },
+      {
+        "conditionId": "R-OP04-02-C2",
+        "historicalText": "la repetición es material",
+        "sourceRef": {
+          "baselinePath": "knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json",
+          "objectKey": "R-OP04-02",
+          "sourceLines": [2265, 2281]
+        },
+        "executable": false,
+        "predicate": null,
+        "threshold": null
+      },
+      {
+        "conditionId": "R-OP04-02-C3",
+        "historicalText": "no cumple una función independiente necesaria",
+        "sourceRef": {
+          "baselinePath": "knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json",
+          "objectKey": "R-OP04-02",
+          "sourceLines": [2265, 2281]
+        },
+        "executable": false,
+        "predicate": null,
+        "threshold": null
+      },
+      {
+        "conditionId": "R-OP04-02-C4",
+        "historicalText": "existe evidencia razonable de que puede evitarse",
+        "sourceRef": {
+          "baselinePath": "knowledge/master/v1.0/capabilities/OP-04/canonical-baseline.json",
+          "objectKey": "R-OP04-02",
+          "sourceLines": [2265, 2281]
+        },
+        "executable": false,
+        "predicate": null,
+        "threshold": null
+      }
+    ],
+    "guardrail": {
+      "ruleId": "R-OP04-02A",
+      "historicalText": "El retrabajo puede originarse en:\n- OP-01 definición;\n- OP-02 ejecución;\n- OP-03 frontera/información;\n- DT;\n- PC;\n- otra causa.\nPor tanto:\nOP-04 puede diagnosticar trabajo evitable sin afirmar automáticamente qué originó ese trabajo.\nEsto preserva nuestra arquitectura causal.",
+      "executable": false
+    },
+    "sufficiency": {
+      "variableRef": "VA02",
+      "status": "PENDING",
+      "note": "La suficiencia individual de VA02 permanece pendiente; la completitud de campos no se interpreta como suficiencia diagnóstica."
+    }
+  },
+  "decision": {
+    "ruleId": "R-OP04-02",
+    "technicalState": "NOT_EVALUATED",
+    "semanticState": null
+  },
+  "findingAuthorization": {
+    "descriptorId": "AUTHDESC-R-OP04-02-OP04-HF02",
+    "descriptorVersion": "0.1.0",
+    "ruleId": "R-OP04-02",
+    "findingRef": "OP04-HF02",
+    "linkKind": "DOCUMENTAL_REFERENCE",
+    "authorizationActive": false,
+    "emissionActive": false,
+    "authority": null,
+    "approvalDate": null,
+    "grantedVersion": null,
+    "approvedCriteria": null,
+    "pendingReasons": [
+      "Vínculo Regla–Hallazgo pendiente de aprobación por la Autoridad de Conocimiento",
+      "Suficiencia individual de VA02 pendiente",
+      "Condición de decisión y predicado no formalizados como contrato técnico (EX-02)"
+    ]
+  },
+  "rulesExecuted": 0,
+  "findingsEmitted": 0
+}

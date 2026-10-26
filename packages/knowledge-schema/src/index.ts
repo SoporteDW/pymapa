@@ -1007,3 +1007,6 @@ export function parseKnowledgePack(raw: unknown): KnowledgePack {
 
 /* KNOW-EXEC-03 · Bloque A: contrato aditivo de candidatos de staging. */
 export * from "./staging.ts";
+
+/* KNOW-EXEC-08-B: contratos D1–D4 aditivos, exclusivos de staging (R-OP04-02). */
+export * from "./staging-r-op04-02.ts";
