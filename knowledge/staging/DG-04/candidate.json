@@ -1,0 +1,743 @@
+{
+  "contract": "PYMAPA-DIAGNOSTIC-TRANSLATION-CANDIDATE",
+  "contractVersion": "0.1.0",
+  "capabilityId": "DG-04",
+  "status": "STAGING_CANDIDATE_NOT_EXECUTABLE",
+  "publicationAuthorized": false,
+  "provenance": {
+    "baselinePath": "knowledge/master/v1.0/capabilities/DG-04/canonical-baseline.json",
+    "baselineChecksum": "sha256:47496abd1e75c71fd9d52e60f14fa9124e34c10d79297b828d78920ea0152a07",
+    "historicalVersion": "DG04-K4-v1.0",
+    "semanticInputId": "KNOW-EXEC-04-L",
+    "semanticInputSha256": "201d9c10d97cddf9f6316af7ff56022650511fb6b55577163d9745a537f214ad",
+    "publishedPackPath": "knowledge/packs/dg-04/1.0.0/pack.json",
+    "publishedPackChecksum": "sha256:939b1653e3d2a21bc1c1a62b934b3d984d2917f6aa4b95c8b2a7093e8865ebbe"
+  },
+  "rules": [
+    {
+      "ruleId": "R-DG04-01",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "MATERIAL_INITIATIVE_VISIBILITY_GAP",
+      "historicalText": "No existe visibilidad suficiente del estado real de iniciativas materiales.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-04/canonical-baseline.json",
+        "objectKey": "R-DG04-01",
+        "sourceLines": [
+          231,
+          232
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-04:R-DG04-01:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG04-02",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "PROGRESS_INFORMATION_UNRELIABLE",
+      "historicalText": "La información de avance es insuficientemente oportuna, confiable o interpretable.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-04/canonical-baseline.json",
+        "objectKey": "R-DG04-02",
+        "sourceLines": [
+          233,
+          234
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-04:R-DG04-02:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG04-03",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "EXPECTED_RESULT_UNCLEAR",
+      "historicalText": "El resultado/beneficio esperado no está suficientemente definido para permitir seguimiento.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-04/canonical-baseline.json",
+        "objectKey": "R-DG04-03",
+        "sourceLines": [
+          235,
+          236
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-04:R-DG04-03:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG04-04",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "RESULT_VERIFICATION_GAP",
+      "historicalText": "No existe criterio/evidencia suficiente para verificar el resultado esperado.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-04/canonical-baseline.json",
+        "objectKey": "R-DG04-04",
+        "sourceLines": [
+          237,
+          238
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-04:R-DG04-04:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG04-05",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "RESULT_EVIDENCE_MISSING",
+      "historicalText": "Una iniciativa suficientemente implementada carece de evidencia proporcional sobre sus resultados cuando ya debería ser observable.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-04/canonical-baseline.json",
+        "objectKey": "R-DG04-05",
+        "sourceLines": [
+          239,
+          240
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-04:R-DG04-05:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG04-06",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "RESULT_REFERENCE_GAP",
+      "historicalText": "La evidencia disponible no puede interpretarse suficientemente contra baseline, expectativa o referencia pertinente.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-04/canonical-baseline.json",
+        "objectKey": "R-DG04-06",
+        "sourceLines": [
+          241,
+          242
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-04:R-DG04-06:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG04-07",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "MATERIAL_DEVIATION_NOT_IDENTIFIED",
+      "historicalText": "Desviaciones materialmente relevantes no son detectadas oportunamente.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-04/canonical-baseline.json",
+        "objectKey": "R-DG04-07",
+        "sourceLines": [
+          243,
+          244
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-04:R-DG04-07:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG04-08",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "MONITORING_WITHOUT_DECISION",
+      "historicalText": "Existe seguimiento/reporting, pero la información material no se traduce suficientemente en decisiones.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-04/canonical-baseline.json",
+        "objectKey": "R-DG04-08",
+        "sourceLines": [
+          245,
+          246
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-04:R-DG04-08:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG04-09",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "OVERSIGHT_ACCOUNTABILITY_GAP",
+      "historicalText": "No está suficientemente claro quién debe observar, interpretar o elevar información material de seguimiento.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-04/canonical-baseline.json",
+        "objectKey": "R-DG04-09",
+        "sourceLines": [
+          247,
+          248
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-04:R-DG04-09:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG04-10",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "PREMATURE_MONITORING_CLOSURE",
+      "historicalText": "El seguimiento termina con la entrega/implementación aunque los resultados materiales aún requieren observación.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-04/canonical-baseline.json",
+        "objectKey": "R-DG04-10",
+        "sourceLines": [
+          249,
+          250
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-04:R-DG04-10:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG04-ATTR-01",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Nivel de certeza causal ≤ evidencia disponible para atribución.",
+      "historicalText": "No permitiremos que una comparación antes/después se convierta automáticamente en causalidad.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-04/canonical-baseline.json",
+        "objectKey": "R-DG04-ATTR-01",
+        "sourceLines": [
+          479,
+          480
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-04:R-DG04-ATTR-01:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "G-DG04-01",
+      "role": "GUARDRAIL",
+      "title": "G-DG04-01",
+      "historicalText": "Más KPI no significa mejor seguimiento.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-04/canonical-baseline.json",
+        "objectKey": "G-DG04-01",
+        "sourceLines": [
+          270,
+          271
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "RESTRICCIÓN HISTÓRICA · SIN EFECTO EJECUTIVO APROBADO",
+      "exceptionRefs": [],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "G-DG04-02",
+      "role": "GUARDRAIL",
+      "title": "G-DG04-02",
+      "historicalText": "KPI sin decisión asociada puede aportar información pero no demuestra oversight efectivo.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-04/canonical-baseline.json",
+        "objectKey": "G-DG04-02",
+        "sourceLines": [
+          272,
+          273
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "RESTRICCIÓN HISTÓRICA · SIN EFECTO EJECUTIVO APROBADO",
+      "exceptionRefs": [],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "G-DG04-03",
+      "role": "GUARDRAIL",
+      "title": "G-DG04-03",
+      "historicalText": "No exigir cuantificación artificial para resultados legítimamente cualitativos.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-04/canonical-baseline.json",
+        "objectKey": "G-DG04-03",
+        "sourceLines": [
+          274,
+          275
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "RESTRICCIÓN HISTÓRICA · SIN EFECTO EJECUTIVO APROBADO",
+      "exceptionRefs": [],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "G-DG04-04",
+      "role": "GUARDRAIL",
+      "title": "G-DG04-04",
+      "historicalText": "No establecer targets numéricos sin baseline o fundamento proporcional.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-04/canonical-baseline.json",
+        "objectKey": "G-DG04-04",
+        "sourceLines": [
+          276,
+          277
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "RESTRICCIÓN HISTÓRICA · SIN EFECTO EJECUTIVO APROBADO",
+      "exceptionRefs": [],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "G-DG04-05",
+      "role": "GUARDRAIL",
+      "title": "G-DG04-05",
+      "historicalText": "Una desviación puede justificar continuar, adaptar, escalar, repriorizar o detener; no existe respuesta automática.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-04/canonical-baseline.json",
+        "objectKey": "G-DG04-05",
+        "sourceLines": [
+          278,
+          279
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "RESTRICCIÓN HISTÓRICA · SIN EFECTO EJECUTIVO APROBADO",
+      "exceptionRefs": [],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "STOP-DG04-01",
+      "role": "GUARDRAIL",
+      "title": "STOP-DG04-01",
+      "historicalText": "Si el resultado esperado no está suficientemente definido, no inferir desempeño de resultado.\nPrimero recuperar DG-01/DG-02/capacidad originadora.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-04/canonical-baseline.json",
+        "objectKey": "STOP-DG04-01",
+        "sourceLines": [
+          131,
+          133
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "RESTRICCIÓN HISTÓRICA · SIN EFECTO EJECUTIVO APROBADO",
+      "exceptionRefs": [],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "STOP-DG04-02",
+      "role": "GUARDRAIL",
+      "title": "STOP-DG04-02",
+      "historicalText": "Si solo existe información de actividades, no inferir automáticamente estado de implementación o realización de beneficios.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-04/canonical-baseline.json",
+        "objectKey": "STOP-DG04-02",
+        "sourceLines": [
+          134,
+          135
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "RESTRICCIÓN HISTÓRICA · SIN EFECTO EJECUTIVO APROBADO",
+      "exceptionRefs": [],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "STOP-DG04-03",
+      "role": "GUARDRAIL",
+      "title": "STOP-DG04-03",
+      "historicalText": "Si no existe baseline y el resultado requiere comparación cuantitativa, no inventar mejora.\nEjemplo:\n“Las ventas aumentaron 15 % después del CRM.”\nNo basta para concluir:\n“el CRM generó +15 %”.\nEso requiere razonamiento de atribución.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-04/canonical-baseline.json",
+        "objectKey": "STOP-DG04-03",
+        "sourceLines": [
+          136,
+          142
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "RESTRICCIÓN HISTÓRICA · SIN EFECTO EJECUTIVO APROBADO",
+      "exceptionRefs": [],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    }
+  ],
+  "exceptions": [
+    {
+      "exceptionId": "DG-04:R-DG04-01:PARTICULAR",
+      "scope": "DG-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG04-01"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-04:R-DG04-02:PARTICULAR",
+      "scope": "DG-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG04-02"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-04:R-DG04-03:PARTICULAR",
+      "scope": "DG-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG04-03"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-04:R-DG04-04:PARTICULAR",
+      "scope": "DG-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG04-04"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-04:R-DG04-05:PARTICULAR",
+      "scope": "DG-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG04-05"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-04:R-DG04-06:PARTICULAR",
+      "scope": "DG-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG04-06"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-04:R-DG04-07:PARTICULAR",
+      "scope": "DG-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG04-07"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-04:R-DG04-08:PARTICULAR",
+      "scope": "DG-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG04-08"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-04:R-DG04-09:PARTICULAR",
+      "scope": "DG-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG04-09"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-04:R-DG04-10:PARTICULAR",
+      "scope": "DG-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG04-10"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-04:R-DG04-ATTR-01:PARTICULAR",
+      "scope": "DG-04",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG04-ATTR-01"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "MAP-VA-CE",
+      "scope": "DG-01, DG-02, DG-03, DG-04, DG-05, PC-01, PC-02, PC-03, PC-04, PC-05",
+      "kind": "PATTERN",
+      "ruleIds": [
+        "R-DG04-01",
+        "R-DG04-02",
+        "R-DG04-03",
+        "R-DG04-04",
+        "R-DG04-05",
+        "R-DG04-06",
+        "R-DG04-07",
+        "R-DG04-08",
+        "R-DG04-09",
+        "R-DG04-10",
+        "R-DG04-ATTR-01"
+      ],
+      "description": "Relación individual R–VA/CE no explícita en cuerpo de regla; no completar por proximidad",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "MAP-HF",
+      "scope": "DG-01, DG-02, DG-03, DG-04, DG-05, PC-01, PC-02, PC-03, PC-04, PC-05",
+      "kind": "PATTERN",
+      "ruleIds": [],
+      "description": "Sin referencia directa HF verificada; no inventar binding",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "ACQ-RQ",
+      "scope": "DG-01, DG-02, DG-03, DG-04, DG-05, PC-01, PC-02, PC-03, PC-04, PC-05",
+      "kind": "ACQUISITION",
+      "ruleIds": [],
+      "description": "Pregunta–variable declarada en pack; relación regla–pregunta de adquisición NO aprobada",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    }
+  ],
+  "counts": {
+    "rules": 19,
+    "diagnostic": 11,
+    "guardrails": 8,
+    "withHfReference": 0,
+    "composite": 0,
+    "exceptions": 14,
+    "executable": 0,
+    "emitted": 0
+  },
+  "checksum": "sha256:06851c7fb96b0be2fb4d3eca6ae18c47f36f34a7c57d0460e2b7c6059cf85cca"
+}

@@ -1,0 +1,699 @@
+{
+  "contract": "PYMAPA-DIAGNOSTIC-TRANSLATION-CANDIDATE",
+  "contractVersion": "0.1.0",
+  "capabilityId": "DG-02",
+  "status": "STAGING_CANDIDATE_NOT_EXECUTABLE",
+  "publicationAuthorized": false,
+  "provenance": {
+    "baselinePath": "knowledge/master/v1.0/capabilities/DG-02/canonical-baseline.json",
+    "baselineChecksum": "sha256:492b34cf7c89ef84fea0f5a355248cb22eff73c53b20fffe166b2ea13a62001c",
+    "historicalVersion": "DG02-K4-v1.0",
+    "semanticInputId": "KNOW-EXEC-04-L",
+    "semanticInputSha256": "201d9c10d97cddf9f6316af7ff56022650511fb6b55577163d9745a537f214ad",
+    "publishedPackPath": "knowledge/packs/dg-02/1.0.0/pack.json",
+    "publishedPackChecksum": "sha256:f4181df15fe1f94afe269dca496241e6b82957218da5c4c5705e66efdfab35cd"
+  },
+  "rules": [
+    {
+      "ruleId": "R-DG02-01",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "TRANSFORMATION_DEMAND_NOT_VISIBLE",
+      "historicalText": "La organización no posee visibilidad suficiente sobre las demandas relevantes que compiten por recursos.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-02/canonical-baseline.json",
+        "objectKey": "R-DG02-01",
+        "sourceLines": [
+          246,
+          247
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-02:R-DG02-01:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG02-02",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "INITIATIVES_NOT_COMPARABLE",
+      "historicalText": "Las alternativas relevantes carecen de información mínima suficientemente comparable para soportar una decisión fundamentada.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-02/canonical-baseline.json",
+        "objectKey": "R-DG02-02",
+        "sourceLines": [
+          248,
+          249
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-02:R-DG02-02:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG02-03",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "STRATEGIC_CONTRIBUTION_UNCLEAR",
+      "historicalText": "La contribución de iniciativas relevantes a prioridades/resultados del negocio no puede establecerse suficientemente.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-02/canonical-baseline.json",
+        "objectKey": "R-DG02-03",
+        "sourceLines": [
+          250,
+          251
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-02:R-DG02-03:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG02-04",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "EXPECTED_VALUE_UNGROUNDED",
+      "historicalText": "El valor/beneficio esperado utilizado para priorizar carece de fundamento suficiente.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-02/canonical-baseline.json",
+        "objectKey": "R-DG02-04",
+        "sourceLines": [
+          252,
+          253
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-02:R-DG02-04:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG02-05",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "EFFORT_COST_BLIND_SPOT",
+      "historicalText": "La decisión no considera suficientemente esfuerzo o costo material.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-02/canonical-baseline.json",
+        "objectKey": "R-DG02-05",
+        "sourceLines": [
+          254,
+          255
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-02:R-DG02-05:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG02-06",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "RESOURCE_CAPACITY_MISMATCH",
+      "historicalText": "La demanda priorizada excede materialmente la capacidad/recursos disponibles sin resolución explícita del desbalance.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-02/canonical-baseline.json",
+        "objectKey": "R-DG02-06",
+        "sourceLines": [
+          256,
+          257
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-02:R-DG02-06:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG02-07",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "MATERIAL_CONSTRAINT_OMITTED",
+      "historicalText": "Riesgos, dependencias o prerrequisitos capaces de modificar la selección/secuencia no han sido suficientemente incorporados.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-02/canonical-baseline.json",
+        "objectKey": "R-DG02-07",
+        "sourceLines": [
+          258,
+          259
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-02:R-DG02-07:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG02-08",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "PRIORITY_NOT_EXPLICIT",
+      "historicalText": "No existe una decisión suficientemente clara sobre qué hacer, posponer, secuenciar o descartar.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-02/canonical-baseline.json",
+        "objectKey": "R-DG02-08",
+        "sourceLines": [
+          260,
+          261
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-02:R-DG02-08:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG02-09",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "PRIORITY_RESOURCE_MISALIGNMENT",
+      "historicalText": "Existe una diferencia material no suficientemente explicada entre prioridades declaradas y asignación efectiva de recursos.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-02/canonical-baseline.json",
+        "objectKey": "R-DG02-09",
+        "sourceLines": [
+          262,
+          263
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-02:R-DG02-09:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG02-10",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "STATIC_PRIORITY_SET",
+      "historicalText": "Las prioridades permanecen sin revisión pese a cambios materiales que justifican reconsiderarlas.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-02/canonical-baseline.json",
+        "objectKey": "R-DG02-10",
+        "sourceLines": [
+          264,
+          265
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-02:R-DG02-10:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "G-DG02-01",
+      "role": "GUARDRAIL",
+      "title": "G-DG02-01",
+      "historicalText": "Una matriz de scoring no demuestra buena priorización.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-02/canonical-baseline.json",
+        "objectKey": "G-DG02-01",
+        "sourceLines": [
+          281,
+          282
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "RESTRICCIÓN HISTÓRICA · SIN EFECTO EJECUTIVO APROBADO",
+      "exceptionRefs": [],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "G-DG02-02",
+      "role": "GUARDRAIL",
+      "title": "G-DG02-02",
+      "historicalText": "Ausencia de matriz de scoring no demuestra mala priorización.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-02/canonical-baseline.json",
+        "objectKey": "G-DG02-02",
+        "sourceLines": [
+          283,
+          284
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "RESTRICCIÓN HISTÓRICA · SIN EFECTO EJECUTIVO APROBADO",
+      "exceptionRefs": [],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "G-DG02-03",
+      "role": "GUARDRAIL",
+      "title": "G-DG02-03",
+      "historicalText": "ROI no debe convertirse en criterio universal único.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-02/canonical-baseline.json",
+        "objectKey": "G-DG02-03",
+        "sourceLines": [
+          285,
+          286
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "RESTRICCIÓN HISTÓRICA · SIN EFECTO EJECUTIVO APROBADO",
+      "exceptionRefs": [],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "G-DG02-04",
+      "role": "GUARDRAIL",
+      "title": "G-DG02-04",
+      "historicalText": "Mayor urgencia no implica automáticamente mayor valor.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-02/canonical-baseline.json",
+        "objectKey": "G-DG02-04",
+        "sourceLines": [
+          287,
+          288
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "RESTRICCIÓN HISTÓRICA · SIN EFECTO EJECUTIVO APROBADO",
+      "exceptionRefs": [],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "G-DG02-05",
+      "role": "GUARDRAIL",
+      "title": "G-DG02-05",
+      "historicalText": "Costo ya incurrido no justifica por sí mismo continuar una iniciativa.\nEste último reutiliza el principio de sunk cost que apareció en OP-05.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-02/canonical-baseline.json",
+        "objectKey": "G-DG02-05",
+        "sourceLines": [
+          289,
+          291
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "RESTRICCIÓN HISTÓRICA · SIN EFECTO EJECUTIVO APROBADO",
+      "exceptionRefs": [],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "G-DG02-06",
+      "role": "GUARDRAIL",
+      "title": "G-DG02-06",
+      "historicalText": "No ejecutar una iniciativa puede ser una decisión de transformación válida.\nEste guardrail es especialmente importante para Pymapa.\nEl sistema no debe estar diseñado para producir siempre:\n“haga más proyectos”.\nPuede concluir:\nno iniciar todavía,\nposponer,\ndetener,\nreducir alcance,\no no intervenir.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-02/canonical-baseline.json",
+        "objectKey": "G-DG02-06",
+        "sourceLines": [
+          292,
+          302
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "RESTRICCIÓN HISTÓRICA · SIN EFECTO EJECUTIVO APROBADO",
+      "exceptionRefs": [],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "STOP-DG02-01",
+      "role": "GUARDRAIL",
+      "title": "Si no existe dirección empresarial suficientemente establecida para comparar contribución estratégica, no inferir calidad de priorización por alineación. Derivar/reutilizar DG-01.",
+      "historicalText": "Y otro:",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-02/canonical-baseline.json",
+        "objectKey": "STOP-DG02-01",
+        "sourceLines": [
+          150,
+          151
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "RESTRICCIÓN HISTÓRICA · SIN EFECTO EJECUTIVO APROBADO",
+      "exceptionRefs": [],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "STOP-DG02-02",
+      "role": "GUARDRAIL",
+      "title": "Si las alternativas carecen de información mínima comparable, no concluir que la selección observada constituye priorización fundamentada.",
+      "historicalText": "Primero debemos elevar comparabilidad.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-02/canonical-baseline.json",
+        "objectKey": "STOP-DG02-02",
+        "sourceLines": [
+          152,
+          153
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "RESTRICCIÓN HISTÓRICA · SIN EFECTO EJECUTIVO APROBADO",
+      "exceptionRefs": [],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    }
+  ],
+  "exceptions": [
+    {
+      "exceptionId": "DG-02:R-DG02-01:PARTICULAR",
+      "scope": "DG-02",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG02-01"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-02:R-DG02-02:PARTICULAR",
+      "scope": "DG-02",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG02-02"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-02:R-DG02-03:PARTICULAR",
+      "scope": "DG-02",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG02-03"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-02:R-DG02-04:PARTICULAR",
+      "scope": "DG-02",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG02-04"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-02:R-DG02-05:PARTICULAR",
+      "scope": "DG-02",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG02-05"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-02:R-DG02-06:PARTICULAR",
+      "scope": "DG-02",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG02-06"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-02:R-DG02-07:PARTICULAR",
+      "scope": "DG-02",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG02-07"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-02:R-DG02-08:PARTICULAR",
+      "scope": "DG-02",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG02-08"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-02:R-DG02-09:PARTICULAR",
+      "scope": "DG-02",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG02-09"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-02:R-DG02-10:PARTICULAR",
+      "scope": "DG-02",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG02-10"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "MAP-VA-CE",
+      "scope": "DG-01, DG-02, DG-03, DG-04, DG-05, PC-01, PC-02, PC-03, PC-04, PC-05",
+      "kind": "PATTERN",
+      "ruleIds": [
+        "R-DG02-01",
+        "R-DG02-02",
+        "R-DG02-03",
+        "R-DG02-04",
+        "R-DG02-05",
+        "R-DG02-06",
+        "R-DG02-07",
+        "R-DG02-08",
+        "R-DG02-09",
+        "R-DG02-10"
+      ],
+      "description": "Relación individual R–VA/CE no explícita en cuerpo de regla; no completar por proximidad",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "MAP-HF",
+      "scope": "DG-01, DG-02, DG-03, DG-04, DG-05, PC-01, PC-02, PC-03, PC-04, PC-05",
+      "kind": "PATTERN",
+      "ruleIds": [],
+      "description": "Sin referencia directa HF verificada; no inventar binding",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "ACQ-RQ",
+      "scope": "DG-01, DG-02, DG-03, DG-04, DG-05, PC-01, PC-02, PC-03, PC-04, PC-05",
+      "kind": "ACQUISITION",
+      "ruleIds": [],
+      "description": "Pregunta–variable declarada en pack; relación regla–pregunta de adquisición NO aprobada",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    }
+  ],
+  "counts": {
+    "rules": 18,
+    "diagnostic": 10,
+    "guardrails": 8,
+    "withHfReference": 0,
+    "composite": 0,
+    "exceptions": 13,
+    "executable": 0,
+    "emitted": 0
+  },
+  "checksum": "sha256:32ce01c59a63bede2032e830d68cd5875a497cbde0e9c11dba3db3967c1f0cd8"
+}

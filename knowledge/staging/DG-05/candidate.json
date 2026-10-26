@@ -1,0 +1,656 @@
+{
+  "contract": "PYMAPA-DIAGNOSTIC-TRANSLATION-CANDIDATE",
+  "contractVersion": "0.1.0",
+  "capabilityId": "DG-05",
+  "status": "STAGING_CANDIDATE_NOT_EXECUTABLE",
+  "publicationAuthorized": false,
+  "provenance": {
+    "baselinePath": "knowledge/master/v1.0/capabilities/DG-05/canonical-baseline.json",
+    "baselineChecksum": "sha256:1a0a0d4b3c4cb7e35973b1980cdfd40fcf6e2aa8ddb1f7565ec6d1e9264db603",
+    "historicalVersion": "DG05-K4-v1.0",
+    "semanticInputId": "KNOW-EXEC-04-L",
+    "semanticInputSha256": "201d9c10d97cddf9f6316af7ff56022650511fb6b55577163d9745a537f214ad",
+    "publishedPackPath": "knowledge/packs/dg-05/1.0.0/pack.json",
+    "publishedPackChecksum": "sha256:28b9a40ab9f9809b40b572ca091b3b93b06c8eb848613213e486760582d0f471"
+  },
+  "rules": [
+    {
+      "ruleId": "R-DG05-01",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "MATERIAL_RISK_VISIBILITY_GAP",
+      "historicalText": "Exposiciones materiales plausibles permanecen insuficientemente visibles.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-05/canonical-baseline.json",
+        "objectKey": "R-DG05-01",
+        "sourceLines": [
+          270,
+          271
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-05:R-DG05-01:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG05-02",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "MATERIAL_DEPENDENCY_VISIBILITY_GAP",
+      "historicalText": "Dependencias capaces de modificar decisiones/resultados no están suficientemente identificadas.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-05/canonical-baseline.json",
+        "objectKey": "R-DG05-02",
+        "sourceLines": [
+          272,
+          273
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-05:R-DG05-02:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG05-03",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "CONSEQUENCE_UNCLEAR",
+      "historicalText": "No se comprende suficientemente qué objetivo o resultado podría verse afectado.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-05/canonical-baseline.json",
+        "objectKey": "R-DG05-03",
+        "sourceLines": [
+          274,
+          275
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-05:R-DG05-03:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG05-04",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "UNCERTAINTY_POORLY_CHARACTERIZED",
+      "historicalText": "La incertidumbre se trata con certeza injustificada o sin información suficiente.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-05/canonical-baseline.json",
+        "objectKey": "R-DG05-04",
+        "sourceLines": [
+          276,
+          277
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-05:R-DG05-04:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG05-05",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "INTERDEPENDENCY_BLIND_SPOT",
+      "historicalText": "No se consideran suficientemente interacciones materiales entre iniciativas/condiciones.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-05/canonical-baseline.json",
+        "objectKey": "R-DG05-05",
+        "sourceLines": [
+          278,
+          279
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-05:R-DG05-05:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG05-06",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "EXPOSURE_CONCENTRATION_BLIND_SPOT",
+      "historicalText": "La acumulación/concentración de exposición permanece oculta.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-05/canonical-baseline.json",
+        "objectKey": "R-DG05-06",
+        "sourceLines": [
+          280,
+          281
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-05:R-DG05-06:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG05-07",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "RESPONSE_UNDEFINED",
+      "historicalText": "Una exposición material que requiere tratamiento carece de respuesta suficientemente definida.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-05/canonical-baseline.json",
+        "objectKey": "R-DG05-07",
+        "sourceLines": [
+          282,
+          283
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-05:R-DG05-07:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG05-08",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "RESPONSE_DISPROPORTIONATE",
+      "historicalText": "La respuesta resulta materialmente insuficiente o excesiva respecto de la exposición y contexto.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-05/canonical-baseline.json",
+        "objectKey": "R-DG05-08",
+        "sourceLines": [
+          284,
+          285
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-05:R-DG05-08:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG05-09",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "RISK_NOT_INTEGRATED_IN_DECISION",
+      "historicalText": "Información material de riesgo/dependencia no modifica decisiones cuando razonablemente debería hacerlo.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-05/canonical-baseline.json",
+        "objectKey": "R-DG05-09",
+        "sourceLines": [
+          286,
+          287
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-05:R-DG05-09:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG05-10",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "RISK_OWNERSHIP_GAP",
+      "historicalText": "No existe responsabilidad suficiente sobre observación/respuesta.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-05/canonical-baseline.json",
+        "objectKey": "R-DG05-10",
+        "sourceLines": [
+          288,
+          289
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-05:R-DG05-10:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG05-11",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "ESCALATION_ACCEPTANCE_GAP",
+      "historicalText": "Exposición fuera del ámbito del responsable carece de vía funcional de aceptación/escalamiento.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-05/canonical-baseline.json",
+        "objectKey": "R-DG05-11",
+        "sourceLines": [
+          290,
+          291
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-05:R-DG05-11:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG05-12",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "STATIC_RISK_RESPONSE",
+      "historicalText": "La respuesta permanece sin revisión pese a cambios materiales.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-05/canonical-baseline.json",
+        "objectKey": "R-DG05-12",
+        "sourceLines": [
+          292,
+          293
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-05:R-DG05-12:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "R-DG05-TREAT-01",
+      "role": "DIAGNOSTIC_HISTORICAL",
+      "title": "Detectar riesgo no obliga automáticamente a reducirlo.",
+      "historicalText": "Puede ser racional aceptar una exposición cuando:\n- el costo de mitigación excede su valor;\n- existe capacidad de recuperación;\n- el riesgo es necesario para capturar valor;\n- la exposición está dentro de tolerancias razonables;\n- intervenir crearía una exposición mayor.\nPor tanto:\nno actuar ≠ no gobernar, siempre que exista una decisión consciente y suficientemente fundamentada.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-05/canonical-baseline.json",
+        "objectKey": "R-DG05-TREAT-01",
+        "sourceLines": [
+          393,
+          401
+        ]
+      },
+      "conditionRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "variableRefs": [
+        "NO VINCULADO INDIVIDUALMENTE"
+      ],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "Guardrails generales K4; no transferencia automática",
+      "exceptionRefs": [
+        "MAP-VA-CE",
+        "DG-05:R-DG05-TREAT-01:PARTICULAR"
+      ],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    },
+    {
+      "ruleId": "STOP-DG05-01",
+      "role": "GUARDRAIL",
+      "title": "STOP-DG05-01",
+      "historicalText": "Si la incertidumbre es demasiado alta para clasificar materialidad:\nno inventar rating; aumentar información si su valor esperado justifica hacerlo.\nAquí reaparece Value of Information.",
+      "sourceRef": {
+        "baselinePath": "knowledge/master/v1.0/capabilities/DG-05/canonical-baseline.json",
+        "objectKey": "STOP-DG05-01",
+        "sourceLines": [
+          209,
+          212
+        ]
+      },
+      "conditionRefs": [],
+      "variableRefs": [],
+      "hfReferences": [],
+      "hfLinkKind": "NONE_IDENTIFIED",
+      "composite": false,
+      "restrictions": "RESTRICCIÓN HISTÓRICA · SIN EFECTO EJECUTIVO APROBADO",
+      "exceptionRefs": [],
+      "predicate": null,
+      "executable": false,
+      "bindingApproved": false,
+      "emissionApproved": false
+    }
+  ],
+  "exceptions": [
+    {
+      "exceptionId": "DG-05:R-DG05-01:PARTICULAR",
+      "scope": "DG-05",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG05-01"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-05:R-DG05-02:PARTICULAR",
+      "scope": "DG-05",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG05-02"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-05:R-DG05-03:PARTICULAR",
+      "scope": "DG-05",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG05-03"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-05:R-DG05-04:PARTICULAR",
+      "scope": "DG-05",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG05-04"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-05:R-DG05-05:PARTICULAR",
+      "scope": "DG-05",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG05-05"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-05:R-DG05-06:PARTICULAR",
+      "scope": "DG-05",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG05-06"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-05:R-DG05-07:PARTICULAR",
+      "scope": "DG-05",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG05-07"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-05:R-DG05-08:PARTICULAR",
+      "scope": "DG-05",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG05-08"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-05:R-DG05-09:PARTICULAR",
+      "scope": "DG-05",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG05-09"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-05:R-DG05-10:PARTICULAR",
+      "scope": "DG-05",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG05-10"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-05:R-DG05-11:PARTICULAR",
+      "scope": "DG-05",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG05-11"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-05:R-DG05-12:PARTICULAR",
+      "scope": "DG-05",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG05-12"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "DG-05:R-DG05-TREAT-01:PARTICULAR",
+      "scope": "DG-05",
+      "kind": "PARTICULAR",
+      "ruleIds": [
+        "R-DG05-TREAT-01"
+      ],
+      "description": "Preparación: APTO CON RESERVAS | Requerido: Validar R–VA/CE, suficiencia, guardrails y HF por regla | MAP-VA-CE: Relación individual R–VA/CE no explícita en cuerpo de regla (No completar por proximidad) | MAP-HF: Sin referencia directa HF verificada (No inventar binding)",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "MAP-VA-CE",
+      "scope": "DG-01, DG-02, DG-03, DG-04, DG-05, PC-01, PC-02, PC-03, PC-04, PC-05",
+      "kind": "PATTERN",
+      "ruleIds": [
+        "R-DG05-01",
+        "R-DG05-02",
+        "R-DG05-03",
+        "R-DG05-04",
+        "R-DG05-05",
+        "R-DG05-06",
+        "R-DG05-07",
+        "R-DG05-08",
+        "R-DG05-09",
+        "R-DG05-10",
+        "R-DG05-11",
+        "R-DG05-12",
+        "R-DG05-TREAT-01"
+      ],
+      "description": "Relación individual R–VA/CE no explícita en cuerpo de regla; no completar por proximidad",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "MAP-HF",
+      "scope": "DG-01, DG-02, DG-03, DG-04, DG-05, PC-01, PC-02, PC-03, PC-04, PC-05",
+      "kind": "PATTERN",
+      "ruleIds": [],
+      "description": "Sin referencia directa HF verificada; no inventar binding",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    },
+    {
+      "exceptionId": "ACQ-RQ",
+      "scope": "DG-01, DG-02, DG-03, DG-04, DG-05, PC-01, PC-02, PC-03, PC-04, PC-05",
+      "kind": "ACQUISITION",
+      "ruleIds": [],
+      "description": "Pregunta–variable declarada en pack; relación regla–pregunta de adquisición NO aprobada",
+      "authority": "Conocimiento",
+      "status": "PENDING"
+    }
+  ],
+  "counts": {
+    "rules": 14,
+    "diagnostic": 13,
+    "guardrails": 1,
+    "withHfReference": 0,
+    "composite": 0,
+    "exceptions": 16,
+    "executable": 0,
+    "emitted": 0
+  },
+  "checksum": "sha256:0fee6462aea6a798764330c024b86d1c483d245f7cd7bd03829ca1199967973d"
+}
