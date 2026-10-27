@@ -27,7 +27,7 @@ import {
   type SyntheticAuthorityGrant,
 } from "@pymapa/knowledge-schema";
 
-type SemanticState = IsolatedEvaluationResult["semanticState"];
+type SemanticState = Exclude<IsolatedEvaluationResult["semanticState"], null>;
 
 export interface IsolatedEvaluationContext {
   ruleId: string;
@@ -41,13 +41,17 @@ export interface IsolatedEvaluationContext {
 
 export interface IsolatedEvaluationInput {
   entry: DiagnosticEntry;
+  /** Control técnico: un registro no iniciado nunca produce un estado D3. */
+  evaluationStarted?: boolean;
+  /** Carencia discriminante declarada; no se infiere del texto ni de métricas. */
+  informationGap?: string;
   /** Atribución causal declarada por la fuente; nunca entra en D3. */
   declaredCause?: string | null;
 }
 
 const REVIEWABLE: readonly SemanticState[] = ["GOVERNED_REVIEW_REQUIRED", "CONFLICTING_INFORMATION"];
 
-function gate(entry: DiagnosticEntry): { state: SemanticState; reasons: string[] } {
+function gate(entry: DiagnosticEntry, informationGap?: string): { state: SemanticState; reasons: string[] } {
   const rs = entry.responses.filter((r) => r.questionId === entry.questionId);
   if (rs.length === 0) return { state: "INSUFFICIENT_EVIDENCE", reasons: ["NO_RESPONSES"] };
   const states = new Set(rs.map((r) => r.knowledgeState));
@@ -60,13 +64,15 @@ function gate(entry: DiagnosticEntry): { state: SemanticState; reasons: string[]
     };
   const [only] = [...states];
   if (only === "UNKNOWN") return { state: "INSUFFICIENT_EVIDENCE", reasons: ["UNKNOWN_RESPONSE"] };
-  if (only === "NOT_APPLICABLE")
-    return { state: "NOT_APPLICABLE", reasons: ["DECLARED_NOT_APPLICABLE_KNOWLEDGE_STATE"] };
   if (rs.some((r) => r.evidenceRefs.length === 0))
     return {
       state: "INSUFFICIENT_EVIDENCE",
-      reasons: ["KNOWN_WITHOUT_EVIDENCE_IS_NOT_SUFFICIENCY", `FOCUS_SUFFICIENCY_PENDING:${entry.focusVariableRef}`],
+      reasons: [only === "NOT_APPLICABLE" ? "APPLICABILITY_CONTEXT_NOT_SUBSTANTIATED" : "KNOWN_WITHOUT_EVIDENCE_IS_NOT_SUFFICIENCY", `FOCUS_SUFFICIENCY_PENDING:${entry.focusVariableRef}`],
     };
+  if (informationGap?.trim())
+    return { state: "INSUFFICIENT_EVIDENCE", reasons: ["DECLARED_DISCRIMINATING_INFORMATION_GAP", informationGap] };
+  if (only === "NOT_APPLICABLE")
+    return { state: "GOVERNED_REVIEW_REQUIRED", reasons: ["APPLICABILITY_EVIDENCE_REQUIRES_GOVERNED_VERIFICATION"] };
   return {
     state: "GOVERNED_REVIEW_REQUIRED",
     reasons: ["QUALITATIVE_CRITERIA_NOT_AUTOMATED", `FOCUS_SUFFICIENCY_PENDING:${entry.focusVariableRef}`],
@@ -94,11 +100,15 @@ export function validateGovernedReview(
     if (grant.targetVersion !== r.targetVersion) out.push("VERSION_MISMATCH");
   }
   if (r.scope !== ctx.scope && !out.includes("OUT_OF_SCOPE")) out.push("OUT_OF_SCOPE");
+  if ((r.ruleId !== ctx.ruleId || r.variableRef !== entry.focusVariableRef) && !out.includes("OUT_OF_SCOPE")) out.push("OUT_OF_SCOPE");
   if (r.targetVersion !== ctx.targetVersion && !out.includes("VERSION_MISMATCH")) out.push("VERSION_MISMATCH");
   const now = Date.parse(ctx.now);
-  if (Date.parse(r.validUntil) < now || Date.parse(r.reviewedAt) > Date.parse(r.validUntil)) out.push("EXPIRED");
-  const evidence = new Set(entry.responses.flatMap((x) => x.evidenceRefs));
+  if (Date.parse(r.validUntil) < now || Date.parse(r.reviewedAt) > now || Date.parse(r.reviewedAt) > Date.parse(r.validUntil)) out.push("EXPIRED");
+  const relevant = entry.responses.filter((x) => x.questionId === entry.questionId);
+  const evidence = new Set(relevant.flatMap((x) => x.evidenceRefs));
   if (r.evidenceReviewedRefs.some((e) => !evidence.has(e))) out.push("EVIDENCE_NOT_IN_INPUT");
+  const sources = new Set(relevant.map((x) => x.provenance.sourceId));
+  if (r.sourceRefs.some((s) => !sources.has(s)) && !out.includes("EVIDENCE_NOT_IN_INPUT")) out.push("EVIDENCE_NOT_IN_INPUT");
   if (r.priorEvaluationState !== preReviewState) out.push("PRIOR_STATE_MISMATCH");
   return out;
 }
@@ -109,10 +119,30 @@ export function evaluateIsolatedROp0402(
   reviewRecord?: unknown,
 ): IsolatedEvaluationResult {
   const entry = diagnosticEntrySchema.parse(input.entry);
-  const { state: preReviewState, reasons } = gate(entry);
+  if (input.evaluationStarted === false) {
+    return isolatedEvaluationResultSchema.parse({
+      contract: ISOLATED_EVALUATION_CONTRACT,
+      contractVersion: ISOLATED_EVALUATION_CONTRACT_VERSION,
+      environment: SYNTHETIC_ENVIRONMENT,
+      ruleId: ctx.ruleId,
+      technicalState: "NOT_EVALUATED",
+      preReviewState: null,
+      semanticState: null,
+      resolvedBy: "NOT_STARTED",
+      reasons: ["EVALUATION_NOT_STARTED"],
+      reviewApplied: null,
+      reviewRejections: reviewRecord === undefined ? [] : ["REVIEW_NOT_REQUESTED"],
+      causeAttribution: { declared: input.declaredCause ?? null, affectsDecision: false },
+      conditionsAutomated: 0,
+      findingAuthorization: { authorizationActive: false, emissionActive: false },
+      findingsEmitted: 0,
+      productiveWrites: 0,
+    });
+  }
+  const { state: preReviewState, reasons } = gate(entry, input.informationGap);
 
   let semanticState = preReviewState;
-  let resolvedBy: IsolatedEvaluationResult["resolvedBy"] = "EVALUATOR_GATE";
+  let resolvedBy: "EVALUATOR_GATE" | "GOVERNED_REVIEW" = "EVALUATOR_GATE";
   let reviewApplied: string | null = null;
   let reviewRejections: ReviewRejectionReason[] = [];
 

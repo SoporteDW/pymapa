@@ -218,6 +218,12 @@ export const GOVERNED_RESOLUTIONS = [
 export const governedReviewRecordSchema = z
   .object({
     reviewRequestId: z.string().min(1),
+    caseId: z.string().min(1),
+    ruleId: z.string().min(1),
+    variableRef: z.string().min(1),
+    controversy: z.string().min(1),
+    criterionRefs: z.array(z.string().min(1)).min(1),
+    sourceRefs: z.array(z.string().min(1)).min(1),
     environment: z.literal(SYNTHETIC_ENVIRONMENT),
     reviewerId: z.string().min(1),
     reviewerRole: z.string().min(1),
@@ -258,7 +264,7 @@ export const REVIEW_REJECTION_REASONS = [
   "REVIEW_NOT_REQUESTED",
 ] as const;
 
-export const isolatedEvaluationResultSchema = z
+const evaluatedIsolatedResultSchema = z
   .object({
     contract: z.literal(ISOLATED_EVALUATION_CONTRACT),
     contractVersion: z.literal(ISOLATED_EVALUATION_CONTRACT_VERSION),
@@ -286,6 +292,18 @@ export const isolatedEvaluationResultSchema = z
     productiveWrites: z.literal(0),
   })
   .strict();
+
+/** V12: control técnico sin evaluación, separado de los seis estados D3. */
+export const isolatedEvaluationResultSchema = z.union([
+  evaluatedIsolatedResultSchema,
+  evaluatedIsolatedResultSchema.extend({
+    technicalState: z.literal(TECHNICAL_CONTROL_STATE),
+    preReviewState: z.null(),
+    semanticState: z.null(),
+    resolvedBy: z.literal("NOT_STARTED"),
+    reviewApplied: z.null(),
+  }).strict(),
+]);
 
 export type GovernedReviewRecord = z.infer<typeof governedReviewRecordSchema>;
 export type SyntheticAuthorityGrant = z.infer<typeof syntheticAuthorityGrantSchema>;
