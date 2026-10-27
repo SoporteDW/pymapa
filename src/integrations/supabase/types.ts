@@ -2209,6 +2209,372 @@ export type Database = {
           },
         ]
       }
+      professional_assessment_reviews: {
+        Row: {
+          assessment_id: string
+          authority_id: string
+          capability_id: string
+          created_at: string
+          decision: string
+          id: string
+          note: string
+          organization_id: string
+          reviewer_user_id: string
+          version_id: string
+        }
+        Insert: {
+          assessment_id: string
+          authority_id: string
+          capability_id: string
+          created_at?: string
+          decision: string
+          id?: string
+          note: string
+          organization_id: string
+          reviewer_user_id: string
+          version_id: string
+        }
+        Update: {
+          assessment_id?: string
+          authority_id?: string
+          capability_id?: string
+          created_at?: string
+          decision?: string
+          id?: string
+          note?: string
+          organization_id?: string
+          reviewer_user_id?: string
+          version_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "professional_assessment_reviews_assessment_id_fkey"
+            columns: ["assessment_id"]
+            isOneToOne: false
+            referencedRelation: "assessments"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "professional_assessment_reviews_authority_id_fkey"
+            columns: ["authority_id"]
+            isOneToOne: false
+            referencedRelation: "professional_authorities"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "professional_assessment_reviews_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "professional_assessment_reviews_version_id_fkey"
+            columns: ["version_id"]
+            isOneToOne: false
+            referencedRelation: "professional_assessments"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      professional_assessments: {
+        Row: {
+          assessment_id: string
+          authority_id: string
+          capability_id: string
+          conclusion: string | null
+          created_at: string
+          evaluation_id: string
+          evaluator_user_id: string
+          evidence_ids: string[]
+          id: string
+          justification: string
+          knowledge_version_id: string
+          limitations: string
+          organization_id: string
+          origin: string
+          pending_information: string
+          previous_version_id: string | null
+          response_ids: string[]
+          review_state: string
+          source_date: string
+          source_snapshot: Json
+          sources: string
+          state: string
+          uncertainty: string
+          valid_until: string
+          version: number
+        }
+        Insert: {
+          assessment_id: string
+          authority_id: string
+          capability_id: string
+          conclusion?: string | null
+          created_at?: string
+          evaluation_id: string
+          evaluator_user_id: string
+          evidence_ids?: string[]
+          id?: string
+          justification: string
+          knowledge_version_id: string
+          limitations: string
+          organization_id: string
+          origin?: string
+          pending_information: string
+          previous_version_id?: string | null
+          response_ids?: string[]
+          review_state?: string
+          source_date: string
+          source_snapshot: Json
+          sources: string
+          state: string
+          uncertainty: string
+          valid_until: string
+          version: number
+        }
+        Update: {
+          assessment_id?: string
+          authority_id?: string
+          capability_id?: string
+          conclusion?: string | null
+          created_at?: string
+          evaluation_id?: string
+          evaluator_user_id?: string
+          evidence_ids?: string[]
+          id?: string
+          justification?: string
+          knowledge_version_id?: string
+          limitations?: string
+          organization_id?: string
+          origin?: string
+          pending_information?: string
+          previous_version_id?: string | null
+          response_ids?: string[]
+          review_state?: string
+          source_date?: string
+          source_snapshot?: Json
+          sources?: string
+          state?: string
+          uncertainty?: string
+          valid_until?: string
+          version?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "professional_assessments_assessment_id_fkey"
+            columns: ["assessment_id"]
+            isOneToOne: false
+            referencedRelation: "assessments"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "professional_assessments_authority_id_fkey"
+            columns: ["authority_id"]
+            isOneToOne: false
+            referencedRelation: "professional_authorities"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "professional_assessments_knowledge_version_id_fkey"
+            columns: ["knowledge_version_id"]
+            isOneToOne: false
+            referencedRelation: "knowledge_versions"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "professional_assessments_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "professional_assessments_previous_version_id_fkey"
+            columns: ["previous_version_id"]
+            isOneToOne: true
+            referencedRelation: "professional_assessments"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      professional_authorities: {
+        Row: {
+          approval_reference: string
+          assessment_id: string | null
+          authority_type: string
+          capability_ids: string[]
+          created_at: string
+          evaluator_user_id: string
+          governance_authority_id: string
+          id: string
+          issued_by: string
+          organization_id: string
+          valid_from: string
+          valid_until: string
+        }
+        Insert: {
+          approval_reference: string
+          assessment_id?: string | null
+          authority_type?: string
+          capability_ids: string[]
+          created_at?: string
+          evaluator_user_id: string
+          governance_authority_id: string
+          id?: string
+          issued_by: string
+          organization_id: string
+          valid_from: string
+          valid_until: string
+        }
+        Update: {
+          approval_reference?: string
+          assessment_id?: string | null
+          authority_type?: string
+          capability_ids?: string[]
+          created_at?: string
+          evaluator_user_id?: string
+          governance_authority_id?: string
+          id?: string
+          issued_by?: string
+          organization_id?: string
+          valid_from?: string
+          valid_until?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "professional_authorities_assessment_id_fkey"
+            columns: ["assessment_id"]
+            isOneToOne: false
+            referencedRelation: "assessments"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "professional_authorities_governance_authority_id_fkey"
+            columns: ["governance_authority_id"]
+            isOneToOne: false
+            referencedRelation: "professional_governance_authorities"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "professional_authorities_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      professional_authority_events: {
+        Row: {
+          actor_user_id: string
+          authority_id: string
+          created_at: string
+          event_type: string
+          governance_authority_id: string
+          id: string
+          note: string
+          organization_id: string
+        }
+        Insert: {
+          actor_user_id: string
+          authority_id: string
+          created_at?: string
+          event_type?: string
+          governance_authority_id: string
+          id?: string
+          note: string
+          organization_id: string
+        }
+        Update: {
+          actor_user_id?: string
+          authority_id?: string
+          created_at?: string
+          event_type?: string
+          governance_authority_id?: string
+          id?: string
+          note?: string
+          organization_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "professional_authority_events_authority_id_fkey"
+            columns: ["authority_id"]
+            isOneToOne: true
+            referencedRelation: "professional_authorities"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "professional_authority_events_governance_authority_id_fkey"
+            columns: ["governance_authority_id"]
+            isOneToOne: false
+            referencedRelation: "professional_governance_authorities"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "professional_authority_events_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      professional_governance_authorities: {
+        Row: {
+          approval_reference: string
+          created_at: string
+          id: string
+          user_id: string
+          valid_from: string
+          valid_until: string
+        }
+        Insert: {
+          approval_reference: string
+          created_at?: string
+          id?: string
+          user_id: string
+          valid_from: string
+          valid_until: string
+        }
+        Update: {
+          approval_reference?: string
+          created_at?: string
+          id?: string
+          user_id?: string
+          valid_from?: string
+          valid_until?: string
+        }
+        Relationships: []
+      }
+      professional_governance_revocations: {
+        Row: {
+          approval_reference: string
+          authority_id: string
+          created_at: string
+          id: string
+        }
+        Insert: {
+          approval_reference: string
+          authority_id: string
+          created_at?: string
+          id?: string
+        }
+        Update: {
+          approval_reference?: string
+          authority_id?: string
+          created_at?: string
+          id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "professional_governance_revocations_authority_id_fkey"
+            columns: ["authority_id"]
+            isOneToOne: true
+            referencedRelation: "professional_governance_authorities"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       recommendation_candidates: {
         Row: {
           assessment_id: string
@@ -2955,9 +3321,56 @@ export type Database = {
         Returns: Json
       }
       bootstrap_organization: { Args: { _name?: string }; Returns: string }
+      epar_assert_authority: {
+        Args: {
+          _assessment: string
+          _authority: string
+          _capability: string
+          _organization: string
+        }
+        Returns: undefined
+      }
+      epar_governance_id: { Args: never; Returns: string }
+      grant_professional_authority: {
+        Args: {
+          _approval: string
+          _assessment: string
+          _capabilities: string[]
+          _evaluator: string
+          _from: string
+          _organization: string
+          _until: string
+        }
+        Returns: string
+      }
+      register_professional_assessment: {
+        Args: {
+          _assessment: string
+          _body: Json
+          _capability: string
+          _organization: string
+        }
+        Returns: string
+      }
+      review_professional_assessment: {
+        Args: {
+          _assessment: string
+          _authority: string
+          _capability: string
+          _decision: string
+          _note: string
+          _organization: string
+          _version: string
+        }
+        Returns: string
+      }
       revoke_fragment_mapping: {
         Args: { _mapping_id: string; _note: string }
         Returns: undefined
+      }
+      revoke_professional_authority: {
+        Args: { _authority: string; _note: string }
+        Returns: string
       }
       set_fragment_mapping_coverage: {
         Args: {

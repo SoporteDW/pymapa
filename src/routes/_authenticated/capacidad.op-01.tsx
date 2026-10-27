@@ -23,6 +23,7 @@ import { supabase } from "@/integrations/supabase/client";
 import type { KnowledgeState } from "@pymapa/contracts";
 import { toast } from "sonner";
 import { DocumentosGobernadosPanel } from "@/components/capacidad/documentos-gobernados-panel";
+import { EparPanel } from "@/components/capacidad/epar-panel";
 
 export const Route = createFileRoute("/_authenticated/capacidad/op-01")({
   head: () => ({
@@ -734,6 +735,8 @@ function CapacidadOp01() {
 
       {/* MVP-BETA-INT-01 · documento gobernado y diagnóstico trazable en tres capas. */}
       <DocumentosGobernadosPanel capabilityId="OP-01" incluirDiagnostico />
+
+      {contexto.data && <EparPanel capabilityId="OP-01" organizationId={contexto.data.organizationId} assessmentId={contexto.data.assessmentId} />}
 
       {(hallazgos.data?.derivedDependencyReferences.length ?? 0) > 0 && (
         <Card>
