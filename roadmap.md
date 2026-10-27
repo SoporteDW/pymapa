@@ -1,7 +1,8 @@
 ## PYM-NOV-B01 · Captura transversal de 31 capacidades
-- [ ] Ajustar captura genérica y distinguir preguntas literales de solicitudes estructuradas.
-- [ ] Verificar persistencia, evidencias, avance real, regresión y aislamiento en seis dominios.
-- [ ] Entregar matriz de 31 capacidades, integridad y dictamen; no iniciar B02/B03.
+- [x] Ajustar captura genérica y distinguir preguntas literales de solicitudes estructuradas; corregir UNKNOWN/NOT_APPLICABLE vacío en cliente OP-01.
+- [x] Verificar 31/31 capturas y recuperación en sesión nueva, 31 evidencias con contexto, aislamiento QA B → QA A y 233 hashes intactos.
+- [x] Entregar matriz, controles y cierre PYM_NOV_B01_CLOSURE.md: BUILD BLOCKED; 1263 PASS / 1 FAIL previo de arquitectura DG-01.
+- [ ] Aceptación integral bloqueada por infracciones DG-01 en arquitectura.test.ts; no usar excepciones artificiales. Bytes de archivos y bilateralidad inversa no verificados en B01. B02/B03 no iniciados.
 
 ## DEC-049 · DG01-VERTICAL-01 · Piloto aislado
 - [x] Crear candidato separado y evaluador con Engine real 0.2.0, sin escrituras productivas ni IA.
