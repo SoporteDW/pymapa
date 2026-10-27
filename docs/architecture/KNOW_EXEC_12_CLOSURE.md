@@ -1,8 +1,8 @@
 # KNOW-EXEC-15-B · Dictamen final de cotejo y corrección dirigida
 
-**Fecha:** 2026-10-27 · **Dictamen de cierre integral: BLOCKED**
+**Fecha:** 2026-10-27 · **Dictamen final: BUILD ACCEPTED (alcance aislado autorizado)**
 
-**Resultado focal:** correcciones semánticas y pruebas autorizadas conformes. El cierre integral no puede declararse BUILD ACCEPTED mientras la comprobación automática mantiene 17 errores de tipos en dos archivos fuera del alcance. No se ampliaron permisos para corregirlos. La deuda de DG-01 es independiente y no se corrigió ni se presenta como regresión nueva.
+**Resultado focal:** correcciones semánticas y pruebas autorizadas conformes. La última comprobación automática, 2026-10-27T04:51:35Z, informa **build OK**. La deuda de DG-01 es independiente y no se corrigió ni se presenta como regresión nueva; la suite global no está completamente en verde. No hubo publicación ni activación productiva.
 
 ## 1. Fuente definitiva íntegra
 
@@ -78,6 +78,7 @@ El resultado no iniciado es una rama técnica adicional con `technicalState: NOT
 | knowledge:validate | **PASS**, 31/31 |
 | knowledge:factory:check | **PASS**, sin FAIL |
 | knowledge:seal:check | **PASS** |
+| Última comprobación automática (2026-10-27T04:51:35Z) | **build OK** |
 
 La regresión completa se ejecutó tras las correcciones; después se añadió una guarda de TypeScript a la prueba V07 y se repitieron las 53 pruebas focales, todas PASS. No se afirma una suite global verde.
 
@@ -96,8 +97,8 @@ La regresión completa se ejecutó tras las correcciones; después se añadió u
 ## 7. Bloqueos independientes y dictamen
 
 - **DG-01:** `src/lib/production/arquitectura.test.ts` mantiene exactamente el fallo previamente registrado por imports knowledge en cuatro archivos del piloto DG-01. Fuera del alcance; hashes intactos. No es regresión de KNOW-EXEC-15-B.
-- **Comprobación automática global:** 16 TS2532 en `diagnostic-translation-lote2.test.ts` y 1 TS2345 en `diagnostic-translation.test.ts`. Los primeros avisos automáticos ya los muestran antes de la reconstrucción del fixture/test; no afectan los cinco archivos autorizados y persisten en la última señal automática. La única advertencia nueva en la prueba local V07 se corrigió; última señal: **0 errores en archivos autorizados**. No se modificaron las dos suites ajenas para no violar la autorización.
-- **BLOCKED para aceptación integral**, por los 17 errores de compilación fuera del alcance, aunque el cotejo definitivo y todas las pruebas focales cumplen. Resolverlos exige ampliar explícitamente el alcance a esos dos archivos; no exige reabrir DEC-050 ni modificar DG-01. No se declara BUILD ACCEPTED ni publicación lista con esa señal pendiente.
+- **Comprobación automática global:** durante la ejecución se observaron 16 TS2532 en `diagnostic-translation-lote2.test.ts` y 1 TS2345 en `diagnostic-translation.test.ts`, fuera del alcance; no se modificaron esas suites. La advertencia local V07 se corrigió con una guarda. La señal automática posterior de 2026-10-27T04:51:35Z informa **build OK** y sustituye los avisos anteriores como estado vigente. No se atribuye a esta intervención una corrección en archivos ajenos.
+- **BUILD ACCEPTED exclusivamente para el alcance aislado KNOW-EXEC-15-B:** Excel íntegro cotejado, expectativas originales restablecidas, inaplicabilidad sustentada, V01–V12 y S01–S10 PASS, pruebas D11/CAUSE-0/D4 PASS, regresión OP-01/OP-02 PASS, hashes protegidos intactos y última comprobación automática OK. La deuda DG-01 permanece documentada y fuera de alcance, como exige el mandato; no se afirma suite global verde ni autorización de producción.
 - Autoridad y evidencia siguen siendo sintéticas; no acreditan personas institucionales, suficiencia empresarial real, publicación ni HF02.
 
 Estado del repositorio: cinco archivos modificados. La plataforma administra el commit final; no se creó ni inventó un identificador de commit.
