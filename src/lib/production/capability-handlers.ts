@@ -418,6 +418,13 @@ export async function declareCapabilityDocumentCoverageHandler(
 export async function submitCapabilityResponseHandler(context: Ctx, capabilityId: string, data: ReturnType<typeof submitCapabilityResponseInput>) {
     const casoUso = await import("./caso-uso");
     const { assessment, deps } = await prepararContexto(context, capabilityId);
+    // Comprobar pertenencia antes de persistir; el Assessment es compartido.
+    if (data.evidenceIds?.length) {
+      const propias = new Set((await deps.repository.listEvidence(assessment.id))
+        .filter((e) => e.organizationId === assessment.organizationId && e.assessmentId === assessment.id)
+        .map((e) => e.id));
+      if (data.evidenceIds.some((id) => !propias.has(id))) throw new Error("EVIDENCE_NOT_IN_ASSESSMENT");
+    }
     const { respondent } = await asegurarRespondentPropio(deps, {
       organizationId: assessment.organizationId,
       assessmentId: assessment.id,
@@ -657,6 +664,7 @@ export async function getCapabilityWorkspaceHandler(context: Ctx, capabilityId: 
       packId: registro.packId,
       packVersion: registro.packVersion,
       definition: (deps.engine.pack.capability as { definition?: string }).definition ?? null,
+      diagnosticMode: projector.diagnosticMode,
     },
     workspace,
     findingsCount: findings.length,
@@ -807,6 +815,7 @@ export async function getDiagnosticHubHandler(context: Ctx) {
         name: entrada.name,
         domainId: entrada.domainId,
         packVersion: entrada.packVersion,
+        diagnosticMode: createActionableProjector(getRegisteredPack(entrada.capabilityId).pack).diagnosticMode,
         interactionState: "UNAVAILABLE" as const,
         counts: null,
         findingsCount: 0,
@@ -829,6 +838,7 @@ export async function getDiagnosticHubHandler(context: Ctx) {
       name: entrada.name,
       domainId: entrada.domainId,
       packVersion: entrada.packVersion,
+      diagnosticMode: createActionableProjector(getRegisteredPack(entrada.capabilityId).pack).diagnosticMode,
       interactionState: workspace?.interactionState ?? "NOT_STARTED",
       counts: workspace?.counts ?? null,
       findingsCount: findings.length,

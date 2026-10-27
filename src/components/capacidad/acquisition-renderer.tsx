@@ -7,10 +7,10 @@ import { Badge } from "@/components/ui/badge";
 import type { ActionableAcquisition } from "@/lib/production/actionable";
 
 const ETIQUETA_MODO: Record<ActionableAcquisition["mode"], string> = {
-  QUESTION: "Pregunta",
-  CAPABILITY_PROGRESSIVE: "Pregunta",
-  INFORMATION_NEED: "Requerimiento de información",
-  GOVERNED_STRUCTURAL_CORRESPONDENCE: "Foco de análisis",
+  QUESTION: "Pregunta literal del conocimiento publicado",
+  CAPABILITY_PROGRESSIVE: "Pregunta literal del conocimiento publicado",
+  INFORMATION_NEED: "Solicitud de información · sin pregunta oficial",
+  GOVERNED_STRUCTURAL_CORRESPONDENCE: "Guía de información · correspondencia estructural",
 };
 
 export function AcquisitionRenderer({ acquisition }: { acquisition: ActionableAcquisition }) {
@@ -24,7 +24,7 @@ export function AcquisitionRenderer({ acquisition }: { acquisition: ActionableAc
         <span className="text-xs text-muted-foreground">{a.acquisitionId}</span>
       </div>
 
-      {a.question ? (
+      {(a.mode === "QUESTION" || a.mode === "CAPABILITY_PROGRESSIVE") && a.question ? (
         <p className="text-base font-medium text-foreground">{a.question}</p>
       ) : a.mode === "INFORMATION_NEED" && a.informationNeedStatement ? (
         <p className="text-base font-medium text-foreground">{a.informationNeedStatement}</p>
