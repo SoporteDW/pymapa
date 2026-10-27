@@ -18,6 +18,7 @@ import { EvidenciaPanel } from "@/components/capacidad/evidencia-panel";
 import { ColaboracionPanel } from "@/components/capacidad/colaboracion-panel";
 import { DocumentosGobernadosPanel } from "@/components/capacidad/documentos-gobernados-panel";
 import { DiagnosticoTrazablePanel } from "@/components/capacidad/diagnostico-trazable-panel";
+import { EparPanel } from "@/components/capacidad/epar-panel";
 import { ETIQUETA_ESTADO } from "@/components/diagnostico/catalogo-capacidades";
 import {
   getCapabilityCollaboration,
@@ -299,6 +300,8 @@ function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
           )}
 
           {capability.diagnosticMode === "PUBLISHED_RULES" && <DiagnosticoTrazablePanel capabilityId={capabilityId} canGovern={ws.data.userRole === "OWNER" || ws.data.userRole === "ADMIN"} />}
+
+          <EparPanel capabilityId={capabilityId} organizationId={ws.data.organizationId} assessmentId={ws.data.assessmentId} />
 
           <Card id="respuestas">
             <CardHeader>
