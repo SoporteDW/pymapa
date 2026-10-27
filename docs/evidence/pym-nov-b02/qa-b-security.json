@@ -1,0 +1,125 @@
+[
+  {
+    "name": "own read professional_authorities",
+    "result": "PASS",
+    "detail": {
+      "rows": 0,
+      "error": null
+    }
+  },
+  {
+    "name": "cross empty read professional_authorities",
+    "result": "PASS",
+    "detail": {
+      "rows": 0
+    }
+  },
+  {
+    "name": "cross direct insert professional_authorities",
+    "result": "PASS",
+    "detail": {
+      "code": "42501"
+    }
+  },
+  {
+    "name": "own read professional_authority_events",
+    "result": "PASS",
+    "detail": {
+      "rows": 0,
+      "error": null
+    }
+  },
+  {
+    "name": "cross empty read professional_authority_events",
+    "result": "PASS",
+    "detail": {
+      "rows": 0
+    }
+  },
+  {
+    "name": "cross direct insert professional_authority_events",
+    "result": "PASS",
+    "detail": {
+      "code": "42501"
+    }
+  },
+  {
+    "name": "own read professional_assessments",
+    "result": "PASS",
+    "detail": {
+      "rows": 0,
+      "error": null
+    }
+  },
+  {
+    "name": "cross empty read professional_assessments",
+    "result": "PASS",
+    "detail": {
+      "rows": 0
+    }
+  },
+  {
+    "name": "cross direct insert professional_assessments",
+    "result": "PASS",
+    "detail": {
+      "code": "42501"
+    }
+  },
+  {
+    "name": "own read professional_assessment_reviews",
+    "result": "PASS",
+    "detail": {
+      "rows": 0,
+      "error": null
+    }
+  },
+  {
+    "name": "cross empty read professional_assessment_reviews",
+    "result": "PASS",
+    "detail": {
+      "rows": 0
+    }
+  },
+  {
+    "name": "cross direct insert professional_assessment_reviews",
+    "result": "PASS",
+    "detail": {
+      "code": "42501"
+    }
+  },
+  {
+    "name": "own no authority",
+    "result": "PASS",
+    "detail": {
+      "message": "EPAR_AUTHORITY_DENIED"
+    }
+  },
+  {
+    "name": "foreign authority",
+    "result": "PASS",
+    "detail": {
+      "message": "EPAR_AUTHORITY_DENIED"
+    }
+  },
+  {
+    "name": "server cross scope",
+    "result": "PASS",
+    "detail": {
+      "message": "Error: EPAR_SCOPE_FORBIDDEN"
+    }
+  },
+  {
+    "name": "server no authority",
+    "result": "PASS",
+    "detail": {
+      "message": "Error: EPAR_AUTHORITY_DENIED"
+    }
+  },
+  {
+    "name": "no self designation governance denied",
+    "result": "PASS",
+    "detail": {
+      "message": "EPAR_GOVERNANCE_DENIED"
+    }
+  }
+]
