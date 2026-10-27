@@ -42,6 +42,11 @@ export async function saveEpar(db: Db, userId: string, scope: Scope, input: unkn
   await verifyEparScope(db, userId, scope);
   await verifyEparAuthority(db, userId, scope, body.authorityId);
   if (Date.parse(body.validUntil) <= Date.now() || Date.parse(body.sourceDate) > Date.now()) throw new Error("EPAR_DATES_INVALID");
+  const [responses, evidence] = await Promise.all([
+    body.responseIds.length ? read<{ id: string; payload: { capabilityId?: string } }[]>(db.from("responses").select("id,payload").eq("organization_id", scope.organizationId).eq("assessment_id", scope.assessmentId).in("id", body.responseIds)) : [],
+    body.evidenceIds.length ? read<{ id: string }[]>(db.from("evidence").select("id").eq("organization_id", scope.organizationId).eq("assessment_id", scope.assessmentId).in("id", body.evidenceIds)) : [],
+  ]);
+  if (body.responseIds.some(id => !responses.some(r => r.id === id && (r.payload.capabilityId ?? "OP-01") === scope.capabilityId)) || body.evidenceIds.some(id => !evidence.some(e => e.id === id))) throw new Error("EPAR_REFERENCE_FORBIDDEN");
   // Database independently checks all references and authority under a transaction lock.
   return read(db.rpc("register_professional_assessment", { _organization: scope.organizationId, _assessment: scope.assessmentId, _capability: scope.capabilityId, _body: body }));
 }
