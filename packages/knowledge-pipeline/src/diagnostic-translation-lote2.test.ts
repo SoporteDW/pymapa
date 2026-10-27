@@ -21,26 +21,31 @@ const run = (cap: string, sem: SemanticInput = semantic) => {
 };
 
 describe("KNOW-EXEC-05-L lote 2", () => {
-  const out = Object.fromEntries(CAPS.map((c) => [c, run(c)]));
+  const results = new Map(CAPS.map((c) => [c, run(c)]));
+  const result = (cap: string) => {
+    const value = results.get(cap);
+    if (!value) throw new Error(`Missing test result: ${cap}`);
+    return value;
+  };
 
   it("procesa las 121 reglas diagnósticas con los conteos de la matriz", () => {
-    for (const c of CAPS) expect(out[c].counts.diagnostic).toBe(DIAG[c]);
-    expect(CAPS.reduce((n, c) => n + out[c].counts.diagnostic, 0)).toBe(121);
+    for (const c of CAPS) expect(result(c).counts.diagnostic).toBe(DIAG[c]);
+    expect(CAPS.reduce((n, c) => n + result(c).counts.diagnostic, 0)).toBe(121);
   });
 
   it("ningún candidato es ejecutable, vinculado ni emisible y no hay predicados", () => {
     for (const c of CAPS) {
-      expect(out[c].publicationAuthorized).toBe(false);
-      expect(out[c].counts.executable).toBe(0);
-      expect(out[c].counts.emitted).toBe(0);
-      for (const r of out[c].rules) {
+      expect(result(c).publicationAuthorized).toBe(false);
+      expect(result(c).counts.executable).toBe(0);
+      expect(result(c).counts.emitted).toBe(0);
+      for (const r of result(c).rules) {
         expect([r.executable, r.bindingApproved, r.emissionApproved, r.predicate]).toEqual([false, false, false, null]);
       }
     }
   });
 
   it("no infiere referencias HF, VA ni CE (la matriz no identifica ninguna literal)", () => {
-    for (const c of CAPS) for (const r of out[c].rules) {
+    for (const c of CAPS) for (const r of result(c).rules) {
       expect(r.hfReferences).toEqual([]);
       expect(r.variableRefs).toEqual([]);
       expect(r.conditionRefs).toEqual([]);
@@ -48,17 +53,18 @@ describe("KNOW-EXEC-05-L lote 2", () => {
   });
 
   it("DS-04: R-DG01-01 no queda vinculada a HF-DG01-01 y el control queda como excepción", () => {
-    const r = out["DG-01"].rules.find((x) => x.ruleId === "R-DG01-01")!;
+    const r = result("DG-01").rules.find((x) => x.ruleId === "R-DG01-01");
+    if (!r) throw new Error("Missing governed rule");
     expect(r.hfReferences).not.toContain("HF-DG01-01");
     expect(r.hfLinkKind).toBe("NONE_IDENTIFIED");
-    expect(out["DG-01"].exceptions.some((e) => e.exceptionId === "DS-04")).toBe(true);
+    expect(result("DG-01").exceptions.some((e) => e.exceptionId === "DS-04")).toBe(true);
   });
 
   it("texto histórico copiado del baseline, sin divergencias", () => {
     for (const c of CAPS) {
-      expect(out[c].exceptions.filter((e) => e.kind === "TEXT_DIVERGENCE")).toEqual([]);
+      expect(result(c).exceptions.filter((e) => e.kind === "TEXT_DIVERGENCE")).toEqual([]);
       const b = JSON.parse(readFileSync(`knowledge/master/v1.0/capabilities/${c}/canonical-baseline.json`, "utf8"));
-      for (const r of out[c].rules) {
+      for (const r of result(c).rules) {
         const o = b.objects.find((x: { key: string }) => x.key === r.ruleId);
         expect(r.historicalText).toBe(o.fields.body.join("\n"));
       }
@@ -66,20 +72,20 @@ describe("KNOW-EXEC-05-L lote 2", () => {
   });
 
   it("STOP-DG01-01 sin cuerpo se registra como excepción y no se reconstruye", () => {
-    expect(out["DG-01"].rules.some((r) => r.ruleId === "STOP-DG01-01")).toBe(false);
-    expect(out["DG-01"].exceptions.find((e) => e.ruleIds.includes("STOP-DG01-01"))?.kind).toBe("MISSING_SOURCE");
+    expect(result("DG-01").rules.some((r) => r.ruleId === "STOP-DG01-01")).toBe(false);
+    expect(result("DG-01").exceptions.find((e) => e.ruleIds.includes("STOP-DG01-01"))?.kind).toBe("MISSING_SOURCE");
   });
 
   it("es determinista y coincide con lo escrito en staging", () => {
     for (const c of CAPS) {
-      expect(run(c).checksum).toBe(out[c].checksum);
-      expect(JSON.parse(readFileSync(`knowledge/staging/${c}/candidate.json`, "utf8")).checksum).toBe(out[c].checksum);
+      expect(run(c).checksum).toBe(result(c).checksum);
+      expect(JSON.parse(readFileSync(`knowledge/staging/${c}/candidate.json`, "utf8")).checksum).toBe(result(c).checksum);
     }
   });
 
   it("independencia: procesar una capacidad no depende de las filas de otra", () => {
     const solo = { ...semantic, S1: semantic.S1.filter((r) => r.Capacidad === "PC-03"), S2: semantic.S2.filter((r) => r.Capacidad === "PC-03") };
-    expect(run("PC-03", solo).rules).toEqual(out["PC-03"].rules);
+    expect(run("PC-03", solo).rules).toEqual(result("PC-03").rules);
   });
 
   it("los packs publicados no contienen candidatos ni staging en el registro", () => {

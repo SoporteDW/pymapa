@@ -37,7 +37,7 @@ describe("PYM-NOV-B01 · contratos transversales", () => {
     expect(evidence.evidence.uploadContextCapabilityId).toBe(id);
     expect(evidence.links.map((l) => l.observationId)).toEqual([result.observationId]);
     const recovered = scopeRepositoryToCapability(base, id);
-    expect((await recovered.listResponses(assessment.id))[0]?.payload.capabilityId).toBe(id);
+    expect((await recovered.listResponses(assessment.id))[0]?.payload["capabilityId"]).toBe(id);
     expect((await recovered.listObservations(assessment.id))[0]?.value.knowledgeState).toBe("UNKNOWN");
     const evaluation = await evaluarCapacidad({ ...deps, repository: recovered }, assessment.id);
     if (!evaluation) throw new Error("missing recovered evaluation");

@@ -73,7 +73,9 @@ describe("KNOW-EXEC-03 · traducción gobernada a staging", () => {
   });
 
   it("referencia ausente en baseline queda como excepción y se continúa", () => {
-    const sem = { ...semantic, S1: [...semantic.S1, { ...semantic.S1[0], "Regla K4": "R-OP03-99" }] };
+    const first = semantic.S1[0];
+    if (!first) throw new Error("Missing semantic fixture");
+    const sem = { ...semantic, S1: [...semantic.S1, { ...first, "Regla K4": "R-OP03-99" }] };
     const c = traducir("OP-03", sem);
     expect(c.exceptions.some((e) => e.kind === "MISSING_SOURCE" && e.ruleIds[0] === "R-OP03-99")).toBe(true);
     expect(c.counts.rules).toBe(11);
