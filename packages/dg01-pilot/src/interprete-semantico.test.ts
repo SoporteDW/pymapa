@@ -1,11 +1,15 @@
 import { describe, expect, it } from "vitest";
 import { createKnowledgeEngine } from "@pymapa/knowledge-engine";
-import { crearCandidatoPack } from "./candidato-pack";
-import { ESCENARIOS } from "./escenarios";
-import { evaluarPiloto } from "./evaluador-piloto";
-import { interpretarObservaciones } from "./interprete-semantico";
+import { crearCandidatoPack } from "./candidato-pack.server";
+import { ESCENARIOS } from "../../../src/lib/piloto-dg01/escenarios";
+import { evaluarPiloto } from "./evaluador-piloto.server";
+import { interpretarObservaciones } from "./interprete-semantico.server";
 
-const run = (id: string) => evaluarPiloto(ESCENARIOS.find((s) => s.id === id)!.input);
+const run = (id: string) => {
+  const scenario = ESCENARIOS.find((s) => s.id === id);
+  if (!scenario) throw new Error(`Escenario obligatorio ausente: ${id}`);
+  return evaluarPiloto(scenario.input);
+};
 const esperado = { S1: "EVIDENCIA_COMPATIBLE", S2: "EVIDENCIA_CONTRARIA", S3: "ABSTENCION_SIN_CONTENIDO", S4: "CONFLICTO_PRESERVADO", S5: "EXCLUSION_TECNICA_CONSERVADA", S6: "INFORMACION_INSUFICIENTE", S7: "EVIDENCIA_MIXTA" } as const;
 
 describe("DEC-049 · DG01-VERTICAL-02 · interpretación experimental", () => {

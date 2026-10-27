@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { crearCandidatoPack } from "./candidato-pack";
-import { ESCENARIOS, entradaPilotoSchema } from "./escenarios";
-import { evaluarPiloto } from "./evaluador-piloto";
+import { crearCandidatoPack } from "./candidato-pack.server";
+import { ESCENARIOS, entradaPilotoSchema } from "../../../src/lib/piloto-dg01/escenarios";
+import { evaluarPiloto } from "./evaluador-piloto.server";
 
 describe("DEC-049 · DG01-VERTICAL-01 · Engine real", () => {
   for (const scenario of ESCENARIOS) {

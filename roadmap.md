@@ -1,8 +1,14 @@
+## PYM-NOV-B01-FIX · Corrección localizada autorizada
+- [x] Restaurar frontera DG-01 mediante núcleo experimental `.server.ts`, procedencia neutral y tipo RPC, sin cambiar AUTORIZADOS, assertions ni contratos productivos.
+- [x] Arquitectura 7/7, frontera 2/2, regresión 1266/1266 y captura/recuperación en memoria 31/31; siete escenarios del piloto verificados en preview.
+- [ ] Renovar recuperación alojada 31/31, aislamiento bilateral e IDOR con QA A/B: NOT_TESTED, faltan sesiones de las identidades QA; restauración --self sin cuenta correspondiente.
+- [x] Integridad 217 archivos iniciales y 233 históricos sin cambios; informe PYM_NOV_B01_FIX_RESULT.md, VAR-05 PASS, propuesta BLOCKED por evidencia alojada; no ACCEPTED ni B02/B03.
+
 ## PYM-NOV-B01 · Captura transversal de 31 capacidades
 - [x] Ajustar captura genérica y distinguir preguntas literales de solicitudes estructuradas; corregir UNKNOWN/NOT_APPLICABLE vacío en cliente OP-01.
 - [x] Verificar 31/31 capturas y recuperación en sesión nueva, 31 evidencias con contexto, aislamiento QA B → QA A y 233 hashes intactos.
 - [x] Entregar matriz, controles y cierre PYM_NOV_B01_CLOSURE.md: BUILD BLOCKED; 1263 PASS / 1 FAIL previo de arquitectura DG-01.
-- [ ] Aceptación integral bloqueada por infracciones DG-01 en arquitectura.test.ts; no usar excepciones artificiales. Bytes de archivos y bilateralidad inversa no verificados en B01. B02/B03 no iniciados.
+- [ ] Aceptación integral espera Gate 02 y aislamiento bilateral/IDOR alojado; infracciones DG-01 corregidas en B01-FIX sin excepciones artificiales. Bytes y login manual siguen pendientes fuera del FIX. B02/B03 no iniciados.
 
 ## DEC-049 · DG01-VERTICAL-01 · Piloto aislado
 - [x] Crear candidato separado y evaluador con Engine real 0.2.0, sin escrituras productivas ni IA.
