@@ -85,7 +85,9 @@ describe("KNOW-EXEC-15-B · NOT_APPLICABLE sustentado", () => {
   const v07 = byId("V07");
   it("declaración sin evidencia conserva insuficiencia", () => {
     const input = structuredClone(v07.input);
-    input.entry.responses[0].evidenceRefs = [];
+    const response = input.entry.responses[0];
+    if (!response) throw new Error("V07 requires an applicability response");
+    response.evidenceRefs = [];
     expect(evaluateIsolatedROp0402(input, ctx)).toMatchObject({ semanticState: "INSUFFICIENT_EVIDENCE", reasons: expect.arrayContaining(["APPLICABILITY_CONTEXT_NOT_SUBSTANTIATED"]) });
   });
   it("referencias sin verificación contextual requieren D11, no exclusión automática", () => {
