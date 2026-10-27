@@ -1,0 +1,563 @@
+{
+  "fixture": "PYMAPA-R-OP04-02-SCENARIOS-V01-V12",
+  "fixtureVersion": "0.1.0",
+  "environment": "STAGING_SYNTHETIC",
+  "notice": "Fixtures sintéticos. No representan autoridad institucional real ni datos de empresas. Expectativas codificadas a partir de los controles de KNOW-EXEC-11-V citados en KNOW-EXEC-12-P/13-P; el documento KNOW-EXEC-11-V no está en el repositorio.",
+  "context": {
+    "ruleId": "R-OP04-02",
+    "scope": "OP-04:R-OP04-02",
+    "targetVersion": "0.1.0",
+    "now": "2026-10-27T03:00:00.000Z",
+    "grants": [
+      {
+        "authorityRef": "SYN-AUTH-DEC050-FIXTURE",
+        "environment": "STAGING_SYNTHETIC",
+        "allowedRoles": [
+          "SYNTHETIC_KNOWLEDGE_REVIEWER"
+        ],
+        "scope": "OP-04:R-OP04-02",
+        "targetVersion": "0.1.0",
+        "institutional": false
+      }
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "V01",
+      "title": "Sin respuestas: abstención",
+      "input": {
+        "entry": {
+          "questionId": "P1-OP04-02",
+          "variableRefs": [
+            "VA01",
+            "VA02",
+            "VA04",
+            "VA05",
+            "VA07"
+          ],
+          "focusVariableRef": "VA02",
+          "bindingApproved": false,
+          "responses": []
+        },
+        "declaredCause": null
+      },
+      "review": null,
+      "expected": {
+        "semanticState": "INSUFFICIENT_EVIDENCE",
+        "resolvedBy": "EVALUATOR_GATE",
+        "reviewRejections": [],
+        "findingsEmitted": 0
+      }
+    },
+    {
+      "id": "V02",
+      "title": "Respuesta UNKNOWN: abstención",
+      "input": {
+        "entry": {
+          "questionId": "P1-OP04-02",
+          "variableRefs": [
+            "VA01",
+            "VA02",
+            "VA04",
+            "VA05",
+            "VA07"
+          ],
+          "focusVariableRef": "VA02",
+          "bindingApproved": false,
+          "responses": [
+            {
+              "questionId": "P1-OP04-02",
+              "knowledgeState": "UNKNOWN",
+              "evidenceRefs": [],
+              "provenance": {
+                "sourceId": "SYN-SRC-A",
+                "locator": "synthetic"
+              }
+            }
+          ]
+        },
+        "declaredCause": null
+      },
+      "review": null,
+      "expected": {
+        "semanticState": "INSUFFICIENT_EVIDENCE",
+        "resolvedBy": "EVALUATOR_GATE",
+        "reviewRejections": [],
+        "findingsEmitted": 0
+      }
+    },
+    {
+      "id": "V03",
+      "title": "KNOWN sin evidencia: completitud no es suficiencia de VA02",
+      "input": {
+        "entry": {
+          "questionId": "P1-OP04-02",
+          "variableRefs": [
+            "VA01",
+            "VA02",
+            "VA04",
+            "VA05",
+            "VA07"
+          ],
+          "focusVariableRef": "VA02",
+          "bindingApproved": false,
+          "responses": [
+            {
+              "questionId": "P1-OP04-02",
+              "knowledgeState": "KNOWN",
+              "evidenceRefs": [],
+              "provenance": {
+                "sourceId": "SYN-SRC-A",
+                "locator": "synthetic"
+              }
+            }
+          ]
+        },
+        "declaredCause": null
+      },
+      "review": null,
+      "expected": {
+        "semanticState": "INSUFFICIENT_EVIDENCE",
+        "resolvedBy": "EVALUATOR_GATE",
+        "reviewRejections": [],
+        "findingsEmitted": 0
+      }
+    },
+    {
+      "id": "V04",
+      "title": "KNOWN con evidencia sin revisión: C1–C4 no automatizados",
+      "input": {
+        "entry": {
+          "questionId": "P1-OP04-02",
+          "variableRefs": [
+            "VA01",
+            "VA02",
+            "VA04",
+            "VA05",
+            "VA07"
+          ],
+          "focusVariableRef": "VA02",
+          "bindingApproved": false,
+          "responses": [
+            {
+              "questionId": "P1-OP04-02",
+              "knowledgeState": "KNOWN",
+              "evidenceRefs": [
+                "SYN-EV-01"
+              ],
+              "provenance": {
+                "sourceId": "SYN-SRC-A",
+                "locator": "synthetic"
+              }
+            }
+          ]
+        },
+        "declaredCause": null
+      },
+      "review": null,
+      "expected": {
+        "semanticState": "GOVERNED_REVIEW_REQUIRED",
+        "resolvedBy": "EVALUATOR_GATE",
+        "reviewRejections": [],
+        "findingsEmitted": 0
+      }
+    },
+    {
+      "id": "V05",
+      "title": "Revisión D11 válida resuelve satisfecha; HF02 sigue bloqueado",
+      "input": {
+        "entry": {
+          "questionId": "P1-OP04-02",
+          "variableRefs": [
+            "VA01",
+            "VA02",
+            "VA04",
+            "VA05",
+            "VA07"
+          ],
+          "focusVariableRef": "VA02",
+          "bindingApproved": false,
+          "responses": [
+            {
+              "questionId": "P1-OP04-02",
+              "knowledgeState": "KNOWN",
+              "evidenceRefs": [
+                "SYN-EV-01"
+              ],
+              "provenance": {
+                "sourceId": "SYN-SRC-A",
+                "locator": "synthetic"
+              }
+            }
+          ]
+        },
+        "declaredCause": null
+      },
+      "review": {
+        "reviewRequestId": "REV-V05",
+        "environment": "STAGING_SYNTHETIC",
+        "reviewerId": "SYN-REVIEWER-01",
+        "reviewerRole": "SYNTHETIC_KNOWLEDGE_REVIEWER",
+        "authorityRef": "SYN-AUTH-DEC050-FIXTURE",
+        "scope": "OP-04:R-OP04-02",
+        "targetVersion": "0.1.0",
+        "reviewedAt": "2026-10-27T00:00:00.000Z",
+        "validUntil": "2026-12-31T00:00:00.000Z",
+        "priorEvaluationState": "GOVERNED_REVIEW_REQUIRED",
+        "evidenceReviewedRefs": [
+          "SYN-EV-01"
+        ],
+        "substantiveJustification": "Fixture sintético: justificación de prueba, sin autoridad institucional.",
+        "governedResolution": "CONDITION_SATISFIED"
+      },
+      "expected": {
+        "semanticState": "CONDITION_SATISFIED",
+        "resolvedBy": "GOVERNED_REVIEW",
+        "reviewRejections": [],
+        "findingsEmitted": 0
+      }
+    },
+    {
+      "id": "V06",
+      "title": "Revisión D11 válida resuelve no satisfecha",
+      "input": {
+        "entry": {
+          "questionId": "P1-OP04-02",
+          "variableRefs": [
+            "VA01",
+            "VA02",
+            "VA04",
+            "VA05",
+            "VA07"
+          ],
+          "focusVariableRef": "VA02",
+          "bindingApproved": false,
+          "responses": [
+            {
+              "questionId": "P1-OP04-02",
+              "knowledgeState": "KNOWN",
+              "evidenceRefs": [
+                "SYN-EV-01"
+              ],
+              "provenance": {
+                "sourceId": "SYN-SRC-A",
+                "locator": "synthetic"
+              }
+            }
+          ]
+        },
+        "declaredCause": null
+      },
+      "review": {
+        "reviewRequestId": "REV-V06",
+        "environment": "STAGING_SYNTHETIC",
+        "reviewerId": "SYN-REVIEWER-01",
+        "reviewerRole": "SYNTHETIC_KNOWLEDGE_REVIEWER",
+        "authorityRef": "SYN-AUTH-DEC050-FIXTURE",
+        "scope": "OP-04:R-OP04-02",
+        "targetVersion": "0.1.0",
+        "reviewedAt": "2026-10-27T00:00:00.000Z",
+        "validUntil": "2026-12-31T00:00:00.000Z",
+        "priorEvaluationState": "GOVERNED_REVIEW_REQUIRED",
+        "evidenceReviewedRefs": [
+          "SYN-EV-01"
+        ],
+        "substantiveJustification": "Fixture sintético: justificación de prueba, sin autoridad institucional.",
+        "governedResolution": "CONDITION_NOT_SATISFIED"
+      },
+      "expected": {
+        "semanticState": "CONDITION_NOT_SATISFIED",
+        "resolvedBy": "GOVERNED_REVIEW",
+        "reviewRejections": [],
+        "findingsEmitted": 0
+      }
+    },
+    {
+      "id": "V07",
+      "title": "Respuesta CONTRADICTORY preservada",
+      "input": {
+        "entry": {
+          "questionId": "P1-OP04-02",
+          "variableRefs": [
+            "VA01",
+            "VA02",
+            "VA04",
+            "VA05",
+            "VA07"
+          ],
+          "focusVariableRef": "VA02",
+          "bindingApproved": false,
+          "responses": [
+            {
+              "questionId": "P1-OP04-02",
+              "knowledgeState": "CONTRADICTORY",
+              "evidenceRefs": [
+                "SYN-EV-02"
+              ],
+              "provenance": {
+                "sourceId": "SYN-SRC-A",
+                "locator": "synthetic"
+              }
+            }
+          ]
+        },
+        "declaredCause": null
+      },
+      "review": null,
+      "expected": {
+        "semanticState": "CONFLICTING_INFORMATION",
+        "resolvedBy": "EVALUATOR_GATE",
+        "reviewRejections": [],
+        "findingsEmitted": 0
+      }
+    },
+    {
+      "id": "V08",
+      "title": "Fuentes divergentes sin precedencia inventada",
+      "input": {
+        "entry": {
+          "questionId": "P1-OP04-02",
+          "variableRefs": [
+            "VA01",
+            "VA02",
+            "VA04",
+            "VA05",
+            "VA07"
+          ],
+          "focusVariableRef": "VA02",
+          "bindingApproved": false,
+          "responses": [
+            {
+              "questionId": "P1-OP04-02",
+              "knowledgeState": "KNOWN",
+              "evidenceRefs": [
+                "SYN-EV-01"
+              ],
+              "provenance": {
+                "sourceId": "SYN-SRC-A",
+                "locator": "synthetic"
+              }
+            },
+            {
+              "questionId": "P1-OP04-02",
+              "knowledgeState": "UNKNOWN",
+              "evidenceRefs": [],
+              "provenance": {
+                "sourceId": "SYN-SRC-B",
+                "locator": "synthetic"
+              }
+            }
+          ]
+        },
+        "declaredCause": null
+      },
+      "review": null,
+      "expected": {
+        "semanticState": "CONFLICTING_INFORMATION",
+        "resolvedBy": "EVALUATOR_GATE",
+        "reviewRejections": [],
+        "findingsEmitted": 0
+      }
+    },
+    {
+      "id": "V09",
+      "title": "CAUSE-0 declarada no altera D3",
+      "input": {
+        "entry": {
+          "questionId": "P1-OP04-02",
+          "variableRefs": [
+            "VA01",
+            "VA02",
+            "VA04",
+            "VA05",
+            "VA07"
+          ],
+          "focusVariableRef": "VA02",
+          "bindingApproved": false,
+          "responses": [
+            {
+              "questionId": "P1-OP04-02",
+              "knowledgeState": "KNOWN",
+              "evidenceRefs": [
+                "SYN-EV-01"
+              ],
+              "provenance": {
+                "sourceId": "SYN-SRC-A",
+                "locator": "synthetic"
+              }
+            }
+          ]
+        },
+        "declaredCause": "OP-01"
+      },
+      "review": null,
+      "expected": {
+        "semanticState": "GOVERNED_REVIEW_REQUIRED",
+        "resolvedBy": "EVALUATOR_GATE",
+        "reviewRejections": [],
+        "findingsEmitted": 0
+      }
+    },
+    {
+      "id": "V10",
+      "title": "NOT_APPLICABLE declarado se propaga sin evaluar criterios",
+      "input": {
+        "entry": {
+          "questionId": "P1-OP04-02",
+          "variableRefs": [
+            "VA01",
+            "VA02",
+            "VA04",
+            "VA05",
+            "VA07"
+          ],
+          "focusVariableRef": "VA02",
+          "bindingApproved": false,
+          "responses": [
+            {
+              "questionId": "P1-OP04-02",
+              "knowledgeState": "NOT_APPLICABLE",
+              "evidenceRefs": [],
+              "provenance": {
+                "sourceId": "SYN-SRC-A",
+                "locator": "synthetic"
+              }
+            }
+          ]
+        },
+        "declaredCause": null
+      },
+      "review": null,
+      "expected": {
+        "semanticState": "NOT_APPLICABLE",
+        "resolvedBy": "EVALUATOR_GATE",
+        "reviewRejections": [],
+        "findingsEmitted": 0
+      }
+    },
+    {
+      "id": "V11",
+      "title": "Revisión vencida rechazada; se mantiene revisión requerida",
+      "input": {
+        "entry": {
+          "questionId": "P1-OP04-02",
+          "variableRefs": [
+            "VA01",
+            "VA02",
+            "VA04",
+            "VA05",
+            "VA07"
+          ],
+          "focusVariableRef": "VA02",
+          "bindingApproved": false,
+          "responses": [
+            {
+              "questionId": "P1-OP04-02",
+              "knowledgeState": "KNOWN",
+              "evidenceRefs": [
+                "SYN-EV-01"
+              ],
+              "provenance": {
+                "sourceId": "SYN-SRC-A",
+                "locator": "synthetic"
+              }
+            }
+          ]
+        },
+        "declaredCause": null
+      },
+      "review": {
+        "reviewRequestId": "REV-V11",
+        "environment": "STAGING_SYNTHETIC",
+        "reviewerId": "SYN-REVIEWER-01",
+        "reviewerRole": "SYNTHETIC_KNOWLEDGE_REVIEWER",
+        "authorityRef": "SYN-AUTH-DEC050-FIXTURE",
+        "scope": "OP-04:R-OP04-02",
+        "targetVersion": "0.1.0",
+        "reviewedAt": "2026-09-01T00:00:00.000Z",
+        "validUntil": "2026-10-01T00:00:00.000Z",
+        "priorEvaluationState": "GOVERNED_REVIEW_REQUIRED",
+        "evidenceReviewedRefs": [
+          "SYN-EV-01"
+        ],
+        "substantiveJustification": "Fixture sintético: justificación de prueba, sin autoridad institucional.",
+        "governedResolution": "CONDITION_SATISFIED"
+      },
+      "expected": {
+        "semanticState": "GOVERNED_REVIEW_REQUIRED",
+        "resolvedBy": "EVALUATOR_GATE",
+        "reviewRejections": [
+          "EXPIRED"
+        ],
+        "findingsEmitted": 0
+      }
+    },
+    {
+      "id": "V12",
+      "title": "Conflicto resuelto por revisión válida como evidencia insuficiente",
+      "input": {
+        "entry": {
+          "questionId": "P1-OP04-02",
+          "variableRefs": [
+            "VA01",
+            "VA02",
+            "VA04",
+            "VA05",
+            "VA07"
+          ],
+          "focusVariableRef": "VA02",
+          "bindingApproved": false,
+          "responses": [
+            {
+              "questionId": "P1-OP04-02",
+              "knowledgeState": "KNOWN",
+              "evidenceRefs": [
+                "SYN-EV-01"
+              ],
+              "provenance": {
+                "sourceId": "SYN-SRC-A",
+                "locator": "synthetic"
+              }
+            },
+            {
+              "questionId": "P1-OP04-02",
+              "knowledgeState": "CONTRADICTORY",
+              "evidenceRefs": [
+                "SYN-EV-03"
+              ],
+              "provenance": {
+                "sourceId": "SYN-SRC-B",
+                "locator": "synthetic"
+              }
+            }
+          ]
+        },
+        "declaredCause": null
+      },
+      "review": {
+        "reviewRequestId": "REV-V12",
+        "environment": "STAGING_SYNTHETIC",
+        "reviewerId": "SYN-REVIEWER-01",
+        "reviewerRole": "SYNTHETIC_KNOWLEDGE_REVIEWER",
+        "authorityRef": "SYN-AUTH-DEC050-FIXTURE",
+        "scope": "OP-04:R-OP04-02",
+        "targetVersion": "0.1.0",
+        "reviewedAt": "2026-10-27T00:00:00.000Z",
+        "validUntil": "2026-12-31T00:00:00.000Z",
+        "priorEvaluationState": "CONFLICTING_INFORMATION",
+        "evidenceReviewedRefs": [
+          "SYN-EV-01",
+          "SYN-EV-03"
+        ],
+        "substantiveJustification": "Fixture sintético: justificación de prueba, sin autoridad institucional.",
+        "governedResolution": "INSUFFICIENT_EVIDENCE"
+      },
+      "expected": {
+        "semanticState": "INSUFFICIENT_EVIDENCE",
+        "resolvedBy": "GOVERNED_REVIEW",
+        "reviewRejections": [],
+        "findingsEmitted": 0
+      }
+    }
+  ]
+}

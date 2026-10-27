@@ -193,3 +193,101 @@ export type ConditionsContract = z.infer<typeof conditionsContractSchema>;
 export type StructuralDecisionResult = z.infer<typeof structuralDecisionResultSchema>;
 export type FindingAuthorizationDescriptor = z.infer<typeof findingAuthorizationDescriptorSchema>;
 export type StructuralRuleArtifact = z.infer<typeof structuralRuleArtifactSchema>;
+
+/* ------------------------------------------------------------------ */
+/* KNOW-EXEC-14-B · Extensión aditiva (Alcance A)                      */
+/* Resultado de evaluación aislada y registro de revisión gobernada    */
+/* D11. No altera D1–D4: el artefacto estructural sigue validando      */
+/* `NOT_EVALUATED` + `semanticState: null`.                            */
+/* ------------------------------------------------------------------ */
+
+export const ISOLATED_EVALUATION_CONTRACT = "PYMAPA-ISOLATED-SYNTHETIC-EVALUATION" as const;
+export const ISOLATED_EVALUATION_CONTRACT_VERSION = "0.1.0" as const;
+
+/** Entorno obligatorio de los fixtures de autoridad: nunca autoridad real. */
+export const SYNTHETIC_ENVIRONMENT = "STAGING_SYNTHETIC" as const;
+
+/** Resoluciones sustantivas que solo una revisión D11 válida puede fijar. */
+export const GOVERNED_RESOLUTIONS = [
+  "CONDITION_SATISFIED",
+  "CONDITION_NOT_SATISFIED",
+  "NOT_APPLICABLE",
+  "INSUFFICIENT_EVIDENCE",
+] as const;
+
+export const governedReviewRecordSchema = z
+  .object({
+    reviewRequestId: z.string().min(1),
+    environment: z.literal(SYNTHETIC_ENVIRONMENT),
+    reviewerId: z.string().min(1),
+    reviewerRole: z.string().min(1),
+    authorityRef: z.string().min(1),
+    /** Alcance concedido, `<capacidad>:<regla>`. */
+    scope: z.string().min(1),
+    targetVersion: z.string().min(1),
+    reviewedAt: z.string().datetime(),
+    validUntil: z.string().datetime(),
+    priorEvaluationState: semanticDecisionStateSchema,
+    evidenceReviewedRefs: z.array(z.string().min(1)).min(1),
+    substantiveJustification: z.string().min(1),
+    governedResolution: z.enum(GOVERNED_RESOLUTIONS),
+  })
+  .strict();
+
+/** Autoridad sintética preautorizada y verificable (fixture, no institucional). */
+export const syntheticAuthorityGrantSchema = z
+  .object({
+    authorityRef: z.string().min(1),
+    environment: z.literal(SYNTHETIC_ENVIRONMENT),
+    allowedRoles: z.array(z.string().min(1)).min(1),
+    scope: z.string().min(1),
+    targetVersion: z.string().min(1),
+    institutional: z.literal(false),
+  })
+  .strict();
+
+export const REVIEW_REJECTION_REASONS = [
+  "MALFORMED_RECORD",
+  "UNKNOWN_AUTHORITY",
+  "ROLE_NOT_AUTHORIZED",
+  "EXPIRED",
+  "OUT_OF_SCOPE",
+  "VERSION_MISMATCH",
+  "EVIDENCE_NOT_IN_INPUT",
+  "PRIOR_STATE_MISMATCH",
+  "REVIEW_NOT_REQUESTED",
+] as const;
+
+export const isolatedEvaluationResultSchema = z
+  .object({
+    contract: z.literal(ISOLATED_EVALUATION_CONTRACT),
+    contractVersion: z.literal(ISOLATED_EVALUATION_CONTRACT_VERSION),
+    environment: z.literal(SYNTHETIC_ENVIRONMENT),
+    ruleId: z.string().min(1),
+    /** Estado antes de aplicar cualquier revisión D11. */
+    preReviewState: semanticDecisionStateSchema,
+    semanticState: semanticDecisionStateSchema,
+    resolvedBy: z.enum(["EVALUATOR_GATE", "GOVERNED_REVIEW"]),
+    reasons: z.array(z.string().min(1)).min(1),
+    reviewApplied: z.string().nullable(),
+    reviewRejections: z.array(z.enum(REVIEW_REJECTION_REASONS)),
+    /** Atribución causal declarada: separada de D3, nunca la modifica. */
+    causeAttribution: z.object({
+      declared: z.string().nullable(),
+      affectsDecision: z.literal(false),
+    }),
+    /** Criterios cualitativos jamás convertidos en predicados. */
+    conditionsAutomated: z.literal(0),
+    findingAuthorization: z.object({
+      authorizationActive: z.literal(false),
+      emissionActive: z.literal(false),
+    }),
+    findingsEmitted: z.literal(0),
+    productiveWrites: z.literal(0),
+  })
+  .strict();
+
+export type GovernedReviewRecord = z.infer<typeof governedReviewRecordSchema>;
+export type SyntheticAuthorityGrant = z.infer<typeof syntheticAuthorityGrantSchema>;
+export type ReviewRejectionReason = (typeof REVIEW_REJECTION_REASONS)[number];
+export type IsolatedEvaluationResult = z.infer<typeof isolatedEvaluationResultSchema>;
