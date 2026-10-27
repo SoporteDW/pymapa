@@ -2,7 +2,7 @@
   "fixture": "PYMAPA-R-OP04-02-SCENARIOS-V01-V12",
   "fixtureVersion": "0.1.0",
   "environment": "STAGING_SYNTHETIC",
-  "notice": "Fixtures sintéticos. No representan autoridad institucional real ni datos de empresas. Expectativas codificadas a partir de los controles de KNOW-EXEC-11-V citados en KNOW-EXEC-12-P/13-P; el documento KNOW-EXEC-11-V no está en el repositorio.",
+  "notice": "Supuestos literales cotejados con las diez hojas del Excel definitivo. Autoridad y evidencia exclusivamente sintéticas; no representan aprobación institucional ni empresas reales.",
   "context": {
     "ruleId": "R-OP04-02",
     "scope": "OP-04:R-OP04-02",
@@ -24,108 +24,23 @@
   "scenarios": [
     {
       "id": "V01",
-      "title": "Sin respuestas: abstención",
-      "input": {
-        "entry": {
-          "questionId": "P1-OP04-02",
-          "variableRefs": [
-            "VA01",
-            "VA02",
-            "VA04",
-            "VA05",
-            "VA07"
-          ],
-          "focusVariableRef": "VA02",
-          "bindingApproved": false,
-          "responses": []
-        },
-        "declaredCause": null
+      "title": "Favorable completo",
+      "canonical": {
+        "A": "V01",
+        "B": "Favorable completo",
+        "C": "Casos repetidos equivalentes, impacto contextual acreditado, sin función independiente, alternativa razonable, sin contradicción",
+        "D": "SUPUESTO SINTÉTICO; NO evidencia de pyme real",
+        "E": "C1,C2,C3,C4",
+        "F": "D01,D02,D03,D04,D05,D06,D07",
+        "G": "D01–D05: evidencia de equivalencia funcional, recurrencia/efecto, función independiente, evitabilidad y cierre sin contradicción",
+        "H": "CONDITION_SATISFIED — si los cuatro extremos y cierre D05 están acreditados",
+        "I": "No requerida si los criterios permiten cierre; D11 si juicio contextual controvertido",
+        "J": "No clasificar automáticamente como determinista; juicio contextual puede exigir D11",
+        "K": "CAUSE-0 si no hay causa probada; HF02 bloqueada",
+        "L": "VALIDADO CONDICIONAL",
+        "M": "DEC-050 v1.0 §1–14 (texto aportado por usuario); KNOW-EXEC-09-S hoja 06_S7_Casos; KNOW-EXEC-09-S V01",
+        "N": "No emitir HF02"
       },
-      "review": null,
-      "expected": {
-        "semanticState": "INSUFFICIENT_EVIDENCE",
-        "resolvedBy": "EVALUATOR_GATE",
-        "reviewRejections": [],
-        "findingsEmitted": 0
-      }
-    },
-    {
-      "id": "V02",
-      "title": "Respuesta UNKNOWN: abstención",
-      "input": {
-        "entry": {
-          "questionId": "P1-OP04-02",
-          "variableRefs": [
-            "VA01",
-            "VA02",
-            "VA04",
-            "VA05",
-            "VA07"
-          ],
-          "focusVariableRef": "VA02",
-          "bindingApproved": false,
-          "responses": [
-            {
-              "questionId": "P1-OP04-02",
-              "knowledgeState": "UNKNOWN",
-              "evidenceRefs": [],
-              "provenance": {
-                "sourceId": "SYN-SRC-A",
-                "locator": "synthetic"
-              }
-            }
-          ]
-        },
-        "declaredCause": null
-      },
-      "review": null,
-      "expected": {
-        "semanticState": "INSUFFICIENT_EVIDENCE",
-        "resolvedBy": "EVALUATOR_GATE",
-        "reviewRejections": [],
-        "findingsEmitted": 0
-      }
-    },
-    {
-      "id": "V03",
-      "title": "KNOWN sin evidencia: completitud no es suficiencia de VA02",
-      "input": {
-        "entry": {
-          "questionId": "P1-OP04-02",
-          "variableRefs": [
-            "VA01",
-            "VA02",
-            "VA04",
-            "VA05",
-            "VA07"
-          ],
-          "focusVariableRef": "VA02",
-          "bindingApproved": false,
-          "responses": [
-            {
-              "questionId": "P1-OP04-02",
-              "knowledgeState": "KNOWN",
-              "evidenceRefs": [],
-              "provenance": {
-                "sourceId": "SYN-SRC-A",
-                "locator": "synthetic"
-              }
-            }
-          ]
-        },
-        "declaredCause": null
-      },
-      "review": null,
-      "expected": {
-        "semanticState": "INSUFFICIENT_EVIDENCE",
-        "resolvedBy": "EVALUATOR_GATE",
-        "reviewRejections": [],
-        "findingsEmitted": 0
-      }
-    },
-    {
-      "id": "V04",
-      "title": "KNOWN con evidencia sin revisión: C1–C4 no automatizados",
       "input": {
         "entry": {
           "questionId": "P1-OP04-02",
@@ -143,58 +58,19 @@
               "questionId": "P1-OP04-02",
               "knowledgeState": "KNOWN",
               "evidenceRefs": [
-                "SYN-EV-01"
+                "SYN-V01-EVIDENCE"
               ],
               "provenance": {
                 "sourceId": "SYN-SRC-A",
-                "locator": "synthetic"
+                "locator": "V01"
               }
             }
           ]
         },
-        "declaredCause": null
-      },
-      "review": null,
-      "expected": {
-        "semanticState": "GOVERNED_REVIEW_REQUIRED",
-        "resolvedBy": "EVALUATOR_GATE",
-        "reviewRejections": [],
-        "findingsEmitted": 0
-      }
-    },
-    {
-      "id": "V05",
-      "title": "Revisión D11 válida resuelve satisfecha; HF02 sigue bloqueado",
-      "input": {
-        "entry": {
-          "questionId": "P1-OP04-02",
-          "variableRefs": [
-            "VA01",
-            "VA02",
-            "VA04",
-            "VA05",
-            "VA07"
-          ],
-          "focusVariableRef": "VA02",
-          "bindingApproved": false,
-          "responses": [
-            {
-              "questionId": "P1-OP04-02",
-              "knowledgeState": "KNOWN",
-              "evidenceRefs": [
-                "SYN-EV-01"
-              ],
-              "provenance": {
-                "sourceId": "SYN-SRC-A",
-                "locator": "synthetic"
-              }
-            }
-          ]
-        },
-        "declaredCause": null
+        "declaredCause": "CAUSE-0"
       },
       "review": {
-        "reviewRequestId": "REV-V05",
+        "reviewRequestId": "REV-V01",
         "environment": "STAGING_SYNTHETIC",
         "reviewerId": "SYN-REVIEWER-01",
         "reviewerRole": "SYNTHETIC_KNOWLEDGE_REVIEWER",
@@ -205,10 +81,26 @@
         "validUntil": "2026-12-31T00:00:00.000Z",
         "priorEvaluationState": "GOVERNED_REVIEW_REQUIRED",
         "evidenceReviewedRefs": [
-          "SYN-EV-01"
+          "SYN-V01-EVIDENCE"
         ],
-        "substantiveJustification": "Fixture sintético: justificación de prueba, sin autoridad institucional.",
-        "governedResolution": "CONDITION_SATISFIED"
+        "substantiveJustification": "D01–D05: evidencia de equivalencia funcional, recurrencia/efecto, función independiente, evitabilidad y cierre sin contradicción; Casos repetidos equivalentes, impacto contextual acreditado, sin función independiente, alternativa razonable, sin contradicción",
+        "governedResolution": "CONDITION_SATISFIED",
+        "caseId": "V01",
+        "ruleId": "R-OP04-02",
+        "variableRef": "VA02",
+        "controversy": "Juicio contextual sintético registrado; no predicado automático.",
+        "criterionRefs": [
+          "D01",
+          "D02",
+          "D03",
+          "D04",
+          "D05",
+          "D06",
+          "D07"
+        ],
+        "sourceRefs": [
+          "SYN-SRC-A"
+        ]
       },
       "expected": {
         "semanticState": "CONDITION_SATISFIED",
@@ -218,8 +110,24 @@
       }
     },
     {
-      "id": "V06",
-      "title": "Revisión D11 válida resuelve no satisfecha",
+      "id": "V02",
+      "title": "Contrario por control válido",
+      "canonical": {
+        "A": "V02",
+        "B": "Contrario por control válido",
+        "C": "Segunda revisión obligatoria para prevenir un riesgo probado",
+        "D": "SUPUESTO SINTÉTICO; NO evidencia de pyme real",
+        "E": "C3; C1 solo contextual",
+        "F": "D03,D05,D06",
+        "G": "D03: finalidad de segunda revisión, riesgo que previene y necesidad acreditada",
+        "H": "CONDITION_NOT_SATISFIED — si control legítimo y necesario está acreditado",
+        "I": "No requerida si evidencia concluyente; D11 si legitimidad controvertida",
+        "J": "Registro de condición contraria acreditada; sin presunción de redundancia",
+        "K": "No inferir causa; no emitir HF02",
+        "L": "VALIDADO CONDICIONAL",
+        "M": "DEC-050 v1.0 §1–14 (texto aportado por usuario); KNOW-EXEC-09-S hoja 06_S7_Casos; KNOW-EXEC-09-S V02",
+        "N": "No llamar redundante a control legítimo"
+      },
       "input": {
         "entry": {
           "questionId": "P1-OP04-02",
@@ -237,19 +145,19 @@
               "questionId": "P1-OP04-02",
               "knowledgeState": "KNOWN",
               "evidenceRefs": [
-                "SYN-EV-01"
+                "SYN-V02-EVIDENCE"
               ],
               "provenance": {
                 "sourceId": "SYN-SRC-A",
-                "locator": "synthetic"
+                "locator": "V02"
               }
             }
           ]
         },
-        "declaredCause": null
+        "declaredCause": "CAUSE-0"
       },
       "review": {
-        "reviewRequestId": "REV-V06",
+        "reviewRequestId": "REV-V02",
         "environment": "STAGING_SYNTHETIC",
         "reviewerId": "SYN-REVIEWER-01",
         "reviewerRole": "SYNTHETIC_KNOWLEDGE_REVIEWER",
@@ -260,10 +168,22 @@
         "validUntil": "2026-12-31T00:00:00.000Z",
         "priorEvaluationState": "GOVERNED_REVIEW_REQUIRED",
         "evidenceReviewedRefs": [
-          "SYN-EV-01"
+          "SYN-V02-EVIDENCE"
         ],
-        "substantiveJustification": "Fixture sintético: justificación de prueba, sin autoridad institucional.",
-        "governedResolution": "CONDITION_NOT_SATISFIED"
+        "substantiveJustification": "D03: finalidad de segunda revisión, riesgo que previene y necesidad acreditada; Segunda revisión obligatoria para prevenir un riesgo probado",
+        "governedResolution": "CONDITION_NOT_SATISFIED",
+        "caseId": "V02",
+        "ruleId": "R-OP04-02",
+        "variableRef": "VA02",
+        "controversy": "Juicio contextual sintético registrado; no predicado automático.",
+        "criterionRefs": [
+          "D03",
+          "D05",
+          "D06"
+        ],
+        "sourceRefs": [
+          "SYN-SRC-A"
+        ]
       },
       "expected": {
         "semanticState": "CONDITION_NOT_SATISFIED",
@@ -273,8 +193,216 @@
       }
     },
     {
-      "id": "V07",
-      "title": "Respuesta CONTRADICTORY preservada",
+      "id": "V03",
+      "title": "Contrario por evitabilidad",
+      "canonical": {
+        "A": "V03",
+        "B": "Contrario por evitabilidad",
+        "C": "Repetición existe pero es necesaria por restricción acreditada",
+        "D": "SUPUESTO SINTÉTICO; NO evidencia de pyme real",
+        "E": "C4; C1 contextual",
+        "F": "D04,D05,D06",
+        "G": "D04: restricción acreditada, alternativas plausibles y riesgo de eliminación/reducción",
+        "H": "CONDITION_NOT_SATISFIED — si restricción impide evitabilidad sin riesgo material",
+        "I": "D11 si restricción/alternativa está discutida",
+        "J": "Registrar no satisfacción solo con evidencia negativa suficiente",
+        "K": "No inferir C4 de C1; no emitir HF02",
+        "L": "VALIDADO CONDICIONAL",
+        "M": "DEC-050 v1.0 §1–14 (texto aportado por usuario); KNOW-EXEC-09-S hoja 06_S7_Casos; KNOW-EXEC-09-S V03",
+        "N": "No deducir C4 de C1"
+      },
+      "input": {
+        "entry": {
+          "questionId": "P1-OP04-02",
+          "variableRefs": [
+            "VA01",
+            "VA02",
+            "VA04",
+            "VA05",
+            "VA07"
+          ],
+          "focusVariableRef": "VA02",
+          "bindingApproved": false,
+          "responses": [
+            {
+              "questionId": "P1-OP04-02",
+              "knowledgeState": "KNOWN",
+              "evidenceRefs": [
+                "SYN-V03-EVIDENCE"
+              ],
+              "provenance": {
+                "sourceId": "SYN-SRC-A",
+                "locator": "V03"
+              }
+            }
+          ]
+        },
+        "declaredCause": "CAUSE-0"
+      },
+      "review": {
+        "reviewRequestId": "REV-V03",
+        "environment": "STAGING_SYNTHETIC",
+        "reviewerId": "SYN-REVIEWER-01",
+        "reviewerRole": "SYNTHETIC_KNOWLEDGE_REVIEWER",
+        "authorityRef": "SYN-AUTH-DEC050-FIXTURE",
+        "scope": "OP-04:R-OP04-02",
+        "targetVersion": "0.1.0",
+        "reviewedAt": "2026-10-27T00:00:00.000Z",
+        "validUntil": "2026-12-31T00:00:00.000Z",
+        "priorEvaluationState": "GOVERNED_REVIEW_REQUIRED",
+        "evidenceReviewedRefs": [
+          "SYN-V03-EVIDENCE"
+        ],
+        "substantiveJustification": "D04: restricción acreditada, alternativas plausibles y riesgo de eliminación/reducción; Repetición existe pero es necesaria por restricción acreditada",
+        "governedResolution": "CONDITION_NOT_SATISFIED",
+        "caseId": "V03",
+        "ruleId": "R-OP04-02",
+        "variableRef": "VA02",
+        "controversy": "Juicio contextual sintético registrado; no predicado automático.",
+        "criterionRefs": [
+          "D04",
+          "D05",
+          "D06"
+        ],
+        "sourceRefs": [
+          "SYN-SRC-A"
+        ]
+      },
+      "expected": {
+        "semanticState": "CONDITION_NOT_SATISFIED",
+        "resolvedBy": "GOVERNED_REVIEW",
+        "reviewRejections": [],
+        "findingsEmitted": 0
+      }
+    },
+    {
+      "id": "V04",
+      "title": "Respuesta positiva aislada",
+      "canonical": {
+        "A": "V04",
+        "B": "Respuesta positiva aislada",
+        "C": "Empresa responde sí a P1 sin ejemplo ni materialidad",
+        "D": "SUPUESTO SINTÉTICO; NO evidencia de pyme real",
+        "E": "C1–C4 sin discriminación",
+        "F": "D05,D06",
+        "G": "Respuesta afirmativa P1-OP04-02 sin ejemplos, impacto, control ni alternativa",
+        "H": "INSUFFICIENT_EVIDENCE",
+        "I": "Abstención y adquisición dirigida; D11 solo si no se resuelve normalmente",
+        "J": "Detección de respuesta aislada y falta de evidencia; no evaluar regla",
+        "K": "No emitir HF02 ni imputar causa",
+        "L": "VALIDADO",
+        "M": "DEC-050 v1.0 §1–14 (texto aportado por usuario); KNOW-EXEC-09-S hoja 06_S7_Casos; KNOW-EXEC-09-S V04",
+        "N": "No declarar brecha"
+      },
+      "input": {
+        "entry": {
+          "questionId": "P1-OP04-02",
+          "variableRefs": [
+            "VA01",
+            "VA02",
+            "VA04",
+            "VA05",
+            "VA07"
+          ],
+          "focusVariableRef": "VA02",
+          "bindingApproved": false,
+          "responses": [
+            {
+              "questionId": "P1-OP04-02",
+              "knowledgeState": "KNOWN",
+              "evidenceRefs": [],
+              "provenance": {
+                "sourceId": "SYN-SRC-A",
+                "locator": "V04"
+              }
+            }
+          ]
+        },
+        "declaredCause": "CAUSE-0"
+      },
+      "review": null,
+      "expected": {
+        "semanticState": "INSUFFICIENT_EVIDENCE",
+        "resolvedBy": "EVALUATOR_GATE",
+        "reviewRejections": [],
+        "findingsEmitted": 0
+      }
+    },
+    {
+      "id": "V05",
+      "title": "Materialidad incierta",
+      "canonical": {
+        "A": "V05",
+        "B": "Materialidad incierta",
+        "C": "Duplicación descrita sin impacto/frecuencia ni contexto que permita juicio",
+        "D": "SUPUESTO SINTÉTICO; NO evidencia de pyme real",
+        "E": "C2",
+        "F": "D02,D05,D06,D11",
+        "G": "Faltan frecuencia, impacto y contexto discriminante; no existe umbral universal",
+        "H": "INSUFFICIENT_EVIDENCE — en el supuesto original, sin frecuencia/impacto/contexto",
+        "I": "Profundización dirigida; D11 si juicio material controvertido o no resoluble",
+        "J": "Detección de falta de contexto; no decidir materialidad por score",
+        "K": "No usar ausencia de métrica como prueba de no materialidad",
+        "L": "VALIDADO CONDICIONAL",
+        "M": "DEC-050 v1.0 §1–14 (texto aportado por usuario); KNOW-EXEC-09-S hoja 06_S7_Casos; KNOW-EXEC-09-S V05",
+        "N": "No inventar umbral"
+      },
+      "input": {
+        "entry": {
+          "questionId": "P1-OP04-02",
+          "variableRefs": [
+            "VA01",
+            "VA02",
+            "VA04",
+            "VA05",
+            "VA07"
+          ],
+          "focusVariableRef": "VA02",
+          "bindingApproved": false,
+          "responses": [
+            {
+              "questionId": "P1-OP04-02",
+              "knowledgeState": "KNOWN",
+              "evidenceRefs": [
+                "SYN-V05-EVIDENCE"
+              ],
+              "provenance": {
+                "sourceId": "SYN-SRC-A",
+                "locator": "V05"
+              }
+            }
+          ]
+        },
+        "declaredCause": "CAUSE-0",
+        "informationGap": "Faltan frecuencia, impacto y contexto discriminante; no existe umbral universal"
+      },
+      "review": null,
+      "expected": {
+        "semanticState": "INSUFFICIENT_EVIDENCE",
+        "resolvedBy": "EVALUATOR_GATE",
+        "reviewRejections": [],
+        "findingsEmitted": 0
+      }
+    },
+    {
+      "id": "V06",
+      "title": "Contradicción de control",
+      "canonical": {
+        "A": "V06",
+        "B": "Contradicción de control",
+        "C": "Una fuente dice duplicidad innecesaria, otra acredita control esencial; sin resolución",
+        "D": "SUPUESTO SINTÉTICO; NO evidencia de pyme real",
+        "E": "C3",
+        "F": "D03,D05,D11",
+        "G": "Dos fuentes materialmente incompatibles sobre necesidad de control",
+        "H": "CONFLICTING_INFORMATION — contradicción material no resuelta",
+        "I": "D11 OBLIGATORIA para resolver contradicción; preservar estado de conflicto hasta cierre",
+        "J": "Detectar conflicto explícito y enrutar a revisión; no resolver por voto",
+        "K": "No emitir HF02; CAUSE-0 si origen no probado",
+        "L": "VALIDADO",
+        "M": "DEC-050 v1.0 §1–14 (texto aportado por usuario); KNOW-EXEC-09-S hoja 06_S7_Casos; KNOW-EXEC-09-S V06",
+        "N": "No resolver por voto"
+      },
       "input": {
         "entry": {
           "questionId": "P1-OP04-02",
@@ -292,64 +420,27 @@
               "questionId": "P1-OP04-02",
               "knowledgeState": "CONTRADICTORY",
               "evidenceRefs": [
-                "SYN-EV-02"
+                "SYN-V06-EVIDENCE"
               ],
               "provenance": {
                 "sourceId": "SYN-SRC-A",
-                "locator": "synthetic"
-              }
-            }
-          ]
-        },
-        "declaredCause": null
-      },
-      "review": null,
-      "expected": {
-        "semanticState": "CONFLICTING_INFORMATION",
-        "resolvedBy": "EVALUATOR_GATE",
-        "reviewRejections": [],
-        "findingsEmitted": 0
-      }
-    },
-    {
-      "id": "V08",
-      "title": "Fuentes divergentes sin precedencia inventada",
-      "input": {
-        "entry": {
-          "questionId": "P1-OP04-02",
-          "variableRefs": [
-            "VA01",
-            "VA02",
-            "VA04",
-            "VA05",
-            "VA07"
-          ],
-          "focusVariableRef": "VA02",
-          "bindingApproved": false,
-          "responses": [
-            {
-              "questionId": "P1-OP04-02",
-              "knowledgeState": "KNOWN",
-              "evidenceRefs": [
-                "SYN-EV-01"
-              ],
-              "provenance": {
-                "sourceId": "SYN-SRC-A",
-                "locator": "synthetic"
+                "locator": "V06"
               }
             },
             {
               "questionId": "P1-OP04-02",
-              "knowledgeState": "UNKNOWN",
-              "evidenceRefs": [],
+              "knowledgeState": "KNOWN",
+              "evidenceRefs": [
+                "SYN-V06-CONTROL"
+              ],
               "provenance": {
                 "sourceId": "SYN-SRC-B",
-                "locator": "synthetic"
+                "locator": "V06"
               }
             }
           ]
         },
-        "declaredCause": null
+        "declaredCause": "CAUSE-0"
       },
       "review": null,
       "expected": {
@@ -360,47 +451,24 @@
       }
     },
     {
-      "id": "V09",
-      "title": "CAUSE-0 declarada no altera D3",
-      "input": {
-        "entry": {
-          "questionId": "P1-OP04-02",
-          "variableRefs": [
-            "VA01",
-            "VA02",
-            "VA04",
-            "VA05",
-            "VA07"
-          ],
-          "focusVariableRef": "VA02",
-          "bindingApproved": false,
-          "responses": [
-            {
-              "questionId": "P1-OP04-02",
-              "knowledgeState": "KNOWN",
-              "evidenceRefs": [
-                "SYN-EV-01"
-              ],
-              "provenance": {
-                "sourceId": "SYN-SRC-A",
-                "locator": "synthetic"
-              }
-            }
-          ]
-        },
-        "declaredCause": "OP-01"
+      "id": "V07",
+      "title": "No aplicabilidad verificada",
+      "canonical": {
+        "A": "V07",
+        "B": "No aplicabilidad verificada",
+        "C": "La operación evaluada no contiene actividad comparable dentro del alcance definido",
+        "D": "SUPUESTO SINTÉTICO; NO evidencia de pyme real",
+        "E": "Aplicabilidad previa a C1–C4",
+        "F": "D05,D06,D11 si controvertida",
+        "G": "Evidencia positiva de ausencia de actividad pertinente dentro de alcance autorizado",
+        "H": "NOT_APPLICABLE — solo si ausencia de actividad pertinente se verifica legítimamente",
+        "I": "D11 si alcance o exclusión controvertidos",
+        "J": "Registrar exclusión acreditada; no confundir con falta de información",
+        "K": "No inferir no aplicabilidad por respuesta vacía",
+        "L": "VALIDADO CONDICIONAL",
+        "M": "DEC-050 v1.0 §1–14 (texto aportado por usuario); KNOW-EXEC-09-S hoja 06_S7_Casos; KNOW-EXEC-09-S V07",
+        "N": "No confundir con datos ausentes"
       },
-      "review": null,
-      "expected": {
-        "semanticState": "GOVERNED_REVIEW_REQUIRED",
-        "resolvedBy": "EVALUATOR_GATE",
-        "reviewRejections": [],
-        "findingsEmitted": 0
-      }
-    },
-    {
-      "id": "V10",
-      "title": "NOT_APPLICABLE declarado se propaga sin evaluar criterios",
       "input": {
         "entry": {
           "questionId": "P1-OP04-02",
@@ -417,125 +485,20 @@
             {
               "questionId": "P1-OP04-02",
               "knowledgeState": "NOT_APPLICABLE",
-              "evidenceRefs": [],
-              "provenance": {
-                "sourceId": "SYN-SRC-A",
-                "locator": "synthetic"
-              }
-            }
-          ]
-        },
-        "declaredCause": null
-      },
-      "review": null,
-      "expected": {
-        "semanticState": "NOT_APPLICABLE",
-        "resolvedBy": "EVALUATOR_GATE",
-        "reviewRejections": [],
-        "findingsEmitted": 0
-      }
-    },
-    {
-      "id": "V11",
-      "title": "Revisión vencida rechazada; se mantiene revisión requerida",
-      "input": {
-        "entry": {
-          "questionId": "P1-OP04-02",
-          "variableRefs": [
-            "VA01",
-            "VA02",
-            "VA04",
-            "VA05",
-            "VA07"
-          ],
-          "focusVariableRef": "VA02",
-          "bindingApproved": false,
-          "responses": [
-            {
-              "questionId": "P1-OP04-02",
-              "knowledgeState": "KNOWN",
               "evidenceRefs": [
-                "SYN-EV-01"
+                "SYN-V07-EVIDENCE"
               ],
               "provenance": {
                 "sourceId": "SYN-SRC-A",
-                "locator": "synthetic"
+                "locator": "V07"
               }
             }
           ]
         },
-        "declaredCause": null
+        "declaredCause": "CAUSE-0"
       },
       "review": {
-        "reviewRequestId": "REV-V11",
-        "environment": "STAGING_SYNTHETIC",
-        "reviewerId": "SYN-REVIEWER-01",
-        "reviewerRole": "SYNTHETIC_KNOWLEDGE_REVIEWER",
-        "authorityRef": "SYN-AUTH-DEC050-FIXTURE",
-        "scope": "OP-04:R-OP04-02",
-        "targetVersion": "0.1.0",
-        "reviewedAt": "2026-09-01T00:00:00.000Z",
-        "validUntil": "2026-10-01T00:00:00.000Z",
-        "priorEvaluationState": "GOVERNED_REVIEW_REQUIRED",
-        "evidenceReviewedRefs": [
-          "SYN-EV-01"
-        ],
-        "substantiveJustification": "Fixture sintético: justificación de prueba, sin autoridad institucional.",
-        "governedResolution": "CONDITION_SATISFIED"
-      },
-      "expected": {
-        "semanticState": "GOVERNED_REVIEW_REQUIRED",
-        "resolvedBy": "EVALUATOR_GATE",
-        "reviewRejections": [
-          "EXPIRED"
-        ],
-        "findingsEmitted": 0
-      }
-    },
-    {
-      "id": "V12",
-      "title": "Conflicto resuelto por revisión válida como evidencia insuficiente",
-      "input": {
-        "entry": {
-          "questionId": "P1-OP04-02",
-          "variableRefs": [
-            "VA01",
-            "VA02",
-            "VA04",
-            "VA05",
-            "VA07"
-          ],
-          "focusVariableRef": "VA02",
-          "bindingApproved": false,
-          "responses": [
-            {
-              "questionId": "P1-OP04-02",
-              "knowledgeState": "KNOWN",
-              "evidenceRefs": [
-                "SYN-EV-01"
-              ],
-              "provenance": {
-                "sourceId": "SYN-SRC-A",
-                "locator": "synthetic"
-              }
-            },
-            {
-              "questionId": "P1-OP04-02",
-              "knowledgeState": "CONTRADICTORY",
-              "evidenceRefs": [
-                "SYN-EV-03"
-              ],
-              "provenance": {
-                "sourceId": "SYN-SRC-B",
-                "locator": "synthetic"
-              }
-            }
-          ]
-        },
-        "declaredCause": null
-      },
-      "review": {
-        "reviewRequestId": "REV-V12",
+        "reviewRequestId": "REV-V07",
         "environment": "STAGING_SYNTHETIC",
         "reviewerId": "SYN-REVIEWER-01",
         "reviewerRole": "SYNTHETIC_KNOWLEDGE_REVIEWER",
@@ -544,20 +507,349 @@
         "targetVersion": "0.1.0",
         "reviewedAt": "2026-10-27T00:00:00.000Z",
         "validUntil": "2026-12-31T00:00:00.000Z",
-        "priorEvaluationState": "CONFLICTING_INFORMATION",
+        "priorEvaluationState": "GOVERNED_REVIEW_REQUIRED",
         "evidenceReviewedRefs": [
-          "SYN-EV-01",
-          "SYN-EV-03"
+          "SYN-V07-EVIDENCE"
         ],
-        "substantiveJustification": "Fixture sintético: justificación de prueba, sin autoridad institucional.",
-        "governedResolution": "INSUFFICIENT_EVIDENCE"
+        "substantiveJustification": "Evidencia positiva de ausencia de actividad pertinente dentro de alcance autorizado; La operación evaluada no contiene actividad comparable dentro del alcance definido",
+        "governedResolution": "NOT_APPLICABLE",
+        "caseId": "V07",
+        "ruleId": "R-OP04-02",
+        "variableRef": "VA02",
+        "controversy": "Juicio contextual sintético registrado; no predicado automático.",
+        "criterionRefs": [
+          "D05",
+          "D06",
+          "D11 si controvertida"
+        ],
+        "sourceRefs": [
+          "SYN-SRC-A"
+        ]
       },
       "expected": {
-        "semanticState": "INSUFFICIENT_EVIDENCE",
+        "semanticState": "NOT_APPLICABLE",
         "resolvedBy": "GOVERNED_REVIEW",
         "reviewRejections": [],
         "findingsEmitted": 0
       }
+    },
+    {
+      "id": "V08",
+      "title": "Revisión humana",
+      "canonical": {
+        "A": "V08",
+        "B": "Revisión humana",
+        "C": "Función de control plausible y de riesgo alto, documentación ambigua",
+        "D": "SUPUESTO SINTÉTICO; NO evidencia de pyme real",
+        "E": "C3",
+        "F": "D03,D05,D11",
+        "G": "Finalidad de control plausible, riesgos altos, documentación ambigua",
+        "H": "GOVERNED_REVIEW_REQUIRED",
+        "I": "D11 OBLIGATORIA: control plausible de alto riesgo y documentación ambigua",
+        "J": "Enrutamiento a autoridad de Conocimiento y registro mínimo D11",
+        "K": "No eliminar control ni concluir C3 automáticamente",
+        "L": "VALIDADO",
+        "M": "DEC-050 v1.0 §1–14 (texto aportado por usuario); KNOW-EXEC-09-S hoja 06_S7_Casos; KNOW-EXEC-09-S V08",
+        "N": "No simular juicio"
+      },
+      "input": {
+        "entry": {
+          "questionId": "P1-OP04-02",
+          "variableRefs": [
+            "VA01",
+            "VA02",
+            "VA04",
+            "VA05",
+            "VA07"
+          ],
+          "focusVariableRef": "VA02",
+          "bindingApproved": false,
+          "responses": [
+            {
+              "questionId": "P1-OP04-02",
+              "knowledgeState": "KNOWN",
+              "evidenceRefs": [
+                "SYN-V08-EVIDENCE"
+              ],
+              "provenance": {
+                "sourceId": "SYN-SRC-A",
+                "locator": "V08"
+              }
+            }
+          ]
+        },
+        "declaredCause": "CAUSE-0"
+      },
+      "review": null,
+      "expected": {
+        "semanticState": "GOVERNED_REVIEW_REQUIRED",
+        "resolvedBy": "EVALUATOR_GATE",
+        "reviewRejections": [],
+        "findingsEmitted": 0
+      }
+    },
+    {
+      "id": "V09",
+      "title": "Causalidad desconocida",
+      "canonical": {
+        "A": "V09",
+        "B": "Causalidad desconocida",
+        "C": "Retrabajo material observado, origen desconocido",
+        "D": "SUPUESTO SINTÉTICO; NO evidencia de pyme real",
+        "E": "C1–C4 no descritas por completo; causa separada",
+        "F": "D01–D07; D11 si incertidumbre material",
+        "G": "Retrabajo material observado y causa desconocida; no se acreditan por ello C3/C4",
+        "H": "NO DETERMINABLE SOLO CON EL SUPUESTO; CAUSE-0 es atributo causal, no estado D3",
+        "I": "Profundizar C1–C4 si faltan; D11 solo si incertidumbre causal relevante exige revisión",
+        "J": "Registro CAUSE-0 sí; no declarar CONDITION_SATISFIED por materialidad aislada",
+        "K": "Prohibida imputación OP-01/02/03/DT/PC",
+        "L": "VALIDADO CON RESERVA EXPLÍCITA",
+        "M": "DEC-050 v1.0 §1–14 (texto aportado por usuario); KNOW-EXEC-09-S hoja 06_S7_Casos; KNOW-EXEC-09-S V09",
+        "N": "No imputar OP-01/02/03/DT/PC"
+      },
+      "input": {
+        "entry": {
+          "questionId": "P1-OP04-02",
+          "variableRefs": [
+            "VA01",
+            "VA02",
+            "VA04",
+            "VA05",
+            "VA07"
+          ],
+          "focusVariableRef": "VA02",
+          "bindingApproved": false,
+          "responses": [
+            {
+              "questionId": "P1-OP04-02",
+              "knowledgeState": "KNOWN",
+              "evidenceRefs": [
+                "SYN-V09-EVIDENCE"
+              ],
+              "provenance": {
+                "sourceId": "SYN-SRC-A",
+                "locator": "V09"
+              }
+            }
+          ]
+        },
+        "declaredCause": "CAUSE-0",
+        "informationGap": "C3 y C4 no acreditadas; origen desconocido no decide D3."
+      },
+      "review": null,
+      "expected": {
+        "semanticState": "INSUFFICIENT_EVIDENCE",
+        "resolvedBy": "EVALUATOR_GATE",
+        "reviewRejections": [],
+        "findingsEmitted": 0
+      }
+    },
+    {
+      "id": "V10",
+      "title": "Solicitud HF02",
+      "canonical": {
+        "A": "V10",
+        "B": "Solicitud HF02",
+        "C": "Supuesto con cuatro condiciones respaldadas; solicitud de emisión",
+        "D": "SUPUESTO SINTÉTICO; NO evidencia de pyme real",
+        "E": "C1,C2,C3,C4 supuestamente respaldadas",
+        "F": "D01–D07; D08 bloqueada",
+        "G": "Cuatro condiciones respaldadas como supuesto sintético; solicitud expresa de emisión",
+        "H": "CONDITION_SATISFIED solo si D05 cierra; EMISIÓN HF02 BLOQUEADA",
+        "I": "D11 solo si evidencia de condiciones controvertida; no suple D08",
+        "J": "Bloqueo determinista por ausencia de autorización HF02; evaluación separada",
+        "K": "Ningún hallazgo emitido; D08 independiente",
+        "L": "VALIDADO",
+        "M": "DEC-050 v1.0 §1–14 (texto aportado por usuario); KNOW-EXEC-09-S hoja 06_S7_Casos; KNOW-EXEC-09-S V10",
+        "N": "No emitir HF02"
+      },
+      "input": {
+        "entry": {
+          "questionId": "P1-OP04-02",
+          "variableRefs": [
+            "VA01",
+            "VA02",
+            "VA04",
+            "VA05",
+            "VA07"
+          ],
+          "focusVariableRef": "VA02",
+          "bindingApproved": false,
+          "responses": [
+            {
+              "questionId": "P1-OP04-02",
+              "knowledgeState": "KNOWN",
+              "evidenceRefs": [
+                "SYN-V10-EVIDENCE"
+              ],
+              "provenance": {
+                "sourceId": "SYN-SRC-A",
+                "locator": "V10"
+              }
+            }
+          ]
+        },
+        "declaredCause": "CAUSE-0"
+      },
+      "review": {
+        "reviewRequestId": "REV-V10",
+        "environment": "STAGING_SYNTHETIC",
+        "reviewerId": "SYN-REVIEWER-01",
+        "reviewerRole": "SYNTHETIC_KNOWLEDGE_REVIEWER",
+        "authorityRef": "SYN-AUTH-DEC050-FIXTURE",
+        "scope": "OP-04:R-OP04-02",
+        "targetVersion": "0.1.0",
+        "reviewedAt": "2026-10-27T00:00:00.000Z",
+        "validUntil": "2026-12-31T00:00:00.000Z",
+        "priorEvaluationState": "GOVERNED_REVIEW_REQUIRED",
+        "evidenceReviewedRefs": [
+          "SYN-V10-EVIDENCE"
+        ],
+        "substantiveJustification": "Cuatro condiciones respaldadas como supuesto sintético; solicitud expresa de emisión; Supuesto con cuatro condiciones respaldadas; solicitud de emisión",
+        "governedResolution": "CONDITION_SATISFIED",
+        "caseId": "V10",
+        "ruleId": "R-OP04-02",
+        "variableRef": "VA02",
+        "controversy": "Juicio contextual sintético registrado; no predicado automático.",
+        "criterionRefs": [
+          "D01–D07; D08 bloqueada"
+        ],
+        "sourceRefs": [
+          "SYN-SRC-A"
+        ]
+      },
+      "expected": {
+        "semanticState": "CONDITION_SATISFIED",
+        "resolvedBy": "GOVERNED_REVIEW",
+        "reviewRejections": [],
+        "findingsEmitted": 0
+      }
+    },
+    {
+      "id": "V11",
+      "title": "Pregunta contexto ambigua",
+      "canonical": {
+        "A": "V11",
+        "B": "Pregunta contexto ambigua",
+        "C": "P1-OP04-01 sugiere simplificación pero P1-OP04-02 no identifica repetición",
+        "D": "SUPUESTO SINTÉTICO; NO evidencia de pyme real",
+        "E": "C1 no demostrada",
+        "F": "D01,D05,D06",
+        "G": "P1-OP04-01 sugiere simplificación; P1-OP04-02 no identifica repetición",
+        "H": "INSUFFICIENT_EVIDENCE — salvo prueba positiva de ausencia de C1",
+        "I": "Profundización dirigida; D11 si ambigüedad no resoluble normalmente",
+        "J": "No derivar equivalencia de simplificación ni de nombres similares",
+        "K": "No interpretar silencio como negación de C1",
+        "L": "VALIDADO",
+        "M": "DEC-050 v1.0 §1–14 (texto aportado por usuario); KNOW-EXEC-09-S hoja 06_S7_Casos; KNOW-EXEC-09-S V11",
+        "N": "No inferir C1"
+      },
+      "input": {
+        "entry": {
+          "questionId": "P1-OP04-02",
+          "variableRefs": [
+            "VA01",
+            "VA02",
+            "VA04",
+            "VA05",
+            "VA07"
+          ],
+          "focusVariableRef": "VA02",
+          "bindingApproved": false,
+          "responses": [
+            {
+              "questionId": "P1-OP04-01",
+              "knowledgeState": "KNOWN",
+              "evidenceRefs": [
+                "SYN-V11-EVIDENCE"
+              ],
+              "provenance": {
+                "sourceId": "SYN-SRC-A",
+                "locator": "V11"
+              }
+            },
+            {
+              "questionId": "P1-OP04-02",
+              "knowledgeState": "KNOWN",
+              "evidenceRefs": [],
+              "provenance": {
+                "sourceId": "SYN-SRC-A",
+                "locator": "V11"
+              }
+            }
+          ]
+        },
+        "declaredCause": "CAUSE-0"
+      },
+      "review": null,
+      "expected": {
+        "semanticState": "INSUFFICIENT_EVIDENCE",
+        "resolvedBy": "EVALUATOR_GATE",
+        "reviewRejections": [],
+        "findingsEmitted": 0
+      }
+    },
+    {
+      "id": "V12",
+      "title": "Ciclo no evaluado",
+      "canonical": {
+        "A": "V12",
+        "B": "Ciclo no evaluado",
+        "C": "Registro creado pero evaluación no iniciada",
+        "D": "SUPUESTO SINTÉTICO; NO evidencia de pyme real",
+        "E": "Ninguna: ciclo no iniciado",
+        "F": "D05: distinción de estado técnico",
+        "G": "Registro creado; evaluación no iniciada",
+        "H": "NOT_EVALUATED — control técnico, fuera de seis estados diagnósticos",
+        "I": "No procede D11 por mero registro sin evaluación",
+        "J": "Estado de ciclo de vida determinista; sin resultado diagnóstico",
+        "K": "No ejecutar regla ni emitir HF02",
+        "L": "VALIDADO",
+        "M": "DEC-050 v1.0 §1–14 (texto aportado por usuario); KNOW-EXEC-09-S hoja 06_S7_Casos; KNOW-EXEC-09-S V12",
+        "N": "No inventar diagnóstico"
+      },
+      "input": {
+        "entry": {
+          "questionId": "P1-OP04-02",
+          "variableRefs": [
+            "VA01",
+            "VA02",
+            "VA04",
+            "VA05",
+            "VA07"
+          ],
+          "focusVariableRef": "VA02",
+          "bindingApproved": false,
+          "responses": []
+        },
+        "declaredCause": "CAUSE-0",
+        "evaluationStarted": false
+      },
+      "review": null,
+      "expected": {
+        "semanticState": null,
+        "resolvedBy": "NOT_STARTED",
+        "reviewRejections": [],
+        "findingsEmitted": 0,
+        "technicalState": "NOT_EVALUATED"
+      }
     }
-  ]
+  ],
+  "source": {
+    "file": "PYMAPA_KNOW-EXEC-11-V_Validacion_Definitiva_DEC-050_V01-V12.xlsx",
+    "sha256": "db2752326543e8b4369a5cfd03fb786d0993f7777c19e4b5aa2f778a8fedd79e",
+    "sheetNames": [
+      "01_V01-V12",
+      "00_Dictamen",
+      "02_Estados",
+      "03_Suficiencia_D05",
+      "04_Adquisicion_D06",
+      "05_Guardrail_HF",
+      "06_Automatizacion",
+      "07_Excepciones",
+      "08_DEC050_Autoridad",
+      "09_Trazabilidad"
+    ],
+    "nonemptyRows": 88
+  }
 }
