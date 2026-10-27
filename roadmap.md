@@ -1,3 +1,9 @@
+## PYM-NOV-B01-FIX · Corrección localizada autorizada
+- [ ] Restaurar frontera DG-01 sin cambiar AUTORIZADOS, assertions ni contratos productivos.
+- [ ] Ejecutar arquitectura, regresión DG-01/captura OP-01/OP-02 y recuperación 31/31.
+- [ ] Verificar aislamiento bilateral e IDOR con QA A/B; declarar lo no ejecutable NOT_TESTED.
+- [ ] Verificar integridad y entregar informe único con VAR-01…08 y propuesta para Gate 02; no declarar ACCEPTED ni iniciar B02/B03.
+
 ## PYM-NOV-B01 · Captura transversal de 31 capacidades
 - [x] Ajustar captura genérica y distinguir preguntas literales de solicitudes estructuradas; corregir UNKNOWN/NOT_APPLICABLE vacío en cliente OP-01.
 - [x] Verificar 31/31 capturas y recuperación en sesión nueva, 31 evidencias con contexto, aislamiento QA B → QA A y 233 hashes intactos.
