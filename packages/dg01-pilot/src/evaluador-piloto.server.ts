@@ -1,7 +1,7 @@
 import { createKnowledgeEngine, type EngineObservation } from "@pymapa/knowledge-engine";
-import { crearCandidatoPack, METADATOS_PILOTO } from "./candidato-pack";
-import { interpretarObservaciones } from "./interprete-semantico";
-import { entradaPilotoSchema, type EntradaPiloto } from "./escenarios";
+import { crearCandidatoPack, METADATOS_PILOTO } from "./candidato-pack.server";
+import { interpretarObservaciones } from "./interprete-semantico.server";
+import { entradaPilotoSchema, type EntradaPiloto } from "../../../src/lib/piloto-dg01/escenarios";
 
 /** Called exclusively by the server boundary or local tests; no persistence. */
 export function evaluarPiloto(entrada: EntradaPiloto) {

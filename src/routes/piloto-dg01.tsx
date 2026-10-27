@@ -5,8 +5,9 @@ import { AlertTriangle, FlaskConical, Play, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ESCENARIOS, type EntradaPiloto } from "@/lib/piloto-dg01/escenarios";
 import { ejecutarPiloto } from "@/lib/piloto-dg01/piloto.functions";
-import type { ResultadoPiloto } from "@/lib/piloto-dg01/evaluador-piloto";
-import { FUENTES_CONOCIMIENTO } from "@/lib/piloto-dg01/interprete-semantico";
+import { FUENTES_CONOCIMIENTO } from "@/lib/piloto-dg01/procedencia";
+
+type ResultadoPiloto = Awaited<ReturnType<typeof ejecutarPiloto>>;
 
 export const Route = createFileRoute("/piloto-dg01")({
   head: () => ({ meta: [
