@@ -1,3 +1,8 @@
+## PYM-NOV-B01 · Captura transversal de 31 capacidades
+- [ ] Ajustar captura genérica y distinguir preguntas literales de solicitudes estructuradas.
+- [ ] Verificar persistencia, evidencias, avance real, regresión y aislamiento en seis dominios.
+- [ ] Entregar matriz de 31 capacidades, integridad y dictamen; no iniciar B02/B03.
+
 ## DEC-049 · DG01-VERTICAL-01 · Piloto aislado
 - [x] Crear candidato separado y evaluador con Engine real 0.2.0, sin escrituras productivas ni IA.
 - [x] Ejecutar cinco escenarios y mostrar candidatos sin confirmación ni inferencias semánticas: 9/9 pruebas PASS.
