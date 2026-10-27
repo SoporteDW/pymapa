@@ -1,3 +1,10 @@
+## PYM-NOV-B02 · Evaluación Profesional Asistida y Registrada
+- [ ] Identificar servicios, contratos, componentes y controles reutilizables; definir autoridad profesional sin autodeclaración.
+- [ ] Implementar persistencia mínima EPAR, autoridad revocable con alcance/vigencia, versiones y revisión append-only; controles de servidor y RLS.
+- [ ] Vincular experiencia EPAR a capacidades, separada de hallazgos institucionales y decisiones empresariales.
+- [ ] Verificar autoridad, referencias, abstención, auditoría, aislamiento bilateral, captura 31/31, arquitectura e integridad; emitir informe único sin declarar ACCEPTED ni iniciar B03.
+- [ ] Pendientes heredados: seguridad de Storage binario y ADMIN alojado QA B; requieren comprobación específica, sin documentos empresariales reales.
+
 ## PYM-NOV-B01-FIX · Corrección localizada autorizada
 - [x] Restaurar frontera DG-01 mediante núcleo experimental `.server.ts`, procedencia neutral y tipo RPC, sin cambiar AUTORIZADOS, assertions ni contratos productivos.
 - [x] Arquitectura 7/7, frontera 2/2, regresión 1266/1266 y captura/recuperación en memoria 31/31; siete escenarios del piloto verificados en preview.
