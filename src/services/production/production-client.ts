@@ -12,6 +12,7 @@ import type {
   SubmitResponseCommand,
   SubmitResponseResult,
 } from "@pymapa/contracts";
+import { responseSemanticValue } from "./response-value";
 import {
   changeOp01ActivityState,
   createOp01Activity,
@@ -322,7 +323,7 @@ export function createProductionAssessmentClient(
         data: {
           acquisitionId: command.itemId,
           knowledgeState: command.knowledgeState ?? "KNOWN",
-          semanticValue: typeof command.value === "string" ? command.value : null,
+          semanticValue: responseSemanticValue(command.knowledgeState ?? "KNOWN", command.value),
           notApplicableReason: command.notApplicableReason ?? null,
           ...(command.conflictingObservationIds
             ? { conflictingObservationIds: command.conflictingObservationIds }
