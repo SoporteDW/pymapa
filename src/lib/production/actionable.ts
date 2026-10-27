@@ -98,6 +98,8 @@ type RawAcq = {
 };
 type RawPack = {
   acquisitions?: RawAcq[];
+  rules?: unknown[];
+  findings?: unknown[];
   informationNeeds?: { id: string; statement?: string }[];
   variables?: { id: string; name?: string; semanticStates?: unknown }[];
 };
@@ -149,6 +151,10 @@ export function createActionableProjector(rawPack: unknown) {
   }
 
   return {
+    /** Describe el conocimiento instalado, sin conceder aprobación semántica. */
+    diagnosticMode: (pack.rules?.length ?? 0) > 0 && (pack.findings?.length ?? 0) > 0
+      ? "PUBLISHED_RULES" as const
+      : "CAPTURE_ONLY" as const,
     /** Proyección literal de una adquisición del pack (para corrección). */
     project(acquisitionId: string): ActionableAcquisition | null {
       const acq = acqById.get(acquisitionId);

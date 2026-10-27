@@ -52,6 +52,7 @@ export interface CapacidadHub {
     questionsNotYetEnabled?: number;
   } | null;
   findingsCount: number;
+  diagnosticMode?: "PUBLISHED_RULES" | "CAPTURE_ONLY";
 }
 
 export function CatalogoCapacidades({ capacidades }: { capacidades: CapacidadHub[] }) {
@@ -65,6 +66,10 @@ export function CatalogoCapacidades({ capacidades }: { capacidades: CapacidadHub
             <h2 id={`dom-${d.id}`} className="mb-3 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
               {d.id} · {d.nombre}
             </h2>
+            <p className="mb-3 text-xs text-muted-foreground">
+              {del.reduce((n, c) => n + (c.counts?.answered ?? 0), 0)} adquisiciones con respuesta de {del.reduce((n, c) => n + (c.counts?.totalAcquisitions ?? 0), 0)}
+              {del.some((c) => !c.counts) && " · hay capacidades sin datos disponibles"}
+            </p>
             <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {del.map((c) => (
                 <li key={c.capabilityId} data-capability-id={c.capabilityId}>
@@ -81,6 +86,7 @@ export function CatalogoCapacidades({ capacidades }: { capacidades: CapacidadHub
                       </CardHeader>
                       <CardContent className="space-y-1 text-xs text-muted-foreground">
                         {c.counts && <ContadoresCapacidad counts={c.counts} />}
+                        {c.diagnosticMode && <p>{c.diagnosticMode === "PUBLISHED_RULES" ? "Evaluación con reglas publicadas · revisión humana" : "Solo captura · sin reglas diagnósticas publicadas"}</p>}
                         {c.findingsCount > 0 && <p>Con hallazgos ({c.findingsCount})</p>}
                         {c.capabilityId === "OP-01" && <p>Capacidad de referencia</p>}
                       </CardContent>

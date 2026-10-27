@@ -163,8 +163,9 @@ function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
 
       <div className="flex flex-wrap items-center gap-2 text-sm">
         <Badge variant="outline" className="rounded-full">{ETIQUETA_ESTADO[workspace.interactionState]}</Badge>
+        <Badge variant="secondary">{capability.diagnosticMode === "PUBLISHED_RULES" ? "Evaluación con reglas publicadas · revisión humana" : "Solo captura de información"}</Badge>
         <span className="text-muted-foreground">
-          {c.answered} con respuesta
+          {c.answered} de {c.totalAcquisitions} adquisiciones con respuesta
           {c.literalQuestions > 0 && ` · ${c.eligibleQuestions} ${c.eligibleQuestions === 1 ? "pregunta disponible" : "preguntas disponibles"} ahora`}
           {c.questionsNotYetEnabled > 0 && ` · ${c.questionsNotYetEnabled} condicionales no activadas (no son trabajo pendiente)`}
           {c.informationTasks > 0 && ` · ${c.pendingInformationTasks} de ${c.informationTasks} requerimientos de información pendientes`}
@@ -283,13 +284,13 @@ function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
                 <ul className="space-y-2">
                   {tareas.map((t) => (
                     <li key={t.acquisitionId}>
-                      <button
-                        type="button"
+                      <Button
+                        variant="outline"
                         onClick={() => setSeleccion(t.acquisitionId)}
-                        className={`w-full rounded-xl border p-3 text-left text-sm transition-colors ${seleccion === t.acquisitionId ? "border-primary bg-primary/5" : "border-border hover:border-primary/40"}`}
+                        className={`h-auto w-full justify-start whitespace-normal p-3 text-left text-sm ${seleccion === t.acquisitionId ? "border-primary bg-primary/5" : "border-border"}`}
                       >
                         {t.informationNeedStatement ?? t.variables.map((v) => v.name).filter(Boolean).join(" · ")}
-                      </button>
+                      </Button>
                     </li>
                   ))}
                 </ul>
@@ -297,7 +298,7 @@ function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
             </Card>
           )}
 
-          <DiagnosticoTrazablePanel capabilityId={capabilityId} canGovern={ws.data.userRole === "OWNER" || ws.data.userRole === "ADMIN"} />
+          {capability.diagnosticMode === "PUBLISHED_RULES" && <DiagnosticoTrazablePanel capabilityId={capabilityId} canGovern={ws.data.userRole === "OWNER" || ws.data.userRole === "ADMIN"} />}
 
           <Card id="respuestas">
             <CardHeader>
@@ -350,8 +351,8 @@ function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
                 respondents={col.data.respondents}
                 assignments={col.data.assignments}
                 informationNeeds={tareas
-                  .filter((t) => t.informationNeedRef && t.informationNeedStatement)
-                  .map((t) => ({ ref: t.informationNeedRef!, label: t.informationNeedStatement! }))}
+                  .flatMap((t) => t.informationNeedRef && t.informationNeedStatement
+                    ? [{ ref: t.informationNeedRef, label: t.informationNeedStatement }] : [])}
               />
               <DocumentosGobernadosPanel capabilityId={capabilityId} />
             </>

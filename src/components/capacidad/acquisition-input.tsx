@@ -67,10 +67,7 @@ export function AcquisitionInput({
       ...(estado === "CONTRADICTORY" ? { conflictingObservationIds: fuentes } : {}),
       ...(opciones ? {} : valor.trim() ? { rawInput: { statement: valor.trim() } } : {}),
     });
-    setEstado("");
-    setValor("");
-    setMotivo("");
-    setFuentes([]);
+    // El padre remonta solo tras aceptación: un rechazo conserva la entrada.
   };
 
   const idBase = `resp-${acquisition.acquisitionId}`;

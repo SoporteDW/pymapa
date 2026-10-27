@@ -46,6 +46,14 @@ const responder = (user: string, capabilityId: string, acquisitionId: string) =>
 beforeEach(() => montar([{ organizationId: ORG, userId: "owner", role: "OWNER" }]));
 
 describe("SPRINT-04 · A · OWNER responde tres capacidades en secuencia", () => {
+  it("B01 rechaza evidencia ajena antes de escribir una respuesta", async () => {
+    const acquisitionId = await primeraAdquisicion("DG-01");
+    await expect(h.submitCapabilityResponseHandler(ctx("owner"), "DG-01", {
+      acquisitionId, knowledgeState: "UNKNOWN", evidenceIds: ["another-tenant-evidence"],
+    })).rejects.toThrow("EVIDENCE_NOT_IN_ASSESSMENT");
+    expect(await base.listResponses(ASSESSMENT.id)).toEqual([]);
+    expect(await base.listObservations(ASSESSMENT.id)).toEqual([]);
+  });
   it("DG-01 → PC-01 → DT-01 persisten", async () => {
     for (const cap of ["DG-01", "PC-01", "DT-01"]) {
       const r = await responder("owner", cap, await primeraAdquisicion(cap));

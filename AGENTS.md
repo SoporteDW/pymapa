@@ -10,6 +10,8 @@
 <!-- LOVABLE:END -->
 
 ## Architecture decisions
+- Capture-only status is projected from each installed pack's rules/findings in the shared actionable projector; capture counts describe registered acquisitions, never semantic sufficiency or diagnosis closure.
+- Production response adapters normalize description-free availability states to null, not empty strings, preserving the existing server response contract across legacy and generic capture.
 - DG01-VERTICAL-01 evaluates a separate draft pack through a public synthetic-only server function, with Engine imports behind `piloto.server.ts`; raw Engine results and demonstration metadata stay separate to prevent semantic or production admission.
 - DG01-VERTICAL-02 semantic layer (`interprete-semantico.ts`) is experimental, deterministic and read-only over observations — it never mutates Engine output nor confirms findings, so technical and semantic results stay separable.
 - Auxiliary inventories derive from the verified static registry; never rewrite knowledge or enable conclusions — identity is not semantic approval.
