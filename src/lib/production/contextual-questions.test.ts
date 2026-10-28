@@ -8,6 +8,7 @@ import {
   isContextualEnabled,
   requiereReferente,
   sanearReferente,
+  type AntecedenteFuente,
 } from "./contextual-questions";
 
 const MUESTRA = ["OP-01", "DG-02", "PC-04", "CM-01", "EC-03"];
@@ -72,10 +73,10 @@ describe("CTX-Q-B01 · capa contextual", () => {
   it("C3 · respuesta amplia aparece íntegra como antecedente, sin marcar secundarias", () => {
     const ct = contratosDe("DG-02");
     const amplia = "Compiten la compra de una máquina y el nuevo ERP; decide el gerente según caja.";
-    const resp = [{ observationId: "o1", acquisitionId: "ACQ·NI01", semanticValue: amplia, knowledgeState: "KNOWN", superseded: false }];
+    const resp: AntecedenteFuente[] = [{ observationId: "o1", acquisitionId: "ACQ·NI01", semanticValue: amplia, knowledgeState: "KNOWN", superseded: false }];
     const ant = antecedentesPara("ACQ·NI02", ct, resp);
     expect(ant).toHaveLength(1);
-    expect(ant[0].semanticValue).toBe(amplia);
+    expect(ant[0]!.semanticValue).toBe(amplia);
     expect(antecedentesPara("ACQ·NI05", ct, resp)).toHaveLength(0);
     expect(antecedentesPara("ACQ·NI02", ct, [{ ...resp[0], superseded: true }])).toHaveLength(0);
     // La proyección accionable no cuenta NI02 como respondida por antecedente.

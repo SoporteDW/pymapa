@@ -446,7 +446,7 @@ function CapacidadOp01() {
             {acquisition.purpose && <CardDescription>{acquisition.purpose}</CardDescription>}
             {requiereReferente(acquisition.question) ? (
               <ReferenteSelector
-                contract={{ contextualQuestionId: `CTXQ·OP-01·${acquisition.acquisitionId}`, version: CTX_Q_VERSION, capabilityId: "OP-01", stageRef: "—", sourceText: acquisition.question ?? "", sourceKind: "ACQUISITION_QUESTION", sourceLocation: `acquisitions[${acquisition.acquisitionId}].question`, kind: "REFERENT_DEPENDENT", referentType: REFERENT_TYPES["OP-01"], primaryAcquisitionRef: acquisition.acquisitionId, targetAcquisitionRefs: [acquisition.acquisitionId] }}
+                contract={{ contextualQuestionId: `CTXQ·OP-01·${acquisition.acquisitionId}`, version: CTX_Q_VERSION, capabilityId: "OP-01", stageRef: "—", sourceText: acquisition.question ?? "", sourceKind: "ACQUISITION_QUESTION", sourceLocation: `acquisitions[${acquisition.acquisitionId}].question`, kind: "REFERENT_DEPENDENT", referentType: REFERENT_TYPES["OP-01"] ?? null, primaryAcquisitionRef: acquisition.acquisitionId, targetAcquisitionRefs: [acquisition.acquisitionId] }}
                 referente={referenteOp01.referente}
                 propuestos={contexto.data?.documentaryReferents ?? []}
                 onGuardar={referenteOp01.guardar}
