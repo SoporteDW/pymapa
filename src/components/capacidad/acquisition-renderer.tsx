@@ -24,13 +24,22 @@ export function AcquisitionRenderer({ acquisition }: { acquisition: ActionableAc
         <span className="text-xs text-muted-foreground">{a.acquisitionId}</span>
       </div>
 
-      {(a.mode === "QUESTION" || a.mode === "CAPABILITY_PROGRESSIVE") && a.question ? (
+      {a.operativeQuestion && (
+        <div className="space-y-1">
+          <Badge className="rounded-full">Pregunta operativa · {a.operativeQuestion.wordingVersion}</Badge>
+          <p className="text-base font-medium text-foreground">{a.operativeQuestion.text}</p>
+          <p className="text-sm text-muted-foreground">{a.operativeQuestion.depthPrompt}</p>
+          <p className="text-xs text-muted-foreground">Derivada de {a.operativeQuestion.sourceRef}: «{a.operativeQuestion.sourceText}»</p>
+        </div>
+      )}
+
+      {!a.operativeQuestion && (a.mode === "QUESTION" || a.mode === "CAPABILITY_PROGRESSIVE") && a.question ? (
         <p className="text-base font-medium text-foreground">{a.question}</p>
       ) : a.mode === "INFORMATION_NEED" && a.informationNeedStatement ? (
         <p className="text-base font-medium text-foreground">{a.informationNeedStatement}</p>
       ) : null}
 
-      {a.mode === "GOVERNED_STRUCTURAL_CORRESPONDENCE" && variables.length > 0 && (
+      {!a.operativeQuestion && a.mode === "GOVERNED_STRUCTURAL_CORRESPONDENCE" && variables.length > 0 && (
         <p className="text-base font-medium text-foreground">{variables.map((v) => v.name).join(" · ")}</p>
       )}
 

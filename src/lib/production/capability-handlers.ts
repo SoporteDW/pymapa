@@ -451,6 +451,11 @@ export async function submitCapabilityResponseHandler(context: Ctx, capabilityId
         };
       }
     }
+    // DEC-054 · Trazabilidad pregunta→respuesta derivada en servidor, nunca del cliente.
+    const oq = createActionableProjector(getRegisteredPack(capabilityId).pack).project(data.acquisitionId)?.operativeQuestion;
+    const rawConTrazabilidad = oq
+      ? { ...(data.rawInput ?? {}), operativeQuestion: { questionId: oq.questionId, wordingVersion: oq.wordingVersion, sourceRef: oq.sourceRef } }
+      : data.rawInput;
     return casoUso.submitAcquisitionResponse(deps, {
       assessmentId: assessment.id,
       organizationId: assessment.organizationId,
@@ -463,7 +468,7 @@ export async function submitCapabilityResponseHandler(context: Ctx, capabilityId
       ...(data.conflictingObservationIds
         ? { conflictingObservationIds: data.conflictingObservationIds }
         : {}),
-      ...(data.rawInput ? { rawInput: data.rawInput } : {}),
+      ...(rawConTrazabilidad ? { rawInput: rawConTrazabilidad } : {}),
       ...(data.evidenceIds ? { evidenceIds: data.evidenceIds } : {}),
       ...(data.correctsObservationId ? { correctsObservationId: data.correctsObservationId } : {}),
     });
