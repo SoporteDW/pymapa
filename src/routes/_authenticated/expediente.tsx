@@ -87,9 +87,11 @@ function Expediente() {
       const rechazados = new Set<string>();
       // Dos lotes independientes; no más de una propuesta por adquisición.
       const lotes: Propuesta[][] = [];
-      for (let i = 0; i < items.length; i += 20) lotes.push(items.slice(i, i + 20));
-      for (let i = 0; i < lotes.length; i += 2) {
-        await Promise.all(lotes.slice(i, i + 2).map(async (lista) => {
+      const capacidades = new Map<string, Propuesta[]>();
+      items.forEach((p) => capacidades.set(p.capabilityId, [...(capacidades.get(p.capabilityId) ?? []), p]));
+      for (const lista of capacidades.values()) for (let i = 0; i < lista.length; i += 20) lotes.push(lista.slice(i, i + 20));
+      for (let i = 0; i < lotes.length; i += 4) {
+        await Promise.all(lotes.slice(i, i + 4).map(async (lista) => {
           const r = await confirmar({ data: { items: lista.map((p) => ({ capabilityId: p.capabilityId, acquisitionId: p.acquisitionId, evidenceId: p.evidenceId, fragmentId: p.fragmentId })) } });
           ok += r.confirmed;
           rechazadas += r.results.length - r.confirmed;
