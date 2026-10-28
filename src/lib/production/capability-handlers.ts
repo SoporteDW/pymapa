@@ -1935,6 +1935,7 @@ export async function confirmExpedienteBatchHandler(context: Ctx, data: ReturnTy
     if (scoped.assessment.id !== assessment.id || scoped.assessment.organizationId !== assessment.organizationId) throw new Error("ASSESSMENT_SCOPE_MISMATCH");
     const vigentes = new Set((await casoUso.evaluarCapacidad(scoped.deps, assessment.id))?.answeredAcquisitionIds ?? []);
     const respondent = await asegurarRespondentPropio(scoped.deps, { organizationId: assessment.organizationId, assessmentId: assessment.id, capabilityId, userId: context.userId });
+    const inicioResultados = resultados.length;
     for (const item of items) {
       const p = propuestas.get(`${capabilityId}::${item.acquisitionId}`);
       const baseResult = { capabilityId, acquisitionId: item.acquisitionId, responseId: null, observationId: null, evaluationRunId: null };
@@ -1948,10 +1949,15 @@ export async function confirmExpedienteBatchHandler(context: Ctx, data: ReturnTy
           rawInput: { origin: "EXPEDIENTE_DOCUMENTAL", mapperVersion: mapper.VERSION_MAPEADOR_EXPEDIENTE, evidenceId: item.evidenceId,
             fragmentId: p.fragmentId, page: p.page, section: p.section, quote: p.quote, confirmedByUserId: context.userId,
             note: "Cita literal confirmada por la persona; no es interpretación ni suficiencia." },
-        });
+        }, { deferEvaluation: true });
         if (r.accepted) vigentes.add(item.acquisitionId);
         resultados.push({ ...baseResult, accepted: r.accepted, reason: r.accepted ? null : r.rejectionReason ?? "REJECTED", responseId: r.responseId, observationId: r.observationId, evaluationRunId: r.evaluationRunId });
       } catch { resultados.push({ ...baseResult, accepted: false, reason: "SAVE_FAILED_REFRESH_BEFORE_RETRY" }); }
+    }
+    const aceptadas = resultados.slice(inicioResultados).filter((r) => r.accepted);
+    if (aceptadas.length) {
+      const evaluacion = await casoUso.reevaluarTrasCambioDocumental(scoped.deps, { assessmentId: assessment.id, organizationId: assessment.organizationId, trigger: "OBSERVATION_UPDATED" });
+      for (const r of aceptadas) r.evaluationRunId = evaluacion.evaluationRunId;
     }
   }
   return { confirmed: resultados.filter((r) => r.accepted).length, results: resultados, elapsedMs: Date.now() - inicio };
