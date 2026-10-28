@@ -11,6 +11,7 @@ const iconos = {
   diagnostico: ClipboardList,
   resultados: BarChart3,
   plan: ListTodo,
+  transformacion: Target,
   seguimiento: LineChart,
   empresa: Building2,
 } as const;
