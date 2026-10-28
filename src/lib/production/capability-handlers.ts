@@ -455,10 +455,44 @@ export async function submitCapabilityResponseHandler(context: Ctx, capabilityId
     // DEC-054 · Trazabilidad pregunta→respuesta derivada en servidor, nunca del cliente.
     const { getRegisteredPack: packDe } = await import("./packs-registry");
     const { createActionableProjector: proyectorDe } = await import("./actionable");
-    const oq = proyectorDe(packDe(capabilityId).pack).project(data.acquisitionId)?.operativeQuestion;
-    const rawConTrazabilidad = oq
+    const proyectada = proyectorDe(packDe(capabilityId).pack).project(data.acquisitionId);
+    const oq = proyectada?.operativeQuestion;
+    let rawConTrazabilidad = oq
       ? { ...(data.rawInput ?? {}), operativeQuestion: { questionId: oq.questionId, wordingVersion: oq.wordingVersion, sourceRef: oq.sourceRef } }
       : data.rawInput;
+    // CTX-Q-B01 · Trazabilidad contextual derivada en servidor (contrato, no cliente).
+    const ctx = proyectada?.contextualContract;
+    if (ctx) {
+      const { sanearReferente } = await import("./contextual-questions");
+      const referente = sanearReferente((data.rawInput ?? {})["referentUsed"]);
+      rawConTrazabilidad = {
+        ...(rawConTrazabilidad ?? {}),
+        referentUsed: referente,
+        contextualQuestion: {
+          contextualQuestionId: ctx.contextualQuestionId,
+          version: ctx.version,
+          kind: ctx.kind,
+          sourceLocation: ctx.sourceLocation,
+          primaryAcquisitionRef: ctx.primaryAcquisitionRef,
+          targetAcquisitionRefs: ctx.targetAcquisitionRefs,
+          referentType: ctx.referentType?.label ?? null,
+        },
+      };
+      // C1 · Reintento idéntico (misma adquisición, estado y texto vigente) no duplica.
+      if (!data.correctsObservationId) {
+        const vigentes = casoUso.observacionesVigentes(await deps.repository.listObservations(assessment.id));
+        const igual = vigentes.find(
+          (o) =>
+            o.value.acquisitionRef === data.acquisitionId &&
+            o.value.knowledgeState === data.knowledgeState &&
+            (o.value.semanticValue ?? null) === (data.semanticValue ?? null) &&
+            (o.value.notApplicableReason ?? null) === (data.notApplicableReason ?? null),
+        );
+        if (igual) {
+          return { accepted: false, rejectionReason: "DUPLICATE_RETRY", responseId: null, observationId: igual.id, evaluationRunId: null, state: null };
+        }
+      }
+    }
     return casoUso.submitAcquisitionResponse(deps, {
       assessmentId: assessment.id,
       organizationId: assessment.organizationId,

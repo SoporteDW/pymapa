@@ -14,6 +14,8 @@ import { LoadingState } from "@/components/ui/loading-state";
 import { PageHeader } from "@/components/layout/page-header";
 import { AcquisitionRenderer } from "@/components/capacidad/acquisition-renderer";
 import { AcquisitionInput, type AcquisitionAnswer } from "@/components/capacidad/acquisition-input";
+import { useReferenteEmpresarial } from "@/components/capacidad/referente-selector";
+import { antecedentesPara, type ContextualQuestionContract } from "@/lib/production/contextual-questions";
 import { EvidenciaPanel } from "@/components/capacidad/evidencia-panel";
 import { ColaboracionPanel } from "@/components/capacidad/colaboracion-panel";
 import { DocumentosGobernadosPanel } from "@/components/capacidad/documentos-gobernados-panel";
@@ -95,10 +97,15 @@ function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
     enabled: ws.isSuccess,
   });
 
+  const { referente, guardar: guardarReferente } = useReferenteEmpresarial(ws.data?.organizationId, capabilityId);
   const enviar = useMutation({
     mutationFn: (a: AcquisitionAnswer & { correctsObservationId?: string }) =>
-      responder({ data: { capabilityId, ...a } }),
+      responder({ data: { capabilityId, ...a, rawInput: { ...(a.rawInput ?? {}), ...(referente ? { referentUsed: referente } : {}) } } }),
     onSuccess: async (r) => {
+      if (!r.accepted && r.rejectionReason === "DUPLICATE_RETRY") {
+        toast.info("Esta respuesta ya estaba guardada", { description: "No se registró un duplicado." });
+        return;
+      }
       if (!r.accepted) {
         toast.error("La respuesta no fue aceptada", { description: r.rejectionReason ?? undefined });
         return;
@@ -238,7 +245,21 @@ function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
                 )}
               </CardHeader>
               <CardContent className="space-y-5">
-                <AcquisitionRenderer acquisition={activa} referentes={ws.data.documentaryReferents ?? []} />
+                <AcquisitionRenderer
+                  acquisition={activa}
+                  referentes={ws.data.documentaryReferents ?? []}
+                  referente={referente}
+                  onReferente={guardarReferente}
+                  antecedentes={(() => {
+                    const contratos = new Map<string, ContextualQuestionContract>();
+                    for (const h of responseHistory) if (h.acquisition?.contextualContract) contratos.set(h.acquisitionId, h.acquisition.contextualContract);
+                    return antecedentesPara(
+                      activa.acquisitionId,
+                      contratos,
+                      responseHistory.map((h) => ({ observationId: h.observationId, acquisitionId: h.acquisitionId, semanticValue: h.semanticValue, knowledgeState: h.knowledgeState, superseded: Boolean(h.supersededByObservationId) })),
+                    );
+                  })()}
+                />
                 <AcquisitionInput
                   key={`${activa.acquisitionId}-${corrigiendo?.observationId ?? "nueva"}`}
                   acquisition={activa}

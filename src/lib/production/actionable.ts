@@ -16,6 +16,7 @@
 import type { EvaluationResult, KnowledgeEngine, NextAcquisition } from "@pymapa/knowledge-engine";
 import type { DocumentaryCoverage } from "./documentary-coverage";
 import { operativeQuestionFor, type OperativeQuestion } from "./operative-questions";
+import { buildContextualContracts, type ContextualQuestionContract } from "./contextual-questions";
 
 export type CapabilityInteractionState =
   | "NOT_STARTED"
@@ -57,6 +58,8 @@ export interface ActionableAcquisition {
   questionStatus: string | null;
   /** DEC-054 · Pregunta operativa versionada; null si existe pregunta literal. */
   operativeQuestion: OperativeQuestion | null;
+  /** CTX-Q-B01 · Capa contextual (solo 5 capacidades de la muestra; null en el resto). */
+  contextualContract: ContextualQuestionContract | null;
 }
 
 export interface CapabilityWorkspace {
@@ -120,6 +123,7 @@ export function createActionableProjector(rawPack: unknown) {
   const acqById = new Map((pack.acquisitions ?? []).map((a) => [a.id, a]));
   const niById = new Map((pack.informationNeeds ?? []).map((n) => [n.id, n]));
   const varById = new Map((pack.variables ?? []).map((v) => [v.id, v]));
+  const contratos = buildContextualContracts(capId, rawPack);
 
   function semanticos(acq: RawAcq): string[] | null {
     const ref = acq.responseModel?.semanticValuesFromVariable;
@@ -155,6 +159,7 @@ export function createActionableProjector(rawPack: unknown) {
           ? { ref: acq.variableRefs[0], name: varById.get(acq.variableRefs[0])?.name ?? null }
           : null,
       }),
+      contextualContract: contratos.get(acq.id) ?? null,
     };
   }
 

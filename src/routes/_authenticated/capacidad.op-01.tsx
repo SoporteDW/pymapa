@@ -6,6 +6,8 @@
  * AssessmentClient (PRODUCTION_ENGINE): aquí NO hay conocimiento diagnóstico.
  */
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { ReferenteSelector, useReferenteEmpresarial } from "@/components/capacidad/referente-selector";
+import { CTX_Q_VERSION, REFERENT_TYPES, requiereReferente } from "@/lib/production/contextual-questions";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
@@ -92,6 +94,8 @@ function CapacidadOp01() {
     queryKey: ["op01", "contexto"],
     queryFn: () => getOp01Context(),
   });
+
+  const referenteOp01 = useReferenteEmpresarial(contexto.data?.organizationId, "OP-01");
 
   const pregunta = useQuery({
     queryKey: ["op01", "pregunta"],
@@ -440,7 +444,16 @@ function CapacidadOp01() {
           <CardHeader>
             <CardTitle className="text-base font-semibold">{acquisition.question}</CardTitle>
             {acquisition.purpose && <CardDescription>{acquisition.purpose}</CardDescription>}
-            <ReferenteProceso texto={acquisition.question ?? ""} referentes={contexto.data?.documentaryReferents ?? []} />
+            {requiereReferente(acquisition.question) ? (
+              <ReferenteSelector
+                contract={{ contextualQuestionId: `CTXQ·OP-01·${acquisition.acquisitionId}`, version: CTX_Q_VERSION, capabilityId: "OP-01", stageRef: "—", sourceText: acquisition.question ?? "", sourceKind: "ACQUISITION_QUESTION", sourceLocation: `acquisitions[${acquisition.acquisitionId}].question`, kind: "REFERENT_DEPENDENT", referentType: REFERENT_TYPES["OP-01"] ?? null, primaryAcquisitionRef: acquisition.acquisitionId, targetAcquisitionRefs: [acquisition.acquisitionId] }}
+                referente={referenteOp01.referente}
+                propuestos={contexto.data?.documentaryReferents ?? []}
+                onGuardar={referenteOp01.guardar}
+              />
+            ) : (
+              <ReferenteProceso texto={acquisition.question ?? ""} referentes={contexto.data?.documentaryReferents ?? []} />
+            )}
           </CardHeader>
           <CardContent className="space-y-6">
             <fieldset className="space-y-2">
