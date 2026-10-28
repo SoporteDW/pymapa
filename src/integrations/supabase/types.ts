@@ -80,6 +80,122 @@ export type Database = {
           },
         ]
       }
+      ai_assisted_analyses: {
+        Row: {
+          analysis_type: string
+          assessment_id: string
+          capability_id: string
+          contract_version: string
+          created_at: string
+          evidence_refs: Json
+          id: string
+          input_refs: Json
+          items: Json
+          model: string
+          organization_id: string
+          provider: string
+          rejected_items: Json
+          requested_by: string
+          run_id: string | null
+          service_version: string
+        }
+        Insert: {
+          analysis_type?: string
+          assessment_id: string
+          capability_id: string
+          contract_version: string
+          created_at?: string
+          evidence_refs?: Json
+          id?: string
+          input_refs: Json
+          items: Json
+          model: string
+          organization_id: string
+          provider: string
+          rejected_items?: Json
+          requested_by: string
+          run_id?: string | null
+          service_version: string
+        }
+        Update: {
+          analysis_type?: string
+          assessment_id?: string
+          capability_id?: string
+          contract_version?: string
+          created_at?: string
+          evidence_refs?: Json
+          id?: string
+          input_refs?: Json
+          items?: Json
+          model?: string
+          organization_id?: string
+          provider?: string
+          rejected_items?: Json
+          requested_by?: string
+          run_id?: string | null
+          service_version?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ai_assisted_analyses_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      ai_assisted_analysis_reviews: {
+        Row: {
+          accepted_action: string | null
+          analysis_id: string
+          created_at: string
+          decision: string
+          id: string
+          item_id: string
+          note: string
+          organization_id: string
+          reviewed_by: string
+        }
+        Insert: {
+          accepted_action?: string | null
+          analysis_id: string
+          created_at?: string
+          decision: string
+          id?: string
+          item_id: string
+          note: string
+          organization_id: string
+          reviewed_by?: string
+        }
+        Update: {
+          accepted_action?: string | null
+          analysis_id?: string
+          created_at?: string
+          decision?: string
+          id?: string
+          item_id?: string
+          note?: string
+          organization_id?: string
+          reviewed_by?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ai_assisted_analysis_reviews_analysis_id_fkey"
+            columns: ["analysis_id"]
+            isOneToOne: false
+            referencedRelation: "ai_assisted_analyses"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "ai_assisted_analysis_reviews_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       assessment_snapshots: {
         Row: {
           assessment_id: string
