@@ -177,11 +177,10 @@ function Expediente() {
               {suficiencia && (
                 <div data-testid="suficiencia-documental" className="flex flex-wrap items-center gap-2 text-sm">
                   <span className="font-medium">Suficiencia documental de lo no respondido:</span>
-                  <Badge>{suficiencia.SUFICIENTE} con dato concreto</Badge>
-                  <Badge variant="secondary">{suficiencia.PARCIAL} parciales</Badge>
+                  <Badge variant="secondary">{suficiencia.PARCIAL} parciales (mención sin confirmar)</Badge>
                   <Badge variant="outline">{suficiencia.AUSENTE} ausentes</Badge>
-                  {suficiencia.contradicciones > 0 && <Badge variant="destructive">{suficiencia.contradicciones} posibles contradicciones entre documentos</Badge>}
-                  <span className="text-xs text-muted-foreground">({VERSION_SUFICIENCIA}; indica presencia literal, no verdad: todo requiere tu confirmación)</span>
+                  {suficiencia.contradicciones > 0 && <Badge variant="destructive">{suficiencia.contradicciones} contradictorias (no se resuelven solas)</Badge>}
+                  <span className="text-xs text-muted-foreground">({VERSION_SUFICIENCIA}; solo es suficiente lo que una persona confirma como respuesta a la necesidad aprobada, sin contradicciones)</span>
                 </div>
               )}
               <ul className="space-y-1 text-sm">
