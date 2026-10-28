@@ -93,17 +93,18 @@ export function validarAnalisis(raw: unknown, entradas: EntradaAnalisis[]): { it
   const items: ItemAnalisis[] = [];
   const rejected: ItemRechazado[] = [];
   if (!Array.isArray(lista)) return { items, rejected: [{ raw, reason: "INVALID_SHAPE" }] };
-  lista.forEach((r, i) => {
+  lista.forEach((r, i): void => {
+    const rej = (reason: ItemRechazado["reason"]) => { rejected.push({ raw: r, reason }); };
     const o = r as Partial<ItemAnalisis>;
-    if (!o || typeof o.statement !== "string" || !o.statement.trim() || !Array.isArray(o.inputRefs)) return rejected.push({ raw: r, reason: "INVALID_SHAPE" });
-    if (!CATEGORIAS.includes(o.category as Categoria)) return rejected.push({ raw: r, reason: "INVALID_CATEGORY" });
+    if (!o || typeof o.statement !== "string" || !o.statement.trim() || !Array.isArray(o.inputRefs)) return rej("INVALID_SHAPE");
+    if (!CATEGORIAS.includes(o.category as Categoria)) return rej("INVALID_CATEGORY");
     const quote = typeof o.quote === "string" && o.quote.trim() ? o.quote.trim() : null;
-    if (PROHIBIDO.some((re) => re.test(o.statement!) || (quote ? re.test(quote) : false))) return rejected.push({ raw: r, reason: "FORBIDDEN_CONTENT" });
+    if (PROHIBIDO.some((re) => re.test(o.statement!) || (quote ? re.test(quote) : false))) return rej("FORBIDDEN_CONTENT");
     const refs = [...new Set(o.inputRefs.filter((x): x is string => typeof x === "string"))];
     const needsRef = o.category !== "INFORMATION_GAP";
-    if ((needsRef && !refs.length) || refs.some((x) => !porRef.has(x))) return rejected.push({ raw: r, reason: "UNKNOWN_REF" });
-    if (o.category === "SUPPORTED_FACT" && !quote) return rejected.push({ raw: r, reason: "FACT_WITHOUT_QUOTE" });
-    if (quote && !refs.some((x) => norm(porRef.get(x)!.text).includes(norm(quote)))) return rejected.push({ raw: r, reason: "QUOTE_NOT_LITERAL" });
+    if ((needsRef && !refs.length) || refs.some((x) => !porRef.has(x))) return rej("UNKNOWN_REF");
+    if (o.category === "SUPPORTED_FACT" && !quote) return rej("FACT_WITHOUT_QUOTE");
+    if (quote && !refs.some((x) => norm(porRef.get(x)!.text).includes(norm(quote)))) return rej("QUOTE_NOT_LITERAL");
     items.push({ id: `item-${i + 1}`, category: o.category as Categoria, statement: o.statement.trim(), inputRefs: refs, quote });
   });
   return { items, rejected };

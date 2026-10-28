@@ -18,7 +18,7 @@ export function AnalisisAsistidoPanel({ capabilityId, canGovern, syntheticAuthor
   const run = useMutation({
     mutationFn: () => ejecutar({ data: { capabilityId } }),
     onSuccess: (r) => {
-      if (!r.ok) return toast.error("Análisis no ejecutado", { description: r.error });
+      if (!r.ok) { toast.error("Análisis no ejecutado", { description: r.error }); return; }
       toast.success(`Análisis registrado · ${r.items.length} elementos`, { description: r.rejectedCount ? `${r.rejectedCount} descartados por no cumplir el contrato.` : undefined });
       qc.invalidateQueries({ queryKey: key });
     },
