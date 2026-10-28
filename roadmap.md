@@ -1,11 +1,10 @@
 ## PYM-NOV-MVP31 · Instrucción consolidada (DEC-053/054)
 - [x] DEC-054: preguntas operativas versionadas (DEC-054/1.0.0) para las 337 adquisiciones sin pregunta literal; trazabilidad questionId/wordingVersion en cada respuesta, derivada en servidor.
-- [x] DEC-053: análisis asistido IA (29 capacidades) con 5 categorías, registro append-only y revisión con nota; solo empresas sintéticas autorizadas (DEC-047). Pendiente: prueba en pantalla con Qhapaq.
+- [x] DEC-053: análisis asistido IA probado en pantalla con Qhapaq (DG-02): 9 elementos (6 hechos con cita literal, 1 inferencia, 2 vacíos), 0 descartados, revisión OWNER ACCEPTED persistida; autorización sintética acotada registrada bajo DEC-047 tras verificar los 5 PDF como DOCUMENTO SINTÉTICO DE DEMOSTRACIÓN.
 - [x] Suficiencia 2.0.0: SUFICIENTE solo por confirmación humana sin contradicción.
-- [ ] Escenario B: correo josefo@digiway.co confirmado; no existe en Auth (verificado 2026-10-28). Espera registro normal del propietario en /acceso (Preview) + verificación de correo; bootstrap crea empresa vacía.
-- [ ] Plan de Transformación integral.
+- [x] Escenario B: josefo@digiway.co registrado por el propietario (2026-10-28 12:40 UTC); empresa nueva con 0 respuestas y 0 evidencias verificado. Pendiente: recorrido documental completo desde cero.
+- [x] Plan de Transformación integral 6D/31C (/plan-de-transformacion): proyección pura de hallazgos CONFIRMED + análisis asistido vigente, autoridad explícita, decisiones empresariales append-only (aceptar/modificar/descartar, nota obligatoria) en transformation_decisions; 8 pruebas PASS, regresión 1359/1359, probado en pantalla con Qhapaq.
 - [x] Inventario de organizaciones solo lectura (MVP31_ORG_INVENTORY_2026-10-28.md).
-- [ ] Prueba en pantalla DEC-053 Qhapaq: BLOQUEADA, org Qhapaq sin autorización sintética DEC-047; requiere autorización expresa.
 - [x] Suficiencia documental SUFICIENTE/PARCIAL/AUSENTE y posibles contradicciones en /expediente (mvp31-sufficiency-1.0.0, presencia literal, 6 pruebas PASS).
 - [ ] Escenario B empresa nueva: bloqueado, una organización por usuario (RLS organizations_insert_bootstrap + bootstrap_organization); decisión pendiente: alias de cuenta dedicada vs. RPC multiempresa con selector.
 - [ ] Expediente sintético Qhapaq reforzado (datos medibles, vacíos y contradicciones deliberados); Escenario B con empresa nueva desde cero.
