@@ -4,6 +4,8 @@
 - [x] Suficiencia 2.0.0: SUFICIENTE solo por confirmación humana sin contradicción.
 - [ ] Escenario B: esperando correo secundario real confirmado por Josefo (opción A).
 - [ ] Plan de Transformación integral.
+- [x] Inventario de organizaciones solo lectura (MVP31_ORG_INVENTORY_2026-10-28.md).
+- [ ] Prueba en pantalla DEC-053 Qhapaq: BLOQUEADA, org Qhapaq sin autorización sintética DEC-047; requiere autorización expresa.
 - [x] Suficiencia documental SUFICIENTE/PARCIAL/AUSENTE y posibles contradicciones en /expediente (mvp31-sufficiency-1.0.0, presencia literal, 6 pruebas PASS).
 - [ ] Escenario B empresa nueva: bloqueado, una organización por usuario (RLS organizations_insert_bootstrap + bootstrap_organization); decisión pendiente: alias de cuenta dedicada vs. RPC multiempresa con selector.
 - [ ] Expediente sintético Qhapaq reforzado (datos medibles, vacíos y contradicciones deliberados); Escenario B con empresa nueva desde cero.
