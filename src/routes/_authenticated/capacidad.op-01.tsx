@@ -24,6 +24,7 @@ import type { KnowledgeState } from "@pymapa/contracts";
 import { toast } from "sonner";
 import { DocumentosGobernadosPanel } from "@/components/capacidad/documentos-gobernados-panel";
 import { EparPanel } from "@/components/capacidad/epar-panel";
+import { ReferenteProceso } from "@/components/capacidad/referente-proceso";
 
 export const Route = createFileRoute("/_authenticated/capacidad/op-01")({
   head: () => ({
@@ -439,6 +440,7 @@ function CapacidadOp01() {
           <CardHeader>
             <CardTitle className="text-base font-semibold">{acquisition.question}</CardTitle>
             {acquisition.purpose && <CardDescription>{acquisition.purpose}</CardDescription>}
+            <ReferenteProceso texto={acquisition.question ?? ""} referentes={contexto.data?.documentaryReferents ?? []} />
           </CardHeader>
           <CardContent className="space-y-6">
             <fieldset className="space-y-2">
