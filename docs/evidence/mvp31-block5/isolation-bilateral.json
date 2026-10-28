@@ -1,0 +1,556 @@
+[
+ {
+  "actor": "qhapaq",
+  "table": "organizations",
+  "check": "own_only",
+  "visible": 1,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "organizations",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "memberships",
+  "check": "own_only",
+  "visible": 1,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "memberships",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "cases",
+  "check": "own_only",
+  "visible": 2,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "cases",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "assessments",
+  "check": "own_only",
+  "visible": 2,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "assessments",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "responses",
+  "check": "own_only",
+  "visible": 99,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "responses",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "observations",
+  "check": "own_only",
+  "visible": 96,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "observations",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "evidence",
+  "check": "own_only",
+  "visible": 5,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "evidence",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "evidence_versions",
+  "check": "own_only",
+  "visible": 0,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "evidence_versions",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "evidence_fragments",
+  "check": "own_only",
+  "visible": 0,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "evidence_fragments",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "document_extractions",
+  "check": "own_only",
+  "visible": 0,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "document_extractions",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "fragment_interpretations",
+  "check": "own_only",
+  "visible": 0,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "fragment_interpretations",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "fragment_mappings",
+  "check": "own_only",
+  "visible": 0,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "fragment_mappings",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "findings",
+  "check": "own_only",
+  "visible": 19,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "findings",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "ai_assisted_analyses",
+  "check": "own_only",
+  "visible": 1,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "ai_assisted_analyses",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "ai_assisted_analysis_reviews",
+  "check": "own_only",
+  "visible": 1,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "ai_assisted_analysis_reviews",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "transformation_decisions",
+  "check": "own_only",
+  "visible": 2,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "transformation_decisions",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "synthetic_qa_ingestion_authorizations",
+  "check": "own_only",
+  "visible": 1,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "synthetic_qa_ingestion_authorizations",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "transformation_decisions",
+  "check": "cross_insert",
+  "status": 403,
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "responses",
+  "check": "cross_update",
+  "status": 204,
+  "rows": "",
+  "pass_": true
+ },
+ {
+  "actor": "qhapaq",
+  "table": "evidence",
+  "check": "cross_delete",
+  "status": 200,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "organizations",
+  "check": "own_only",
+  "visible": 1,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "organizations",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "memberships",
+  "check": "own_only",
+  "visible": 2,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "memberships",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "cases",
+  "check": "own_only",
+  "visible": 2,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "cases",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "assessments",
+  "check": "own_only",
+  "visible": 2,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "assessments",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "responses",
+  "check": "own_only",
+  "visible": 32,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "responses",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "observations",
+  "check": "own_only",
+  "visible": 35,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "observations",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "evidence",
+  "check": "own_only",
+  "visible": 60,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "evidence",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "evidence_versions",
+  "check": "own_only",
+  "visible": 24,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "evidence_versions",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "evidence_fragments",
+  "check": "own_only",
+  "visible": 22,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "evidence_fragments",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "document_extractions",
+  "check": "own_only",
+  "visible": 23,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "document_extractions",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "fragment_interpretations",
+  "check": "own_only",
+  "visible": 22,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "fragment_interpretations",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "fragment_mappings",
+  "check": "own_only",
+  "visible": 22,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "fragment_mappings",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "findings",
+  "check": "own_only",
+  "visible": 2,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "findings",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "ai_assisted_analyses",
+  "check": "own_only",
+  "visible": 0,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "ai_assisted_analyses",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "ai_assisted_analysis_reviews",
+  "check": "own_only",
+  "visible": 0,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "ai_assisted_analysis_reviews",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "transformation_decisions",
+  "check": "own_only",
+  "visible": 0,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "transformation_decisions",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "synthetic_qa_ingestion_authorizations",
+  "check": "own_only",
+  "visible": 1,
+  "foreign": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "synthetic_qa_ingestion_authorizations",
+  "check": "cross_filter",
+  "visible": 0,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "transformation_decisions",
+  "check": "cross_insert",
+  "status": 403,
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "responses",
+  "check": "cross_update",
+  "status": 204,
+  "rows": "",
+  "pass_": true
+ },
+ {
+  "actor": "int01",
+  "table": "evidence",
+  "check": "cross_delete",
+  "status": 200,
+  "pass_": true
+ }
+]
