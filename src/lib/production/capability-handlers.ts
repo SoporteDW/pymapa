@@ -1755,6 +1755,7 @@ async function leerExpediente(context: Ctx, evidencias: import("./puertos").Evid
   type Storage = { storage: { from: (b: string) => { download: (p: string) => Promise<{ data: Blob | null; error: unknown }> } } };
   const client = context.supabase as Storage;
   const salida: FragmentosPorEvidencia = new Map();
+  const { fragmentosConContexto } = await import("./expediente-extraction");
   for (const e of evidencias) {
     const title = e.title ?? e.storagePath?.split("/").pop() ?? e.id;
     if (!e.storageBucket || !e.storagePath || !/\.pdf$/i.test(e.storagePath)) continue;
@@ -1766,7 +1767,7 @@ async function leerExpediente(context: Ctx, evidencias: import("./puertos").Evid
         title,
         pages: doc.paginas,
         error: null,
-        fragments: doc.fragmentos.map((f) => ({ evidenceId: e.id, documentTitle: title, fragmentId: f.id, page: f.pagina, section: f.seccion, text: f.texto })),
+        fragments: fragmentosConContexto(doc).map((f) => ({ evidenceId: e.id, documentTitle: title, fragmentId: f.id, page: f.pagina, section: f.seccion, text: f.texto })),
       });
     } catch (err) {
       salida.set(e.id, { title, pages: 0, fragments: [], error: err instanceof Error ? err.message : "EXTRACTION_FAILED" });
@@ -1806,11 +1807,12 @@ export async function getExpedienteHandler(context: Ctx) {
     capabilityId: string; name: string; domainId: string; diagnosticMode: string; findingsCount: number;
     assessmentId: string; organizationId: string; catalogo: import("./expediente-mapper").AdquisicionCatalogo[]; answered: Set<string>;
   }[] = [];
-  const LIMITE = 8;
+  const LIMITE = 1; // La evaluación hace varias lecturas paralelas; presupuesto saliente <= 6.
   let siguiente = 0;
   await Promise.all(Array.from({ length: LIMITE }, async () => {
     while (siguiente < catalogo.length) {
-      const entrada = catalogo[siguiente++]!;
+      const entrada = catalogo[siguiente++];
+      if (!entrada) continue;
       const { assessment, deps } = await prepararContexto(context, entrada.capabilityId, { baseRepository: base, resolverAssessment });
       const evaluado = await casoUso.evaluarCapacidad(deps, assessment.id);
       const pack = getRegisteredPack(entrada.capabilityId).pack;
@@ -1825,14 +1827,23 @@ export async function getExpedienteHandler(context: Ctx) {
     }
   }));
   capacidades.sort((a, b) => catalogo.findIndex((c) => c.capabilityId === a.capabilityId) - catalogo.findIndex((c) => c.capabilityId === b.capabilityId));
-  const assessmentId = capacidades[0]!.assessmentId;
-  const organizationId = capacidades[0]!.organizationId;
+  const primera = capacidades[0];
+  if (!primera) throw new Error("EMPTY_CAPABILITY_REGISTRY");
+  const assessmentId = primera.assessmentId;
+  const organizationId = primera.organizationId;
   const evidencias = (await base.listEvidence(assessmentId)).filter((e) => e.organizationId === organizationId && e.assessmentId === assessmentId);
   const docs = await leerExpediente(context, evidencias);
   const fragmentos = [...docs.values()].flatMap((d) => d.fragments);
   const todas = capacidades.flatMap((c) => c.catalogo);
   const respondidas = new Set(capacidades.flatMap((c) => [...c.answered].map((id) => `${c.capabilityId}::${id}`)));
   const propuestas = mapper.proponerCorrespondencias(todas, fragmentos, respondidas);
+  const todasPropuestas = mapper.proponerCorrespondencias(todas, fragmentos, new Set());
+  const documentalUnica = new Set(todasPropuestas.map((p) => `${p.capabilityId}::${p.acquisitionId}`));
+  const respuestas = await base.listResponses(assessmentId);
+  const confirmadasDocumentales = new Set(respuestas.filter((r) => {
+    const raw = r.payload?.["raw"] as { origin?: string } | null;
+    return raw?.origin === "EXPEDIENTE_DOCUMENTAL";
+  }).map((r) => `${r.payload?.["capabilityId"] ?? "OP-01"}::${r.acquisitionRef}`).filter((k) => respondidas.has(k)));
   const conPropuesta = new Set(propuestas.map((p) => `${p.capabilityId}::${p.acquisitionId}`));
 
   const porCapacidad = capacidades.map((c) => {
@@ -1854,6 +1865,10 @@ export async function getExpedienteHandler(context: Ctx) {
     totals: {
       acquisitions: total,
       answered: respondidas.size,
+      documentaryCandidateAcquisitions: documentalUnica.size,
+      documentaryConfirmedAcquisitions: confirmadasDocumentales.size,
+      documentaryCandidatePercent: Math.round(documentalUnica.size / total * 1000) / 10,
+      proposedAcquisitions: conPropuesta.size,
       proposedHigh: propuestas.filter((p) => p.match === "ALTA").length,
       proposedPartial: propuestas.filter((p) => p.match === "PARCIAL").length,
       withoutCoverage: total - respondidas.size - propuestas.length,
@@ -1875,50 +1890,75 @@ export const confirmExpedienteProposalsInput = (data: unknown) =>
  * respuesta KNOWN con el documento como evidencia. El servidor vuelve a leer el
  * archivo y verifica la cita; nunca usa texto enviado por el cliente.
  */
+export const confirmExpedienteBatchInput = (data: unknown) => z.object({
+  items: z.array(z.object({ capabilityId: z.string().regex(/^[A-Z]{2}-\d{2}$/), acquisitionId: z.string().min(1), evidenceId: z.string().uuid(), fragmentId: z.string().min(1) }).strict()).min(1).max(80),
+}).strict().parse(data);
+
 export async function confirmExpedienteProposalsHandler(context: Ctx, capabilityId: string, data: ReturnType<typeof confirmExpedienteProposalsInput>) {
-  const runtime = await import("./runtime.server");
+  const r = await confirmExpedienteBatchHandler(context, { items: data.items.map((i) => ({ ...i, capabilityId })) });
+  return { ...r, capabilityId };
+}
+
+/** Una extracción por archivo/lote, validación independiente y lineage original por respuesta. */
+export async function confirmExpedienteBatchHandler(context: Ctx, data: ReturnType<typeof confirmExpedienteBatchInput>) {
+  const inicio = Date.now();
   const mapper = await import("./expediente-mapper");
-  const { getRegisteredPack } = await import("./packs-registry");
-  const { assessment, deps } = await prepararContexto(context, capabilityId);
-  const catalogo = new Map(mapper.catalogoDePack(capabilityId, getRegisteredPack(capabilityId).pack).map((a) => [a.acquisitionId, a]));
+  const casoUso = await import("./caso-uso");
+  const runtime = await import("./runtime.server");
+  const { expedienteBatchRepository } = await import("./expediente-batch-repository");
+  const baseRepository = expedienteBatchRepository(runtime.createSupabaseProductionRepository());
+  const { assessment, deps } = await prepararContexto(context, data.items[0]?.capabilityId ?? "", { baseRepository });
+  const role = await deps.repository.getMembershipRole(assessment.organizationId, context.userId);
+  if (role !== "OWNER" && role !== "ADMIN") throw new Error("OWNER_ADMIN_REQUIRED");
   const ids = [...new Set(data.items.map((i) => i.evidenceId))];
-  const evidencias = (await deps.repository.listEvidence(assessment.id))
-    .filter((e) => ids.includes(e.id) && e.organizationId === assessment.organizationId && e.assessmentId === assessment.id);
+  const evidencias = (await deps.repository.listEvidence(assessment.id)).filter((e) => ids.includes(e.id) && e.organizationId === assessment.organizationId && e.assessmentId === assessment.id);
   if (evidencias.length !== ids.length) throw new Error("EVIDENCE_NOT_IN_ASSESSMENT");
   const docs = await leerExpediente(context, evidencias);
-  void runtime;
-  const casoUso = await import("./caso-uso");
-  let respondentId: string | null = null;
-  const resultados: { acquisitionId: string; accepted: boolean; reason: string | null }[] = [];
+  const fragmentos = [...docs.values()].flatMap((d) => d.fragments);
+  const { getRegisteredPack, OFFICIAL_CAPABILITY_IDS } = await import("./packs-registry");
+  const catalogo = OFFICIAL_CAPABILITY_IDS.flatMap((id) => mapper.catalogoDePack(id, getRegisteredPack(id).pack));
+  // Recalcular con el catálogo transversal completo: no aceptar un fragmento arbitrario ni el texto del cliente.
+  const propuestas = new Map(mapper.proponerCorrespondencias(catalogo, fragmentos, new Set()).map((p) => [`${p.capabilityId}::${p.acquisitionId}`, p]));
+  const resultados: { capabilityId: string; acquisitionId: string; accepted: boolean; reason: string | null; responseId: string | null; observationId: string | null; evaluationRunId: string | null }[] = [];
+  const grupos = new Map<string, typeof data.items>();
+  const vistas = new Set<string>();
   for (const item of data.items) {
-    const acq = catalogo.get(item.acquisitionId);
-    const frag = docs.get(item.evidenceId)?.fragments.find((f) => f.fragmentId === item.fragmentId);
-    if (!acq) { resultados.push({ acquisitionId: item.acquisitionId, accepted: false, reason: "ACQUISITION_NOT_IN_PACK" }); continue; }
-    if (acq.closedOptions) { resultados.push({ acquisitionId: item.acquisitionId, accepted: false, reason: "CLOSED_OPTIONS_REQUIRE_MANUAL_CHOICE" }); continue; }
-    if (!frag) { resultados.push({ acquisitionId: item.acquisitionId, accepted: false, reason: "FRAGMENT_NOT_FOUND" }); continue; }
-    if (!respondentId) {
-      respondentId = (await asegurarRespondentPropio(deps, {
-        organizationId: assessment.organizationId, assessmentId: assessment.id,
-        capabilityId: deps.engine.pack.capability.id, userId: context.userId,
-      })).respondent.id;
-    }
-    const r = await casoUso.submitAcquisitionResponse(deps, {
-      assessmentId: assessment.id,
-      organizationId: assessment.organizationId,
-      submittedBy: context.userId,
-      respondentId,
-      acquisitionId: item.acquisitionId,
-      knowledgeState: "KNOWN",
-      semanticValue: frag.text,
-      notApplicableReason: null,
-      evidenceIds: [item.evidenceId],
-      rawInput: {
-        origin: "EXPEDIENTE_DOCUMENTAL", mapperVersion: mapper.VERSION_MAPEADOR_EXPEDIENTE,
-        evidenceId: item.evidenceId, fragmentId: frag.fragmentId, page: frag.page, section: frag.section,
-        confirmedByUserId: context.userId, note: "Cita literal confirmada por la persona; no es interpretación ni suficiencia.",
-      },
-    });
-    resultados.push({ acquisitionId: item.acquisitionId, accepted: Boolean(r.accepted), reason: r.accepted ? null : (r.rejectionReason ?? "REJECTED") });
+    const key = `${item.capabilityId}::${item.acquisitionId}`;
+    if (vistas.has(key)) continue;
+    vistas.add(key);
+    grupos.set(item.capabilityId, [...(grupos.get(item.capabilityId) ?? []), item]);
   }
-  return { capabilityId, confirmed: resultados.filter((r) => r.accepted).length, results: resultados };
+  // Dos escrituras/evaluaciones en paralelo: cada evaluación usa hasta cuatro lecturas.
+  // Conservador: una capacidad a la vez, y dos invocaciones desde el navegador.
+  for (const [capabilityId, items] of grupos) {
+    const scoped = capabilityId === deps.engine.pack.capability.id ? { assessment, deps } : await prepararContexto(context, capabilityId, { baseRepository, resolverAssessment: async () => assessment });
+    if (scoped.assessment.id !== assessment.id || scoped.assessment.organizationId !== assessment.organizationId) throw new Error("ASSESSMENT_SCOPE_MISMATCH");
+    const vigentes = new Set((await casoUso.evaluarCapacidad(scoped.deps, assessment.id))?.answeredAcquisitionIds ?? []);
+    const respondent = await asegurarRespondentPropio(scoped.deps, { organizationId: assessment.organizationId, assessmentId: assessment.id, capabilityId, userId: context.userId });
+    const inicioResultados = resultados.length;
+    for (const item of items) {
+      const p = propuestas.get(`${capabilityId}::${item.acquisitionId}`);
+      const baseResult = { capabilityId, acquisitionId: item.acquisitionId, responseId: null, observationId: null, evaluationRunId: null };
+      if (vigentes.has(item.acquisitionId)) { resultados.push({ ...baseResult, accepted: false, reason: "ALREADY_ANSWERED" }); continue; }
+      if (!p || p.evidenceId !== item.evidenceId || p.fragmentId !== item.fragmentId) { resultados.push({ ...baseResult, accepted: false, reason: "PROPOSAL_NOT_VERIFIED" }); continue; }
+      try {
+        const r = await casoUso.submitAcquisitionResponse(scoped.deps, {
+          assessmentId: assessment.id, organizationId: assessment.organizationId, submittedBy: context.userId,
+          respondentId: respondent.respondent.id, acquisitionId: item.acquisitionId, knowledgeState: "KNOWN", semanticValue: p.quote,
+          notApplicableReason: null, evidenceIds: [item.evidenceId],
+          rawInput: { origin: "EXPEDIENTE_DOCUMENTAL", mapperVersion: mapper.VERSION_MAPEADOR_EXPEDIENTE, evidenceId: item.evidenceId,
+            fragmentId: p.fragmentId, page: p.page, section: p.section, quote: p.quote, confirmedByUserId: context.userId,
+            note: "Cita literal confirmada por la persona; no es interpretación ni suficiencia." },
+        }, { deferEvaluation: true });
+        if (r.accepted) vigentes.add(item.acquisitionId);
+        resultados.push({ ...baseResult, accepted: r.accepted, reason: r.accepted ? null : r.rejectionReason ?? "REJECTED", responseId: r.responseId, observationId: r.observationId, evaluationRunId: r.evaluationRunId });
+      } catch { resultados.push({ ...baseResult, accepted: false, reason: "SAVE_FAILED_REFRESH_BEFORE_RETRY" }); }
+    }
+    const aceptadas = resultados.slice(inicioResultados).filter((r) => r.accepted);
+    if (aceptadas.length) {
+      const evaluacion = await casoUso.reevaluarTrasCambioDocumental(scoped.deps, { assessmentId: assessment.id, organizationId: assessment.organizationId, trigger: "OBSERVATION_UPDATED" });
+      for (const r of aceptadas) r.evaluationRunId = evaluacion.evaluationRunId;
+    }
+  }
+  return { confirmed: resultados.filter((r) => r.accepted).length, results: resultados, elapsedMs: Date.now() - inicio };
 }

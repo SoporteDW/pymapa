@@ -17,7 +17,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { LoadingState } from "@/components/ui/loading-state";
 import { PageHeader } from "@/components/layout/page-header";
 import { DOMINIOS } from "@/components/diagnostico/catalogo-capacidades";
-import { confirmExpedienteProposals, getExpediente, registerCapabilityEvidence } from "@/lib/production/capabilities.functions";
+import { confirmExpedienteBatch, getExpediente, registerCapabilityEvidence } from "@/lib/production/capabilities.functions";
 
 export const Route = createFileRoute("/_authenticated/expediente")({
   head: () => ({
@@ -50,10 +50,12 @@ function Expediente() {
   const qc = useQueryClient();
   const leer = useServerFn(getExpediente);
   const registrar = useServerFn(registerCapabilityEvidence);
-  const confirmar = useServerFn(confirmExpedienteProposals);
+  const confirmar = useServerFn(confirmExpedienteBatch);
   const [archivos, setArchivos] = useState<File[]>([]);
   const [seleccion, setSeleccion] = useState<Set<string>>(new Set());
   const [soloAlta, setSoloAlta] = useState(false);
+  const [porDocumento, setPorDocumento] = useState(true);
+  const [avance, setAvance] = useState({ done: 0, total: 0 });
 
   const q = useQuery({ queryKey: ["expediente"], queryFn: () => leer(), staleTime: 60_000 });
 
@@ -78,22 +80,30 @@ function Expediente() {
 
   const confirmarSel = useMutation({
     mutationFn: async (items: Propuesta[]) => {
-      const porCap = new Map<string, Propuesta[]>();
-      for (const p of items) porCap.set(p.capabilityId, [...(porCap.get(p.capabilityId) ?? []), p]);
+      const inicio = performance.now();
+      setAvance({ done: 0, total: items.length });
       let ok = 0;
       let rechazadas = 0;
-      for (const [capabilityId, lista] of porCap) {
-        for (let i = 0; i < lista.length; i += 40) {
-          const r = await confirmar({ data: { capabilityId, items: lista.slice(i, i + 40).map((p) => ({ acquisitionId: p.acquisitionId, evidenceId: p.evidenceId, fragmentId: p.fragmentId })) } });
+      const rechazados = new Set<string>();
+      // Dos lotes independientes; no más de una propuesta por adquisición.
+      const lotes: Propuesta[][] = [];
+      const capacidades = new Map<string, Propuesta[]>();
+      items.forEach((p) => capacidades.set(p.capabilityId, [...(capacidades.get(p.capabilityId) ?? []), p]));
+      for (const lista of capacidades.values()) for (let i = 0; i < lista.length; i += 20) lotes.push(lista.slice(i, i + 20));
+      for (let i = 0; i < lotes.length; i += 4) {
+        await Promise.all(lotes.slice(i, i + 4).map(async (lista) => {
+          const r = await confirmar({ data: { items: lista.map((p) => ({ capabilityId: p.capabilityId, acquisitionId: p.acquisitionId, evidenceId: p.evidenceId, fragmentId: p.fragmentId })) } });
           ok += r.confirmed;
           rechazadas += r.results.length - r.confirmed;
-        }
+          r.results.filter((x) => !x.accepted).forEach((x) => rechazados.add(clave(x)));
+          setAvance((v) => ({ ...v, done: v.done + lista.length }));
+        }));
       }
-      return { ok, rechazadas };
+      return { ok, rechazadas, rechazados, seconds: Math.round((performance.now() - inicio) / 100) / 10 };
     },
     onSuccess: async (r) => {
-      toast.success(`${r.ok} respuestas confirmadas`, { description: r.rechazadas ? `${r.rechazadas} no se pudieron registrar.` : undefined });
-      setSeleccion(new Set());
+      toast.success(`${r.ok} respuestas confirmadas · ${r.seconds} s`, { description: r.rechazadas ? `${r.rechazadas} requieren revisión.` : undefined });
+      setSeleccion(r.rechazados);
       await qc.invalidateQueries({ queryKey: ["expediente"] });
       await qc.invalidateQueries({ queryKey: ["hub-diagnostico"] });
     },
@@ -105,11 +115,11 @@ function Expediente() {
   const porDominio = useMemo(() => {
     const m = new Map<string, Propuesta[]>();
     for (const p of visibles) {
-      const dom = p.capabilityId.slice(0, 2);
+      const dom = porDocumento ? p.evidenceId : p.capabilityId.slice(0, 2);
       m.set(dom, [...(m.get(dom) ?? []), p]);
     }
     return m;
-  }, [visibles]);
+  }, [visibles, porDocumento]);
 
   const alternar = (k: string) => setSeleccion((s) => { const n = new Set(s); n.has(k) ? n.delete(k) : n.add(k); return n; });
   const marcarTodas = (lista: Propuesta[], v: boolean) => setSeleccion((s) => { const n = new Set(s); lista.forEach((p) => (v ? n.add(clave(p)) : n.delete(clave(p)))); return n; });
@@ -151,10 +161,11 @@ function Expediente() {
                 <Cifra valor={d.documents.length} etiqueta="Documentos leídos" />
                 <Cifra valor={d.totals.acquisitions} etiqueta="Datos requeridos (31 capacidades)" />
                 <Cifra valor={d.totals.answered} etiqueta="Ya respondidos" />
-                <Cifra valor={d.totals.proposedHigh} etiqueta="Propuestas con coincidencia alta" />
-                <Cifra valor={d.totals.proposedPartial} etiqueta="Propuestas parciales" />
-                <Cifra valor={d.totals.withoutCoverage} etiqueta="Sin cobertura documental" />
+                <Cifra valor={d.totals.documentaryCandidateAcquisitions} etiqueta="Adquisiciones únicas con cita candidata" />
+                <Cifra valor={d.totals.documentaryConfirmedAcquisitions} etiqueta="Adquisiciones confirmadas desde documentos" />
+                <Cifra valor={d.totals.proposedAcquisitions} etiqueta="Propuestas pendientes de revisión" />
               </div>
+              <p className="text-sm text-muted-foreground">Citas candidatas: {d.totals.documentaryCandidatePercent}% · {d.totals.proposedHigh} altas y {d.totals.proposedPartial} parciales pendientes · {d.totals.withoutCoverage} sin respuesta ni propuesta. Una cita candidata no acredita cobertura completa.</p>
               <ul className="space-y-1 text-sm">
                 {d.documents.map((doc) => (
                   <li key={doc.evidenceId} className="flex flex-wrap gap-2">
@@ -176,20 +187,21 @@ function Expediente() {
               <CardContent className="space-y-4">
                 <div className="flex flex-wrap items-center gap-3">
                   <label className="flex items-center gap-2 text-sm"><Checkbox checked={soloAlta} onCheckedChange={(v) => setSoloAlta(Boolean(v))} /> Solo coincidencia alta</label>
+                  <label className="flex items-center gap-2 text-sm"><Checkbox checked={porDocumento} onCheckedChange={(v) => setPorDocumento(Boolean(v))} /> Agrupar por documento</label>
                   <Button variant="outline" size="sm" onClick={() => marcarTodas(visibles, true)}>Seleccionar visibles ({visibles.length})</Button>
                   <Button variant="ghost" size="sm" onClick={() => setSeleccion(new Set())}>Limpiar</Button>
                   <Button size="sm" disabled={!seleccion.size || confirmarSel.isPending}
                     onClick={() => confirmarSel.mutate(d.proposals.filter((p) => seleccion.has(clave(p))))}>
-                    {confirmarSel.isPending ? "Confirmando…" : `Confirmar ${seleccion.size} seleccionadas`}
+                    {confirmarSel.isPending ? `Confirmando ${avance.done}/${avance.total}…` : `Confirmar ${seleccion.size} seleccionadas`}
                   </Button>
                 </div>
-                {DOMINIOS.filter((dom) => porDominio.has(dom.id)).map((dom) => {
-                  const lista = porDominio.get(dom.id)!;
+                {[...porDominio.entries()].map(([id, lista]) => {
+                  const nombre = porDocumento ? lista[0]?.documentTitle : DOMINIOS.find((dom) => dom.id === id)?.nombre;
                   return (
-                    <details key={dom.id} className="rounded-xl border border-border" open>
+                    <details key={id} className="rounded-lg border border-border" open>
                       <summary className="flex cursor-pointer items-center justify-between gap-2 p-3 text-sm font-medium">
-                        <span>{dom.nombre} · {lista.length} propuestas</span>
-                        <Button variant="link" size="sm" onClick={(e) => { e.preventDefault(); marcarTodas(lista, true); }}>Seleccionar dominio</Button>
+                        <span>{nombre} · {lista.length} propuestas</span>
+                        <Button variant="link" size="sm" onClick={(e) => { e.preventDefault(); marcarTodas(lista, true); }}>Seleccionar grupo</Button>
                       </summary>
                       <ul className="divide-y divide-border">
                         {lista.map((p) => (
@@ -228,8 +240,7 @@ function Expediente() {
                   </summary>
                   <div className="space-y-2 p-3 pt-0">
                     <ul className="list-disc space-y-1 pl-5 text-sm">
-                      {c.pending.slice(0, 8).map((a) => <li key={a.acquisitionId}>{a.label}{a.closedOptions ? " (elegir opción)" : ""}</li>)}
-                      {c.pending.length > 8 && <li className="text-muted-foreground">y {c.pending.length - 8} más…</li>}
+                      {c.pending.map((a) => <li key={a.acquisitionId}><span className="text-muted-foreground">{a.acquisitionId} · </span>{a.label}{a.closedOptions ? " (elegir opción)" : ""}</li>)}
                     </ul>
                     <Button asChild size="sm" variant="outline"><Link to="/capacidad/$id" params={{ id: c.capabilityId }}>Completar en {c.capabilityId}</Link></Button>
                   </div>
