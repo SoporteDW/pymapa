@@ -160,3 +160,10 @@
 - [ ] Brecha inferencia y ratificación histórica 1.1.0: requieren decisión y autorización humana; intervención única terminada, sin nuevos ajustes.
 
 - [x] PYM-BETA-INT-02-SEG · Seguimiento empresarial consolidado (/seguimiento)
+
+## PYM-NOV-MVP31 · Recuperación integral (7 días)
+- [x] Escenario B: expediente documental transversal 31/31 (carga única, citas literales, confirmación agrupada, pendientes por capacidad); E2E con empresa nueva QA Qhapaq.
+- [ ] Acelerar confirmación agrupada (~3 s por respuesta) y mejorar precisión de propuestas parciales.
+- [ ] Frente A · preguntas redactadas para las 18 capacidades sin pregunta literal: bloqueado, los textos fuente no traen preguntas por necesidad; requiere aprobación de Gobierno de la redacción.
+- [ ] Vía de análisis asistido por IA (29 capacidades): bloqueada por DEC-053 y lectura con IA detenida (SEM-QA-01).
+- [ ] Tablero 6D/31C, plan de transformación y Escenario A precargado.
