@@ -117,8 +117,8 @@ function Expediente() {
   return (
     <div className="mx-auto max-w-6xl space-y-6 p-4 md:p-8">
       <PageHeader
-        title="Expediente documental"
-        description="Carga una sola vez los documentos de la empresa. Pymapa los lee contra las 31 capacidades y te propone respuestas con la cita exacta. Tú decides qué confirmar."
+        titulo="Expediente documental"
+        subtitulo="Carga una sola vez los documentos de la empresa. Pymapa los lee contra las 31 capacidades y te propone respuestas con la cita exacta. Tú decides qué confirmar."
       />
 
       <Card>
@@ -134,7 +134,7 @@ function Expediente() {
         </CardContent>
       </Card>
 
-      {q.isLoading && <LoadingState label="Leyendo documentos contra las 31 capacidades…" />}
+      {q.isLoading && <LoadingState message="Leyendo documentos contra las 31 capacidades…" />}
       {q.error && <p className="text-sm text-destructive">No pudimos leer el expediente: {(q.error as Error).message}</p>}
 
       {d && (
@@ -231,7 +231,7 @@ function Expediente() {
                       {c.pending.slice(0, 8).map((a) => <li key={a.acquisitionId}>{a.label}{a.closedOptions ? " (elegir opción)" : ""}</li>)}
                       {c.pending.length > 8 && <li className="text-muted-foreground">y {c.pending.length - 8} más…</li>}
                     </ul>
-                    <Button asChild size="sm" variant="outline"><Link to="/capacidad/$id" params={{ id: c.capabilityId.toLowerCase() }}>Completar en {c.capabilityId}</Link></Button>
+                    <Button asChild size="sm" variant="outline"><Link to="/capacidad/$id" params={{ id: c.capabilityId }}>Completar en {c.capabilityId}</Link></Button>
                   </div>
                 </details>
               ))}
