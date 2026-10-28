@@ -167,7 +167,7 @@ export async function asegurarRespondentPropio(
 
 /** Contexto productivo visible: Organization → Case → Assessment BASELINE. */
 export async function getCapabilityContextHandler(context: Ctx, capabilityId: string, _data: Record<string, never>) {
-    const { assessment } = await prepararContexto(context, capabilityId);
+    const { assessment, baseRepository } = await prepararContexto(context, capabilityId);
     return {
       userId: context.userId,
       organizationId: assessment.organizationId,
@@ -175,6 +175,7 @@ export async function getCapabilityContextHandler(context: Ctx, capabilityId: st
       assessmentId: assessment.id,
       assessmentType: assessment.type,
       knowledgeVersionId: assessment.knowledgeVersionId,
+      documentaryReferents: referentesDocumentales(await baseRepository.listResponses(assessment.id), capabilityId),
     };
 }
 
