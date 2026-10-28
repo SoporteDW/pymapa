@@ -13,7 +13,7 @@ const ETIQUETA_MODO: Record<ActionableAcquisition["mode"], string> = {
   GOVERNED_STRUCTURAL_CORRESPONDENCE: "Guía de información · correspondencia estructural",
 };
 
-export function AcquisitionRenderer({ acquisition }: { acquisition: ActionableAcquisition }) {
+export function AcquisitionRenderer({ acquisition, referentes = [] }: { acquisition: ActionableAcquisition; referentes?: string[] }) {
   const a = acquisition;
   const variables = a.variables.filter((v) => v.name);
   return (
@@ -38,6 +38,20 @@ export function AcquisitionRenderer({ acquisition }: { acquisition: ActionableAc
       ) : !a.operativeQuestion && a.mode === "INFORMATION_NEED" && a.informationNeedStatement ? (
         <p className="text-base font-medium text-foreground">{a.informationNeedStatement}</p>
       ) : null}
+
+      {/\beste proceso\b/i.test(`${a.question ?? ""} ${a.operativeQuestion?.text ?? ""}`) && (
+        referentes.length > 0 ? (
+          <p data-testid="referente-proceso" className="rounded-md border border-border bg-muted/40 p-2 text-sm">
+            <span className="font-medium">«Este proceso» se refiere a: </span>
+            {referentes.map((r) => `«${r}»`).join(", ")}
+            <span className="block text-xs text-muted-foreground">Título literal de la sección de tus documentos que ya confirmaste. Si se trata de otro proceso, indícalo en tu respuesta.</span>
+          </p>
+        ) : (
+          <p data-testid="referente-proceso-ausente" className="rounded-md border border-dashed border-border p-2 text-sm text-muted-foreground">
+            Aún no sabemos a qué proceso de tu empresa se refiere esta pregunta. Empieza tu respuesta nombrando el proceso (por ejemplo, el que más pesa en tu operación).
+          </p>
+        )
+      )}
 
       {!a.operativeQuestion && a.mode === "GOVERNED_STRUCTURAL_CORRESPONDENCE" && variables.length > 0 && (
         <p className="text-base font-medium text-foreground">{variables.map((v) => v.name).join(" · ")}</p>
