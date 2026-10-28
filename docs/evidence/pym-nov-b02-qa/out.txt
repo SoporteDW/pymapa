@@ -1,0 +1,35 @@
+G-01 PASS QA A (OWNER) no puede autodesignarse {'code': 'P0001', 'details': None, 'hint': None, 'message': 'EPAR_GOVERNANCE_DENIED'}
+G-02 PASS Gobierno no puede designar a QA B en org A (no miembro) {'code': 'P0001', 'details': None, 'hint': None, 'message': 'EPAR_DESIGNATION_INVALID'}
+G-03 PASS Gobierno no puede designar sobre assessment ajeno {'code': 'P0001', 'details': None, 'hint': None, 'message': 'EPAR_DESIGNATION_INVALID'}
+G-04 PASS Gobierno designa QA A (OP-01, assessment A) e149756e-698b-4d85-a8ff-7ac5ba8f2aa8
+G-05 PASS Gobierno designa QA B (OP-01, assessment B) 1482e0a1-2f64-49a6-83ed-a99f711c0aa2
+G-06 PASS Designaciones de prueba de ventana temporal emitidas {'futura': 'dbd84b7e-cdc6-49e1-9907-7f2f80cfa84a', 'corta': 'de10b49d-d4a3-45a9-962d-bd30b67204d1'}
+P-01 PASS QA A registra evaluación SUBSTANTIATED con referencia a evidencia propia {'id': '76251f88-ec3f-41a8-ae4c-e75efbff15be', 'evidence': ['b0070000-0000-4000-8000-000000000010']}
+P-02 PASS SUBSTANTIATED sin respaldo es rechazado {'code': '23514', 'details': 'Failing row contains (f98f1ba6-e3a8-4aed-a444-fa2133861f14, 56e1f517-e178-42b9-8ceb-ecd9291c5cba, 1, null, 9816dfad-a1be-4140-8293-c4cab34f3603, c71d7b34-9da0-4755-8394-4
+P-03 PASS QA B registra abstención INSUFFICIENT_INFORMATION sin conclusión 33c04fdb-3adf-417b-94c5-f12aebd1cf4e
+P-04 PASS Abstención con conclusión forzada es rechazada {'code': '23514', 'details': 'Failing row contains (41f24d02-3c72-4df5-b2c7-823bf4f7f7e3, 29790bf9-ec7b-4ac3-8bfa-5255572c7637, 1, null, b0400000-0000-4000-8000-000000000001, b0400000-0000-4000-8000-0
+P-05 PASS QA A recupera su evaluación persistida [{'id': '76251f88-ec3f-41a8-ae4c-e75efbff15be', 'evaluation_id': '3601ee59-f2c2-4fc9-97b9-64e1db1aed7e', 'version': 1, 'state': 'SUBSTANTIATED', 'conclusion': 'Conclusión profesional sintética QA A', 
+P-06 PASS QA B recupera su abstención (conclusion null) [{'id': '33c04fdb-3adf-417b-94c5-f12aebd1cf4e', 'state': 'INSUFFICIENT_INFORMATION', 'conclusion': None}]
+P-07 PASS Supersesión: versión 2 enlazada a versión 1 [{'version': 2, 'previous_version_id': '76251f88-ec3f-41a8-ae4c-e75efbff15be'}]
+P-08 PASS Versión obsoleta (bifurcación) rechazada {'code': 'P0001', 'details': None, 'hint': None, 'message': 'EPAR_STALE_VERSION'}
+P-09 PASS Versión 1 conservada sin cambios (append-only) [{'id': '76251f88-ec3f-41a8-ae4c-e75efbff15be', 'conclusion': 'Conclusión profesional sintética QA A'}]
+R-01 PASS Revisión de versión reemplazada rechazada {'code': 'P0001', 'details': None, 'hint': None, 'message': 'EPAR_REVIEW_INVALID'}
+R-02 PASS Revisión de versión vigente registrada 5127b302-a9aa-426b-b2e0-216c6aded142
+R-03 PASS QA B revisa su abstención 83705f84-6576-4d73-b7a9-580dc3a7127e
+I-A1 PASS QA A no lee evaluaciones/designaciones/revisiones de org B {'filtro': 0, 'idor': 0, 'auth': 0, 'rev': 0}
+I-B1 PASS QA B no lee evaluaciones/designaciones/revisiones de org A {'filtro': 0, 'idor': 0, 'auth': 0, 'rev': 0}
+I-A2 PASS QA A no registra en org B con su autoridad {'code': 'P0001', 'details': None, 'hint': None, 'message': 'EPAR_AUTHORITY_DENIED'}
+I-B2 PASS QA B no usa la autoridad de QA A {'code': 'P0001', 'details': None, 'hint': None, 'message': 'EPAR_AUTHORITY_DENIED'}
+I-A3 PASS QA A no referencia evidencia de org B {'err': {'code': 'P0001', 'details': None, 'hint': None, 'message': 'EPAR_REFERENCE_FORBIDDEN'}, 'ref': ['b0400000-0000-4000-8000-000000000041']}
+I-B3 PASS QA B no revisa evaluación de org A {'code': 'P0001', 'details': None, 'hint': None, 'message': 'EPAR_AUTHORITY_DENIED'}
+I-A4 PASS QA A no puede modificar evaluaciones directamente [403, '{"code":"42501","details":null,"hint":"Grant the required privileges to the current role with: GRANT UPDATE ON public.pr']
+I-B4 PASS QA B no puede modificar evaluaciones directamente [403, '{"code":"42501","details":null,"hint":"Grant the required privileges to the current role with: GRANT UPDATE ON public.pr']
+S-01 PASS Autoridad OP-01 no habilita OP-02 {'code': 'P0001', 'details': None, 'hint': None, 'message': 'EPAR_AUTHORITY_DENIED'}
+S-02 PASS Autoridad aún no vigente (futura) rechazada {'code': 'P0001', 'details': None, 'hint': None, 'message': 'EPAR_AUTHORITY_DENIED'}
+S-03 PASS La cuenta institucional no puede evaluar {'code': 'P0001', 'details': None, 'hint': None, 'message': 'EPAR_AUTHORITY_DENIED'}
+E-01 PASS Autoridad corta funciona antes de expirar 07cec5a0-d328-4902-a597-e05682daa483
+E-02 PASS Autoridad expirada rechazada {'code': 'P0001', 'details': None, 'hint': None, 'message': 'EPAR_AUTHORITY_DENIED'}
+V-01 PASS QA A no puede revocar autoridades {'code': 'P0001', 'details': None, 'hint': None, 'message': 'EPAR_GOVERNANCE_DENIED'}
+V-02 PASS Gobierno revoca las 8 designaciones QA (4 de esta corrida + 4 de la corrida interrumpida) {'A': [200, '3f6a2bc3-aaca-45d1-9c0d-0dec6ffa986d'], 'B': [200, 'aaf20f56-d66d-4c15-b052-e2e280d81993'], 'futura': [200, '341f3653-0126-43d1-89a6-bc73b5918307'], 'corta': [200, '8fd83507-0154-4247-ab4
+V-03 PASS Tras revocación QA A y QA B no pueden evaluar [{'code': 'P0001', 'details': None, 'hint': None, 'message': 'EPAR_AUTHORITY_DENIED'}, {'code': 'P0001', 'details': None, 'hint': None, 'message': 'EPAR_AUTHORITY_DENIED'}]
+V-04 PASS Historial conservado tras revocación 3

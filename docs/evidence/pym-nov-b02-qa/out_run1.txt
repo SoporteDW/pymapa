@@ -1,0 +1,16 @@
+G-01 PASS QA A (OWNER) no puede autodesignarse {'code': 'P0001', 'details': None, 'hint': None, 'message': 'EPAR_GOVERNANCE_DENIED'}
+G-02 PASS Gobierno no puede designar a QA B en org A (no miembro) {'code': 'P0001', 'details': None, 'hint': None, 'message': 'EPAR_DESIGNATION_INVALID'}
+G-03 PASS Gobierno no puede designar sobre assessment ajeno {'code': 'P0001', 'details': None, 'hint': None, 'message': 'EPAR_DESIGNATION_INVALID'}
+G-04 PASS Gobierno designa QA A (OP-01, assessment A) bd720086-279b-4853-a35f-91ceb00084e9
+G-05 PASS Gobierno designa QA B (OP-01, assessment B) 9e148c2a-9f70-406d-ad7d-0df5acfbbfc9
+G-06 PASS Designaciones de prueba de ventana temporal emitidas {'futura': 'fb406d0f-5c21-4b5a-bf86-8265a334e011', 'corta': 'c2cd45b5-0155-4a66-aa1f-3cd66ad25dc1'}
+P-01 FAIL QA A registra evaluación SUBSTANTIATED con referencia a respuesta propia {'id': {'code': '23514', 'details': 'Failing row contains (4b9140d1-757f-4e37-a9e2-b3d59d8f90b7, 10c9c7b8-199b-4ad5-968c-4e3c6be87e82, 1, null, 9816dfad-a1be-4140-8293-c4cab34f3603, c71d7b34-9da0-4755
+P-02 PASS SUBSTANTIATED sin respaldo es rechazado {'code': '23514', 'details': 'Failing row contains (44c1acde-30e7-4825-8d7c-a8f8a575a970, 1eefc575-3165-4a65-87eb-181d86c0b074, 1, null, 9816dfad-a1be-4140-8293-c4cab34f3603, c71d7b34-9da0-4755-8394-4
+P-03 PASS QA B registra abstención INSUFFICIENT_INFORMATION sin conclusión 8e6039ab-07b2-4a86-98a3-aa5bb0b1db07
+P-04 PASS Abstención con conclusión forzada es rechazada {'code': '23514', 'details': 'Failing row contains (eb80bd99-3bf1-4ca2-9985-2fc0859cee44, c250fe45-d7ab-476e-8ac3-c1d2d6f9091f, 1, null, b0400000-0000-4000-8000-000000000001, b0400000-0000-4000-8000-0
+P-05 FAIL QA A recupera su evaluación persistida {'code': '22P02', 'details': None, 'hint': None, 'message': 'invalid input syntax for type uuid: "{\'code\': \'23514\', \'details\': \'Failing row contains (4b9140d1-757f-4e37-a9e2-b3d59d8f90b7, 10c9c
+Traceback (most recent call last):
+  File "/tmp/b02qa/run_b02qa.py", line 53, in <module>
+    ev=rows[0]["evaluation_id"] if rows else None
+       ~~~~^^^
+KeyError: 0
