@@ -16,7 +16,7 @@ beforeEach(async () => {
   const dir = join(__dirname, "fixtures/expediente-qhapaq");
   for (const name of readdirSync(dir)) {
     files.set(name, new Uint8Array(readFileSync(join(dir, name))));
-    await base.insertEvidence({ organizationId: org, assessmentId: assessment.id, caseId: assessment.caseId, candidateRef: null, evidenceType: "DOCUMENT", source: "DOCUMENT", storageBucket: "evidence", storagePath: name, title: name, note: null, submittedBy: "owner", respondentId: null, capturedAt: null });
+    await base.insertEvidence({ organizationId: org, assessmentId: assessment.id, caseId: assessment.caseId, candidateRef: null, evidenceType: "DOCUMENT", source: "DOCUMENT", storageBucket: "evidence", storagePath: name, externalReference: null, title: name, note: null, submittedBy: "owner", respondentId: null, capturedAt: null });
   }
 });
 async function propuesta() {
@@ -48,7 +48,7 @@ describe("confirmación transversal verificada", () => {
     expect(r.results[0]?.evaluationRunId).toBeTruthy();
     const rows = await base.listResponses(assessment.id);
     expect(rows).toHaveLength(1);
-    expect(rows[0]?.payload?.raw).toMatchObject({ evidenceId: item.evidenceId, fragmentId: item.fragmentId, confirmedByUserId: "owner" });
+    expect(rows[0]?.payload?.["raw"]).toMatchObject({ evidenceId: item.evidenceId, fragmentId: item.fragmentId, confirmedByUserId: "owner" });
     const retry = await h.confirmExpedienteBatchHandler(ctx(), { items: [item] });
     expect(retry.confirmed).toBe(0);
     expect(retry.results[0]?.reason).toBe("ALREADY_ANSWERED");
