@@ -1904,7 +1904,10 @@ export async function confirmExpedienteBatchHandler(context: Ctx, data: ReturnTy
   const inicio = Date.now();
   const mapper = await import("./expediente-mapper");
   const casoUso = await import("./caso-uso");
-  const { assessment, deps } = await prepararContexto(context, data.items[0]?.capabilityId ?? "");
+  const runtime = await import("./runtime.server");
+  const { expedienteBatchRepository } = await import("./expediente-batch-repository");
+  const baseRepository = expedienteBatchRepository(runtime.createSupabaseProductionRepository());
+  const { assessment, deps } = await prepararContexto(context, data.items[0]?.capabilityId ?? "", { baseRepository });
   const role = await deps.repository.getMembershipRole(assessment.organizationId, context.userId);
   if (role !== "OWNER" && role !== "ADMIN") throw new Error("OWNER_ADMIN_REQUIRED");
   const ids = [...new Set(data.items.map((i) => i.evidenceId))];
@@ -1928,7 +1931,7 @@ export async function confirmExpedienteBatchHandler(context: Ctx, data: ReturnTy
   // Dos escrituras/evaluaciones en paralelo: cada evaluación usa hasta cuatro lecturas.
   // Conservador: una capacidad a la vez, y dos invocaciones desde el navegador.
   for (const [capabilityId, items] of grupos) {
-    const scoped = capabilityId === deps.engine.pack.capability.id ? { assessment, deps } : await prepararContexto(context, capabilityId);
+    const scoped = capabilityId === deps.engine.pack.capability.id ? { assessment, deps } : await prepararContexto(context, capabilityId, { baseRepository, resolverAssessment: async () => assessment });
     if (scoped.assessment.id !== assessment.id || scoped.assessment.organizationId !== assessment.organizationId) throw new Error("ASSESSMENT_SCOPE_MISMATCH");
     const vigentes = new Set((await casoUso.evaluarCapacidad(scoped.deps, assessment.id))?.answeredAcquisitionIds ?? []);
     const respondent = await asegurarRespondentPropio(scoped.deps, { organizationId: assessment.organizationId, assessmentId: assessment.id, capabilityId, userId: context.userId });
