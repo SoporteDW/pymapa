@@ -1887,6 +1887,8 @@ export async function confirmExpedienteProposalsHandler(context: Ctx, capability
   if (evidencias.length !== ids.length) throw new Error("EVIDENCE_NOT_IN_ASSESSMENT");
   const docs = await leerExpediente(context, evidencias);
   void runtime;
+  const casoUso = await import("./caso-uso");
+  let respondentId: string | null = null;
   const resultados: { acquisitionId: string; accepted: boolean; reason: string | null }[] = [];
   for (const item of data.items) {
     const acq = catalogo.get(item.acquisitionId);
@@ -1894,10 +1896,21 @@ export async function confirmExpedienteProposalsHandler(context: Ctx, capability
     if (!acq) { resultados.push({ acquisitionId: item.acquisitionId, accepted: false, reason: "ACQUISITION_NOT_IN_PACK" }); continue; }
     if (acq.closedOptions) { resultados.push({ acquisitionId: item.acquisitionId, accepted: false, reason: "CLOSED_OPTIONS_REQUIRE_MANUAL_CHOICE" }); continue; }
     if (!frag) { resultados.push({ acquisitionId: item.acquisitionId, accepted: false, reason: "FRAGMENT_NOT_FOUND" }); continue; }
-    const r = await submitCapabilityResponseHandler(context, capabilityId, {
+    if (!respondentId) {
+      respondentId = (await asegurarRespondentPropio(deps, {
+        organizationId: assessment.organizationId, assessmentId: assessment.id,
+        capabilityId: deps.engine.pack.capability.id, userId: context.userId,
+      })).respondent.id;
+    }
+    const r = await casoUso.submitAcquisitionResponse(deps, {
+      assessmentId: assessment.id,
+      organizationId: assessment.organizationId,
+      submittedBy: context.userId,
+      respondentId,
       acquisitionId: item.acquisitionId,
       knowledgeState: "KNOWN",
       semanticValue: frag.text,
+      notApplicableReason: null,
       evidenceIds: [item.evidenceId],
       rawInput: {
         origin: "EXPEDIENTE_DOCUMENTAL", mapperVersion: mapper.VERSION_MAPEADOR_EXPEDIENTE,
