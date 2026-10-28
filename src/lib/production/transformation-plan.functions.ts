@@ -51,16 +51,12 @@ export const getTransformationPlan = createServerFn({ method: "GET" })
   });
 
 export const decidirPropuestaTransformacion = createServerFn({ method: "POST" })
-  .inputValidator((input: { proposalKey: string; decision: DecisionPropuesta; note: string; modifiedAction?: string | null }) => {
-    if (!input || typeof input.proposalKey !== "string" || !/^(FINDING|AI):/.test(input.proposalKey)) throw new Error("PROPOSAL_KEY_INVALID");
-    if (!DECISIONES.includes(input.decision)) throw new Error("DECISION_INVALID");
-    if (typeof input.note !== "string" || input.note.trim().length < 3) throw new Error("NOTE_REQUIRED");
-    if (input.decision === "MODIFIED" && (typeof input.modifiedAction !== "string" || input.modifiedAction.trim().length < 3)) {
-      throw new Error("MODIFIED_ACTION_REQUIRED");
-    }
-    return input;
-  })
   .middleware([requireSupabaseAuth])
+  .inputValidator((d: unknown) => {
+    const parsed = decisionSchema.parse(d);
+    if (parsed.decision === "MODIFIED" && !parsed.modifiedAction) throw new Error("MODIFIED_ACTION_REQUIRED");
+    return parsed;
+  })
   .handler(async ({ context, data }) => {
     const runtime = await import("./runtime.server");
     const db = context.supabase;
