@@ -60,7 +60,7 @@ function TarjetaPropuesta({ p, canDecide }: { p: PropuestaTransformacion; canDec
   const [editando, setEditando] = useState(false);
   const mut = useMutation({
     mutationFn: (decision: "ACCEPTED" | "MODIFIED" | "DISCARDED") =>
-      decidir({ data: { proposalKey: p.key, decision, note, modifiedAction: decision === "MODIFIED" ? modificada : null } }),
+      decidir({ data: { proposalKey: p.key, decision, note: nota, modifiedAction: decision === "MODIFIED" ? modificada : null } }),
     onSuccess: () => qc.invalidateQueries({ queryKey: ["plan-transformacion"] }),
   });
 
