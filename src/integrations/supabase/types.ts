@@ -3018,6 +3018,47 @@ export type Database = {
           },
         ]
       }
+      transformation_decisions: {
+        Row: {
+          created_at: string
+          decided_by: string
+          decision: string
+          id: string
+          modified_action: string | null
+          note: string
+          organization_id: string
+          proposal_key: string
+        }
+        Insert: {
+          created_at?: string
+          decided_by: string
+          decision: string
+          id?: string
+          modified_action?: string | null
+          note: string
+          organization_id: string
+          proposal_key: string
+        }
+        Update: {
+          created_at?: string
+          decided_by?: string
+          decision?: string
+          id?: string
+          modified_action?: string | null
+          note?: string
+          organization_id?: string
+          proposal_key?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "transformation_decisions_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       validation_evidence: {
         Row: {
           created_at: string
