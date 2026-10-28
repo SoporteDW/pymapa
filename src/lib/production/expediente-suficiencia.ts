@@ -9,7 +9,8 @@
  * - Mención pertinente sin confirmación → PARCIAL (se solicita lo que falta,
  *   según el enunciado aprobado; no se añaden umbrales ni criterios).
  * - Cifras distintas en documentos distintos → CONTRADICTORIA: nunca resuelta.
- * - Sin evidencia pertinente → AUSENTE.
+ * - Sin evidencia pertinente → AUSENTE (aunque exista confirmación: sin cita
+ *   documental no hay suficiencia documental).
  * Nunca crea respuestas, observaciones, cobertura ni hallazgos.
  */
 import type { PropuestaExpediente } from "./expediente-mapper";
@@ -73,7 +74,7 @@ export function clasificarSuficiencia(
     const confirmada = confirmadasPorPersona.has(k);
     const sufficiency: Suficiencia = possibleContradiction
       ? "CONTRADICTORIA"
-      : confirmada
+      : confirmada && lista.length
         ? "SUFICIENTE"
         : lista.length
           ? "PARCIAL"
