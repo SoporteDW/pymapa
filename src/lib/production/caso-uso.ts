@@ -656,6 +656,7 @@ export async function reevaluarTrasCambioDocumental(
 export async function submitAcquisitionResponse(
   deps: ProductionDeps,
   input: SubmitAcquisitionResponseInput,
+  batch?: { deferEvaluation: true },
 ): Promise<SubmitAcquisitionResponseOutput> {
   const now = deps.now ?? ahoraPorDefecto;
   const vacio: SubmitAcquisitionResponseOutput = {
@@ -786,6 +787,10 @@ export async function submitAcquisitionResponse(
   }
 
   // 4. EvaluationRun con lineage completo.
+  if (batch?.deferEvaluation) return {
+    accepted: true, responseId: response.id, observationId: observation.id,
+    evaluationRunId: null, state: null,
+  };
   const { run, state } = await ejecutarEvaluacion(deps, {
     assessmentId: input.assessmentId,
     organizationId: input.organizationId,
