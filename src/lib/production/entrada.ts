@@ -41,7 +41,7 @@ export const RUTA_AYUDA = "/ayuda" as const;
 export const RUTA_PLAN = "/plan-de-accion" as const;
 export const RUTA_SEGUIMIENTO = "/seguimiento" as const;
 
-const PREFIJOS_PRODUCTIVOS = [RUTA_PLAN, RUTA_SEGUIMIENTO, RUTA_EMPRESA, RUTA_HUB, RUTA_RESULTADOS, "/capacidad", RUTA_ACCESO, "/invitacion", RUTA_AYUDA];
+const PREFIJOS_PRODUCTIVOS = [RUTA_PLAN, "/plan-de-transformacion", RUTA_SEGUIMIENTO, RUTA_EMPRESA, RUTA_HUB, RUTA_RESULTADOS, "/capacidad", "/expediente", RUTA_ACCESO, "/invitacion", RUTA_AYUDA];
 
 /** Rutas del journey productivo (navegación sin enlaces legacy ni progreso demo). */
 export function esRutaProductiva(pathname: string): boolean {
