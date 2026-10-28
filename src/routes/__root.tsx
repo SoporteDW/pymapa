@@ -31,6 +31,7 @@ import { getCompany } from "@/lib/production/company.functions";
 
 const modulosPrincipales = [
   { to: "/diagnostico-productivo", label: "Diagnóstico" },
+  { to: "/expediente", label: "Expediente documental" },
   { to: "/resultados-productivos", label: "Avance y resultados" },
   { to: "/plan-de-accion", label: "Plan de Acción" },
   { to: "/seguimiento", label: "Seguimiento" },

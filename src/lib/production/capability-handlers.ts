@@ -1849,6 +1849,7 @@ export async function getExpedienteHandler(context: Ctx) {
   return {
     mapperVersion: mapper.VERSION_MAPEADOR_EXPEDIENTE,
     assessmentId,
+    organizationId,
     documents: [...docs.entries()].map(([evidenceId, d]) => ({ evidenceId, title: d.title, pages: d.pages, fragments: d.fragments.length, error: d.error })),
     totals: {
       acquisitions: total,
