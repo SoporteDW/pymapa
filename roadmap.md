@@ -162,11 +162,12 @@
 - [x] PYM-BETA-INT-02-SEG · Seguimiento empresarial consolidado (/seguimiento)
 
 ## PYM-NOV-MVP31 · Recuperación integral (7 días)
-- [ ] Optimizar extracción/mapeo con métricas antes/después del mismo expediente (85–90 % solo objetivo, sin inferencia), separar propuestas, adquisiciones únicas y confirmaciones; inventariar faltantes.
-- [ ] Optimizar confirmación transversal conservando revisión, verificación de citas en servidor y trazabilidad por respuesta; medir tiempo y clics.
-- [ ] Repetir aislamiento bilateral de documentos/bytes, fragmentos, propuestas, respuestas y resultados con sesiones QA autorizadas; documentar PASS/FAIL y límites.
+- [x] Optimización conservadora sobre los mismos 5 PDF: 207→249 adquisiciones con cita candidata (46,2→55,6 %), 75→96 confirmadas; inventario literal de 199 faltantes. Objetivo 85–90 % no alcanzado, sin relleno ni inferencias.
+- [x] Confirmación por capacidad en lotes paralelos, una evaluación final por capacidad y trazabilidad individual; 8/8 en 9,94 s, recarga UI y 28 pruebas focales PASS; regresión 1338/1338.
+- [x] Aislamiento bilateral repetido tras confirmaciones: 32 PASS, 0 FAIL; bytes PDF denegados en ambos sentidos, resultados/respuestas/documentos protegidos. Dos positivos sin fixture persistido en Qhapaq, explícitos en informe MVP31_OPTIMIZATION_REPORT.md.
+- [ ] Mejorar cobertura y precisión con nuevos documentos sintéticos sustanciados: faltan 199 datos sin cita; 153 propuestas pendientes requieren revisión (coincidencia ≠ respuesta).
 - [x] Escenario B: expediente documental transversal 31/31 (carga única, citas literales, confirmación agrupada, pendientes por capacidad); E2E con empresa nueva QA Qhapaq.
-- [ ] Acelerar confirmación agrupada (~3 s por respuesta) y mejorar precisión de propuestas parciales.
+- [x] Acelerar confirmación agrupada: lote final observado 1,24 s por respuesta; no extrapolar al total de 448 ni ocultar rechazos del pack.
 - [ ] Frente A · preguntas redactadas para las 18 capacidades sin pregunta literal: bloqueado, los textos fuente no traen preguntas por necesidad; requiere aprobación de Gobierno de la redacción.
 - [ ] Vía de análisis asistido por IA (29 capacidades): bloqueada por DEC-053 y lectura con IA detenida (SEM-QA-01).
 - [ ] Tablero 6D/31C, plan de transformación y Escenario A precargado.
