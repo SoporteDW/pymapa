@@ -2,7 +2,7 @@
 - [x] DEC-054: preguntas operativas versionadas (DEC-054/1.0.0) para las 337 adquisiciones sin pregunta literal; trazabilidad questionId/wordingVersion en cada respuesta, derivada en servidor.
 - [x] DEC-053: análisis asistido IA (29 capacidades) con 5 categorías, registro append-only y revisión con nota; solo empresas sintéticas autorizadas (DEC-047). Pendiente: prueba en pantalla con Qhapaq.
 - [x] Suficiencia 2.0.0: SUFICIENTE solo por confirmación humana sin contradicción.
-- [ ] Escenario B: esperando correo secundario real confirmado por Josefo (opción A).
+- [ ] Escenario B: correo josefo@digiway.co confirmado; no existe en Auth (verificado 2026-10-28). Espera registro normal del propietario en /acceso (Preview) + verificación de correo; bootstrap crea empresa vacía.
 - [ ] Plan de Transformación integral.
 - [x] Inventario de organizaciones solo lectura (MVP31_ORG_INVENTORY_2026-10-28.md).
 - [ ] Prueba en pantalla DEC-053 Qhapaq: BLOQUEADA, org Qhapaq sin autorización sintética DEC-047; requiere autorización expresa.
