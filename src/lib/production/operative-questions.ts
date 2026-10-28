@@ -29,6 +29,12 @@ export const DEPTH_PROMPT =
 
 const INTERROGATIVOS = /^(qu[eé]|cu[aá]l(es)?|c[oó]mo|cu[aá]nt[oa]s?|d[oó]nde|cu[aá]ndo|qui[eé]n(es)?|por qu[eé]|para qu[eé])\b/i;
 
+const ACENTOS: Record<string, string> = {
+  que: "qué", cual: "cuál", cuales: "cuáles", como: "cómo", cuanto: "cuánto", cuanta: "cuánta",
+  cuantos: "cuántos", cuantas: "cuántas", donde: "dónde", cuando: "cuándo", quien: "quién",
+  quienes: "quiénes", "por que": "por qué", "para que": "para qué",
+};
+
 function limpiar(t: string): string {
   return t.trim().replace(/\s+/g, " ").replace(/[.;:]+$/, "");
 }
@@ -37,12 +43,11 @@ function limpiar(t: string): string {
 export function formularDesdeEnunciado(statement: string): string {
   const s = limpiar(statement);
   if (s.startsWith("¿")) return s.endsWith("?") ? s : `${s}?`;
-  if (INTERROGATIVOS.test(s)) {
-    const cuerpo = s.replace(INTERROGATIVOS, (m) => m.charAt(0).toUpperCase() + m.slice(1).toLowerCase()
-      .replace(/^que/, "qué").replace(/^cual/, "cuál").replace(/^como/, "cómo").replace(/^cuant/, "cuánt")
-      .replace(/^donde/, "dónde").replace(/^cuando/, "cuándo").replace(/^quien/, "quién"));
-    const capital = cuerpo.charAt(0).toUpperCase() + cuerpo.slice(1);
-    return `¿${capital.replace(/^Que\b/, "Qué").replace(/^Cual/, "Cuál").replace(/^Como\b/, "Cómo")}?`;
+  const m = s.match(INTERROGATIVOS);
+  if (m) {
+    const acentuada = ACENTOS[m[0].toLowerCase()] ?? m[0].toLowerCase();
+    const primera = acentuada.charAt(0).toUpperCase() + acentuada.slice(1);
+    return `¿${primera}${s.slice(m[0].length)}?`;
   }
   return `¿Qué información tiene hoy la empresa sobre: ${s.charAt(0).toLowerCase()}${s.slice(1)}?`;
 }
