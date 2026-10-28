@@ -1,7 +1,8 @@
 ## PYM-NOV-MVP31 · Instrucción consolidada (DEC-053/054)
 - [x] DEC-054: preguntas operativas versionadas (DEC-054/1.0.0) para las 337 adquisiciones sin pregunta literal; trazabilidad questionId/wordingVersion en cada respuesta, derivada en servidor.
 - [ ] DEC-053: análisis asistido IA (29 capacidades) con 5 categorías separadas y registro de modelo/versión; solo expediente sintético (DEC-047).
-- [ ] Suficiencia documental SUFICIENTE/PARCIAL/AUSENTE y detección de contradicciones en /expediente.
+- [x] Suficiencia documental SUFICIENTE/PARCIAL/AUSENTE y posibles contradicciones en /expediente (mvp31-sufficiency-1.0.0, presencia literal, 6 pruebas PASS).
+- [ ] Escenario B empresa nueva: bloqueado, una organización por usuario (RLS organizations_insert_bootstrap + bootstrap_organization); decisión pendiente: alias de cuenta dedicada vs. RPC multiempresa con selector.
 - [ ] Expediente sintético Qhapaq reforzado (datos medibles, vacíos y contradicciones deliberados); Escenario B con empresa nueva desde cero.
 - [ ] Aislamiento bilateral con filas presentes en ambas organizaciones.
 - [x] Cuenta demo jose.diaz@digiwaycorp.com verificada en solo lectura: identidad confirmada, acceso por correo habilitado, OWNER de Digiway Corp, cero autoridades EPAR/Gobierno; datos anteriores intactos. QA Qhapaq solo automatizada; identidad institucional excluida. Informe MVP31_DEMO_ACCOUNT_VERIFICATION.md.
