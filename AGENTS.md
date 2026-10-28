@@ -48,3 +48,4 @@
 
 - DEC-053 AI_ASSISTED_ANALYSIS lives in `src/lib/ia/analisis-asistido*.ts` (pure contract + server guard): CAPTURE_ONLY capabilities, OWNER/ADMIN, active synthetic authorization, five categories with literal-quote facts, append-only `ai_assisted_analyses`/`_reviews` — never Engine input, EPAR, scores or findings.
 - Documentary sufficiency (`expediente-suficiencia.ts`) never yields SUFICIENTE from automatic signals; only human confirmation without unresolved contradiction — lexical/numeric presence is not sufficiency.
+- CTX-Q-B01 contextual layer (`contextual-questions.ts`, CTX-Q/1.0.0) is presentation-only for OP-01/DG-02/PC-04/CM-01/EC-03: literal pack text, explicit 1:N links, answers persist only on the primary acquisition and appear elsewhere as antecedents; referents are stamped as `referentUsed` server-side — disabling `CTX_Q_ENABLED` loses no data.
