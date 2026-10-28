@@ -12,7 +12,7 @@
  *   persona elige la opción (no se infiere un valor).
  * - Puro y sin dependencias de servidor: verificable en pruebas.
  */
-export const VERSION_MAPEADOR_EXPEDIENTE = "mvp31-lexical-1.0.0";
+export const VERSION_MAPEADOR_EXPEDIENTE = "mvp31-lexical-1.1.0";
 
 export type ModoAdquisicion = "QUESTION" | "CAPABILITY_PROGRESSIVE" | "INFORMATION_NEED" | "GOVERNED_STRUCTURAL_CORRESPONDENCE";
 
@@ -150,22 +150,30 @@ export function proponerCorrespondencias(
   const propuestas: PropuestaExpediente[] = [];
   catalogo.forEach((a, i) => {
     if (a.closedOptions || respondidas.has(clave(a))) return;
-    const K = distintivas[i]!;
+    const K = distintivas[i];
+    if (!K) return;
     if (K.size < minMatched) return;
     let mejor: { j: number; terms: string[]; ratio: number } | null = null;
     fragmentos.forEach((f, j) => {
       if (f.text.length < 30) return;
-      const terms = [...K].filter((t) => raicesFrag[j]!.has(t));
+      const roots = raicesFrag[j];
+      if (!roots) return;
+      const terms = [...K].filter((t) => roots.has(t));
       if (terms.length < minMatched) return;
       const ratio = terms.length / K.size;
-      if (!mejor || terms.length > mejor.terms.length || (terms.length === mejor.terms.length && ratio > mejor.ratio)) {
+      const anterior = mejor ? fragmentos[mejor.j] : null;
+      const identidad = (x: FragmentoExpediente) => `${x.evidenceId}:${String(x.page).padStart(4, "0")}:${x.fragmentId}`;
+      if (!mejor || terms.length > mejor.terms.length || (terms.length === mejor.terms.length && (ratio > mejor.ratio
+        || (ratio === mejor.ratio && anterior && (f.text.length < anterior.text.length
+          || (f.text.length === anterior.text.length && identidad(f) < identidad(anterior))))))) {
         mejor = { j, terms, ratio };
       }
     });
     if (!mejor) return;
     const m = mejor as { j: number; terms: string[]; ratio: number };
     if (m.ratio < 0.2) return;
-    const f = fragmentos[m.j]!;
+    const f = fragmentos[m.j];
+    if (!f) return;
     propuestas.push({
       capabilityId: a.capabilityId,
       acquisitionId: a.acquisitionId,

@@ -287,3 +287,8 @@ export const confirmExpedienteProposals = createServerFn({ method: "POST" })
     return { capabilityId, input: h.confirmExpedienteProposalsInput(resto) };
   })
   .handler(async ({ data, context }) => h.confirmExpedienteProposalsHandler(context, data.capabilityId, data.input));
+
+export const confirmExpedienteBatch = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => h.confirmExpedienteBatchInput(data))
+  .handler(async ({ data, context }) => h.confirmExpedienteBatchHandler(context, data));
