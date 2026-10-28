@@ -1,12 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { getRegisteredPack, listRegisteredCapabilities } from "./packs-registry";
+import { getRegisteredPack, listPublishedCapabilities } from "./packs-registry";
 import { createActionableProjector } from "./actionable";
 import { formularDesdeEnunciado, OPERATIVE_WORDING_VERSION } from "./operative-questions";
 
 describe("DEC-054 · preguntas operativas", () => {
   it("toda adquisición sin pregunta literal recibe pregunta operativa trazable en las 31 capacidades", () => {
     let total = 0, operativas = 0;
-    for (const id of listRegisteredCapabilities()) {
+    for (const { capabilityId: id } of listPublishedCapabilities()) {
       const pack = getRegisteredPack(id).pack as { acquisitions: { id: string; question?: unknown }[] };
       const proj = createActionableProjector(pack);
       for (const a of pack.acquisitions) {
