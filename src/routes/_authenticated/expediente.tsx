@@ -16,7 +16,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Checkbox } from "@/components/ui/checkbox";
 import { LoadingState } from "@/components/ui/loading-state";
 import { PageHeader } from "@/components/layout/page-header";
-import { DOMINIOS } from "@/components/diagnostico/catalogo-capacidades";
 import { confirmExpedienteBatch, getExpediente, registerCapabilityEvidence } from "@/lib/production/capabilities.functions";
 import { clasificarSuficiencia, resumenSuficiencia, VERSION_SUFICIENCIA } from "@/lib/production/expediente-suficiencia";
 
@@ -55,7 +54,8 @@ function Expediente() {
   const [archivos, setArchivos] = useState<File[]>([]);
   const [seleccion, setSeleccion] = useState<Set<string>>(new Set());
   const [soloAlta, setSoloAlta] = useState(false);
-  const [porDocumento, setPorDocumento] = useState(true);
+  const [agrupar, setAgrupar] = useState<"capacidad" | "seccion" | "documento">("capacidad");
+  const [ultimo, setUltimo] = useState<{ ok: number; rechazadas: number; seconds: number; porCapacidad: [string, number][] } | null>(null);
   const [avance, setAvance] = useState({ done: 0, total: 0 });
 
   const q = useQuery({ queryKey: ["expediente"], queryFn: () => leer(), staleTime: 60_000 });
@@ -108,11 +108,14 @@ function Expediente() {
           setAvance((v) => ({ ...v, done: v.done + lista.length }));
         }));
       }
-      return { ok, rechazadas, rechazados, seconds: Math.round((performance.now() - inicio) / 100) / 10 };
+      const aceptadasPorCap = new Map<string, number>();
+      items.filter((p) => !rechazados.has(clave(p))).forEach((p) => aceptadasPorCap.set(p.capabilityId, (aceptadasPorCap.get(p.capabilityId) ?? 0) + 1));
+      return { ok, rechazadas, rechazados, porCapacidad: [...aceptadasPorCap.entries()], seconds: Math.round((performance.now() - inicio) / 100) / 10 };
     },
     onSuccess: async (r) => {
       toast.success(`${r.ok} respuestas confirmadas · ${r.seconds} s`, { description: r.rechazadas ? `${r.rechazadas} requieren revisión.` : undefined });
       setSeleccion(r.rechazados);
+      setUltimo({ ok: r.ok, rechazadas: r.rechazadas, seconds: r.seconds, porCapacidad: r.porCapacidad });
       await qc.invalidateQueries({ queryKey: ["expediente"] });
       await qc.invalidateQueries({ queryKey: ["hub-diagnostico"] });
     },
@@ -131,11 +134,11 @@ function Expediente() {
   const porDominio = useMemo(() => {
     const m = new Map<string, Propuesta[]>();
     for (const p of visibles) {
-      const dom = porDocumento ? p.evidenceId : p.capabilityId.slice(0, 2);
+      const dom = agrupar === "documento" ? p.evidenceId : agrupar === "seccion" ? `${p.documentTitle} · ${p.section ?? "Sin sección"}` : p.capabilityId;
       m.set(dom, [...(m.get(dom) ?? []), p]);
     }
     return m;
-  }, [visibles, porDocumento]);
+  }, [visibles, agrupar]);
 
   const alternar = (k: string) => setSeleccion((s) => { const n = new Set(s); n.has(k) ? n.delete(k) : n.add(k); return n; });
   const marcarTodas = (lista: Propuesta[], v: boolean) => setSeleccion((s) => { const n = new Set(s); lista.forEach((p) => (v ? n.add(clave(p)) : n.delete(clave(p)))); return n; });
@@ -173,13 +176,14 @@ function Expediente() {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="grid grid-cols-2 gap-3 md:grid-cols-6">
+              <div className="grid grid-cols-2 gap-3 md:grid-cols-7">
                 <Cifra valor={d.documents.length} etiqueta="Documentos leídos" />
                 <Cifra valor={d.totals.acquisitions} etiqueta="Datos requeridos (31 capacidades)" />
-                <Cifra valor={d.totals.answered} etiqueta="Ya respondidos" />
-                <Cifra valor={d.totals.documentaryCandidateAcquisitions} etiqueta="Adquisiciones únicas con cita candidata" />
-                <Cifra valor={d.totals.documentaryConfirmedAcquisitions} etiqueta="Adquisiciones confirmadas desde documentos" />
-                <Cifra valor={d.totals.proposedAcquisitions} etiqueta="Propuestas pendientes de revisión" />
+                <Cifra valor={Math.max(0, d.totals.withoutCoverage)} etiqueta="Faltan: sin respuesta ni cita" />
+                <Cifra valor={d.totals.documentaryCandidateAcquisitions} etiqueta="Con alguna cita en tus documentos (no cambia al confirmar)" />
+                <Cifra valor={d.totals.proposedAcquisitions} etiqueta="Propuestas por revisar (baja al confirmar)" />
+                <Cifra valor={d.totals.documentaryConfirmedAcquisitions} etiqueta="Confirmadas por ti desde documentos (sube al confirmar)" />
+                <Cifra valor={d.totals.answered} etiqueta="Respondidos en total (documentos + preguntas)" />
               </div>
               <p className="text-sm text-muted-foreground">Citas candidatas: {d.totals.documentaryCandidatePercent}% · {d.totals.proposedHigh} altas y {d.totals.proposedPartial} parciales pendientes · {d.totals.withoutCoverage} sin respuesta ni propuesta. Una cita candidata no acredita cobertura completa.</p>
               {suficiencia && (
@@ -207,16 +211,40 @@ function Expediente() {
             </CardContent>
           </Card>
 
+          {ultimo && (
+            <Card data-testid="resultado-confirmacion" className="border-primary">
+              <CardHeader>
+                <CardTitle className="text-base">Guardado: {ultimo.ok} respuestas registradas</CardTitle>
+                <CardDescription>
+                  Cada cita confirmada quedó guardada como tu respuesta, con el documento y la página como evidencia. Ya no aparecen como propuestas; puedes verlas o corregirlas en cada capacidad. Una respuesta confirmada no significa que la capacidad esté completa: lo que falte se te seguirá preguntando.
+                  {ultimo.rechazadas > 0 && ` ${ultimo.rechazadas} no se guardaron porque el servidor no pudo verificar la cita; siguen seleccionadas para revisarlas.`}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex flex-wrap gap-2">
+                {ultimo.porCapacidad.map(([cap, n]) => (
+                  <Button key={cap} asChild size="sm" variant="outline"><Link to="/capacidad/$id" params={{ id: cap }}>{cap} · {n} guardadas · ver</Link></Button>
+                ))}
+                <Button size="sm" variant="ghost" onClick={() => setUltimo(null)}>Cerrar</Button>
+              </CardContent>
+            </Card>
+          )}
+
           {d.proposals.length > 0 && (
             <Card>
               <CardHeader>
                 <CardTitle className="text-base">3 · Confirmar respuestas propuestas</CardTitle>
-                <CardDescription>Al confirmar, la cita queda registrada como tu respuesta, con el documento como evidencia.</CardDescription>
+                <CardDescription>Revisa por capacidad: cada grupo reúne las citas que responderían preguntas de esa capacidad. Confirma solo las que realmente responden; las demás quedan pendientes y se te preguntarán en la capacidad. Nada se confirma automáticamente.</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex flex-wrap items-center gap-3">
                   <label className="flex items-center gap-2 text-sm"><Checkbox checked={soloAlta} onCheckedChange={(v) => setSoloAlta(Boolean(v))} /> Solo coincidencia alta</label>
-                  <label className="flex items-center gap-2 text-sm"><Checkbox checked={porDocumento} onCheckedChange={(v) => setPorDocumento(Boolean(v))} /> Agrupar por documento</label>
+                  <label className="flex items-center gap-2 text-sm">Agrupar por
+                    <select aria-label="Agrupar propuestas" value={agrupar} onChange={(e) => setAgrupar(e.target.value as typeof agrupar)} className="rounded-md border border-input bg-background px-2 py-1 text-sm">
+                      <option value="capacidad">Capacidad</option>
+                      <option value="seccion">Tema del documento</option>
+                      <option value="documento">Documento</option>
+                    </select>
+                  </label>
                   <Button variant="outline" size="sm" onClick={() => marcarTodas(visibles, true)}>Seleccionar visibles ({visibles.length})</Button>
                   <Button variant="ghost" size="sm" onClick={() => setSeleccion(new Set())}>Limpiar</Button>
                   <Button size="sm" disabled={!seleccion.size || confirmarSel.isPending}
@@ -225,9 +253,10 @@ function Expediente() {
                   </Button>
                 </div>
                 {[...porDominio.entries()].map(([id, lista]) => {
-                  const nombre = porDocumento ? lista[0]?.documentTitle : DOMINIOS.find((dom) => dom.id === id)?.nombre;
+                  const cap = d.capabilities.find((c) => c.capabilityId === id);
+                  const nombre = agrupar === "documento" ? lista[0]?.documentTitle : agrupar === "seccion" ? id : `${id} · ${cap?.name ?? ""} — ${cap?.answered ?? 0}/${cap?.total ?? 0} respondidos`;
                   return (
-                    <details key={id} className="rounded-lg border border-border" open>
+                    <details key={id} className="rounded-lg border border-border" open={agrupar !== "capacidad"}>
                       <summary className="flex cursor-pointer items-center justify-between gap-2 p-3 text-sm font-medium">
                         <span>{nombre} · {lista.length} propuestas</span>
                         <Button variant="link" size="sm" onClick={(e) => { e.preventDefault(); marcarTodas(lista, true); }}>Seleccionar grupo</Button>

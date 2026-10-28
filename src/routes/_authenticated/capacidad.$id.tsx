@@ -238,7 +238,7 @@ function CapacidadGenerica({ capabilityId }: { capabilityId: string }) {
                 )}
               </CardHeader>
               <CardContent className="space-y-5">
-                <AcquisitionRenderer acquisition={activa} />
+                <AcquisitionRenderer acquisition={activa} referentes={ws.data.documentaryReferents ?? []} />
                 <AcquisitionInput
                   key={`${activa.acquisitionId}-${corrigiendo?.observationId ?? "nueva"}`}
                   acquisition={activa}

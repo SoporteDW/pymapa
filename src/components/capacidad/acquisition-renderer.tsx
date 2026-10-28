@@ -5,6 +5,7 @@
  */
 import { Badge } from "@/components/ui/badge";
 import type { ActionableAcquisition } from "@/lib/production/actionable";
+import { ReferenteProceso } from "./referente-proceso";
 
 const ETIQUETA_MODO: Record<ActionableAcquisition["mode"], string> = {
   QUESTION: "Pregunta literal del conocimiento publicado",
@@ -13,7 +14,7 @@ const ETIQUETA_MODO: Record<ActionableAcquisition["mode"], string> = {
   GOVERNED_STRUCTURAL_CORRESPONDENCE: "Guía de información · correspondencia estructural",
 };
 
-export function AcquisitionRenderer({ acquisition }: { acquisition: ActionableAcquisition }) {
+export function AcquisitionRenderer({ acquisition, referentes = [] }: { acquisition: ActionableAcquisition; referentes?: string[] }) {
   const a = acquisition;
   const variables = a.variables.filter((v) => v.name);
   return (
@@ -38,6 +39,8 @@ export function AcquisitionRenderer({ acquisition }: { acquisition: ActionableAc
       ) : !a.operativeQuestion && a.mode === "INFORMATION_NEED" && a.informationNeedStatement ? (
         <p className="text-base font-medium text-foreground">{a.informationNeedStatement}</p>
       ) : null}
+
+      <ReferenteProceso texto={`${a.question ?? ""} ${a.operativeQuestion?.text ?? ""}`} referentes={referentes} />
 
       {!a.operativeQuestion && a.mode === "GOVERNED_STRUCTURAL_CORRESPONDENCE" && variables.length > 0 && (
         <p className="text-base font-medium text-foreground">{variables.map((v) => v.name).join(" · ")}</p>

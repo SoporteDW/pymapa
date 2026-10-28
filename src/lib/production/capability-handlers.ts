@@ -167,7 +167,7 @@ export async function asegurarRespondentPropio(
 
 /** Contexto productivo visible: Organization → Case → Assessment BASELINE. */
 export async function getCapabilityContextHandler(context: Ctx, capabilityId: string, _data: Record<string, never>) {
-    const { assessment } = await prepararContexto(context, capabilityId);
+    const { assessment, baseRepository } = await prepararContexto(context, capabilityId);
     return {
       userId: context.userId,
       organizationId: assessment.organizationId,
@@ -175,6 +175,7 @@ export async function getCapabilityContextHandler(context: Ctx, capabilityId: st
       assessmentId: assessment.id,
       assessmentType: assessment.type,
       knowledgeVersionId: assessment.knowledgeVersionId,
+      documentaryReferents: referentesDocumentales(await baseRepository.listResponses(assessment.id), capabilityId),
     };
 }
 
@@ -613,6 +614,22 @@ export async function inviteCapabilityRespondentHandler(context: Ctx, capability
 /* ------------------------------------------------------------------ */
 
 /** Espacio de trabajo accionable de una capacidad (server-authoritative). */
+/** H01 · Títulos de sección literales de respuestas documentales confirmadas (sin numeración). */
+export function referentesDocumentales(
+  respuestas: { payload?: Record<string, unknown> | null }[],
+  capabilityId: string,
+): string[] {
+  const out = new Set<string>();
+  for (const r of respuestas) {
+    const p = r.payload ?? {};
+    if ((p["capabilityId"] ?? "OP-01") !== capabilityId) continue;
+    const raw = p["raw"] as { origin?: string; section?: string | null } | null;
+    if (raw?.origin !== "EXPEDIENTE_DOCUMENTAL" || !raw.section) continue;
+    out.add(raw.section.replace(/^\s*[\dA-Z]{1,3}\s*[·.\-]\s*/, "").trim());
+  }
+  return [...out].filter(Boolean);
+}
+
 export async function getCapabilityWorkspaceHandler(context: Ctx, capabilityId: string, _data: Record<string, never>) {
   const casoUso = await import("./caso-uso");
   const { getRegisteredPack } = await import("./packs-registry");
@@ -650,6 +667,10 @@ export async function getCapabilityWorkspaceHandler(context: Ctx, capabilityId: 
     assessmentId: assessment.id,
     organizationId: assessment.organizationId,
     responseHistory: historial,
+    // H01 · Referentes literales: títulos de sección de citas que la persona
+    // confirmó en el expediente para esta capacidad. Solo presentación; no se
+    // infiere qué proceso es ni se altera la pregunta oficial.
+    documentaryReferents: referentesDocumentales(await baseRepository.listResponses(assessment.id), registro.capabilityId),
     clarificationDetails: evaluado.evaluation.contradictions.map((c) => {
       const entradas = historial.filter((h) => c.conflictingObservationIds.includes(h.observationId));
       return {
