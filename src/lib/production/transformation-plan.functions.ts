@@ -4,10 +4,16 @@
  * Decisión: append-only, solo OWNER/ADMIN, nota obligatoria; MODIFIED exige texto.
  */
 import { createServerFn } from "@tanstack/react-start";
+import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
-import { consolidarPlanTransformacion, type DecisionPropuesta } from "./transformation-plan";
+import { consolidarPlanTransformacion } from "./transformation-plan";
 
-const DECISIONES: readonly DecisionPropuesta[] = ["ACCEPTED", "MODIFIED", "DISCARDED"];
+const decisionSchema = z.object({
+  proposalKey: z.string().regex(/^(FINDING|AI):/, "PROPOSAL_KEY_INVALID"),
+  decision: z.enum(["ACCEPTED", "MODIFIED", "DISCARDED"]),
+  note: z.string().trim().min(3, "NOTE_REQUIRED").max(1000),
+  modifiedAction: z.string().trim().min(3).max(1000).nullable().optional(),
+});
 
 export const getTransformationPlan = createServerFn({ method: "GET" })
   .middleware([requireSupabaseAuth])
