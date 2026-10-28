@@ -78,7 +78,7 @@ describe("CTX-Q-B01 · capa contextual", () => {
     expect(ant).toHaveLength(1);
     expect(ant[0]!.semanticValue).toBe(amplia);
     expect(antecedentesPara("ACQ·NI05", ct, resp)).toHaveLength(0);
-    expect(antecedentesPara("ACQ·NI02", ct, [{ ...resp[0], superseded: true }])).toHaveLength(0);
+    expect(antecedentesPara("ACQ·NI02", ct, [{ ...resp[0]!, superseded: true }])).toHaveLength(0);
     // La proyección accionable no cuenta NI02 como respondida por antecedente.
     const proj = createActionableProjector(getRegisteredPack("DG-02").pack);
     expect(proj.project("ACQ·NI02")?.contextualContract?.primaryAcquisitionRef).toBe("ACQ·NI02");
