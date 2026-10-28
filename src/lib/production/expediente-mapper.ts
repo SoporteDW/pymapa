@@ -191,3 +191,21 @@ export function proponerCorrespondencias(
   });
   return propuestas;
 }
+
+/**
+ * Bloque 5 · Mejor fragmento por documento para cada adquisición, con los
+ * mismos umbrales. Solo alimenta la detección de contradicciones entre
+ * documentos (suficiencia 2.0.0); nunca crea propuestas adicionales para
+ * confirmar ni respuestas. Sin esto, la propuesta única por adquisición hacía
+ * imposible detectar valores distintos en documentos distintos.
+ */
+export function evidenciaPorDocumento(
+  catalogo: readonly AdquisicionCatalogo[],
+  fragmentos: readonly FragmentoExpediente[],
+  respondidas: ReadonlySet<string>,
+  opciones: OpcionesMapeo = {},
+): PropuestaExpediente[] {
+  const porDoc = new Map<string, FragmentoExpediente[]>();
+  for (const f of fragmentos) porDoc.set(f.evidenceId, [...(porDoc.get(f.evidenceId) ?? []), f]);
+  return [...porDoc.keys()].sort().flatMap((k) => proponerCorrespondencias(catalogo, porDoc.get(k)!, respondidas, opciones));
+}

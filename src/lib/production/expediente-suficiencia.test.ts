@@ -37,3 +37,10 @@ describe("suficiencia documental MVP31 · 2.0.0", () => {
     expect(r[0]!.sufficiency).toBe("PARCIAL");
   });
 });
+
+describe("suficiencia 2.0.0 · confirmación sin cita", () => {
+  it("una confirmación sin evidencia documental sigue AUSENTE", () => {
+    const r = clasificarSuficiencia([{ capabilityId: "OP-01", acquisitionId: "A9" }], [], new Set(["OP-01::A9"]));
+    expect(r[0]!.sufficiency).toBe("AUSENTE");
+  });
+});
