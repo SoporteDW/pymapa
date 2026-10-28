@@ -16,7 +16,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Checkbox } from "@/components/ui/checkbox";
 import { LoadingState } from "@/components/ui/loading-state";
 import { PageHeader } from "@/components/layout/page-header";
-import { DOMINIOS } from "@/components/diagnostico/catalogo-capacidades";
 import { confirmExpedienteBatch, getExpediente, registerCapabilityEvidence } from "@/lib/production/capabilities.functions";
 import { clasificarSuficiencia, resumenSuficiencia, VERSION_SUFICIENCIA } from "@/lib/production/expediente-suficiencia";
 
