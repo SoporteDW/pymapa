@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { BarChart3, Building2, ClipboardList, HelpCircle, LineChart, ListTodo } from "lucide-react";
+import { BarChart3, Building2, ClipboardList, HelpCircle, LineChart, ListTodo, Target } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { navegacionProductiva } from "@/lib/production/entrada";
 

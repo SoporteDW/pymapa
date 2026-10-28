@@ -106,6 +106,7 @@ export const navegacionProductiva = [
   { id: "diagnostico", to: RUTA_HUB, label: "Diagnóstico" },
   { id: "resultados", to: RUTA_RESULTADOS, label: "Avance y resultados" },
   { id: "plan", to: RUTA_PLAN, label: "Plan de Acción" },
+  { id: "transformacion", to: "/plan-de-transformacion", label: "Plan de Transformación" },
   { id: "seguimiento", to: RUTA_SEGUIMIENTO, label: "Seguimiento" },
   { id: "empresa", to: RUTA_EMPRESA, label: "Mi empresa" },
 ] as const;
