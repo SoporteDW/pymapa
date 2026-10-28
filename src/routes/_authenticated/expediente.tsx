@@ -64,15 +64,23 @@ function Expediente() {
     mutationFn: async () => {
       const d = q.data;
       if (!d) throw new Error("Expediente no disponible");
+      // Evita duplicados: un archivo con el mismo nombre ya cargado no se vuelve a subir.
+      const existentes = new Set(d.documents.map((doc) => doc.title));
+      const omitidos: string[] = [];
+      let cargados = 0;
       for (const f of archivos) {
+        if (existentes.has(`Expediente · ${f.name}`)) { omitidos.push(f.name); continue; }
+        existentes.add(`Expediente · ${f.name}`);
         const ruta = `${d.organizationId}/${d.assessmentId}/${crypto.randomUUID()}-${f.name.replace(/[^\w.\-]+/g, "_")}`;
         const { error } = await supabase.storage.from("evidence").upload(ruta, f, { upsert: false, contentType: "application/pdf" });
         if (error) throw new Error(error.message);
         await registrar({ data: { capabilityId: "DG-01", evidenceType: "DOCUMENT", source: "DOCUMENT", storageBucket: "evidence", storagePath: ruta, title: `Expediente · ${f.name}`, note: "Cargado en el expediente documental de empresa", observationIds: [] } });
+        cargados++;
       }
+      return { cargados, omitidos };
     },
-    onSuccess: async () => {
-      toast.success(`${archivos.length} documento(s) cargados`, { description: "Leyendo contra las 31 capacidades…" });
+    onSuccess: async (r) => {
+      toast.success(`${r.cargados} documento(s) cargados`, { description: r.omitidos.length ? `Ya estaban en el expediente y no se repitieron: ${r.omitidos.join(", ")}` : "Leyendo contra las 31 capacidades…" });
       setArchivos([]);
       await qc.invalidateQueries({ queryKey: ["expediente"] });
     },
@@ -184,12 +192,16 @@ function Expediente() {
                 </div>
               )}
               <ul className="space-y-1 text-sm">
-                {d.documents.map((doc) => (
-                  <li key={doc.evidenceId} className="flex flex-wrap gap-2">
-                    <span className="font-medium">{doc.title}</span>
-                    {doc.error ? <Badge variant="destructive">No legible ({doc.error})</Badge> : <span className="text-muted-foreground">{doc.pages} pág. · {doc.fragments} fragmentos</span>}
-                  </li>
-                ))}
+                {d.documents.map((doc, i) => {
+                  const repetido = d.documents.findIndex((x) => x.title === doc.title) < i;
+                  return (
+                    <li key={doc.evidenceId} className="flex flex-wrap gap-2">
+                      <span className="font-medium">{doc.title}</span>
+                      {repetido && <Badge variant="outline">Copia repetida · no suma cobertura</Badge>}
+                      {doc.error ? <Badge variant="destructive">No legible ({doc.error})</Badge> : <span className="text-muted-foreground">{doc.pages} pág. · {doc.fragments} fragmentos</span>}
+                    </li>
+                  );
+                })}
                 {!d.documents.length && <li className="text-muted-foreground">Aún no hay documentos en el expediente.</li>}
               </ul>
             </CardContent>
