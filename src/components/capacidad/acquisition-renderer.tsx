@@ -35,7 +35,7 @@ export function AcquisitionRenderer({ acquisition }: { acquisition: ActionableAc
 
       {!a.operativeQuestion && (a.mode === "QUESTION" || a.mode === "CAPABILITY_PROGRESSIVE") && a.question ? (
         <p className="text-base font-medium text-foreground">{a.question}</p>
-      ) : a.mode === "INFORMATION_NEED" && a.informationNeedStatement ? (
+      ) : !a.operativeQuestion && a.mode === "INFORMATION_NEED" && a.informationNeedStatement ? (
         <p className="text-base font-medium text-foreground">{a.informationNeedStatement}</p>
       ) : null}
 

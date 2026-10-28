@@ -452,7 +452,9 @@ export async function submitCapabilityResponseHandler(context: Ctx, capabilityId
       }
     }
     // DEC-054 · Trazabilidad pregunta→respuesta derivada en servidor, nunca del cliente.
-    const oq = createActionableProjector(getRegisteredPack(capabilityId).pack).project(data.acquisitionId)?.operativeQuestion;
+    const { getRegisteredPack: packDe } = await import("./packs-registry");
+    const { createActionableProjector: proyectorDe } = await import("./actionable");
+    const oq = proyectorDe(packDe(capabilityId).pack).project(data.acquisitionId)?.operativeQuestion;
     const rawConTrazabilidad = oq
       ? { ...(data.rawInput ?? {}), operativeQuestion: { questionId: oq.questionId, wordingVersion: oq.wordingVersion, sourceRef: oq.sourceRef } }
       : data.rawInput;
