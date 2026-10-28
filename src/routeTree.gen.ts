@@ -26,6 +26,7 @@ import { Route as ModaOrigenRouteImport } from './routes/moda-origen'
 import { Route as PerfilRouteImport } from './routes/perfil'
 import { Route as PilotoDg01RouteImport } from './routes/piloto-dg01'
 import { Route as PlanDeAccionRouteImport } from './routes/plan-de-accion'
+import { Route as PlanDeTransformacionRouteImport } from './routes/plan-de-transformacion'
 import { Route as ResultadosRouteImport } from './routes/resultados'
 import { Route as RoadmapRouteImport } from './routes/roadmap'
 import { Route as SeguimientoRouteImport } from './routes/seguimiento'
@@ -146,6 +147,11 @@ const PilotoDg01Route = PilotoDg01RouteImport.update({
 const PlanDeAccionRoute = PlanDeAccionRouteImport.update({
   id: '/plan-de-accion',
   path: '/plan-de-accion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlanDeTransformacionRoute = PlanDeTransformacionRouteImport.update({
+  id: '/plan-de-transformacion',
+  path: '/plan-de-transformacion',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ResultadosRoute = ResultadosRouteImport.update({
@@ -361,6 +367,7 @@ export interface FileRoutesByFullPath {
   '/perfil': typeof PerfilRoute
   '/piloto-dg01': typeof PilotoDg01Route
   '/plan-de-accion': typeof PlanDeAccionRouteWithChildren
+  '/plan-de-transformacion': typeof PlanDeTransformacionRoute
   '/resultados': typeof ResultadosRouteWithChildren
   '/roadmap': typeof RoadmapRouteWithChildren
   '/seguimiento': typeof SeguimientoRouteWithChildren
@@ -413,6 +420,7 @@ export interface FileRoutesByTo {
   '/moda-origen': typeof ModaOrigenRoute
   '/perfil': typeof PerfilRoute
   '/piloto-dg01': typeof PilotoDg01Route
+  '/plan-de-transformacion': typeof PlanDeTransformacionRoute
   '/diagnostico-productivo': typeof AuthenticatedDiagnosticoProductivoRoute
   '/empresa': typeof AuthenticatedEmpresaRoute
   '/expediente': typeof AuthenticatedExpedienteRoute
@@ -466,6 +474,7 @@ export interface FileRoutesById {
   '/perfil': typeof PerfilRoute
   '/piloto-dg01': typeof PilotoDg01Route
   '/plan-de-accion': typeof PlanDeAccionRouteWithChildren
+  '/plan-de-transformacion': typeof PlanDeTransformacionRoute
   '/resultados': typeof ResultadosRouteWithChildren
   '/roadmap': typeof RoadmapRouteWithChildren
   '/seguimiento': typeof SeguimientoRouteWithChildren
@@ -523,6 +532,7 @@ export interface FileRouteTypes {
     | '/perfil'
     | '/piloto-dg01'
     | '/plan-de-accion'
+    | '/plan-de-transformacion'
     | '/resultados'
     | '/roadmap'
     | '/seguimiento'
@@ -575,6 +585,7 @@ export interface FileRouteTypes {
     | '/moda-origen'
     | '/perfil'
     | '/piloto-dg01'
+    | '/plan-de-transformacion'
     | '/diagnostico-productivo'
     | '/empresa'
     | '/expediente'
@@ -627,6 +638,7 @@ export interface FileRouteTypes {
     | '/perfil'
     | '/piloto-dg01'
     | '/plan-de-accion'
+    | '/plan-de-transformacion'
     | '/resultados'
     | '/roadmap'
     | '/seguimiento'
@@ -684,6 +696,7 @@ export interface RootRouteChildren {
   PerfilRoute: typeof PerfilRoute
   PilotoDg01Route: typeof PilotoDg01Route
   PlanDeAccionRoute: typeof PlanDeAccionRouteWithChildren
+  PlanDeTransformacionRoute: typeof PlanDeTransformacionRoute
   ResultadosRoute: typeof ResultadosRouteWithChildren
   RoadmapRoute: typeof RoadmapRouteWithChildren
   SeguimientoRoute: typeof SeguimientoRouteWithChildren
@@ -809,6 +822,13 @@ declare module '@tanstack/react-router' {
       path: '/plan-de-accion'
       fullPath: '/plan-de-accion'
       preLoaderRoute: typeof PlanDeAccionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plan-de-transformacion': {
+      id: '/plan-de-transformacion'
+      path: '/plan-de-transformacion'
+      fullPath: '/plan-de-transformacion'
+      preLoaderRoute: typeof PlanDeTransformacionRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/resultados': {
@@ -1240,6 +1260,7 @@ const rootRouteChildren: RootRouteChildren = {
   PerfilRoute: PerfilRoute,
   PilotoDg01Route: PilotoDg01Route,
   PlanDeAccionRoute: PlanDeAccionRouteWithChildren,
+  PlanDeTransformacionRoute: PlanDeTransformacionRoute,
   ResultadosRoute: ResultadosRouteWithChildren,
   RoadmapRoute: RoadmapRouteWithChildren,
   SeguimientoRoute: SeguimientoRouteWithChildren,
