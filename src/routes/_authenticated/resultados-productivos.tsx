@@ -179,6 +179,49 @@ function ResultadosProductivos() {
         </Card>
       )}
 
+      <Card data-testid="tablero-6d31c">
+        <CardHeader>
+          <CardTitle className="text-base">Tablero 6 dominios · 31 capacidades</CardTitle>
+          <CardDescription>
+            Datos registrados sobre datos requeridos y modalidad de evaluación de cada capacidad. No es puntaje ni madurez.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+            {DOMINIOS.map((d) => (
+              <div key={d.id} className="space-y-2">
+                <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">{d.id} · {d.nombre}</p>
+                {caps.filter((c) => c.domainId === d.id).map((c) => {
+                  const total = c.counts?.totalAcquisitions ?? 0;
+                  const resp = c.counts?.answered ?? 0;
+                  const ancho = total ? Math.round((resp / total) * 100) : 0;
+                  return (
+                    <Link key={c.capabilityId} to="/capacidad/$id" params={{ id: c.capabilityId }}
+                      className="block rounded-lg border border-border p-2 text-xs hover:border-primary/50">
+                      <div className="flex items-center justify-between gap-1">
+                        <span className="font-semibold">{c.capabilityId}</span>
+                        <span className="tabular-nums text-muted-foreground">{resp}/{total}</span>
+                      </div>
+                      <div className="my-1 h-1.5 overflow-hidden rounded-full bg-muted"><div className="h-full bg-primary" style={{ width: `${ancho}%` }} /></div>
+                      <div className="flex flex-wrap gap-1">
+                        <Badge variant={c.diagnosticMode === "PUBLISHED_RULES" ? "default" : "outline"} className="rounded-full px-1.5 text-[10px]">
+                          {c.diagnosticMode === "PUBLISHED_RULES" ? "Motor institucional" : "Solo captura"}
+                        </Badge>
+                        {c.findingsCount > 0 && <Badge variant="secondary" className="rounded-full px-1.5 text-[10px]">{c.findingsCount} hallazgo(s) por revisar</Badge>}
+                        {(c.counts?.contradictions ?? 0) > 0 && <Badge variant="destructive" className="rounded-full px-1.5 text-[10px]">Aclarar</Badge>}
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            ))}
+          </div>
+          <p className="mt-3 text-xs text-muted-foreground">
+            «Motor institucional»: reglas publicadas del Knowledge Engine. «Solo captura»: sin reglas publicadas; el análisis asistido está pendiente de autorización de Gobierno (DEC-053).
+          </p>
+        </CardContent>
+      </Card>
+
       {DOMINIOS.map((d) => {
         const del = caps.filter((c) => c.domainId === d.id);
         if (del.length === 0) return null;
