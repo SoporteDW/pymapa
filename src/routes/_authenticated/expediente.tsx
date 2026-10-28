@@ -18,6 +18,7 @@ import { LoadingState } from "@/components/ui/loading-state";
 import { PageHeader } from "@/components/layout/page-header";
 import { DOMINIOS } from "@/components/diagnostico/catalogo-capacidades";
 import { confirmExpedienteBatch, getExpediente, registerCapabilityEvidence } from "@/lib/production/capabilities.functions";
+import { clasificarSuficiencia, resumenSuficiencia, VERSION_SUFICIENCIA } from "@/lib/production/expediente-suficiencia";
 
 export const Route = createFileRoute("/_authenticated/expediente")({
   head: () => ({
@@ -111,6 +112,13 @@ function Expediente() {
   });
 
   const d = q.data;
+  const suficiencia = useMemo(() => {
+    if (!d) return null;
+    const claves = new Map<string, { capabilityId: string; acquisitionId: string }>();
+    d.capabilities.forEach((c) => c.pending.forEach((a) => claves.set(`${c.capabilityId}::${a.acquisitionId}`, { capabilityId: c.capabilityId, acquisitionId: a.acquisitionId })));
+    d.proposals.forEach((p) => claves.set(`${p.capabilityId}::${p.acquisitionId}`, { capabilityId: p.capabilityId, acquisitionId: p.acquisitionId }));
+    return resumenSuficiencia(clasificarSuficiencia([...claves.values()], d.proposals));
+  }, [d]);
   const visibles = useMemo(() => (d?.proposals ?? []).filter((p) => !soloAlta || p.match === "ALTA"), [d, soloAlta]);
   const porDominio = useMemo(() => {
     const m = new Map<string, Propuesta[]>();
@@ -166,6 +174,16 @@ function Expediente() {
                 <Cifra valor={d.totals.proposedAcquisitions} etiqueta="Propuestas pendientes de revisión" />
               </div>
               <p className="text-sm text-muted-foreground">Citas candidatas: {d.totals.documentaryCandidatePercent}% · {d.totals.proposedHigh} altas y {d.totals.proposedPartial} parciales pendientes · {d.totals.withoutCoverage} sin respuesta ni propuesta. Una cita candidata no acredita cobertura completa.</p>
+              {suficiencia && (
+                <div data-testid="suficiencia-documental" className="flex flex-wrap items-center gap-2 text-sm">
+                  <span className="font-medium">Suficiencia documental de lo no respondido:</span>
+                  <Badge>{suficiencia.SUFICIENTE} con dato concreto</Badge>
+                  <Badge variant="secondary">{suficiencia.PARCIAL} parciales</Badge>
+                  <Badge variant="outline">{suficiencia.AUSENTE} ausentes</Badge>
+                  {suficiencia.contradicciones > 0 && <Badge variant="destructive">{suficiencia.contradicciones} posibles contradicciones entre documentos</Badge>}
+                  <span className="text-xs text-muted-foreground">({VERSION_SUFICIENCIA}; indica presencia literal, no verdad: todo requiere tu confirmación)</span>
+                </div>
+              )}
               <ul className="space-y-1 text-sm">
                 {d.documents.map((doc) => (
                   <li key={doc.evidenceId} className="flex flex-wrap gap-2">
