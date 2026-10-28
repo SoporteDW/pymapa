@@ -4,7 +4,7 @@
 - [ ] Suficiencia documental SUFICIENTE/PARCIAL/AUSENTE y detección de contradicciones en /expediente.
 - [ ] Expediente sintético Qhapaq reforzado (datos medibles, vacíos y contradicciones deliberados); Escenario B con empresa nueva desde cero.
 - [ ] Aislamiento bilateral con filas presentes en ambas organizaciones.
-- [ ] Cuenta demo con correo recuperable: requiere correo real del usuario.
+- [ ] Cuenta demo jose.diaz@digiwaycorp.com: verificar identidad existente, organizaciones y permisos empresariales en solo lectura; reutilizar sin duplicar, borrar ni cambiar accesos. QA Qhapaq solo automatizada; identidad institucional excluida.
 - [ ] Plan de Transformación aceptar/modificar/descartar; Escenario A; informe final.
 
 ## PYM-NOV-B02 · Evaluación Profesional Asistida y Registrada
