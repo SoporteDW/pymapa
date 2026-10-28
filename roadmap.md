@@ -1,3 +1,12 @@
+## PYM-NOV-MVP31 · Bloque 5 · Validación integral A/B
+- [x] Corpus sintético v2 (fixtures/expediente-qhapaq-v2): anexos con líneas base, metas, responsables, presupuesto, historia; vacíos y 3 contradicciones deliberadas.
+- [x] Medición suficiencia 2.0.0 sobre 448 adquisiciones v1/v2 (docs/evidence/mvp31-block5).
+- [x] Corrección: confirmación sin cita documental ya no da SUFICIENTE.
+- [x] Aislamiento bilateral con datos (Qhapaq ↔ QA INT-01, más Digiway y josefo como objetivos): 74/74 PASS.
+- [ ] Detección de contradicciones: 0/3 deliberadas detectadas, 1 falsa; la comparación por cifras no basta — requiere decisión sobre criterio (no se inventó umbral).
+- [ ] Escenario A: análisis asistido en las 28 capacidades restantes de Qhapaq (en curso); hallazgos OP-01 en NEEDS_REVIEW — falta revisión empresarial para que aparezcan como institucionales.
+- [ ] Escenario B en josefo@digiway.co: espera confirmación explícita del propietario para cargar documentos y registrar autorización sintética acotada.
+
 ## PYM-NOV-MVP31 · Instrucción consolidada (DEC-053/054)
 - [x] DEC-054: preguntas operativas versionadas (DEC-054/1.0.0) para las 337 adquisiciones sin pregunta literal; trazabilidad questionId/wordingVersion en cada respuesta, derivada en servidor.
 - [x] DEC-053: análisis asistido IA probado en pantalla con Qhapaq (DG-02): 9 elementos (6 hechos con cita literal, 1 inferencia, 2 vacíos), 0 descartados, revisión OWNER ACCEPTED persistida; autorización sintética acotada registrada bajo DEC-047 tras verificar los 5 PDF como DOCUMENTO SINTÉTICO DE DEMOSTRACIÓN.
