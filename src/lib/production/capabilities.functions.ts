@@ -274,3 +274,16 @@ export const processSyntheticDocument = createServerFn({ method: "POST" })
     return { capabilityId, input: h.processSyntheticDocumentInput(resto) };
   })
   .handler(async ({ data, context }) => h.processSyntheticDocumentHandler(context, data.capabilityId, data.input));
+
+/* PYM-NOV-MVP31 · Expediente documental transversal. */
+export const getExpediente = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => h.getExpedienteHandler(context));
+
+export const confirmExpedienteProposals = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((data: unknown) => {
+    const { capabilityId, resto } = separar(data);
+    return { capabilityId, input: h.confirmExpedienteProposalsInput(resto) };
+  })
+  .handler(async ({ data, context }) => h.confirmExpedienteProposalsHandler(context, data.capabilityId, data.input));

@@ -1742,3 +1742,170 @@ export async function processSyntheticDocumentHandler(
   });
   return { alreadyProcessed: false as const, evidenceVersionId: ver.data!.id, extractionId: ext.data!.id, contentSha256: doc.sha256, proposals: salida };
 }
+
+/* ------------------------------------------------------------------ */
+/* PYM-NOV-MVP31 · Expediente documental transversal (31 capacidades)   */
+/* ------------------------------------------------------------------ */
+
+type FragmentosPorEvidencia = Map<string, { title: string; pages: number; fragments: import("./expediente-mapper").FragmentoExpediente[]; error: string | null }>;
+
+/** Lee con la identidad del usuario (RLS) los PDF del assessment y extrae fragmentos literales. */
+async function leerExpediente(context: Ctx, evidencias: import("./puertos").EvidenceRecord[]): Promise<FragmentosPorEvidencia> {
+  const { extraerPdf } = await import("@/lib/document-first/pdf-texto");
+  type Storage = { storage: { from: (b: string) => { download: (p: string) => Promise<{ data: Blob | null; error: unknown }> } } };
+  const client = context.supabase as Storage;
+  const salida: FragmentosPorEvidencia = new Map();
+  for (const e of evidencias) {
+    const title = e.title ?? e.storagePath?.split("/").pop() ?? e.id;
+    if (!e.storageBucket || !e.storagePath || !/\.pdf$/i.test(e.storagePath)) continue;
+    try {
+      const d = await client.storage.from(e.storageBucket).download(e.storagePath);
+      if (d.error || !d.data) throw new Error("EVIDENCE_FILE_UNAVAILABLE");
+      const doc = await extraerPdf(new Uint8Array(await d.data.arrayBuffer()));
+      salida.set(e.id, {
+        title,
+        pages: doc.paginas,
+        error: null,
+        fragments: doc.fragmentos.map((f) => ({ evidenceId: e.id, documentTitle: title, fragmentId: f.id, page: f.pagina, section: f.seccion, text: f.texto })),
+      });
+    } catch (err) {
+      salida.set(e.id, { title, pages: 0, fragments: [], error: err instanceof Error ? err.message : "EXTRACTION_FAILED" });
+    }
+  }
+  return salida;
+}
+
+/**
+ * Procesa los documentos del assessment contra las 448 adquisiciones de las 31
+ * capacidades. Determinista y de solo lectura: devuelve propuestas con cita,
+ * página y coincidencia léxica; nada se responde ni se cubre sin confirmación.
+ */
+export async function getExpedienteHandler(context: Ctx) {
+  const inicio = Date.now();
+  const runtime = await import("./runtime.server");
+  const casoUso = await import("./caso-uso");
+  const { getRegisteredPack } = await import("./packs-registry");
+  const { createActionableProjector } = await import("./actionable");
+  const { memoizeReads } = await import("./capability-scope");
+  const mapper = await import("./expediente-mapper");
+  const base = memoizeReads(runtime.createSupabaseProductionRepository());
+  const catalogo = runtime.listarCapacidadesDisponibles();
+  type ClienteUsuario = Parameters<typeof runtime.asegurarContextoProductivo>[0];
+  const assessments = new Map<string, Promise<import("./puertos").AssessmentRecord>>();
+  const resolverAssessment = (capabilityId: string) => {
+    const clave = runtime.claveCoberturaCapacidad(capabilityId);
+    let p = assessments.get(clave);
+    if (!p) {
+      p = runtime.asegurarContextoProductivo(context.supabase as ClienteUsuario, context.userId, capabilityId);
+      assessments.set(clave, p);
+    }
+    return p;
+  };
+
+  const capacidades: {
+    capabilityId: string; name: string; domainId: string; diagnosticMode: string; findingsCount: number;
+    assessmentId: string; organizationId: string; catalogo: import("./expediente-mapper").AdquisicionCatalogo[]; answered: Set<string>;
+  }[] = [];
+  const LIMITE = 8;
+  let siguiente = 0;
+  await Promise.all(Array.from({ length: LIMITE }, async () => {
+    while (siguiente < catalogo.length) {
+      const entrada = catalogo[siguiente++]!;
+      const { assessment, deps } = await prepararContexto(context, entrada.capabilityId, { baseRepository: base, resolverAssessment });
+      const evaluado = await casoUso.evaluarCapacidad(deps, assessment.id);
+      const pack = getRegisteredPack(entrada.capabilityId).pack;
+      const findings = await deps.repository.listFindings(assessment.id);
+      capacidades.push({
+        capabilityId: entrada.capabilityId, name: entrada.name, domainId: entrada.domainId,
+        diagnosticMode: createActionableProjector(pack).diagnosticMode, findingsCount: findings.length,
+        assessmentId: assessment.id, organizationId: assessment.organizationId,
+        catalogo: mapper.catalogoDePack(entrada.capabilityId, pack),
+        answered: new Set(evaluado?.answeredAcquisitionIds ?? []),
+      });
+    }
+  }));
+  capacidades.sort((a, b) => catalogo.findIndex((c) => c.capabilityId === a.capabilityId) - catalogo.findIndex((c) => c.capabilityId === b.capabilityId));
+  const assessmentId = capacidades[0]!.assessmentId;
+  const organizationId = capacidades[0]!.organizationId;
+  const evidencias = (await base.listEvidence(assessmentId)).filter((e) => e.organizationId === organizationId && e.assessmentId === assessmentId);
+  const docs = await leerExpediente(context, evidencias);
+  const fragmentos = [...docs.values()].flatMap((d) => d.fragments);
+  const todas = capacidades.flatMap((c) => c.catalogo);
+  const respondidas = new Set(capacidades.flatMap((c) => [...c.answered].map((id) => `${c.capabilityId}::${id}`)));
+  const propuestas = mapper.proponerCorrespondencias(todas, fragmentos, respondidas);
+  const conPropuesta = new Set(propuestas.map((p) => `${p.capabilityId}::${p.acquisitionId}`));
+
+  const porCapacidad = capacidades.map((c) => {
+    const pendientes = c.catalogo.filter((a) => !c.answered.has(a.acquisitionId) && !conPropuesta.has(`${c.capabilityId}::${a.acquisitionId}`));
+    return {
+      capabilityId: c.capabilityId, name: c.name, domainId: c.domainId, diagnosticMode: c.diagnosticMode, findingsCount: c.findingsCount,
+      total: c.catalogo.length,
+      answered: c.answered.size,
+      proposals: propuestas.filter((p) => p.capabilityId === c.capabilityId).length,
+      pending: pendientes.map((a) => ({ acquisitionId: a.acquisitionId, label: a.label, labelSource: a.labelSource, closedOptions: a.closedOptions })),
+    };
+  });
+  const total = todas.length;
+  return {
+    mapperVersion: mapper.VERSION_MAPEADOR_EXPEDIENTE,
+    assessmentId,
+    organizationId,
+    documents: [...docs.entries()].map(([evidenceId, d]) => ({ evidenceId, title: d.title, pages: d.pages, fragments: d.fragments.length, error: d.error })),
+    totals: {
+      acquisitions: total,
+      answered: respondidas.size,
+      proposedHigh: propuestas.filter((p) => p.match === "ALTA").length,
+      proposedPartial: propuestas.filter((p) => p.match === "PARCIAL").length,
+      withoutCoverage: total - respondidas.size - propuestas.length,
+      capabilitiesWithFindings: porCapacidad.filter((c) => c.findingsCount > 0).length,
+    },
+    capabilities: porCapacidad,
+    proposals: propuestas,
+    elapsedMs: Date.now() - inicio,
+  };
+}
+
+export const confirmExpedienteProposalsInput = (data: unknown) =>
+  z.object({
+    items: z.array(z.object({ acquisitionId: z.string().min(1), evidenceId: z.string().uuid(), fragmentId: z.string().min(1) })).min(1).max(80),
+  }).strict().parse(data);
+
+/**
+ * Confirmación humana agrupada: la persona hace suya la cita literal como
+ * respuesta KNOWN con el documento como evidencia. El servidor vuelve a leer el
+ * archivo y verifica la cita; nunca usa texto enviado por el cliente.
+ */
+export async function confirmExpedienteProposalsHandler(context: Ctx, capabilityId: string, data: ReturnType<typeof confirmExpedienteProposalsInput>) {
+  const runtime = await import("./runtime.server");
+  const mapper = await import("./expediente-mapper");
+  const { getRegisteredPack } = await import("./packs-registry");
+  const { assessment, deps } = await prepararContexto(context, capabilityId);
+  const catalogo = new Map(mapper.catalogoDePack(capabilityId, getRegisteredPack(capabilityId).pack).map((a) => [a.acquisitionId, a]));
+  const ids = [...new Set(data.items.map((i) => i.evidenceId))];
+  const evidencias = (await deps.repository.listEvidence(assessment.id))
+    .filter((e) => ids.includes(e.id) && e.organizationId === assessment.organizationId && e.assessmentId === assessment.id);
+  if (evidencias.length !== ids.length) throw new Error("EVIDENCE_NOT_IN_ASSESSMENT");
+  const docs = await leerExpediente(context, evidencias);
+  void runtime;
+  const resultados: { acquisitionId: string; accepted: boolean; reason: string | null }[] = [];
+  for (const item of data.items) {
+    const acq = catalogo.get(item.acquisitionId);
+    const frag = docs.get(item.evidenceId)?.fragments.find((f) => f.fragmentId === item.fragmentId);
+    if (!acq) { resultados.push({ acquisitionId: item.acquisitionId, accepted: false, reason: "ACQUISITION_NOT_IN_PACK" }); continue; }
+    if (acq.closedOptions) { resultados.push({ acquisitionId: item.acquisitionId, accepted: false, reason: "CLOSED_OPTIONS_REQUIRE_MANUAL_CHOICE" }); continue; }
+    if (!frag) { resultados.push({ acquisitionId: item.acquisitionId, accepted: false, reason: "FRAGMENT_NOT_FOUND" }); continue; }
+    const r = await submitCapabilityResponseHandler(context, capabilityId, {
+      acquisitionId: item.acquisitionId,
+      knowledgeState: "KNOWN",
+      semanticValue: frag.text,
+      evidenceIds: [item.evidenceId],
+      rawInput: {
+        origin: "EXPEDIENTE_DOCUMENTAL", mapperVersion: mapper.VERSION_MAPEADOR_EXPEDIENTE,
+        evidenceId: item.evidenceId, fragmentId: frag.fragmentId, page: frag.page, section: frag.section,
+        confirmedByUserId: context.userId, note: "Cita literal confirmada por la persona; no es interpretación ni suficiencia.",
+      },
+    });
+    resultados.push({ acquisitionId: item.acquisitionId, accepted: Boolean(r.accepted), reason: r.accepted ? null : (r.rejectionReason ?? "REJECTED") });
+  }
+  return { capabilityId, confirmed: resultados.filter((r) => r.accepted).length, results: resultados };
+}
