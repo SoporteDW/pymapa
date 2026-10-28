@@ -162,6 +162,9 @@
 - [x] PYM-BETA-INT-02-SEG · Seguimiento empresarial consolidado (/seguimiento)
 
 ## PYM-NOV-MVP31 · Recuperación integral (7 días)
+- [ ] Optimizar extracción/mapeo con métricas antes/después del mismo expediente (85–90 % solo objetivo, sin inferencia), separar propuestas, adquisiciones únicas y confirmaciones; inventariar faltantes.
+- [ ] Optimizar confirmación transversal conservando revisión, verificación de citas en servidor y trazabilidad por respuesta; medir tiempo y clics.
+- [ ] Repetir aislamiento bilateral de documentos/bytes, fragmentos, propuestas, respuestas y resultados con sesiones QA autorizadas; documentar PASS/FAIL y límites.
 - [x] Escenario B: expediente documental transversal 31/31 (carga única, citas literales, confirmación agrupada, pendientes por capacidad); E2E con empresa nueva QA Qhapaq.
 - [ ] Acelerar confirmación agrupada (~3 s por respuesta) y mejorar precisión de propuestas parciales.
 - [ ] Frente A · preguntas redactadas para las 18 capacidades sin pregunta literal: bloqueado, los textos fuente no traen preguntas por necesidad; requiere aprobación de Gobierno de la redacción.
