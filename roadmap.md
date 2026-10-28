@@ -4,7 +4,8 @@
 - [ ] Suficiencia documental SUFICIENTE/PARCIAL/AUSENTE y detección de contradicciones en /expediente.
 - [ ] Expediente sintético Qhapaq reforzado (datos medibles, vacíos y contradicciones deliberados); Escenario B con empresa nueva desde cero.
 - [ ] Aislamiento bilateral con filas presentes en ambas organizaciones.
-- [ ] Cuenta demo jose.diaz@digiwaycorp.com: verificar identidad existente, organizaciones y permisos empresariales en solo lectura; reutilizar sin duplicar, borrar ni cambiar accesos. QA Qhapaq solo automatizada; identidad institucional excluida.
+- [x] Cuenta demo jose.diaz@digiwaycorp.com verificada en solo lectura: identidad confirmada, acceso por correo habilitado, OWNER de Digiway Corp, cero autoridades EPAR/Gobierno; datos anteriores intactos. QA Qhapaq solo automatizada; identidad institucional excluida. Informe MVP31_DEMO_ACCOUNT_VERIFICATION.md.
+- [ ] Acceso personal: pendiente de inicio con contraseña existente; recuperación no implementada. Segunda empresa limpia para esta identidad: bloqueada por regla actual de una organización por usuario; requiere autorización para resolver sin alterar Digiway Corp.
 - [ ] Plan de Transformación aceptar/modificar/descartar; Escenario A; informe final.
 
 ## PYM-NOV-B02 · Evaluación Profesional Asistida y Registrada
