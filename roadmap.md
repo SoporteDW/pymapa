@@ -1,3 +1,12 @@
+## PYM-NOV-MVP31 · Instrucción consolidada (DEC-053/054)
+- [x] DEC-054: preguntas operativas versionadas (DEC-054/1.0.0) para las 337 adquisiciones sin pregunta literal; trazabilidad questionId/wordingVersion en cada respuesta, derivada en servidor.
+- [ ] DEC-053: análisis asistido IA (29 capacidades) con 5 categorías separadas y registro de modelo/versión; solo expediente sintético (DEC-047).
+- [ ] Suficiencia documental SUFICIENTE/PARCIAL/AUSENTE y detección de contradicciones en /expediente.
+- [ ] Expediente sintético Qhapaq reforzado (datos medibles, vacíos y contradicciones deliberados); Escenario B con empresa nueva desde cero.
+- [ ] Aislamiento bilateral con filas presentes en ambas organizaciones.
+- [ ] Cuenta demo con correo recuperable: requiere correo real del usuario.
+- [ ] Plan de Transformación aceptar/modificar/descartar; Escenario A; informe final.
+
 ## PYM-NOV-B02 · Evaluación Profesional Asistida y Registrada
 - [x] Identificar reutilización y resolver designación exclusiva por Gobierno de PYMAPA, sin autodeclaración.
 - [x] Implementar EPAR append-only, autoridad por alcance/vigencia y revocación, revisión histórica, servidor/RLS y permisos mínimos en dos migraciones aditivas.

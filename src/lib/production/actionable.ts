@@ -15,6 +15,7 @@
  */
 import type { EvaluationResult, KnowledgeEngine, NextAcquisition } from "@pymapa/knowledge-engine";
 import type { DocumentaryCoverage } from "./documentary-coverage";
+import { operativeQuestionFor, type OperativeQuestion } from "./operative-questions";
 
 export type CapabilityInteractionState =
   | "NOT_STARTED"
@@ -54,6 +55,8 @@ export interface ActionableAcquisition {
   allowedKnowledgeStates: string[];
   allowedSemanticValues: string[] | null;
   questionStatus: string | null;
+  /** DEC-054 · Pregunta operativa versionada; null si existe pregunta literal. */
+  operativeQuestion: OperativeQuestion | null;
 }
 
 export interface CapabilityWorkspace {
@@ -112,7 +115,8 @@ function modoDe(acq: RawAcq): AcquisitionMode {
 }
 
 export function createActionableProjector(rawPack: unknown) {
-  const pack = rawPack as RawPack;
+  const pack = rawPack as RawPack & { capability?: { id?: string } };
+  const capId = pack.capability?.id ?? "UNKNOWN";
   const acqById = new Map((pack.acquisitions ?? []).map((a) => [a.id, a]));
   const niById = new Map((pack.informationNeeds ?? []).map((n) => [n.id, n]));
   const varById = new Map((pack.variables ?? []).map((v) => [v.id, v]));
@@ -141,6 +145,16 @@ export function createActionableProjector(rawPack: unknown) {
       allowedKnowledgeStates: next?.allowedKnowledgeStates ?? acq.responseModel?.knowledgeStates ?? [],
       allowedSemanticValues: next ? next.allowedSemanticValues : semanticos(acq),
       questionStatus: acq.questionStatus ?? null,
+      operativeQuestion: operativeQuestionFor({
+        capabilityId: capId,
+        acquisitionId: acq.id,
+        hasLiteralQuestion: typeof acq.question === "string",
+        informationNeedRef: acq.informationNeedRef ?? null,
+        informationNeedStatement: ni?.statement ?? null,
+        variable: acq.variableRefs[0]
+          ? { ref: acq.variableRefs[0], name: varById.get(acq.variableRefs[0])?.name ?? null }
+          : null,
+      }),
     };
   }
 
