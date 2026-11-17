@@ -1,0 +1,3 @@
+# MME v1.0 (DEC-062 · 06B) · G1–G2
+- `evaluador.server.ts` is a literal port of `datos/referencia-python/mme_dec062.py`; any change must keep `mme-dec062.test.ts` deep-equal to `python-reference-results.json` (regenerate only from the Python reference) — TS↔Python equivalence is the acceptance gate.
+- Catalog/evaluator are server-only and not wired to any route, UI, DB or Engine; default activation registry is empty, so nothing is enabled — lab results are never enterprise maturity and never mix with `LEGACY_DEMO_SCORE`.
