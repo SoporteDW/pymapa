@@ -1,0 +1,1009 @@
+{
+  "numeric": {
+    "input": {
+      "signature_version": "MME-SIGN/2.0.0",
+      "payload": {
+        "integer": 1.0,
+        "negative_zero": -0.0,
+        "nested": [
+          2.0,
+          "1.25"
+        ],
+        "max": 9007199254740991
+      }
+    },
+    "signature": "90969aedc1f997f39e72ae7b6408c7f14d379b143cdd0a3b7f03854e2b59a898"
+  },
+  "conflicts": [
+    {
+      "label": "null",
+      "attestation": {
+        "check_id": "MME-CM-03-M1-HECHO",
+        "assessment_id": "A1",
+        "verdict": "CONFLICT",
+        "reviewer_id": "reviewer",
+        "version": "PYMAPA-MME-1.0.0",
+        "evidence_refs": [
+          "e1"
+        ],
+        "payload": {},
+        "conflict_resolution": {
+          "materiality": "NON_MATERIAL",
+          "resolved_verdict": "UNKNOWN",
+          "rationale": "Synthetic decision",
+          "authority_id": "reviewer",
+          "decision_version": "G21-LAB",
+          "evidence_refs": null
+        },
+        "signature": "31210e14fb2bf2f5c5fa75d02e872002e971ad52710484c3168eb338ad78be66"
+      },
+      "errors": [
+        "CONFLICT_DECISION_PROVENANCE_INCOMPLETE",
+        "CONFLICT_EVIDENCE_REFS_INVALID"
+      ],
+      "outcome": {
+        "engine": "PYMAPA-MME-1.0.0",
+        "capability_id": "CM-03",
+        "assessment_id": "A1",
+        "status": "REVIEW_REQUIRED",
+        "errors": [
+          "MME-CM-03-M1-HECHO:CONFLICT_DECISION_PROVENANCE_INCOMPLETE",
+          "MME-CM-03-M1-HECHO:CONFLICT_EVIDENCE_REFS_INVALID"
+        ],
+        "level": null,
+        "levels": [
+          {
+            "level": "M1",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          },
+          {
+            "level": "M2",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          },
+          {
+            "level": "M3",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          },
+          {
+            "level": "M4",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          },
+          {
+            "level": "M5",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "empty",
+      "attestation": {
+        "check_id": "MME-CM-03-M1-HECHO",
+        "assessment_id": "A1",
+        "verdict": "CONFLICT",
+        "reviewer_id": "reviewer",
+        "version": "PYMAPA-MME-1.0.0",
+        "evidence_refs": [
+          "e1"
+        ],
+        "payload": {},
+        "conflict_resolution": {
+          "materiality": "NON_MATERIAL",
+          "resolved_verdict": "UNKNOWN",
+          "rationale": "Synthetic decision",
+          "authority_id": "reviewer",
+          "decision_version": "G21-LAB",
+          "evidence_refs": []
+        },
+        "signature": "e0350f09d1eff7f43d7b86ef0de025d97185acdc16a17eded1d1c8956325e8a8"
+      },
+      "errors": [
+        "CONFLICT_DECISION_PROVENANCE_INCOMPLETE",
+        "CONFLICT_EVIDENCE_REFS_INVALID"
+      ],
+      "outcome": {
+        "engine": "PYMAPA-MME-1.0.0",
+        "capability_id": "CM-03",
+        "assessment_id": "A1",
+        "status": "REVIEW_REQUIRED",
+        "errors": [
+          "MME-CM-03-M1-HECHO:CONFLICT_DECISION_PROVENANCE_INCOMPLETE",
+          "MME-CM-03-M1-HECHO:CONFLICT_EVIDENCE_REFS_INVALID"
+        ],
+        "level": null,
+        "levels": [
+          {
+            "level": "M1",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          },
+          {
+            "level": "M2",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          },
+          {
+            "level": "M3",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          },
+          {
+            "level": "M4",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          },
+          {
+            "level": "M5",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "string",
+      "attestation": {
+        "check_id": "MME-CM-03-M1-HECHO",
+        "assessment_id": "A1",
+        "verdict": "CONFLICT",
+        "reviewer_id": "reviewer",
+        "version": "PYMAPA-MME-1.0.0",
+        "evidence_refs": [
+          "e1"
+        ],
+        "payload": {},
+        "conflict_resolution": {
+          "materiality": "NON_MATERIAL",
+          "resolved_verdict": "UNKNOWN",
+          "rationale": "Synthetic decision",
+          "authority_id": "reviewer",
+          "decision_version": "G21-LAB",
+          "evidence_refs": "e1"
+        },
+        "signature": "6a14b8eaaeb7ad41a182bf3f79a5af0d30fe7874e7d2ace6bac8e8f6ae2c059a"
+      },
+      "errors": [
+        "CONFLICT_EVIDENCE_REFS_INVALID"
+      ],
+      "outcome": {
+        "engine": "PYMAPA-MME-1.0.0",
+        "capability_id": "CM-03",
+        "assessment_id": "A1",
+        "status": "REVIEW_REQUIRED",
+        "errors": [
+          "MME-CM-03-M1-HECHO:CONFLICT_EVIDENCE_REFS_INVALID"
+        ],
+        "level": null,
+        "levels": [
+          {
+            "level": "M1",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          },
+          {
+            "level": "M2",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          },
+          {
+            "level": "M3",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          },
+          {
+            "level": "M4",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          },
+          {
+            "level": "M5",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "object",
+      "attestation": {
+        "check_id": "MME-CM-03-M1-HECHO",
+        "assessment_id": "A1",
+        "verdict": "CONFLICT",
+        "reviewer_id": "reviewer",
+        "version": "PYMAPA-MME-1.0.0",
+        "evidence_refs": [
+          "e1"
+        ],
+        "payload": {},
+        "conflict_resolution": {
+          "materiality": "NON_MATERIAL",
+          "resolved_verdict": "UNKNOWN",
+          "rationale": "Synthetic decision",
+          "authority_id": "reviewer",
+          "decision_version": "G21-LAB",
+          "evidence_refs": {}
+        },
+        "signature": "5c34b009812ebe524c2dc722130452bd7be37d0c2a695f4758128bbcdee39f51"
+      },
+      "errors": [
+        "CONFLICT_DECISION_PROVENANCE_INCOMPLETE",
+        "CONFLICT_EVIDENCE_REFS_INVALID"
+      ],
+      "outcome": {
+        "engine": "PYMAPA-MME-1.0.0",
+        "capability_id": "CM-03",
+        "assessment_id": "A1",
+        "status": "REVIEW_REQUIRED",
+        "errors": [
+          "MME-CM-03-M1-HECHO:CONFLICT_DECISION_PROVENANCE_INCOMPLETE",
+          "MME-CM-03-M1-HECHO:CONFLICT_EVIDENCE_REFS_INVALID"
+        ],
+        "level": null,
+        "levels": [
+          {
+            "level": "M1",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          },
+          {
+            "level": "M2",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          },
+          {
+            "level": "M3",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          },
+          {
+            "level": "M4",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          },
+          {
+            "level": "M5",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "invalid_member",
+      "attestation": {
+        "check_id": "MME-CM-03-M1-HECHO",
+        "assessment_id": "A1",
+        "verdict": "CONFLICT",
+        "reviewer_id": "reviewer",
+        "version": "PYMAPA-MME-1.0.0",
+        "evidence_refs": [
+          "e1"
+        ],
+        "payload": {},
+        "conflict_resolution": {
+          "materiality": "NON_MATERIAL",
+          "resolved_verdict": "UNKNOWN",
+          "rationale": "Synthetic decision",
+          "authority_id": "reviewer",
+          "decision_version": "G21-LAB",
+          "evidence_refs": [
+            null
+          ]
+        },
+        "signature": "d647d9d7dd81c9bc1eb5a41ae94a1361a0599979a811d0a809810f01fe7ed5c2"
+      },
+      "errors": [
+        "CONFLICT_EVIDENCE_REFS_INVALID"
+      ],
+      "outcome": {
+        "engine": "PYMAPA-MME-1.0.0",
+        "capability_id": "CM-03",
+        "assessment_id": "A1",
+        "status": "REVIEW_REQUIRED",
+        "errors": [
+          "MME-CM-03-M1-HECHO:CONFLICT_EVIDENCE_REFS_INVALID"
+        ],
+        "level": null,
+        "levels": [
+          {
+            "level": "M1",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          },
+          {
+            "level": "M2",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          },
+          {
+            "level": "M3",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          },
+          {
+            "level": "M4",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          },
+          {
+            "level": "M5",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "valid",
+      "attestation": {
+        "check_id": "MME-CM-03-M1-HECHO",
+        "assessment_id": "A1",
+        "verdict": "CONFLICT",
+        "reviewer_id": "reviewer",
+        "version": "PYMAPA-MME-1.0.0",
+        "evidence_refs": [
+          "e1"
+        ],
+        "payload": {},
+        "conflict_resolution": {
+          "materiality": "NON_MATERIAL",
+          "resolved_verdict": "UNKNOWN",
+          "rationale": "Synthetic decision",
+          "authority_id": "reviewer",
+          "decision_version": "G21-LAB",
+          "evidence_refs": [
+            "e1"
+          ]
+        },
+        "signature": "9945ad1077c20d0e079523ea6f24fd04068597679b8a0f255b84d24d0d9f17d9"
+      },
+      "errors": [],
+      "outcome": {
+        "engine": "PYMAPA-MME-1.0.0",
+        "capability_id": "CM-03",
+        "assessment_id": "A1",
+        "status": "NOT_DETERMINED",
+        "level": null,
+        "demonstrated_floor": null,
+        "possible_ceiling": "M5",
+        "score_interval_0_100": [
+          null,
+          100
+        ],
+        "levels": [
+          {
+            "level": "M1",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          },
+          {
+            "level": "M2",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          },
+          {
+            "level": "M3",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          },
+          {
+            "level": "M4",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          },
+          {
+            "level": "M5",
+            "lower": 0,
+            "upper": 1.0,
+            "lower_band": "N",
+            "upper_band": "F",
+            "checks": {
+              "HECHO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "OPERACION": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "CONTEXTO": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              },
+              "EVIDENCIA": {
+                "status": "UNKNOWN",
+                "weight": 0.25
+              }
+            }
+          }
+        ],
+        "scoring_note": "Escala ordinal transformada a puntos solo por capacidad; no agrega dominios."
+      }
+    }
+  ]
+}

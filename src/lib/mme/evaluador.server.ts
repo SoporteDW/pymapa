@@ -41,7 +41,23 @@ function py(v: unknown): boolean {
 const isDict = (v: unknown): v is Obj =>
   typeof v === "object" && v !== null && !Array.isArray(v) && !(v instanceof Uint8Array);
 
-/** Equivalente a json.dumps(sort_keys=True, ensure_ascii=False, separators=(",",":")). */
+export const MME_SIGNATURE_NUMERIC_VERSION = "MME-SIGN/2.0.0";
+
+/** Legacy text-only signatures are unchanged. V2 permits only safe integer numbers.
+ * Decimal measurements must be supplied explicitly as strings, never silently coerced.
+ */
+function validateSignedNumbers(v: unknown, numericVersion: boolean): void {
+  if (typeof v === "number") {
+    if (!numericVersion) throw new TypeError("SIGNED_NUMBER_REQUIRES_V2");
+    if (!Number.isSafeInteger(v)) throw new TypeError("SIGNED_NUMBER_NOT_SAFE_INTEGER");
+  } else if (Array.isArray(v)) {
+    v.forEach((x) => validateSignedNumbers(x, numericVersion));
+  } else if (isDict(v)) {
+    Object.values(v).forEach((x) => validateSignedNumbers(x, numericVersion));
+  }
+}
+
+/** Sorted JSON; signed numeric input is checked separately before serialization. */
 export function canonical(v: unknown): string {
   if (Array.isArray(v)) return "[" + v.map(canonical).join(",") + "]";
   if (isDict(v)) {
@@ -50,8 +66,20 @@ export function canonical(v: unknown): string {
   }
   return JSON.stringify(v ?? null);
 }
-const hmacHex = (secret: string, obj: Obj) =>
-  createHmac("sha256", secret).update(Buffer.from(canonical(obj), "utf8")).digest("hex");
+const hmacHex = (secret: string, obj: Obj) => {
+  if (obj.signature_version !== undefined && obj.signature_version !== MME_SIGNATURE_NUMERIC_VERSION)
+    throw new TypeError("UNSUPPORTED_SIGNATURE_VERSION");
+  validateSignedNumbers(obj, obj.signature_version === MME_SIGNATURE_NUMERIC_VERSION);
+  return createHmac("sha256", secret).update(Buffer.from(canonical(obj), "utf8")).digest("hex");
+};
+function signatureErrors(obj: Obj, secret: string, invalid: string): string[] {
+  try {
+    return safeEqual(String(obj.signature ?? ""), hmacHex(secret, unsignedOf(obj))) ? [] : [invalid];
+  } catch (error) {
+    if (error instanceof TypeError) return [error.message];
+    throw error;
+  }
+}
 const sha256Hex = (b: Uint8Array) => createHash("sha256").update(b).digest("hex");
 function unsignedOf(o: Obj): Obj {
   const { signature: _s, ...rest } = o;
@@ -83,8 +111,7 @@ export function validateAttestation(
   if (a.version !== VERSION) errs.push("VERSION_MISMATCH");
   const signer = o.signers[a.reviewer_id];
   if (!signer || !ROLES.has(signer.role)) errs.push("REVIEWER_NOT_AUTHORIZED");
-  else if (!safeEqual(String(a.signature ?? ""), hmacHex(signer.secret, unsignedOf(a))))
-    errs.push("BAD_SIGNATURE");
+  else errs.push(...signatureErrors(a, signer.secret, "BAD_SIGNATURE"));
   const refs = a.evidence_refs;
   if (!Array.isArray(refs) || refs.length === 0) errs.push("MISSING_EVIDENCE");
   else
@@ -106,7 +133,10 @@ export function validateAttestation(
       if (r.authority_id !== a.reviewer_id) errs.push("CONFLICT_DECISION_AUTHORITY_MISMATCH");
       if (!["PASS", "FAIL", "UNKNOWN"].includes(r.resolved_verdict))
         errs.push("CONFLICT_REQUIRES_EXPLICIT_DISPOSITION");
-      for (const ref of Array.isArray(r.evidence_refs) ? r.evidence_refs : []) {
+      if (!Array.isArray(r.evidence_refs) || r.evidence_refs.length === 0 ||
+          r.evidence_refs.some((ref: unknown) => typeof ref !== "string" || ref.length === 0))
+        errs.push("CONFLICT_EVIDENCE_REFS_INVALID");
+      else for (const ref of r.evidence_refs) {
         const e = o.evidenceStore[ref] as Obj | undefined;
         if (!e || isRevoked(e)) errs.push("CONFLICT_EVIDENCE_MISSING_OR_REVOKED:" + ref);
       }
@@ -185,7 +215,7 @@ export function validateBusinessClaim(a: Obj, defn: MmeCheckDefinition, indicato
     }
     if (errors.length === 0) {
       const rates = os.map((o) => pyFloat(o.numerator) / pyFloat(o.denominator)) as [number, number, number];
-      const sign = indicator!.direction === "HIGHER" ? 1 : -1;
+      const sign = indicator?.direction === "HIGHER" ? 1 : -1;
       // Decisión operativa V1: cambio favorable en DOS seguimientos, sin afirmar causalidad.
       if (!(sign * (rates[1] - rates[0]) > 0 && sign * (rates[2] - rates[0]) > 0))
         errors.push("NO_PERSISTENT_FAVORABLE_OBSERVATION");
@@ -210,9 +240,13 @@ export function rateLabel(r: number): RateBand {
 function upperLowerLevel(levels: MmeLevelResult[], bound: "lower" | "upper"): number {
   let highest = 0;
   for (let k = 1; k <= 5; k++) {
-    const current = levels[k - 1]!;
+    const current = levels[k - 1];
+    if (!current) throw new TypeError("MME_LEVEL_MISSING");
     let fPred = true;
-    for (let i = 0; i < k - 1; i++) if (!(levels[i]![bound] > THRESHOLD_F)) fPred = false;
+    for (let i = 0; i < k - 1; i++) {
+      const predecessor = levels[i];
+      if (!predecessor || !(predecessor[bound] > THRESHOLD_F)) fPred = false;
+    }
     const criticalOk = CRITICAL.every((c) =>
       bound === "lower" ? current.checks[c]?.status === "PASS" : current.checks[c]?.status !== "FAIL",
     );
@@ -238,7 +272,7 @@ function validateContextualNa(
     errors.push("NA_PROVENANCE_INCOMPLETE");
   const signer = o.signers[d.authority_id];
   if (!signer || !ROLES.has(signer.role)) errors.push("NA_AUTHORITY_NOT_AUTHORIZED");
-  else if (!safeEqual(String(d.signature ?? ""), hmacHex(signer.secret, unsignedOf(d)))) errors.push("NA_SIGNATURE_INVALID");
+  else errors.push(...signatureErrors(d, signer.secret, "NA_SIGNATURE_INVALID"));
   const refs = d.evidence_refs;
   if (!Array.isArray(refs) || refs.length === 0) errors.push("NA_EVIDENCE_MISSING");
   else
@@ -309,7 +343,7 @@ export function assess(capabilityId: string, input: AssessInput): MmeOutcome {
   }
   for (const key of required) {
     const rec = activation[key];
-    if (!isDict(rec) || rec!.version !== catalog.version || rec!.state !== "ENABLED")
+    if (!rec || !isDict(rec) || rec.version !== catalog.version || rec.state !== "ENABLED")
       return { ...base, status: "BLOCKED_NO_ITEM_AUTHORIZATION", level: null, blocked_item_id: key };
   }
   // Indicadores M4/M5: autorización individual, nunca global.
@@ -365,8 +399,8 @@ export function assess(capabilityId: string, input: AssessInput): MmeOutcome {
       ck[defn.type] = { status, weight: WEIGHT };
     }
     const vals = Object.values(ck);
-    const passed = vals.reduce((s, v) => s + (v!.status === "PASS" ? WEIGHT : 0), 0);
-    const unknown = vals.reduce((s, v) => s + (v!.status === "UNKNOWN" || v!.status === "CONFLICT" ? WEIGHT : 0), 0);
+    const passed = vals.reduce((s, v) => s + (v?.status === "PASS" ? WEIGHT : 0), 0);
+    const unknown = vals.reduce((s, v) => s + (v?.status === "UNKNOWN" || v?.status === "CONFLICT" ? WEIGHT : 0), 0);
     levels.push({
       level: `M${j}` as "M1",
       lower: r6(passed),
@@ -381,10 +415,12 @@ export function assess(capabilityId: string, input: AssessInput): MmeOutcome {
   const lo = upperLowerLevel(levels, "lower");
   const hi = upperLowerLevel(levels, "upper");
   let status: MmeOutcome["status"] = lo === hi && lo > 0 ? "CONFIRMED" : "BOUNDED_UNCERTAIN";
-  if (lo === 0 && hi > 0 && Object.values(levels[0]!.checks).every((v) => v!.status === "UNKNOWN")) status = "NOT_DETERMINED";
+  const first = levels[0];
+  if (!first) throw new TypeError("MME_LEVEL_MISSING");
+  if (lo === 0 && hi > 0 && Object.values(first.checks).every((v) => v?.status === "UNKNOWN")) status = "NOT_DETERMINED";
   if (lo === 0 && hi === 0) {
     status =
-      CRITICAL.some((k) => levels[0]!.checks[k]?.status === "FAIL") || levels.slice(0, 1).every((v) => v.upper <= THRESHOLD_L)
+      CRITICAL.some((k) => first.checks[k]?.status === "FAIL") || levels.slice(0, 1).every((v) => v.upper <= THRESHOLD_L)
         ? "M1_NOT_ACCREDITED"
         : "NOT_DETERMINED";
   }

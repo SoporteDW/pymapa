@@ -1,3 +1,10 @@
+## DEC-062 · G2.1 · Cierre técnico restringido
+- [x] Control versionado de números firmados; firmas heredadas textuales intactas, números exigen MME-SIGN/2.0.0.
+- [x] Rechazo estricto de evidencias nulas en contradicciones, con equivalencia Python.
+- [x] Retirar ts-nocheck; 33 originales Python, 8 bordes Python, 57 MME y 1429 regresión PASS; tipos estrictos PASS.
+- [x] Informe de cierre y propuesta documental de G3 físicamente separado (`src/lib/mme/G2_1_CIERRE.md`).
+- G3 y GJ-01: no iniciados; requieren autorización posterior.
+
 ## PYM-NOV-MVP31 · Bloque 5 · Validación integral A/B
 - [x] Corpus sintético v2 (fixtures/expediente-qhapaq-v2): anexos con líneas base, metas, responsables, presupuesto, historia; vacíos y 3 contradicciones deliberadas.
 - [x] Medición suficiencia 2.0.0 sobre 448 adquisiciones v1/v2 (docs/evidence/mvp31-block5).

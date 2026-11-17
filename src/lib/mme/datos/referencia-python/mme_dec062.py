@@ -7,6 +7,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from hashlib import sha256
 import hmac, json
+import math
 from typing import Any
 
 VERSION = "PYMAPA-MME-1.0.0"
@@ -24,8 +25,39 @@ class InputError(ValueError):
     pass
 
 
+SIGNATURE_NUMERIC_VERSION = "MME-SIGN/2.0.0"
+
+
+def _signed_numbers(value: Any, numeric_version: bool) -> Any:
+    if isinstance(value, bool):
+        return value
+    if isinstance(value, (int, float)):
+        if not numeric_version:
+            raise InputError("SIGNED_NUMBER_REQUIRES_V2")
+        if not math.isfinite(value) or int(value) != value or abs(value) > 9007199254740991:
+            raise InputError("SIGNED_NUMBER_NOT_SAFE_INTEGER")
+        return int(value)  # 1.0 and 1 have the same versioned signed representation.
+    if isinstance(value, list):
+        return [_signed_numbers(v, numeric_version) for v in value]
+    if isinstance(value, dict):
+        return {k: _signed_numbers(v, numeric_version) for k, v in value.items()}
+    return value
+
+
 def _canonical(obj: dict) -> bytes:
-    return json.dumps(obj, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+    if "signature_version" in obj and obj["signature_version"] != SIGNATURE_NUMERIC_VERSION:
+        raise InputError("UNSUPPORTED_SIGNATURE_VERSION")
+    checked = _signed_numbers(obj, obj.get("signature_version") == SIGNATURE_NUMERIC_VERSION)
+    return json.dumps(checked, sort_keys=True, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+
+
+def _signature_errors(obj: dict, secret: str, invalid: str) -> list[str]:
+    try:
+        unsigned = {k: v for k, v in obj.items() if k != "signature"}
+        expected = hmac.new(secret.encode(), _canonical(unsigned), "sha256").hexdigest()
+        return [] if hmac.compare_digest(str(obj.get("signature", "")), expected) else [invalid]
+    except InputError as error:
+        return [str(error)]
 
 
 def sign_attestation(attestation: dict, signing_secret: str) -> dict:
@@ -46,11 +78,8 @@ def validate_attestation(a: dict, *, check_id: str, evidence_store: dict, signer
     if not signer or signer.get("role") not in ROLES_AUTHORIZED:
         errs.append("REVIEWER_NOT_AUTHORIZED")
     else:
-        unsigned = {k: v for k, v in a.items() if k != "signature"}
-        expected = hmac.new(signer["secret"].encode(), _canonical(unsigned), "sha256").hexdigest()
-        if not hmac.compare_digest(str(a.get("signature", "")), expected):
-            errs.append("BAD_SIGNATURE")
-    refs = a.get("evidence_refs") or []
+        errs.extend(_signature_errors(a, signer["secret"], "BAD_SIGNATURE"))
+    refs = a.get("evidence_refs")
     if not isinstance(refs, list) or not refs:
         errs.append("MISSING_EVIDENCE")
     else:
@@ -77,10 +106,14 @@ def validate_attestation(a: dict, *, check_id: str, evidence_store: dict, signer
                 errs.append("CONFLICT_DECISION_AUTHORITY_MISMATCH")
             if resolution.get("resolved_verdict") not in (PASS, FAIL, UNKNOWN):
                 errs.append("CONFLICT_REQUIRES_EXPLICIT_DISPOSITION")
-            for ref in resolution.get("evidence_refs", []):
-                e = evidence_store.get(ref)
-                if not e or e.get("revoked_at") or e.get("revocation_state") in ("REVOKED", "INVALIDATED"):
-                    errs.append("CONFLICT_EVIDENCE_MISSING_OR_REVOKED:" + str(ref))
+            conflict_refs = resolution.get("evidence_refs")
+            if not isinstance(conflict_refs, list) or not conflict_refs or any(not isinstance(ref, str) or not ref for ref in conflict_refs):
+                errs.append("CONFLICT_EVIDENCE_REFS_INVALID")
+            else:
+                for ref in conflict_refs:
+                    e = evidence_store.get(ref)
+                    if not e or e.get("revoked_at") or e.get("revocation_state") in ("REVOKED", "INVALIDATED"):
+                        errs.append("CONFLICT_EVIDENCE_MISSING_OR_REVOKED:" + str(ref))
     return errs
 
 
@@ -193,10 +226,7 @@ def _validate_contextual_na(decision: dict, *, company_id: str, assessment_id: s
     if not signer or signer.get("role") not in ROLES_AUTHORIZED:
         errors.append("NA_AUTHORITY_NOT_AUTHORIZED")
     else:
-        unsigned = {k: v for k, v in decision.items() if k != "signature"}
-        expected_sig = hmac.new(signer["secret"].encode(), _canonical(unsigned), "sha256").hexdigest()
-        if not hmac.compare_digest(str(decision.get("signature", "")), expected_sig):
-            errors.append("NA_SIGNATURE_INVALID")
+        errors.extend(_signature_errors(decision, signer["secret"], "NA_SIGNATURE_INVALID"))
     refs = decision.get("evidence_refs")
     if not isinstance(refs, list) or not refs: errors.append("NA_EVIDENCE_MISSING")
     else:
