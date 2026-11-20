@@ -68,30 +68,18 @@ export function modoShell(pathname: string, autenticado: boolean): "PRODUCCION" 
  * se redirigen al destino productivo equivalente. El código legacy se conserva
  * (compatibilidad), pero es inaccesible por navegación.
  */
+// Demo comercial (Moda Origen y las 5 empresas de ejemplo) vuelve a ser
+// navegable: sus pantallas legacy ya no se redirigen. Solo queda /perfil,
+// que en producción se reemplaza por /empresa.
 const REDIRECCIONES_LEGACY: ReadonlyArray<readonly [string, string]> = [
   ["/perfil", RUTA_EMPRESA],
-  ["/inicio", RUTA_HUB],
-  ["/diagnostico", RUTA_HUB],
-  ["/colaboracion", RUTA_HUB],
-  ["/resultados", RUTA_RESULTADOS],
-  ["/dashboard", RUTA_RESULTADOS],
-  ["/roadmap", RUTA_RESULTADOS],
-  ["/proyecto", RUTA_RESULTADOS],
-  ["/apoyo", RUTA_AYUDA],
-  ["/cohorte", RUTA_AYUDA],
-  ["/demostracion", "/"],
-  ["/moda-origen", "/"],
 ];
 
 /** Destino productivo de una ruta legacy, o null si la ruta no es legacy. */
 export function destinoRutaLegacy(pathname: string): string | null {
   const limpia = pathname.length > 1 ? pathname.replace(/\/+$/, "") : pathname;
   // PYM-BETA-INT-01-ACT · Solo la pantalla consolidada es productiva; subrutas MVP Alfa siguen redirigidas.
-  if (limpia === RUTA_PLAN) return null;
-  if (limpia.startsWith(`${RUTA_PLAN}/`)) return RUTA_PLAN;
   // PYM-BETA-INT-02-SEG · Igual para Seguimiento: subrutas MVP Alfa → pantalla consolidada.
-  if (limpia === RUTA_SEGUIMIENTO) return null;
-  if (limpia.startsWith(`${RUTA_SEGUIMIENTO}/`)) return RUTA_SEGUIMIENTO;
   for (const [prefijo, destino] of REDIRECCIONES_LEGACY) {
     if (limpia === prefijo || limpia.startsWith(`${prefijo}/`)) return destino;
   }

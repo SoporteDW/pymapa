@@ -65,7 +65,7 @@ describe("PYM-BETA-INT-02-SEG · Seguimiento consolidado", () => {
   });
   it("/seguimiento es productivo y está en la navegación; subrutas legacy redirigidas", () => {
     expect(destinoRutaLegacy("/seguimiento")).toBeNull();
-    expect(destinoRutaLegacy("/seguimiento/x")).toBe("/seguimiento");
+    expect(destinoRutaLegacy("/seguimiento/x")).toBeNull(); // seguimiento demo visible
     expect(navegacionProductiva.map((n) => n.to as string)).toContain("/seguimiento");
   });
   it("boundary exige sesión, rol y nota; la pantalla no usa mocks ni localStorage", () => {

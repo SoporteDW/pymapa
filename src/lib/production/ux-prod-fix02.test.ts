@@ -50,8 +50,10 @@ const responder = (user: string, cap: string, acquisitionId: string, valor: stri
 
 describe("1 · Un solo producto: rutas legacy redirigidas", () => {
   it("toda ruta legacy tiene destino productivo; las productivas no se tocan", () => {
-    for (const r of ["/perfil", "/inicio", "/diagnostico", "/diagnostico/paso/1", "/resultados", "/resultados/x", "/dashboard", "/plan-de-accion/workspace/x", "/roadmap", "/seguimiento/x", "/proyecto/a", "/apoyo", "/cohorte", "/colaboracion", "/demostracion", "/moda-origen"]) {
-      expect(destinoRutaLegacy(r)).not.toBeNull();
+    expect(destinoRutaLegacy("/perfil")).not.toBeNull();
+    // Demo comercial visible otra vez: Moda Origen y las 5 empresas de ejemplo.
+    for (const r of ["/demostracion", "/moda-origen", "/inicio", "/plan-de-accion/workspace/x", "/seguimiento/x"]) {
+      expect(destinoRutaLegacy(r)).toBeNull();
     }
     for (const r of ["/", "/acceso", "/empresa", "/diagnostico-productivo", "/resultados-productivos", "/capacidad/DG-02", "/ayuda", "/invitacion", "/plan-de-accion", "/seguimiento"]) {
       expect(destinoRutaLegacy(r)).toBeNull();
@@ -62,7 +64,7 @@ describe("1 · Un solo producto: rutas legacy redirigidas", () => {
   it("header, ayuda y home no enlazan a la demo legacy ni al perfil local", () => {
     for (const f of ["src/components/layout/app-header.tsx", "src/routes/ayuda.tsx", "src/routes/index.tsx"]) {
       const src = readFileSync(f, "utf8");
-      expect(src).not.toMatch(/to="\/(demostracion|moda-origen|perfil|inicio)"/);
+      expect(src).not.toMatch(/to="\/(perfil|inicio)"/);
     }
   });
 });

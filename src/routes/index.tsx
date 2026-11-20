@@ -160,10 +160,16 @@ function EntradaPage() {
             </CardHeader>
             <CardContent className="mt-auto space-y-3">
               <Button asChild size="lg" variant="outline" className="w-full">
-                <Link to="/demo-documental">
-                  Ver demo Moda Origen con documentos
+                <Link to="/moda-origen">
+                  Ver demo rápida Moda Origen
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
+              </Button>
+              <Button asChild size="sm" variant="ghost" className="w-full">
+                <Link to="/demostracion">Ver las 5 empresas de ejemplo</Link>
+              </Button>
+              <Button asChild size="sm" variant="ghost" className="w-full">
+                <Link to="/demo-documental">Demo con lectura de documentos</Link>
               </Button>
               <p className="text-xs text-muted-foreground">
                 Demo con datos ficticios guardados solo en este navegador; no toca cuentas reales.

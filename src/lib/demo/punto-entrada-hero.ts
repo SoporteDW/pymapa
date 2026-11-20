@@ -38,6 +38,8 @@ export interface EntradaPuntoHero {
   empresaNombre: string;
   /** Verdadero cuando se reinicia la demostración entre reuniones. */
   reiniciar?: boolean;
+  /** "seguimiento" deja el caso completo resuelto (demo rápida). */
+  nivel?: NivelSembradoHero;
 }
 
 /**
@@ -45,7 +47,7 @@ export interface EntradaPuntoHero {
  * mismo estado inicial definido arriba.
  */
 export function sembrarPuntoEntradaHero(entrada: EntradaPuntoHero): SembradoHero {
-  const { empresaId, empresaNombre, reiniciar = false } = entrada;
-  const datos = { empresaId, empresaNombre, nivel: HERO_NIVEL_INICIAL };
+  const { empresaId, empresaNombre, reiniciar = false, nivel = HERO_NIVEL_INICIAL } = entrada;
+  const datos = { empresaId, empresaNombre, nivel };
   return reiniciar ? reiniciarSembradoHero(datos) : aplicarSembradoHero(datos);
 }

@@ -76,8 +76,8 @@ describe("PKG-02A · A. Entrada pública", () => {
     const home = leer("src/routes/index.tsx");
     expect(home).toContain("rutaCtaPrincipal");
     expect(home).not.toContain('to="/perfil"');
-    // UX-PROD-FIX-02 · Sin demo simulada aparte: la Home ya no enlaza a Moda Origen.
-    expect(home).not.toContain('to="/moda-origen"');
+    // La Home vuelve a ofrecer la demo rápida de Moda Origen.
+    expect(home).toContain('to="/moda-origen"');
   });
   it("Tras iniciar sesión, /acceso lleva al onboarding productivo", () => {
     expect(leer("src/routes/acceso.tsx")).toContain('navigate({ to: "/empresa"');

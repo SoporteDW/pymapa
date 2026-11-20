@@ -70,7 +70,7 @@ function ModaOrigenPage() {
   const { cargarPerfil } = useIntegracion();
   const [preparando, setPreparando] = useState(false);
 
-  const retomar = () => {
+  const retomar = (completo = false) => {
     setPreparando(true);
     const perfil = iniciarDemo(PERFIL_ID, "completa");
     if (!perfil) {
@@ -86,9 +86,12 @@ function ModaOrigenPage() {
       empresaId: perfil.empresa.id,
       empresaNombre: perfil.nombre,
       reiniciar: true,
+      ...(completo ? { nivel: "seguimiento" as const } : {}),
     });
     toast.success(
-      "Retomamos el recorrido de Moda Origen. Te mostramos dónde está y qué sigue ahora."
+      completo
+        ? "Caso Moda Origen listo: diagnóstico, plan de acción y seguimiento a 30 días."
+        : "Retomamos el recorrido de Moda Origen. Te mostramos dónde está y qué sigue ahora."
     );
     navigate({ to: "/inicio" });
   };
@@ -141,9 +144,12 @@ function ModaOrigenPage() {
           </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-wrap items-center gap-2">
-          <Button size="lg" onClick={retomar} disabled={preparando}>
-            {preparando ? "Preparando el caso…" : "Continuar con Moda Origen"}
+          <Button size="lg" onClick={() => retomar(true)} disabled={preparando}>
+            {preparando ? "Preparando el caso…" : "Ver caso completo (plan y seguimiento)"}
             <ArrowRight className="size-4" aria-hidden="true" />
+          </Button>
+          <Button size="lg" variant="outline" onClick={() => retomar(false)} disabled={preparando}>
+            Hacer el recorrido guiado
           </Button>
           <Button size="lg" variant="ghost" asChild>
             <Link to="/">Volver a la entrada</Link>

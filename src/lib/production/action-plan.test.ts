@@ -48,7 +48,7 @@ describe("PYM-BETA-INT-01-ACT · Plan de Acción consolidado", () => {
   });
   it("/plan-de-accion es productivo y está en la navegación; subrutas legacy siguen redirigidas", () => {
     expect(destinoRutaLegacy("/plan-de-accion")).toBeNull();
-    expect(destinoRutaLegacy("/plan-de-accion/workspace/x")).toBe("/plan-de-accion");
+    expect(destinoRutaLegacy("/plan-de-accion/workspace/x")).toBeNull(); // ficha demo visible
     expect(navegacionProductiva.map((n) => n.to as string)).toContain("/plan-de-accion");
   });
   it("el servicio exige sesión y la pantalla no usa mocks, localStorage ni emisión REC-01", () => {
